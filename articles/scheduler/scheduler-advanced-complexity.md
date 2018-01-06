@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Postup sestavení komplexních plánů a pokročilé opakování ve službě Azure Scheduler
 ## <a name="overview"></a>Přehled
@@ -59,7 +59,7 @@ Vytvoření jednoduchého plánu pomocí [REST API služby Azure Scheduler](http
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,13 +89,13 @@ Po tomto přehledu probereme každý z těchto prvků podrobně.
 
 | **Název JSON** | **Typ hodnoty** | **Vyžaduje?** | **Výchozí hodnota** | **Platné hodnoty** | **Příklad** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***čas spuštění*** |Řetězec |Ne |Žádný |Data a časy podle normy ISO 8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***opakování*** |Objekt |Ne |Žádný |Objekt opakování |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frekvence*** |Řetězec |Ano |Žádný |"minutu", "hodina", "dne", "týden", "měsíc" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Číslo |Ne |1 |1 až 1000 |<code>"interval":10</code> |
+| ***čas spuštění*** |Řetězec |Ne |Žádné |Data a časy podle normy ISO 8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***opakování*** |Objekt |Ne |Žádné |Objekt opakování |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***frekvence*** |Řetězec |Ano |Žádné |"minutu", "hodina", "dne", "týden", "měsíc" |<code>"frequency" : "hour"</code> |
+| ***interval*** |Číslo |Ano |Žádné |1 až 1000 |<code>"interval":10</code> |
 | ***čas ukončení*** |Řetězec |Ne |Žádný |Hodnota data a času představující čas v budoucnosti |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***počet*** |Číslo |Ne |Žádný |>= 1 |<code>"count": 5</code> |
-| ***plán*** |Objekt |Ne |Žádný |Objekt plánu |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***počet*** |Číslo |Ne |Žádné |>= 1 |<code>"count": 5</code> |
+| ***plán*** |Objekt |Ne |Žádné |Objekt plánu |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Podrobné informace: *startTime*
 V následující tabulce zachycení jak *startTime* Určuje, jak spustit úlohu.
@@ -125,11 +125,11 @@ Následující tabulka popisuje *plán* elementy podrobně.
 
 | **Název JSON** | **Popis** | **Platné hodnoty** |
 |:--- |:--- |:--- |
-| **minut** |Počet minut za hodinu, ve kterém má být úloha spuštěna |<ul><li>Celé číslo, nebo</li><li>Pole celých čísel</li></ul> |
-| **hodiny** |Hodin dne, kdy má být úloha spuštěna |<ul><li>Celé číslo, nebo</li><li>Pole celých čísel</li></ul> |
-| **dny v týdnu** |Dny v týdnu, úloha se bude spouštět. Tuto položku je možné zadat jenom při týdenní frekvenci. |<ul><li>"Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota" a "Neděle"</li><li>Pole kterýchkoli z výše uvedených hodnot (maximální velikost pole je 7)</li></ul>*Není* malá a velká písmena |
+| **minut** |Počet minut za hodinu, ve kterém má být úloha spuštěna |<ul><li>Pole celých čísel</li></ul> |
+| **hodiny** |Hodin dne, kdy má být úloha spuštěna |<ul><li>Pole celých čísel</li></ul> |
+| **dny v týdnu** |Dny v týdnu, úloha se bude spouštět. Tuto položku je možné zadat jenom při týdenní frekvenci. |<ul><li>Pole všech nižší než hodnoty (pole maximální velikost 7)<ul><li>"Pondělí"</li><li>"Úterý"</li><li>"Středa"</li><li>"Čtvrtek"</li><li>"Pátek"</li><li>"Sobota"</li><li>"Neděle"</li></ul></li></ul>*Není* malá a velká písmena |
 | **monthlyOccurrences** |Určuje, které dny v měsíci má být úloha spuštěna. Tuto položku je možné zadat jenom při měsíční frekvenci. |<ul><li>Pole objektů monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *den* je den v týdnu, úloha se spustí, například {neděle} je každou neděli v měsíci. Povinná hodnota.</p><p>Výskyt je *výskyt* dne v měsíci, například {neděle, -1} je poslední neděle v měsíci. Volitelné.</p> |
-| **Prescribed** |Den v měsíci, který má být úloha spuštěna. Tuto položku je možné zadat jenom při měsíční frekvenci. |<ul><li>Libovolná hodnota < = -1 a > =-31.</li><li>Libovolná hodnota > = 1 a < = 31.</li><li>Pole výše uvedených hodnot</li></ul> |
+| **Prescribed** |Den v měsíci, který má být úloha spuštěna. Tuto položku je možné zadat jenom při měsíční frekvenci. |<ul><li>Pole níže hodnoty</li><ul><li>Libovolná hodnota < = -1 a > =-31.</li><li>Libovolná hodnota > = 1 a < = 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Příklady: Opakování plány
 Následují příklady různých plány opakování – zaměřením na objekt plánu a jeho dílčí prvky.

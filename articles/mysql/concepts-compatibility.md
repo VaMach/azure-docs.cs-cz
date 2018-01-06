@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 7578ae710a3d6c81fdfa2952c53a20c2cdccb6d0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Ovladače MySQL a nástroje pro správu kompatibilní s Azure Database pro databázi MySQL
 Tento článek popisuje ovladače a nástroje pro správu, které jsou kompatibilní s Azure Database pro databázi MySQL.
@@ -24,9 +24,9 @@ Azure databáze pro databázi MySQL používá na světě nejoblíbenější edi
 | **Ovladače** | **Odkazy** | **Kompatibilní verze** | **Nekompatibilní verze** | **Poznámky k** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
 | PHP | http://PHP.NET/downloads.php | 5.5 5.6 7.x | 5.3 | Pro jazyk PHP 7.0 připojení pomocí protokolu SSL MySQLi přidejte MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT v připojovacím řetězci. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> Sada PDO: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` možnost na hodnotu false.|
-| .Net | [MySqlConnector na Githubu]: https://github.com/mysql-net/MySqlConnector/releases <br> [Instalační balíček z Nuget]:<br> https://www.nuget.org/Packages/MySqlConnector/ | 0.27 a po | 0.26.5 a před | |
-| Nodejs |  [MySQLjs na Githubu]:<br> https://github.com/mysqljs/MySQL/releases <br> [Instalační balíček z NPM]:<br> Spustit "npm install mysql" z NPM | 2.15 | 2.14.1 a před | |
-| PŘEJDĚTE | https://github.com/go-SQL-Driver/MySQL/releases | 1.3 | 1.2 a před | Použít allowNativePasswords = true v připojovacím řetězci |
+| .Net | [MySqlConnector na Githubu](https://github.com/mysql-net/MySqlConnector) <br> [Instalační balíček z Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 a po | 0.26.5 a před | |
+| Nodejs |  [MySQLjs na Githubu](https://github.com/mysqljs/mysql/releases) <br> Instalační balíček z NPM:<br> Spustit `npm install mysql` z NPM | 2.15 | 2.14.1 a před | |
+| PŘEJÍT | https://github.com/go-SQL-Driver/MySQL/releases | 1.3 | 1.2 a před | Použít allowNativePasswords = true v připojovacím řetězci |
 | Python | https://pypi.Python.org/pypi/MySQL-Connector-Python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 a před | |
 | Java | https://downloads.mariadb.org/Connector-Java/ | 2.1 2.0 1.6 | 1.5.5 a před | |
 

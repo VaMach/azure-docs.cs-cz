@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/05/2018
@@ -42,6 +42,8 @@ Poskytuje že aktuální informace o nejnovější hostovaného operačního sys
 Nejste si jistí, o jaké hostovaného operačního systému je nebo jak hostovaného operačního systému uvolní pracovní? Čtení [to](#how-it-works) části.
 
 ## <a name="news-updates"></a>Nejnovější zprávy
+###### <a name="january-4-2018"></a>**4. ledna 2018**
+Leden hostovaného operačního systému byla vydána pro operační systém řady 4 (WA-hosta-operačního systému-4.50_201801-01) & 5 (WA-hosta-operačního systému-5.15_201801-01) a obsahuje opravy důležité zabezpečení.  
 
 ###### <a name="january-4-2018"></a>**4. ledna 2018**
 Vydala prosinec hostovaného operačního systému.
@@ -88,6 +90,7 @@ Nainstalované rozhraní .NET framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6
 
 | Konfigurační řetězec | Datum vydání | Zakázat datum | Vypršela platnost datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.15_201801-01 |4. ledna 2018 |POST 5.17 |Bude doplněno |
 | WA-GUEST-OS-5.14_201712-01 |4. ledna 2018 |POST 5.16 |Bude doplněno |
 | WA-GUEST-OS-5.13_201711-01 |14. prosince 2017 |POST 5.15 |Bude doplněno |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 listopadu 2017 |4. ledna 2018 |Bude doplněno |
@@ -112,6 +115,7 @@ Nainstalované rozhraní .NET framework: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Konfigurační řetězec | Datum vydání | Zakázat datum | Vypršela platnost datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.50_201801-01 |4. ledna 2018 |POST 4.52. |Bude doplněno |
 | WA-GUEST-OS-4.49_201712-01 |4. ledna 2018 |POST 4.51 |Bude doplněno |
 | WA-GUEST-OS-4.48_201711-01 |14. prosince 2017 |POST 4.50 |Bude doplněno |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 listopadu 2017 |4. ledna 2018 |Bude doplněno |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT Hub dotazovacího jazyka pro dvojčata zařízení, úlohy a směrování zpráv
 
@@ -35,6 +35,17 @@ Předpokládejme například, že vaše dvojčata zařízení IoT hub mít násl
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ Toto seskupení dotaz vrátí výsledek podobně jako v následujícím příkla
         "status": "Error"
     }
 ]
+```
+
+Na dotazy projekce. umožňují vývojářům vrátit pouze vlastnosti, které jsou pro ně důležité. Například k načtení času posledního aktivity všech odpojit zařízení použijte následující dotaz:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
 ```
 
 ### <a name="c-example"></a>Příklad jazyka C#
@@ -347,7 +364,7 @@ FROM <from_specification>
 [GROUP BY <group_specification>]
 ```
 
-## <a name="from-clause"></a>FROM – klauzule
+## <a name="from-clause"></a>klauzule FROM
 **z < from_specification >** klauzule můžete předpokládat pouze dvě hodnoty: **ze zařízení** k dvojčata zařízení dotaz, nebo **z devices.jobs** dotazu úlohy podle zařízení podrobnosti o.
 
 ## <a name="where-clause"></a>Klauzule WHERE
@@ -355,7 +372,7 @@ FROM <from_specification>
 
 Povolené podmínky jsou popsány v části [výrazy a podmínky][lnk-query-expressions].
 
-## <a name="select-clause"></a>Klauzule SELECT
+## <a name="select-clause"></a>klauzule SELECT
 **Vyberte < select_list >** je povinná a určuje, jaké hodnoty jsou načteny z dotazu. Určuje hodnoty JSON, které mají být použita ke generování nových objektů JSON.
 Pro každý prvek filtrované (a volitelně seskupené) podmnožinu kolekce FROM fázi projekce generuje nový objekt JSON, zkonstruovat s hodnot zadaných v klauzuli SELECT.
 
@@ -514,7 +531,7 @@ V podmínkách trasy jsou podporovány následující funkce řetězce:
 | ENDS_WITH (x, y) | Vrátí logická hodnota, která určuje zda první řetězec výraz končí druhý. |
 | CONTAINS(x,y) | Vrátí logická hodnota, která určuje zda první řetězec výraz obsahuje druhý. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Zjistěte, jak na provedení dotazů ve svých aplikacích pomocí [SDK služby Azure IoT][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

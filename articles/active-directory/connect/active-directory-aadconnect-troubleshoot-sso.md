@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Řešení potíží s Azure Active Directory bezproblémové jednotné přihlašování
 
@@ -27,6 +27,7 @@ Tento článek vám pomůže najít informace o běžné problémy týkající s
 ## <a name="known-problems"></a>Známé problémy
 
 - V určitých případech povolení jednotného přihlašování bezproblémové může trvat až 30 minut.
+- Pokud zakázat a znovu povolit bezproblémové jednotného přihlašování na váš klient, nebudou uživatelé získat jeden přihlašování dokud jejich uložené v mezipaměti lístky protokolu Kerberos, obvykle platný pro 10 hodin, vypršela.
 - Podpora prohlížeče Edge není k dispozici.
 - Od klientů Office, obzvláště v případech sdílený počítač, způsobí, že výzvy velmi přihlášení pro uživatele. Uživatelé musí zadat jejich uživatelských jmen často, ale není jejich hesla.
 - Pokud bezproblémové jednotného přihlašování k úspěšné, uživatel nemá možnost vybrat **zůstat přihlášeni**. Z důvodu toto chování služby SharePoint a OneDrive scénáře mapování nefungují.
@@ -68,13 +69,15 @@ Přejděte do **Azure Active Directory** > **přihlášení** v [centra pro spr�
 Následující kontrolní seznam využít k řešení problémů bezproblémové jednotné přihlašování:
 
 - Ujistěte se, povolení funkce bezproblémové jednotné přihlašování v Azure AD Connect. Nelze-li povolit funkci (například z důvodu blokované port), ujistěte se, že budete mít vše [požadavky](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) na místě.
+- Pokud jste povolili obě [Azure AD Join](../active-directory-azureadjoin-overview.md) a bezproblémové jednotného přihlašování na váš klient, ujistěte se, že problém není s Azure AD Join. Jednotné přihlašování z Azure AD Join má přednost před bezproblémové jednotné přihlašování, pokud zařízení není registrované s Azure AD i připojený k doméně. Pomocí jednotného přihlašování z Azure AD Join uživateli se zobrazí na dlaždici přihlášení, která říká "Připojení k Windows".
 - Ujistěte se, že obě tyto Azure AD adresy URL (https://autologon.microsoftazuread-sso.com a https://aadg.windows.net.nsatc.net) jsou součástí nastavení zóny intranetu uživatele.
 - Ujistěte se, že o firemní zařízení je připojený k doméně služby Active Directory.
 - Ujistěte se, že je uživatel přihlášen do zařízení přes účet domény služby Active Directory.
 - Ujistěte se, že účet uživatele z doménové struktury služby Active Directory, kde byl bezproblémové jednotného přihlašování k nastavení.
 - Ujistěte se, že zařízení je připojené k podnikové síti.
 - Ujistěte se, že je zařízení čas synchronizovaný s časem ve službě Active Directory a řadiče domény a že jsou během pěti minut.
-- Seznam existujících lístků protokolu Kerberos na zařízení pomocí `klist` příkazu z příkazového řádku. Ujistěte se, že lístky vydané pro `AZUREADSSOACCT` účet počítače jsou k dispozici. Lístky protokolu Kerberos uživatelů jsou obvykle platné po dobu 12 hodin. Můžete mít různá nastavení ve službě Active Directory.
+- Seznam existujících lístků protokolu Kerberos na zařízení pomocí `klist` příkazu z příkazového řádku. Ujistěte se, že lístky vydané pro `AZUREADSSOACCT` účet počítače jsou k dispozici. Lístky protokolu Kerberos uživatelů jsou obvykle platné po dobu 10 hodin. Můžete mít různá nastavení ve službě Active Directory.
+- Pokud zakázána a znovu povolena bezproblémové jednotného přihlašování na váš klient, nebudou uživatelé získat jeden přihlašování dokud vypršela jejich uložené v mezipaměti lístky protokolu Kerberos.
 - Vyprázdnění existujících lístků protokolu Kerberos ze zařízení pomocí `klist purge` příkaz a akci opakujte.
 - Pokud chcete zjistit, zda existují problémy související s JavaScript, projděte si protokoly konzoly prohlížeče (v části **Developer Tools**).
 - Zkontrolujte [protokoly řadiče domény](#domain-controller-logs).

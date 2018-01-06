@@ -1,5 +1,5 @@
 ---
-title: Co je Microsoft Power BI Embedded? | Dokumentace Microsoftu
+title: "O službě Azure Power BI Embedded | Microsoft Docs"
 description: "Power BI Embedded slouží ke zjednodušení jak nezávislí dodavatelé softwaru a vývojáři pomocí funkce Power BI, pomoci jim rychle přidáte poutavých vizuální prvky, sestavy a řídicí panely do své aplikace."
 services: power-bi-embedded
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/04/2018
 ms.author: asaxton
-ms.openlocfilehash: 03ac36b2b3f3e26770f681b101824ddeca29b61f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-power-bi-embedded"></a>Co je Power BI Embedded
+# <a name="about-power-bi-embedded"></a>O službě Power BI Embedded
 
 Power BI Embedded slouží ke zjednodušení jak nezávislí dodavatelé softwaru a vývojáři pomocí funkcí Power BI. Power BI Embedded zjednodušuje možnosti Power BI dokážete rychle přidáte poutavých vizuální prvky, sestavy a řídicí panely do svých aplikací. Podobně jako u aplikace vytvořené na použití služby Microsoft Azure jako Machine Learning a IoT. Povolením zkoumání dat snadno přejděte v svých aplikací povolit ISV zákazníků, abyste měli rychlý a informované rozhodnutí v kontextu.
 
@@ -52,7 +52,7 @@ Pomocí rozhraní REST API, Power BI Embedded umožňuje vývoj s žádný jazyk
 * [Power BI nápady](https://ideas.powerbi.com): požadavek a hlasů pro funkce
 * [Reddit](https://www.reddit.com/r/PowerBI/): popisují Power BI
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Najdete v článku [stránce s cenami](https://azure.microsoft.com/pricing/details/power-bi-embedded/) podrobnosti kapacity uzlu.
 

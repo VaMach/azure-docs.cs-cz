@@ -1,6 +1,6 @@
 ---
-title: "Předpověď sentimentu Twitter s word vkládaných pomocí procesu vědecké účely Team Data - Azure | Microsoft Docs"
-description: "Kroky potřebné k provedení projekty vědecké zpracování dat"
+title: "Předpověď sentimentu Twitter s word vkládaných pomocí procesu vědecké účely Team dat v Azure | Microsoft Docs"
+description: "Kroky, které jsou nutné k provedení vědecké zpracování dat projekty."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,126 +14,137 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: fe1c87df40102a62e1e0c8873b25fa3df7d743bc
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 20bc3f31897cec4a3cec9ca409062229133102f5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="predict-twitter-sentiment-with-word-embeddings-using-the-team-data-science-process"></a>Předpověď sentimentu Twitter s word vkládaných pomocí procesu Team Data vědecké účely
+# <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Předpověď sentimentu Twitter s word vkládaných pomocí procesu Team dat vědecké účely
 
-Tento článek ukazuje, jak efektivně spolupracovat při použití **Word2Vec** word vložení algoritmus a **postojích určité slovo vložení (SSWE) algoritmus** k předvídání sentimentu Twitter s [Azure Machine Learning](../preview/index.yml). Další informace o úlohy predikci twitter postojích polarita, najdete v části [úložiště](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction). Klíč k usnadnění efektivní Týmová spolupráce v projektech vědecké účely dat je standardizovat strukturu a projektů s životního cyklu vědecké účely zavedených dat naleznete v dokumentaci. [Tým datové vědy procesu (TDSP)](overview.md) poskytuje právě takové strukturovaných [životního cyklu](lifecycle.md). 
+V tomto článku se dozvíte, jak efektivně spolupracovat s použitím _Word2Vec_ word vložení algoritmus a _postojích konkrétní aplikace Word vložení (SSWE)_ použitý algoritmus předpovědi sentimentu Twitter s [Azure Machine Learning](../preview/index.yml). Další informace o predikci polarita postojích Twitter, najdete v článku [MachineLearningSamples TwitterSentimentPrediction úložiště](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) na Githubu. Klíč k usnadnění efektivní Týmová spolupráce v projektech vědecké zpracování dat je standardizovat strukturu a projektů s životního cyklu zavedených vědecké zpracování dat naleznete v dokumentaci. [Tým datové vědy procesu (TDSP)](overview.md) poskytuje tento typ strukturovaných [životního cyklu](lifecycle.md). 
 
-Vytváření projektů vědecké účely dat s **TDSP šablony** poskytuje toto standardizovaná rozhraní pro projekty Azure Machine Learning. Dřív, měl vydané týmem TDSP [úložiště GitHub pro strukturu TDSP projektů a šablon](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Nyní vytváření projektů Azure Machine Learning, které jsou vytvářeny instance s [TDSP strukturu a dokumentaci šablon pro Azure Machine Learning](https://github.com/amlsamples/tdsp) bylo povoleno. Pokyny týkající se používání TDSP strukturu a šablon v Azure Machine Learning najdete v tématu [struktury projektů pomocí šablony procesu vědecké účely dat Team](../preview/how-to-use-tdsp-in-azure-ml.md). 
+Vytváření projektů vědecké zpracování dat pomocí _TDSP šablony_ poskytuje standardizovaná architekturu pro projekty Azure Machine Learning. Dřív, týmem TDSP vydané [úložiště GitHub pro strukturu TDSP projektů a šablon](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Nyní Machine Learning projekty, které jsou vytvářeny instance s [TDSP šablon pro Azure Machine Learning](https://github.com/amlsamples/tdsp) jsou povoleny. Pokyny najdete v tématu Jak používat [TDSP struktura projektů pomocí šablony TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) v Azure Machine Learning. 
 
 
-## <a name="the-sentiment-polarity-sample"></a>Ukázka polarita postojích
+## <a name="twitter-sentiment-polarity-sample"></a>Ukázka polarita postojích služby Twitter.
 
-Ukázka, která ukazuje, jak vytvořit instanci a provedení machine learning projektu pomocí strukturu proces vědecké účely Team dat a šablon v nástroji Azure Machine Learning pracovní Bench bylo zadáno v tomto [návod](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). Tato úloha modelování je k předvídání postojích polarita (kladné a záporné) pomocí textu z tweetů. Tento článek popisuje data modelování úlohy popsané v tomto návodu. Průvodce obsahuje následující úlohy:
+Tento článek používá ukázku k ukazují, jak vytvořit a spustit projekt Machine Learning. Příklad používá TDSP strukturu a šablon v nástroji Azure Machine Learning Workbench. Je součástí je kompletní ukázka [Tento názorný postup](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). Úloha modelování předpovídá postojích polarita (kladné a záporné) pomocí textu z tweetů. Tento článek popisuje úlohy modelování dat, které jsou popsané v tomto návodu. Průvodce obsahuje následující úlohy:
 
-- Zkoumání dat, školení a nasazení modelu strojového učení, které adres předpovědi problém popsaný v části Přehled případ použití. Pro tento účel [Twitter postojích data](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) se používá.
-- Spuštění projektu v Azure Machine Learning pomocí šablony tým datové vědy procesu (TDSP) z Azure Machine Learning pro tento projekt. Pro spuštění projektu a vytváření sestav se používá TDSP životního cyklu.
-- Operationalization řešení přímo z Azure Machine Learning v kontejneru služby Azure.
+- Zkoumání dat, školení a nasazení strojového učení modelu a které se týkají předpovědi problém, který je popsaný v části Přehled případů použití. [Twitter postojích data](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) se používá pro tyto úlohy.
+- Spuštění projektu pomocí šablony TDSP z Azure Machine Learning pro tento projekt. Pro spuštění projektu a vytváření sestav se používá TDSP životního cyklu.
+- Operationalization řešení přímo z Azure Machine Learning v Azure Container Service.
 
-Projekt označuje některé funkce služby Azure Machine Learning, takové TDSP struktura vytváření instancí a použití, spouštění kódu v Azure Machine Learning pracovní Bench a snadno operationalization v kontejneru služby Azure pomocí Docker a Kubernetes.
+Projekt upozorňuje následující funkce Azure Machine Learning:
+
+- Vytváření instancí a použití TDSP struktury.
+- Spuštění kódu v Azure Machine Learning Workbench.
+- Snadno operationalization v Container Service pomocí Docker a Kubernetes.
 
 ## <a name="team-data-science-process"></a>Vědecké zpracování týmových dat
-Použití šablon projektu TDSP strukturu a dokumentaci k provedení této ukázce. Postupuje [životního cyklu TDSP]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). Vytvoření projektu podle pokynů k [zde](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+K provedení této ukázce, použití šablon projektu TDSP struktura a dokumentace v nástroji Azure Machine Learning Workbench. Ukázka implementuje [životního cyklu TDSP](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), jak je znázorněno na následujícím obrázku:
 
 ![Životní cyklus TDSP](./media/predict-twitter-sentiment/tdsp-lifecycle.PNG)
 
-![Vytvoření instance TDSP](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
+Vytvoření projektu TDSP v nástroji Azure Machine Learning Workbench na základě [tyto pokyny](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md), jak je znázorněno na následujícím obrázku:
+
+![Vytvoření TDSP v nástroji Azure Machine Learning Workbench](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
 
 
-## <a name="data-acquisition-and-understandinghttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode01dataacquisitionandunderstanding"></a>[Získávání dat a principy](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
-Prvním krokem v této ukázce je ke stažení sentiment140 datovou sadu a rozdělit ho na trénování a testování datové sady. Datová sada sentiment140 obsahuje skutečný obsah tweet (s emotikony odebrat) společně s polarita jednotlivých tweet (záporné = 0, kladné = 4), s neutrálním tweetů odebrat. Když rozdělené, výsledná Cvičná data má 1.3 milionu řádků a testovacích dat 320 kB řádků.
+## <a name="data-acquisition-and-preparationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode01dataacquisitionandunderstanding"></a>[Příprava a získávání dat](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
+Prvním krokem v této ukázce je ke stažení sentiment140 datovou sadu a rozdělují data na trénování a testování datové sady. Datová sada sentiment140 obsahuje skutečný obsah tweet (s emotikony odebrat). Datová sada obsahuje také polarita z každé tweet (záporné = 0, kladné = 4) s neutrálním tweetů odebrat. Po dělení dat jsou Cvičná data má 1.3 milionu řádků a testovacích dat má 320,000 řádky.
 
 
-## <a name="modelinghttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling"></a>[Modelování](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
+## <a name="model-developmenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling"></a>[Vývoj pro model](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
 
-Tato část vzorku se dále dělí do tří částí:
- 
-- **Konstruování** odpovídá generování funkcí s použitím různých word vložení algoritmy. 
-- **Model vytváření** obchody se školení odlišnými modely jako _logistic regression_ a _přechodu zvyšovat skóre_ k předvídání postojích ze vstupního textu. 
-- **Model vyhodnocení** používá pro cvičný model přes testování data.
+Dalším krokem v ukázce je vyvinout model pro data. Úloha modelování je rozdělené do tří částí:
+
+- Konstruování: generování funkce pro model pomocí různých word vložení algoritmy. 
+- Model vytváření: cvičení odlišnými modely k předvídání postojích ze vstupního textu. Příklady těchto modelů _Logistic Regression_ a _přechodu zvyšovat skóre_.
+- Model vyhodnocení: vyhodnocení trénované modely přes testování data.
 
 
 ### <a name="feature-engineeringhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling01featureengineering"></a>[Funkce inženýrství](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/01_FeatureEngineering)
 
-Word2Vec a SSWE jsou slovo vložení algoritmy zde sloužící ke generování vkládaných aplikace word. 
+Algoritmy Word2Vec a SSWE se používají ke generování vkládaných aplikace word. 
 
 
-#### <a name="word2vec"></a>Word2Vec
+#### <a name="word2vec-algorithm"></a>Algoritmus Word2Vec
 
-Word2Vec algoritmus se používá v režimu Skipgram. Tímto způsobem generování slovo vložené části je vysvětlen v papíru podle Tomáši Mikolov et al: [distribuované reprezentace slova a frází a jejich Compositionality. Pokroky v neuronové informace systémy pro zpracování. 2013.](https://arxiv.org/abs/1310.4546).
+Word2Vec algoritmus se používá v modelu přeskočit-Gram. Tento model je vysvětlené v papíru Tomáši Mikolov, a další. "[Distribuované reprezentace slova a slovní spojení a jejich Compositionality. Pokroky v neuronové informace systémy pro zpracování. ](https://arxiv.org/abs/1310.4546)" 2013.
 
-Přeskočit gram je bez podstruktury neuronové sítě. Vstupní je slovo cíl kódovaná jako jeden aktivní vektor, který se používá k předvídání nedaleko slova. Pokud **V** je velikost termínů, pak velikost vrstvy výstupu by byla __C * V__ kde C je velikost okna kontextu. Architektura přeskočit gram na základě je vidět na následujícím obrázku:
+Model Skip Gram je bez podstruktury neuronové sítě. Vstup je cílového slova, který je zakódován vektor horkou jeden, který se používá k předvídání nedaleko slova. Pokud **V** je velikost termínů, pak je velikost vrstvy výstup __C * V__ kde C je velikost okna kontextu. Následující obrázek znázorňuje architekturu, která je založen na modelu přeskočit-Gram:
 
-![Přeskočit gram modelu](./media/predict-twitter-sentiment/skip-gram-model.PNG)
+![Přeskočit-Gram modelu](./media/predict-twitter-sentiment/skip-gram-model.PNG)
 
-***Přeskočit gram modelu***
+Podrobné mechanismů Word2Vec algoritmus a přeskočit-Gram modelu jsou nad rámec této ukázky. Další informace najdete v tématu následující odkazy:
 
-Podrobné mechanismů word2vec algoritmus a přeskočit gram modelu jsou nad rámec této ukázky. Čtečky mají zájem o další podrobnosti o jeho strukturu a funkci můžete naleznete v následujících odkazech:
-
-- [02_A_Word2Vec.py kódu odkazovat TensorFlow příklady](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
+- [Kód 02_A_Word2Vec.PY s odkazované TensorFlow příklady](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py) 
 - [Vektor reprezentace slova](https://www.tensorflow.org/tutorials/word2vec)
 - [Jak přesně word2vec funguje?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)
 - [Poznámky k Contrastive odhad šumu a záporná vzorkování](http://demo.clab.cs.cmu.edu/cdyer/nce_notes.pdf)
 
 
-#### <a name="sswe"></a>SSWE
-**Postojích určité slovo vložení (SSWE) algoritmus** pokusí překonat slabiny algoritmu Word2vec, slova s podobnou kontexty nebo opačnou polarita můžou mít podobné vektory aplikace word. Tato podobnosti znamená, že Word2vec nemusí provádět přesně pro úlohy, jako je postojích analýzy. Algoritmus SSWE se pokusí zpracovat tato slabé místo začleněním polarita větu a jeho kontextu do jeho funkci ztrátu.
-
-Tato ukázka používá jeho variantě SSWE. SSWE používá původní ngram a poškozená ngram jako vstup a hodnocení styl se vytočit ztrátě funkce pro syntaktické ztrátě i sémantického ztráty. Funkce Ultimate ztrátě je vyvážené kombinace syntaktické ztrátě i sémantického ztráty. Pro účely jednoduchost jenom sémantického křížové šifrování se používá jako funkci ztrátu. Jak uvidíte později, i pomocí této funkce jednodušší ztrátě výkonu SSWE vnoření je lepší, než Word2Vec vložení.
-
-Model SSWE vycházející neuronové sítě, který používáte v této ukázce je znázorněno na následujícím obrázku:
-
-![Porovnání modelů ROC](./media/predict-twitter-sentiment/embedding-model-2.PNG)
-
-***Convolutional model ke generování vložení postojích konkrétní aplikace word.***
 
 
-Po dokončení procesu školení dva vnoření soubory ve formátu TSV jsou generovány pro modelování fázi.
+#### <a name="sentiment-specific-word-embedding-algorithm"></a>Algoritmus vložení postojích konkrétní aplikace Word
+Algoritmus SSWE se pokusí překonat slabiny algoritmu Word2Vec, kde slova s podobnou kontexty nebo opačnou polarita může mít podobné vektory aplikace word. Podobnost může způsobit algoritmus Word2Vec tak, aby neprováděl přesně pro úlohy, jako je postojích analýzy. Algoritmus SSWE se pokusí zpracovat tato slabé místo začleněním polarita větu a jeho kontextu do jeho funkci ztrátu.
 
-Další informace o algoritmech SSWE, najdete v dokumentu pomocí Duyu hmotný dlouhodobý et al: [Learning vložení Word postojích specifické pro klasifikaci postojích služby Twitter. SEZNAM ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146) 
+Ukázka používá hodnotu typu variant algoritmu SSWE následujícím způsobem:
+
+- Původní _ngram_ a poškozená _ngram_ jsou použity jako vstupy.
+- A řazení styl pantu ztrátě funkce se používá pro syntaktické ztrátě a sémantické ztráty.
+- Funkci ztrátu ultimate je vyvážené kombinace syntaktické ztrátě a sémantické ztráty.
+- Pro jednoduchost jenom sémantického křížové šifrování se používá jako funkci ztrátu.
+
+Příklad ukazuje, že i s jednodušší funkci ztrátu, je lepší, než Word2Vec vložení výkon SSWE vložení. Následující obrázek znázorňuje convolutional model, který se používá ke generování vložení postojích konkrétní word:
+
+![Modelu neuronové sítě vycházející SSWE](./media/predict-twitter-sentiment/embedding-model-2.PNG)
+
+Po dokončení procesu školení dva vnoření soubory ve formátu hodnoty oddělené tabulátory (TSV) jsou generovány pro modelování fázi.
+
+Další informace o algoritmech SSWE, najdete v dokumentu pomocí hmotný dlouhodobý Duyu, a další. "[Učení postojích konkrétní aplikace Word vložení pro klasifikaci postojích Twitter](http://www.aclweb.org/anthology/P14-1146)." Přidružení pro výpočetní Linguistics (1). 2014.
 
 
 ### <a name="model-creationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling02modelcreation"></a>[Vytvoření modelu](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/02_ModelCreation)
-Jakmile vektory word byly generovány pomocí algoritmů SSWE nebo Word2vec, dalším krokem je ke cvičení klasifikační modely k předvídání polarita skutečné postojích. Dva typy funkcí, Word2Vec a SSWE, se používají pro dva modely, GBM modelu a Logistic regresní model. Proto čtyři různé modely jsou probíhajícího cvičení.
+Po vygenerování vektory word pomocí algoritmu SSWE nebo Word2Vec klasifikační modely probíhá Trénink k předvídání polarita skutečné postojích. Dva typy funkcí: Word2Vec a SSWE, se použijí pro dva modely: model přechodu zvyšovat skóre a Logistic regresní model. V důsledku toho probíhá Trénink čtyř různých modelů.
 
 
 ### <a name="model-evaluationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling03modelevaluation"></a>[Vyhodnocení modelu](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/03_ModelEvaluation)
-Čtyři modely cvičení v předchozím kroku testování dat se teď použít k vyhodnocení výkonu modelu. 
+Po probíhá Trénink modely, modely slouží k testování služby Twitter textová data a vyhodnocení výkonu každý model. Ukázka vyhodnotí následující čtyři modely:
 
-1. Přechodu Boosting přes SSWE vložení
-2. Logistic Regression přes SSWE vložení
-3. Přechodu Boosting přes Word2Vec vložení
-4. Logistic Regression přes Word2Vec vložení
+- Přechodu Boosting přes SSWE vložení.
+- Logistic Regression přes SSWE vložení.
+- Přechodu Boosting přes Word2Vec vložení.
+- Logistic Regression přes Word2Vec vložení.
 
-![Porovnání modelů ROC](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+Porovnání výkonu čtyři modely je znázorněno na následujícím obrázku:
 
-Model GBM s funkcí SSWE je nejlepší pomocí AUC metriku.
+![Příjemce operační charakteristik porovnání modelů (ROC)](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+
+Model přechodu zvyšovat skóre s funkcí SSWE poskytuje nejlepší výkon při porovnávání vzorů pomocí oblasti pod metrika křivky (AUC).
 
 
 ## <a name="deploymenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode03deployment"></a>[Nasazení](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 
-Tato část nasadí modelu předpovědi vyškolení postojích (vložení SSWE + GBM modelu) k webové službě na cluster v kontejneru služby Azure (ACS). Prostředí operationalization zřídí Docker a Kubernetes v clusteru pro správu nasazení webové služby. Můžete najít další informace o procesu operationalization [zde](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+Posledním krokem je nasazení modelu předpovědi vyškolení postojích k webové službě na cluster v Azure Container Service. Ukázka používá model přechodu zvyšovat skóre s algoritmem vnoření SSWE jako naučeného modelu. Prostředí operationalization zřídí Docker a Kubernetes v clusteru pro správu nasazení webové služby, jak je znázorněno na následujícím obrázku: 
 
-![kubenetes_dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
+![Řídicí panel Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
+Další informace o procesu operationalization najdete v tématu [nasazení Azure Machine Learning model jako webovou službu](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
 
 ## <a name="conclusion"></a>Závěr
 
-Podrobnosti o tom, jak trénování modelu vložení word pomocí algoritmy Word2Vec a SSWE byly vysvětlené a extrahované vkládaných byly použity jako funkce ke cvičení několik modely k předvídání postojích skóre pro Twitter textová data. Funkci postojích konkrétních slov Embeddings(SSWE) s modelem přechodu Boosted Tree přiřadil nejlepší výkon. Tento model se pak nasadí jako služba webu v reálném čase v kontejneru služby Azure pomocí Azure Machine Learning pracovní Bench.
+V tomto článku jste zjistili, jak k natrénování modelu vložení aplikace word pomocí algoritmů Word2Vec a vkládání postojích konkrétní aplikace Word. Extrahované vkládaných používaly jako funkce ke cvičení několik modely k předvídání postojích skóre pro Twitter textová data. Funkci SSWE použita s modelem přechodu zvyšovat skóre přiřadil nejlepší výkon. Model se pak nasadí jako služba webu v reálném čase v kontejneru služby pomocí Azure Machine Learning Workbench.
 
 
 ## <a name="references"></a>Odkazy
 
 * [Proces Team dat vědecké účely](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
 * [Jak používat tým datové vědy procesu (TDSP) v Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
-* [Šablona projektu TDSP pro Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure ML pracovní Bench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
-* [USA příjem datové sady z úložiště UCI ML](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Pomocí šablony TDSP biolékařského Entity rozpoznávání](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
-* [Mikolov Tomáši, a další. Distribuované reprezentace slova a slovní spojení a jejich compositionality. Pokroky v neuronové informace systémy pro zpracování. 2013.](https://arxiv.org/abs/1310.4546)
+* [Šablony projektů TDSP pro Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+* [USA příjem sady dat z úložiště UCI ML](https://archive.ics.uci.edu/ml/datasets/adult)
+* [Rozpoznávání biolékařského entity pomocí TDSP šablon](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Mikolov Tomáši, a další. "Distribuované reprezentace slova a slovní spojení a jejich Compositionality. Posune v neuronové informace systémy pro zpracování." 2013.](https://arxiv.org/abs/1310.4546)
 * [Hmotný dlouhodobý, Duyu, a další. "Učení postojích konkrétní Word vložení pro klasifikaci postojích Twitter." SEZNAM ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

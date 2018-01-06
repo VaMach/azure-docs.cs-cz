@@ -1,5 +1,5 @@
 ---
-title: "Upgrade trezor Backup do trezoru služeb zotavení (Preview) | Microsoft Docs"
+title: "Upgrade trezor Backup do trezoru služeb zotavení | Microsoft Docs"
 description: "Pokyny a informace o podpoře k upgradu trezoru služby Azure Backup do trezoru služeb zotavení."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Upgrade trezor Backup do trezoru služeb zotavení
 
@@ -120,7 +120,7 @@ Jakmile upgradujete do trezoru služeb zotavení, konfigurace sestav pro záloho
 Ne. Probíhající zálohování pokračovat bez přerušení během a po provedení upgradu.
 
 **Pokud nemáte plánem týkající se upgradu brzy, co se stane Moje trezory?**</br>
-Vzhledem k tomu, že všechny nové funkce platí pouze pro trezory služeb zotavení, doporučujeme vám, k upgradu vaší trezorů. Microsoft nakonec začne portálu classic. Od 1. září 2017 Microsoft zahájíte upgrade automaticky záloh na trezory služeb zotavení. Po listopadu 30,2017, jste již nemohou vytvářet trezory Backup pomocí prostředí PowerShell. Váš trezor lze automaticky upgradovat kdykoli mezi nimi. Společnost Microsoft doporučuje, že co nejdříve upgradovat svůj trezor.
+Vzhledem k tomu, že všechny nové funkce platí pouze pro trezory služeb zotavení, doporučujeme vám, k upgradu vaší trezorů. Od 1. září 2017 Microsoft zahájíte upgrade automaticky záloh na trezory služeb zotavení. Po listopadu 30,2017, jste již nemohou vytvářet trezory Backup pomocí prostředí PowerShell. Váš trezor lze automaticky upgradovat kdykoli mezi nimi. Společnost Microsoft doporučuje, že co nejdříve upgradovat svůj trezor.
 
 **Jaké jsou znamená to upgradu pro moje existující nástrojů?**</br>
 Aktualizujte vaše nástrojů k modelu nasazení Resource Manager. Obnovení služby, které byly vytvořeny trezory pro použití v modelu nasazení Resource Manager. Plánování modelu nasazení Resource Manager a monitorování účtů pro rozdíl ve vašem trezory je důležité. 
@@ -133,9 +133,6 @@ Ne. Vrácení zpět není podporována po úspěšném upgradu prostředky.
 
 **Můžete ověřit Moje předplatné nebo prostředky, které chcete zobrazit, pokud jsou schopné upgrade?**</br>
 Ano. Prvním krokem při upgradu ověří, zda jsou prostředky umožňující upgradu. V případě, že ověření předpoklady nezdaří, zobrazí se zprávy všechny z důvodů, upgrade nelze dokončit.
-
-**Uvedete, jaká oprávnění by měli mít pro spuštění aktualizace trezoru?**</br>
-Pokud chcete provést upgrade trezoru, je nutné přidat jako spolusprávce pro předplatné na portálu Azure classic. To je potřeba, i když už jsou uvedeny jako vlastník na portálu Azure. Došlo k pokusu o přidání spolusprávce pro předplatné na portálu Azure classic a zjistěte, pokud jste spolusprávcem předplatného. Pokud nejste moct přidávat společné správce, obraťte se na správce služeb nebo spolusprávce pro předplatné, který můžete přidat jako spolusprávce.
 
 **Můžete upgradovat Moje úložiště záloh na základě CSP?**</br>
 Ne. V současné době nelze upgradovat na základě CSP záloh. Přidáme podpora pro upgrade trezory Backup na základě CSP v další verze.
@@ -154,7 +151,7 @@ Monitorování pro zálohování (agenta MARS a IaaS) je nová funkce, kterou do
 Pokud jakékoli její části trezoru upgrade selže, Všimněte si, že že OperationID uvedený v chybě. Microsoft Support bude fungovat proaktivně k vyřešení problému. Můžete oslovení podpory nebo e-mailu nás na adrese rsvaultupgrade@service.microsoft.com s ID odběru, název trezoru a OperationId. Pokusíme se problém vyřešit co nejrychleji. Pokud se na společnost Microsoft výslovně pokyn není opakujte operaci.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Použijte následující článek a:</br>
 [Zálohování virtuálních počítačů IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Zálohování serveru Azure Backup](backup-azure-microsoft-azure-backup.md)</br>

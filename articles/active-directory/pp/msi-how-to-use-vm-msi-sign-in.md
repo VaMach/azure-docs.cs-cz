@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 74d732709e1cc3c97b485cc45e3a4e2c8e3cd11e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Přihlaste se pomocí virtuální počítač přiřazený uživatelem identita spravované služby (MSI)
 
@@ -51,7 +51,7 @@ Následující skript ukazuje, jak:
 2. Volání Azure Resource Manager a při získávání umístění oblast Azure pro virtuální počítač. Rozhraní příkazového řádku se stará o správu tokenu získávání nebo použití pro vás automaticky. Nezapomeňte nahradit název vašeho virtuálního počítače pro `<VM NAME>`a uživatel přiřazen id prostředku MSI pro `<MSI ID>`. Id prostředku MSI je vrácený v `id` vlastnost během vytváření přiřazený uživatelem MSI (najdete v části [konfigurace přiřazený uživatelem spravované služby Identity (MSI) pro virtuální počítač, pomocí rozhraní příkazového řádku Azure](msi-qs-configure-cli-windows-vm.md) příklady `az identity create` příkaz ).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation

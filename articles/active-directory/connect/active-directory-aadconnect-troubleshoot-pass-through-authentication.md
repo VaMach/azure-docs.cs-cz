@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Řešení potíží s předávací ověřování Azure Active Directory
 
@@ -71,7 +71,7 @@ Přejděte na **Azure Active Directory** -> **přihlášení** na [centra pro sp
 
 ## <a name="authentication-agent-installation-issues"></a>Problémy instalace agenta ověřování
 
-### <a name="an-unexpected-error-occurred"></a>Došlo k neočekávané chybě
+### <a name="an-unexpected-error-occurred"></a>Došlo k neočekávané chybě.
 
 [Shromažďování protokolů agenta](#collecting-pass-through-authentication-agent-logs) ze serveru a kontaktujte Microsoft Support s tímto problémem.
 
@@ -85,7 +85,7 @@ Zkontrolujte, jestli server, na kterém byl nainstalován Agent pro ověřován�
 
 Ujistěte se, že používáte účet globálního správce jenom pro cloud pro Azure AD Connect nebo samostatná Agent ověřování instalace a registrace operace. Je známý problém s povoleným MFA globálního správce účty; Vypněte MFA dočasně (pouze pro dokončení operací) jako alternativní řešení.
 
-### <a name="an-unexpected-error-occurred"></a>Došlo k neočekávané chybě
+### <a name="an-unexpected-error-occurred"></a>Došlo k neočekávané chybě.
 
 [Shromažďování protokolů agenta](#collecting-pass-through-authentication-agent-logs) ze serveru a kontaktujte Microsoft Support s tímto problémem.
 
@@ -165,7 +165,7 @@ Pokud je povoleno protokolování auditu, další informace naleznete v protokol
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Čítače sledování výkonu
+## <a name="performance-monitor-counters"></a>Čítače sledování výkonu
 
 Jiné způsoby, jak sledovat ověřování agentů je sledovat čítače sledování výkonu konkrétní na každém serveru, na kterých je nainstalován Agent pro ověřování. Pomocí následujících globální čítačů (**# PTA ověřování**, **#PTA se nezdařilo ověření** a **úspěšných ověření #PTA**) a čítače chyb (**Chybám při ověřování # PTA**):
 

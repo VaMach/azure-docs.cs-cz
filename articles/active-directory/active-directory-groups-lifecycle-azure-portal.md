@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Nakonfigurovat vypršení platnosti pro skupiny Office 365 (preview)
 
@@ -30,9 +30,7 @@ Teď můžete spravovat životní cyklus skupiny Office 365 nastavením vypršen
 -   Všechny skupiny Office 365, který je odstraněn může být obnovena do 30 dní, podle vlastníků skupiny nebo správce
 
 > [!NOTE]
-> Nastavení vypršení platnosti pro skupiny Office 365 vyžaduje licenci Azure AD Premium nebo Azure AD Basic EDU licence pro všechny členy skupiny, u které se použijí nastavení vypršení platnosti.
-> 
-> Pro Azure AD Basic EDU licenci zákazníků: ke konfiguraci těchto zásad poprvé, použijte rutiny Powershellu pro Azure Active Directory. Potom můžete aktualizovat nastavení vypršení platnosti, pomocí účtu, který je globální správce nebo správce účtu uživatele v klientovi služby Azure AD PowerShell nebo portálu Azure AD.
+> Nastavení vypršení platnosti pro skupiny Office 365 vyžaduje licenci Azure AD Premium pro všechny členy skupiny, u které se použijí nastavení vypršení platnosti.
 
 Informace o tom, jak stáhnout a nainstalovat rutiny Azure AD PowerShell najdete v tématu [Azure Active Directory PowerShell pro grafu – veřejné verze Preview 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -73,7 +71,7 @@ Pokud na skupinu, kterou jste obnovení obsahuje dokumenty, weby Sharepointu neb
 >   Například skupiny A byl vytvořen před 400 dny a interval vypršení platnosti je nastaven na 180 dní. Při aplikování nastavení vypršení platnosti, skupiny A má 30 dní, než je odstraní, pokud vlastník obnovuje ho.
 > * Když dynamická skupina je odstranit a obnovit, je považovat za novou skupinu a znovu vyplněna podle pravidla. Tento proces může trvat až 24 hodin.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Tyto články poskytují další informace o skupinách Azure AD.
 
 * [Zobrazení existujících skupin](active-directory-groups-view-azure-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Kurzy Cortana Intelligence Gallery | Microsoft Docs
-description: "Vyhledat a sdílet kurzy v Cortana Intelligence Gallery."
+title: Azure kurzy AI Galerie | Microsoft Docs
+description: "Vyhledat a sdílet kurzy v Azure AI Gallery."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: eee86899c14905655c4217d5fcf3865ca594366f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-tutorials-in-cortana-intelligence-gallery"></a>Vyhledat a sdílet kurzy v Cortana Intelligence Gallery
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Vyhledat a sdílet kurzy v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Kurzy
-Cortana Intelligence Gallery nabízí několik [kurzy](https://gallery.cortanaintelligence.com/tutorials) který vás provede procesem technologie machine learning a koncepty. Kurzy může také popisují Pokročilé metody pro řešení problémů machine learning.
+Galerie Azure AI nabízí několik [kurzy](https://gallery.cortanaintelligence.com/tutorials) který vás provede procesem technologie machine learning a koncepty. Kurzy může také popisují Pokročilé metody pro řešení problémů machine learning.
 
 ## <a name="discover"></a>Informace
 Chcete-li procházet kurzy [v galerii](http://gallery.cortanaintelligence.com)v části **Další**, vyberte **kurzy**.
 
 ![Vyberte na domovské stránce Galerie kurzy](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
-**[Kurzy](https://gallery.cortanaintelligence.com/tutorials)**  stránka zobrazuje seznam kurzů nedávno přidané a Oblíbené. Pokud chcete zobrazit všechny kurzy, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní kurz, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
+ **[Kurzy](https://gallery.cortanaintelligence.com/tutorials)**  stránka zobrazuje seznam kurzů nedávno přidané a Oblíbené. Pokud chcete zobrazit všechny kurzy, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní kurz, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
 
 Můžete získat další informace o kurz na stránce podrobností kurzu. Otevřete stránku kurz podrobnosti, vyberte tento kurz. V **komentáře** části na stránce kurz podrobnosti, můžete okomentovat, poskytnout zpětnou vazbu nebo klást otázky týkající se tohoto kurzu. Tento kurz můžete také sdílet s přátele nebo kolegy na Twitteru nebo LinkedIn. Také můžete e-mailem odkaz na stránku kurzu podrobností pozvaným jiní uživatelé při zobrazení stránky.
 
@@ -72,7 +72,7 @@ Kurz můžete přidat do Galerie pomohou jiných uživatelů vyřešení problé
 
 7. Vyberte **Vytvořit**.
 
-Tento kurz je nyní v Cortana Intelligence Gallery. Vaše kurzy jsou uvedené na stránku účtu, na **položky** kartě.
+Tento kurz je nyní v galerii AI Azure. Vaše kurzy jsou uvedené na stránku účtu, na **položky** kartě.
 
 **[Přejděte do Galerie](http://gallery.cortanaintelligence.com)**
 

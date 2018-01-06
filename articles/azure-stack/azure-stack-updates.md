@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Správa aktualizací v přehledu Azure zásobníku
 
 *Platí pro: Azure zásobníku integrované systémy*
 
-Společnost Microsoft vydá balíčky aktualizací pro Azure zásobníku integrované systémy v pravidelných cadence, který patří obvykle čtvrté úterý v každém měsíci začínající na obecné dostupnosti. Požádejte výrobce OEM o jejich konkrétní oznámení procesu zajistit aktualizace oznámení reach vaší organizace, nebo toto políčko zaškrtněte v části systémy notes\Integrated Concepts\Release poznámky k verzi pro další informace o konkrétních verzích.
+Společnost Microsoft vydá balíčky aktualizací pro Azure zásobníku integrované systémy v pravidelných cadence, který patří obvykle čtvrté úterý v každém měsíci začínající na obecné dostupnosti. Požádejte výrobce OEM o jejich konkrétní oznámení procesu zajistit aktualizace oznámení reach vaší organizace, nebo toto políčko zaškrtněte v části systémy Notes\Integrated Overview\Release poznámky k verzi pro další informace o konkrétních verzích.
 
 Jednotlivými verzemi aktualizací softwaru společnosti Microsoft je instalován jako balíček jednu aktualizaci. Jako operátor zásobník Azure můžete snadno importovat, instalace a sledujte průběh instalace těchto aktualizací balíčky z portálu správce. 
 
@@ -62,7 +62,7 @@ Aktualizace dlaždice se zobrazuje aktuální verze Azure zásobníku. Na dlažd
  
 - Na **oblast správy** dlaždici, klikněte na název oblasti. Zobrazit aktuální verzi v **aktualizace** dlaždici.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Údržba zásad Azure zásobníku](azure-stack-servicing-policy.md) 
 - [Oblast správy v Azure zásobníku](azure-stack-region-management.md)     

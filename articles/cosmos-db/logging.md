@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Protokolování diagnostiky Azure Cosmos DB
 
@@ -383,7 +383,7 @@ Další informace o význam dat vrácených hledání jednotlivých protokolů n
 * Které operace trvat déle než 3 milisekundách.
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Které agenta je spuštěna operace.
@@ -426,7 +426,7 @@ Následující tabulka popisuje obsah každé položky protokolu.
 | responseLength | responseLength_s | Délka odpovědi v bytech.|
 | resourceTokenUserRid | resourceTokenUserRid_s | Toto je neprázdný při [prostředků tokeny](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) slouží k ověřování a bodů pro ID prostředku uživatele. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Získat představu o není pouze to, jak povolit protokolování, ale také podporuje různé Azure kategorie metrik a protokolu služby přečíst, i [přehled metriky v Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) a [přehled Azure Diagnostické protokoly](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) články.
 - Přečtěte si další informace o službě event hubs tyto články:

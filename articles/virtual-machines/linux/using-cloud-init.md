@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Podpora init cloudu pro virtuální počítače v Azure
 Tento článek vysvětluje, zda existuje pro podporu [cloudu init](https://cloudinit.readthedocs.io) ke konfiguraci virtuálního počítače (VM) nebo virtuální počítač sadách škálování (VMSS) na zřizování čas v Azure. Tyto skripty cloudu init spustit při prvním spuštění počítače po prostředky se zřizují Azure.  
 
-## <a name="cloud-init-overview"></a>Init cloudu – přehled
+## <a name="cloud-init-overview"></a>Přehled Cloud-init
 [Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Protože init cloudu je volána v průběhu procesu počáteční spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.  Další informace o tom, jak správně formátu vaše `#cloud-config` soubory, najdete v článku [web dokumentace cloudu init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`soubory jsou textové soubory kódovaný jako base64.
 
 Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
@@ -36,18 +36,18 @@ Init cloudu také funguje v různých distribucí. Například nepoužívejte **
 |Canonical |UbuntuServer |16.04 LTS |nejnovější |ano | 
 |Canonical |UbuntuServer |14.04.5-LTS |nejnovější |ano |
 |CoreOS |CoreOS |Stable |nejnovější |ano |
-|OpenLogic |CentOS |7 CI |nejnovější |verze Preview |
-|RedHat |RHEL |7 NEZPRACOVANÁ POLOŽEK KONFIGURACE |nejnovější |verze Preview |
+|OpenLogic |CentOS |7 CI |nejnovější |preview |
+|RedHat |RHEL |7 NEZPRACOVANÁ POLOŽEK KONFIGURACE |nejnovější |preview |
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Jaký je rozdíl mezi init cloudu a agenta systému Linux (WALA)?
 WALA je použít pro zřídit a nakonfigurovat virtuální počítače a zpracování rozšíření Azure agenta specifické pro platformu Azure. Jsme se zlepší úloh konfigurace virtuálních počítačů pro použití cloudu init místo agenta systému Linux Chcete-li povolit existující cloudu init zákazníkům používat jejich aktuální cloudu init skripty.  Pokud jste už investovali do cloudu init skriptů pro konfiguraci systémů Linux, jsou **žádné další nastavení potřebná** a umožňuje jim. 
 
-Pokud nepoužijete přepínač příkazového řádku AzureCLI `--custom-data` v zřizování čas, WALA udělá zřizování parametrů požadovaných pro zřízení virtuálního počítače a dokončení nasazení s výchozím nastavením minimální virtuálních počítačů.  Pokud odkazujete cloudu inicializací `--custom-data` přepínače, ať je součástí vaší vlastní data (jednotlivá nastavení nebo úplné skriptu) přepíše výchozí hodnoty WALA definované. 
+Pokud neuvedete Azure CLI `--custom-data` přepínač na čas, WALA zřizování má minimální zřizování parametrů požadovaných pro zřízení virtuálního počítače a dokončení nasazení s výchozím nastavením virtuálních počítačů.  Pokud odkazujete cloudu inicializací `--custom-data` přepínače, ať je součástí vaší vlastní data (jednotlivá nastavení nebo úplné skriptu) přepíše výchozí hodnoty WALA. 
 
-WALA konfigurace virtuálních počítačů jsou čas omezené pro práci v rámci maximální dobu zřizování virtuálních počítačů.  Konfigurace cloudu init použít pro virtuální počítače nemají časová omezení a nezpůsobí selhání pomocí vypršení časového limitu nasazení. 
+WALA konfigurace virtuálních počítačů jsou omezené čas pro práci v rámci maximální zřizování čas virtuálních počítačů.  Konfigurace cloudu init použít pro virtuální počítače nemají časová omezení a nezpůsobí selhání pomocí vypršení časového limitu nasazení. 
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Nasazení cloudu inicializací povoleno virtuálního počítače
-Nasazení virtuálního počítače v cloudu inicializací povolená je stejně jednoduché jako odkazující cloudu inicializací povolená distribuce během nasazení.  Údržby Linux distribuční programu muset zvolit povolení a integrovat cloudu init do jejich základní Azure publikované Image. Jakmile ověříte, že je povoleno cloudu inicializací bitovou kopii, kterou chcete nasadit, můžete AzureCLI nasazení bitové kopie. 
+Nasazení virtuálního počítače v cloudu inicializací povolená je stejně jednoduché jako odkazující cloudu inicializací povolená distribuce během nasazení.  Údržby Linux distribuční programu muset zvolit povolení a integrovat cloudu init do jejich základní Azure publikované Image. Jakmile ověříte, že je povoleno cloudu inicializací bitovou kopii, kterou chcete nasadit, můžete použít rozhraní příkazového řádku Azure k nasazení bitové kopie. 
 
 Prvním krokem při nasazení této bitové kopie je vytvoření skupiny prostředků pomocí [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
 
@@ -89,7 +89,7 @@ Jakmile zřídil virtuální počítač, cloudu init spustí prostřednictvím v
 
 Další podrobnosti o cloudu init protokolování, najdete v části [cloudu init dokumentace](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Příklady cloudu init změny konfigurace najdete v následujících dokumentech:
  
 - [Přidání další uživatele Linux do virtuálního počítače](cloudinit-add-user.md)

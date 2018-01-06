@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Návod: Export do SQL z Application Insights pomocí služby Stream Analytics
 Tento článek ukazuje, jak přesunout data telemetrie z [Azure Application Insights] [ start] do Azure SQL database pomocí [průběžné exportovat] [ export] a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 V této ukázce používáme data ze zobrazení stránky. Pokud chcete zobrazit dostupné data, zkontrolujte výstupu JSON a najdete v článku [Exportovat datový model](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Vytvoření instance služby Azure Stream Analytics
-Z [portál Azure Classic](https://manage.windowsazure.com/), vyberte službu Azure Stream Analytics a vytvořit novou úlohu služby Stream Analytics:
+Z [portál Azure](https://portal.azure.com/), vyberte službu Azure Stream Analytics a vytvořit novou úlohu služby Stream Analytics:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Když je vytvořena nová úloha, rozbalte položku Podrobnosti:
+Při vytváření nové úlohy, vyberte **přejděte k prostředku**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Nastavení umístění objektu blob
+#### <a name="add-a-new-input"></a>Přidat nové vstup
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Nastavte ji tak, aby vstupní z objektu blob služby průběžné Export:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 Nyní budete potřebovat primární přístupový klíč z vašeho účtu úložiště, který jste si předtím poznamenali. Nastavením této hodnoty jako klíč účtu úložiště.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Sada cesta předpona vzoru
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Nastavte formát data **rrrr-MM-DD** (s **pomlčky**).
+**Nezapomeňte nastavit formát data do rrrr-MM-DD (s pomlčkami).**
 
 Cesta předpony vzor Určuje, jak Stream Analytics vyhledá vstupní soubory v úložišti. Budete muset nastavit tak, aby odpovídaly jak průběžné exportovat data uloží. Nastavte takto:
 
@@ -178,22 +178,12 @@ V tomto příkladu:
 
 Chcete-li získat název a iKey prostředku Application Insights, otevřete Essentials na stránku s jeho přehled nebo otevřete nastavení.
 
-#### <a name="finish-initial-setup"></a>Dokončit počáteční nastavení
-Zkontrolujte formát serializace:
-
-![Potvrďte a zavřete průvodce](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Zavřete průvodce a počkejte na dokončení instalace.
-
 > [!TIP]
 > Zkontrolujte, že jste správně nastavili vstupní cesta použijte funkci Sample. Pokud se nezdaří: Zkontrolujte, zda je data v úložišti pro ukázkové časové rozmezí jste zvolili. Upravte definici vstupní a zkontrolujte nastavení účtu úložiště, cesta předponu a datum formátu správně.
 > 
 > 
-
 ## <a name="set-query"></a>Sada dotazu
 Otevřete část dotazu:
-
-![V služby stream analytics vyberte dotazu](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Nahraďte výchozí dotaz s:
 
@@ -238,22 +228,20 @@ Všimněte si, že první několik vlastností jsou specifické pro data zobraze
 ## <a name="set-up-output-to-database"></a>Nastavit výstup do databáze
 Vyberte SQL jako výstup.
 
-![V služby stream analytics vyberte výstupy](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![V služby stream analytics vyberte výstupy](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Zadejte databáze SQL.
 
-![Zadejte podrobnosti databáze](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Zadejte podrobnosti databáze](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Zavřete průvodce a čekat na oznámení, že byla nastavena výstup.
 
 ## <a name="start-processing"></a>Spuštění zpracování
 Spustíte úlohu z panelu akcí:
 
-![V služby stream analytics klikněte na tlačítko Start](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![V služby stream analytics klikněte na tlačítko Start](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 Můžete zvolit, jestli se má spustit zpracování dat od teď nebo začínat starší data. Je užitečné, pokud jste předtím průběžné exportovat už běží nějakou dobu.
-
-![V služby stream analytics klikněte na tlačítko Start](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Po několika minutách vraťte se zpátky a nástroje správy systému SQL Server a sledovat data předávaná v. Například použijte dotaz takto:
 

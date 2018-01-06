@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 58ba74585f650c570b5962408a3935e9cd2e591c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="managing-azure-automation-data"></a>Správa dat Azure Automation
 Tento článek obsahuje více témat pro správu prostředí Azure Automation.
@@ -49,13 +49,13 @@ Ale pokud budete potřebovat zachování dat pro delší časové období, můž
 Pokud odstraníte účet automation v Microsoft Azure, se odstraní všechny objekty v účtu včetně sady runbook, moduly, konfigurace, nastavení, úlohy a prostředky. Objekty nelze obnovit, po odstranění účtu.  Chcete-li zálohovat obsah vašeho účtu automation před odstraněním jej můžete použít následující informace. 
 
 ### <a name="runbooks"></a>Runbooky
-Vaše sady runbook můžete exportovat do skriptu soubory pomocí portálu Azure Management Portal nebo [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) rutiny v prostředí Windows PowerShell.  Tyto soubory skriptu lze importovat do jiného účtu automation, jak je popsáno v [vytvoření nebo import Runbooku](https://msdn.microsoft.com/library/dn643637.aspx).
+Vaše sady runbook můžete exportovat do skriptu soubory pomocí portálu Azure nebo [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) rutiny v prostředí Windows PowerShell.  Tyto soubory skriptu lze importovat do jiného účtu automation, jak je popsáno v [vytvoření nebo import Runbooku](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Integrační moduly
 Integrační moduly nelze exportovat z Azure Automation.  Je nutné zajistit, že jsou k dispozici mimo účet automation.
 
 ### <a name="assets"></a>Prostředky
-Nelze exportovat [prostředky](https://msdn.microsoft.com/library/dn939988.aspx) z Azure Automation.  Pomocí portálu pro správu Azure, musíte poznamenejte si podrobnosti proměnné, přihlašovací údaje, certifikátů, připojení a plány.  Pak musíte ručně vytvořit všechny prostředky, které jsou používány sady runbook, který importujete do jiné automatizace.
+Nelze exportovat [prostředky](https://msdn.microsoft.com/library/dn939988.aspx) z Azure Automation.  Pomocí portálu Azure, musíte poznamenejte si podrobnosti proměnné, přihlašovací údaje, certifikátů, připojení a plány.  Pak musíte ručně vytvořit všechny prostředky, které jsou používány sady runbook, který importujete do jiné automatizace.
 
 Můžete použít [rutiny Azure](https://msdn.microsoft.com/library/dn690262.aspx) načíst podrobnosti o nezašifrované prostředky a buď je uložíte pro budoucí použití nebo vytvoření ekvivalentní prostředky v jiný účet automation.
 
@@ -64,7 +64,7 @@ Nelze načíst hodnotu zašifrované proměnné nebo přihlašovací údaje pomo
 Certifikáty nelze exportovat z Azure Automation.  Je nutné zajistit, že všechny certifikáty, jsou k dispozici mimo Azure.
 
 ### <a name="dsc-configurations"></a>Konfigurace DSC
-Vaše konfigurace můžete exportovat do skriptu soubory pomocí portálu Azure Management Portal nebo [Export AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) rutiny v prostředí Windows PowerShell. Tyto konfigurace lze importovat a použít jiný účet automation.
+Vaše konfigurace můžete exportovat do skriptu soubory pomocí portálu Azure nebo [Export AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) rutiny v prostředí Windows PowerShell. Tyto konfigurace lze importovat a použít jiný účet automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Geografická replikace v Azure Automation
 Geografická replikace, standard v účtech Azure Automation, zálohuje data účtu v jiné zeměpisné oblasti redundanci. Můžete vybrat primární oblasti při nastavování účtu a pak sekundární oblasti je k němu přiřazen automaticky. V případě ztráty dat se průběžně aktualizuje sekundární daty zkopírovanými z primární oblasti.  

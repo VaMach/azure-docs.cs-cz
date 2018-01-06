@@ -1,6 +1,6 @@
 ---
-title: "Řešení Cortana Intelligence Gallery | Microsoft Docs"
-description: "Vyhledat řešení na webu Cortana Intelligence Gallery."
+title: "Řešení Azure AI Galerie | Microsoft Docs"
+description: "Hledání řešení v galerii Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 3d249a12b31418b159b3e5391528488f5d9d57a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 813b431b2e8ee22435e302800b7f707f6ba693b9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-solutions-in-the-cortana-intelligence-gallery"></a>Vyhledat řešení na webu Cortana Intelligence Gallery
+# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Hledání řešení v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="solutions"></a>Řešení
@@ -30,7 +30,7 @@ Je proveďte vlastní zahrnuté pokyny nebo s doporučenou partnera.
 ## <a name="discover"></a>Informace
   Chcete-li vyhledat řešení v galerii, otevřete [Galerie](http://gallery.cortanaintelligence.com) a klikněte na tlačítko **řešení** v horní části domovské stránce Galerie.
 
- **[Řešení](https://gallery.cortanaintelligence.com/solutions)**  stránka zobrazuje seznam nedávno přidané řešení.
+  **[Řešení](https://gallery.cortanaintelligence.com/solutions)**  stránka zobrazuje seznam nedávno přidané řešení.
 Klikněte na tlačítko **zobrazit všechny** zobrazíte všechna řešení.
 Z této stránky můžete vyhledat všechny řešení v galerii. Také můžete hledat výběrem kritéria filtru na levé straně stránky a vstup hledaných termínů v horní části.
 

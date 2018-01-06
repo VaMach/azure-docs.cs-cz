@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Vytvoření modelů analýzy textu v nástroji Azure Machine Learning Studio
 Azure Machine Learning můžete vytvářet a zprovoznit modely analytics text. Tyto modely vám může pomoct vyřešit, například problémy analýzy dokumentu klasifikace nebo postojích.
@@ -33,7 +33,7 @@ V analýzy text experimentu byste obvykle:
 
 V tomto kurzu zjistíte podle jsme provede model analysis postojích pomocí Amazon kniha recenze datovou sadu, tyto kroky (najdete v tomto dokumentu research "biografie, Bollywood, výložníku polí a Blenders: přizpůsobení a domény pro klasifikaci postojích" Jan Blitzer, označit Dredze a Fernando Pereira; Přidružení výpočetní Linguistics (ACL), 2007.) Tato datová sada se skládá z Zkontrolujte skóre (1 – 2 nebo 4 až 5) a vlastní text. Cílem je k předvídání Zkontrolujte skóre: nízkou (1 - 2) nebo vysokou (4 až 5).
 
-Můžete najít experimenty, které jsou popsané v tomto kurzu na webu Cortana Intelligence Gallery:
+Můžete najít experimenty, které jsou popsané v tomto kurzu v Azure AI Gallery:
 
 [Předpověď recenze adresáře](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

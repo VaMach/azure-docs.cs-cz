@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Přeučování webové služby Classic
 Prediktivní webové služby, které jste nasadili je výchozí vyhodnocovací koncový bod. Výchozí koncové body jsou synchronizovány s původní školení a vyhodnocování experimenty, a proto nelze nahradit pro cvičný model pro výchozí koncový bod. Chcete-li přeučování webovou službu, je nutné přidat nový koncový bod k webové službě. 
@@ -54,7 +54,7 @@ Můžete přidat vyhodnocování koncové body pomocí ukázkový kód zadaný v
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Přidání koncového bodu pomocí portálu Microsoft Azure webové služby
 1. Machine Learning Studio v levém navigačním sloupec, klikněte na možnost webové služby.
 2. V dolní části řídicího panelu webové služby, klikněte na tlačítko **spravovat koncové body preview**.
-3. Klikněte na tlačítko **Přidat**.
+3. Klikněte na tlačítko **Add** (Přidat).
 4. Zadejte název a popis pro nový koncový bod. Vyberte úroveň protokolování a určuje, jestli je povolená ukázková data. Další informace o protokolování naleznete v tématu [povolení protokolování pro webové služby Machine Learning](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Aktualizovat trained model přidání koncového bodu
@@ -66,7 +66,7 @@ Načíst cestu adresy URL:
 
 1. Zkopírujte a vložte adresu URL do prohlížeče.
 2. Klikněte na odkaz aktualizace prostředků.
-3. Zkopírujte adresu URL POST požadavku PATCH. Například:
+3. Zkopírujte adresu URL POST požadavku PATCH. Příklad:
    
      ADRESA URL OPRAVY: HTTPS://MANAGEMENT.AZUREML.NET/WORKSPACES/00BF70534500B34REBFA1843D6/WEBSERVICES/AF3ER32AD393852F9B30AC9A35B/ENDPOINTS/NEWENDPOINT2
 
@@ -116,7 +116,7 @@ Následující vzorový kód ukazuje, jak používat *BaseLocation*, *RelativeLo
 
 Hodnota *název* parametr v *prostředky* by měl odpovídat názvu prostředku uložené Trained Model prediktivní experiment. Pokud chcete získat název prostředku:
 
-1. Přihlaste se k [portál Azure classic](https://manage.windowsazure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. V nabídce vlevo klikněte na **Machine Learning**.
 3. Pod názvem, klikněte na pracovní prostor a potom klikněte na **webové služby**.
 4. Pod názvem, klikněte na **modelu sčítání [prediktivní exp.]** .
@@ -134,6 +134,6 @@ Pomocí rozhraní Retraining API, můžete aktualizovat pro cvičný model predi
 * Pravidelné model retraining s nová data.
 * Distribuce modelu pro zákazníky s cílem aby přeučování modelu s použitím svá vlastní data.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Řešení potíží s retraining classic webové služby Azure Machine Learning](troubleshooting-retraining-models.md)
 

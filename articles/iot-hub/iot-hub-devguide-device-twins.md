@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Rady pro pochopení a použít dvojčata zařízení IoT hub
 
 *Dvojčata zařízení* jsou dokumenty JSON, které obsahují informace o stavu zařízení včetně metadata, konfigurace a podmínky. Azure IoT Hub uchovává dvojče zařízení pro každé zařízení, které se připojujete ke službě IoT Hub. Tento článek popisuje:
+
 
 * Struktura dvojče zařízení: *značky*, *požadované* a *hlášené vlastnosti*.
 * Operace, které aplikace pro zařízení a back-EndY můžete provádět na dvojčata zařízení.
@@ -51,8 +52,7 @@ Dvojče zařízení je dokument JSON, který zahrnuje:
 * **Značky**. Části dokumentu JSON, který může číst z a zapisovat do back-end řešení. Značky nejsou viditelné pro aplikace pro zařízení.
 * **Požadovaného vlastnosti**. Používat společně s hlášené vlastnosti k synchronizaci konfigurace zařízení nebo podmínky. Back-end řešení můžete nastavit požadované vlastnosti a aplikace zařízení mohou přečíst. Aplikace zařízení můžete také získat oznámení změn v požadované vlastnosti.
 * **Hlášené vlastnosti**. Používat společně s požadované vlastnosti pro synchronizaci konfigurace zařízení nebo podmínky. Aplikace zařízení můžete nastavit hlášené vlastnosti, a back-end řešení může číst a dotazujte je.
-
-Kromě toho kořen dokumentu JSON twin zařízení obsahuje vlastnosti jen pro čtení z odpovídající identitu zařízení, které jsou uložené v [registru identit][lnk-identity].
+* **Vlastnosti identity zařízení**. Kořen dokumentu JSON twin zařízení obsahuje vlastnosti jen pro čtení z odpovídající identitu zařízení, které jsou uložené v [registru identit][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ Následující příklad ukazuje dvojče zařízení dokumentu JSON:
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ Následující příklad ukazuje dvojče zařízení dokumentu JSON:
             }
         }
 
-V kořenový objekt, jsou vlastnosti systému a kontejner objektů pro `tags` a obě `reported` a `desired` vlastnosti. `properties` Kontejner obsahuje některé prvky jen pro čtení (`$metadata`, `$etag`, a `$version`) popsané v [metadat zařízení twin] [ lnk-twin-metadata] a [ Optimistickou metodu souběžného] [ lnk-concurrency] oddíly.
+V kořenový objekt jsou zařízení vlastnosti identity a kontejner objektů pro `tags` a obě `reported` a `desired` vlastnosti. `properties` Kontejner obsahuje některé prvky jen pro čtení (`$metadata`, `$etag`, a `$version`) popsané v [metadat zařízení twin] [ lnk-twin-metadata] a [ Optimistickou metodu souběžného] [ lnk-concurrency] oddíly.
 
 ### <a name="reported-property-example"></a>Příklad hlášené vlastnost
 V předchozím příkladu obsahuje dvojče zařízení `batteryLevel` vlastnosti, který je hlášen aplikace zařízení. Tato vlastnost umožňuje dotazování a provozovat na zařízení podle poslední hlášené stav baterie. Další příklady zahrnují možnosti vytváření sestav zařízení zařízení aplikace nebo možnosti připojení.
@@ -103,7 +109,7 @@ V předchozím příkladu obsahuje dvojče zařízení `batteryLevel` vlastnosti
 > Hlášené vlastnosti zjednodušit scénáře, kde je back-end řešení zájem o poslední známé hodnotu vlastnosti. Použití [zpráv typu zařízení cloud] [ lnk-d2c] Pokud back-end řešení potřebuje ke zpracování telemetrie zařízení ve formě pořadí označen časovým razítkem události, jako je například časové řady.
 
 ### <a name="desired-property-example"></a>Příklad požadovanou vlastnost
-V předchozím příkladu `telemetryConfig` potřeby dvojče zařízení a hlášené vlastnosti tak, že back-end řešení a aplikace zařízení slouží k synchronizaci telemetrická data konfigurace pro toto zařízení. Například:
+V předchozím příkladu `telemetryConfig` potřeby dvojče zařízení a hlášené vlastnosti tak, že back-end řešení a aplikace zařízení slouží k synchronizaci telemetrická data konfigurace pro toto zařízení. Příklad:
 
 1. Back-end řešení Nastaví požadovanou vlastnost s hodnotou požadované konfigurace. Zde je část dokumentu sadou požadovanou vlastnost:
    
@@ -158,7 +164,7 @@ Back-end řešení funguje na dvojče zařízení pomocí následující atomick
 
     - Vlastnosti
 
-    | Name (Název) | Hodnota |
+    | Název | Hodnota |
     | --- | --- |
     $content – typ | application/json |
     $iothub-enqueuedtime |  Čas odeslání oznámení. |
@@ -240,13 +246,13 @@ Značky, požadované vlastnosti a vlastnosti hlášené jsou objekty JSON s ná
 * Všechny hodnoty řetězce může být maximálně 4 KB délku.
 
 ## <a name="device-twin-size"></a>Velikost twin zařízení
-IoT Hub vynucuje omezení velikosti 8KB na celkové hodnoty `tags`, `properties/desired`, a `properties/reported`, s výjimkou elementy jen pro čtení.
+IoT Hub vynucuje omezení velikosti 8KB na všech příslušných celkové hodnoty `tags`, `properties/desired`, a `properties/reported`, s výjimkou elementy jen pro čtení.
 Velikost se počítá podle počítání všechny znaky, s výjimkou řídicí znaky UNICODE (segmenty C0 a C1) a prostory, které jsou mimo řetězcové konstanty.
 IoT Hub s chybou odmítne všechny operace, které by zvětšete velikost tyto dokumenty nad limit.
 
 ## <a name="device-twin-metadata"></a>Metadata twin zařízení
 IoT Hub uchovává časové razítko poslední aktualizace pro každý objekt JSON v dvojče zařízení potřeby a který ohlásil vlastnosti. Časová razítka v UTC a v kódování [ISO8601] formátu `YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Například:
+Příklad:
 
         {
             ...
@@ -324,7 +330,7 @@ Další témata referenční příručka vývojáře IoT Hub patří:
 * [IoT Hub dotazovacího jazyka pro dvojčata zařízení, úlohy a směrování zpráv] [ lnk-query] článek popisuje dotazovací jazyk Centrum IoT, můžete použít k načtení informací ze služby IoT Hub o úlohách a dvojčata zařízení.
 * [IoT Hub MQTT podporu] [ lnk-devguide-mqtt] článek obsahuje další informace o podpoře služby IoT Hub pro protokol MQTT.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní jste se naučili o dvojčata zařízení, může zajímat v následujících tématech Příručka vývojáře IoT Hub:
 
 * [Volání metody přímé na zařízení][lnk-methods]

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 00962b1bb32ff096712d36c07620505e72667380
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f2d2b3eed3e3249ba863fa3d6a37abb6c4a2bdd8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Kopírování dat z Google BigQuery pomocí Azure Data Factory (Beta)
 
@@ -48,12 +48,12 @@ Následující vlastnosti jsou podporovány pro Google BigQuery propojené služ
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **GoogleBigQuery** | Ano |
-| Projekt | Výchozí projekt BigQuery k dotazu vůči.  | Ano |
-| additionalProjects | Čárkami oddělený seznam veřejné BigQuery projektů přístup.  | Ne |
+| Projekt | ID projektu výchozí projekt BigQuery k dotazu vůči.  | Ano |
+| additionalProjects | Čárkami oddělený seznam ID projektů z veřejné BigQuery projektů přístup.  | Ne |
 | requestGoogleDriveScope | Určuje, zda chcete požadovat přístup k Google Drive. Povolení přístupu Google Drive umožňuje podporu pro federované tabulky, které spojují BigQuery dat s daty z Google Drive. Výchozí hodnota je false.  | Ne |
 | authenticationType. | Metoda ověřování OAuth 2.0, používá k ověřování. ServiceAuthentication lze použít pouze na vlastním hostováním infračerveného signálu. <br/>Povolené hodnoty jsou: **ServiceAuthentication**, **UserAuthentication** | Ano |
 | refreshToken | Token obnovení pro autorizaci přístupu k BigQuery pro UserAuthentication získat z Google. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
-| E-mailu | ID účtu e-mailové služby, který se používá pro ServiceAuthentication a lze použít pouze na vlastním hostováním infračerveného signálu.  | Ne |
+| e-mail | ID účtu e-mailové služby, který se používá pro ServiceAuthentication a lze použít pouze na vlastním hostováním infračerveného signálu.  | Ne |
 | Element keyFilePath | Úplná cesta k souboru klíče .p12, který se používá k ověření e-mailovou adresu účtu služby a lze použít pouze na vlastním hostováním infračerveného signálu.  | Ne |
 | trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority pro ověření serveru při připojení přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na vlastním hostováním infračerveného signálu. Výchozí hodnota je soubor cacerts.pem nainstalované s infračerveného signálu.  | Ne |
 | useSystemTrustStore | Určuje, jestli se má použít certifikát Certifikační autority z úložiště důvěryhodnosti systému nebo z určeného souboru PEM. Výchozí hodnota je false.  | Ne |
@@ -66,13 +66,13 @@ Následující vlastnosti jsou podporovány pro Google BigQuery propojené služ
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }
@@ -145,5 +145,5 @@ Ke zkopírování dat z Google BigQuery, nastavte typ zdroje v aktivitě kopíro
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

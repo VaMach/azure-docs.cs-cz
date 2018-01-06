@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage vazby pro Azure Functions
 
@@ -210,10 +210,12 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 ## <a name="trigger---usage"></a>Aktivační událost - využití
 
-V jazyce C# a C# skript, přístup k datům objektu blob pomocí parametru metody `Stream paramName`. V jazyce C# skript `paramName` je hodnota zadaná v `name` vlastnost *function.json*. Můžete vázat na některý z následujících typů:
+V jazyce C# a C# skript, přístup k datům objektu blob pomocí parametru metody `T paramName`. V jazyce C# skript `paramName` je hodnota zadaná v `name` vlastnost *function.json*. Můžete vázat na některý z následujících typů:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob`(vyžaduje směr "inout" vazby v *function.json*)
 * `CloudBlockBlob`(vyžaduje směr "inout" vazby v *function.json*)
 * `CloudPageBlob`(vyžaduje směr "inout" vazby v *function.json*)
@@ -498,10 +500,16 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 Knihovny tříd jazyka C# a C# skript, přístup k objektu blob pomocí parametru metody `Stream paramName`. V jazyce C# skript `paramName` je hodnota zadaná v `name` vlastnost *function.json*. Můžete vázat na některý z následujících typů:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader`(pouze vstup)
+* `string`(pouze vstup)
+* `Byte[]`(pouze vstup)
+* `TextWriter`(jenom pro výstup)
+* `out string`(jenom pro výstup)
+* `out Byte[]`(jenom pro výstup)
+*  `CloudBlobStream`(jenom pro výstup)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob`(vyžaduje směr "inout" vazby v *function.json*)
 * `CloudBlockBlob`(vyžaduje směr "inout" vazby v *function.json*)
 * `CloudPageBlob`(vyžaduje směr "inout" vazby v *function.json*)

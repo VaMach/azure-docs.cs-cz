@@ -1,5 +1,5 @@
 ---
-title: "Práce s triggerů a vazeb v Azure Functions"
+title: "Triggerů a vazeb v Azure Functions"
 description: "Další informace o použití triggerů a vazeb v Azure Functions k připojení vašeho provádění kódu k online události a cloudové služby."
 services: functions
 documentationcenter: na
@@ -15,24 +15,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 92194b0d54de1271580a237e16e652b761b4d6d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkce triggerů a vazeb koncepty
-Azure Functions umožňuje psaní kódu v reakci na události v Azure a dalším službám prostřednictvím *aktivační události* a *vazby*. Tento článek obsahuje přehled služby aktivačních událostí a vazby pro všechny podporované programovací jazyky. Tady jsou popsané funkce, které jsou společné pro všechny vazby.
+
+Tento článek je koncepční přehled triggerů a vazeb v Azure Functions. Funkce, které jsou společné pro všechny vazby a všechny podporované jazyky jsou popsané v tomto poli.
 
 ## <a name="overview"></a>Přehled
 
-Triggerů a vazeb jsou deklarativní způsob, jak definovat, jak je volána funkce a co data funguje s. A *aktivační událost* definuje způsob volání funkce. Funkce musí mít přesně jeden aktivační události. Aktivační události mají související data, která je obvykle datové části, která aktivuje funkce.
+A *aktivační událost* definuje způsob volání funkce. Funkce musí mít přesně jeden aktivační události. Aktivační události mají související data, která je obvykle datové části, která aktivuje funkce.
 
-Vstup a výstup *vazby* poskytnout deklarativní způsob, jak se připojit k datům z vašeho kódu. Podobně jako u aktivačních událostí, je zadat připojovací řetězce a další vlastnosti v konfiguraci funkce. Vazby jsou volitelné a funkci můžete mít více vstup a výstup vazby. 
+Vstup a výstup *vazby* poskytnout deklarativní způsob, jak se připojit k datům z vašeho kódu. Vazby jsou volitelné a funkci můžete mít více vstup a výstup vazby. 
 
-Pomocí triggerů a vazeb, můžete napsat kód, který je instalace a další obecná závislé podrobnosti o službách, pomocí které komunikuje. Dat pocházejících z služby jednoduše stát vstupní hodnoty kódu funkce. Chcete-li výstupní data do jiné služby (jako je vytvoření nového řádku v Azure Table Storage), použijte návratovou hodnotu metody. Nebo pokud potřebujete výstup více hodnot, použijte pomocný objekt. Mít triggerů a vazeb **název** vlastnost, která je identifikátor používáte ve vašem kódu pro přístup k vazby.
+Triggerů a vazeb umožňují vyhnout hardcoding podrobnosti o služby, které pracujete s. Funkce je přijímá data (například obsah zprávy fronty) v parametry funkce. Odesílat data (například pro vytvoření zprávy fronty) pomocí návratovou hodnotu funkce, `out` parametr nebo [objekt kolekce](functions-reference-csharp.md#writing-multiple-output-values).
 
-Můžete nakonfigurovat triggerů a vazeb v **integrací** na portálu Azure Functions. V pozadí, uživatelské rozhraní upraví soubor s názvem *function.json* soubor v adresáři funkce. Tento soubor můžete upravit změnou na **pokročilé editor**.
+Při vývoji funkce pomocí portálu Azure, triggerů a vazeb konfigurované v *function.json* souboru. Na portálu poskytuje uživatelské rozhraní pro tuto konfiguraci, ale můžete upravit soubor přímo změna **pokročilé editor**.
+
+Při vývoji funkce pomocí sady Visual Studio k vytvoření knihovny tříd, konfigurujete triggerů a vazeb a architekturu metody a parametry s atributy.
 
 ## <a name="supported-bindings"></a>Podporované vazby
 
@@ -42,66 +45,9 @@ Informace o tom, které jsou ve verzi preview vazby, nebo jsou schváleny pro po
 
 ## <a name="example-queue-trigger-and-table-output-binding"></a>Příklad: Aktivace fronty a tabulky Výstupní vazby
 
-Předpokládejme, že chcete k zápisu nového řádku do Azure Table Storage, vždy, když v Azure Queue Storage se objeví nová zpráva. Tento scénář může být implementovaná pomocí Azure Queue aktivační události a Azure Table Storage výstupní vazby. 
+Předpokládejme, že chcete k zápisu nového řádku do Azure Table storage, vždy, když v rámci Azure Queue storage se objeví nová zpráva. Tento scénář může být implementovaná pomocí Azure Queue aktivační událost úložiště a Azure Table storage výstupní vazby. 
 
-Aktivační událost INSTEAD Azure Queue Storage vyžaduje následující informace v **integrací** karty:
-
-* Název nastavení aplikace, který obsahuje připojovací řetězec pro účet úložiště Azure pro Azure Queue Storage
-* Název fronty
-* Identifikátor ve vašem kódu číst obsah zprávy ve frontě, jako například `order`.
-
-Zapsat do Azure Table Storage, použijte vazbu výstup s následujícími podrobnostmi:
-
-* Název nastavení aplikace, který obsahuje připojovací řetězec pro účet úložiště Azure pro úložiště tabulek Azure
-* Název tabulky
-* Identifikátor ve vašem kódu k vytvoření výstupní položky nebo návratovou hodnotou z funkce.
-
-Vazby použijte řetězce připojení s hodnotami uloženými v nastavení aplikace vynutit nejlepší praxi, který *function.json* neobsahuje tajné klíče služby a místo toho jednoduše obsahovat názvy nastavení aplikace.
-
-Potom pomocí identifikátorů, které jste zadali pro integraci s Azure Storage v kódu.
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json.Linq;
-
-// From an incoming queue message that is a JSON object, add fields and write to Table Storage
-// The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
-{
-    return new Person() { 
-            PartitionKey = "Orders", 
-            RowKey = Guid.NewGuid().ToString(),  
-            Name = order["Name"].ToString(),
-            MobileNumber = order["MobileNumber"].ToString() };  
-}
- 
-public class Person
-{
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
-    public string Name { get; set; }
-    public string MobileNumber { get; set; }
-}
-```
-
-```javascript
-// From an incoming queue message that is a JSON object, add fields and write to Table Storage
-// The second parameter to context.done is used as the value for the new row
-module.exports = function (context, order) {
-    order.PartitionKey = "Orders";
-    order.RowKey = generateRandomId(); 
-
-    context.done(null, order);
-};
-
-function generateRandomId() {
-    return Math.random().toString(36).substring(2, 15) +
-        Math.random().toString(36).substring(2, 15);
-}
-```
-
-Tady je *function.json* odpovídající předchozí kód. Všimněte si, že stejnou konfiguraci můžete použít, bez ohledu na jazyk implementace funkce.
+Tady je *function.json* souboru pro tento scénář. 
 
 ```json
 {
@@ -123,9 +69,88 @@ Tady je *function.json* odpovídající předchozí kód. Všimněte si, že ste
   ]
 }
 ```
+
+Prvním elementem v `bindings` pole je aktivační událost fronty úložiště. `type` a `direction` vlastnosti identifikovat aktivační událost. `name` Vlastnost identifikuje parametr funkce, která bude přijímat obsah zprávy fronty. Název fronty k monitorování se `queueName`, a připojovací řetězec je v nastavení aplikace identifikovaný `connection`.
+
+Druhý prvkem v `bindings` pole je Azure Table Storage výstup vazby. `type` a `direction` vlastnosti identifikovat vazby. `name` Vlastnost určuje, jak funkce zajistí řádku nové tabulky v tomto případě pomocí funkce návratovou hodnotu. Název tabulky se `tableName`, a připojovací řetězec je v nastavení aplikace identifikovaný `connection`.
+
 K zobrazení a úprava obsahu *function.json* na portálu Azure klikněte na tlačítko **pokročilé editor** možnost **integrací** kartě funkce.
 
-Další příklady kódu a informace o integraci s Azure Storage najdete v tématu [Azure Functions triggerů a vazeb pro Azure Storage](functions-bindings-storage.md).
+> [!NOTE]
+> Hodnota `connection` je název nastavení aplikace, který obsahuje připojovací řetězec, ne samotný připojovací řetězec. Vazby používat připojení řetězce, které jsou uložené v nastavení aplikace vynutit nejlepší praxi, který *function.json* neobsahuje tajné klíče služby.
+
+Zde je C# kód skriptu, který funguje s této aktivační události a vazby. Všimněte si, že je název parametru, který poskytuje obsah zprávy fronty `order`; tento název je povinný, protože `name` hodnoty vlastností v *function.json* je`order` 
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json.Linq;
+
+// From an incoming queue message that is a JSON object, add fields and write to Table storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
+{
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
+}
+ 
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
+```
+
+Pomocí funkce JavaScript lze použít ke stejnému souboru function.json:
+
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
+
+    context.done(null, order);
+};
+
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+Knihovny tříd, stejné aktivační události a informace o vazbě &mdash; názvu tabulky a fronty, účty úložiště, funkce parametry pro vstup a výstup &mdash; poskytuje atributy:
+
+```csharp
+ public static class QueueTriggerTableOutput
+ {
+     [FunctionName("QueueTriggerTableOutput")]
+     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
+     public static Person Run(
+         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
+         TraceWriter log)
+     {
+         return new Person() {
+                 PartitionKey = "Orders",
+                 RowKey = Guid.NewGuid().ToString(),
+                 Name = order["Name"].ToString(),
+                 MobileNumber = order["MobileNumber"].ToString() };
+     }
+ }
+
+ public class Person
+ {
+     public string PartitionKey { get; set; }
+     public string RowKey { get; set; }
+     public string Name { get; set; }
+     public string MobileNumber { get; set; }
+ }
+```
 
 ## <a name="binding-direction"></a>Směr vazby
 
@@ -135,9 +160,11 @@ Mají všechny triggerů a vazeb `direction` vlastnost *function.json* souboru:
 - Vstupní a výstupní vazby používat `in` a`out`
 - Některé vazby podporují speciální směr `inout`. Pokud používáte `inout`, jenom **pokročilé editor** je k dispozici v **integrací** kartě.
 
+Při použití [atributy v knihovně tříd](functions-dotnet-class-library.md) konfigurace triggerů a vazeb, směr uvedené v atributu konstruktoru nebo odvozené od typu parametru.
+
 ## <a name="using-the-function-return-type-to-return-a-single-output"></a>Použití návratový typ funkce pro vrácení jediného výstupu
 
-Předchozí příklad ukazuje, jak používat funkce návratovou hodnotu k poskytování výstup vazbu, což je dosaženo pomocí parametru speciální název `$return`. (Toto je jediná hodnota podporovaná v jazycích, které mají návratovou hodnotu, například C#, JavaScript a F #.) Pokud funkce má několik vazeb výstup, použijte `$return` pouze pro jeden z výstupu vazby. 
+Předchozí příklad ukazuje, jak používat funkce návratovou hodnotu k poskytování výstup vazbu, která je určena v *function.json* pomocí speciální hodnoty `$return` pro `name` vlastnost. (Toto je jediná hodnota podporovaná v jazycích, které mají návratovou hodnotu, jako je skript jazyka C#, JavaScript a F #.) Pokud funkce má několik vazeb výstup, použijte `$return` pouze pro jeden z výstupu vazby. 
 
 ```json
 // excerpt of function.json
@@ -149,7 +176,7 @@ Předchozí příklad ukazuje, jak používat funkce návratovou hodnotu k posky
 }
 ```
 
-Příklady níže ukazují jak návratové typy se používají s výstup vazeb v C#, JavaScript a F #.
+Příklady níže ukazují jak návratové typy se používají s výstup vazeb v C# skript, JavaScript a F #.
 
 ```cs
 // C# example: use method return value for output binding
@@ -190,9 +217,9 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>Vlastnost dataType vazby
 
-V rozhraní .NET použijte k definování datový typ pro vstupní data typy. Například použijte `string` k vytvoření vazby na text aktivační procedury fronty, bajtové pole pro čtení jako binární a vlastní typ k deserializaci na objekt objektů POCO.
+V rozhraní .NET použijte k definování typu dat pro vstupní data, typ parametru. Například použijte `string` k vytvoření vazby na text aktivační procedury fronty, bajtové pole pro čtení jako binární a vlastní typ k deserializaci na objekt objektů POCO.
 
-Pro jazyky, které jsou zadány dynamicky například JavaScript, použijte `dataType` vlastnost v definici vazby. Například pokud chcete číst obsah požadavku HTTP v binárním formátu, použijte typ `binary`:
+Pro jazyky, které jsou zadány dynamicky například JavaScript, použijte `dataType` vlastnost *function.json* souboru. Například číst obsah požadavku HTTP v binárním formátu, nastavte `dataType` k `binary`:
 
 ```json
 {
@@ -206,6 +233,7 @@ Pro jazyky, které jsou zadány dynamicky například JavaScript, použijte `dat
 Další možnosti pro `dataType` jsou `stream` a `string`.
 
 ## <a name="resolving-app-settings"></a>Řešení nastavení aplikace
+
 Jako osvědčený postup tajné klíče a připojovací řetězce musí být řízen pomocí nastavení aplikace, nikoli konfigurační soubory. To omezuje přístup na těchto tajných klíčů a umožňuje bezpečné uložení *function.json* v úložišti veřejné zdroj ovládacího prvku.
 
 Nastavení aplikace jsou užitečné také vždy, když chcete změnit konfiguraci na základě prostředí. Například v testovacím prostředí, můžete monitorovat jiný kontejner fronty nebo objekt blob úložiště.
@@ -228,11 +256,23 @@ Následující příklad je aktivační událost INSTEAD Azure Queue Storage, kt
 }
 ```
 
+Můžete použít ve stejný přístup v knihovny tříd:
+
+```csharp
+[FunctionName("QueueTrigger")]
+public static void Run(
+    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+}
+```
+
 ## <a name="trigger-metadata-properties"></a>Metadata vlastnosti aktivační události
 
 Kromě datová poskytované aktivační událost (například zprávy ve frontě, která aktivuje funkci) zadejte mnoho aktivační události hodnoty dalších metadat. Tyto hodnoty lze použít jako vstupní parametry v C# a F # nebo vlastnosti na `context.bindings` objektu v jazyce JavaScript. 
 
-Například aktivační procedury fronty Azure Storage podporuje následující vlastnosti:
+Například aktivační procedury fronty Azure storage podporuje následující vlastnosti:
 
 * QueueTrigger - aktivován obsah zprávy, pokud platný řetězec
 * DequeueCount
@@ -242,9 +282,7 @@ Například aktivační procedury fronty Azure Storage podporuje následující 
 * NextVisibleTime
 * Vlastnosti PopReceipt
 
-Podrobnosti o vlastnosti metadat pro jednotlivé aktivační události jsou popsané v odpovídajícího tématu. Je také dostupná v dokumentaci **integrací** karta portálu v **dokumentace** části níže oblast konfigurace vazby.  
-
-Například vzhledem k tomu, že aktivační události objektu blob mají některé zpoždění, můžete použít aktivační procedury fronty ke spuštění funkce (viz [aktivační událost úložiště objektů Blob](functions-bindings-storage-blob.md#trigger)). Zprávy ve frontě by obsahovat název souboru objektů blob k aktivaci na. Pomocí `queueTrigger` vlastnost metadat, toto chování můžete zadat všechny v konfiguraci, nikoli kódu.
+Tyto hodnoty metadata jsou dostupné v *function.json* vlastnosti souboru. Předpokládejme například, použít aktivační událost fronty a zprávy ve frontě obsahuje název objektu blob, které chcete číst. V *function.json* souboru, můžete použít `queueTrigger` metadata vlastnost v objektu blob `path` vlastnost, jak je znázorněno v následujícím příkladu:
 
 ```json
   "bindings": [
@@ -264,13 +302,13 @@ Například vzhledem k tomu, že aktivační události objektu blob mají někte
   ]
 ```
 
-Metadata vlastnosti aktivační události lze také v *vazby výraz* pro jiné vazbu, jak je popsáno v následující části.
+Podrobnosti o vlastnosti metadat pro jednotlivé aktivační události jsou popsané v článku na odpovídající odkaz. Příklad, naleznete v části [frontě aktivační události metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Je také dostupná v dokumentaci **integrací** karta portálu v **dokumentace** části níže oblast konfigurace vazby.  
 
 ## <a name="binding-expressions-and-patterns"></a>Výrazy vazba a vzory
 
-Jedním z nejúčinnějších funkce triggerů a vazeb je *vazby výrazy*. V rámci vaší vazba, můžete definovat vzor výrazy, které lze poté použít v jiné vazby nebo kódu. Aktivační událost metadata mohou sloužit také v vazby výrazy, jak je vidět v ukázce v předchozí části.
+Jedním z nejúčinnějších funkce triggerů a vazeb je *vazby výrazy*. V konfiguraci pro vazbu můžete definovat vzor výrazy, které se dají použít v jiné vazby nebo kódu. Metadata aktivační události lze také ve výrazech vazby, jak je uvedeno v předchozí části.
 
-Předpokládejme například, kterou chcete změnit velikost bitové kopie v kontejneru konkrétní objektu blob úložiště, podobně jako **Úprava velikosti obrázku** šablony v **novou funkci** stránky. Přejděte na **novou funkci** -> jazyka **C#** -> scénář **ukázky** -> **ImageResizer CSharp**. 
+Předpokládejme například, kterou chcete změnit velikost bitové kopie v konkrétním kontejneru objektů blob úložiště, podobně jako **Úprava velikosti obrázku** šablony v **novou funkci** stránce portálu Azure (najdete v článku **ukázky**  scénář). 
 
 Tady je *function.json* definice:
 
@@ -295,7 +333,7 @@ Tady je *function.json* definice:
 }
 ```
 
-Všimněte si, že `filename` parametr se používá v definici aktivační události objektu blob jak objektu blob výstup vazby. Tento parametr můžete použít také v kódu funkce.
+Všimněte si, že `filename` parametr se používá v definici aktivační události objektu blob a objekt blob výstup vazby. Tento parametr můžete použít také v kódu funkce.
 
 ```csharp
 // C# example of binding to {filename}
@@ -309,9 +347,41 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
+Stejné možnost používat výrazy vazba a vzory se vztahuje na atributy v knihovny tříd. Zde je například bitová kopie Změna velikosti funkce v knihovně tříd:
 
-### <a name="random-guids"></a>Náhodné identifikátory GUID
-Azure Functions nabízí pohodlí syntaxe pro generování identifikátory GUID v vazby, prostřednictvím `{rand-guid}` vazby výraz. Následující příklad používá ke generování objektů blob jedinečný název toto: 
+```csharp
+[FunctionName("ResizeImage")]
+[StorageAccount("AzureWebJobsStorage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```
+
+### <a name="create-guids"></a>Vytvoření identifikátory GUID
+
+`{rand-guid}` Vazby výraz vytvoří identifikátor GUID. Následující příklad používá k vytvoření název objektu blob jedinečný identifikátor GUID: 
 
 ```json
 {
@@ -324,7 +394,7 @@ Azure Functions nabízí pohodlí syntaxe pro generování identifikátory GUID 
 
 ### <a name="current-time"></a>Aktuální čas
 
-Můžete použít výraz vazby `DateTime`, který přeloží na `DateTime.UtcNow`.
+Výraz vazby `DateTime` přeloží na `DateTime.UtcNow`.
 
 ```json
 {
@@ -335,7 +405,7 @@ Můžete použít výraz vazby `DateTime`, který přeloží na `DateTime.UtcNow
 }
 ```
 
-## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Vytvoření vazby na vlastní vstupní vlastnosti ve výrazu vazby
+## <a name="bind-to-custom-input-properties"></a>Vytvoření vazby na vlastní vstupní vlastnosti
 
 Vazba výrazy můžete taky odkazovat vlastnosti, které jsou definovány v datové části aktivační událost sám sebe. Například můžete dynamicky vázat na soubor úložiště objektů blob ze součástí webhook, jehož název souboru.
 
@@ -408,13 +478,14 @@ module.exports = function (context, info) {
 
 ## <a name="configuring-binding-data-at-runtime"></a>Konfigurace vazba dat za běhu
 
-V jazyce C# a jinými jazyky rozhraní .NET, můžete použít imperativní vazby vzoru oproti deklarativní vazeb v *function.json*. Imperativní vazba je užitečné, když vázané parametry muset počítaný v době běhu spíše než návrhu. Další informace najdete v tématu [vazby za běhu prostřednictvím imperativní vazby](functions-reference-csharp.md#imperative-bindings) v referenci vývojáře jazyka C#.
+V jazyce C# a jinými jazyky rozhraní .NET, můžete použít imperativní vazby vzoru oproti deklarativní vazeb v *function.json* a atributy. Imperativní vazba je užitečné, když vázané parametry muset počítaný v době běhu spíše než návrhu. Další informace najdete v tématu [vazby za běhu prostřednictvím imperativní vazby](functions-reference-csharp.md#imperative-bindings) v referenci vývojáře jazyka C#.
 
 ## <a name="functionjson-file-schema"></a>Schéma souboru Function.JSON
 
 *Function.json* schéma souboru je k dispozici na [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="next-steps"></a>Další postup
+
 Další informace o konkrétní vazbu najdete v následujících článcích:
 
 - [HTTP a webhooky](functions-bindings-http-webhook.md)
