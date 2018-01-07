@@ -8,11 +8,11 @@ S zveřejnit chyby zabezpečení jsme [accelerated načasování plánované úd
  
 ## <a name="how-can-i-see-which-of-my-vms-are-already-updated"></a>Jak můžu zjistit, které z virtuálních počítačů jsou již aktualizovat? 
 
-Zobrazí stav virtuálních počítačů a pokud restartování dokončeny v rámci v [seznamu virtuálních počítačů na portálu Azure](https://aka.ms/T08tdc). Virtuální počítače se objeví jako "Již aktualizace" Pokud aktualizace byla použita, nebo "Plánovanou", pokud je aktualizace stále potřeba. Pokud chcete zobrazit jenom virtuální počítače "Naplánované" odkazovat na vaše [stavu služby Azure](https://portal.azure.com/).
+Zobrazí stav virtuálních počítačů, a pokud dokončit restartování, [seznamu virtuálních počítačů na portálu Azure](https://aka.ms/T08tdc). Virtuální počítače jsou uvedeny jako "Již aktualizace", pokud aktualizace byla použita, nebo "Plánovanou", pokud je aktualizace stále potřeba. Pokud chcete zobrazit jenom virtuální počítače "Naplánované" odkazovat na vaše [stavu služby Azure](https://portal.azure.com/).
 
 ## <a name="can-i-find-out-exactly-when-my-vms-will-be-rebooted"></a>Můžete zjistit přesně při virtuálních počítačů bude restartován?
 
-Nejlepší způsob, jak zobrazit výstrahu o restartování, je konfigurace [naplánované události](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). To poskytuje oznámení 15 minut virtuálního počítače směrem dolů z důvodu údržby – umožňuje volání rozhraní API k virtuálnímu počítači a, kromě toho lze použít záznam protokolu aktivit k aktivační události monitorování Azure k odesílání e-mailů, SMS nebo webhooky. Není možné zajistit žádné dřívější oznámení.
+Nejlepší způsob, jak zobrazit výstrahu o restartování, je konfigurace [naplánované události](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). To poskytuje oznámení 15 minut virtuálního počítače z důvodu údržby směrem dolů.
 
 ## <a name="can-i-manually-redeploy-now-to-perform-the-required-maintenance"></a>I ručně znovu nasadit teď k provedení požadované údržby? 
 
@@ -24,7 +24,7 @@ Většina restartování trvá přibližně **30 minut**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Podporuje hostované operačního systému je nutné aktualizovat? 
 
-Tato aktualizace infrastruktury Azure adresy známé chyby zabezpečení na úrovni hypervisoru a nevyžaduje aktualizaci bitové kopie systému Windows nebo virtuálního počítače s Linuxem. Jako vždy, ale by měly pokračovat použít osvědčené postupy zabezpečení pro vaše Image virtuálních počítačů. Obraťte se na dodavatele vaše operační systémy pro aktualizace a pokyny, podle potřeby. Pokyny pro zákazníky, virtuální počítač Windows serveru, se teď publikoval a zde jsou k dispozici.
+Tato aktualizace infrastruktury Azure adresy známé chyby zabezpečení na úrovni hypervisoru a nevyžaduje aktualizaci bitové kopie systému Windows nebo virtuálního počítače s Linuxem. Jako vždy, ale by měly pokračovat použít osvědčené postupy zabezpečení pro vaše Image virtuálních počítačů. Obraťte se na dodavatele vaše operační systémy pro aktualizace a pokyny, podle potřeby. Pro virtuální počítač Windows serveru zákazníky pokyny teď po publikování a je k dispozici [zde](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Bude k dispozici dopad na výkon v důsledku této aktualizace řešení?
 
