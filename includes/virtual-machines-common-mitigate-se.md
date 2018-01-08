@@ -1,74 +1,52 @@
 
- 
-Poslední zveřejnění [nová třída ohrožení zabezpečení procesoru](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) se označuje jako spekulativní provádění straně kanál útoky má za následek otázky z zákazníky, kteří potřebují další přehlednost. 
+**Poslední aktualizace dokumentů**: 6 leden 6:30 PM PST.
 
- 
-## <a name="azure-infrastructure"></a>Infrastrukturu Azure
+Poslední zveřejnění [nová třída ohrožení zabezpečení procesoru](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) se označuje jako spekulativní provádění straně kanál útoky má za následek otázky z zákazníky, kteří potřebují další přehlednost.  
 
-Problémy popsané v zpřístupnění ohrožení zabezpečení by bylo možné obejít hranici hypervisoru a umožnit přístup k paměti mezi dvěma společně hostované virtuální počítače. Jsou uvedeny v předchozím kroku [příspěvku na blogu](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/), Azure má použít jejich zmírnění chránit zákazníky před toto ohrožení zabezpečení.  Společnost Microsoft doporučuje vždy zákazníkům instalaci osvědčené postupy zabezpečení pro vaše Image virtuálních počítačů, včetně instalace všech aktualizací zabezpečení od jejich dodavatele operačního systému.
+Je chráněn infrastrukturu, která používá Azure a izoluje úloh zákazníka od sebe navzájem.  To znamená, spuštěné v Azure se zákazníci navzájem nelze napadnout vaší aplikace pomocí těchto chyb zabezpečení.
 
-## <a name="paas-services-on-azure"></a>PaaS služeb v Azure
-Nabídky Azure PaaS mít ve výchozím nastavení nasazené způsoby zmírnění rizik. Zákazníci nevyžaduje žádnou akci. Azure Cloud Services výjimky jsou uvedeny níže.  
+## <a name="keeping-your-operating-systems-up-to-date"></a>Průběžná aktualizace operačních systémů
 
+Při aktualizaci operačního systému není potřeba izolace aplikace od ostatních zákazníků spuštěné v Azure spuštěné v Azure, vždycky je osvědčeným postupem zachovat aktuální verze operačního systému. 
 
-## <a name="azure-cloud-services"></a>Azure Cloud Services
+V následující nabídky Zde jsou naše doporučené akce k aktualizaci operačního systému: 
 
-[Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) s automatickou aktualizaci automaticky povoleno přijímat verzi hostovaného operačního systému, která zahrnuje jejich zmírnění pro tyto chyby zabezpečení. 
+<table>
+<tr>
+<th>Nabídka</th> <th>Doporučená akce </th>
+</tr>
+<tr>
+<td>Azure Cloud Services </td>  <td>Povolit automatickou aktualizaci nebo Ujistěte se, že používáte nejnovější hostovaného operačního systému.</td>
+</tr>
+<tr>
+<td>Virtuální počítače s Linuxem v Azure</td> <td>Nainstalujte aktualizace od poskytovatele operačního systému, pokud je k dispozici. </td>
+</tr>
+<tr>
+<td>Virtuální počítače s Azure Windows </td> <td><ul><li>Ověřte, že používáte podporovanou antivirový aplikaci před instalací aktualizací operačního systému. Informace o kompatibilitě, obraťte se na dodavatele antivirového softwaru. </li> <li> Nainstalujte [souhrn leden zabezpečení](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+</tr>
+<tr>
+<td>Další služby Azure PaaS</td> <td>Je vyžadována pro zákazníky, kteří používají tyto služby žádná akce. Azure automaticky udržuje vaší verze operačního systému aktuálním stavu. </td>
+</tr>
+</table>
 
-Následující verze hostovaného operačního systému zahrnují aktualizace s ochranná opatření proti ohrožení zabezpečení kanálu spekulativní provádění straně:
+## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Další pokyny, pokud používáte nedůvěryhodnými 
 
-* WA-GUEST-OS-5.15_201801-01
-* WA-GUEST-OS-4.50_201801-01
-
-
-Malý počet zákazníků týkající se použití cloudových služeb Azure k hostování nedůvěryhodnými měli taky povolit [jádra virtuální adresu stínováním](#enabling-kernel-virtual-address-shadowing-on-windows-server) kromě aktualizace hostovaného operačního systému. To zajišťuje zvýšenou ochranu proti spekulativní provádění straně kanál ohrožení zabezpečení. Můžete to provést prostřednictvím úkolu spuštění. Další informace o tom, které zákazníci a scénáře použití vyžadují tato funkce a jak ji chcete povolit, najdete níže.
-
-
-## <a name="azure-virtual-machines-windows--linux"></a>Virtuální počítače Azure (Windows a Linux)
-
-Microsoft vždy doporučuje, aby zákazníci nainstalovat všechny aktualizace zabezpečení. 
-
-Souhrn zabezpečení leden 2018 obsahuje opravy pro tyto chyby zabezpečení a další. Ověřte, že používáte podporovanou antivirový aplikaci před instalací aktualizací operačního systému. Kontaktujte dodavatele antivirového softwaru pro informace o kompatibilitě. 
-
-Na adresu v spekulativní provádění slabá místa zabezpečení, aktualizace Linux jádra se bude vyžadovat a získáte od svého poskytovatele distribuce, pokud je k dispozici. 
-
-Malý počet zákazníkům, kteří používají virtuální počítače Azure (Windows) pro hostování nedůvěryhodnými měli taky povolit [jádra virtuální adresu stínováním](#enabling-kernel-virtual-address-shadowing-on-windows-server) který zajišťuje zvýšenou ochranu proti spekulativní provádění straně kanálu chyby zabezpečení.  Další informace, o které zákazníků a využití scénáře vyžadují tato funkce a jak jej povolit najdete níže.
-
-
-## <a name="enabling-kernel-virtual-address-shadowing-on-windows-server"></a>Povolení virtuální adresy jádra stínový provoz v systému Windows Server
-
-Zákazníci, kteří používají Windows Server ke spouštění kódu vytvořeného nedůvěryhodné měli povolit funkci nazvanou jádra virtuální adresu stínový provoz, který poskytuje ochranu pro systémy, kde je prováděna nedůvěryhodnými s nízkou uživatelská oprávnění.
-
-Tato dodatečná ochrana může mít vliv na výkon a je ve výchozím nastavení vypnuté. Jádra virtuální adresu stínováním chrání před zpřístupnění informací procesu proces a procesu jádra.
-
-Vaše virtuální počítače, cloudové služby nebo místní servery jsou ohroženy v případě jejich spadat do jednoho z následujících kategorií:
-
-* Azure vnořené virtualizace hostitele Hyper-V
-* Vzdálené plochy (RDSH) hostitele
-* Virtuální počítače nebo cloudové služby, které jsou spuštění nedůvěryhodné kódu jako kontejnery nebo nedůvěryhodné rozšíření pro databázi, nedůvěryhodné webového obsahu nebo úlohy, které spustit kód, který zajišťuje z externích zdrojů.
-
-Příkladem scénáře, kde je nutné použít jádra virtuální adresu stínový provoz: 
-
-|     |
-|-----|
-|Virtuální počítač Azure je spuštěna služba kam nedůvěryhodné uživatelé mohou odesílat kód JavaScript, který se spustí s omezenými oprávněními. Na stejný virtuální počítač existuje vysoce privilegované procesu, který obsahuje tajných dat, která nesmí být dostupný pro tyto uživatele. V takovém případě je potřebné k zajištění ochrany proti úniku mezi těmito dvěma jádra virtuální adresu stínový provoz.|
-|     | 
-
-Konkrétní pokyny k povolení jádra virtuální adresu stínováním jsou k dispozici prostřednictvím [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution).
+Pokud používáte nedůvěryhodnými není vyžadována žádná akce další odběratele. Pokud povolíte kód, který si nejste jisti, (například povolíte jednomu z vašich zákazníků nahrát binární nebo fragmentu, který potom spusťte v cloudu v rámci vaší aplikace), pak by měla být provedena následující kroky.  
 
 
-> [!NOTE]
-> V době publikace jádra virtuální adresu stínový provoz je k dispozici pouze v systému Windows Server 2016, Windows Server 2012 R2 a Windows Server 2008 R2.  
->
->
+### <a name="windows"></a>Windows 
+Pokud používáte systém Windows a hostování nedůvěryhodnými, měli byste také povolit funkci Windows seznamu Zastínění virtuální adresy jádra (KVA), který zajišťuje zvýšenou ochranu zranitelná straně kanál spekulativní provádění. Tato funkce je ve výchozím nastavení vypnuté a mohou ovlivnit výkon, pokud je povoleno. Postupujte podle [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pokyny pro povolení ochrany na serveru. Pokud používáte Azure Cloud Services, ověřte, že používáte WA-hosta-operačního systému-5.15_201801-01 nebo WA-hosta-operačního systému-4.50_201801-01 (dostupné od verze v lednu 10) a povolit registru klíče prostřednictvím úkolu spuštění.
 
-Pokud používáte Linux Server, obraťte se na dodavatele vaše operační systémy pro aktualizace a pokyny.
 
-## <a name="branch-target-injection-mitigation-support-microcode"></a>Větev cíl vkládání zmírnění podporu (mikrokódu)
+### <a name="linux"></a>Linux
+Pokud používáte Linux a hostování nedůvěryhodnými, měli byste také aktualizovat Linux na novější verzi, která implementuje izolace tabulky stránky jádra (KPTI), který odděluje tabulky stránky použít v jádru od těch náležící do prostoru uživatele. Tyto způsoby zmírnění vyžadují aktualizaci operační systém Linux a získáte od svého poskytovatele distribuce, pokud je k dispozici. Poskytovatel operačního systému lze zjistit, jestli jsou ochranu povolit nebo zakázat ve výchozím nastavení.
 
-Zákazníci, kteří používají nástroje, které zjišťovat existenci způsoby zmírnění rizik na základě mikrokódu hlášení, že neopravené Azure. Toto je nesprávný. Během této publikace nebude vystavena větve cíl vkládání zmírnění podpory z Azure Hypervisor do virtuálních počítačů Azure nebo Azure Cloud Services. To znamená, že virtuální počítače nebudou o existenci mikrokódu a nemůžete použít jeho sada rozšířená instrukcí. To neznamená, že je Azure bude zranitelný vůči útokům kanál straně spekulativní provádění cross-VM.
- 
-Jak jsme pracovat s partnery v tomto oboru může dostupné další aktualizace.
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>Další postup
 

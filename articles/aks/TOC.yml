@@ -39,21 +39,25 @@
       href: kubernetes-helm.md
     - name: Vývoj aplikací pomocí Draft
       href: kubernetes-draft.md
-    - name: Zachování data s Azure Files
-      href: azure-files.md
     - name: Integrace s Azure s využitím OSBA
       href: integrate-azure.md
     - name: Použití řídicího panelu Kubernetes
       href: kubernetes-dashboard.md
     - name: Vytvoření instančního objektu
       href: kubernetes-service-principal.md
+    - name: Konfigurace svazků s daty
+      items:
+        - name: Soubory Azure – trvalý svazek
+          href: azure-files-dynamic-pv.md
+        - name: Soubory Azure – svazek
+          href: azure-files.md
 - name: Referenční informace
   items:
     - name: Azure CLI
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Dostupnost v oblastech
       href: 'https://azure.microsoft.com/regions/services/'

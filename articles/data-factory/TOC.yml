@@ -303,6 +303,8 @@
       items:
         - name: Vytvoření aktivační události plánu
           href: how-to-create-schedule-trigger.md
+        - name: Vytvoření aktivační události pro přeskakující okno
+          href: how-to-create-tumbling-window-trigger.md
 - name: Referenční informace
   items:
     - name: .NET
@@ -313,7 +315,7 @@
       href: /rest/api/datafactory
     - name: Python
       href: /python/api/overview/azure/datafactory?view=azure-python
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Nejčastější dotazy
       href: frequently-asked-questions.md

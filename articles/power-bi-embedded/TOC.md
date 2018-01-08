@@ -1,5 +1,5 @@
 # Přehled
-## [Co je Power BI Embedded?](what-is-power-bi-embedded.md)
+## [Informace o službě Power BI Embedded](what-is-power-bi-embedded.md)
 
 # Začínáme
 ## [Začínáme s Power BI Embedded](get-started.md)
@@ -21,22 +21,20 @@
 # Ukázky
 ## [Ukázky kódu](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [Ukázkový názorný postup](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
+## [Vložená ukázka JavaScriptu](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 # Referenční informace
 ## Rozhraní API
 ### [Rozhraní REST API pro správu prostředků Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [Rozhraní REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
-## Sady SDK
-### [Stažení sady .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
-### [Stažení sady JavaScript SDK](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
+### [Rozhraní REST API pro Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 
-# Zdroje
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Vložená ukázka JavaScriptu](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Apiary](http://docs.powerbi.apiary.io/)
+# Zdroje a prostředky
+## [Komunita Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Stažení sady .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+## [Stažení sady JavaScript SDK](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## Úložiště GitHub
-### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
-### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Komunita Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+### [.NET pro Power BI](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript pro Power BI](https://github.com/Microsoft/PowerBI-JavaScript)
+
 

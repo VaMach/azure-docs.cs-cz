@@ -4,7 +4,7 @@ description: "Výstrahy v Log Analytics identifikovat důležité informace ve s
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 6cfd2a46-b6a2-4f79-a67b-08ce488f9a91
 ms.service: log-analytics
@@ -12,23 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Vysvětlení výstrah v analýzy protokolů
 
-Výstrahy v Log Analytics identifikovat důležité informace do úložiště analýzy protokolů.  Tento článek obsahuje podrobnosti o tom, jak výstrahy pravidlech pracovního analýzy protokolů a popisuje rozdíly mezi různé typy pravidla výstrah.
+Výstrahy v Log Analytics identifikovat důležité informace do úložiště analýzy protokolů.  Tento článek popisuje některé z rozhodnutí o návrhu, které musí být provedeny na základě četnosti shromažďování dat je předmětem dotazu, náhodné zpoždění s přijímání dat může být způsobeno latence sítě nebo zpracování kapacitu a potvrzování data do protokolu Analýza úložiště.  Také poskytuje podrobnosti o tom, jak výstrahy pravidlech pracovního analýzy protokolů a popisuje rozdíly mezi různé typy pravidla výstrah.
 
 Proces vytváření pravidla výstrah najdete v následujících článcích:
 
 - Vytvořit pravidla výstrah pomocí [portálu Azure](log-analytics-alerts-creating.md)
 - Vytvořit pravidla výstrah pomocí [šablony Resource Manageru](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
 - Vytvořit pravidla výstrah pomocí [REST API](log-analytics-api-alerts.md)
+
+## <a name="considerations"></a>Požadavky
+
+Podrobnosti o frekvenci shromažďování dat pro různá řešení a typu dat jsou k dispozici v [podrobnosti kolekce dat](log-analytics-add-solutions.md#data-collection-details) článku Přehled řešení. Jak je uvedeno v tomto článku, může být frekvence kolekce jako nepravidelným jako každých 7 dní na *na oznámení*. Je důležité pochopit a vezměte v úvahu interval shromažďování dat před nastavením výstrahu. 
+
+- Frekvence kolekce Určuje, jak často bude posílat data do analýzy protokolů agenta OMS na počítačích. Například pokud frekvence kolekce je 10 minut a neexistují žádné další zpoždění v systému, potom časová razítka přenášených dat může být kdekoli od 0 do 10 minut před přidávané do úložiště a je vyhledávat v analýzy protokolů.
+
+- Předtím, než může být výstraha, data musí být zapsané do úložiště, aby bylo k dispozici, pokud dotaz. Z důvodu latence popsané výše není frekvence kolekce stejný jako čas, kdy data je k dispozici pro dotazy. Například při data mohou být shromažďována přesněji každých 10 min, data budou k dispozici v úložišti dat nepravidelných intervalech. Shromažďovaných dat v počtu nula, 10 a 20 minut intervalech hypoteticky, může být k dispozici pro vyhledávání v 25, 28 a 35 minut v uvedeném pořadí, nebo v některých nestandardní intervalu ovlivněné přijímání latence. Nejhorším případě pro tyto zpoždění dokumentovány v článku [SLA pro analýzy protokolů](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), který nezahrnuje zpoždění zaváděné kolekce latence frekvence nebo síti mezi počítači a analýzy protokolů služby.
 
 
 ## <a name="alert-rules"></a>Pravidla výstrah
@@ -37,11 +45,27 @@ Výstrahy jsou vytvářeny pravidla výstrah, které automaticky spustit vyhled�
 
 ![Výstrahy Log Analytics](media/log-analytics-alerts/overview.png)
 
+Vzhledem k tomu, že dojde předpokládaného latence s přijímání dat protokolu, může nepředvídatelné absolutním čase mezi indexování dat a pokud je k dispozici pro vyhledávání.  Dostupnost téměř v reálném čase data shromážděná třeba vzít v úvahu při vytváření definice pravidla výstrah.    
+
+Je kompromis mezi spolehlivost výstrah a odezvy výstrahy. Můžete nakonfigurovat parametry alert, chcete-li minimalizovat false výstrahy a chybějící výstrahy, nebo můžete výstrahy parametry rychle reagovat na podmínky, které jsou monitorovány, ale někdy vytvoří false nebo zmeškaných výstrahy.
+
 Pravidla výstrah jsou definovány následující podrobnosti:
 
 - **Hledání protokolů**.  Dotaz, který se spustí pokaždé, když se aktivuje pravidlo výstrahy.  Vrácené tímto dotazem záznamy slouží k určení, jestli se má vytvořit výstrahu.
-- **Časový interval**.  Určuje časový rozsah pro dotaz.  Dotaz vrátí pouze záznamy, které byly vytvořeny v tomto rozsahu aktuální čas.  To může být libovolná hodnota 5 minut až 24 hodin. Například pokud časový interval je nastavena na 60 minut a spuštění dotazu: 15: 00, je vrácena pouze záznamy vytvořené 12:15:00 až 1:15 hodin.
-- **Frekvence**.  Určuje, jak často se má spustit dotaz. Může být libovolná hodnota 5 minut až 24 hodin. Musí být rovna nebo menší než časový interval.  Pokud hodnota je větší než časový interval, riskujete záznamů je vynechán.<br>Představte si třeba časové okno 30 minut a četnost 60 minut.  Pokud je v 1:00 spustit dotaz, vrátí záznamy 12:30 až 1:00 PM.  Při příštím spuštění dotazu by je 2:00, když měla by vrátit záznamy 1:30 až 2:00.  Všechny záznamy vytvořené 1:00 až 1:30 by nikdy vyhodnotí.
+- **Časový interval**.  Určuje časový rozsah pro dotaz.  Dotaz vrátí pouze záznamy, které byly vytvořeny v tomto rozsahu aktuální čas.  To může být libovolná hodnota 5 minut až 24 hodin. Rozsah musí být dost široké, aby dokázala pojmout přiměřené zpoždění při přijímání. Časový interval musí být dvakrát délka nejdelší zpoždění, které chcete být schopna zpracovávat.<br> Například pokud chcete generovat výstrahy za spolehlivé pro zpoždění 30 minut, pak rozsahu musí být jedna hodina.  
+
+    Existují dvě příznaků, kterým může dojít, pokud časový rozsah je příliš malá.
+
+    - **Chybí výstrahy**. Předpokládejme přijímání zpoždění je 60 minut někdy, ale ve většině případů je 15 minut.  Pokud je nastavený časový interval na 30 minut se bude při zpoždění je 60 minut, protože data nebudou k dispozici pro vyhledávání, když se spustí výstraha dotazu neproběhly výstrahu. 
+   
+        >[!NOTE]
+        >Při pokusu o diagnostikovat, proč je provedena výstrahy není možné. Například v případě výše, budou data zapsána do úložiště 60 minut, jakmile je výstraha dotazu byla spuštěna. Pokud je jeho si všimli další den výstrahu nebyla provedena, a další den bude dotaz proveden prostřednictvím správný časový interval, kritéria hledání protokolu vyhovovat výsledek. Zdá se, že by měl mít byla výstraha. Ve skutečnosti nebyl výstraha vzhledem k tomu, že data nebyla k dispozici při je výstraha dotazu byla spuštěna. 
+        >
+ 
+    - **False výstrahy**. Někdy výstrahy dotazy slouží k identifikaci absence událostí. Příkladem toho je zjišťování, pokud je virtuální počítač offline vyhledáním zmeškaných prezenčních signálů. Jako výše, pokud prezenční signál není k dispozici pro vyhledávání v rámci výstrahy časový interval, pak výstrahy je vytvořena, protože data prezenčního signálu dosud nebyl s možností vyhledávání a proto chybí. Toto je stejný výsledek, jako by byl legálně offline virtuálního počítače a se žádná data prezenčního signálu generované ho. Provádění dotazu další den přes správné časové okno se zobrazí, že nastaly prezenčních signálů a výstrahy se nezdařilo. Ve skutečnosti má vysílat prezenční signál nebyla ještě dostupná pro hledání kvůli výstrahy časový interval byl nastaven příliš malá.  
+
+- **Frekvence**.  Určuje, jak často dotaz by měl být spuštěn a slouží k dosáhnete rychlejší reakce pro případ, normální výstrahy. Hodnota může být v rozmezí 5 minut a 24 hodin a musí být rovna nebo menší než výstrahy časový interval.  Pokud hodnota je větší než časový interval, riskujete záznamů je vynechán.<br>Pokud je cílem za spolehlivé pro zpozdí až 30 minut a normální zpoždění je 10 minut, časový interval by měl být jednu hodinu a hodnota frekvence by měla být 10 minut. To by spustí výstrahu s daty, která má 10 minut přijímání zpoždění mezi 10 a 20 minut, kdy data výstrah vygenerován.<br>Aby se zabránilo vytvoření více výstrah pro stejná data, protože je příliš široké, časový interval [potlačení výstrahy](log-analytics-tutorial-response.md#create-alerts) možnost můžete použít k potlačení výstrahy pro alespoň stejně dlouho jako časový interval.
+  
 - **Prahová hodnota**.  Výsledky hledání protokolů se vyhodnocují k určení, zda má být vytvořena výstraha.  Prahová hodnota se liší pro různé typy pravidla výstrah.
 
 Každé pravidlo výstrahy v analýzy protokolů je jedním ze dvou typů.  Každý z těchto typů je podrobně popsány v následujících částech.
@@ -76,18 +100,15 @@ V některých případech můžete vytvořit výstrahu při absenci událost.  T
 
 Například, pokud chcete upozornit, když procesor běží víc než 90 %, byste použili dotazu jako následující s prahovou hodnotou pro pravidlo výstrahy **větší než 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-    
+Pokud chcete upozornit, když procesor průměrem více než 90 % pro konkrétní časové okno, byste použili dotazu pomocí [měření příkaz](log-analytics-search-reference.md#commands) jako na následujícím obrázku se prahová hodnota pro pravidlo výstrahy **větší než 0**.
 
-Pokud chcete upozornit, když procesor průměrem více než 90 % pro konkrétní časové okno, by použití dotazu jako následující s prahovou hodnotou pro pravidlo výstrahy **větší než 0**.
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
-
-    
 >[!NOTE]
-> Pokud pracovního prostoru ještě nebyla upgradována na [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak výše dotazy by změnit na následující pozdější prostřednictvím [měření příkaz](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
-> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
+> Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak výše dotazy by změnit na následující:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>Pravidla výstrah metriky měření
@@ -102,7 +123,7 @@ I když můžete používat pro jakýkoli dotaz **počet výsledků** pravidlo v
 
 - **Agregační funkce**.  Určuje výpočet, který provádí a potenciálně číselného pole k agregaci.  Například **count()** vrátí počet záznamů v dotazu, **avg(CounterValue)** Vrátí průměrnou hodnotu pole přepočtené průběhu intervalu.
 - **Pole Seskupit**.  Pro každou instanci v tomto poli se vytvoří záznam s hodnotou agregované a výstraha může vygenerovat pro každý.  Například pokud chcete generovat výstrahy pro každý počítač, byste použili **počítačem**.   
-- **Interval**.  Definuje časový interval, za které agregovaná data.  Například pokud jste zadali **5minutes**, by se vytvoří záznam pro každou instanci pole skupiny v okně čas zadaný pro výstrahu agregován v intervalech 5 minut.
+- **Interval**.  Definuje časový interval, za které agregovaná data.  Například pokud jste zadali **5 minut**, by se vytvoří záznam pro každou instanci pole skupiny v okně čas zadaný pro výstrahu agregován v intervalech 5 minut.
 
 #### <a name="threshold"></a>Prahová hodnota
 Prahová hodnota pro pravidla výstrah metriky měření je definována agregovaná hodnota a celou řadu.  Pokud žádné datového bodu v hledání protokolů překročí tuto hodnotu, považuje za porušení.  Pokud počet porušení v u všech objektů ve výsledcích překročí zadanou hodnotu, se vytvoří výstraha pro tento objekt.
@@ -110,11 +131,11 @@ Prahová hodnota pro pravidla výstrah metriky měření je definována agregova
 #### <a name="example"></a>Příklad:
 Vezměte v úvahu scénář, kde jste chtěli výstrahu překračování libovolného počítače využití procesoru 90 % třikrát více než 30 minut.  Vytvoříte pravidlo výstrahy s následujícími podrobnostmi.  
 
-**Dotaz:** výkonu | kde ObjectName == "Procesor" a název_čítače == "% času procesoru" | shrnout AggregatedValue = avg(CounterValue) podle bin (TimeGenerated, 5 m), počítač<br>
+**Dotaz:** typ = výkonu ObjectName = název_čítače procesoru = "% času procesoru" | měření avg(CounterValue) počítače interval 5 minut<br>
 **Časový interval:** 30 minut<br>
 **Frekvence výstrah:** 5 minut<br>
 **Agregace hodnota:** větší než 90<br>
-**Aktivační událost upozornění na základě:** celkem poruší větší než 2<br>
+**Aktivační událost upozornění na základě:** celkem poruší větší než 5<br>
 
 Dotaz by vytvořit průměrnou hodnotu pro každý počítač v intervalech 5 minut.  Tento dotaz by spustit každých 5 minut datech shromážděných za předchozí 30 minut.  Ukázková data jsou uvedené dole pro tři počítače.
 
@@ -146,5 +167,5 @@ Existují jiné typy záznamů výstrahy vytvořené [řešení pro správu výs
 ## <a name="next-steps"></a>Další postup
 * Nainstalujte [řešení pro správu výstrah](log-analytics-solution-alert-management.md) k analýze výstrahy vytvořené v analýzy protokolů společně s výstrahy shromážděných z System Center Operations Manager.
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) , mohou generovat výstrahy.
-* Dokončete průvodce pro [konfigurace webhook, jehož](log-analytics-alerts-webhooks.md) s pravidlo výstrahy.  
+* Dokončete průvodce pro [konfigurace webook](log-analytics-alerts-webhooks.md) s pravidlo výstrahy.  
 * Další informace o zápisu [sady runbook ve službě Azure Automation](https://azure.microsoft.com/documentation/services/automation) k nápravě problémů identifikovaný výstrahy.

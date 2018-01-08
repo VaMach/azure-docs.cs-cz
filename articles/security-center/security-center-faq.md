@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Nejčastější dotazy ohledně Azure Security Center
 Tyto nejčastější dotazy odpovědi na otázky o Azure Security Center, služba, která pomáhá zabránit, zjistit a reagovat na hrozby nabízí lepší přehled a kontrolu nad zabezpečení vašich prostředků Microsoft Azure.
@@ -41,7 +41,7 @@ Security Center je k dispozici v dvěma vrstvami:
 
 **Úroveň Free** poskytuje přehled o stavu zabezpečení prostředků Azure, zásady základního zabezpečení, doporučení zabezpečení a integrace s zabezpečovací produkty a služby od partnerů.
 
-**Úrovně Standard** přidá rozšířené hrozba možností detekce, včetně hrozby intelligence, analýzy chování, detekce anomálií, incidenty zabezpečení a hrozby uvedení sestavy. Úroveň Standard je zdarma pro prvních 60 dní. By měl vybrat dál používat službu nad rámec 60 dnů, můžeme automaticky začít účtují pro službu.  Pokud chcete upgradovat, vyberte [cenová úroveň](https://docs.microsoft.com/azure/security-center/security-center-pricing) v zásadě zabezpečení.
+**Úrovně Standard** přidá rozšířené hrozba možností detekce, včetně hrozby intelligence, analýzy chování, detekce anomálií, incidenty zabezpečení a hrozby uvedení sestavy. Úroveň Standard je po dobu prvních 60 dní zdarma. By měl vybrat dál používat službu nad rámec 60 dnů, můžeme automaticky začít účtují pro službu.  Pokud chcete upgradovat, vyberte [cenová úroveň](https://docs.microsoft.com/azure/security-center/security-center-pricing) v zásadě zabezpečení.
 
 ## <a name="permissions"></a>Oprávnění
 Azure Security Center používá [řízení přístupu na základě rolí (RBAC)](../active-directory/role-based-access-control-configure.md). To poskytuje [předdefinované role](../active-directory/role-based-access-built-in-roles.md), které se dají v Azure přiřadit uživatelům, skupinám a službám.
@@ -131,7 +131,7 @@ Tato zpráva se zobrazí, když nejsou žádná data kontroly pro virtuální po
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Jak často Security Center kontrolovat ohrožení zabezpečení operačního systému, aktualizací systému a potíže s ochranou koncového bodu?
 Latence v Centru zabezpečení hledá ohrožení zabezpečení, aktualizace, a je problémy:
 
-- Ohrožení zabezpečení operačního systému (společností Microsoft) – data se aktualizují v rámci 48 hodin
+- Konfigurace zabezpečení operačního systému – data je aktualizovat v rámci 48 hodin
 - Aktualizace systému – data se aktualizuje do 24 hodin
 - Problémy ochrany koncového bodu – data se aktualizují v rámci 8 hodin
 

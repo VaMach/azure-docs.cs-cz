@@ -36,6 +36,8 @@
   items:
     - name: Streamování dat z Event Hubs do datového skladu
       href: event-grid-event-hubs-integration.md
+    - name: Šablony pro odběry událostí
+      href: event-subscription-template.md
 - name: Referenční informace
   items:
     - name: Azure CLI
@@ -57,7 +59,7 @@
           href: event-schema-event-hubs.md
         - name: Skupiny prostředků
           href: event-schema-resource-groups.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'

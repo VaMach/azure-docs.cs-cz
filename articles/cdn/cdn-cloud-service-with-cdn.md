@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="intro"></a>Cloudové služby integrovat Azure CDN
 Cloudové služby můžete integrovat Azure CDN, obsluhující žádný obsah z cloudové služby umístění. Tento přístup poskytuje následující výhody:
@@ -111,7 +111,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 ## <a name="create-a-new-cdn-endpoint"></a>Vytvoření nového koncového bodu CDN
 **Chcete-li vytvořit nový koncový bod CDN pro váš účet úložiště**
 
-1. V [portálu pro správu Azure](https://portal.azure.com), přejděte na svůj profil CDN.  Je možné, že jste si ho v předchozím kroku připnuli k řídicímu panelu.  Pokud ne, najdete ho kliknutím na položku **Procházet**, poté položku **Profily CDN** a nakonec kliknutím na profil, ke kterému plánujete přidat koncový bod.
+1. Na webu [Azure Portal](https://portal.azure.com) přejděte na svůj profil CDN.  Je možné, že jste si ho v předchozím kroku připnuli k řídicímu panelu.  Pokud ne, najdete ho kliknutím na položku **Procházet**, poté položku **Profily CDN** a nakonec kliknutím na profil, ke kterému plánujete přidat koncový bod.
    
     Otevře se okno Profil CDN.
    
@@ -150,7 +150,7 @@ Když přejdete na  **http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-Stejně tak přístup k jakékoli veřejně přístupné URL u  **http://*&lt;serviceName >*.cloudapp.net/** přímo z vašeho koncového bodu CDN. Například:
+Stejně tak přístup k jakékoli veřejně přístupné URL u  **http://*&lt;serviceName >*.cloudapp.net/** přímo z vašeho koncového bodu CDN. Příklad:
 
 * Soubor .js z cesty/Script
 * Všechny soubory obsahu z/Content cesta
@@ -444,13 +444,13 @@ Postupujte podle těchto kroků k integraci ASP.NET sdružování a minimalizace
    
    * Původ pro tuto adresu URL CDN `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, který je ve skutečnosti virtuální adresář sady skript v rámci cloudové služby.
    * Vzhledem k tomu, že používáte konstruktor CDN, značky script CDN pro sadu už obsahuje automaticky generovaný verze řetězec v adrese URL vykreslené. Řetězec verze jedinečný musíte vygenerovat ručně pokaždé, když je sada skript upravit tak, aby vynutit k neúspěšnému přístupu do mezipaměti v Azure CDN. Ve stejnou dobu musí zůstat tento řetězec jedinečný verze konstantní prostřednictvím dobu životnosti nasazení tak, aby po nasazení sady maximalizovat přístupů k mezipaměti v Azure CDN.
-   * Řetězec dotazu v = < W.X.Y.Z > si z *Properties\AssemblyInfo.cs* v projektu webové role. Může mít nasazení pracovního postupu, který zahrnuje zvyšování verze sestavení pokaždé, když publikujete do Azure. Nebo můžete upravit pouze *Properties\AssemblyInfo.cs* ve vašem projektu a automaticky zvýší řetězec verze pokaždé, když vytvoříte, pomocí zástupných znaků ' *'. Například:
+   * Řetězec dotazu v = < W.X.Y.Z > si z *Properties\AssemblyInfo.cs* v projektu webové role. Může mít nasazení pracovního postupu, který zahrnuje zvyšování verze sestavení pokaždé, když publikujete do Azure. Nebo můžete upravit pouze *Properties\AssemblyInfo.cs* ve vašem projektu a automaticky zvýší řetězec verze pokaždé, když vytvoříte, pomocí zástupných znaků ' *'. Příklad:
      
         [sestavení: AssemblyVersion("1.0.0.*")]
      
      Zde bude fungovat jakékoli strategie zefektivnění generování jedinečného řetězce po celou dobu životnosti nasazení.
 2. Přístup na domovskou stránku a znovu publikovat cloudové služby.
-3. Zobrazte kód HTML pro stránku. Nyní byste měli mít najdete v části Adresa URL CDN vykresleno, řetězcem jedinečný verze pokaždé, když je znovu publikovat změny do cloudové služby. Například:  
+3. Zobrazte kód HTML pro stránku. Nyní byste měli mít najdete v části Adresa URL CDN vykresleno, řetězcem jedinečný verze pokaždé, když je znovu publikovat změny do cloudové služby. Příklad:  
    
         ...
    

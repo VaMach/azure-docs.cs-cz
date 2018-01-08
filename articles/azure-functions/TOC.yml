@@ -71,10 +71,10 @@
       items:
         - name: Podporované jazyky
           href: supported-languages.md
-        - name: 'Skript jazyka C#'
-          href: functions-reference-csharp.md
-        - name: Knihovna tříd .NET
+        - name: 'Jazyk C# (knihovna tříd)'
           href: functions-dotnet-class-library.md
+        - name: 'Skript jazyka C# (.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
@@ -215,7 +215,7 @@
       href: functions-app-settings.md
     - name: Reference k OpenAPI
       href: functions-api-definition.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/?category=compute'

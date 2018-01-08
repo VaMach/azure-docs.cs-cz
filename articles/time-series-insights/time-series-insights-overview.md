@@ -1,21 +1,21 @@
 ---
-title: "Co je Azure časové řady Insights? | Dokumentace Microsoftu"
+title: "Co je Azure časové řady Insights? | Dokumenty Microsoft"
 description: "Úvod do Azure časové řady Insights, novou službu k analýze dat řady čas a řešení IoT."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Co je Azure časové řady Insights?
 
@@ -58,11 +58,11 @@ Začínáme trvá méně než 5 minut.
 3.  Nahrajte referenční data (Toto není další služby).
 4.  Zobrazit vaše data v minutách pomocí Průzkumníka Statistika časové řady.
 
-## <a name="time-series-insights-explorer"></a>Čas řady Insights explorer
+## <a name="time-series-insights-explorer"></a>Průzkumník Time Series Insights
 Tento diagram znázorňuje příklad časové řady datům přehledů zobrazit pomocí Průzkumník:! [Čas řady Statistika explorer] (media/time-series-insights-explorer/explorer4.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
  - [Prozkoumat pomocí Průzkumníka časové řady statistiky v ukázce prostředí](./time-series-quickstart.md)
  - [Plánování prostředí Statistika časové řady](time-series-insights-environment-planning.md)
 
