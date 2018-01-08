@@ -90,7 +90,6 @@
 
 
 ## Načítání a přesun dat
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
 ### [Veřejná data společnosti Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

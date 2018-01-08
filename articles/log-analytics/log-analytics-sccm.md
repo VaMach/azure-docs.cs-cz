@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Připojení k analýze protokolů nástroje Configuration Manager
 System Center Configuration Manager můžete připojit k analýze protokolů v OMS pro synchronizaci dat kolekce zařízení. Díky data z hierarchie nástroje Configuration Manager k dispozici v OMS.
@@ -30,8 +30,8 @@ Analýzy protokolů podporuje aktuální větve System Center Configuration Mana
 ## <a name="configuration-overview"></a>Přehled konfigurace
 Následující kroky shrnují proces připojení k analýze protokolů nástroje Configuration Manager.  
 
-1. V portálu pro správu Azure zaregistrujte nástroje Configuration Manager jako webovou aplikaci nebo webové rozhraní API app a ujistěte se, že máte ID klienta a tajný klíč klienta z registraci ze služby Azure Active Directory. V tématu [použití portálu k vytvoření služby Active Directory objekt zabezpečení aplikací a služeb, který mají přístup k prostředkům](../azure-resource-manager/resource-group-create-service-principal-portal.md) podrobné informace o tom, jak provést tento krok.
-2. Na portálu správy Azure [nástroje Configuration Manager (registrovaný webové aplikace) poskytnout oprávnění k přístupu k OMS](#provide-configuration-manager-with-permissions-to-oms).
+1. Na portálu Azure zaregistrujte nástroje Configuration Manager jako webovou aplikaci nebo webové rozhraní API app a ujistěte se, že máte ID klienta a tajný klíč klienta z registraci ze služby Azure Active Directory. V tématu [použití portálu k vytvoření služby Active Directory objekt zabezpečení aplikací a služeb, který mají přístup k prostředkům](../azure-resource-manager/resource-group-create-service-principal-portal.md) podrobné informace o tom, jak provést tento krok.
+2. Na portálu Azure [nástroje Configuration Manager (registrovaný webové aplikace) poskytnout oprávnění k přístupu k OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. V nástroji Configuration Manager [přidat připojení pomocí Průvodce přidáním připojení OMS](#add-an-oms-connection-to-configuration-manager).
 4. V nástroji Configuration Manager [aktualizujte vlastnosti připojení](#update-oms-connection-properties) Pokud tajný klíč heslo nebo klienta, kdy vyprší platnost nebo dojde ke ztrátě.
 5. Informace z portálu OMS [stáhněte a nainstalujte agenta Microsoft Monitoring Agent](#download-and-install-the-agent) v počítači se službou roli systému bodu lokality nástroje Configuration Manager service připojení. Agent odesílá data nástroje Configuration Manager k OMS.
@@ -41,7 +41,7 @@ Následující kroky shrnují proces připojení k analýze protokolů nástroje
 Další informace o připojení nástroje Configuration Manager k OMS na [synchronizovat data z nástroje Configuration Manager do služby Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="provide-configuration-manager-with-permissions-to-oms"></a>Poskytnout nástroje Configuration Manager oprávnění k OMS
-Následující postup poskytuje Azure Management Portal s oprávněními pro přístup k OMS. Konkrétně musí udělit *role Přispěvatel* uživatelům ve skupině prostředků, aby bylo možné povolit portálu pro správu Azure Configuration Manager připojit k OMS.
+Následující postup popisuje webu Azure portal s oprávněními pro přístup k OMS. Konkrétně musí udělit *role Přispěvatel* uživatelům ve skupině prostředků, aby bylo možné povolit pro portál Azure pro nástroj Configuration Manager připojit k OMS.
 
 > [!NOTE]
 > Musíte zadat oprávnění v OMS pro nástroj Configuration Manager. Jinak zobrazí chybová zpráva při použití Průvodce konfigurací služby v nástroji Configuration Manager.
@@ -81,9 +81,9 @@ Chcete-li přidat připojení k OMS, musí mít prostředí nástroje Configurat
 1. V **správy** prostoru nástroje Configuration Manager, vyberte **OMS konektor**. Tím se otevře **Průvodce přidáním připojení OMS**. Vyberte **Další**.
 2. Na **Obecné** obrazovky, potvrďte, že jste dokončili následující akce a mít podrobnosti pro každou položku a pak vyberte **Další**.
 
-   1. Na portálu Azure Management Portal jste registrováni nástroje Configuration Manager jako webovou aplikaci nebo webové rozhraní API aplikaci a že máte [ID klienta z registrace](../active-directory/active-directory-integrating-applications.md).
-   2. Na portálu správy Azure jste vytvořili tajný klíč aplikace pro aplikaci registrovanou v Azure Active Directory.  
-   3. V portálu pro správu Azure jste zadali registrované webové aplikace s oprávněním pro přístup k OMS.  
+   1. Na webu Azure portal jste registrováni nástroje Configuration Manager jako webovou aplikaci nebo webové rozhraní API aplikaci a že máte [ID klienta z registrace](../active-directory/active-directory-integrating-applications.md).
+   2. Na portálu Azure jste vytvořili tajný klíč aplikace pro aplikaci registrovanou v Azure Active Directory.  
+   3. Na webu Azure portal jste zadali registrované webové aplikace s oprávněním pro přístup k OMS.  
       ![Připojení k stránka průvodce Obecné OMS](./media/log-analytics-sccm/sccm-console-general01.png)
 3. Na **Azure Active Directory** obrazovky, konfigurace nastavení připojení k OMS tím, že poskytuje vaší **klienta**, **ID klienta**, a **tajný klíč klienta** , pak vyberte **Další**.  
    ![Připojení k stránce OMS Průvodce Azure Active Directory](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
@@ -132,5 +132,5 @@ Po importu kolekce, uvidíte, kolik počítačů s členství v kolekcích byly 
 
 Po kliknutí na tlačítko buď jednu, otevře se hledání zobrazí všechny skupiny pro importované nebo všechny počítače, které patří ke každé skupině. Pomocí [hledání protokolů](log-analytics-log-searches.md), můžete spustit podrobné analýzy dat nástroje Configuration Manager.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Použití [hledání protokolů](log-analytics-log-searches.md) Chcete-li zobrazit podrobné informace o data nástroje Configuration Manager.

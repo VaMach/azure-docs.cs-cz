@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: 92708909a472f98b45492f3c0c807634f1c204d7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure aktualizace 1712 zásobníku
 
@@ -31,17 +31,9 @@ Tento článek popisuje vylepšení a opravy v tomto balíčku aktualizace – z
 
 ## <a name="build-reference"></a>Odkaz na sestavení
 
-Číslo sestavení aktualizace 1712 zásobník Azure je **180103.2**.
+Číslo sestavení aktualizace 1712 zásobník Azure je **180106.1**. Pokud zákazník nasadil **180103.2** dříve, není potřeba použít **180106.1**.
 
 ## <a name="before-you-begin"></a>Než začnete
-
-> [!WARNING]
-> Pokud jste právě aktivní interaktivní vzdálené relace období, budete muset ukončit relaci před zahájením procesu instalace aktualizace zásobníku Azure. Můžete zadat **ukončete** v konzole vzdáleného ukončíte relaci.
-> Můžete zkontrolovat, pokud je spuštěním dva příkazy prostředí PowerShell, všechny existující relace vzdálené období **Get-PSSession** který uvádí všechny aktivní vzdálené relace, pak **Remove-PSSession** ukončit a Odeberte aktivní vzdálené relace. Příkazy prostředí PowerShell je nutné spustit z libovolného počítače použít k vytvoření období vzdálené relace v prostředí Azure zásobníku. Zde je ukázka příkazu prostředí PowerShell:
-```
-Get-PSSession | Remove-PSSession
-```
-Kromě toho není vytvořit relaci období i po aktualizaci zásobník Azure bylo zahájeno.
 
 > [!IMPORTANT]
 > Nepokoušejte se k vytvoření virtuálních počítačů během procesu instalace 1712 aktualizace. V tématu [správě aktualizací v přehledu Azure zásobníku](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) další podrobnosti.
@@ -100,7 +92,7 @@ Tato část obsahuje známé problémy, které mohou nastat při instalaci aktua
 
 ### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-Tato část obsahuje po instalaci Známé problémy s sestavení **180103.2**.
+Tato část obsahuje po instalaci Známé problémy s sestavení **180106.1**.
 
 #### <a name="portal"></a>Portál
 
@@ -161,6 +153,11 @@ V Azure Active Directory Federation Services (ADFS) nasazené prostředí, **azu
 
 Můžete si stáhnout balíček aktualizace 1712 zásobník Azure z [zde](https://aka.ms/azurestackupdatedownload).
 
+## <a name="more-information"></a>Další informace
+
+Společnost Microsoft poskytuje způsob, jak sledovat a pokračovat v použití privilegovaných koncový bod období s 1712 aktualizace nainstalovat aktualizace.
+
+- Najdete v článku [monitorování aktualizací v zásobníku Azure pomocí dokumentace privilegované koncový bod](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 ## <a name="see-also"></a>Další informace najdete v tématech
 
 - V tématu [správě aktualizací v přehledu Azure zásobníku](azure-stack-updates.md) přehled správy aktualizací v zásobníku Azure.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 32735a7dfaafd8bbfb983dd809b2204fb1b2fa10
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Správa doporučení zabezpečení v Azure Security Center
 Tento dokument vás provede procesem jak používat doporučení v Azure Security Center k ochraně vašich prostředků Azure.
@@ -73,7 +73,7 @@ Použijte v následující tabulce vám pomohou pochopit dostupné doporučení 
 | Doporučení | Popis |
 | --- | --- |
 | [Povolení shromažďování dat pro předplatná](security-center-enable-data-collection.md) |Doporučuje zapnout shromažďování dat v zásadě zabezpečení pro každou z vašich předplatných a všechny virtuální počítače Azure (VM) a počítače mimo Azure. |
-| [Náprava ohrožení zabezpečení operačního systému](security-center-remediate-os-vulnerabilities.md) |Doporučuje zarovnat vaše konfigurace operačního systému pomocí pravidel doporučená konfigurace, například, zakázat ukládání hesel. |
+| [Opravit konfigurace zabezpečení](security-center-remediate-os-vulnerabilities.md) |Doporučuje zarovnat vaše konfigurace operačního systému s pravidla zabezpečení doporučená konfigurace, například, zakázat ukládání hesel. |
 | [Instalace aktualizací systému](security-center-apply-system-updates.md) |Doporučuje nasazení chybí systému zabezpečení a důležité aktualizace pro Windows a virtuální počítače s Linuxem a počítače. |
 | [Použít pouze v době provedená sítě řízení přístupu](security-center-just-in-time.md) | Doporučuje se použít jenom v přístup k časovému virtuálních počítačů. Právě v čase je funkce ve verzi preview a je k dispozici ve standardní vrstvě služby Security Center. V tématu [cenová](security-center-pricing.md) Další informace o službě Security Center je cenové úrovně. |
 | [Restartování po aktualizacích systému](security-center-apply-system-updates.md#reboot-after-system-updates) |Doporučuje, abyste restartovali virtuální počítač k dokončení procesu instalace aktualizací systému. |
@@ -108,7 +108,7 @@ Po kontrole všech doporučení, rozhodněte, který jeden byste měli použít 
 
 V tabulce předchozí doporučení vyberte doporučení a provede ji jako příklad tom, jak používat doporučení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto dokumentu jste se seznámili s doporučení zabezpečení v Centru zabezpečení. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Nastavení zásad zabezpečení v Azure Security Center](security-center-policies.md) – zjistěte, jak nakonfigurovat zásady zabezpečení pro skupiny prostředků a předplatná Azure.

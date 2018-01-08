@@ -1,6 +1,6 @@
 ---
-title: "Oprava chyb zabezpečení operačního systému v Azure Security Center | Microsoft Docs"
-description: "Tento dokument se dozvíte, jak provést doporučení Azure Security Center ** ohrožení zabezpečení operačního systému opravit **."
+title: "Opravit konfigurace zabezpečení v Azure Security Center | Microsoft Docs"
+description: "Tento dokument se dozvíte, jak provést doporučení Azure Security Center **napravit konfigurace zabezpečení**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Oprava chyb zabezpečení operačního systému v Azure Security Center
-Azure Security Center analyzuje denně operační systém (OS) virtuálních počítačů (VM) a počítačů pro konfiguraci, které by mohly znamenat virtuálních počítačů a počítačů zranitelnější vůči útokům. Security Center doporučuje, když vaše konfigurace operačního systému neodpovídá pravidla doporučenou konfiguraci a doporučuje změny konfigurace, které tyto nedostatky řeší chyby zabezpečení.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Opravit konfigurace zabezpečení v Azure Security Center
+Azure Security Center analyzuje denně operační systém (OS) virtuálních počítačů (VM) a počítačů pro konfiguraci, které by mohly znamenat virtuálních počítačů a počítačů zranitelnější vůči útokům. Security Center doporučuje, když vaše konfigurace operačního systému neodpovídá pravidla zabezpečení doporučené konfigurace a doporučuje změny konfigurace, které tyto nedostatky řeší chyby zabezpečení.
 
-> [!NOTE]
-> Další informace o konkrétní konfigurace se sledují, najdete v článku [seznam doporučenou konfiguraci pravidel](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+Další informace o konkrétní konfigurace se sledují, najdete v článku [seznam doporučenou konfiguraci pravidel](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). V tématu [přizpůsobení konfigurace zabezpečení operačního systému](security-center-customize-os-security-config.md) se dozvíte, jak přizpůsobit hodnocení konfigurace zabezpečení v Centru zabezpečení.
 
 ## <a name="implement-the-recommendation"></a>Implementace doporučení
-Oprava operačního systému ohrožení zabezpečení se zobrazí jako doporučení ve službě Security Center. Toto doporučení se zobrazí v části **doporučení** a v části **výpočetní**.
+Opravte zabezpečení, které neshoda konfigurace se zobrazí jako doporučení ve službě Security Center. Toto doporučení se zobrazí v části **doporučení** a v části **výpočetní**.
 
-V tomto příkladu se podíváme **ohrožení zabezpečení operačního systému opravit (společností Microsoft)** doporučení v části **výpočetní**.
+V tomto příkladu se podíváme **napravit konfigurace zabezpečení** doporučení v části **výpočetní**.
 1. Vyberte **výpočetní** v hlavní nabídce Security Center.
 
-   ![Napravit ohrožení zabezpečení operačního systému][1]
+   ![Opravit konfigurace zabezpečení][1]
 
-2. V části **výpočetní**, vyberte **ohrožení zabezpečení operačního systému opravit (společností Microsoft)**. **Ohrožení zabezpečení operačního systému (společností Microsoft) neshoda** otevře řídicí panel.
+2. V části **výpočetní**, vyberte **napravit konfigurace zabezpečení**. **Konfigurace zabezpečení** otevře.
 
-   ![Napravit ohrožení zabezpečení operačního systému][2]
+   ![Konfigurace zabezpečení][2]
 
   Horní části řídicí panel poskytuje:
 
@@ -77,11 +74,11 @@ V tomto příkladu se podíváme **ohrožení zabezpečení operačního systém
   - Skutečná hodnota – Hodnota vrácena po dokončení analýzy konfigurace operačního systému virtuálního počítače podle pravidla
   - – PRAVIDLO pravidlo operace použije pomocí služby Security Center při analýze konfigurace operačního systému virtuálního počítače podle pravidla
 
-4. Vyberte **vyhledávání** ikona na pásu karet nejvyšší. Hledání otevře výpis pracovní prostory, které mají virtuální počítače a počítače s vybranou ohrožení zabezpečení operačního systému. Toto okno Výběr pracovního prostoru se zobrazí pouze pokud vybrané pravidlo platí pro víc virtuálních počítačů, které jsou připojené k jiné pracovní prostory.
+4. Vyberte **vyhledávání** ikona na pásu karet nejvyšší. Hledání otevře výpis pracovní prostory, které mají virtuální počítače a počítače s neshoda konfigurace vybrané zabezpečení. Toto okno Výběr pracovního prostoru se zobrazí pouze pokud vybrané pravidlo platí pro víc virtuálních počítačů, které jsou připojené k jiné pracovní prostory.
 
   ![Uvedené pracovních prostorů][4]
 
-5. Vyberte pracovní prostor. Vyhledávací dotaz analýzy protokolů otevře filtrované do pracovního prostoru s ohrožení zabezpečení operačního systému.
+5. Vyberte pracovní prostor. Vyhledávací dotaz analýzy protokolů otevře filtrované do pracovního prostoru s neshoda konfigurace zabezpečení.
 
   ![Pracovní prostor se ohrožení zabezpečení operačního systému][5]
 
@@ -89,8 +86,10 @@ V tomto příkladu se podíváme **ohrožení zabezpečení operačního systém
 
   ![Filtrovaný pro tento počítač][6]
 
-## <a name="next-steps"></a>Další kroky
-Tento článek vám ukázal, jak provést doporučení Security Center "Napravit OS ohrožení zabezpečení." Můžete zkontrolovat sadu pravidel, konfigurace [zde](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center používá CCE (Common Configuration výčtu) k přiřazení jedinečné identifikátory pro konfigurační pravidla. Přejděte [CCE](https://nvd.nist.gov/cce/index.cfm) lokality pro další informace.
+## <a name="next-steps"></a>Další postup
+Tento článek vám ukázal, jak provést doporučení Security Center "Konfigurace zabezpečení napravit." V tématu [přizpůsobení konfigurace zabezpečení operačního systému](security-center-customize-os-security-config.md) se dozvíte, jak přizpůsobit hodnocení konfigurace zabezpečení v Centru zabezpečení.
+
+Můžete zkontrolovat sadu pravidel, konfigurace [zde](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center používá CCE (Common Configuration výčtu) k přiřazení jedinečné identifikátory pro konfigurační pravidla. Přejděte [CCE](https://nvd.nist.gov/cce/index.cfm) lokality pro další informace.
 
 Další informace o službě Security Center, najdete v následujících zdrojích informací:
 

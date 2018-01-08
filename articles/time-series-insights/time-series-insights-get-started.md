@@ -3,19 +3,19 @@ title: "Vytvoření prostředí Azure Time Series Insights | Dokumentace Microso
 description: "Tento článek popisuje, jak pomocí portálu Azure k vytvoření nového prostředí Statistika časové řady."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 6dba703851161a1eebce0101be8076682f09c76f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Vytvoření nového prostředí Time Series Insights na webu Azure Portal
 Tento článek popisuje postup vytvoření nového prostředí časové řady statistika pomocí portálu Azure.
@@ -60,7 +60,7 @@ Postupujte podle těchto kroků můžete vytvořit prostředí:
 
 Při nasazení úspěšné, můžete vybrat **přejděte k prostředku** můžete nakonfigurovat další vlastnosti, nastavení zabezpečení se zásady přístupu k datům, přidejte zdroje událostí a dalších akcí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Definovat zásady přístupu k datům](time-series-insights-data-access.md) zabezpečit vaše prostředí.
 * [Přidat zdroje událostí centra událostí](time-series-insights-how-to-add-an-event-source-eventhub.md) do prostředí Azure časové řady statistiky. 
 * [Odesílání událostí](time-series-insights-send-events.md) ke zdroji událostí.

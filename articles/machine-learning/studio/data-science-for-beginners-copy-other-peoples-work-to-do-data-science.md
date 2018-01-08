@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopírování práce jiných lidí pro vědecké zkoumání dat
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Vědecké zpracování dat pro začátečníky řady
 Jeden z obchodních tajemství datové vědy dochází jiní lidé k práci za vás. V Azure Gallery AI pro vlastní experimentu strojového učení a najít clustering příklad algoritmus.
 
 > [!IMPORTANT]
-> Cortana Intelligence Gallery přejmenovala **Azure AI Galerie**. V důsledku toho textu a obrázků v této přepisu mírně lišit od video, který používá starší název.
+> **Cortana Intelligence Gallery** přejmenovala **Azure AI Galerie**. V důsledku toho textu a obrázků v této přepisu mírně lišit od video, který používá starší název.
 >
 
 Získejte maximum z řady, můžete sledujte všechny. [Přejděte do seznamu videí](#other-videos-in-this-series)
@@ -52,7 +52,7 @@ V této jeden dozvíte místo, kde můžete najít příklady, které můžete v
 
 Jeden z obchodních tajemství datové vědy dochází jiní lidé k práci za vás.
 
-## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Najít příklady v Azure AI Intelligence Gallery
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Najít příklady v galerii Azure AI
 
 Společnost Microsoft nemá Cloudová služba názvem [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) jste úvodní můžete vyzkoušet zdarma. Poskytne vám pracovního prostoru tam, kde můžete experimentovat s algoritmy learning jiný počítač, a pokud máte k dispozici řešení vyřešeny, můžete ji spustit jako webovou službu.
 

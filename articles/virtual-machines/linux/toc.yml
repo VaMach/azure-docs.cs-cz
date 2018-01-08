@@ -197,6 +197,8 @@
               href: update-agent.md
         - name: Plánovaná údržba
           href: maintenance-notifications.md
+        - name: Omezení spekulativního spouštění
+          href: mitigate-se.md
         - name: Nejčastější dotazy ke zrychlení údržby
           href: accelerated-maintenance.md
         - name: Naplánované události
