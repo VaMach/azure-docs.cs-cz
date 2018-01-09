@@ -22,8 +22,6 @@
       href: how-to-create-a-group.md
     - name: Seskupení počítačů s využitím závislostí počítačů
       href: how-to-create-group-machine-dependencies.md
-    - name: Seskupení počítačů s využitím značek VMware
-      href: how-to-tag-v-center.md
     - name: Upřesnění skupiny s využitím závislostí skupin
       href: how-to-create-group-dependencies.md
     - name: Přizpůsobení posouzení
@@ -32,7 +30,7 @@
       href: how-to-get-migration-tool.md
     - name: Řešení problémů s Azure Migrate
       href: troubleshooting-general.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Azure Migrate
       href: 'https://azure.microsoft.com/migrate'

@@ -17,7 +17,7 @@
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
-        - name: portál Azure
+        - name: Azure Portal
           href: sql-database-connect-query-portal.md
         - name: VS Code
           href: sql-database-connect-query-vscode.md
@@ -279,7 +279,7 @@
         - name: Načítání dat pomocí BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Načítání dat pomocí ADF
-          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md
         - name: Synchronizace dat
           href: sql-database-get-started-sql-data-sync.md
     - name: Monitorování a ladění
