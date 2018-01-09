@@ -61,9 +61,9 @@
 | &nbsp; |[ServiceNow (Beta)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Hranaté (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
-| &nbsp; |[Webová tabulka (tabulka HTML)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |
+| &nbsp; |[Webová tabulka (tabulka HTML)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero (Beta)](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (Beta)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> Každý konektor označen jako *Beta* znamená, že vyzkoušet out a sdělte nám svůj názor, nepoužívejte v produkčním prostředí.
+> Každý konektor označen jako *Beta* znamená, že jste si vyzkoušet a sdělte nám svůj názor. Pokud budete chtít využít závislost na beta verzi konektorů ve vašem řešení, kontaktujte prosím [podporu Azure](https://azure.microsoft.com/support/).

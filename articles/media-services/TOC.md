@@ -15,12 +15,12 @@
 ### [Vytvoření a konfigurace aplikace AAD pomocí Azure PowerShellu](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Doručování videa na vyžádání
-### [Azure Portal](media-services-portal-vod-get-started.md)
+### [portál Azure Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Zajištění živého streamování
-### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+### [portál Azure Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Postup
@@ -29,16 +29,18 @@
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Koncové body streamování](media-services-streaming-endpoints-overview.md)
-#### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [portál Azure Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Úložiště
 #### [Aktualizace Media Services po postupném zavedení přístupových klíčů k úložišti](media-services-roll-storage-access-keys.md)
 #### [Správa prostředků napříč několika účty úložiště](meda-services-managing-multiple-storage-accounts.md)
 ### [Kvóty a omezení](media-services-quotas-and-limitations.md)
-
+## [Konfigurace nástroje Postman](media-rest-apis-with-postman.md)
+### [Prostředí](postman-environment.md)
+### [Kolekce](postman-collection.md)
 ## Nahrání obsahu
 ### Nahrání souborů do účtu
-#### [Azure Portal](media-services-portal-upload-files.md)
+#### [portál Azure Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Nahrávání velkých souborů pomocí Aspery](media-services-upload-files-with-aspera.md)
@@ -52,7 +54,7 @@
 #### [Kodeky a formáty Media Encoderu Standard](media-services-media-encoder-standard-formats.md)
 #### [Použití MES k automatickému vygenerování žebříčku přenosových rychlostí](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Kódování pomocí Media Encoderu Standard
-##### [Azure Portal](media-services-portal-encode.md)
+##### [portál Azure Portal](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Pokročilé kódování pomocí MES](media-services-advanced-encoding-with-mes.md)
@@ -107,10 +109,10 @@
 ## [Živé streamování](media-services-manage-channels-overview.md)
 ### [Místní kodéry](media-services-live-streaming-with-onprem-encoders.md)
 #### [Doporučené místní kodéry](media-services-recommended-encoders.md)
-#### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+#### [portál Azure Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Živé streamování s použitím cloudového kodéru](media-services-manage-live-encoder-enabled-channels.md)
-#### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [portál Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Konfigurace místních kodérů pro použití s cloudovým kodérem](media-services-live-encoders-overview.md)
 #### [Kodér Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -126,7 +128,7 @@
 ### [Konfigurace klávesových zkratek](media-services-azure-media-clipper-keyboard-shortcuts.md)
 ### [Konfigurace lokalizace](media-services-azure-media-clipper-localization.md)
 ### [Odesílání úloh oříznutí](media-services-azure-media-clipper-submit-job.md)
-### [Azure Portal](media-services-azure-media-clipper-portal.md)
+### [portál Azure Portal](media-services-azure-media-clipper-portal.md)
 
 ## [Ochrana obsahu](media-services-content-protection-overview.md)
 ### [Šifrování úložiště](media-services-rest-storage-encryption.md)
@@ -147,7 +149,7 @@
 #### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
 #### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Konfigurace zásad autorizace klíčů obsahu
-#### [Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
+#### [portál Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [Předání ověřovacích tokenů do AMS](media-services-pass-authentication-tokens.md)
@@ -174,10 +176,10 @@
 
 ## Měřítko
 ### [Zpracování médií](media-services-scale-media-processing-overview.md)
-#### [Azure Portal](media-services-portal-scale-media-processing.md)
+#### [portál Azure Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### Koncové body streamování
-#### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
+#### [portál Azure Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Doručování obsahu](media-services-deliver-content-overview.md)
 ### [Dynamické balení](media-services-dynamic-packaging-overview.md)
@@ -186,7 +188,7 @@
 #### [Vytváření filtrů pomocí REST](media-services-rest-dynamic-manifest.md)
 ### [Zásady ukládání do mezipaměti CDN v rozšíření Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publikování obsahu
-#### [Azure Portal](media-services-portal-publish.md)
+#### [portál Azure Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Doručení materiálu stažením](media-services-deliver-asset-download.md)
@@ -209,7 +211,7 @@
 ## Monitorování
 ### Kontrola průběhu úlohy
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Azure Portal](media-services-portal-check-job-progress.md)
+#### [portál Azure Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Monitorování oznámení úloh pomocí Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Monitorování oznámení úloh pomocí webhooků](media-services-dotnet-check-job-progress-with-webhooks.md)
@@ -227,7 +229,7 @@
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)  
 
-# Zdroje
+# Zdroje a prostředky
 ## [Komunita Azure Media Services](media-services-community.md)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)

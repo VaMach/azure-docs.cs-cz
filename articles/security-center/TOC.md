@@ -21,6 +21,7 @@
 ### [Zásady zabezpečení s využitím zásad Azure](security-center-azure-policy.md)
 ### [E-mailová oznámení](security-center-provide-security-contact-details.md)
 ### [Cenová úroveň](security-center-pricing.md)
+### [Konfigurace zabezpečení](security-center-customize-os-security-config.md)
 
 ## [Připojování](security-center-onboarding.md)
 ## [Události](security-center-events-dashboard.md)
@@ -54,7 +55,7 @@
 #### [Povolení agenta virtuálního počítače](security-center-enable-vm-agent.md)
 #### [Instalace Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Restartování po aktualizacích systému](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Náprava ohrožení zabezpečení operačního systému](security-center-remediate-os-vulnerabilities.md)
+#### [Náprava konfigurací zabezpečení](security-center-remediate-os-vulnerabilities.md)
 #### [Aktualizace verze operačního systému](security-center-update-os-version.md)
 #### [Není nainstalováno posouzení ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorování stavu zabezpečení](security-center-monitoring.md)
@@ -90,7 +91,7 @@
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Plán připravenosti služby Security Center](security-center-readiness-roadmap.md)
+## [Plán připravenosti](security-center-readiness-roadmap.md)
 ## [Blog věnovaný zabezpečení, ochraně osobních údajů a dodržování předpisů v Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Přehled služby](https://azure.microsoft.com/services/security-center/)

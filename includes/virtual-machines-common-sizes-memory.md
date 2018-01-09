@@ -61,7 +61,7 @@ ACU: 160–180
 
 <sup>1</sup> funkce M-series Virtuálního počítače s technologií Intel® Hyper-Threading
 
-<sup>2</sup> víc než 64 virtuálních procesorů se vyžaduje jedna z těchto podporované hostované operační systémy: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 a Red Hat Enterprise Linux nebo CentOS 7.3 s LIS 4.2.1 
+<sup>2</sup> víc než 64 virtuálních procesorů se vyžaduje jedna z těchto podporované hostované operační systémy: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 a Red Hat Enterprise Linux, CentOS 7.3 nebo Oracle Linux 7.3 s LIS 4.2.1 
 
 <sup>3</sup> omezené základní velikostí, které jsou k dispozici.
 
