@@ -12,7 +12,7 @@
 
 # Postup
 ## Načtení a přesun dat
-### [Pomocí služby Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Pomocí služby Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Pomocí AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Pomocí DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Pomocí Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -89,11 +89,11 @@
 ## [REST](/rest/api/datalakestore)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog služby Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Váš názor na UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-lake-store)

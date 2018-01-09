@@ -1,59 +1,39 @@
 # [Přehled](../overview.md)
-## [Image](about-images.md)
-## [Rozšíření virtuálních počítačů](agents-and-extensions.md)
-## [Dostupnost](configure-availability.md)
-## [Nejčastější dotazy](faq.md)
+## [Rozšíření virtuálních počítačů](agents-and-extensions-classic.md)
+## [Dostupnost](configure-availability-classic.md)
+## [Nejčastější dotazy](faq-classic.md)
 
 # Začínáme
-## [Vytvoření virtuálního počítače s Linuxem s využitím webu Azure Portal](createportal.md)
-## [Instalace rozhraní příkazového řádku Azure](../../../cli-install-nodejs.md)
-## [Vytvoření klíčů SSH](../mac-create-ssh-keys.md)
+## [Vytvoření virtuálního počítače s Linuxem s využitím webu Azure Portal](createportal-classic.md)
 
 # Postup
 ## Compute
-### [Vytvoření vlastního virtuálního počítače](create-custom.md)
-### [Zachycení virtuálního počítače](capture-image.md)
-### [Použití Vzdálené plochy s virtuálním počítačem s Linuxem](remote-desktop.md)
-### [Správa rozšíření virtuálních počítačů](manage-extensions.md)
-### [Správa virtuálních počítačů pomocí sady Visual Studio](manage-visual-studio.md)
-### [Monitorování virtuálních počítačů pomocí diagnostického rozšíření virtuálních počítačů](../diagnostic-extension.md)
+### [Vytvoření vlastního virtuálního počítače](create-custom-classic.md)
+### [Zachycení virtuálního počítače](capture-image-classic.md)
+### [Použití Vzdálené plochy s virtuálním počítačem s Linuxem](remote-desktop-classic.md)
+### [Správa rozšíření virtuálních počítačů](manage-extensions-classic.md)
 ### [Monitorování virtuálních počítačů pomocí diagnostického rozšíření virtuálních počítačů verze v2.x](diagnostic-extension-v2.md)
-### [Vložení vlastních dat](inject-custom-data.md)
-### [Resetování Linuxových hesel nebo klíčů, opravení SSH a kontrola disků](reset-access.md)
-### [Údržba](planned-maintenance-schedule.md)
-### [Vytvoření hostitele Docker pomocí rozhraní příkazového řádku](cli-use-docker.md)
-### [Vytvoření hostitele Docker s využitím webu Azure Portal](portal-use-docker.md)
-### [Jak použít Docker se Swarmem](../../virtual-machines-linux-docker-swarm.md)
+### [Resetování Linuxových hesel nebo klíčů, opravení SSH a kontrola disků](reset-access-classic.md)
+### [Údržba](planned-maintenance-schedule-classic.md)
 
 ## Použití úložiště
-### [Připojení datového disku](attach-disk.md)
-### [Odpojení datového disku](detach-disk.md)
+### [Připojení datového disku](attach-disk-classic.md)
+### [Odpojení datového disku](detach-disk-classic.md)
 
 ## Síť
 ### [Otevření portů k virtuálnímu počítači](setup-endpoints.md)
-### [Propojení virtuálních počítačů pomocí virtuální sítě nebo cloudové služby](connect-vms.md)
-
-## Nasazení imagí
-### [Vytvoření a nahrání virtuálního pevného disku](create-upload-vhd.md)
-### [Vytvoření a nahrání virtuálního pevného disku FreeBSD](freebsd-create-upload-vhd.md)
-### [Seznam imagí virtuálních počítačů Oracle](oracle-images.md)
 
 ## Správa úloh
-### [SAP](sap-get-started.md)
-### MySQL a MariaDB
-#### [Kurz clusteru MariaDB](mariadb-mysql-cluster.md)
-#### [Instalace MySQL na virtuálním počítači OpenSUSE](mysql-on-opensuse.md)
-#### [Použití sad s vyrovnáváním zatížení ke clusterizaci MySQL](mysql-cluster.md)
-#### [Optimalizace výkonu MySQL](optimize-mysql.md)
+### [Kurz clusteru MariaDB](mariadb-mysql-cluster.md)
+### [Instalace MySQL na virtuálním počítači OpenSUSE](mysql-on-opensuse.md)
+### [Použití sad s vyrovnáváním zatížení ke clusterizaci MySQL](mysql-cluster.md)
+### [Optimalizace výkonu MySQL](optimize-mysql.md)
 
 ## Spouštění aplikací
-### [Webová aplikace Ruby on Rails](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Webová aplikace Ruby on Rails](ruby-rails-web-app.md)
 ### [Klient Cassandra a Node.js](cassandra-nodejs.md)
-### [Zásobník LAMP](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
-### [Webová aplikace pomocí sady Visual Studio](web-app-visual-studio.md)
 ### [Cluster s přímým přístupem do paměti vzdáleného počítače (RDMA) pro spouštění aplikací MPI](rdma-cluster.md)
-### [Jak používat podřízený plugin Azure s Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### Sada HPC Pack
 #### [Vytvoření clusteru pro linuxové úlohy](hpcpack-cluster-powershell-script.md)
 #### [Správa clusteru s linuxovými uzly](hpcpack-cluster.md)
