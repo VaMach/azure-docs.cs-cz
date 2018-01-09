@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Služba Azure Instance metadat
 
@@ -75,10 +75,10 @@ V následující tabulce je odkazem na jiných formátů dat, které můžou pod
 
 Rozhraní API | Výchozí formát dat | Ostatní formáty
 --------|---------------------|--------------
-/instance | JSON | Text
-/scheduledevents | JSON | None
+/instance | json | Text
+/scheduledevents | json | Žádné
 
-Pro přístup k odpovědi jiné než výchozí formát, zadejte požadovaný formát jako parametr řetězce dotazu v žádosti. Například:
+Pro přístup k odpovědi jiné než výchozí formát, zadejte požadovaný formát jako parametr řetězce dotazu v žádosti. Příklad:
 
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
@@ -89,7 +89,7 @@ Koncový bod služby Metadata Instance je dostupné pouze v aplikaci spuštěnou
 Je také nutné požadavky tak, aby obsahovala `Metadata: true` záhlaví zajistit, že skutečné žádost byla přímo určený a není součástí neúmyslnému přesměrování. 
 
 ### <a name="error"></a>Chyba
-Pokud je datový prvek nebyl nalezen nebo chybně vytvořený požadavek, Instance služby metadat vrátí standardní chyby protokolu HTTP. Například:
+Pokud je datový prvek nebyl nalezen nebo chybně vytvořený požadavek, Instance služby metadat vrátí standardní chyby protokolu HTTP. Příklad:
 
 Kód stavu HTTP | Důvod
 ----------------|-------
@@ -283,10 +283,10 @@ Data | Popis | Verze zavedená
 -----|-------------|-----------------------
 location | Oblast Azure virtuální počítač běží v | 2017-04-02 
 jméno | Název virtuálního počítače | 2017-04-02
-Nabídka | Nabízí informace o image virtuálního počítače. Tato hodnota je jenom pro Image nasadit z Galerie obrázků Azure k dispozici. | 2017-04-02
+nabídka | Nabízí informace o image virtuálního počítače. Tato hodnota je jenom pro Image nasadit z Galerie obrázků Azure k dispozici. | 2017-04-02
 Vydavatele | Vydavatel image virtuálního počítače | 2017-04-02
 SKU | Konkrétní SKU pro bitovou kopii virtuálního počítače | 2017-04-02
-Verze | Verze bitové kopie virtuálního počítače | 2017-04-02
+verze | Verze bitové kopie virtuálního počítače | 2017-04-02
 osType | Linux nebo Windows | 2017-04-02
 platformUpdateDomain |  [Aktualizace domény](manage-availability.md) je virtuální počítač spuštěný | 2017-04-02
 platformFaultDomain | [Doména selhání](manage-availability.md) je virtuální počítač spuštěný | 2017-04-02
@@ -374,16 +374,19 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Příklady volání služby metadat pomocí různých jazyků ve virtuálním počítači 
 
-Jazyk | Příklad 
+Jazyk | Příklad: 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.RB
-Přejděte jazyk  | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.go            
+Přejít  | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
+Perl       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.PL
+Java       | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.vb
     
 
 ## <a name="faq"></a>Nejčastější dotazy
@@ -406,6 +409,6 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
 
    ![Podpora metadat instance](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o [naplánované události](scheduled-events.md) rozhraní API **ve verzi public preview** poskytovaný službou Instance metadat.

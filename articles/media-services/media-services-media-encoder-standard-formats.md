@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 036c192c5f52a1943bc2799ad6c7e6db7bbffcc4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Kodeky a standardní formáty kodéru médií
 Tento dokument obsahuje seznam nejčastějších import a export formáty souborů, které může používat pro Media Encoder Standard.
 
 ## <a name="input-containerfile-formats"></a>Zadejte kontejner nebo formátů
-| Formáty souborů (přípony souborů) | Podporuje se |
+| Formáty souborů (přípony souborů) | Podporováno |
 | --- | --- | --- | --- |
 | FLV (kodeky H.264 a AAC) (.flv) |Ano |
 | MXF (.mxf) |Ano |
@@ -39,7 +39,7 @@ Tento dokument obsahuje seznam nejčastějších import a export formáty soubor
 | QuickTime (MOV) |Ano |
 
 > [!NOTE]
-> Vyšší je seznam přípon běžně došlo k souboru. Media Encoder Standard podporuje mnoho dalších (například: .m2ts, .mpeg2video a Content). Pokud se pokusíte kódování souboru a zobrazí chybové hlášení o formátu, který není podporován, odešlete prosím svůj názor [zde](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Vyšší je seznam přípon běžně došlo k souboru. Media Encoder Standard podporuje mnoho dalších (například: .m2ts, .mpeg2video a Content). Pokud se pokusíte kódování souboru a zobrazí chybové hlášení o formátu, který není podporován, zadejte svůj názor [zde](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
@@ -52,10 +52,10 @@ nebo
 
 * Soubory MXF, GXF a QuickTime kde zvukovém souboru se provádí jako samostatné stopy PCM ale mapování kanál (na stereofonním systémem nebo 5.1) lze odvodit z metadata souboru
 
-Všimněte si podporující pro explicitní nebo uživatelem zadané kanál mapování bude poskytnuta v blízké budoucnosti.
+V blízké budoucnosti bude poskytována podpora pro explicitní nebo uživatelem zadané kanál mapování.
 
 ## <a name="input-video-codecs"></a>Vstupní Video kodeky
-| Vstupní Video kodeky | Podporuje se |
+| Vstupní Video kodeky | Podporováno |
 | --- | --- | --- | --- |
 | AVC 8-bit nebo 10-bit, až 4:2:2, včetně AVCIntra |8 bitů 4:2:0, 4:2:2 |
 | Avid DNxHD (v MXF) |Ano |
@@ -77,7 +77,7 @@ Všimněte si podporující pro explicitní nebo uživatelem zadané kanál mapo
 | Apple ProRes 4444 XQ |Ano |
 
 ## <a name="input-audio-codecs"></a>Vstupní zvukových kodeků
-| Vstupní zvukových kodeků | Podporuje se |
+| Vstupní zvukových kodeků | Podporováno |
 | --- | --- | --- | --- |
 | AAC (AAC-LC, AAC HE a AAC-HEv2; až 5.1) |Ano |
 | MPEG vrstvy 2 |Ano |
@@ -107,7 +107,7 @@ Následující tabulka uvádí formáty kodeky a souborů, které jsou podporov�
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 [Kódování obsahu na vyžádání pomocí služby Azure Media Services](media-services-encode-asset.md)
 
 [Postup Kódovat pomocí kodéru Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)

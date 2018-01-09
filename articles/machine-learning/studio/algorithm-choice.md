@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Jak vybrat algoritmy pro službu Microsoft Azure Machine Learning
 Odpověď na otázku "Co algoritmus strojového učení mám použít?" je vždy "Závisí." To závisí na velikosti, kvality a povaha data. To závisí na co chcete udělat s odpověď. To závisí na tom, jak byl výpočty algoritmu přeložit na pokyny k počítači, který používáte. A závisí na tom, jak dlouho je k dispozici. I nejvíce zkušeného datových vědců nelze zjistit, který algoritmus provede než to zkusíte je nejvhodnější.
@@ -42,7 +42,7 @@ Tato doporučení jsou kompilované zpětné vazby a od mnoha datových vědců 
 Někdy žádný z nich jsou vzájemně přizpůsobit. Jste má být pravidlo jezdec doporučení, proto nemusíte si dělat starosti o něm se přesný.
 Několik datových vědců, které I jsme se věnovali měla s uvedené které pouze zda způsob, jak najít algoritmus velmi nejlepší je vyzkoušet všechny z nich.
 
-Tady je příklad z [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) experimentu několik algoritmů proti stejná data se pokusí a porovná výsledky: [porovnat více třída třídění: písmeno rozpoznávání](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Tady je příklad z [Azure AI Galerie](http://gallery.cortanaintelligence.com/) experimentu několik algoritmů proti stejná data se pokusí a porovná výsledky: [porovnat více třída třídění: písmeno rozpoznávání](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Pokud si chcete stáhnout a vytisknout diagram s přehledem funkcí nástroje Machine Learning Studio, nahlédněte do tématu [Diagram s přehledem možností nástroje Machine Learning Studio](studio-overview-diagram.md).

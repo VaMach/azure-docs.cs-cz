@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Zálohovat virtuální počítače s Linuxem v Azure
 
@@ -157,10 +157,10 @@ V tomto příkladu ukážeme, jak obnovit /var/www/html/index.nginx-debian.html 
 
     ![Výchozí nginx webové stránky](./media/tutorial-backup-vms/nginx-working.png)
 
-18. V místním počítači, přejděte zpět na záložce prohlížeče pro portál Azure a v **krok 3: odpojení disky po obnovení** klikněte na tlačítko **odpojit disky** tlačítko. Pokud zapomenete tento krok, připojení k přípojný bod je automaticky zavřít po 12 hodinách. Po těchto 12 hodin budete muset stáhnout nový skript pro vytvoření nové přípojný bod.
+18. V místním počítači, přejděte zpět na záložce prohlížeče pro portál Azure a v **krok 3: odpojení disky po obnovení** klikněte na tlačítko **odpojit disky** tlačítko. Pokud zapomenete tento krok, připojení k přípojný bod automaticky zavře po 12 hodinách. Po těchto 12 hodin budete muset stáhnout nový skript pro vytvoření nové přípojný bod.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 

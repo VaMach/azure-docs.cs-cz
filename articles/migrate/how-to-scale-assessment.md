@@ -4,13 +4,13 @@ description: "Popisuje, jak k vyhodnocení velký počet počítačů místně p
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9b457252fdb7a1ad62b7e6038b341451df2e1590
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Zjišťovat a vyhodnocení velké prostředí VMware
 
@@ -84,21 +84,21 @@ Zkontrolujte, jestli soubor vajíčka zabezpečené před nasazením:
    Příklad použití:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Ujistěte se, že generované hodnoty hash odpovídá následující nastavení.
  
-    Verze vajíčka 1.0.8.38:
+    Pro verzi vajíčka 1.0.8.49
+
     **Algoritmus** | **Hodnota hash**
     --- | ---
-    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
-    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
-    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+    MD5 | 8779eea842a1ac465942295c988ac0c7
+    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
+    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
 
     Verze vajíčka 1.0.8.40:
+
     **Algoritmus** | **Hodnota hash**
     --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
-
 
 ## <a name="create-the-collector-vm"></a>Vytvoření kolekce virtuálních počítačů
 
@@ -168,9 +168,6 @@ U každého zjišťování, které je třeba provést spusťte kolekce k vyhled�
     - Zadejte název (FQDN) nebo IP adresa serveru vCenter.
     - V **uživatelské jméno** a **heslo**, zadejte pověření účtu jen pro čtení, které kolekce použije k vyhledání virtuálních počítačů v systému vCenter Server.
     - V **vyberte obor**, vyberte obor pro zjišťování virtuálních počítačů. Kolekce může zjišťovat pouze virtuální počítače v zadaném oboru. Obor lze nastavit na konkrétní složce, datacenter nebo clusteru. Měl by neměl obsahovat více než 1 000 virtuálních počítačů. 
-    - V **vCenter značky kategorii pro seskupení**, vyberte **žádné**.
-
-    ![Vybrat obor](./media/how-to-scale-assessment/select-scope.png)
 
 6. V **zadejte migrace projektu**, zadejte ID a klíč pro projekt. Pokud zkopírujete nebyla je, otevřete portál Azure z kolekce virtuálních počítačů. V projektu **přehled** vyberte **zjišťovat počítače** a zkopírujte hodnoty.  
 7. V **sledovat průběh kolekce**, monitorovat proces zjišťování a zkontrolujte, že metadata shromážděných z virtuálních počítačů jsou v oboru. Kolekce poskytuje čas přibližnou zjišťování.

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Nejčastější dotazy k soutěžím Microsoft Cortana Intelligence Competitions
 **Co je Cortana Intelligence soutěže?**
 
-Soutěže Microsoft Cortana Intelligence umožňují nám slouží k seskupení globální komunita nadšenců dat podle souhrnně řešení některé na světě těch nejsložitějších datové vědy problémů. Cortana Intelligence soutěže povolit nadšenců data z po celém světě a pokouší vytvořit modely dat vysoce přesné a inteligentní vědecké účely. Naše hostované soutěže jsou založené na jedinečný datových sad, které je k dispozici veřejně poprvé. Účastníci můžou win výnosu nebo získat rozpoznávání prostřednictvím našich top 10 veřejných žebříček. Přejděte prosím [sem](http://aka.ms/CIComp) pro přístup k domovské stránce soutěže.
+Soutěže Microsoft Cortana Intelligence jednotek globální komunita nadšenců dat podle souhrnně řešení některé na světě těch nejsložitějších datové vědy problémů. Cortana Intelligence soutěže povolit nadšenců data z po celém světě a pokouší vytvořit modely dat vysoce přesné a inteligentní vědecké účely. Tyto hostované soutěže jsou založené na jedinečný datových sad, které je k dispozici veřejně poprvé. Účastníci můžou win výnosu nebo získat rozpoznávání prostřednictvím top 10 veřejných žebříček. Dostanete na domovské stránce soutěže na [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Jak často bude společnost Microsoft nové soutěže verzi?**
 
@@ -31,33 +31,33 @@ Jsme budete spouštět soutěže výrobců 1., ve vlastnictví společnosti Micr
 
 **Kde můžete klást otázky obecné o vědecké zpracování dat?**
 
-Použijte prosím naše [fórum Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Pro obecné otázky, můžete použít [fórum Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
 **Jak lze zadávat do soutěže?**
 
-Přístup [soutěže](https://gallery.cortanaintelligence.com/competitions) domovské stránce v [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/), nebo přejděte na [http://aka.ms/CIComp](http://aka.ms/CIComp). Domovská stránka obsahuje seznam všech soutěže, které jsou aktuálně spuštěny. Každý soutěže obsahuje podrobné pokyny a pravidla účasti, ceny a doba trvání na stránku s jeho registraci.
+Přístup [soutěže](https://gallery.cortanaintelligence.com/competitions) domovské stránce v [Azure AI Galerie](https://gallery.cortanaintelligence.com/), nebo přejděte na [http://aka.ms/CIComp](http://aka.ms/CIComp). Domovská stránka obsahuje seznam všech soutěže, které jsou aktuálně spuštěny. Každý soutěže obsahuje podrobné pokyny a pravidla účasti, ceny a doba trvání na stránku s jeho registraci.
 
-1. Najít soutěže chcete účastnit, přečtěte si všechny pokyny a podívejte se na kurz video a potom klikněte na **zadejte soutěže** tlačítko Kopírovat experimentu Starter do pracovního prostoru existující Azure Machine Learning. Pokud již nemáte přístup k pracovním prostoru, je nutné ho vytvořit předem. Spusťte Starter Experiment, sledovat metriku výkonu a pak použít svou kreativitu ke zlepšení výkonu modelu. Pravděpodobně budete tráví většinu času v tomto kroku.   
+1. Najít konfliktům, které se chcete účastnit, přečtěte si všechny pokyny a podívejte se na kurz video. Klikněte **zadejte soutěže** tlačítko a zkopírujte experimentu Starter do pracovního prostoru existující Azure Machine Learning. Pokud již nemáte přístup k pracovním prostoru, je nutné ho vytvořit předem. Spusťte Starter Experiment, sledovat metriku výkonu a pak použít svou kreativitu ke zlepšení výkonu modelu. Pravděpodobně budete tráví většinu času v tomto kroku.   
 
-2. Vytvořte prediktivní Experiment s pro cvičný model mimo experimentu Starter. Pak pečlivě upravit vstup a výstup schématu webové služby a zda jsou v souladu s požadavky uvedenými v dokumentaci k konfliktům. Kurz dokumentu obecně bude mít podrobné pokyny k tomuto. Můžete také shlédnout kurz video, pokud je k dispozici.   
+2. Vytvořte prediktivní Experiment s pro cvičný model mimo experimentu Starter. Pak pečlivě upravit vstup a výstup schématu webové služby a zda jsou v souladu s požadavky uvedenými v dokumentaci k konfliktům. Kurz dokumentu obecně obsahuje podrobné pokyny k tomuto. Můžete také shlédnout kurz video, pokud je k dispozici.   
 
 3. Nasazení webové služby mimo prediktivní Experiment. Testování pomocí webové služby **Test** tlačítko nebo šablony aplikace Excel automaticky vytvoří, abyste měli jistotu, že funguje správně.   
 
-4. Odeslání vaší webové služby jako položka soutěže a zobrazit vaše veřejné skóre na stránce soutěže Cortana Intelligence Gallery. A pokud uděláte na žebříček sváteční!  
+4. Odeslání vaší webové služby jako položka soutěže a zobrazit vaše veřejné skóre na stránce soutěže AI Galerie Azure. A pokud uděláte na žebříček sváteční!  
 
-Po odeslání úspěšně položku, můžete přejít zpět do experimentu zkopírovaný Starter iteraci a aktualizovat prediktivní Experiment, aktualizovat webovou službu a odeslat novou položku.   
+Po odeslání úspěšně položku, můžete se vrátit do zkopírovaný Starter experimentu. Potom iteraci a aktualizovat prediktivní Experiment, aktualizovat webovou službu a odeslat novou položku.   
 
-**Můžete použít s otevřeným zdrojem nástroje účasti v těchto soutěže?**
+**Můžete použít nástroje open source pro podílejících se na tyto soutěže?**
 
-Účastníci soutěže využít Azure Machine Learning Studio, cloudové služby v rámci Cortana Intelligence Suite pro vývoj vědecké účely modelů dat a vytvořte položky soutěže pro odesílání. Machine Learning Studio nejen poskytuje rozhraní (GUI) pro tvorbu strojovým učením, taky umožňuje přineste si vlastní skripty R nebo Python pro nativní spuštění. R a Python moduly Runtime v Studio dodávají s bohatou sadu balíčků R nebo Python s otevřeným zdrojem, a v rámci experimentu také můžete importovat vlastní balíčky. Studio také obsahuje integrovanou službu Poznámkový blok Jupyter pro vás k bezplatným zkoumání dat stylu. Samozřejmě můžete vždy stáhnout datové sady použité v konkurenci a prozkoumat v vaše oblíbené nástroje mimo Machine Learning Studio. 
+Účastníci soutěže pomocí Azure Machine Learning Studio, cloudové služby v rámci Cortana Intelligence Suite pro vývoj vědecké účely modelů dat a vytvořte položky soutěže pro odesílání. Machine Learning Studio nejen poskytuje rozhraní (GUI) pro tvorbu strojovým učením, taky umožňuje přineste si vlastní skripty R nebo Python pro nativní spuštění. R a Python moduly Runtime v Studio se dodávají s bohatou sadu open-source balíčky R nebo Python. Vlastní balíčky můžete importovat jako součást také experimentu. Studio také obsahuje integrovanou službu Poznámkový blok Jupyter pro vás k bezplatným zkoumání dat stylu. Samozřejmě můžete vždy stáhnout datové sady použité v konkurenci a prozkoumat v vaše oblíbené nástroje mimo Machine Learning Studio. 
 
 **Je potřeba se na data vědecký pracovník zadat?**
 
-Ne. Ve skutečnosti doporučujeme data nadšenců, zvědaví o vědecké zpracování dat a jiných aspiring datových vědců zadejte naše kontextu. Byl navržen povolit všem pokouší podpůrné dokumentů. Naše cílové skupiny je:
+Ne. Ve skutečnosti doporučujeme data nadšenců, každý, kdo chcete zjistit, vědecké zpracování dat a jiných aspiring datových vědců zadat naše kontextu. Byl navržen povolit všem pokouší podpůrné dokumentů. Cílové skupiny je:
 
 * **Vývojáři data**, **datových vědců**, **BI** a **Odborníci v oblasti Analytics**: uživatelů, kteří jsou zodpovědní za vytváření dat a analýzy obsahu pro další osoby mohly využívat
 * **Data Stewards**: uživatelů, kteří mají znalosti o datech, co znamená a jak je určen pro použití a za tímto účelem
-* **Studenti, kteří** & **výzkumných pracovníků:** uživatelů, kteří jsou učení a získat data související s dovednosti prostřednictvím academic programy v vysoké školy nebo účastníky v masivním otevřené Online kurzy (MOOCs)
+* **Studenti, kteří** & **výzkumných pracovníků:** uživatelů, kteří jsou učení a získat znalosti týkající se dat prostřednictvím academic programy v vysoké školy nebo účastníky v masivním otevřené Online kurzy (MOOCs)
 
 **Lze zadávat Moje kolegů jako tým?**
 
@@ -65,7 +65,7 @@ Platformě konkurenci v současné době nepodporuje team zapojení. Každý zá
 
 **Je potřeba věnovat k účasti v soutěži?**
 
-Soutěže jsou zadarmo se zúčastnit. Musíte provést, ale přístup k pracovnímu prostoru Azure Machine Learning se zúčastnit. Jednoduše přihlašují platný účet Microsoft, nebo účet Office 365 můžete vytvořit volného prostoru bez kreditní karty. Pokud jste již Azure nebo Cortana Intelligence Suite zákazníka, můžete vytvořit a používat standardní pracovní prostor v rámci stejného předplatného Azure. Pokud chcete zakoupit předplatné Azure, přejděte k [Azure ceny](https://azure.microsoft.com/pricing) stránky. Všimněte si, že podle standardních sazeb uplatní při použití standardní pracovní prostor můžete vytvořit experimenty. V tématu [informace o cenách Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) Další informace. 
+Soutěže jsou zadarmo se zúčastnit. Musíte provést, ale přístup k pracovnímu prostoru Azure Machine Learning se zúčastnit. Jednoduše přihlašují platný účet Microsoft, nebo účet Office 365 můžete vytvořit volného prostoru bez kreditní karty. Pokud jste již Azure nebo Cortana Intelligence Suite zákazníka, můžete vytvořit a používat standardní pracovní prostor v rámci stejného předplatného Azure. Pokud chcete zakoupit předplatné Azure, přejděte k [Azure ceny](https://azure.microsoft.com/pricing) stránky. Všimněte si, že podle standardních sazeb uplatní při použití standardní pracovní prostor můžete vytvořit experimenty. Další informace najdete v tématu [informace o cenách Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -78,7 +78,7 @@ Stane se toto:
 * Celá sada dat použít v konkurenci je náhodně rozdělení s rozvrstvení na školení a testování (zbývající) data. Náhodné rozdělení je si zajistit, že distribuce popisků v jak trénování a testování dat jsou konzistentní.
 * Jsou Cvičná data odeslán a uvedenému v rámci experimentu Starter v konfiguraci modulu importovat Data.
 * Testování dat je další rozdělit na veřejné a privátní testování dat pomocí rozdělení na stejné úrovně.
-* Veřejné testování data se používají pro počáteční odezvy z vyhodnocování. Výsledek se označuje jako veřejné skóre a je co se zobrazí v historii odesílání při odesílání zadání. Tato skóre se počítá pro každou položku, kterou odešlete. Tento veřejný skóre slouží nápad na veřejné žebříček.
+* Veřejné testování data se používají pro počáteční odezvy z vyhodnocování. Výsledek se označuje jako veřejné skóre. Je co se zobrazí v historii odesílání při odesílání zadání. Tato skóre se počítá pro každou položku, kterou odešlete. Tento veřejný skóre slouží nápad na veřejné žebříček.
 * Privátní testovacích dat se používá pro konečné odezvy z vyhodnocování po skončení konkurenci. To se označuje jako privátní skóre. 
 * U každého účastníka pevný počet položek s nejvyšší veřejné skóre automaticky se vyberou k zadání privátní vyhodnocování odezvy (toto číslo se může lišit v závislosti na konkurenci). Položka s nejvyšší privátní skóre je vybrán k zadání konečné hodnocení, které určuje vítězové cena.  
 
@@ -92,7 +92,7 @@ Typické soutěže rozhodnout omezit počet položek, které můžete odeslat v 
 
 **Co se stane, když I win soutěži?**
 
-Microsoft ověří, jestli výsledky privátní žebříček a potom vás můžeme kontaktovat. Ujistěte se, že je aktuální e-mailovou adresu v profilu uživatele.
+Microsoft ověří, jestli výsledky privátní žebříček a potom vás můžeme kontaktovat. Přesvědčte se, že je aktuální e-mailovou adresu v profilu uživatele.
 
 **Jak se získat cena peníze, pokud I win soutěži?**
 

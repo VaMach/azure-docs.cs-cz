@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Přístup k diagnostickým protokolům pro Azure Data Lake Store
 Informace o povolení protokolování pro váš účet Data Lake Store a postup zobrazení shromážděné pro váš účet protokoly diagnostiky.
 
-Organizace může povolit protokolování diagnostiky ke svému účtu Azure Data Lake Store ke shromažďování dat záznamy auditu přístupu, která poskytuje informace, jako je seznam uživatelům přístup k datům, jak často se data používají, kolik dat je uložené v účtu atd.
+Organizace může povolit protokolování diagnostiky ke svému účtu Azure Data Lake Store ke shromažďování dat záznamy auditu přístupu, která poskytuje informace, jako je seznam uživatelům přístup k datům, jak často se data používají, kolik dat je uložené v účtu atd. Když je povolené, diagnostiky nebo žádosti o jsou protokolovány na základě typu best effort. Požadavky a Diagnostika položky protokolu se vytvoří pouze v případě, že jsou požadavky na koncový bod služby.
 
 ## <a name="prerequisites"></a>Požadavky
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -114,7 +114,7 @@ Zde je vzorového vstupu do formátu JSON žádost protokolu. Každý objekt blo
     }
 
 #### <a name="request-log-schema"></a>Schéma požadavku protokolu
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | time |Řetězec |Časové razítko (ve formátu UTC) v protokolu |
 | resourceId |Řetězec |ID prostředku, který operace trvalo umístit na |
@@ -127,14 +127,14 @@ Zde je vzorového vstupu do formátu JSON žádost protokolu. Každý objekt blo
 | properties |JSON |Níže naleznete podrobnosti |
 
 #### <a name="request-log-properties-schema"></a>Schéma vlastnosti požadavku protokolu
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | HttpMethod |Řetězec |Metoda HTTP se používá pro operaci. Například získáte. |
 | Cesta |Řetězec |Cesta k operaci byla provedena na |
 | RequestContentLength |celá čísla |Délka obsahu požadavku HTTP |
 | clientRequestId |Řetězec |Identifikátor, který jedinečně identifikuje tuto žádost |
-| Čas spuštění |Řetězec |Čas, na které server přijal žádost |
-| čas ukončení |Řetězec |Čas, kdy server odeslal odpověď |
+| StartTime |Řetězec |Čas, na které server přijal žádost |
+| EndTime |Řetězec |Čas, kdy server odeslal odpověď |
 
 ### <a name="audit-logs"></a>Protokoly auditu
 Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt blob má jeden kořenový objekt názvem **záznamy** obsahující pole objektů protokolu
@@ -160,7 +160,7 @@ Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt 
     }
 
 #### <a name="audit-log-schema"></a>Schéma protokolu auditu
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | time |Řetězec |Časové razítko (ve formátu UTC) v protokolu |
 | resourceId |Řetězec |ID prostředku, který operace trvalo umístit na |
@@ -172,7 +172,7 @@ Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt 
 | properties |JSON |Níže naleznete podrobnosti |
 
 #### <a name="audit-log-properties-schema"></a>Schéma vlastnosti protokolu auditu
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | StreamName |Řetězec |Cesta k operaci byla provedena na |
 
@@ -188,7 +188,7 @@ search *
 
 Azure Data Lake Store poskytuje vzorku o tom, jak zpracovávat a analyzovat data protokolu. Můžete najít ukázku najdete na adrese [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Přehled Azure Data Lake Store](data-lake-store-overview.md)
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 

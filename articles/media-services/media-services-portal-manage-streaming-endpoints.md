@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6f551a7970f226ba40753009b24bd4c5eeb67fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Správa koncových bodů streamování pomocí portálu Azure
 
-Toto téma ukazuje, jak pomocí portálu Azure ke správě koncových bodů streamování. 
+Tento článek ukazuje, jak pomocí portálu Azure ke správě koncových bodů streamování. 
 
 >[!NOTE]
->Projděte si [přehled](media-services-streaming-endpoints-overview.md) tématu. 
+>Projděte si [přehled](media-services-streaming-endpoints-overview.md) článku. 
 
-Informace o tom, jak škálování koncový bod streamování najdete v tématu [to](media-services-portal-scale-streaming-endpoints.md) tématu.
+Informace o tom, jak škálování koncový bod streamování najdete v tématu [to](media-services-portal-scale-streaming-endpoints.md) článku.
 
 ## <a name="start-managing-streaming-endpoints"></a>Zahájení správy koncových bodů streamování 
 
@@ -69,7 +69,7 @@ Koncový bod streamování, můžete nakonfigurovat následující vlastnosti:
 Podrobné informace o těchto vlastnostech najdete v tématu [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
->Pokud je povoleno CDN nebude možné získat přístup IP. Přístup IP je použitelná, pouze pokud nemáte CDN.
+>Pokud je povoleno CDN, nebude možné získat přístup IP. Přístup IP je použitelná, pouze pokud nemáte CDN.
 
 Koncový bod streamování můžete nakonfigurovat následujícím způsobem:
 
@@ -86,17 +86,17 @@ Následuje stručný popis polí.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Škálovat vaše Premium koncový bod streamování
 
-Další informace najdete v [tomto](media-services-portal-scale-streaming-endpoints.md) tématu.
+Další informace najdete v [tomto](media-services-portal-scale-streaming-endpoints.md) článku.
 
 ## <a id="enable_cdn"></a>Povolit integraci Azure CDN
 
 Když vytvoříte nový účet, je výchozí streamování koncového bodu Azure CDN integrace povolena ve výchozím nastavení.
 
-Pokud budete později chtít zapnout/vypnout CDN, koncový bod streamování, musí být ve **zastavena** stavu. Může to trvat až 2 hodiny pro integraci produktů Azure CDN tak, aby získat povolená a změny se být aktivní v rámci všech CDN POP. Však můžete spustit z koncového bodu streamování váš koncový bod streamování a datový proud bez přerušení a po dokončení integrace datový proud doručen od CDN. Zřizování období koncový bod streamování bude v **od** stavu a můžete všimnout degredad výkonu.
+Pokud budete později chtít zapnout/vypnout CDN, koncový bod streamování, musí být ve **zastavena** stavu. Může to trvat až dvě hodiny pro integraci produktů Azure CDN tak, aby získat povolená a změny se být aktivní v rámci všech CDN POP. Však můžete spustit z koncového bodu streamování váš koncový bod streamování a datový proud bez přerušení a po dokončení integrace se od CDN doručí datový proud. Zřizování období koncový bod streamování bude v **od** stavu a můžete všimnout degredad výkonu.
 
-Integrace CDN je povolena ve všech centrech execpt dat Azure Číně a Federal Goverment oblasti.
+Integrace CDN je povolena ve všech datových center Azure s výjimkou Číny a federální vládou oblasti.
 
-Když je tato funkce povolená, **řízení přístupu**, **vlastní název hostitele** a **ověřování podpisu Akamai** konfigurace získá zakázána.
+Když je tato funkce povolená, **řízení přístupu**, ** vlastní název hostitele, a **ověřování podpisu Akamai** konfigurace získá zakázána.
  
 > [!IMPORTANT]
 > Azure Media Services integraci s Azure CDN se implementuje na **Azure CDN společnosti Verizon** pro standardní koncové body streamování. Premium koncové body streamování pomocí se dají konfigurovat všechny **Azure CDN cenové úrovně a poskytovatelé**. Další informace o funkcích Azure CDN najdete v tématu [přehled CDN](../cdn/cdn-overview.md).
@@ -106,7 +106,7 @@ Když je tato funkce povolená, **řízení přístupu**, **vlastní název host
 * Pokud CDN je povoleno pro koncový bod streamování, nemůže klient vyžádá obsah přímo z tohoto počátku. Pokud chcete mít možnost otestovat váš obsah s nebo bez CDN, můžete vytvořit další streamování koncový bod, který není povolen CDN.
 * Vaše streamování hostitele koncového bodu zůstává stejná i poté, co povolíte CDN. Nepotřebujete žádné změny do pracovního postupu media services po povolení CDN. Například pokud vaše streamování hostitele koncového bodu strasbourg.streaming.mediaservices.windows.net, po povolení CDN, je použít přesný stejný název hostitele.
 * Pro nové koncových bodů streamování můžete povolit CDN jednoduše tak, že vytvoříte nový koncový bod; pro existující koncových bodů streamování musíte nejprve zastavit koncový bod a potom povolit nebo zakázat CDN.
-* Koncový bod streamování standard se dá nakonfigurovat jenom pomocí **poskytovatele CDN úrovně Standard Verizon** pomocí portálu pro správu Azure. Můžete ale povolit jiných poskytovatelů Azure CDN pomocí rozhraní REST API.
+* Koncový bod streamování standard se dá nakonfigurovat jenom pomocí **poskytovatele CDN úrovně Standard Verizon** pomocí portálu Azure classic. Můžete ale povolit jiných poskytovatelů Azure CDN pomocí rozhraní REST API.
 
 ## <a name="configure-cdn-profile"></a>Konfigurace profilu CDN
 
@@ -114,7 +114,7 @@ Profil CDN můžete nakonfigurovat tak, že vyberete **spravovat CDN** tlačítk
 
 ![Koncový bod streamování](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Prohlédněte si mapy kurzů k Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

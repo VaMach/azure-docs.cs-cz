@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software řady StorSimple 8000, vysokou dostupnost a požadavky na síť
 
@@ -95,7 +95,7 @@ Doporučujeme vám, že nastavíte vašich pravidlech brány firewall pro odchoz
 
 | Vzor adresy URL | Komponenta nebo funkce | IP adresy zařízení |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Služba StorSimple Manager zařízení<br>Access Control Service<br>Azure Service Bus<br>Služba ověřování |Povolenou podporu cloudu síťová rozhraní |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Služba Správce zařízení StorSimple<br>Access Control Service<br>Azure Service Bus<br>Služba ověřování |Povolenou podporu cloudu síťová rozhraní |
 | `https://*.backup.windowsazure.com` |Registrace zařízení |Pouze DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Odvolání certifikátu |Povolenou podporu cloudu síťová rozhraní |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorování a účty úložiště Azure |Povolenou podporu cloudu síťová rozhraní |
@@ -107,7 +107,7 @@ Doporučujeme vám, že nastavíte vašich pravidlech brány firewall pro odchoz
 
 | Vzor adresy URL | Komponenta nebo funkce | IP adresy zařízení |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com` |Služba StorSimple Manager zařízení<br>Access Control Service<br>Azure Service Bus<br>Služba ověřování |Povolenou podporu cloudu síťová rozhraní |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Služba Správce zařízení StorSimple<br>Access Control Service<br>Azure Service Bus<br>Služba ověřování |Povolenou podporu cloudu síťová rozhraní |
 | `https://*.backup.windowsazure.us` |Registrace zařízení |Pouze DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Odvolání certifikátu |Povolenou podporu cloudu síťová rozhraní |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorování a účty úložiště Azure |Povolenou podporu cloudu síťová rozhraní |
@@ -241,7 +241,7 @@ Pečlivě zkontrolujte tyto doporučené postupy pro zajištění vysoké dostup
 * Konfigurace zařízení StorSimple s [dvěma uzly souborového serveru clusteru konfigurace][1]. Odebráním jediný bod selhání a sestavování v redundance na straně hostitele stane dostupným celé řešení.
 * Použijte nepřetržitě dostupné složky (CA) k dispozici v systému Windows Server 2012 (SMB 3.0) pro zajištění vysoké dostupnosti během převzetí služeb při selhání řadičích úložiště. Další informace o konfiguraci clusterů souborových serverů a nepřetržitě dostupné sdílené složky v systému Windows Server 2012, najdete v části to [Videoukázka](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Další informace o omezení systému StorSimple](storsimple-8000-limits.md).
 * [Informace o nasazení řešení StorSimple](storsimple-8000-deployment-walkthrough-u2.md).

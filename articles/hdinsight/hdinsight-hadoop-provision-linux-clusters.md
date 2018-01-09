@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 052e65b72cc382168296dc1a4965000107d08881
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Nastavit clusterů v HDInsight Hadoop, Spark, Kafka a dalšími
 
@@ -248,13 +248,13 @@ Pokud vaše řešení vyžaduje technologie, které jsou rozloženy více typy c
 
 Další informace o používání virtuální sítě Azure s HDInsight naleznete v tématu [rozšíření prostředí HDInsight pomocí virtuální sítě Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-Příklad použití dva typy clusteru v rámci virtuální sítě Azure, naleznete v části [analýza dat snímače pomocí Storm a HBase](storm/apache-storm-sensor-data-analysis.md). Další informace o používání HDInsight s virtuální sítí, včetně určité požadavky na konfiguraci pro virtuální síť, v tématu [HDInsight rozšířit možnosti pomocí Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Příklad použití dva typy clusteru v rámci virtuální sítě Azure, naleznete v části [použití Spark strukturovaných streamování s Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Další informace o používání HDInsight s virtuální sítí, včetně určité požadavky na konfiguraci pro virtuální síť, v tématu [HDInsight rozšířit možnosti pomocí Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Odstraňování potíží s přístupem ovládací prvek
 
 Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Co jsou HDInsight, ekosystému Hadoop a clusterů systému Hadoop?](hadoop/apache-hadoop-introduction.md)
 - [Začínáme používat Hadoop ve službě HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

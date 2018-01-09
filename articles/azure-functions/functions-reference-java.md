@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Příručka vývojáře Azure funkce Java
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | neuvedeno
 Notification Hubs | neuvedeno
 Objekt Blob úložiště | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
-Fronty úložiště | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Fronta úložiště | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabulka úložiště | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Časovač | <ul><li>`TimerTrigger`</li></ul>
 Twilio | neuvedeno
@@ -276,7 +276,7 @@ Někdy funkce musí mít podrobnou kontrolu nad vstupy a výstupy. Typy v specia
 | `HttpResponseMessage<T>` | Vazba výstupu protokolu HTTP | Návratový stav než 200   |
 
 > [!NOTE] 
-> Můžete také použít `@BindingName` poznámky hlavičky protokolu HTTP a dotazy. Například `@Bind("name") String query` opakuje hlavičky požadavků HTTP a dotazy a předat tuto hodnotu do metody. Například `query` bude `"test"` Pokud je adresa URL požadavku `http://example.org/api/echo?name=test`.
+> Můžete také použít `@BindingName` poznámky hlavičky protokolu HTTP a dotazy. Například `@BindingName("name") String query` opakuje hlavičky požadavků HTTP a dotazy a předat tuto hodnotu do metody. Například `query` bude `"test"` Pokud je adresa URL požadavku `http://example.org/api/echo?name=test`.
 
 ### <a name="metadata"></a>Metadata
 
@@ -325,7 +325,7 @@ public class Function {
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace najdete v následujících materiálech:
 
 * [Osvědčené postupy pro službu Azure Functions](functions-best-practices.md)

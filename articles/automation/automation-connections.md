@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Assety připojení v Azure Automation.
 
@@ -78,9 +78,11 @@ Vytvoření nového připojení pomocí prostředí Windows PowerShell [New-Azur
 
 Pokud jste se seznámili s automatizace [účet Spustit jako](automation-sec-configure-azure-runas-account.md) k ověření runbooků pomocí objektu služby, skript prostředí PowerShell, uvedený jako alternativu k vytvoření účtu spustit jako z portálu, vytvoří nové připojení pomocí následující ukázkové příkazy Asset.  
 
-    $ConnectionAssetName = "AzureRunAsConnection"
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-    New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```powershell
+$ConnectionAssetName = "AzureRunAsConnection"
+$ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```
 
 Budete moci vytvořit prostředek připojení, protože při vytváření účtu Automation, automaticky obsahuje několik globální modulů ve výchozím nastavení společně s typem připojení pomocí tohoto skriptu **AzurServicePrincipal** na Vytvořte **AzureRunAsConnection** asset připojení.  To je důležité mějte na paměti, protože při pokusu o vytvoření nového prostředku připojení pro připojení k službě nebo aplikaci pomocí metody různá ověřovací ho selže, protože typ připojení není již definována v účtu Automation.  Další informace o tom, jak vytvořit vlastní typ připojení pro váš vlastní nebo modul z [Galerie prostředí PowerShell](https://www.powershellgallery.com), najdete v části [moduly integrace](automation-integration-modules.md)
   
@@ -92,8 +94,10 @@ Načtení připojení v runbooku nebo konfigurace DSC s **Get-AutomationConnecti
 
 Následující vzorové příkazy ukazují, jak používat účet Spustit jako, již bylo zmíněno dříve, k ověření s prostředky Azure Resource Manager ve vašem runbooku.  Používá asset připojení představující účet Spustit jako, která odkazuje na základě certifikátu instančního objektu, nikoli přihlašovací údaje.  
 
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+```powershell
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+```
 
 ### <a name="graphical-runbook-samples"></a>Ukázky grafický runbook
 
@@ -108,43 +112,43 @@ Následující obrázek ukazuje příklad použití připojení v grafický runb
 ### <a name="python2-runbook-sample"></a>Ukázkový runbook Python2
 Následující příklad ukazuje, jak chcete ověřit pomocí připojení spustit jako v sadě runbook Python2.
 
-    """ Tutorial to show how to authenticate against Azure resource manager resources """
-    import azure.mgmt.resource
-    import automationassets
+```python
+""" Tutorial to show how to authenticate against Azure resource manager resources """
+import azure.mgmt.resource
+import automationassets
 
+def get_automation_runas_credential(runas_connection):
+  """ Returns credentials to authenticate against Azure resoruce manager """
+  from OpenSSL import crypto
+  from msrestazure import azure_active_directory
+  import adal
 
-    def get_automation_runas_credential(runas_connection):
-        """ Returns credentials to authenticate against Azure resoruce manager """
-        from OpenSSL import crypto
-        from msrestazure import azure_active_directory
-        import adal
+  # Get the Azure Automation Run As service principal certificate
+  cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+  pks12_cert = crypto.load_pkcs12(cert)
+  pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
 
-        # Get the Azure Automation Run As service principal certificate
-        cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
-        pks12_cert = crypto.load_pkcs12(cert)
-        pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+  # Get Run As connection information for the Azure Automation service principal
+  application_id = runas_connection["ApplicationId"]
+  thumbprint = runas_connection["CertificateThumbprint"]
+  tenant_id = runas_connection["TenantId"]
 
-        # Get Run As connection information for the Azure Automation service principal
-        application_id = runas_connection["ApplicationId"]
-        thumbprint = runas_connection["CertificateThumbprint"]
-        tenant_id = runas_connection["TenantId"]
+  # Authenticate with service principal certificate
+  resource = "https://management.core.windows.net/"
+  authority_url = ("https://login.microsoftonline.com/" + tenant_id)
+  context = adal.AuthenticationContext(authority_url)
+  return azure_active_directory.AdalAuthentication(
+    lambda: context.acquire_token_with_client_certificate(
+      resource,
+      application_id,
+      pem_pkey,
+      thumbprint)
+  )
 
-        # Authenticate with service principal certificate
-        resource = "https://management.core.windows.net/"
-        authority_url = ("https://login.microsoftonline.com/" + tenant_id)
-        context = adal.AuthenticationContext(authority_url)
-        return azure_active_directory.AdalAuthentication(
-            lambda: context.acquire_token_with_client_certificate(
-                resource,
-                application_id,
-                pem_pkey,
-                thumbprint)
-        )
-
-
-    # Authenticate to Azure using the Azure Automation Run As service principal
-    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
-    azure_credential = get_automation_runas_credential(runas_connection)
+# Authenticate to Azure using the Azure Automation Run As service principal
+runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+azure_credential = get_automation_runas_credential(runas_connection)
+```
 
 ## <a name="next-steps"></a>Další postup
 

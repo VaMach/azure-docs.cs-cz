@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise integrace s transformace XML
 ## <a name="overview"></a>Přehled
@@ -72,6 +72,28 @@ Nyní můžete otestovat váš transformace tak, že požadavek na koncový bod 
 * Použijte funkci Test mapy přidat ukázkovou zprávu XML. S jediným kliknutím můžete otestovat mapu, kterou jste vytvořili a najdete v části generovaný výstup.  
 * Nahrát existující mapy  
 * Zahrnuje podporu pro formát XML.
+
+## <a name="adanced-features"></a>Funkce Adanced
+Následující funkce jsou přístupné pouze v zobrazení kódu.
+
+### <a name="byte-order-mark"></a>Značka pořadí bajtů
+Ve výchozím nastavení spustí odpověď z transformace značky pořadí bajtů (BOM). Chcete-li zakázat tuto funkci, zadejte `disableByteOrderMark` pro `transformOptions` vlastnost:
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
 
 ## <a name="learn-more"></a>Další informace
 * [Další informace o integračního balíčku Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Další informace o Enterprise integračního balíčku")  

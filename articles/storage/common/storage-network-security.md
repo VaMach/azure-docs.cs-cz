@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurace brány firewall úložiště Azure a virtuálních sítí (preview)
 Úložiště Azure poskytuje vrstvený model zabezpečení umožňuje zabezpečit účtů úložiště na konkrétní sadu povolených sítí.  Pokud jsou nakonfigurovaná pravidla pro sítě, můžete jenom aplikace z povolených sítí přístup k účtu úložiště.  Při volání z povolených sítě, aplikace dál vyžadují správné autorizace (platný přístupový klíč nebo tokenu SAS) pro přístup k účtu úložiště.
@@ -49,7 +49,7 @@ Ve výchozím nastavení účty úložiště přijmout připojení z klientů v 
 > Provádění změn pravidla sítě může mít vliv na vaše aplikace umožňuje připojit k úložišti Azure.  Nastavení výchozí pravidlo sítě na **Odepřít** blokován přístup k datům, pokud pravidla pro konkrétní sítě *udělení* přístup se také použijí.  Ujistěte se, že udělit přístup k žádným povolené sítím pomocí pravidel sítě než změníte výchozí pravidlo odepřít přístup.
 >
 
-#### <a name="azure-portal"></a>portál Azure
+#### <a name="azure-portal"></a>Azure Portal
 1. Přejděte na účet úložiště, které chcete zabezpečit.  
 > [!NOTE]
 > Ujistěte se, že váš účet úložiště je v některém z podporovaných oblastí pro verzi public preview.
@@ -118,7 +118,7 @@ Chcete-li použít pravidlo pro virtuální sítě na účet úložiště, uživ
 ### <a name="managing-virtual-network-rules"></a>Položka spravovat pravidla virtuální sítě
 Pravidla pro virtuální sítě pro účty úložiště je možné spravovat prostřednictvím portálu Azure, PowerShell nebo CLIv2.
 
-#### <a name="azure-portal"></a>portál Azure
+#### <a name="azure-portal"></a>Azure Portal
 1. Přejděte na účet úložiště, které chcete zabezpečit.  
 2. Klikněte v nabídce nastavení, která je volána **brány firewall a virtuální sítě**.
 3. Ujistěte se, že jste se rozhodli povolit přístup ze 'vybrané sítě.
@@ -211,7 +211,7 @@ Pokud vaše síť připojená k síti Azure pomocí [ExpressRoute](/azure/expres
 ### <a name="managing-ip-network-rules"></a>Správa pravidel sítě IP
 Pravidla pro účty úložiště pro sítě IP je možné spravovat prostřednictvím portálu Azure, PowerShell nebo CLIv2.
 
-#### <a name="azure-portal"></a>portál Azure
+#### <a name="azure-portal"></a>Azure Portal
 1. Přejděte na účet úložiště, které chcete zabezpečit.  
 2. Klikněte v nabídce nastavení, která je volána **brány firewall a virtuální sítě**.
 3. Ujistěte se, že jste se rozhodli povolit přístup ze 'vybrané sítě.
@@ -298,7 +298,6 @@ Pokud výjimky "Důvěryhodné služby Microsoft" je povoleno, tyto služby (př
 |Azure Event Hubs|Microsoft.EventHub|Archivní data s zaznamenat centra událostí.  [Další informace](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure HDInsight|Microsoft.HDInsight|Zřizování clusteru a instalaci.  [Další informace](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Sítě Azure|Microsoft.Networking|Ukládat a analyzovat protokoly síťových přenosů.  [Další informace](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Backup|Microsoft.RecoveryServices|Zálohování a obnovení nespravované disků.  [Další informace](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Přístup k datům analytics úložiště
@@ -307,7 +306,7 @@ V některých případech není zapotřebí z mimo hranici sítě přístup ke �
 ### <a name="managing-exceptions"></a>Správa výjimek
 Pravidlo výjimky sítě je možné spravovat prostřednictvím portálu Azure, PowerShell nebo rozhraní příkazového řádku Azure v2.
 
-#### <a name="azure-portal"></a>portál Azure
+#### <a name="azure-portal"></a>Azure Portal
 1. Přejděte na účet úložiště, které chcete zabezpečit.  
 2. Klikněte v nabídce nastavení, která je volána **brány firewall a virtuální sítě**.
 3. Ujistěte se, že jste se rozhodli povolit přístup ze 'vybrané sítě.
@@ -356,7 +355,7 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 > Nezapomeňte [nastavit výchozí pravidlo](#change-the-default-network-access-rule) odepřít, nebo odebrání výjimky nebude mít žádný vliv.
 >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o koncových bodů služby sítě Azure v [koncové body služby](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Dig hlouběji do Azure Storage zabezpečení v [Průvodce zabezpečením úložiště Azure](storage-security-guide.md).

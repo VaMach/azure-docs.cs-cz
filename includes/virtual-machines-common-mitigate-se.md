@@ -22,7 +22,7 @@ V následující nabídky Zde jsou naše doporučené akce k aktualizaci operač
 <td>Virtuální počítače s Linuxem v Azure</td> <td>Nainstalujte aktualizace od poskytovatele operačního systému, pokud je k dispozici. </td>
 </tr>
 <tr>
-<td>Virtuální počítače s Azure Windows </td> <td><ul><li>Ověřte, že používáte podporovanou antivirový aplikaci před instalací aktualizací operačního systému. Informace o kompatibilitě, obraťte se na dodavatele antivirového softwaru. </li> <li> Nainstalujte [souhrn leden zabezpečení](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Virtuální počítače s Azure Windows </td> <td>Ověřte, že používáte podporovanou antivirový aplikaci před instalací aktualizací operačního systému. Informace o kompatibilitě, obraťte se na dodavatele antivirového softwaru.<p> Nainstalujte [souhrn leden zabezpečení](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Další služby Azure PaaS</td> <td>Je vyžadována pro zákazníky, kteří používají tyto služby žádná akce. Azure automaticky udržuje vaší verze operačního systému aktuálním stavu. </td>

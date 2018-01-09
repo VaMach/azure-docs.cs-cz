@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Přidání odolnost proti chybám v aktivitě kopírování přeskočení nekompatibilní řádků
 > [!NOTE]
@@ -43,6 +43,9 @@ Aktivita kopírování podporuje tři scénáře pro zjišťování, přeskočí
 - **Porušení primárního klíče při zápisu do relační databáze**
 
     Příklad: kopírování dat z SQL serveru do databáze SQL. Ve službě SQL database podřízený je definovaný primární klíč, ale na zdrojovém serveru SQL je definován žádný primární klíč. Duplicitní řádky, na které existují ve zdroji nelze zkopírovat do jímky. Aktivita kopírování zkopíruje pouze první řádek zdrojová data do jímky. Další zdroje řádky, které obsahují duplicitní hodnotu primárního klíče jsou rozpoznána jako nekompatibilní a se přeskočí.
+
+>[!NOTE]
+>Tato funkce se nevztahuje aktivity kopírování je nakonfigurovaný k vyvolání externích dat načítání, včetně mechanismus [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) nebo [Amazon Redshift uvolnění](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Pro načítání dat do SQL Data Warehouse pomocí PolyBase, použijte PolyBase na nativní odolnost proti chybám podporu zadáním "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" v aktivitě kopírování.
 
 ## <a name="configuration"></a>Konfigurace
 Následující příklad uvádí definici JSON konfigurace přeskočení nekompatibilní řádky v aktivitě kopírování:
@@ -83,5 +86,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o aktivitě kopírování objektu pro vytváření dat Azure, najdete v části [přesun dat pomocí aktivity kopírování](data-factory-data-movement-activities.md).

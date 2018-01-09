@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Nastavení replikace clusteru HBase v Azure virtuální sítě
 
@@ -283,4 +283,4 @@ V tomto kurzu jste zjistili, jak nastavit replikace HBase v rámci virtuální s
 * [Začínáme s Apache HBase v HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Přehled HDInsight HBase](./apache-hbase-overview.md)
 * [Vytvořit clustery HBase v Azure Virtual Network](./apache-hbase-provision-vnet.md)
-* [Analýza dat snímače pomocí Storm a HBase v HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
+

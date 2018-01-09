@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Úvod do Azure Cosmos DB: Graph API
 
@@ -103,7 +103,7 @@ Azure Cosmos DB nabízí následující možnosti odlišné ve srovnání s jin�
 Azure Cosmos DB také můžete použít více modelů, jako je dokument a graf, v rámci stejné kontejnery nebo databáze. Kolekce dokumentů můžete použít k ukládání dat grafu node souběžně s dokumenty. Dotazy SQL za JSON a Gremlin dotazy můžete použít k dotazování stejná data jako graf.
 
 ## <a name="get-started"></a>Začínáme
-Můžete rozhraní příkazového řádku Azure (CLI), Azure PowerShell nebo portálu Azure s podporou pro rozhraní graph API k vytváření účtů Azure Cosmos DB. Po vytvoření účtů, portál Azure poskytuje koncového bodu služby, jako je třeba `https://<youraccount>.graphs.azure.com`, která poskytuje front-end protokolu WebSocket pro Gremlin. Můžete nakonfigurovat vaše TinkerPop kompatibilní nástroje, jako je třeba [Gremlin konzoly](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), k připojení k tomuto koncovému bodu a vytvářet aplikace v jazyce Java, Node.js nebo všechny Gremlin ovladače klienta.
+Můžete rozhraní příkazového řádku Azure (CLI), Azure PowerShell nebo portálu Azure s podporou pro rozhraní graph API k vytváření účtů Azure Cosmos DB. Po vytvoření účtů, portál Azure poskytuje koncového bodu služby, jako je třeba `https://<youraccount>.gremlin.cosmosdb.azure.com`, která poskytuje front-end protokolu WebSocket pro Gremlin. Můžete nakonfigurovat vaše TinkerPop kompatibilní nástroje, jako je třeba [Gremlin konzoly](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), k připojení k tomuto koncovému bodu a vytvářet aplikace v jazyce Java, Node.js nebo všechny Gremlin ovladače klienta.
 
 V následující tabulce jsou uvedeny oblíbených Gremlin ovladače, které můžete použít pro Azure Cosmos DB:
 
@@ -143,7 +143,7 @@ Tady je několik scénářů, kde je možné grafu podpoře Azure Cosmos DB:
 
  Sítě a připojení mezi modelován jako graf zařízení IoT můžete vytvořit lepší pochopení stavu zařízení a prostředky. Také můžete zjistíte, jak změny v jedné části sítě může potenciálně ovlivnit další části.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o podpoře grafu v Azure Cosmos DB najdete v tématu:
 
 * Začínáme s [Azure Cosmos DB grafu kurzu](create-graph-dotnet.md).

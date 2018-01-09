@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Historie vydaných verzí
 Tým služby Azure Active Directory pravidelně aktualizuje Azure AD Connect Health se nové funkce a funkce. V tomto článku jsou uvedené verze a funkce, které byly vydány.
@@ -34,6 +34,12 @@ Tým služby Azure Active Directory pravidelně aktualizuje Azure AD Connect Hea
   1. Přidání nové řešení problémů s příkazy agenta
   2. Vylepšení dostupnost agenta 
   3. Obecné vylepšení a opravy chyb
+  
+## <a name="october-2017"></a>Říjen 2017
+**Aktualizace agenta:**
+
+ * Agent Azure AD Connect Health pro synchronizaci (verze 3.0.129.0) vydané službou Azure AD Connect verze 1.1.649.0
+<br></br> Opravit potíže s kompatibilitou verze mezi Azure AD Connect a Agent Azure AD Connect Health pro synchronizaci. Tento problém ovlivňuje zákazníky, kteří jsou provádění Azure AD Connect místní upgrade na verzi 1.1.647.0, ale verze 3.0.127.0 stavu agenta v současnosti má. Po upgradu agenta stavu už odesílat data o stavu týkající se služby Azure AD Connect synchronizace služby Azure AD Health. Pomocí této opravy je nainstalován Agent stavu verze 3.0.129.0 během Azure AD Connect místní upgrade. Agent stavu verze 3.0.129.0 nemá potíže s kompatibilitou s Azure AD Connect verze 1.1.649.0.
 
 ## <a name="july-2017"></a>2017 července
 **Aktualizace agenta:**
@@ -44,6 +50,8 @@ Tým služby Azure Active Directory pravidelně aktualizuje Azure AD Connect Hea
 *   Agent Azure AD Connect Health pro službu AD FS (verze 3.0.68.0)
   1. Obecné vylepšení a opravy chyb
   2. Podpora svrchovaných cloudu
+* Agent Azure AD Connect Health pro synchronizaci (verze 3.0.68.0) vydané službou Azure AD Connect verze 1.1.614.0
+1. Podpora pro Microsoft Azure Cloud vlády a Německo Microsoft Cloud
 
 ## <a name="april-2017"></a>Dubna 2017      
 **Aktualizace agenta:**
@@ -58,13 +66,13 @@ Tým služby Azure Active Directory pravidelně aktualizuje Azure AD Connect Hea
 **Aktualizace agenta:**
 
 * Agent Azure AD Connect Health pro službu AD FS \(verze 2.6.408.0\)
-  1. Vylepšení detekce klientských IP adres v žádosti o ověření
-  2. Opravy chyb, které souvisí s výstrahami
+1. Vylepšení detekce klientských IP adres v žádosti o ověření
+2. Opravy chyb, které souvisí s výstrahami
 * Agent Azure AD Connect Health pro službu AD DS (verze 2.6.408.0)
-  1. Opravy chyb, které souvisí s výstrahami.
+1. Opravy chyb, které souvisí s výstrahami.
 * Agent Azure AD Connect Health pro synchronizaci (verze 2.6.353.0) vydané službou Azure AD Connect verze 1.1.281.0
-  1. Zadejte požadovaná data pro sestavy chyb synchronizace
-  2. Opravy chyb, které souvisí s výstrahami
+1. Zadejte požadovaná data pro sestavy chyb synchronizace
+2. Opravy chyb, které souvisí s výstrahami
 
 **Nové funkce verze preview:**
 

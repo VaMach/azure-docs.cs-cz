@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96ca9bb2d7a9f30a7d6492be43bfb44edc02fd93
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Povolit komunikaci pro instance rolí v azure
 Role cloudové služby komunikují prostřednictvím interní a externí připojení. Externí připojení se nazývají **vstupní koncové body** při se označují jako vnitřní připojení **vnitřních koncových bodů**. Toto téma popisuje postup úpravy [služby definice](cloud-services-model-and-package.md#csdef) k vytvoření koncových bodů.
@@ -71,7 +71,7 @@ Můžete také použít rozsah portů.
 ```xml
 <Endpoints>
   <InternalEndpoint name="Endpoint3" protocol="any">
-    <FixedPortRange max="8995" min="8999" />
+    <FixedPortRange max="8999" min="8995" />
   </InternalEndpoint>
 </Endpoints>
 ```
@@ -369,6 +369,6 @@ Umožňuje použití jenom provoz sítě z **WebRole1** k **WorkerRole1**, **Web
 
 Odkaz na schéma XML pro prvky používané výše naleznete [zde](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o cloudové službě [modelu](cloud-services-model-and-package.md).
 

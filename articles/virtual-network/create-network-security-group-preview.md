@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrování provozu sítě přenosů se skupinami zabezpečení sítě a aplikací (Preview)
 
@@ -42,14 +42,14 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
 3. Přihlaste se k Azure pomocí `az login` příkaz.
 4. Registrovat verzi Preview zadáním následujících příkazů:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. Potvrďte, že jste zaregistrováni ve verzi preview tak, že zadáte následující příkaz:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
 
 6. Spusťte následující skript bash pro vytvoření skupiny prostředků:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
 
 7. Vytvořte tři skupiny zabezpečení aplikací, jednu pro každý typ serveru:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
 
 8. Vytvořte skupinu zabezpečení sítě:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
 
 9. Vytvoření pravidla zabezpečení v rámci NSG, nastavení zabezpečení skupiny aplikací jako cíl:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
 
 10. Vytvořte virtuální síť: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
 
 11. Přidružte skupinu zabezpečení sítě pro podsíť ve virtuální síti:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
     
 12. Vytvořte tři rozhraní sítě, jednu pro každý typ serveru: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       --application-security-groups "DatabaseServers"
     ```
 
-    Rozhraní sítě, na základě síťové rozhraní je členem skupiny zabezpečení aplikace se použije pouze odpovídající pravidlo zabezpečení, kterou jste vytvořili v kroku 9. Například pouze *WebRule* je platná pro *myNic1*, protože síťové rozhraní je členem skupiny *webové servery* skupiny zabezpečení aplikací a pravidla Určuje, *webové servery* skupiny zabezpečení aplikací jako svůj cíl. *AppRule* a *DatabaseRule* pravidla se nepoužije *myNic1*, protože síťové rozhraní není členem *AppServers*a *DatabaseServers* skupin zabezpečení aplikací.
+    Rozhraní sítě, na základě síťové rozhraní je členem skupiny zabezpečení aplikace se použije pouze odpovídající pravidlo zabezpečení, kterou jste vytvořili v kroku 9. Například pouze *AppRule* pravidlo je platná pro *myNic2*, protože síťové rozhraní je členem skupiny *AppServers* skupiny zabezpečení aplikací a pravidla Určuje, *AppServers* skupiny zabezpečení aplikací jako svůj cíl. *WebRule* a *DatabaseRule* pravidla se nepoužije *myNic2*, protože síťové rozhraní není členem *webové servery*a *DatabaseServers* skupin zabezpečení aplikací. Obě *WebRule* a *AppRule* pravidla jsou platné pro *myNic1* ale protože *myNic1* síťové rozhraní je členem skupiny Jak *webové servery* a *AppServers* zadejte skupiny zabezpečení aplikací a pravidla *webové servery* a *AppServers* skupin zabezpečení aplikací jako jejich cíle. 
 
 13. Vytvořte jeden virtuální počítač pro každý typ serveru, připojení příslušné síťové rozhraní pro každý virtuální počítač. Tento příklad vytvoří virtuální počítače s Windows, ale můžete změnit *win2016datacenter* k *UbuntuLTS* k vytvoření virtuálních počítačů Linux místo.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. Vytvořte skupinu zabezpečení sítě:
@@ -361,7 +363,7 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Rozhraní sítě, na základě síťové rozhraní je členem skupiny zabezpečení aplikace se použije pouze odpovídající pravidlo zabezpečení, kterou jste vytvořili v kroku 8. Například pouze *WebRule* je platná pro *myNic1*, protože síťové rozhraní je členem skupiny *webové servery* skupiny zabezpečení aplikací a pravidla Určuje, *webové servery* skupiny zabezpečení aplikací jako svůj cíl. *AppRule* a *DatabaseRule* pravidla se nepoužije *myNic1*, protože síťové rozhraní není členem *AppServers*a *DatabaseServers* skupin zabezpečení aplikací.
+    Rozhraní sítě, na základě síťové rozhraní je členem skupiny zabezpečení aplikace se použije pouze odpovídající pravidlo zabezpečení, kterou jste vytvořili v kroku 8. Například pouze *AppRule* pravidlo je platná pro *myNic2*, protože síťové rozhraní je členem skupiny *AppServers* skupiny zabezpečení aplikací a pravidla Určuje, *AppServers* skupiny zabezpečení aplikací jako svůj cíl. *WebRule* a *DatabaseRule* pravidla se nepoužije *myNic2*, protože síťové rozhraní není členem *webové servery*a *DatabaseServers* skupin zabezpečení aplikací. Obě *WebRule* a *AppRule* pravidla jsou platné pro *myNic1* ale protože *myNic1* síťové rozhraní je členem skupiny Jak *webové servery* a *AppServers* zadejte skupiny zabezpečení aplikací a pravidla *webové servery* a *AppServers* skupin zabezpečení aplikací jako jejich cíle. 
 
 13. Vytvořte jeden virtuální počítač pro každý typ serveru, připojení příslušné síťové rozhraní pro každý virtuální počítač. Tento příklad vytvoří virtuální počítače s Windows, ale před spuštěním skriptu, můžete změnit *-Windows* k *- Linux*, *MicrosoftWindowsServer* k *Kanonický*, *Windows Server* k *UbuntuServer* a *2016 Datacenter* k *14.04.2-LTS*k vytvoření virtuálních počítačů Linux místo.
 
@@ -429,6 +431,33 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
 
 14. **Volitelné**: Odstraňte prostředky, které v tomto kurzu vytvoříte pomocí kroků v [odstranit prostředky](#delete-cli).
 
+## <a name="remove-a-nic-from-an-asg"></a>Odebrání ASG síťový adaptér
+Jakmile síťové rozhraní odeberete ze skupiny zabezpečení pro aplikace, žádná pravidla, která určete skupinu zabezpečení, aplikace se použijí pro síťové rozhraní, které je odebrat.
+
+### <a name="azure-cli"></a>Azure CLI
+
+Chcete-li odebrat *myNic3* ze všech skupin zabezpečení aplikací, zadejte následující příkaz:
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+Chcete-li odebrat *myNic3* ze všech skupin zabezpečení aplikací, zadejte následující příkazy:
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>Odstraňte prostředky
 
 Po dokončení tohoto kurzu můžete chtít odstranit prostředky, které jste vytvořili, tak, aby vám zbytečně nenabíhaly poplatky za používání. Odstranění skupiny prostředků se také odstraní všechny prostředky, které jsou ve skupině prostředků.
@@ -443,7 +472,7 @@ Po dokončení tohoto kurzu můžete chtít odstranit prostředky, které jste v
 
 V relaci příkazového řádku zadejte následující příkaz:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

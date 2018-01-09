@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 7271dc071c6a370ed15f5a1f6ea0f119716dd2c6
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f9bcfbd9d229aa528123aeefdf0026460301241a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopírování dat z tabulky webové pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -25,7 +25,6 @@ ms.lasthandoff: 11/10/2017
 > * [Verze 2 – Preview](connector-web-table.md)
 
 Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z tabulky databáze webové. Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
-
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [konektor webové tabulky v V1](v1/data-factory-web-table-connector.md).
@@ -36,8 +35,12 @@ Z webové tabulky databáze můžete zkopírovat data do úložiště dat žádn
 
 Konkrétně tento Web tabulky konektor podporuje **extrahování obsahu tabulky z stránku HTML**. Pokud chcete načíst data z koncového bodu protokolu HTTP/s, použijte [HTTP konektor](connector-http.md) místo.
 
+## <a name="prerequisites"></a>Požadavky
+
+Pokud chcete použít tento konektor tabulky Web, musíte nastavit Self-hosted integrace Runtime. V tématu [Self-hosted integrace Runtime](create-self-hosted-integration-runtime.md) článku.
+
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](create-self-hosted-integration-runtime.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory pro konektor webových tabulky.
 
@@ -50,7 +53,7 @@ Následující vlastnosti jsou podporovány pro webové tabulky propojené služ
 | type | Vlastnost typu musí být nastavena na: **Web** |Ano |
 | Adresa URL | Adresa URL pro webové zdroje |Ano |
 | authenticationType. | Povolená hodnota je: **anonymní**. |Ano |
-| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
+| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Modul Runtime Self-hosted integrace se vyžaduje, jak je uvedeno v [požadavky](#prerequisites). |Ano |
 
 **Příklad:**
 
@@ -62,6 +65,10 @@ Následující vlastnosti jsou podporovány pro webové tabulky propojené služ
         "typeProperties": {
             "url" : "https://en.wikipedia.org/wiki/",
             "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -77,7 +84,7 @@ Ke zkopírování dat z tabulky webové, nastavte vlastnost typu datové sady, k
 |:--- |:--- |:--- |
 | type | Vlastnost typu datové sady musí být nastavena na: **WebTable** | Ano |
 | Cesta |Relativní adresa URL prostředek, který obsahuje tabulku. |Ne. Pokud cesta není zadána, je použít jenom adresu URL, zadaný v definici propojené služby. |
-| Index |Index tabulky v prostředku. V tématu [Get index tabulky v stránku HTML](#get-index-of-a-table-in-an-html-page) části Postup získání index tabulky v stránku HTML. |Ano |
+| index |Index tabulky v prostředku. V tématu [Get index tabulky v stránku HTML](#get-index-of-a-table-in-an-html-page) části Postup získání index tabulky v stránku HTML. |Ano |
 
 **Příklad:**
 
@@ -161,5 +168,5 @@ Ke zkopírování dat z tabulky webové, nastavte typ zdroje v aktivitě kopíro
 Pokud používáte Excel 2013, použijte [Microsoft Power Query pro Excel](https://www.microsoft.com/download/details.aspx?id=39379) získat index. V tématu [připojit k webové stránce](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) článku. Kroky jsou podobné, pokud používáte [Microsoft Power BI pro plochu](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).
