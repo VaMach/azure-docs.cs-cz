@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
 ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Vytváření vlastních modulů R ve službě Azure Machine Learning
 Toto téma popisuje, jak vytvořit a nasadit vlastní modul R v Azure Machine Learning. Vysvětluje, co jsou vlastních modulů R a jaké soubory se používají k definovat. Ukazuje, jak vytvořit soubory, které definují modul a jak registrace modulu pro nasazení v pracovním prostoru Machine Learning. Elementy a atributy používané v definici vlastní modul jsou pak popsány podrobněji. Postup použití pomocného funkce a soubory a několik výstupů také popsané. 
@@ -28,7 +28,7 @@ Toto téma popisuje, jak vytvořit a nasadit vlastní modul R v Azure Machine Le
 ## <a name="what-is-a-custom-r-module"></a>Co je vlastní modul R?
 A **vlastní modul** je modul definovaný uživatelem, který může být nahrán do pracovního prostoru a provést v rámci experimentu Azure Machine Learning. A **vlastní modul R** je vlastní modul, který provede uživatelsky definované funkce R. **R** je programovací jazyk pro statistické výpočty a obrázky, které se často používá podle vědců statistikami a dat pro implementaci algoritmy. V současné době R je jediným podporovaným v vlastní moduly, ale podpory pro další jazyky je naplánována na budoucích verzích jazykem.
 
-Vlastní moduly mají **prvotřídní stav** v Azure Machine Learning v tom smyslu, že je lze použít stejně jako ostatní moduly. Mohou být provedeny další moduly zahrnuté v publikované experimenty nebo vizualizace. Budete mít kontrolu nad algoritmus implementovaný modul, vstup a výstupních portů, který se má použít, modelování parametry a další různé chování za běhu. Experimentu, který obsahuje vlastní moduly můžete také publikovat na webu Cortana Intelligence Gallery pro snadné sdílení.
+Vlastní moduly mají **prvotřídní stav** v Azure Machine Learning v tom smyslu, že je lze použít stejně jako ostatní moduly. Mohou být provedeny další moduly zahrnuté v publikované experimenty nebo vizualizace. Budete mít kontrolu nad algoritmus implementovaný modul, vstup a výstupních portů, který se má použít, modelování parametry a další různé chování za běhu. Experimentu, který obsahuje vlastní moduly můžete také publikovat do Galerie AI Azure pro snadné sdílení.
 
 ## <a name="files-in-a-custom-r-module"></a>Soubory ve vlastní modul R
 Vlastní modul R je definováno soubor .zip, který obsahuje minimálně dva soubory:
@@ -292,7 +292,7 @@ Parametr modulu je definován pomocí **Arg** podřízený element **argumenty**
     * Štítek
     * Funkce
     * Hodnocení
-    * Všechny
+    * Vše
   * **výchozí** -platný výchozí možnosti pro výběr sloupce patří: 
     
     * Žádný
@@ -315,7 +315,7 @@ Parametr modulu je definován pomocí **Arg** podřízený element **argumenty**
     * AllLabel
     * AllFeature
     * AllScore
-    * Všechny
+    * Vše
 
 **Rozevírací seznam**: seznam uživatelská výčtového (rozevírací). Rozevírací seznam položek, které jsou určené v rámci **vlastnosti** pomocí elementu **položky** elementu. **Id** pro každou **položky** musí být jedinečný a platná proměnná R. Hodnota **název** z **položky** slouží jako text, který se zobrazí a hodnotu, která je předaný funkci R.
 

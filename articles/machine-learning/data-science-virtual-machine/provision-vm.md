@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Zřízení virtuálního počítače Windows datové vědy v Azure
 Virtuální počítač Microsoft Data vědecké účely je předem nainstalovaná a nakonfigurovaná s několik oblíbených nástrojů, které se běžně používají k analýze dat a strojové učení image virtuálního počítače (VM) systému Windows Azure. Nástroje sady jsou:
@@ -200,5 +200,5 @@ Tady jsou některé další kroky, chcete-li pokračovat, učení a zkoumání.
 * Přejděte na **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** ukázek pomocí knihovny RevoScaleR v R, který podporuje analýzy dat škálované enterprise.  
 * Přečtěte si článek: [10 způsobů, jak na vědecké zpracování dat virtuálního počítače](http://aka.ms/dsvmtenthings)
 * Naučte se vytvářet koncová analytická řešení systematičtěji pomocí [proces vědecké účely dat Team](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Přejděte [Azure Machine Learning Galerie](http://gallery.cortanaintelligence.com) pro machine learning a data analýzy vzorků, které pomocí Azure Machine learning a související data services v Azure. Taky uvádíme ikonu na **spustit** nabídky a na ploše virtuálního počítače do této galerie.
+* Přejděte [Azure AI Galerie](http://gallery.cortanaintelligence.com) pro machine learning a data analýzy vzorků, které pomocí Azure Machine learning a související data services v Azure. Taky uvádíme ikonu na **spustit** nabídky a na ploše virtuálního počítače do této galerie.
 

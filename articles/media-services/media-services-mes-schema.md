@@ -1,6 +1,6 @@
 ---
 title: "Media Encoder Standard schématu | Microsoft Docs"
-description: "Téma nabízí přehled Media Encoder Standard schématu."
+description: "Článek nabízí přehled Media Encoder Standard schématu."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e936f5c47abe5bb5531f9af3be48662ea2f48c97
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard schématu
-Toto téma popisuje některé prvky a typy schématu XML, na kterém [Media Encoder Standard přednastavení](media-services-mes-presets-overview.md) jsou založené. Téma obsahuje vysvětlení elementů a jejich platné hodnoty. Úplné schéma bude publikována později.  
+Tento článek popisuje některé prvky a typy schématu XML, na kterém [Media Encoder Standard přednastavení](media-services-mes-presets-overview.md) jsou založené. Článek obsahuje vysvětlení elementů a jejich platné hodnoty.  
 
 ## <a name="Preset"></a>Přednastavení (kořenový element)
 Definuje předvolby kódování.  
 
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Kódování** |[Kódování](media-services-mes-schema.md#Encoding) |Kořenový element udává, že kódovaný vstupního zdroje. |
 | **Výstupy** |[Výstupy](media-services-mes-schema.md#Output) |Kolekce požadovaný výstupní soubory. |
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
-| **Verze**<br/><br/> Požaduje se |**xs:decimal** |Přednastavené verze. Platí následující omezení: hodnota xs:fractionDigits = "1" a xs:minInclusive value = "1", například **verze = "1.0"**. |
+| **Verze**<br/><br/> Požaduje se |**xs: decimal** |Přednastavené verze. Platí následující omezení: hodnota xs:fractionDigits = "1" a xs:minInclusive value = "1", například **verze = "1.0"**. |
 
 ## <a name="Encoding"></a>Kódování
-Obsahuje posloupnost následující prvky.  
+Obsahuje posloupnost následující prvky:  
 
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Nastavení kódování H.264 videa. |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |Nastavení pro AAC kódování zvukovém souboru. |
@@ -51,26 +51,26 @@ Obsahuje posloupnost následující prvky.
 
 ## <a name="H264Video"></a>H264Video
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> Hodnota minOccurs = "0" |**xs:Boolean** |V současné době je podporováno pouze jeden průchodu kódování. |
-| **KeyFrameInterval**<br/><br/> Hodnota minOccurs = "0"<br/><br/> **Výchozí = "00: 00:02"** |**: Time** |Určuje pevné mezery mezi IDR rámce v jednotkách sekund. Také označuje jako GOP doba trvání. V tématu **SceneChangeDetection** (dole) pro řízení, zda kodér může lišit od tuto hodnotu. |
-| **SceneChangeDetection**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "false" |**xs:Boolean** |Pokud nastaven na hodnotu true, kodér pokouší rozpoznat změnu scény ve videu a vloží již IDR rámečku. |
+| **KeyFrameInterval**<br/><br/> Hodnota minOccurs = "0"<br/><br/> **Výchozí = "00: 00:02"** |**: Time** |Určuje pevné mezery mezi IDR rámce v jednotkách sekund. Také označuje jako GOP doba trvání. V tématu **SceneChangeDetection** řízení, zda kodér může lišit od tuto hodnotu. |
+| **SceneChangeDetection**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "false" |**xs: logická hodnota** |Pokud nastaven na hodnotu true, kodér pokouší rozpoznat změnu scény ve videu a vloží již IDR rámečku. |
 | **Složitost**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "Rovnováha" |**xs:String** |Ovládací prvky o kompromisu mezi kódování kvality rychlost a video. Může mít jednu z následujících hodnot: **rychlost**, **Rovnováha**, nebo **kvality**<br/><br/> Výchozí hodnota: **vyrovnáváním** |
-| **SyncMode**<br/><br/> Hodnota minOccurs = "0" | |V budoucích verzích se zveřejní funkce. |
+| **SyncMode**<br/><br/> Hodnota minOccurs = "0" | |Funkce se zveřejní v budoucí verzi. |
 | **H264Layers**<br/><br/> Hodnota minOccurs = "0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Kolekce vrstev výstupu videa. |
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
-| **Podmínka** |**xs:String** | Pokud je vstupní žádné video, můžete vynutit kodér vložit černobílý video sledovat. K tomu použít podmínku = "InsertBlackIfNoVideoBottomLayerOnly" (Chcete-li vložit video na pouze nejnižší přenosovou rychlostí) nebo podmínku = "InsertBlackIfNoVideo" (Vložit video vůbec výstup přenosových rychlostí). Další informace najdete v [tomto](media-services-advanced-encoding-with-mes.md#no_video) tématu.|
+| **Podmínka** |**xs:String** | Pokud je vstupní žádné video, můžete vynutit kodér vložit černobílý video sledovat. K tomu použít podmínku = "InsertBlackIfNoVideoBottomLayerOnly" (Chcete-li vložit video na pouze nejnižší přenosovou rychlostí) nebo podmínku = "InsertBlackIfNoVideo" (Vložit video vůbec výstup přenosových rychlostí). Další informace najdete v [tomto](media-services-advanced-encoding-with-mes.md#no_video) článku.|
 
 ## <a name="H264Layers"></a>H264Layers
 
-Ve výchozím nastavení odeslání vstup kodéru, který obsahuje pouze zvuk a obraz, bude obsahovat výstupní asset soubory s pouze zvuk data. Některé přehrávače nemusí být schopná zpracovat takové výstupní datové proudy. Můžete použít H264Video **InsertBlackIfNoVideo** atribut nastavení vynucení kodér přidat video sledovat ve výstupu v tomto scénáři. Další informace najdete v [tomto](media-services-advanced-encoding-with-mes.md#no_video) tématu.
+Ve výchozím nastavení Pokud odesíláte vstup kodéru, který obsahuje pouze zvuk a obraz, výstupní asset obsahuje soubory s pouze zvuk data. Některé přehrávače nemusí být schopná zpracovat takové výstupní datové proudy. Můžete použít H264Video **InsertBlackIfNoVideo** atribut nastavení vynucení kodér přidat video sledovat ve výstupu v tomto scénáři. Další informace najdete v [tomto](media-services-advanced-encoding-with-mes.md#no_video) článku.
               
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "bez vazby" |[H264Layer](media-services-mes-schema.md#H264Layer) |Kolekce H264 vrstvy. |
 
@@ -81,20 +81,20 @@ Ve výchozím nastavení odeslání vstup kodéru, který obsahuje pouze zvuk a 
 > 
 
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
-| **Profil**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "Auto" |**xs:String** |Může být jeden z následujících **xs:string** hodnoty: **automaticky**, **směrného plánu**, **hlavní**, **vysokou**. |
-| **Úroveň**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "Auto" |**xs:String** | |
+| **Profil**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "Auto" |**xs: řetězec** |Může být jeden z následujících **xs: řetězec** hodnoty: **automaticky**, **směrného plánu**, **hlavní**, **vysokou**. |
+| **Úroveň**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "Auto" |**xs: řetězec** | |
 | **Přenosovou rychlostí**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Přenosovou rychlostí, použít pro tuto vrstvu videa zadaný v kb/s. |
-| **MaxBitrate**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Maximální přenosová použít pro tuto vrstvu videa zadaný v kb/s. |
-| **BufferWindow**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "00: 00:05" |**: Time** |Délka video vyrovnávací paměti. |
-| **Šířka**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Šířka rámečku video výstup v pixelech.<br/><br/> Všimněte si, že v současné době musíte zadat šířku a výšku. Šířka a výška muset být sudé číslo. |
-| **Výška**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Výška rámečku video výstup v pixelech.<br/><br/> Všimněte si, že v současné době musíte zadat šířku a výšku. Šířka a výška muset být sudé číslo.|
-| **BFrames**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Počet snímků B mezi odkaz snímky. |
+| **MaxBitrate**<br/><br/> Hodnota minOccurs = "0" |**xs: int** |Maximální přenosová použít pro tuto vrstvu videa zadaný v kb/s. |
+| **BufferWindow**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "00: 00:05" |**xs: čas** |Délka video vyrovnávací paměti. |
+| **Šířka**<br/><br/> Hodnota minOccurs = "0" |**xs: int** |Šířka rámečku video výstup v pixelech.<br/><br/> V současné době musíte zadat, šířku a výšku. Šířka a výška muset být sudé číslo. |
+| **Výška**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Výška rámečku video výstup v pixelech.<br/><br/> V současné době musíte zadat, šířku a výšku. Šířka a výška muset být sudé číslo.|
+| **BFrames**<br/><br/> Hodnota minOccurs = "0" |**xs: int** |Počet snímků B mezi odkaz snímky. |
 | **ReferenceFrames**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "3" |**xs:int** |Počet snímků odkaz v GOP. |
-| **EntropyMode**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "Cabac" |**xs:String** |Může mít jednu z následujících hodnot: **Cabac** a **Cavlc**. |
-| **Kmitočet snímků**<br/><br/> Hodnota minOccurs = "0" |racionální číslo |Určuje obnovovací frekvence výstupu videa. Použijte výchozí nastavení 0 nebo 1"Pokud chcete, aby služba kodér použít stejné obnovovací frekvence jako vstup videa. Povolené hodnoty jsou očekávány běžné frekvenci snímků videa, jak je uvedeno níže. Libovolný platný rozumné je však povolena. Příklad 1 nebo 1 by 1 fps a je platný.<br/><br/> -12/1 (12 fps)<br/><br/> -15/1 (15 fps)<br/><br/> -24/1 (24 fps)<br/><br/> 24000/1001 (23.976 fps)<br/><br/> -25/1 (25 fps)<br/><br/>  -30/1 (30 fps)<br/><br/> 30000/1001 (29,97 fps) <br/> <br/>**Poznámka:** při vytváření vlastní předvolbu pro více přenosovými rychlostmi kódování, pak všechny vrstvy přednastavení **musí** použít stejnou hodnotu kmitočet snímků.|
-| **AdaptiveBFrame**<br/><br/> Hodnota minOccurs = "0" |**xs:Boolean** |Zkopírujte z Azure media encoder |
+| **EntropyMode**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "Cabac" |**xs: řetězec** |Může mít jednu z následujících hodnot: **Cabac** a **Cavlc**. |
+| **Kmitočet snímků**<br/><br/> Hodnota minOccurs = "0" |racionální číslo |Určuje obnovovací frekvence výstupu videa. Použijte výchozí nastavení 0 nebo 1"Pokud chcete, aby služba kodér použít stejné obnovovací frekvence jako vstup videa. Povolené hodnoty jsou očekávány běžné frekvenci snímků videa. Libovolný platný rozumné je však povolena. Například 1 nebo 1 by 1 fps a je platný.<br/><br/> -12/1 (12 fps)<br/><br/> -15/1 (15 fps)<br/><br/> -24/1 (24 fps)<br/><br/> 24000/1001 (23.976 fps)<br/><br/> -25/1 (25 fps)<br/><br/>  -30/1 (30 fps)<br/><br/> 30000/1001 (29,97 fps) <br/> <br/>**Poznámka:** při vytváření vlastní předvolbu pro více přenosovými rychlostmi kódování, pak všechny vrstvy přednastavení **musí** použít stejnou hodnotu kmitočet snímků.|
+| **AdaptiveBFrame**<br/><br/> Hodnota minOccurs = "0" |**xs: logická hodnota** |Zkopírujte z Azure media encoder |
 | **Řezy**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "0" |**xs:int** |Určuje, kolik řezy rámeček je rozdělené do. Doporučujeme používat výchozí. |
 
 ## <a name="AACAudio"></a>AACAudio
@@ -103,14 +103,14 @@ Ve výchozím nastavení odeslání vstup kodéru, který obsahuje pouze zvuk a 
  Další informace o AAC najdete v tématu [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
-| **Profil**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "AACLC" |**xs:String** |Může mít jednu z následujících hodnot: **AACLC**, **HEAACV1**, nebo **HEAACV2**. |
+| **Profil**<br/><br/> Hodnota minOccurs = "0"<br/><br/> Výchozí = "AACLC" |**xs: řetězec** |Může mít jednu z následujících hodnot: **AACLC**, **HEAACV1**, nebo **HEAACV2**. |
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
-| **Podmínka** |**xs:String** |Chcete-li vynutit kodér k vytvoření asset, který obsahuje tichou zvuk sledovat, kdy se vstup neobsahuje žádný zvuk, zadejte hodnotu "InsertSilenceIfNoAudio".<br/><br/> Ve výchozím nastavení Pokud odesíláte vstup kodéru, který obsahuje pouze video a žádné zvuk, pak výstupní asset bude obsahovat soubory, které obsahují pouze video data. Některé přehrávače nemusí být schopná zpracovat takové výstupní datové proudy. Toto nastavení slouží k vynucení kodér přidat tichou zvuk sledovat ve výstupu v tomto scénáři. |
+| **Podmínka** |**xs: řetězec** |Chcete-li vynutit kodér k vytvoření asset, který obsahuje tichou zvuk sledovat, kdy se vstup neobsahuje žádný zvuk, zadejte hodnotu "InsertSilenceIfNoAudio".<br/><br/> Ve výchozím nastavení Pokud odesíláte vstup kodéru, který obsahuje pouze video a žádné zvuk, pak výstupní asset obsahuje soubory, které obsahují pouze video data. Některé přehrávače nemusí být schopná zpracovat takové výstupní datové proudy. Toto nastavení slouží k vynucení kodér přidat tichou zvuk sledovat ve výstupu v tomto scénáři. |
 
 ### <a name="groups"></a>Skupiny
 | Referenční informace | Popis |
@@ -121,11 +121,11 @@ Ve výchozím nastavení odeslání vstup kodéru, který obsahuje pouze zvuk a 
 Podrobnosti o tom, jaké hodnoty jsou platné pro každý profil najdete v tabulce "Zvuk kodeků podrobnosti", který následuje.  
 
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
-| **Kanály**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Počet zvukových kanálů kódování. Platné možnosti jsou následující: 1, 2, 5, 6, 8.<br/><br/> Výchozí: 2. |
-| **SamplingRate**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Zvuk vzorkovací frekvenci zadaný v Hz. |
-| **Přenosovou rychlostí**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Přenosovou rychlostí, používá při kódování zvuk, zadané v kb/s. |
+| **Kanály**<br/><br/> Hodnota minOccurs = "0" |**xs: int** |Počet zvukových kanálů kódování. Platné možnosti jsou následující: 1, 2, 5, 6, 8.<br/><br/> Výchozí: 2. |
+| **SamplingRate**<br/><br/> Hodnota minOccurs = "0" |**xs: int** |Zvuk vzorkovací frekvenci zadaný v Hz. |
+| **Přenosovou rychlostí**<br/><br/> Hodnota minOccurs = "0" |**xs: int** |Přenosovou rychlostí, používá při kódování zvuk, zadané v kb/s. |
 
 ### <a name="audio-codec-details"></a>Podrobnosti o zvukových kodeků
 Zvukových kodeků|Podrobnosti  
@@ -137,16 +137,16 @@ Zvukových kodeků|Podrobnosti
 
 ## <a name="Clip"></a>Klip
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Čas spuštění** |**xs** |Určuje počáteční čas prezentace. Hodnota čas spuštění musí odpovídat absolutní časová razítka vstupní videa. Například pokud první snímek vstupní video má časovým razítkem 12:00:10.000, pak čas spuštění by měl alespoň 12:00:10.000 nebo vyšší. |
 | **Doba trvání** |**xs** |Určuje dobu trvání prezentace (například vzhled překrytí v video). |
 
 ## <a name="Output"></a>Výstup
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
-| **Název souboru** |**xs:String** |Název výstupního souboru.<br/><br/> Makra popsané v následující tabulce můžete použít k vytvoření názvy výstupního souboru. Například:<br/><br/> **"Výstupy": [{"Název souboru": "{Basename}*{řešení}*.mp4 {přenosovou rychlostí}", "Format": {"Typ": "MP4Format"}}] ** |
+| **Název souboru** |**xs:String** |Název výstupního souboru.<br/><br/> Makra popsané v následující tabulce můžete použít k vytvoření názvy výstupního souboru. Příklad:<br/><br/> **"Výstupy": [{"Název souboru": "{Basename}*{řešení}*.mp4 {přenosovou rychlostí}", "Format": {"Typ": "MP4Format"}}] ** |
 
 ### <a name="macros"></a>Makra
 | – Makro | Popis |
@@ -157,12 +157,12 @@ Zvukových kodeků|Podrobnosti
 | **{Kanál}** |Pokud soubor obsahuje zvuk zvuk kanál počet. |
 | **{Šířka}** |Šířka videa v pixelech, ve výstupním souboru, pokud soubor obsahuje video. |
 | **{Výška}** |Výška videa v pixelech, ve výstupním souboru, pokud soubor obsahuje video. |
-| **{Rozšíření}** |Dědí z vlastnosti "Type" pro výstupní soubor. Název výstupního souboru bude mít příponu, což je jedna z: "mp4", "ts", "jpg", "png" nebo "bmp". |
+| **{Rozšíření}** |Dědí z vlastnosti "Type" pro výstupní soubor. Název výstupního souboru má příponu, což je jedna z: "mp4", "ts", "jpg", "png" nebo "bmp". |
 | **{Index}** |Povinné pro miniaturu. Mají jenom přítomen jednou. |
 
 ## <a name="Video"></a>Video (komplexní typ dědí od kodeků)
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Start** |**xs:String** | |
 | **Krok** |**xs:String** | |
@@ -170,23 +170,23 @@ Zvukových kodeků|Podrobnosti
 | **PreserveResolutionAfterRotation** |**xs:Boolean** |Podrobné vysvětlení, najdete v následující části: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a>PreserveResolutionAfterRotation
-Doporučuje se použít příznak PreserveResolutionAfterRotation v kombinaci s hodnotami řešení vyjádřené v procentech (Width = "100 %", výška = "100 %").  
+Doporučuje se použít **PreserveResolutionAfterRotation** příznak v kombinaci s hodnotami řešení vyjádřené v procentech (šířka = "100 %", výška = "100 %").  
 
-Ve výchozím nastavení řešení kódovat (šířka a výška) v přednastavení Media Encoder Standard (MES) cílí na videa s otočení 0 stupňů. Například pokud vaše vstupní video 1280 × 720 nulové stupeň otáčení, pak jsou výchozí přednastavení zajistěte, aby výstup stejné rozlišení. Viz následující obrázek.  
+Ve výchozím nastavení řešení kódovat (šířka a výška) v přednastavení Media Encoder Standard (MES) cílí na videa s otočení 0 stupňů. Například pokud vaše vstupní video 1280 × 720 s otočení nula stupňů, pak jsou výchozí přednastavení zajistěte, aby výstup stejné rozlišení.  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-Nicméně to znamená, že pokud vstupní video má zaznamenala s nenulovou hodnotou otočení (např. tablet nebo smartphone uchovávat svisle), pak MES ve výchozím nastavení použije nastavení překladu kódovat (šířka a výška) vstup videa a pak kompenzovat otočení. Například viz následující obrázek. Přednastavení používá Width = "100 %", výška = "100 %", který MES interpretuje jako vyžadování výstup 1 280 pixelů na šířku a výšku 720 pixelů. Po rotaci videa, pak zaplňování na obrázku a nevejde se do okna, což pillar-box oblasti vlevo a vpravo.  
+Pokud vstupní video má zaznamenala s nenulovou hodnotou otočení (například smartphone nebo tabletu uchovávat svisle), pak MES ve výchozím nastavení platí nastavení překladu kódovat (šířka a výška) pro vstup videa a pak kompenzovat otočení. Například najdete na obrázku, který následuje dále. Přednastavení používá Width = "100 %", výška = "100 %", který MES interpretuje jako vyžadování výstup 1 280 pixelů na šířku a výšku 720 pixelů. Po rotaci videa, pak zaplňování na obrázku a nevejde se do okna, což pillar-box oblasti vlevo a vpravo.  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Pokud výše není požadované chování, pak můžete provést pomocí příznaku PreserveResolutionAfterRotation a nastavte ji na "PRAVDA" (výchozí hodnota je "false"). Proto pokud vaše přednastavené má šířku = "100 %", výška = "100 %" a PreserveResolutionAfterRotation nastavena na hodnotu true, vstupní video, což je 1 280 pixelů a 720 pixelů výšku s 90 stupeň otočení způsobí výstup s nulové stupeň otočení, ale 720 pixelů a výšku 1 280 pixelů. Viz následující obrázek.  
+Alternativně můžete použít použití **PreserveResolutionAfterRotation** příznak a nastavte na hodnotu "PRAVDA" (výchozí hodnota je "false"). Takže pokud má vaše přednastavených šířku = "100 %", výška = "100 %" a PreserveResolutionAfterRotation nastavena na hodnotu true, vstupní video, což je 1 280 pixelů a 720 pixelů výšku s otočení 90 stupňů vytváří výstup s otočení stupeň nula, ale 720 pixelů široké a 1280 Vysoký pixelů. Viz následující obrázek:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
 ## <a name="FormatGroup"></a>FormatGroup (skupiny)
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
@@ -194,81 +194,81 @@ Pokud výše není požadované chování, pak můžete provést pomocí přízn
 
 ## <a name="BmpLayer"></a>BmpLayer
 ### <a name="element"></a>Element
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Šířka**<br/><br/> Hodnota minOccurs = "0" |**xs:int** | |
 | **Výška**<br/><br/> Hodnota minOccurs = "0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Podmínka** |**xs:String** | |
 
 ## <a name="PngLayer"></a>PngLayer
 ### <a name="element"></a>Element
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Šířka**<br/><br/> Hodnota minOccurs = "0" |**xs:int** | |
 | **Výška**<br/><br/> Hodnota minOccurs = "0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Podmínka** |**xs:String** | |
 
 ## <a name="JpgLayer"></a>JpgLayer
 ### <a name="element"></a>Element
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Šířka**<br/><br/> Hodnota minOccurs = "0" |**xs:int** | |
 | **Výška**<br/><br/> Hodnota minOccurs = "0" |**xs:int** | |
 | **Kvality**<br/><br/> Hodnota minOccurs = "0" |**xs:int** |Platné hodnoty: 1(worst)-100(best) |
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Podmínka** |**xs:String** | |
 
 ## <a name="PngLayers"></a>PngLayers
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "bez vazby" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a>BmpLayers
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "bez vazby" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a>JpgLayers
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "bez vazby" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a>BmpImage (komplexní typ dědí od Video)
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> Hodnota minOccurs = "0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG vrstev |
 
 ## <a name="JpgImage"></a>JpgImage (komplexní typ dědí od Video)
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> Hodnota minOccurs = "0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG vrstev |
 
 ## <a name="PngImage"></a>PngImage (komplexní typ dědí od Video)
 ### <a name="elements"></a>Elementy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> Hodnota minOccurs = "0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG vrstev |
 
 ## <a name="examples"></a>Příklady
 Najdete příklady přednastavení XML, které jsou vytvořené na základě této schématu, najdete v části [přednastavení úloh pro MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby

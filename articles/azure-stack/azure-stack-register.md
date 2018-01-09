@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registrace Azure zásobníku u vašeho předplatného Azure
 
@@ -36,7 +36,7 @@ Před registrací zásobník Azure s Azure, musíte mít:
 
 - ID předplatného pro předplatné Azure. Chcete-li získat ID, přihlaste se k Azure, klikněte na **další služby** > **odběry**, klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít **ID předplatného**. Čína, Německu a US government Cloudová předplatná nejsou aktuálně podporovány.
 - Uživatelské jméno a heslo pro účet, který je vlastníkem předplatného (podporovány jsou účty MSA nebo 2FA).
-- *Nepožadováno počínaje verzí aktualizace 1712 zásobník Azure (1.0.180103.2):* Azure Active Directory pro předplatné Azure. Tento adresář můžete najít v Azure podržením ukazatele nad miniatury v pravém horním rohu portálu Azure.
+- *Nepožadováno počínaje verzí aktualizace 1712 zásobník Azure (180106.1):* Azure Active Directory pro předplatné Azure. Tento adresář můžete najít v Azure podržením ukazatele nad miniatury v pravém horním rohu portálu Azure.
 
 Pokud nemáte předplatné Azure, který splňuje tyto požadavky, můžete [vytvořit bezplatný účet Azure zde](https://azure.microsoft.com/en-us/free/?b=17.06). Registrace Azure zásobníku způsobuje bez nákladů na vaše předplatné Azure.
 
@@ -126,7 +126,7 @@ Pokud chcete změnit model fakturace nebo syndikace funkcí pro instalaci, můž
 
 
 ## <a name="disconnected-registration"></a>Odpojené registrace
-*Informace v této části platí počínaje aktualizovanou verzi 1712 zásobník Azure (1.0.180103.2) a není podporován s předchozími verzemi.*
+*Informace v této části platí počínaje aktualizovanou verzi 1712 zásobník Azure (180106.1) a není podporován s předchozími verzemi.*
 
 Pokud registrujete Azure zásobníku v odpojeném prostředí, budete muset získat token registrace z prostředí zásobníku Azure a pak použít tento token na počítači, který může připojit k Azure pro registraci.  
 

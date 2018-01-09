@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Výstup metadat
 ## <a name="overview"></a>Přehled
@@ -26,10 +26,10 @@ Kódování úlohy jsou přiřazeny prostředek vstupní (nebo prostředky) na k
 
 Pokud chcete zkontrolovat soubor metadat, můžete vytvořit **SAS** Lokátor a stahování souborů do místního počítače.  
 
-Toto téma popisuje elementy a typy schématu XML, na kterém metada výstup (&lt;source_file_name&gt;_manifest.xml) je založena. Informace o souboru, který obsahuje metadata o vstupní asset najdete v tématu [vstupní Metadata](media-services-input-metadata-schema.md).  
+Tento článek popisuje elementy a typy schématu XML, na kterém metada výstup (&lt;source_file_name&gt;_manifest.xml) je založena. Informace o souboru, který obsahuje metadata o vstupní asset najdete v tématu [vstupní Metadata](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
-> Můžete najít kód úplné schéma a ukázkový kód XML na konci tohoto tématu.  
+> Můžete najít kód úplné schéma a ukázkový kód XML na konci tohoto článku.  
 >
 >
 
@@ -37,7 +37,7 @@ Toto téma popisuje elementy a typy schématu XML, na kterém metada výstup (&l
 Kolekce položek AssetFile pro úlohy kódování.  
 
 ### <a name="child-elements"></a>Podřízené elementy
-| Name (Název) | Popis |
+| Název | Popis |
 | --- | --- |
 | **AssetFile**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "1" |[AssetFile element](media-services-output-metadata-schema.md) který je součástí AssetFiles kolekce. |
 
@@ -45,17 +45,17 @@ Kolekce položek AssetFile pro úlohy kódování.
 Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Název**<br/><br/> Požaduje se |**xs:String** |Název souboru asset média. |
 | **Velikost**<br/><br/> minInclusive = "0"<br/><br/> Požaduje se |**xs:Long** |Velikost souboru assetu v bajtech. |
 | **Doba trvání**<br/><br/> Požaduje se |**xs** |Obsahu play back doba trvání. |
 
 ### <a name="child-elements"></a>Podřízené elementy
-| Name (Název) | Popis |
+| Název | Popis |
 | --- | --- |
 | **Zdroje** |Kolekce vstup nebo zdrojové soubory médií, který byl zpracován, aby bylo možné vytvořit tento AssetFile. Další informace najdete v tématu [Source element](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "1" |Každý fyzický AssetFile může obsahovat v ní nula nebo více video sleduje prokládaný do formátu odpovídajícího kontejneru. Toto je kolekce těchto video sleduje. Další informace najdete v tématu [VideoTracks element](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "1" |Každý fyzický AssetFile může obsahovat v ní nula nebo více videa sleduje prokládaný do formátu odpovídajícího kontejneru. Další informace najdete v tématu [VideoTracks element](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "1" |Každý fyzický AssetFile může obsahovat v ní nula nebo více zvukových stop prokládaný do formátu odpovídajícího kontejneru. Toto je kolekce těchto zvukových stop. Další informace najdete v tématu [AudioTracks element](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a>Zdrojový element
@@ -64,9 +64,9 @@ Kolekce vstup nebo zdrojové soubory médií, který byl zpracován, aby bylo mo
 Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Podřízené elementy
-| Name (Název) | Popis |
+| Název | Popis |
 | --- | --- |
-| **Zdroj**<br/><br/> Hodnota minOccurs = "1" maxOccurs = "bez vazby" |Vstup/zdrojový soubor, používá při generování tento prostředek. Další informace najdete v části [Source element](media-services-output-metadata-schema.md). |
+| **Zdroj**<br/><br/> Hodnota minOccurs = "1" maxOccurs = "bez vazby" |Vstup/zdrojový soubor, používá při generování tento prostředek. Další informace najdete v tématu [Source element](media-services-output-metadata-schema.md). |
 
 ## <a name="Source "></a>Source element
 Vstup/zdrojový soubor, používá při generování tento prostředek.  
@@ -74,17 +74,17 @@ Vstup/zdrojový soubor, používá při generování tento prostředek.
 Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **Název**<br/><br/> Požaduje se |**xs:String** |Název souboru vstupního zdroje. |
 
 ## <a name="VideoTracks "></a>VideoTracks element
-Každý fyzický AssetFile může obsahovat v ní nula nebo více video sleduje prokládaný do formátu odpovídajícího kontejneru. Toto je kolekce těchto video sleduje.  
+Každý fyzický AssetFile může obsahovat v ní nula nebo více videa sleduje prokládaný do formátu odpovídajícího kontejneru. **VideoTracks** element představuje kolekci video sleduje.  
 
 Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Podřízené elementy
-| Name (Název) | Popis |
+| Název | Popis |
 | --- | --- |
 | **VideoTrack**<br/><br/> Hodnota minOccurs = "1" maxOccurs = "bez vazby" |V nadřazené AssetFile sledovat konkrétní video. Další informace najdete v tématu [VideoTrack element](media-services-output-metadata-schema.md#VideoTrack). |
 
@@ -94,9 +94,9 @@ V nadřazené AssetFile sledovat konkrétní video.
 Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
-| **ID**<br/><br/> minInclusive = "0"<br/><br/> Požaduje se |**xs:int** |Index počítaný od nuly toto video sledovat. **Poznámka:** to není nezbytně TrackID jako použít v souboru MP4. |
+| **ID**<br/><br/> minInclusive = "0"<br/><br/> Požaduje se |**xs:int** |Index počítaný od nuly toto video sledovat. **Poznámka:** to **Id** není nutně TrackID jako použít v souboru MP4. |
 | **FourCC**<br/><br/> Požaduje se |**xs:String** |Video kodeků FourCC kódu. |
 | **Profil** |**xs:String** |Profil H264 (platí jenom pro H264 kodeků). |
 | **Úroveň** |**xs:String** |Úroveň H264 (platí jenom pro H264 kodeků). |
@@ -111,12 +111,12 @@ Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metad
 | **MaxGOPBitrate**<br/><br/> minInclusive = "0" |**xs:int** |Maximální počet GOP průměrná přenosovou rychlostí pro tento stopy videa, v kB. |
 
 ## <a name="AudioTracks "></a>AudioTracks element
-Každý fyzický AssetFile může obsahovat v ní nula nebo více zvukových stop prokládaný do formátu odpovídajícího kontejneru. Toto je kolekce těchto zvukových stop.  
+Každý fyzický AssetFile může obsahovat v ní nula nebo více zvukových stop prokládaný do formátu odpovídajícího kontejneru. **AudioTracks** element představuje kolekci těchto zvukových stop.  
 
 Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Podřízené elementy
-| Name (Název) | Popis |
+| Název | Popis |
 | --- | --- |
 | **AudioTrack**<br/><br/> Hodnota minOccurs = "1" maxOccurs = "bez vazby" |V nadřazené AssetFile sledovat konkrétní zvukovém souboru. Další informace najdete v tématu [AudioTrack element](media-services-output-metadata-schema.md). |
 
@@ -126,7 +126,7 @@ V nadřazené AssetFile sledovat konkrétní zvukovém souboru.
 Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **ID**<br/><br/> minInclusive = "0"<br/><br/> Požaduje se |**xs:int** |Index tento zvuk dráhy nule. **Poznámka:** to není nezbytně TrackID jako použít v souboru MP4. |
 | **Kodeků** |**xs:String** |Zvuk sledovat kodeků řetězec. |
@@ -137,7 +137,7 @@ Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metad
 | **BitsPerSample**<br/><br/> minInclusive = "0"<br/><br/> Požaduje se |**xs:int** |Bitů na vzorek pro formát wFormatTag typu. |
 
 ### <a name="child-elements"></a>Podřízené elementy
-| Name (Název) | Popis |
+| Název | Popis |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> Hodnota minOccurs = maxOccurs "0" = "1" |Parametry výsledek měření hlasitosti. Další informace najdete v tématu [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md). |
 
@@ -147,7 +147,7 @@ Parametry výsledek měření hlasitosti.
 Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributy
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:String** |**Dolby** professional hlasitosti měření verzi development kit. |
 | **DialogNormalization**<br/><br/> minInclusive = "-31" maxInclusive = "-1"<br/><br/> Požaduje se |**xs:int** |DialogNormalization vygenerované pomocí DPLM, požadováno pro nastavení LoudnessMetering |
@@ -510,7 +510,8 @@ Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metad
 
 
 ## <a name="xml"></a>Ukázkový kód XML
- Následuje příklad výstupního souboru metadat.  
+
+Následující kód XML je příklad výstupního souboru metadat.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  
@@ -598,7 +599,7 @@ Příklad XML můžete nalézt [ukázkový kód XML](media-services-output-metad
       </AssetFile>  
     </AssetFiles>  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby

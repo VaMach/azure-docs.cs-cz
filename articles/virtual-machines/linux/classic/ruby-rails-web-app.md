@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
 ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Webová aplikace Ruby on Rails na virtuálním počítači Azure
 Tento kurz ukazuje, jak k hostování Ruby, na které webu v Azure pomocí virtuální počítač s Linuxem.  
@@ -36,7 +36,7 @@ Začněte vytvořením virtuálního počítače Azure s bitovou kopii systému 
 
 Pokud chcete vytvořit virtuální počítač, můžete použít portál Azure nebo rozhraní příkazového řádku Azure (CLI).
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 1. Přihlaste se k [portálu Azure](https://portal.azure.com)
 2. Klikněte na tlačítko **nový**, zadejte do vyhledávacího pole "Ubuntu Server 14.04". Klikněte na položku nalezené. Pro model nasazení vyberte **Classic**, pak klikněte na tlačítko "Vytvořit".
 3. V okně základy zadat hodnoty povinných polí: název (pro virtuální počítač), uživatelské jméno, typ ověřování a odpovídající údaje předplatného Azure, skupinu prostředků a umístění.
@@ -127,7 +127,7 @@ Zobrazený výstup by měl vypadat přibližně takto:
 
     ![Výchozí stránka které][default-rails-cloud]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste to udělali většinu kroky ručně. V produkčním prostředí by zapsat aplikaci na vývojovém počítači a nasazení virtuálního počítače Azure. Většině produkčních prostředích hostovat které aplikace ve spojení s jiným procesem serveru, jako je například Apache či NginX, která zpracovává požadavků směrování na více instancí, které aplikace a obsluhuje statické prostředky. Další informace najdete v tématu http://rubyonrails.org/deploy/.
 
 Další informace o Ruby, na které, najdete [Ruby, na které příručky][rails-guides].

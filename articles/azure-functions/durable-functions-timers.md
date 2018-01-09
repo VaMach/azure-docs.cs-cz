@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 27312846caf4f51e708b48655578846a52cbd1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e29e472860890e3f44af79c42c31ff524acb9276
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Časovače trvanlivý funkcí (Azure Functions)
 
 [Trvanlivý funkce](durable-functions-overview.md) poskytuje *trvanlivý časovače* pro použití v orchestrator funkce pro implementaci zpoždění nebo nastavit časové limity na asynchronní akce. Trvanlivý časovače je třeba použít funkce orchestrator místo `Thread.Sleep` nebo `Task.Delay`.
 
-Vytvoření odolné časovač voláním [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_). Metoda vrátí úlohu, která obnoví u zadaného data a času.
+Vytvoření odolné časovač voláním [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) metoda v [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Metoda vrátí úlohu, která obnoví u zadaného data a času.
 
 ## <a name="timer-limitations"></a>Omezení časovače
 
@@ -95,7 +95,7 @@ Tento mechanismus není ve skutečnosti ukončit provedení funkce probíhajíc�
 
 Podrobnější příklad, jak implementovat vypršení časových limitů ve funkcích orchestrator, najdete v článku [zásahem ze strany & časové limity - ověření telefonu](durable-functions-phone-verification.md) návod.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Zjistěte, jak vyvolat a zpracování externích událostí](durable-functions-external-events.md)

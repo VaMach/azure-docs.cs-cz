@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografika ke stažení: Základy služby Machine Learning s příklady algoritmů
 Stáhněte si tento snadno pochopit infografice přehled nástroje machine learning základní informace o další informace o oblíbených algoritmy používané k odpovědi na časté otázky machine learning. Příklady algoritmus pomoct pochopit, jaké algoritmy mají být použity a co se používají pro začátečníka machine learning.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Oblíbené algoritmy v Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) se dodává s velké knihovny algoritmů prediktivní analýzy. Infografice identifikuje čtyři oblíbených rodiny algoritmů - regrese, detekce anomálií, clustering a klasifikace - a poskytuje odkazy na příklady práci v [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galerie obsahuje příklad experimentů a návodů, které ukazují, jak tyto algoritmy lze použít mnoho skutečná řešení.
+[Azure Machine Learning Studio](https://studio.azureml.net/) se dodává s velké knihovny algoritmů prediktivní analýzy. Infografice identifikuje čtyři oblíbených rodiny algoritmů - regrese, detekce anomálií, clustering a klasifikace - a poskytuje odkazy na příklady práci v [Azure AI Galerie](https://gallery.cortanaintelligence.com/). Galerie obsahuje příklad experimentů a návodů, které ukazují, jak tyto algoritmy lze použít mnoho skutečná řešení.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Stáhněte si infografice s příklady algoritmus
 **[Stáhnout: Infografice nástroje machine learning základy s odkazy na příklady algoritmus (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
@@ -37,7 +37,7 @@ Stáhněte si tento snadno pochopit infografice přehled nástroje machine learn
 * Seznam podle kategorie všechny algoritmy strojového učení dostupné v nástroji Machine Learning Studio najdete v tématu [inicializovat Model] [ initialize-model] v Machine Learning Studio algoritmus a pomáhají modulu.
 * Dokončení abecední seznam algoritmů a modulů v Machine Learning Studio najdete v tématu [seznam A-Z modulů Machine Learning Studio] [ a-z-list] v Machine Learning Studio algoritmus a pomoci modulu.
 * Pokud si chcete stáhnout a vytisknout diagram s přehledem funkcí nástroje Machine Learning Studio, nahlédněte do tématu [Diagram s přehledem možností nástroje Machine Learning Studio](studio-overview-diagram.md).
-* Přehled Cortana Intelligence Gallery a mnoho vytvářené komunitou dostupné prostředky došlo, najdete v části [sdílené složky a zjišťovat prostředky ve Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md).
+* Přehled Azure AI Gallery a mnoho vytvářené komunitou dostupné prostředky došlo, najdete v části [sdílené složky a zjišťovat prostředky v Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

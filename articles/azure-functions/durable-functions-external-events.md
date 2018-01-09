@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 23c99031ae3146a83867d10bd97d4eee8878188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Zpracování externích událostí trvanlivý funkce (Azure Functions)
 
@@ -26,7 +26,7 @@ Funkce produktu Orchestrator mají možnost počkejte a naslouchání událostem
 
 ## <a name="wait-for-events"></a>Počkejte události
 
-[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) metoda umožňuje funkce orchestrator asynchronně počkejte a naslouchat externí události. Volající deklaruje *název* události a *tvar dat* očekává příjem.
+[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) metoda umožňuje funkce orchestrator asynchronně počkejte a naslouchat externí události. Deklaruje naslouchání funkce orchestrator *název* události a *tvar dat* očekává příjem.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,7 +45,7 @@ public static async Task Run(
 }
 ```
 
-V předchozím příkladu přijímá pro jednu událost a provede akci, když je obdržena.
+V předchozím příkladu naslouchá konkrétní jedna událost a provede akci, když je obdržena.
 
 Můžete naslouchat více událostí souběžně, jako v následujícím příkladu, který čeká na jednu tři možné události oznámení.
 
@@ -97,7 +97,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) čeká na dobu neurčitou některé vstup.  Funkce aplikace může být bezpečně zrušeno při čekání. Pokud události dorazí pro tuto instanci orchestration, automaticky se probudí a okamžitě zpracovává událost.
 
 > [!NOTE]
-> Když funkce orchestrator čekající úlohy ze, se vám neúčtují žádné poplatky `WaitForExternalEvent`, bez ohledu na to, jak dlouho čekat.
+> Pokud aplikace funkce používá spotřeba plánování, žádné poplatky se vám neúčtují při funkce orchestrator čekající úlohy ze `WaitForExternalEvent`, bez ohledu na to, jak dlouho čekat.
 
 Pokud datová část události nelze převést na očekávaný typ `T`, je vyvolána výjimka.
 
@@ -122,7 +122,7 @@ Interně `RaiseEventAsync` enqueues zprávu, která se získá zachyceny orchest
 > [!WARNING]
 > Pokud není žádná instance orchestration se zadaným *instance ID* nebo pokud není instance čekání na zadaný *název události*, zpráva o události se zahodí. Další informace o tomto chování najdete v tématu [potíže Githubu](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Zjistěte, jak nastavit eternal orchestrations](durable-functions-eternal-orchestrations.md)

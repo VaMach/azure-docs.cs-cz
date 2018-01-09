@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Nasadit soubor synchronizaci Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -72,6 +72,7 @@ Agent Azure souboru Sync je ke stažení balíčku, který umožňuje systému W
 > [!Important]  
 > Pokud máte v úmyslu používat synchronizaci souboru Azure s clusterem s podporou převzetí služeb při selhání, musí být na všech uzlech v clusteru nainstalován agent synchronizace souboru Azure.
 
+
 Instalační balíček agenta synchronizace souboru Azure nainstalovat poměrně rychle a bez příliš mnoho dalších výzev. Doporučujeme, abyste provedli následující:
 - Ponechte výchozí instalační cesta (C:\Program Files\Azure\StorageSyncAgent), můžete zjednodušit správu řešení potíží a serveru.
 - Povolte Microsoft Update a průběžně aktualizovat synchronizace souboru Azure. Všechny aktualizace, agent synchronizace souboru Azure, včetně funkce aktualizace a opravy hotfix, dojít z webu Microsoft Update. Doporučujeme nainstalovat nejnovější aktualizace pro synchronizaci souborů Azure. Další informace najdete v tématu [zásady synchronizace souboru Azure aktualizace](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
@@ -119,6 +120,36 @@ Chcete-li přidat koncový bod serveru, vyberte **vytvořit**. Soubory jsou teď
 > [!Important]  
 > Můžete provádět změny žádný koncový bod cloudu nebo koncový bod serveru ve skupině synchronizace a na dalších koncových bodů ve skupině synchronizace proběhla vaše soubory. Pokud provedete změnu koncového bodu cloudu (Azure sdílené složky) přímo, nutné změny nejprve mají být zjišťované úlohou detekce změn v souboru synchronizace Azure. Úloha zjištění změn je zahájena pro koncový bod cloudu pouze jednou za 24 hodin. Další informace najdete v tématu [nejčastější dotazy k Azure Files](storage-files-faq.md#afs-change-detection).
 
+## <a name="onboarding-with-azure-file-sync"></a>Registrace se synchronizací Azure File
+Doporučené kroky zařadit do provozu v Azure souboru Sync pro první s nula výpadek při zachování celého souboru věrnosti a seznam řízení přístupu (ACL) jsou následující:
+ 
+1.  Nasazení služby synchronizace úložiště.
+2.  Vytvořte skupinu synchronizace.
+3.  Nainstalujte agenta synchronizace souboru Azure na serveru s úplnou datovou sadu.
+4.  Zaregistrujte tento server a vytvoření koncového bodu serveru ve sdílené složce. 
+5.  Umožní synchronizaci provést úplné nahrávání do sdílené složky Azure file (koncový bod cloudu).  
+6.  Po dokončení počáteční nahrávání nainstalujte agenta Azure soubor synchronizaci na všechny zbývající servery.
+7.  Vytvoření nové sdílené složky na všechny ostatní servery.
+8.  Vytvořte server koncové body pro nové sdílené složky s vrstvení zásady cloudu, v případě potřeby. (Tento krok vyžaduje další úložiště k dispozici pro počáteční instalaci.)
+9.  Umožní agenta Azure soubor synchronizaci provést rychlé obnovení úplné oboru názvů bez přenos skutečná data. Po synchronizaci úplné obor názvů naplní synchronizační modul místo na disku na základě zásad vrstvení cloudu pro koncový bod serveru. 
+10. Ujistěte se synchronizace dokončí a testování vaší topologie podle potřeby. 
+11. Přesměrování uživatelů a aplikací do této nové sdílené složky.
+12. Volitelně můžete odstranit duplicitní sdílených složkách na serveru.
+ 
+Pokud nemáte dodatečné úložiště pro počáteční registraci a chcete pro připojení k existující sdílené složky, můžete předvyplnění data v Azure sdílených složek. Tento přístup je navržen jenom v případě můžete přijmout výpadky a absolutně zaručit žádné změny dat ve sdílených složkách serveru během procesu počáteční registrace. 
+ 
+1.  Ujistěte se, že data na žádném serveru se nemůže změnit během procesu registrace.
+2.  Předem osivo Azure sdílené složky s daty na serveru, například pomocí libovolného nástroje pro přenos dat přes SMB Robocopy, přímé kopie SMB. Vzhledem k tomu, že AzCopy není načtení dat prostřednictvím SMB proto jej nelze použít pro předem synchronizace replik indexů.
+3.  Vytvoření topologie synchronizace souboru Azure s koncovými body požadovaný server, odkazující na existující sdílené složky.
+4.  Umožní synchronizaci dokončit odsouhlasení procesu na všechny koncové body. 
+5.  Po dokončení odsouhlasení můžete otevřít sdílených složek pro změny.
+ 
+Upozorňujeme, že v současné době předem synchronizace replik indexů přístup má několik omezení- 
+- Úplné věrnosti u souborů není zachován. Například soubory ztratit seznamy řízení přístupu a časová razítka.
+- Změny dat na serveru před topologie synchronizace je plně nahoru a spuštění může způsobit konflikty na koncové body serveru.  
+- Po vytvoření koncového bodu cloudu Azure souboru Sync spustí proces pro zjištění soubory v cloudu před zahájením počáteční synchronizace. Čas potřebný k dokončení tohoto procesu se liší v závislosti na různých faktorech, jako je rychlost sítě, dostupnou šířku pásma a počet souborů a složek. Pro hrubý odhad ve verzi preview spustí proces zjišťování přibližně na 10 soubory za sekundu.  Proto i v případě, že předem rychlé synchronizace replik indexů spustí, celkovou dobu získat plně spuštěný systém může být výrazně déle, pokud je v cloudu předem dosazená data.
+
+
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrace nasazení replikace distribuovaného systému souborů (DFS-R) do Azure souboru Sync
 Migrace systému souborů DFS-R nasazení do Azure souboru Sync:
 
@@ -135,6 +166,6 @@ Migrace systému souborů DFS-R nasazení do Azure souboru Sync:
 
 Další informace najdete v tématu [synchronizace souboru Azure zprostředkovatel komunikace s objekty s distribuovaného systému souborů (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Přidat nebo odebrat koncový bod serveru synchronizace souboru Azure](storage-sync-files-server-endpoint.md)
 - [Zaregistrovat nebo zrušit registraci serveru s Azure souboru Sync](storage-sync-files-server-registration.md)

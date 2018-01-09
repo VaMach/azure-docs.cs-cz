@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 31251e039414ee6f268aeb54f3eef755fcde9cb3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Tahák k algoritmům služby Machine Learning pro Microsoft Azure Machine Learning Studio
 **Aktualizace Microsoft Azure Machine Learning algoritmus cheaty list** umožňuje vybrat správné algoritmus pro model prediktivní analýzy.
@@ -53,7 +53,7 @@ Stáhnout a vytisknout Machine Learning algoritmus cheaty list ve velikosti tabl
 
 * Návrhy nenabízí tento rychlý přehled algoritmů jsou přibližné pravidla z jezdce. Některé můžete ohnuty a některé můžou být flagrantly došlo k porušení. Slouží k návrhu počáteční bod. Není třeba obávat spustit head-to-head konfliktům mezi několik algoritmů na vaše data. Neexistuje žádné jednoduše substitute pro seznámení se zásadami jednotlivých algoritmů a pochopení systému, která vygenerovala data.
 
-* Každý algoritmu strojového učení má svůj vlastní styl nebo *induktivní odchylka*. Pro určitý problém může být vhodné několik algoritmů a jeden algoritmus může být lépe odpovídaly než jiné. Ale není vždy možné předem znát, což je nejlepší. V takových případech jsou několik algoritmů uvedené v listu podvést společně. Vhodná strategie by mohla být opakujte jeden algoritmus a pokud nejsou výsledky ještě uspokojivé, zkuste jiné. Tady je příklad z [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) experimentu několik algoritmů proti stejná data se pokusí a porovná výsledky: [porovnat více třída třídění: písmeno rozpoznávání](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Každý algoritmu strojového učení má svůj vlastní styl nebo *induktivní odchylka*. Pro určitý problém může být vhodné několik algoritmů a jeden algoritmus může být lépe odpovídaly než jiné. Ale není vždy možné předem znát, což je nejlepší. V takových případech jsou několik algoritmů uvedené v listu podvést společně. Vhodná strategie by mohla být opakujte jeden algoritmus a pokud nejsou výsledky ještě uspokojivé, zkuste jiné. Tady je příklad z [Azure AI Galerie](http://gallery.cortanaintelligence.com/) experimentu několik algoritmů proti stejná data se pokusí a porovná výsledky: [porovnat více třída třídění: písmeno rozpoznávání](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Existují tři hlavní kategorie machine learning: **učení se supervizí**, **supervize**, a **posílení learning**.
 

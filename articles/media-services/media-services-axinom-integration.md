@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Distribuce licencí Widevine pro Azure Media Services pomocí Axinomu
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Tento článek popisuje, jak integrovat a otestovat spravuje Axinom Widevine lic
 * Generování JWT token pro splnění požadavků serveru licencí;
 * Vývoj aplikace Azure Media Player, která zpracovává získání licence s ověření pomocí tokenu JWT;
 
-Celý systém a toku obsahu, který ID klíče, klíče, klíče počáteční hodnoty, JTW token a jeho deklarace identity může být nejlépe popsáno v následujícím diagramu.
+Celý systém a toku obsahu klíče, klíče ID, klíče počáteční hodnoty, JTW token a jeho deklarace identity mohou být nejlépe popsány následující diagram:
 
 ![DASH a šifrování CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -50,10 +50,10 @@ Můžete nakonfigurovat dynamické ochrany CENC s více technologiemi DRM pro DA
 1. PlayReady ochranu MS Edge a IE11, která by mohla mít omezení tokenu autorizace. Zásady omezení tokenem musí být doplněny tokenem vydaným podle zabezpečení tokenu služby (STS), jako je Azure Active Directory;
 2. Pro Chrome Widevine ochranu, se může vyžadovat ověření pomocí tokenu s tokenem vydaným službou tokenů zabezpečení jiné. 
 
-Najdete v tématu [generování tokenů JWT](media-services-axinom-integration.md#jwt-token-generation) části Proč nelze použít Azure Active Directory jako služby tokenů zabezpečení pro Axinom na Widevine licenční server.
+V tématu [generování tokenů JWT](media-services-axinom-integration.md#jwt-token-generation) části Proč nelze použít Azure Active Directory jako služby tokenů zabezpečení pro Axinom na Widevine licenční server.
 
 ### <a name="considerations"></a>Požadavky
-1. Je nutné použít Axinom zadaný počáteční hodnoty klíče (8888000000000000000000000000000000000000) a vaše generovaného nebo vybrané klíče ID ke generování klíče obsahu pro konfiguraci služby doručení klíče. Axinom licenční server bude vydávat všechny licence obsahující obsahu klíče založené na stejné počáteční klíče, která je platná pro testování a produkci.
+1. Je nutné použít Axinom zadaný počáteční hodnoty klíče (8888000000000000000000000000000000000000) a vaše generovaného nebo vybrané klíče ID ke generování klíče obsahu pro konfiguraci služby doručení klíče. Všechny licence obsahující obsahu klíče založené na stejné počáteční klíče, která je platná pro testování a produkci vydá Axinom licenční server.
 2. Licence Widevine získání adresy URL pro testování: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Protokol HTTP a HTTS jsou povoleny.
 
 ## <a name="azure-media-player-preparation"></a>Příprava Azure Media Player
@@ -65,14 +65,14 @@ Zadaný server licence Widevine ve Axinom vyžaduje ověření pomocí tokenu JW
 
 Zbytek AMP kód je standardní rozhraní API AMP jako dokument AMP [zde](http://amp.azure.net/libs/amp/latest/docs/).
 
-Upozorňujeme, že výše javascript pro vlastní autorizační hlavičky nastavení se stále přístup krátkodobou před oficiálním vydání dlouhodobá přístup v AMP.
+Výše uvedené javascript pro nastavení vlastní autorizace záhlaví je stále krátkodobé přístup před oficiální dlouhodobý přístup v AMP vydání.
 
 ## <a name="jwt-token-generation"></a>Generování tokenů JWT
 Server licence Axinom Widevine pro testování vyžaduje ověření pomocí tokenu JWT. Kromě toho je jedna z deklarací z tokenu JWT komplexní objekt typu místo primitivní datový typ.
 
 Bohužel Azure AD mohou pouze vystavovat tokeny JWT s primitivními typy. Podobně rozhraní .NET Framework API (System.IdentityModel.Tokens.SecurityTokenHandler a JwtPayload) lze pouze vstupní komplexní objekt typu jako deklarace identity. Deklarace identity jsou stále serializovat jako řetězec. Proto jsme nemůžete použít žádnou z těchto dvou pro generování token JWT pro požadavek na licenční Widevine.
 
-Jan Sheehan [balíček JWT Nuget](https://www.nuget.org/packages/JWT) splňuje potřeby, takže jsme se chystáte použít tento balíček Nuget.
+Jan Sheehan [balíček JWT NuGet](https://www.nuget.org/packages/JWT) splňuje potřeby, takže jsme se chystáte použít tento balíček NuGet.
 
 Dole je kód pro generování token JWT s potřebné deklarace podle požadavků Axinom Widevine licenční server pro testování:
 
@@ -136,12 +136,12 @@ Axinom Widevine licenčního serveru
 
 ### <a name="considerations"></a>Požadavky
 1. I když služba doručování licencí AMS PlayReady vyžaduje, aby "nosiče =" předcházející ověřovací token, Axinom Widevine licenční server nepoužívá se.
-2. Klíč Axinom komunikace se používá jako podpisového klíče. Všimněte si, že klíč šestnáctkový řetězec, ale musí být považované jako řadu bajtů není řetězec při kódování. Toho se dosáhne metodu ConvertHexStringToByteArray.
+2. Klíč Axinom komunikace se používá jako podpisového klíče. Klíč je šestnáctkový řetězec, ale musí být považované jako řadu bajtů není řetězec při kódování. Toho se dosáhne metodu ConvertHexStringToByteArray.
 
 ## <a name="retrieving-key-id"></a>Načítání ID klíče
 Jste si všimli, že v kódu pro generování token JWT je požadováno ID tokenu, klíče. Vzhledem k tomu, že klíč JWT token musí být připravené před načítání AMP přehrávač, vyžaduje se ID mají být načteny, aby bylo možné vygenerovat JWT token.
 
-Kurzu, který několika způsoby pro získání klíče ID. Například může uložit jeden klíč ID společně s metadata obsahu v databázi. Nebo můžete načíst klíč ID ze souboru MPD DASH (popis prezentace média). Následující kód je k tomu.
+Samozřejmě existuje více způsoby, jak získat uchování klíče ID. Například může uložit jeden klíč ID společně s metadata obsahu v databázi. Nebo můžete načíst klíč ID ze souboru MPD DASH (popis prezentace média). Následující kód je k tomu.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)

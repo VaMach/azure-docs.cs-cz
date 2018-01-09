@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licencování Smooth streamování klienta Microsoft® portování Kit
 ## <a name="overview"></a>Přehled
-Microsoft technologie Smooth Streaming klienta portování Kit (**SSPK** pro zkrácení) je technologie Smooth Streaming implementace klienta, která je optimalizovaná tak, aby pomůže výrobců vložená zařízení, kabel a mobilní operátory, poskytovatelé přístupu k obsahu, telefonního sluchátka výrobců nezávislí dodavatelé softwaru (ISV) a poskytovatelé řešení k vytvoření produktů a služeb pro streamování s adaptivní streamování obsah ve formátu technologie Smooth Streaming. SSPK je na zařízení a platformy nezávislé implementace technologie Smooth Streaming klienta, který může přenést držitel licence na žádný zařízení a platformy. 
+Microsoft technologie Smooth Streaming klienta portování Kit (**SSPK** pro zkrácení) je technologie Smooth Streaming implementace klienta, která je optimalizovaná tak, aby pomůže výrobců vložená zařízení, kabel a mobilní operátory, poskytovatelé přístupu k obsahu, telefonního sluchátka výrobců nezávislí dodavatelé softwaru (ISV) a poskytovatelé řešení k vytvoření produktů a služeb pro streamování s adaptivní obsah ve formátu technologie Smooth Streaming. SSPK je nezávislé na platformě implementace technologie Smooth Streaming klienta, který může přenést držitel licence na žádný zařízení a platformy a zařízení. 
 
-Uvedeném níž je nejvyšší úrovni architektura a pole IIS technologie Smooth Streaming portování Kit je implementace klienta funkce Smooth Streaming od společnosti Microsoft a obsahuje všechny základní logiku pro přehrávání obsahu, technologie Smooth Streaming. To je poté přenést partnery pro určité zařízení nebo platformu implementací příslušná rozhraní. 
+Uvedeném níž je architektura vysoké úrovně a pole IIS technologie Smooth Streaming portování Kit je implementace klienta funkce Smooth Streaming od společnosti Microsoft a obsahuje všechny základní logiku pro přehrávání obsahu, technologie Smooth Streaming. Tento obsah je poté přenést partnery pro určité zařízení nebo platformu implementací příslušná rozhraní. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -70,7 +70,7 @@ Technologie Smooth Streaming konečné produktu klienta se nabízí v rámci mod
 * Žádné licencované pro prvních 10 000 zařízení implementace každý rok 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Licencování postupu a SSPK přístup
-E-mailem [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) pro všechny licencování dotazy.
+E-mailu [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) pro všechny licencování dotazy.
 
 [SSPK distribuční portál](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) je pro držitele licence registrované provizorní dostupné.
 
@@ -103,7 +103,7 @@ Provizorní a finální SSPK držitele licence můžete odeslat technické dotaz
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology, Inc.
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL technologie Electronics (Huizhou) Co., Ltd.
 * Horní vítězství investice, Ltd.
 * Vestel Elektronik Sanayi sunout Ticaret a. s.
 * VisualOn, Inc.

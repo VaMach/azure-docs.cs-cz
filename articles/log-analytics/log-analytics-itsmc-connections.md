@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Připojení ITSM produkty nebo služby s IT Service Management Connector (Preview)
 Tento článek obsahuje informace o tom, jak připojit k IT služby správy konektoru (ITSMC) v OMS ITSM produktům a službám a centrálně spravovat pracovní položky. Další informace o ITSMC najdete v tématu [přehled](log-analytics-itsmc-overview.md).
@@ -171,17 +171,21 @@ Následující ukázkový obrázek zobrazuje podrobnosti o úspěšném připoje
 Následující části obsahují podrobnosti o tom, jak připojit svůj produkt ServiceNow k ITSMC v OMS.
 
 ### <a name="prerequisites"></a>Požadavky
-
 Zajistěte, aby že byly splněny následující požadavky:
-
 - ITSMC nainstalována. Další informace: [přidání konektoru řešení pro správu IT služby](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow podporována verze – Fuji, Genevy, Helsinkách.
+- Podporované verze ServiceNow: Jakarta, Istanbul, Helsinkách, Genevy
 
-Správci ServiceNow musíte provést následující v jejich instance ServiceNow:
-- Generování ID klienta a tajný klíč klienta pro produkt ServiceNow. Informace o tom, jak vygenerovat ID klienta a tajný klíč najdete v tématu [instalace OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Nainstalujte aplikaci uživatele pro integraci Microsoft OMS (ServiceNow aplikace). [Další informace](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**Správci ServiceNow musíte provést následující v jejich instance ServiceNow**:
+- Generování ID klienta a tajný klíč klienta pro produkt ServiceNow. Informace o tom, jak vygenerovat ID klienta a tajný klíč podle potřeby najdete následující informace:
+
+    - [Nastavit OAuth pro Jakarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Nastavit OAuth pro Istanbul](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Nastavit OAuth pro Helsinkách](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Nastavit OAuth pro Genevy](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Nainstalujte aplikaci uživatele pro integraci Microsoft OMS (ServiceNow aplikace). [Další informace](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Umožňuje vytvořte roli uživatele integrace pro nainstalovanou aplikaci uživatele. Informace o tom, jak vytvořit roli uživatele integrace [zde](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Postup připojení**
 Pomocí následujícího postupu vytvořte připojení ServiceNow:
@@ -361,7 +365,7 @@ Ke generování ID nebo klíč klienta pro Cherwell, použijte následující po
     ![Id uživatele Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
  - [Vytváření pracovních položek ITSM OMS výstrahy](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
  - [Vytváření pracovních položek ITSM z protokolů OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
  - [Vytváření pracovních položek ITSM z Azure výstrah](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

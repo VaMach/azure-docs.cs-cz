@@ -1,5 +1,5 @@
 ---
-title: "Jak používat hesla aplikací v Azure MFA? | Dokumentace Microsoftu"
+title: "Jak používat hesla aplikací v Azure MFA? | Dokumenty Microsoft"
 description: "Tato stránka vám pomůže uživatelům pomoct pochopit, jaké jsou hesla aplikací a jaké se používají s ohledem na Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Co jsou hesla aplikací v Azure Multi-Factor Authentication?
 Některé neprohlížečové aplikace, jako je například klienta Apple nativní e-mailu, který používá protokolu Exchange Active Sync, aktuálně nepodporují službu Multi-Factor authentication. Služba Multi-Factor authentication je povoleno podle uživatelů. To znamená, že pokud uživatel povolen pro službu Multi-Factor authentication a že se pokoušíte použít neprohlížečové aplikace, nebude možné provést. Heslo aplikace umožňuje tuto funkci používat. Pokud jste vynutit ověřování Multi-Factor Authentication prostřednictvím zásad podmíněného přístupu a ne prostřednictvím MFA na uživatele, nebude možné vytvořit hesla aplikací. Aplikace, které používají zásady podmíněného přístupu k řízení přístupu není nutné hesla aplikací.
@@ -55,30 +55,12 @@ Během počáteční přihlášení s jsou uvedeny, kterou můžete použít hes
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Správa hesel aplikací na portálu Azure
 Pokud používáte dvoustupňové ověřování s Azure, budete chtít vytvořit hesla aplikací prostřednictvím portálu Azure.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Chcete-li vytvořit hesla aplikací na portálu Azure
-1. Přihlaste se k portálu Azure Classic.
-2. V horní části klikněte pravým tlačítkem na své uživatelské jméno a vyberte další ověření zabezpečení.
-3. Na stránce ověření nahoře vyberte možnost hesla aplikací
-4. Klikněte na možnost **Vytvořit**.
-5. Zadejte název hesla aplikace a klikněte na tlačítko **další**
-6. Kopírovat heslo aplikace do schránky a vložte jej do vaší aplikace.
-
-   ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Chcete-li odstranit hesla aplikací na portálu Azure
-1. Přihlaste se k portálu Azure Classic.
-2. V horní části klikněte pravým tlačítkem na své uživatelské jméno a vyberte další ověření zabezpečení.
-3. V horní části vedle dalšího ověření zabezpečení, vyberte **hesla aplikací.**
-4. Vedle heslo aplikace, které chcete odstranit, vyberte **odstranit**.
-5. Potvrďte odstranění kliknutím **Ano**.
-6. Po odstranění hesla aplikace, můžete kliknout na **zavřete**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Spravujte hesla aplikací s portálem MyApps.
 Pokud si nejste jisti, jak používat ověřování Multi-Factor authentication, pak můžete vždy vytvořit a odstranit hesla aplikací prostřednictvím portálu myapps.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Chcete-li vytvořit heslo aplikace pomocí portálu Myapps
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Chcete-li vytvořit heslo aplikace pomocí portálu MyApps
 1. Přihlaste se k [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Klikněte na název v pravé horní a zvolte **profil**.
 3. Vyberte **dalšího ověření zabezpečení**.
@@ -92,7 +74,7 @@ Pokud si nejste jisti, jak používat ověřování Multi-Factor authentication,
 7. Kopírovat heslo aplikace do schránky a vložte jej do vaší aplikace.
    ![Vytvořit heslo aplikace](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Chcete-li odstranit heslo aplikace pomocí portálu Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Chcete-li odstranit heslo aplikace pomocí portálu MyApps
 1. Přihlaste se k [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. V horní části vyberte profil.
 3. Vyberte **dalšího ověření zabezpečení**.
@@ -110,7 +92,7 @@ Pokud si nejste jisti, jak používat ověřování Multi-Factor authentication,
 6. Potvrďte, že chcete odstranit toto heslo kliknutím **Ano**.
 7. Po odstranění hesla aplikace, můžete kliknout na **zavřete**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Spravovat nastavení dvoustupňového ověřování](multi-factor-authentication-end-user-manage-settings.md)
 

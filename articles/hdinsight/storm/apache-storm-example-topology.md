@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 1a9093255b7f9281afbcca0ea04654780ebf5b89
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c6c1a1483191e654c245eb3f05ee9e8406510b08
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Příklad topologií Storm a součásti pro Apache Storm v HDInsight
 
@@ -34,7 +34,6 @@ Následuje seznam příkladů vytvořen a spravován společností Microsoft pro
 | [Vývoj topologie C# pro Apache Storm v HDInsight pomocí sady Visual Studio][16fce2d1] |Nástroje HDInsight pro Visual Studio |C#, Java |
 | [Zpracování událostí z Azure Event Hubs se Storm v HDInsight (C#)][844d1d81] |Event Hubs |C# a Java |
 | [Zpracování událostí z Azure Event Hubs se Stormem v HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
-| [Analýza dat snímače pomocí Storm a HBase v HDInsight][ab894747] |Event Hubs, HBase, Socket.IO, řídicího panelu webové |C#, Java, JavaScript, HTML |
 | [Zpracování dat snímačů vehicle ze služby Event Hubs pomocí Storm v HDInsight][246ee964] |Události rozbočovače, Cosmos DB úložiště Azure Blob (WASB) |C#, Java |
 | [Extrakce, transformace a načítání (ETL) z Azure Event Hubs k HBase, používat Storm v HDInsight][b4b68194] |Služba Event Hubs, HBase |C# |
 | [Šablona projektu topologie C# Storm pro práci se službami Azure z Storm v HDInsight][ce0c02a2] |Event Hubs, Cosmos databáze, SQL databáze, HBase, SignalR |C#, Java |
@@ -52,7 +51,6 @@ Následuje seznam příkladů vytvořen a spravován společností Microsoft pro
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Naučte se vytvářet topologie C# Storm pomocí nástrojů HDInsight pro Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Zjistěte, jak k vytváření topologie Storm v jazyce Java, pomocí nástroje Maven, vytvořením topologie základní wordcount."
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "Zjistěte, jak číst a zapisovat data z Azure Event Hubs se Storm v HDInsight."
-[ab894747]:apache-storm-sensor-data-analysis.md "Další informace o použití Apache Storm v HDInsight pro zpracování dat snímačů z Azure Event Hubs, vizualizovat pomocí D3.js a (volitelně), uložte ho do HBase."
 [246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "Naučte se používat topologie Storm ke čtení zpráv z Azure Event Hubs, přečtěte si dokumenty z Azure Cosmos databáze pro odkazování na data a uložení dat do služby Azure Storage."
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Několik topologií k předvedení propustnost při čtení ze služby Azure Event Hubs a ukládání do databáze SQL pomocí Apache Storm v HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Zjistěte, jak číst data z Azure Event Hubs, což je agregační & transformaci dat a pak jej uložte do HBase v HDInsight."

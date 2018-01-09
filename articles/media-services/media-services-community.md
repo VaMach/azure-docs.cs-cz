@@ -14,23 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96bd97abf598414ebc88e955437c02873ff43ca8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-media-services-community"></a>Komunita Azure Media Services
-Tato stránka komunity Azure Media Services (AMS) popisuje různé způsoby, můžete získat aktualizace o AMS, zobrazit nové videa a podcastů, klást otázky a váš názor.   
+Tato stránka komunity Azure Media Services (AMS) popisuje různé způsoby získáte aktualizací v souvislosti s AMS. Můžete také zobrazit nové videa a podcastů, klást otázky a váš názor.   
 
 ## <a name="videos-and-podcasts"></a>Videa a podcastů
-| Díl | Přednášející | Datum |
-| --- | --- | --- |
-| [Chrání obsah média pomocí DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) |Mingfei Yang |02/19/2016 |
-| [Chrání obsah média s šifrováním AES](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) |Mingfei Yang |2/19/2016 |
-| [Azure Media Services podrobné informace pro vývojáře](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) |Mingfei Yang |04/27/2015 |
-| [Azure Media Indexer automaticky vytvoří přepisy pro média](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/) |Adarsh Solanki |07/09/2015 |
-| [Microsoft Hyperlapse ve službě Azure Media Services s Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) |Adarsh Solanki |10/07/2015 |
+
+- [Chrání obsah média pomocí DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) 
+- [Chrání obsah média s šifrováním AES](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
+- [Azure Media Services podrobné informace pro vývojáře](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
+- [Azure Media Indexer automaticky vytvoří přepisy pro média](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
+- [Microsoft Hyperlapse ve službě Azure Media Services s Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) 
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Poskytnout zpětnou vazbu a zaslat návrhy
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

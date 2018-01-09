@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ebb1d61f3fff85580fe4f616477c5084d1537a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Přesun dat z webové zdroje tabulky pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,23 @@ Objekt pro vytváření dat aktuálně podporuje pouze přesunutí dat z tabulky
 
 > [!IMPORTANT]
 > Tento konektor webové aktuálně podporuje pouze extrakce obsahu tabulky z stránku HTML. Pokud chcete načíst data z koncového bodu protokolu HTTP/s, použijte [HTTP konektor](data-factory-http-connector.md) místo.
+
+## <a name="prerequisites"></a>Požadavky
+
+Pokud chcete použít tento konektor webové tabulky, budete muset nastavit Self-hosted integrace modulu Runtime (neboli Data Management Gateway) a nakonfigurovat `gatewayName` vlastnost jímky propojené služby. Například pokud chcete kopírovat z webové tabulky do úložiště objektů Azure Blob, nakonfigurujte propojenou službu úložiště Azure jako následující:
+
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
+    }
+  }
+}
+```
 
 ## <a name="getting-started"></a>Začínáme
 Vytvoření kanálu s aktivitou kopírování, který přesouvá data z úložiště místní Cassandra data pomocí různých nástrojů nebo rozhraní API. 
@@ -87,7 +104,7 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 |:--- |:--- |:--- |
 | type |Typ datové sady. musí být nastavena na **WebTable** |Ano |
 | Cesta |Relativní adresa URL prostředek, který obsahuje tabulku. |Ne. Pokud cesta není zadána, je použít jenom adresu URL, zadaný v definici propojené služby. |
-| Index |Index tabulky v prostředku. V tématu [Get index tabulky v stránku HTML](#get-index-of-a-table-in-an-html-page) části Postup získání index tabulky v stránku HTML. |Ano |
+| index |Index tabulky v prostředku. V tématu [Get index tabulky v stránku HTML](#get-index-of-a-table-in-an-html-page) části Postup získání index tabulky v stránku HTML. |Ano |
 
 **Příklad:**
 
@@ -156,7 +173,8 @@ Následující příklad ukazuje, jak zkopírovat data z tabulky webové do obje
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
     }
   }
 }
@@ -189,7 +207,7 @@ Následující příklad ukazuje, jak zkopírovat data z tabulky webové do obje
 ```
 
 
-**Výstupní datovou sadu objektů Blob v Azure**
+**Výstupní datová sada Azure Blob**
 
 Data se zapisují do nového objektu blob každou hodinu (frekvence: hodiny, interval: 1).
 

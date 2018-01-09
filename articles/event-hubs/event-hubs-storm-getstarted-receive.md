@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a120cc38b8ecfc6ec29be35eda12978ca8b035e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Přijímat události ze služby Event Hubs pomocí Apache Storm
 
@@ -130,7 +130,7 @@ Tento kurz používá [HDInsight Storm] [ HDInsight Storm] instalace, která se 
     }
     ```
     
-    Touto funkcí bolt Storm zaznamená obsah přijatých událostí. To lze snadno rozšířit k uložení řazených kolekcí členů v úložišti služby. [HDInsight senzor analysis kurzu] používá tento stejný přístup k ukládání dat do HBase.
+    Touto funkcí bolt Storm zaznamená obsah přijatých událostí. To lze snadno rozšířit k uložení řazených kolekcí členů v úložišti služby. [HDInsight Storm centra událostí příklad] používá tento stejný přístup k ukládání dat do Azure Storage a Power BI.
 11. Vytvoření třídy s názvem **LogTopology** následujícím kódem:
     
     ```java
@@ -237,7 +237,7 @@ Tento kurz používá [HDInsight Storm] [ HDInsight Storm] instalace, která se 
 
     Tato třída se vytvoří novou funkcí spout Event Hubs pomocí vlastnosti v konfiguračním souboru vytvořit jeho instanci. Je důležité si uvědomit, že tento příklad vytvoří tolik funkcích spouts úlohy jako počet oddílů v Centru událostí, aby bylo možné používat maximální paralelismus povolenou tohoto centra událostí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o službě Event Hubs najdete na následujících odkazech:
 
 * [Přehled služby Event Hubs][Event Hubs overview]
@@ -247,7 +247,7 @@ Další informace o službě Event Hubs najdete na následujících odkazech:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight senzor analysis kurzu]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[HDInsight Storm centra událostí příklad]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

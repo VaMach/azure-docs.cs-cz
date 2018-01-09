@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analýza výpovědí zákazníků pomocí služby Azure Machine Learning
 ## <a name="overview"></a>Přehled
@@ -28,14 +28,14 @@ Tento článek představuje odkaz na implementaci projektu analysis změn zákaz
 Tohoto experimentu byl vyvinutý a otestovat Serge Berger, vědecký pracovník objekt zabezpečení dat společnosti Microsoft a Roger Barga, dříve správce produktu pro Microsoft Azure Machine Learning. Děkujeme za jejich týmu dokumentace Azure uznává svoje znalosti a Děkujeme, že je tento dokument white paper sdílení.
 
 > [!NOTE]
-> Data pro tento experiment není veřejně dostupné. Příklad, jak vytvořit model strojového učení pro analýzu změn, naleznete v části: [prodejní změn šablony modelu](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) v [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+> Data pro tento experiment není veřejně dostupné. Příklad, jak vytvořit model strojového učení pro analýzu změn, naleznete v části: [prodejní změn šablony modelu](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) v [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>Problém zákazníka změn
-Firmy na trhu příjemce a ve všech odvětvích enterprise mají jak nakládat s změn. Někdy je příliš změn a vliv rozhodnutí o zásadách. Tradiční řešení je předpovědi vysokou tendenci churners a řešení jejich potřeb prostřednictvím služby concierge marketingových kampaní, nebo použitím zvláštní výjimky. Tato řešení můžete měnit odvětví průmyslu a i z konkrétní příjemce clusteru do druhého v rámci jednoho oboru (například telecommunications).
+Firmy na trhu příjemce a ve všech odvětvích enterprise mají jak nakládat s změn. Někdy je příliš změn a vliv rozhodnutí o zásadách. Tradiční řešení je předpovědi vysokou tendenci churners a řešení jejich potřeb prostřednictvím služby concierge marketingových kampaní, nebo použitím zvláštní výjimky. Tato řešení se může lišit z odvětví odvětví. Jejich můžete i se liší podle konkrétní příjemce clusteru v rámci jednoho oboru (například telecommunications).
 
 Běžné faktor je, že podnikům muset minimalizovat úsilí uchování tyto speciální zákazníka. Proto přirozené metodika by pro stanovení skóre každé zákazníků s pravděpodobnost změn a řešení top N ty, které jsou. Hlavní zákazníci může být těm, které jsou nejvíce ziskové. Například ve složitějších scénářích zisku funkce zaměstnání při výběru kandidáty pro speciální výjimku. Tyto aspekty jsou však pouze část dokončení strategie pro práci s změn. Firmy mají také vzít v účtu riziko (a odolnost vůči rizikům přidružené), úroveň a náklady na zásahu a segmentace vyhovující zákazníka.  
 
@@ -109,7 +109,7 @@ Následující obrázky znázorňují data, která byla použita.
  
 
 > Všimněte si, že tato data jsou privátní, a proto nelze sdílet modelu a data.
-> Ale pro podobné model pomocí veřejně dostupnými daty, najdete v této ukázce experiment v [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco zákazníka změn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Ale pro podobné model pomocí veřejně dostupnými daty, najdete v této ukázce experiment v [Azure AI Galerie](http://gallery.cortanaintelligence.com/): [Telco zákazníka změn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Další informace o tom, jak můžete implementovat model analysis změn pomocí Cortana Intelligence Suite, doporučujeme také [toto video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) podle hlavní programový manažer západní Hyong Tok. 
 > 
@@ -222,7 +222,7 @@ Tento dokument popisuje rozumný přístup k řešení problému běžných změ
 
 [4] [Marketing velkých objemů dat: zákazníky oslovíte efektivněji a jednotky hodnota](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco změn šablony modelu](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) v [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [Telco změn šablony modelu](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) v [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Příloha

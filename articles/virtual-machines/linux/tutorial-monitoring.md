@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Jak monitorovat a aktualizovat virtuální počítač s Linuxem v Azure
 
@@ -130,7 +130,7 @@ Virtuální počítač s Linuxem má vyhrazený hostitel v Azure, který komunik
 >
 > Místo toho lze povolit rozšíření diagnostiky Linux verze 3.0. Další informace najdete v tématu [dokumentaci](./diagnostic-extension.md).
 
-Metriky základní hostitele jsou dostupné, ale podrobnější a metriky specifické pro virtuální počítač, budete muset nainstalovat rozšíření diagnostiky Azure ve virtuálním počítači. Rozšíření diagnostiky Azure umožňuje další funkce monitorování a diagnostická data mají být načteny z virtuálního počítače. Můžete zobrazit tyto metriky výkonu a vytvářet výstrahy založené na tom, jak se provádí virtuálního počítače. Diagnostické rozšíření nainstalovaný prostřednictvím portálu Azure následujícím způsobem:
+Základní hostitele metriky, které jsou k dispozici, ale pokud chcete zobrazit podrobné a specifické pro virtuální počítač metriky, musíte nainstalovat rozšíření diagnostiky Azure ve virtuálním počítači. Rozšíření diagnostiky Azure umožňuje další funkce monitorování a diagnostická data mají být načteny z virtuálního počítače. Můžete zobrazit tyto metriky výkonu a vytvářet výstrahy založené na tom, jak se provádí virtuálního počítače. Diagnostické rozšíření nainstalovaný prostřednictvím portálu Azure následujícím způsobem:
 
 1. Na portálu Azure klikněte na tlačítko **skupiny prostředků**, vyberte **myResourceGroup**a potom vyberte **Můjvp** v seznamu prostředků.
 1. Klikněte na tlačítko **diagnostiku nastavení**. V seznamu uvedena, který *spouštění diagnostiky* jsou již povolené z předchozí části. Klikněte na zaškrtávací políčko pro *základní metriky*.
@@ -271,7 +271,7 @@ V okně hledání protokolů na portálu OMS byste měli vidět *Můjvp* napří
 
 ![Okno OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu nakonfigurované, zkontrolovat a spravovat aktualizace pro virtuální počítač. Naučili jste se tyto postupy:
 

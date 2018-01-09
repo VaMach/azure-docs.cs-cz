@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Vazby pro odolná funkce (Azure Functions)
 
@@ -66,7 +66,7 @@ Zde jsou některé poznámky k aktivační události orchestration:
 
 Aktivační událost orchestration vazby podporuje vstup a výstupy. Zde jsou některé věci vědět o vstup a výstup zpracování:
 
-* **vstupy** -Orchestration funkce podporují pouze [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) jako typ parametru. Deserializace vstupy přímo v podpis funkce nejsou podporovány. Musíte použít kód [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) metoda načíst orchestrator funkce vstupy. JSON Serializovatelné typy musí být tyto vstupy.
+* **vstupy** -Orchestration funkce podporují pouze [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) jako typ parametru. Deserializace vstupy přímo v podpis funkce není podporována. Musíte použít kód [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) metoda načíst orchestrator funkce vstupy. JSON Serializovatelné typy musí být tyto vstupy.
 * **výstupy** -aktivační události Orchestration podporují výstupní hodnoty, jakož i vstupy. Návratová hodnota funkce slouží k přiřazení výstupní hodnotu a musí být serializovatelný JSON. Pokud funkce vrátí `Task` nebo `void`, `null` hodnoty se uloží jako výstup.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-Většina funkcí orchestrator volání jiných funkcí, zde je příklad "Hello World", které ukazuje, jak volat funkci:
+Většina funkcí orchestrator volání funkce aktivity, zde je příklad "Hello World", které ukazuje, jak zavolat funkci aktivity:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Zde jsou některé poznámky k aktivační události aktivity:
 Aktivační událost aktivity vazby podporuje vstup a výstupy, stejně jako aktivační událost orchestration. Zde jsou některé věci vědět o vstup a výstup zpracování:
 
 * **vstupy** – aktivita funkce nativně používat [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) jako typ parametru. Aktivita funkce Alternativně lze deklarovat s žádným typem parametr, který serializovat na JSON. Při použití `DurableActivityContext`, můžete volat [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) pro načtení a deserializovat funkce aktivitu vstup.
-* **výstupy** -aktivační události aktivity podporují výstupní hodnoty, jakož i vstupy. Návratová hodnota funkce slouží k přiřazení výstupní hodnotu a musí být serializovatelný JSON. Pokud funkce vrátí `Task` nebo `void`, `null` hodnoty se uloží jako výstup.
+* **výstupy** – aktivita funkce podporují výstupní hodnoty, jakož i vstupy. Návratová hodnota funkce slouží k přiřazení výstupní hodnotu a musí být serializovatelný JSON. Pokud funkce vrátí `Task` nebo `void`, `null` hodnoty se uloží jako výstup.
 * **metadata** – aktivita funkce můžete vázat na `string instanceId` parametr získat ID instance nadřazené orchestration.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ Vazba klienta orchestration umožňuje psát funkcích, které interakci s funkc
 
 Pokud používáte Visual Studio, můžete vázat na orchestration klienta pomocí [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) atribut rozhraní .NET.
 
-Pokud používáte skriptovací jazyky (například *.csx* soubory) pro vývoj, aktivační událost orchestration definované následující objekt JSON v `bindings` pole function.json:
+Pokud používáte skriptovací jazyky (například *.csx* soubory) pro vývoj, aktivační událost orchestration definované následující objekt JSON v `bindings` pole *function.json*:
 
 ```json
 {
@@ -193,7 +193,7 @@ Pokud používáte skriptovací jazyky (například *.csx* soubory) pro vývoj, 
 ```
 
 * `taskHub`-Použít ve scénářích, kdy několik funkce aplikace sdílet stejný účet úložiště, ale musí být od sebe navzájem oddělené. Pokud není zadáno, výchozí hodnota z `host.json` se používá. Tato hodnota musí odpovídat hodnotě používané funkce orchestrator cíl.
-* `connectionName`-Název nastavení aplikace, který obsahuje připojovací řetězec úložiště. Účet úložiště reprezentována tento připojovací řetězec musí být stejný jako ten, používá funkce orchestrator cíl. Pokud není zadaný, použije se výchozí připojovací řetězec pro funkce aplikace.
+* `connectionName`-Název nastavení aplikace, který obsahuje připojovací řetězec účet úložiště. Účet úložiště reprezentována tento připojovací řetězec musí být stejný jako ten, používá funkce orchestrator cíl. Pokud není zadaný, se používá účet úložiště výchozí připojovací řetězec pro funkce aplikace.
 
 > [!NOTE]
 > Ve většině případů doporučujeme, abyste vynechejte tyto vlastnosti a závisí na výchozí chování.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Ukázka klienta (ne Visual Studio)
 
-Pokud nepoužíváte Visual Studio pro vývoj, můžete vytvořit následující soubor function.json. Tento příklad ukazuje, jak nakonfigurovat funkci aktivovaného fronty, která používá klienta trvanlivý orchestration vazby:
+Pokud nepoužíváte Visual Studio pro vývoj, můžete vytvořit následující *function.json* souboru. Tento příklad ukazuje, jak nakonfigurovat funkci aktivovaného fronty, která používá klienta trvanlivý orchestration vazby:
 
 ```json
 {
@@ -283,7 +283,7 @@ module.exports = function (context, input) {
 
 Další informace o spouštění instance naleznete v [Instance správu](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Další informace o vytváření kontrolních bodů a opětovného přehrání chování](durable-functions-checkpointing-and-replay.md)

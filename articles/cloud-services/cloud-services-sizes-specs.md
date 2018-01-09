@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Velikosti pro cloudové služby
 Toto téma popisuje možnosti dostupné velikosti a pro cloudové služby role instance (webových rolí a rolí pracovního procesu). Je také důležité informace o nasazení myslet při plánování použití těchto prostředků. ID, které vložíte v má velikost pro všechny vaše [souboru definice služby](cloud-services-model-and-package.md#csdef). Ceny pro každou velikost jsou k dispozici na [ceník služby Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) stránky.
@@ -188,12 +188,12 @@ Jako povaze změny zatížení nebo nové velikosti virtuálních počítačů, 
 >
 
 ## <a name="get-a-list-of-sizes"></a>Získat seznam velikostí
-Chcete-li získat seznam velikostí můžete použít PowerShell nebo rozhraní REST API. Rozhraní API REST je popsána [zde](https://msdn.microsoft.com/library/azure/dn469422.aspx). Následující kód je příkaz prostředí PowerShell, který zobrazí seznam všech velikostí, které jsou aktuálně k dispozici pro cloudové služby.
+Chcete-li získat seznam velikostí můžete použít PowerShell nebo rozhraní REST API. Rozhraní API REST je popsána [zde](https://msdn.microsoft.com/library/azure/dn469422.aspx). Následující kód je příkaz prostředí PowerShell, který zobrazí seznam všech velikostí pro daného umístění. 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRmVMSize -Location 'West Europe'
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [Limitech, kvótách a omezeních předplatného a služeb Azure](../azure-subscription-service-limits.md)
 * Další informace [o vysokovýkonné výpočetní velikosti virtuálních počítačů](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pro úlohy v prostředí HPC.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Pomocí Azure Functions computing bez serveru databáze
 
@@ -34,6 +34,9 @@ Azure Cosmos DB a Azure Functions umožňují integraci vašich databází a apl
 * Můžete taky vytvořit vazbu funkce Azure kolekce Azure Cosmos DB používá **vstupní vazby**. Když funkce provede vstupní vazby číst data z kontejneru.
 * Vytvořit vazbu funkce kolekce Azure Cosmos DB pomocí **výstup vazby**. Po dokončení funkci vazby výstup zapsat data do kontejneru.
 
+> [!NOTE]
+> Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby pracovat v tuto chvíli pouze účty rozhraní SQL API a rozhraní Graph API.
+
 Následující diagram znázorňuje každý z těchto tří integrace: 
 
 ![Jak integrovat Azure Cosmos DB a Azure Functions](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby lze použí
 * Aktivační událost INSTEAD Azure Cosmos DB lze použít s vazbou výstup do jiného kontejneru Azure Cosmos DB. Poté, co funkce provede akce na položku v informačním kanálu změnu napíšete ho do jiného kontejneru (zápis, že ho do kontejneru, ze které pochází efektivně by vytvořilo smyčku rekurzivní). Nebo můžete použít aktivační událost INSTEAD Azure Cosmos DB efektivně migrovat všechny změněné položky z jednoho kontejneru typu do jiného kontejneru, s použitím vazbu výstup.
 * Vazby vstupní a výstupní vazby pro Azure Cosmos DB lze ve stejné funkci Azure. To funguje dobře v případech, pokud chcete vyhledávat určitá data vstupní vazbou, upravte ho ve funkci Azure a uložte je na stejném kontejneru nebo jiný kontejner, po úpravy.
 * Vstupní vazbu ke kontejneru Azure Cosmos DB mohou být používány stejnou funkci jako aktivační procedury Azure Cosmos DB a dají se použít s nebo bez vazby také výstup. Můžete použít tuto kombinaci použít informace o aktuální Měna systému exchange (vyžádat pomocí vstupní vazbu ke kontejneru exchange) k informačnímu kanálu změn nových objednávek ve službě nákupní košík. Aktualizované nákupní košík celkem s aktuální převodu měny, který se použije, může být napsán na kontejner třetí pomocí vazbu výstup.
-
-> [!NOTE]
-> Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby pracovat v tuto chvíli pouze účty rozhraní SQL API a rozhraní Graph API.
 
 ## <a name="use-cases"></a>Případy použití
 
@@ -146,7 +146,7 @@ Výhody Azure Functions:
 
 Pokud si nejste jistí, jestli tok, Logic Apps, Azure Functions nebo webové úlohy jsou nejvhodnější pro implementaci, najdete v části [volba mezi toku, Logic Apps, funkce a WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď umožňuje připojit databázi Cosmos Azure a Azure Functions pro skutečných: 
 
