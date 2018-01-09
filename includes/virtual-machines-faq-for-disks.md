@@ -101,6 +101,10 @@ Disky systému Azure spravované aktuálně podporuje pouze místně redundantn�
 
 Ne. Tato funkce není aktuálně podporován. 
 
+**Můžete rozdělit zapůjčení na můj disku?**
+
+Ne. To není aktuálně podporováno jako zapůjčení je k dispozici, aby se zabránilo nechtěnému odstranění při použití disku.
+
 **Můžete změnit vlastnost název počítače při specializované (ne vytvořili pomocí nástroje pro přípravu systému nebo zobecněn) disk operačního systému slouží ke zřízení virtuálního počítače?**
 
 Ne. Nelze aktualizovat vlastnosti název počítače. Nový virtuální počítač se dědí z nadřazený virtuální počítač, který byl použit k vytvoření disku operačního systému. 

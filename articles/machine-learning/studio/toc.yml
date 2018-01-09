@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: Související
   items:
-    - name: Galerie Cortana Intelligence
+    - name: Galerie Azure AI
       items:
         - name: Přehled
           href: gallery-how-to-use-contribute-publish.md
@@ -217,7 +217,7 @@
           href: gallery-collections.md
         - name: Vlastní moduly
           href: gallery-custom-modules.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'

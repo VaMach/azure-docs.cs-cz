@@ -7,6 +7,5 @@
 -   Pokud chcete získat nejlepší výkon pro virtuální počítače, měli byste omezit počet datových disků na 2 disky na virtuální procesory.
 - **Očekávaný šířku pásma sítě** je agregován maximální [šířky pásma přidělený na typ virtuálního počítače](../articles/virtual-network/virtual-machine-network-throughput.md) na všech síťových adaptérů pro všechna místa určení. Horní omezení nejsou garantována, ale slouží jako vodítko pro výběr správného typu virtuálního počítače pro příslušnou aplikaci. Skutečný výkon sítě bude záviset na řadě faktorů, včetně zahlcení sítě, zatížení aplikací a nastavení sítě. Informace o optimalizaci propustnosti sítě najdete v tématu [Optimalizace propustnosti sítě pro Windows a Linux](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md). Pro dosažení očekávaného výkonu sítě na Linuxu nebo ve Windows může být nutné vybrat konkrétní verzi nebo optimalizovat virtuální počítač. Další informace najdete v tématu [Spolehlivé testování propustnosti virtuálního počítače](../articles/virtual-network/virtual-network-bandwidth-testing.md).
 
-- &#8224; Výkon 16 virtuálních procesorů bude konzistentně dosahovat horního omezení v nadcházející verzi.
 
 
