@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Co je Azure IoT Suite?
 
@@ -30,6 +30,10 @@ Azure IoT Suite je sada *předkonfigurovaných řešení* s těmito vlastnostmi:
 * Můžete je přizpůsobit podle svých specifických požadavků.
 
 Všechna předkonfigurovaná řešení *IoT Suite* jsou navržena podle stejných principů a se stejným cílem.
+
+Následující video představuje přehled předkonfigurovaného řešení vzdáleného monitorování:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>Přehled předkonfigurovaných řešení
 

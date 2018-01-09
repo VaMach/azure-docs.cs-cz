@@ -1,27 +1,27 @@
 ---
-title: "Odesílání nabízených oznámení pomocí Azure Notification Hubs ve Windows Phone | Dokumentace Microsoftu"
+title: "Začínáme se službou Azure Notification Hubs pro aplikace pro Windows Phone | Dokumentace Microsoftu"
 description: "V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace Windows Phone 8 nebo Windows Phone 8.1 Silverlight."
 services: notification-hubs
 documentationcenter: windows
 keywords: "nabízené oznámení,nabízená oznámení,nabízení windows phone"
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: 
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: 7d44d0a0f8683ad6ad55136ad17879e98e26498b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Odesílání nabízených oznámení pomocí Azure Notification Hubs ve Windows Phone
+# <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>Začínáme se službou Azure Notification Hubs pro aplikace pro Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Přehled
@@ -51,11 +51,11 @@ Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notificati
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p>Klikněte na část <b>Služby oznámení</b> (v rámci <i>Nastavení</i>), klikněte na položku <b>Windows Phone (MPNS)</b> a pak klikněte na políčko <b>Povolit neověřené nabízená oznámení</b>.</p>
+<li><p>V části <b>Notification Services</b> vyberte <b>Windows Phone (MPNS)</b> a pak zaškrtněte políčko <b>Povolit neověřená nabízená oznámení</b>.</p>
 </li>
 </ol>
 
-&emsp;&emsp;![Portál Azure – povolit neověřená nabízená oznámení](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
+&emsp;&emsp;![Azure Portal – Povolit neověřená nabízená oznámení](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
 Centrum se teď vytvoří a nakonfiguruje pro odeslání neověřeného oznámení pro Windows Phone.
 
@@ -129,62 +129,7 @@ Centrum se teď vytvoří a nakonfiguruje pro odeslání neověřeného oznámen
    
    > [!NOTE]
    > Pro příjem nabízených oznámení nesmí být aplikace spuštěná v popředí.
-   > 
-   > 
-
-## <a name="send-push-notifications-from-your-backend"></a>Odesílání nabízených oznámení z backendu
-Pomocí našeho veřejného <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">rozhraní REST</a> je možné pomocí center oznámení posílat nabízená oznámení z jakéhokoli backendu. V tomto kurzu zašlete nabízená oznámení pomocí konzolové aplikace .NET. 
-
-Příklad odesílání nabízených oznámení z backendu ASP.NET WebAPI, který je integrovaný do Notification Hubs, najdete v článku [Azure Notification Hubs upozorňují uživatele pomocí backendu .NET](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md).  
-
-Příklad odesílání nabízených oznámení pomocí [rozhraní REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx) najdete v článku [Jak používat Notification Hubs z Javy](notification-hubs-java-push-notification-tutorial.md) a [Jak používat Notification Hubs z PHP](notification-hubs-php-push-notification-tutorial.md).
-
-1. Klikněte pravým tlačítkem myši na řešení, vyberte možnost **Přidat** a **Nový projekt...** a pak v části **Visual C#** klikněte na tlačítko **Windows** a **Konzolové aplikace** a klikněte na tlačítko **OK**.
-   
-       ![Visual Studio - New Project - Console Application][6]
-   
-    Tento postup přidá novou aplikaci Visual C# do řešení. Tento postup také můžete využít v samostatném řešení.
-2. Klikněte na položku **Nástroje**, klikněte na **Správce balíčků knihoven** a pak na **Konzola správce balíčků**.
-   
-    Tím se zobrazí Konzola Správce balíčků.
-3. V okně **konzoly Správce balíčků** nastavte **Výchozí projekt** na nový projekt konzolové aplikace a pak v okně konzoly spusťte následující příkaz:
-   
-       Install-Package Microsoft.Azure.NotificationHubs
-   
-   Ten přidá odkaz na sadu SDK centra oznámení Azure pomocí <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">balíčku Microsoft.Azure.Notification Hubs NuGet</a>.
-4. Otevřete soubor `Program.cs` a přidejte následující příkaz `using`:
-   
-        using Microsoft.Azure.NotificationHubs;
-5. Do třídy `Program` přidejte následující metodu:
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            string toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                   "<wp:Toast>" +
-                        "<wp:Text1>Hello from a .NET App!</wp:Text1>" +
-                   "</wp:Toast> " +
-                "</wp:Notification>";
-            await hub.SendMpnsNativeNotificationAsync(toast);
-        }
-   
-    Zástupný symbol `<hub name>` je nutné nahradit názvem centra oznámení, který se zobrazí na portálu. Také nahraďte zástupný symbol připojovacího řetězce připojovacím řetězcem s názvem **DefaultFullSharedAccessSignature**, který jste získali v části „Konfigurace centra oznámení“.
-   
-   > [!NOTE]
-   > Ujistěte se, že používáte připojovací řetězec s **úplným** přístupem, nikoli s přístupem **Naslouchat**. Řetězec s přístupem k naslouchání neposkytuje oprávnění k zasílání nabízených oznámení.
-   > 
-   > 
-6. Do metody `Main` přidejte následující řádek:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-7. Se spuštěným emulátorem systému Windows Phone a zavřenou aplikací nastavte projekt konzolové aplikace jako výchozí projekt po spuštění a pak stiskněte klávesu `F5` pro spuštění aplikace.
-   
-    Obdržíte nabízená oznámení. Klepnutím na informační nápis načtete aplikaci.
-
-Na webu MSDN můžete najít všechny možné datové části v tématech [katalog informačních zpráv] a [katalog dlaždic].
+   >
 
 ## <a name="next-steps"></a>Další kroky
 V tomto jednoduchém příkladu jste vysílali nabízená oznámení pro všechna vaše zařízení Windows Phone 8. 
@@ -220,7 +165,7 @@ Další informace o centrech oznámení najdete v [Průvodce centry oznámení].
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Používání centra oznámení k odesílání novinek]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-[katalog informačních zpráv]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
-[katalog dlaždic]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
+[toast catalog]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
+[tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [kurzu Centra oznámení – Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 

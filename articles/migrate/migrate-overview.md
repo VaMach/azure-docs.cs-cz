@@ -1,24 +1,16 @@
 ---
 title: "Informace o službě Azure Migrate | Dokumentace Microsoftu"
 description: "Obsahuje přehled služby Azure Migrate."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>Informace o službě Azure Migrate
 
@@ -41,13 +33,12 @@ Azure Migrate vám pomůže s následujícími úlohami:
 - Aktuálně můžete posuzovat vhodnost k migraci na virtuální počítače Azure u místních virtuálních počítačů VMware.
 
 > [!NOTE]
-> Podpora Hyper-V se plánuje a bude povolená během několika měsíců. Prozatím doporučujeme k plánování migrace úloh Hyper-V použít Plánovač nasazení služby Azure Site Recovery. 
+> Podpora Hyper-V se plánuje a bude brzy povolená. Prozatím doporučujeme k plánování migrace úloh Hyper-V použít [Plánovač nasazení služby Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc). 
 
-- Při jednom posouzení můžete posoudit až 1 000 virtuálních počítačů a až 1 500 počítačů v jednom projektu Azure Migrate. Pokud jich potřebuje posoudit více, můžete zvýšit počet projektů nebo posouzení. [Další informace](how-to-scale-assessment.md).
+- Je možné vyhledat až 1 000 virtuálních počítačů v rámci jednoho zjišťování a až 1 500 virtuálních počítačů v jednom projektu. Kromě toho můžete v rámci jednoho interního hodnocení vyhodnotit až 400 virtuálních počítačů. Pokud jich potřebuje vyhledat nebo posoudit víc, můžete zvýšit počet zjišťování nebo hodnocení. [Další informace](how-to-scale-assessment.md).
 - Virtuální počítač, který chcete posoudit, musí být spravovaný systémem vCenter Server verze 5.5, 6.0 nebo 6.5.
 - Projekt Azure Migrate můžete vytvořit pouze v oblasti Západní USA – střed. To však nemá vliv na možnost plánování migrace pro jiné cílové umístění Azure. Umístění projektu migrace slouží pouze k uložení metadat zjištěných v místním prostředí.
-- Portál Azure Migrate je aktuálně dostupný pouze v angličtině. 
-- Azure Migrate aktuálně podporuje pouze replikaci [místně redundantního úložiště (LRS)](../storage/common/storage-introduction.md#replication).
+- Azure Migrate podporuje pro posouzení migrace jenom spravované disky.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Za co musím platit?
 
@@ -91,7 +82,7 @@ Tabulka shrnuje porty potřebné ke komunikaci služby Azure Migrate.
 |-------------------|------------------------|---------------|---------|
 |Kolektor          |Služba Azure Migrate   |TCP 443        |Kolektor se ke službě připojuje přes port SSL 443.|
 |Kolektor          |vCenter Server          |Výchozí 9443   | Ve výchozím nastavení se kolektor připojuje k serveru vCenter na portu 9443. Pokud server naslouchá na jiném portu, tento port musí být nakonfigurovaný jako odchozí port na virtuálním počítači kolektoru. |
-|Místní virtuální počítač     | Pracovní prostor Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |Agent MMA používá port TCP 443 pro připojení k Log Analytics. Tento port potřebujete pouze v případě, že využíváte funkci vizualizace závislostí a instalujete agenta Microsoft Monitoring Agent (MMA). |
+|Místní virtuální počítač     | Pracovní prostor Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |Agent MMA používá port TCP 443 pro připojení k Log Analytics. Tento port potřebujete pouze v případě, že využíváte funkci vizualizace závislostí a instalujete agenta Microsoft Monitoring Agent (MMA). |
 
 
   
