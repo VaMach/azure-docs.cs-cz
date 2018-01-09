@@ -13,21 +13,21 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 68409d7832985bea635e4b6de341ea6aec6f560d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Zálohování virtuálního počítače v Azure
 Zálohy Azure je možné vytvářet na webu Azure Portal. Tato metoda poskytuje uživatelské rozhraní v prohlížeči, pomocí kterého můžete vytvářet a konfigurovat zálohy Azure a všechny související prostředky. Svá data můžete chránit prováděním záloh v pravidelných intervalech. Azure Backup vytváří body obnovení, které je možné uchovávat v geograficky redundantních trezorech obnovení. Tento článek podrobně popisuje, jak zálohovat virtuální počítač pomocí webu Azure Portal. 
 
 V tomto rychlém startu se povolí zálohování na existujícím virtuálním počítači Azure. Pokud potřebujete vytvořit virtuální počítač, můžete [vytvořit virtuální počítač pomocí webu Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
@@ -36,13 +36,13 @@ Vytvořte jednoduché plánované denní zálohování do trezoru služby Recove
 
 1. V nabídce na levé straně vyberte **Virtuální počítače**. 
 2. V seznamu zvolte virtuální počítač, který chcete zálohovat. Pokud jste použili ukázkové příkazy z rychlého úvodu k virtuálním počítačům, virtuální počítač má název *myVM* a je ve skupině prostředků *myResourceGroup*.
-3. V části **Nastavení** zvolte **Zálohování**. Otevře se okno **Povolit zálohování**.
+3. V části **Operace** zvolte **Zálohování**. Otevře se okno **Povolit zálohování**.
 
 
 ## <a name="enable-backup-on-a-vm"></a>Povolení zálohování na virtuálním počítači
 Trezor služby Recovery Services je logický kontejner, který uchovává zálohovaná data pro každý chráněný prostředek, například virtuální počítače Azure. Úloha zálohování pro chráněný prostředek při spuštění vytvoří uvnitř trezoru služby Recovery Services bod obnovení. Pomocí některého z těchto bodů obnovení pak můžete obnovit data k danému bodu v čase.
 
-1. Vyberte **Vytvořit nový** a zadejte název nového trezoru, například **myRecoveryServicesVault**.
+1. Vyberte **Vytvořit nový** a zadejte název nového trezoru, například *myRecoveryServicesVault*.
 2. Pokud ještě není vybraná, zvolte možnost **Použít existující** a pak z rozevírací nabídky vyberte skupinu prostředků vašeho virtuálního počítače.
 
     ![Povolení zálohování virtuálního počítače na webu Azure Portal](./media/quick-backup-vm-portal/enable-backup.png)
@@ -52,6 +52,8 @@ Trezor služby Recovery Services je logický kontejner, který uchovává záloh
     K definování, kdy se spouští úloha zálohování a jak dlouho se uchovávají body obnovení, vytváříte a používáte zásady. Výchozí zásada ochrany spouští úlohu zálohování každý den a uchovává body obnovení po dobu 30 dnů. Tyto výchozí hodnoty zásady můžete použít k rychlému zajištění ochrany vašeho virtuálního počítače. 
 
 3. Pokud chcete přijmout hodnoty výchozí zásady zálohování, vyberte **Povolit zálohování**.
+
+vytvoření trezoru služby Recovery Services chvíli trvá.
 
 
 ## <a name="start-a-backup-job"></a>Spuštění úlohy zálohování

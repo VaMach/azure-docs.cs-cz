@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Adaptivní řízení aplikací v Azure Security Center (Preview)
 Pomocí tohoto názorného postupu zjistíte, jak nakonfigurovat řízení aplikací v Azure Security Center.
@@ -36,12 +36,11 @@ Adaptivní řízení aplikací pomáhá řídit, které aplikace se můžou spou
 ## <a name="how-to-enable-adaptive-application-controls"></a>Jak povolit adaptivní řízení aplikací?
 Adaptivní řízení aplikací pomáhá definovat sadu aplikací, které mají povoleno spouštění v nakonfigurovaných skupinách prostředků. Tato funkce je dostupná pouze pro počítače s Windows (všechny verze, Classic nebo Azure Resource Manager). Pokud chcete ve službě Security Center nakonfigurovat přidávání aplikací na seznam povolených, můžete postupovat podle následujících kroků:
 
-1.  Otevřete řídicí panel **Security Center** a klikněte na **Přehled**.
-2.  V části **Pokročilá obrana cloudu** se na dlaždici **Adaptivní řízení aplikací** zobrazí počet už kontrolovaných virtuálních počítačů v porovnání se všemi virtuálními počítači. Zobrazuje také počet nalezených problémů za poslední týden: 
+1.  Otevřete řídicí panel **Security Center** a v levém navigačním podokně klikněte na **Adaptivní řízení aplikací** v části **Pokročilá obrana cloudu**.
 
-    ![Adaptivní řízení aplikací](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Obrana](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Pokud chcete zobrazit další možnosti, klikněte na dlaždici **Adaptivní řízení aplikací**.
+2. Zobrazí se stránka **Adaptivní řízení aplikací**.
 
     ![ovládací prvky](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 

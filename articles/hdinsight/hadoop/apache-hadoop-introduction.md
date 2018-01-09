@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: ba2a14e3f327fd8ab4f1ebfe329a64b4aa1a25a1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49ec2f305c1aef50fcff977d60ff3ce0079ff5af
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-and-spark-technology-stack"></a>Úvod do služby Azure HDInsight a technologií Hadoop a Spark
 Tento článek poskytuje úvod do plně spravované open source analytické služby Azure HDInsight určené pro podniky. Můžete používat open source architektury, jako jsou Hadoop, Spark, Hive, LLAP, Kafka, Storm, R a další. 
@@ -137,6 +137,7 @@ Známé nástroje business intelligence (BI) načítají, analyzují a vykazují
 
 * [Apache Spark BI s využitím nástrojů pro vizualizaci dat ve službě Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
 * [Vizualizace dat Hive pomocí Microsoft Power BI ve službě Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
+* [Vizualizace dat Interactive Query Hive pomocí Power BI ve službě Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Připojení aplikace Excel k systému Hadoop pomocí Power Query:](apache-hadoop-connect-excel-power-query.md) Zjistěte, jak připojit Excel k účtu služby Azure Storage, kde se ukládají data z vašeho clusteru HDInsight, pomocí doplňku Microsoft Power Query pro Excel. Jsou vyžadovány pracovní stanice Windows. 
 * [Připojení aplikace Excel k systému Hadoop pomocí ovladače ODBC Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md): Zjistěte, jak importovat data z prostředí HDInsight pomocí ovladače ODBC Microsoft Hive. Jsou vyžadovány pracovní stanice Windows. 
 * [Cloudová platforma Microsoft](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Získejte informace o službě Power BI pro Office 365, stáhněte si zkušební verzi serveru SQL Server a nastavte si SharePoint Server 2013 a SQL Server BI.

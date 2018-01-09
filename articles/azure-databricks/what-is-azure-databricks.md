@@ -1,5 +1,5 @@
 ---
-title: Co je Azure Databricks? | Dokumentace Microsoftu
+title: Co je Azure Databricks? | Dokumenty Microsoft
 description: "Zjistěte, co je platforma Azure Databricks a jak přináší Spark do Azure. Azure Databricks je analytická platforma založená na Apache Spark a optimalizovaná pro platformu cloudových služeb Microsoft Azure."
 services: azure-databricks
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 20f6899362420d96e7f03ea4dddeb6147a92f304
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b96896b22d406954e80d1df268f55c1c5a02ec6f
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-azure-databricks"></a>Co je Azure Databricks?
 
@@ -73,7 +73,7 @@ Prostřednictvím integrovaného prostředí založeného na spolupráci Azure D
 
 * Snadné zkoumání dat umožňuje určit způsob jejich využití.
 * K dokumentování průběhu můžete využít poznámkové bloky v R, Python, Scale nebo SQL.
-* K vizualizaci dat stačí několik kliknutí a je možné využít oblíbené nástroje, jako je Matplotlib, ggoplot nebo d3.
+* K vizualizaci dat stačí několik kliknutí a je možné využít oblíbené nástroje, jako je Matplotlib, ggplot nebo d3.
 * Pomocí interaktivních řídicích panelů můžete vytvářet dynamické sestavy.
 * Můžete využít Spark a interagovat s daty současně.
 

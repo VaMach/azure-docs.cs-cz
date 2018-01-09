@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Rychlé nasazení samoobslužného resetování hesla Azure AD
 
@@ -36,35 +36,38 @@ Tento průvodce předpokládá, že již máte funkčního tenanta Azure Active 
 1. Ve svém existujícím tenantovi Azure AD vyberte **Resetování hesla**.
 
 2. Na stránce **Vlastnosti** v části **Samoobslužné resetování hesla povoleno** zvolte jednu z následujících možností:
-    * **Nikdo:** Funkci samoobslužného resetování hesla nemůže využívat nikdo.
-    * **Vybraní:** Funkci samoobslužného resetování hesla můžou využívat jenom členové určité skupiny Azure AD, kterou zvolíte. Doporučujeme definovat skupinu uživatelů a toto nastavení použít při nasazení této funkce pro testování konceptu.
-    * **Všichni:** Funkci samoobslužného resetování hesla můžou využívat všichni uživatelé s účty ve vašem tenantovi Azure AD. Toto nastavení doporučujeme použít, až budete po dokončení testování konceptu připraveni nasadit tuto funkci do celého tenanta.
+   * **Nikdo:** Funkci samoobslužného resetování hesla nemůže využívat nikdo.
+   * **Vybraní:** Funkci samoobslužného resetování hesla můžou využívat jenom členové určité skupiny Azure AD, kterou zvolíte. Doporučujeme definovat skupinu uživatelů a toto nastavení použít při nasazení této funkce pro testování konceptu.
+   * **Všichni:** Funkci samoobslužného resetování hesla můžou využívat všichni uživatelé s účty ve vašem tenantovi Azure AD. Toto nastavení doporučujeme použít, až budete po dokončení testování konceptu připraveni nasadit tuto funkci do celého tenanta.
+
+   > [!IMPORTANT]
+   > Účty správců Azure budou mít vždycky možnost resetovat svá hesla bez ohledu na nastavení této možnosti. 
 
 3. Na stránce **Metody ověřování** zvolte následující možnosti:
-    * **Počet metod požadovaných k resetování:** Podporujeme minimálně jednu nebo maximálně dvě.
-    * **Metody dostupné pro uživatele:** Potřebujeme alespoň jednu, ale nikdy neuškodí mít k dispozici jednu možnost navíc.
-        * **E-mail:** Odešle e-mail s kódem na nastavenou ověřovací e-mailovou adresu uživatele.
-        * **Mobilní telefon:** Umožňuje uživateli obdržet hovor nebo zprávu s kódem na nastavené číslo mobilního telefonu.
-        * **Telefon do kanceláře:** Zavolá uživateli na nastavené telefonní číslo do kanceláře a sdělí mu kód.
-        * **Bezpečnostní otázky:** Vyžadují, abyste zvolili:
-            * **Počet otázek požadovaných k registraci:** Minimum pro úspěšnou registraci. Uživatel může odpovědět na více otázek a vytvořit tak fond, ze kterého se otázky budou načítat. Tuto možnost můžete nastavit na tři až pět otázek a tato hodnota musí být vyšší nebo rovna počtu otázek požadovaných k resetování hesla. Uživatelé můžou přidat vlastní otázky, pokud při výběru bezpečnostních otázek vyberou tlačítko **Vlastní**.
-            * **Počet otázek požadovaných k resetování:** Můžete nastavit na tři až pět otázek, které je třeba správně zodpovědět, než bude umožněno resetování nebo odemknutí hesla uživatele.
+   * **Počet metod požadovaných k resetování:** Podporujeme minimálně jednu nebo maximálně dvě.
+   * **Metody dostupné pro uživatele:** Potřebujeme alespoň jednu, ale nikdy neuškodí mít k dispozici jednu možnost navíc.
+      * **E-mail:** Odešle e-mail s kódem na nastavenou ověřovací e-mailovou adresu uživatele.
+      * **Mobilní telefon:** Umožňuje uživateli obdržet hovor nebo zprávu s kódem na nastavené číslo mobilního telefonu.
+      * **Telefon do kanceláře:** Zavolá uživateli na nastavené telefonní číslo do kanceláře a sdělí mu kód.
+      * **Bezpečnostní otázky:** Vyžadují, abyste zvolili:
+         * **Počet otázek požadovaných k registraci:** Minimum pro úspěšnou registraci. Uživatel může odpovědět na více otázek a vytvořit tak fond, ze kterého se otázky budou načítat. Tuto možnost můžete nastavit na tři až pět otázek a tato hodnota musí být vyšší nebo rovna počtu otázek požadovaných k resetování hesla. Uživatelé můžou přidat vlastní otázky, pokud při výběru bezpečnostních otázek vyberou tlačítko **Vlastní**.
+         * **Počet otázek požadovaných k resetování:** Můžete nastavit na tři až pět otázek, které je třeba správně zodpovědět, než bude umožněno resetování nebo odemknutí hesla uživatele.
             
     ![Ověřování][Authentication]
 
 4. Doporučené: V části **Přizpůsobení** můžete změnit odkaz **Kontaktujte správce**, aby odkazoval na stránku nebo e-mailovou adresu, kterou zadáte. Doporučujeme nastavit tento odkaz na e-mailovou adresu nebo web, které vaši uživatelé již používají pro dotazy na podporu.
 
 5. Volitelné: Stránka **Registrace** poskytuje správcům tyto možnosti:
-    * Při přihlášení vyžadovat registraci uživatelů.
-    * Nastavit počet dnů před vyzváním uživatelů k potvrzení ověřovacích údajů.
+   * Při přihlášení vyžadovat registraci uživatelů.
+   * Nastavit počet dnů před vyzváním uživatelů k potvrzení ověřovacích údajů.
 
 6. Volitelné: Stránka **Oznámení** poskytuje správcům tyto možnosti:
-    * Upozornit uživatele na resetování hesla.
-    * Upozornit všechny správce na resetování hesla jiného správce.
+   * Upozornit uživatele na resetování hesla.
+   * Upozornit všechny správce na resetování hesla jiného správce.
 
 Právě jste pro svého tenanta Azure AD nakonfigurovali samoobslužné resetování hesla. Uživatelé teď mohou použít pokyny uvedené v článcích [Registrace pro samoobslužné resetování hesla](active-directory-passwords-reset-register.md) a [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md) a aktualizovat svoje heslo bez zásahu správce. Tady můžete skončit, pokud pracujete jenom v cloudu. Nebo můžete pokračovat k další části a nakonfigurovat synchronizaci hesel s místní doménou Active Directory.
 
-> [!IMPORTANT]
+> [!TIP]
 > Otestujte samoobslužné resetování hesla pomocí uživatele, a ne správce, protože Microsoft pro účty správců Azure vynucuje požadavky na silné ověřování. Další informace týkající se zásad hesel správců najdete v našem článku o [zásadách hesel](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Konfigurace synchronizace s existujícím zdrojem identit

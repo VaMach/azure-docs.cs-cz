@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Správa adresáře služby Azure AD
 
@@ -80,7 +80,6 @@ Pomocí kteréhokoli z těchto portálů (nebo rutin) můžete:
 * nastavit místní integraci se službami ověřování a identit Azure AD
 
 Centrum pro správu Azure AD, Centrum pro správu Office 365, Portál účtu Microsoft Intune i rutiny služby Azure AD čtou a zapisují v rámci jediné sdílené instance služby Azure AD, která je přidružená k adresáři vaší organizace. Každý z těchto nástrojů funguje jako front-endové rozhraní, které přijímá nebo mění data vašeho adresáře.
-
 Pokud pomocí některého z portálů nebo rutin změníte data vaší organizace a jste v kontextu jedné z těchto služeb přihlášení, změny se při příštím přihlášení projeví také na ostatních portálech. Tato data se sdílejí napříč cloudovými službami Microsoftu, které odebíráte.
 
 Pokud třeba v Centru pro správu Office 365 zablokujete určitému uživateli přihlašování, nemůže se tento uživatel přihlásit k žádné službě, kterou má vaše organizace předplacenou. Pokud se stejný uživatelský účet podíváte v Portálu účtu Microsoft Intune, také uvidíte, že tento uživatel je zablokovaný.
@@ -117,8 +116,8 @@ Kontrolují se následující podmínky:
 
 
 ## <a name="next-steps"></a>Další kroky
-* [Fórum služby Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Fórum služby Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Dotazy webu Stack Overflow pro Azure](http://stackoverflow.com/questions/tagged/azure)
+* [Fórum služby Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Fórum služby Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [StackOverflow pro dotazy ohledně Azure](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Přiřazování rolí správce ve službě Azure AD](active-directory-assign-admin-roles-azure-portal.md)

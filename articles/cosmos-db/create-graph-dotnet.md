@@ -3,7 +3,7 @@ title: "Vytvoření aplikace Azure Cosmos DB v .NET Framework nebo .NET Core s v
 description: "Obsahuje ukázku kódu v .NET Framework a .NET Core, kterou můžete použít k připojení ke službě Azure Cosmos DB a jejímu dotazování."
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
-ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Vytvoření aplikace v .NET Framework nebo .NET Core s využitím rozhraní Graph API
 
-Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
+Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
 
-Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, databáze a grafu (kontejneru) pomocí webu Azure Portal. Potom sestavíte a spustíte aplikaci konzoly založenou na [rozhraní Graph API](graph-sdk-dotnet.md) (verze Preview).  
+Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, databáze a grafu (kontejneru) pomocí webu Azure Portal. Potom sestavíte a spustíte aplikaci konzoly založenou na [rozhraní Graph API](graph-sdk-dotnet.md).  
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -108,19 +108,31 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
 
 Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
 
-1. V sadě Visual Studio 2017 otevřete soubor appsettings.json. 
+1. Na [portálu Azure](http://portal.azure.com/) klikněte na **Klíče**. 
 
-2. Na webu Azure Portal v účtu služby Azure Cosmos DB klikněte v levém navigačním panelu na **Klíče**. 
+    Zkopírujte první část hodnoty identifikátoru URI.
 
-    ![Zobrazení a zkopírování primárního klíče na webu Azure Portal na stránce Klíče](./media/create-graph-dotnet/keys.png)
+    ![Zobrazení a zkopírování přístupového klíče na portálu Azure na stránce Klíče](./media/create-graph-dotnet/keys.png)
 
-3. Z portálu zkopírujte hodnotu identifikátoru **URI** a nastavte ji jako hodnotu klíče koncového bodu v souboru appsettings.json. Hodnotu můžete zkopírovat pomocí tlačítka Kopírovat, jak ukazuje předchozí snímek obrazovky.
+2. V sadě Visual Studio 2017 otevřete soubor appsettings.json a vložte tuto hodnotu místo `FILLME` v části `endpoint`. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    Hodnota koncového bodu by teď měla vypadat takto:
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Pokud jste účet databáze grafů vytvořili před 27. listopadem 2017, v části `endpoint` změňte `documents` na `graphs`. Pokud jste účet databáze grafů vytvořili 27. listopadu 2017 nebo později, v části `endpoint` změňte `documents` na `gremlin.cosmosdb`.
+
+    Hodnota koncového bodu by teď měla vypadat takto:
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` nebo `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. Z portálu zkopírujte hodnotu **PRIMÁRNÍHO KLÍČE**, nastavte ji jako hodnotu klíče AuthKey v souboru App.config a potom uložte změny. 
 
     `"authkey": "FILLME"`
+
+5. Uložte soubor appsettings.json. 
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 
@@ -152,7 +164,7 @@ Teď se můžete vrátit do Průzkumníku dat na webu Azure Portal, procházet n
 
     ![Zobrazení grafu v Průzkumníku dat na webu Azure Portal](./media/create-graph-dotnet/graph-explorer.png)
 
-## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Ověření podmínek SLA na portálu Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

@@ -3,22 +3,22 @@ title: "Začínáme se službou Azure Notification Hubs pro aplikace Univerzáln
 description: "V tomto kurzu zjistíte, jak pomocí služby Azure Notification Hubs odesílat nabízená oznámení do aplikace Univerzální platformy Windows."
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: 
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Začínáme se službou Notification Hubs pro aplikace Univerzální platformy Windows
 
@@ -81,8 +81,8 @@ Pokud chcete odesílat nabízená oznámení do aplikací UPW, přidružte svou 
 ## <a name="configure-your-notification-hub"></a>Konfigurace centra oznámení
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
-<li><p>Vyberte <b>Notification Services</b> > <b>Windows(WNS)</b> a pak zadejte tajný klíč aplikace do pole <b>Klíč zabezpečení</b>. Do pole <b>SID balíčku</b> zadejte hodnotu, kterou jste ve službě WNS získali v předchozí části, a pak vyberte <b>Uložit</b>.</p>
+<ol start="6">
+<li><p>V části <b>Notification Services</b> vyberte <b>Služba nabízených oznámení Windows (WNS)</b> a pak zadejte tajný klíč aplikace do pole <b>Klíč zabezpečení</b>. Do pole <b>SID balíčku</b> zadejte hodnotu, kterou jste ve službě WNS získali v předchozí části, a pak vyberte <b>Uložit</b>.</p>
 </li>
 </ol>
 
@@ -162,56 +162,6 @@ Tento kurz předvádí, jak otestovat klientskou aplikaci prostým odesláním o
     * [Java](notification-hubs-java-push-notification-tutorial.md)
     * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
-## <a name="optional-send-notifications-from-a-console-app"></a>(Volitelné) Odesílání oznámení z konzoly aplikace
-Pokud chcete odesílat oznámení pomocí konzolové aplikace .NET, postupujte následovně: 
-
-1. Klikněte pravým tlačítkem na řešení, vyberte **Přidat** > **Nový projekt**, v části **Visual C#** vyberte **Windows** a **Konzolová aplikace** a pak vyberte **OK**.
-   
-    Do řešení se přidá nová konzolová aplikace Visual C#. Projekt můžete také přidat do samostatného řešení.
-
-2. V sadě Visual Studio vyberte **Nástroje**, vyberte **Správce balíčků NuGet** a pak vyberte **Konzola Správce balíčků**.
-   
-    V sadě Visual Studio se otevře Konzola Správce balíčků.
-
-3. V okně Konzola Správce balíčků nastavte **Výchozí projekt** na nový projekt konzolové aplikace a pak v okně konzoly spusťte následující příkaz:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    Tato akce přidá referenci na sadu SDK služby Azure Notification Hubs pomocí [balíčku NuGet Microsoft.Azure.Notification Hubs](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-   
-    ![Název výchozího projektu](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-
-4. Otevřete soubor Program.cs a pak přidejte následující příkaz `using`:
-   
-        using Microsoft.Azure.NotificationHubs;
-
-5. Přidejte následující metodu do třídy **Program**:
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello from a .NET App!</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast);
-        }
-   
-    >[!NOTE]
-    >* Zástupný text **hub name** nahraďte názvem centra oznámení, který se zobrazí na webu Azure Portal. 
-    >* Nahraďte zástupný připojovací řetězec připojovacím řetězcem **DefaultFullSharedAccessSignature**, který jste získali v části Konfigurace centra oznámení na stránce **Zásady přístupu** vašeho centra oznámení.
-    >* Použijte připojovací řetězec s *úplným* přístupem, nikoli s přístupem *naslouchat*. Řetězec s přístupem k naslouchání neposkytuje oprávnění k zasílání oznámení.
-   > 
-   > 
-6. Do metody **Main** přidejte následující řádky:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-
-7. Klikněte pravým tlačítkem na projekt konzolové aplikace v sadě Visual Studio a výběrem **Nastavit jako spouštěný projekt** nastavte projekt jako spouštěný. Pak stiskněte klávesu **F5** a spusťte aplikaci.
-   
-    Na všech registrovaných zařízeních se zobrazí informační zprávy. Výběr nebo klepnutí na informační nápis načte aplikaci.
-
-Všechny podporované datové části v tématech [katalog informační zprávy], [katalog dlaždic] a [přehled odznaků] naleznete na webu MSDN.
-
 ## <a name="next-steps"></a>Další kroky
 V tomto jednoduchém příkladu jste pomocí portálu nebo konzolové aplikace odeslali oznámení vysílání do všech vašich zařízení s Windows. Jako další krok doporučujeme kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Předvádí postup odesílání oznámení z back-endu ASP.NET s využitím značek pro cílení na konkrétní uživatele.
 
@@ -230,7 +180,7 @@ Další obecné informace o službě Notification Hubs najdete v tématu [Průvo
 [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Používání centra oznámení k odesílání novinek]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-[katalog informační zprávy]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[katalog dlaždic]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[přehled odznaků]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  

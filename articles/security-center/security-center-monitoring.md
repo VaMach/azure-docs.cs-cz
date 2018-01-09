@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Sledování stavu zabezpečení v Azure Security Center
 Tento článek vám pomůže s využíváním možností v Azure Security Center ke sledování dodržování zásad.
@@ -45,13 +45,14 @@ Po kliknutí na dlaždici **Compute** se zobrazí tři karty:
 
 ![Chybějící aktualizace systému podle virtuálních počítačů](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Na každé kartě můžete mít několik částí a v každé části můžete vybrat jednotlivé možnosti, abyste zobrazili další podrobnosti o doporučeném postupu k vyřešení konkrétního problému. 
+Na každé kartě můžete mít několik částí a v každé části můžete vybrat jednotlivé možnosti, abyste zobrazili další podrobnosti o doporučeném postupu k vyřešení konkrétního problému.
 
 #### <a name="monitoring-recommendations"></a>Doporučení pro monitorování
-Tato část uvádí celkový počet virtuálních počítačů a počítačů, které byly inicializovány pro automatické zřizování, a jejich aktuální stavy. Po kliknutí na tuto položku se otevře okno **Agent virtuálního počítače chybí nebo neodpovídá**. 
+Tato část uvádí celkový počet virtuálních počítačů a počítačů, které byly inicializovány pro automatické zřizování, a jejich aktuální stavy. Po kliknutí na tuto položku se otevře **Problémy s monitorováním stavu agentů**.
 
-![Chybějící aktualizace systému podle virtuálních počítačů](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Problémy s monitorováním stavu agentů](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+Tady budou uvedené virtuální počítače a počítače, které služba Security Center nedokáže úspěšně monitorovat. Výběrem virtuálního počítače nebo počítače zobrazíte podrobné informace. **STAV MONITOROVÁNÍ** definuje příslušný problém.
 
 #### <a name="recommendations"></a>Doporučení
 Tato část obsahuje sadu [doporučení pro každý virtuální počítač a počítač](security-center-virtual-machine-recommendations.md) monitorovaný pomocí Azure Security Center. První sloupec uvádí doporučení. Druhý sloupec zobrazuje celkový počet virtuálních počítačů a počítačů, které jsou ovlivněny tímto doporučením. Třetí sloupec zobrazuje závažnost problému, jak je znázorněno na následujícím snímku obrazovky:
@@ -79,7 +80,7 @@ Každé doporučení obsahuje sadu akcí, které můžete provést, když na ni 
   * **Střední**: Nekritické nebo další kroky jsou potřebné k dokončení procesu nebo odstranění ohrožení.
   * **Nízká**: Ohrožení zabezpečení by se mělo řešit, ale nevyžaduje okamžitou pozornost. (Ve výchozím nastavení nejsou doporučení s nízkou závažností uváděny, ale pokud je chcete zobrazit, je možné je vyfiltrovat.)
 
-Pokud chcete zobrazit podrobnosti o doporučení, klikněte na název chybějící aktualizace v seznamu. 
+Pokud chcete zobrazit podrobnosti o doporučení, klikněte na název chybějící aktualizace v seznamu.
 
 ![Chybějící aktualizace systému pro konkrétní virtuální počítač](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ V případě, kdy máte doporučení (což není případ předchozího příkla
 
 ![Podrobnosti cloudové služby](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Pokud chcete zobrazit podrobnější vysvětlení tohoto doporučení, klikněte na **Aktualizovat verzi operačního systému** ve sloupci **POPIS**. 
+Pokud chcete zobrazit podrobnější vysvětlení tohoto doporučení, klikněte na **Aktualizovat verzi operačního systému** ve sloupci **POPIS**.
 
 ![Doporučení pro Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
