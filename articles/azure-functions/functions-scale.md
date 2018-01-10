@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure funkce škálování a hostování
 
@@ -97,7 +97,7 @@ Při spotřeby hostování plán, jsou uloženy soubory kódu funkce na Azure sd
 > [!NOTE]
 > Pokud používáte aktivační události objektu blob na plánu spotřeby, může být až 10 minut zpoždění při zpracování nové objekty BLOB, pokud aplikaci funkce přešel nečinnosti. Po aplikaci funkce běží, objekty BLOB jsou zpracovávány okamžitě. Abyste se vyhnuli Tato počáteční prodleva, zvažte jednu z následujících možností:
 > - Hostování aplikace funkce na plán služby App Service s povolenou funkci Always On.
-> - Použijte jiný mechanismus pro aktivaci objektu blob zpracování, např. předplatné mřížky událostí nebo zprávu fronty, který obsahuje název objektu blob. Příklad, naleznete v části [skriptu jazyka C# a JavaScript příklady pro tento objekt blob vstup a výstup vazby](functions-bindings-storage-blob.md#input--output---example).
+> - Použijte jiný mechanismus pro aktivaci objektu blob zpracování, např. předplatné mřížky událostí nebo zprávu fronty, který obsahuje název objektu blob. Příklad, naleznete v části [příklady pro tento objekt blob vstupní vazby](functions-bindings-storage-blob.md#input---example).
 
 ### <a name="runtime-scaling"></a>Modul runtime škálování
 

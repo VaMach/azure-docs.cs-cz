@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: 69c7984d0620b4a0fd40252129023093c09d6e56
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Konfigurace vlastního názvu domény pro webovou aplikaci v Azure App Service pomocí Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,7 +56,7 @@ Pokud chcete přiřadit vlastní domény webové aplikace ve službě Azure App 
 Při specifika jednotlivých poskytovatelů domény se liší, namapujete *z* vlastního názvu domény (například **contoso.com**) *k* název domény Traffic Manageru ( **contoso.trafficmanager.NET**) je integrována vaší webové aplikace.
    
 > [!NOTE]
-> Pokud záznam je již používán a potřebujete pre-emptively svázat aplikace k němu, můžete vytvořit další záznam CNAME. Chcete-li například pre-emptively vazby **www.contoso.com** do webové aplikace, vytvořte záznam CNAME z **awverify.www** k **contoso.trafficmanager.net**. Potom můžete přidat "www.contoso.com" do vaší webové aplikace beze změny záznam CNAME "www". Další informace najdete v tématu [záznamy DNS vytvořit pro webové aplikace ve vlastní doménu][CREATEDNS].
+> Pokud záznam se už používá a je nutné ho preventivně svázat aplikace k němu, můžete vytvořit další záznam CNAME. Například ho preventivně vazby **www.contoso.com** do webové aplikace, vytvořte záznam CNAME z **awverify.www** k **contoso.trafficmanager.net**. Potom můžete přidat "www.contoso.com" do vaší webové aplikace beze změny záznam CNAME "www". Další informace najdete v tématu [záznamy DNS vytvořit pro webové aplikace ve vlastní doménu][CREATEDNS].
 > 
 > 
 
@@ -67,7 +67,7 @@ Jakmile dokončíte přidání nebo úprava záznamů DNS u svého poskytovatele
 ## <a name="enable-traffic-manager"></a>Povolit správce provozu
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace najdete ve [Středisku pro vývojáře Node.js](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]

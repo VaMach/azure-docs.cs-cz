@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrování provozu sítě přenosů se skupinami zabezpečení sítě a aplikací (Preview)
 
@@ -31,7 +31,7 @@ Následující části obsahují postupy, které můžete vytvořit síť pomoc�
 Tento článek obsahuje kroky k vytvoření sítě skupin zabezpečení pomocí modelu nasazení Resource Manager, který je model nasazení, které vám doporučujeme používat při vytváření skupin zabezpečení sítě. Pokud potřebujete vytvořit skupinu zabezpečení sítě (klasické), přečtěte si téma [vytvořit skupinu zabezpečení sítě (klasické)](virtual-networks-create-nsg-classic-ps.md). Pokud si nejste obeznámeni s modelech nasazení Azure, najdete v části [modelech nasazení Azure pochopit](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> Tento kurz využívá funkce skupiny zabezpečení sítě, které jsou aktuálně ve verzi preview. Funkce ve verzi preview ještě nemá stejné dostupnost a spolehlivost jako funkce v hlavní verze. Zatímco ve verzi preview, funkce jsou dostupné jenom v následujících oblastech: WestCentralUS. Pokud chcete implementovat skupiny pomocí pouze funkce obecně verzi zabezpečení sítě najdete v tématu [vytvořit skupinu zabezpečení sítě](virtual-networks-create-nsg-arm-pportal.md). 
+> Tento kurz využívá funkce skupiny zabezpečení sítě, které jsou aktuálně ve verzi preview. Funkce ve verzi preview ještě nemá stejné dostupnost a spolehlivost jako funkce v hlavní verze. Pokud chcete implementovat skupiny pomocí pouze funkce obecně verzi zabezpečení sítě najdete v tématu [vytvořit skupinu zabezpečení sítě](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## <a name="azure-cli"></a>Azure CLI
 

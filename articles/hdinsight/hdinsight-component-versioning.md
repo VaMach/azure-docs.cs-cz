@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Co jsou komponent systému Hadoop a verze, které jsou k dispozici v prostředí HDInsight?
 
@@ -74,26 +74,38 @@ Pro clustery systému Windows Další způsob kontroly verze komponenty je zkont
 V tématu [poznámky k verzi HDInsight](hdinsight-release-notes.md) pro další poznámky na nejnovější verze služby HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a>Podporované verze HDInsight
-Následující tabulka uvádí verze HDInsight, které jsou aktuálně dostupné na portálu Azure. Verze softwaru HDP, které odpovídají každé HDInsight verze jsou uvedeny společně s daty verzi produktu. Podpora vypršení platnosti a vyřazení kalendářní data jsou tu taky, při jejich jste známé.
+V následujících tabulkách jsou uvedeny verzích HDInsight. Verze softwaru HDP, které odpovídají každé HDInsight verze jsou uvedeny společně s daty verzi produktu. Podpora vypršení platnosti a vyřazení kalendářní data jsou tu taky, při jejich jste známé.
+
+### <a name="available-versions"></a>K dispozici verze
+
+Následující tabulka uvádí verze služby HDInsight, které jsou k dispozici v portálu Azure, jakož i jiné metody deployement jako prostředí PowerShell a .NET SDK.
+
+| HDInsight verze | Verze softwaru HDP | OPERAČNÍM SYSTÉMEM VIRTUÁLNÍHO POČÍTAČE | Datum vydání | Datum vypršení platnosti podpory | Datum vyřazení | Vysoká dostupnost |  K dispozici na portálu Azure | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4. dubna 2017 | | |Ano |Ano |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30. září 2016 |5 září 2017 |31 může 2018 |Ano |Ano |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2. prosince 2015 |27. června 2016 |31. července 2018 |Ano |Ne |
 
 > [!NOTE]
 > Po podpora pro verze vypršela platnost, nemusí být k dispozici prostřednictvím portálu Microsoft Azure. Ale verzích clusterů nadále k dispozici pomocí `Version` parametr v prostředí Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) příkaz a .NET SDK dokud verze datu vyřazení.
-> 
-> Vysoce dostupný clustery se dvěma uzly head nasazených ve výchozím nastavení pro HDInsight verze 2.1 nebo novější. Nejsou k dispozici pro verzi 1.6 clustery služby HDInsight.
+>
 
-| HDInsight verze | Verze softwaru HDP | OPERAČNÍM SYSTÉMEM VIRTUÁLNÍHO POČÍTAČE | Vysoká dostupnost | Datum vydání | K dispozici na portálu Azure | Datum vypršení platnosti podpory | Datum vyřazení |
+### <a name="retired-versions"></a>Vyřazené verze
+
+Následující tabulka uvádí verze HDInsight, které jsou **není** k dispozici na portálu Azure.
+
+| HDInsight verze | Verze softwaru HDP | OPERAČNÍM SYSTÉMEM VIRTUÁLNÍHO POČÍTAČE | Datum vydání | Datum vypršení platnosti podpory | Datum vyřazení | Vysoká dostupnost |  K dispozici na portálu Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Ano |4. dubna 2017 |Ano | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Ano |30. září 2016 |Ano |5 září 2017 |31 může 2018 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Ano |29. března 2016 |Ano |29. prosinci 2016 |9 leden 2018 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Ano |2. prosince 2015 |Ano |27. června 2016 |31. července 2018 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Ano |2. prosince 2015 |Ano |27. června 2016 |31. července 2017 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS nebo Windows Server 2012 R2 |Ano |18 únor 2015 |Ne |1. března 2016 |1. dubna 2017 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Ano |24. června 2014 |Ne |18 květen 2015 |30. června 2016 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Ano |11. února 2014 |Ne |17. září 2014 |30. června 2015 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Ano |28 říjen 2013 |Ne |12 může 2014 |31 květen 2015 |
-| HDInsight 1.6 |HDP 1.1 | |Ne |28 říjen 2013 |Ne |26. dubna 2014 |31 květen 2015 |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29. března 2016 |29. prosinci 2016 |9 leden 2018 |Ano |Ne |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2. prosince 2015 |27. června 2016 |31. července 2017 |Ano |Ne |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS nebo Windows Server 2012 R2 |18 únor 2015 |1. března 2016 |1. dubna 2017 |Ano |Ne |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24. června 2014 |18 květen 2015 |30. června 2016 |Ano |Ne |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11. února 2014 |17. září 2014 |30. června 2015 |Ano |Ne |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 říjen 2013 |12 může 2014 |31 květen 2015 |Ano |Ne |
+| HDInsight 1.6 |HDP 1.1 | |28 říjen 2013 |26. dubna 2014 |31 květen 2015 |Ne |Ne |
 
+> [!NOTE]
+> Vysoce dostupný clustery se dvěma uzly head nasazených ve výchozím nastavení pro HDInsight verze 2.1 nebo novější. Nejsou k dispozici pro verzi 1.6 clustery služby HDInsight.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Balíček zabezpečení Enterprise pro HDInsight
 
@@ -144,7 +156,7 @@ Počínaje HDInsight verze 3.4, společnost Microsoft vydala HDInsight pouze na 
 ## <a name="faqs"></a>Nejčastější dotazy
 
 ### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>Co je k dispozici pro vyřazení HDInsight v systému Windows?
-31. července 2018, je datum vyřazení pro HDInsight v systému Windows. Pokud plánované vyřazení datum se liší pro vaši oblast, budete upozorněni samostatně. 
+31. července 2018, je datum vyřazení pro HDInsight v systému Windows. Pokud plánované vyřazení datum se liší pro vaši oblast, upozornění se zobrazí samostatně. 
 
 ### <a name="what-is-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>Co je dopad vyřazení HDInsight v systému Windows pro stávající zákazníky služby?
 Po vyřazení HDInsight v systému Windows nelze vytvořit nový cluster HDInsight Windows, nebo přizpůsobit existující cluster HDInsight Windows. Podpora pro HDInsight verze 3.3 platnost 27. června 2016. Proto není žádná podpora nebo opravy chyb pro HDInsight 3.3 nebo starší verze. Budoucích verzích HDInsight jsou dostupné pouze pro operační systém Linux. Budou existovat žádné budoucích verzích HDInsight v systému Windows.
@@ -162,7 +174,7 @@ Na portálu Azure přejděte na stránku přehled HDInsight Cluster a vyhledejte
 Cluster HDInsight Windows běží jako-se, ale nelze vytvořit nový cluster HDInsight Windows, nebo přizpůsobit existující cluster HDInsight Windows. 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>Moje clusteru má závislost na rozhraní .NET. Jak lze vyřešit tuto závislost na platformě Linux?
-Vaše závislost clusteru Linux lze vyřešit pomocí [Mono projektu](http://www.mono-project.com/). Tato implementace rozhraní .NET s otevřeným zdrojem je k dispozici u clusterů HDInsight Linux. Další informace v [dokumentu migrace HDInsight](hdinsight-migrate-from-windows-to-linux.md). 
+Vaše závislost clusteru Linux lze vyřešit pomocí [Mono projektu](http://www.mono-project.com/). Tato implementace open-source .NET je k dispozici u clusterů HDInsight Linux. Další informace v [dokumentu migrace HDInsight](hdinsight-migrate-from-windows-to-linux.md). 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>Jsem nového odběratele pro HDInsight v systému Windows. Jak můžete vytvořit cluster služby HDInsight Windows?
 Od verze 3. července 2017 mohou pouze stávající zákazníky služby HDInsight Windows vytvářet nová okna HDInsight clustery. Nové zákazníky nelze vytvořit cluster služby HDInsight Windows na portálu Azure pomocí prostředí PowerShell nebo sady SDK. Doporučujeme vám, že nové zákazníky vytvoření clusteru Linux HDInsight. Stávající zákazníky služby můžete vytvořit nové HDInsight Windows clustery až HDInsight v systému Windows datu vyřazení. 
@@ -171,9 +183,9 @@ Od verze 3. července 2017 mohou pouze stávající zákazníky služby HDInsigh
 Ne, cenách je stejný pro HDInsight na buď operačního systému. 
 
 ### <a name="what-are-the-customer-advantages-associated-with-the-move-to-only-using-hdinsight-on-linux"></a>Jaké jsou výhody zákazníka spojené s přechodem na jenom pomocí HDInsight v Linuxu?
-* Rychlejší čas na trh pro technologiích s otevřeným zdrojem velkých objemů dat pomocí služby HDInsight
+* Rychlejší čas na trh pro technologie open source velkých objemů dat pomocí služby HDInsight
 * Velké komunity a ekosystém pro podporu
-* Schopnost vykonávat active vývoj komunitou s otevřeným zdrojem pro Hadoop a další technologie velkých objemů dat
+* Schopnost vykonávat active vývoj komunitou open source pro Hadoop a další technologie velkých objemů dat
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Poskytuje prostředí HDInsight v Linuxu další funkce nad rámec dostupné v prostředí HDInsight v systému Windows?
 Počínaje HDInsight verze 3.4, společnost Microsoft vydala HDInsight pouze na operační systém Linux. V důsledku toho některé součásti v HDInsight jsou k dispozici pro Linux jenom. Patří mezi ně Apache škálu, Kafka, interaktivní dotazu, Spark, aplikace HDInsight a Azure Data Lake Store jako systém primární soubor. 
@@ -250,7 +262,7 @@ V následujících tabulkách jsou uvedeny výchozí velikosti virtuálního po�
 > - Pracovního procesu se označuje jako *nadřízeného* Storm clusteru typu.
 > - Pracovního procesu se označuje jako *oblast* HBase clusteru typu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Instalace clusteru pro Hadoop, Spark a další v HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Práce v Hadoop v HDInsight ze systému Windows PC](hdinsight-hadoop-windows-tools.md)
 

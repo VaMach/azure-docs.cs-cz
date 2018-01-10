@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Připojení k Azure Search pomocí indexerů Azure SQL Database
 
@@ -26,7 +26,7 @@ Předtím, než se můžete dotazovat [indexu Azure Search](search-what-is-an-in
 
 Tento článek se zabývá mechanismů pomocí [indexery](search-indexer-overview.md), ale také popisuje funkce, které jsou k dispozici jenom s databází Azure SQL (například integrované sledování změn). 
 
-Kromě databází Azure SQL, Azure Search nabízí indexery pro [Azure Cosmos DB](search-howto-index-documentdb.md), [úložiště objektů Azure Blob](search-howto-indexing-azure-blob-storage.md), a [úložiště tabulek Azure](search-howto-indexing-azure-tables.md). Chcete-li požádat o podporu pro další datové zdroje, zadejte svůj názor na [fóru pro zpětnou vazbu Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Kromě databází Azure SQL, Azure Search nabízí indexery pro [Azure Cosmos DB](search-howto-index-cosmosdb.md), [úložiště objektů Azure Blob](search-howto-indexing-azure-blob-storage.md), a [úložiště tabulek Azure](search-howto-indexing-azure-tables.md). Chcete-li požádat o podporu pro další datové zdroje, zadejte svůj názor na [fóru pro zpětnou vazbu Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexery a zdroje dat.
 
@@ -294,16 +294,16 @@ Při použití konfigurace soft odstranění techniku, můžete určit zásadu o
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geography |Edm.GeographyPoint |Jsou podporovány pouze geography instance typu bodu s SRID 4326 (což je výchozí hodnota) |
-| ROWVERSION |Není k dispozici |Verze řádku sloupce nelze uložit do indexu vyhledávání, ale mohou být použity pro sledování změn |
-| Doba, časový interval, binary, varbinary, image, xml, geometry, typy CLR |Není k dispozici |Nepodporuje se |
+| ROWVERSION |neuvedeno |Verze řádku sloupce nelze uložit do indexu vyhledávání, ale mohou být použity pro sledování změn |
+| Doba, časový interval, binary, varbinary, image, xml, geometry, typy CLR |neuvedeno |Nepodporuje se |
 
 ## <a name="configuration-settings"></a>Nastavení konfigurace
 SQL indexer zpřístupňuje několik nastavení konfigurace:
 
-| Nastavení | Datový typ | Účel | Výchozí hodnota |
+| Nastavení | Typ dat | Účel | Výchozí hodnota |
 | --- | --- | --- | --- |
 | queryTimeout |řetězec |Nastaví časový limit pro spuštění dotazu SQL |5 minut ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |BOOL |Způsobí, že příkaz jazyka SQL, které používají zásady horní mez k vynechejte klauzuli ORDER by. V tématu [zásad horní mez](#HighWaterMarkPolicy) |False |
+| disableOrderByHighWaterMarkColumn |BOOL |Způsobí, že příkaz jazyka SQL, které používají zásady horní mez k vynechejte klauzuli ORDER by. V tématu [zásad horní mez](#HighWaterMarkPolicy) |false (nepravda) |
 
 Toto nastavení se použije v `parameters.configuration` objektu v definici indexer. Pokud chcete nastavit časový limit dotazu na 10 minut, například vytvořit nebo aktualizovat indexer s následující konfigurací:
 

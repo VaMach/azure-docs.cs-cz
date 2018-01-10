@@ -1,5 +1,5 @@
 ---
-title: "Co je spolupráce Azure Active Directory B2B? | Dokumentace Microsoftu"
+title: "Co je spolupráce Azure Active Directory B2B? | Dokumenty Microsoft"
 description: "Spolupráce Azure Active Directory s B2B podporuje vaše vztahy povolením obchodním partnerům umožní selektivní přístup k podnikovým aplikacím."
 services: active-directory
 documentationcenter: 
@@ -17,15 +17,15 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.openlocfilehash: eef95f80f8107c13cd057c56eb5219a353acc854
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3167b0b4b33eee11f388efd1d2088f6bc5cc639
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Co je spolupráce B2B ve službě Azure AD?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 Možnosti (B2B) spolupráce Azure AD business-to-business povolit všechny organizace pomocí služby Azure AD pro práci s uživatele z jakékoli jiné organizaci, malý nebo velký bezpečně a bezpečně. Tyto organizace může být s Azure AD nebo bez, nebo dokonce i s IT organizace nebo bez. 
 
@@ -100,7 +100,7 @@ Pomocí [pozvánku spolupráce B2B rozhraní API](https://developer.microsoft.co
 
 S spolupráce Azure AD B2B můžete získat úplné power Azure AD k ochraně vaše vztahy s partnery tak, aby koncoví uživatelé najít snadný a intuitivní. Proto pokračujte, připojte na tisíce organizací, které už používají Azure AD B2B pro jejich externí spolupráce!
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Prostředí správce se nacházejí v [portál Azure](https://portal.azure.com).
 

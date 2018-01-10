@@ -1,6 +1,6 @@
 ---
-title: "Indexování zdroje dat Cosmos DB pro službu Azure Search | Microsoft Docs"
-description: "Tento článek ukazuje, jak vytvořit indexer Azure Search s DB Cosmos jako zdroj dat."
+title: "Indexování zdroji dat rozhraní API služby Azure Cosmos databáze SQL pro službu Azure Search | Microsoft Docs"
+description: "Tento článek ukazuje, jak vytvořit indexer Azure Search s datovým zdrojem Azure Cosmos databáze (SQL API)."
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -12,32 +12,56 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 08/10/2017
+ms.date: 01/08/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: c7c883f683c744415a1b600cea45c1882939e021
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e449f13adcd1a3651e1cac852b23f21d0227038a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Připojování Cosmos databáze s Azure Search pomocí indexerů
 
-Pokud chcete implementovat skvělé vyhledáváním přes Cosmos DB data, můžete použít indexer Azure Search k získání dat do indexu Azure Search. V tomto článku jsme ukazují, jak integrovat Azure Cosmos DB Azure Search bez nutnosti psaní jakéhokoli kódu k údržbě indexování infrastruktury.
+[Azure Cosmos DB](../cosmos-db/introduction.md) je globálně distribuované a více modelech databáze společnosti Microsoft. S jeho [rozhraní SQL API](../cosmos-db/sql-api-introduction.md), Azure Cosmos DB poskytuje bohatý a známých možnosti dotazu SQL s trvale nízké latence přes data JSON bez schématu. Vyhledávání systému Azure se bezproblémově integruje s rozhraní SQL API. Dokumenty JSON může vyžádat přímo do indexu Azure Search pomocí [indexer Azure Search](search-indexer-overview.md), je navržený speciálně pro rozhraní API pro Azure Cosmos databáze SQL. 
 
-Chcete-li nastavit indexer Cosmos DB, musíte mít [služby Azure Search](search-create-service-portal.md)a vytvořit index, zdroj dat a nakonec indexeru. Můžete vytvořit tyto objekty pomocí [portál](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), nebo [REST API](/rest/api/searchservice/) pro všechny jazyky,-rozhraní .NET. 
+V tomto článku se dozvíte, jak:
 
-Pokud se přihlásíte pro tento portál [Průvodce importem dat](search-import-data-portal.md) provede vás procesem vytvoření těchto prostředků.
+> [!div class="checklist"]
+> * Nakonfigurujte použít jako zdroj dat databázi rozhraní API pro Azure Cosmos databáze SQL Azure Search. Volitelně můžete zadejte dotaz vybrat podmnožinu.
+> * Vytvořte index vyhledávání s JSON kompatibilní datové typy.
+> * Nakonfigurujte indexer na vyžádání a opakovaného indexování.
+> * Přírůstkově aktualizujte index na základě změn v základních datech.
 
 > [!NOTE]
-> Azure Cosmos DB je nová generace DocumentDB. I když se změnil název produktu, syntaxe je stejná jako předtím. Pokračovat v zadejte `documentdb` podle pokynů v tomto článku indexer. 
+> Rozhraní API SQL DB Cosmos Azure je nová generace DocumentDB. I když se změnil název produktu, `documentdb` syntaxe ve službě Azure Search indexery stále existuje pro zpětné kompatibility v Azure rozhraní API pro vyhledávání a stránky portálu. Při konfiguraci indexery, nezapomeňte zadat `documentdb` syntaxe podle pokynů v tomto článku.
+
+<a name="supportedAPIs"></a>
+
+## <a name="supported-api-types"></a>Podporované typy rozhraní API
+
+I když Azure Cosmos DB podporuje různé datové modely a rozhraní API, podpora indexeru rozšiřuje rozhraní SQL API. 
+
+Podpora pro další rozhraní API je chystaný. Ke stanovení priorit ty, které chcete podporovat nejprve přetypujte na webu hlas uživatele:
+
+* [Podpora zdroje dat tabulky rozhraní API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)
+* [Podpora zdroje dat rozhraní Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4)
+* [Podpora zdroje dat MongoDB rozhraní API](https://feedback.azure.com/forums/263029-azure-search/suggestions/18861421-documentdb-indexer-should-be-able-to-index-mongodb)
+* [Rozhraní API Cassandra Apache podpora zdroje dat](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
+
+## <a name="prerequisites"></a>Požadavky
+
+Chcete-li nastavit indexer Azure Cosmos DB, musíte mít [služby Azure Search](search-create-service-portal.md)a vytvořit index, zdroj dat a nakonec indexeru. Můžete vytvořit tyto objekty pomocí [portál](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), nebo [REST API](/rest/api/searchservice/) pro všechny jazyky,-rozhraní .NET. 
+
+Pokud se přihlásíte pro tento portál [Průvodce importem dat](search-import-data-portal.md) provede vás procesem vytvoření všechny tyto prostředky, včetně index.
 
 > [!TIP]
-> Můžete spustit **importovat data** z řídicího panelu Cosmos DB zjednodušit indexování pro tento zdroj dat průvodce. Začněte tak, že v levém navigačním panelu přejdete do **Collections** (Kolekce) > **Add Azure Search** (Přidat službu Azure Search).
+> Z řídicího panelu služby Azure Cosmos DB můžete spustit průvodce **Importem dat** a zjednodušit tak indexování zdroje dat. Začněte tak, že v levém navigačním panelu přejdete do **Collections** (Kolekce) > **Add Azure Search** (Přidat službu Azure Search).
 
 <a name="Concepts"></a>
+
 ## <a name="azure-search-indexer-concepts"></a>Koncepty indexer Azure Search
-Azure Search podporuje vytváření a správu datové zdroje (včetně Cosmos DB) a indexery, které provozují těchto zdrojů.
+Azure Search podporuje vytváření a správu datové zdroje (včetně rozhraní API pro Azure Cosmos DB SQL) a indexery, které provozují těchto zdrojů.
 
 A **zdroj dat** data určená k indexu, pověření a zásady pro identifikaci změny v datech (například dokumenty modified nebo deleted uvnitř vaší kolekce). Zdroj dat je definován jako nezávislý prostředek, aby se můžete použít několik indexerů.
 
@@ -48,6 +72,7 @@ A **zdroj dat** data určená k indexu, pověření a zásady pro identifikaci z
 * Vyvolání aktualizace na vyžádání do indexu podle potřeby.
 
 <a name="CreateDataSource"></a>
+
 ## <a name="step-1-create-a-data-source"></a>Krok 1: Vytvoření zdroje dat
 Chcete-li vytvořit zdroj dat, proveďte příspěvku na:
 
@@ -70,20 +95,20 @@ Chcete-li vytvořit zdroj dat, proveďte příspěvku na:
 
 Text žádosti obsahuje definice zdroje dat, která by měla obsahovat následující pole:
 
-* **název**: Vyberte libovolný název představují databáze Cosmos DB.
+* **název**: Vyberte libovolný název představují vaší databáze.
 * **typ**: musí být `documentdb`.
 * **přihlašovací údaje**:
   
   * **connectionString**: vyžaduje. Zadejte informace o připojení k databázi Azure Cosmos DB v následujícím formátu:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
 * **kontejner**:
   
-  * **název**: vyžaduje. Zadejte id kolekce Cosmos DB pro indexování.
+  * **název**: vyžaduje. Zadejte id kolekce databáze pro indexování.
   * **dotaz**: volitelné. Můžete zadat dotaz na narovnání libovolný dokument JSON na ploché schéma, které mohou indexu Azure Search.
 * **dataChangeDetectionPolicy**: doporučené. V tématu [indexování dokumentů změnit](#DataChangeDetectionPolicy) části.
 * **dataDeletionDetectionPolicy**: volitelné. V tématu [indexování dokumentů odstranit](#DataDeletionDetectionPolicy) části.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Pomocí dotazů na obrazec indexované dat
-Můžete zadat dotaz Cosmos DB zploštění vnořené vlastnosti nebo pole, vlastnosti projektu JSON a filtrování dat pro indexování. 
+Můžete zadat příkazu jazyka SQL zploštění vnořené vlastnosti nebo pole, vlastnosti projektu JSON a filtrování dat pro indexování. 
 
 Příklad dokumentu:
 
@@ -145,12 +170,12 @@ Následující příklad vytvoří index s polem id a popis:
 Zajistěte, aby schéma cílový index kompatibilní s schéma dokumentů JSON zdroj nebo výstup projekce vašeho vlastního dotazu.
 
 > [!NOTE]
-> Pro dělené kolekce je výchozí dokument klíč Cosmos DB `_rid` vlastností, která se získá přejmenován na `rid` ve službě Azure Search. Navíc Cosmos DB na `_rid` hodnoty obsahovat znaky, které jsou v Azure Search klíče neplatné. Z tohoto důvodu `_rid` hodnoty jsou kódováním Base64.
+> Pro dělené kolekce je výchozí dokument klíč Azure Cosmos DB `_rid` vlastností, která se získá přejmenován na `rid` ve službě Azure Search. Navíc Cosmos databázi Azure na `_rid` hodnoty obsahovat znaky, které jsou v Azure Search klíče neplatné. Z tohoto důvodu `_rid` hodnoty jsou kódováním Base64.
 > 
 > 
 
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapování mezi JSON datové typy a typy dat vyhledávání systému Azure
-| JSON DATOVÉHO TYPU | TYPY POLÍ KOMPATIBILNÍ CÍLOVÝ INDEX |
+| JSON datového typu | Typy polí kompatibilní cílový index |
 | --- | --- |
 | BOOL |Edm.Boolean Edm.String |
 | Čísla, která vypadat podobně jako celá čísla |Edm.String Edm.Int32, Edm.Int64, |
@@ -162,6 +187,7 @@ Zajistěte, aby schéma cílový index kompatibilní s schéma dokumentů JSON z
 | Jiné objekty JSON |neuvedeno |
 
 <a name="CreateIndexer"></a>
+
 ## <a name="step-3-create-an-indexer"></a>Krok 3: Vytvořením indexeru.
 
 Jakmile byly vytvořeny index a zdroj dat, jste připraveni vytvořit indexeru:
@@ -232,7 +258,7 @@ Historie provádění obsahuje až 50 poslední dokončené spuštěních, kter�
 
 <a name="DataChangeDetectionPolicy"></a>
 ## <a name="indexing-changed-documents"></a>Indexování změněné dokumenty
-Účelem zásady detekce změn dat je efektivně identifikaci položek změněná data. V současné době je pouze podporovaných zásad `High Water Mark` pomocí zásad `_ts` vlastnost (časové razítko) poskytované Cosmos databáze, které se určuje takto:
+Účelem zásady detekce změn dat je efektivně identifikaci položek změněná data. V současné době je pouze podporovaných zásad `High Water Mark` pomocí zásad `_ts` vlastnost (časové razítko) poskytované Cosmos databáze Azure, které se určuje takto:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -294,7 +320,7 @@ Následující příklad vytvoří zdroj dat s zásadu obnovitelného odstraněn
     }
 
 ## <a name="NextSteps"></a>Další kroky
-Blahopřejeme! Jste se naučili integrace Azure Cosmos DB služby Azure Search pomocí indexeru pro Cosmos DB.
+Blahopřejeme! Jste se naučili postup při integraci s Azure Search pomocí indexeru pro procházení a odesílat dokumenty z modelu dat SQL Azure Cosmos DB.
 
-* Informace o další informace o databázi Cosmos Azure najdete v tématu [stránku služby Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
-* Další informace o další informace o službě Azure Search najdete v tématu [stránku služby vyhledávání](https://azure.microsoft.com/services/search/).
+* Další informace o databázi Cosmos Azure, najdete v článku [stránku služby Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+* Další informace o službě Azure Search najdete v tématu [stránku služby vyhledávání](https://azure.microsoft.com/services/search/).

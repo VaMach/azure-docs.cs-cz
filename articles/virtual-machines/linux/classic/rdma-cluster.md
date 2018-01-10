@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Nastavení clusteru Linux RDMA pro spouštění aplikací MPI
 Zjistěte, jak nastavit clusteru s podporou Linux RDMA v Azure pomocí [vysokovýkonné výpočetní velikosti virtuálních počítačů](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ke spouštění paralelních aplikací Message Passing Interface (MPI). Tento článek obsahuje kroky k přípravě image Linux HPC ke spuštění v clusteru s podporou Intel MPI. Po přípravě nasazení clusteru virtuálních počítačů pomocí tuto bitovou kopii a jeden velikostí podporující RDMA virtuální počítač Azure (aktuálně H16r, H16mr, A8 a A9). Použijte cluster ke spouštění aplikací MPI, které efektivně komunikují přes síť s nízkou latencí, vysokou propustností založené na technologii do paměti vzdáleného přímý přístup do (počítače RDMA).
@@ -304,7 +304,7 @@ cluster12
 Následující příkaz Intel MPI se spustí pingpong srovnávací test pro ověření konfigurace clusteru a připojení k síti RDMA.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 Na pracovní clusteru se dvěma uzly měli byste vidět výstup jako následující. V síti Azure RDMA očekávejte, že latenci nebo pod 3 mikrosekundách zprávy velikosti až 512 bajtů.
@@ -375,7 +375,7 @@ Na pracovní clusteru se dvěma uzly měli byste vidět výstup jako následují
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Nasazení a spuštění vaší Linux MPI aplikace na cluster systému Linux.
 * Najdete v článku [dokumentaci ke knihovně MPI Intel](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) pokyny k Intel MPI.
 * Zkuste [šablony rychlý Start](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) k vytvoření clusteru Intel Lustre pomocí bitové kopie založené na CentOS HPC. Podrobnosti najdete v tématu [nasazení Intel cloudu Edition pro počítače s Lustre v Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).

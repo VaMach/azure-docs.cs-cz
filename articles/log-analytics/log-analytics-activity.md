@@ -1,5 +1,5 @@
 ---
-title: "Zobrazit protokoly Azure aktivitu se analýza protokolů | Microsoft Docs"
+title: "Shromažďovat a analyzovat protokoly aktivita Azure v Log Analytics | Microsoft Docs"
 description: "Řešení Azure aktivity protokoly můžete použít k analýze a hledání protokol činnosti Azure ve všech vašich předplatných Azure."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Zobrazit protokoly aktivita Azure
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Shromažďovat a analyzovat protokoly aktivita Azure v analýzy protokolů
 
 ![Azure symbol protokoly aktivity](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -50,7 +50,7 @@ Pokud jste na cenové úrovně Free, protokoly aktivity se nevztahují na vaše 
 
 Na rozdíl od většiny jiných řešení analýzy protokolů není data shromážděná protokoly aktivity pomocí agentů. Všechna data, která používá řešení pochází přímo z Azure.
 
-| Připojený zdroj | Podporuje se | Popis |
+| Připojený zdroj | Podporováno | Popis |
 | --- | --- | --- |
 | [Agenti systému Windows](log-analytics-windows-agent.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Řešení neshromažďuje informace od agentů systému Linux. |
@@ -97,7 +97,7 @@ Data protokolu aktivity se zobrazí pouze *po* protokolů aktivity k přejít na
 
 ![Řídicí panel Azure protokoly aktivity](./media/log-analytics-activity/activity-log-dash.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Vytvoření [výstraha](log-analytics-alerts-creating.md) když se stane konkrétní aktivity.
 - Použití [hledání protokolů](log-analytics-log-searches.md) k zobrazení podrobných informací z protokolů aktivity.

@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB: Referenční informace SQL syntaxe dotazu | Microsoft Docs"
 description: "Referenční dokumentace pro Azure Cosmos DB SQL dotazovací jazyk."
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
-ms.openlocfilehash: 64c5e1284cd8a0413ebc73b1659822078f62d2ef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: laviswa
+ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL reference syntaxe
 
@@ -674,7 +674,7 @@ ORDER BY <sort_specification>
     |\<nonterminal >|Nonterminal, definované samostatně.|  
     |\<nonterminal >:: =|Syntaxe definice nonterminal.|  
     |other_terminal|Terminálové (token), podrobně popsané v slova.|  
-    |Identifikátor|Identifikátor. Umožňuje následující pouze znaky: a – z A-Z 0-9 _First znak nemůže být číslice.|  
+    |identifikátor|Identifikátor. Umožňuje následující pouze znaky: a – z A-Z 0-9 _First znak nemůže být číslice.|  
     |"řetězec"|Řetězec v uvozovkách. Umožňuje libovolný platný řetězec. Viz popis string_literal.|  
     |'symbol.|Literál symbol, který je součástí syntaxe.|  
     |&#124; (svislé čáry)|Alternativy pro položky syntaxe. Můžete vytvořit pouze jeden položky.|  
@@ -2791,7 +2791,7 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
   
-## <a name="next-steps"></a>Další kroky  
+## <a name="next-steps"></a>Další postup  
  [Syntaxe jazyka SQL a dotaz SQL pro Azure Cosmos DB](sql-api-sql-query.md)   
  [Dokumentace k Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
   

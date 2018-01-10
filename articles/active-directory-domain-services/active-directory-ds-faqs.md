@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 52eaf66f829f22313c72bd6eeea38b796ff18465
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Časté otázky (FAQ)
 Tato stránka odpovědi časté otázky o Azure Active Directory Domain Services. Kontrolovat zpět aktualizací.
@@ -47,9 +47,6 @@ Služba sama přímo nepodporuje tento scénář. Najednou je k dispozici v pouz
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Můžete povolit Azure AD Domain Services pomocí prostředí PowerShell?
 Ano. V tématu [jak povolit Azure AD Domain Services pomocí prostředí PowerShell](active-directory-ds-enable-using-powershell.md).
-
-#### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD Domain Services je k dispozici v nové verzi portálu Azure?
-Ano. Azure AD Domain Services pomocí se dají konfigurovat [portál Azure](https://portal.azure.com). [Portál Azure classic](https://manage.windowsazure.com) již není podporována.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Můžete povolit pomocí šablony správce prostředků Azure AD Domain Services?
 Ano. V tématu [jak povolit Azure AD Domain Services pomocí prostředí PowerShell](active-directory-ds-enable-using-powershell.md).

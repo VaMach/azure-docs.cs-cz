@@ -1,5 +1,5 @@
 ---
-title: "Osvědčené postupy zabezpečení virtuálního počítače Azure | Microsoft Docs"
+title: "Osvědčené postupy zabezpečení virtuální počítač Azure"
 description: "Tento článek obsahuje celou řadu osvědčené postupy zabezpečení pro použití ve virtuálních počítačích, které jsou umístěné v Azure."
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Doporučené postupy pro zabezpečení virtuálního počítače Azure
 
@@ -114,7 +114,7 @@ Security Center můžete sledovat aktivně hrozby a potenciální hrozby jsou vi
 
 Abyste pochopili, jak Security Center můžete identifikovat potenciální hrozby v virtuální počítače umístěné v Azure, v následujícím videu:
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player]
 
 Organizace, které nevynucují postavení silné zabezpečení pro jejich virtuální počítače zůstanou nebere v úvahu potenciální pokusů neoprávnění uživatelé k obcházení ovládací prvky zavedené zabezpečení.
 

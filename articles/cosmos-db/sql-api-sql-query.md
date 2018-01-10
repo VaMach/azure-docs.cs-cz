@@ -4,7 +4,7 @@ description: "Další informace o syntaxi jazyka SQL, databáze koncepty a dotaz
 keywords: "syntaxe SQL, dotaz sql, sql dotazy, json dotazovací jazyk, databázových koncepcí a sql, agregační funkce"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: LalithaMV
 manager: jhubbard
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: arramac
-ms.openlocfilehash: 0bd24082f3b323919493fc8e9fdb642f065afb47
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: laviswa
+ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Dotazy SQL pro Azure Cosmos DB
 
@@ -376,136 +376,136 @@ V následující tabulce jsou výsledkem porovnání rovnosti v rozhraní SQL AP
             <strong>Nedefinovaná<strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Hodnotu Null<strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Logická hodnota<strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Číslo<strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Řetězec<strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Objekt<strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Pole<strong>
          </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
-Nedefinovaná </td>
+Nedefinováno </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
@@ -541,23 +541,23 @@ Hlavní rozdíl mezi použitím BETWEEN v rozhraní API pro SQL a ANSI SQL je, �
 ### <a name="logical-and-or-and-not-operators"></a>Logický (AND, OR a NOT) operátory
 Logické operátory pracovat logické hodnoty. Logické tabulky pravdivosti pro tyto operátory jsou uvedené v následujících tabulkách.
 
-| NEBO | True | False | Nedefinovaná |
+| NEBO | True | False | Nedefinováno |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Nedefinovaná |
-| Nedefinovaná |True |Nedefinovaná |Nedefinovaná |
+| False |True |False |Nedefinováno |
+| Nedefinováno |True |Nedefinováno |Nedefinováno |
 
-| A | True | False | Nedefinovaná |
+| A | True | False | Nedefinováno |
 | --- | --- | --- | --- |
-| True |True |False |Nedefinovaná |
+| True |True |False |Nedefinováno |
 | False |False |False |False |
-| Nedefinovaná |Nedefinovaná |False |Nedefinovaná |
+| Nedefinováno |Nedefinováno |False |Nedefinováno |
 
 | NENÍ |  |
 | --- | --- |
 | True |False |
 | False |True |
-| Nedefinovaná |Nedefinovaná |
+| Nedefinováno |Nedefinováno |
 
 ### <a name="in-keyword"></a>IN – klíčové slovo
 Klíčové slovo IN slouží ke kontrole, zda zadaná hodnota odpovídá žádnou hodnotu v seznamu. Například tento dotaz vrací všechny rodiny dokumenty, kde id je jedním z "WakefieldFamily" nebo "AndersenFamily". 
@@ -931,7 +931,7 @@ Následující tabulka uvádí seznam podporovaných agregační funkce v rozhra
 | POČET | Vrátí počet položek ve výrazu. |
 | SOUČET   | Vrátí součet všech hodnot ve výrazu. |
 | MIN.   | Vrátí minimální hodnotu ve výrazu. |
-| MAXIMÁLNÍ POČET   | Vrací maximální hodnotu ve výrazu. |
+| MAX.   | Vrací maximální hodnotu ve výrazu. |
 | PRŮMĚR   | Vrátí průměr hodnot ve výrazu. |
 
 Agreguje lze také provést přes výsledky iterace pole. Další informace najdete v tématu [pole iterace v dotazech](#Iteration).

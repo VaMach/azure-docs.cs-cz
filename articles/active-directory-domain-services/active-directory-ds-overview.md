@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c00d324adfc1b71d436cb017214af98ff3002cf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Doména služby Azure Active Directory (AD)
 ## <a name="overview"></a>Přehled
@@ -37,15 +37,17 @@ Všechny tyto přístupy trpí vysoké náklady a režijní náklady na správu.
 Jsme chtěli Azure AD Domain Services zajistit alternativu jednodušší.
 
 ### <a name="watch-an-introductory-video"></a>Podívejte se na úvodní video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
 
+>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
 ## <a name="introducing-azure-ad-domain-services"></a>Představení služby Azure AD Domain Services
+
 Služba Azure AD Domain Services poskytuje spravované doméně služby, jako je například připojení k doméně, ověřování protokolu Kerberos nebo NTLM zásad LDAP, skupiny, které jsou plně kompatibilní s Windows Server Active Directory. Můžete využívat tyto domény služby bez nutnosti nasazení, správě a oprava řadiče domény v cloudu. Služba Azure AD Domain Services se integruje s existující klientovi Azure AD, a tím umožnit uživatelům přihlásit se pomocí svých podnikových přihlašovacích údajů. Kromě toho můžete použít existující skupiny a uživatelské účty zabezpečený přístup k prostředkům, čímž zajišťuje hladší 'navýšení a shift' z místních prostředků do služby infrastruktury Azure.
 
 Azure AD Domain Services funkce funguje bezproblémově bez ohledu na to, jestli klientovi Azure AD je jenom pro cloud nebo synchronizované s vaší místní Active Directory.
 
 ### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>Azure AD Domain Services pro organizace, jenom pro cloud
+
 Výhradně cloudový klienta Azure AD (často označované jako "spravované klientů.) nemá žádné místní identity nároky. Jinými slovy uživatelské účty, jejich hesla a členství ve skupinách jsou všechny nativní pro cloud – to znamená, vytvořit a spravovat ve službě Azure AD. Vezměte v úvahu na chvíli že Contoso je čistě cloudové klienta Azure AD. Jak je znázorněno na následujícím obrázku, správce společnosti Contoso nakonfiguroval virtuální sítě ve službách infrastruktury Azure. V této virtuální sítě ve virtuálních počítačích Azure nasazených aplikací a zatížení serveru. Vzhledem k tomu, že Contoso je jenom pro cloud klienta, všechny identity uživatelů, jejich přihlašovacích údajů a členství ve skupinách jsou vytvořit a spravovat ve službě Azure AD.
 
 ![Přehled služby Azure AD Domain Services](./media/active-directory-domain-services-overview/aadds-overview.png)
@@ -88,7 +90,7 @@ S Azure AD Domain Services můžete využívat následující výhody:
 * **Nákladově efektivní** – službou Azure AD Domain Services, se můžete vyhnout spojené se správou infrastruktury identity pro podporu tradiční aplikace využívající technologii directory zatížení infrastruktury a správu. Můžete přesunout tyto aplikace službám infrastruktury Azure a využívat větší úsporu na provozní náklady.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Další informace o Azure AD Domain Services
 * [Funkce](active-directory-ds-features.md)
 * [Scénáře nasazení](active-directory-ds-scenarios.md)

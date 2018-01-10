@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Úvod k serveru R a možnosti R open source v HDInsight
 
@@ -46,7 +46,7 @@ Máte možnost přidání přístupu do dalších objektů Blob a ukládá Data 
 Můžete také použít [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) jako řešením úložiště pro použití na uzlu edge. Soubory Azure umožňuje připojit sdílené složce, která byla vytvořena ve službě Azure Storage do souboru systému Linux. Další informace o těchto možnostech úložiště dat pro R Server v clusteru HDInsight najdete v tématu [Azure Storage možnosti pro R serverem v HDInsight clustery](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Přístup k serveru R na clusteru
-Můžete se připojit k serveru R na uzlu edge pomocí prohlížeče. Je nainstalovaná ve výchozím nastavení při vytváření clusteru. Další informace najdete v tématu [získat stared s R serverem v HDInsight](r-server-get-started.md).
+Můžete se připojit k serveru R na uzlu edge pomocí prohlížeče. Je nainstalovaná ve výchozím nastavení při vytváření clusteru. Další informace najdete v tématu [začít pracovat s R serverem v HDInsight](r-server-get-started.md).
 
 Můžete také připojíte k serveru R z příkazovému řádku pomocí SSH nebo PuTTY přístup ke konzole R. 
 
@@ -100,7 +100,7 @@ Nakonec získat přístup ke konzole serveru R na uzlu edge tak, že zadáte **R
 ## <a name="learn-about-pricing"></a>Další informace o cenách
 Poplatky, které jsou přidruženy clusteru HDInsight bez R Server jsou strukturovaná podobně jako poplatky za standardní clusterů HDInsight. Mezi název, data a uzly okraj, a uveďte základní hodinu zdvih jsou založené na velikost základní virtuálních počítačů. Další informace o cenách prostředí HDInsight naleznete v části [HDInsight ceny](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o tom, jak používat R Server s clustery HDInsight, naleznete v následujících tématech:
 
 * [Začínáme s R serverem v HDInsight](r-server-get-started.md)

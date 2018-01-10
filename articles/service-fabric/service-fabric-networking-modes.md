@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Režimy sítě kontejneru Service Fabric
 
@@ -179,7 +179,7 @@ Pokud službu kontejneru restartuje nebo přesune do jiného uzlu v clusteru, zm
    |Nastavení |Hodnota | |
    | --- | --- | --- |
    |Priorita |2000 | |
-   |Name (Název) |Custom_Dns  | |
+   |Název |Custom_Dns  | |
    |Zdroj |VirtualNetwork | |
    |Cíl | VirtualNetwork | |
    |Služba | DNS (UDP/53) | |
@@ -221,7 +221,17 @@ Pokud službu kontejneru restartuje nebo přesune do jiného uzlu v clusteru, zm
     >Kombinování sítě režimy pro různé služby se nepodporuje v clusterech Linux. 
     >
 
-## <a name="next-steps"></a>Další kroky
+5. Když **otevřete** režimu je vybraná, **koncový bod** definice v service manifest by měla explicitně odkazovat na odpovídající ke koncovému bodu, balíček kódu i v případě, že balíček služby má jenom jeden kód balíček v ní. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
+
+## <a name="next-steps"></a>Další postup
 * [Pochopení aplikačního modelu služby Service Fabric](service-fabric-application-model.md)
 * [Další informace o prostředky manifestu služby Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Nasazení kontejneru systému Windows pro Service Fabric na Windows Server 2016](service-fabric-get-started-containers.md)

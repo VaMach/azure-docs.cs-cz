@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0cf24d8db845beb63b1b895f895da761488fd8ec
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 422d133841a380b1ef02e95245207c464089138d
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Vytvoření serveru Jenkins na virtuálním počítači Azure s Linuxem pomocí webu Azure Portal
 
@@ -68,7 +68,7 @@ Po spuštění tunelu přejděte na místním počítači na adresu http://local
 Získejte počáteční heslo spuštěním následujícího příkazu v příkazovém řádku, zatímco jste připojeni k virtuálnímu počítači s Jenkinsem prostřednictvím SSH.
 
 ```bash
-`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 Pomocí tohoto počátečního hesla poprvé odemkněte řídicí panel Jenkinse.

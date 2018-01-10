@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3f519f9d6c92dde50d02009220a6eb1eea1bfeb7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Výpočetní prostředí podporovaných službou Azure Data Factory
 > [!NOTE]
@@ -49,8 +49,7 @@ Azure HDInsight podporuje více verzích clusterů Hadoop, které lze nasadit kd
 Po 15. prosince 2017:
 
 - Už nebudete moct vytvořit HDInsight se systémem Linux verze 3.3 (nebo starší verze) clusterů pomocí propojená služba HDInsight na vyžádání v Azure Data Factory v1. 
-
-- Pokud [osType nebo vlastnost Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nejsou explicitně zadané v existující definice JSON propojené služby HDInsight na vyžádání v1 Azure Data Factory, výchozí hodnota se změní z **verze = 3.1, osType = Windows** k **verze = 3.6, osType = Linux**.
+- Pokud [osType nebo vlastnost Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nejsou explicitně zadané v existující definice JSON propojené služby HDInsight na vyžádání v1 Azure Data Factory, výchozí hodnota se změní z **verze = 3.1, osType = Windows** k **verze =[nejnovější verze HDI výchozí](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType = Linux**.
 
 Po 31. července 2018:
 
@@ -91,7 +90,7 @@ Vezměte na vědomí následující **důležité** body o HDInsight na vyžád�
 >
 > 
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 Následující kód JSON určuje základě Linux na vyžádání propojené služby HDInsight. Služba Data Factory automaticky vytvoří **systémem Linux** clusteru HDInsight se při zpracování dat řezu. 
 
 ```json
@@ -100,17 +99,15 @@ Následující kód JSON určuje základě Linux na vyžádání propojené slu�
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.5",
-            "clusterSize": 1,
-            "timeToLive": "00:05:00",
+            "version": "3.6",
             "osType": "Linux",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",            
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
 ```
-
-Chcete-li použít cluster HDInsight se systémem Windows, nastavte **osType** k **windows** nebo nepoužívejte vlastnost jako výchozí hodnota je: systému windows.  
 
 > [!IMPORTANT]
 > Cluster HDInsight vytvoří **výchozí kontejner** ve službě Blob Storage, kterou jste určili v kódu JSON (**linkedServiceName**). Při odstranění clusteru HDInsight neprovede odstranění tohoto kontejneru. Toto chování je záměrné. Díky propojené službě HDInsight na vyžádání se cluster HDInsight vytvoří pokaždé, když je potřeba zpracovat určitý řez, pokud neexistuje aktivní cluster (**timeToLive**), a po dokončení zpracování se zase odstraní. 
@@ -125,10 +122,10 @@ Chcete-li použít cluster HDInsight se systémem Windows, nastavte **osType** k
 | type                         | Vlastnost typu musí být nastavená na **HDInsightOnDemand**. | Ano      |
 | Parametr ClusterSize                  | Počet uzlů pracovního procesu nebo data v clusteru. Vytvoření clusteru HDInsight s 2 hlavních uzlech spolu s počtem uzlů pracovního procesu, který jste zadali pro tuto vlastnost. Uzly jsou velikosti Standard_D3, který má 4 jádra, 4 pracovní uzly clusteru trvá 24 jader (4\*4 = 16 jader pro uzly pracovního procesu, plus 2\*4 = 8 jader pro head uzly). V tématu [vytvořit systémem Linux Hadoop clusterů v HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) podrobnosti o Standard_D3 vrstvy. | Ano      |
 | TimeToLive                   | Povolené doby nečinnosti pro cluster HDInsight na vyžádání. Určuje, jak dlouho clusteru HDInsight na vyžádání zůstane aktivní po dokončení činnosti spustit, pokud nejsou žádné aktivní úlohy v clusteru.<br/><br/>Například pokud spuštění aktivity trvá 6 minut a timetolive nastavena na 5 minut, clusteru zůstává aktivní po dobu 5 minut po spuštění 6 minut zpracování aktivity. Pokud se okno 6 minut proveden jiné aktivity při spuštění, je zpracován stejného clusteru.<br/><br/>Vytvoření clusteru HDInsight na vyžádání je náročná operace (může trvat), takže použití tohoto nastavení podle potřeby ke zlepšení výkonu služby data factory pomocí opakovaného použití clusteru HDInsight na vyžádání.<br/><br/>Pokud hodnota timetolive nastavíte na 0, odstranění clusteru ihned po dokončení spuštění aktivity. Vzhledem k tomu, pokud jste nastavili na vysokou hodnotu, může zůstat nečinnosti zbytečně výsledkem vysoké náklady na clusteru. Proto je důležité nastavit odpovídající hodnotu na základě potřeb.<br/><br/>Pokud je hodnota vlastnosti timetolive správně nastavena, více kanálů sdílet instanci clusteru HDInsight na vyžádání. | Ano      |
-| Verze                      | Verze clusteru HDInsight. Výchozí hodnota je pro cluster systému Windows 3.1 a 3.2 pro cluster s Linuxem. | Ne       |
+| verze                      | Verze clusteru HDInsight, naleznete [podporované HDInsight verze](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) pro povolené verzích HDInsight. Pokud není zadaný, použije [nejnovější verze HDI výchozí](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Ne       |
 | linkedServiceName            | Propojená služba má být používána clusteru na vyžádání pro ukládání a zpracování dat Azure Storage. HDInsight cluster vytvoří ve stejné oblasti jako účet úložiště Azure.<p>V současné době nelze vytvořit cluster HDInsight na vyžádání, který používá jako úložiště Azure Data Lake Store. Pokud chcete uložit výsledek data z HDInsight zpracování v Azure Data Lake Store, pomocí aktivity kopírování zkopírovat data z Azure Blob Storage do Azure Data Lake Store. </p> | Ano      |
 | additionalLinkedServiceNames | Určuje, že další účty úložiště pro HDInsight propojená služba tak, aby služba Data Factory můžete zaregistrovat vaším jménem. Tyto účty úložiště musí být ve stejné oblasti jako cluster HDInsight, který je vytvořen ve stejné oblasti jako účet úložiště určeného linkedServiceName. | Ne       |
-| osType                       | Typ operačního systému. Povolené hodnoty jsou: systému Windows (výchozí) a Linux | Ne       |
+| osType                       | Typ operačního systému. Povolené hodnoty jsou: systémy Linux a Windows. Pokud není zadaný, použije se ve výchozím nastavení Linux.  <br/>Důrazně recommand pomocí Linux na bázi clustery HDInsight jako datum vyřazení pro HDInsight v systému Windows je 31 července 2018. | Ne       |
 | hcatalogLinkedServiceName    | Název Azure SQL propojené služby, které odkazují na databázi HCatalog. Cluster HDInsight na vyžádání je vytvořená pomocí Azure SQL database jako metaúložiště. | Ne       |
 
 #### <a name="additionallinkedservicenames-json-example"></a>Příklad additionalLinkedServiceNames JSON
@@ -162,6 +159,8 @@ Můžete také zadat následující vlastnosti pro podrobné konfiguraci cluster
   "properties": {
     "type": "HDInsightOnDemand",
     "typeProperties": {
+      "version": "3.6",
+      "osType": "Linux",
       "clusterSize": 16,
       "timeToLive": "01:30:00",
       "linkedServiceName": "adfods1",
@@ -232,7 +231,7 @@ Tento typ konfigurace je podporována pro následující výpočetních prostře
 ## <a name="azure-hdinsight-linked-service"></a>Propojená služba Azure HDInsight
 Můžete vytvořit propojené služby Azure HDInsight k registraci vlastní cluster HDInsight s Data Factory.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```json
 {
@@ -267,7 +266,7 @@ Najdete v následujících tématech, pokud začínáte používat službu Azure
 * [Nové AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) rutiny k vytvoření účtu Azure Batch (nebo) [portál Azure](../../batch/batch-account-create-portal.md) vytvoření účtu Azure Batch pomocí portálu Azure. V tématu [pomocí prostředí PowerShell ke správě účtu Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) téma pro podrobné pokyny k použití rutiny.
 * [Nový-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) rutiny vytvoření fondu Azure Batch.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```json
 {
@@ -309,7 +308,7 @@ Další možností je zajistit batchUri koncový bod, jak znázorňuje následuj
 ## <a name="azure-machine-learning-linked-service"></a>Propojená služba Azure Machine Learning
 Vytváření služby Azure Machine Learning propojené k registraci dávce Machine Learning vyhodnocovací koncový bod pro služby data factory.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```json
 {

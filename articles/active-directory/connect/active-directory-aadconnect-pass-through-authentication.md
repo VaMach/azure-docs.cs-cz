@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 02b1b3f2a567f6073b891a0376eddbc87cd268aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Přihlášení uživatele pomocí ověřování Azure Active Directory průchozí
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Předávací ověřování Azure Active Directory (Azure AD) umožňuje uživatelům přihlásit se k místní i cloudové aplikace přihlašovali stejnými hesly. Tato funkce nabízí uživatelům lepší zkušenosti – jeden menší heslo k mějte na paměti a snižuje náklady na IT helpdesk, protože jsou vaši uživatelé méně pravděpodobné, že zapomenete jak se přihlásit. Když se uživatelé přihlašují pomocí služby Azure AD, ověří tato funkce hesla uživatelů přímo pro vaše místní službu Active Directory.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Tato funkce je alternativa k [synchronizaci hodnoty Hash hesel služby Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), který poskytuje stejné výhodou cloudové ověřování pro organizace. Zásady zabezpečení a dodržování předpisů v některých organizacích však není povolit tyto organizace k odeslání hesla uživatelů i ve formuláři hash mimo jejich interní hranice. Předávací ověřování je to správné řešení pro takový organizace.
 
@@ -64,7 +64,7 @@ Zkombinováním předávacího ověřování s [bezproblémové jednotné přihl
 - Instalace více agentů poskytuje vysokou dostupnost žádostí o přihlášení.
 - Ho [chrání](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) vaše místní účty před hrubou vynutit heslo útoky v cloudu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [**Rychlý Start** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) – zprovoznění a systémem Azure AD předávací ověřování.
 - [**Inteligentní uzamčení** ](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) -možnost konfigurace inteligentní uzamčení na vašeho klienta k ochraně uživatelské účty.

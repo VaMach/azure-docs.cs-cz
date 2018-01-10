@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="api-management-advanced-policies"></a>Pokročilé zásady API Management
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -101,7 +101,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 </policies>  
 ```  
   
-#### <a name="example"></a>Příklad  
+#### <a name="example"></a>Příklad:  
  Tento příklad ukazuje, jak provést filtrování obsahu odebráním datové prvky. z odpovědi přijal od služby back-end při použití `Starter` produktu. Ukázka konfiguraci a použití této zásady, najdete v části [cloudu zahrnují díl 177: rozhraní API funkce správy více s Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) a rychlé převíjení vpřed na 34:30. Spuštění na 31:50 zobrazíte přehled [rozhraní tmavý Sky prognózy API](https://developer.forecast.io/) použít v této ukázce.  
   
 ```xml  
@@ -155,7 +155,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 ### <a name="examples"></a>Příklady  
   
-#### <a name="example"></a>Příklad  
+#### <a name="example"></a>Příklad:  
  Tyto zásady úrovně rozhraní API předává všechny požadavky na back-end služby s časový limit na 60 sekund.  
   
 ```xml  
@@ -174,7 +174,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 ```  
   
-#### <a name="example"></a>Příklad  
+#### <a name="example"></a>Příklad:  
  Tato zásada na úrovni operace používá `base` element dědí zásady back-end z nadřazeného oboru úrovně rozhraní API.  
   
 ```xml  
@@ -193,7 +193,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 ```  
   
-#### <a name="example"></a>Příklad  
+#### <a name="example"></a>Příklad:  
  Tato zásada na úrovni operaci explicitně předává všechny požadavky na back-end službu s časovým limitem 120 a nedědí nadřazené úrovně back-end zásada rozhraní API.  
   
 ```xml  
@@ -213,7 +213,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 ```  
   
-#### <a name="example"></a>Příklad  
+#### <a name="example"></a>Příklad:  
  Tato zásada na úrovni operaci nepředává požadavky na back-end službu.  
   
 ```xml  
@@ -243,7 +243,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
 |časový limit = "celé číslo"|Interval vypršení časového limitu v sekundách, než volání službě back-end se nezdaří.|Ne|300 sekund|  
-|postupujte podle přesměrování = "true &#124; false"|Určuje, zda jsou přesměrování z back-end službu následuje bránu nebo vrácen volajícímu.|Ne|False|  
+|postupujte podle přesměrování = "true &#124; false"|Určuje, zda jsou přesměrování z back-end službu následuje bránu nebo vrácen volajícímu.|Ne|false (nepravda)|  
   
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -264,7 +264,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 
 ### <a name="examples"></a>Příklady  
   
-#### <a name="example"></a>Příklad  
+#### <a name="example"></a>Příklad:  
  Následující příklad ukazuje, jak omezit počet požadavků, které jsou předávány back-end na základě hodnoty proměnné kontextu.
  
 ```xml  
@@ -289,8 +289,8 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|--------------|  
-|key|Řetězec. Výraz povoleny. Určuje obor souběžnosti. Může být sdílen více zásad.|Ano|Není k dispozici|  
-|maximální počet|Celé číslo. Určuje maximální počet požadavků, které jsou k zadání zásad.|Ano|Není k dispozici|  
+|key|Řetězec. Výraz povoleny. Určuje obor souběžnosti. Může být sdílen více zásad.|Ano|neuvedeno|  
+|maximální počet|Celé číslo. Určuje maximální počet požadavků, které jsou k zadání zásad.|Ano|neuvedeno|  
   
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -314,7 +314,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 ```  
   
-### <a name="example"></a>Příklad  
+### <a name="example"></a>Příklad:  
  Libovolný řetězec slouží jako hodnota má být přihlášen Event Hubs. V tomto příkladu datum a čas, název služby pro nasazení, id žádosti, ip adresu a název operace pro všechny příchozí volání se protokolují do centra událostí protokolovacího nástroje zaregistrována `contoso-logger` id.  
   
 ```xml  
@@ -383,7 +383,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|--------------|  
 |Stavový kód|Určuje stavový kód odpovědi a slouží k výběru odpovídající příklad nebo schéma.|Ne|200|  
-|Typ obsahu|Určuje `Content-Type` hodnota hlavičky odpovědi a slouží k výběru odpovídající příklad nebo schéma.|Ne|Žádný|  
+|Typ obsahu|Určuje `Content-Type` hodnota hlavičky odpovědi a slouží k výběru odpovídající příklad nebo schéma.|Ne|Žádné|  
   
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -411,8 +411,8 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>Příklad  
- V následujícím příkladu žádosti forewarding opakována až desetkrát pomocí exponenciální opakujte algoritmus. Vzhledem k tomu `first-fast-retry` není nastaven na hodnotu false, všechny pokusy o opakování se vztahují algoritmus exponsntial opakování.  
+### <a name="example"></a>Příklad:  
+ V následujícím příkladu se pokus o žádost o přesměrování až desetkrát pomocí algoritmu exponenciální opakování. Vzhledem k tomu `first-fast-retry` není nastaven na hodnotu false, všechny pokusy podléhají algoritmus exponenciální opakování.  
   
 ```xml  
   
@@ -438,11 +438,11 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|Podmínka|Logická hodnota literál nebo [výraz](api-management-policy-expressions.md) zadání, pokud by se měla zastavit opakovaných pokusů (`false`) nebo pokračování (`true`).|Ano|Není k dispozici|  
-|Počet|Kladné číslo určující maximální počet opakování pokusu.|Ano|Není k dispozici|  
-|interval|Pokusí se v sekundách zadání intervalu čekání mezi opakovaném kladné číslo.|Ano|Není k dispozici|  
-|maximální interval|Kladné číslo v sekundách určení maximální Počkejte, než interval mezi pokusy o opakování. Slouží k implementaci algoritmu exponenciální opakování.|Ne|Není k dispozici|  
-|rozdílů|Kladné číslo v sekundách zadání přírůstek intervalu čekání. Slouží k implementaci algoritmy lineární a exponenciální opakování.|Ne|Není k dispozici|  
+|podmínka|Logická hodnota literál nebo [výraz](api-management-policy-expressions.md) zadání, pokud by se měla zastavit opakovaných pokusů (`false`) nebo pokračování (`true`).|Ano|neuvedeno|  
+|počet|Kladné číslo určující maximální počet opakování pokusu.|Ano|neuvedeno|  
+|interval|Pokusí se v sekundách zadání intervalu čekání mezi opakovaném kladné číslo.|Ano|neuvedeno|  
+|maximální interval|Kladné číslo v sekundách určení maximální Počkejte, než interval mezi pokusy o opakování. Slouží k implementaci algoritmu exponenciální opakování.|Ne|neuvedeno|  
+|rozdílů|Kladné číslo v sekundách zadání přírůstek intervalu čekání. Slouží k implementaci algoritmy lineární a exponenciální opakování.|Ne|neuvedeno|  
 |Zkuste zopakovat první fast|Pokud nastavena na `true` , první pokus o opakování provádí okamžitě.|Ne|`false`|  
   
 > [!NOTE]
@@ -471,7 +471,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>Příklad  
+### <a name="example"></a>Příklad:  
   
 ```xml  
 <return-response>  
@@ -520,7 +520,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>Příklad  
+### <a name="example"></a>Příklad:  
  Tato ukázková zásada ukazuje příklad použití `send-one-way-request` zásad k odeslání zprávy do Slack chatovací místnosti, pokud kód odpovědi HTTP je větší než nebo rovna hodnotě 500. Další informace o této ukázky najdete v tématu [pomocí externích služeb ze služby Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -557,14 +557,14 @@ status code and media type. If no example or schema found, the content is empty.
 |Adresa URL|Adresa URL požadavku.|Pokud žádné režimu = kopie; v opačném případě Ano.|  
 |– Metoda|Metoda HTTP pro žádost.|Pokud žádné režimu = kopie; v opačném případě Ano.|  
 |záhlaví|Hlavička požadavku. Použijte více prvky záhlaví pro více hlavičky žádosti.|Ne|  
-|Text|Datová část požadavku.|Ne|  
+|hlavní část|Text žádosti|Ne|  
   
 ### <a name="attributes"></a>Atributy  
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|režim = "řetězec"|Určuje, jestli je nový požadavek nebo kopii aktuálního požadavku. V odchozí režim režim = kopie neinicializuje textu požadavku.|Ne|Nový|  
-|jméno|Určuje název záhlaví nastavit.|Ano|Není k dispozici|  
+|režim = "řetězec"|Určuje, jestli je nový požadavek nebo kopii aktuálního požadavku. V odchozí režim režim = kopie neinicializuje textu požadavku.|Ne|Nová|  
+|jméno|Určuje název záhlaví nastavit.|Ano|neuvedeno|  
 |existuje akce|Určuje, jaká opatření se mají provést, pokud hlavička byl již zadán. Tento atribut musí mít jednu z následujících hodnot.<br /><br /> -override - nahradí hodnotu existující záhlaví.<br />-skip - nenahrazuje existující hodnotu hlavičky.<br />-připojit - připojí hodnotu pro existující hodnotu hlavičky.<br />-delete - odstraní hlavičku ze žádosti.<br /><br /> Pokud nastavíte hodnotu `override` uvedení více položek se stejným názvem výsledků v hlavičce je nastavena podle všech položek (které budou uvedeny vícekrát); pouze uvedené hodnoty budou nastaveny ve výsledku.|Ne|přepsání|  
   
 ### <a name="usage"></a>Využití  
@@ -590,7 +590,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>Příklad  
+### <a name="example"></a>Příklad:  
  Tento příklad ukazuje jeden způsob, jak ověřit odkaz tokenu se serverem ověřování. Další informace o této ukázky najdete v tématu [pomocí externích služeb ze služby Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -636,17 +636,17 @@ status code and media type. If no example or schema found, the content is empty.
 |Adresa URL|Adresa URL požadavku.|Pokud žádné režimu = kopie; v opačném případě Ano.|  
 |– Metoda|Metoda HTTP pro žádost.|Pokud žádné režimu = kopie; v opačném případě Ano.|  
 |záhlaví|Hlavička požadavku. Použijte více prvky záhlaví pro více hlavičky žádosti.|Ne|  
-|Text|Datová část požadavku.|Ne|  
+|hlavní část|Text žádosti|Ne|  
   
 ### <a name="attributes"></a>Atributy  
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|režim = "řetězec"|Určuje, jestli je nový požadavek nebo kopii aktuálního požadavku. V odchozí režim režim = kopie neinicializuje textu požadavku.|Ne|Nový|  
-|Název proměnné odpovědi = "řetězec"|Pokud není přítomný, `context.Response` se používá.|Ne|Není k dispozici|  
+|režim = "řetězec"|Určuje, jestli je nový požadavek nebo kopii aktuálního požadavku. V odchozí režim režim = kopie neinicializuje textu požadavku.|Ne|Nová|  
+|Název proměnné odpovědi = "řetězec"|Pokud není přítomný, `context.Response` se používá.|Ne|neuvedeno|  
 |časový limit = "celé číslo"|Interval vypršení časového limitu v sekundách, než volání na adresu URL se nezdaří.|Ne|60|  
-|Ignorovat chybu|Pokud hodnotu true a dojde k chybě žádost:<br /><br /> – Pokud je název proměnné odpověď byla zadána, bude obsahovat hodnotu null.<br />– Pokud nebyl zadán název proměnné odpovědi, kontextu. Požadavek nebude aktualizován.|Ne|False|  
-|jméno|Určuje název záhlaví nastavit.|Ano|Není k dispozici|  
+|Ignorovat chybu|Pokud hodnotu true a dojde k chybě žádost:<br /><br /> – Pokud je název proměnné odpověď byla zadána, bude obsahovat hodnotu null.<br />– Pokud nebyl zadán název proměnné odpovědi, kontextu. Požadavek nebude aktualizován.|Ne|false (nepravda)|  
+|jméno|Určuje název záhlaví nastavit.|Ano|neuvedeno|  
 |existuje akce|Určuje, jaká opatření se mají provést, pokud hlavička byl již zadán. Tento atribut musí mít jednu z následujících hodnot.<br /><br /> -override - nahradí hodnotu existující záhlaví.<br />-skip - nenahrazuje existující hodnotu hlavičky.<br />-připojit - připojí hodnotu pro existující hodnotu hlavičky.<br />-delete - odstraní hlavičku ze žádosti.<br /><br /> Pokud nastavíte hodnotu `override` uvedení více položek se stejným názvem výsledků v hlavičce je nastavena podle všech položek (které budou uvedeny vícekrát); pouze uvedené hodnoty budou nastaveny ve výsledku.|Ne|přepsání|  
   
 ### <a name="usage"></a>Využití  
@@ -666,7 +666,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>Příklad  
+### <a name="example"></a>Příklad:  
 Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako hodnoty uživatelské jméno a heslo, aby se zabránilo ukládání citlivých informací v dokumentu zásad.  
   
 ```xml  
@@ -684,9 +684,9 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|Adresa URL = "řetězec"|Adresa URL proxy serveru ve formě http://host:port.|Ano|Není k dispozici|  
-|uživatelské jméno = "řetězec"|Uživatelské jméno má být použit pro ověřování s proxy serverem.|Ne|Není k dispozici|  
-|heslo = "řetězec"|Heslo má být použit pro ověřování s proxy serverem.|Ne|Není k dispozici|  
+|Adresa URL = "řetězec"|Adresa URL proxy serveru ve formě http://host:port.|Ano|neuvedeno|  
+|uživatelské jméno = "řetězec"|Uživatelské jméno má být použit pro ověřování s proxy serverem.|Ne|neuvedeno|  
+|heslo = "řetězec"|Heslo má být použit pro ověřování s proxy serverem.|Ne|neuvedeno|  
 
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -705,7 +705,7 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
   
 ```  
   
-### <a name="example"></a>Příklad  
+### <a name="example"></a>Příklad:  
  Tato ukázka zásadu, která používá `set-method` zásad ukazuje příklad odesílání zprávy Slack chatovací místnosti, pokud kód odpovědi HTTP je větší než nebo rovna hodnotě 500. Další informace o této ukázky najdete v tématu [pomocí externích služeb ze služby Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -757,7 +757,7 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
   
 ```  
   
-### <a name="example"></a>Příklad  
+### <a name="example"></a>Příklad:  
  Tento příklad ukazuje, jak vracet odpovědi 401, pokud autorizační token je neplatný. Další informace najdete v tématu [pomocí externích služeb ze služby Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)  
   
 ```xml  
@@ -784,8 +784,8 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|kód = "celé číslo"|Stavový kód HTTP vrátit.|Ano|Není k dispozici|  
-|důvod = "řetězec"|Popis důvod pro vrácení stavový kód.|Ano|Není k dispozici|  
+|kód = "celé číslo"|Stavový kód HTTP vrátit.|Ano|neuvedeno|  
+|důvod = "řetězec"|Popis důvod pro vrácení stavový kód.|Ano|neuvedeno|  
   
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -886,7 +886,7 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|Zdroj|Řetězcový literál smysl prohlížeče trasování a zadání zdroj zprávy.|Ano|Není k dispozici|  
+|zdroj|Řetězcový literál smysl prohlížeče trasování a zadání zdroj zprávy.|Ano|neuvedeno|  
   
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
@@ -908,7 +908,7 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
   
 ```  
   
-### <a name="example"></a>Příklad  
+### <a name="example"></a>Příklad:  
  V následujícím příkladu jsou uvedeny dvě `choose` zásady jako bezprostředně podřízené zásady `wait` zásad. Každá z těchto `choose` zásady spustí paralelně. Každý `choose` zásady, pokusí se načíst hodnotu uloženou v mezipaměti. Pokud dojde k neúspěšnému přístupu do mezipaměti, se nazývá back-end službu do zadejte hodnotu. V tomto příkladu `wait` zásad dokončena, dokud se všechny jeho podřízené okamžitou zásady dokončit, protože `for` je nastavena na hodnotu `all`.   V tomto příkladu kontextu proměnné (`execute-branch-one`, `value-one`, `execute-branch-two`, a `value-two`) jsou deklarované mimo obor Tento příklad zásady.  
   
 ```xml  
@@ -953,7 +953,7 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|Pro|Určuje, zda `wait` zásad čeká na všechny zásady bezprostředně podřízené jako dokončená nebo jenom jeden. Povolené hodnoty jsou:<br /><br /> -   `all`-čekat na všechny zásady bezprostředně podřízené k dokončení<br />-všechny - počkejte všechny bezprostředně podřízené zásadu pro dokončení. Po dokončení prvního bezprostředně podřízené zásad `wait` zásad dokončí a provádění dalších zásad bezprostředně podřízené je ukončen.|Ne|all|  
+|pro|Určuje, zda `wait` zásad čeká na všechny zásady bezprostředně podřízené jako dokončená nebo jenom jeden. Povolené hodnoty jsou:<br /><br /> -   `all`-čekat na všechny zásady bezprostředně podřízené k dokončení<br />-všechny - počkejte všechny bezprostředně podřízené zásadu pro dokončení. Po dokončení prvního bezprostředně podřízené zásad `wait` zásad dokončí a provádění dalších zásad bezprostředně podřízené je ukončen.|Ne|all|  
   
 ### <a name="usage"></a>Využití  
  
@@ -962,7 +962,7 @@ Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/do
 -   **Části zásady:** vstupní, výstupní a back-end  
 -   **Zásady obory:** všechny obory  
   
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Práce se zásadami pro další informace najdete v tématu:
 + [Zásady ve službě API Management](api-management-howto-policies.md) 

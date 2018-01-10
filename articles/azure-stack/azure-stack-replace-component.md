@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Nahraďte hardwarová součást v uzlu jednotky škálování Azure zásobníku
 
@@ -55,6 +55,10 @@ Stav zásobník Azure a systém monitorování sledovat stav síťových adapté
 Následující kroky poskytují souhrnné informace o nahrazení proces komponent. Nepostupujte podle těchto kroků bez odkazující na dokumentaci FRU poskytnutou výrobcem OEM.
 
 1. Použití [vyprazdňování](azure-stack-node-actions.md#scale-unit-node-actions) akce uvést do režimu údržby uzlu jednotky škálování. Tuto akci nelze vyžadovat na základě podmínky pro fyzický hardware.
+
+   > [!NOTE]
+   > V každém případě jenom jeden uzel vyprázdnit a vypnout ve stejnou dobu, aniž by vás S2D (prostory úložiště – přímé).
+
 2. Po uzlu jednotka škálování je v režimu údržby, použijte [vypnutí](azure-stack-node-actions.md#scale-unit-node-actions) akce. Tuto akci nelze vyžadovat na základě podmínky pro fyzický hardware.
  
    > [!NOTE]

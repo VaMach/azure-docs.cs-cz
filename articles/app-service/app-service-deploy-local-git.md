@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Místní nasazení z Gitu do služby Azure App Service
 V tomto kurzu se dozvíte, jak nasadit aplikaci, kterou chcete [Azure Web Apps](app-service-web-overview.md) z úložiště Git v místním počítači. App Service podporuje tento přístup s **místní Git** v možnost nasazení [portálu Azure].  
@@ -32,7 +32,7 @@ Pro absolvování tohoto kurzu potřebujete:
 * Účet Microsoft Azure. Pokud nemáte účet, můžete se [zaregistrovat k bezplatné zkušební verzi](https://azure.microsoft.com/pricing/free-trial) nebo si [aktivovat výhody předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
-> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte na [vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní aplikaci ve službě App Service. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.  
+> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte na [vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní aplikaci ve službě App Service. Není vyžadována platební karta a nevzniká žádný závazek.  
 > 
 > 
 
@@ -72,7 +72,7 @@ Pomocí následujících kroků povolte úložiště Git pro vaši aplikaci slu�
 2. V okně aplikace App Service, klikněte na tlačítko **Nastavení > zdroj nasazení**. Klikněte na tlačítko **vybrat zdroj**, pak klikněte na tlačítko **místní úložiště Git**a potom klikněte na **OK**.  
    
     ![Místní úložiště Git](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Pokud je vaše první čas nastavení úložiště v Azure, budete muset vytvořit přihlašovací údaje pro ni. Budete je používat k přihlášení do Azure změny úložiště a posílejte nabízená oznámení z místního úložiště Git. V okně vaší aplikace, klikněte na tlačítko **Nastavení > přihlašovací údaje nasazení**, nakonfigurujte nasazení uživatelské jméno a heslo. Když jste hotovi, klikněte na tlačítko **Uložit**.
+3. Pokud je vaše první čas nastavení úložiště v Azure, budete muset vytvořit přihlašovací údaje pro ni. Budete je používat k přihlášení do Azure změny úložiště a posílejte nabízená oznámení z místního úložiště Git. V okně vaší aplikace, klikněte na tlačítko **nasazení > přihlašovací údaje nasazení**, nakonfigurujte nasazení uživatelské jméno a heslo. Když jste hotovi, klikněte na tlačítko **Uložit**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -125,7 +125,7 @@ Tady jsou chyby nebo problémy, které jsou běžně došlo při použití Git p
 
 **Příčina**: k této chybě může dojít, pokud při provádění git push operace a nebyly nastavte hodnotu push.default používá Git nezadávejte větev.
 
-**Řešení**: proveďte nabízenou akci, zadání hlavní větve. Například:
+**Řešení**: proveďte nabízenou akci, zadání hlavní větve. Příklad:
 
 ```bash  
 git push azure master
@@ -135,7 +135,7 @@ git push azure master
 
 **Příčina**: k této chybě může dojít, pokud se pokusíte nabízená větev pouze hlavní na "azure" vzdálené.
 
-**Řešení**: proveďte nabízenou akci, zadání hlavní větve. Například:
+**Řešení**: proveďte nabízenou akci, zadání hlavní větve. Příklad:
 
 ```bash  
 git push azure master
@@ -165,10 +165,10 @@ git config --global http.postBuffer 524288000
       NEBO
   * npm ERR! [modulename@version] předinstalovat: \`zkontrolujte || gmake\`
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 * [Dokumentace pro Git](http://git-scm.com/documentation)
 * [Dokumentace Kudu projektu](https://github.com/projectkudu/kudu/wiki)
-* [Nepřetržité nasazení do Azure App Service](app-service-continuous-deployment.md)
+* [Průběžné nasazování do Azure App Service](app-service-continuous-deployment.md)
 * [Způsob používání prostředí PowerShell pro Azure](/powershell/azure/overview)
 * [Jak používat rozhraní příkazového řádku Azure](../cli-install-nodejs.md)
 

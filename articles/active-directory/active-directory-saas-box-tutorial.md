@@ -4,7 +4,7 @@ description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c1a03a4d0a2507f99dd0df8a96b949af8a8412d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Kurz: Azure Active Directory integrace s poli
 
@@ -110,9 +110,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.box.com`
 
-    b. Zkontrolujte **zobrazit upřesňující nastavení adresy URL**.
-
-    c. V **identifikátor** textovému poli, zadejte adresu URL jako:`https://sso.services.box.net/sp/ACS.saml2`
+    b. V **identifikátor** textovému poli, zadejte adresu URL:`box.net`
      
     > [!NOTE] 
     > Tato hodnota není skutečné. Aktualizujte hodnotu s skutečná adresa URL přihlašování. Obraťte se na [tým podpory pole klienta](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) získat tuto hodnotu. 
@@ -203,7 +201,7 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 
 Když kliknete na dlaždici pole na přístupovém panelu, měli byste obdržet přihlašovací stránku k získání přihlášení k aplikaci pole.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

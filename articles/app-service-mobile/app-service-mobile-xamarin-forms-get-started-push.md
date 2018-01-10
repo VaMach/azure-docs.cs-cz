@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 124c36063482aa3b36844104c0b83b8a6e9598cb
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9c7d56b19a72ec82ff834929790e5049b9369797
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Přidání nabízených oznámení do vaší aplikace na platformě Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -49,221 +49,154 @@ Dokončení této části ke zprovoznění nabízených oznámení pro Android X
 ### <a name="add-push-notifications-to-the-android-project"></a>Přidání nabízených oznámení do projektu pro Android
 S back-end FCM nakonfigurované můžete přidat součásti a kódy pro klienta pro registraci se FCM. Můžete také zaregistrovat pro nabízená oznámení pomocí Azure Notification Hubs prostřednictvím back-end mobilní aplikace a přijímat oznámení.
 
-1. V **Droid** projektu, klikněte pravým tlačítkem myši **součásti** složku a klikněte na tlačítko **získat další komponenty...** . Poté vyhledejte **klient Google Cloud Messaging** součástí a přidejte ji do projektu. Tato součást podporuje nabízená oznámení pro projekt Xamarin Android.
-2. Otevřete soubor projektu MainActivity.cs a v horní části souboru přidejte následující příkaz:
+1. V **Droid** projektu, klikněte pravým tlačítkem na **odkazy > spravovat balíčky NuGet...** .
+1. V okně Správce balíčků NuGet Hledat **Xamarin.Firebase.Messaging** balíček a přidejte ji do projektu.
+1. V projektu properies pro **Droid** projektu, nastavte aplikaci zkompilovat pomocí Android verze 7.0 nebo vyšší.
+1. Přidat **google services.json** soubor, stažený z konzoly Firebase do kořenového adresáře **Droid** projektu a nastavit jeho procesu sestavení na **GoogleServicesJson**. Další informace najdete v tématu [přidejte soubor JSON služby Google](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/#Add_the_Google_Services_JSON_File).
 
-        using Gcm.Client;
-3. Přidejte následující kód, který **OnCreate** metoda po zavolání **LoadApplication**:
+#### <a name="registering-with-firebase-cloud-messaging"></a>Registrace Firebase cloudu zasílání zpráv
 
-        try
+1. Otevřete **AndroidManifest.xml** soubor a vložte následující `<receiver>` elementy do `<application>` element:
+
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
+          </intent-filter>
+        </receiver>
+
+#### <a name="implementing-the-firebase-instance-id-service"></a>Implementace služby Firebase instanci ID
+
+1. Přidejte novou třídu do **Droid** projektu s názvem `FirebaseRegistrationService`a ujistěte se, že následující `using` příkazy nejsou v horní části souboru:
+
+        using System.Threading.Tasks;
+        using Android.App;
+        using Android.Util;
+        using Firebase.Iid;
+        using Microsoft.WindowsAzure.MobileServices;
+
+1. Nahraďte prázdné `FirebaseRegistrationService` třídy následujícím kódem:
+
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
+        public class FirebaseRegistrationService : FirebaseInstanceIdService
         {
-            // Check to ensure everything's set up right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
+            const string TAG = "FirebaseRegistrationService";
 
-            // Register for push notifications
-            System.Diagnostics.Debug.WriteLine("Registering...");
-            GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
-        }
-        catch (Java.Net.MalformedURLException)
-        {
-            CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
-        }
-        catch (Exception e)
-        {
-            CreateAndShowDialog(e.Message, "Error");
-        }
-4. Přidejte nový **CreateAndShowDialog** Pomocná metoda, následujícím způsobem:
-
-        private void CreateAndShowDialog(String message, String title)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.SetMessage (message);
-            builder.SetTitle (title);
-            builder.Create().Show ();
-        }
-5. Přidejte následující kód, který **MainActivity** třídy:
-
-        // Create a new instance field for this activity.
-        static MainActivity instance = null;
-
-        // Return the current activity instance.
-        public static MainActivity CurrentActivity
-        {
-            get
+            public override void OnTokenRefresh()
             {
-                return instance;
+                var refreshedToken = FirebaseInstanceId.Instance.Token;
+                Log.Debug(TAG, "Refreshed token: " + refreshedToken);
+                SendRegistrationTokenToAzureNotificationHub(refreshedToken);
+            }
+
+            void SendRegistrationTokenToAzureNotificationHub(string token)
+            {
+                // Update notification hub registration
+                Task.Run(async () =>
+                {
+                    await AzureNotificationHubService.RegisterAsync(TodoItemManager.DefaultManager.CurrentClient.GetPush(), token);
+                });
             }
         }
 
-    To zpřístupňuje aktuální **MainActivity** instance, proto můžete provést na hlavního vlákna uživatelského rozhraní.
-6. Inicializace `instance` proměnné na začátku **OnCreate** metoda následujícím způsobem.
+    `FirebaseRegistrationService` Třída je zodpovědný za generování tokenů zabezpečení, které autorizovat aplikaci pro přístup k FCM. `OnTokenRefresh` Metoda je volána, když aplikace přijímá token registrace z FCM. Metoda načte tokenu z `FirebaseInstanceId.Instance.Token` vlastnost, která se asynchronně aktualizuje pomocí FCM. `OnTokenRefresh` Zřídka zavolání metody, protože token je aktualizovány pouze v případě, že aplikace je nainstalována nebo odinstalována, když uživatel odstraní data aplikací, když aplikace vymaže Instance ID, nebo když byl zabezpečení tokenu ohrožení zabezpečení. Kromě toho FCM Instance ID služby bude požadovat, aby aplikace aktualizuje jeho token pravidelně obvykle každých 6 měsíců.
 
-        // Set the current instance of MainActivity.
-        instance = this;
-7. Přidat nový soubor třídy k **Droid** projektu s názvem `GcmService.cs`a zajistěte, aby následující **pomocí** příkazy nejsou v horní části souboru:
+    `OnTokenRefresh` Také vyvolá metoda `SendRegistrationTokenToAzureNotificationHub` metodu, která se používá k přidružení tokenu registrace uživatele do centra oznámení Azure.
+
+#### <a name="registering-with-the-azure-notification-hub"></a>Registrace do centra oznámení Azure
+
+1. Přidejte novou třídu do **Droid** projektu s názvem `AzureNotificationHubService`a ujistěte se, že následující `using` příkazy nejsou v horní části souboru:
+
+        using System;
+        using System.Threading.Tasks;
+        using Android.Util;
+        using Microsoft.WindowsAzure.MobileServices;
+        using Newtonsoft.Json.Linq;
+
+1. Nahraďte prázdné `AzureNotificationHubService` třídy následujícím kódem:
+
+        public class AzureNotificationHubService
+        {
+            const string TAG = "AzureNotificationHubService";
+
+            public static async Task RegisterAsync(Push push, string token)
+            {
+                try
+                {
+                    const string templateBody = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+                    JObject templates = new JObject();
+                    templates["genericMessage"] = new JObject
+                    {
+                        {"body", templateBody}
+                    };
+
+                    await push.RegisterAsync(token, templates);
+                    Log.Info("Push Installation Id: ", push.InstallationId.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(TAG, "Could not register with Notification Hub: " + ex.Message);
+                }
+            }
+        }
+
+    `RegisterAsync` Metoda vytvoří šablonu oznámení jednoduché zprávy jako JSON a zaregistruje se pro příjem oznámení šablony z centra oznámení, pomocí tokenu registrace Firebase. Tím se zajistí, že zařízení reprezentována registrační token se zaměří na všechny oznámení odesílaná z centra oznámení Azure.
+
+#### <a name="displaying-the-contents-of-a-push-notification"></a>Zobrazení obsahu nabízených oznámení
+
+1. Přidejte novou třídu do **Droid** projektu s názvem `FirebaseNotificationService`a ujistěte se, že následující `using` příkazy nejsou v horní části souboru:
 
         using Android.App;
         using Android.Content;
         using Android.Media;
-        using Android.Support.V4.App;
         using Android.Util;
-        using Gcm.Client;
-        using Microsoft.WindowsAzure.MobileServices;
-        using Newtonsoft.Json.Linq;
-        using System;
-        using System.Collections.Generic;
-        using System.Diagnostics;
-        using System.Text;
-8. Přidejte následující žádosti oprávnění v horní části souboru po **pomocí** příkazy a před **obor názvů** deklarace.
+        using Firebase.Messaging;
 
-        [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-        [assembly: UsesPermission(Name = "android.permission.INTERNET")]
-        [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-        //GET_ACCOUNTS is only needed for android versions 4.0.3 and below
-        [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
-9. Přidejte následující definice tříd do oboru názvů.
+1. Nahraďte prázdné `FirebaseNotificationService` třídy následujícím kódem:
 
-       [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-       {
-           public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
-       }
-
-   > [!NOTE]
-   > Nahraďte **< PROJECT_NUMBER >** s vaše číslo projektu, který jste si předtím poznamenali.    
-   >
-   >
-10. Nahraďte prázdné **GcmService** třída, která využívá nové všesměrového vysílání příjemce následujícím kódem:
-
-         [Service]
-         public class GcmService : GcmServiceBase
-         {
-             public static string RegistrationID { get; private set; }
-
-             public GcmService()
-                 : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
-         }
-11. Přidejte následující kód, který **GcmService** třídy. Přepíše **OnRegistered** obslužné rutiny události a implementuje **zaregistrovat** metoda.
-
-        protected override void OnRegistered(Context context, string registrationId)
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+        public class FirebaseNotificationService : FirebaseMessagingService
         {
-            Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
-            RegistrationID = registrationId;
+            const string TAG = "FirebaseNotificationService";
 
-            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-
-            MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-        }
-
-        public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
-        {
-            try
+            public override void OnMessageReceived(RemoteMessage message)
             {
-                const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+                Log.Debug(TAG, "From: " + message.From);
 
-                JObject templates = new JObject();
-                templates["genericMessage"] = new JObject
-                {
-                    {"body", templateBodyGCM}
-                };
+                // Pull message body out of the template
+                var messageBody = message.Data["message"];
+                if (string.IsNullOrWhiteSpace(messageBody))
+                    return;
 
-                await push.RegisterAsync(RegistrationID, templates);
-                Log.Info("Push Installation Id", push.InstallationId.ToString());
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-                Debugger.Break();
-            }
-        }
-
-    Všimněte si, že tento kód používá `messageParam` parametr v registraci šablony.
-12. Přidejte následující kód, který implementuje **OnMessage**:
-
-        protected override void OnMessage(Context context, Intent intent)
-        {
-            Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
-
-            var msg = new StringBuilder();
-
-            if (intent != null && intent.Extras != null)
-            {
-                foreach (var key in intent.Extras.KeySet())
-                    msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
+                Log.Debug(TAG, "Notification message body: " + messageBody);
+                SendNotification(messageBody);
             }
 
-            //Store the message
-            var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
-            var edit = prefs.Edit();
-            edit.PutString("last_msg", msg.ToString());
-            edit.Commit();
-
-            string message = intent.Extras.GetString("message");
-            if (!string.IsNullOrEmpty(message))
+            void SendNotification(string messageBody)
             {
-                createNotification("New todo item!", "Todo item: " + message);
-                return;
-            }
+                var intent = new Intent(this, typeof(MainActivity));
+                intent.AddFlags(ActivityFlags.ClearTop);
+                var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-            string msg2 = intent.Extras.GetString("msg");
-            if (!string.IsNullOrEmpty(msg2))
-            {
-                createNotification("New hub message!", msg2);
-                return;
-            }
-
-            createNotification("Unknown message details", msg.ToString());
-        }
-
-        void createNotification(string title, string desc)
-        {
-            //Create notification
-            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-
-            //Create an intent to show ui
-            var uiIntent = new Intent(this, typeof(MainActivity));
-
-            //Use Notification Builder
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-
-            //Create the notification
-            //we use the pending intent, passing our ui intent over which will get called
-            //when the notification is tapped.
-            var notification = builder.SetContentIntent(PendingIntent.GetActivity(this, 0, uiIntent, 0))
-                    .SetSmallIcon(Android.Resource.Drawable.SymActionEmail)
-                    .SetTicker(title)
-                    .SetContentTitle(title)
-                    .SetContentText(desc)
-
-                    //Set the notification sound
+                var notificationBuilder = new Notification.Builder(this)
+                    .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
+                    .SetContentTitle("New Todo Item")
+                    .SetContentText(messageBody)
+                    .SetContentIntent(pendingIntent)
                     .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
+                    .SetAutoCancel(true);
 
-                    //Auto cancel will remove the notification once the user touches it
-                    .SetAutoCancel(true).Build();
-
-            //Show the notification
-            notificationManager.Notify(1, notification);
+                var notificationManager = NotificationManager.FromContext(this);
+                notificationManager.Notify(0, notificationBuilder.Build());
+            }
         }
 
-    To zpracovává příchozí oznámení a odesílá je do Správce oznámení, který se má zobrazit.
-13. **GcmServiceBase** také vyžaduje, abyste implementovat **OnUnRegistered** a **OnError** metody obslužné rutiny, které můžete provést následujícím způsobem:
 
-        protected override void OnUnRegistered(Context context, string registrationId)
-        {
-            Log.Error("PushHandlerBroadcastReceiver", "Unregistered RegisterationId : " + registrationId);
-        }
-
-        protected override void OnError(Context context, string errorId)
-        {
-            Log.Error("PushHandlerBroadcastReceiver", "GCM Error: " + errorId);
-        }
+    `OnMessageReceived` Metoda, která se vyvolá, když aplikace obdrží oznámení od FCM, extrahuje obsahu zprávu a zavolá `SendNotification` metoda. Tato metoda převede obsah zprávy do místního oznámení, který se spustí, když aplikace běží, oznámení, které jsou uvedeny v oznamovací oblasti.
 
 Teď můžete je připraven nabízená oznámení v aplikaci spuštěnou na zařízení se systémem Android nebo emulátor.
 
@@ -418,6 +351,9 @@ Tato část se týká spuštění Xamarin.Forms WinApp a WinPhone81 projekty pro
 ## <a name="next-steps"></a>Další postup
 Další informace o nabízených oznámení:
 
+* [Odesílání nabízených oznámení z Azure Mobile Apps](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)
+* [Firebase cloudu zasílání zpráv](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
+* [Vzdálená oznámení s Firebase cloudu zasílání zpráv](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [Diagnostikovat problémy nabízená oznámení](../notification-hubs/notification-hubs-push-notification-fixer.md)  
   Existují různé důvody, proč oznámení může získat vyřadit ani nekončí na zařízení. Toto téma ukazuje, jak analyzovat a zjistěte příčinu selhání nabízená oznámení.
 
