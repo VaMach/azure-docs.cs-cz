@@ -9,7 +9,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Přidání dat](search-what-is-data-import.md)
-### [Azure Portal](search-import-data-portal.md)
+### [portál Azure Portal](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Prohledání indexu](search-query-overview.md)
@@ -51,7 +51,7 @@
 ### [Indexer pro Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 ### [Indexer pro Azure Table Storage](search-howto-indexing-azure-tables.md)
 ### [Indexer pro Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indexer databáze Azure Cosmos](search-howto-index-documentdb.md)
+### [Indexer databáze Azure Cosmos](search-howto-index-cosmosdb.md)
 ### [Indexování objektů blob CSV](search-howto-index-csv-blobs.md)
 ### [Indexování objektů blob JSON](search-howto-index-json-blobs.md)
 ### [Konfigurace připojení indexeru do SQL Serveru na virtuálním počítači Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -84,7 +84,7 @@
 ### [Prohledání analýzy provozu](search-traffic-analytics.md)
 ### [Výkon a optimalizace](search-performance-optimization.md)
 
-# Referenční informace
+# Odkaz
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (správa)](/dotnet/api/?term=microsoft.azure.management.search)
@@ -93,7 +93,7 @@
 ## [REST (správa)](/rest/api/searchmanagement)
 ## [Rozhraní REST služby (Preview)](search-api-2016-09-01-preview.md)
 
-# Zdroje
+# Zdroje a prostředky
 
 ## [Nejčastější dotazy](search-faq-frequently-asked-questions.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
@@ -108,7 +108,7 @@
 ### [Aplikace výpisu úloh](http://aka.ms/azjobsdemo)
 ## Partneři a komunita
 ### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Fórum na webu MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blog: Modelování relačních dat](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [blog: Víceúrovňové omezování vlastností](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
