@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ladění snímků výjimky v aplikacích .NET
 
@@ -75,8 +75,8 @@ Podporovány jsou následující prostředí:
 
 1. [Povolit Application Insights ve vaší webové aplikaci ASP.NET Core](app-insights-asp-net-core.md), pokud jste ho ještě neučinili.
 
-> [!NOTE]
-> Být jisti, že vaše aplikace odkazuje na verzi 2.1.1 nebo novější, Microsoft.ApplicationInsights.AspNetCore balíčku.
+    > [!NOTE]
+    > Být jisti, že vaše aplikace odkazuje na verzi 2.1.1 nebo novější, Microsoft.ApplicationInsights.AspNetCore balíčku.
 
 2. Zahrnout [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) balíček NuGet v aplikaci.
 
@@ -275,15 +275,39 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 Pro aplikace, které jsou _není_ hostované ve službě App Service, protokoly osoba jsou ve stejné složce jako minimálním výpisem: `%TEMP%\Dumps\<ikey>` (kde `<ikey>` je klíč instrumentace).
 
-Rolí v cloudových služeb může být výchozí dočasnou složku pro soubory minimálního výpisu příliš malá. V takovém případě můžete zadat jinou složku přes vlastnost TempFolder v souboru ApplicationInsights.config.
+### <a name="troubleshooting-cloud-services"></a>Řešení potíží s cloudové služby
+Rolí v cloudových služeb může být dočasné složce výchozí minimální výpis souborů, což ztraceny snímky příliš malá.
+Místo potřeby závisí na celkový pracovní sady aplikace, a počet souběžných snímků.
+Pracovní sady 32-bit webovou roli ASP.NET je obvykle mezi 200 MB a 500 MB.
+Měli byste povolit pro alespoň dva souběžné snímky.
+Například pokud vaše aplikace používá 1 GB celkový pracovní sady, měli byste zajistit, že je alespoň 2 GB místa na disku pro ukládání snímků.
+Postupujte podle těchto kroků nakonfigurujete vaše cloudové služby role s vyhrazenou místní prostředek pro snímky.
 
+1. Přidejte nové místní prostředek do cloudové služby tak, že upravíte soubor definice (.csdf) cloudové služby. V následujícím příkladu je definován prostředek s názvem `SnapshotStore` s velikostí 5 GB.
 ```xml
-<TelemetryProcessors>
-  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-    <!-- Use an alternative folder for minidumps -->
-    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Upravit vaše role `OnStart` metoda pro přidání proměnné prostředí, která odkazuje na `SnapshotStore` místní prostředek.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Aktualizovat soubor ApplicationInsights.config vaše role k přepsání umístění dočasné složky používané`SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
     </Add>
-</TelemetryProcessors>
+  </TelemetryProcessors>
 ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Výjimky se snímky hledat pomocí Application Insights

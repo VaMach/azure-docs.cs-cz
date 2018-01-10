@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
-ms.date: 04/11/2017
+ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8c2f0cb27e6e06f70018b7acae7ea5ff7f728d98
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cli-samples"></a>Ukázky rozhraní příkazového řádku Azure
 
@@ -34,12 +34,17 @@ Následující tabulka obsahuje odkazy na bash skripty pro funkce Azure, který 
 | | |
 |**Integrace**||
 | [Vytvoření aplikace pro funkce a připojte se k účtu úložiště](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Vytvoření aplikace pro funkce a připojte ho k účtu úložiště. |
-| [Vytvoření funkce aplikace a připojte se k databázi Cosmos Azure](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Vytvoření funkce aplikace a připojte ho Azure DB Cosmos |
+| [Vytvoření funkce aplikace a připojte se k databázi Cosmos Azure](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Vytvoření aplikace pro funkce a připojte ho Azure DB Cosmos. |
+| | |
+|**Průběžné nasazování**||
+| [Nasadit z Githubu](scripts/functions-cli-create-function-app-github-continuous.md) | Vytvoření funkce aplikace, která nasadí z úložiště Githubu.  |
+| [Nasazení ze služby VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Vytvoření funkce aplikace, která nasadí z Visual Studio Team Services (VSTS) úložiště.  |
 | | |
 |**Konfigurace aplikace**||
 | [Namapovat vlastní doménu aplikace pro funkce](scripts/functions-cli-configure-custom-domain.md) | Definujte vlastní doménu pro funkcí.  |
 | [Vytvoření vazby certifikátu SSL do aplikace pro funkce](scripts/functions-cli-configure-ssl-certificate.md)  |  Nahrajte certifikáty SSL pro funkce v vlastní doménu. |
-<!--
+
+<!---
 
 |**Scale app**||
 

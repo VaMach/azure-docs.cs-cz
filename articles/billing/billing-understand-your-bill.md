@@ -1,5 +1,5 @@
 ---
-title: "Porozumět vaší faktuře pro Azure | Microsoft Docs"
+title: "Porozumět vaší faktuře pro Azure"
 description: "Zjistěte, jak číst a porozumět využívání a fakturovaná částka u předplatného Azure"
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Vysvětlení vašeho vyúčtování služeb Microsoft Azure
 Chcete-li vysvětlení faktury Azure, porovnejte faktury s podrobné soubor denní využití a správu sestav náklady na portálu Azure.
@@ -34,9 +34,8 @@ Podrobné podmínky a popisy faktury a podrobný soubor denní využití najdete
 Podrobnosti sestavy náklady na správu najdete v tématu [Správa nákladů na portálu Azure](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Jak se ujistěte se, zda jsou informace správné poplatky v fakturou?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Pokud je na vaší faktuře, které chcete podrobnosti na zpoplatněny, existuje několik možností.
 
@@ -49,7 +48,7 @@ Vaše poplatky za používání se zobrazí na úrovni měření. Následující
  | Faktura (PDF) | Podrobné informace o použití (CSV)|
  | --- | --- |
 |Fakturační cyklus | Fakturační období |
- |Name (Název) |Kategorie měření |
+ |Název |Kategorie měření |
  |Typ |Podkategorie měření |
  |Prostředek |Název měření |
  |Oblast |Oblast měření |

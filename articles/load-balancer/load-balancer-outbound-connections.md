@@ -3,8 +3,8 @@ title: "Principy odchozí připojení v Azure | Microsoft Docs"
 description: "Tento článek vysvětluje, jak Azure umožňuje virtuálním počítačům komunikovat s služby veřejného Internetu."
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Principy odchozích připojení v Azure
 
@@ -46,7 +46,7 @@ Můžete použít [analýzy protokolů pro vyrovnávání zatížení](load-bala
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Vyrovnávání zatížení sítě virtuálních počítačů s žádné Instance úroveň veřejnou IP adresu
 
-Virtuální počítač v tomto scénáři je součástí fondu vyrovnávání zatížení Azure.  Virtuální počítač nemá veřejnou IP adresu přiřazen. Prostředek pro vyrovnávání zatížení musí být nakonfigurované na pravidlo můžete propojit veřejnou IP front-endovou s fondem back-end.  Pokud nezadáte tuto konfiguraci, toto chování je, jak je popsáno v předchozí části pro [samostatný virtuální počítač s žádné Instance úroveň veřejnou IP adresu](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+Virtuální počítač v tomto scénáři je součástí fondu vyrovnávání zatížení Azure.  Virtuální počítač nemá veřejnou IP adresu přiřazen. Vyrovnávání zatížení prostředků musí být nakonfigurované pravidlo Vyrovnávání zatížení pro vytvoření odkazu mezi veřejnou IP front-endovou s fondem back-end. Pokud nezadáte tuto konfiguraci, toto chování je, jak je popsáno v předchozí části pro [samostatný virtuální počítač s žádné Instance úroveň veřejnou IP adresu](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 Při vyrovnávání zatížení sítě virtuálního počítače vytvoří odchozí tok, znamená, že Azure privátní zdrojovou IP adresu odchozího toku veřejnou IP adresu veřejnou front-endovou Vyrovnávání zatížení. Azure používá zdroje síťové adresy překlad (SNAT) a provést tuto funkci. Dočasné porty nástroje pro vyrovnávání zatížení veřejnou IP adresu se používají k rozlišení jednotlivých toky pochází ve virtuálním počítači. Překládat pomocí SNAT dynamicky přiděluje dočasné porty, když se vytváří odchozí toky. V tomto kontextu jsou dočasné porty používané pro překládat pomocí SNAT označovány jako porty překládat pomocí SNAT.
 

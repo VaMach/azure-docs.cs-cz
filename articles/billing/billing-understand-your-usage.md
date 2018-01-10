@@ -1,5 +1,5 @@
 ---
-title: "Porozumět Azure podrobné používání | Microsoft Docs"
+title: "Porozumět Azure podrobné používání"
 description: "Zjistěte, jak ke čtení a pochopení v částech vaší podrobné informace o použití sdíleného svazku clusteru pro vaše předplatné Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Pochopit podmínky na vaše poplatky Azure podrobné informace o použití Microsoftu 
+
 Soubor CSV poplatky podrobné informace o použití obsahuje denně a měření poplatky za používání úrovně pro aktuální fakturační období. 
 
 Chcete-li získat podrobné informace o použití souboru, přečtěte si téma [jak získat vaše Azure fakturace faktury a denní data o využití](billing-download-azure-invoice-daily-usage-date.md).
@@ -28,15 +29,14 @@ Je k dispozici ve formátu souboru hodnot oddělených čárkami (.csv), který 
 
 Poplatky za používání jsou celkový počet **měsíční** poplatky na předplatném. Poplatky za používání nemáte vzít v úvahu žádné kredity ani slevy.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Podrobné podmínky a popisy podrobné informace o použití souboru
+
 Následující části popisují důležité termíny ukazuje verze 2 podrobné informace o použití souboru.
 
-### <a name="statement"></a>Příkaz
+### <a name="statement"></a>Výraz
+
 V horní části ze souboru CSV podrobné informace o použití zobrazí služby, které jste použili při v měsíci fakturačního období. V následující tabulce jsou uvedeny podmínky a popisy uvedené v této sekci.
 
 | Označení | Popis |

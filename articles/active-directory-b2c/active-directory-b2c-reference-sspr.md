@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 27bc191c66b195692e324d1a10ab276b561ef129
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0a10869477647820828b22b6291522be255844d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: Nastavení samoobslužného resetování hesla pro uživatele
 Funkce resetování hesla pomocí samoobslužné služby s uživatele (kteří zaregistrovali pro místní účty) mohou resetovat svá hesla na své vlastní. To významně snižuje zátěž vašim zaměstnancům technické podpory, zvlášť pokud vaše aplikace nemá milionům příjemcům na základě v pravidelných intervalech. V současné době podporujeme jenom pomocí ověřenou e-mailovou adresu jako metodu obnovení. Přidáme obnovení dodatečné metody (ověřené telefonní číslo, bezpečnostní otázky atd.) v budoucnu.
@@ -30,14 +30,11 @@ Funkce resetování hesla pomocí samoobslužné služby s uživatele (kteří z
 
 Ve výchozím nastavení, nebudou mít adresáře hesla pomocí samoobslužné služby resetování zapnutý. Chcete-li pomocí následujících kroků:
 
-1. Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com/) jako Správce předplatného. Toto je stejný pracovní nebo školní účet nebo stejný účet Microsoft, který jste použili k vytvoření adresáře.
-2. Přejděte na rozšíření Active Directory v navigačním panelu na levé straně.
-3. Najít váš adresář **Directory** kartě a klikněte na něj.
-4. Klikněte na kartu **KONFIGUROVAT**.
-5. Přejděte dolů k položce **zásady resetování hesel uživatelů** části a přepnutí **uživatele povolen pro resetování hesla** možnost k **Ano**. Všimněte si, že **alternativní e-mailovou adresu** zaškrtnutá možnost; necháte, protože se jedná.
-   
-    ![Samoobslužné resetování hesla](./media/active-directory-b2c-reference-sspr/sspr.png)
-6. V dolní části stránky klikněte na **Uložit**. Hotovo!
+1. Přihlaste se k [portál Azure](https://portal.azure.com/) jako správce předplatného. Toto je stejný pracovní nebo školní účet nebo stejný účet Microsoft, který jste použili k vytvoření adresáře.
+2. Spustit službu Active Directory (v navigačním panelu na levé straně).
+3. Vyberte **vlastnosti**.
+4. Přejděte dolů k položce **povolit samoobslužné resetování hesla** části a jeho přepínání **všechny**. 
+5. Klikněte na tlačítko **Uložit** v horní části stránky. Hotovo!
 
 K testování, pomocí funkce "Spustit nyní" na všechny zásady přihlášení, který má místní účty jako zprostředkovatele identity. Na přihlášení místní účet stránka (kde zadáte e-mailovou adresu a heslo, nebo uživatelské jméno a heslo), klikněte na tlačítko **nelze získat přístup k účtu?** ověření prostředí pro uživatele.
 

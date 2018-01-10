@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d468944883cca80946001724c38dd5ec9ba0d94f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Trvalé svazky s Azure soubory – dynamické zajišťování
 
@@ -79,7 +79,7 @@ parameters:
 Deklaraci identity svazku trvalé používá objektu třídy úložiště pro dynamicky zajišťují část úložiště. Pokud používáte Azure Files, se vytvoří sdílenou složku Azure v účtu úložiště vybraný nebo zadaný v objektu třídy úložiště.
 
 >  [!NOTE]
->   Zajistěte, aby že byl účet úložiště vhodný předem vytvořené ve stejné skupině prostředků jako AKS cluster. Deklarace identity trvalé svazku se nepodaří zřízení Azure sdílená Pokud účet úložiště není k dispozici. 
+>   Ujistěte se, že byl účet úložiště vhodný předem vytvořené ve stejné skupině prostředků jako AKS prostředků clusteru. Tato skupina prostředků má název, jako je *MC_myAKSCluster_myAKSCluster_eastus*. Deklarace identity trvalé svazku se nepodaří zřízení Azure sdílená Pokud účet úložiště není k dispozici. 
 
 Následující manifest je použít k vytvoření svazku trvalé deklarace `5GB` velikost `ReadWriteOnce` přístup. Další informace o PVC režimy přístupu najdete v tématu [režimy přístupu][access-modes].
 

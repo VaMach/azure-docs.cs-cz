@@ -1,32 +1,32 @@
 ---
-title: "Vytvoření funkce aplikace a nasazení funkce kód z Visual Studio Team Services | Microsoft Docs"
+title: "Vytvoří funkci, v Azure, který je nasazen z Visual Studio Team Services | Microsoft Docs"
 description: "Vytvoření funkce aplikace a nasazení funkce kód z Visual Studio Team Services"
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Vytvoření služby aplikace
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Vytvoří funkci, v Azure, který je nasazen z Visual Studio Team Services
 
-V tomto scénáři zjistíte, jak vytvořit aplikaci funkce, která používá [plánu spotřeby](../functions-scale.md#consumption-plan) a nastavit průběžné nasazování z Visual Studio Team Services (VSTS) úložiště. Tato ukázka je třeba:
+Toto téma ukazuje, jak používat Azure Functions k vytvoření [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) funkce aplikace pomocí [plánu spotřeby](../functions-scale.md#consumption-plan). Funkce aplikace, která je kontejner pro funkce, nepřetržitě nasazení z Visual Studio Team Services (VSTS) úložiště. K dokončení tohoto tématu, musíte mít:
 
-* Služby VSTS úložiště s kódem funkce, které mají oprávnění pro správu.
-* A [Personal Access Token (Jan)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) pro váš účet GitHub.
+* Služby VSTS úložiště, který obsahuje projektu funkce aplikace a ke které máte oprávnění pro správu.
+* A [osobní přístupový token (Jan)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) pro přístup k vaší služby VSTS úložiště.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, musíte používat Azure CLI verze 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud místo používáte Azure CLI místně, musíte nainstalovat a použít verze 2.0 nebo novější. Chcete-li určit verzi rozhraní příkazového řádku Azure, spusťte `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Ukázkový skript
 
@@ -38,7 +38,7 @@ Tato ukázka funkce Azure aplikace vytvoří a nasadí funkce kód z Visual Stud
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy k vytvoření skupiny prostředků, webové aplikace, documentdb a všechny související prostředky. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
+Tento skript používá následující příkazy k vytvoření skupiny prostředků, účet úložiště, aplikaci funkce a všechny související prostředky. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
 
 | Příkaz | Poznámky |
 |---|---|

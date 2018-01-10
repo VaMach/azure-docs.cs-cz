@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2018
 ms.author: cynthn
-ms.openlocfilehash: 81f0a7aacb1fd9d235d5422d22eb850e179c8387
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: d803d9bba6f88d458f2cae0b51d1f76f7ebbe4ff
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Pokyny pro minimalizaci spekulativní provádění straně kanál ohrožení zabezpečení
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Pokyny pro minimalizaci spekulativní provádění straně kanál slabá místa zabezpečení v Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]

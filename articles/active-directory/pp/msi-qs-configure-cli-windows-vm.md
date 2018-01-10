@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2aed60c2b35d750c892bc61c0e2693d6407c641f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Konfigurace přiřazený uživatelem spravované služby Identity (MSI) pro virtuální počítač, pomocí rozhraní příkazového řádku Azure
 
@@ -106,7 +106,7 @@ Odpověď obsahuje podrobnosti pro přiřazené uživatele soubor MSI vytvořili
 2. Virtuální počítač pomocí přiřadit MSI přiřazený uživatelem [az virtuálních počítačů přiřazení identity](/cli/azure/vm#az_vm_assign_identity). Nezapomeňte nahradit `<RESOURCE GROUP>` a `<VM NAME>` hodnoty parametrů s vlastními hodnotami. `<MSI ID>` Bude MSI přiřazený uživatelem prostředek `id` vlastnost, protože vytvořili v předchozím kroku:
 
     ```azurecli-interactive
-    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities <MSI ID>
+    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
     ```
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Odebrání virtuálního počítače Azure MSI

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Řešení potíží s Azure Backup selhání: problémy s agenta nebo rozšíření
 
@@ -28,7 +28,14 @@ Tento článek obsahuje pro řešení potíží k řešení zálohování chyby 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Nelze navázat komunikaci s Azure Backup Agent virtuálního počítače
+
+> [!NOTE]
+> Pokud spuštění zálohování virtuálního počítače s Linuxem Azure selhání s touto chybou na nebo po 4. ledna 2018, spusťte následující příkaz v ovlivněných virtuální počítače a opakujte zálohování
+
+    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+
 Po registraci a naplánovat virtuálního počítače pro službu Azure Backup, zálohování spustí úlohu komunikaci s agentem virtuálních počítačů k pořízení snímku v daném okamžiku. Některé z následujících podmínek může zabránit snímek z se aktivuje, což následně může vést k selhání zálohování. Postupujte podle níže řešení potíží s kroky v uvedeném pořadí a opakujte operaci.
+
 ##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Příčina 1: [virtuální počítač nemá žádný přístup k Internetu](#the-vm-has-no-internet-access)
 ##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Příčina 2: [agenta je nainstalovaná ve virtuálním počítači, ale je reagovat (pro virtuální počítače Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Příčina 3: [agent nainstalovaný ve virtuálním počítači je zastaralý (pro virtuální počítače s Linuxem)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)

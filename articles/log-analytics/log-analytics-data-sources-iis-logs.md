@@ -1,6 +1,6 @@
 ---
-title: "Služba IIS přihlásí Log Analytics | Microsoft Docs"
-description: "Internetové informační služby (IIS) ukládá aktivity uživatelů v souborech protokolů, které může shromáždit analýzy protokolů.  Tento článek popisuje, jak nakonfigurovat kolekce protokoly služby IIS a podrobnosti o záznamy, které vytvoří v úložišti OMS."
+title: "Služba IIS přihlásí Azure Log Analytics | Microsoft Docs"
+description: "Internetové informační služby (IIS) ukládá aktivity uživatelů v souborech protokolů, které může shromáždit analýzy protokolů.  Tento článek popisuje, jak nakonfigurovat kolekce protokoly služby IIS a podrobnosti o záznamy, které vytvoří v pracovním prostoru analýzy protokolů."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="iis-logs-in-log-analytics"></a>Služba IIS přihlásí analýzy protokolů
 Internetové informační služby (IIS) ukládá aktivity uživatelů v souborech protokolů, které může shromáždit analýzy protokolů.  
@@ -76,7 +76,7 @@ Následující tabulka obsahuje příklady různých dotazů protokolu, které n
 | W3CIISLog &#124; kde csHost == "www.contoso.com" &#124; shrnout count() podle csUriStem |Počet z protokolu služby IIS položky podle adresy URL pro www.contoso.com hostitele. |
 | W3CIISLog &#124; shrnout sum(csBytes) podle počítače &#124; trvat 500000 |Celkový počet přijatých bajtů na každém počítači služby IIS. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Konfigurace analýzy protokolů ke shromažďování dalších [zdroje dat](log-analytics-data-sources.md) pro analýzu.
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) analyzovat data shromážděná ze zdrojů dat a řešení.
 * Konfigurace výstrah v analýzy protokolů pro proaktivní upozornění důležité podmínek najít v protokolech služby IIS.

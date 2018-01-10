@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definic Azure Policy
 
@@ -21,7 +21,7 @@ Definice zásad prostředků používané zásad Azure umožňuje vytvořit konv
 
 JSON použijete k vytvoření definice zásady. Definice zásad obsahuje prvky pro:
 
-* Režim
+* režim
 * parameters
 * Zobrazovaný název
 * description
@@ -64,7 +64,7 @@ Například následujícím kódu JSON zobrazuje zásadu, která omezuje, kdy js
 
 Všechny ukázky šablony zásad Azure jsou [šablon pro Azure zásad](json-samples.md).
 
-## <a name="mode"></a>Režim
+## <a name="mode"></a>Mode
 
 Doporučujeme, abyste nastavili `mode` k `all` tak, aby měl zásady přiřazení vyhodnotit všechny skupiny prostředků a typy. Můžete zobrazit příklad definice zásady, které vynucuje značky na skupinu prostředků na [povolit vlastní image virtuálního počítače ze skupiny prostředků](scripts/allow-custom-vm-image.md).
 
@@ -200,7 +200,6 @@ Zásady podporuje následující typy vliv:
 * **Připojit**: Přidá definovanou sadu pole k této žádosti
 * **AuditIfNotExists**: umožňuje auditování, pokud prostředek neexistuje.
 * **DeployIfNotExists**: nasadí prostředku, pokud ještě neexistuje. V současné době tímto účelem je podporována pouze prostřednictvím integrovaných zásad.
-* **DenyIfNotExists**: vytvoření existují se odepře, pokud neexistuje
 
 Pro **připojit**, je nutné zadat následující podrobnosti:
 
@@ -216,7 +215,7 @@ Pro **připojit**, je nutné zadat následující podrobnosti:
 
 Hodnota může být řetězec nebo objekt formátu JSON.
 
-S **AuditIfNotExists**, **DeployIfNotExists**, a **DenyIfNotExists**, kterou můžete vyhodnotit existenci podřízených prostředků a použít pravidlo a odpovídající efekt Když tento prostředek neexistuje. Například může vyžadovat, že sledovací proces sítě nasazuje pro všechny virtuální sítě.
+S **AuditIfNotExists** a **DeployIfNotExists** můžete vyhodnotit existenci podřízených prostředků a použít pravidlo a odpovídající efekt, pokud tento prostředek neexistuje. Například může vyžadovat, že sledovací proces sítě nasazuje pro všechny virtuální sítě.
 Příklad audit, když není nasazený rozšíření virtuálního počítače, naleznete v části [Audit Pokud rozšíření neexistuje](scripts/audit-ext-not-exist.md).
 
 
@@ -337,7 +336,7 @@ Vlastnost aliasy používáte pro přístup k vlastnosti specifické pro typ pro
 | Microsoft.Storage/storageAccounts/sku.name | Název SKU nastavte. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Nastavte, aby umožňovala pouze provoz https pro službu úložiště. |
 
-## <a name="initiatives"></a>Iniciativami v oblasti
+## <a name="initiatives"></a>Iniciativy
 
 Povolit iniciativy seskupit několik související definice zásad ke zjednodušení přiřazení a správy, protože pracujete s skupinu jako jednu položku. Například můžete seskupit všechny související označování definice zásady v jednom iniciativy. Přiřazovat jednotlivě každou zásadu, můžete použít iniciativa zaměřená.
 
@@ -417,6 +416,6 @@ Následující příklad ukazuje, jak vytvořit initiative pro zpracování dvě
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Přečtěte si ukázky šablony zásad Azure v [šablon pro Azure zásad](json-samples.md).

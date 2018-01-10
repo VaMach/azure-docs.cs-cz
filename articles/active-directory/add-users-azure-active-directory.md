@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Rychlé spuštění: Přidání nových uživatelů do služby Azure Active Directory
-Tento článek vysvětluje, jak přidat nové uživatele ve vaší organizaci ve službě Azure Active Directory (Azure AD) jednoho současně pomocí portálu Azure nebo synchronizace účtu místního systému Windows Server AD uživatelská data. 
+Tento článek vysvětluje, jak odstranit nebo přidat uživatele ve vaší organizaci do vaší orgnization klienta Azure Active Directory (Azure AD) pomocí portálu Azure nebo synchronizace účtu místního systému Windows Server AD uživatelská data. 
 
 ## <a name="add-cloud-based-users"></a>Přidání cloudových uživatelů
 1. Přihlaste se k [centra pro správu Azure Active Directory](https://aad.portal.azure.com) pomocí účtu, který je globální správce adresáře.
@@ -48,10 +48,13 @@ Tento článek vysvětluje, jak přidat nové uživatele ve vaší organizaci ve
 
 ### <a name="learn-more"></a>Další informace 
 * [Přidat uživatele typu Host z jiného adresáře](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Přiřazení uživatele k roli ve službě Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
+* [Obnovení odstraněného uživatele](active-directory-users-restore.md)
 
-## <a name="next-steps"></a>Další kroky
+
+
+## <a name="next-steps"></a>Další postup
 V tento rychlý start když jste se naučili postup přidání nových uživatelů do Azure AD Premium. 
 
 Na následující odkaz můžete použít k vytvoření nového uživatele ve službě Azure AD na portálu Azure.

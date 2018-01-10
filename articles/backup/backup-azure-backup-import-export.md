@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Pracovní postup offline zálohování ve službě Azure Backup
 Zálohování Azure má několik předdefinovaných efektivitu, která ukládají náklady na síť a úložiště během počáteční úplné zálohy dat do Azure. Počáteční úplné zálohování obvykle přenos velkých objemů dat a vyžaduje větší šířku pásma sítě ve srovnání s následné zálohy, které přenášejí pouze rozdílů/přírůstková. Zálohování Azure komprimaci prvotní zálohy. Proces offline synchronizace replik indexů Azure Backup můžete použít disky k nahrání komprimovaná data prvotní zálohy do offline režimu Azure.  
@@ -46,7 +46,7 @@ Po dokončení nahrávání dat zálohování do Azure, Azure Backup zkopíruje 
   * Byla vytvořena trezoru zálohování Azure.
   * Stažené přihlašovací údaje trezoru.
   * Na Windows Server nebo Windows klienta nebo serveru System Center Data Protection Manager se nainstaloval agenta Azure Backup a počítač je zaregistrován v trezoru zálohování Azure.
-* [Stahování souboru nastavení publikování Azure](https://manage.windowsazure.com/publishsettings) na počítači, ze kterého plánujete zálohování dat.
+* [Stahování souboru nastavení publikování Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) na počítači, ze kterého plánujete zálohování dat.
 * Příprava pracovní umístění, což může být na sdílené síťové složce nebo další jednotku na počítači. Pracovní umístění je přechodným úložištěm a používá se dočasně během tento pracovní postup. Zajistěte, aby pracovní umístění dostatek místa na disku pro uložení počáteční kopii. Například pokud chcete zálohovat 500 GB souborový server, zajistěte, aby byl v pracovní oblasti alespoň 500 GB. (Menší velikost se používá v důsledku komprese.)
 * Ujistěte se, zda používáte podporované jednotku. Pouze 2,5 SSD nebo 2.5 nebo 3,5 SATA II/III interní pevné disky jsou podporovány pro použití se službou importu a exportu. Pevné disky můžete použít až do 10 TB. Zkontrolujte [dokumentace ke službě Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) pro nejnovější sadu disků, které služba podporuje.
 * Povolte nástroj BitLocker v počítači, ke kterému je připojený zapisovače jednotky SATA.
@@ -67,7 +67,7 @@ Informace v této části vám pomůže dokončit pracovní postup offline zálo
 
     * **Pracovní umístění**: dočasné úložiště umístění, do které se zapíše kopie prvotní zálohy. To může být na sdílené síťové složky nebo místního počítače. Pokud počítač kopie a zdrojového počítače liší, doporučujeme, že zadáváte cestu plné síti pracovní umístění.
     * **Azure název úlohy importu**: jedinečný název, který Import úložiště Azure service a Azure Backup sledovat přenos dat odesílaných na discích do Azure.
-    * **Nastavení Azure publikování**: soubor ve formátu XML, který obsahuje informace o profilu vašeho předplatného. Obsahuje taky zabezpečené přihlašovací údaje, které jsou spojeny s předplatným. Můžete [stáhněte soubor](https://manage.windowsazure.com/publishsettings). Zadejte místní cestu k souboru nastavení publikování.
+    * **Nastavení Azure publikování**: soubor ve formátu XML, který obsahuje informace o profilu vašeho předplatného. Obsahuje taky zabezpečené přihlašovací údaje, které jsou spojeny s předplatným. Můžete [stáhněte soubor](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Zadejte místní cestu k souboru nastavení publikování.
     * **ID předplatného Azure**: ID předplatného Azure pro předplatné, kde chcete zahájit úlohy importu v Azure. Pokud máte víc předplatných Azure, použijte Identifikátor odběru, který chcete přidružit k úloze importu.
     * **Účet služby Azure Storage**: účet úložiště v rámci předplatného Azure přidružené úlohy importu v Azure.
     * **Kontejner úložiště Azure**: název cílový objekt blob úložiště v účtu úložiště Azure, kde tato úloha importu.
@@ -206,6 +206,6 @@ Po dokončení úlohy importu dat prvotní zálohy je k dispozici ve vašem úč
 ### <a name="complete-the-workflow"></a>Dokončení pracovního postupu
 Po počáteční zálohovací data je k dispozici ve vašem účtu úložiště, agenta služeb zotavení Microsoft Azure zkopíruje obsah data z tohoto účtu do trezoru služby Backup nebo trezor služeb zotavení, podle toho, která se vztahuje. V další čas plánu zálohování aplikace Azure Backup agent provádí přírůstkové zálohování přes kopie prvotní zálohy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Všechny dotazy týkající se Azure Import/Export pracovního postupu najdete v části [používat službu Microsoft Azure Import/Export k přenosu dat do úložiště objektů Blob](../storage/common/storage-import-export-service.md).
 * Informace naleznete v sekci zálohování offline ze služby Azure Backup [– nejčastější dotazy](backup-azure-backup-faq.md) pro všechny dotazy týkající se pracovní postup.

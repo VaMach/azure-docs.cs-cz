@@ -1,24 +1,20 @@
 ---
 title: "O nespravované (objekty BLOB stránky) a spravovaných disky úložiště pro virtuální počítače Windows Microsoft Azure | Microsoft Docs"
 description: "Další informace o základní informace o nespravovaných (objekty BLOB stránky) a spravovaných disky úložiště pro virtuální počítače s Windows v Azure."
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
-ms.service: storage
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>O disky úložiště pro virtuální počítače Windows Azure
 Stejně jako všechny ostatní počítače virtuálních počítačů v Azure používat disky jako místo pro uložení operačního systému, aplikace a data. Všechny virtuální počítače Azure mít aspoň dva disky – disk operačního systému Windows a dočasný disk. Vytváření disku operačního systému z bitové kopie a disku operačního systému a image jsou virtuální pevné disky (VHD) uložené v účtu úložiště Azure. Virtuální počítače také může mít jeden nebo více datových disků, které jsou také uloženy jako virtuální pevné disky. 
@@ -51,7 +47,7 @@ Datový disk je virtuální pevný disk, který je připojen k virtuálnímu po�
 
 Azure vytvoří disk operačního systému, když vytvoříte virtuální počítač z bitové kopie. Pokud používáte image, která obsahuje datové disky, Azure vytvoří datových disků také při vytváření virtuálního počítače. V opačném datových disků přidat po vytvoření virtuálního počítače.
 
-Můžete přidat datových disků pro virtuální počítač v každém okamžiku nástrojem **připojení** disk k virtuálnímu počítači. Můžete vytvořit virtuální pevný disk, který jste nahráli nebo můžete zkopírovat do svého účtu úložiště nebo ten, který pro vás vytvoří Azure. Připojením datového disku přiřadí soubor virtuálního pevného disku s virtuálním Počítačem umístěním zapůjčení na virtuální pevný disk, nelze jej odstranit z úložiště při je stále připojen.
+Můžete přidat datových disků pro virtuální počítač v každém okamžiku nástrojem **připojení** disk k virtuálnímu počítači. Můžete použít virtuální pevný disk, který jste nahráli nebo můžete zkopírovat do svého účtu úložiště, nebo použijte prázdný virtuální pevný disk, který pro vás vytvoří Azure. Připojením datového disku přiřadí soubor virtuálního pevného disku s virtuálním Počítačem umístěním zapůjčení na virtuální pevný disk, nelze jej odstranit z úložiště při je stále připojen.
 
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
@@ -78,7 +74,7 @@ fsutil behavior set DisableDeleteNotify 0
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Připojit disk](attach-disk-portal.md) přidat další úložiště pro virtuální počítač.
 * [Vytvoření snímku](snapshot-copy-managed-disk.md).
 * [Převést na spravované disky](convert-unmanaged-to-managed-disks.md).

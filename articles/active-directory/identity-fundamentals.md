@@ -1,5 +1,5 @@
 ---
-title: "Základy správy identit Azure | Microsoft Docs"
+title: "Základy správy identit Azure"
 description: "Cloudové identity jsou nyní nejlepší způsob, jak udržovat kontrolu nad a získat přehled o tom, jak a kdy uživatelé přístup k podnikovým aplikacím a datům."
 keywords: 
 author: jeffgilb
@@ -13,13 +13,14 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Základy správy identit Azure
+
 Jako více společnosti digitální prostředky za provozu mimo podnikovou síť, v cloudu a na zařízeních, skvělé cloudových identit a přístupu řešení pro správu se stává stále nezbytné. Cloudové identity jsou nyní nejlepší způsob, jak udržovat kontrolu nad a získat přehled o tom, jak a kdy uživatelé přístup k podnikovým aplikacím a datům.
 
 Microsoft má byla zabezpečení cloudových identit pro přes deset a teď se [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), jsou k dispozici tyto stejné systémy ochrany. S Azure AD můžete správcům snadno zajistit odpovědnosti za uživatele a správce s lepší zabezpečení a zásad správného řízení než kdy dřív.
@@ -27,7 +28,7 @@ Microsoft má byla zabezpečení cloudových identit pro přes deset a teď se [
 Azure AD Premium je cloudových identit a přístupu řešení pro správu pomocí funkce rozšířené ochrany umožňující jednu zabezpečené identitu pro všechny aplikace, ochranu identity (rozšířené pomocí [Microsoft graph zabezpečení intelligence](https://www.microsoft.com/en-us/security/intelligence)) a Privileged Identity Management. Jenom další monitorování nebo generování sestav nástroj Azure AD Premium může chránit identit uživatelů v reálném čase a umožňují vytvořit zásady na základě riziko, adaptivní přístupu k ochraně dat vaší organizace.
 
 Podívejte se na následující krátké video pro rychlý přehled o správu identit Azure AD a ochrany:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
 Společnost Microsoft poskytuje nejen identitou, která přebírá everywhere, ale taky sadu nástrojů pro automatizaci, zabezpečení a správě IT v rámci vaší organizace. I po nástupem cloud computing přetrvává vyžádání spravovat a řídit IT úkoly, jako je volání na helpdesk k resetování uživatelských hesel, správu skupiny uživatelů a žádosti o aplikace. Komplikují další věci, zaměstnanci teď přináší svá osobní zařízení k práci a používání aplikace SaaS ve snadno dostupné. Díky tomu Údržba kontrolu nad svých aplikací mezi datovými centry podnikové a veřejný cloud platformy významné problémy.
 
@@ -74,5 +75,5 @@ Správa identit Azure můžete:
 
 -   Využít [vysokou dostupnost a spolehlivost](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) služby po celém světě, podnikové úrovni, cloudových identit a přístupu řešení pro správu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace o řešení Azure identity](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)

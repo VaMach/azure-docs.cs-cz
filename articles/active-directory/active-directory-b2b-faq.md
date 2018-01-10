@@ -13,20 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/23/2017
+ms.date: 01/08/2018
 ms.author: sasubram
-ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: sasubram
+ms.openlocfilehash: 4c43082281cbc95ae75b65a2aefadbbab6d7cd30
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Spolupráce Azure Active Directory s B2B nejčastější dotazy
 
 Tyto nejčastější dotazy (FAQ) o spolupráci Azure Active Directory (Azure AD) business-to-business (B2B) se pravidelně aktualizují zahrnout nová témata.
-
-### <a name="is-azure-ad-b2b-collaboration-available-in-the-azure-classic-portal"></a>Je k dispozici na portálu Azure classic spolupráce Azure AD B2B?
-Ne. Funkce spolupráce Azure AD s B2B jsou k dispozici pouze v [portál Azure](https://portal.azure.com) a v [přístupový Panel](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Jsme naše přihlašovací stránka přizpůsobit, tak, aby byl pro naše uživatele typu Host spolupráce B2B intuitivnější?
 Absolutně! V tématu naše [příspěvku na blogu o této funkci](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Další informace o tom, jak přizpůsobit přihlašovací stránku vaší organizace najdete v tématu [přidání firemního brandingu na přihlašovací a přístupového panelu](customize-branding.md).
@@ -93,7 +91,7 @@ V současné době Microsoft Dynamics CRM neposkytuje online podporu pro spolupr
 Azure AD má pevnou sadu znaků, síly hesla a účet, který uzamčení požadavky, které se rovněž vztahují na všechny Azure AD cloud uživatelské účty. Cloud uživatelské účty jsou účty, které nejsou Federovaná pomocí jiného poskytovatele identity, jako například 
 * Účet Microsoft
 * Facebook
-* Služba Active Directory Federation Services
+* Služba AD FS (Active Directory Federation Services)
 * Jiného klienta cloudu (pro spolupráci B2B)
 
 Pro federované účty zásady hesel závisí na zásadu, která je použitá v místní klientů a nastavení účtu Microsoft uživatele.
@@ -129,7 +127,7 @@ Ano. Podporuje spolupráce Azure AD s B2B povolit seznamy a seznamy zakázat.
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Jaké licence je potřeba použít Azure AD B2B?
 Informace o co licence potřeb vaší organizace používat Azure AD B2B najdete v tématu [spolupráce Azure Active Directory s B2B licencování pokyny](active-directory-b2b-licensing.md).
 
-### <a name="next-steps"></a>Další kroky
+### <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

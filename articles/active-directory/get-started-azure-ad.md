@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Začínáme s Azure AD
 Moderní identity managementu vyžaduje proporcionálních a konzistentní reliablity k zajištění dostupnosti probíhá aplikací a služeb pouze ověřené uživatele. Pro potřeby správy identity uživatelů, musí oddělení IT dostat adekvátní podporu způsob, jak poskytnout přístup k schválené, veřejné software jako služba (SaaS) aplikace, způsob, jak hostitele řádku interní obchodní aplikace a i prostředky pro zlepšení místní vývoj aplikací a využití. Všechny tyto požadavky nasměrujte potřeba řešení pro správu cloudových identit.      
 
 Azure Active Directory (Azure AD) je Microsoft je více klientů, cloudu na základě adresáře a identity management service. Azure AD kombinuje základní adresářové služby, pokročilé identity zásad správného řízení a správa přístupu aplikací. Návrh víceklientské, zeměpisné polohy, vysokou dostupnost služby Azure AD znamená, že můžete spoléhat na pro vaše nejdůležitější obchodní potřeby.
 
-Azure AD zahrnuje úplná sada funkcí správy identit, včetně možnosti synchronizace informací o prostředku v místě, přizpůsobitelné firemní branding, Správa licencí jednoduché a správu hesla pomocí samoobslužné služby i.  Tyto snadno nastavit možnosti může pomoci začít používat Azure AD pro zabezpečené cloudové aplikace, zjednodušit procesy IT, snížit náklady a zajistit, že byly splněny dodržování podnikových předpisů cíle.
+Azure AD zahrnuje úplná sada funkcí správy identit, včetně možnosti synchronizace informací o prostředku v místě, přizpůsobitelné firemní branding, Správa licencí jednoduché a správu hesla pomocí samoobslužné služby i. Tyto možnosti pro snadné nasazení můžete začít používat Azure AD zabezpečené cloudové aplikace, zjednodušit procesy IT, snížit náklady a zajistit, že byly splněny dodržování podnikových předpisů cíle.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -60,7 +60,7 @@ Mnoho společností chce předcházet zmatení uživatele a upřednostňuje jedn
 ### <a name="verification-step"></a>Krok ověření
 Přihlaste se k portálu Azure a zkontrolujte, jestli vaše upravené stránky pro přihlášení a další jazyková nastavení správně nakonfigurovaný. 
 
-## <a name="add-new-users"></a>Přidání nových uživatelů
+## <a name="add-new-users"></a>Přidat nové uživatele
 Můžete [přidání nových uživatelů do vaší organizace Azure AD](add-users-azure-active-directory.md) jednoho současně pomocí portálu Azure nebo synchronizací dat prostředků systému Windows Server AD místně. Můžete přidat cloudových uživatelů přímo z portálu Azure AD nebo synchronizovat informace o uživateli na místě.
 
 Pokud chcete povolit místní synchronizaci identit s Azure AD, je nutné na serveru ve vaší organizaci nainstalovat a nakonfigurovat službu [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Tato aplikace se stará o synchronizaci uživatelů a skupin mezi vaším existujícím zdrojem identit a vaším tenantem Azure AD.
@@ -80,14 +80,14 @@ Přiřazení na základě skupiny licencí můžete použít k nastavení pravid
 ### <a name="verification-step"></a>Krok ověření
 Zkontrolujte přiřazené a dostupných licencí v rámci **Azure Active Directory** > **licence** > **všechny produkty**.
 
-## <a name="configure-self-service-password-reset"></a>Konfigurace samoobslužné resetování hesla
+## <a name="configure-self-service-password-reset"></a>Konfigurovat samoobslužné resetování hesla
 [Samoobslužného obnovení hesla (SSPR)](active-directory-passwords-getting-started.md) nabízí jednoduchý znamená pro správce IT, aby mohli uživatelé resetovat nebo odemknout jejich hesla nebo účty. Tento systém zahrnuje vytváření podrobných sestav, pomocí kterých můžete sledovat, kdy uživatelé systém používají, spolu s oznámeními, která upozorňují na zneužití.
 
 ### <a name="verification-step"></a>Krok ověření
 Zkontrolujte povolené vlastnosti SSPR pod **Azure Active Directory** > **resetování hesla** zajistit správné uživatele a skupiny přiřazení byly provedeny. 
 
 
-## <a name="next-steps"></a>Další kroky
-[Stránku produktů Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## <a name="next-steps"></a>Další postup
+[Stránky služby Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory informace o stránce s cenami.](https://azure.microsoft.com/pricing/details/active-directory/)

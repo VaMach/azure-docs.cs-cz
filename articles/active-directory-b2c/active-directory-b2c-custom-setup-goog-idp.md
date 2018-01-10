@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Přidejte Google + jako zprostředkovatele identity OAuth2 pomocí vlastních zásad
 
@@ -175,7 +175,7 @@ Poskytovatel identity nastavit.  Však není k dispozici v žádném z obrazovky
 1.  Otevřete soubor základní zásad (například TrustFrameworkBase.xml).
 2.  Najít `<UserJourneys>` elementu a zkopírujte celý obsah `<UserJourneys>` uzlu.
 3.  Otevřete soubor rozšíření (například TrustFrameworkExtensions.xml) a najděte `<UserJourneys>` elementu. Pokud element neexistuje, přidejte jedno.
-4.  Vložte celý obsah `<UserJournesy>` uzlu, který jste zkopírovali jako podřízenou `<UserJourneys>` elementu.
+4.  Vložte celý obsah `<UserJourney>` uzlu, který jste zkopírovali jako podřízenou `<UserJourneys>` elementu.
 
 ### <a name="display-the-button"></a>Zobrazení tlačítka
 `<ClaimsProviderSelections>` Element definuje seznam možnosti výběru poskytovatele deklarací identity a jejich pořadí.  `<ClaimsProviderSelection>`Element je obdobou tlačítko zprostředkovatele identity na stránce registrace-množství nebo přihlášení. Pokud přidáte `<ClaimsProviderSelection>` element pro účet Google + nové tlačítko se zobrazí při pojmenováváme uživatele na stránce. Chcete-li přidat tento element:
@@ -243,6 +243,14 @@ Můžete také přidat zprostředkovatele identity účet Google + pro vaše už
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>Nahrát zásady klienta
+1.  V [portál Azure](https://portal.azure.com), přepněte do [kontextu klienta služby Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)a otevřete **Azure AD B2C** okno.
+2.  Vyberte **Identity rozhraní Framework**.
+3.  Otevřete **všechny zásady** okno.
+4.  Vyberte **nahrát zásady**.
+5.  Zkontrolujte **přepsat zásady, pokud existuje** pole.
+6.  **Nahrát** TrustFrameworkExtensions.xml a ujistěte se, že ověření neselže.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Otestovat vlastní úpravy profilu zásady pomocí spustit nyní
 

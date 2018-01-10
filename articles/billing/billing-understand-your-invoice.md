@@ -1,5 +1,5 @@
 ---
-title: "Pochopení faktury Azure | Microsoft Docs"
+title: "Pochopení faktury Azure"
 description: "Zjistěte, jak číst informace o využití a vyúčtování předplatného Azure a jak je chápat"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Pochopit podmínky na vaší faktuře Microsoft Azure
+
 Faktury poskytuje souhrn vaše poplatky a poskytuje pokyny pro platbu. Je k dispozici ke stažení ve Portable Document Format (PDF) z [portál Azure](https://portal.azure.com/) nebo lze odeslat e-mailem. Další informace najdete v tématu [jak získat vaše Azure fakturace faktury a denní data o využití](billing-download-azure-invoice-daily-usage-date.md).
 
 Všimněte si, několik akcí:
@@ -31,9 +32,7 @@ Všimněte si, několik akcí:
 
 -   Poplatky uvedené v příkazech fakturace pro mezinárodní zákazníci jsou odhad pouze pro účely. Bankami může mít různé náklady na převod sazby.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Podrobné podmínky a popisy faktury
 Následující části uvádějí důležité termíny, které se zobrazí na vaší faktuře a popisy ke každému termínu.
@@ -99,7 +98,7 @@ Následující tabulka popisuje záhlaví sloupců poplatky za využití zobraze
 
 | Označení |Popis |
 | --- | --- |
-| Name (Název) |Identifikuje nejvyšší úrovně služby využití |
+| Název |Identifikuje nejvyšší úrovně služby využití |
 | Typ |Definuje typ služby Azure, který může mít vliv na rychlost |
 | Prostředek |Identifikuje pro měření spotřebovávanou měrné jednotky |
 | Oblast |Určuje umístění datového centra pro určité služby, které jsou za cenu na základě umístění datového centra |
