@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: Brána OMS
               href: log-analytics-oms-gateway.md
-            - name: Řešení potíží s linuxovým agentem
-              href: log-analytics-agent-linux-support.md
         - name: Zdroje dat
           items:
             - name: Přehled zdrojů dat
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: Vlastní pole
               href: log-analytics-custom-fields.md
+            - name: Rozhraní API kolekce dat
+              href: log-analytics-data-collector-api.md
     - name: Dotazování dat
       items:
         - name: Dokumentace k jazyku
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: Odstranění pracovního prostoru
           href: log-analytics-manage-del-workspace.md
+    - name: Řešení potíží
+      items:
+        - name: Řešení potíží s rozšířením virtuálních počítačů
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Řešení potíží s linuxovým agentem
+          href: log-analytics-agent-linux-support.md
     - name: Použití řešení
       items:
         - name: Přehled řešení
           href: log-analytics-add-solutions.md
         - name: Cílová řešení
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Activity Log Analytics
-          href: log-analytics-activity.md
-        - name: Kontrola stavu AD
+        - name: Protokoly aktivit Azure
+          items:
+            - name: Analýzy
+              href: log-analytics-activity.md
+            - name: Shromažďování napříč předplatnými
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: Posouzení AD
           href: log-analytics-ad-assessment.md
         - name: Stav replikace AD
           href: log-analytics-ad-replication-status.md
@@ -244,8 +254,6 @@
           href: log-analytics-wire-data.md
     - name: Vývoj
       items:
-        - name: Rozhraní API kolekce dat
-          href: log-analytics-data-collector-api.md
         - name: Rutiny prostředí PowerShell
           href: log-analytics-powershell-workspace-configuration.md
         - name: Šablony Resource Manageru
@@ -257,7 +265,7 @@
               href: log-analytics-log-search-api-python.md
         - name: Rozhraní API pro výstrahy
           href: log-analytics-api-alerts.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Referenční informace k jazyku
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

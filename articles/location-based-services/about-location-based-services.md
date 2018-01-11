@@ -1,41 +1,41 @@
 ---
-title: "Přehled Azure umístění služby založené na | Microsoft Docs"
-description: "Úvod do Azure na základě polohy (preview)"
+title: "Azure Location Based Services – přehled | Dokumentace Microsoftu"
+description: "Úvod do služeb Azure Location Based Services (Preview)"
 services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
-ms.topic: article
+ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c8ebce06a72bcaf769a11ec954702463d7489aa0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="an-introduction-to-azure-location-based-services-preview"></a>Úvod do Azure na základě polohy (preview)
-Služby Azure na základě umístění je portfolio geoprostorové služeb, které zahrnují API služby Maps, hledání, směrování, provozu a časová pásma. Celém portfoliu služby vyhovující Azure OneAPI umožňuje použití nástrojů pro vývojáře známé rychle vyvíjet a škálování řešení, které informace o umístění integrovat do řešení Azure. Služby Azure na základě umístění poskytuje vývojářům ze všech odvětví geoprostorové výkonné možnosti naplněná čerstvé mapování dat imperativní poskytovat geografické kontext, který má web a mobilní aplikace. Služby Azure na základě umístění je kompatibilní s sada Azure jedno rozhraní API REST API společně s webové ovládací prvek jazyka JavaScript, aby vývoj super snadno, flexibilní a přenosné napříč více médií. 
+# <a name="an-introduction-to-azure-location-based-services-preview"></a>Úvod do služeb Azure Location Based Services (Preview)
+Azure Location Based Services je portfolio geoprostorových služeb, mezi které patří rozhraní API pro mapy, vyhledávání, trasy, provoz a časová pásma. Portfolio služeb odpovídajících standardu Azure OneAPI umožňuje používat známé nástroje pro vývojáře k rychlému vývoji a škálování komponent, které integrují informace o poloze do vašich řešení v Azure. Azure Location Based Services poskytuje vývojářům ze všech odvětví výkonné geoprostorové funkce společně s čerstvými mapovými daty, které jsou nezbytné k zajištění geografického kontextu pro webové a mobilní aplikace. Azure Location Based Services je sada rozhraní odpovídajících standardu Azure One API doplněná o webové řízení v JavaScriptu pro zajištění snadného, flexibilního a přenositelného vývoje napříč různými médii. 
 
-Služby Azure na základě umístění se skládá z pěti primární služeb účinnějšími Azure aplikací, které vyžadují geografické kontextu. Jednotlivé služby je vysvětleno v níže uvedené podrobnosti.
+Služby Azure Location Based Services se skládají z pěti primární služeb pro podporu aplikací v Azure, které vyžadují geografický kontext. Každá ze služeb je podrobně popsána níže.
 
-**Vykreslení služby** – služba vykreslení Service je určená pro vývojářům vytvářet webové a mobilní aplikace kolem mapování. Služba používá vysoce kvalitní rastrových obrázků grafické, k dispozici v 19 úrovně zvětšení nebo obrázky mapy plně přizpůsobitelná vektoru formátu.
+**Render Service** – Vykreslovací služba je určena vývojářům, kteří potřebují vytvářet webové a mobilní mapové aplikace. Služba nabízí buď vysoce kvalitní rastrové podklady v 19 úrovních přiblížení, nebo plně přizpůsobitelné vektorové obrazy.
 
-![Umístění Azure na základě Map.png služby](media/about-location-based-services/Introduction_Map.png)
+![Azure Location Based Services Map.png](media/about-location-based-services/Introduction_Map.png)
 
-**Směrování služby** – funkce směrování Service je vytvořené s robustní infrastrukturu reálného geometrie výpočty a více pokynů režimu Transport. Služba umožňuje vývojářům vypočítat pokynů napříč několika režimy cesta například Auto náklaďák, jízdních kol nebo proti; a také, počet vstupů například provoz podmínky, váhy omezení nebo nebezpečných podstatným přenosu.
+**Route Service** – Služba generování tras využívá robustní výpočty na základě reálné geometrie a infrastruktury a trasy pro různé způsoby dopravy. Služba umožňuje vývojářům vypočítat trasy v několika různých režimech, např. auto, nákladní vůz, kolo nebo chůze, a také zohlednit různá další zadání, jako je aktuální provoz, omezení hmotnosti nebo doprava nebezpečných látek.
 
-![Umístění Azure na základě Route.png služby](media/about-location-based-services/Introduction_Route.png)
+![Azure Location Based Services Route.png](media/about-location-based-services/Introduction_Route.png)
 
-**Služby vyhledávání** – funkce hledání Service je určený pro vývojáře k vyhledání adresy, míst, obchodní výpisech podle názvu nebo kategorie a jiné zeměpisné údaje. Služba vyhledávání můžete také [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) adresy a křížové ulice podle zeměpisnou šířku a délku. 
+**Search Service** – Vyhledávací služba umožňuje vývojářům vyhledávat adresy, místa, výpisy firem a další podle názvu nebo kategorie a jiných zeměpisných údajů. Vyhledávací služba může také [reverzně geokódovat](https://en.wikipedia.org/wiki/Reverse_geocoding) adresy a křižovatky na základě zeměpisných souřadnic. 
 
-![Umístění Azure na základě Search.png služby](media/about-location-based-services/Introduction_Search.png)
+![Azure Location Based Services Search.png](media/about-location-based-services/Introduction_Search.png)
 
-**Časové pásmo služby** – služba časové pásmo Service umožňuje informace aktuální, historické a budoucí časové pásmo dotazu pomocí buď páry zeměpisné šířky nebo [ID organizace IANA](http://www.iana.org/). Časové pásmo služby také umožňuje převod Microsoft Windows časové pásmo ID organizace IANA časových pásem, načítání posun časového pásma na čas UTC a získání aktuální čas v příslušných časové pásmo. Typické odpověď JSON pro dotaz na službu časové pásmo vypadá takto:
+**Time Zone Service** – Služba časových pásem umožňuje získávat aktuální, historické i budoucí informace související s časovými pásmy buď podle zeměpisné šířky a délky, nebo [ID organizace IANA](http://www.iana.org/). Služba časových pásem také umožňuje převod ID časových pásem Microsoft Windows na ID organizace IANA, zjištění rozdílu časového pásma od UTC a získání aktuálního času v zadaném časovém pásmu. Typická odpověď JSON na dotaz na službu časového pásma vypadá takto:
 
 ```JSON
 {
@@ -55,22 +55,22 @@ Služby Azure na základě umístění se skládá z pěti primární služeb ú
 }
 ```
 
-**Provoz služby** – služba provoz Service je sada webových služeb, které jsou určené pro vývojářům vytvářet webové a mobilní aplikace, které potřebují provoz. Nabídku je rozdělená do následující:
-1. Tok provozu – poskytuje v reálném čase zjištěnou rychlosti a cestují časy pro všechny klíče cest v síti; a, 
-2. Provoz incidenty – poskytuje přesné informace o provoz zablokovaný a incidenty kolem silniční sítě.
+**Traffic Service** – Sada webových služeb určená pro vývojáře, kteří ve svých webových nebo mobilních aplikacích potřebují informace o provozu. Nabídka je rozdělená do následujících oblastí:
+1. Aktuální provoz – poskytuje v reálném čase zjištěné rychlosti a doby průjezdu pro všechny klíčové silnice sítě, a 
+2. Dopravní nehody – poskytuje přesné informace o zablokované dopravě a o nehodách na silniční síti.
 
-![Umístění Azure na základě přenosů služeb](media/about-location-based-services/Introduction_Traffic.png)
+![Azure Location Based Services Traffic](media/about-location-based-services/Introduction_Traffic.png)
 
-Služby Azure na základě umístění je vytvořené pro nastavení mobilních zařízení a aplikací platformě můžete napájení, protože programovací model nerozlišuje a podporuje výstup JSON prostřednictvím rozhraní API REST. Kromě toho kg Azure nabízí pohodlný ovládací prvek Map JavaScript s jednoduchý programovací model pro rychlý a snadný vývoj webové a mobilní aplikace. 
+Služby Azure Location Based Services jsou navržené pro mobilní aplikace a je možné na nich založit i víceplatformní aplikace, protože jejich programovací model je agnostický a podporuje výstup JSON prostřednictvím rozhraní REST API. Kromě toho Azure LBS nabízejí pohodlný javascriptový ovládací prvek mapy s jednoduchým programovacím modelem pro rychlý a snadný vývoj webových i mobilních aplikací. 
 
-Služby Azure na základě umístění používá schéma ověřování na základě klíčů, takže přístup služby je řádu přejdete na [portál Azure](http://portal.azure.com) a vytvoření účtu Azure zjišťování na základě polohy. Váš účet se dodává s dva klíče, které jsou pro vás předem vygeneroval. Spusťte integraci těchto možností umístění přímo do vaší aplikace pomocí některé z vašich klíčů v požadavcích na službu Azure zjišťování na základě polohy.
+Služby Azure Location Based Services používá schéma ověřování na základě klíčů, takže přístup ke služby je otázkou přechodu na web [Azure Portal](http://portal.azure.com) a vytvoření účtu Azure Location Based Services. V účtu budou pro vás předem vygenerované dva klíče. Při zahájení integrace těchto polohových služeb do vaší aplikace můžete v požadavcích na službu Azure Location Based Services použít kterýkoli z obou klíčů.
 
-Zaregistrujte si [služeb na základě umístění Azure, účet ještě dnes!](http://aka.ms/azurelbsportal)
+Vytvořte si účet [Azure Location Based Services](http://aka.ms/azurelbsportal) ještě dnes!
 
 ## <a name="next-steps"></a>Další kroky
 
-Teď máte přehled Azure umístění na základě Services (preview). Dalším krokem je pro vyzkoušení ukázkovou aplikaci ji na základě polohy a vytváření scénářem začátku do konce ve webové aplikaci.
+Nyní máte přehled o službě Azure Location Based Services (Preview). Dalším krokem je vyzkoušení ukázkové aplikace demonstrující služby Location Based Services a scénář vytvoření kompletní webové aplikace.
 
 > [!div class="nextstepaction"]
-> [Spustit ukázku interaktivní mapu vyhledávání pomocí Azure na základě polohy (preview)](quick-demo-map-app.md)
-> [vyhledávání nedaleko bodu zájmu pomocí služeb na základě umístění Azure](tutorial-search-location.md)
+> [Spusťte ukázku interaktivního hledání v mapě s použitím Azure Location Based Services (Preview)](quick-demo-map-app.md)
+> [Vyhledat okolní body zájmu pomocí Azure Location Based Services](tutorial-search-location.md)

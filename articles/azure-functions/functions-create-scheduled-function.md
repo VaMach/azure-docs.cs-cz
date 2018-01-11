@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 476e103c7101621e116c5155241f56f1cb9036df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Vytvoření funkce v Azure aktivované časovačem
 
@@ -52,13 +52,17 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
     ![Stručný úvod do služby Functions na webu Azure Portal](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. Vyberte šablonu **TimerTrigger** pro vámi požadovaný jazyk. Potom použijte nastavení uvedená v tabulce:
+2. Do vyhledávacího pole zadejte `timer` a zvolte jazyk požadovaný pro šablonu funkce aktivované časovačem. 
 
-    ![Vytvořte na portálu Azure Portal funkci aktivovanou časovačem.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Vyberte šablonu funkce aktivované časovačem.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+
+3. Nakonfigurujte novou aktivační událost s nastaveními uvedenými v tabulce pod obrázkem.
+
+    ![Vytvořte na portálu Azure Portal funkci aktivovanou časovačem.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Nastavení | Navrhovaná hodnota | Popis |
     |---|---|---|
-    | **Pojmenujte svoji funkci** | TimerTriggerCSharp1 | Určuje název funkce aktivované časovačem. |
+    | **Název** | Výchozí | Určuje název funkce aktivované časovačem. |
     | **[Plán](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Pole [Výraz CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) v šestkové soustavě, ve kterém naplánujete spouštění funkce každou minutu. |
 
 2. Klikněte na možnost **Vytvořit**. Ve zvoleném jazyce se vytvoří funkce, která se bude spouštět každou minutu.

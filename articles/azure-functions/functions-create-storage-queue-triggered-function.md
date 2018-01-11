@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77c8c8dbe6228d80062f34f4bb7fc93a1871e8c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Vytvoření funkce aktivované službou Azure Queue Storage
 
@@ -52,13 +52,16 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
     ![Stručný úvod do služby Functions na webu Azure Portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Vyberte šablonu **QueueTrigger** pro požadovaný jazyk a potom použijte nastavení uvedené v tabulce.
+2. Do vyhledávacího pole zadejte `queue` a zvolte jazyk požadovaný pro šablonu funkce aktivované frontou úložiště.
 
-    ![Vytvořte funkci spouštěnou frontou úložiště.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Vyberte šablonu funkce aktivované frontou úložiště.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+3. Použijte nastavení uvedená v tabulce pod obrázkem.
+    ![Konfigurujte funkci aktivovanou frontou úložiště.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | Nastavení | Navrhovaná hodnota | Popis |
     |---|---|---|
-    | **Pojmenujte svoji funkci** | Jedinečný název v rámci aplikace Function App | Název této funkce aktivované frontou. |
+    | **Název** | Jedinečný název v rámci aplikace Function App | Název této funkce aktivované frontou. |
     | **Název fronty**   | myqueue-items    | Název fronty, ke které se připojíte ve svém účtu úložiště. |
     | **Připojení k účtu úložiště** | AzureWebJobStorage | Můžete použít připojení k účtu úložiště, které už používá vaše aplikace Function App, nebo můžete vytvořit nové.  |    
 

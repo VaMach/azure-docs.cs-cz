@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/02/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Vytvoření funkce aktivované službou Azure Cosmos DB
 
@@ -50,9 +50,9 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
     ![Stručný úvod do služby Functions na webu Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Vyhledejte a vyberte šablonu **Azure CosmosDBTrigger** pro vámi požadovaný jazyk.
+2. Do vyhledávacího pole zadejte `cosmos` a zvolte jazyk požadovaný pro šablonu funkce aktivované službou Azure Cosmos DB.
 
-    ![Vytvoření funkce aktivované službou Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Výběr funkce aktivované službou Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Nakonfigurujte nový trigger s nastaveními uvedenými v tabulce pod obrázkem.
 
@@ -60,10 +60,10 @@ Dál vytvoříte v nové aplikaci Function App funkci.
     
     | Nastavení      | Navrhovaná hodnota  | Popis                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Pojmenujte svoji funkci** | Výchozí | Použijte výchozí název funkce navrhovaný šablonou. |
-    | **Název databáze** | Úlohy | Název databáze s kolekcí, která se má monitorovat. |
+    | **Název** | Výchozí | Použijte výchozí název funkce navrhovaný šablonou. |
     | **Název kolekce** | Items | Název kolekce, která se má monitorovat. |
     | **Vytvořit kolekci zapůjčení, pokud neexistuje** | Zaškrtnuté | Kolekce ještě neexistuje, takže ji vytvořte. |
+    | **Název databáze** | Úlohy | Název databáze s kolekcí, která se má monitorovat. |
 
 4. Vedle popisku **Připojení účtu služby Azure Cosmos DB** vyberte **Nový** a zvolte existující účet služby Cosmos DB nebo vyberte možnost **+ Vytvořit nový**. 
  
@@ -149,4 +149,4 @@ Vytvořili jste funkci, která se spouští při přidání nebo úpravě dokume
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Další informace o aktivačních událostech fronty úložiště najdete v tématu [Vazby front úložiště služby Azure Functions](functions-bindings-storage-queue.md).
+Další informace o funkcích aktivovaných službou Azure Cosmos DB najdete v tématu [Vazby Azure Cosmos DB ve službě Azure Functions](functions-bindings-documentdb.md).

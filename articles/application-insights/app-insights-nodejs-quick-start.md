@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Zahájení monitorování webové aplikace Node.js
 
@@ -28,7 +28,7 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 - Potřebujete předplatné Azure a webovou aplikaci Node.js.
 
-Pokud webovou aplikaci Node.js nemáte, můžete si ji vytvořit pomocí [kurzu Rychlý start pro vytvoření webové aplikace Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs).
+Pokud webovou aplikaci Node.js nemáte, můžete si ji vytvořit pomocí [kurzu Rychlý start pro vytvoření webové aplikace Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs).
  
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -67,11 +67,11 @@ Application Insights může shromažďovat telemetrická data ze všech aplikac�
    npm install applicationinsights --save
    ```
 
-3. Upravte první soubor .js vaší aplikace a do horní části skriptu přidejte následující dva řádky. Pokud používáte [aplikaci Rychlý start pro Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs), upravíte soubor index.js. 
+3. Upravte první soubor .js vaší aplikace a do horní části skriptu přidejte následující dva řádky. Pokud používáte [aplikaci Rychlý start pro Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), upravíte soubor index.js. Nahraďte &lt;instrumentační klíč&gt; klíčem vaší aplikace. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
-   appInsights.setup('<instrumentation_key').start();
+   appInsights.setup('<instrumentation_key>').start();
    ```
 
 4. Restartujte aplikaci.
@@ -135,4 +135,4 @@ Pokud chcete pokračovat v práci s dalšími rychlými starty nebo kurzy, nevym
 ## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
-> [Vyhledání a diagnostika potíží s výkonem](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Vyhledání a diagnostika potíží s výkonem](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

@@ -64,6 +64,7 @@
 #### [Spojení entit s automatickým přeposíláním](service-bus-auto-forwarding.md)
 #### [Zpracování transakcí](service-bus-transactions.md)
 #### [Implementace spárovaného oboru názvů](service-bus-paired-namespaces.md)
+### [Kompletní trasování a diagnostika](service-bus-end-to-end-tracing.md)
 ## Spravovat
 ### [Monitorování služby Service Bus s využitím monitorování Azure](service-bus-metrics-azure-monitor.md)
 ### [Knihovny pro správu Service Bus](service-bus-management-libraries.md)
@@ -78,7 +79,7 @@
 #### 
 ### [Použití Azure PowerShellu ke zřizování entit](service-bus-manage-with-ps.md)
 
-# Referenční informace
+# Odkaz
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

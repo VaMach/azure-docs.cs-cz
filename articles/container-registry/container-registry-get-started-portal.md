@@ -2,34 +2,26 @@
 title: "Rychlý start – Vytvoření privátního registru Dockeru v Azure pomocí webu Azure Portal"
 description: "Rychle se naučíte, jak vytvořit privátní registr Dockeru pomocí webu Azure Portal."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: tysonn
-tags: 
-keywords: 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/31/2017
+ms.date: 12/06/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.custom: mvc
+ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Vytvoření registru kontejnerů pomocí webu Azure Portal
 
 Registr kontejnerů Azure je privátním registrem Dockeru v Azure, kde můžete ukládat a spravovat privátní image kontejnerů Dockeru. V tomto rychlém startu vytvoříte registr kontejnerů pomocí webu Azure Portal.
 
-K dokončení tohoto rychlého startu je potřeba místně nainstalovaný Docker. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli systému [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) nebo [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+K dokončení tohoto rychlého startu je potřeba místně nainstalovaný Docker. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli [Macu][docker-mac] nebo systému [Windows][docker-windows] či [Linux][docker-linux].
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="sign-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k webu Azure Portal na adrese https://portal.azure.com.
 
@@ -43,7 +35,7 @@ Zadejte odpovídající hodnoty pro **Název registru** a **Skupina prostředků
 
 ![Vytvoření registru kontejnerů na webu Azure Portal][qs-portal-03]
 
-V tomto rychlém startu vytvoříme registr úrovně *Basic*. Služba Azure Container Registry je dostupná v několika různých skladových položkách, které stručně popisuje následující tabulka. Další podrobnosti o každé z nich najdete v tématu [Skladové položky služby Container Registry](container-registry-skus.md).
+V tomto rychlém startu vytvoříme registr úrovně *Basic*. Služba Azure Container Registry je dostupná v několika různých skladových položkách, které stručně popisuje následující tabulka. Další podrobnosti o každé z nich najdete v tématu [Skladové položky služby Container Registry][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -63,13 +55,13 @@ Tyto hodnoty použijete v následujících krocích při práci s registrem pomo
 
 ## <a name="log-in-to-acr"></a>Přihlášení ke službě ACR
 
-Před odesíláním a vyžadováním imagí kontejnerů se musíte přihlásit k instanci služby ACR. K tomu použijte příkaz [docker login](https://docs.docker.com/engine/reference/commandline/login/). Nahraďte hodnoty *username* (uživatelské jméno), *password* (heslo) a *login server* (přihlašovací server) hodnotami, které jste si poznamenali v předchozím kroku.
+Před odesíláním a vyžadováním imagí kontejnerů se musíte přihlásit k instanci služby ACR. K tomu použijte příkaz [docker login][docker-login]. Nahraďte hodnoty *username* (uživatelské jméno), *password* (heslo) a *login server* (přihlašovací server) hodnotami, které jste si poznamenali v předchozím kroku.
 
 ```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-Příkaz po dokončení vrátí zprávu `Login Succeeded` (Přihlášení bylo úspěšné). Může se zobrazit také upozornění zabezpečení doporučující použití parametru `--password-stdin`. I když je jeho použití nad rámec tohoto článku, doporučujeme řídit se osvědčeným postupem. Další informace najdete v referenčních informacích k příkazu [docker login](https://docs.docker.com/engine/reference/commandline/login/).
+Příkaz po dokončení vrátí zprávu `Login Succeeded` (Přihlášení bylo úspěšné). Může se zobrazit také upozornění zabezpečení doporučující použití parametru `--password-stdin`. I když je jeho použití nad rámec tohoto článku, doporučujeme řídit se osvědčeným postupem. Další informace najdete v referenčních informacích k příkazu [docker login][docker-login].
 
 ## <a name="push-image-to-acr"></a>Nasdílení image do služby ACR
 
@@ -79,13 +71,13 @@ Pokud chcete nasdílet image do služby Azure Container Registry, musíte nejprv
 docker pull microsoft/aci-helloworld
 ```
 
-Před nasdílením image do registru k ní musíte přidat značku s názvem přihlašovacího serveru služby ACR. Označte image pomocí příkazu [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Nahraďte *login server* názvem přihlašovacího serveru, který jste si poznamenali dříve.
+Před nasdílením image do registru k ní musíte přidat značku s názvem přihlašovacího serveru služby ACR. Označte image pomocí příkazu [docker tag][docker-tag]. Nahraďte *login server* názvem přihlašovacího serveru, který jste si poznamenali dříve.
 
 ```
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
-Nakonec pomocí příkazu [docker push](https://docs.docker.com/engine/reference/commandline/push/) nasdílejte image do instance služby ACR. Nahraďte *login server* názvem přihlašovacího serveru vaší instance služby ACR.
+Nakonec pomocí příkazu [docker push][docker-push] nasdílejte image do instance služby ACR. Nahraďte *login server* názvem přihlašovacího serveru vaší instance služby ACR.
 
 ```
 docker push <login server>/aci-helloworld:v1
@@ -123,7 +115,7 @@ Pokud už ji nepotřebujete, odstraňte skupinu prostředků **myResourceGroup**
 V tomto rychlém startu jste vytvořili službu Azure Container Registry pomocí Azure CLI. Pokud chcete používat službu Azure Container Registry se službou Azure Container Instances, přejděte na kurz služby Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Kurzy služby Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Kurzy služby Azure Container Instances][container-instances-tutorial-prepare-app]
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
@@ -135,3 +127,15 @@ V tomto rychlém startu jste vytvořili službu Azure Container Registry pomocí
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- LINKS - internal -->
+[container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
+[container-registry-skus]: container-registry-skus.md

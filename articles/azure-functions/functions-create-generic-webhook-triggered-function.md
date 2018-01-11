@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Vytvoření funkce aktivované obecným webhookem
 
@@ -48,9 +48,13 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
     ![Stručný úvod do služby Functions na webu Azure Portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Vyberte šablonu **Obecný webhook – jazyk C#**. Zadejte název funkce jazyka C# a pak vyberte **Vytvořit**.
+2. Do vyhledávacího pole zadejte `generic` a zvolte jazyk požadovaný pro šablonu funkce aktivované obecným webhookem. Toto téma používá funkci v jazyce C#.
 
-     ![Vytvoření funkce aktivované obecným webhookem na webu Azure Portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Výběr šablony funkce aktivované obecným webhookem](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. Zadejte **Název** funkce a pak vyberte **Vytvořit**. 
+
+     ![Vytvoření funkce aktivované obecným webhookem na webu Azure Portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. V nové funkci klikněte na **</> Získat adresu URL funkce** a potom zkopírujte a uložte příslušnou hodnotu. Tuto hodnotu použijete ke konfiguraci webhooku. 
 
