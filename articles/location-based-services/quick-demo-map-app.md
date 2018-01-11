@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0fcd25183617de879ada6d1f7d2a8fcf9551d6de
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Spuštění ukázky interaktivního hledání v mapách pomocí Azure Location Based Services (Preview)
 
@@ -44,7 +44,7 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 1. Stáhněte nebo zkopírujte obsah souboru [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Uložte obsah tohoto souboru místně jako **AzureMapDemo.html** a otevřete ho v textovém editoru.
-3. Vyhledejte řetězec **<insert-key>** a nahraďte ho hodnotou **primárního klíče**, kterou jste získali v předchozí části. 
+3. Vyhledejte řetězec **&#60;insert-key&#62;** a nahraďte ho hodnotou **primárního klíče**, získanou v předchozí části. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Spuštění ukázkové aplikace pro mapy Azure

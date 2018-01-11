@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Vytvoření funkce aktivované službou Azure Blob Storage
 
@@ -51,19 +51,23 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
     ![Stručný úvod do služby Functions na webu Azure Portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Vyberte šablonu **BlobTrigger** pro požadovaný jazyk a potom použijte nastavení uvedené v tabulce.
+2. Do vyhledávacího pole zadejte `blob` a zvolte jazyk požadovaný pro šablonu funkce aktivované úložištěm objektů blob.
 
-    ![Vytvoření funkce aktivované službou Blob Storage](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Vyberte šablonu funkce aktivované úložištěm objektů blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Použijte nastavení uvedená v tabulce pod obrázkem.
+
+    ![Vytvoření funkce aktivované službou Blob Storage](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Nastavení | Navrhovaná hodnota | Popis |
     |---|---|---|
-    | **Cesta**   | mycontainer/{name}    | Monitorované umístění ve službě Blob Storage. Název souboru objektu blob se předává v rámci vazby jako parametr _název_.  |
-    | **Připojení k účtu úložiště** | AzureWebJobStorage | Můžete použít připojení k účtu úložiště, které už používá vaše aplikace Function App, nebo můžete vytvořit nové.  |
-    | **Pojmenujte svoji funkci** | Jedinečný název v rámci aplikace Function App | Název této funkce aktivované objektem blob. |
+    | **Název** | Jedinečný název v rámci aplikace Function App | Název této funkce aktivované objektem blob. |
+    | **Cesta**   | samples-workitems/{name}    | Monitorované umístění ve službě Blob Storage. Název souboru objektu blob se předává v rámci vazby jako parametr _název_.  |
+    | **Připojení k účtu úložiště** | AzureWebJobsStorage | Můžete použít připojení k účtu úložiště, které už používá vaše aplikace Function App, nebo můžete vytvořit nové.  |
 
 3. Funkci vytvoříte kliknutím na **Vytvořit**.
 
-Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte kontejner **mycontainer**.
+Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte kontejner **samples-workitems**.
 
 ## <a name="create-the-container"></a>Vytvoření kontejneru
 
@@ -79,7 +83,7 @@ Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte kontejn
 
     ![Zadejte přihlašovací údaje úložiště a připojte se.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Rozbalte připojený účet úložiště, klikněte pravým tlačítkem na **Kontejnery objektů blob**, klikněte na **Vytvořit kontejner objektů blob**, zadejte `mycontainer` a potom stiskněte Enter.
+1. Rozbalte připojený účet úložiště, klikněte pravým tlačítkem na **Kontejnery objektů blob**, klikněte na **Vytvořit kontejner objektů blob**, zadejte `samples-workitems` a potom stiskněte Enter.
 
     ![Vytvořte frontu úložiště.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ Teď když máte kontejner objektů blob a můžete funkci otestovat tím, že d
 
 1. Zpátky na webu Azure Portal přejděte na svoji funkci, ve spodní části stránky rozbalte **Protokoly** a ujistěte se, že není pozastavené streamování protokolů.
 
-1. V Průzkumníku úložišť rozbalte účet úložiště, položku **Kontejnery objektů blob** a potom položku **mycontainer**. Klikněte na **Odeslat** a potom na **Nahrát soubory…**.
+1. V Průzkumníku služby Storage rozbalte účet úložiště, položku **Kontejnery objektů blob** a potom položku **samples-workitems**. Klikněte na **Odeslat** a potom na **Nahrát soubory…**.
 
     ![Nahrání souboru do kontejneru objektů blob.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

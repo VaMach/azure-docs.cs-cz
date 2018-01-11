@@ -254,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Použití Robomongo
               href: mongodb-robomongo.md
+            - name: Pomocí Mongoose
+              href: mongodb-mongoose.md
             - name: Podpora funkce MongoDB
               href: mongodb-feature-support.md
             - name: Série kurzů Angular
@@ -380,7 +382,7 @@
           href: odbc-driver.md
         - name: Použití aplikace Spring Boot Starter s rozhraními SQL API
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'

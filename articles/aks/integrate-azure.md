@@ -8,26 +8,26 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 18d082a1cd07e0b3572c93ea24b4e1edd92cad2a
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 339e600f18613e8cf4e5529c759ad33076d48654
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrace se službami spravovanými Azure s využitím OSBA (Open Service Broker for Azure)
 
-Open Service Broker for Azure (OSBA) společně s modulem [Kubernetes Service Catalog](https://github.com/kubernetes-incubator/service-catalog), umožňuje využívat služby spravované Azure v Kubernetes. Tato příručka se soustředí na nasazení modulu Service Catalog, Open Service Broker for Azure (OSBA) a aplikací, které používají služby spravované Azure s využitím Kubernetes.
+Open Service Broker for Azure (OSBA) společně s modulem [Kubernetes Service Catalog][kubernetes-service-catalog] umožňuje využívat služby spravované Azure v Kubernetes. Tato příručka se soustředí na nasazení modulu Service Catalog, Open Service Broker for Azure (OSBA) a aplikací, které používají služby spravované Azure s využitím Kubernetes.
 
 ## <a name="prerequisites"></a>Požadavky
 * Předplatné Azure
 
-* Azure CLI 2.0: Můžete ho [nainstalovat místně](/cli/azure/install-azure-cli), nebo použít ve službě [Azure Cloud Shell](../cloud-shell/overview.md).
+* Azure CLI 2.0: Můžete ho [nainstalovat místně][azure-cli-install], nebo použít ve službě [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+: Můžete ho [nainstalovat místně](kubernetes-helm.md#install-helm-cli), nebo použít ve službě [Azure Cloud Shell](../cloud-shell/overview.md).
+* Helm CLI 2.7+: Můžete ho [nainstalovat místně][helm-cli-install], nebo použít ve službě [Azure Cloud Shell][azure-cloud-shell].
 
 * Oprávnění pro vytvoření instančního objektu s rolí přispěvatele v předplatném Azure
 
-* Existující cluster Azure Container Service (AKS). Pokud potřebujete cluster AKS, postupujte podle [Vytvoření clusteru AKS](kubernetes-walkthrough.md) (rychlý start).
+* Existující cluster Azure Container Service (AKS). Pokud potřebujete cluster AKS, postupujte podle článku [Vytvoření clusteru AKS][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Instalace modulu Service Catalog
 
@@ -68,7 +68,7 @@ v1beta1.storage.k8s.io               10
 
 ## <a name="install-open-service-broker-for-azure"></a>Instalace technologie Open Service Broker for Azure
 
-Dalším krokem je instalace zprostředkovatele [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure), která zahrnuje katalog pro služby spravované Azure. Příkladem dostupných služeb Azure jsou Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database a další.
+Dalším krokem je instalace zprostředkovatele [Open Service Broker for Azure][open-service-broker-azure], která zahrnuje katalog pro služby spravované Azure. Příkladem dostupných služeb Azure jsou Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database a další.
 
 Začněme přidáním zprostředkovatele Open Service Broker for Azure do úložiště Helmu:
 
@@ -76,7 +76,7 @@ Začněme přidáním zprostředkovatele Open Service Broker for Azure do úlož
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Pomocí následujícího příkazu rozhraní příkazového řádku Azure vytvořte [instanční objekt](kubernetes-service-principal.md):
+Pomocí následujícího příkazu rozhraní příkazového řádku Azure vytvořte [instanční objekt][create-service-principal]:
 
 ```azurecli-interactive
 az ad sp create-for-rbac
@@ -124,7 +124,7 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.clientSecret=$AZURE_CLIENT_SECRET
 ```
 
-Jakmile je nasazení OSBA kompletní, nainstalujte [Service Catalog CLI](https://github.com/Azure/service-catalog-cli). Toto snadno použitelné rozhraní příkazového řádku umožňuje dotazování na zprostředkovatele, třídy a plány služeb a další.
+Jakmile je nasazení OSBA kompletní, nainstalujte [Service Catalog CLI][service-catalog-cli]. Toto snadno použitelné rozhraní příkazového řádku umožňuje dotazování na zprostředkovatele, třídy a plány služeb a další.
 
 Spuštěním následujícího příkazu nainstalujte binární soubor Service Catalog CLI:
 
@@ -184,4 +184,18 @@ kubectl get secrets -n wordpress -o yaml
 
 Podle tohoto článku jste nasadili Service Catalog do clusteru Azure Container Service (AKS). Použili jste Open Service Broker for Azure k nasazení instalace WordPressu, která využívá služby spravované Azure, v tomto případě Azure Database for MySQL.
 
-Pokud chcete získat přístup k dalším aktualizovaným grafům Helmu založeným na OSBA, použijte úložiště [Azure/helm-charts](https://github.com/Azure/helm-charts). Pokud vás zajímá vytvoření vlastních grafů, které fungují pro OSBA, přečtěte si téma věnované [vytvoření nového grafu](https://github.com/Azure/helm-charts#creating-a-new-chart).
+Pokud chcete získat přístup k dalším aktualizovaným grafům Helmu založeným na OSBA, použijte úložiště [Azure/helm-charts][helm-charts]. Pokud vás zajímá vytvoření vlastních grafů, které fungují pro OSBA, přečtěte si téma věnované [vytvoření nového grafu][helm-create-new-chart].
+
+<!-- LINKS - external -->
+[helm-charts]: https://github.com/Azure/helm-charts
+[helm-cli-install]: kubernetes-helm.md#install-helm-cli
+[helm-create-new-chart]: https://github.com/Azure/helm-charts#creating-a-new-chart
+[kubernetes-service-catalog]: https://github.com/kubernetes-incubator/service-catalog
+[open-service-broker-azure]: https://github.com/Azure/open-service-broker-azure
+[service-catalog-cli]: https://github.com/Azure/service-catalog-cli
+
+<!-- LINKS - internal -->
+[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-cloud-shell]: ../cloud-shell/overview.md
+[create-aks-cluster]: ./kubernetes-walkthrough.md
+[create-service-principal]: ./kubernetes-service-principal.md

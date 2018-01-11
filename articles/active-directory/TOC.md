@@ -44,6 +44,7 @@
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
 ### [Sdílení účtů](active-directory-sharing-accounts.md)
 ### [Přiřazení uživatelů k rolím správce](active-directory-users-assign-role-azure-portal.md)
+### [Obnovení odstraněného uživatele](active-directory-users-restore.md)
 ### [Přidání uživatelů typu host z jiného adresáře (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Správci přidávají uživatele B2B](active-directory-b2b-admin-add-users.md)
 #### [Informační pracovníci přidávají uživatele B2B](active-directory-b2b-iw-add-users.md)
@@ -108,7 +109,7 @@
 #### [Konfigurace pojmenovaných umístění](active-directory-named-locations.md)
 #### [Vyhledávání sestav aktivit](active-directory-reporting-migration.md)
 #### [Použití sady Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Referenční informace
+### Odkaz
 #### [Uchování](active-directory-reporting-retention.md)
 #### [Latence](active-directory-reporting-latencies-azure-portal.md)
 #### [Oznámení](active-directory-reporting-notifications.md)
@@ -342,7 +343,7 @@
 ### [Scénáře PoC: Stavební bloky](active-directory-playbook-building-blocks.md)
 
 
-# Referenční informace
+# Odkaz
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Rutiny Azure PowerShellu](/powershell/azure/overview)
 ## [Referenční informace k Java API](/java/api)

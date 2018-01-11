@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Výběr mezi službami Flow, Logic Apps, Functions a WebJobs
 Tento článek porovnává následující služby v cloudu Microsoftu, které dokáží řešit problémy s integrací a automatizovat obchodní procesy:
@@ -41,18 +41,18 @@ Služby Microsoft Flow a Azure Logic Apps můžeme probrat společně, protože 
 * Obě služby obsahují stejného návrháře pracovních postupů.
 * [Konektory](../connectors/apis-list.md) fungující v jedné službě můžou fungovat i v té druhé.
 
-Flow umožňuje každému administrativnímu pracovníkovi provádět jednoduché integrace (například získávat zprávy SMS o důležitých e-mailech) bez nutnosti kontaktovat vývojáře nebo IT oddělení. Logic Apps na druhé straně může povolovat pokročilé nebo klíčové integrace (například procesy B2B), kde se vyžadují postupy zabezpečení a DevOps na podnikové úrovni. U obchodních pracovních postupů je typické, že se jejich složitost v průběhu času zvyšuje. Proto můžete nejprve začít s tokem a pak ho podle potřeby převést na aplikaci logiky.
+Flow umožňuje každému administrativnímu pracovníkovi provádět jednoduché integrace (například proces schvalování v knihovně dokumentů služby SharePoint) bez nutnosti kontaktovat vývojáře nebo IT oddělení. Logic Apps na druhé straně může povolovat pokročilé integrace (například procesy B2B), kde se vyžadují postupy zabezpečení a DevOps na podnikové úrovni. U obchodních pracovních postupů je typické, že se jejich složitost v průběhu času zvyšuje. Proto můžete nejprve začít s tokem a pak ho podle potřeby převést na aplikaci logiky.
 
 Následující tabulka vám pomůže určit, jestli je pro danou integraci nejlepší Flow nebo Logic Apps.
 
 |  | Tok | Logic Apps |
 | --- | --- | --- |
-| Cílová skupina |Administrativní pracovníci, podnikoví uživatelé |IT profesionálové, vývojáři |
-| Scénáře |Samoobslužné |Klíčové |
+| Cílová skupina |Administrativní pracovníci, podnikoví uživatelé, správci služby SharePoint |Profesionální integrátoři a vývojáře, IT profesionálové |
+| Scénáře |Samoobslužné |Pokročilé integrace |
 | Návrhářský nástroj |V prohlížeči a mobilní aplikaci, pouze uživatelské rozhraní |V prohlížeči a sadě [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), k dispozici je [zobrazení kódu](../logic-apps/logic-apps-author-definitions.md) |
-| DevOps |Ad hoc, vývoj v produkčním prostředí |správa zdrojového kódu, testování, podpora a automatizace a možnosti správy ve [správě prostředků Azure](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Prostředí pro správu |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| Zabezpečení |Standardní postupy: [suverenita dat](https://wikipedia.org/wiki/Technological_Sovereignty), [šifrování v klidovém stavu](https://wikipedia.org/wiki/Data_at_rest#Encryption) pro citlivá data atd. |Zajištění zabezpečení Azure: [zabezpečení Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [protokoly auditu](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) a další. |
+| Správa životního cyklu aplikací (ALM) |Návrh a testování v neprodukčním prostředí, přesun do produkčního prostředí až po ověření připravenosti. |DevOps: správa zdrojového kódu, testování, podpora, automatizace a spravovatelnost pomocí [správě prostředků Azure](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| Prostředí pro správu |Správa zásad toku prostředí a prevence ztráty dat (DLP), sledování licencí [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Správa skupin prostředků, připojení, správy přístupu a protokolování [https://portal.azure.com](https://portal.azure.com) |
+| Zabezpečení |Protokoly auditu zabezpečení a dodržování předpisů Office 365, prevence ztráty dat (DLP), [šifrování v klidovém stavu](https://wikipedia.org/wiki/Data_at_rest#Encryption) pro citlivá data atd. |Zajištění zabezpečení Azure: [zabezpečení Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [protokoly auditu](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) a další. |
 
 <a name="function"></a>
 
@@ -106,7 +106,7 @@ Jestli použít Functions nebo WebJobs závisí hlavně na tom, k čemu už pou�
 Jak už jsme zmínili, to, která služba je pro vás nejvhodnější, závisí na vaší situaci. 
 
 * Pro jednoduchou optimalizaci podniku použijte službu Flow.
-* Pokud je váš scénář integrace příliš pokročilý pro službu Flow nebo pokud potřebujete dodržování bezpečnostních předpisů a možnosti DevOps, pak použijte službu Logic Apps.
+* Pokud je váš scénář integrace příliš pokročilý pro službu Flow nebo pokud potřebujete možnosti DevOps, použijte službu Logic Apps.
 * Pokud nějaký krok ve vašem scénáři integrace vyžaduje vysoce přizpůsobenou transformaci nebo specializovaný kód, napište funkci a aktivujte ji jako akci v aplikaci logiky.
 
 Aplikaci logiky můžete volat v rámci toku. Můžete také volat funkci v aplikaci logiky a aplikaci logiky ve funkci. Integrace mezi službami Flow, Logic Apps a Functions se v průběhu času neustále zlepšuje. Můžete něco vytvořit v jedné službě a používat to v ostatních službách. Proto se vyplatí jakákoli investice do těchto tří technologií.
