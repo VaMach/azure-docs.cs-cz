@@ -16,6 +16,7 @@
 ### [Vytvoření virtuálních počítačů](devtest-lab-add-vm.md)
 ### [Vytvoření a správa nárokovatelných virtuálních počítačů](devtest-lab-add-claimable-vm.md)
 ### [Vytvoření a správa virtuálních počítačů pomocí Azure CLI](devtest-lab-vmcli.md)
+### [Vytvoření virtuálního počítače pomocí šablony Resource Manageru](devtest-lab-use-resource-manager-template.md)
 ### [Restartování virtuálního počítače](devtest-lab-restart-vm.md)
 
 ## Použití prostředí v testovacím prostředí
@@ -46,7 +47,6 @@
 
 ## Správa opětovně využitelných šablon
 ### [Přidání úložiště Git pro artefakty a šablony](devtest-lab-add-artifact-repo.md)
-### [Použití šablon správce prostředků](devtest-lab-use-resource-manager-template.md)
 ### [Správa vzorců](devtest-lab-manage-formulas.md)
 
 ## Správa artefaktů
@@ -65,7 +65,7 @@
 ## Integrace s CI/CD
 ### [Integrace testovacího prostředí do kanálu CI/CD VSTS](devtest-lab-integrate-ci-cd-vsts.md)
 
-# Referenční informace
+# Odkaz
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Automatická tvorba a úpravy testovacích prostředí](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
@@ -76,7 +76,7 @@
 # Související
 ## [Nejčastější dotazy](devtest-lab-faq.md)
 ## [Aktualizace služby](https://azure.microsoft.com/updates/?product=devtest-lab)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Blog týmu](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)

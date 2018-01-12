@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Vývoj
       items:
+        - name: Spuštění vlastních programů MapReduce
+          href: apache-hadoop-run-custom-programs.md
         - name: 'Vývoj programů MapReduce se streamováním v C#'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Vývoj programů MapReduce v Javě
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Použití Apache Hivu jako nástroje pro extrakci, transformaci a načítání (ETL)'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 'Extrakce, transformace a načítání ve velkém měřítku'
+          href: apache-hadoop-etl-at-scale.md
         - name: Použití prázdných hraničních uzlů
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Analýza protokolů Telemetrie Application Insights
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: Pokročilé analýzy pro HDInsight
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: Rozšíření clusterů
       items:
         - name: Přizpůsobení clusterů pomocí Bootstrap
@@ -378,7 +386,9 @@
         - name: Monitorování výkonu clusteru
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Referenční informace
+        - name: Analýza protokolů Hadoop
+          href: apache-hadoop-debug-jobs.md
+- name: Odkaz
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

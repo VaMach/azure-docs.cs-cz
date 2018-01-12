@@ -217,7 +217,7 @@
 #### [Správa zřizování uživatelských účtů](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Správa jednotného přihlašování pro podnikové aplikace](active-directory-enterprise-apps-manage-sso.md)
 #### [Pokročilé podepisování certifikátů pro aplikace SAML](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Skrytí aplikace třetí strany před uživatelem](active-directory-coreapps-hide-third-party-app.md)
+#### [Skrytí aplikace v uživatelském prostředí](active-directory-coreapps-hide-third-party-app.md)
 ### [Konfigurace automatického zrychlení přihlašování pomocí zásad HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
@@ -283,6 +283,7 @@
 ## Zabezpečení identit
 ### [Podmíněný přístup](active-directory-conditional-access-azure-portal.md)
 #### [Ovládací prvky](active-directory-conditional-access-controls.md)
+#### [Podmínka umístění](active-directory-conditional-access-locations.md)
 #### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Vysvětlení zásad zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md)

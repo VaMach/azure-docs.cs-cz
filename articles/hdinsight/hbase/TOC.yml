@@ -121,6 +121,8 @@
         - name: Nahrání dat pro úlohy systému Hadoop
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Hromadné načtení dat do Phoenixu s využitím psql
+          href: apache-hbase-phoenix-psql.md
         - name: Několik clusterů HDInsight se službou Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true
@@ -161,7 +163,7 @@
         - name: Řešení potíží s YARN
           href: ../hdinsight-troubleshoot-yarn.md
           maintainContext: true
-        - name: Zdroje
+        - name: Zdroje a prostředky
           items:
             - name: Informace o používání HDInsightu v Linuxu
               href: ../hdinsight-hadoop-linux-information.md
@@ -218,7 +220,7 @@
         - name: Monitorování výkonu clusteru
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
@@ -289,7 +291,7 @@
         - name: Monitorování clusterů pomocí rozhraní Ambari API
           href: ../hdinsight-monitor-use-ambari-api.md
           maintainContext: true
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: "Poznámky k\_verzi"
       href: ../hdinsight-release-notes.md

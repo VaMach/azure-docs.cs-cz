@@ -60,7 +60,7 @@ Zde jsou některé funkce úložiště Premium Storage:
     Azure pomocí svého účtu úložiště jako kontejner pro nespravovaná disky. Když vytvoříte Azure DS-series, DSv2-series, GS-series, nebo služby Fs-series virtuálních počítačů s nespravované disky a vyberte účet úložiště premium operačního systému a datové disky jsou uložené v daném účtu úložiště.
 
 ## <a name="supported-vms"></a>Podporované virtuální počítače
-Premium Storage podporuje DS-series, DSv2-series, GS-series, Ls-series a virtuálních počítačů služby Fs-series. Můžete použít úložiště standard a premium disků s těmito typy virtuálních počítačů. Disky úložiště premium nelze použít s řadou virtuálních počítačů, které nejsou Premium úložiště kompatibilní.
+Premium Storage podporuje DS-series, DSv2-series, GS-series, Ls-series, Fs-series a B-series virtuálních počítačů. Můžete použít úložiště standard a premium disků s těmito typy virtuálních počítačů. Disky úložiště premium nelze použít s řadou virtuálních počítačů, které nejsou Premium úložiště kompatibilní.
 
 Informace o typech virtuálních počítačů a velikosti v Azure pro Windows najdete v tématu [velikosti virtuálních počítačů Windows](../articles/virtual-machines/windows/sizes.md). Informace o typech virtuálních počítačů a velikosti v Azure pro Linux najdete v tématu [velikosti virtuálního počítače s Linuxem](../articles/virtual-machines/linux/sizes.md).
 
@@ -293,7 +293,7 @@ Místní zotavení po havárii, je třeba zálohovat vaše disky virtuálních p
 
 Postup vytvoření úlohy zálohování se zálohy založené na čase, snadno obnovení virtuálních počítačů a zásady uchovávání záloh, používají Azure Backup. Můžete použít zálohování i s disky a nespravované. Další informace najdete v tématu [zálohování Azure pro virtuální počítače s nespravované disky](../articles/backup/backup-azure-vms-first-look-arm.md) a [zálohování Azure pro virtuální počítače s spravované disky](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o Premium Storage naleznete v následujících článcích.
 
 ### <a name="design-and-implement-with-premium-storage"></a>Návrh a implementaci Storage úrovně Premium

@@ -8,10 +8,10 @@
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Šablony Rychlý start
   items:
-    - name: Vytvoření účtu úložiště – PowerShell
-      href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Vytvoření účtu úložiště – rozhraní příkazového řádku
-      href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: vytvořit účet úložiště
+      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Práce s objekty blob – - Azure Portal
+      href: storage-quickstart-blobs-portal.md
     - name: Práce s objekty blob – PowerShell
       href: storage-quickstart-blobs-powershell.md
     - name: Práce s objekty blob – rozhraní příkazového řádku
@@ -70,6 +70,10 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
+    - name: .NET
+      href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Java
+      href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Koncepty
   items:
     - name: Plánování a návrh
@@ -94,16 +98,32 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Storage úrovně Premium
           items:
-            - name: Vysoce výkonná služba Storage úrovně Premium pro disky virtuálních počítačů
-              href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrace na Storage úrovně Premium pomocí Azure Site Recovery
-              href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Návrh pro vysoký výkon
-              href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: Vysoce výkonná služba Storage úrovně Premium pro disky virtuálních počítačů
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
+                - name: Migrace na Storage úrovně Premium pomocí Azure Site Recovery
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Návrh pro vysoký výkon
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
+            - name: Windows
+              items:
+                - name: Vysoce výkonná služba Storage úrovně Premium pro disky virtuálních počítačů
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
+                - name: Migrace na Storage úrovně Premium pomocí Azure Site Recovery
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Návrh pro vysoký výkon
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
         - name: Storage úrovně Standard
           items:
-            - name: Nákladově efektivní služba Storage úrovně Standard a spravované a nespravované disky virtuálních počítačů
-              href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: Storage úrovně Standard pro disky virtuálních počítačů
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
+            - name: Windows
+              items:
+                - name: Storage úrovně Standard pro disky virtuálních počítačů
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
     - name: Zabezpečení
       items:
         - name: Příručka zabezpečení
@@ -146,6 +166,8 @@
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Vývoj
       items:
+        - name: REST
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-blobs.md
         - name: Java
@@ -172,8 +194,6 @@
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Spravovat
       items:
-        - name: PowerShell pro Azure Blobs
-          href: storage-how-to-use-blobs-powershell.md
         - name: PowerShell pro Azure Storage
           href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'PowerShell pro cloudy China, Government a Germany'
@@ -297,7 +317,7 @@
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Nejčastější dotazy k migraci úložiště
           href: ../common/storage-migration-faq.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
