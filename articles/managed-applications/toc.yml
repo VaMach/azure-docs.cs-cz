@@ -12,6 +12,8 @@
   items:
     - name: Vytvoření souborů spravované aplikace
       href: publish-service-catalog-app.md
+    - name: Vytvoření aplikace Marketplace
+      href: publish-marketplace-app.md
 - name: Ukázky
   items:
     - name: Azure CLI
@@ -28,7 +30,7 @@
       href: update-managed-resources.md
     - name: Použití portálu k publikování
       href: publish-portal.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Azure CLI
       href: /cli/azure/managedapp
@@ -75,7 +77,7 @@
               href: microsoft-storage-multistorageaccountcombo.md
             - name: StorageAccountSelector
               href: microsoft-storage-storageaccountselector.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
