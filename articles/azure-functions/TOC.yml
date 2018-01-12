@@ -85,7 +85,7 @@
       href: functions-best-practices.md
     - name: Proxy servery služby Functions
       href: functions-proxies.md
-    - name: Modul runtime služby Functions
+    - name: Místní funkce
       href: functions-runtime-overview.md
     - name: Odolná služba Functions
       items:
@@ -175,14 +175,14 @@
           href: durable-functions-counter.md
         - name: Lidská interakce
           href: durable-functions-phone-verification.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Vazby
       items:
         - name: Blob Storage
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Externí soubor

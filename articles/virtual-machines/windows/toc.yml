@@ -125,7 +125,11 @@
         - name: 'Použití jazyka C#'
           href: csharp.md
         - name: Použití specializovaného disku
-          href: create-vm-specialized.md
+          items:
+            - name: Portál
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'Použití šablony s jazykem C#'
           href: csharp-template.md
         - name: Vytvoření virtuálního počítače pomocí Chefu
@@ -414,7 +418,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Použití vnořené virtualizace
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Azure CLI
       href: /cli/azure/vm

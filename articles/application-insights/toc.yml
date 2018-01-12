@@ -196,7 +196,7 @@
               href: app-insights-usage-flows.md
             - name: Workbooks
               href: app-insights-usage-workbooks.md
-        - name: Analýza
+        - name: Analýzy
           items:
             - name: Přehled
               href: app-insights-analytics.md
@@ -261,11 +261,15 @@
           href: app-insights-asp-net-troubleshoot-no-data.md
         - name: Ladicí program snímků
           href: app-insights-troubleshoot-snapshot-debugger.md
-        - name: Analýza
+        - name: Analýzy
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
-- name: Referenční informace
+- name: Ukázky
+  items:
+    - name: Ukázky kódů
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
+- name: Odkaz
   items:
     - name: Analytický dotazovací jazyk
       href: 'https://docs.loganalytics.io/'
@@ -298,7 +302,7 @@
       href: application-insights-correlation.md
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=application-insights'
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
