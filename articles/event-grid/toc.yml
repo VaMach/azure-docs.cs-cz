@@ -38,7 +38,9 @@
       href: event-grid-event-hubs-integration.md
     - name: Šablony pro odběry událostí
       href: event-subscription-template.md
-- name: Referenční informace
+    - name: Monitorování doručování událostí
+      href: monitor-event-delivery.md
+- name: Odkaz
   items:
     - name: Azure CLI
       href: /cli/azure/eventgrid

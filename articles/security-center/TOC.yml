@@ -1,0 +1,190 @@
+- name: Dokumentace ke službě Security Center
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Informace o službě Security Center
+      href: security-center-intro.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Předplatná Azure
+      href: security-center-get-started.md
+    - name: Počítače s Windows
+      href: quick-onboard-windows-computer.md
+    - name: Počítače s Linuxem
+      href: quick-onboard-linux-computer.md
+    - name: Řešení zabezpečení
+      href: quick-security-solutions.md
+- name: Kurzy
+  items:
+    - name: Definování zásad zabezpečení
+      href: tutorial-security-policy.md
+    - name: Ochrana vašich prostředků
+      href: tutorial-protect-resources.md
+    - name: Reakce na incidenty
+      href: tutorial-security-incident.md
+- name: Koncepty
+  items:
+    - name: Oprávnění
+      href: security-center-permissions.md
+    - name: Zabezpečení dat
+      href: security-center-data-security.md
+- name: Návody
+  items:
+    - name: Upgrade na pokročilé zabezpečení
+      href: security-center-onboarding.md
+    - name: Nastavení zásad zabezpečení
+      href: security-center-policies-overview.md
+      items:
+        - name: Shromažďování dat
+          href: security-center-enable-data-collection.md
+        - name: Definice zásad
+          href: security-center-policies.md
+        - name: E-mailová oznámení
+          href: security-center-provide-security-contact-details.md
+        - name: Cenová úroveň
+          href: security-center-pricing.md
+        - name: Konfigurace zabezpečení
+          href: security-center-customize-os-security-config.md
+        - name: Zásady zabezpečení s využitím zásad Azure
+          href: security-center-azure-policy.md
+    - name: Monitorování stavu zabezpečení
+      href: security-center-monitoring.md
+    - name: Identita a přístup
+      href: security-center-identity-access.md
+    - name: Implementace doporučení pro zabezpečení
+      href: security-center-recommendations.md
+    - name: Zabezpečení výpočetních služeb
+      href: security-center-virtual-machine-recommendations.md
+      items:
+        - name: Použít šifrování disku
+          href: security-center-apply-disk-encryption.md
+        - name: Nainstalovat aktualizace systému
+          href: security-center-apply-system-updates.md
+        - name: Povolení šifrování pro účet úložiště
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: Povolit agenta virtuálního počítače
+          href: security-center-enable-vm-agent.md
+        - name: Nainstalovat Endpoint Protection
+          href: security-center-install-endpoint-protection.md
+        - name: Restartovat po aktualizacích systému
+          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+        - name: Náprava konfigurací zabezpečení
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: Aktualizace verze operačního systému
+          href: security-center-update-os-version.md
+        - name: Není nainstalováno posouzení ohrožení zabezpečení
+          href: security-center-vulnerability-assessment-recommendations.md
+    - name: Zabezpečení sítě
+      href: security-center-network-recommendations.md
+      items:
+        - name: Přidání brány firewall příští generace
+          href: security-center-add-next-generation-firewall.md
+        - name: Povolení skupin zabezpečení sítě
+          href: security-center-enable-network-security-groups.md
+        - name: Omezení přístupu prostřednictvím internetových koncových bodů
+          href: security-center-restrict-access-through-internet-facing-endpoints.md
+        - name: Směrování provozu jenom přes NGFW
+          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+    - name: Zabezpečení dat a úložiště
+      href: security-center-sql-service-recommendations.md
+      items:
+        - name: Povolení auditování a detekce hrozeb v databázích SQL
+          href: security-center-enable-auditing-on-sql-databases.md
+        - name: Povolení auditování a detekce hrozeb na SQL serverech
+          href: security-center-enable-auditing-on-sql-servers.md
+        - name: Povolení transparentního šifrování dat
+          href: security-center-enable-transparent-data-encryption.md
+    - name: Zabezpečení aplikací
+      href: security-center-application-recommendations.md
+      items:
+        - name: Přidání brány firewall webových aplikací
+          href: security-center-add-web-application-firewall.md
+        - name: Finalizace ochrany aplikací
+          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+    - name: Cloudová ochrana
+      items:
+        - name: Přístup právě včas
+          href: security-center-just-in-time.md
+        - name: Adaptivní řízení aplikací
+          href: security-center-adaptive-application.md
+    - name: Správa řešení zabezpečení
+      href: security-center-partner-integration.md
+      items:
+        - name: Připojená řešení
+          href: security-center-partner-solutions.md
+        - name: Připojení Microsoft ATA
+          href: security-center-ata-integration.md
+        - name: Připojení Azure AD Identity Protection
+          href: security-center-aadip-integration.md
+    - name: Prošetření hrozeb
+      href: security-center-detection-capabilities.md
+      items:
+        - name: Výstrahy zabezpečení
+          href: security-center-managing-and-responding-alerts.md
+        - name: Incidenty zabezpečení
+          href: security-center-incident.md
+        - name: Sestavy hrozeb
+          href: security-center-threat-report.md
+        - name: Typy výstrah
+          href: security-center-alerts-type.md
+        - name: Vlastní výstrahy
+          href: security-center-custom-alert.md
+        - name: Ověřování výstrah
+          href: security-center-alert-validation.md
+        - name: Mapa analýzy hrozeb
+          href: security-center-threat-intel.md
+        - name: Šetření
+          href: security-center-investigation.md
+    - name: Automatizace a orchestrace
+      items:
+        - name: Playbooky Logic Apps
+          href: security-center-playbooks.md
+        - name: Zobrazení událostí
+          href: security-center-events-dashboard.md
+        - name: Search
+          href: security-center-search.md
+    - name: Integrace protokolů Azure
+      href: security-center-integrating-alerts-with-log-integration.md
+    - name: Scénáře
+      items:
+        - name: Reakce na incidenty
+          href: security-center-incident-response.md
+        - name: Použití doporučení k vylepšení zabezpečení
+          href: security-center-using-recommendations.md
+    - name: Řešení potíží
+      href: security-center-troubleshooting-guide.md
+- name: Odkaz
+  items:
+    - name: Rozhraní REST API
+      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+- name: Zdroje a prostředky
+  items:
+    - name: Nejčastější dotazy
+      href: security-center-faq.md
+    - name: Podporované platformy
+      href: security-center-os-coverage.md
+    - name: Migrace platformy
+      href: security-center-platform-migration.md
+    - name: Migrace platformy – nejčastější dotazy
+      href: security-center-platform-migration-faq.md
+    - name: Plánování a provoz
+      href: security-center-planning-and-operations-guide.md
+    - name: Zabezpečení Azure
+      href: /azure/security/
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Plán připravenosti
+      href: security-center-readiness-roadmap.md
+    - name: 'Blog věnovaný zabezpečení, ochraně osobních údajů a dodržování předpisů v Azure'
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Videa
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: Aktualizace služeb
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: Regionální dostupnost
+      href: 'https://azure.microsoft.com/regions/services/'
