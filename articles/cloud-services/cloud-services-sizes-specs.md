@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Velikosti pro cloudové služby
 Toto téma popisuje možnosti dostupné velikosti a pro cloudové služby role instance (webových rolí a rolí pracovního procesu). Je také důležité informace o nasazení myslet při plánování použití těchto prostředků. ID, které vložíte v má velikost pro všechny vaše [souboru definice služby](cloud-services-model-and-package.md#csdef). Ceny pro každou velikost jsou k dispozici na [ceník služby Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) stránky.
@@ -32,7 +32,7 @@ Toto téma popisuje možnosti dostupné velikosti a pro cloudové služby role i
 Azure nabízí na výběr několik standardních velikostí. Tady je několik aspektů, které je třeba při volbě velikosti zvážit:
 
 * Virtuální počítače D-series slouží ke spouštění aplikací, které potřebují vyšší výpočetní výkon a krátkodobý vysoký diskový výkon. Virtuální počítače D-series mají rychlejší procesory, vyšší poměr paměti na jádro a jednotky SSD pro dočasný disk. Podrobnosti najdete v oznámení na blogu Azure: [Nové velikosti virtuálních počítačů D-Series](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
-* Virtuální počítače Dv2-series, nástupce původní řady D-series, mají výkonnější procesor. Procesor v Dv2-series je asi o 35 % rychlejší než procesor v D-series. Využívá nejnovější generaci procesorů Intel Xeon® E5-2673 v3 (Haswell) s frekvencí 2,4 GHz, kterou může technologie Intel Turbo Boost 2.0 zvýšit až na 3,1 GHz. Řada Dv2-series má stejnou konfiguraci paměti a disku jako řada D.
+* Dv3-series, Dv2-series, návaznosti na původní D-series, funkce výkonnější procesor. Procesor v Dv2-series je asi o 35 % rychlejší než procesor v D-series. Využívá nejnovější generaci procesorů Intel Xeon® E5-2673 v3 (Haswell) s frekvencí 2,4 GHz, kterou může technologie Intel Turbo Boost 2.0 zvýšit až na 3,1 GHz. Řada Dv2-series má stejnou konfiguraci paměti a disku jako řada D.
 * Virtuální počítače G-series nabízejí nejvíce paměti a spouštějí se na hostitelích s procesory Intel Xeon E5 V3.
 * Virtuální počítače A-series můžete nasadit na různé typy hardwaru a procesory. Velikost je omezena na hardware a nabídnout výkon konzistentní procesoru pro běžící instance, bez ohledu na hardware, který je nasazen na základě. Pokud chcete zjistit fyzický hardware, na kterém je virtuální počítač dané velikosti nasazený, zadejte dotaz na virtuální hardware přímo z virtuálního počítače.
 * Velikost A0 využívá fyzický hardware na maximum. Pouze pro tuto konkrétní velikost můžou výkon vašich spuštěných úloh ovlivnit jiná zákaznická nasazení. Relativní výkon je popsaný níže jako očekávaný základ, přičemž se dá očekávat variabilita přibližně 15 procent.
@@ -42,7 +42,7 @@ Velikost virtuálního počítače má vliv na cenu. Velikost také určuje kapa
 Následující aspekty mohou pomoci při rozhodování o velikosti:
 
 * Velikosti A8-A11 a H-series se také označují jako *náročné na výpočetní výkon*. Hardware pro hostování těchto velikostí je navržený a optimalizovaný pro úlohy náročné na výpočty a síťový provoz, včetně clusterovaného vysokovýkonného výpočetního prostředí (HPC), například pro modelování a simulace. Řady A8-A11-series používají Intel Xeon E5-2670 @ 2,6 GHz a H-series používá Intel Xeon E5-2667 v3 @ 3,2 GHz. Podrobné informace o použití těchto velikostí, najdete v části [vysokovýkonné výpočetní velikosti virtuálních počítačů](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Dv2-series, D-series G-series, jsou ideální pro aplikace, které potřebují rychlejších procesorů, místní lepší výkon na disku, nebo mít vyšší nároky na paměť. Nabízejí výkonnou kombinaci pro mnoho podnikových aplikací.
+* Dv3-series, Dv2-series, D-series, G-series, jsou ideální pro aplikace, které potřebují rychlejších procesorů, lepší výkon místního disku nebo mít vyšší nároky na paměť. Nabízejí výkonnou kombinaci pro mnoho podnikových aplikací.
 * Někteří z fyzických hostitelů v datových centrech Azure nemusí podporovat větší velikosti virtuálních počítačů, například A5–A11. V důsledku toho mohou se zobrazit chybová zpráva **se nepodařilo nakonfigurovat virtuální počítač {název počítače}** nebo **Nepodařilo se vytvořit virtuální počítač {název počítače}** při změně velikosti existující virtuální počítač na nové velikost; vytvoření nového virtuálního počítače ve virtuální síti vytvořené před 16. dubna 2013; nebo přidání nového virtuálního počítače do existující cloudové služby. V tématu [Chyba: "Nepodařilo se nakonfigurovat virtuální počítač"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) na fórum podpory pro řešení pro jednotlivé scénáře nasazení.
 * Vaše předplatné může také omezovat počet jader, které můžete v určitých rodinách velikostí nasadit. S požadavkem na zvýšení této kvóty se obraťte na podporu Azure.
 
@@ -61,12 +61,13 @@ Vytvořili jsme koncept výpočetní jednotky Azure (ACU) poskytnout způsob por
 | [ExtraSmall](#a-series) |50 |
 | [Malá ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [G1-5](#g-series) |180 - 240* |
+| [V2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [E v3](#ev3-series) |160 - 190* |
+| [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 Hodnoty ACU s hvězdičkou označují použití technologie Intel® Turbo, která může zvýšit frekvenci procesoru podle aktuální potřeby. Množství nárůst se může lišit v závislosti na velikosti virtuálního počítače, úlohy a dalších úlohách spuštěných na stejném hostiteli.
@@ -142,6 +143,29 @@ Informace a důležité informace o použití těchto velikosti najdete v témat
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / velmi vysoká |
 | Standard_D15_v2 | 20        | 140          | 1 000                | 8 / velmi vysoká |
 
+## <a name="dv3-series"></a>Dv3-series
+
+| Velikost            | Procesorová jádra | Paměť: GiB   | Místní SSD: GiB       | Max. počet NIC / Šířka pásma sítě |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_D2_v3  | 2         | 8             | 16                   | 2 / střední |
+| Standard_D4_v3  | 4         | 16            | 32                   | 2 / vysoká |
+| Standard_D8_v3  | 8         | 32            | 64                   | 4 / vysoká |
+| Standard_D16_v3 | 16        | 64            | 128                  | 8 / velmi vysoká |
+| Standard_D32_v3 | 32        | 128           | 256                  | 8 / velmi vysoká |
+| Standard_D64_v3 | 64        | 256           | 512                  | 8 / velmi vysoká |
+
+## <a name="ev3-series"></a>Ev3-series
+
+| Velikost            | Procesorová jádra | Paměť: GiB   | Místní SSD: GiB       | Max. počet NIC / Šířka pásma sítě |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_E2_v3  | 2         | 16            | 32                   | 2 / střední |
+| Standard_E4_v3  | 4         | 32            | 64                   | 2 / vysoká |
+| Standard_E8_v3  | 8         | 64            | 128                  | 4 / vysoká |
+| Standard_E16_v3 | 16        | 128           | 256                  | 8 / velmi vysoká |
+| Standard_E32_v3 | 32        | 256           | 512                  | 8 / velmi vysoká |
+| Standard_E64_v3 | 64        | 432           | 864                  | 8 / velmi vysoká |
+
+
 ## <a name="g-series"></a>G-series
 | Velikost            | Procesorová jádra | Paměť: GiB  | Místní SSD: GiB       | Max. počet NIC / Šířka pásma sítě |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -188,10 +212,10 @@ Jako povaze změny zatížení nebo nové velikosti virtuálních počítačů, 
 >
 
 ## <a name="get-a-list-of-sizes"></a>Získat seznam velikostí
-Chcete-li získat seznam velikostí můžete použít PowerShell nebo rozhraní REST API. Rozhraní API REST je popsána [zde](https://msdn.microsoft.com/library/azure/dn469422.aspx). Následující kód je příkaz prostředí PowerShell, který zobrazí seznam všech velikostí pro daného umístění. 
+Chcete-li získat seznam velikostí můžete použít PowerShell nebo rozhraní REST API. Rozhraní API REST je popsána [zde](https://msdn.microsoft.com/library/azure/dn469422.aspx). Následující kód je příkaz prostředí PowerShell, který zobrazí seznam všech velikostí zohledněním pro cloudové služby. 
 
 ```powershell
-Get-AzureRmVMSize -Location 'West Europe'
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
 ## <a name="next-steps"></a>Další postup

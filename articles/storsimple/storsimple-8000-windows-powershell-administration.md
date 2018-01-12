@@ -4,7 +4,7 @@ description: "Další informace o použití prostředí Windows PowerShell pro S
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Ke správě zařízení pomocí Windows Powershellu pro StorSimple
 
@@ -126,8 +126,8 @@ Jazyk zobrazení je nezávislé na jazyk, který nastavíte pomocí **změnit ja
 
 Připojení přes vzdálenou komunikaci prostředí Windows PowerShell můžete použít protokol HTTP nebo HTTPS. Postupujte podle pokynů v následujících kurzech:
 
-* [Připojit vzdáleně pomocí protokolu HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Vzdálené připojení pomocí protokolu HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Připojit vzdáleně pomocí protokolu HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Vzdálené připojení pomocí protokolu HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>Aspekty zabezpečení připojení
 
@@ -182,7 +182,7 @@ Můžete snadno aktualizovat v nápovědě v rozhraní Windows PowerShell. Prove
 > Chcete-li získat seznam všech dostupných rutin v prostředí runspace, přihlaste se na odpovídající položku nabídky a spusťte `Get-Command` rutiny.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Pokud máte problémy s vaším zařízením StorSimple při provádění výše pracovních postupů, podívejte se na [nástroje pro řešení potíží s nasazením StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Pokud máte problémy s vaším zařízením StorSimple při provádění výše pracovních postupů, podívejte se na [nástroje pro řešení potíží s nasazením StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

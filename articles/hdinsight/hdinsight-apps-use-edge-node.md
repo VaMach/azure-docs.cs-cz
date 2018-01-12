@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: d529e66c80c6a3e305ffdf9a2df181a976e07127
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Použít prázdný edge uzly na clustery systému Hadoop v HDInsight
 
@@ -64,7 +64,7 @@ Velikost virtuálního počítače uzlu edge musí splňovat požadavky HDInsigh
 Po vytvoření hraniční uzel, můžete připojit k uzlu edge pomocí protokolu SSH a spuštění nástrojů pro klientský přístup ke clusteru Hadoop v HDInsight.
 
 > [!WARNING] 
-> Pomocí prázdné hraniční uzel s HDInsight je aktuálně ve verzi preview. Vlastní komponenty, které jsou nainstalovány na uzlu edge získání vyvineme podpory společnosti Microsoft. Může to způsobit řešení problémů, na které narazíte. Nebo může označovat komunitní zdroje pro další pomoc. Tady jsou některé z nejvíc aktivní lokality pro získání nápovědy od komunity:
+> Vlastní komponenty, které jsou nainstalovány na uzlu edge získání vyvineme podpory společnosti Microsoft. Může to způsobit řešení problémů, na které narazíte. Nebo může označovat komunitní zdroje pro další pomoc. Tady jsou některé z nejvíc aktivní lokality pro získání nápovědy od komunity:
 >
 > * [Fórum MSDN pro HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
@@ -152,7 +152,7 @@ Hraniční uzel můžete odstranit z portálu Azure.
 4. Klikněte pravým tlačítkem na hraniční uzel, který chcete odstranit a potom klikněte na **odstranit**.
 5. Pro potvrzení klikněte na tlačítko **Ano**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste se naučili postup přidání hraniční uzel a jak získat přístup k uzlu edge. Další informace naleznete v následujících článcích:
 
 * [Instalace aplikací HDInsight](hdinsight-apps-install-applications.md): Naučte se instalovat aplikace HDInsight do svých clusterů.

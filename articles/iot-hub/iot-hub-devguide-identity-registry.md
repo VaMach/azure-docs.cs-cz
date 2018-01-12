@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Pochopení registru identit ve službě IoT hub.
 
@@ -84,7 +84,7 @@ Podrobné informace o importu a exportu rozhraní API najdete v tématu [zprost�
 
 Data zařízení, která ukládá daného řešení IoT, závisí na konkrétní požadavky tohoto řešení. Ale minimálně, musí řešení úložiště identit zařízení a ověřovací klíče. Azure IoT Hub obsahuje registr identity, který může ukládat hodnoty pro každé zařízení, jako je například ID ověřovací klíče a stavové kódy. Řešení můžete použít jinými službami Azure, jako je například úložiště table, úložiště objektů blob nebo Cosmos DB k ukládání dat další zařízení.
 
-*Zřizování zařízení* je proces přidávání počáteční zařízení data do úložiště v řešení. Pokud chcete povolit nové zařízení pro připojení do vašeho centra, musíte přidat ID zařízení a klíče do registru identit služby IoT Hub. Jako součást procesu zřizování může být potřeba inicializovat data specifická pro zařízení v jiné řešení úložiště.
+*Zřizování zařízení* je proces přidávání počáteční zařízení data do úložiště v řešení. Pokud chcete povolit nové zařízení pro připojení do vašeho centra, musíte přidat ID zařízení a klíče do registru identit služby IoT Hub. Jako součást procesu zřizování může být potřeba inicializovat data specifická pro zařízení v jiné řešení úložiště. Azure IoT Hub zařízení zřizování Service můžete také povolit nula-dotykového ovládání, v běhu zřizování na jeden nebo více centra IoT bez nutnosti lidského zásahu. Další informace najdete v tématu [zřizování dokumentace ke službě][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Prezenční signál zařízení
 
@@ -105,7 +105,7 @@ IoT Hub můžete řešení IoT upozornit, když je vytvořené nebo odstraněné
 
 Vlastnosti: Vlastnosti zprávu systému mají předponu `'$'` symbol.
 
-| Name (Název) | Hodnota |
+| Název | Hodnota |
 | --- | --- |
 $content – typ | application/json |
 $iothub-enqueuedtime |  Čas odeslání oznámení. |
@@ -149,10 +149,10 @@ Identit zařízení jsou reprezentovány jako dokumenty JSON s následujícími 
 | deviceId |aktualizace požadované, jen pro čtení |Řetězec malá a velká písmena (až 128 znaků.) z alfanumerických znaků ASCII 7bitového plus některé speciální znaky: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |vyžaduje jen pro čtení |IoT hub generovaných, malá a velká písmena řetězec až 128 znaků. Tato hodnota se používá k rozlišení zařízení se stejným **deviceId**, pokud byla odstraněna a znovu vytvořena. |
 | Značka Etag |vyžaduje jen pro čtení |Řetězec představující na slabou značku ETag pro identitu zařízení dle [RFC7232][lnk-rfc7232]. |
-| ověřování |Volitelné |Složené objekt obsahující informace a zabezpečení materiály ověřování. |
-| auth.symkey |Volitelné |Objekt složený obsahující primární a sekundární klíč uložený ve formátu base64. |
+| ověřování |nepovinné |Složené objekt obsahující informace a zabezpečení materiály ověřování. |
+| auth.symkey |nepovinné |Objekt složený obsahující primární a sekundární klíč uložený ve formátu base64. |
 | status |Požadované |Slouží jako ukazatel přístup. Může být **povoleno** nebo **zakázané**. Pokud **povoleno**, zařízení se může připojit. Pokud **zakázané**, toto zařízení nemá přístup k žádný koncový bod směřujících zařízení. |
-| statusReason |Volitelné |128 znaků dlouhý řetězec, který ukládá důvod stavu identity zařízení. Jsou povoleny všechny znaky UTF-8. |
+| statusReason |nepovinné |128 znaků dlouhý řetězec, který ukládá důvod stavu identity zařízení. Jsou povoleny všechny znaky UTF-8. |
 | statusUpdateTime |jen pro čtení |Dočasné ukazatele zobrazuje datum a čas poslední aktualizace stavu. |
 | Hodnota connectionState |jen pro čtení |Pole, která určuje stav připojení: buď **připojeno** nebo **odpojeno**. Toto pole představuje IoT Hub pohled na stav připojení zařízení. **Důležité**: Toto pole by měl použít pouze pro účely ladění nebo vývoj. Stav připojení je aktualizovat jenom pro zařízení pomocí MQTT nebo AMQP. Navíc je založena na úrovni protokolu příkazy ping (příkazy ping MQTT nebo AMQP příkazy ping) a může mít maximální zpoždění jenom 5 minut. Z těchto důvodů může být falešně pozitivních zjištění, například zařízení hlášené jako připojené, ale které jsou odpojené. |
 | connectionStateUpdatedTime |jen pro čtení |Byl aktualizován na dočasné ukazatel zobrazuje datum a čas posledního stavu připojení. |
@@ -171,7 +171,7 @@ Další témata referenční příručka vývojáře IoT Hub patří:
 * [IoT Hub dotazovací jazyk] [ lnk-query] popisuje dotazovací jazyk, můžete použít k načtení informací ze služby IoT Hub o úlohách a dvojčata zařízení.
 * [Podpora IoT Hub MQTT] [ lnk-devguide-mqtt] poskytuje další informace o podpoře služby IoT Hub pro protokol MQTT.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste se naučili použití registru identit služby IoT Hub, možná by vás také zajímat v následujících tématech Příručka vývojáře IoT Hub:
 
@@ -183,6 +183,11 @@ Teď, když jste se naučili použití registru identit služby IoT Hub, možná
 Pokud chcete vyzkoušet některé konceptů popsaných v tomto článku, může zajímat v následujícím kurzu IoT Hub:
 
 * [Začínáme s Azure IoT Hub][lnk-getstarted-tutorial]
+
+Prozkoumat pomocí službu zřizování zařízení IoT Hub povolit zajišťování nula touch, za běhu, najdete v článku: 
+
+* [Zařízení Azure IoT Hub zřizování služby][lnk-dps]
+
 
 <!-- Links and images -->
 
@@ -205,3 +210,4 @@ Pokud chcete vyzkoušet některé konceptů popsaných v tomto článku, může 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

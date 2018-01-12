@@ -14,11 +14,11 @@ ms.devlang: json
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Spravovat pomocí šablony Azure Resource Manager analýzy protokolů
 Můžete použít [šablon Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md) vytvořit a nakonfigurovat pracovní prostory analýzy protokolů. Mezi příklady úloh, které můžete provádět s šablonami patří:
@@ -63,7 +63,7 @@ Znázorňuje následující ukázka šablony postup:
 10. Shromažďovat vlastní protokol 
 11. Shromažďovat protokoly služby IIS a protokoly událostí systému Windows zapsaných správcem Azure diagnostiky do účtu úložiště
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -469,10 +469,12 @@ Pokud chcete nasadit šablonu ukázka:
 3. Nasazení šablony pomocí Powershellu nebo příkazového řádku
 
 #### <a name="powershell"></a>PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### <a name="command-line"></a>Příkazový řádek
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
@@ -489,6 +491,6 @@ Galerie pro šablonu Azure rychlý start zahrnuje několik šablon pro analýzy 
 * [Nasazení clusteru Service Fabric a monitorování s existující pracovní prostor analýzy protokolů](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
 * [Nasazení clusteru Service Fabric a vytvořit pracovní prostor analýzy protokolů ho chcete sledovat](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Nasazení agentů do virtuálních počítačů Azure pomocí šablony Resource Manageru](log-analytics-azure-vm-extension.md)
 

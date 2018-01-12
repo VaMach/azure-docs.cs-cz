@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 75c3b514b8cb7758399efb92cb9e0738c855f022
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopírování dat z DB2 pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,8 @@ Konkrétně tento konektor DB2 podporuje tyto platformy IBM DB2 a verzí s distr
 Chcete-li použít kopírování dat z databáze DB2, která není veřejně přístupný, nastavení modulu Runtime Self-hosted integrace. Další informace o vlastním hostováním integrační moduly Runtime najdete v tématu [Self-hosted integrace Runtime](create-self-hosted-integration-runtime.md) článku. Modul Runtime integrace poskytuje integrované ovladače DB2, proto nemusíte ručně nainstalovat všechny ovladače při kopírování dat z databáze DB2.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru DB2.
 
@@ -65,7 +66,7 @@ Pro DB2 propojené služby jsou podporovány následující vlastnosti:
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Db2** | Ano |
 | server |Název serveru DB2. |Ano |
-| Databáze |Název databáze DB2. |Ano |
+| databáze |Název databáze DB2. |Ano |
 | Schéma |Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
 | authenticationType. |Typ ověřování používaný pro připojení k databázi DB2.<br/>Povolená hodnota je: **základní**. |Ano |
 | uživatelské jméno |Zadejte uživatelské jméno pro připojení k databázi DB2. |Ano |
@@ -177,11 +178,11 @@ Při kopírování dat z DB2, se používají následující mapování z DB2 da
 | Typ databáze DB2 | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binární |Byte] |
+| Binární hodnota |Byte] |
 | Objekt blob |Byte] |
 | Char |Řetězec |
 | Datový typ CLOB |Řetězec |
-| Datum |Data a času |
+| Datum |Datum a čas |
 | DB2DynArray |Řetězec |
 | DbClob |Řetězec |
 | Decimal |Decimal |
@@ -194,15 +195,15 @@ Při kopírování dat z DB2, se používají následující mapování z DB2 da
 | LongVarChar |Řetězec |
 | LongVarGraphic |Řetězec |
 | číselné |Decimal |
-| Real |Jeden |
+| Real |Svobodný/svobodná |
 | SmallInt |Int16 |
 | Čas |Časový interval |
-| časové razítko |Data a času |
+| Časové razítko |Datum a čas |
 | VarBinary |Byte] |
 | VarChar |Řetězec |
 | VarGraphic |Řetězec |
 | XML |Byte] |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace prostředí PowerShell pro Azure zásobníku  
 
@@ -31,7 +31,7 @@ Tento článek obsahuje podrobné pokyny k instalaci prostředí PowerShell pro 
 > [!NOTE]
 > Následující kroky vyžadují prostředí PowerShell 5.0. Pokud chcete zkontrolovat vaší verzí, spusťte $PSVersionTable.PSVersion a porovnat "Hlavní" verzi.
 
-Příkazy prostředí PowerShell pro Azure zásobníku jsou nainstalovány v galerii prostředí PowerShell. Chcete regiser PSGallery úložiště otevřete relaci prostředí PowerShell zvýšenými z sadě pro vývoj nebo z externí klienta se systémem Windows Pokud jsou připojené prostřednictvím sítě VPN a spusťte následující příkaz:
+Příkazy prostředí PowerShell pro Azure zásobníku jsou nainstalovány v galerii prostředí PowerShell. Pokud chcete zaregistrovat PSGallery úložiště, otevřete relaci prostředí PowerShell zvýšenými z sadě pro vývoj nebo z externí klienta se systémem Windows Pokud jsou připojené prostřednictvím sítě VPN a spusťte následující příkaz:
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Před instalací požadovanou verzi, ujistěte se, abyste odinstalovali všech e
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Přihlaste se k sadě pro vývoj, nebo externí klienta se systémem Windows Pokud máte v úmyslu vytvořit připojení VPN. Odstranit všechny složky, které začínají "Azure" z `C:\Program Files (x86)\WindowsPowerShell\Modules` a `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` složek. Odstranění těchto složek odebere všechny existující moduly Powershellu z "AzureStackAdmin" a "globální" uživatele oborů. 
+* Přihlaste se k sadě pro vývoj, nebo externí klienta se systémem Windows Pokud máte v úmyslu vytvořit připojení VPN. Odstranit všechny složky, které začínají "Azure" z `C:\Program Files\WindowsPowerShell\Modules` a `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` složek. Odstranění těchto složek odebere všechny existující moduly Powershellu z "AzureStackAdmin" a "globální" uživatele oborů. 
 
 Následující části popisují kroky potřebné k instalaci prostředí PowerShell pro Azure zásobníku. Prostředí PowerShell můžete nainstalovat v zásobníku Azure, která je provozována v připojené, částečně připojen nebo ve scénáři odpojené. 
 
@@ -126,7 +126,6 @@ Ve scénáři odpojené musíte nejprve stáhnout moduly Powershellu pro počít
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 
@@ -134,7 +133,7 @@ Ve scénáři odpojené musíte nejprve stáhnout moduly Powershellu pro počít
      -Repository $RepoName 
    ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Stažení nástroje Azure zásobníku z Githubu](azure-stack-powershell-download.md)
 * [Konfigurace prostředí PowerShell Azure zásobník uživatele](user/azure-stack-powershell-configure-user.md)  

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure předávací ověřování služby Active Directory: Aktuální omezení
 
@@ -46,6 +46,7 @@ Následující scénáře jsou _není_ podporovány:
 - Zjišťování uživatelů s [úniku přihlašovacích údajů](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services vyžaduje synchronizaci hodnoty Hash hesla, aby byl povolen u klienta. Proto klientů, které používají předávací ověřování _pouze_ nefungují pro scénáře, které je třeba Azure AD Domain Services.
 - Předávací ověřování není integrovaná s [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+- Apple Device Enrollment Program (Apple DEP) nepodporuje moderní ověřování.  Zařízení Apple DEP se nepovede zaregistrovat do služby Intune pro domény pomocí předávacího ověřování.
 
 >[!IMPORTANT]
 >Jako alternativní řešení pro nepodporované scénáře _pouze_, povolte synchronizaci hodnoty Hash hesla na [volitelné funkce](active-directory-aadconnect-get-started-custom.md#optional-features) stránku průvodce Azure AD Connect.

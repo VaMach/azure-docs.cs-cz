@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 198aa74622c0f938aabe6540e2321e16aa9beb21
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Zobrazit oznámení o stavu služby pomocí portálu Azure
 
@@ -37,11 +37,11 @@ Každý oznámení o stavu služby obsahuje informace o oboru a vliv na vaše pr
 
 Název vlastnosti | Popis
 -------- | -----------
-Kanály | Jeden z následujících hodnot: **správce** nebo **operaci**.
+kanály | Jeden z následujících hodnot: **správce** nebo **operaci**.
 correlationId | Obvykle GUID ve formátu řetězce. Události, které patří do stejné akce obvykle sdílet stejnou correlationId.
 eventDataId | Jedinečný identifikátor události.
 EventName | Název události.
-úroveň | Úroveň události. Jeden z následujících hodnot: **kritický**, **chyba**, **upozornění**, **informační**, nebo **podrobné** .
+úroveň | Úroveň události. Jeden z následujících hodnot: **kritický**, **chyba**, **upozornění** nebo **informační**.
 resourceProviderName | Název poskytovatele prostředků pro prostředek dopad.
 Typ prostředku| Typ prostředku ovlivněné prostředku.
 Podřízený stav | Stavový kód HTTP odpovídající REST obvykle volání, ale můžou taky patřit jiných řetězců popisující podřízeného stavu. Například: OK (stavový kód HTTP: 200), které byly vytvořeny (stavový kód HTTP: 201), platné (stavový kód HTTP: 202), ne obsahu (stavový kód HTTP: 204), chybný požadavek (stavový kód HTTP: 400), nebyl nalezen (stavový kód HTTP: 404), konflikt (stavový kód HTTP: 409), interní Server Chyba (kód stavu HTTP: 500), služba není k dispozici (kód stavu HTTP: 503) a vypršel časový limit brány (kód stavu HTTP: 504).
@@ -75,6 +75,6 @@ Properties.communicationId | Komunikace, ke kterému je přiřazeno této událo
     ![Snímek obrazovky monitorování aktivity protokolu s vybrané výstrahy](./media/monitoring-service-notifications/service-health-summary.png)
 4. Vyberte **+ přidat aktivitu protokolu upozornění**a nastavit upozornění, aby upozornění pro budoucí služby oznámení. Další informace najdete v tématu [vytvářet aktivity protokolu upozornění na oznámení o službách](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přijímat [výstrahy oznámení pokaždé, když oznámení o stavu služby](monitoring-activity-log-alerts-on-service-notifications.md) odeslání.  
 Další informace o [aktivity protokolu výstrahy](monitoring-activity-log-alerts.md).

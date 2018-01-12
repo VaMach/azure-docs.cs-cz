@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Přizpůsobení nastavení clusteru Service Fabric a zásady upgradu prostředků infrastruktury
-Tento dokument popisuje, jak přizpůsobit různá nastavení prostředků infrastruktury a zásad pro váš cluster Service Fabric upgradu. Přizpůsobit pomocí [portál Azure](https://portal.azure.com) nebo pomocí šablony Azure Resource Manager.
+Tento dokument vysvětluje, jak přizpůsobit různá nastavení prostředků infrastruktury a infrastruktury upgradovat zásady pro váš cluster Service Fabric. Přizpůsobit pomocí [portál Azure](https://portal.azure.com) nebo pomocí šablony Azure Resource Manager.
 
 > [!NOTE]
 > Ne všechna nastavení jsou k dispozici na portálu. V případě, že níže uvedených nastavení není k dispozici prostřednictvím portálu přizpůsobte pomocí šablony Azure Resource Manager.
@@ -678,7 +678,7 @@ PropertyGroup –|X509NameMap, výchozí hodnota je žádné|Dynamická| |
 |GetCodePackageActivationContextTimeout|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(120)|Dynamická|Zadejte časový interval v sekundách. Hodnota časového limitu pro volání CodePackageActivationContext. Tento parametr nelze použít pro služby ad hoc. |
 |IPProviderEnabled|BOOL, výchozí hodnotu FALSE|Statická|Umožňuje správu IP adres. |
 |NTLMAuthenticationEnabled|BOOL, výchozí hodnotu FALSE|Statická| Povolí podporu pro balíčky kódu, které jsou s jiným uživatelům, aby procesy napříč počítači bezpečně komunikovat pomocí protokolu NTLM. |
-|NTLMAuthenticationPasswordSecret|SecureString, výchozí hodnota je Common::SecureString(L"")|Statická|Je šifrovaný algoritmus hash, který se používá ke generování hesla pro uživatele, protokol NTLM. Musí být nastavena, pokud NTLMAuthenticationEnabled má hodnotu true. Ověřený nasazovacím modulu. |
+|NTLMAuthenticationPasswordSecret|SecureString, výchozí hodnota je Common::SecureString(L"")|Statická|Není že šifrované má, který se používá ke generování hesla pro uživatele, protokol NTLM. Musí být nastavena, pokud NTLMAuthenticationEnabled má hodnotu true. Ověřený nasazovacím modulu. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromMinutes(3)|Dynamická|Zadejte časový interval v sekundách. Pravidelné interval, ve které hostitelský hledá nové certifikáty, který se má použít pro konfiguraci protokolu NTLM FileStoreService nastavení pro konkrétní prostředí. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|Časový interval, výchozí hodnota je Common::TimeSpan::FromMinutes(4)|Dynamická| Zadejte časový interval v sekundách. Časový limit pro konfiguraci protokolu NTLM uživatele, kteří používají běžné názvy certifikátů. Uživatelé NTLM, je potřeba pro sdílené složky FileStoreService. |
 |RegisterCodePackageHostTimeout|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(120)|Dynamická| Zadejte časový interval v sekundách. Hodnota časového limitu pro volání FabricRegisterCodePackageHost synchronizace. Tento krok platí pro pouze více kód balíčku aplikace hostitele jako FWP |
@@ -686,6 +686,7 @@ PropertyGroup –|X509NameMap, výchozí hodnota je žádné|Dynamická| |
 |RunAsPolicyEnabled| BOOL, výchozí hodnotu FALSE|Statická| Umožňuje spuštění kódu balíčky jako místní uživatel jiného, než uživatele, pod které fabric proces běží. Chcete-li povolit tuto zásadu Fabric musí být spuštěn jako systém, nebo jako uživatel, který má SeAssignPrimaryTokenPrivilege. |
 |ServiceFactoryRegistrationTimeout| Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(120)|Dynamická|Zadejte časový interval v sekundách. Hodnota časového limitu pro synchronizaci volání ServiceFactory registrace (Stateless/Stateful) |
 |ServiceTypeDisableGraceInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(30)|Dynamická|Zadejte časový interval v sekundách. Časový interval, po které je možné zakázat typ služby |
+|EnableDockerHealthCheckIntegration|má hodnotu TRUE, BOOL, výchozí|Statická|Umožňuje integraci docker HEALTHCHECK události se sestava stavu systému Service Fabric |
 
 ### <a name="section-name-federation"></a>Název oddílu: Federation
 | **Parametr** | **Povolené hodnoty** | **Zásady upgradu** | **Pokyny nebo krátký popis** |
@@ -772,8 +773,8 @@ PropertyGroup –|X509NameMap, výchozí hodnota je žádné|Dynamická| |
 |MaxPrimaryReplicationQueueMemorySize|Uint, výchozí hodnota je 0|Statická|Toto je maximální hodnota primární replikace fronty v bajtech.|
 |MaxSecondaryReplicationQueueSize|uint, výchozí je 2048|Statická|Toto je maximální počet operací, které může existovat ve frontě sekundární replikace. Všimněte si, že musí být násobkem 2.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, výchozí hodnota je 0|Statická|Toto je maximální hodnota sekundární replikační fronty v bajtech.|
-|QueueHealthMonitoringInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(30)|Statická|Zadejte časový interval v sekundách. Tato hodnota určuje časové období, které Replikátor používá k monitorování všechny události stavu upozornění nebo chyby ve frontách operace replikace. Hodnota '0' zakáže, sledování stavu. |
-|QueueHealthWarningAtUsagePercent|uint, výchozí je 80|Statická|Tato hodnota určuje využití fronty replikace (v procentech), po jejímž uplynutí vytvoříme sestavy upozornění o použití vysoké fronty. Budeme tak učinit po odkladu intervalu QueueHealthMonitoringInterval. Pokud je využití fronty klesne pod tuto procentuální hodnotu v intervalu odkladu upozornění není hlášena.|
+|QueueHealthMonitoringInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(30)|Statická|Zadejte časový interval v sekundách. Tato hodnota určuje časové období, které Replikátor používá k monitorování všechny události stavu upozornění nebo chyby ve frontách operace replikace. Hodnota '0' zakáže monitorování stavu |
+|QueueHealthWarningAtUsagePercent|uint, výchozí je 80|Statická|Tato hodnota určuje využití fronty replikace (v procentech), po jejímž uplynutí vytvoříme sestavy upozornění o použití vysoké fronty. Budeme tak učinit po odkladu intervalu QueueHealthMonitoringInterval. Pokud využití fronty klesne pod tuto procentuální hodnotu v intervalu odkladu|
 |RetryInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(5)|Statická|Zadejte časový interval v sekundách. Při operaci dojde ke ztrátě nebo odmítnuté tento časovač Určuje, jak často bude Replikátor opakovat operaci odeslání.|
 
 ### <a name="section-name-transport"></a>Název oddílu: přenosu
@@ -782,7 +783,7 @@ PropertyGroup –|X509NameMap, výchozí hodnota je žádné|Dynamická| |
 |ResolveOption|řetězec, výchozí hodnota je L "neurčené"|Statická|Určuje, jak je vyřešit plně kvalifikovaný název domény.  Platné hodnoty jsou "neurčené nebo ipv4 nebo ipv6". |
 |ConnectionOpenTimeout|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(60)|Statická|Zadejte časový interval v sekundách. Vypršení časového limitu pro nastavení připojení na příchozí a přijímá straně (včetně vyjednávání zabezpečení v zabezpečeném režimu) |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si tyto články pro další informace o správě clusteru:
 
 [Přidat, mění, odebrat certifikáty ze Azure clusteru](service-fabric-cluster-security-update-certs-azure.md) 

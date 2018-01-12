@@ -24,7 +24,7 @@ Většina restartování trvá přibližně **30 minut**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Podporuje hostované operačního systému je nutné aktualizovat? 
 
-Tato aktualizace infrastruktury Azure adresy známé chyby zabezpečení na úrovni hypervisoru a nevyžaduje aktualizaci bitové kopie systému Windows nebo virtuálního počítače s Linuxem. Jako vždy, ale by měly pokračovat použít osvědčené postupy zabezpečení pro vaše Image virtuálních počítačů. Obraťte se na dodavatele vaše operační systémy pro aktualizace a pokyny, podle potřeby. Pro virtuální počítač Windows serveru zákazníky pokyny teď po publikování a je k dispozici [zde](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
+Tato aktualizace infrastruktury Azure adresy známé chyby zabezpečení na úrovni hypervisoru a nevyžaduje aktualizaci bitové kopie systému Windows nebo virtuálního počítače s Linuxem. Jako vždy, ale by měly pokračovat použít osvědčené postupy zabezpečení pro vaše Image virtuálních počítačů. Obraťte se na dodavatele vaše operační systémy pro aktualizace a pokyny, podle potřeby. Pro virtuální počítač Windows serveru zákazníky pokyny teď po publikování a je k dispozici [zde](../articles/virtual-machines/windows/mitigate-se.md).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Bude k dispozici dopad na výkon v důsledku této aktualizace řešení?
 

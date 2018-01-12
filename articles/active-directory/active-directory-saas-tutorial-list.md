@@ -15,9 +15,9 @@ ms.date: 01/03/2018
 ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 42135b5f34b3caf194d4a8373baa9a9e621a51c7
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: HT
+ms.openlocfilehash: ddcc6464b1d0d7ba7443e5a3a548cfa4cf0d88c8
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/10/2018
 ---
@@ -208,6 +208,7 @@ Kompletní seznam aplikací SaaS, které byly předem integrované do služby Az
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-intralinks-tutorial.png)| [Intralinks](active-directory-saas-intralinks-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-iqnavigatorvms-tutorial.png)| [IQNavigator virtuální počítače](active-directory-saas-iqnavigatorvms-tutorial.md)||
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-iqualify-tutorial.png)| [iQualify pro správu vzdělávacího procesu](active-directory-saas-iqualify-tutorial.md)
+| ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-iriusrisk-tutorial.png)| [IriusRisk](active-directory-saas-iriusrisk-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-itslearning-tutorial.png)| [itslearning](active-directory-saas-itslearning-tutorial.md)
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-itrp-tutorial.png)| [ITRP](active-directory-saas-itrp-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-jitbit-helpdesk-tutorial.png)| [Jitbit Helpdesk](active-directory-saas-jitbit-helpdesk-tutorial.md)|
@@ -328,6 +329,7 @@ Kompletní seznam aplikací SaaS, které byly předem integrované do služby Az
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.png)| [RightAnswers](active-directory-saas-rightanswers-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-rightscale-tutorial.png)| [RightScale](active-directory-saas-rightscale-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_RolePoint.png)| [RolePoint](active-directory-saas-rolepoint-tutorial.md)|
+| ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-rollbar-tutorial.png)| [Oblouk](active-directory-saas-rollbar-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-runmyprocess-tutorial.png)| [RunMyProcess](active-directory-saas-runmyprocess-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.png)| [Izolovaný prostor Salesforce](active-directory-saas-salesforce-sandbox-tutorial.md)| [Izolovaný prostor Salesforce - zřizování uživatelů](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.png)| [Salesforce](active-directory-saas-salesforce-tutorial.md)| [Salesforce - zřizování uživatelů](active-directory-saas-salesforce-provisioning-tutorial.md)|

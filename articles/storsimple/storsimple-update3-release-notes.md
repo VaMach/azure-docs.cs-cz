@@ -4,7 +4,7 @@ description: "Popisuje nové funkce, problémy a řešení pro zařízení StorS
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 282383f0887e546c7d569494eeab42805f789fb2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c22e3859fad55a8632d62aaf5f656081d6d662bd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Aktualizace 3 poznámky k verzi pro vaše zařízení řady StorSimple 8000
 > [!NOTE]
-> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+> Portál Classic pro StorSimple je zastaralý. Vaši Správci zařízení StorSimple se automaticky přesunou na nový Azure Portal podle plánu ukončování používání. O tomto přesunu vás budeme informovat prostřednictvím e-mailu a oznámení na portálu. Tento dokument zanedlouho také nebude k dispozici. Pokud máte jakékoli dotazy k tomuto přesunu, přečtěte si [Nejčastější dotazy: Přesun na Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 
 ## <a name="overview"></a>Přehled
@@ -42,7 +42,7 @@ Přečtěte si informace obsažené v poznámkách k verzi před nasazením aktu
 ## <a name="whats-new-in-update-3"></a>Co je nového ve verzi Update 3
 Byly provedeny následující klíčových vylepšení a opravy chyb ve verzi Update 3.
 
-* **Automatizované změny recyklace místa** – od aktualizace 3, algoritmy recyklace místa se spouští na pohotovostní řadiči výsledkem je rychlejší spouštění systému. Další informace o portech, které jsou potřebné pro práci s recyklace místa, najdete v části [StorSimple sítě požadavky](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+* **Automatizované změny recyklace místa** – od aktualizace 3, algoritmy recyklace místa se spouští na pohotovostní řadiči výsledkem je rychlejší spouštění systému. Další informace o portech, které jsou potřebné pro práci s recyklace místa, najdete v části [StorSimple sítě požadavky](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 * **Vylepšení výkonu** – Update 3 obsahuje zvýšení výkonu pro čtení a zápis do cloudu.
 * **Vylepšení související s migrací** – v této verzi několik oprav chyb a vylepšení měla provést pro funkci migrace z řad 5000/7000 zařízení do 8000 řady zařízení. Další informace o tom, jak využít funkci migrace, přejděte na [migrace z řad 5000/7000 zařízení na zařízení řady 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
 * **Monitorování související opravy** – v této verzi chyby související s monitorování grafy, řídicí panel služby, a zařízení řídicí panel jsme vyřešili.
@@ -56,7 +56,7 @@ Následující tabulka obsahuje souhrn problémy, které jsme vyřešili ve verz
 | 2 |Místně vázaných svazků |V předchozí verzi byly problémy související s chyb, selhání převodu svazku a selhání datapath místně vázaných svazků vstupně-výstupních operací. Tyto problémy se kvůli kořenové a pevné v této verzi. |Ano |Ne |
 | 3 |Monitorování |Došlo k několika problémy související s monitorování a také zařízení řídicího panelu grafů, kde se zobrazí nesprávné informace pro místně vázaných svazků a vytváření sestav jednotky. V této verzi opravě těchto problémů. |Ano |Ne |
 | 4 |Zápisy náročnými vstupně-výstupních operací |Při použití StorSimple pro úlohy zahrnující velkou zápisy, může uživatel by spustit do nepravidelným chyb, kde se právě pracovní sady vrstvené do cloudu. Tato chyba je opravena v této verzi. |Ano |Ano |
-| 5 |Zálohování |V určitých výjimečných případech v předchozích verzích softwaru když uživatel provedl zálohování vzdálené klon, by spustit do cloudu chyby a operaci by chybu. V této verzi je problém vyřešen a po úspěšném dokončení operace. |Ano |Ano |
+| 5 |Backup |V určitých výjimečných případech v předchozích verzích softwaru když uživatel provedl zálohování vzdálené klon, by spustit do cloudu chyby a operaci by chybu. V této verzi je problém vyřešen a po úspěšném dokončení operace. |Ano |Ano |
 | 6 |Zásady zálohování |V určitých výjimečných případech ve starších verzích softwaru, se chyby související s odstranění zásady zálohování. Tento problém vyřešen v této verzi. |Ano |Ano |
 
 ## <a name="known-issues-in-update-3"></a>Známé problémy ve verzi Update 3
@@ -69,7 +69,7 @@ Následující tabulka obsahuje souhrn známých problémů v této verzi.
 | 3 |Účty úložiště |Pomocí služby úložiště odstranit účet úložiště se o nepodporovaný scénář. To povede k situaci, ve kterém nelze načíst data uživatele. | |Ano |Ano |
 | 4 |Převzetí služeb při selhání zařízení |Více převzetí služeb při selhání kontejner svazků ze stejného zdrojového zařízení do jiné cílové zařízení není podporována. Převzetí služeb při selhání z jednoho neaktivní zařízení do více zařízení bude kontejnery svazků na prvním převzal zařízení dojít ke ztrátě dat vlastnictví. Po takové převzetí služeb při selhání, budou tyto kontejnery svazků zobrazí nebo chovat jinak při zobrazení na portálu Azure classic. | |Ano |Ne |
 | 5 |Instalace |Během StorSimple adaptéru pro instalaci služby SharePoint je třeba zadat IP zařízení v pořadí pro instalaci úspěšně dokončit. | |Ano |Ne |
-| 6 |Webový proxy server |Pokud vaše konfigurace webového proxy serveru má zadaný protokol HTTPS, bude mít vliv na komunikaci služby zařízení a zařízení přejde do režimu offline. Podpora balíčky se budou generovat také v procesu spotřebovávat značné množství prostředků vašeho zařízení. |Ujistěte se, že má adresu URL webového proxy serveru HTTP jako zadaný protokol. Další informace najdete v článku [Konfigurace webového proxy serveru pro zařízení](storsimple-configure-web-proxy.md). |Ano |Ne |
+| 6 |Webový proxy server |Pokud vaše konfigurace webového proxy serveru má zadaný protokol HTTPS, bude mít vliv na komunikaci služby zařízení a zařízení přejde do režimu offline. Podpora balíčky se budou generovat také v procesu spotřebovávat značné množství prostředků vašeho zařízení. |Ujistěte se, že má adresu URL webového proxy serveru HTTP jako zadaný protokol. Další informace najdete v článku [Konfigurace webového proxy serveru pro zařízení](storsimple-8000-configure-web-proxy.md). |Ano |Ne |
 | 7 |Webový proxy server |Pokud nakonfigurujete a povolíte webový proxy server na registrované zařízení, budete muset restartujte řadič active na vašem zařízení. | |Ano |Ne |
 | 8 |Cloud vysokou latencí a vysokou vstupně-výstupní úlohy |Když v zařízení StorSimple dojde kombinaci cloudu velmi vysoké latenci (pořadí sekund) a vysoké vstupně-výstupní úlohy, svazky zařízení přejděte do sníženou stavu a vstupně-výstupních operací může selhat s chybou "zařízení není připraveno". |Je nutné ručně restartovat řadiče zařízení nebo provádět převzetí služeb při selhání zařízení obnovit z této situaci. |Ano |Ne |
 | 9 |Azure PowerShell |Při použití rutiny StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - nejprve 1 - čekání** vyberte první objekt tak, že můžete vytvořit nový **VolumeContainer** objektu, rutina vrátí všechny objekty. |Zabalit rutinu v závorkách následujícím způsobem: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - nejprve 1 - čekání** |Ano |Ano |

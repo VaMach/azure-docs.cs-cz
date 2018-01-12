@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 330ef58d89ebabaa2af7fa8e98e693ddd64dcc4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Úvod do monitorování stavu Service Fabric
 Azure Service Fabric zavádí stavu model, který poskytuje bohatý, flexibilní a rozšiřitelný stavu vyhodnocení a vytváření sestav. Model umožňuje téměř v reálném čase monitorování stavu clusteru a služby spuštěné v ní. Můžete snadno získat informace o stavu a opravte potenciální problémy předtím, než v kaskádě a způsobit masivní výpadků. V typické modelu služby odesílat sestavy založené na jejich místní zobrazení, a že informace se shromažďují zajistit celkovou clusteru úrovni zobrazení.
@@ -306,7 +306,7 @@ Jiné systémy musí mít jedinou, centralizovanou služby na úrovni clusteru, 
 
 Health model se používá výraznou pro monitorování a diagnostiku pro vyhodnocení stavu cluster a aplikace a monitorovaných upgrady. Jiné služby stavu data použít k provedení automatické opravy, sestavení historie stavu clusteru a vydání výstrahy na určité podmínky.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Zobrazit sestavy stavu Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Pomocí sestav o stavu systému pro řešení potíží](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

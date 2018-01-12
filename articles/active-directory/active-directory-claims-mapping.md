@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Deklarace identity mapování v Azure Active Directory (verze public preview)
 
@@ -95,13 +95,13 @@ Pomocí zásad nemůže být upraven deklarace identity s omezeným přístupem.
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|E-mailu|
-|koncový bod|
+|e-mail|
+|endpoint|
 |enfpolids|
 |Exp|
 |expires_on|
 |grant_type|
-|Graf|
+|graf|
 |group_sids|
 |skupiny|
 |hasgroups|
@@ -118,7 +118,7 @@ Pomocí zásad nemůže být upraven deklarace identity s omezeným přístupem.
 |identityprovider|
 |deklarací identity|
 |in_corp|
-|Instance|
+|instance|
 |IPADDR|
 |isbrowserhostedapp|
 |iss|
@@ -154,8 +154,8 @@ Pomocí zásad nemůže být upraven deklarace identity s omezeným přístupem.
 |refresh_token|
 |refreshtoken|
 |request_nonce|
-|Prostředek|
-|Role|
+|prostředek|
+|role|
 |role|
 |Obor|
 |spojovací bod služby|
@@ -287,7 +287,7 @@ ID elementu identifikuje, jehož vlastnost ve zdroji poskytuje hodnotu pro dekla
 |Uživatel|DisplayName|Zobrazovaný název|
 |Uživatel|objectid|ObjectID|
 |Uživatel|E-mailu|E-mailová adresa|
-|Uživatel|userPrincipalName|Hlavní název uživatele|
+|Uživatel|userPrincipalName|Hlavní název uživatele (UPN)|
 |Uživatel|Oddělení|Oddělení|
 |Uživatel|onpremisessamaccountname|Na místní název účtu Sam|
 |Uživatel|název pro rozhraní NetBIOS|Název pro rozhraní NetBios|
@@ -381,7 +381,7 @@ Založené na metodě vybrali, se očekává sadu vstupy a výstupy. Tyto jsou d
 |Zdroj|ID|Popis|
 |-----|-----|-----|
 |Uživatel|E-mailu|E-mailová adresa|
-|Uživatel|userPrincipalName|Hlavní název uživatele|
+|Uživatel|userPrincipalName|Hlavní název uživatele (UPN)|
 |Uživatel|onpremisessamaccountname|Na místní název účtu Sam|
 |Uživatel|Číslo zaměstnance|ID zaměstnance|
 |Uživatel|extensionattribute1|Atribut rozšíření 1|
@@ -403,7 +403,7 @@ Založené na metodě vybrali, se očekává sadu vstupy a výstupy. Tyto jsou d
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabulka 6: Transformace metody povolené pro SAML NameID
 |TransformationMethod|Omezení|
 | ----- | ----- |
-|ExtractMailPrefix|Žádný|
+|ExtractMailPrefix|Žádné|
 |Spojit|Přípona je připojený k musí být ověřené domény klienta prostředků.|
 
 ### <a name="custom-signing-key"></a>Vlastní podpisového klíče
@@ -490,7 +490,7 @@ V tomto příkladu vytvoříte zásadu, která vydá vlastní deklarace identity
     1. Chcete-li vytvořit zásadu, spusťte tento příkaz: 
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
     ```
     
     2. Chcete zobrazit nové zásady a získat zásady ObjectId, spusťte následující příkaz: 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.openlocfilehash: a5d2994eb1203274454fc31c3ee9bf7a21562f75
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure SQL Database pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,8 @@ Konkrétně tento konektor Azure SQL Database podporuje:
 - Jako jímku přidávání dat do cílové tabulky nebo volání uložené procedury s vlastní logikou během kopírování.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které se používají k definování konkrétní entity služby Data Factory pro konektor Azure SQL Database.
 
@@ -454,9 +455,9 @@ Při kopírování dat z/do Azure SQL Database, se používají následující m
 | Binární |Byte] |
 | Bit |Logická hodnota |
 | Char |Řetězec, Char] |
-| Datum |Data a času |
-| Data a času |Data a času |
-| datetime2 |Data a času |
+| datum |Datum a čas |
+| Datum a čas |Datum a čas |
+| datetime2 |Datum a čas |
 | Datový typ DateTimeOffset |Datový typ DateTimeOffset |
 | Decimal |Decimal |
 | Atribut FILESTREAM (varbinary(max)) |Byte] |
@@ -468,9 +469,9 @@ Při kopírování dat z/do Azure SQL Database, se používají následující m
 | ntext |Řetězec, Char] |
 | číselné |Decimal |
 | nvarchar |Řetězec, Char] |
-| skutečné |Jeden |
+| skutečné |Svobodný/svobodná |
 | ROWVERSION |Byte] |
-| smalldatetime |Data a času |
+| smalldatetime |Datum a čas |
 | smallint |Int16 |
 | Smallmoney |Decimal |
 | SQL_VARIANT |Objekt * |
@@ -478,10 +479,10 @@ Při kopírování dat z/do Azure SQL Database, se používají následující m
 | time |Časový interval |
 | časové razítko |Byte] |
 | tinyint |Bajtů |
-| Typ UniqueIdentifier |Identifikátor GUID |
+| Typ UniqueIdentifier |Guid |
 | varbinary |Byte] |
 | varchar |Řetězec, Char] |
 | xml |XML |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

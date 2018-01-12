@@ -1,6 +1,6 @@
 ---
 title: "Povolit zálohování pro Azure zásobníku pomocí prostředí PowerShell | Microsoft Docs"
-description: "Povolení infrastruktury zpět služby pomocí prostředí Windows PowerShell, aby zásobník Azure můžete obnovit, pokud dojde k selhání."
+description: "Povolte službu infrastruktura zálohování pomocí prostředí Windows PowerShell, aby zásobník Azure můžete obnovit, pokud dojde k selhání."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: b4f48b7fd07c5fb590b6989e04e9084c86142d2a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Povolit zálohování pro Azure zásobníku pomocí prostředí PowerShell
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Povolení infrastruktury zpět služby pomocí prostředí Windows PowerShell, aby zásobník Azure můžete obnovit, pokud dojde k selhání. Rutiny prostředí PowerShell pro povolení zálohování, spustit zálohování a získat informace o zálohování přes koncový bod správy operátor můžete přistupovat.
+Povolte službu infrastruktura zálohování pomocí prostředí Windows PowerShell, aby zásobník Azure můžete obnovit, pokud dojde k selhání. Rutiny prostředí PowerShell pro povolení zálohování, spustit zálohování a získat informace o zálohování přes koncový bod správy operátor můžete přistupovat.
 
 ## <a name="download-azure-stack-tools"></a>Stažení nástroje Azure zásobníku
 
@@ -90,6 +90,9 @@ Ve stejné relaci prostředí PowerShell spusťte následující příkazy:
    $encryptionkey = New-EncryptionKeyBase64
    ```
 
+> [!Warning]  
+> Nástroje AzureStack musíte použít ke generování klíče.
+
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Zadejte zálohování sdílené složky, pověření a šifrovací klíč k povolení zálohování
 
 Přidáním proměnné prostředí ve stejné relaci prostředí PowerShell, upravte následující skript prostředí PowerShell. Spusťte skript aktualizované zajistit zálohování sdílené složky, přihlašovací údaje a šifrovací klíče ke službě zálohování infrastruktury.
@@ -98,18 +101,18 @@ Přidáním proměnné prostředí ve stejné relaci prostředí PowerShell, upr
 |---              |---                                        |
 | $username       | Typ **uživatelské jméno** pomocí domény a uživatelské jméno pro umístění sdíleného disku. Například, `Contoso\administrator`. |
 | $password       | Typ **heslo** pro uživatele. |
-| $sharepath      | Zadejte cestu ke **umístění úložiště zálohy**. Je nutné použít řetězec Universal Naming Convention (UNC) pro cestu sdílené složky hostované na samostatných zařízení. Řetězec UNC Určuje umístění prostředků, jako jsou sdílené soubory nebo zařízení. K zajištění dostupnosti zálohovaných dat, musí být zařízení v samostatných umístění. |
+| $sharepath      | Zadejte cestu ke **umístění úložiště zálohy**. Je nutné použít řetězec Universal Naming Convention (UNC) pro cestu ke sdílené složce hostované na samostatných zařízení. Řetězec UNC Určuje umístění prostředků, jako jsou sdílené soubory nebo zařízení. K zajištění dostupnosti zálohovaných dat, musí být zařízení v samostatných umístění. |
 
    ```powershell
-   $username = "domain\backupoadmin"
+    $username = "domain\backupoadmin"
     $password = "password"
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-
-Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
-
+    
+    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
+   
 ##  <a name="confirm-backup-settings"></a>Potvrďte nastavení zálohování
 
 Ve stejné relaci prostředí PowerShell spusťte následující příkazy:

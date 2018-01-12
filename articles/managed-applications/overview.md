@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="azure-managed-applications-overview"></a>Přehled Azure spravované aplikace
+# <a name="azure-managed-applications-overview"></a>Přehled spravovaných aplikací Azure
 
 Spravované aplikace Azure umožňují nabízet cloudové řešení, které jsou pro spotřebitele snadno nasadit a provozovat. Implementovat infrastrukturu a poskytovat podporu probíhající. Spravované aplikace zpřístupnit všem zákazníkům, publikování v Azure marketplace. Chcete-li k dispozici jenom na uživatele ve vaší organizaci, publikujte na interní katalogu. 
 
@@ -48,6 +48,8 @@ Informace o publikování aplikace spravované katalogu služeb najdete v témat
 
 Dodavatelé chtějí účtovat pošle pro své služby můžete zpřístupnit spravované aplikace prostřednictvím Azure marketplace. Po dodavatele publikuje aplikace, je k dispozici pro uživatele mimo organizaci. K tomuto přístupu, zprostředkovatelé spravované služby (MSPs), nezávislí dodavatelé softwaru (ISV) a systém integrátorech (si) nabízejí svá řešení pro všechny zákazníky využívající Azure.
 
+Informace o publikování spravované aplikace na web Marketplace najdete v tématu [vytvoření aplikace marketplace](publish-marketplace-app.md).
+
 ## <a name="resource-groups-for-managed-applications"></a>Skupiny prostředků pro spravované aplikace
 
 Prostředky pro spravované aplikace jsou obvykle umístěny ve dvou skupinách prostředků. Příjemce spravuje jednu skupinu prostředků, a vydavatele jiné skupině prostředků. Při definování spravované aplikace, vydavatele Určuje úrovně přístupu. Následující obrázek ukazuje scénář, kde vydavatele požadavky roli vlastníka pro skupinu spravovaných prostředků. Vydavatele umístit zámek jen pro čtení do této skupiny prostředků pro příjemce.
@@ -60,14 +62,14 @@ Tato skupina prostředků obsahuje instance spravované aplikace. Tato skupina p
 
 Příjemce má plný přístup ke skupině prostředků a používá ke správě životního cyklu spravované aplikace.
 
-### <a name="managed-resource-group"></a>Skupina spravovaných prostředků
+### <a name="managed-resource-group"></a>Spravovaná skupina prostředků
 
 Tato skupina prostředků obsahuje všechny prostředky, které jsou vyžadované spravované aplikace. Například tato skupina prostředků obsahuje virtuální počítače, účty úložiště a virtuální sítě pro řešení. Příjemce má omezený přístup do této skupiny prostředků, protože spotřebitel nespravuje jednotlivé prostředky pro spravované aplikace. Vydavatele přístup do této skupiny prostředků odpovídá roli zadaný v definici spravované aplikace. Například vydavatele si mohou vyžádat roli vlastníka nebo přispěvatele pro tuto skupinu prostředků.
 
 Když příjemce odstraní spravované aplikace, je taky odstranit skupinu spravovaných prostředků.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Úvod k definování a nasazování spravovaných aplikací, najdete v části [vytvořit a nasadit Azure spravované aplikace pomocí rozhraní příkazového řádku Azure](managed-apps-quickstart-cli.md)
 * Informace o publikování interní aplikace najdete v tématu [vytvořit aplikaci služby katalogu](publish-service-catalog-app.md).
-
+* Informace o publikování spravovaných aplikací na webu marketplace najdete v tématu [vytvoření aplikace marketplace](publish-marketplace-app.md).

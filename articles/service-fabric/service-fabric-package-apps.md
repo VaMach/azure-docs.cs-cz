@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: ryanwi
-ms.openlocfilehash: 486a27d7ca576c8fe1552c02eb24ece6b8bb2ba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-an-application"></a>Balíček aplikace
 Tento článek popisuje, jak připravit pro nasazení a balíček aplikace Service Fabric.
@@ -48,7 +48,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 Složky jsou pojmenované tak, aby odpovídala **název** atributy každý odpovídající element. Například, pokud service manifest obsažené dvě kód balíčků s názvy **MyCodeA** a **MyCodeB**, pak dvě složky se stejnými názvy by obsahovat potřebné binární soubory pro každý balíček kódu.
 
 ## <a name="use-setupentrypoint"></a>Použití SetupEntryPoint
-Typické scénáře použití **SetupEntryPoint** když budete muset spustit spustitelný soubor před spuštěním služby nebo je třeba provést operace s vyššími oprávněními. Například:
+Typické scénáře použití **SetupEntryPoint** když budete muset spustit spustitelný soubor před spuštěním služby nebo je třeba provést operace s vyššími oprávněními. Příklad:
 
 * Nastavení a inicializace proměnných prostředí, které potřebuje spustitelný soubor služby. Není omezeno na napsané pomocí Service Fabric programovací modely pouze spustitelné soubory. Například npm.exe musí některé proměnné prostředí nakonfigurované pro nasazení aplikace node.js.
 * Nastavení řízení přístupu nainstalováním certifikáty zabezpečení.
@@ -115,11 +115,11 @@ Pokud má vaše aplikace [parametry aplikace](service-fabric-manage-multiple-env
 
 Pokud znáte clusteru, kde bude aplikace nasazena, je vhodné předáte v `ImageStoreConnectionString` parametr. V takovém případě balíček také ověřovat na předchozí verze této aplikace, které jsou již spuštěny v clusteru. Například ověření může zjistit, zda balíček se stejnou verzí, ale už nasazená jiný obsah.  
 
-Jakmile se aplikace správně zabalený a ověřením úspěšně projde, vyhodnocení na základě velikosti a počtu souborů, které je podle potřeby komprese.
+Jakmile se aplikace správně zabalený a ověřením úspěšně projde, vezměte v úvahu kompresi balíčku pro rychlejší operace nasazení.
 
 ## <a name="compress-a-package"></a>Komprimovat balíčku
 Pokud se balíček je velký nebo má mnoho souborů, můžete je Komprimovat pro rychlejší nasazení. Komprese snižuje počet souborů a velikost balíčku.
-Pro komprimovaný aplikace balíček [nahrávání balíčku aplikace](service-fabric-deploy-remove-applications.md#upload-the-application-package) trvat delší dobu, ve srovnání s odesílání dekomprimaci balíčku (speciálně. Pokud se započítá komprese čas), ale [registrace](service-fabric-deploy-remove-applications.md#register-the-application-package) a [zrušením registrace typu aplikace](service-fabric-deploy-remove-applications.md#unregister-an-application-type) je rychlejší balíčku komprimované aplikace.
+Pro komprimovaný aplikace balíček [nahrávání balíčku aplikace](service-fabric-deploy-remove-applications.md#upload-the-application-package) trvat delší dobu, ve srovnání s odeslání dekomprimaci balíčku, zvlášť pokud komprese se provádí v rámci kopie. S kompresí [registrace](service-fabric-deploy-remove-applications.md#register-the-application-package) a [zrušením registrace typu aplikace](service-fabric-deploy-remove-applications.md#unregister-an-application-type) je rychlejší.
 
 Tento mechanismus nasazení je stejný pro komprimované a nekomprimované balíčky. Pokud je komprimovaný balíček, je jako takový uložený v úložišti clusteru bitové kopie a je nekomprimovaným na uzlu před spuštěním aplikace.
 Komprese nahradí platný balíček Service Fabric komprimované verze. Složku musíte povolit oprávnění k zápisu. Komprese systémem již zkomprimovaného balíčku vypočítá žádné změny.
@@ -127,8 +127,7 @@ Komprese nahradí platný balíček Service Fabric komprimované verze. Složku 
 Balíček lze komprimovat spuštěním příkazu prostředí Powershell [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) s `CompressPackage` přepínače. Můžete dekomprimovat balíček se stejným příkaz `UncompressPackage` přepínače.
 
 Následující příkaz komprimaci balíček bez kopírování do úložiště bitové kopie. Můžete zkopírovat zkomprimovaného balíčku na jeden nebo více clusterů Service Fabric, podle potřeby, pomocí [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) bez `SkipCopy` příznak.
-Nyní zahrnuje komprimované soubory pro balíček `code`, `config`, a `data` balíčky. Manifest aplikace a služby manifestech nejsou ZIP, protože jsou potřebné pro mnoho interní operace (jako je balíček sdílení, aplikace zadejte název a verze extrakce pro určité ověření).
-Pomocí formátu ZIP manifesty by proveďte, tyto operace neefektivní.
+Nyní zahrnuje komprimované soubory pro balíček `code`, `config`, a `data` balíčky. Manifest aplikace a služby manifestech nejsou ZIP, protože jsou potřebné pro mnoho interní operace. Například balíček sdílení, název a verze extrakci typu aplikace, pro určité ověření všechny potřebné pro přístup k manifesty. Pomocí formátu ZIP manifesty by proveďte, tyto operace neefektivní.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -169,10 +168,9 @@ Pokud balíček je rozsáhlý, zadejte dostatečně vysoký vypršení časovéh
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-Interně Service Fabric vypočítá kontrolní součty pro balíčky aplikací pro ověření. Při použití komprese, kontrolní součty se vypočítávají v komprimované verze jednotlivých balíčků.
-Pokud jste zkopírovali nekomprimované verzi balíčku aplikace a chcete používat kompresi u stejného balíčku, musíte změnit verze `code`, `config`, a `data` balíčků, aby se zabránilo neshoda kontrolního součtu. Pokud jsou balíčky beze změny, místo změníte verzi, můžete použít [rozdílové zřizování](service-fabric-application-upgrade-advanced.md). Tato možnost, nebudou obsahovat beze změny balíček místo něj odkazovat z manifestu služby.
+Interně Service Fabric vypočítá kontrolní součty pro balíčky aplikací pro ověření. Při použití komprese, kontrolní součty se vypočítávají v komprimované verze jednotlivých balíčků. Vygenerování nového zip ze stejného balíčku aplikace vytvoří různé kontrolní součty. Chcete-li zabránit chybám ověření, použijte [rozdílové zřizování](service-fabric-application-upgrade-advanced.md). Tato možnost nezahrnujte beze změny balíčky v nové verzi. Místo toho je odkaz přímo z nové service manifest.
 
-Podobně pokud jste nahráli komprimované verze balíčku a chcete použít dekomprimaci balíčku, musíte aktualizovat verze, aby se zabránilo neshoda kontrolního součtu.
+Pokud se rozdílový zřizování není možné a musí obsahovat balíčky, generovat nové verze pro `code`, `config`, a `data` balíčků, aby se zabránilo neshoda kontrolního součtu. Generování nové verze pro balíčky beze změny je potřeba, pokud se používá zkomprimovaného balíčku, bez ohledu na to, jestli předchozí verze používá kompresi nebo ne.
 
 Balíček je nyní zabalené správně, ověřit a komprimované (v případě potřeby), tak, aby byl připraven na [nasazení](service-fabric-deploy-remove-applications.md) na jeden nebo více clusterů Service Fabric.
 
@@ -187,7 +185,27 @@ Můžete určit, aby chcete komprimovat balíčků na nasazení, přidáním Vis
     </PublishProfile>
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="create-an-sfpkg"></a>Vytvoření sfpkg
+Od verze 6.1 Service Fabric umožňuje zřizování z externího úložiště.
+Pomocí této možnosti nemá balíček aplikace se zkopírují do úložiště bitové kopie. Místo toho můžete vytvořit `sfpkg` a nahrajte ho do externího úložiště, a zadejte identifikátor URI stažení do Service Fabric při zřizování. Stejného balíčku se dá zřídit do více clusterů. Zřizování z externího úložiště šetří čas potřebný k zkopírujte balíček na každý cluster.
+
+`sfpkg` Je soubor zip, který obsahuje balíček počáteční aplikace a má příponu ".sfpkg".
+Balíček aplikace můžete v souboru zip, komprimované nebo nekomprimovaným. Komprese balíčku aplikace v souboru zip, se provádí na kód, konfigurace a data balíčku úrovně, jako [již bylo zmíněno dříve](service-fabric-package-apps.md#compress-a-package).
+
+Chcete-li vytvořit `sfpkg`, začínat složce, která obsahuje původní balíček aplikace, komprimované nebo ne. Potom pomocí všechny nástroje zip složku s příponou ".sfpkg". Například použít [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+
+```csharp
+ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
+```
+
+`sfpkg` Musí být nahrán do externího úložiště mimo pásmo, mimo Service Fabric. Externí úložiště může být jakékoli úložiště, který zveřejňuje koncový bod REST protokolu http nebo https. Při zřizování, Service Fabric provede operaci GET ke stažení `sfpkg` balíček aplikace, takže úložiště musí umožňovat přístup pro čtení pro balíček.
+
+K zajištění balíčku, použijte externí zřizovat, který vyžaduje identifikátor URI stažení a informace o typu aplikace.
+
+>[!NOTE]
+> Zřizování na základě image store relativní cesty aktuálně nepodporuje `sfpkg` soubory. Proto `sfpkg` by neměl být zkopírovat do úložiště bitové kopie.
+
+## <a name="next-steps"></a>Další postup
 [Nasazení a odebírat aplikace] [ 10] popisuje, jak pomocí prostředí PowerShell ke správě instance aplikace
 
 [Správa aplikací parametry pro prostředí s více] [ 11] popisuje postup konfigurace parametrů a proměnných prostředí pro instance jinou aplikaci.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problém instalace agenta konektor Proxy aplikace
 
@@ -37,9 +37,9 @@ Při instalaci konektoru selže, hlavní příčinou je obvykle jednu z těchto 
 
 **Cíl:** ověřte, zda počítač konektoru může připojit k koncový bod registrace AAD aplikace Proxy, jakož i Microsoft přihlašovací stránku.
 
-1.  Otevřete prohlížeč a přejděte na následující webové stránce: <https://aadap-portcheck.connectorporttest.msappproxy.net> a ověřte, zda je funkční připojení k datová centra s porty 9090 a 9091 střed USA a východní USA.
+1.  Otevřete prohlížeč a přejděte na následující webové stránce: <https://aadap-portcheck.connectorporttest.msappproxy.net> a ověřte, zda je funkční připojení k datovým centrům střed USA a východní USA s porty 80 a 443.
 
-2.  Pokud některé z těchto portů neproběhne úspěšně (nemá zeleného zaškrtnutí), ověřte, zda má proxy server brány Firewall nebo back-end \*. msappproxy.net s porty 9090 a 9091 správně definované.
+2.  Pokud některé z těchto portů neproběhne úspěšně (nemá zeleného zaškrtnutí), ověřte, zda má proxy server brány Firewall nebo back-end \*. msappproxy.net s porty 80 a 443 správně definované.
 
 3.  Otevřete prohlížeč (samostatné kartě) a přejděte na následující webové stránce: <https://login.microsoftonline.com>, ujistěte se, že se může přihlásit k této stránce.
 
@@ -68,5 +68,5 @@ Připojení k <https://login.microsoftonline.com> a používat stejné přihlaš
 
 Vyberte uživatelský účet, pak "Directory Role" v nabídce výsledné. Ověřte, zda vybranou roli "Globální správce". Pokud není možné získat přístup k libovolnému stránek společně tyto kroky, nejste globálním správcem.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Pochopení konektory proxy aplikace služby Azure AD](application-proxy-understand-connectors.md)

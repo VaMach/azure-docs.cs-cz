@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Nasazení prostředků Azure k více než jedno předplatné nebo skupinu prostředků
 
@@ -121,7 +121,7 @@ Následující příklad nasadí dva účty úložiště – jeden ve skupině p
 
 Pokud nastavíte `resourceGroup` název skupiny prostředků, který ještě neexistuje, nasazení se nezdaří.
 
-Pokud chcete nasadit šablonu příklad, použijte verzi prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure z může 2017 nebo novější.
+Pokud chcete nasadit šablonu příklad, použijte prostředí Azure PowerShell 4.0.0 nebo novější nebo Azure CLI 2.0.0 nebo novější.
 
 ## <a name="use-the-resourcegroup-function"></a>Použijte funkci resourceGroup()
 
@@ -275,7 +275,7 @@ az group deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Chcete-li pochopit, jak definovat parametry v šabloně, přečtěte si téma [pochopit strukturu a syntaxe šablon Azure Resource Manager](resource-group-authoring-templates.md).
 * Tipy k řešení běžných chyb při nasazení, naleznete v části [odstraňování běžných chyb nasazení Azure pomocí Azure Resource Manageru](resource-manager-common-deployment-errors.md).

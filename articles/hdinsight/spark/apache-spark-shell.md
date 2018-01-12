@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
-ms.author: nitinme
-ms.openlocfilehash: e9467523da10333f1bb3c888f6e2768c2fdee4c1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 55ff40165a1b25949cb202d9a5174e1f52fe4630
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Spusťte Spark v prostředí Shell Spark
 
@@ -73,7 +73,7 @@ Příkaz prostředí Spark (`spark-shell`, `pyspark`, nebo `sparkR`) podporuje m
 | – balíčky MAVEN_COORDS | Čárkami oddělený seznam maven souřadnice JAR zahrnout na ovladače a vykonavatele cesty pro třídy. Vyhledá maven místní úložiště, pak střed maven, pak všechny další vzdáleného úložiště zadaný `--repositories`. Formát souřadnice je *groupId*:*artifactId*:*verze*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | SEZNAM py – soubory | Pro jazyk Python pouze seznam .zip, .egg nebo .py souborů k umístění na PYTHONPATH oddělených čárkami. | `--pyfiles "samples.py"` |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - V tématu [Úvod do Spark v Azure HDInsight](apache-spark-overview.md) Přehled.
 - V tématu [vytvářet cluster Apache Spark v Azure HDInsight](apache-spark-jupyter-spark-sql.md) pro práci s clustery Spark a SparkSQL.

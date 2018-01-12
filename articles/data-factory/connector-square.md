@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 08b931c7c172578191cbc2628d8fabca0984a6e0
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 71c73f034a3c32c9bdf1532106a3aba9521afb17
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Kopírování dat z hranaté pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke odmocnina konektoru.
 
@@ -48,7 +48,7 @@ Odmocnina propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **hranaté** | Ano |
-| hostitele | Adresa URL odmocnina instance. (tj. mystore.mysquare.com)  | Ano |
+| hostitel | Adresa URL odmocnina instance. (tj. mystore.mysquare.com)  | Ano |
 | clientId | ID klienta přidružené odmocnina aplikace.  | Ano |
 | clientSecret | Tajný klíč klienta přidružené odmocnina aplikace. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | redirectUri | Adresa URL pro přesměrování přiřazené v řídicím panelu odmocnina aplikace. (tj. http://localhost:2500)  | Ano |
@@ -142,5 +142,5 @@ Ke zkopírování dat z hranaté, nastavte typ zdroje v aktivitě kopírování 
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 22e19ca3377b623ae15a28a109cb5de419247ba4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Postup konfigurace serveru parametry v Azure Database pro databázi MySQL pomocí portálu Azure
 
@@ -32,8 +32,7 @@ Azure databáze pro databázi MySQL podporuje konfiguraci některé parametry se
 Seznam parametrů podporovaných serveru stále roste. Na kartě Parametry server na portálu Azure a získat definici konfigurace parametry serveru, na základě požadavků vaší aplikace. 
 
 ## <a name="nonconfigurable-server-parameters"></a>Parametry Nonconfigurable serveru
-
-Následující parametry nejsou konfigurovatelné a vázané na vaše [cenová úroveň](concepts-service-tiers.md). 
+InnoDB fondu vyrovnávací paměti a maximální počet připojení nejsou konfigurovatelné a vázanou na vaše [cenová úroveň](concepts-service-tiers.md). 
 
 | **Cenová úroveň** | **Fond InnoDB vyrovnávací paměti (MB)** | **Maximální počet připojení** |
 | :------------------------ | :-------- | :----------- |
@@ -44,9 +43,13 @@ Následující parametry nejsou konfigurovatelné a vázané na vaše [cenová �
 | Standardní 400 | 10240 | 800 | 
 | Standardní 800 | 20480 | 1600 |
 
- Innodb_file_per_table v základní vrstvě: vypnuto
+Tyto další server parametry jsou nonconfigurable v systému <br>
+ Innodb_file_per_table v základní vrstvě: vypnuto<br>
+ innodb_flush_log_at_trx_commit = 1<br>
+ sync_binlog = 1<br>
+ innodb_log_file_size = 512MB<br>
  
-Všechny ostatní parametry serveru, které nejsou uvedené v předchozí tabulce jsou nastavené na výchozí hodnoty pro verze [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) a [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Další parametry serveru, které zde nejsou uvedeny jsou nastaveny na MySQL out-of-box výchozí hodnoty pro verze [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) a [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Knihovny připojení pro databázi Azure pro databázi MySQL](concepts-connection-libraries.md).

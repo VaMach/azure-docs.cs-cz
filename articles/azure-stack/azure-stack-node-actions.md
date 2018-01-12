@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Uzel akcí jednotky škálování v Azure zásobníku
 
 *Platí pro: Azure zásobníku integrované systémy*
 
 Tento článek popisuje, jak zobrazit stav jednotky škálování a jeho přidružené uzly a jak používat akce k dispozici uzel. Uzel akce zahrnují zapnutí napájení vypnuto, vyprazdňování, obnovit a opravit. Tyto akce uzlu se obvykle používá při nahrazení pole částí nebo pro scénáře obnovení uzlu.
+
+> [!Important]  
+> Všechny uzlu akce popsané v tomto článku měli jenom target jednoho uzlu současně.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Zobrazení stavu jednotky škálování a jeho uzly
 
@@ -75,13 +79,17 @@ Provozní stav uzlu Určuje, které možnosti jsou k dispozici.
 
 **Vypnutí** akce vypne uzlu. Je stejný jako v případě, že stisknutím tlačítka napájení. Provede **není** odesílat signál k vypnutí operačního systému. Pro plánované vypnutí operace zajistěte, aby že nejprve vyprazdňování uzlu jednotky škálování.
 
-Tato akce se obvykle používá, pokud uzel je ve stavu "zamrzlých" a už reaguje na požadavky.  
+Tato akce se obvykle používá, pokud uzel je ve stavu "zamrzlých" a už reaguje na požadavky.
+
+> [!Important] 
+> Tato funkce je dostupná prostřednictvím rozhraní PowerShell jenom. Bude k dispozici na portálu Azure zásobníku správce znovu později.
+
 
 Spuštění vypnutí akce pomocí prostředí PowerShell:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 V případě nepravděpodobné, že vypnutí akce nepomůže použijte místo toho webové rozhraní BMC.
 
@@ -89,11 +97,14 @@ V případě nepravděpodobné, že vypnutí akce nepomůže použijte místo to
 
 **Zapnout** akce zapne uzlu. Je stejný jako v případě, že stisknutím tlačítka napájení. 
 
+> [!Important] 
+> Tato funkce je dostupná prostřednictvím rozhraní PowerShell jenom. Bude k dispozici na portálu Azure zásobníku správce znovu později.
+
 Možnosti spuštění pro akce pomocí prostředí PowerShell:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 V případě nepravděpodobné, že zapnutí akce nepomůže použijte místo toho webové rozhraní BMC.
 
@@ -122,7 +133,7 @@ Spuštění akce obnovení pomocí prostředí PowerShell:
   Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
   ````
 
-### <a name="repair"></a>Oprava
+### <a name="repair"></a>Opravit
 
 **Repair** akce opraví uzlu. Používejte pouze pro jednu z následujících scénářů:
 

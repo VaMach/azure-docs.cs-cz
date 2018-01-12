@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooky Azure aktivity protokolu výstrahy
 Jako součást definice skupiny akce můžete nakonfigurovat webhooku koncových bodů pro příjem oznámení o výstrahách protokolu aktivit. Pomocí webhooků je možné směrovat tato oznámení s dalšími systémy pro následné zpracování nebo vlastní akce. Tento článek ukazuje, jak vypadá pro HTTP POST na webhook, jehož datové části.
@@ -58,7 +58,7 @@ Datová část JSON, které jsou obsažené v operaci POST liší v závislosti 
     }
 }
 ```
-###<a name="administrative"></a>Pro správu
+###<a name="administrative"></a>Správa
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -145,7 +145,7 @@ Podrobnosti konkrétní schématu na všechny ostatní výstrahy protokolu aktiv
 | resourceId |ID prostředku ovlivněné prostředku. |
 | Název skupiny prostředků |Název skupiny prostředků pro prostředek dopad. |
 | properties |Sada `<Key, Value>` páry (tedy `Dictionary<String, String>`) obsahující podrobnosti o události. |
-| Události |Element, který obsahuje metadata o události. |
+| událost |Element, který obsahuje metadata o události. |
 | Autorizace |Řízení přístupu na základě Role vlastnosti události. Tyto vlastnosti obvykle obsahovat akci, role a obor. |
 | category |Kategorie události. Podporované hodnoty jsou správy, výstrahy, zabezpečení, ServiceHealth a doporučení. |
 | volající |E-mailovou adresu uživatele, který provádí operace, deklarace hlavní název uživatele nebo název SPN deklarace identity na základě dostupnosti. Může mít hodnotu null pro určité systémová volání. |
@@ -154,14 +154,14 @@ Podrobnosti konkrétní schématu na všechny ostatní výstrahy protokolu aktiv
 | eventDataId |Jedinečný identifikátor pro událost. |
 | EventSource |Název služby Azure nebo infrastruktury, které vygenerovalo událost. |
 | požadavku HTTP |Požadavek obvykle obsahuje clientRequestId, clientIpAddress a metodou HTTP (například přidat). |
-| úroveň |Jeden z následujících hodnot: kritická, chyba, upozornění, informační a Verbose. |
+| úroveň |Jeden z následujících hodnot: kritická, chyba, upozornění a informativní. |
 | operationId |Obvykle GUID sdílen události odpovídající jedné operace. |
 | operationName |Název operace. |
 | properties |Vlastnosti události. |
 | status |Řetězec. Stav operace. Běžné hodnoty zahrnují Začínáme, probíhá, bylo úspěšné, neúspěšné, aktivní a vyřešeno. |
 | Podřízený stav |Obvykle zahrnuje stavový kód HTTP odpovídající volání REST. Může také obsahovat další řetězce, které popisují podřízeného stavu. Běžné substatus hodnoty zahrnují OK (stavový kód HTTP: 200), které byly vytvořeny (stavový kód HTTP: 201), platné (stavový kód HTTP: 202), ne obsahu (stavový kód HTTP: 204), chybný požadavek (stavový kód HTTP: 400), nebyl nalezen (stavový kód HTTP: 404), konflikt (stavový kód HTTP: 409 ), Vnitřní chybu serveru (kód stavu HTTP: 500), služba není k dispozici (kód stavu HTTP: 503) a vypršel časový limit brány (kód stavu HTTP: 504). |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Další informace o protokolu činnosti](monitoring-overview-activity-logs.md).
 * [Spustit skripty služby Azure automation (Runbooky) na Azure výstrahy](http://go.microsoft.com/fwlink/?LinkId=627081).
 * [Pomocí aplikace logiky odeslat zprávu SMS prostřednictvím Twilio z Azure výstrahy](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). V tomto příkladu je metriky výstrahy, ale je možné ji upravit pro práci s výstrahu protokolu aktivit.

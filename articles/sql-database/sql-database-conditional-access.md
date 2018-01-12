@@ -2,19 +2,19 @@
 title: "Podmíněný přístup – Azure SQL Database a Data Warehouse | Microsoft dokumentů"
 description: "Postup konfigurace podmíněného přístupu pro Azure SQL Database a datového skladu."
 services: sql-database
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 ms.custom: security
 ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: rickbyh
+ms.author: mireks
 ms.workload: Inactive
-ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Podmíněný přístup (MFA) s Azure SQL Database a datového skladu  
 
@@ -46,6 +46,6 @@ SQL Database a SQL Data Warehouse podporují podmíněný přístup společnosti
 Vybrané aplikace (Azure SQL Database) povolení pro připojení k Azure SQL DB nebo datového skladu pomocí Azure AD Premium, teď vynucuje vybrané zásady podmíněného přístupu, **požadované služby Multi-Factor authentication.**  
 Otázky týkající se Azure SQL Database a datového skladu týkající se služby Multi-Factor authentication, vám poskytne MFAforSQLDB@microsoft.com.  
 
-## <a name="next-steps"></a>Další kroky  
+## <a name="next-steps"></a>Další postup  
 
 Podívejte se kurz [zabezpečení vaší databázi SQL Azure](sql-database-security-tutorial.md).

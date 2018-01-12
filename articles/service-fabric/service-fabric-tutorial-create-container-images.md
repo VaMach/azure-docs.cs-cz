@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Vytvoření bitové kopie kontejner pro Service Fabric
 
@@ -58,44 +58,40 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Adresář, kontejner tutorial' obsahuje složku s názvem 'azure hlas'. Tato složka 'azure hlas' obsahuje front-end zdrojový kód a soubor Docker k vytváření front-endu. Adresář, kontejner tutorial' také obsahuje adresáři 'redis', který má soubor Docker vytvořit bitovou kopii redis. Tyto adresáře obsahovat potřebné prostředky pro tento kurz sadu. 
+Řešení obsahuje dvě složky a ' docker-compse.yml' souboru. Složka 'azure hlas' obsahuje službu front-endu Python společně s soubor Docker sloužící k vytvoření image. Adresář, Voting' obsahuje balíček aplikace Service Fabric, která je nasazena do clusteru. Tyto adresáře obsahovat potřebné prostředky pro tento kurz.  
 
 ## <a name="create-container-images"></a>Vytvořit kontejner bitové kopie
 
-V adresáři, azure hlas, spusťte následující příkaz k vytvoření bitové kopie pro komponentu front-endové webové. Tento příkaz používá soubor Docker v tomto adresáři vytvořit bitovou kopii. 
+Uvnitř **azure hlas** adresáře, spusťte následující příkaz k vytvoření bitové kopie pro komponentu front-endové webové. Tento příkaz používá soubor Docker v tomto adresáři vytvořit bitovou kopii. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-Uvnitř, adresáři 'redis, spusťte následující příkaz k vytvoření bitové kopie pro back-end redis. Tento příkaz používá soubor Docker v adresáři vytvořit bitovou kopii. 
-
-```bash
-docker build -t azure-vote-back .
-```
-
-Po dokončení použít [imagí dockeru](https://docs.docker.com/engine/reference/commandline/images/) příkazu zobrazte vytvořené bitové kopie.
+Tento příkaz může chvíli trvat, protože všechny potřebné závislosti muset být načtený z úložiště Docker Hub. Po dokončení použít [imagí dockeru](https://docs.docker.com/engine/reference/commandline/images/) příkazu zobrazte vytvořené bitové kopie.
 
 ```bash
 docker images
 ```
 
-Všimněte si, že čtyři bitové kopie byly staženy nebo vytvořeny. *Azure hlas front* image obsahuje aplikace. Odvozený z *python* bitovou kopii z úložiště Docker Hub. Bitovou kopii Redis byl stažen z úložiště Docker Hub.
+Všimněte si, že dvě bitové kopie byly staženy nebo vytvořeny. *Azure hlas front* image obsahuje aplikace. Odvozený z *python* bitovou kopii z úložiště Docker Hub.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Nasadit kontejner Azure registru
 
-Nejprve spuštěním [az přihlášení](/cli/azure/login) příkaz k přihlášení k účtu Azure. 
+Nejprve spuštěním **az přihlášení** příkaz k přihlášení k účtu Azure. 
 
-Pak pomocí [az účet](/cli/azure/account#set) příkazu vyberte předplatné, vytvoření kontejneru Azure registru. 
+```bash
+az login
+```
+
+Pak pomocí **az účet** příkazu vyberte předplatné, vytvoření kontejneru Azure registru. Je nutné zadat ID předplatného vaše předplatné Azure místo < ID_ODBĚRU >. 
 
 ```bash
 az account set --subscription <subscription_id>
@@ -103,23 +99,23 @@ az account set --subscription <subscription_id>
 
 Pokud nasazujete registru kontejneru služby Azure, musíte nejprve skupinu prostředků. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure.
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). V tomto příkladu skupinu prostředků s názvem *myResourceGroup* je vytvořen v *westus* oblast. V oblasti okolo vás, vyberte skupinu prostředků. 
+Vytvořte skupinu prostředků pomocí příkazu **az group create**. V tomto příkladu skupinu prostředků s názvem *myResourceGroup* je vytvořen v *westus* oblast.
 
 ```bash
-az group create --name myResourceGroup --location westus
+az group create --name <myResourceGroup> --location westus
 ```
 
-Vytvoření kontejneru Azure registr s využitím [az acr vytvořit](/cli/azure/acr#create) příkaz. Název kontejneru registru **musí být jedinečné**.
+Vytvoření kontejneru Azure registr s využitím **az acr vytvořit** příkaz. Nahraďte \<acrName > s názvem kontejneru registru, kterou chcete vytvořit v rámci svého předplatného. Tento název musí být alfanumerické znaky a jedinečný. 
 
 ```bash
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Po celý zbytek v tomto kurzu používáme "acrname" jako zástupný symbol pro název kontejneru registru, který jste si zvolili.
+Po celý zbytek v tomto kurzu používáme "acrName" jako zástupný symbol pro název kontejneru registru, který jste si zvolili. Poznamenejte si tuto hodnotu. 
 
 ## <a name="log-in-to-your-container-registry"></a>Přihlaste se k vaší registru kontejneru
 
-Přihlaste se k instanci ACR před odesláním bitové kopie do ní. Použití [az acr přihlášení](/cli/azure/acr?view=azure-cli-latest#az_acr_login) příkaz k dokončení operace. Zadejte jedinečný název zadané registru kontejneru v okamžiku vytvoření.
+Přihlaste se k instanci ACR před odesláním bitové kopie do ní. Použití **az acr přihlášení** příkaz k dokončení operace. Zadejte jedinečný název zadané registru kontejneru v okamžiku vytvoření.
 
 ```bash
 az acr login --name <acrName>
@@ -141,9 +137,7 @@ Výstup:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
@@ -153,16 +147,18 @@ Získat název loginServer, spusťte následující příkaz:
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Nyní, značky *azure hlas front* bitovou kopii s loginServer registru kontejneru. Navíc přidat `:v1` na konec název bitové kopie. Tato značka označuje verzi bitové kopie.
+To výstupy tabulku s následujícími výsledky. Tento výsledek se použije k značce vaší **azure hlas front** image před odesláním do kontejneru registru v dalším kroku.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+Result
+------------------
+<acrName>.azurecr.io
 ```
 
-V dalším kroku značky *azure. hlas zpětný* bitovou kopii s loginServer registru kontejneru. Navíc přidat `:v1` na konec název bitové kopie. Tato značka označuje verzi bitové kopie.
+Nyní, značky *azure hlas front* bitovou kopii s loginServer registru systému kontejneru. Navíc přidat `:v1` na konec název bitové kopie. Tato značka označuje verzi bitové kopie.
 
 ```bash
-docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 'Imagí dockeru' spustit po označené, abyste ověřili operaci.
@@ -172,11 +168,8 @@ Výstup:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
-<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
-redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
@@ -188,15 +181,7 @@ Push *azure hlas front* bitovou kopii do registru.
 Pomocí následujícího příkladu, nahraďte název ACR loginServer loginServer ze svého prostředí.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:v1
-```
-
-Push *azure. hlas zpětný* bitovou kopii do registru. 
-
-Pomocí následujícího příkladu, nahraďte název ACR loginServer loginServer ze svého prostředí.
-
-```bash
-docker push <acrLoginServer>/azure-vote-back:v1
+docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Příkazy nabízené docker trvat několik minut.
@@ -214,13 +199,12 @@ Výstup:
 ```bash
 Result
 ----------------
-azure-vote-back
 azure-vote-front
 ```
 
 V kurzu dokončení bitovou kopii kontejneru byla uložena v privátní instanci Azure Container registru. V následujících kurzech je nasadit tuto bitovou kopii z ACR do clusteru Service Fabric.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu se vyžádat aplikace z webu Github a bitové kopie kontejneru byly vytvořeny a instaluje do registru. Dokončili jste následující kroky:
 

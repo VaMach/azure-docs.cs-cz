@@ -5,7 +5,7 @@ Virtuální pevné disky používané v Azure jsou soubory .vhd uložené jako o
 
 Azure podporuje virtuální pevné disky s pevným formátem. Pevný formát logický disk lineárně rozvrhne v rámci souboru, takže posun disku o X je uložen na pozici objektu blob s posunem o X. Malé zápatí na konci objektu blob popisuje vlastnosti virtuálního pevného disku. Pevný formát často plýtvá místem, protože většina disků obsahuje velké nevyužité oblasti dat. Azure však ukládá soubory .vhd ve zhuštěném formátu, takže současně můžete těžit z výhod pevných i dynamických disků. Další podrobnosti najdete v tématu [Začínáme s virtuálními pevnými disky](https://technet.microsoft.com/library/dd979539.aspx).
 
-Všechny soubory .vhd v Azure, které chcete použít jako zdroj pro vytvoření disků nebo imagí, jsou jen pro čtení. Při vytváření disku nebo image Azure vytváří kopie souborů .vhd. Tyto kopie můžou být jen pro čtení nebo pro čtení a zápis, podle toho, jak virtuální pevný disk používáte.
+Všechny soubory VHD v Azure, který chcete použít jako zdroj pro vytvoření disky nebo bitové kopie jsou jen pro čtení, s výjimkou souborů VHD nahrál nebo zkopírovat do úložiště Azure (může to být buď pro čtení a zápis, nebo jen pro čtení) uživatelem. Při vytváření disku nebo bitové kopie, Azure vytváří kopie zdrojové soubory VHD. Tyto kopie můžou být jen pro čtení nebo pro čtení a zápis, podle toho, jak virtuální pevný disk používáte.
 
 Při vytváření virtuálního počítače z image Azure vytvoří pro virtuální počítač disk, který je kopií zdrojového souboru .vhd. Z důvodu ochrany před náhodným odstraněním Azure označí jako zapůjčený každý zdrojový soubor .vhd, který se používá k vytváření image, disku operačního systému nebo datového disku.
 

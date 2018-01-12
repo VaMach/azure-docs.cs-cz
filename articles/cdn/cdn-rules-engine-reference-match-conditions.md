@@ -1,6 +1,6 @@
 ---
-title: "Splňují podmínky pro stroj pravidel Content Delivery Network | Microsoft Docs"
-description: "Referenční dokumentace pro Azure Content Delivery Network pravidla shody stav motoru a funkce."
+title: "Splňují podmínky pro modul Azure CDN pravidla | Microsoft Docs"
+description: "Referenční dokumentace pro Azure Content Delivery Network pravidla shody stav motoru."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 944675f4b055c3d0c2559db53e4807a5c00bda64
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9986e654b076df099e3912f9da628728723b5c3d
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="match-conditions-for-the-content-delivery-network-rules-engine"></a>Podmínky shody pro modul Content Delivery Network pravidla
-Tento článek obsahuje seznam podrobný popis podmínky k dispozici shodu pro Azure Content Delivery Network [stroj pravidel](cdn-rules-engine.md).
+# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Podmínky shody pro stroj pravidel Azure CDN
+Tento článek obsahuje seznam podrobný popis dostupných porovnání podmínky pro Content Delivery Network (CDN) Azure [stroj pravidel](cdn-rules-engine.md).
 
 Druhá část pravidla je podmínka shodu. Stav shody identifikuje konkrétní typy žádostí, pro které se provede sadu funkcí.
 
@@ -106,7 +106,7 @@ Adresa URL dotazu zástupný znak | Porovná zadanou hodnotu na řetězec dotazu
 
 Stav shody vždy výchozí sadu funkcí, platí pro všechny požadavky.
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -125,7 +125,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -141,7 +141,7 @@ Informace o klíči:
  - Přístup k obsahu bodu identifikuje služba, která by měla sloužit požadovaný obsah.
  - Nepoužívejte příkazu a v případě kombinovat určité podmínky shody. Kombinování podmínku původu CDN shodu s podmínkou shodu zákazníka původu by například vytvořit vzor pro shodu, která může být nikdy shoduje. Z tohoto důvodu nelze kombinovat dvě podmínky shody původu CDN prostřednictvím příkazu a v případě.
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -164,7 +164,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -193,7 +193,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -222,7 +222,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -243,7 +243,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -257,7 +257,7 @@ Informace o klíči:
   - Konfigurace aplikace edge CNAME
 - Nepoužívejte příkazu a v případě kombinovat určité podmínky shody. Kombinování podmínku zákazníka počátek shodu s podmínkou shodu původu CDN by například vytvořit vzor pro shodu, která může být nikdy shoduje. Z tohoto důvodu nelze kombinovat dvě podmínky shody počátek zákazníka prostřednictvím příkazu a v případě.
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -292,7 +292,7 @@ Datum vydání | % {wurfl_cap_release_date} | Řetězec, který označuje za rok
 Výška řešení | % {wurfl_cap_resolution_height} | Celé číslo, které určuje výšku zařízení v pixelech. | 768
 Šířka řešení | % {wurfl_cap_resolution_width} | Celé číslo, které označuje zařízení šířku v pixelech. | 1024
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -309,7 +309,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -329,7 +329,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -350,7 +350,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -377,7 +377,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé 
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -405,7 +405,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -430,7 +430,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -446,7 +446,7 @@ Informace o klíči:
   - Ignorovat počátek No-Cache
   - Interní Max zastaralé
 
-[Zpět na začátek](#azure-cdn-rules-engine-match-conditions)
+[Zpět na začátek](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 

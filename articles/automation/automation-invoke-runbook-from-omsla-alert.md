@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: a10be867965eef9746a0f4cc9b14c4fc429f6e35
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Volání runbooku Azure Automation z upozornění Log Analytics
 
@@ -101,7 +101,7 @@ Pokud případně nemáte účet Automation propojený s pracovním prostředím
 >[!NOTE]
 > Pokud byl váš pracovní prostor upgradován na [nový dotazovací jazyk Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), datová část webhooku se změnila. Podrobnosti o formátu najdete v tématu [Rozhraní REST API služby Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Další informace o upozorněních v Log Analytics a jejich vytváření najdete v tématu [Upozornění v Log Analytics](../log-analytics/log-analytics-alerts.md).
 

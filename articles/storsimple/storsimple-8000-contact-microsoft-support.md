@@ -4,7 +4,7 @@ description: "Informace o protokolu žádosti o podporu a spustit relaci podporu
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="contact-microsoft-support"></a>Obraťte se na podporu společnosti Microsoft
 
@@ -97,7 +97,7 @@ Proveďte následující kroky pro spuštění relace podpory:
 
 #### <a name="to-start-a-support-session"></a>Chcete-li spustit relaci podpory
 
-1. Přístup k zařízení přímo pomocí konzoly sériového portu nebo prostřednictvím relace Telnetu ze vzdáleného počítače. Chcete-li to provést, postupujte podle kroků v [použití klienta PuTTY k připojení ke konzole sériového portu zařízení](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Přístup k zařízení přímo pomocí konzoly sériového portu nebo prostřednictvím relace Telnetu ze vzdáleného počítače. Chcete-li to provést, postupujte podle kroků v [použití klienta PuTTY k připojení ke konzole sériového portu zařízení](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. V této relaci, které se otevře, stiskněte **Enter** klíč k získání příkazového řádku.
 3. V nabídce konzoly sériového portu, vyberte možnost 1, **přihlásit úplný přístup**.
 4. Do příkazového řádku zadejte následující heslo:
@@ -113,6 +113,6 @@ Proveďte následující kroky pro spuštění relace podpory:
 > Podpora přístupu můžete vypnout spuštěním `Disable-HcsSupportAccess`. Zařízení StorSimple se také pokusí zakázat přístup podporu 8 hodin po relace byl inicializován. Je osvědčeným postupem změnit svoje přihlašovací údaje zařízení StorSimple po inicializaci relaci podpory.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Zjistěte, jak [diagnostikovat a vyřešit problémy související s zařízení řady StorSimple 8000](storsimple-troubleshoot-deployment.md)
+Zjistěte, jak [diagnostikovat a vyřešit problémy související s zařízení řady StorSimple 8000](storsimple-8000-troubleshoot-deployment.md)

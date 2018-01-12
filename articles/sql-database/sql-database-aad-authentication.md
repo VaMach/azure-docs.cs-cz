@@ -3,8 +3,8 @@ title: "Ověření Azure Active Directory - SQL Azure (přehled) | Microsoft Doc
 description: "Další informace o tom, jak používat Azure Active Directory k ověřování připojení k SQL Database a SQL Data Warehouse"
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
-ms.author: rickbyh
-ms.openlocfilehash: 3493ac89775bfccc0139c5cbefc046e9fef35bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: mireks
+ms.openlocfilehash: ff6e4405819d1e7134eb5cdfd7d8ad712dc2a654
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Pomocí ověřování Azure Active Directory k ověřování připojení k SQL Database nebo SQL Data Warehouse
 Ověřování Azure Active Directory je mechanismus připojit k Microsoft Azure SQL Database a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) pomocí identit v Azure Active Directory (Azure AD). Při ověřování Azure AD můžete centrálně spravovat identity uživatelů, databáze a další služby Microsoftu v jednom centrálním místě. Centrální správa ID poskytuje jednotné místo pro správu uživatelů databáze a zjednodušuje správu oprávnění. Výhody patří:
@@ -102,7 +102,7 @@ Ověřování Azure Active Directory podporuje tyto metody připojení k databá
 * Ověřování služby Azure AD je podporováno pro databázi SQL pomocí portálu Azure **Import databáze** a **Export databáze** okna. Import a export pomocí ověřování Azure AD je podporováno také z příkaz prostředí PowerShell.   
 * Ověřování služby Azure AD je podporováno pro databázi SQL a SQL Data Warehouse pomocí rozhraní příkazového řádku. Další informace najdete v tématu [konfigurovat a spravovat ověřování Azure Active Directory s SQL Database nebo SQL Data Warehouse](sql-database-aad-authentication-configure.md) a [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Chcete-li zjistit, jak vytvořit a naplnit Azure AD a pak nastavte Azure AD s Azure SQL Database nebo Azure SQL Data Warehouse, přečtěte si téma [konfigurovat a spravovat ověřování Azure Active Directory s SQL Database nebo SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 - Přehled řízení a přístupu pro SQL Database najdete v tématu věnovaném [řízení a přístupu k SQL Database](sql-database-control-access.md).
 - Přehled přihlášení, uživatelů a databázových rolí ve službě SQL Database najdete v tématu věnovaném [přihlášením, uživatelům a databázovým rolím](sql-database-manage-logins.md).

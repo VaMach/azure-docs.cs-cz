@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Začínáme s Azure Automation
 
@@ -87,10 +87,6 @@ Všechny úlohy automatizace, které s prostředky provádíte pomocí rutin Azu
 * **Runbooky** – jsou sady úloh, které provádějí určité automatizované procesy v Azure Automation na základě Windows PowerShellu.    
 
 Prostředky Automation jednotlivých účtů Automation jsou přidružené k jedné oblasti Azure, ale účty Automation mohou spravovat veškeré prostředky v rámci předplatného. Účty Automation vytvořte v různých oblastech, pokud máte zásady, které vyžadují izolaci dat a prostředků v určité oblasti.
-
-> [!NOTE]
-> Účty Automation a v nich obsažené prostředky, které jsou vytvořené pomocí portálu Azure, nemůžete otevírat pomocí portálu Azure Classic. Pokud chcete tyto účty nebo jejich prostředky spravovat pomocí rozhraní Windows PowerShell, použijte moduly Azure Resource Manageru.
-> 
 
 Když na webu Azure Portal vytvoříte účet Automation, automaticky se vytvoří dvě ověřovací entity:
 
@@ -187,7 +183,7 @@ Doporučenou metodou připojení služby Automation je výběr nabídky Automati
 
 Po zprovoznění nabídky můžete začít vytvářet runbooky, pracovat s řešeními pro správu, která jste povolili, nasadit roli [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) nebo začít využívat službu [Log Analytics](https://docs.microsoft.com/azure/log-analytics) ke shromažďování dat vygenerovaných vašimi prostředky v cloudových nebo místních prostředích.   
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Pokud chcete ověřit, že nový účet Automation umožňuje ověřování prostřednictvím prostředků Azure, prohlédněte si [test ověřování účtu Azure Automation Spustit jako](automation-verify-runas-authentication.md).
 * Pokud chcete začít s vytvářením runbooků, před samotným vytváření nejprve zkontrolujte podporované [Typy runbooků ve službě Automation](automation-runbook-types.md) a související důležité informace.
 

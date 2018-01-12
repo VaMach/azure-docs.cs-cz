@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/10/2018
 ms.author: darosa
-ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Doručení zpráv událostí mřížky a zkuste to znovu 
 
@@ -64,31 +64,8 @@ Událost mřížky přidá malé náhodné přeskupování všechny intervalech 
 
 Ve verzi Preview vyprší mřížky událostí Azure všechny události, které nejsou doručeny během dvou hodin.
 
-## <a name="monitoring"></a>Monitorování
-
-Na portálu můžete zobrazit stav události doručení.
-
-Metriky pro odběr událostí najdete vyhledejte **odběry událostí** v dostupné služby a vyberte ho.
-
-![Vyhledejte odběry událostí](./media/delivery-and-retry/select-event-subscriptions.png)
-
-Filtrovat podle typu události, předplatné a umístění. Vyberte **metriky** pro předplatné, které chcete zobrazit.
-
-![Filtr událostí odběrů](./media/delivery-and-retry/filter-events.png)
-
-Zobrazte metriky pro událost téma a odběr.
-
-![Zobrazit události metriky](./media/delivery-and-retry/subscription-metrics.png)
-
-Pokud jste publikovali vlastní téma, můžete zobrazit metriky pro ni. Vyberte skupinu prostředků obsahující tématu a vyberte tématu.
-
-![Vyberte vlastní tématu](./media/delivery-and-retry/select-custom-topic.png)
-
-Zobrazte metriky pro vlastní události tématu.
-
-![Zobrazit události metriky](./media/delivery-and-retry/custom-topic-metrics.png)
-
 ## <a name="next-steps"></a>Další postup
 
+* Chcete-li zobrazit stav události doručení, najdete v části [doručení zpráv monitorování událostí mřížky](monitor-event-delivery.md).
 * Úvod k mřížce událostí, naleznete v části [o mřížky událostí](overview.md).
 * Chcete-li rychle začít používat událostí mřížky, přečtěte si téma [vytvořit a směrování vlastních událostí s Azure událostí mřížky](custom-event-quickstart.md).

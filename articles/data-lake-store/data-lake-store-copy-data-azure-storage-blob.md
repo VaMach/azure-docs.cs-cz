@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 33bfd200f72cb56b391cab52bf90f19b568893a9
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Kopírování dat z Azure Storage Blob do služby Data Lake Store
 > [!div class="op_single_selector"]
@@ -178,7 +178,7 @@ AdlCopy podporuje kopírování dat obsahující tisíce souborů a složek. Ale
 ## <a name="release-notes"></a>Poznámky k verzi
 * 1.0.13 - li zkopírovat data na stejný účet Azure Data Lake Store napříč více příkazů adlcopy, není nutné znovu zadat přihlašovací údaje při každém spuštění už. Adlcopy nyní v mezipaměti tyto informace napříč více spustí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

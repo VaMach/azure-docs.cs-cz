@@ -1,5 +1,5 @@
 ---
-title: "Migrovat místní data do služby Azure Storage s AzCopy | Microsoft Docs"
+title: "Migrace místních dat do služby Azure Storage pomocí AzCopy | Microsoft Docs"
 description: "K migraci dat nebo zkopírování dat z objektu blob, table a obsah souboru nebo pomocí nástroje AzCopy. Snadno migrujte data z místního úložiště do úložiště Azure."
 services: storage
 author: ruthogunnnaike
@@ -10,36 +10,32 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: v-ruogun
-ms.openlocfilehash: f2c0b80248ef706394b3f84df4c3da26fb79026a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3dbfb935ac0b134e127a5dccb7bc76716c688e8a
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-#  <a name="migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Migrace místních dat do cloudového úložiště pomocí nástroje AzCopy
+#  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrace místních dat do cloudového úložiště pomocí nástroje AzCopy
 
-AzCopy je nástroj příkazového řádku pro kopírování dat z úložiště Microsoft Azure Blob, soubor a tabulky, jednoduché příkazy určené pro optimální výkon. Může kopírovat data mezi systém souborů a účet úložiště nebo mezi účty úložiště.  
+AzCopy je nástroj příkazového řádku pro kopírování dat do nebo z úložiště objektů Azure Blob, soubory Azure a Azure Table storage, pomocí jednoduchých příkazů. Příkazy jsou navrženy pro optimální výkon. Může kopírovat data mezi systém souborů a účet úložiště nebo mezi účty úložiště.  
 
-Existují dvě verze nástroje AzCopy, které si můžete stáhnout:
+Dvě verze AzCopy můžete stáhnout:
 
-* [AzCopy v systému Linux](storage-use-azcopy.md) sestavena pomocí rozhraní .NET Framework Core, které cílí platformy Linux nabídky stylu POSIX možnosti příkazového řádku. 
-* [AzCopy v systému Windows](../storage-use-azcopy.md) je obsažena v rozhraní .NET Framework a nabízí možnosti příkazového řádku Windows stylu. 
+* [AzCopy v systému Linux](storage-use-azcopy.md) sestavena pomocí rozhraní .NET Framework Core. Jeho cílem platformy Linux prostřednictvím nabídky stylu POSIX možnosti příkazového řádku. 
+* [AzCopy v systému Windows](../storage-use-azcopy.md) sestavena pomocí rozhraní .NET Framework. Nabízí možnosti příkazového řádku Windows stylu. 
  
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * vytvořit účet úložiště 
-> * Pomocí nástroje AzCopy nahrát všechna vaše data
-> * Upravit data pro účely testování
-> * Vytvoření naplánované úlohy nebo procesu cron úlohy k identifikaci nových souborů pro nahrání
+> * Vytvoření účtu úložiště. 
+> * Pomocí nástroje AzCopy nahrát všechna vaše data.
+> * Upravte data pro účely testování.
+> * Vytvoření naplánované úlohy nebo procesu cron úlohy k identifikaci nové soubory nahrát.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Pro absolvování tohoto kurzu potřebujete: 
-
-* Stáhněte si nejnovější verzi AzCopy na [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) nebo [Windows](http://aka.ms/downloadazcopy). 
-
-## <a name="log-in-to-the-azure-portalhttpsportalazurecom"></a>Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
+K dokončení tohoto kurzu, stáhněte si nejnovější verzi AzCopy na [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) nebo [Windows](http://aka.ms/downloadazcopy). 
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -50,16 +46,16 @@ Pro absolvování tohoto kurzu potřebujete:
 
 ## <a name="create-a-container"></a>Vytvoření kontejneru
 
-Objekty blob se vždy nahrávají do kontejneru. Kontejnery můžete uspořádat skupiny objektů BLOB jako uspořádání souborů ve vašem počítači ve složkách. 
+Objekty blob se vždy nahrávají do kontejneru. Kontejnery můžete použít k uspořádání skupin objektů BLOB jako uspořádání souborů ve vašem počítači ve složkách. 
 
 Postupujte podle těchto kroků můžete vytvořit kontejner:
 
 1. Vyberte **účty úložiště** tlačítko na hlavní stránce a vyberte účet úložiště, který jste vytvořili.
-2. Vyberte **objekty BLOB** pod **služby**, pak vyberte **kontejneru**. 
+2. Vyberte **objekty BLOB** pod **služby**a potom vyberte **kontejneru**. 
 
-![Vytvoření kontejneru](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Vytvoření kontejneru](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
-Názvy kontejnerů musí začínat písmenem nebo číslicí a smí obsahovat jenom písmena, číslice a pomlčky (-). Další informace o pojmenování kontejnerů a objektů blob najdete v tématu [Názvy kontejnerů, objektů blob a metadat a odkazování na ně](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+Názvy kontejnerů musí začínat písmenem nebo číslicí. Se může obsahovat pouze písmena, číslice a znak pomlčka (-). Další informace o pojmenování kontejnerů a objektů blob najdete v tématu [Názvy kontejnerů, objektů blob a metadat a odkazování na ně](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ## <a name="upload-all-files-in-a-folder-to-blob-storage"></a>Odeslat všechny soubory ve složce do úložiště objektů Blob
 
@@ -76,14 +72,14 @@ AzCopy můžete použít k nahrání všechny soubory ve složce do úložiště
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
 ---
 
-Nahraďte  **\<klíč\>**  nahraďte svým klíčem účtu. Na portálu Azure můžete načíst klíč účtu výběrem **přístupové klíče** v části nastavení ve vašem účtu úložiště. Vyberte klíč a vložte jej do příkazu AzCopy. Pokud zadaný cílový kontejner neexistuje, AzCopy ji vytvoří a odešle soubor do ní. Aktualizujte cestu ke zdrojovému adresáři dat a nahraďte **stránku Můj účet** v cílová adresa URL pro váš název účtu úložiště.
+Nahraďte `<key>` a `key` nahraďte svým klíčem účtu. Na portálu Azure můžete načíst klíč účtu výběrem **přístupové klíče** pod **nastavení** ve vašem účtu úložiště. Vyberte klíč a vložte jej do příkazu AzCopy. Pokud zadaný cílový kontejner neexistuje, AzCopy ji vytvoří a odešle soubor do ní. Aktualizujte cestu ke zdrojovému adresáři dat a nahraďte **stránku Můj účet** v cílová adresa URL s názvem svého účtu úložiště.
 
-Zadejte `--recursive` a `/S` možnosti, na Linuxu a Windows, nahrát obsah zadaného adresáře k rekurzivnímu úložiště objektů Blob. Když spustíte nástroj AzCopy s jedním z těchto možností, všechny podsložky a jejich soubory jsou také odeslány.
+Chcete-li nahrát obsah zadaného adresáře k rekurzivnímu úložiště objektů Blob, zadejte `--recursive` (Linux) nebo `/S` možnost (Windows). Když spustíte nástroj AzCopy s jedním z těchto možností, všechny podsložky a jejich soubory jsou také odeslány.
 
-## <a name="upload-modified-files-to-blob-storage"></a>Odeslat změněné soubory do úložiště objektů Blob
-Můžete použít AzCopy k [nahrání souborů](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) podle jejich čas poslední změny. Zkuste to, upravovat nebo vytvářet nové soubory zdrojový adresář pro účely testování. Odesílat pouze aktualizované nebo nové soubory, přidejte `--exclude-older`nebo `/XO` parametru AzCopy Linux a Windows příkaz v uvedeném pořadí.
+## <a name="upload-modified-files-to-blob-storage"></a>Nahrání upravených souborů do úložiště objektů Blob
+Můžete použít AzCopy k [nahrání souborů](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) podle jejich čas poslední změny. Zkuste to, upravovat nebo vytvářet nové soubory zdrojový adresář pro účely testování. Odesílat pouze aktualizované nebo nové soubory, přidejte `--exclude-older` (Linux) nebo `/XO` (Windows) parametr k příkazu AzCopy.
 
-Pokud chcete kopírovat zdroje prostředky, které neexistují v cílovém, zadat oba `--exclude-older` a `--exclude-newer` nebo `/XO` a `/XN` parametry v AzCopy Linux a Windows příkaz v uvedeném pořadí. AzCopy ukládání pouze aktualizovaná data, které jsou založené na jejich časové razítko.
+Pokud chcete kopírovat zdroje prostředky, které neexistují v cílovém, zadat oba `--exclude-older` a `--exclude-newer` (Linux) nebo `/XO` a `/XN` parametry (Windows) v příkazu AzCopy. AzCopy ukládání pouze aktualizovaná data, podle časového razítka.
  
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
     azcopy \
@@ -98,9 +94,9 @@ Pokud chcete kopírovat zdroje prostředky, které neexistují v cílovém, zada
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>Vytvořit úlohu naplánované úlohy nebo procesu cron 
-Můžete vytvořit naplánovaných úloh/cron úlohu, která spouští skript AzCopy příkaz, který identifikuje a odesílá je nová místní data do cloudového úložiště v určitém časovém intervalu. 
+Můžete vytvořit naplánovanou úlohu nebo cron úlohu, která běží AzCopy příkazu skriptu. Skript identifikuje a odesílá je nová místní data do cloudového úložiště v určitém časovém intervalu. 
 
-Příkaz AzCopy zkopírujte do textového editoru. Aktualizujte hodnoty parametru příkazu AzCopy na odpovídající hodnoty. Uložte soubor jako `script.sh` nebo `script.bat` pro AzCopy na Linuxu a Windows v uvedeném pořadí. 
+Příkaz AzCopy zkopírujte do textového editoru. Aktualizujte hodnoty parametru příkazu AzCopy na odpovídající hodnoty. Uložte soubor jako `script.sh` (Linux) nebo `script.bat` (Windows) pro AzCopy. 
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
@@ -110,41 +106,46 @@ Příkaz AzCopy zkopírujte do textového editoru. Aktualizujte hodnoty parametr
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
-AzCopy je spustit s podrobné `--verbose` (Linux) a `/V` možnost (Windows) a výstup se přesměruje do souboru protokolu. 
+AzCopy běží s podrobné `--verbose` (Linux) nebo `/V` možnost (Windows). Výstup se přesměruje do souboru protokolu. 
 
-V tomto kurzu [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) se používá k vytvoření naplánované úlohy v systému Windows, a [Crontab](http://crontab.org/) příkaz se používá k vytvoření úlohy cron v systému Linux. 
- **Schtasks** umožňuje správci vytvořit, odstranit, dotaz, změnit, spuštění a ukončení naplánované úlohy v místním nebo vzdáleném počítači. **Cron** umožňuje uživatelům Linux a Unix ke spuštění příkazů nebo skriptů v zadané datum a čas pomocí [výraz cron](https://en.wikipedia.org/wiki/Cron#CRON_expression)
+V tomto kurzu [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) se používá k vytvoření naplánované úlohy v systému Windows. [Crontab](http://crontab.org/) příkaz se používá k vytvoření úlohy cron v systému Linux. 
+ **Schtasks** umožňuje správci vytvořit, odstranit, dotaz, změnit, spuštění a ukončení naplánované úlohy v místním nebo vzdáleném počítači. **Cron** umožňuje uživatelům Linux a Unix ke spuštění příkazů nebo skriptů v zadané datum a čas pomocí [cron výrazy](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
-**Chcete-li vytvořit úlohu cron v systému Linux**, zadejte následující příkaz na terminál. 
+Chcete-li vytvořit úlohu cron v systému Linux, zadejte následující příkaz na terminál: 
 
 ```bash
 crontab -e 
 */5 * * * * sh /path/to/script.sh 
 ```
 
-Určení výraz cron `*/5 * * * * ` v příkazu označuje skriptu prostředí `script.sh` by měly být provedeny každých pět minut. Tento skript můžete naplánovat na spuštění v určitém čase denně, měsíčně nebo ročně. V tématu [cron výrazy](https://en.wikipedia.org/wiki/Cron#CRON_expression) Další informace o nastavení datum a čas pro spuštění úloh. 
+Určení výraz cron `*/5 * * * * ` v příkazu znamená, že skript prostředí `script.sh` měly být spuštěny každých pět minut. Můžete naplánovat skript, který chcete spustit v určitém čase denně, měsíčně nebo ročně. Další informace o nastavení datum a čas pro spuštění úloh najdete v tématu [cron výrazy](https://en.wikipedia.org/wiki/Cron#CRON_expression). 
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-**Chcete-li vytvořit naplánovanou úlohu v systému Windows**, zadejte následující příkaz na příkazový řádek nebo prostředí PowerShell.
+Pokud chcete vytvořit naplánovanou úlohu v systému Windows, zadejte následující příkaz na příkazovém řádku nebo v prostředí PowerShell:
 
 ```cmd 
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Documents\script.bat
 ```
 
-Příkaz používá `/SC` parametr k určení minut plánu a `/MO` parametr k určení intervalu pět minut. `/TN` Parametr slouží k zadání názvu úlohy, a `/TR` parametru určete cestu k `script.bat` souboru. Navštivte [schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes) Další informace o vytvoření naplánované úlohy v systému Windows.
+Příkaz používá:
+- `/SC` Parametru určete plán minutu.
+- `/MO` Parametr k určení intervalu pět minut.
+- `/TN` Parametru určete název úlohy.
+- `/TR` Parametru určete cestu k `script.bat` souboru. 
+
+Další informace o vytvoření naplánované úlohy v systému Windows, najdete v části [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
 
 ---
  
-K ověření naplánované úlohy/cron provede úlohu správně, vytvořte nové soubory ve vašem adresáři `myfolder`. Počkejte pět minut a ověřte, zda že byly nové soubory nahrány do účtu úložiště. Přejděte do adresáře protokolu zobrazit protokoly pro výstup úlohy naplánované úlohy nebo procesu cron. 
+Chcete-li ověřit, že úloha naplánované úlohy nebo procesu cron běží správně, vytvořte nové soubory ve vašem `myfolder` adresáře. Počkejte, než pět minut potvrďte, že byly nové soubory nahrány do účtu úložiště. Přejděte do adresáře protokolu zobrazit protokoly pro výstup naplánované úlohy nebo procesu cron úlohy. 
 
-Navštivte [přesunout na místní datové](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) Další informace o způsoby, jak přesunout místní data do úložiště Azure a naopak.  
+Další informace o způsoby, jak přesunout místní data do služby Azure Storage a naopak najdete v tématu [přesun dat do a ze služby Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 ## <a name="next-steps"></a>Další postup
 Další informace o Azure Storage a AzCopy najdete v následujících zdrojích informací:
 
-### <a name="azure-storage-documentation"></a>Dokumentace k Azure Storage:
 * [Úvod do Azure Storage](../storage-introduction.md)
 * [Přenos dat pomocí nástroje AzCopy v systému Windows](storage-use-azcopy.md) 
 * [Přenos dat pomocí nástroje AzCopy v systému Linux](storage-use-azcopy-linux.md) 

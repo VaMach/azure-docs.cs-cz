@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 32e33d5fe99d884801e451b8f7e7989f979074e3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a87f8572af2620420faa0e3c2e575aa8add42ab
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-azure-files-with-linux"></a>Použít soubory Azure s Linuxem
 Služba [Soubory Azure](storage-files-introduction.md) je snadno použitelný cloudový systém souborů od Microsoftu. Sdílené složky Azure může být připojen v distribucí Linux pomocí [CIFS jádra klienta](https://wiki.samba.org/index.php/LinuxCIFS). Tento článek ukazuje dva způsoby, jak připojit sdílenou složku Azure: na vyžádání pomocí `mount` příkazů a na spouštění pomocí vytváření položku v `/etc/fstab`.
@@ -97,8 +97,11 @@ Služba [Soubory Azure](storage-files-introduction.md) je snadno použitelný cl
 3. **Použijte následující příkaz pro připojení následující řádek do `/etc/fstab`** : Nezapomeňte nahradit `<storage-account-name>`, `<share-name>`, a `<storage-account-key>` správné informace.
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs nofail,vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
+
+> [!Note]  
+> Zajistěte, aby přidáte `nofail` možnost `/etc/fstab` položku, jinak hodnota virtuálního počítače může přestat reagovat během spouštění v případě nesprávnou konfiguraci nebo jiné chybě při připojení Azure sdílené složky.
 
 > [!Note]  
 > Můžete použít `sudo mount -a` připojit sdílenou složku Azure File po dokončení úprav `/etc/fstab` místo restartování.
@@ -108,7 +111,7 @@ Linux uživatele, chceme slyšet váš názor!
 
 Soubory Azure pro skupiny uživatelů Linux poskytuje fórum můžete sdílet zpětnou vazbu, jak vyhodnotit a přijmout soubor úložiště v systému Linux. E-mailu [Azure soubory Linux uživatelé](mailto:azurefileslinuxusers@microsoft.com) o připojení ke skupině uživatelů.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o službě Soubory Azure najdete na těchto odkazech.
 * [REST API služby File – referenční informace](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [Použití nástroje AzCopy s Microsoft Azure storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)

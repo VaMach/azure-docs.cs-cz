@@ -4,7 +4,7 @@ description: "Popisuje, jak rozbalit, namontujte do racku a zapojení kabeláže
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Zařízení vybalit, namontovat do racku a zapojení kabeláže zařízení StorSimple 8100
 ## <a name="overview"></a>Přehled
@@ -38,7 +38,7 @@ Předtím, než můžete zařízení vybalit zařízení, zkontrolujte následuj
 Dále proveďte následující kroky rozbalte zařízení.
 
 #### <a name="to-unpack-your-device"></a>Rozbalte zařízení
-1. Zkontrolujte pole a pěnou balení pro crushes kusy, horních poškození nebo jiných zřejmé poškození. Pokud pole nebo balení vážně poškozen, neotevírejte pole. Prosím [kontaktovat Microsoft Support](storsimple-contact-microsoft-support.md) můžete vyhodnotit, jestli je zařízení v dobrém stavu.
+1. Zkontrolujte pole a pěnou balení pro crushes kusy, horních poškození nebo jiných zřejmé poškození. Pokud pole nebo balení vážně poškozen, neotevírejte pole. Prosím [kontaktovat Microsoft Support](storsimple-8000-contact-microsoft-support.md) můžete vyhodnotit, jestli je zařízení v dobrém stavu.
 2. Rozbalte pole. Následující obrázek znázorňuje rozbalené zobrazení zařízení StorSimple.
    
      ![Rozbalte zařízení úložiště](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
@@ -64,7 +64,7 @@ Dále proveďte následující kroky rozbalte zařízení.
    * 1 rack připojení kit (2 straně které s připojení hardwaru)
    * Získávání dokumentaci Začínáme
      
-     Pokud jste neobdrželi některou z položek uvedených výše, [kontaktovat Microsoft Support](storsimple-contact-microsoft-support.md).
+     Pokud jste neobdrželi některou z položek uvedených výše, [kontaktovat Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 Dalším krokem je rack připojení zařízení.
 
@@ -220,7 +220,7 @@ Mějte na paměti pro vysokou dostupnost a výkon:
 * Pokud je to možné, nakonfigurujte v každém řadiči pár síťového rozhraní pro přístup do cloudu (1 GbE) a jinou dvojici pro iSCSI (10 GbE doporučené).
 * Pokud je to možné, připojte síťová rozhraní z každého řadiče dva různé přepínače k zajištění dostupnosti proti selhání přepínače. Na obrázku je znázorněn dvě 10 GbE síťová rozhraní, DATA 2 a DATA 3 z každého řadiče připojené k dva různé přepínače.
 
-Další informace najdete v části **síťových rozhraní** pod [požadavků na vysokou dostupnost pro zařízení StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+Další informace najdete v části **síťových rozhraní** pod [požadavků na vysokou dostupnost pro zařízení StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Pokud používáte SFP + vysílače s 10 GbE síťové rozhraní, pomocí zadané QSFP-SFP + adaptéry. Další informace, přejděte na [podporovaném hardwaru 10 GbE síťových rozhraních zařízení StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -245,6 +245,6 @@ Proveďte následující kroky k zapojení sériového portu.
 
 Zařízení je nyní zapojena jeho kabeláž napájení, přístup k síti a sériové připojení. Dalším krokem je konfigurace softwaru a nasazení zařízení.
 
-## <a name="next-steps"></a>Další kroky
-Zjistěte, jak [nasaďte a nakonfigurujte místní zařízení StorSimple](storsimple-deployment-walkthrough-u2.md).
+## <a name="next-steps"></a>Další postup
+Zjistěte, jak [nasaďte a nakonfigurujte místní zařízení StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 

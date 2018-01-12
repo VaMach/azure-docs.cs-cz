@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
-ms.openlocfilehash: e6fc49855b449a7723a7f8a0c1c41516b3a44ee5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: d8c700d7b23f0e86b4a190e3c1f1143d962a8d63
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Nahrajte zobecněný virtuální pevný disk do Azure k vytvoření nového virtuálního počítače
 
@@ -67,7 +68,7 @@ Ujistěte se, že role serveru spuštěná na tomto počítači jsou podporován
 
 Nahrání virtuálního pevného disku do účtu úložiště Azure.
 
-### <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+### <a name="log-in-to-azure"></a>Přihlášení k Azure
 Pokud ještě nemáte prostředí PowerShell verze 1.4 nebo vyšší nainstalovaná, přečtěte si [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
 
 1. Otevřete prostředí Azure PowerShell a přihlaste se k účtu Azure. Automaticky otevírané okno otevře zadat přihlašovací údaje účtu Azure.
@@ -288,7 +289,7 @@ Po dokončení byste měli vidět nově vytvořený virtuální počítač v [po
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Ke správě nového virtuálního počítače v prostředí Azure PowerShell najdete [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: c336cda6f3af4e2a4647371458b2db3e97917105
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fb3d3dd518cbe0a603524f1bdc38d122582aa6b0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Service-to-service ověřování s Data Lake Store pomocí sady .NET SDK
 > [!div class="op_single_selector"]
@@ -116,7 +116,7 @@ Přidejte tento fragment kódu do klientské aplikace .NET. Zástupné hodnoty n
 
 Fragment kódu předcházející používá pomocné funkce `GetCreds_SPI_Cert`. Kód pro tato pomocná funkce je k dispozici [sem na Githubu](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste zjistili, jak používat ověřování service-to-service k ověřování s Azure Data Lake Store pomocí sady .NET SDK. Teď můžete prohlédnout v následujících článcích, které mluvit o tom, jak používat sadu .NET SDK pro práci s Azure Data Lake Store.
 
 * [Operace správy účtů ve službě Data Lake Store pomocí sady .NET SDK](data-lake-store-get-started-net-sdk.md)

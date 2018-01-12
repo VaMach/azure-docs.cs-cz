@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault rozhraní .NET 2.0 – poznámky k verzi a Průvodci migrací
 Jsou Tyhle poznámky a pokyny pro vývojáře, kteří pracují s Azure Key Vault .NET nebo knihovna jazyka C#. Při přechodu z verze 1.0 na verzi 2.0, byly provedeny počet aktualizací se bude vyžadovat migrace práci ve vašem kódu v pořadí, abyste mohli využívat funkční zdokonalení a funkci doplňky, jako **Key Vault certifikáty** podporovat.
@@ -36,10 +36,11 @@ Podpora certifikáty Key Vault poskytuje správu vašeho x509 certifikáty a ná
 
 ## <a name="net-support"></a>Podpora v rozhraní .NET
 
-* **Rozhraní .NET 4.0** nepodporuje 2.0 verze rozhraní .NET Azure Key Vault nebo knihovna jazyka C#
-* **.NET core** podporuje 2.0 verze rozhraní .NET Azure Key Vault nebo knihovna jazyka C#
+* **Rozhraní .NET 4.0** nepodporuje 2.0 verzi knihovny Azure Key Vault .NET
+* **Rozhraní .NET framework 4.5.2** podporuje verze 2.0 knihovny Azure Key Vault .NET
+* **.NET standardní 1.4** podporuje verze 2.0 knihovny Azure Key Vault .NET
 
-## <a name="namespaces"></a>obory názvů
+## <a name="namespaces"></a>Názvové prostory
 
 * Obor názvů pro **modely** změněn z **Microsoft.Azure.KeyVault** k **Microsoft.Azure.KeyVault.Models**.
 * **Microsoft.Azure.KeyVault.Internal** obor názvů se ukončí.

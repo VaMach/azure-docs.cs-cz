@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b2b6c01de92e3d7375b6cee71e8097799fb6081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8881d28e1625664d0a124057821192aabfe1180b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Porovnání Azure Data Lake Store a Azure Blob Storage
 Tabulka v tomto článku shrnuje rozdíly mezi Azure Data Lake Store a Azure Blob Storage podél některé klíčové aspekty zpracování velkých objemů dat. Azure Blob Storage je obecné účely, škálovatelné objekt úložiště, které je určená pro širokou škálu scénářů úložiště. Azure Data Lake Store je flexibilně škálovatelné úložiště, která je optimalizovaná pro úlohy analýzy velkých objemů dat.
@@ -46,7 +46,7 @@ Tabulka v tomto článku shrnuje rozdíly mezi Azure Data Lake Store a Azure Blo
 | Regionální dostupnost |V tématu [sem](https://azure.microsoft.com/regions/#services) |V tématu [sem](https://azure.microsoft.com/regions/#services) |
 | Cena |V tématu [ceny](https://azure.microsoft.com/pricing/details/data-lake-store/) |V tématu [ceny](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>Další kroky
+### <a name="next-steps"></a>Další postup
 * [Přehled Azure Data Lake Store](data-lake-store-overview.md)
 * [Začínáme s Data Lake Store](data-lake-store-get-started-portal.md)
 

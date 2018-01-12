@@ -1,6 +1,6 @@
 ---
 title: "Povolit zálohování pro zásobník Azure z portálu pro správu | Microsoft Docs"
-description: "Službu lze povolte infrastruktury zpět pomocí portálu pro správu, aby zásobník Azure můžete obnovit, pokud dojde k selhání."
+description: "Povolte službu infrastruktura zálohování prostřednictvím portálu pro správu, aby zásobník Azure můžete obnovit, pokud dojde k selhání."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -8,23 +8,26 @@ manager: femila
 editor: 
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
-ms.workload: na
+ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: a5a9757d871c343ba663862de7b6d75b9dd21c31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 456a0db9771f5963c8d4375d54a22257f6ca1c56
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Povolit zálohování pro zásobník Azure z portálu pro správu
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Infrastruktura zpět službu povolte pomocí portálu pro správu tak, aby zásobník Azure může generovat zálohy. Pomocí těchto zálohuje ups k obnovení vašeho prostředí, pokud dojde k selhání.
+Povolte službu infrastruktura zálohování prostřednictvím portálu pro správu tak, aby zásobník Azure může generovat zálohy. Tyto zálohy lze použít k obnovení vašeho prostředí v případě selhání.
+
+> [!Note]  
+> Než povolíte zálohování prostřednictvím konzoly, musíte nakonfigurovat službu zálohování. Můžete nakonfigurovat pomocí prostředí PowerShell služby zálohování. Další informace najdete v tématu [povolit zálohování pro zásobník Azure pomocí prostředí PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Povolení zálohování
 
@@ -33,7 +36,7 @@ Infrastruktura zpět službu povolte pomocí portálu pro správu tak, aby záso
 
     ![Azure zásobníku – nastavení zálohování řadiče](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Zadejte cestu ke **umístění úložiště zálohy**. Je nutné použít řetězec Universal Naming Convention (UNC) pro cestu sdílené složky hostované na samostatných zařízení. Řetězec UNC Určuje umístění prostředků, jako jsou sdílené soubory nebo zařízení. Pro službu můžete použít IP adresu. Aby se zajistila dostupnost zálohování dat v případě havárie, by měl být zařízení v samostatných umístění.
+3. Zadejte cestu ke **umístění úložiště zálohy**. Pomocí řetězce Universal Naming Convention (UNC) pro cestu ke sdílené složce hostované na samostatných zařízení. Řetězec UNC Určuje umístění prostředků, jako jsou sdílené soubory nebo zařízení. Pro službu můžete použít IP adresu. K zajištění dostupnosti zálohovaných dat po havárii, zařízení by měl být v samostatné umístění.
     > [!Note]  
     > Pokud vaše prostředí podporuje překlad adres ze sítě infrastruktury Azure zásobníku podnikovém prostředí, můžete použít plně kvalifikovaný název domény, nikoli IP adresu.
 4. Typ **uživatelské jméno** pomocí domény a uživatelské jméno. Například, `Contoso\administrator`.
@@ -46,5 +49,5 @@ K provedení zálohy, musíte ke stažení nástroje Azure zásobníku a poté s
 
 ## <a name="next-steps"></a>Další postup
 
- - Další informace ke spuštění zálohování, naleznete v [zálohování Azure zásobníku](azure-stack-backup-back-up-azure-stack.md ).
-- Naučte se ověřit, jestli vaše zálohování spustila najdete v tématu [zálohování potvrzení byla dokončena v portálu pro správu](azure-stack-backup-back-up-azure-stack.md ).
+ - Naučte se spustit zálohování. V tématu [zálohování Azure zásobníku](azure-stack-backup-back-up-azure-stack.md ).
+- Naučte se ověřit, jestli vaše zálohování spustila. V tématu [zálohování potvrzení byla dokončena v portálu pro správu](azure-stack-backup-back-up-azure-stack.md ).

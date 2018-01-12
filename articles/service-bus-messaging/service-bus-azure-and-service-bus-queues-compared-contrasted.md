@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Fronty úložiště a fronty Service Bus - porovnání a na rozdíl od aktualizovaného
 Tento článek analyzuje rozdíly a podobnosti mezi těmito dvěma typy front, které nabízí Microsoft Azure ještě dnes: fronty úložiště a fronty Service Bus. Tyto informace můžete použít ke srovnání příslušných technologií a pomůžou vám kvalifikovaněji se rozhodnout, které řešení nejlíp vyhovuje vašim potřebám.
@@ -107,7 +107,7 @@ Tato část porovná pokročilých funkcí poskytovaných fronty úložiště a 
 | Aktualizace na místě |**Ano** |**Ano** |
 | Protokol transakce na straně serveru |**Ano** |**Ne** |
 | Metriky úložiště |**Ano**<br/><br/>**Minutu metriky**: poskytuje metriky v reálném čase pro dostupnost, TPS, rozhraní API volat počty, počty chyb a další v reálném čase (agregovat za minutu a jsou uvedeny během několika minut od co se právě stalo v produkčním prostředí. Další informace najdete v tématu [o Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Ano**<br/><br/>(hromadné dotazy voláním [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Stav správy |**Ne** |**Ano**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus.active), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.disabled), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.senddisabled), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.receivedisabled) |
+| Stav správy |**Ne** |**Ano**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Automatické předávání zpráv |**Ne** |**Ano** |
 | Vyprázdnění fronty – funkce |**Ano** |**Ne** |
 | Zpráva skupiny |**Ne** |**Ano**<br/><br/>(prostřednictvím zasílání zpráv relací) |
@@ -187,7 +187,7 @@ Podle získat lepší představu o dvě technologie, bude mít možnost provád�
 
 Protože fronty Service Bus poskytují počet pokročilé funkce, jako je například relace, transakce, duplicitní detekce, automatické zpráv lettering a odolná funkce pbulikovat/odebírat, mohou být upřednostňovanou volbou Pokud vytváříte hybridním aplikace nebo pokud vaše aplikace, jinak hodnota vyžaduje tyto funkce.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Následující články poskytují další pokyny a informace o použití úložiště fronty nebo fronty Service Bus.
 
 * [Začínáme s frontami služby Service Bus](service-bus-dotnet-get-started-with-queues.md)

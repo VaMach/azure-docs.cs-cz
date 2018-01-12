@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Vytvoření samostatného účtu Azure Automation
 Toto téma ukazuje, jak vytvořit účet Automation z webu Azure Portal, pokud se chcete seznámit se službou Azure Automation a vyzkoušet si ji bez zahrnutí dalších řešení pro správu nebo integrace s OMS Log Analytics k poskytování pokročilého monitorování úloh runbooků.  Tato řešení pro správu nebo integraci s Log Analytics můžete přidat kdykoli v budoucnu.  S účtem Automation můžete ověřit runbooky, které spravují prostředky buď v Azure Resource Manageru, nebo v nasazení Azure Classic.
@@ -85,7 +85,7 @@ Následující tabulka shrnuje prostředky pro účet Spustit jako pro Azure Cla
 | AzureClassicRunAsConnection |Automaticky vytvořený asset připojení, který se používá k ověřování pomocí Azure, abyste mohli spravovat klasické prostředky Azure pomocí runbooků. |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o vytváření grafického obsahu najdete v článku [Vytváření grafického obsahu v Azure Automation](automation-graphical-authoring-intro.md).
 * První kroky s powershellovými runbooky najdete v článku [Můj první powershellový runbook](automation-first-runbook-textual-powershell.md).
 * První kroky s runbooky pracovních postupů PowerShellu najdete v článku [Můj první runbook pracovního postupu PowerShellu](automation-first-runbook-textual.md).

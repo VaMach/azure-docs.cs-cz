@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Vytvoření virtuálního počítače z specializované virtuálního pevného disku v účtu úložiště
 
 Vytvoření nového virtuálního počítače připojením specializované nespravované disk jako disk operačního systému pomocí prostředí Powershell. Specializované disk je kopie virtuálního pevného disku z existující virtuální počítač, který uchovává uživatelské účty, aplikace a další data o stavu z vašeho původního virtuálního počítače. 
 
 Máte dvě možnosti:
-* [Nahrání virtuálního pevného disku](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Zkopírujte virtuální pevný disk existující virtuální počítač Azure](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Nahrání virtuálního pevného disku](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Zkopírujte virtuální pevný disk existující virtuální počítač Azure](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## <a name="before-you-begin"></a>Než začnete
 Pokud používáte prostředí PowerShell, ujistěte se, že máte nejnovější verzi modulu prostředí AzureRM.Compute PowerShell. Spusťte následující příkaz k její instalaci.
@@ -318,6 +319,6 @@ $vmList = Get-AzureRmVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 K přihlášení do nového virtuálního počítače, přejděte do virtuálního počítače v [portál](https://portal.azure.com), klikněte na tlačítko **Connect**a otevřete soubor Remote Desktop RDP. Pomocí přihlašovacích údajů účtu původní virtuálního počítače pro přihlášení do nového virtuálního počítače. Další informace najdete v tématu [jak se připojit a přihlásit se na virtuálním počítači Azure s Windows](connect-logon.md).
 

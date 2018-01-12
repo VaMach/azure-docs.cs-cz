@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Práce se serverovou sadou .NET back-end SDK v prostředí Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -244,6 +244,10 @@ Ověřování můžete přidat do projektu serveru tím, že rozšíří **Mobil
 Další informace o ověřování klientů na váš back-end Mobile Apps naleznete v tématu [přidání ověřování do aplikace](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Postupy: použití vlastního ověřování pro aplikaci
+> [!IMPORTANT]
+> Pokud chcete povolit vlastní ověřování, musíte nejdřív povolit ověřování služby aplikace bez výběru poskytovatele pro aplikační služby na portálu Azure. Tato akce povolí proměnnou prostředí WEBSITE_AUTH_SIGNING_KEY při hostování.
+> 
+> 
 Pokud nechcete používat jednoho z poskytovatelů ověřování/autorizace služby App Service, můžete implementovat systému přihlášení. Nainstalujte [Microsoft.Azure.Mobile.Server.Login] balíček vám pomůže při generování tokenů ověřování.  Zadejte vlastní kód pro ověření pověření uživatele. Můžete například zkontrolovat proti solené a hash hesla v databázi. V následujícím příkladu `isValidAssertion()` – metoda (definovanou jinde) zodpovídá za tyto kontroly.
 
 Vlastní ověřování je zveřejněný prostřednictvím objektu ApiController vytvoření a vystavení `register` a `login` akce. Klient musí použít vlastní uživatelské rozhraní shromažďovat informace od uživatele.  Informace je poté odeslán do rozhraní API pomocí standardní volání HTTP POST. Jakmile server ověřuje kontrolní výraz, pomocí tokenu je vydat `AppServiceLoginHandler.CreateToken()` metoda.  Objektu ApiController **neměli** použít `[MobileAppController]` atribut.

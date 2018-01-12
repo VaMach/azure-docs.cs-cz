@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 62ac7e5d87e1a062ffeb6667377db4f6795b26aa
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4127123ffcf8eb2ae18c8b9833b2235d7ac219e7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Kopírování dat z QuickBooks pomocí Azure Data Factory (Beta)
 
@@ -39,7 +39,7 @@ Tento konektor aktuálně podporují pouze 1.0a, což znamená, že je potřeba 
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke QuickBooks konektoru.
 
@@ -50,7 +50,7 @@ Pro QuickBooks propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **QuickBooks** | Ano |
-| koncový bod | Koncový bod serveru QuickBooks. (to znamená, quickbooks.api.intuit.com)  | Ano |
+| endpoint | Koncový bod serveru QuickBooks. (to znamená, quickbooks.api.intuit.com)  | Ano |
 | ID společnosti | ID společnosti QuickBooks společnosti k autorizaci.  | Ano |
 | accessToken | Přístupový token pro ověřování OAuth 1.0. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | accessTokenSecret | Přístup k tokenu tajný klíč pro ověřování OAuth 1.0. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
@@ -146,5 +146,5 @@ Ke zkopírování dat z QuickBooks, nastavte typ zdroje v aktivitě kopírován�
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

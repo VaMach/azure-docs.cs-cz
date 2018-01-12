@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: ed10eef347d4d93012078456b3a145589e66d30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d80271e744d6f00afd1ff1c3df29180565b59e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Přidání vlastních stavových sestav Service Fabric
 Představuje Azure Service Fabric [stavu modelu](service-fabric-health-introduction.md) navržený tak, aby příznak není v pořádku, cluster a aplikace podmínek na konkrétní entity. Health model používá **stavu reporters** (součásti systému a watchdogs). Cílem je rychlé a snadné diagnostiky a opravy. Služba zapisovače muset myslíte o stavu předem. Všechny podmínku, která může mít vliv na stav by měl být zaznamenány na, zejména v případě, že může pomoci příznak problémy blízko kořenu. Informace o stavu můžete ušetřit čas a úsilí na ladění a šetření. Užitečnost je obzvláště vymazat, jakmile služba je spuštěná ve velkém měřítku v cloudu (privátní nebo Azure).
@@ -300,7 +300,7 @@ HealthEvents          :
 ### <a name="rest"></a>REST
 Odesílat zprávy o stavu REST pomocí požadavků POST, které mají v těle popis sestavy stavu a přejděte na požadovanou entitu. Například zjistit, jak odeslat REST [clusteru sestav stavu](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) nebo [sestav stavu služby](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Jsou podporovány všechny entity.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Na základě stavu dat, služba zapisovače a Správce clusteru nebo aplikace si můžete představit způsoby, jak využívat informace. Například se můžete k zachycení závažné problémy před jejich vyvolat výpadků nastavit výstrahy na základě stavu. Správci můžete také nastavit systémy opravy Chcete automaticky opravit problémy.
 
 [Úvod do Service Fabric stavu monitorování](service-fabric-health-introduction.md)

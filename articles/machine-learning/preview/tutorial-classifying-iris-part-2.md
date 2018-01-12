@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Klasifikace Iris – část 2: Sestavení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -345,7 +345,8 @@ Pokud chcete skript spustit v kontejneru Docker ve vzdáleném počítači s Lin
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Spuštění skriptu v clusteru služby HDInsight
 Tento skript můžete také spustit v clusteru HDInsight Spark. Seznamte se s [postupem vytvoření clusteru HDInsight Spark pro použití v aplikaci Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
->![POZNÁMKA] Cluster HDInsight musí jako primární úložiště používat Azure Blob. Použití úložiště Azure Data Lake se ještě nepodporuje.
+>[!NOTE] 
+>HDInsight cluster musí používat jako primární úložiště objektů Blob v Azure. Použití úložiště Azure Data Lake se ještě nepodporuje.
 
 1. Pokud máte přístup ke clusteru Spark pro Azure HDInsight, vygenerujte příkaz pro spuštění konfigurace služby HDInsight podle uvedeného příkladu. Jako parametry zadejte název clusteru HDInsight, vaše uživatelské jméno HDInsight a heslo. Použijte následující příkaz:
 

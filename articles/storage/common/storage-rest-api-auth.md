@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Pomocí rozhraní REST API Azure Storage
+# <a name="using-the-azure-storage-rest-api"></a>Použití rozhraní REST API pro službu Azure Storage
 
 Tento článek ukazuje, jak používat rozhraní API REST služby úložiště objektů Blob a postup ověření volání do služby. Je zapsán z hlediska osoby, která neví nic o REST a žádné nápad postup volání REST, ale je vývojář. Jsme podívejte se na referenční dokumentaci k nástroji pro volání REST a zjistit, jak přeloží ji do vlastní volání REST – pole, která přejděte kde? Po naučit, jak nastavit volání REST, můžete využít tyto znalosti k používání některé z dalších rozhraní API REST služby úložiště.
 
@@ -32,7 +32,7 @@ Aplikace zobrazí seznam kontejnerů v úložišti objektů blob pro účet úlo
 
 * Předplatné Azure. Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-* Účet úložiště pro obecné účely. Pokud nemáte žádné účty úložiště, můžete vytvořit jeden pomocí [portál Azure](https://portal.azure.com), [prostředí PowerShell](storage-quickstart-create-storage-account-powershell.md), nebo [rozhraní příkazového řádku Azure](storage-quickstart-create-storage-account-cli.md).
+* Účet úložiště pro obecné účely. Pokud ještě nemáte účet úložiště, najdete v části [vytvořit účet úložiště](storage-quickstart-create-account.md).
 
 * V příkladu v tomto článku ukazuje, jak seznam kontejnery v účtu úložiště. Pokud chcete zobrazit výstup, přidejte některé kontejnery úložiště objektů blob v účtu úložiště před zahájením.
 
@@ -40,13 +40,13 @@ Aplikace zobrazí seznam kontejnerů v úložišti objektů blob pro účet úlo
 
 Vzorová aplikace je konzolové aplikace napsané v jazyce C#.
 
-Použití [git](https://git-scm.com/) stáhnout kopii aplikace na svoje vývojové prostředí. 
+Pomocí [gitu](https://git-scm.com/) stáhněte kopii aplikace do svého vývojového prostředí. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Tento příkaz provede klonování úložiště do složky místní git. Otevřete řešení sady Visual Studio, vyhledejte složku storage-dotnet-rest-api-with-auth, otevřete ho a dvakrát klikněte na StorageRestApiAuth.sln. 
+Tento příkaz naklonuje úložiště do vaší místní složky gitu. Otevřete řešení sady Visual Studio, vyhledejte složku storage-dotnet-rest-api-with-auth, otevřete ho a dvakrát klikněte na StorageRestApiAuth.sln. 
 
 ## <a name="why-do-i-need-to-know-rest"></a>Proč je potřeba vědět REST?
 
@@ -566,7 +566,7 @@ Content-Length: 1135
 
 V tomto článku jste zjistili, jak vytvořit požadavek do úložiště objektů blob REST API pro načtení seznamu kontejnery nebo seznam objektů BLOB v kontejneru. Také jste zjistili, jak vytvořit podpis autorizace pro volání rozhraní REST API, způsobu jeho použití v požadavku REST a jak prozkoumat odpovědi.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Rozhraní API REST služby objektů BLOB](/rest/api/storageservices/blob-service-rest-api)
 * [Rozhraní API REST služby souboru](/rest/api/storageservices/file-service-rest-api)

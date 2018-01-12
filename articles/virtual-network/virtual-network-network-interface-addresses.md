@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Přidat, změnit nebo odebrat IP adresy pro rozhraní sítě Azure
 
@@ -138,12 +138,12 @@ Ve výchozím nastavení, servery Azure DHCP přiřadit privátní adresa IPv4 p
 > [!WARNING]
 > Pokud adresu IPv4 nastavit jako primární IP adresa síťového rozhraní v rámci operačního systému virtuálního počítače je někdy liší od privátní adresa IPv4, které jsou přiřazené k primární konfiguraci IP primární síťové rozhraní připojen k virtuálnímu počítači v rámci Azure ztratíte připojení k virtuálnímu počítači.
 
-Existují scénáře, kdy je nutné ručně nastavit IP adresu síťového rozhraní v rámci operačního systému virtuálního počítače. Při přidávání více IP adres pro virtuální počítač Azure například musí nastavit ručně primární a sekundární IP adresy operačního systému Windows. Pro virtuální počítač s Linuxem jenom musíte ručně nastavit sekundární IP adresy. V tématu [přidat IP adresy na operační systém virtuálního počítače](virtual-network-multiple-ip-addresses-portal.md#os-config) podrobnosti. Když nastavíte ručně IP adresu v operačním systému, doporučujeme vždy přiřadit adresy ke konfiguraci IP adresy pro síťové rozhraní metodou přiřazení statických (nikoli dynamické). Přiřazení adresy pomocí statickou metodu zajistí, že adresu nezmění v rámci Azure. Pokud byste někdy potřebovali změnit přiřazené ke konfiguraci IP adresu, se doporučuje, můžete:
+Existují scénáře, kdy je nutné ručně nastavit IP adresu síťového rozhraní v rámci operačního systému virtuálního počítače. Při přidávání více IP adres pro virtuální počítač Azure například musí nastavit ručně primární a sekundární IP adresy operačního systému Windows. Pro virtuální počítač s Linuxem jenom musíte ručně nastavit sekundární IP adresy. V tématu [přidat IP adresy na operační systém virtuálního počítače](virtual-network-multiple-ip-addresses-portal.md#os-config) podrobnosti. Pokud byste někdy potřebovali změnit přiřazené ke konfiguraci IP adresu, se doporučuje, můžete:
 
-1. Chcete-li zajistěte, aby byl že virtuální počítač je přijetí adresy ze serverů Azure DHCP, změnit přiřazení IP adresy zpět na serveru DHCP v operačním systému a restartování virtuálního počítače.
+1. Ujistěte se, že virtuální počítač je přijetí adresy ze serverů Azure DHCP. Když máte, můžete změnit přiřazení IP adresy zpět na serveru DHCP v operačním systému a restartování virtuálního počítače.
 2. Zastavit (zrušit přidělení) virtuálního počítače.
 3. Změna IP adresy pro konfiguraci protokolu IP v rámci Azure.
-4. Spuštění virtuálního počítače.
+4. Umožňuje spustit virtuální počítač.
 5. [Ruční konfigurace](virtual-network-multiple-ip-addresses-portal.md#os-config) sekundární IP adresy v rámci operačního systému (a také primární IP adresu v systému Windows) tak, aby odpovídaly nastavení v rámci Azure.
  
 Podle předchozího postupu, přiřazené k síťovému rozhraní v rámci Azure a v rámci operačního systému virtuálního počítače, privátní IP adresy zůstávají stejné. Ke sledování virtuálních počítačů v rámci vašeho předplatného, které jste nastavili ručně IP adresy v rámci operačního systému pro, zvažte přidání Azure [značky](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) k virtuálním počítačům. Můžete použít "přiřazení IP adresy: statické", např. Tímto způsobem, budete moci snadno najít virtuální počítače v rámci vašeho předplatného, které jste ručně nastavení IP adresy v operačním systému.
@@ -194,14 +194,14 @@ Můžete přiřadit žádnou nebo jednu privátní [IPv6](#ipv6) adresu jednu se
 
 Nelze přiřadit veřejnou adresu IPv6 na primární nebo sekundární konfiguraci IP.
 
-## <a name="skus"></a>SKU
+## <a name="skus"></a>Skladové položky
 
 Veřejná IP adresa je vytvořen s SKU basic nebo standard.  Další informace o SKU rozdíly najdete v tématu [spravovat veřejné IP adresy](virtual-network-public-ip-address.md).
 
 > [!NOTE]
 > Při přiřazování veřejné IP adresy standardní SKU k síťovému rozhraní virtuálního počítače je potřeba explicitně povolit plánovaný provoz pomocí [skupiny zabezpečení sítě](security-overview.md#network-security-groups). Komunikace s prostředkem nebude možná, dokud nevytvoříte a nepřiřadíte skupinu zabezpečení sítě a explicitně nepovolíte požadovaný provoz.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud chcete vytvořit virtuální počítač s různými konfiguracemi protokolu IP, přečtěte si v následujících článcích:
 
 |Úkol|Nástroj|

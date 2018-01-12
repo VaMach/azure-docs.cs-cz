@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Řešení problémů pomocí sestav o stavu systému
 Azure Service Fabric součásti poskytují sestavy stavu systému na všechny entity v clusteru okamžitě po nasazení. [Úložiště stavu](service-fabric-health-introduction.md#health-store) vytvoří nebo odstraní entit na základě sestav systému. Také slouží k uspořádání je v hierarchii, která zaznamená interakce entity.
@@ -56,7 +56,7 @@ Sestava Určuje časový limit globální zapůjčení jako time to live (TTL). 
 * **Vlastnost**: začíná **okolí** a obsahuje informace o uzlu.
 * **Další kroky**: Zjistěte, proč je okolí ke ztrátě, například, zkontrolujte komunikaci mezi uzly clusteru.
 
-### <a name="rebuild"></a>Opětovné sestavení
+### <a name="rebuild"></a>Znovu sestavit
 
 **Failover Manager** služby (**FM**) spravuje informace o uzly clusteru. Když FM ztratí svoje data a přejde do ztrátě dat, který nemůže zaručit, že má nejaktuálnější informace o uzly clusteru. V takovém případě systém prochází **znovu sestavit**, a **System.FM** shromažďuje data ze všech uzlů v clusteru, aby bylo možné znovu sestavit její stav. V některých případech kvůli sítě nebo problémů uzlu, opětovné sestavení může získat zablokované nebo bylo zastaveno. Stejné se může stát s **hlavní Správce převzetí služeb při selhání** služby (**FMM**). **FMM** je bezstavové systémová služba, která uchovává informace o kde všechny **FMs** jsou v clusteru. **FMMs** primární je vždy uzel s ID nejbližší na hodnotu 0. Pokud tento uzel získá vyřadit, **znovu sestavit** se aktivuje.
 Pokud nastane jedna z předchozích podmínek **System.FM** nebo **System.FMM** příznak prostřednictvím zprávu o chybách. Opětovné sestavení může být pomalé v jednom ze dvou fází:
@@ -100,7 +100,7 @@ HealthEvents          :
 ```
 
 
-### <a name="certificate-expiration"></a>Vypršení platnosti certifikátu
+### <a name="certificate-expiration"></a>Konec platnosti certifikátu
 **System.FabricNode** sestavy upozornění, když se certifikáty používané uzlu blíží vypršení platnosti. Existují tři certifikáty na uzel: **Certificate_cluster**, **Certificate_server**, a **Certificate_default_client**. Při vypršení je alespoň dva týdny, je sestava stavu v pořádku. Pokud doba vypršení platnosti je během dvou týdnů, typ sestavy je upozornění. Hodnota TTL z těchto událostí je nekonečno, a budou odstraněny Jestliže uzel opustí clusteru.
 
 * **SourceId**: System.FabricNode
@@ -632,7 +632,7 @@ Vlastnost a text označují, které rozhraní API získali zablokované. Další
 
 - **IStatefulServiceReplica.ChangeRole(P)**: nejběžnější případem je, že služby nevrátil úlohu z `RunAsync`.
 
-Další volání rozhraní API, které může být zablokován jsou na **IReplicator** rozhraní. Například:
+Další volání rozhraní API, které může být zablokován jsou na **IReplicator** rozhraní. Příklad:
 
 - **IReplicator.CatchupReplicaSet**: Toto upozornění označuje jednu ze dvou akcí. Buď nejsou dostatečná repliky, které lze určit podle repliky stav repliky v oddílu nebo sestava stavu System.FM zablokované překonfigurovávat. Nebo repliky nejsou to v úvahu operace. Příkaz prostředí PowerShell-umožňují `Get-ServiceFabricDeployedReplicaDetail` slouží k určení průběh všech replik. Potíže nezpůsobuje repliky, jehož `LastAppliedReplicationSequenceNumber` je za primární `CommittedSequenceNumber`.
 
@@ -842,7 +842,7 @@ System.Hosting hlásí upozornění, pokud uzel kapacity nejsou definovány v ma
 * **Vlastnost**: ResourceGovernance
 * **Další kroky**: upřednostňovaný způsob, jak tento problém vyřešit je změna v manifestu clusteru povolit automatické zjišťování dostupných zdrojů. Další způsob je aktualizace v manifestu clusteru se správně zadaný uzel kapacity pro tyto metriky.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Zobrazit sestavy stavu Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Postup vytvoření sestavy a zkontrolujte stav služby](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

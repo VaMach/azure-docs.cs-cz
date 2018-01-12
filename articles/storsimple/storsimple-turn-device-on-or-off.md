@@ -4,7 +4,7 @@ description: "Vysvětluje, jak zapnout nové zařízení StorSimple, zapněte na
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Zapněte nebo vypněte zařízení řady StorSimple 8000
 
@@ -147,16 +147,16 @@ Vypnout, pokud se během přesunu, vyřazeno z provozu, nebo má chybně funguj�
 * [Zařízení s EBOD skříň](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Zařízení s primární skříň<a name="8100a">
-Uspořádání a řízené způsobem vypnout zařízení, můžete provést pomocí portálu Azure classic nebo prostřednictvím Windows Powershellu pro StorSimple. 
+Uspořádání a řízené způsobem vypnout zařízení, můžete provést prostřednictvím portálu Azure nebo prostřednictvím Windows Powershellu pro StorSimple. 
 
 > [!IMPORTANT]
 > Nelze vypnout spuštěné zařízení pomocí tlačítka napájení na zadní straně zařízení.
 > 
-> Před ukončením zařízení, ujistěte se, že všechny součásti zařízení jsou v pořádku. V portálu Azure classic, přejděte na **zařízení** > **údržby** > **stavu hardwaru**a ověřte, že stav všech součástí je zobrazen zeleně. To platí pouze pro systém v pořádku. Pokud systému je vypínán dolů k nahrazení chybně fungující komponenty, zobrazí se nezdařila (červený) nebo snížení (žlutý) stav příslušných součástí **stavu hardwaru**.
+> Před ukončením zařízení, ujistěte se, že všechny součásti zařízení jsou v pořádku. Na portálu Azure přejděte do **zařízení** > **monitorování** > **stavu hardwaru**a ověřte, zda je stav všech součástí zelená. To platí pouze pro systém v pořádku. Pokud systému je vypínán dolů k nahrazení chybně fungující komponenty, zobrazí se nezdařila (červený) nebo snížení (žlutý) stav příslušných součástí **stavu hardwaru**.
 > 
 > 
 
-Poté, co otevřete prostředí Windows PowerShell pro zařízení StorSimple nebo portálu Azure classic, postupujte podle kroků v [vypnout zařízení StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+Poté, co otevřete prostředí Windows PowerShell pro zařízení StorSimple nebo portálu Azure, postupujte podle kroků v [vypnout zařízení StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Zařízení s EBOD skříň<a name="8600a">
 > [!IMPORTANT]
@@ -171,6 +171,6 @@ Poté, co otevřete prostředí Windows PowerShell pro zařízení StorSimple ne
 > [!NOTE]
 > SAS kabely, které slouží k připojení ke skříni primární skříni EBOD by se neměly odebírat až po systém je vypnutý.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Kontaktujte Microsoft Support](storsimple-8000-contact-microsoft-support.md) Pokud narazíte na problémy při zapnutí nebo vypnutí zařízení StorSimple.
 

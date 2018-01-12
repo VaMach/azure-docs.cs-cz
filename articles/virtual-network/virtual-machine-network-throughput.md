@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7de85aa76dd449b97a5572f665d98378872eee88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f22b6f361f0c5bea547721309bb0f75b62f18d92
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="virtual-machine-network-throughput"></a>Propustnost sítě virtuálního počítače
+# <a name="virtual-machine-network-bandwidth"></a>Virtuální počítač šířku pásma sítě
 
-Azure nabízí celou řadu velikostí virtuálních počítačů a typy, každý s jinou kombinaci možnosti výkonu. Jeden funkce je sítě propustnost (nebo šířky pásma), měří v MB za sekundu (Mbps). Vzhledem k tomu, že jsou virtuální počítače hostované na sdílených hardwaru, musí být dostatečnou kapacitu sítě sdílená poměrně mezi virtuálními počítači, který sdílí stejný hardware. Větší virtuální počítače jsou přiděleny relativně větší šířku pásma než menší virtuální počítače.
+Azure nabízí celou řadu velikosti virtuálních počítačů a typy, každý s jinou kombinaci možnosti výkonu. Jeden funkce je sítě propustnost (nebo šířky pásma), měří v MB za sekundu (Mbps). Vzhledem k tomu, že jsou virtuální počítače hostované na sdílených hardwaru, musí být dostatečnou kapacitu sítě sdílená poměrně mezi virtuálními počítači, který sdílí stejný hardware. Větší virtuální počítače jsou přiděleny relativně větší šířku pásma než menší virtuální počítače.
  
 Každý virtuální počítač přidělenou šířku pásma sítě je – měření podle objemu na výchozí přenos (odchozí) z virtuálního počítače. Veškerý přenos v síti a virtuální počítač se počítá směrem k přidělené limit, bez ohledu na cílový. Například pokud má virtuální počítač je omezena na 1 000 MB/s, tento limit platí jak pro odchozí provoz je určené pro jiný virtuální počítač ve stejné virtuální síti nebo mimo Azure.
  

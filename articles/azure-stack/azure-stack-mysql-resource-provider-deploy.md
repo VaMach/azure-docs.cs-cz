@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Používání databází MySQL v zásobníku Microsoft Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 Můžete nasadit poskytovatele prostředků MySQL v Azure zásobníku. Poté, co nasadíte poskytovatele prostředků, můžete vytvořit MySQL servery a databáze pomocí šablony nasazení Azure Resource Manager a zadejte databází MySQL jako služba. Databáze MySQL, které jsou společné pro webové servery, podporují mnoho platformy webu. Jako příklad poté, co nasadíte poskytovatele prostředků, můžete vytvořit weby WordPress z platformy Azure Web Apps jako služba (PaaS) rozšíření pro Azure zásobníku.
 
-Chcete-li nasadit zprostředkovatele databáze MySQL na systém, který nemá přístup k Internetu, můžete zkopírovat soubor [mysql konektor net 6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) do místní sdílené složky. Potom zadejte název této sdílené složky Po zobrazení výzvy. Je také nutné nainstalovat moduly Azure a Azure PowerShell zásobníku.
+Chcete-li nasadit zprostředkovatele databáze MySQL na systém, který nemá přístup k Internetu, můžete zkopírovat soubor [mysql konektor net 6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) do místní sdílené složky. Potom zadejte název této sdílené složky Po zobrazení výzvy. Je také nutné nainstalovat moduly Azure a Azure PowerShell zásobníku.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>Architektura adaptér zprostředkovatele prostředků serveru MySQL
@@ -71,10 +71,9 @@ Systémový účet musí mít následující oprávnění:
 
     | Sestavení Azure zásobníku | Instalační program MySQL RP |
     | --- | --- |
-    | 1.0.180102.3 | **Počkejte prosím, další informace, aktuální sestavení, nenainstaluje ale bude nadále spuštěna v několika uzly po upgradu zásobník Azure.** |
-    | 1.0.171122.1 | [MySQL RP verze 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 nebo 1.0.180106.1 (více uzly) | [MySQL RP verze 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP verze 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP verze 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP verze 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Kořenový certifikát zásobník Azure se načtou z privilegovaných koncový bod. Pro ASDK se vytvoří certifikát podepsaný svým držitelem v rámci tohoto procesu. Pro více uzly je nutné zadat příslušný certifikát.
 
@@ -165,7 +164,7 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechce
 | **AzCredential** | Zadejte pověření pro účet správce služby Azure zásobníku. Pomocí stejných přihlašovacích údajů jako používat pro nasazování zásobník Azure). | _požadované_ |
 | **VMLocalCredential** | Zadejte pověření pro účet místního správce MySQL zprostředkovatele prostředků virtuálních počítačů. | _požadované_ |
 | **PrivilegedEndpoint** | Zadejte IP adresu nebo název DNS privilegované koncového bodu. |  _požadované_ |
-| **DependencyFilesLocalPath** | Cesta k místní sdílené složky obsahující [mysql konektor net 6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Pokud ji zadáte, musí být v tomto adresáři také umístěny soubor certifikátu. | _volitelné_ (_povinné_ pro více uzly) |
+| **DependencyFilesLocalPath** | Cesta k místní sdílené složky obsahující [mysql konektor net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Pokud ji zadáte, musí být v tomto adresáři také umístěny soubor certifikátu. | _volitelné_ (_povinné_ pro více uzly) |
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát .pfx | _požadované_ |
 | **MaxRetryCount** | Definujte kolikrát chcete každou operaci opakovat, pokud dojde k chybě.| 2 |
 | **RetryDuration** | Definujte časový limit mezi opakovanými pokusy, v sekundách. | 120 |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopírování dat z MongoDB pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ Konkrétně tento konektor MongoDB podporuje:
 Ke zkopírování dat z databáze MongoDB, která není veřejně přístupný, musíte nastavit Self-hosted integrace Runtime. V tématu [Self-hosted integrace Runtime](create-self-hosted-integration-runtime.md) článku se dozvíte podrobnosti. Modul Runtime integrace poskytuje integrované ovladače MongoDB, proto nemusíte ručně nainstalovat všechny ovladače při kopírování dat z/do MongoDB.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru MongoDB.
 
@@ -176,15 +177,15 @@ Při kopírování dat z MongoDB, se používají následující mapování Mong
 
 | MongoDB datový typ | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
-| Binární |Byte] |
+| Binární hodnota |Byte] |
 | Logická hodnota |Logická hodnota |
-| Datum |Data a času |
+| Datum |Datum a čas |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Řetězec |
 | Řetězec |Řetězec |
-| UUID |Identifikátor GUID |
+| UUID |Guid |
 | Objekt |Renormalized do vyrovnání sloupce s "_" jako vnořené oddělovače |
 
 > [!NOTE]
@@ -201,21 +202,21 @@ Azure Data Factory používá integrované ovladače ODBC pro připojení k a ko
 
 Virtuální tabulky odkazovat na data v tabulce skutečné povolení ovladače pro přístup k datům nenormalizované. Dotazování a připojení virtuální tabulky, můžete přístup k obsahu polí MongoDB.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Například je zde ExampleTable MongoDB tabulku, která má jeden sloupec s pole objektů v každé buňce – faktury a jeden sloupec s pole Skalární typy – hodnocení.
 
-| _id | Jméno zákazníka | Faktury | Úrovně služeb | Hodnocení |
+| _id | Jméno zákazníka | Faktury | Úroveň služby | Hodnocení |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123", položka: "Toaster byl", cena: "456", slevu: "0,2"}, {invoice_id: "124", položka: "sušárny", ceny: slevách "1235": "0,2"}] |Stříbrná |[5,6] |
-| 2222 |XYZ |[{invoice_id: "135", položka: "ledničky", cena: "12543", slevu: "0,0"}] |Zlatý |[1,2] |
+| 1111 |ABC |[{invoice_id: "123", položka: "Toaster byl", cena: "456", slevu: "0,2"}, {invoice_id: "124", položka: "sušárny", ceny: slevách "1235": "0,2"}] |Stříbrný |[5,6] |
+| 2222 |XYZ |[{invoice_id: "135", položka: "ledničky", cena: "12543", slevu: "0,0"}] |Zlatá |[1,2] |
 
 Ovladač by vygeneroval více virtuální tabulky k reprezentaci této jednu tabulku. První virtuální tabulky je základní tabulka s názvem "ExampleTable" v příkladu. Základní tabulka obsahuje všechna data z původní tabulky, ale data z pole byla vynechána a je v tabulkách virtuální rozbalena.
 
-| _id | Jméno zákazníka | Úrovně služeb |
+| _id | Jméno zákazníka | Úroveň služby |
 | --- | --- | --- |
-| 1111 |ABC |Stříbrná |
-| 2222 |XYZ |Zlatý |
+| 1111 |ABC |Stříbrný |
+| 2222 |XYZ |Zlatá |
 
 Virtuální tabulky, které představují původní pole v příkladu v následujících tabulkách. Tyto tabulky obsahují následující:
 
@@ -241,5 +242,5 @@ Virtuální tabulky, které představují původní pole v příkladu v následu
 | 2222 |1 |2 |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

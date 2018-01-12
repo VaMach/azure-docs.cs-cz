@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Spravovat vaše identit zařízení IoT Hub hromadně
 
@@ -27,6 +27,8 @@ Každé centrum IoT má registru identit, které můžete použít k vytvoření
 Import a export operace proběhla v kontextu *úlohy* které umožňují provádět hromadné operace služby proti služby IoT hub.
 
 **RegistryManager** třída zahrnuje **ExportDevicesAsync** a **ImportDevicesAsync** metody, které používají **úlohy** framework. Tyto metody umožňují exportovat, import a synchronizaci celého registru identit IoT hub.
+
+Toto téma popisuje použití **RegistryManager** třídy a **úlohy** systému a provést hromadný import a export zařízení do a z registru identit služby IoT hub. Azure IoT Hub zařízení zřizování Service můžete také povolit nula-dotykového ovládání, v běhu zřizování na jeden nebo více centra IoT bez nutnosti lidského zásahu. Další informace najdete v tématu [zřizování dokumentace ke službě][lnk-dps].
 
 ## <a name="what-are-jobs"></a>Jaké jsou úlohy?
 
@@ -395,7 +397,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto článku jste zjistili, jak provést hromadné operace proti registru identit služby IoT hub. Další informace o správě Azure IoT Hub na následujících odkazech:
 
@@ -405,10 +407,16 @@ V tomto článku jste zjistili, jak provést hromadné operace proti registru id
 Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
 * [Příručka vývojáře pro službu IoT Hub][lnk-devguide]
-* [Nasazení AI do hraniční zařízení s Azure IoT Edge][lnk-iotedge]
+* [Nasazení AI do hraničních zařízení s použitím Azure IoT Edge][lnk-iotedge]
+
+Prozkoumat pomocí službu zřizování zařízení IoT Hub povolit zajišťování nula touch, za běhu, najdete v článku: 
+
+* [Zařízení Azure IoT Hub zřizování služby][lnk-dps]
+
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

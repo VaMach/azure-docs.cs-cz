@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Nasazení služby Azure Stream Analytics jako modul IoT Edge – náhled
 
@@ -153,7 +153,7 @@ Nyní jste připraveni k nasazení úlohy Azure Stream Analytics na vašem zař�
 
     ![Sada modulu][6]
 
-6. Zkopírujte název, který se automaticky vygeneroval pro modul Azure Stream Analytics. 
+6. Název modulu Azure Stream Analytics zkopírujte. 
 
     ![teplotní modulu][11]
 
@@ -204,7 +204,7 @@ Nyní byste měli mít podívejte se na tento počítač teploty postupně roste
    ![docker protokolu][9]
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste nakonfigurovali kontejner úložiště Azure a úlohu streamování Analytics k analýze dat ze zařízení IoT okraj. Pak načten vlastní modul Azure Stream Analytics pro přesun dat ze zařízení prostřednictvím datového proudu, do objektu blob pro stahování. Informace o tom, jak Azure IoT okraj můžete vytvořit další řešení pro vaši firmu, pokračování do dalších kurzech.
 

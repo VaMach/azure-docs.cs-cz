@@ -1,5 +1,5 @@
 ---
-title: "Skupiny počítačů v analýzy protokolů protokolu hledání | Microsoft Docs"
+title: "Skupiny počítačů v Azure Log Analytics protokolu hledání | Microsoft Docs"
 description: "Skupiny počítačů v analýzy protokolů umožňují oboru vyhledávání protokolu na konkrétní sadu počítačů.  Tento článek popisuje různé metody, které můžete použít k vytvoření skupiny počítačů a jejich použití v hledání protokolů."
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Skupiny počítačů v analýzy protokolů protokolu hledání
 
@@ -83,7 +83,7 @@ Konfigurace analýzy protokolů k importu skupin zabezpečení služby Active Di
 Importu skupin v nabídce uvádí počet počítačů s zjistil členství ve skupině a počet skupin importovat.  Kliknutím na některou z těchto odkazů se vrátíte **ComputerGroup** záznamy s těmito informacemi.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-Když konfigurujete analýzy protokolů pro import členství ve skupině WSUS, analyzuje zaměřená na členství ve skupině všechny počítače s agentem OMS.  Pokud používáte klienta cílení na skupiny cílení na jakýkoli počítač, který je připojený k OMS a je součástí všech WSUS má jeho členství ve skupinách importovat k analýze protokolů. Pokud používáte serverové cílení OMS agenta by měly být nainstalovány na serveru WSUS, aby se informace o členství ve skupině k importu OMS.  Členství v této se průběžně aktualizuje každé 4 hodiny. 
+Když konfigurujete analýzy protokolů pro import členství ve skupině WSUS, analyzuje zaměřená na členství ve skupině všechny počítače s agentem OMS.  Pokud používáte klienta cílení na skupiny cílení na jakýkoli počítač, který je připojený k analýze protokolů a je součástí všech WSUS má jeho členství ve skupinách importovat k analýze protokolů. Pokud používáte serverové cílení OMS agenta by měly být nainstalovány na serveru WSUS, aby se informace o členství ve skupině k importu analýzy protokolů.  Členství v této se průběžně aktualizuje každé 4 hodiny. 
 
 Konfigurace analýzy protokolů k importu skupin WSUS z analýzy protokolů **upřesňující nastavení** na portálu Azure.  Vyberte **skupiny počítačů**, **WSUS**a potom **Import WSUS členství ve skupinách**.  Není nutná žádná další konfigurace.
 
@@ -145,7 +145,7 @@ Následující dotaz vrátí UpdateSummary záznamy pro jenom pro počítače v 
 
 
 ## <a name="computer-group-records"></a>Záznamů skupiny počítače
-V úložišti OMS pro každý členství ve skupině počítačů vytvořené pomocí služby Active Directory nebo služby WSUS se vytvoří záznam.  Tyto záznamy mají typ **ComputerGroup** a mít vlastnosti v následující tabulce.  Záznamy nejsou vytvořeny pro skupiny počítačů, které jsou založené na protokolu hledání.
+V pracovním prostoru analýzy protokolů pro každý členství ve skupině počítačů vytvořené pomocí služby Active Directory nebo služby WSUS se vytvoří záznam.  Tyto záznamy mají typ **ComputerGroup** a mít vlastnosti v následující tabulce.  Záznamy nejsou vytvořeny pro skupiny počítačů, které jsou založené na protokolu hledání.
 
 | Vlastnost | Popis |
 |:--- |:--- |
@@ -159,6 +159,6 @@ V úložišti OMS pro každý členství ve skupině počítačů vytvořené po
 | ManagementGroupName |Název skupiny pro správu agentů SCOM.  Pro jiné agenty jde AOI -\<ID pracovního prostoru\> |
 | TimeGenerated |Datum a čas vytvoření nebo aktualizovat skupiny počítačů. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) analyzovat data shromážděná ze zdrojů dat a řešení.  
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopírování dat z Teradata pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Chcete-li použít tento konektor Teradata, budete muset:
 - Nainstalujte [zprostředkovatel dat .NET pro Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) verzi 14 nebo vyšší na počítači integrace modulu Runtime.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru Teradata.
 
@@ -171,7 +172,7 @@ Při kopírování dat z Teradata, se používají následující mapování Ter
 | ByteInt |Int16 |
 | Char |Řetězec |
 | Datový typ CLOB |Řetězec |
-| Datum |Data a času |
+| Datum |Datum a čas |
 | Decimal |Decimal |
 | Double |Double |
 | Obrázek |Řetězec |
@@ -198,7 +199,7 @@ Při kopírování dat z Teradata, se používají následující mapování Ter
 | SmallInt |Int16 |
 | Čas |Časový interval |
 | Čas s časovým pásmem |Řetězec |
-| časové razítko |Data a času |
+| Časové razítko |Datum a čas |
 | Časové razítko s časovým pásmem |Datový typ DateTimeOffset |
 | VarByte |Byte] |
 | VarChar |Řetězec |
@@ -206,5 +207,5 @@ Při kopírování dat z Teradata, se používají následující mapování Ter
 | XML |Řetězec |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

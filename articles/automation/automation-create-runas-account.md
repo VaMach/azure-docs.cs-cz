@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: HT
+ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Aktualizace ověřování účtu Automation o účty Spustit jako 
 Existující účet Automation můžete aktualizovat z webu Azure Portal nebo pomocí PowerShellu, pokud jste postupovali takto:
@@ -225,7 +225,7 @@ Tento skript PowerShellu zahrnuje podporu následujících konfigurací:
               $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
               $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
               $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                      "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                      "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
                       "Then click Upload and upload the .cer format of #CERT#"
 
                if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
@@ -277,9 +277,9 @@ Tento skript PowerShellu zahrnuje podporu následujících konfigurací:
 
 Po úspěšném spuštění skriptu je třeba počítat s následujícím:
 * Pokud jste vytvořili účet Spustit jako pro Classic s využitím veřejného certifikátu podepsaného svým držitelem (soubor .cer), skript ho vytvoří a uloží ve složce dočasných souborů ve vašem počítači pod profilem uživatele *%USERPROFILE%\AppData\Local\Temp*, který používáte ke spuštění relace PowerShellu.
-* Pokud jste vytvořili účet Spustit jako pro Classic s využitím podnikového veřejného certifikátu (soubor .cer), použijte tento certifikát. Postupujte podle kroků pro [odeslání certifikátu rozhraní API pro správu na portál Azure Classic](../azure-api-management-certs.md) a potom použijte [ukázkový kód pro ověření pomocí prostředků nasazení Azure Classic](automation-verify-runas-authentication.md#classic-run-as-authentication) k ověření konfigurace přihlašovacích údajů pomocí prostředků nasazení Classic. 
+* Pokud jste vytvořili účet Spustit jako pro Classic s využitím podnikového veřejného certifikátu (soubor .cer), použijte tento certifikát. Postupujte podle pokynů pro [certifikát správy rozhraní API se nahrávají na portálu Azure](../azure-api-management-certs.md)a potom ověřit konfiguraci přihlašovacích údajů s prostředky nasazení classic pomocí [ukázkový kód pro ověření s prostředky Azure nasazení Classic](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Pokud jste *nevytvořili* účet Spustit jako pro Classic, použijte k ověření pomocí prostředků Resource Manageru a ke kontrole konfigurace přihlašovacích údajů [ukázkový kód pro ověření s využitím prostředků správy služeb](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o objektech služby najdete v článku [Objekty aplikací a hlavní objekty služeb](../active-directory/active-directory-application-objects.md).
 * Další informace o certifikátech a službách Azure najdete v článku [Přehled certifikátů pro Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

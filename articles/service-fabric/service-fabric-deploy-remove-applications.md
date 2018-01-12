@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: f19141919b3c61123e0e94c4513f872e095620c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 49f26a6195713a5bcdd8ab5711f3bf715f3e033f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Nasazení a odebírat aplikace pomocí prostředí PowerShell
 > [!div class="op_single_selector"]
@@ -31,17 +31,29 @@ ms.lasthandoff: 12/21/2017
 
 Jednou [typu aplikaci vytvořen balíček][10], je připraven k nasazení do clusteru služby Azure Service Fabric. Nasazení zahrnuje následující tři kroky:
 
-1. Nahrání balíčku aplikace do úložiště bitové kopie
-2. Registrace typu aplikace
-3. Vytvoření instance aplikace
+1. Nahrání balíčku aplikace do úložiště bitové kopie.
+2. Registrace typu aplikace s relativní cestou úložiště bitové kopie.
+3. Vytvořte instanci aplikace.
 
-Jakmile je aplikace nasazená a je spuštěna instance v clusteru, můžete odstranit instanci aplikace a její typ aplikace. Chcete-li úplně odebrat z clusteru zahrnuje následující kroky:
+Jakmile nasazené aplikace se už nevyžaduje, můžete odstranit instanci aplikace a její typ aplikace. Chcete-li úplně odebrat z clusteru zahrnuje následující kroky:
 
-1. Odebrat (nebo odstranit) spuštěné instance aplikace
-2. Zrušení registrace typu aplikace, pokud již nepotřebujete
-3. Odebrání balíčku aplikace z úložiště bitových kopií
+1. Odebrat (nebo odstranit) spuštěné instance aplikace.
+2. Zrušení registrace typu aplikace, pokud ji už nepotřebujete.
+3. Odebrání balíčku aplikace z úložiště bitových kopií.
 
 Pokud používáte Visual Studio pro nasazování a ladění aplikací na místní vývojový cluster, všechny předchozí kroky jsou zpracovávány automaticky pomocí skriptu prostředí PowerShell.  Tento skript se nachází v *skripty* složku projekt aplikace. Tento článek obsahuje pozadí na co skriptu je to proto, že můžete provádět stejné operace mimo Visual Studio. 
+
+Jiný způsob, jak nasadit aplikaci je pomocí externí zřizování. Balíček aplikace může být [zabalené jako `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) a nahranému v externím obchodu. V tomto případě není třeba nahrávání do úložiště bitové kopie. Nasazení třeba takto:
+
+1. Nahrát `sfpkg` k externím obchodu. Externí úložiště může být jakékoli úložiště, který zveřejňuje koncový bod REST protokolu http nebo https.
+2. Registrace typu aplikace pomocí externí identifikátor URI stažení a informace o typu aplikace.
+2. Vytvořte instanci aplikace.
+
+Pro čištění odeberte instancemi aplikace a zrušení registrace typu aplikace. Protože balíček nebyl zkopírován do úložiště bitové kopie, neexistuje žádný dočasné umístění pro vyčištění. Zřizování z externího úložiště je dostupné od verze 6.1 Service Fabric.
+
+>[!NOTE]
+> Visual Studio v současné době nepodporuje externí zřizování.
+
  
 ## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
 Než spustíte všechny příkazy prostředí PowerShell v tomto článku, vždy spustit pomocí [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) se připojit ke clusteru Service Fabric. Pro připojení k místní vývojový cluster, spusťte následující:
@@ -123,7 +135,7 @@ Zde je například komprese statistiku pro některé balíčky, které vykazují
 |2 048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Jakmile je komprimovaný balíček, může být nahrán do jeden nebo více clusterů Service Fabric, podle potřeby. Tento mechanismus nasazení je stejný pro komprimované a nekomprimované balíčky. Pokud je komprimovaný balíček, je jako takový uložený v úložišti clusteru bitové kopie a je nekomprimovaným na uzlu před spuštěním aplikace.
+Jakmile je komprimovaný balíček, může být nahrán do jeden nebo více clusterů Service Fabric, podle potřeby. Tento mechanismus nasazení je stejný pro komprimované a nekomprimované balíčky. Komprimované balíčky jsou uloženy jako takový v úložišti clusteru bitové kopie. Balíčky jsou nekomprimovaným na uzlu před spuštěním aplikace.
 
 
 Následujícím příkladu se uloží balíček do úložiště bitové kopie do složky s názvem "MyApplicationV1":
@@ -162,17 +174,27 @@ Typ aplikace a verze deklarované v manifestu aplikace k dispozici pro použití
 
 Spustit [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) rutiny registrace typu aplikace v clusteru a zpřístupní ji pro nasazení:
 
+### <a name="register-the-application-package-copied-to-image-store"></a>Registrace balíčku aplikace zkopírovat do úložiště bitové kopie
+Pokud balíček jste dříve zkopírovali do úložiště bitové kopie, registrace operaci určuje relativní cestu v úložišti bitové kopie.
+
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
 "MyApplicationV1" je složka, v úložišti bitové kopie, kde se nachází balíček aplikace. Typ aplikace s názvem "MyApplicationType" a verzí "1.0.0" (jak se nacházejí v manifestu aplikace) je nyní zaregistrovaná v clusteru.
 
+### <a name="register-the-application-package-copied-to-an-external-store"></a>Registrace balíčku aplikace zkopírovat do externího úložiště
+Od verze Service Fabric verze 6.1, zřídit podporuje stažení balíčku z externího úložiště. Stahování URI představuje cestu k [ `sfpkg` balíčku aplikace](service-fabric-package-apps.md#create-an-sfpkg) odkud balíčku aplikace si můžete stáhnout pomocí protokolů HTTP nebo HTTPS. Balíček musí mít předtím nahrála do tohoto externího umístění. Identifikátor URI musí umožňovat přístup pro čtení, takže Service Fabric můžete stáhnout soubor. `sfpkg` Souboru musí mít příponu ".sfpkg". Operaci zřizování by měla obsahovat informace o typu aplikace, jak se nachází v manifestu aplikace.
+
+```
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```
+
 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) příkaz vrátí jenom po systém úspěšně zaregistrovala balíčku aplikace. Jak dlouho trvá registrace závisí na velikosti a obsah balíčku aplikace. V případě potřeby **- TimeoutSec** parametr lze zadat delší časový limit (výchozí hodnota časového limitu je 60 sekund).
 
-Pokud máte velké aplikací, balíčků nebo pokud dochází k vypršení časových limitů, použijte **- asynchronní** parametr. Příkaz vrátí při clusteru přijme příkaz registrace a zpracování pokračuje podle potřeby.
-[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) příkaz vypíše všechny verze typů byl úspěšně zaregistrován aplikace a jejich stav registrace. Tento příkaz slouží k určení, kdy se provádí registraci.
+Pokud máte velké aplikací, balíčků nebo pokud dochází k vypršení časových limitů, použijte **- asynchronní** parametr. Příkaz vrátí hodnotu, pokud clusteru přijme příkaz registrace. Operaci registrace pokračuje podle potřeby.
+[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) příkaz vypíše verze typů aplikace a jejich stav registrace. Tento příkaz slouží k určení, kdy se provádí registraci.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -184,7 +206,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Balíček aplikace odebrat z úložiště bitových kopií
-Doporučujeme odebrat balíček aplikace, po úspěšném zaregistrování aplikace.  Odstranění balíčky aplikací z úložiště image store uvolnit systémové prostředky.  Udržování balíčků nepoužívané aplikace využívá diskového úložiště a vede k problémům s výkonem aplikace.
+Pokud balíček byl zkopírován do úložiště bitové kopie, byste měli odebrat ji z dočasné umístění po úspěšném zaregistrování aplikace. Odstranění balíčky aplikací z úložiště image store uvolnit systémové prostředky. Udržování balíčků nepoužívané aplikace využívá diskového úložiště a vede k problémům s výkonem aplikace.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
@@ -244,7 +266,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Typ aplikace se zrušit registraci
-Pokud konkrétní verzi typ aplikace se už nepotřebuje, by měl zrušení registrace typu aplikace pomocí [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) rutiny. Zrušení registrace nepoužívané aplikace typy verzích prostor úložiště používá úložiště image store odebráním binární soubory aplikace. Rušení registrace aplikace typu nedojde k odebrání balíčku aplikace. Typ aplikace může být registrace, dokud u ní jsou vytvořeny žádné aplikace a žádné čekající na vyřízení aplikace upgrady na něj odkazují.
+Pokud konkrétní verzi typ aplikace se už nepotřebuje, by měl zrušení registrace typu aplikace pomocí [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) rutiny. Rušení registrace aplikace nepoužívá typy uvolní prostor úložiště používá úložiště bitových kopií a to odebráním souborů typu aplikace. Rušení registrace aplikace typu neodebere balíček aplikace, které jsou zkopírovány do dočasného umístění úložiště bitové kopie, pokud byl použit kopírování do úložiště bitové kopie. Typ aplikace může být registrace, dokud u ní jsou vytvořeny žádné aplikace a žádné čekající na vyřízení aplikace upgrady na něj odkazují.
 
 Spustit [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) zobrazíte typy aplikací, které jsou aktuálně registrované v clusteru:
 
@@ -333,7 +355,9 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
+[Balení aplikace](service-fabric-package-apps.md)
+
 [Upgrade aplikace Service Fabric](service-fabric-application-upgrade.md)
 
 [Úvod stavu Service Fabric](service-fabric-health-introduction.md)

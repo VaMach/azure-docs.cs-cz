@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Vytváření služby Multi-Factor Authentication do vlastní aplikace (SDK)
 
@@ -38,7 +38,7 @@ Protože rozhraní API nemají přístup k uživatelům zaregistrovat ve služb�
 
 
 ## <a name="download-the-sdk"></a>Stažení sady SDK
-Stažení sady SDK Azure Multi-Factor vyžaduje [zprostředkovatel vícefaktorového ověřování Azure](multi-factor-authentication-get-started-auth-provider.md).  To vyžaduje úplné předplatné, i když jsou ve vlastnictví licence Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite. Veřejné metody stahování sady SDK někdo vyřazeno z provozu sady SDK je zastaralá. Pokud budete muset stáhnout sady SDK, by měl otevřete případu podpory se společností Microsoft.
+Stažení sady SDK Azure Multi-Factor vyžaduje [zprostředkovatel vícefaktorového ověřování Azure](multi-factor-authentication-get-started-auth-provider.md).  To vyžaduje úplné předplatné, i když jsou ve vlastnictví licence Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite. Veřejné metody stahování sady SDK mít byla vyřazena, protože sadu SDK je zastaralá. Pokud budete muset stáhnout sady SDK, by měl otevřete případu podpory se společností Microsoft. Sada SDK je k dispozici pouze pro zákazníky, kteří jsou již pomocí sady SDK. Nové zákazníky nebudou zařazený nemá.
 
 ## <a name="whats-in-the-sdk"></a>Co je v sadě SDK
 Sada SDK zahrnuje následující položky:

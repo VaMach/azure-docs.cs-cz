@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Nejčastější dotazy ohledně Azure Security Center
 Tyto nejčastější dotazy odpovědi na otázky o Azure Security Center, služba, která pomáhá zabránit, zjistit a reagovat na hrozby nabízí lepší přehled a kontrolu nad zabezpečení vašich prostředků Microsoft Azure.
@@ -61,6 +61,10 @@ Shromažďování dat můžete povolit pro vaše předplatné Azure v zásadě z
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Co se stane, pokud je povoleno shromažďování dat?
 Při shromažďování dat je povolené, Microsoft Monitoring Agent je automaticky zřízený na všechny stávající a nově podporované virtuální počítače, které jsou nasazeny v rámci předplatného.
+
+Událost procesu vytvoření 4688 umožňuje agenta a *CommandLine* pole v rámci události 4688. Nové procesů vytvořených ve virtuálním počítači jsou zaznamenány v protokolu událostí a monitorovat pomocí zjišťování služby Security Center. Informace v podrobnostech pro každý nový proces zaznamenány v tématu [pole Popis v 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Agent také shromažďuje 4688 události vytvořené ve virtuálním počítači a ukládá je do vyhledávání.
+
+Pokud Security Center zjistí podezřelou aktivitu na virtuálním počítači, zákazník obdrží oznámení e-mailem, pokud [kontaktní informace o zabezpečení](security-center-provide-security-contact-details.md) bylo zadáno. Výstraha je také zobrazené na řídicím panelu výstrahy zabezpečení Security Center.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Monitoring Agent vliv na výkon Moje servery?
 Agent využívá nominální množství systémové prostředky a musí mít malý vliv na výkon. Další informace o vlivu na výkon a agent a rozšíření najdete v tématu [Průvodce plánováním a operace](security-center-planning-and-operations-guide.md#data-collection-and-storage).

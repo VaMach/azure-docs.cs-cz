@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Pomocí mapy služeb řešení v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Pomocí mapy služeb, můžete zobrazit vaše servery ve způsobu, jakým se domníváte, že z nich: jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy, a vyžaduje porty mezi žádné připojení TCP architektura žádnou konfiguraci, jiné než instalaci agenta.
@@ -333,34 +333,34 @@ Záznamů s typem *ServiceMapProcess_CL* mít data inventáře pro připojení T
 ## <a name="sample-log-searches"></a>Ukázky hledání v protokolech
 
 ### <a name="list-all-known-machines"></a>Seznam známých všechny počítače
-Typ = ServiceMapComputer_CL | odstranění duplicitních dat ResourceId
+ServiceMapComputer_CL | shrnout arg_max(TimeGenerated, *) podle ID prostředku
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Zobrazí seznam všech spravovaných počítačů kapacita fyzické paměti.
-Typ = ServiceMapComputer_CL | Vyberte PhysicalMemory_d ComputerName_s | ResourceId odstraňování duplicitních dat
+ServiceMapComputer_CL | shrnout arg_max(TimeGenerated, *) podle ResourceId | Projekt PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Název počítače seznamu, DNS, IP a operačního systému.
-Typ = ServiceMapComputer_CL | Vyberte ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s | odstranění duplicitních dat ResourceId
+ServiceMapComputer_CL | shrnout arg_max(TimeGenerated, *) podle ResourceId | Projekt ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Vyhledá všechny procesy s "sql" v příkazovém řádku
-Typ = ServiceMapProcess_CL CommandLine_s = \*sql\* | ResourceId odstraňování duplicitních dat
+ServiceMapProcess_CL | kde CommandLine_s contains_cs "sql" | shrnout arg_max(TimeGenerated, *) podle ID prostředku
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Najít počítač (poslední záznam) podle názvu prostředku
-Typ = ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | odstranění duplicitních dat ResourceId
+hledání v (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | shrnout arg_max(TimeGenerated, *) podle ID prostředku
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Najít počítač (poslední záznam) podle IP adresy
-Typ = ServiceMapComputer_CL "10.229.243.232" | odstranění duplicitních dat ResourceId
+hledání v (ServiceMapComputer_CL) "10.229.243.232" | shrnout arg_max(TimeGenerated, *) podle ID prostředku
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Seznam všech známých procesů v zadaném počítači
-Typ = ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | odstranění duplicitních dat ResourceId
+ServiceMapProcess_CL | kde MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | shrnout arg_max(TimeGenerated, *) podle ID prostředku
 
 ### <a name="list-all-computers-running-sql"></a>Zobrazí seznam všech počítačů se systémem SQL
-Typ = ServiceMapComputer_CL ResourceName_s IN {typ = ServiceMapProcess_CL \*sql\* | Odlišné MachineResourceName_s} | odstranění duplicitních dat ResourceId | Odlišné ComputerName_s
+ServiceMapComputer_CL | kde ResourceName_s v ((hledání v (ServiceMapProcess_CL) "\*sql\*" | odlišné MachineResourceName_s)) | odlišné ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Seznam všech verzí produktu jedinečný curl Moje datového centra.
-Typ = ServiceMapProcess_CL ExecutableName_s = curl | Odlišné ProductVersion_s
+ServiceMapProcess_CL | kde ExecutableName_s == "curl" | odlišné ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Vytvořit skupinu počítačů všech počítačů se systémem CentOS
-Typ = ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Odlišné ComputerName_s
+ServiceMapComputer_CL | kde OperatingSystemFullName_s contains_cs "CentOS" | odlišné ComputerName_s
 
 
 ## <a name="rest-api"></a>REST API
@@ -373,7 +373,7 @@ Microsoft automaticky shromažďuje data o využití a výkonu prostřednictvím
 Další informace o shromažďování a používání dat najdete v tématu [prohlášení o ochraně osobních údajů služeb Microsoft Online](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [protokolu hledání](../log-analytics/log-analytics-log-searches.md) v analýzy protokolů pro načtení data shromážděná pomocí mapy služeb.
 
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Předávací ověřování Azure Active Directory: Inteligentní uzamčení
 
@@ -36,7 +36,7 @@ Inteligentní uzamčení také rozlišuje mezi přihlášení z originálního u
 Předávací ověřování předává žádosti o ověření hesla k místní službě Active Directory, takže potřebujete zabránit útočníkům uzamykání účtů uživatelů služby Active Directory. Služby Active Directory má svou vlastní zásady uzamčení účtu, konkrétně [prahovou hodnotu uzamknutí účtu](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) a [resetování čítače uzamčení účtu po](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx) zásady. Vhodně nakonfigurujte Azure AD uzamčení prahovou hodnotu a uzamčení hodnot trvání pro odfiltrování útoky v cloudu, než dosáhnou místní služby Active Directory.
 
 >[!NOTE]
->Funkce uzamčení inteligentní je zdarma a je _na_ ve výchozím nastavení pro všechny zákazníky. Ale pokud chcete upravit Azure AD uzamčení prahovou hodnotu a uzamčení hodnot trvání pomocí rozhraní Graph API, musí mít alespoň jednu licenci Azure AD Premium P2 vašeho klienta. Nepotřebujete licenci Azure AD Premium P2 _na uživatele_ získat funkci inteligentního uzamčení pomocí předávacího ověřování.
+>>Funkce uzamčení inteligentní je zdarma a je _na_ ve výchozím nastavení pro všechny zákazníky. Úprava prahové hodnoty počtu uzamčení a doba trvání uzamčení hodnotami pomocí rozhraní Graph API služby Azure AD však musí být aktivovaná pro Azure AD Premium P2 vašeho klienta. 
 
 K zajištění správně ochrany vašich uživatelů místní služby Active Directory účty, je třeba zajistit, aby:
 
@@ -148,5 +148,5 @@ Postupujte podle těchto kroků provedete aktualizaci hodnoty inteligentní uzam
 
 Ověřte, že jste aktualizovali vašeho klienta inteligentní uzamčení hodnoty správně pomocí kroků v [inteligentní uzamčení zobrazení hodnoty](#view-smart-lockout-values).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): použijte fóru Azure Active Directory do souboru žádosti o nové funkce.
