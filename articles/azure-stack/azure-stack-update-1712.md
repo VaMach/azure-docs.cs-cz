@@ -3,7 +3,7 @@ title: "Aktualizace zásobníku Azure 1712 | Microsoft Docs"
 description: "Další informace o tom, co je v aktualizaci 1712 pro Azure zásobníku integrované systémy, známé problémy a kde se stáhnout aktualizaci."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure aktualizace 1712 zásobníku
 
@@ -58,7 +58,7 @@ Tato aktualizace zahrnuje následující vylepšení a opravy pro Azure zásobn�
 - Rutina test-AzureStack ověření cloudu zásobník Azure k dispozici prostřednictvím privilegované koncový bod
 - Možnost registrovat odpojené nasazení Azure zásobníku
 - Monitorování upozornění na vypršení platnosti certifikátu a uživatele účtu
-- Přidané aktualizace BMCCredential rutiny v období pro otočení heslo BMC
+- Přidané rutiny Set-BmcPassword v období pro otočení heslo BMC
 - Aktualizace protokolování sítě pro podporu protokolování na vyžádání
 - Operace obnovení z Image podporu pro virtuální počítač měřítka sady (VMSS)
 - Povolit celoobrazovkového režimu na virtuálním počítači ERCS pro CloudAdmin přihlášení

@@ -4,7 +4,7 @@ description: "Popisuje, jak rozbalit, namontujte do racku a zapojení kabeláže
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Zařízení vybalit, namontovat do racku a zapojení kabeláže zařízení StorSimple 8600
 ## <a name="overview"></a>Přehled
@@ -38,7 +38,7 @@ Předtím, než můžete zařízení vybalit zařízení, zkontrolujte následuj
 Dále proveďte následující kroky rozbalte zařízení.
 
 #### <a name="to-unpack-your-device"></a>Rozbalte zařízení
-1. Zkontrolujte pole a pěnou balení pro crushes kusy, horních poškození nebo jiných zřejmé poškození. Pokud pole nebo balení vážně poškozen, neotevírejte pole. Prosím [kontaktovat Microsoft Support](storsimple-contact-microsoft-support.md) můžete vyhodnotit, jestli je zařízení v dobrém stavu.
+1. Zkontrolujte pole a pěnou balení pro crushes kusy, horních poškození nebo jiných zřejmé poškození. Pokud pole nebo balení vážně poškozen, neotevírejte pole. Prosím [kontaktovat Microsoft Support](storsimple-8000-contact-microsoft-support.md) můžete vyhodnotit, jestli je zařízení v dobrém stavu.
 2. Otevřete vnější pole a pak proveďte na dvě pole odpovídající primární a EBOD skříně. Můžete teď rozbalte primárním serverem a EBOD skříně. Následující obrázek znázorňuje rozbalené zobrazení jednoho skříních.
    
     ![Rozbalte zařízení úložiště](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -66,7 +66,7 @@ Dále proveďte následující kroky rozbalte zařízení.
    * 2 rack sadách připojení (4 které straně s připojení hardwaru, 2 pro primární skříně a EBOD skříň), 1 v každém poli
    * Získávání dokumentaci Začínáme
      
-     Pokud jste neobdrželi některou z položek uvedených výše, [kontaktovat Microsoft Support](storsimple-contact-microsoft-support.md).  
+     Pokud jste neobdrželi některou z položek uvedených výše, [kontaktovat Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
 Dalším krokem je rack připojení zařízení.
 
@@ -234,7 +234,7 @@ Pokud kabeláže zařízení, vyžaduje minimální požadavky na konfiguraci:
 Mějte na paměti pro vysokou dostupnost a výkon:
 
 * Pokud je to možné, nakonfigurujte v každém řadiči pár síťového rozhraní pro přístup do cloudu (1 GbE) a jinou dvojici pro iSCSI (10 GbE doporučené).
-* Pokud je to možné, připojte síťová rozhraní z každého řadiče dva různé přepínače k zajištění dostupnosti proti selhání přepínače. Na obrázku je znázorněn dvě 10 GbE síťová rozhraní, DATA 2 a DATA 3 z každého řadiče připojené k dva různé přepínače. Další informace najdete v části **síťových rozhraní** pod [požadavků na vysokou dostupnost pro zařízení StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Pokud je to možné, připojte síťová rozhraní z každého řadiče dva různé přepínače k zajištění dostupnosti proti selhání přepínače. Na obrázku je znázorněn dvě 10 GbE síťová rozhraní, DATA 2 a DATA 3 z každého řadiče připojené k dva různé přepínače. Další informace najdete v části **síťových rozhraní** pod [požadavků na vysokou dostupnost pro zařízení StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Pokud používáte SFP + vysílače s 10 GbE síťové rozhraní, pomocí zadané QSFP-SFP + adaptéry. Další informace, přejděte na [podporovaném hardwaru 10 GbE síťových rozhraních zařízení StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -265,6 +265,6 @@ Proveďte následující kroky k zapojení sériového portu.
 
 Dokončili jste kabeláž napájení, přístup k síti a sériové připojení zařízení. Dalším krokem je konfigurace softwaru na vašem zařízení.
 
-## <a name="next-steps"></a>Další kroky
-Nyní jste připraveni k [nasaďte a nakonfigurujte místní zařízení StorSimple](storsimple-deployment-walkthrough-u2.md).
+## <a name="next-steps"></a>Další postup
+Nyní jste připraveni k [nasaďte a nakonfigurujte místní zařízení StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 

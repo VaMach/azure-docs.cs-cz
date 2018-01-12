@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: bcddb66806cc58b3513c9c157512ac8b96a51ec1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5ee13756e4276055a8c9bdd9642d0766c3ca7e5c
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Ověřování koncového uživatele s Data Lake Store pomocí rozhraní REST API
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ V tomto scénáři aplikace vyzve uživatele k přihlášení a všechny operace
 
 Další informace o interaktivním ověřování uživatelů najdete v tématu [Tok poskytování autorizačních kódů](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste zjistili, jak používat ověřování service-to-service k ověřování s Azure Data Lake Store pomocí rozhraní REST API. Teď můžete prohlédnout v následujících článcích, které mluvit o tom, jak používat rozhraní REST API pro práci s Azure Data Lake Store.
 
 * [Operace správy účtů v Data Lake Store pomocí rozhraní REST API](data-lake-store-get-started-rest-api.md)

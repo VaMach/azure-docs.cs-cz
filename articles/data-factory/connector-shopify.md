@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2cafa5f04ceeee4a3ba1b3d158757836b0a23cfa
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b99a6d907b2061251079e566cd05d9e4d7c3b069
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-beta"></a>Kopírování dat z Shopify pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke Shopify konektoru.
 
@@ -48,7 +48,7 @@ Pro Shopify propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Shopify** | Ano |
-| hostitele | Koncový bod serveru Shopify. (to znamená, mystore.myshopify.com)  | Ano |
+| hostitel | Koncový bod serveru Shopify. (to znamená, mystore.myshopify.com)  | Ano |
 | accessToken | Rozhraní API přístupový token, který lze použít pro přístup k datům společnosti Shopify. Pokud je offline režimu nevyprší platnost tokenu. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
 | useHostVerification | Určuje, jestli chcete vyžadovat názvu hostitele v certifikátu serveru, aby odpovídal názvu hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je true.  | Ne |
@@ -138,5 +138,5 @@ Ke zkopírování dat z Shopify, nastavte typ zdroje v aktivitě kopírování d
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

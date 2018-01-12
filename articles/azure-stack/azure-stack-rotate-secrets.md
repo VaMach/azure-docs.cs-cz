@@ -1,0 +1,48 @@
+---
+title: "Otočit tajných klíčů v zásobníku Azure | Microsoft Docs"
+description: "Naučte se otočit tajných klíčů v zásobníku Azure."
+services: azure-stack
+documentationcenter: 
+author: mattbriggs
+manager: femila
+editor: 
+ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
+ms.service: azure-stack
+ms.workload: na
+pms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/08/2018
+ms.author: mabrigg
+ms.openlocfilehash: 9b65a3cb5cdcc8a558e5c989026f2eee2f527bb5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 01/12/2018
+---
+# <a name="rotate-secrets-in-azure-stack"></a>Otočit tajné klíče v Azure zásobníku
+
+*Platí pro: Azure zásobníku integrované systémy*
+
+Aktualizace hesla pro součásti zásobníku Azure v pravidelných cadence.
+
+## <a name="updating-the-passwords-for-the-baseboard-management-controller-bmc"></a>Aktualizace hesla pro řadič pro správu základní desky (BMC)
+
+Řadiče pro správu základní desky (BMC) monitorování fyzickému stavu vašich serverů. Specifikace a pokyny, aktualizace hesla řadiče BMC lišit v závislosti na dodavatele hardwaru, výrobce (OEM).
+
+1. Aktualizujte BMC na vašem serveru podle pokynů vaší výrobce OEM. Heslo pro každou BMC ve vašem prostředí musí být stejné.
+2. Otevřete koncový bod privilegované v relacích zásobník Azure. Pokyny naleznete v tématu [pomocí privilegované koncový bod v zásobníku Azure](azure-stack-privileged-endpoint.md).
+3. Po vaše prostředí PowerShell řádku změnil na **[ERCS virtuálního počítače nebo IP adresu name]: PS >** nebo **[azs-ercs01]: PS >**, v závislosti na prostředí, spusťte `Set-BmcPassword` spuštěním `invoke-command`. Vaše proměnná privilegované koncový bod relace předejte jako parametr.  
+Příklad:
+    ```powershell
+    $PEPSession = New-PSSession -ComputerName <ERCS computer name> -Credential <CloudAdmin credential> -ConfigurationName "PrivilegedEndpoint"  
+    
+    Invoke-Command -Session $PEPSession -ScriptBlock {
+        param($password)
+        set-bmcpassword -bmcpassword $password
+    } -ArgumentList (<LatestPassword as a SecureString>) 
+    ```
+
+## <a name="next-steps"></a>Další postup
+
+Další informace o zabezpečení a zásobník Azure najdete v tématu [postavení zabezpečení infrastruktury Azure zásobníku](azure-stack-security-foundations.md).

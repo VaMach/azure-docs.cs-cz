@@ -1,6 +1,6 @@
 ---
-title: "Odpovědi na výstrahy v OMS Log Analytics | Microsoft Docs"
-description: "Výstrahy v Log Analytics identifikovat důležité informace ve svém úložišti OMS a můžete proaktivně upozorňují na problémy nebo vyvolání akce se pokusit o opravte je.  Tento článek popisuje, jak vytvořit pravidlo výstrahy a podrobnosti o různé akce, které jejich zajištění může trvat."
+title: "Odpovědi výstrah v Azure Log Analytics | Microsoft Docs"
+description: "Výstrahy v Log Analytics identifikovat důležité informace v pracovním prostoru Azure a můžete proaktivně upozorňují na problémy nebo vyvolání akce se pokusit o opravte je.  Tento článek popisuje, jak vytvořit pravidlo výstrahy a podrobnosti o různé akce, které jejich zajištění může trvat."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Přidání akce do pravidla výstrah v analýzy protokolů
 Když [v analýzy protokolů se vytvoří výstraha](log-analytics-alerts.md), máte možnost [konfigurace pravidlo výstrahy](log-analytics-alerts.md) provést několik akcí.  Tento článek popisuje různé akce, které jsou k dispozici a podrobnosti o konfiguraci jednotlivých typů.
 
 | Akce | Popis |
 |:--|:--|
-| [E-mailu](#email-actions) | Jeden nebo více příjemcům odeslat e-mail s detaily výstrahy. |
+| [E-mail](#email-actions) | Jeden nebo více příjemcům odeslat e-mail s detaily výstrahy. |
 | [Webhooku](#webhook-actions) | Vyvolání externího procesu prostřednictvím jedné žádosti HTTP POST. |
 | [Sady Runbook](#runbook-actions) | Spuštění sady runbook ve službě Azure Automation. |
 
@@ -39,7 +39,7 @@ E-mailu akce vyžadují vlastnosti v následující tabulce.
 | Vlastnost | Popis |
 |:--- |:--- |
 | Předmět |Subjektu v e-mailu.  Tělo e-mailu se nedá změnit. |
-| Příjemce |Adresy všech příjemců e-mailu.  Pokud zadáte víc než jednou adresou, jednotlivé adresy oddělujte středníkem (;). |
+| Příjemci |Adresy všech příjemců e-mailu.  Pokud zadáte víc než jednou adresou, jednotlivé adresy oddělujte středníkem (;). |
 
 
 ## <a name="webhook-actions"></a>Akce Webhooku
@@ -57,7 +57,7 @@ Akce Webhooku vyžadují vlastnosti v následující tabulce.
 Webhooky zahrnují adresu URL a datovou část ve formátu JSON, který se data odesílají externí služby.  Ve výchozím nastavení budou datové části zahrnují hodnoty v následující tabulce.  Můžete nahradit vlastní jeden vlastní tato datová část.  V takovém případě můžete proměnné v tabulce pro jednotlivé parametry mají být zahrnuty jejich hodnota vaše vlastní datovou část.
 
 >[!NOTE]
-> Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak datové části webook došlo ke změně.  Podrobnosti o formátu jsou v [REST API služby Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  Můžete zobrazit příklad v [ukázky](#sample-payload) níže.
+> Pokud byl váš pracovní prostor upgradován na [nový dotazovací jazyk Log Analytics](log-analytics-log-search-upgrade.md), pak se datová část webhooku změnila.  Podrobnosti o formátu najdete v tématu [Rozhraní REST API služby Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  Můžete zobrazit příklad v [ukázky](#sample-payload) níže.
 
 | Parametr | Proměnná | Popis |
 |:--- |:--- |:--- |
@@ -71,7 +71,7 @@ Webhooky zahrnují adresu URL a datovou část ve formátu JSON, který se data 
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Počáteční čas pro dotaz ve formátu UTC. |
 | SearchQuery |#searchquery |Vyhledávací dotaz protokolu používá pravidlo výstrahy. |
 | SearchResults |Níže najdete |Záznamů vrácených dotazem ve formátu JSON.  Omezeno na první 5 000 záznamů. |
-| ID pracovního prostoru |#workspaceid |ID pracovního prostoru OMS. |
+| ID pracovního prostoru |#workspaceid |ID pracovního prostoru analýzy protokolů. |
 
 Například může určit následující vlastní datovou část, která obsahuje jeden parametr s názvem *text*.  Služby, který volá tento webhook by byla očekávána tento parametr.
 
@@ -97,11 +97,11 @@ Například pokud chcete vytvořit vlastní datovou část, která obsahuje jeno
     }
 
 
-Si můžete projít kompletní příklad vytvoření pravidla výstrahy s webhooku zahájíte externí služba v [vytvoří akci, výstrah webhooku v OMS analýzy protokolů k odeslání zprávy na Slack](log-analytics-alerts-webhooks.md).
+Si můžete projít kompletní příklad vytvoření pravidla výstrahy s webhooku zahájíte externí služba v [vytvoří akci, výstrah webhooku v analýzy protokolů k odeslání zprávy na Slack](log-analytics-alerts-webhooks.md).
 
 
 ## <a name="runbook-actions"></a>Akce sady Runbook
-Runbook akce spuštění sady runbook ve službě Azure Automation.  Chcete-li použít tento typ akce, musíte mít [řešení služby Automation](log-analytics-add-solutions.md) nainstalován a nakonfigurován v vaším pracovním prostorem OMS.  Můžete vybrat ze sady runbook do účtu automation, který jste nakonfigurovali v řešení služby Automation.
+Runbook akce spuštění sady runbook ve službě Azure Automation.  Chcete-li použít tento typ akce, musíte mít [řešení služby Automation](log-analytics-add-solutions.md) nainstalován a nakonfigurován v pracovní prostor analýzy protokolů.  Můžete vybrat ze sady runbook do účtu automation, který jste nakonfigurovali v řešení služby Automation.
 
 Akce Runbook vyžadují vlastnosti v následující tabulce.
 
@@ -115,7 +115,7 @@ Akce Runbook spustit pomocí sady runbook [webhooku](../automation/automation-we
 Nelze přímo naplnit žádné parametry sady runbook, ale [parametru $WebhookData](../automation/automation-webhooks.md) bude obsahovat podrobnosti o výstraze, včetně výsledky hledání protokolů, která ji vytvořila.  Sada runbook bude muset definovat **$WebhookData** jako parametr pro ho pro přístup k vlastnostem výstrahy.  Data výstrah je k dispozici ve formátu json v jednom vlastnost s názvem **SearchResult** (pro runbook akce a akce webhooku se standardní datovou část) nebo **SearchResults** (webhooku akce s vlastní datová část včetně **IncludeSearchResults ": true**) v **RequestBody** vlastnost **$WebhookData**.  To bude mít s vlastnostmi v následující tabulce.
 
 >[!NOTE]
-> Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak došlo ke změně datové sady runbook.  Podrobnosti o formátu jsou v [REST API služby Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  Můžete zobrazit příklad v [ukázky](#sample-payload) níže.  
+> Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak došlo ke změně datové sady runbook.  Podrobnosti o formátu najdete v tématu [Rozhraní REST API služby Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  Můžete zobrazit příklad v [ukázky](#sample-payload) níže.  
 
 | Node | Popis |
 |:--- |:--- |
@@ -620,6 +620,6 @@ Následuje ukázka datové části pro akci sady runbook v pracovním prostoru u
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Dokončete průvodce pro [konfigurace webook](log-analytics-alerts-webhooks.md) s pravidlo výstrahy.  
 - Další informace o zápisu [sady runbook ve službě Azure Automation](https://azure.microsoft.com/documentation/services/automation) k nápravě problémů identifikovaný výstrahy.

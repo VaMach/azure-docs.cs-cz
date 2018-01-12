@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ff008b6fdfe9e248a0588f24a1cb87b39ca8d90c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: f903b786635213b93769a54ec69964a2fe212172
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopírování dat z databáze Sybase pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Chcete-li použít tento konektor Sybase, budete muset:
 - Nainstalujte [zprostředkovatele dat pro databázi Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 nebo vyšší na počítači integrace modulu Runtime.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru Sybase.
 
@@ -58,7 +59,7 @@ Pro databázi Sybase propojené služby jsou podporovány následující vlastno
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Sybase** | Ano |
 | server | Název serveru databáze Sybase. |Ano |
-| Databáze | Název databáze Sybase. |Ano |
+| databáze | Název databáze Sybase. |Ano |
 | Schéma | Název schématu v databázi. |Ne |
 | authenticationType. | Typ ověřování používaný pro připojení k databázi Sybase.<br/>Povolené hodnoty jsou: **základní**, a **Windows**. |Ano |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k databázi Sybase. |Ano |
@@ -169,5 +170,5 @@ Při kopírování dat z databáze Sybase, se používají následující mapov�
 Sybase podporuje typy T-SQL. Tabulku mapování z typů SQL pro Azure Data Factory dočasné datové typy, najdete v části [konektor služby Azure SQL Database – mapování datového typu](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) části.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Pomocí privilegované koncový bod v Azure zásobníku
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Jako operátor zásobník Azure měli byste použít správce portálu, prostředí PowerShell nebo rozhraní API Správce Azure Resource Manageru pro nejvíce každodenní úlohy správy. Ale pro některé méně běžné operace, budete muset použít *privilegované koncový bod*. Tento koncový bod je předem nakonfigurovaný vzdálené konzoly prostředí PowerShell, který poskytuje akorát, funkce, které vám pomohou provést požadované úlohy. Koncový bod využívá prostředí PowerShell JEA (právě dostatečně správy) ke zveřejnění jenom omezenou sadu rutin. Pro přístup k privilegované koncový bod a vyvolání omezenou sadu rutin, se používá účet s nízkou úrovní oprávnění. Jsou vyžadovány žádné účty správce. Pro dodatečné zabezpečení není povoleno skriptování.
+Jako operátor zásobník Azure měli byste použít správce portálu, prostředí PowerShell nebo rozhraní API Správce Azure Resource Manageru pro nejvíce každodenní úlohy správy. Ale pro některé méně běžné operace, budete muset použít *privilegované koncový bod* (období). Tento koncový bod je předem nakonfigurovaný vzdálené konzoly prostředí PowerShell, který poskytuje akorát, funkce, které vám pomohou provést požadované úlohy. Koncový bod využívá prostředí PowerShell JEA (právě dostatečně správy) ke zveřejnění jenom omezenou sadu rutin. Pro přístup k privilegované koncový bod a vyvolání omezenou sadu rutin, se používá účet s nízkou úrovní oprávnění. Jsou vyžadovány žádné účty správce. Pro dodatečné zabezpečení není povoleno skriptování.
 
 Privilegované koncového bodu můžete použít k provedení následujících úloh:
 
@@ -98,6 +98,7 @@ Doporučujeme vám, že se připojit k privilegované koncový bod pouze z hosti
     - Odebrat CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
+    - Test AzureStack
     - Stop-AzureStack
     - Get-cluster, protokol
 
@@ -122,7 +123,7 @@ K ukončení relace koncového bodu:
 
 Po přepis protokolové soubory jsou úspěšně přenést do sdílené složky, se automaticky odstraní z privilegovaných koncového bodu. Pokud zavřete privilegované koncový bod relace pomocí rutin `Exit-PSSession` nebo `Exit`, nebo jenom zavřete konzolu prostředí PowerShell, protokoly přepis nemáte přenést do sdílené složky. Zůstanou v privilegované koncový bod. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnují sdílené složky, přepis protokoly z předchozí relací se také přenosu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Azure zásobníku diagnostické nástroje](azure-stack-diagnostics.md)
 
 

@@ -1,26 +1,23 @@
 ---
 title: "Konfigurace ověřování Azure Active Directory - SQL | Microsoft Docs"
-description: "Zjistěte, jak se připojit k SQL Database a SQL Data Warehouse pomocí ověřování Azure Active Directory."
+description: "Zjistěte, jak se připojit k SQL Database a SQL Data Warehouse pomocí Azure Active Directory Authentication – po dokončení konfigurace Azure AD."
 services: sql-database
-documentationcenter: 
-author: BYHAM
-manager: jhubbard
-editor: 
-tags: 
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: Active
-ms.date: 07/10/2017
-ms.author: rickbyh
-ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 01/09/2018
+ms.author: mireks
+ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Konfigurovat a spravovat ověřování Azure Active Directory s SQL Database nebo SQL Data Warehouse
 
@@ -32,33 +29,14 @@ Tento článek ukazuje, jak vytvořit a naplnit Azure AD a pak použít Azure AD
 ## <a name="create-and-populate-an-azure-ad"></a>Vytvořit a naplnit Azure AD
 Vytvoření Azure AD a jeho naplnění uživatelů a skupin. Azure AD může být počáteční Azure AD spravované domény. Azure AD může být také místní Active Directory Domain Services, je sdružených se službou Azure AD.
 
-Další informace najdete v tématech [Integrování místních identit do služby Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Přidání vlastního názvu domény do Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure podporuje federaci s Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Správa adresáře služby Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Správa služby Azure AD pomocí rozhraní Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) a [Porty a protokoly, které vyžaduje hybridní identita](../active-directory/active-directory-aadconnect-ports.md).
+Další informace najdete v tématech [Integrování místních identit do služby Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Přidání vlastního názvu domény do Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure podporuje federaci s Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Správa adresáře služby Azure AD](../active-directory/active-directory-administer.md), [Správa služby Azure AD pomocí rozhraní Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) a [Porty a protokoly, které vyžaduje hybridní identita](..//active-directory/connect/active-directory-aadconnect-ports.md).
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Volitelné: Přidružení nebo změňte služby active directory, který je aktuálně přidružena předplatného Azure
-Pro vaši databázi přidružit adresář Azure AD pro vaši organizaci, nastavit adresář důvěryhodné adresáře pro předplatné Azure, který je hostitelem databáze. Další informace najdete v článku [Asociování předplatných Azure se službou Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Přidružení nebo přidat předplatné Azure do Azure Active Directory
 
-**Další informace:** předplatné každých Azure má vztah důvěryhodnosti s instancí Azure AD. To znamená, že tomuto adresáři svěřuje ověřování uživatelů, služeb i zařízení. Několik předplatných může důvěřovat stejnému adresáři, ale jedno předplatné důvěřuje pouze jednomu adresáři. Můžete zobrazit adresář, kterému důvěřují vaše předplatné v části **nastavení** kartě v [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Vztah důvěryhodnosti, který má předplatné s adresářem, se liší od vztahu, který má předplatné se všemi ostatními prostředky ve službě Azure (webové stránky, databáze apod.), což jsou pro předplatné spíše podřízené prostředky. Pokud platnost předplatného vyprší, zastaví se i přístup k těmto dalším prostředkům přidruženým k předplatnému. Adresář však ve službě Azure zůstane a vy k němu můžete přidružit jiné předplatné a pokračovat ve správě uživatelů adresáře. Další informace o prostředcích najdete v tématu [Principy přístupu k prostředkům v Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Přidružte vašeho předplatného Azure do Azure Active Directory tím, že adresář důvěryhodné adresáře pro předplatné Azure, který je hostitelem databáze. Podrobnosti najdete v tématu [asociování předplatných Azure se službou Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Použijte přepínači directory na portálu Azure přejděte na předplatné spojené s doménou.
 
-Následující postupy ukazují, jak změnit přidružené adresáře pro dané předplatné.
-1. Připojení k vaší [portálu Azure Classic](https://manage.windowsazure.com/) pomocí Správce předplatného Azure.
-2. Na levém informační zprávě, vyberte **nastavení**.
-3. Předplatné se zobrazí v dialogovém okně nastavení. Pokud není uvedené požadované předplatné, klikněte na tlačítko **odběry** nahoře, rozevírací nabídku **filtr podle DIRECTORY** pole a vyberte adresář, který obsahuje předplatné a pak klikněte na tlačítko **Použít**.
-   
-    ![Vyberte předplatné][4]
-4. V **nastavení** oblast, klikněte na vaše předplatné a pak klikněte na **upravit adresář** v dolní části stránky.
-   
-    ![portálu nastavení AD][5]
-5. V **upravit adresář** pole, vyberte Azure Active Directory, který je přidružen k serveru SQL Server nebo SQL Data Warehouse a pak klikněte na šipku Další.
-   
-    ![Vyberte možnost Upravit adresář][6]
-6. V **POTVRDIT** directory dialogové okno mapování, zkontrolujte, že "**se odeberou všechny spolusprávci.**"
-   
-    ![Upravit adresář potvrzení][7]
-7. Klikněte na tlačítko zaškrtnutí načtením na portálu.
-
-   > [!NOTE]
-   > Při změnit adresář, přístup ke všem spolusprávci, Azure AD Uživatelé a skupiny a jsou odebrány uživatelů zálohovaná directory prostředků a už mají přístup k tomuto předplatnému nebo jeho prostředky. Pouze, jako správce služeb můžete nakonfigurovat přístup pro objekty zabezpečení na základě u nového adresáře. Tato změna může trvat vyžadovat značné množství čas potřebný k šíření na všechny prostředky. Změna adresáře, také změní správce Azure AD pro SQL Database a SQL Data Warehouse a zakáže přístup k databázi pro všechny stávající uživatele Azure AD. Správce služby Azure AD musí být resetování (jak je popsáno níže) a nové Azure AD Uživatelé musí být vytvořen.
-   >  
+   **Další informace:** předplatné každých Azure má vztah důvěryhodnosti s instancí Azure AD. To znamená, že tomuto adresáři svěřuje ověřování uživatelů, služeb i zařízení. Několik předplatných může důvěřovat stejnému adresáři, ale jedno předplatné důvěřuje pouze jednomu adresáři. Vztah důvěryhodnosti, který má předplatné s adresářem, se liší od vztahu, který má předplatné se všemi ostatními prostředky ve službě Azure (webové stránky, databáze apod.), což jsou pro předplatné spíše podřízené prostředky. Pokud platnost předplatného vyprší, zastaví se i přístup k těmto dalším prostředkům přidruženým k předplatnému. Adresář však ve službě Azure zůstane a vy k němu můžete přidružit jiné předplatné a pokračovat ve správě uživatelů adresáře. Další informace o prostředcích najdete v tématu [Principy přístupu k prostředkům v Azure](../active-directory/active-directory-b2b-admin-add-users.md). Další informace o tom důvěryhodný vztah najdete [přidružit nebo přidání předplatného Azure do Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Vytvoření správce Azure AD pro server Azure SQL
 Každý server Azure SQL (který je hostitelem SQL Database nebo SQL Data Warehouse) spustí pomocí účtu správce jeden server, který je správcem celý server Azure SQL. Druhý správce systému SQL Server musí být vytvořeny, který je účet Azure AD. Tento objekt se vytvoří jako databáze s omezením uživatel v hlavní databázi. Jako správci, účty správce serveru, jsou členy **db_owner** role v každého uživatele databáze a potom zadejte každou databázi uživatele, jako **dbo** uživatele. Další informace o účtech správce serveru najdete v tématu [Správa databází a přihlašovacích údajů ve službě Azure SQL Database](sql-database-manage-logins.md).
@@ -73,7 +51,7 @@ Při použití služby Azure Active Directory s geografickou replikací, správc
 
 Tyto dva postupy ukazují, jak zřídit správce Azure Active Directory pro server Azure SQL na portálu Azure a pomocí prostředí PowerShell.
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 1. V [portál Azure](https://portal.azure.com/), v pravém horním rohu klikněte na připojení k rozevírací seznam možných Active Directory. Vyberte správný služby Active Directory jako výchozí Azure AD. Tento krok odkazy přidružení předplatné služby Active Directory s Azure SQL serveru a ujistěte se, že stejného předplatného. používá se pro Azure AD a SQL Server. (Server Azure SQL můžete hostování, Azure SQL Database nebo Azure SQL Data Warehouse.)   
     ![Zvolte ad][8]   
     
@@ -251,7 +229,7 @@ Tuto metodu použijte, pokud jsou přihlášení k systému Windows pomocí při
 
     ![Vyberte název databáze][13]
 
-## <a name="active-directory-password-authentication"></a>Ověřování hesla Active Directory
+## <a name="active-directory-password-authentication"></a>Ověřování hesla služby Active Directory
 
 Tuto metodu použijte, pokud připojíte přes hlavní název služby Azure AD pomocí služby Azure AD spravované domény. Můžete ji použít i pro federované účet bez přístupu k doméně, například při práci se vzdáleně.
 
@@ -283,7 +261,7 @@ conn.Open();
 
 Klíčové slovo připojovacího řetězce ``Integrated Security=True`` není podporována pro připojení k databázi SQL Azure. Při vytváření připojení ODBC, musíte se k odebrání mezer a nastavení ověřování pro 'ActiveDirectoryIntegrated'.
 
-### <a name="active-directory-password-authentication"></a>Ověřování hesla Active Directory
+### <a name="active-directory-password-authentication"></a>Ověřování hesla služby Active Directory
 
 Chcete-li připojit k databázi pomocí integrované ověřování a identita Azure AD, musí být nastavena – klíčové slovo ověřování Active Directory heslo. Připojovací řetězec musí obsahovat identifikátor ID uživatele nebo uživatele a heslo/PWD klíčová slova a hodnoty. Následující ukázka kódu C# používá rozhraní ADO .NET.
 
@@ -324,7 +302,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Přehled řízení a přístupu pro SQL Database najdete v tématu věnovaném [řízení a přístupu k SQL Database](sql-database-control-access.md).
 - Přehled přihlášení, uživatelů a databázových rolí ve službě SQL Database najdete v tématu věnovaném [přihlášením, uživatelům a databázovým rolím](sql-database-manage-logins.md).
 - Další informace o objektech zabezpečení databáze najdete v tématu [Objekty zabezpečení](https://msdn.microsoft.com/library/ms181127.aspx).

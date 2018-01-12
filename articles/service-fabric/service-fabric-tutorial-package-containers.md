@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Zabalení a nasazení kontejnerů jako aplikace Service Fabric
 
@@ -65,10 +65,11 @@ Service fabric nabízí nástroje pro generování uživatelského rozhraní k u
     ```bash
     yo azuresfcontainer
     ```
-2. Název aplikace "TestContainer" a název aplikace služby "azurevotefront".
-3. Zadejte pro front-endu úložiště – například test.azurecr.io/azure-vote-front:v1 cesta bitové kopie kontejneru v ACR. 
-4. Stiskněte klávesu Enter a nechte příkazy části prázdný.
-5. Zadejte počet instancí 1.
+2. Zadejte prosím "TestContainer" název vaší aplikace
+3. Zadejte prosím "azurevotefront" název aplikace služby.
+4. Zadat cestu image kontejneru v ACR front-endu úložiště – například '\<acrName >.azurecr.io / azure-hlas – přední: v1'. \<AcrName > pole musí být stejná jako hodnota, který byl použit v předchozí kurzu.
+5. Stiskněte klávesu Enter a nechte příkazy části prázdný.
+6. Zadejte počet instancí 1.
 
 Následující příklad zobrazuje vstupní a výstupní spuštění příkazu je:
 
@@ -86,12 +87,12 @@ Následující příklad zobrazuje vstupní a výstupní spuštění příkazu j
    create TestContainer/uninstall.sh
 ```
 
-Pokud chcete přidat další službu kontejneru do aplikace již vytvořené pomocí Yeomana, proveďte následující kroky:
+Pokud chcete přidat jiné služby kontejneru na aplikaci již vytvořený Yeoman, proveďte následující kroky:
 
-1. Změnit adresář **TestContainer** adresáře
+1. Změňte adresář na jednu úroveň **TestContainer** adresáři, například *. / TestContainer*
 2. Spusťte `yo azuresfcontainer:AddService`. 
 3. Název služby azurevoteback
-4. Zadejte cestu k kontejneru bitové kopie v ACR pro back-end úložiště – například test.azurecr.io/azure-vote-back:v1
+4. Zadejte cestu k bitové kopie kontejner pro Redis - ' alpine: redis.
 5. Stiskněte klávesu Enter a nechte příkazy části prázdný
 6. Jako počet instancí zadejte 1.
 
@@ -99,7 +100,7 @@ Položky pro přidání služby použít všechny zobrazeny:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
+? Input the Image Name: alpine:redis
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -107,13 +108,16 @@ Položky pro přidání služby použít všechny zobrazeny:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Pro zbývající část tohoto kurzu, pracujeme **TestContainer** adresáře.
+Pro zbývající část tohoto kurzu, pracujeme **TestContainer** adresáře. Například *./TestContainer/TestContainer*. Obsah tohoto adresáře by měl vypadat takto.
+```bash
+$ ls
+ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
+```
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Manifest aplikace nakonfigurovat přihlašovací údaje pro registru kontejner Azure
 Pro Service Fabric načítat kontejneru bitové kopie z registru kontejner Azure, je potřeba zadat přihlašovací údaje v **ApplicationManifest.xml**. 
 
-
-Přihlaste se k instanci ACR. Použití [az acr přihlášení](/cli/azure/acr#az_acr_login) příkaz k dokončení operace. Zadejte jedinečný název zadané registru kontejneru v okamžiku vytvoření.
+Přihlaste se k instanci ACR. Použití **az acr přihlášení** příkaz k dokončení operace. Zadejte jedinečný název zadané registru kontejneru v okamžiku vytvoření.
 
 ```bash
 az acr login --name <acrName>
@@ -127,7 +131,7 @@ Potom spusťte následující příkaz získat heslo registr kontejneru. Toto he
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-V **ApplicationManifest.xml**, Přidání fragmentu kódu zobrazeném v části **ServiceManifestImport** element pro každou službu. Vložit vaše **acrName** pro **AccountName** pole a vrácené z předchozího příkazu heslo se používá pro **heslo** pole. Úplné **ApplicationManifest.xml** je k dispozici na konci tohoto dokumentu. 
+V **ApplicationManifest.xml**, Přidání fragmentu kódu zobrazeném v části **ServiceManifestImport** element pro službu front-endu. Vložit vaše **acrName** pro **AccountName** pole a vrácené z předchozího příkazu heslo se používá pro **heslo** pole. Úplné **ApplicationManifest.xml** je k dispozici na konci tohoto dokumentu. 
 
 ```xml
 <Policies>
@@ -140,7 +144,7 @@ V **ApplicationManifest.xml**, Přidání fragmentu kódu zobrazeném v části 
 
 ### <a name="configure-communication-port"></a>Konfigurace portů pro komunikaci
 
-Nakonfigurujte koncový bod HTTP, aby klienti mohli komunikovat s vaší službou.  Otevřete *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* souborů a deklarovat prostředek koncového bodu v **ServiceManifest** element.  Přidejte protokol, port a název. V tomto kurzu službu naslouchá na portu 80. 
+Nakonfigurujte koncový bod HTTP, aby klienti mohli komunikovat s vaší službou. Otevřete *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* souborů a deklarovat prostředek koncového bodu v **ServiceManifest** element.  Přidejte protokol, port a název. V tomto kurzu službu naslouchá na portu 80. Následující fragment kódu je umístěn v *ServiceManifest* značky v prostředku.
   
 ```xml
 <Resources>
@@ -154,21 +158,21 @@ Nakonfigurujte koncový bod HTTP, aby klienti mohli komunikovat s vaší službo
 
 ```
   
-Podobně upravte Service Manifest pro back-end službu. V tomto kurzu zachovaný výchozí redis 6379.
+Podobně upravte Service Manifest pro back-end službu. Otevřete *./TestContainer/azurevotebackPkg/ServiceManifest.xml* a deklarovat prostředek koncového bodu v **ServiceManifest** element. V tomto kurzu zachovaný výchozí redis 6379. Následující fragment kódu je umístěn v *ServiceManifest* značky v prostředku.
+
 ```xml
 <Resources>
   <Endpoints>
     <!-- This endpoint is used by the communication listener to obtain the port on which to 
             listen. Please note that if your service is partitioned, this port is shared with 
             replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+    <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
   </Endpoints>
 </Resources>
 ```
 Poskytuje **UriScheme**koncový bod kontejneru službu Service Fabric Naming pro možnosti rozpoznání zaregistruje automaticky. Úplný příklad souboru ServiceManifest.xml pro back-end službu k dispozici na konci tohoto článku jako příklad. 
 
 ### <a name="map-container-ports-to-a-service"></a>Mapování portů kontejneru služby
-    
 Tak, aby získal kontejnery v clusteru, je potřeba také vytvořit vazbu portu v 'ApplicationManifest.xml'. **PortBinding** zásad odkazy **koncové body** definovaného v **ServiceManifest.xml** soubory. Příchozí žádosti s těmito koncovými body získat namapované na kontejneru porty, které jsou otevřené a ohraničenou sem. V **ApplicationManifest.xml** soubor, přidejte následující kód k vytvoření vazby porty 80 a 6379 koncových bodů. Úplné **ApplicationManifest.xml** je k dispozici na konci tohoto dokumentu. 
   
 ```xml
@@ -195,13 +199,13 @@ Pro Service Fabric přiřadit tento název DNS ke službě back-end, je třeba z
 </Service>
 ```
 
-Služba front-endu přečte proměnné prostředí znát název DNS instance Redis. Proměnná prostředí je definována v soubor Docker, jak je znázorněno:
+Služba front-endu přečte proměnné prostředí znát název DNS instance Redis. Tato proměnná prostředí je již definována v soubor Docker, která byla použita k vytvoření bitové kopie Docker a mají být provedeny, zde není nutné žádnou akci.
   
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
   
-Skript jazyka python, který vykreslí front end používá název DNS vyřešit a připojte k úložišti redis back-end, jak je znázorněno:
+Následující fragment kódu ukazuje, jak kód front-endu Python převezme popsané v soubor Docker proměnné prostředí. Mají být provedeny, zde není nutné žádnou akci. 
 
 ```python
 # Get DNS Name
@@ -218,15 +222,15 @@ Pokud chcete nasadit aplikaci do clusteru v Azure, použijte vlastní cluster ne
 
 Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Je zachována tým Service Fabric, kde každý, kdo můžete nasadit aplikace a další informace o platformě. Pokud chcete získat přístup k Party Clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
 
-Informace o vytváření vlastního clusteru najdete v tématu [vytvořit cluster Service Fabric na platformě Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Informace o vytvoření vlastního clusteru najdete v tématu věnovaném [vytvoření clusteru Service Fabric v Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Sestavení a nasazení aplikací do clusteru
 Můžete nasadit aplikaci Azure clusteru pomocí rozhraní příkazového řádku služby prostředků infrastruktury. Pokud služba Fabric rozhraní příkazového řádku není nainstalovaný na počítači, postupujte podle pokynů [sem](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) k její instalaci. 
 
-Připojte se ke clusteru Service Fabric v Azure.
+Připojte se ke clusteru Service Fabric v Azure. Nahraďte zástupný symbol koncový bod vlastní. Koncový bod musí být podobná té následující úplnou adresu URL.
 
 ```bash
-sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:19080
+sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
 ```
 
 Pomocí skriptu instalace součástí **TestContainer** adresář ke zkopírování balíčku aplikace do úložiště bitových kopií clusteru, registrace typu aplikace a vytvořit instanci aplikace.
@@ -269,7 +273,6 @@ Pomocí odinstalačního skriptu, který je součástí šablony, odstraňte ins
     <ServiceManifestRef ServiceManifestName="azurevotebackPkg" ServiceManifestVersion="1.0.0"/>
       <Policies> 
         <ContainerHostPolicies CodePackageRef="Code">
-          <RepositoryCredentials AccountName="myaccountname" Password="<password>" PasswordEncrypted="false"/>
           <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
         </ContainerHostPolicies>
       </Policies>
@@ -303,7 +306,7 @@ Pomocí odinstalačního skriptu, který je součástí šablony, odstraňte ins
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-front:v1</ImageName>
+            <ImageName>acrName.azurecr.io/azure-vote-front:v1</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -316,7 +319,7 @@ Pomocí odinstalačního skriptu, který je součástí šablony, odstraňte ins
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="8080" Protocol="http"/>
+      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
     </Endpoints>
   </Resources>
 
@@ -337,7 +340,7 @@ Pomocí odinstalačního skriptu, který je součástí šablony, odstraňte ins
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-back:v1</ImageName>
+            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -349,12 +352,12 @@ Pomocí odinstalačního skriptu, který je součástí šablony, odstraňte ins
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+      <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
     </Endpoints>
   </Resources>
  </ServiceManifest>
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu se do aplikace Service Fabric pomocí Yeoman zabalené několika kontejnerů. Tato aplikace byla pak nasadit a spustit na cluster Service Fabric. Dokončili jste následující kroky:
 

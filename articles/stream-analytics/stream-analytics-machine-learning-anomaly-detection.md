@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>Pomocí operátoru ANOMALYDETECTION
 
@@ -78,7 +78,7 @@ Vrátí záznam obsahující všechny tři skóre jako výstup. Vlastnosti souvi
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-Chcete-li extrahovat jednotlivé hodnoty mimo záznam, použijte **GetRecordPropertyValue** funkce. Například:
+Chcete-li extrahovat jednotlivé hodnoty mimo záznam, použijte **GetRecordPropertyValue** funkce. Příklad:
 
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
@@ -89,7 +89,7 @@ Anomálií konkrétní typ je zjištěna, když jeden z těchto anomálií skór
 
 **ANOMALYDETECTION** používá posuvné okno sémantikou, což znamená, že provádí výpočet na událost, která vstupuje do funkce a vytváří skóre pro tuto událost. Výpočet je založena na Martingales výroby, které fungují na kontrolu, pokud došlo ke změně rozdělení hodnoty události. Pokud ano, byl zjištěn potenciální anomálií. Vrácený skóre je údajem o úroveň spolehlivosti této anomálií. Jako interní optimalizace **ANOMALYDETECTION** vypočítá skóre anomálií událost na základě *d* k *2d* za událostí, kde *d*je velikost okna zadaný detekce.
 
-**ANOMALYDETECTION** očekává vstupní časové řady být uniform. Datového proudu událostí můžete provedeny uniform agregování přes přeskakující nebo posílání okno. Ve scénářích, kdy mezery mezi událostmi vždy menší než okno agregace přeskakující okno stačí aby uniform časové řady. Při mezera může být větší, může být vyplněna mezer opakováním poslední hodnotu pomocí skákající okno. Oba tyto scénáře mohou být zpracována v příkladu, který následuje dále. V současné době `FillInMissingValuesStep` krok nelze přeskočí. Nemusí tento krok bude mít za následek chybu kompilace.
+**ANOMALYDETECTION** očekává vstupní časové řady být uniform. Datového proudu událostí můžete provedeny uniform agregování přes přeskakující nebo posílání okno. Ve scénářích, kdy mezery mezi událostmi vždy menší než okno agregace přeskakující okno stačí aby uniform časové řady. Při mezera může být větší, může být vyplněna mezer opakováním poslední hodnotu pomocí skákající okno. Oba tyto scénáře mohou být zpracována v příkladu, který následuje dále.
 
 ## <a name="performance-guidance"></a>Průvodce výkonem
 
@@ -101,12 +101,10 @@ Anomálií konkrétní typ je zjištěna, když jeden z těchto anomálií skór
     - 60 datových bodů v okně detekce může mít za následek latence 10 sekund s propustností 3 MB/s. 
     - Na 600 datových bodů latence dosáhnout přibližně 80 sekund s propustností 0,4 MB/s.
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 
 Následující dotaz slouží k vypsání výstrahu v případě zjištění anomálií.
 Pokud vstupní datový proud není uniform, může pomoci krok agregace transformují je na uniform časové řady. Tento příklad používá **průměr** ale specifický typ agregace závisí na scénáři uživatele. Kromě toho časové řady má větší než interval agregace mezery, budou existovat žádné události časové řady detekce anomálií aktivační události (podle posuvné okno sémantiku). V důsledku toho se předpokládá jednotnost se přeruší, když dorazí následující události. V takových situacích potřebujeme nějaký způsob vyplnění mezer v časové řady. Jeden z možných přístupů je převést na poslední událost do všech oken směrování, jak je uvedeno níže.
-
-Jak jsme uvedli před, není přeskočit `FillInMissingValuesStep` krok teď. Vynechání tohoto kroku bude mít za následek chybu kompilace.
 
     WITH AggregationStep AS 
     (
@@ -177,7 +175,7 @@ Jak jsme uvedli před, není přeskočit `FillInMissingValuesStep` krok teď. Vy
 ## <a name="get-support"></a>Získat podporu
 Pro další pomoc, vyzkoušejte naše [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Úvod do služby Azure Stream Analytics](stream-analytics-introduction.md)
 * [Začínáme používat službu Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

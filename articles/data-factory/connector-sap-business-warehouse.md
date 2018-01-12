@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopírování dat z SAP Business Warehouse pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ Chcete-li použít tento konektor SAP Business Warehouse, budete muset:
 > Uveďte knihovny DLL do složky system32 extrahována ze sady SDK NetWeaver RFC.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru SAP Business Warehouse.
 
@@ -166,7 +167,7 @@ Při kopírování dat z SAP BW, se používají následující mapování z typ
 
 | Typ dat SAP BW | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
-| ACCP | celá čísla |
+| ACCP | Int |
 | CHAR – | Řetězec |
 | CLNT | Řetězec |
 | AKTUÁLNÍ | Decimal |
@@ -175,7 +176,7 @@ Při kopírování dat z SAP BW, se používají následující mapování z typ
 | FLTP | Double |
 | INT1 | Bajtů |
 | INT2 | Int16 |
-| INT4 | celá čísla |
+| INT4 | Int |
 | JAZYK | Řetězec |
 | LCHR | Řetězec |
 | LRAW | Byte] |
@@ -190,5 +191,5 @@ Při kopírování dat z SAP BW, se používají následující mapování z typ
 | TIMS | Řetězec |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

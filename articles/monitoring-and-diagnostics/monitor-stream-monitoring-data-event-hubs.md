@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 1/11/2018
 ms.author: johnkem
-ms.openlocfilehash: 59f0cba66a5d8d2a528700861efff86967c1c748
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Monitorování data do centra událostí pro používání pomocí externího nástroje Azure datového proudu
 
@@ -92,7 +92,7 @@ Aplikace data monitorování vyžaduje, že kódu je instrumentovány pomocí sa
 
 Směrování monitorování data do centra událostí s monitorováním Azure umožňuje snadnou integraci s partnera SIEM a nástrojů pro monitorování. Většina nástrojů vyžadují určitá oprávnění k předplatnému Azure číst data z centra událostí a připojovací řetězec centra událostí. Tady je seznam nástrojů se službou Azure monitorování integrace doplňovat:
 
-* **IBM QRadar** -The QRadar konektor pro službu event hubs je aktuálně ve verzi beta. Brzy bude dostupná k instalaci ručně z IBM opravte centrální nebo automaticky pomocí procesu QRadar na automatické aktualizace.
+* **IBM QRadar** -Microsoft Azure DSM a Microsoft Azure Event Hub protokolu jsou k dispozici ke stažení [webu podpory IBM](http://www.ibm.com/support). Můžete [Další informace o integraci s Azure zde](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** - [rozšíření monitorování Azure pro Splunk](https://splunkbase.splunk.com/app/3534/) je k dispozici v Splunkbase a open source projektu. [Dokumentace je zde](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
 * **SumoLogic** – pokyny pro nastavení SumoLogic ke zpracování dat z centra událostí jsou [zde k dispozici](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 

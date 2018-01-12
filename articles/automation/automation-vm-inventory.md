@@ -6,13 +6,13 @@ keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
-ms.topic: hero-article
+ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Správa virtuálního počítače Azure se shromažďováním dat pro inventarizaci
 
@@ -63,7 +63,7 @@ Odebrání virtuálního počítače ze správy inventáře:
 5. V potvrzovacím okně vyberte **Ano**.  
     Tato akce odpojí počítač od správy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Informace o správě změn nastavení souborů a registru na virtuálních počítačích najdete v tématu [Sledování změn softwaru v prostředí pomocí řešení Change Tracking](../log-analytics/log-analytics-change-tracking.md).
 * Informace o správě aktualizací pro Windows a balíčky na virtuálních počítačích najdete v tématu [Řešení Update Management v OMS](../operations-management-suite/oms-solution-update-management.md).

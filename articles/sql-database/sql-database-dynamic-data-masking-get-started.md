@@ -4,7 +4,7 @@ description: "Maskování dynamická data SQL Database omezuje zranitelnost citl
 services: sql-database
 documentationcenter: 
 author: ronitr
-manager: jhubbard
+manager: shaik
 editor: 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 03/09/2017
-ms.author: ronitr; ronmat
-ms.openlocfilehash: b75f170870a5f595fcda41196f4de81f237f88b8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: ronitr
+ms.openlocfilehash: 883a00176207701a0bbda8d196114d9964ce8f17
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Maskování dynamická data databáze SQL
 
@@ -44,7 +44,7 @@ Dynamická data maskování dá nakonfigurovat pomocí Správce Azure databáze,
 | --- | --- |
 | **Výchozí** |**Úplné maskování podle datové typy určené polí**<br/><br/>• Použijte XXXX nebo méně Xs, pokud je velikost pole menší než 4 znaky pro datové typy řetězec (ntext nchar, nvarchar).<br/>• Použijte hodnotu 0 pro číselné datové typy (bigint, bit, decimal, int, peníze, číselné, smallint, smallmoney, tinyint, float, reálné).<br/>• Použijte 01-01-1900 pro datum a čas datové typy (datum, datetime2, datetime, datetimeoffset, smalldatetime, čas).<br/>• Pro SQL variant, výchozí hodnota má aktuální typ se používá.<br/>• Pro formát XML dokumentu <masked/> se používá.<br/>• Použijte prázdnou hodnotu pro speciální typy dat. (časové razítko tabulky, hierarchyid, identifikátor GUID, binární, image, varbinary prostorové typy). |
 | **Platební karty** |**Maskování metoda, která zpřístupňuje poslední čtyři číslice určené polí** a přidá konstantní řetězec jako předpona ve formě platební karty.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **E-mailu** |**Maskování metoda, která zveřejňuje první písmeno a nahradí domény XXX.com** pomocí předpony konstantní řetězec ve formátu e-mailovou adresu.<br/><br/>aXX@XXXX.com |
+| **E-mail** |**Maskování metoda, která zveřejňuje první písmeno a nahradí domény XXX.com** pomocí předpony konstantní řetězec ve formátu e-mailovou adresu.<br/><br/>aXX@XXXX.com |
 | **Náhodné číslo** |**Maskování metodu, která generuje náhodné číslo** podle vybrané hranice a skutečný datové typy. Pokud určené oblasti jsou stejné, je funkce maskování konstantní číslo.<br/><br/>![Navigační podokno](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **Vlastní text** |**Maskování metoda, která zpřístupňuje první a poslední znak** a přidá řetězec vlastní odsazení uprostřed. Pokud původní řetězec je kratší než zveřejněné předponu a příponu, pouze odsazení řetězec se používá. <br/>přípona předponu [odsazení]<br/><br/>![Navigační podokno](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 

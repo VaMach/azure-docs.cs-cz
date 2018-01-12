@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scénář Azure Automation – automatizace odebrání skupin prostředků
 Mnoho zákazníků vytváří více než jednu skupinu prostředků. Některé mohou sloužit ke správě produkčních aplikací, jiné mohou sloužit jako vývojové, testovací nebo přípravné prostředí. Automatizace nasazení těchto prostředků je jedna věc, ale možnost vyřadit skupinu prostředků z provozu jediným kliknutím něco úplně jiného. Tuto běžnou úlohu správy můžete zjednodušit pomocí Azure Automation. To je užitečné v případě, že pracujete s předplatným Azure, které má nastavený limit útraty prostřednictvím členské nabídky, jako je například MSDN nebo program Microsoft Partner Network Cloud Essentials.
@@ -64,6 +64,6 @@ Pokud chcete zobrazit podrobné informace o úloze runbooku **Remove-ResourceGro
 
 **Souhrn úlohy** zahrnuje zprávy z datových proudů výstupu, upozornění a chyb. Pokud chcete zobrazit podrobné výsledky spuštění runbooku, vyberte **Výstup**.<br> ![Výsledky výstupu runbooku Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Pokud se chcete pustit do vytváření vlastního runbooku, přečtěte si téma [Vytvoření nebo import runbooku ve službě Azure Automation](automation-creating-importing-runbook.md).
 * První kroky s runbooky pracovních postupů prostředí PowerShell najdete v článku [Můj první runbook pracovního postupu prostředí PowerShell](automation-first-runbook-textual.md).

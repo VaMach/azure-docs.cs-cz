@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 71a64f3d23b495a3b00d36b1d4557425604a772d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7df9fc58ac06ffde81df88ffd698c2527583f18f
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Použijte externí balíčky s poznámkovými bloky Jupyter v clusterech Apache Spark v HDInsight
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ Můžete hledat [Maven úložiště](http://search.maven.org/) úplný seznam ba
 
 V tomto článku se dozvíte, jak používat [spark csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) balíček s poznámkovým blokem Jupyter.
 
-
-
 ## <a name="prerequisites"></a>Požadavky
 Musíte mít následující:
 
@@ -44,6 +42,7 @@ Musíte mít následující:
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Použijte externí balíčky s poznámkovými bloky Jupyter
 1. Z [Portálu Azure](https://portal.azure.com/) z úvodního panelu klikněte na dlaždici pro váš cluster Spark (pokud je připnutý na úvodní panel). Můžete také přejít na cluster pod položkou **Procházet vše** > **Clustery HDInsight**.   
+
 2. Z okna clusteru Spark klikněte na tlačítko **Rychlé odkazy** a pak z okna **Řídicí panel clusteru** klikněte na tlačítko **Poznámkový blok Jupyter**. Po vyzvání zadejte přihlašovací údaje správce clusteru.
 
     > [!NOTE]
@@ -51,8 +50,6 @@ Musíte mít následující:
     > 
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
     > 
-
-   
 
 3. Vytvořte nový poznámkový blok. Klikněte na tlačítko **nový**a potom klikněte na **Spark**.
    
@@ -130,4 +127,3 @@ Musíte mít následující:
 ### <a name="manage-resources"></a>Správa prostředků
 * [Správa prostředků v clusteru Apache Spark v Azure HDInsight](apache-spark-resource-manager.md)
 * [Sledování a ladění úloh spuštěných v clusteru Apache Spark v HDInsight](apache-spark-job-debugging.md)
-

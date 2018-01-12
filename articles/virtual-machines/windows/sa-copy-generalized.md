@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: d7f4a9558175835eba9096e6845726f21c7459d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 39ac47df65743dc807b060f34a6df16977ef49a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Postup vytvoření nespravované image virtuálního počítače z virtuálního počítače Azure
 
@@ -57,7 +58,7 @@ Můžete také generalize virtuálního počítače s Linuxem pomocí `sudo waag
 > 
 > 
 
-## <a name="log-in-to-azure-powershell"></a>Přihlaste se k prostředí Azure PowerShell
+## <a name="log-in-to-azure-powershell"></a>Přihlášení do prostředí Azure PowerShell
 1. Otevřete prostředí Azure PowerShell a přihlaste se k účtu Azure.
    
     ```powershell
@@ -251,7 +252,7 @@ Po dokončení byste měli vidět nově vytvořený virtuální počítač v [po
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Ke správě nového virtuálního počítače v prostředí Azure PowerShell najdete [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

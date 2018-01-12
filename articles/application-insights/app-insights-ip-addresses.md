@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: mbullwin
-ms.openlocfilehash: 384f875702f2dee3bf0e806675a7df9f190d93bd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: afdef7898ef68930ef702ddf67baaadae9360236
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP adresy používané při Application Insights a analýzy protokolů
 [Azure Application Insights](app-insights-overview.md) služba používá počet IP adres. Možná budete muset vědět tyto adresy, pokud je aplikace, kterou monitorujete hostované za bránou firewall.
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 ## <a name="outgoing-ports"></a>Odchozí porty
 Je třeba otevřít některé Odchozí porty v bráně firewall umožňující Application Insights SDK nebo monitorování stavu, které k odesílání dat do portálu:
 
-| Účel | ADRESA URL | IP adresa | Porty |
+| Účel | Adresa URL | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Telemetrická data |adresu DC.Services.VisualStudio.com<br/>DC.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Živý datový proud metriky |RT.Services.VisualStudio.com<br/>RT.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
@@ -39,7 +39,7 @@ Je třeba otevřít některé Odchozí porty v bráně firewall umožňující A
 ## <a name="status-monitor"></a>Monitorování stavu
 Stav monitorování konfigurace – je potřeba pouze při provádění změn.
 
-| Účel | ADRESA URL | IP adresa | Porty |
+| Účel | Adresa URL | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Konfigurace |`management.core.windows.net` | |`443` |
 | Konfigurace |`management.azure.com` | |`443` |
@@ -51,7 +51,7 @@ Stav monitorování konfigurace – je potřeba pouze při provádění změn.
 | Instalace |`packages.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
-| Účel | ADRESA URL | IP adresa | Porty |
+| Účel | Adresa URL | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Data o chybách |Gate.hockeyapp.NET |104.45.136.42 |80, 443 |
 
@@ -135,6 +135,7 @@ SE : Stockholm
 94.245.78.41
 94.245.78.42
 94.245.78.45
+GB : United Kingdom
 51.141.25.219
 51.141.32.101
 51.141.35.167
@@ -213,21 +214,21 @@ US : VA-Ashburn
 ```  
 
 ## <a name="application-insights-api"></a>Application Insights API
-| Účel | IDENTIFIKÁTOR URI | IP adresa | Porty |
+| Účel | URI | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Rozhraní API |API.applicationinsights.IO<br/>api1.applicationinsights.IO<br/>api2.applicationinsights.IO<br/>api3.applicationinsights.IO<br/>api4.applicationinsights.IO<br/>api5.applicationinsights.IO |13.82.26.252<br/>40.76.213.73 |80,443 |
 | Dokumentace rozhraní API |dev.applicationinsights.IO<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.VisualStudio.com<br/>www.applicationinsights.IO<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.VisualStudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | Vnitřní rozhraní API |aigs.aisvc.VisualStudio.com<br/>aigs1.aisvc.VisualStudio.com<br/>aigs2.aisvc.VisualStudio.com<br/>aigs3.aisvc.VisualStudio.com<br/>aigs4.aisvc.VisualStudio.com<br/>aigs5.aisvc.VisualStudio.com<br/>aigs6.aisvc.VisualStudio.com |dynamické|443 |
 
 ## <a name="log-analytics-api"></a>Log Analytics API
-| Účel | IDENTIFIKÁTOR URI | IP adresa | Porty |
+| Účel | URI | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Rozhraní API |API.loganalytics.IO<br/>*. api.loganalytics.io |dynamické |80,443 |
 | Dokumentace rozhraní API |dev.loganalytics.IO<br/>docs.loganalytics.IO<br/>www.loganalytics.IO |dynamické |80,443 |
 
 ## <a name="application-insights-analytics"></a>Analýza statistiky aplikace
 
-| Účel | IDENTIFIKÁTOR URI | IP adresa | Porty |
+| Účel | URI | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Portálu analýza | Analytics.applicationinsights.IO | dynamické | 80,443 |
 | CDN | applicationanalytics.azureedge.NET | dynamické | 80,443 |
@@ -237,7 +238,7 @@ Poznámka: *. vlastní domény applicationinsights.io týmem Application Insight
 
 ## <a name="log-analytics-portal"></a>Portálu Analýza protokolů
 
-| Účel | IDENTIFIKÁTOR URI | IP adresa | Porty |
+| Účel | URI | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Portál | Portal.loganalytics.IO | dynamické | 80,443 |
 | CDN | applicationanalytics.azureedge.NET | dynamické | 80,443 |
@@ -246,30 +247,30 @@ Poznámka: *. vlastní domény loganalytics.io tým analýzy protokolů.
 
 ## <a name="application-insights-azure-portal-extension"></a>Application Insights rozšíření portálu Azure
 
-| Účel | IDENTIFIKÁTOR URI | IP adresa | Porty |
+| Účel | URI | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Rozšíření Application Insights | stamp2.app.insightsportal.VisualStudio.com | dynamické | 80,443 |
 | Application Insights rozšíření CDN | insightsportal. prod2 cdn.aisvc.visualstudio.com<br/>insightsportal prod2 asiae cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamické | 80,443 |
 
 ## <a name="application-insights-sdks"></a>Sadách Application Insights SDK
 
-| Účel | IDENTIFIKÁTOR URI | IP adresa | Porty |
+| Účel | URI | IP adresa | Porty |
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.NET | dynamické | 80,443 |
 | Application Insights Java SDK | aijavasdk.BLOB.Core.Windows.NET | dynamické | 80,443 |
 
 ## <a name="profiler"></a>Profiler
 
-| Účel | IDENTIFIKÁTOR URI | IP adresa | Porty |
+| Účel | URI | IP adresa | Porty |
 | --- | --- | --- | --- |
-| Agent | Agent.azureserviceprofiler.NET<br/>*. agent.azureserviceprofiler.net | dynamické | 443
+| Agent | Agent.azureserviceprofiler.NET<br/>*. agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
 | Portál | Gateway.azureserviceprofiler.NET | dynamické | 443
 | Úložiště | *. core.windows.net | dynamické | 443
 
 ## <a name="snapshot-debugger"></a>Ladicí program snímků
 
-| Účel | IDENTIFIKÁTOR URI | IP adresa | Porty |
+| Účel | URI | IP adresa | Porty |
 | --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.NET<br/>*. ppe.azureserviceprofiler.net | dynamické | 443
+| Agent | ppe.azureserviceprofiler.NET<br/>*. ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
 | Portál | ppe.Gateway.azureserviceprofiler.NET | dynamické | 443
 | Úložiště | *. core.windows.net | dynamické | 443

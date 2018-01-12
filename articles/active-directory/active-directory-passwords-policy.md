@@ -1,5 +1,5 @@
 ---
-title: "Zásady: Azure AD SSPR | Microsoft Docs"
+title: "Resetování hesla pomocí samoobslužné služby zásady – Azure Active Directory"
 description: "Možnosti zásad resetování hesel samoobslužné služby Azure AD"
 services: active-directory
 keywords: "Správa hesel služby Active directory, správou hesel Azure AD samoobslužném resetování hesla služby"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Zásady hesel a omezení v Azure Active Directory
 
@@ -38,16 +38,16 @@ Pomocí zásad dvě brány nemají správci umožňuje použít bezpečnostní o
   * Správce technické podpory
   * Správce služeb
   * Správce fakturace
-  * Podpora Tier1 partnera
-  * Podpora Tier2 partnera
+  * Podpora partnerů úrovně 1
+  * Podpora partnerů úrovně 2
   * Správce služby Exchange
   * Správce služby Lync
   * Správce účtu uživatele
-  * Directory zapisovače
+  * Uživatelé zapisující do adresáře
   * Globální správce nebo správce společnosti
   * Správce služby SharePoint
   * Správce dodržování předpisů
-  * Správce aplikací
+  * Správce aplikace
   * Správce zabezpečení
   * Správce privilegovaných rolí
   * Správce služby Microsoft Intune
@@ -146,7 +146,7 @@ Chcete-li začít pracovat, je potřeba [stáhněte a nainstalujte modul Azure A
    > [!WARNING]
    > Nastavení hesla `-PasswordNeverExpires $true` stále stáří na základě `pwdLastSet` atribut. Pokud nastavíte uživatelská hesla bez vypršení platnosti a 90 dní přejít, vypršení platnosti hesla. Na základě `pwdLastSet` , pokud změníte vypršení platnosti do atribut `-PasswordNeverExpires $false`, všechna hesla, které mají `pwdLastSet` starší než 90 dní vyžadovat je změnit při příštím přihlášení uživatele. Tato změna může ovlivnit velký počet uživatelů. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Následující články poskytují další informace o prostřednictvím služby Azure AD pro vytvoření nového hesla:
 

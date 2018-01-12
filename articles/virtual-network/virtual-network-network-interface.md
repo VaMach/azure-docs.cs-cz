@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 7dafb491cec908ffbb3683991919654f3d3eb452
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f1cf113f75bc5a96af8c33d4b83d1bd0f5c6efd
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Vytvoření, změnit nebo odstranit síťové rozhraní
 
@@ -48,10 +48,10 @@ Při vytváření virtuálního počítače pomocí portálu Azure, portál vytv
 
     |Nastavení|Povinné?|Podrobnosti|
     |---|---|---|
-    |Name (Název)|Ano|Název musí být jedinečný v rámci skupiny prostředků, kterou vyberete. V čase budete mít pravděpodobně několik síťových rozhraní ve vašem předplatném Azure. Pro čtení [konvence vytváření názvů](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) článek pro návrhy při vytváření zásady vytváření názvů, aby se správa několik síťových rozhraní jednodušší. Název nelze změnit po vytvoření síťové rozhraní.|
+    |Název|Ano|Název musí být jedinečný v rámci skupiny prostředků, kterou vyberete. V čase budete mít pravděpodobně několik síťových rozhraní ve vašem předplatném Azure. Pro čtení [konvence vytváření názvů](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) článek pro návrhy při vytváření zásady vytváření názvů, aby se správa několik síťových rozhraní jednodušší. Název nelze změnit po vytvoření síťové rozhraní.|
     |Virtuální síť|Ano|Vyberte virtuální síť pro síťové rozhraní. Síťové rozhraní lze přiřadit pouze k virtuální síti, která existuje ve stejném předplatném a umístění jako síťové rozhraní. Po vytvoření rozhraní sítě, nelze změnit virtuální sítě, které je přiřazen. Virtuální počítač, který přidáte síťové rozhraní musí existovat také ve stejném umístění a předplatné jako síťové rozhraní.|
     |Podsíť|Ano|Vyberte podsíť v rámci virtuální sítě, které jste vybrali. Můžete změnit na podsíť, kterou síťové rozhraní je přiřazena k po jejím vytvoření.|
-    |Přidělení privátní IP adresy|Ano| V tomto nastavení zvolíte metodu přiřazení pro adresu IPv4. Vyberte z následujících metod přiřazení: **dynamické:** když vyberete tuto možnost, Azure automaticky přiřadí dostupnou adresu z adresního prostoru podsítě, které jste vybrali. Azure může přiřadit jinou adresu k síťovému rozhraní při spuštění virtuálního počítače, které se poté, co bylo v zastaveném stavu (deallocated). Adresa zůstane stejný, pokud restartování virtuálního počítače bez nutnosti byla v zastaveném stavu (deallocated). **Statické:** při výběru této možnosti je nutné ručně přiřadit dostupnou IP adresu z v rámci adresního prostoru podsítě, které jste vybrali. Statické adresy se nezmění, dokud je změnit nebo je odstranit síťové rozhraní. Přiřazení metodu můžete změnit po vytvoření síťové rozhraní. Server Azure DHCP přiřadí tato adresa síťového rozhraní v operačním systému virtuálního počítače.|
+    |Přidělení privátní IP adresy|Ano| V tomto nastavení zvolíte metodu přiřazení pro adresu IPv4. Vyberte z následujících metod přiřazení: **dynamické:** když vyberete tuto možnost, Azure automaticky přiřadí další dostupnou adresu z adresního prostoru podsítě, které jste vybrali. **Statické:** při výběru této možnosti je nutné ručně přiřadit dostupnou IP adresu z v rámci adresního prostoru podsítě, které jste vybrali. Statické a dynamické adresy se nezmění, dokud je změnit nebo je odstranit síťové rozhraní. Přiřazení metodu můžete změnit po vytvoření síťové rozhraní. Server Azure DHCP přiřadí tato adresa síťového rozhraní v operačním systému virtuálního počítače.|
     |Skupina zabezpečení sítě|Ne| Ponechejte nastavenou na **žádné**, vyberte existující [skupinu zabezpečení sítě](virtual-networks-nsg.md), nebo [vytvořit skupinu zabezpečení sítě](virtual-networks-create-nsg-arm-pportal.md). Skupiny zabezpečení sítě umožňují filtru síťový provoz směřující síťové rozhraní. Můžete použít žádnou nebo jednu skupinu zabezpečení sítě pro síťové rozhraní. Žádnou nebo jednu skupinu zabezpečení sítě můžete použít také k podsíti, který je přiřazen síťové rozhraní. Pokud skupina zabezpečení sítě se použije k rozhraní sítě a podsítě, který je přiřazen síťového rozhraní, dojít k někdy neočekávané výsledky. Odstraňování skupin zabezpečení sítě u síťových rozhraní a podsítě, přečtěte si téma [odstraňování skupin zabezpečení sítě](virtual-network-nsg-troubleshoot-portal.md#nsg) článku.|
     |Předplatné|Ano|Vyberte jednu z vaší Azure [odběry](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Virtuální počítač připojit síťové rozhraní a virtuální síť, ke kterým se připojujete, aby musí existovat ve stejném předplatném.|
     |Privátní IP adresa (IPv6)|Ne| Pokud zaškrtnete toto políčko, adresy IPv6 přiřazena síťového rozhraní, kromě adresu IPv4 přiřazené k síťovému rozhraní. Najdete v článku [IPv6](#IPv6) části tohoto článku důležité informace o použití protokolu IPv6 s síťových rozhraní. Nelze vybrat metodu přiřazení pro adresu IPv6. Pokud se rozhodnete přiřadit adresu IPv6, je přiřazen pomocí dynamické metody.
@@ -179,7 +179,7 @@ Při odstranění rozhraní sítě, jsou vydávány žádné MAC nebo IP adresy 
 |Rozhraní příkazového řádku|[AZ síť seskupování odstranit](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Odebrat AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Vytvoření virtuálního počítače s více síťových rozhraní nebo IP adres, přečtěte si následující články:
 
 **Příkazy**

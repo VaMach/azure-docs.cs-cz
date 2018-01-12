@@ -1,5 +1,5 @@
 ---
-title: Jak funguje Azure AD SSPR | Microsoft Docs
+title: "Resetování hesla pomocí samoobslužné služby, jak to funguje – Azure Active Directory"
 description: "Podrobné informace pro vytvoření nového hesla samoobslužné služby Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ad1735d618856fb13ec2846f1da4fdaec1c4e614
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56a57960fc4804c7a1711d8c47b37ec28798357d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobslužné služby v Azure AD podrobné informace pro vytvoření nového hesla
 
@@ -92,7 +92,7 @@ Pokud uživatel nemá minimální požadované metody zaregistrovaný, zobrazí 
 
 Pokud spustíte zásadám, který má jenom jednu vyžaduje metodu ověřování pro resetovat nebo odemknout zaregistrován a změníte, na dvě metody, co se stane?
 
-| Počet metody zaregistrován | Počet metod požadovaných | výsledek |
+| Počet metody zaregistrován | Počet metod požadovaných | Výsledek |
 | :---: | :---: | :---: |
 | 1 nebo více | 1 | **Možnost** resetovat nebo odemknutí |
 | 1 | 2 | **Nelze** resetovat nebo odemknutí |
@@ -117,41 +117,41 @@ Pokud chcete použít bezpečnostní otázky, doporučujeme, abyste je mohli pou
 
 Předdefinované dotazy, které následují lokalizace do všech jazyků Office 365 a jsou založené na prohlížeči uživatele národního prostředí:
 
-* V jakém městě jste potkali svého manžela manžela nebo partnerku?
-* V jakém městě potkali vaši rodiče?
+* V jakém městě jste potkali svého manžela nebo manželku (partnera nebo partnerku)?
+* V jakém městě se potkali vaši rodiče?
 * V jakém městě žije váš nejbližší sourozenec?
 * V jakém městě se narodil váš otec?
 * V jakém městě jste měli první práci?
 * V jakém městě se narodila vaše matka?
-* V jakém městě byli na nový rok 2000?
+* V jakém městě jste byli na Nový rok 2000?
 * Jaké je příjmení vašeho oblíbeného učitele ze střední školy?
 * Jaký je název univerzity, na kterou jste se hlásili, ale nechodili na ni?
-* Jak se jmenuje místo, kde jste měli první svatební hostinu?
-* Jaké je křestní jméno vašeho otce?
-* Co je vaše oblíbené jídlo?
-* Co je vaší babičky z jméno a příjmení?
-* Jaké je křestní jméno vaší matky?
+* Jak se jmenuje město, kde jste měli svatební hostinu?
+* Jaký je oblíbený sport vašeho otce?
+* Jaké je vaše oblíbené jídlo?
+* Jaké je jméno a příjmení vaší babičky z matčiny strany?
+* Jak se za svobodna jmenovala vaše matka?
 * Co je narozeninách měsíci a roce vašeho nejstaršího sourozence? (Příklad: listopad 1985)
 * Jaké je křestní jméno vašeho nejstaršího sourozence?
-* Co je vašeho dědečka z otcovy strany jméno a příjmení?
+* Jaké je jméno a příjmení vašeho dědečka z otcovy strany?
 * Jaké je křestní jméno vašeho nejmladšího sourozence?
 * Do jaké školy jste chodili v šesté třídě?
-* Jaký byl název jméno a příjmení váš nejlepší přítel v dětství?
-* Jaký byl název první a poslední váš první partner nebo partnerka?
-* Jaké bylo příjmení vašeho oblíbeného základní školy učitele?
+* Jaké měl jméno a příjmení váš nejlepší přítel v dětství?
+* Jaké měl jméno a příjmení váš první partner nebo partnerka?
+* Jaké bylo příjmení vašeho oblíbeného učitele ze základní školy?
 * Jaká byla značka a model vašeho prvního auta nebo motorky?
 * Jaký byl název první školy, do které jste chodili?
-* Jaký byl název měla nemocnice, ve kterém jste se narodili?
-* Jak se jmenovala ulice, kde jste dětství bydleli?
-* Jak se jmenovala váš hrdina z dětství?
+* Jaký název měla nemocnice, ve které jste se narodili?
+* Jak se jmenovala ulice, kde jste v dětství bydleli?
+* Jak se jmenoval váš dětský idol?
 * Jaké bylo jméno vašeho oblíbeného plyšáka?
-* Jak se jmenovala vaše první domácí zvířátko?
+* Jak se jmenovalo vaše první domácí zvířátko?
 * Jakou jste měli v dětství přezdívku?
 * Jaký byl váš oblíbený sport na střední škole?
 * Jaká byla vaše první práce?
-* Jaké byly poslední čtyři číslice vaše telefonní číslo měli v dětství?
-* Když jste byli malí, co mají být vysněné povolání?
-* Kdo je nejslavnější osoba, kterou jste se kdy setkali?
+* Jaké byly poslední čtyři číslice vašeho telefonu v dětství?
+* Jaké bylo v dětství vaše vysněné povolání?
+* Jakou nejznámější osobnost jste kdy potkali?
 
 ### <a name="custom-security-questions"></a>Vlastní bezpečnostní otázky
 
@@ -175,7 +175,7 @@ Maximální délka vlastní bezpečnostní otázku je 200 znaků.
 Chcete-li tuto možnost, má uživatel, který je povolen pro resetování hesla dokončit registraci k resetování hesla, pokud přihlášení do aplikace pomocí Azure AD. To zahrnuje následující:
 
 * Office 365
-* portál Azure
+* Azure Portal
 * Přístupový panel
 * Federovaným aplikacím
 * Vlastní aplikace pomocí Azure AD
@@ -246,7 +246,7 @@ Tento scénář otestovat, přejděte na http://passwordreset.microsoftonline.co
 > [!NOTE]
 > Účty Microsoft, kterým byl udělen přístup hosta pro vašeho klienta Azure AD, jako jsou ty z Hotmail.com, Outlook.com nebo jiné osobní e-mailové adresy, nejsou schopna použít Azure AD SSPR. Potřebují resetovat heslo pomocí informací v nalezen [při nemůžete se přihlásit ke svému účtu Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) článku.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V následujících článcích najdete další informace o resetování hesla prostřednictvím Azure AD:
 

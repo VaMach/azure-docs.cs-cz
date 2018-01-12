@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopírování dat z Cassandra pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ Konkrétně tento konektor Cassandra podporuje:
 Ke zkopírování dat z databáze Cassandra, která není veřejně přístupný, musíte nastavit Self-hosted integrace Runtime. V tématu [Self-hosted integrace Runtime](create-self-hosted-integration-runtime.md) článku se dozvíte podrobnosti. Modul Runtime integrace poskytuje integrované ovladače Cassandra, proto nemusíte ručně nainstalovat všechny ovladače při kopírování dat z/do Cassandra.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke Cassandra konektoru.
 
@@ -55,7 +56,7 @@ Pro Cassandra propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type |Vlastnost typu musí být nastavena na: **Cassandra** |Ano |
-| hostitele |Jeden nebo více IP adres nebo názvů hostitelů Cassandra serverů.<br/>Zadejte seznam IP adres nebo názvů hostitelů se připojit na všechny servery současně. |Ano |
+| hostitel |Jeden nebo více IP adres nebo názvů hostitelů Cassandra serverů.<br/>Zadejte seznam IP adres nebo názvů hostitelů se připojit na všechny servery současně. |Ano |
 | port |Port TCP, který používá Cassandra server naslouchat pro připojení klientů. |Ne (výchozí hodnota je 9042) |
 | authenticationType. | Typ ověřování používaný pro připojení k databázi Cassandra.<br/>Povolené hodnoty jsou: **základní**, a **anonymní**. |Ano |
 | uživatelské jméno |Zadejte uživatelské jméno pro uživatelský účet. |Ano, pokud authenticationType je nastaven na Basic. |
@@ -176,13 +177,13 @@ Při kopírování dat z Cassandra, se používají následující mapování Ca
 | LOGICKÁ HODNOTA |Logická hodnota |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
-| PLOVOUCÍ DESETINNÁ ČÁRKA |Jeden |
+| PLOVOUCÍ DESETINNÁ ČÁRKA |Svobodný/svobodná |
 | INET |Řetězec |
 | INT |Int32 |
 | TEXT |Řetězec |
-| ČASOVÉ RAZÍTKO |Data a času |
-| TIMEUUID |Identifikátor GUID |
-| UUID |Identifikátor GUID |
+| ČASOVÉ RAZÍTKO |Datum a čas |
+| TIMEUUID |Guid |
+| UUID |Guid |
 | VARCHAR |Řetězec |
 | VARINT |Decimal |
 
@@ -203,7 +204,7 @@ Azure Data Factory používá integrované ovladače ODBC pro připojení k a ko
 
 Virtuální tabulky odkazovat na data v tabulce skutečné povolení ovladače pro přístup k datům nenormalizované. Příklad naleznete v části Podrobnosti. Dotazování a připojení virtuální tabulky, můžete přístup k obsahu Cassandra kolekcí.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Například následující "ExampleTable" je Cassandra tabulku databáze, která obsahuje celé číslo primární klíče sloupec s názvem "pk_int", o textový sloupec s názvem hodnotu, sloupce seznamu, mapy sloupec a sadu sloupec (s názvem "StringSet").
 
@@ -255,5 +256,5 @@ Následující tabulky popisují virtuální tabulky, které renormalize data ze
 | 3 |A |
 | 3 |E |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

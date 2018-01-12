@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="performance-recommendations"></a>Doporučení výkonu
+# <a name="performance-recommendations"></a>Doporučení k výkonu
 
 Azure SQL Database zjišťuje a přizpůsobuje s vaší aplikací a poskytuje přizpůsobené doporučení umožňuje maximalizovat výkon vaší databáze SQL. Výkon se nepřetržitě hodnotí analýzou historie využití vaší databáze SQL. Doporučení, které jsou k dispozici jsou založené na vzor jedinečný zatížení databáze a zvýšit jeho výkon.
 
@@ -36,7 +36,7 @@ Indexy vytvořené pomocí doporučení jsou vždy označeny jako auto_created i
 
 Po vytvoření doporučení indexu bude Azure SQL Database porovnejte výkon dotazů s základní výkon. Pokud nový index uvést do režimu vylepšení výkonu, doporučení se označilo jako úspěšné a dopad sestava bude k dispozici. V případě, že index nebylo přineste výhody, ji budou automaticky zrušeny. Tímto způsobem Azure SQL Database zajišťuje, že pomocí doporučení budou pouze zlepšit výkon databáze.
 
-Všechny **vytvořit index** doporučení obsahuje regrese zásadu, která nebude povolovat použití doporučení, pokud využití v jednotkách DTU databáze nebo fondu byla vyšší než 80 % v posledních 20 minut nebo pokud úložiště je více než 90 % využití. V takovém případě bude odložit doporučení.
+Všechny **vytvořit index** doporučení obsahuje regrese zásadu, která nebude povolovat použití doporučení, pokud využití prostředků databáze nebo fondu je vysoká. Regrese zásad trvá v úvahu procesoru, vstupně-výstupní Data, vstupně-výstupní operace protokolu a úložiště k dispozici. Pokud byl vyšší než 80 % v posledních 30 minut vytvořit procesoru, vstupně-výstupní operace dat nebo protokolu vstupně-výstupní operace indexu bude odložena. Pokud úložiště k dispozici by být menší než 10 % po vytvoření indexu, doporučení přejde do chybového stavu. Pokud po několik dní automatické ladění stále dochází k závěru, že tento index by být výhodné bude znovu spuštěn proces. Tento proces bude opakovat, dokud není dostatek dostupné úložiště k vytvoření indexu nebo index není považovat za výhodné už.
 
 ## <a name="drop-index-recommendations"></a>Doporučení k odstranění indexu
 Kromě zjišťování chybí index, Azure SQL Database průběžně analyzuje výkon stávající indexy. Pokud se nepoužívá index, bude Azure SQL Database doporučujeme jej vyřadíte. Vyřazení indexu se doporučuje ve dvou případech:
@@ -78,7 +78,7 @@ Když použijete toto doporučení, zapne vynucené Parametrizace minut ve vaš�
 | 2812 |Nelze nalézt uloženou proceduru ' *'. |
 | 8144 |Procedura nebo funkce * má příliš mnoho zadaných argumentů. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Sledovat vaše doporučení a pokračuje v používání jejich Upřesnit výkonu. Databázové úlohy jsou dynamické a průběžně změnu. Poradce pro SQL Database i nadále monitorovat a poskytovat doporučení, které může zlepšit výkon vaší databáze. 
 
 * V tématu [Azure SQL Database automatické ladění](sql-database-automatic-tuning.md) pro automatické ladění indexy databáze a plány provádění dotazů.

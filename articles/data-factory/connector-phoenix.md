@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2f8c3ff941a7d9bf2442f3bff166f07a153ae607
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 746519d3a450aca6efdf20c0ae57602d480bf86e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopírování dat z Phoenix pomocí Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke Phoenix konektoru.
 
@@ -45,7 +45,7 @@ Phoenix propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Phoenix** | Ano |
-| hostitele | IP adresu nebo název hostitele serveru Phoenix. (to znamená, 192.168.222.160)  | Ano |
+| hostitel | IP adresu nebo název hostitele serveru Phoenix. (to znamená, 192.168.222.160)  | Ano |
 | port | Port TCP, který používá Phoenix server naslouchat pro připojení klientů. Výchozí hodnota je 8765.  | Ne |
 | httpPath | Částečné adresa URL odpovídající Phoenix serveru. (to znamená, /gateway/sandbox/phoenix/version). Výchozí hodnota je `hbasephoenix` při použití WindowsAzureHDInsightService.  | Ne |
 | authenticationType. | Mechanismus ověřování používaný pro připojení k serveru Phoenix. <br/>Povolené hodnoty jsou: **anonymní**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ano |
@@ -146,5 +146,5 @@ Ke zkopírování dat z Phoenix, nastavte typ zdroje v aktivitě kopírování d
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

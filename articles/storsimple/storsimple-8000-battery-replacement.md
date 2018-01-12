@@ -4,7 +4,7 @@ description: "Popisuje, jak odebrat, nahraďte a udržovat modul zálohování b
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Nahraďte modul zálohování baterie zařízení StorSimple
 
@@ -67,7 +67,7 @@ Modul zálohování baterie pro zařízení StorSimple je periferní Výměnná 
    | 4 |PCM OK |
    | 5 |Řadič domény výpadku proudu |
    | 6 |Dobrý stav baterie |
-3. Chcete-li odebrat PCM s selhání baterie, postupujte podle kroků v [odebrat PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+3. Chcete-li odebrat PCM s selhání baterie, postupujte podle kroků v [odebrat PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. S PCM odebrána navýšení otočit popisovač modulu baterie směrem nahoru, jak je uvedeno v následující obrázek a načítat až odebrat baterie.
    
     ![Odebráním PCM stav baterie.](./media/storsimple-battery-replacement/IC741019.png)
@@ -82,7 +82,7 @@ Proveďte následující kroky k instalaci modulu baterie nahrazení v PCM ve sk
 #### <a name="to-install-the-battery-module"></a>Nainstalovat modul stav baterie.
 1. Umístěte modul zálohování baterie správnou orientaci v PCM.
 2. Podržte popisovač modulu baterie úplně pro konektor.
-3. Nahraďte PCM ve skříni primární podle pokynů v [nahrazení energii a chlazení modulu zařízení StorSimple](storsimple-power-cooling-module-replacement.md).
+3. Nahraďte PCM ve skříni primární podle pokynů v [nahrazení energii a chlazení modulu zařízení StorSimple](storsimple-8000-power-cooling-module-replacement.md).
 4. Po dokončení nahrazení přejděte na zařízení a potom přejděte na **monitorování** > **stavu hardwaru** na portálu Azure. Zkontrolujte stav baterie a ujistěte se, že instalace proběhla úspěšně. Zelený stav označuje, že je v pořádku baterie.
 
 ## <a name="maintain-the-backup-battery-module"></a>Udržovat modul zálohování baterie
@@ -105,6 +105,6 @@ Pokud **SNÍŽENÝ** stav se zobrazí, doporučujeme během následující akce:
 > [!IMPORTANT]
 > Odstranění se nezdařilo baterie podle national a místní předpisy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [StorSimple hardwarové součásti nahrazení](storsimple-8000-hardware-component-replacement.md).
 

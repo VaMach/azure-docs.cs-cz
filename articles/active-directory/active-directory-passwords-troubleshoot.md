@@ -1,5 +1,5 @@
 ---
-title: "Řešení potíží: Azure AD SSPR | Microsoft Docs"
+title: "Řešení potíží – Azure Active Directory resetování hesla pomocí samoobslužné služby"
 description: "Řešení problémů s Azure AD samoobslužného resetování hesel"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bb04ca30d43a8cf8af2b1dbc00330ba7924bb5b5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c489cf13574c49161b2dde22500f4ab7478a928b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Řešení potíží s samoobslužné resetování hesla
 
@@ -293,7 +293,7 @@ K usnadnění správně, požádáme zadejte množství podrobností nejdříve 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Restartujte službu Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Kód podpory se nachází v pravém dolním rohu okna"
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Následující články poskytují další informace o prostřednictvím služby Azure AD pro vytvoření nového hesla:
 

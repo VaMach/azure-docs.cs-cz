@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 93bd267adfac0d2dd5c22d2d7ac79b0643f5cded
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b1fbf3c1e0e5715ff7effcdac45ff03f2b55f9ee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-java"></a>Ověření koncových uživatelů s Data Lake Store pomocí jazyka Java
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ V tomto článku se dozvíte o použití sady Java SDK chcete ověření koncov�
 
 V sadě SDK pro Data Lake Store jsou vhodné metody, které umožňují spravovat tokeny zabezpečení potřebné ke komunikaci s účtem služby Data Lake Store. Není ale povinné použít tuto sadu SDK a tyto metody. Můžete použít také jakýkoliv jiný způsob získání tokenu, například sadu [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) nebo vlastní kód.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste zjistili, jak používat ověřování koncových uživatelů k ověřování s Azure Data Lake Store pomocí sady Java SDK. Teď můžete prohlédnout v následujících článcích, kteří komunikují o použití sady Java SDK pro práci s Azure Data Lake Store.
 
 * [Operace dat v Data Lake Store pomocí sady Java SDK](data-lake-store-get-started-java-sdk.md)

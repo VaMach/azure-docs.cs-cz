@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 348b1a6ed8f8acd32b17e79b389584e08c394b5b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: a389f4be625dd301b7210000555d71018b4cdec8
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Kopírování dat z Eloqua Oracle pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru Oracle Eloqua.
 
@@ -48,7 +48,7 @@ Pro Oracle Eloqua propojené služby jsou podporovány následující vlastnosti
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Eloqua** | Ano |
-| koncový bod | Koncový bod serveru Eloqua. (to znamená, eloqua.example.com)  | Ano |
+| endpoint | Koncový bod serveru Eloqua. (to znamená, eloqua.example.com)  | Ano |
 | uživatelské jméno | Název lokality a uživatelské jméno účtu Eloqua ve tvaru: lokality název nebo uživatelské jméno. (Eloqua/Alice)  | Ano |
 | heslo | Heslo odpovídající uživatelské jméno. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
@@ -140,5 +140,5 @@ Ke zkopírování dat z Oracle Eloqua, nastavte typ zdroje v aktivitě kopírov�
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam podporovaných data uložená ve službě Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

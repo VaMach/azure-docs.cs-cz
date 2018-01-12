@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: 80c377938005ba699c8632003b215bf2c52b6c33
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 20cac53847f9f93805f8064bd8ad5c682b5a8452
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Kopírování dat ze služby Marketo pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke službě marketo získáte konektoru.
 
@@ -48,7 +48,7 @@ Pro Marketo propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Marketo** | Ano |
-| koncový bod | Koncový bod Marketo serveru. (tj. 123-ABC-321.mktorest.com)  | Ano |
+| endpoint | Koncový bod Marketo serveru. (tj. 123-ABC-321.mktorest.com)  | Ano |
 | clientId | Id služby Marketo klienta.  | Ano |
 | clientSecret | Tajný klíč klienta služby Marketo. Můžete označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat ADF kopírování vyžádání aktivitu z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
@@ -140,5 +140,5 @@ Ke zkopírování dat ze služby Marketo, nastavte typ zdroje v aktivitě kopír
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

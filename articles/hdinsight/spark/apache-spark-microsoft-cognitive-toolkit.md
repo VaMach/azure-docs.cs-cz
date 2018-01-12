@@ -3,7 +3,7 @@ title: "Sada nástrojů pro kognitivní s Azure HDInsight Spark pro přímý lea
 description: "Zjistěte, jak lze použít model natrénujete hloubkové learning kognitivní nástrojů Microsoft pro datovou sadu pomocí rozhraní API Python Spark v clusteru Azure HDInsight Spark."
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: e4bf0b176817daf3c128f26f407cde2ce1adba4c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.author: jgao
+ms.openlocfilehash: 036efd040370a821befbbd57beec24372fd0d204
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Použít Microsoft kognitivní Toolkit hloubkové učení modelu s clusteru Azure HDInsight Spark
 
@@ -91,7 +91,7 @@ Pokud chcete používat Microsoft kognitivní Toolkit s clusteru Azure HDInsight
 
 5. Po odeslání poznámkového bloku, klikněte na název poznámkového bloku a pak postupujte podle pokynů v samotné poznámkového bloku o tom, jak načíst sadu dat a proveďte tento kurz.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Přehled: Apache Spark v Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénáře

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 39734153a757d4665f2a15d3af244d2fab9ad9d7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Používejte Spark strukturovaná streamování s Kafka v HDInsight
 
@@ -127,7 +127,7 @@ Kód pro tento příklad popsané v tomto dokumentu je k dispozici na [https://g
 
 Nahrát poznámkových bloků z projektu do vaší Spark v clusteru HDInsight pomocí následujících kroků:
 
-1. Ve webovém prohlížeči připojte do poznámkového bloku Jupyter v clusteru Spark. V následující adresu URL, nahraďte `CLUSTERNAME` s názvem vašeho clusteru Kafka:
+1. Ve webovém prohlížeči připojte do poznámkového bloku Jupyter v clusteru Spark. V následující adresu URL, nahraďte `CLUSTERNAME` s názvem vaší __Spark__ clusteru:
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 
@@ -153,7 +153,7 @@ Jakmile soubory byly odeslány, vyberte __datového proudu-Tweetů-To_Kafka.ipyn
 
 Na domovské stránce poznámkového bloku Jupyter, vyberte __Spark-strukturovaná-streamování-z – Kafka.ipynb__ položku. Postupujte podle kroků v poznámkovém bloku se načíst tweetů z Kafka pomocí Spark strukturovaných streamování.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste se naučili použití Spark strukturovaných streamování, najdete v následujících dokumentech Další informace o práci s Spark a Kafka:
 

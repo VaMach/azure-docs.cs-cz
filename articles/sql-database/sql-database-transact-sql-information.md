@@ -3,7 +3,7 @@ title: "Řešení T-SQL rozdíly. migrace Azure SQL Database | Microsoft Docs"
 description: "Příkazy jazyka Transact-SQL, které služba Azure SQL Database plně nepodporuje"
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 10/23/2017
-ms.author: rickbyh
-ms.openlocfilehash: 5d9cfce0453bb32bf3512b5b8e3ed25c9c2fdbdf
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: f311c0d139d5ec35cbd85a34bd5a5e991bccba3a
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Řešení rozdílů Transact-SQL během migrace do databáze SQL   
 Když [migrace vaší databáze](sql-database-cloud-migrate.md) ze serveru SQL Server SQL Azure, může se stát, že vaše databáze vyžaduje některé znovu technici před migrací serveru SQL Server. Tento článek obsahuje pokyny, které vám pomohou při provádění technici znovu i pochopení základní důvody, proč je nutné znovu technici. Chcete-li zjistit problémům s kompatibilitou, použijte [pomocníka pro migraci dat (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -84,7 +84,7 @@ Referenční dokumentace jazyka Transact-SQL obsahuje články související s v
 
 V některých případech obecné téma článku na lze použít v produktu, ale existují malé rozdíly mezi produkty. Rozdíly jsou vypsány v středních bodů v článku podle potřeby. V některých případech obecné téma článku na lze použít v produktu, ale existují malé rozdíly mezi produkty. Rozdíly jsou vypsány v středních bodů v článku podle potřeby. Například článek vytvořit aktivační událost je k dispozici v databázi SQL. Ale **všechny SERVER** možnost pro aktivační procedury úrovni serveru, znamená, že úrovni serveru aktivační události nelze použít v databázi SQL. Místo toho použijte úroveň databáze aktivační události.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Seznam funkcí, které jsou podporované a nepodporované SQL Database, najdete v části [porovnání funkcí Azure SQL Database](sql-database-features.md). V seznamu na této stránce doplňují tohoto článku pokyny a funkce a se zaměřuje na příkazy jazyka Transact-SQL.
 

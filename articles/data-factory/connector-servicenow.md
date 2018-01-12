@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 28ac55dd21e9496a9e7c480d984a518dd03e4c94
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6918081600074b05cf357c848778ab4e66e07fff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopírování dat z ServiceNow pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru ServiceNow.
 
@@ -48,7 +48,7 @@ Pro ServiceNow propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **ServiceNow** | Ano |
-| koncový bod | Koncový bod serveru ServiceNow. (to znamená, http://ServiceNowData.com)  | Ano |
+| endpoint | Koncový bod serveru ServiceNow. (to znamená, http://ServiceNowData.com)  | Ano |
 | authenticationType. | Typ ověřování používat. <br/>Povolené hodnoty jsou: **základní**, **OAuth2** | Ano |
 | uživatelské jméno | Uživatelské jméno používané pro připojení k serveru ServiceNow pro ověřování Basic a OAuth2.  | Ne |
 | heslo | Heslo odpovídající uživatelské jméno pro ověřování Basic a OAuth2. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
@@ -144,5 +144,5 @@ Ke zkopírování dat z ServiceNow, nastavte typ zdroje v aktivitě kopírován�
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/09/2018
 ms.author: v-craic
-ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dc315bcc625ea98244bb5804ce6ff1c13d0ec7b1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Vytvořit vlastní image z virtuálního počítače
 
@@ -30,25 +30,30 @@ Můžete vytvořit vlastní image ze zřízeného virtuálního počítače a pa
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Vyberte **Další služby** a poté ze seznamu vyberte **DevTest Labs**.
+1. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 
 1. Ze seznamu labs vyberte požadované testovací prostředí.  
 
-1. V okně v prostředí, vyberte **Můj virtuální počítače**.
+1. V hlavním podokně v prostředí, vyberte **Můj virtuální počítače**.
  
-1. Na **Můj virtuální počítače** okně vyberte virtuální počítač, ze kterého chcete vytvořit vlastní image.
+1. Na **Můj virtuální počítače** podokně, vyberte virtuální počítač, ze kterého chcete vytvořit vlastní image.
 
-1. V okně Virtuálního počítače, vyberte **vytvořit vlastní image (VHD)**.
+1. V podokně Správa Virtuálního počítače, vyberte **vytvořit vlastní image (VHD)**.
 
     ![Vytvoření vlastní image položky nabídky](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Na **vytvořit image** okno, zadejte název a popis pro vlastní bitovou kopii. Tyto informace se zobrazí v seznamu základů při vytváření virtuálního počítače.
+1. Na **vlastní image** podokně, zadejte název a popis pro vlastní bitovou kopii. Tyto informace se zobrazí v seznamu základů při vytváření virtuálního počítače.
 
-    ![Vytvořit vlastní image okno](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Vytvořit vlastní image podokno](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
 1. Vyberte, zda byl spuštěn nástroj sysprep na virtuálním počítači. Pokud na virtuální počítač nebyl spuštěn nástroje sysprep, určete, jestli má nástroj sysprep, které jsou spuštěny při vytvoření virtuálního počítače z této vlastní image.
 
 1. Vyberte **OK** po dokončení vytvoření vlastní image.
+
+Po několika minutách vlastní image se vytvoří a je uložený v účtu úložiště v prostředí. Pokud chce uživatel laboratoře k vytvoření nového virtuálního počítače, je k dispozici v seznamu obrázků základní bitovou kopii.
+
+![Vlastní image, které jsou k dispozici v seznamu základní bitové kopie](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -57,6 +62,6 @@ Můžete vytvořit vlastní image ze zřízeného virtuálního počítače a pa
 - [Vlastní Image nebo vzorce?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Kopírování vlastních bitových kopií mezi Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další postup
 
 - [Přidejte virtuální počítač do testovacího prostředí](devtest-lab-add-vm.md)

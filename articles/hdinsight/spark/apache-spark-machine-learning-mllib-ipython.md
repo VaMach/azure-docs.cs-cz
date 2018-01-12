@@ -4,7 +4,7 @@ description: "Zjistěte, jak vytvořit aplikaci machine learning, která analyzu
 keywords: "Spark strojového učení, spark machine learning příklad"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: f98659081b991d403b6477196042c6ff3d40bb12
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: jgao
+ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Použít Spark MLlib sestavení machine learning aplikací a analýza datové sady
 
@@ -34,7 +34,7 @@ Další informace o použití Spark **MLlib** vytvořit machine learning aplikac
 
 MLlib je základní knihovna Spark, která poskytuje řadu nástrojů, které jsou užitečné pro úkoly strojového učení, včetně nástroje, které jsou vhodné pro:
 
-* klasifikace
+* Klasifikace
 * Regrese
 * Clustering
 * Téma modelování
@@ -202,7 +202,7 @@ Můžeme použít `sqlContext` k provádění transformací na strukturovaná da
 1. Můžete zjistit, že jsou 5 odlišné výsledky, které může mít kontrola:
 
    * Obchodní není umístěný.
-   * Selhání
+   * Chyba
    * Předat
    * PSS s podmínky
    * Mimo firmy

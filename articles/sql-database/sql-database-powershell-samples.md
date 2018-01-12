@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: On Demand
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 65f6600f6810024e00eaa50906d7924bd36768d3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fd60a8987e6c57cf72eb7766f6a1b784e46a894d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Ukázek Azure PowerShell pro Azure SQL Database
 
@@ -47,5 +47,5 @@ Následující tabulka obsahuje odkazy na ukázkové skripty prostředí Azure P
 | **Synchronizaci dat mezi databázemi**||
 | [Synchronizaci dat mezi databází SQL](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Tento skript prostředí PowerShell nakonfiguruje synchronizaci dat pro synchronizaci mezi více databází Azure SQL. |
 | [Synchronizaci dat mezi SQL Database a SQL Server na místě](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Tento skript prostředí PowerShell nakonfiguruje synchronizaci dat pro synchronizaci mezi Azure SQL database a místní databázi systému SQL Server. |
-|||
+| [Aktualizace schématu synchronizace synchronizaci dat SQL](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Tento skript prostředí PowerShell přidá nebo odebere položky ze synchronizace dat schématu synchronizace. |
 |||

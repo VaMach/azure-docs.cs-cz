@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4774d9db2487baeba1f94e026d17864d6e837810
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 949052900f341f2a933196fbd798d8b89facbd57
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Kopírování dat z Amazon Marketplace webové služby pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru Amazon Marketplace webové služby.
 
@@ -48,7 +48,7 @@ Pro Amazon Marketplace webové služby propojené služby jsou podporovány nás
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **AmazonMWS** | Ano |
-| koncový bod | Koncový bod serveru Amazon MWS, (mws.amazonservices.com)  | Ano |
+| endpoint | Koncový bod serveru Amazon MWS, (mws.amazonservices.com)  | Ano |
 | marketplaceID | Můžete obnovit data z ID Amazon Marketplace. K načtení dat z více ID Marketplace, oddělte je čárkou (`,`). (to znamená, A2EUQ1WTGCTBG2)  | Ano |
 | sellerID | ID Amazon seller.  | Ano |
 | mwsAuthToken | Ověřovací token Amazon MWS. Můžete zvolit označit toto pole jako SecureString bezpečně uložit pomocí služby Data Factory, nebo uložit heslo v Azure Key Vault a nechat kopie jsou načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault ](store-credentials-in-key-vault.md). | Ano |
@@ -150,5 +150,5 @@ Ke zkopírování dat z Amazon Marketplace webové služby, nastavte typ zdroje 
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

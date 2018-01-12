@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be502e6aef39ee4ed8cfc1f8926cb556dc1defb1
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Připojit sdílenou složku Azure s instancemi Azure kontejneru
 
@@ -92,6 +92,46 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 ```
 
 Můžete použít [portál Azure] [ portal] nebo nástroje, jako [Microsoft Azure Storage Explorer] [ storage-explorer] k načtení a zkontrolujte soubor zapsána do sdílené složky.
+
+## <a name="mount-multiple-volumes"></a>Připojení více svazků
+
+Připojení více svazků v instanci kontejneru, je nutné nasadit pomocí [šablony Azure Resource Manageru](/azure/templates/microsoft.containerinstance/containergroups).
+
+Nejdřív zadejte podrobnosti sdílené složky a definování svazky naplněním `volumes` pole v `properties` část šablony. Například pokud jste vytvořili dvou sdílených složek soubory Azure s názvem *sdílená_složka1* a *share2* v účtu úložiště *Můj_účet_úložiště*, `volumes` se zobrazí pole podobný následujícímu:
+
+```json
+"volumes": [{
+  "name": "myvolume1",
+  "azureFile": {
+    "shareName": "share1",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+},
+{
+  "name": "myvolume2",
+  "azureFile": {
+    "shareName": "share2",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+}]
+```
+
+V dalším kroku pro každý kontejner ve skupině kontejner, ve kterém byste chtěli připojit svazky naplnit `volumeMounts` pole v `properties` části definici kontejneru. Například to připojí dva svazky *myvolume1* a *myvolume2*, dříve definovaném:
+
+```json
+"volumeMounts": [{
+  "name": "myvolume1",
+  "mountPath": "/mnt/share1/"
+},
+{
+  "name": "myvolume2",
+  "mountPath": "/mnt/share2/"
+}]
+```
+
+Příklad nasazení kontejneru instance pomocí šablony Azure Resource Manager, najdete v sekci [nasazení skupiny více kontejnerů v Azure kontejner instancí](container-instances-multi-container-group.md).
 
 ## <a name="next-steps"></a>Další postup
 

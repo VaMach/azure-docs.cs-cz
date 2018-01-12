@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ad3bc7ba38f5ea20586031bdcc3ae44f03f9da0b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopírování dat z cloudu SAP pro zákazníka (C4C) pomocí Azure Data Factory
 
@@ -34,7 +34,7 @@ Konkrétně tento konektor umožňuje Azure Data Factory ke zkopírování dat z
 
 ## <a name="getting-started"></a>Začínáme
 
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení entit služby Data Factory konkrétní SAP cloudu pro konektor zákazníka.
 
@@ -210,11 +210,11 @@ Při kopírování dat z cloudu SAP pro zákazníka, následující mapování s
 | Edm.Binary | Byte] |
 | Edm.Boolean | BOOL |
 | Edm.Byte | Byte] |
-| Edm.DateTime | Data a času |
+| Edm.DateTime | Datum a čas |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Single | Jeden |
-| Edm.Guid | Identifikátor GUID |
+| Edm.Single | Svobodný/svobodná |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
@@ -224,5 +224,5 @@ Při kopírování dat z cloudu SAP pro zákazníka, následující mapování s
 | Edm.DateTimeOffset | Datový typ DateTimeOffset |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

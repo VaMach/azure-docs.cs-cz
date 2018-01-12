@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Řešení potíží s chybami Chybná brána v aplikační brány
 
@@ -80,7 +80,7 @@ chyby 502 může být také časté indikátory, že výchozí kontroly stavu ne
 
 | Vlastnost testu | Hodnota | Popis |
 | --- | --- | --- |
-| Adresa URL testu |http://127.0.0.1/ |Cesta adresy URL |
+| Adresa URL testu |http://127.0.0.1/ |Cesta URL |
 | Interval |30 |Interval testu paměti v sekundách |
 | Časový limit |30 |Časový limit testu v sekundách |
 | Prahová hodnota špatného stavu |3 |Počet opakování testu. Back-end serverů je označena po počet po sobě jdoucích test selhání dosáhne prahová hodnota špatného stavu. |
@@ -102,7 +102,7 @@ Sondy vlastní stavu povolit větší flexibilita výchozí zjišťování chov�
 
 | Vlastnost testu | Popis |
 | --- | --- |
-| Name (Název) |Název kontroly. Tento název se používá k odkazování na test v nastavení HTTP back-end. |
+| Název |Název kontroly. Tento název se používá k odkazování na test v nastavení HTTP back-end. |
 | Protocol (Protokol) |Protokol používaný k odesílání sonda. Tato kontrola používá protokol definované v nastavení HTTP back-end |
 | Hostitel |Název hostitele k odeslání test. Použít pouze v případě, že na Application Gateway je nakonfigurováno více lokalit. To se liší od název hostitele virtuálního počítače. |
 | Cesta |Relativní cesta kontroly. Platná cesta spustí z '/'. Posílá sonda \<protokol\>://\<hostitele\>:\<port\>\<cesta\> |
@@ -118,8 +118,7 @@ Ověřte, zda vlastní stav testu správně nakonfigurovaná jako v předchozí 
 * Pokud aplikace brána je nakonfigurovaná pro jednu lokalitu, ve výchozím nastavení hostitele název musí být zadán jako "127.0.0.1", pokud nebudou jinak nakonfigurovaná v vlastní test paměti.
 * Ujistěte se, že volání http://\<hostitele\>:\<port\>\<cesta\> vrátí výsledek kód HTTP 200.
 * Zajistěte, aby Interval, časový limit a UnhealtyThreshold v rámci přijatelný rozsah.
-* Pokud sběru dat pomocí protokolu HTTPS, ujistěte se, že back-end serveru nevyžaduje SNI nakonfigurováním certifikát fallback na samotném serveru back-end. 
-* Zajistěte, aby Interval, časový limit a UnhealtyThreshold v rámci přijatelný rozsah.
+* Pokud sběru dat pomocí protokolu HTTPS, ujistěte se, že back-end serveru nevyžaduje SNI nakonfigurováním certifikát fallback na samotném serveru back-end.
 
 ## <a name="request-time-out"></a>Časový limit požadavku
 
@@ -187,7 +186,7 @@ Pokud jsou všechny instance BackendAddressPool není v pořádku, aplikační b
 
 Zajistěte, aby instance jsou v pořádku a je aplikace správně nakonfigurována. Zkontrolujte, jestli jsou instance back-end schopné reagovat na použití příkazu ping z jiného virtuálního počítače ve stejné virtuální síti. Pokud nakonfigurované veřejný koncový bod, zajistěte, aby byl žádost prohlížeče na webovou aplikaci obsluhovatelná.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud předchozí kroky není problém vyřešit, otevřete [lístek podpory](https://azure.microsoft.com/support/options/).
 

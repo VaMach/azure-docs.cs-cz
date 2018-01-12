@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření škálování virtuálních počítačů Linux nastavit na portálu Azure | Microsoft Docs"
+title: "Vytvořit sadu škálování virtuálního počítače na portálu Azure | Microsoft Docs"
 description: "Zjistěte, jak rychle vytvořit škálování virtuálních počítačů na portálu Azure"
 keywords: "Sady škálování virtuálního počítače"
 services: virtual-machine-scale-sets
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa6bf6b34d8b93ffa9aceaf7c6112c63d4cb9f1c
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Vytvořit sadu škálování virtuálního počítače na portálu Azure
-Škálovací sadu virtuálních počítačů můžete nasadit a spravovat sadu identické, automatické škálování virtuálních počítačů. Můžete škálovat počet virtuálních počítačů v sadě škálování ručně, nebo definovat pravidla pro automatické škálování podle využití prostředků, jako je například CPU, paměť vyžádání či síťový provoz. V tomto získávání Začínáme článku vytvořit škálování virtuálních počítačů, nastavte na portálu Azure. Můžete také vytvořit škálování s [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) nebo [prostředí Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
+Škálovací sada virtuálních počítačů umožňuje nasadit a spravovat sadu identických virtuálních počítačů s automatickým škálováním. Všechny virtuální počítače ve škálovací sadě můžete škálovat ručně nebo můžete definovat pravidla pro automatické škálování podle využití prostředků, například podle požadavků na CPU a paměť nebo podle provozu. V tomto získávání Začínáme článku vytvořit škálování virtuálních počítačů, nastavte na portálu Azure. Můžete také vytvořit škálování s [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) nebo [prostředí Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
@@ -76,8 +76,8 @@ Pokud již nepotřebujete, odstraňte skupinu prostředků, sady škálování v
 
 
 ## <a name="next-steps"></a>Další postup
-V tomto získávání Začínáme článku vytvořit základní škálování nastavit na portálu Azure. Pro lepší škálovatelnost a automatizace rozbalte položku vaší škálování s následující články s návody:
+V tomto získávání Začínáme článku vytvořit základní škálování nastavit na portálu Azure. Pokud chcete zlepšit škálovatelnost a automatizaci, rozšiřte svou škálovací sadu pomocí některého z těchto článků s postupy:
 
-- [Nasazení aplikace na sady škálování virtuálního počítače](virtual-machine-scale-sets-deploy-app.md)
-- Automatické škálování s [prostředí Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), [rozhraní příkazového řádku Azure](virtual-machine-scale-sets-autoscale-cli.md), nebo [portálu Azure](virtual-machine-scale-sets-autoscale-portal.md)
-- [Použít automatický upgrade operačního systému pro vaše instance škálovací sady virtuálních počítačů](virtual-machine-scale-sets-automatic-upgrade.md)
+- [Nasazení aplikace do škálovací sady virtuálních počítačů](virtual-machine-scale-sets-deploy-app.md)
+- Automatické škálování pomocí [Azure PowerShellu](virtual-machine-scale-sets-autoscale-powershell.md), [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md) nebo webu [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Použití automatických upgradů operačního systému pro instance virtuálních počítačů ve škálovací sadě](virtual-machine-scale-sets-automatic-upgrade.md)

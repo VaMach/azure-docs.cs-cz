@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurace brány firewall úložiště Azure a virtuálních sítí (preview)
 Úložiště Azure poskytuje vrstvený model zabezpečení umožňuje zabezpečit účtů úložiště na konkrétní sadu povolených sítí.  Pokud jsou nakonfigurovaná pravidla pro sítě, můžete jenom aplikace z povolených sítí přístup k účtu úložiště.  Při volání z povolených sítě, aplikace dál vyžadují správné autorizace (platný přístupový klíč nebo tokenu SAS) pro přístup k účtu úložiště.
@@ -39,6 +39,10 @@ Pravidla pro sítě lze použít pro existující účty úložiště, nebo mů�
 Po síti pravidla se používají, se vynucuje pro všechny požadavky.  Tokeny SAS, která udělují přístup na konkrétní IP adresu službu sloužit k **limit** přístup držitele token se ale není udělit nové přístup mimo nakonfigurovaná síťová pravidla. 
 
 Přenosy disku virtuálního počítače (včetně připojení a odpojení operace a vstupně-výstupních operací na disku) je **není** vliv na pravidla sítě.  Pravidla pro sítě je chráněn REST přístup k objekty BLOB stránky.
+
+> [!NOTE]
+> Zálohování a obnovení virtuálních počítačů pomocí nespravované disků v účtech úložiště s pravidly sítě, použije se aktuálně nepodporuje.  Další informace najdete v tématu [omezení při zálohování a obnovení virtuálních počítačů](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 Klasické účty úložiště **nepodporují** podporu brány firewall a virtuální sítě.
 

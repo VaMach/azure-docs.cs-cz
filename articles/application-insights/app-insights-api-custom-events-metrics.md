@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API pro vlastní události a metriky
 
@@ -414,32 +414,34 @@ Můžete také volat ho sami Pokud chcete simulovat požadavků v kontextu, kde 
 Doporučeným způsobem, jak odesílat telemetrická data požadavku je ale, kde žádost funguje jako <a href="#operation-context">operační kontext</a>.
 
 ## <a name="operation-context"></a>Operace kontextu
-Telemetrie položky můžete přidružit společně připojením k nim běžné ID operace. Standardní modulu Sledování žádostí o tomu pro výjimky a dalších událostí, které se odesílají během zpracování požadavku HTTP. V [vyhledávání](app-insights-diagnostic-search.md) a [Analytics](app-insights-analytics.md), ID vám pomůže snadno najít všechny události přidružené k požadavku.
+Mohou korelovat telemetrii položky společně podle jejich přidružení k operaci kontextu. Standardní modulu Sledování žádostí o tomu pro výjimky a dalších událostí, které se odesílají během zpracování požadavku HTTP. V [vyhledávání](app-insights-diagnostic-search.md) a [Analytics](app-insights-analytics.md), budete moci snadno najít všechny události přidružené k žádosti pomocí jeho operace ID.
 
-Nejjednodušší způsob, jak nastavit ID je nastavit kontextu operace pomocí tohoto vzoru:
+V tématu [korelace Telemetrii ve službě Application Insights](application-insights-correlation.md) další podrobnosti o korelace.
+
+Při sledování telemetrie ručně, nejjednodušší způsob, jak zajistit telemetrie korelace pomocí tohoto vzoru:
 
 *C#*
 
 ```C#
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Společně s nastavení kontextu operace `StartOperation` vytvoří položku telemetrie typu, který určíte. Odešle položce telemetrie při vyřazení operaci, nebo pokud explicitně volání `StopOperation`. Pokud používáte `RequestTelemetry` jako typ telemetrická data, jeho trvání nastavena na se časový interval mezi zahájení a ukončení.
 
-Kontexty operaci nelze vnořit. Pokud je již kontextu operace, pak je přidružen všechny obsažené položky, včetně položky vytvořené pomocí jeho ID `StartOperation`.
+Telemetrie položky hlášené v rámci oboru operace stát podřízené tyto operace. Kontexty operace může být vnořena. 
 
 Do pole hledání kontext operace se používá k vytvoření **související položky** seznamu:
 
@@ -900,7 +902,7 @@ Můžete napsat kód pro zpracování telemetrie před odesláním ze sady SDK. 
 
 [Přidání vlastnosti](app-insights-api-filtering-sampling.md#add-properties) k telemetrie implementací `ITelemetryInitializer`. Můžete například přidat čísla verzí nebo vypočtené hodnoty od dalších vlastností.
 
-[Filtrování](app-insights-api-filtering-sampling.md#filtering) můžete změnit nebo zrušit telemetrie před odesláním ze sady SDK implementací `ITelemetryProcessor`. Můžete řídit, co se odesílá nebo se zahodí, ale budete muset účet pro vliv na vaše metriky. V závislosti na tom, jak zrušit položek může dojít ke ztrátě možnost přecházet mezi související položky.
+[Filtrování](app-insights-api-filtering-sampling.md#filtering) můžete změnit nebo zrušit telemetrie před odesláním ze sady SDK implementací `ITelemetryProcesor`. Můžete řídit, co se odesílá nebo se zahodí, ale budete muset účet pro vliv na vaše metriky. V závislosti na tom, jak zrušit položek může dojít ke ztrátě možnost přecházet mezi související položky.
 
 [Vzorkování](app-insights-api-filtering-sampling.md) je zabalené řešení ke snížení objemu dat, který se odesílá z vaší aplikace na portál. Dělá to tak, aniž by to ovlivnilo zobrazených metrik. A dělá to tak, aniž by to ovlivnilo moct lépe diagnostikovat problémy tak, že přejdete mezi související položky jako výjimky, požadavky a zobrazení stránek.
 

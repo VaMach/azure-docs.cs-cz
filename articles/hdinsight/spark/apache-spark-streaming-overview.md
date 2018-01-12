@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
-ms.author: nitinme
-ms.openlocfilehash: 4699673255706a69d597ce28b47ab05a5f8eb957
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 6a57576704d1814d08514dc436070cab07f12b39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Přehled vysílání datového proudu Spark
 
@@ -210,7 +210,7 @@ Obvykle sestavit aplikaci místně vysílání datového proudu Spark a poté ji
 
 S požadavek GET na koncový bod LIVY můžete také zkontrolovat stav všech aplikací. Nakonec můžete ukončit běžící aplikaci po vydání požadavku na odstranění za provozu koncový bod. Informace o rozhraní API LIVY v [vzdálené úlohy se LIVY](apache-spark-livy-rest-interface.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Vytvořit Apache Spark Cluster v HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Průvodce programováním vysílání datového proudu Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

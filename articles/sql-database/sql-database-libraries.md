@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: 012acd2b53fc9205511530d3cc30803dceef88a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a45393804aa5398bc0c40ca3f3cb6c97b106b81c
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Připojení knihoven a architektur pro SQL Server
 
@@ -27,11 +27,11 @@ Podívejte se na naše [získat kurzy](http://aka.ms/sqldev) rychle začít s pr
 
 Následující tabulka uvádí připojení knihovny nebo *ovladače* používaný klientských aplikací z různých jazyků pro připojení k a používat SQL Server běžící na místě nebo v cloudu. Můžete je používat na systému Linux, Windows nebo Docker a použít je pro připojení k databázi SQL Azure a Azure SQL Data Warehouse. 
 
-| Jazyk | Platforma | Další zdroje | Ke stažení | Začínáme |
+| Jazyk | Platforma | Další zdroje informací: | Ke stažení | Začínáme |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Systému Windows, Linux, macOS | [Microsoft ADO.NET pro SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Stáhnout](https://www.microsoft.com/net/download/) | [Začínáme](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Systému Windows, Linux, macOS | [Ovladač Microsoft JDBC pro systém SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Stáhnout](https://go.microsoft.com/fwlink/?linkid=852460) |  [Začínáme](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
-| PHP | Systému Windows, Linux, macOS| [Ovladač systému PHP SQL pro SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Operační systém: <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[systému macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Začínáme](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
+| PHP | Systému Windows, Linux, macOS| [Ovladač systému PHP SQL pro SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Operační systém: <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[systému macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Začínáme](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Systému Windows, Linux, macOS | [Node.js ovladač pro systém SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Instalace](https://msdn.microsoft.com/library/mt652094.aspx) |  [Začínáme](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
 | Python | Systému Windows, Linux, macOS | [Ovladač systému Python SQL](http://msdn.microsoft.com/library/mt652092.aspx) | Instalace volby: <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Začínáme](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Systému Windows, Linux, macOS | [Poznámky Ruby ovladač pro systém SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Instalace](https://msdn.microsoft.com/library/mt711041.aspx) | [Začínáme](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)

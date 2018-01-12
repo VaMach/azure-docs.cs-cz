@@ -12,14 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 543e8a591acc76918aa7159e6a31b67d85849148
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: a16c5011986c16aae26efaaa6191568b04f46567
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-location-based-services---geocoding-coverage"></a>Umístění Azure na základě služby - pokrytí geografické kódování
-Azure umístění na základě služby (od kg) obsahuje geografické kódování podrobné informace o vyhledávání adresy, míst a dalšími subjekty geografické po celém světě. To je důležité pro zákazníky, kteří chtějí vědět, kde můžete a nelze najít různých úrovní věrnosti při vyhledávání pro adresy ve funkci hledání služby očekávat. Při hledání oblasti s nízkou věrnosti pokrytí, nelze očekávat nižší výsledky hledání spolehlivosti. Následující tabulka obsahuje informace o pokrytí pro Azure kg vyhledávání určování zeměpisných souřadnic.
+Azure umístění na základě služby (od kg) obsahuje geografické kódování podrobné informace o vyhledávání adresy, míst a dalšími subjekty geografické po celém světě. To je důležité pro zákazníky, kteří chtějí vědět, kde můžete a nelze najít různých úrovní věrnosti při vyhledávání pro adresy ve funkci hledání služby očekávat. Při hledání oblasti s nízkou věrnosti pokrytí, můžete očekávat, že výsledky hledání nižší spolehlivosti. Následující tabulka obsahuje informace o pokrytí pro Azure kg vyhledávání určování zeměpisných souřadnic.
 
 
 |Oblast  |Adresa body  |Úklidové čísla |Ulice úroveň|
@@ -69,7 +69,7 @@ Azure umístění na základě služby (od kg) obsahuje geografické kódování
 |Americká Samoa     |         |         |✓         |
 |Austrálie     |✓         |✓         |✓         |
 |Brunej     |✓         |✓         |✓         |
-|Za Štědrý Island     |         |         |✓         |
+|Vánoční ostrov     |         |         |✓         |
 |Hongkong     |✓         |✓         |✓         |
 |Indonésie     |✓         |✓         | ✓        |
 |Macao     |✓         |✓         |✓         |
@@ -124,7 +124,7 @@ Azure umístění na základě služby (od kg) obsahuje geografické kódování
 |Portugalsko     |✓         |✓         | ✓        |
 |Rumunsko     |         |✓         |✓         |
 |Ruská federace     |✓         |✓         |✓        |
-|Sv     |✓         |✓         | ✓        |
+|San Marino     |✓         |✓         | ✓        |
 |Srbsko     |         |✓         |✓         |
 |Slovensko     |✓         |✓         |✓         |
 |Slovinsko     |✓         |✓         | ✓        |
@@ -149,7 +149,7 @@ Azure umístění na základě služby (od kg) obsahuje geografické kódování
 |Cabo Verde     |         |         |✓         |
 |Středoafrická republika     |         |         |✓         |
 |Čad     |         |         |✓         |
-|Konžská     |         |         |✓         |
+|Kongo     |         |         |✓         |
 |Pobřeží slonoviny     |         |         |✓         |
 |Demokratická republika Kongo     |         |         |✓         |
 |Džibutsko     |         |         |✓         |
@@ -157,9 +157,9 @@ Azure umístění na základě služby (od kg) obsahuje geografické kódování
 |Rovníkové Guinejská, republika     |         |         |✓         |
 |Eritrea     |         |         |✓        |
 |Etiopie     |         |         |✓         |
-|Gabonu    |         |         |✓         |
+|Gabon    |         |         |✓         |
 |Ghana     |         |         |✓         |
-|Guinejská     |         |         |✓         |
+|Guinea     |         |         |✓         |
 |Guinea-Bissau     |         |         |✓         |
 |Irák     |         |         |✓         |
 |Jordánsko     |✓         |         |✓         |
@@ -169,14 +169,14 @@ Azure umístění na základě služby (od kg) obsahuje geografické kódování
 |Lesotho     |         |         |✓         |
 |Libérie     |         |         |✓         |
 |Libye     |         |         |✓         |
-|Madagaskaru     |         |         |✓         |
+|Madagaskar     |         |         |✓         |
 |Malawi     |         |         |✓        |
 |Mali     |         |         |✓         |
 |Mauritánie     |         |         |✓         |
 |Mauricius     |         |         |✓        |
 |Mayotte     |         |         |✓         |
 |Maroko     |         |✓         |✓         |
-|Mosambik     |         |         |✓         |
+|Mozambik     |         |         |✓         |
 |Namibie     |         |✓         |✓         |
 |Niger     |         |         |✓         |
 |Nigérie     |         |         |✓         |
@@ -187,14 +187,14 @@ Azure umístění na základě služby (od kg) obsahuje geografické kódování
 |Svatý Tomáš a Princův ostrov, demokratická republika     |         |         |✓         |
 |Saúdská Arábie     |         |         |✓         |
 |Senegal     |         |         |✓         |
-|Seychelské     |         |         |✓         |
-|Sierry Leone     |         |         |✓         |
+|Seychely     |         |         |✓         |
+|Sierra Leone     |         |         |✓         |
 |Jihoafrická republika     |✓         |✓         |✓         |
-|Sudan – jih     |         |         |✓         |
-|Sudan     |         |         |✓         |
-|Svazijské     |         |         |✓         |
+|Jižní Súdán     |         |         |✓         |
+|Súdán     |         |         |✓         |
+|Svazijsko     |         |         |✓         |
 |Tanzanie     |         |         |✓         |
-|TOGA     |         |         | ✓        |
+|Togo     |         |         | ✓        |
 |Tunisko     |         |         |✓         |
 |Uganda     |         |         |✓         |
 |Spojené arabské emiráty     |✓         |✓         |✓         |
@@ -214,13 +214,13 @@ KG Azure poskytuje úroveň Město přesnost při hledání v následujících o
 |     |Aruba        |
 |     |Belize         |
 |     |Bolívie         |
-|     |Bonaire, Sint Eustach a Saba         |
+|     |Bonaire, Svatý Eustach a Saba         |
 |     |Clippertonův ostrov         |
 |     |Falklandské ostrovy         |
 |     |Montserrat         |
 |     |Paraguay         |
 |     |Svatá Lucie         |
-|     |Saint Pierre a Miquelon         |
+|     |Svatý Pierre a Miquelon         |
 |     |Svatý Vincenc a Grenadiny         |
 |     |Jižní Georgie a Jižní Sandwichovy ostrovy         |
 |     |Surinam         |
@@ -231,9 +231,9 @@ KG Azure poskytuje úroveň Město přesnost při hledání v následujících o
 |     |Bangladéš         |
 |     |Bhútán         |
 |     |Britské území v Indickém oceánu         |
-|     |Kambodži         |
+|     |Kambodža         |
 |     |Čína        |
-|     |Kokosové ostrovy         |
+|     |Kokosové ostrovy (Keeling)         |
 |     |Komory         |
 |     |Cookovy ostrovy         |
 |     |Východní Timor         |
@@ -242,20 +242,20 @@ KG Azure poskytuje úroveň Město přesnost při hledání v následujících o
 |     |Heardův ostrov a McDonaldovy ostrovy         |
 |     |Japonsko        |
 |     |Kiribati         |
-|     |Laosu         |
+|     |Laos         |
 |     |Mikronésie       |
 |     |Mongolsko         |
 |     |Nauru         |
 |     |Napal         |
 |     |Nová Kaledonie         |
 |     |Niue         |
-|     |Ostrov Norfolk         |
+|     |Norfolk (ostrov)         |
 |     |Severní Korea         |
 |     |Palau        |
 |     |Pákistán         |
-|     |Papujsko-Guinejská         |
+|     |Papua - Nová Guinea         |
 |     |Paracel ostrovy         |
-|     |Pitcairnovy         |
+|     |Ostrovy Pitcairn         |
 |     |Samoa         |
 |     |Senkaku ostrovy         |
 |     |Šalamounovy ostrovy         |
@@ -291,8 +291,8 @@ KG Azure poskytuje úroveň Město přesnost při hledání v následujících o
 |     |Írán         |
 |     |Izrael         |
 |     |Maledivy      |
-|     |Zařadit ostrovy         |
-|     |Barmské         |
+|     |Marshallovy ostrovy         |
+|     |Myanmar         |
 |     |Palestinská samospráva         |
 |     |Svatá Helena         |
 |     |Somálsko         |

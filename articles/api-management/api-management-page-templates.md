@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="page-templates-in-azure-api-management"></a>Stránka šablon ve službě Azure API Management
 Azure API Management poskytuje schopnost přizpůsobit obsah stránky na portálu vývojáře pomocí sady šablony, které konfigurace jejich obsahu. Pomocí [DotLiquid](http://dotliquidmarkup.org/) syntaxe a editoru podle své volby, například [DotLiquid pro návrháře](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), a lokalizované zadaný sadu [řetězce prostředků](api-management-template-resources.md#strings), [glyfy prostředky](api-management-template-resources.md#glyphs), a [stránka ovládací prvky](api-management-page-controls.md), máte flexibilitu při konfiguraci obsahu stránek, podle potřeby pomocí těchto šablon.  
@@ -39,7 +39,7 @@ Azure API Management poskytuje schopnost přizpůsobit obsah stránky na portál
   
  ![Přihlašovací stránka](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM přihlášení vývojář stránky portálu šablony")  
   
-### <a name="default-template"></a>Výchozí šablony  
+### <a name="default-template"></a>Výchozí šablona  
   
 ```xml  
 <h2 class="text-center">{% localized "SigninStrings|WebAuthenticationSigninTitle" %}</h2>  
@@ -108,16 +108,16 @@ Azure API Management poskytuje schopnost přizpůsobit obsah stránky na portál
 ### <a name="sample-template-data"></a>Ukázková data šablony  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -127,10 +127,10 @@ Azure API Management poskytuje schopnost přizpůsobit obsah stránky na portál
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a>Registrace  
@@ -138,7 +138,7 @@ Azure API Management poskytuje schopnost přizpůsobit obsah stránky na portál
   
  ![Přihlašovací stránku služby](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM registrace vývojář stránky portálu šablony")  
   
-### <a name="default-template"></a>Výchozí šablony  
+### <a name="default-template"></a>Výchozí šablona  
   
 ```xml  
 <h2 class="text-center">{% localized "SignupStrings|PageTitleSignup" %}</h2>  
@@ -186,7 +186,7 @@ Azure API Management poskytuje schopnost přizpůsobit obsah stránky na portál
   
  ![Nebyla nalezena stránka](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM nebyl nalezen vývojář stránky portálu šablony")  
   
-### <a name="default-template"></a>Výchozí šablony  
+### <a name="default-template"></a>Výchozí šablona  
   
 ```xml  
 <h2>{% localized "NotFoundStrings|PageTitleNotFound" %}</h2>  
@@ -225,11 +225,11 @@ Azure API Management poskytuje schopnost přizpůsobit obsah stránky na portál
   
 |Vlastnost|Typ|Popis|  
 |--------------|----------|-----------------|  
-|referenceCode|Řetězec|Kód vygenerováno, pokud tato stránka se nezobrazí v důsledku vnitřní chyby.|  
-|Kód chyby|Řetězec|Kód vygenerováno, pokud tato stránka se nezobrazí v důsledku vnitřní chyby.|  
-|emailBody|Řetězec|E-mailu textu vygenerováno, pokud tato stránka se nezobrazí v důsledku vnitřní chyby.|  
-|requestedUrl|Řetězec|Adresa URL vyžádá, když stránka nebyla nalezena.|  
-|referrerUrl|Řetězec|Odkazující server Adresa URL pro požadovanou adresu URL.|  
+|referenceCode|řetězec|Kód vygenerováno, pokud tato stránka se nezobrazí v důsledku vnitřní chyby.|  
+|Kód chyby|řetězec|Kód vygenerováno, pokud tato stránka se nezobrazí v důsledku vnitřní chyby.|  
+|emailBody|řetězec|E-mailu textu vygenerováno, pokud tato stránka se nezobrazí v důsledku vnitřní chyby.|  
+|requestedUrl|řetězec|Adresa URL vyžádá, když stránka nebyla nalezena.|  
+|referrerUrl|řetězec|Odkazující server Adresa URL pro požadovanou adresu URL.|  
   
 ### <a name="sample-template-data"></a>Ukázková data šablony  
   
@@ -243,5 +243,5 @@ Azure API Management poskytuje schopnost přizpůsobit obsah stránky na portál
 }  
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o práci se šablonami najdete v tématu [postup přizpůsobení portálu pro vývojáře API Management pomocí šablon](api-management-developer-portal-templates.md).

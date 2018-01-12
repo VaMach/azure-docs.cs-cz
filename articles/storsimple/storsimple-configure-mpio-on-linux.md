@@ -4,7 +4,7 @@ description: "Konfigurace funkce MPIO na StorSimple připojené k Linux hostitel
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurace funkce MPIO na StorSimple hostitele se systémem CentOS
 Tento článek vysvětluje kroky nutné ke konfiguraci více cest vstupně-výstupní operace (MPIO) na serveru hostitele Centos 6.6. Hostitelský server je připojená k zařízení s Microsoft Azure StorSimple pro vysokou dostupnost prostřednictvím iniciátory iSCSI. Je podrobně popisuje automatické zjišťování vícenásobný zařízení a konkrétní nastavení pouze pro svazky zařízení StorSimple.
@@ -26,9 +26,8 @@ Tento článek vysvětluje kroky nutné ke konfiguraci více cest vstupně-výst
 Tento postup se vztahuje na všechny modely řadu zařízení StorSimple 8000.
 
 > [!NOTE]
-> Tento postup nelze použít pro virtuální zařízení StorSimple. Další informace najdete v tématu Jak nakonfigurovat servery hostitele pro virtuální zařízení.
-> 
-> 
+> Tento postup nelze použít pro zařízení StorSimple cloudu. Další informace naleznete v části Konfigurace hostitele serverů pro vaše zařízení cloudu.
+
 
 ## <a name="about-multipathing"></a>O vytváření více cest
 Tato funkce více cest můžete konfigurovat více vstupně-výstupních cest mezi hostitelským serverem a zařízením úložiště. Tyto cesty vstupně-výstupní operace jsou fyzické připojení SAN, která může zahrnovat samostatné kabely, přepínače, síťových rozhraní a řadiče. Více cest agreguje vstupně-výstupních cest ke konfiguraci nové zařízení, která souvisí s všechny agregované cesty.
@@ -298,7 +297,7 @@ Tento algoritmus Vyrovnávání zatížení používá všechny dostupné multip
 
     Pokud se zobrazí pouze jednoho hostitele rozhraní a dvě cesty sem, budete muset povolit rozhraní na hostiteli pro iSCSI. Můžete provést [podrobné pokyny v dokumentaci k systému Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Svazek má přístup k serveru CentOS ze zařízení StorSimple. Další informace najdete v tématu [krok 6: vytvoření svazku](storsimple-deployment-walkthrough.md#step-6-create-a-volume) prostřednictvím portálu Azure classic na zařízení StorSimple.
+2. Svazek má přístup k serveru CentOS ze zařízení StorSimple. Další informace najdete v tématu [krok 6: vytvoření svazku](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) prostřednictvím portálu Azure v zařízení StorSimple.
 
 3. Ověření cesty k dispozici. Zadejte:
 
@@ -341,7 +340,7 @@ A. Pokud jste provedli všechny změny `multipath.conf` soubor, budete muset res
 
 OTÁZKY. Je povoleno dvě síťová rozhraní v zařízení StorSimple a dvě síťová rozhraní na hostiteli. Při zobrazení seznamu cest k dispozici, vidím pouze dvě cesty. Očekávání zobrazíte čtyři dostupné cesty.
 
-A. Ujistěte se, že tyto dvě cesty jsou ve stejné podsíti a směrovat. Pokud rozhraní sítě jsou v jiné sítě VLAN a není směrovatelné, zobrazí se pouze dvě cesty. Chcete-li to ověřit je a ujistěte se, že může kontaktovat rozhraní hostitele ze síťového rozhraní v zařízení StorSimple. Budete muset [kontaktovat Microsoft Support](storsimple-contact-microsoft-support.md) jako toto ověření provést pouze prostřednictvím podpory relace.
+A. Ujistěte se, že tyto dvě cesty jsou ve stejné podsíti a směrovat. Pokud rozhraní sítě jsou v jiné sítě VLAN a není směrovatelné, zobrazí se pouze dvě cesty. Chcete-li to ověřit je a ujistěte se, že může kontaktovat rozhraní hostitele ze síťového rozhraní v zařízení StorSimple. Budete muset [kontaktovat Microsoft Support](storsimple-8000-contact-microsoft-support.md) jako toto ověření provést pouze prostřednictvím podpory relace.
 
 OTÁZKY. Při zobrazení seznamu cest k dispozici, nezobrazí žádný výstup.
 
@@ -441,7 +440,7 @@ Další informace, přejděte na [použít řešení potíží s interaktivního
 | &nbsp; |`mpathconf --enable` |Vytvořte soubor ukázka mulitpath.conf v`/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Jak na hostiteli systému Linux jsou konfigurace funkce MPIO, může také muset naleznete v následujících dokumentech CentoS 6.6:
 
 * [Nastavení funkce MPIO na CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)

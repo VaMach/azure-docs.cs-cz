@@ -15,11 +15,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>Co je na přístupovém panelu?
 
@@ -85,9 +85,11 @@ Přípona je požadované pro uživatele pro přihlášení do založené na hes
 - Uživatelé se mohou přihlásit do aplikace přímo návštěvou aplikace **přihlašovací adresa URL**. Když uživatel přejde na aplikace přihlašovací adresa URL bude rozšíření to zjistit a zadejte možnosti pro uživatele se přihlaste z rozšíření.
 - Uživatele můžete také spustit kterýkoli svoje aplikace pomocí panelu přístup **rychlého vyhledávání** funkce rozšíření. 
 - Rozšíření se zobrazí také uživatelé poslední tři aplikace jejich spuštění pod **nedávno použité** části.
-> [!NOTE]
-> Další funkce jsou dostupné pouze pro Edge, Chrome, Firefox.
 
+> [!NOTE]
+> Další funkce jsou dostupné pouze pro okraj a Chrome, Firefox.
+>
+>
 
 Pokud používáte jinou adresu URL Moje aplikace než https://myapps.microsoft.com musíte nakonfigurovat výchozí adresa URL, když následující kroky:
 1. Když nejste do rozšíření, **klikněte pravým tlačítkem na** ikonu rozšíření.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Nástroj diagnostiky StorSimple potíží pomocí 8000 řady zařízení
 
@@ -32,15 +32,15 @@ Nástroj diagnostiky je primárně určený pro řadu zařízení StorSimple 800
 
 Tento nástroj můžete spustit pomocí rozhraní Windows PowerShell zařízení StorSimple. Existují dva způsoby pro přístup k místní rozhraní zařízení:
 
-* [Použití klienta PuTTY k připojení ke konzole sériového portu zařízení](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Vzdálený přístup nástroj prostřednictvím Windows Powershellu pro StorSimple](storsimple-remote-connect.md).
+* [Použití klienta PuTTY k připojení ke konzole sériového portu zařízení](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Vzdálený přístup nástroj prostřednictvím Windows Powershellu pro StorSimple](storsimple-8000-remote-connect.md).
 
 V tomto článku předpokládáme, že jste připojení ke konzole sériového portu zařízení prostřednictvím PuTTY.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Chcete-li spustit nástroj diagnostiky
 
 Jakmile se připojíte k rozhraní Windows PowerShell zařízení, proveďte následující kroky ke spuštění rutiny.
-1. Přihlaste se k konzole sériového portu zařízení podle pokynů v [použití klienta PuTTY k připojení ke konzole sériového portu zařízení](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Přihlaste se k konzole sériového portu zařízení podle pokynů v [použití klienta PuTTY k připojení ke konzole sériového portu zařízení](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Zadejte následující příkaz:
 
@@ -85,11 +85,11 @@ Tento test Určuje stav hardwarové součásti, Seznam USM firmware a firmware d
 * Hardwarové součásti hlášené jsou tyto součásti, které se nezdařily testu nebo nejsou k dispozici v systému.
 * Seznam USM verzí firmwaru firmwaru a disku jsou hlášené pro řadič 0, 1 řadiče a sdílené součásti v systému. Úplný seznam hardwarové součásti přejděte na:
 
-    * [Součásti v primární skříň](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Součásti v EBOD skříň](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Součásti v primární skříň](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Součásti v EBOD skříň](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Pokud test na hardwaru ohlásí selhání součásti, [protokolu v žádosti o služby se Microsoft Support](storsimple-contact-microsoft-support.md).
+> Pokud test na hardwaru ohlásí selhání součásti, [protokolu v žádosti o služby se Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Ukázkový výstup spustí na zařízení s 8100 test na hardwaru
 
@@ -210,7 +210,7 @@ Tento test hlásí informace o systému, dostupné aktualizace, informace o clus
 * Informace o systému zahrnuje modelu, sériové číslo zařízení, časové pásmo, stav řadiče a verze softwaru podrobné spuštěných v systému. Chcete-li pochopit různé parametry systému hlášené jako výstup, přejděte na [interpretace informace o systému](#appendix-interpreting-system-information).
 
 * Dostupnost aktualizace oznámí, zda režimů regular a údržby nejsou k dispozici a jejich názvy přidruženého balíčku. Pokud `RegularUpdates` a `MaintenanceModeUpdates` jsou `false`, to znamená, že aktualizace nejsou k dispozici. Zařízení je aktuální.
-* Informace o clusteru obsahuje informace o různých logických součástí všech skupin HCS clusteru a jejich příslušné stavy. Pokud uvidíte skupinu offline clusteru v této části sestavy, [kontaktovat Microsoft Support](storsimple-contact-microsoft-support.md).
+* Informace o clusteru obsahuje informace o různých logických součástí všech skupin HCS clusteru a jejich příslušné stavy. Pokud uvidíte skupinu offline clusteru v této části sestavy, [kontaktovat Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * Informace o službě obsahuje názvy a stavy všech HCS a položek konfigurace služby spuštěné na zařízení. Tyto informace jsou užitečné pro systém Microsoft Support při řešení potíží problém zařízení.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Ukázkový výstup testu systému spustí na zařízení s 8100
@@ -416,7 +416,7 @@ Zde je popisující, co různé parametry prostředí Windows PowerShell v syst�
 | Parametr prostředí PowerShell    | Popis  |
 |-------------------------|------------------|
 | ID instance             | Každý řadič má jedinečný identifikátor nebo identifikátor GUID s ním spojená.|
-| Name (Název)                    | Popisný název zařízení, jak nakonfigurovat prostřednictvím portálu Azure při nasazení zařízení. Popisný název výchozí je sériové číslo zařízení. |
+| Název                    | Popisný název zařízení, jak nakonfigurovat prostřednictvím portálu Azure při nasazení zařízení. Popisný název výchozí je sériové číslo zařízení. |
 | Model                   | Model zařízení řady StorSimple 8000. Model může být 8100 nebo 8600.|
 | sériové číslo            | Sériové číslo zařízení se přiřadí v objektu pro vytváření a 15 znaků. Například 8600 SHX0991003G44HT určuje:<br> 8600 – je model zařízení.<br>TVX – je místo výroby.<br> 0991003 - je konkrétní produkt. <br> G44HT-, které jsou k vytvoření jedinečné sériová čísla zvýší posledních 5 číslic. Toto nemusí být sekvenční sada.|
 | Časové pásmo                | Časové pásmo zařízení podle konfigurace v portálu Azure během nasazování zařízení.|
@@ -437,7 +437,7 @@ Zde je popisující, co různé parametry prostředí Windows PowerShell v syst�
 | RemoteManagementMode    | Určuje, zda zařízení můžete vzdáleně spravovat přes jeho rozhraní Windows PowerShell. |
 | FipsMode                | Určuje, zda režim Spojených států informace o zpracování Standard FIPS (Federal) povolena na vašem zařízení. Standard FIPS 140 definuje kryptografické algoritmy pro použití schváleno nám Federal government počítačových systémů pro ochranu citlivá data. Pro zařízení se systémem Update 4 nebo novější je ve výchozím nastavení povolen režim FIPS. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Další informace [syntaxe rutiny Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

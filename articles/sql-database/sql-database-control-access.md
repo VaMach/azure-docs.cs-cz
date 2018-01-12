@@ -3,7 +3,7 @@ title: "Udělení přístupu k Azure SQL Database | Dokumentace Microsoftu"
 description: "Přečtěte si, jak udělit přístup ke službě Microsoft Azure SQL Database."
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 02/06/2017
-ms.author: rickbyh
-ms.openlocfilehash: 79281de7a644af79092efd7ba52c03f687d9d029
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 28c1ec79752f822939fefe6ce3686ace8ad1b6b0
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Řízení přístupu ke službě Azure SQL Database
 Služba SQL Database zajišťuje zabezpečení řízením přístupu pomocí pravidel brány firewall omezujících připojení podle IP adresy, ověřovacích mechanismů vyžadujících po uživatelích prokázání identity a autorizačních mechanismů omezujících uživatelům přístup ke konkrétním akcím a datům. 
@@ -60,7 +60,7 @@ Měli byste se seznámit s následujícími funkcemi, které jde použít k omez
 * K omezení rizika ohrožení citlivých dat můžete použít [maskování dat](sql-database-dynamic-data-masking-get-started.md).
 * K omezení akcí, které je možné s databází provádět, můžete použít [uložené procedury](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Přehled funkcí zabezpečení služby SQL Database najdete v [přehledu zabezpečení SQL](sql-database-security-overview.md).
 - Další informace o pravidlech brány firewall najdete v tématu [pravidla brány Firewall](sql-database-firewall-configure.md).

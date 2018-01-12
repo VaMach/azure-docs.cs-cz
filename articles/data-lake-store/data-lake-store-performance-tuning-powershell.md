@@ -3,7 +3,7 @@ title: "Pokyny pro používání prostředí Powershell s Data Lake Store laděn
 description: "Tipy pro zlepšení výkonu při použití Azure PowerShell s Data Lake Store"
 services: data-lake-store
 documentationcenter: 
-author: nitinme
+author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
-ms.author: nitinme
-ms.openlocfilehash: 49404c7df6423a20c71347e4a764d5626110310e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/09/2018
+ms.author: stewu
+ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Pokyny pro používání prostředí PowerShell s Azure Data Lake Store optimalizace výkonu
 
@@ -93,7 +93,7 @@ Tato nastavení můžete dále ladit zvýšením nebo snížením hodnoty **PerF
 
 * **Chyby omezování**: Pokud je souběžnost příliš vysoká, může docházet k chybám omezování. Pokud dochází k chybám omezování, měli byste buď snížit souběžnost, nebo nás kontaktovat.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Použití Azure Data Lake Store pro potřeby velkého objemu dat](data-lake-store-data-scenarios.md) 
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

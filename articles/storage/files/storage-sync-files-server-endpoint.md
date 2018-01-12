@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Přidat nebo odebrat server koncový bod synchronizace souboru Azure (preview)
 Azure File Sync (Preview) umožňuje centralizovat sdílené složky organizace ve službě Soubory Azure bez ztráty flexibility, výkonu a kompatibility místního souborového serveru. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
@@ -32,7 +32,7 @@ Před vytvořením koncový bod serveru, musíte napřed zajistit, že se splní
 - Server je nainstalovaný agent synchronizace souboru Azure a byl zaregistrován. Pokyny pro instalaci agenta synchronizace souboru Azure lze nalézt v [registrace a zrušení registrace a server se synchronizací souboru Azure (preview)](storage-sync-files-server-registration.md) článku. 
 - Ujistěte se, že byla nasazena synchronizační služby úložiště. V tématu [nasazení synchronizace souboru Azure (preview)](storage-sync-files-deployment-guide.md) podrobnosti o tom, jak nasadit synchronizační služby úložiště. 
 - Ujistěte se, nasazený synchronizace skupiny. Zjistěte, jak [vytvořte skupinu synchronizace](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Ujistěte se, že je server připojen k Internetu a zda je přístupný Azure.
+- Ujistěte se, že je server připojen k Internetu a zda je přístupný Azure. Používáme port 443 pro veškerou komunikaci mezi serverem a naši službu.
 
 ## <a name="add-a-server-endpoint"></a>Přidat koncový bod serveru
 Chcete-li přidat koncový bod serveru, přejděte do požadovaného synchronizace skupiny a vyberte "Přidat koncový bod serveru".
@@ -69,6 +69,6 @@ Odebrání serveru koncového bodu:
 
     ![Odebrání koncového bodu serveru ze skupiny synchronizace](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Registrace a zrušení registrace serveru se synchronizací souboru Azure (preview)](storage-sync-files-server-registration.md)
 - [Plánování nasazení Azure souboru Sync](storage-sync-files-planning.md)

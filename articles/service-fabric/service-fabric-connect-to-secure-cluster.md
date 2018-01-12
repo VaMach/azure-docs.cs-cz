@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3f46d743b85b1133f64309f01074cbc3b430183f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15ea4cbc02a0311b26e75ae7156c42f6bc2b9b82
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Připojení k zabezpečenému clusteru
 
@@ -34,7 +34,7 @@ Připojením ke clusteru pomocí `sfctl cluster select` příkaz.
 
 Klientské certifikáty lze zadat v dva různé způsoby, buď jako dvojice certifikát a klíč, nebo jako soubor pem jeden. Pro chráněné heslem `pem` soubory, zobrazí se výzva automaticky k zadání hesla.
 
-Pokud chcete zadat klientský certifikát jako soubor pem, zadejte cestu k souboru v `--pem` argument. Například:
+Pokud chcete zadat klientský certifikát jako soubor pem, zadejte cestu k souboru v `--pem` argument. Příklad:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -48,7 +48,7 @@ Pokud chcete zadat certifikát, klíče dvojice použití `--cert` a `--key` arg
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Někdy certifikátů používaných pro zabezpečenou testu nebo dev clustery nezdaří ověření certifikátu. Obejít ověření certifikátu, zadejte `--no-verify` možnost. Například:
+Někdy certifikátů používaných pro zabezpečenou testu nebo dev clustery nezdaří ověření certifikátu. Obejít ověření certifikátu, zadejte `--no-verify` možnost. Příklad:
 
 > [!WARNING]
 > Nepoužívejte `no-verify` možnost při připojování k produkci clusterů Service Fabric.
@@ -57,7 +57,7 @@ Někdy certifikátů používaných pro zabezpečenou testu nebo dev clustery ne
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Kromě toho můžete určit cest k adresářům certifikátů důvěryhodné certifikační Autority nebo jednotlivých certifikátů. Pokud chcete zadat tyto cesty, použijte `--ca` argument. Například:
+Kromě toho můžete určit cest k adresářům certifikátů důvěryhodné certifikační Autority nebo jednotlivých certifikátů. Pokud chcete zadat tyto cesty, použijte `--ca` argument. Příklad:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -350,7 +350,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Proces upgradu Service Fabric Cluster a očekávání od vás](service-fabric-cluster-upgrade.md)
 * [Správu aplikací Service Fabric v sadě Visual Studio](service-fabric-manage-application-in-visual-studio.md)

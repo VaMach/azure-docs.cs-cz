@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Kopírování dat z zdroj OData pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ Konkrétně tento konektor OData podporuje:
 - Kopírování dat pomocí následující ověření: **anonymní**, **základní**, a **Windows**.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru OData.
 
@@ -208,11 +209,11 @@ Při kopírování dat z OData, se používají následující mapování datov�
 | Edm.Binary | Byte] |
 | Edm.Boolean | BOOL |
 | Edm.Byte | Byte] |
-| Edm.DateTime | Data a času |
+| Edm.DateTime | Datum a čas |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Single | Jeden |
-| Edm.Guid | Identifikátor GUID |
+| Edm.Single | Svobodný/svobodná |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
@@ -225,5 +226,5 @@ Při kopírování dat z OData, se používají následující mapování datov�
 > OData komplexními datovými typy (například objekt) nejsou podporovány.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

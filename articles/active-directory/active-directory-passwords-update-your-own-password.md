@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Resetovat heslo pracovního nebo školního účtu
 
@@ -122,12 +122,12 @@ Teď by měla být moct získat přístup k účtu. Pokud ne, obraťte se na va�
 
 | Chyb| Jaké chyby se zobrazí?| Řešení |
 | --- | --- | --- |
-| Zobrazuje, chybu při pokusu o změnu hesla. | Bohužel heslo obsahuje slova, fráze nebo vzor, který umožňuje snadno uhodnutelných heslo. Zkuste to prosím znovu s jiným heslem. | Zvolte heslo, které je další difficlt tak snadno uhodnout. |
+| Zobrazuje, chybu při pokusu o změnu hesla. | Bohužel heslo obsahuje slova, fráze nebo vzor, který umožňuje snadno uhodnutelných heslo. Zkuste to prosím znovu s jiným heslem. | Zvolte heslo, které je obtížné uhodnout. |
 | Zobrazí na stránce ", kontaktujte prosím správce" po zadání ID uživatele | Obraťte se na správce. <br> <br> Zjistili jsme, že heslo vašeho uživatelského účtu nespravuje společnost Microsoft. Snažíme se v důsledku toho nelze automaticky resetovat heslo. <br> <br> Potřebujete další pomoc požádejte pracovníci IT. | Tato zpráva se zobrazuje, protože pracovníci oddělení IT spravuje vaše heslo v místním prostředí. Nelze obnovit heslo na odkaz "Nemůže získat přístup k účtu". <br> <br> Pokud chcete resetovat heslo, požádejte pracovníci IT přímo o pomoc a dát jim vědět, že chcete resetovat heslo, takže se můžete povolit tuto funkci můžete.|
 | Zobrazí chybu "váš účet není povolen pro resetování hesla" po zadání ID uživatele | Váš účet není povolen pro resetování hesla. <br> <br> Je nám líto, ale pracovníci IT nenastavil váš účet k používání této služby. <br> <br> Pokud chcete, můžeme kontaktovat správce ve vaší organizaci k resetování hesla. | Tato zpráva se zobrazuje, protože pracovníci IT nepovolil resetování hesla pro vaše organizace na odkaz "Nemůže získat přístup k účtu", nebo nebyl licenci, můžete použít funkci. <br> <br> Chcete-li resetovat heslo, vyberte "kontaktovat správce odkaz" Odeslat e-mail pro vaši společnost je pracovníky IT a dát jim vědět, které chcete resetovat heslo, takže se můžete povolit tuto funkci můžete. |
 | Zobrazí chybu "Jsme nemohl ověřit váš účet" po zadání ID uživatele | Nemohli jsme ověřit váš účet. <br> <br> Pokud chcete, můžeme kontaktovat správce ve vaší organizaci k resetování hesla. | Tato zpráva se zobrazuje, protože jste povolen pro resetování hesla, ale nejsou zaregistrované pro používání služby. Chcete-li zaregistrovat pro resetování hesla, přejděte na http://aka.ms/ssprsetup po jste znovu získali přístup ke svému účtu. <br> <br> Pokud chcete resetovat heslo, vyberte odkaz ", kontaktujte správce" Odeslat e-mail pro vaši společnost zaměstnanců IT. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Registrace pro použití samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
 * [Registrační stránka pro resetování hesla](http://aka.ms/ssprsetup)
@@ -141,4 +141,3 @@ Teď by měla být moct získat přístup k účtu. Pokud ne, obraťte se na va�
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 patří Creators Update přihlašovací obrazovky resetování hesla odkaz"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Ověření ověřovacích dat"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Změna hesla"
-

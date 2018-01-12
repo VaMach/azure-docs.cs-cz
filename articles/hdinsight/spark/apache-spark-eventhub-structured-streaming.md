@@ -4,7 +4,7 @@ description: "Sestavení Apache Spark streamování ukázku odesílat datový pr
 keywords: "Apache spark streamování, vysílání datového proudu spark, ukázka spark, apache spark streamování například ukázka azure centra událostí, spark ukázka"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: a542295e91a641289fa4261920a08eddbad6a217
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jgao
+ms.openlocfilehash: f302b84685b1992faef4813c0262223bcb5909aa
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Apache Spark strukturovaných streamování na HDInsight ke zpracování událostí ze služby Event Hubs
 
@@ -189,7 +189,7 @@ Pomocí tohoto bodu musí být připravené clusteru HDInsight. Pokud ne, budete
 
 
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 
 * [Přehled vysílání datového proudu Spark](apache-spark-streaming-overview.md)
 

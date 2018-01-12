@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronizace Azure AD Connect: odkaz na funkce
 Ve službě Azure AD Connect funkce se používají k manipulaci s hodnotou atributu během synchronizace.  
@@ -155,12 +155,6 @@ Vrátí hodnotu DateTime na základě na zaměstnance počáteční čas
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Vrátí data a času představující "2013-01-11 12:00:00"
-
-
-
-
-
-
 
 
 - - -
@@ -546,7 +540,7 @@ Funkce DNComponent vrací hodnotu zadaného rozlišující název součásti bud
 * ComponentNumber: Součástí DN vrátit
 
 **Příklad:**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 Pokud je rozlišující název "cn = Jan, ou =...," vrátí Jan
 
 - - -
@@ -564,8 +558,8 @@ Funkce DNComponentRev vrací hodnotu zadaného rozlišující název složky př
 
 **Příklad:**  
 Pokud rozlišující název "cn Jan, ou = Atlantu, ou = GA, ou = = USA, řadič domény = contoso, dc = com" pak  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Obě vrací nás.
 
 - - -
@@ -615,7 +609,7 @@ Výsledkem "2007-12-25".
 Může mít za následek "20140905081453.0Z"
 
 - - -
-### <a name="guid"></a>Identifikátor GUID
+### <a name="guid"></a>Guid
 **Popis:**  
 Funkce Guid se generuje nový náhodný identifikátor GUID
 
@@ -958,7 +952,7 @@ Vrátí "hn proveďte".
 Vrátí "Doe"
 
 - - -
-### <a name="now"></a>Nyní
+### <a name="now"></a>Ihned
 **Popis:**  
 Funkce nyní vrací hodnotu DateTime, zadáte aktuální datum a čas podle systémového data a času v počítači.
 
@@ -1186,7 +1180,7 @@ Proces všech hodnot v více hodnot atributů (nebo výstupní výrazu) založen
 Vrátí všechny hodnoty ve více hodnot atributů otherPhone po odebrání pomlčky (-).
 
 - - -
-### <a name="split"></a>Rozdělení
+### <a name="split"></a>Rozdělit
 **Popis:**  
 Funkce rozdělení přebírá řetězec oddělené s oddělovačem a udělá z něj řetězec s více hodnotami.
 
@@ -1337,7 +1331,7 @@ Vrátí "hnědá"
 `Word("This,string!has&many separators",3,",!&#")`  
 Vrátí "má"
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 * [Principy výrazů deklarativního zřizování](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 * [Azure AD Connect Sync: Možnosti přizpůsobení synchronizace](active-directory-aadconnectsync-whatis.md)
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)

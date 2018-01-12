@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Shromažďování dat modelu pomocí shromažďování dat
 
-Můžete použít funkci modelu dat kolekce v nástroji Azure Machine Learning Workbench k archivaci vstupy modelu a předpovědi z webové služby.
+Můžete použít funkci modelu dat kolekce v Azure Machine Learning k archivaci vstupy modelu a předpovědi z webové služby.
 
 ## <a name="install-the-data-collection-package"></a>Nainstalujte balíček shromažďování dat
 Knihovna shromažďování dat můžete nainstalovat nativně Linux a Windows.
@@ -37,6 +37,12 @@ V systému Linux je třeba nejprve nainstalujte knihovně libxml ++. Spusťte n�
 Spusťte následující příkaz:
 
     pip install azureml.datacollector
+
+## <a name="set-environment-variables"></a>Proměnné prostředí sady
+
+Shromažďování dat modelu závisí na dvou proměnných prostředí. AML_MODEL_DC_STORAGE_ENABLED musí být nastavena na **true** (malá písmena.) a AML_MODEL_DC_STORAGE musí být nastaven připojovací řetězec pro účet úložiště Azure ve které chcete data uložit.
+
+Tyto proměnné prostředí jsou již nastavení za vás, pokud webová služba běží na clusteru s podporou v Azure. Při místním spuštění, budete muset nastavit sami. Pokud používáte Docker, pomocí parametru -e docker, spusťte příkaz předat proměnné prostředí.
 
 ## <a name="collect-data"></a>Shromažďování dat
 

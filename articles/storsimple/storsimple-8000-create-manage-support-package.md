@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Vytvoření a Správa balíčku pro podporu pro řady StorSimple 8000
 
@@ -30,7 +30,7 @@ Tento kurz obsahuje podrobné pokyny k vytváření a správě balíčků podpor
 
 ## <a name="create-a-support-package"></a>Vytvoření balíčku pro podporu
 
-V některých případech musíte ručně vytvořit balíček pro podporu prostřednictvím Windows Powershellu pro StorSimple. Například:
+V některých případech musíte ručně vytvořit balíček pro podporu prostřednictvím Windows Powershellu pro StorSimple. Příklad:
 
 * Pokud je třeba odebrat citlivé informace ze souborů protokolu před sdílení s Microsoft Support.
 * Pokud máte potíže s odeslání balíčku kvůli problémům s připojením.
@@ -144,9 +144,9 @@ Následující příklad ukazuje, jak k dešifrování, upravit a znovu zašifro
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Další informace o [informace shromážděny v balíčku pro podporu](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Zjistěte, jak [k řešení potíží s nasazením zařízení použít podporu balíčky a protokolů zařízení](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Zjistěte, jak [k řešení potíží s nasazením zařízení použít podporu balíčky a protokolů zařízení](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Zjistěte, jak [použít službu StorSimple Manager zařízení ke správě zařízení StorSimple](storsimple-8000-manager-service-administration.md).
 

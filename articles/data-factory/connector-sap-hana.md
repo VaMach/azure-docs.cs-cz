@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopírování dat z SAP HANA pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ Chcete-li použít tento konektor SAP HANA, budete muset:
 - Nainstalujte ovladač SAP HANA ODBC na počítači integrace modulu Runtime. Ovladač SAP HANA ODBC z si můžete stáhnout [SAP služby Stažení softwaru](https://support.sap.com/swdc). Vyhledávání pomocí klíčového slova **SAP HANA klienta pro systém Windows**.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru SAP HANA.
 
@@ -169,16 +170,16 @@ Při kopírování dat z SAP HANA, se používají následující mapování SAP
 | OBJEKT BLOB | Byte] |
 | LOGICKÁ HODNOTA | Bajtů |
 | DATOVÝ TYP CLOB | Byte] |
-| DATUM | Data a času |
+| DATE (Datum) | Datum a čas |
 | DECIMAL | Decimal |
-| DOUBLE | Jeden |
+| DOUBLE | Svobodný/svobodná |
 | INT | Int32 |
 | NVARCHAR | Řetězec |
-| SKUTEČNÉ | Jeden |
-| SECONDDATE | Data a času |
+| SKUTEČNÉ | Svobodný/svobodná |
+| SECONDDATE | Datum a čas |
 | SMALLINT | Int16 |
 | ČAS | Časový interval |
-| ČASOVÉ RAZÍTKO | Data a času |
+| ČASOVÉ RAZÍTKO | Datum a čas |
 | TINYINT | Bajtů |
 | VARCHAR | Řetězec |
 
@@ -192,5 +193,5 @@ Při kopírování dat z SAP HANA existuje několik známá omezení:
 - Platná data jsou mezi 1899/12/30 a 9999/12/31
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

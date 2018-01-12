@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopírování dat z Amazon Redshift pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ Konkrétně tento konektor Amazon Redshift podporuje načítání dat z Redshift
 * Pokud data kopírujete k úložišti dat Azure, najdete v části [rozsahy IP Center dat Azure](https://www.microsoft.com/download/details.aspx?id=41653) pro výpočetní IP adresy a rozsahy SQL používaných dat Azure centra.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru Amazon Redshift.
 
@@ -58,7 +59,7 @@ Pro službu Amazon Redshift propojené služby jsou podporovány následující 
 | type | Vlastnost typu musí být nastavena na: **AmazonRedshift** | Ano |
 | server |IP adresa nebo název hostitele serveru Amazon Redshift. |Ano |
 | port |Číslo portu TCP, který používá server Amazon Redshift naslouchat pro připojení klientů. |Ne, výchozí hodnota je 5439 |
-| Databáze |Název databáze Amazon Redshift. |Ano |
+| databáze |Název databáze Amazon Redshift. |Ano |
 | uživatelské jméno |Jméno uživatele, který má přístup k databázi. |Ano |
 | heslo |Heslo pro uživatelský účet. Toto pole můžete označte jako SecureString. |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
@@ -214,15 +215,15 @@ Při kopírování dat z Amazon Redshift, se používají následující mapová
 | BIGINT |Int64 |
 | LOGICKÁ HODNOTA |Řetězec |
 | CHAR – |Řetězec |
-| DATUM |Data a času |
+| DATE (Datum) |Datum a čas |
 | DECIMAL |Decimal |
 | DVOJITÁ PŘESNOST |Double |
 | CELÉ ČÍSLO |Int32 |
-| SKUTEČNÉ |Jeden |
+| SKUTEČNÉ |Svobodný/svobodná |
 | SMALLINT |Int16 |
 | TEXT |Řetězec |
-| ČASOVÉ RAZÍTKO |Data a času |
+| ČASOVÉ RAZÍTKO |Datum a čas |
 | VARCHAR |Řetězec |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 41842806aecfc0ed6ac663262305785a23c5ba5d
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopírování dat z SQL serveru pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ Konkrétně tento konektor systému SQL Server podporuje:
 Chcete-li použít kopírování dat z databáze serveru SQL Server, který není veřejně přístupný, nastavení modulu Runtime Self-hosted integrace. V tématu [Self-hosted integrace Runtime](create-self-hosted-integration-runtime.md) článku. Modul Runtime integrace poskytuje integrované ovladač databáze systému SQL Server, proto nemusíte ručně nainstalovat všechny ovladače při kopírování dat z/do databáze systému SQL Server.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru databáze systému SQL Server.
 
@@ -484,9 +485,9 @@ Při kopírování dat z/do systému SQL Server, se používají následující 
 | Binární |Byte] |
 | Bit |Logická hodnota |
 | Char |Řetězec, Char] |
-| Datum |Data a času |
-| Data a času |Data a času |
-| datetime2 |Data a času |
+| datum |Datum a čas |
+| Datum a čas |Datum a čas |
+| datetime2 |Datum a čas |
 | Datový typ DateTimeOffset |Datový typ DateTimeOffset |
 | Decimal |Decimal |
 | Atribut FILESTREAM (varbinary(max)) |Byte] |
@@ -498,9 +499,9 @@ Při kopírování dat z/do systému SQL Server, se používají následující 
 | ntext |Řetězec, Char] |
 | číselné |Decimal |
 | nvarchar |Řetězec, Char] |
-| skutečné |Jeden |
+| skutečné |Svobodný/svobodná |
 | ROWVERSION |Byte] |
-| smalldatetime |Data a času |
+| smalldatetime |Datum a čas |
 | smallint |Int16 |
 | Smallmoney |Decimal |
 | SQL_VARIANT |Objekt * |
@@ -508,7 +509,7 @@ Při kopírování dat z/do systému SQL Server, se používají následující 
 | time |Časový interval |
 | časové razítko |Byte] |
 | tinyint |Int16 |
-| Typ UniqueIdentifier |Identifikátor GUID |
+| Typ UniqueIdentifier |Guid |
 | varbinary |Byte] |
 | varchar |Řetězec, Char] |
 | xml |XML |
@@ -533,5 +534,5 @@ Při kopírování dat z/do systému SQL Server, se používají následující 
 6. **Ověření připojení**: pro připojení k serveru SQL pomocí plně kvalifikovaný název, použijte SQL Server Management Studio z jiný počítač. Například: `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

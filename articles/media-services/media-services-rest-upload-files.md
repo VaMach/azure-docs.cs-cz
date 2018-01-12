@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
-ms.openlocfilehash: c02584e53790ccafe6ed9a5aeffab3f9e40e8b29
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Nahrání souborů do účtu Media Services pomocí REST
 > [!div class="op_single_selector"]
@@ -173,9 +173,9 @@ Musí být splněny určité předpoklady:
 
 Teď, když máte adresu odeslání, budete muset napsat kód pomocí rozhraní API objektů Blob Azure přímo k odeslání souboru do kontejneru SAS. Další informace najdete v následujících článcích:
 
-- https://docs.microsoft.com/REST/API/storageservices/PUT-BLOB 
-- https://docs.microsoft.com/Azure/Storage/Common/Storage-use-azcopy#Upload-BLOBS-to-BLOB-Storage
-- https://docs.microsoft.com/Azure/Storage/BLOBS/Storage-DotNet-How-to-use-BLOBS#Upload-a-BLOB-into-a-Container
+- [Pomocí rozhraní REST API Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [UVEĎTE objektů Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+- [Nahrát objektů BLOB do úložiště objektů Blob](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Nahrát soubor s Postman
 

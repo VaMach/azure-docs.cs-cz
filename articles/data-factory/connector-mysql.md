@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: d91ff1738f423928699f056a4d529d764889a6e9
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopírování dat z databáze MySQL pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Chcete-li použít tento konektor MySQL, budete muset:
 > Jestli jste nedosáhli chyba "Ověřování se nezdařilo, protože je uzavřený vzdálené strany přenosu datového proudu.", zvažte MySQL Connector/Net upgradu na vyšší verzi.
 
 ## <a name="getting-started"></a>Začínáme
-Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru MySQL.
 
@@ -58,7 +59,7 @@ Pro službu MySQL propojené jsou podporovány následující vlastnosti:
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **MySql** | Ano |
 | server | Název serveru databáze MySQL. | Ano |
-| Databáze | Název databáze MySQL. | Ano |
+| databáze | Název databáze MySQL. | Ano |
 | Schéma | Název schématu v databázi. | Ne |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k databázi MySQL. | Ano |
 | heslo | Zadejte heslo pro uživatelský účet, který jste zadali. Toto pole můžete označte jako SecureString. | Ano |
@@ -208,5 +209,5 @@ Při kopírování dat z databáze MySQL, se používají následující mapová
 | `year` |`Int` |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

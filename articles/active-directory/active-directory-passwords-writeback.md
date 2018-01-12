@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-writeback-overview"></a>Přehled zpětný zápis hesla
 
@@ -217,7 +217,7 @@ Zpětný zápis hesla je služba malou šířkou pásma, která pouze odešle po
 
 Velikost jednotlivých zpráv popsané je obvykle v části 1 KB. I v rámci extrémně zatížení samotnou službu zpětný zápis hesla spotřebovává několik kilobity za sekundu šířky pásma. Protože každá zpráva odeslána v reálném čase, pouze v případě, že operace aktualizace a heslo a protože velikost zprávy je tak malé využití šířky pásma u schopností zpětný zápis je příliš malá tak, aby měl měřitelný dopad.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
 * [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
