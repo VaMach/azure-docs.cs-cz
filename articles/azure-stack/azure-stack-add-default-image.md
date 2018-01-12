@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Přidat bitovou kopii virtuálního počítače Windows serveru 2016 do Azure Marketplace zásobníku
 
@@ -34,11 +34,11 @@ Ve výchozím nastavení se žádné Image virtuálního počítače jsou k disp
 
 2. Vyberte **další služby** > **Marketplace správu** > **přidat z Azure**. 
 
-3. Hledání nebo nalezení **Windows Server 2016 Datacenter – Eval** bitovou kopii a potom vyberte **Stáhnout**.
+3. Hledání nebo nalezení **Windows Server 2016 Datacenter** bitovou kopii a potom vyberte **Stáhnout**.
 
    ![Stáhnout bitovou kopii z Azure](media/azure-stack-add-default-image/download-image.png)
 
-Po dokončení stahování bitová kopie je k dispozici v části **Marketplace správu**. Obrázek je také k dispozici v části **virtuální počítače**.
+Po dokončení stahování bitová kopie je k dispozici v části **Marketplace správu**. Obrázek je také k dispozici v části **výpočetní** a je k dispozici pro vytvoření nového virtuálního počítače.
 
 ## <a name="add-the-image-by-using-powershell"></a>Přidejte bitovou kopii pomocí prostředí PowerShell
 
@@ -113,7 +113,7 @@ Spusťte následující předpoklady, buď z [development kit](azure-stack-conne
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
+    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
@@ -137,7 +137,7 @@ Zajistěte, aby bitovou kopii virtuálního počítače Windows serveru 2016 nej
 
 ## <a name="parameters"></a>Parametry
 
-|Nové AzsServer2016VMImage parametry|Povinné?|Popis|
+|Nové AzsServer2016VMImage parametry|Požaduje se|Popis|
 |-----|-----|------|
 |ISOPath|Ano|Úplná cesta k stažené ISO systému Windows Server 2016.|
 |Net35|Ne|Modul runtime rozhraní .NET 3.5 nainstaluje bitovou kopii systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **true**.|
@@ -145,10 +145,10 @@ Zajistěte, aby bitovou kopii virtuálního počítače Windows serveru 2016 nej
 |VHDSizeInMB|Ne|Nastaví velikost image virtuálního pevného disku, které mají být přidány do prostředí Azure zásobníku (v MB). Ve výchozím nastavení je tato hodnota nastavena na 40 960 MB.|
 |CreateGalleryItem|Ne|Určuje, jestli musíte vytvořit položku Marketplace pro bitovou kopii systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **true**.|
 |location |Ne |Určuje umístění, ke které je nutné ji publikovat bitovou kopii systému Windows Server 2016.|
-|IncludeLatestCU|Ne|Nejnovější kumulativní aktualizaci Windows Server 2016 se vztahuje na nový virtuální pevný disk.|
+|IncludeLatestCU|Ne|Nejnovější kumulativní aktualizaci Windows Server 2016 se vztahuje na nový virtuální pevný disk (zkontrolujte skript a ujistěte se, že odkazuje na nejnovější aktualizaci nebo použijte jednu z následujících dvou možností). |
 |CUUri |Ne |Sady Windows Server 2016 kumulativní aktualizace pro spouštění z konkrétní identifikátoru URI. |
 |CUPath |Ne |Sady Windows Server 2016 kumulativní aktualizace pro spouštění z místní cestu. Tato možnost je užitečná, pokud jste nasadili instanci Azure zásobníku v odpojeném prostředí.|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Zřízení virtuálního počítače](azure-stack-provision-vm.md)

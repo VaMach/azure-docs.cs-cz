@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Povolení víceklientské architektury
               href: azure-stack-enable-multitenancy.md
+        - name: Otočit tajné klíče
+          href: azure-stack-rotate-secrets.md
     - name: Nabídka služeb
       items:
         - name: Přehled nabízených služeb
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnostika v Azure Stacku
           href: azure-stack-diagnostics.md
+        - name: Ověření Azure zásobníku
+          href: azure-stack-diagnostic-test.md
         - name: Znovunasazení vývojové sady pro Azure Stack
           href: azure-stack-redeploy.md
 - name: Referenční informace
