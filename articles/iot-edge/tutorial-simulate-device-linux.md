@@ -7,16 +7,16 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Nasazení Azure IoT Edge v simulovaném zařízení v systému Linux – náhled
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Nasazení Azure IoT Edge v simulovaném zařízení v systému Linux nebo systému MacOS – náhled
 
 Azure IoT Edge umožňuje provádět analýzy a zpracování dat v zařízeních, aniž by museli push všechna data do cloudu. Kurzy IoT Edge ukazují, jak nasadit různé typy modulů, ze služby Azure nebo vlastní kód, ale nejdřív je potřeba zařízení, které chcete otestovat. 
 
@@ -33,10 +33,14 @@ Simulovaná zařízení, které vytvoříte v tomto kurzu je monitorování, kte
 
 ## <a name="prerequisites"></a>Požadavky
 
-Tento kurz předpokládá, že používáte počítač nebo virtuální počítač se systémem Linux k simulaci zařízení s Internet věcí. Pro úspěšné nasazení IoT hraniční zařízení jsou potřeba následující služby:
+Tento kurz používá svůj počítač nebo virtuální počítač jako zařízení s Internet věcí. Chcete-li váš počítač do IoT hraniční zařízení, jsou požadované následující služby:
 
-- [Instalace Docker pro Linux] [ lnk-docker-ubuntu] a ujistěte se, že je spuštěna. 
-- Většina Linuxových distribucích, včetně Ubuntu, už máte Python 2.7 nainstalována. Použijte následující příkaz a ujistěte se, zda je nainstalován pip: `sudo apt-get install python-pip`.
+* Python pip nainstalovat modul runtime IoT okraj.
+   * Linux: `sudo apt-get install python-pip`.
+   * Systému MacOS: `sudo easy_install pip`.
+* Docker spouštět hraniční IoT moduly
+   * [Instalace Docker pro Linux] [ lnk-docker-ubuntu] a ujistěte se, zda je spuštěna. 
+   * [Nainstalovat pro systém Mac Docker] [ lnk-docker-mac] a ujistěte se, zda je spuštěna. 
 
 ## <a name="create-an-iot-hub"></a>Vytvoření centra IoT
 
@@ -110,7 +114,7 @@ sudo docker logs -f tempSensor
 
 Můžete také zobrazit telemetrii zařízení odesílá pomocí [nástroji Průzkumník služby IoT Hub][lnk-iothub-explorer]. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste vytvořili nové zařízení IoT okraj a použít rozhraní cloudu Azure IoT Edge k nasazení kódu do zařízení. Nyní máte simulované zařízení generování nezpracovaná data o jeho prostředí. 
 
@@ -130,4 +134,5 @@ V tomto kurzu je předpokladem pro všechny ostatní kurzy IoT okraj. Můžete p
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

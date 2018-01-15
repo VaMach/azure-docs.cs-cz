@@ -6,16 +6,16 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Rychlý úvod: Nasazení první modul IoT Edge na portálu Azure do zařízení Linux – náhled
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Rychlý úvod: Nasazení první modul IoT hraniční zařízení Linux nebo Mac. – náhled
 
 Azure IoT Edge přesune power cloudu do zařízení Internet věcí. V tomto tématu se Naučte se používat rozhraní cloudu k nasazení předem kód vzdáleně na IoT hraniční zařízení.
 
@@ -23,10 +23,14 @@ Pokud nemáte aktivní předplatné Azure, vytvořte [bezplatný účet] [ lnk-a
 
 ## <a name="prerequisites"></a>Požadavky
 
-K provedení této úlohy, použijte k simulaci zařízení s Internet věcí počítače nebo virtuálního počítače. Pro úspěšné nasazení IoT hraniční zařízení jsou potřeba následující služby:
+Tento rychlý start používá svůj počítač nebo virtuální počítač jako zařízení s Internet věcí. Chcete-li váš počítač do IoT hraniční zařízení, jsou požadované následující služby:
 
-- [Nainstalujte Docker v systému Linux] [ lnk-docker-ubuntu] a ujistěte se, že je spuštěna. 
-- Většina Linuxových distribucích, včetně Ubuntu, už máte Python 2.7 nainstalována. Použijte následující příkaz a ujistěte se, zda je nainstalován pip: `sudo apt-get install python-pip`.
+* Python pip nainstalovat modul runtime IoT okraj.
+   * Linux: `sudo apt-get install python-pip`.
+   * Systému MacOS: `sudo easy_install pip`.
+* Docker spouštět hraniční IoT moduly
+   * [Instalace Docker pro Linux] [ lnk-docker-ubuntu] a ujistěte se, zda je spuštěna. 
+   * [Nainstalovat pro systém Mac Docker] [ lnk-docker-mac] a ujistěte se, zda je spuštěna. 
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Vytvoření služby IoT hub pomocí rozhraní příkazového řádku Azure
 
@@ -121,7 +125,7 @@ Pokud již nepotřebujete službu IoT Hub, který jste vytvořili, můžete pou�
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Jste zjistili, jak nasadit modul IoT okraj do IoT hraniční zařízení. Nyní zkuste nasazení různých typů služeb Azure jako modulů, takže je můžete analyzovat data na hranici. 
 
@@ -135,6 +139,7 @@ Jste zjistili, jak nasadit modul IoT okraj do IoT hraniční zařízení. Nyní 
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

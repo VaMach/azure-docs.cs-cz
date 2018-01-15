@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 5e8a410206f8c48affe171fb77b1a9555818953e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 > [!NOTE]
-> Tato dokumentace již není aktuální a není přesný. Místo toho přejděte do Azure Marketplace [prodejce průvodce](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) pokyny k publikování nabídky pro Azure Marketplace.
+> Tato dokumentace již není aktuální a není přesný. Místo toho přejděte do Azure Marketplace [prodejce průvodce](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) pokyny k publikování nabídky pro Azure Marketplace.
 
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publikovat a spravovat nabídku v Azure Marketplace
 Tento článek je určena k vývojářům vytvářet, nasazovat a spravovat svá řešení uvedené v Azure Marketplace pro jiné Azure zákazníci a partneři zakoupit a používat.
@@ -103,5 +103,5 @@ Vytvoření a správa image virtuálního počítače pomocí těchto prostředk
 * [Vrátit model fakturace na produkční hodnoty](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Obnovit nastavení viditelnosti uvedené SKU pro produkční hodnota](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 [Nastavení prostředí Azure PowerShell](marketplace-publishing-powershell-setup.md)

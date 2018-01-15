@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Vyhledávání částečně strukturovaných dat do cloudového úložiště
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Část 2: Vyhledávání částečně strukturovaných dat do cloudového úložiště
 
-Tento kurz série dvě části zjistěte, jak k vyhledání částečně strukturovaná i nestrukturovaná data používání služby Azure search. V tomto kurzu se dozvíte, jak částečně strukturovaných dat, jako je například formát JSON, ukládají do objektů BLOB Azure. Částečně strukturovaných dat obsahuje značky nebo označení, které oddělení obsahu v rámci data. Se liší od strukturovaných dat v tom, že není oficiálně strukturovaná podle datový model, jako je například schéma relační databáze.
+V řadě kurz dvě části zjistěte, jak k vyhledání částečně strukturovaná i nestrukturovaná data používání služby Azure search. [Část 1](../storage/blobs/storage-unstructured-search.md) přes nestrukturovaných dat můžete projít hledání, ale také zahrnutá důležité předpoklady pro tento kurz, jako je vytvoření účtu úložiště. 
 
-V této části nabídneme postupy:
+V části 2 přesouvá fokus částečně strukturovaných dat, například formát JSON, ukládají do objektů BLOB Azure. Částečně strukturovaných dat obsahuje značky nebo označení, které oddělení obsahu v rámci data. Rozdělí rozdíl mezi nestrukturovaných dat, které musí být indexované wholistically a oficiálně strukturovaných dat odpovídající datový model, jako je například schéma, relační databáze, které můžete procházet, na základě za pole.
+
+V části 2 se dozvíte, jak:
 
 > [!div class="checklist"]
-> * Vytvořit a naplnit index uvnitř služby Azure Search
-> * Používat službu Azure Search k vyhledávání v indexu
+> * Konfigurace zdroje dat Azure Search pro kontejner objektů blob v Azure
+> * Vytvořit a naplnit indexu Azure Search a indexeru pro procházení kontejneru a extrakci vyhledávat obsah
+> * Hledání index, který jste právě vytvořili
 
 > [!NOTE]
-> "Podpora pole JSON je funkce preview ve službě Azure Search. Není aktuálně k dispozici na portálu. Z tohoto důvodu že používáme rozhraní REST API, která poskytuje tuto funkci a nástroj klienta REST pro volání rozhraní API ve verzi preview."
+> V tomto kurzu spoléhá na podporu pole JSON, který je aktuálně funkce preview ve službě Azure Search. Není k dispozici na portálu. Z tohoto důvodu že používáme rozhraní REST API, která poskytuje tuto funkci a nástroj klienta REST pro volání rozhraní API ve verzi preview.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Pro absolvování tohoto kurzu potřebujete:
-* Dokončení [předchozí kurzu](../storage/blobs/storage-unstructured-search.md)
-    * Tento kurz používá úložiště účet vyhledávací služby a vytvořili v předchozí kurzu
-* Nainstalujte klienta REST a pochopit, jak vytvořit požadavek HTTP
+* Dokončení [předchozí kurzu](../storage/blobs/storage-unstructured-search.md) poskytování služby účet a hledání úložiště vytvořili v předchozí kurzu.
 
+* Instalace klienta REST a představu o tom, jak vytvořit požadavek HTTP. Pro účely tohoto kurzu používáme [Postman](https://www.getpostman.com/). Nebojte se, že pomocí jiného klienta REST, pokud jste již celý některá.
 
-## <a name="set-up-the-rest-client"></a>Nastavení klienta REST
+## <a name="set-up-postman"></a>Nastavit Postman
 
-K dokončení tohoto kurzu potřebujete klienta REST. Pro účely tohoto kurzu používáme [Postman](https://www.getpostman.com/). Nebojte se, že pomocí jiného klienta REST, pokud jste již celý některá.
+Spusťte Postman a nastavit požadavek HTTP. Pokud jste obeznámeni s Tento nástroj, najdete v části [prozkoumat Azure REST rozhraní API pro vyhledávání pomocí Fiddler nebo Postman](search-fiddler.md) Další informace.
 
-Po instalaci Postman, spusťte ji.
-
-Pokud je to poprvé volání REST do Azure, zde je stručný úvod důležité součásti v tomto kurzu: metodu požadavku pro každé volání v tomto kurzu je "POST". Hlavička klíče jsou "Content-type" a "api-key." Hodnoty hlavičky klíče jsou "application/json" a "klíč správce" (zástupný symbol pro vyhledávání primární klíč je klíč správce) v uvedeném pořadí. Text je třeba umístit skutečný obsah volání. V závislosti na klienta, kterou používáte může být několik odchylek na tom, jak vytvořit dotaz, ale ty jsou základní informace.
+Metoda požadavku pro každé volání v tomto kurzu je nastavena na "POST". Hlavička klíče jsou "Content-type" a "api-key." Hodnoty hlavičky klíče jsou "application/json" a "klíč správce" (zástupný symbol pro vyhledávání primární klíč je klíč správce) v uvedeném pořadí. Text je třeba umístit skutečný obsah volání. V závislosti na klienta, kterou používáte může být několik odchylek na tom, jak vytvořit dotaz, ale ty jsou základní informace.
 
   ![Částečně strukturovaných vyhledávání](media/search-semi-structured-data/postmanoverview.png)
 
@@ -55,7 +54,7 @@ Ukázka datové sady připravený pro vás. **Stáhněte si [klinické zkušebn�
 
 Obsažené v ukázce jsou například soubory JSON, které byly původně textové soubory získané z [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Jsme jejich převodu do formátu JSON pro usnadnění vaší práce.
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k portálu [Azure Portal](http://portal.azure.com).
 
@@ -277,7 +276,7 @@ Pokud chcete experimentovat a vyzkoušet další dotazy, klidně Uděláte to ta
 
 `$filter` Parametr pracuje pouze s metadat, které byly označeny filtrovatelných při vytváření indexu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili o vyhledávání částečně strukturovaných dat pomocí Azure search, jako například:
 

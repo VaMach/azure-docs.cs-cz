@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d5f2c9960b720fc44f37956f9150e89d6425d154
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Shromažďování dat v Azure Security Center
 Security Center shromažďuje data z Azure virtuální počítače (VM) a počítače mimo Azure pro monitorování ohrožení zabezpečení a hrozbami. Data jsou shromažďována pomocí Microsoft Monitoring Agent, který čte různé konfigurace související se zabezpečením a protokoly událostí z počítače a zkopíruje data do pracovního prostoru pro analýzu. Mezi příklady těchto údajů patří: typ a verze operačního systému, protokoly operačního systému (protokoly událostí systému Windows), spuštěné procesy, název počítače, IP adresy, přihlášený uživatel a ID klienta. Microsoft Monitoring Agent taky zkopíruje soubory se stavem systému do pracovního prostoru.
@@ -79,7 +79,7 @@ Vyberte existující pracovní prostor analýzy protokolů:
 Security Center může snížit objem událostí při zachování dostatek události pro šetření, auditování a detekce hrozeb. Můžete shromáždit pomocí agenta právo filtrování zásady pro vaše předplatné a pracovní prostory ze čtyř sad události.
 
 - **Všechny události** – pro zákazníky, kteří chtějí zajistěte, aby všechny události se shromažďují. Toto je výchozí hodnota.
-- **Běžné** – to je sada událostí, které splňuje většina zákazníků a umožňuje jim zkušební verze úplné auditu.
+- **Běžné** – to je sada událostí, které splňuje většina zákazníků a umožňuje jim úplné kontrolní záznam.
 - **Minimální** – menší sadu událostí pro zákazníky, kteří chtějí minimalizovat objem událostí.
 - **Žádný** – zakázat shromažďování událostí zabezpečení ze zabezpečení a protokoly AppLocker. Pro zákazníky, kteří tuto možnost zvolte řídicí panely jejich zabezpečení mají pouze proaktivní vyhodnocování jako antimalwarových, základní a aktualizace a protokoly brány Windows Firewall.
 
@@ -90,7 +90,7 @@ Security Center může snížit objem událostí při zachování dostatek udál
 
 K určení události, které bude patřit **běžné** a **minimální** sad událostí, jsme pracovali s zákazníků a oborových standardů, další informace o nefiltrované frekvenci jednotlivých událostí a jejich využití. V tomto procesu jsme použili následující pokyny:
 
-- **Minimální** – Ujistěte se, že tato sada zahrnuje jenom události, které může znamenat úspěšné porušení zabezpečení a důležité události, které mají velmi nízké svazku. Například tato sada obsahuje úspěšná a neúspěšná přihlášení uživatele (událost ID 4624 4625), ale neobsahuje odhlášení, což je důležité pro auditování, ale nemá význam pro zjišťování a má poměrně velkým objemem. Většina datový svazek této sady je události přihlášení a proces vytvoření události (událost ID 4688, najdete v části Security Center [– nejčastější dotazy](security-center-faq.md#what-happens-when-data-collection-is-enabled) Další informace o procesu vytvoření události 4688).
+- **Minimální** – Ujistěte se, že tato sada zahrnuje jenom události, které může znamenat úspěšné porušení zabezpečení a důležité události, které mají velmi nízké svazku. Například tato sada obsahuje úspěšná a neúspěšná přihlášení uživatele (událost ID 4624 4625), ale neobsahuje odhlášení, což je důležité pro auditování, ale nemá význam pro zjišťování a má poměrně velkým objemem. Většina datový svazek této sady je události přihlášení a proces vytvoření události (událost ID 4688).
 - **Běžné** -poskytují záznam pro audit úplné uživatelské v této sadě. Tato sada obsahuje například uživatelské přihlášení a odhlášení uživatele (událost ID 4634). Zahrnuta auditování akce jako změny skupiny zabezpečení, operacích Kerberos řadiče domény klíče a dalších událostí, které doporučuje organizace odvětví.
 
 Události, které mají velmi nízké svazku byly zahrnuté v běžné nastavit jako hlavní motivace zvolit si že ho přes všechny události je snížit objem a nechcete filtrovat konkrétní události.
@@ -108,6 +108,11 @@ Tady je úplnému selhání zabezpečení a AppLocker událost ID pro každou sa
 | | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
 | | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+
+> [!NOTE]
+> Pokud používáte objekt zásad skupiny (GPO), doporučujeme, abyste povolili zásady auditu proces vytváření událostí 4688 a *CommandLine* pole v rámci události 4688. Další informace o procesu vytvoření události 4688 najdete v tématu Security Center [– nejčastější dotazy](security-center-faq.md#what-happens-when-data-collection-is-enabled). Další informace o těchto zásady auditu najdete v tématu [doporučení zásady auditu](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+>
+>
 
 Chcete-li zvolit filtrování zásady:
 1. Na **zásady zabezpečení a nastavení** okně vyberte zásady vaší filtrování v rámci **události zabezpečení**.

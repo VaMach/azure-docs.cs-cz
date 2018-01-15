@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognózování úloh serveru s terabajty dat
 
@@ -51,7 +51,7 @@ Požadavky na spuštění v tomto příkladu jsou následující:
 * Windows 10 (podle pokynů v tomto příkladu jsou obvykle stejné systémů systému macOS).
 * Na datové vědě virtuálního počítače (DSVM) pro Linux (Ubuntu), pokud možno v oblasti Východ USA, kde vyhledá data. Můžete zřídit DSVM Ubuntu pomocí následujících [tyto pokyny](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Můžete také zjistit [tento rychlý Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Doporučujeme použít virtuální počítač s minimálně 8 jader a 32 GB paměti. 
 
-Postupujte podle [instrukce](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) na povolení přístupu bez sudoer ve virtuálním počítači pro AML Workbench.  Můžete použít [ověřování na základě klíčů SSH pro vytváření a používání virtuálních počítačů v AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). V tomto příkladu používáme heslo pro přístup k virtuálnímu počítači.  V následující tabulce uložte s DSVM informace o dalších krocích:
+Postupujte podle [instrukce](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) na povolení přístupu bez sudoer ve virtuálním počítači pro AML Workbench.  Můžete použít [ověřování na základě klíčů SSH pro vytváření a používání virtuálních počítačů v AML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). V tomto příkladu používáme heslo pro přístup k virtuálnímu počítači.  V následující tabulce uložte s DSVM informace o dalších krocích:
 
  Název pole| Hodnota |  
  |------------|------|
@@ -419,7 +419,7 @@ Vyberte jedinečný řetězec jako prostředí pro operationalization. Tady pou�
    Další informace najdete v tématu [postup škálování operationalization v clusteru Azure Container Service](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto příkladu se dozvíte, jak používat Machine Learning Workbench ke cvičení strojového učení modelu na velké objemy dat a zprovoznit naučeného modelu. Konkrétně jste zjistili, jak nakonfigurovat a používat různé výpočetní cíle a spusťte historii sledování metrik a použít jiný spustí.
 

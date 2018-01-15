@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Prediktivní údržby scénářem z reálného prostředí.
 
@@ -32,7 +32,7 @@ Toto je odkaz na veřejné úložiště GitHub: [https://github.com/Azure/Machin
 
 Hlavní problém firmy v odvětví asset náročné, jimž je významné náklady, které jsou přidruženy zpoždění mechanických problémy s. Většina podniků zajímá predikci při tyto problémy jsou vyvolány prevence proaktivně je předtím, než k nim dojde. Cílem je snížení nákladů snížením výpadky a možném zvětšení zabezpečení. 
 
-Tento scénář trvá nápady z [prediktivní údržby playbook](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) k předvedení vytváření prediktivního modelu pro simulované datové sady. Příklad dat je odvozená od běžných elementech zjištěnými v řadě případů použití prediktivní údržby.
+Tento scénář trvá nápady z [prediktivní údržby playbook](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) k předvedení vytváření prediktivního modelu pro simulované datové sady. Příklad dat je odvozená od běžných elementech zjištěnými v řadě případů použití prediktivní údržby.
 
 Obchodního problému pro toto simulované dat je k předvídání problémy příčinou selhání komponent. Proto je obchodní otázku "*co je pravděpodobnost, že je počítač ocitne mimo provoz z důvodu selhání součásti*?" Tento problém je formátován jako více třídami klasifikace problému (více komponent na počítač) a algoritmu strojového učení se používá k vytvoření prediktivního modelu. Cvičení modelu na historická data shromážděná z počítačů. V tomto scénáři uživatel prochází různé kroky implementace model, v prostředí Azure Machine Learning Workbench.
 
@@ -133,6 +133,6 @@ Tento případ použití dříve vyvinula ve více platformách:
 * [Prediktivní údržby modelování Poznámkový blok průvodce Python](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Prediktivní údržby pomocí PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Nejsou k dispozici v rámci nástroje workbench Azure Machine Learning, které ukazují další funkce produktu mnoho dalších ukázkové scénáře. 

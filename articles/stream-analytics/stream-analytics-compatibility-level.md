@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 70aa82f5d8a909121c42742bb5261d6c9b8570de
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Úroveň kompatibility pro úlohy Azure Stream Analytics
  
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/04/2018
  
 ## <a name="set-a-compatibility-level"></a>Nastavit úroveň kompatibility 
 
-Úroveň kompatibility řídí chování za běhu úlohy stream analytics. Můžete nastavit úroveň kompatibility pro úlohu služby Stream Analytics pomocí portálu nebo pomocí [vytvořit úlohu volání rozhraní API REST](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics teď podporuje dva kompatibility úrovně-"1.0" a "1.1". Úroveň kompatibility je standardně nastavena na "1.0", která byla představena při obecné dostupnosti Azure Stream Analytics. Chcete-li aktualizovat výchozí hodnota, přejděte na vaše stávající úlohy služby Stream Analytics > vyberte **úroveň kompatibility** možnost v **konfigurace** části a změňte hodnotu. 
+Úroveň kompatibility řídí chování za běhu úlohy stream analytics. Můžete nastavit úroveň kompatibility pro úlohu služby Stream Analytics pomocí portálu nebo pomocí [vytvořit úlohu volání rozhraní API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics teď podporuje dva kompatibility úrovně-"1.0" a "1.1". Úroveň kompatibility je standardně nastavena na "1.0", která byla představena při obecné dostupnosti Azure Stream Analytics. Chcete-li aktualizovat výchozí hodnota, přejděte na vaše stávající úlohy služby Stream Analytics > vyberte **úroveň kompatibility** možnost v **konfigurace** části a změňte hodnotu. 
 
 Zajistěte, aby zastavit úlohu před aktualizací úroveň kompatibility. Úroveň kompatibility nelze aktualizovat, pokud vaše úlohy je v běžícím stavu. 
 

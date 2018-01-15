@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Použití propojených šablon při nasazování prostředků Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Pomocí propojená a vnořené šablony při nasazování prostředků Azure
 
-K nasazení řešení, můžete použít jednu šablonu nebo hlavní šablonu s více propojených šablon. Pro malé a střední řešení je jednou šablonou snadněji pochopit a spravovat. Budete moci zobrazit všechny prostředky a hodnot v jednom souboru. Pro pokročilé scénáře propojených šablon umožňují rozdělení řešení do cílové součásti a opakovaně používat šablony.
+K nasazení řešení, můžete použít jednu šablonu nebo hlavní šablonu s více souvisejících šablon. Související šablonou může být buď samostatný soubor, který je propojený s z hlavní šablony, nebo šablonu, která je vnořená v rámci hlavní šablony.
+
+Pro malé a střední řešení je jednou šablonou snadněji pochopit a spravovat. Budete moci zobrazit všechny prostředky a hodnot v jednom souboru. Pro pokročilé scénáře propojených šablon umožňují rozdělení řešení do cílové součásti a opakovaně používat šablony.
 
 Při použití propojených šablon, vytvoříte hlavní šablonu, která přijímá hodnot parametrů během nasazování. Hlavní šablona obsahuje všechny propojené šablony a předá tyto šablony podle potřeby hodnoty.
 
 ![propojených šablon](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Propojení do šablony
+## <a name="link-or-nest-a-template"></a>Propojení nebo vnořit šablonu
 
 Propojit s jinou šablonu, přidejte **nasazení** prostředků do hlavní šablony.
 
@@ -40,17 +42,17 @@ Propojit s jinou šablonu, přidejte **nasazení** prostředků do hlavní šabl
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-Vlastnosti, které zadáte pro prostředek nasazení lišit v závislosti na tom, jestli jsou propojení na externí šablonu nebo vložení šablonu vložené v šabloně hlavní.
+Vlastnosti, které zadáte pro prostředek nasazení lišit v závislosti na tom, jestli jsou propojení na externí šablonu nebo vnoření šablonu vložené v šabloně hlavní.
 
-### <a name="inline-template"></a>Vložené šablony
+### <a name="nested-template"></a>Vnořené šablony
 
-Chcete-li vložit propojené šablony, použijte **šablony** vlastnost a zahrnují šablony.
+Pokud chcete vnořit šablony v rámci hlavní šablony, pomocí **šablony** vlastnost a zadejte se syntaxí šablony.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ Chcete-li vložit propojené šablony, použijte **šablony** vlastnost a zahrnu
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ Chcete-li vložit propojené šablony, použijte **šablony** vlastnost a zahrnu
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+Pro vnořené šablony nemůžete použít parametry nebo proměnné, které jsou definovány v rámci vnořené šablony. Můžete použít parametry a proměnné z hlavní šablony. V předchozím příkladu `[variables('storageName')]` načte hodnotu z hlavní šablony není vnořené šablony. Toto omezení se nevztahuje na externí šablony.
 
 ### <a name="external-template-and-external-parameters"></a>Externí šablony a externí parametry
 
@@ -176,7 +177,7 @@ Následující příklady ukazují, jak odkazovat na šablonu propojené a nač�
 }
 ```
 
-Šablona nadřazené nasadí propojené šablony a získá vrácené hodnoty. Všimněte si, že odkazuje na prostředek nasazení podle názvu a používá název vlastnosti vrácených šablonou propojené.
+Hlavní šablona nasadí propojené šablony a získá vrácené hodnoty. Všimněte si, že odkazuje na prostředek nasazení podle názvu a používá název vlastnosti vrácených šablonou propojené.
 
 ```json
 {
@@ -309,9 +310,9 @@ Chcete-li použít veřejnou IP adresu z předchozí šablony při nasazení slu
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Propojených šablon v historii nasazení
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Propojené a vnořené šablony v historii nasazení
 
-Správce prostředků zpracovává každé propojené šablony jako samostatné nasazení v historii nasazení. Šablonu nadřazené se třemi šablonami propojené se proto zobrazí v historii nasazení jako:
+Správce prostředků zpracovává každé šabloně jako samostatné nasazení v historii nasazení. Proto se třemi šablonami propojenou nebo vnořené hlavní šablonu se zobrazí v historii nasazení jako:
 
 ![Historie nasazení](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -486,7 +487,7 @@ Následující příklady ukazují běžná použití propojených šablon.
 |[Nástroj pro vyrovnávání zatížení s veřejnou IP adresu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[propojené šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Vrátí veřejnou IP adresu z propojené šablony a nastavuje tuto hodnotu nástroji pro vyrovnávání zatížení. |
 |[Několik IP adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [propojené šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Vytvoří víc veřejných IP adres v propojené šablony.  |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Další informace o definování pořadí nasazení pro vaše prostředky najdete v tématu [definování závislostí v šablonách Azure Resource Manager](resource-group-define-dependencies.md).
 * Zjistěte, jak definovat jeden prostředek ale vytvořit mnoho instancí, najdete v tématu [vytvořit více instancí prostředků ve službě Správce prostředků Azure](resource-group-create-multiple.md).

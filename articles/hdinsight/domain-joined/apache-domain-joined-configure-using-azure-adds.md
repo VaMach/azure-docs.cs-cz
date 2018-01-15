@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: saurinsh
-ms.openlocfilehash: cf8532334f03f72691fa09e8dbdd02b78072cf38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurace clusterů HDInsight připojený k doméně pomocí nástroje Azure Active Directory Domain Services
 
@@ -39,7 +39,7 @@ Budete muset vytvořit Azure AD DS před vytvořením clusteru služby HDInsight
 > [!NOTE]
 > Pouze správci klientů mají oprávnění k vytvoření služby domain services. 
 
-Po zřídil službu domény musíte vytvořit účet služby v **správci řadič domény služby Azure AD** skupiny k vytvoření clusteru HDInsight. Účet serice musí být globální správce na Azure AD.
+Po zřídil službu domény musíte vytvořit účet služby v **správci řadič domény služby Azure AD** skupiny k vytvoření clusteru HDInsight. Účet služby musí být globální správce na Azure AD.
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Vytvoření clusteru HDInsight se připojený k doméně
 
@@ -61,7 +61,7 @@ Následující snímek obrazovky ukazuje konfigurace na portálu Azure:
 ![Konfigurace Azure HDInsight připojený k doméně Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Pokud chcete konfigurovat zásady Hivu a spouštět dotazy Hivu, přečtěte si téma [Konfigurace zásad Hivu pro clustery HDInsight připojené k doméně](apache-domain-joined-run-hive.md).
 * Pro připojení ke clusterům HDInsight připojený k doméně pomocí protokolu SSH, najdete v části [použití SSH se systémem Linux Hadoop v HDInsight ze systému Linux, Unix nebo OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

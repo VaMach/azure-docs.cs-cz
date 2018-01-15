@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Správa clusterů HDInsight připojený k doméně
 Další uživatelé a role v doméně HDInsight a Správa clusterů HDInsight připojený k doméně.
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Přístup k clusterů s balíček zabezpečení organizace.
+
+Balíček zabezpečení Enterprise (dříve označované jako HDInsight Premium) poskytuje více uživateli přístup ke clusteru, kde se provádí ověřování služby Active Directory a autorizace Apache škálu a úložiště seznamy řízení přístupu (ACL ADLS). Autorizace poskytuje zabezpečené hranice mezi více uživateli a umožňuje pouze mohou uživatelé s oprávněním k přístupu k datům na základě zásad autorizace.
+
+Zabezpečení a uživatelských izolace jsou důležité pro cluster HDInsight se balíček zabezpečení organizace. Pro splnění těchto požadavků, je blokován přístup SSH do clusteru s balíček zabezpečení organizace. Následující tabulka uvádí doporučené přístup metody pro každý typ clusteru:
+
+|Úloha|Scénář|Metoda přístupu|
+|--------|--------|-------------|
+|Hadoop|Hive – úlohy interaktivních/dotazů |<ul><li>[Beeline](#beeline)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Nástroje sady Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Úlohy interaktivních nebo dotazů, interaktivní PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin s Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Nástroje sady Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Scénáře batch – Spark odeslání, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Interaktivní dotazu (LLAP)|Interaktivní|<ul><li>[Beeline](#beeline)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Nástroje sady Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Všechny|Instalace vlastní aplikace|<ul><li>[Akce skriptu](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+Pomocí standardní rozhraní API pomáhá z hlediska zabezpečení. Kromě toho získáte následující výhody:
+
+1.  **Správa** – můžete spravovat kódu a automatizaci úloh pomocí rozhraní API pro standardní – Livy, HS2 atd.
+2.  **Audit** – pomocí protokolu SSH, neexistuje žádný způsob, jak auditovat, kteří uživatelé SSH museli clusteru. To by tomu-li úlohy jsou vytvořená pomocí standardních koncových bodů, jako by byl proveden v kontextu uživatele. 
+
+
+
+### <a name="beeline"></a>Použití Beeline 
+Instalace Beeline na počítači a připojit prostřednictvím veřejného Internetu, použijte následující parametry: 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Pokud máte Beeline nainstalovány místně a připojení přes virtuální síť Azure, použijte následující parametry: 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Najít plně kvalifikovaný název domény headnode, použijte informace v spravovat HDInsight pomocí Ambari REST API dokumentu.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Uživatelé clustery HDInsight připojený k doméně
 Cluster služby HDInsight, který není připojený k doméně má dva uživatelské účty, které jsou vytvořeny při vytvoření clusteru:
 
-* **Správce Ambari**: Tento účet je také označován jako *Hadoop uživatele* nebo *HTTP uživatele*. Tento účet lze použít pro přihlášení k Ambari na https://&lt;clustername >. azurehdinsight.net. Můžete ho také použít ke spouštění dotazů na zobrazení Ambari, spouštění úloh prostřednictvím externích nástrojů (tj. prostředí PowerShell, Templeton, Visual Studio) a ověření pomocí ovladače Hive ODBC a nástrojů BI (tj. aplikace Excel, PowerBI nebo Tableau).
+* **Správce Ambari**: Tento účet je také označován jako *Hadoop uživatele* nebo *HTTP uživatele*. Tento účet lze použít pro přihlášení k Ambari na https://&lt;clustername >. azurehdinsight.net. Můžete ho také použít ke spouštění dotazů na zobrazení Ambari, spouštění úloh prostřednictvím externích nástrojů (například prostředí PowerShell, Templeton, Visual Studio) a ověření pomocí ovladače Hive ODBC a BI nástroje (například aplikace Excel, PowerBI nebo Tableau).
 * **Uživatel SSH**: Tento účet je možné pomocí protokolu SSH a spuštěním příkazu "sudo" příkazů. Má kořenový oprávnění pro virtuální počítače s Linuxem.
 
 Cluster HDInsight připojený k doméně má tři nové uživatele kromě správce Ambari a uživatel SSH.
@@ -43,7 +95,7 @@ Cluster HDInsight připojený k doméně má tři nové uživatele kromě správ
     Všimněte si, že tito ostatní uživatelé AD také mají tato oprávnění.
 
     Existují některé koncové body v rámci clusteru (například Templeton), které nejsou spravovány nástrojem škálu a proto nejsou zabezpečené. Tyto koncové body jsou uzamčené pro všechny uživatele kromě domény uživatele Správce clusteru.
-* **Regulární**: při vytváření clusteru, můžete zadat více skupin služby active directory. Uživatelé v těchto skupinách se budou synchronizovat s škálu a Ambari. Tito uživatelé jsou uživatelé domény a budou mít přístup jenom spravovaná škálu koncových bodů (například Hiveserver2). Všechny zásady RBAC a auditování bude pro tyto uživatele.
+* **Regulární**: při vytváření clusteru, můžete zadat více skupin služby active directory. Uživatelé v těchto skupinách se synchronizují škálu a Ambari. Tito uživatelé jsou uživatelé domény a mají přístup jenom spravovaná škálu koncových bodů (například Hiveserver2). Všechny zásady RBAC a auditování bude pro tyto uživatele.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Role clusterů HDInsight připojený k doméně
 HDInsight připojený k doméně mají následující role:
@@ -63,8 +115,9 @@ HDInsight připojený k doméně mají následující role:
     ![Připojené k doméně oprávnění role HDInsight](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Otevřete uživatelské rozhraní pro správu Ambari
+
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Otevřete v okně clusteru HDInsight. V tématu [seznamu a zobrazit clustery](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Otevřete clusteru HDInsight. V tématu [seznamu a zobrazit clustery](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. Klikněte na tlačítko **řídicí panel** z hlavní nabídky pro otevření Ambari.
 4. Přihlaste se k použití clusteru správce domény uživatelské jméno a heslo Ambari.
 5. Klikněte **správce** rozevírací nabídce z horní pravým dolním a potom klikněte na **spravovat Ambari**.
@@ -106,7 +159,7 @@ HDInsight připojený k doméně mají následující role:
 2. V levé nabídce klikněte na tlačítko **role**.
 3. Klikněte na tlačítko **přidat uživatele** nebo **přidat skupinu** přiřadit uživatelů a skupin pro různé role.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Pokud chcete konfigurovat cluster HDInsight připojený k doméně, přečtěte si téma [Konfigurace clusterů HDInsight připojených k doméně](apache-domain-joined-configure.md).
 * Pokud chcete konfigurovat zásady Hivu a spouštět dotazy Hivu, přečtěte si téma [Konfigurace zásad Hivu pro clustery HDInsight připojené k doméně](apache-domain-joined-run-hive.md).
 * Spuštění dotazů Hive pomocí protokolu SSH v clusterech HDInsight připojený k doméně, najdete v části [použití SSH s HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

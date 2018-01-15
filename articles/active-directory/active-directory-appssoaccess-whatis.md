@@ -3,7 +3,7 @@ title: "Co je přístup k aplikaci a jednotné přihlašování s Azure Active D
 description: "Můžete povolit jednotné přihlašování ke všem SaaS a webové aplikace, které potřebujete pro firmy pomocí Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
@@ -16,20 +16,20 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?
-Jednotné přihlašování znamená schopnost přístup ke všem aplikacím a prostředkům, které musíte udělat podnikání, po přihlášení pouze po pomocí jediného uživatelského účtu. Jakmile se přihlásíte, dostanete všechny aplikace, bez nutnosti ověřování (např. Zadejte heslo) ještě jednou.
+Jednotné přihlašování znamená schopnost přístup ke všem aplikacím a prostředkům, které musíte udělat podnikání, po přihlášení pouze po pomocí jediného uživatelského účtu. Jakmile se přihlásíte, dostanete všechny aplikace, bez nutnosti ověřování (zadejte například heslo) ještě jednou.
 
 Mnoho organizací závisí software jako služba (SaaS) aplikace například Office 365, pole a Salesforce pro produktivita koncového uživatele. V minulosti IT oddělení potřebuje jednotlivě vytvářet a aktualizovat uživatelské účty v každé aplikaci SaaS a uživatelé budou muset Zapamatovat heslo pro každou aplikaci SaaS.
 
 Azure Active Directory rozšiřuje místní služby Active Directory do cloudu, uživatelům umožníte používat jejich primární účet organizace nejen Přihlaste se k jejich zařízení připojených k doméně a prostředkům společnosti, ale také na webu a aplikace SaaS potřebná pro jejich úlohy.
 
-Proto jenom uživatelé nemají ke správě více sad uživatelská jména a hesla, jejich aplikace přístup může automaticky zřídit nebo zrušte zřídit na základě jejich členové skupiny organizace, a také jejich stav jako zaměstnanci. Azure Active Directory zavádí zabezpečení a přístup zásad správného řízení ovládacích prvků, které vám umožní centrálně spravovat přístup uživatelů v rámci aplikací SaaS.
+Proto jenom uživatelé nemají ke správě více sad uživatelských jmen a hesel, jejich aplikace přístup může automaticky zřídit nebo zrušte zřízený podle jejich členové skupiny organizace a také jejich stav jako zaměstnanec. Azure Active Directory zavádí zabezpečení a přístup zásad správného řízení ovládacích prvků, které vám umožní centrálně spravovat přístup uživatelů v rámci aplikací SaaS.
 
 Azure AD umožňuje snadnou integraci k mnoha dnešních oblíbených aplikací SaaS; poskytuje správu identit a přístupu a umožňuje uživatelům jednotného přihlašování k aplikacím přímo, nebo zjistit a spusťte je z portálu, jako je Office 365 nebo přístupový panel Azure AD.
 
@@ -37,7 +37,7 @@ Architektura integrace se skládá z následujících čtyř hlavních stavební
 
 * Jednotné přihlašování umožňuje uživatelům přístup k jejich SaaS aplikací založených na účet své organizace v Azure AD. Jednotné přihlašování je co umožňuje uživatelům ověření aplikace pomocí jednoho účet své organizace.
 * Zřizování uživatelů umožňuje zřizování uživatelů a jeho rušení do cílové SaaS v závislosti na změny provedené v systému Windows Server Active Directory nebo Azure AD. Zřízeného účtu je co umožňuje uživatelům být autorizovaný k použití aplikaci, po mít ověření přes jednotné přihlašování.
-* Správa přístupu k centralizované aplikací na portálu správy Azure umožňuje přístup k aplikaci SaaS jednoho bodu a správy, umožňuje aplikaci přístup k rozhodování a schválení všem uživatelům v organizaci
+* Správa přístupu centralizované aplikací v Azure portálu umožňuje přístup k aplikaci SaaS jednoho bodu a správy, umožňuje aplikaci přístup k rozhodování a schválení všem uživatelům v organizaci
 * Sjednocené vytváření sestav a monitorování aktivity uživatelů ve službě Azure AD
 
 ## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>Jak funguje jednotné přihlašování pomocí služby Azure Active Directory?
@@ -56,23 +56,23 @@ Jakmile uživatel byl ověřen pomocí aplikace, se musí být také záznamu kl
 ### <a name="federated-single-sign-on"></a>Federované jednotné přihlašování
 Federované jednotné přihlašování umožňuje uživatelům ve vaší organizaci být automaticky přihlášeni k aplikaci SaaS jiných výrobců službou Azure AD pomocí informací o účtu uživatele z Azure AD.
 
-V tomto scénáři Pokud jste již byly zaprotokolovány do služby Azure AD, a chcete pro přístup k prostředkům, které jsou řízené aplikace SaaS jiných výrobců, federace eliminuje potřebu uživatele jako znovu ověřit.
+Pokud jste již byly zaprotokolovány do služby Azure AD, a chcete pro přístup k prostředkům, které jsou řízené aplikace SaaS jiných výrobců, federace v tomto scénáři se eliminuje potřeba pro uživatele, aby se k novému ověření.
 
 Federované jednotné přihlašování s aplikacemi, které podporují 2.0 SAML, WS-Federation, může podporovat Azure AD nebo OpenID connect protokoly.
 
 Viz také: [Správa certifikátů pro federované jednotné přihlašování](active-directory-sso-certs.md)
 
-### <a name="password-based-single-sign-on"></a>Založené na heslech jednotné přihlašování
+### <a name="password-based-single-sign-on"></a>Jednotné přihlašování pomocí hesla
 Konfigurace založené na heslech jednotné přihlašování umožňuje uživatelům ve vaší organizaci být automaticky přihlášeni k aplikaci SaaS jiných výrobců službou Azure AD pomocí informací o účtu uživatele z aplikace SaaS jiných výrobců. Když povolíte tuto funkci, Azure AD shromažďuje a bezpečně ukládá informace o uživatelském účtu a související heslo.
 
-Azure AD může podporovat založené na heslech jednotného přihlašování na pro všechny cloudové aplikaci, která má HTML na přihlašovací stránku. Pomocí modulu plug-in vlastním prohlížeči AAD automatizuje přihlášení uživatele v procesu prostřednictvím bezpečně načítání pověření aplikací, jako je například uživatelské jméno a heslo z adresáře a zadá tyto přihlašovací údaje do aplikace stránku pro přihlášení jménem uživatele. . Existují dva případy použití:
+Azure AD může podporovat založené na heslech jednotné přihlašování pro všechny cloudové aplikaci, která má HTML na přihlašovací stránku. Pomocí modulu plug-in vlastním prohlížeči AAD automatizuje proces přihlašování uživatele prostřednictvím bezpečně načítání pověření aplikací, jako je například uživatelské jméno a heslo z adresáře a zadá tyto přihlašovací údaje do aplikace přihlašovací stránky jménem uživatel. Existují dva případy použití:
 
-1. **Správce spravuje přihlašovací údaje** – správci mohou vytvořit a spravovat aplikace pověření a přiřaďte tyto přihlašovací údaje uživatele nebo skupiny, kteří potřebují přístup k aplikaci. V těchto případech koncového uživatele není potřeba znát přihlašovací údaje, ale stále jednoduše tak, že na ni kliknete v jejich přístupového panelu nebo prostřednictvím zadaný odkaz získá přístup jediné přihlášení k aplikaci. To umožňuje obě, Správa životního cyklu přihlašovacích údajů správce, jakož i pohodlí pro koncové uživatele, kterým se nemusíte mějte na paměti, nebo spravovat hesla konkrétní aplikaci. Přihlašovací údaje jsou zamaskované z koncového uživatele při automatické přihlašování v procesu; jsou ale technicky zjistitelný uživatelem pomocí nástroje pro ladění webových a uživatelům a správcům by měl podle stejné zásady zabezpečení, jako v případě, že přihlašovací údaje prezentovaly přímo uživatelem. Zadaný správce přihlašovacích údajů jsou velmi užitečné při poskytování přístupu účtu, která je sdílena mezi mnoha uživateli, jako je například sociálních médií nebo aplikace pro sdílení dokumentu.
+1. **Správce spravuje přihlašovací údaje** – správci mohou vytvořit a spravovat aplikace pověření a přiřaďte tyto přihlašovací údaje uživatele nebo skupiny, kteří potřebují přístup k aplikaci. V těchto případech koncového uživatele není potřeba znát přihlašovací údaje, ale stále jednoduše tak, že na ni kliknete v jejich přístupového panelu nebo prostřednictvím zadaný odkaz získá přístup jediné přihlášení k aplikaci. To umožňuje obě, Správa životního cyklu přihlašovacích údajů správce, jakož i pohodlí pro koncové uživatele, kterým se nemusíte mějte na paměti, nebo spravovat hesla konkrétní aplikaci. Přihlašovací údaje jsou zamaskované z koncový uživatel během automatizovaného procesu přihlášení; jsou ale technicky zjistitelný uživatelem pomocí nástroje pro ladění webových a uživatelům a správcům by měl podle stejné zásady zabezpečení, jako v případě, že přihlašovací údaje prezentovaly přímo uživatelem. Zadaný správce přihlašovacích údajů jsou užitečné při poskytování přístupu účtu, která je sdílena mezi mnoha uživateli, jako je například sociálních médií nebo aplikace pro sdílení dokumentu.
 2. **Spravuje přihlašovací údaje uživatele** – správci můžete přiřadit aplikace pro koncové uživatele nebo skupiny a povolit koncovým uživatelům zadat svoje vlastní přihlašovací údaje přímo při přístupu k aplikaci poprvé v jejich přístupového panelu. Tím se vytvoří v zájmu usnadnění pro koncové uživatele, kterým se nemusíte průběžně zadejte konkrétní aplikaci hesla při každém přístupu k aplikaci. Tento případ použití mohou sloužit také jako taktování kamenem správu správy přihlašovacích údajů, které správce může nastavit nové přihlašovací údaje pro aplikace v budoucnosti beze změny aplikační přístup prostředí koncového uživatele.
 
-V obou případech přihlašovací údaje jsou uložené v šifrovaném stavu v adresáři a jsou pouze předán přes protokol HTTPS během automatizovaného procesu přihlášení. Pomocí jednotného přihlašování založené na heslech na, Azure AD nabízí řešení pro aplikace, které nejsou podporovat protokoly federační správu přístupu pohodlný identity.
+V obou případech přihlašovací údaje jsou uložené v šifrovaném stavu v adresáři a jsou pouze předán přes protokol HTTPS během automatizovaného procesu přihlášení. Pomocí založené na heslech jednotné přihlašování, Azure AD nabízí řešení pro aplikace, které nejsou podporovat protokoly federační správu přístupu pohodlný identity.
 
-Jednotné přihlašování založené na heslech spoléhá na rozšíření prohlížeče bezpečně načíst konkrétní informace o aplikaci a uživatele z Azure AD a použít ji ke službě. Tuto funkci podporovat většinu aplikací SaaS jiných výrobců, které jsou podporovány službou Azure AD.
+Jednotné přihlašování založené na heslech spoléhá na rozšíření prohlížeče bezpečně načítat aplikace a informace o uživateli z Azure AD a použít ji ke službě. Tuto funkci podporovat většinu aplikací SaaS jiných výrobců, které jsou podporovány službou Azure AD.
 
 Pro jednotné přihlašování založené na heslech může být prohlížeče koncového uživatele:
 * Internet Explorer 8, 9, 10, 11 – v systému Windows 7 nebo novější
@@ -81,7 +81,7 @@ Pro jednotné přihlašování založené na heslech může být prohlížeče k
 * Firefox 26.0 nebo později – do systému Windows XP SP2 nebo novější a v systému Mac OS X 10,6 nebo novější
 
 ### <a name="existing-single-sign-on"></a>Existující jednotné přihlašování
-Při konfiguraci jednotné přihlašování pro aplikace, portál pro správu Azure poskytuje třetí možnost z "existující Single Sign-On". Tato možnost jenom umožňuje správci vytvořit odkaz na aplikaci a umístěte ji na panel přístupu pro vybraného uživatele.
+Při konfiguraci jednotné přihlašování pro aplikace, portál Azure poskytuje třetí možnost z "existující Single Sign-On". Tato možnost jenom umožňuje správci vytvořit odkaz na aplikaci a umístěte ji na panel přístupu pro vybraného uživatele.
 
 Například pokud je aplikace, který je nakonfigurovaný k ověřování uživatelů pomocí Active Directory Federation Services 2.0, správce slouží možnost "existující Single Sign-On" k vytvoření odkazu na na panel přístupu. Když uživatelé přistupují k odkazu, musí se ověřit pomocí Active Directory Federation Services 2.0 nebo jakoukoli existující jeden přihlašování řešení je k dispozici v aplikaci.
 
@@ -98,7 +98,7 @@ Jste připravení začít? K nasazení jednotného přihlašování mezi službo
 ### <a name="using-the-azure-ad-application-gallery"></a>Pomocí galerii aplikací Azure AD
 [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/) poskytuje seznam aplikací, které zaručeně podporují forma jednotné přihlašování s Azure Active Directory.
 
-![][1]
+![Galerie online aplikace Azure](media/active-directory-appssoaccess-whatis/onlineappgallery.png)
 
 Zde jsou některé tipy pro hledání aplikace podle jaké funkce podporují:
 
@@ -119,8 +119,8 @@ Pokud vaše aplikace nebyl nalezen v galerii aplikací Azure AD, máte tyto mož
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 * **Žádosti o aplikace integrační** -žádosti o podporu pro aplikace, musíte pomocí [fóru pro zpětnou vazbu Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-### <a name="using-the-azure-management-portal"></a>Pomocí portálu správy Azure
-Rozšíření Active Directory na portálu správy Azure můžete použít ke konfiguraci aplikace jednotného přihlašování. Jako první krok je nutné vybrat adresáře z oddílu služby Active Directory na portálu:
+### <a name="using-the-azure-portal"></a>Použití webu Azure Portal
+Rozšíření Active Directory na portálu Azure můžete použít ke konfiguraci aplikace jednotného přihlašování. Jako první krok je nutné vybrat adresáře z oddílu služby Active Directory na portálu:
 
 ![][2]
 
@@ -136,7 +136,7 @@ Typické úlohy správy pro aplikace SaaS jiných výrobců jsou:
 * Volitelně můžete povolit pro uživatele, zřizování a jeho rušení (Správa životního cyklu identity) zřizování uživatelů
 * Pro aplikace, kde je povoleno zřizování uživatelů výběr uživatelů, kteří mají přístup k dané aplikaci
 
-Pro aplikace Galerie, které podporují federované jednotné přihlašování konfigurace obvykle musíte zadat další konfiguraci nastavení jako třeba certifikáty a metadat pro vytvoření federovaného vztahu důvěryhodnosti mezi aplikací třetích stran a Azure AD. Průvodce konfigurací vás provede podrobnosti a poskytuje snadný přístup k datům konkrétní aplikace SaaS a pokyny.
+Pro aplikace Galerie, které podporují federované jednotné přihlašování konfigurace obvykle musíte zadat další konfiguraci nastavení jako třeba certifikáty a metadat pro vytvoření federovaného vztahu důvěryhodnosti mezi aplikací třetích stran a Azure AD. Průvodce konfigurací vás provede podrobnosti a poskytuje snadný přístup k datům specifické pro aplikace SaaS a pokyny.
 
 Galerie aplikace, které podporují automatické zřizování uživatelů musíte poskytnout oprávnění Azure AD spravovat vaše účty v aplikaci SaaS. Minimálně je třeba zadat přihlašovací údaje Azure AD by měl používat při ověřování přes do cílové aplikace. Jestli se nastavení konfigurace musí být zadané závisí na požadavky na aplikace.
 
@@ -153,9 +153,9 @@ Které metody rozhodnete nasadit ve vaší organizaci je vašeho vlastního rozh
 ### <a name="azure-ad-access-panel"></a>Azure AD přístupového panelu
 Přístupový Panel v https://myapps.microsoft.com je webový portál, který umožňuje koncový uživatel s účtem organizace v Azure Active Directory k zobrazení a spuštění cloudové aplikace do kterých budou byl udělen přístup správce Azure AD . Pokud jste koncovým uživatelem s [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), můžete také používat skupiny samoobslužné služby možnosti správy prostřednictvím na přístupovém panelu.
 
-![][3]
+![Azure AD přístupového panelu](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
-Přístupový Panel je nezávislý na portálu pro správu Azure a nevyžaduje, aby uživatelé měli předplatného Azure nebo předplatné služeb Office 365.
+Přístupový Panel je nezávislý na portálu Azure a nevyžaduje, aby uživatelé měli předplatného Azure nebo předplatné služeb Office 365.
 
 Další informace o přístupový panel Azure AD, najdete v článku [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
 
@@ -174,7 +174,7 @@ Nejvíce federovaným aplikacím, které podporují SAML 2.0 a WS-Federation, Op
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Přímé odkazy přihlášení pro federované, založené na heslech nebo existující aplikace
 Azure AD podporuje přímé jeden přihlašování odkazy na jednotlivých aplikací, které podporují založené na heslech jednotné přihlašování, existující jednotné přihlašování a jakoukoli formu federované jednotné přihlašování.
 
-Tyto odkazy jsou adresy URL speciálně vytvořenou, které odesílají uživatele prostřednictvím přihlášení Azure AD v procesu pro danou aplikaci bez nutnosti spuštění je uživatele z přístupového panelu Azure AD nebo Office 365. Tyto jedné adresy URL přihlašování najdete v části kartu řídicí panel všechny předem integrované aplikace v oddílu služby Active Directory portál pro správu Azure, jak je vidět na tomto snímku obrazovky.
+Tyto odkazy jsou specificky vytvořený adresy URL, které odeslat uživatele prostřednictvím přihlášení Azure AD v procesu pro danou aplikaci bez nutnosti spuštění je uživatele z přístupového panelu Azure AD nebo Office 365. Tyto jedné adresy URL přihlašování najdete v části kartu řídicí panel všechny předem integrované aplikace v oddílu služby Active Directory portál pro správu Azure, jak je vidět na tomto snímku obrazovky.
 
 ![][6]
 

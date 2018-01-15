@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 6019437763f82fa14b8677b6c7ec7f0c6938fda7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a55209256c29fa62cc2da72f9653fbc7fc0e7c54
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Hloubkové learning pro scénářích reálného světa prediktivní údržby
 
@@ -28,7 +28,7 @@ Ve scénářích prediktivní údržby data jsou shromažďována v čase sledov
 
 V tomto kurzu jsme sestavení síť LSTM pro sadu dat a scénáře, které jsou popsány v [prediktivní údržby](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). Používáme sítí k předvídání zbývající dobu životnosti letecké motory. Šablona používá hodnoty čidel simulované letadla k předvídání, když se v budoucnu nezdaří leteckého motoru. Pomocí této předpovědi, údržby můžou být plánované předem, aby se zabránilo selhání.
 
-Tento kurz používá [Keras](https://keras.io/) hloubkové učení knihovny a kognitivní nástrojů Microsoft [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) jako back-end.
+Tento kurz používá [Keras](https://keras.io/) hloubkové učení knihovny a kognitivní nástrojů Microsoft [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) jako back-end.
 
 Veřejné úložiště GitHub, který má ukázky v tomto kurzu je na [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
 
@@ -44,7 +44,7 @@ Doporučujeme prozkoumat formát dat a dokončit všechny tři kroky šablony p�
 
 - [Účet Azure](https://azure.microsoft.com/free/) (bezplatné zkušební verze jsou k dispozici).
 - Azure Machine Learning Workbench, s vytvořen pracovní prostor.
-- Pro model operationalization: Azure Machine Learning Operationalization, s prostředím místní nasazení nastavení a [účet Azure Machine Learning Model správy](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+- Pro model operationalization: Azure Machine Learning Operationalization, s prostředím místní nasazení nastavení a [účet Azure Machine Learning Model správy](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
 
 ## <a name="create-a-new-workbench-project"></a>Vytvoření nového projektu Workbench
 
@@ -128,7 +128,7 @@ Můžete upravit odpovídající části tohoto scénáře a pokuste se použít
 
 ## <a name="references"></a>Odkazy
 
-- [Šablona řešení prediktivní údržby](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
+- [Šablona řešení prediktivní údržby](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
 - [Průvodce modelováním prediktivní údržby](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 - [Prediktivní údržby modelování Poznámkový blok průvodce Python](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 - [Prediktivní údržby pomocí PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)

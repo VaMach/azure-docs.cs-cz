@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Technických specifikací a dodržování předpisů pro zařízení StorSimple
 
@@ -35,7 +35,7 @@ Skříň EBOD používá 580 W PCM a primární skříň 764 W PCM. V následuj�
 | Specifikace | 580 W PCM (EBOD) | 764 W PCM (primární) |
 | --- | --- | --- |
 | Maximální výstupní výkon |580 W |764 |
-| frekvence |50/60 Hz |50/60 Hz |
+| Frekvence |50/60 Hz |50/60 Hz |
 | Výběr rozsahu napětí |Automatické rozsahu: 90 – 264 V AC, 47/63 Hz |Automatické rozsahu: 90-264 V AC, 47/63 Hz |
 | Maximální průvalu aktuální |20 A |20 A |
 | Korekce faktor výkonu |> 95 % nominální vstupní napětí |> 95 % nominální vstupní napětí |
@@ -80,7 +80,7 @@ Zařízení StorSimple 8100 i 8600 mít směs pevných disků a jednotek SSD. Ce
 | Celkový počet použitelné kapacity * |~ 15 TB |~ 38 TB |
 | Řešení maximální kapacity (včetně cloudu) |200 TB |500 TB |
 
-<sup>* </sup>- *Celková kapacita použitelné zahrnuje dostupné kapacity pro data, metadat a vyrovnávací paměti.*
+<sup>* </sup>- *Celková kapacita použitelné zahrnuje dostupné kapacity pro data, metadat a vyrovnávací paměti. Umožňuje zřizovat místně vázané svazky o velikosti až šířka 8,5 TB zařízení 8100 nebo až 22,5 TB na větší zařízení 8600. Další informace, přejděte na [StorSimple místně připojené svazky](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Skříň dimenze a specifikace váhy
 
@@ -193,7 +193,7 @@ Moduly a sestavení kabel dokončení power musejí splňovat standardy, které 
 
 10 GbE síťová rozhraní DATA 2 a DATA 3 najdete [seznam podporovaných síťových kabelů a moduly](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Nyní jste připraveni k nasazení zařízení StorSimple ve vašem datovém centru. Další informace najdete v tématu [nasazení místního zařízení](storsimple-8000-deployment-walkthrough-u2.md).
 

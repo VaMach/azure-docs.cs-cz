@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak používat Azure API Management s virtuálními sítěmi
 Virtuální sítě Azure (virtuální sítě) umožňují některé z vašich prostředků Azure umístění v síti routeable Internetu jiných výrobců, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií sítě VPN. Další informace o virtuálních sítí Azure začínat zde uvedené informace: [Přehled virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).
@@ -111,8 +111,6 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
 | * / 3443 |Příchozí |TCP |INTERNET NEBO VIRTUAL_NETWORK|Koncový bod správy pro portál Azure a prostředí Powershell |Interní |
 | * / 80, 443 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislost na službě Azure Storage, Azure Service Bus a Azure Active Directory (v případě potřeby).|Externí & interní | 
 | * / 1433 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k koncové body Azure SQL** |Externí & interní |
-| * / 11000 - 11999 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k Azure SQL verze 12** |Externí & interní |
-| * / 14000 - 14999 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k Azure SQL verze 12** |Externí & interní |
 | * / 5671, 5672 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislosti pro protokol do centra událostí zásadu a agent monitorování |Externí & interní |
 | * / 445 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislost na sdílenou složku Azure pro GIT |Externí & interní |
 | * / 25028 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Připojení k předávání SMTP pro odesílání e-mailů |Externí & interní |

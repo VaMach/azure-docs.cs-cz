@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Pomocí Správce zařízení StorSimple Spravovat výstrahy pro toto pole virtuální zařízení StorSimple
 
@@ -125,7 +125,6 @@ Následující tabulka uvádí některé z StorSimple výstrahy, které se můž
 * [Upozornění na selhání úlohy](#job-failure-alerts)
 * [Výstrahy výkonu](#performance-alerts)
 * [Výstrahy zabezpečení](#security-alerts)
-* [Aktualizace výstrah](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Výstrahy připojení cloudu
 
@@ -165,14 +164,7 @@ Následující tabulka uvádí některé z StorSimple výstrahy, které se můž
 |:--- |:--- |:--- |
 | Heslo pro <*název zařízení*> do vypršení platnosti <*číslo*> dnů. |Heslo upozornění. |Heslo vyprší za < číslo < dnů. Zvažte změnu hesla. Další informace, přejděte na [změnit heslo správce zařízení StorSimple virtuální pole](storsimple-virtual-array-change-device-admin-password.md). |
 
-### <a name="update-alerts"></a>Aktualizace výstrah
-
-| Textu výstrahy | Událost | Další informace / doporučené akce |
-|:--- |:--- |:--- |
-| Jsou nové aktualizace dostupné pro vaše zařízení. |Jsou k dispozici aktualizace pole virtuální zařízení StorSimple. |Můžete nainstalovat nové aktualizace z **údržby** stránky. |
-| Nelze vyhledat nové aktualizace na <*název zařízení*>. |Aktualizujte selhání. |Došlo k chybě při instalaci nové aktualizace. Můžete ručně nainstalovat aktualizace. Pokud potíže potrvají, obraťte se na [Microsoft Support](storsimple-contact-microsoft-support.md). |
-
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Další informace o pole virtuální zařízení StorSimple](storsimple-ova-overview.md).
 

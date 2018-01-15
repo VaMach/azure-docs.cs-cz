@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorování Azure Functions
 
@@ -37,8 +37,8 @@ Pro funkce aplikace k odesílání dat do služby Application Insights musí zn�
 
 * [Vytvořit připojenou instanci Application Insights, když vytvoříte aplikaci funkce](#new-function-app).
 * [Připojení instance Application Insights do existující aplikace funkce](#existing-function-app).
- 
-### <a name="new-function-app"></a>Nové funkce aplikace
+
+### <a name="new-function-app"></a>Nová aplikace funkcí
 
 Povolit Application Insights na aplikaci funkce **vytvořit** stránky:
 
@@ -66,6 +66,14 @@ Získat klíč instrumentace a uložit ho v aplikaci funkce:
 
 1. Klikněte na **Uložit**.
 
+## <a name="disable-built-in-logging"></a>Zakázat integrované protokolování
+
+Pokud povolíte Application Insights, doporučujeme zakázat [vestavěné protokolování, který používá úložiště Azure](#logging-to-storage). Integrované protokolování je užitečné pro testování s světla úlohy, ale není určen pro použití v provozním prostředí vysokým zatížením. Pro produkční monitorování, se doporučuje Application Insights. Pokud integrované protokolování se používá v produkčním prostředí, mohou být neúplné kvůli omezování na Azure Storage záznam protokolování.
+
+Chcete-li zakázat vestavěné protokolování, odstraňte `AzureWebJobsDashboard` nastavení aplikace. Informace o tom, jak odstranit aplikaci nastavení na portálu Azure najdete v tématu **nastavení aplikace** části [jak spravovat aplikaci funkce](functions-how-to-use-azure-function-app-settings.md#settings).
+
+Když povolíte Application Insights a integrované protokolování zakázat, **monitorování** kartě pro funkce na portálu Azure přejdete do služby Application Insights.
+
 ## <a name="view-telemetry-data"></a>Telemetrická data zobrazení
 
 Přejděte na připojenou instanci Application Insights z funkce aplikace na portálu, vyberte **Application Insights** odkaz na aplikaci funkce **přehled** stránky.
@@ -78,7 +86,7 @@ V [Průzkumníku metrik](../application-insights/app-insights-metrics-explorer.m
 
 Na [selhání](../application-insights/app-insights-asp-net-exceptions.md) kartě, můžete vytvořit grafy a výstrahy na základě selhání funkce a server výjimky. **Název operace** je název funkce. Selhání v závislosti nejsou zobrazeny. Pokud budete implementovat [vlastní telemetrii](#custom-telemetry-in-c-functions) závislosti.
 
-![selhání](media/functions-monitoring/failures.png)
+![Selhání](media/functions-monitoring/failures.png)
 
 Na [výkonu](../application-insights/app-insights-performance-counters.md) kartě, můžete analyzovat problémy s výkonem.
 
@@ -464,58 +472,41 @@ Ohlásit problém s Application Insights integraci funkcí, nebo zajistěte, aby
 
 ## <a name="monitoring-without-application-insights"></a>Monitorování bez Application Insights
 
-Doporučujeme, abyste Application Insights pro monitorování funkce, protože nabízí další data a lepší způsoby, jak analyzovat data. Ale můžete také najít telemetrická data a data protokolování v Azure stránky portálu pro funkce aplikace. 
+Doporučujeme, abyste Application Insights pro monitorování funkce, protože nabízí další data a lepší způsoby, jak analyzovat data. Ale můžete také najít protokoly a telemetrická data v Azure stránky portálu pro funkce aplikace.
 
-Vyberte **monitorování** kartu pro funkci a získejte seznam spuštěních funkce. Vyberte funkce provádění ke kontrole doba trvání, vstupních dat, chyb a přidružené soubory protokolu.
+### <a name="logging-to-storage"></a>Protokolování do úložiště
 
-> [!IMPORTANT]
-> Při použití [spotřeba hostování plán](functions-overview.md#pricing) pro Azure Functions **monitorování** dlaždice v aplikaci funkce nezobrazuje žádná data. Je to proto platformou dynamicky Škáluje a spravuje výpočetní instance za vás. Tyto metriky nejsou smysluplný na plánu spotřeby.
+Integrované protokolování používá účet úložiště určeného připojovací řetězec `AzureWebJobsDashboard` nastavení aplikace. Pokud nastavení této aplikace je nakonfigurovaný, zobrazí se protokolování dat na portálu Azure. Na stránce funkce aplikace, vyberte funkci a pak vyberte **monitorování** kartě a získat seznam spuštěních funkce. Vyberte funkce provádění ke kontrole doba trvání, vstupních dat, chyb a přidružené soubory protokolu.
+
+Pokud používáte Application Insights a máte [integrované protokolování zakázáno](#disable-built-in-logging), **monitorování** kartě přejdete do služby Application Insights.
 
 ### <a name="real-time-monitoring"></a>Sledování v reálném čase
 
-Sledování v reálném čase je k dispozici kliknutím **živý datový proud událostí** na funkci **monitorování** kartě. Datový proud živé události se zobrazí v grafu na nové záložce prohlížeče.
+Soubory protokolu a relaci příkazového řádku na místní pracovní stanici pomocí dá Streamovat [rozhraní příkazového řádku Azure (CLI) 2.0](/cli/azure/install-azure-cli) nebo [prostředí Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Je známý problém, který může způsobit, že dat, aby se nepodařilo načíst. Budete muset zavřete kartu prohlížeče obsahující datový proud živé události a pak klikněte na tlačítko **živý datový proud událostí** znovu tak, aby ji správně naplnění dat událostí datového proudu. 
-
-Tyto statistické údaje jsou v reálném čase, ale skutečný vytváření grafů data provádění pravděpodobně přibližně 10 sekund latence.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Soubory protokolu sledování z příkazového řádku
-
-Soubory protokolu na relaci příkazového řádku na místní pracovní stanici, pomocí rozhraní příkazového řádku Azure (CLI) 1.0 nebo prostředí PowerShell můžete datového proudu.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorování souborů protokolů funkce aplikace pomocí Azure CLI 1.0
-
-Abyste mohli začít, [nainstalovat Azure CLI 1.0](../cli-install-nodejs.md) a [přihlaste k Azure](/cli/azure/authenticate-azure-cli).
-
-Povolit klasického režimu správy služby, vyberte předplatné, a stream souborů protokolů použijte následující příkazy:
+Pro 2.0 rozhraní příkazového řádku Azure použijte následující příkazy Pokud chcete přihlásit, zvolte vaše předplatné a soubory datového proudu protokolů:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Monitorování souborů protokolů funkce aplikace pomocí prostředí PowerShell
-
-Abyste mohli začít, [instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
-
-K přidání účtu Azure, zvolte vaše předplatné a stream souborů protokolů použijte následující příkazy:
+Pro prostředí Azure PowerShell použijte k přidání účtu Azure, zvolte si předplatné a soubory protokolu datového proudu následující příkazy:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Další informace najdete v tématu [postup: Stream protokoly pro webové aplikace](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Další informace najdete v tématu [postup stream protokoly](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-> [!div class="nextstepaction"]
-> [Další informace o Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Další informace najdete v následujících materiálech:
 
-> [!div class="nextstepaction"]
-> [Další informace o rozhraní protokolování, které používá funkce](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [ASP.NET Core protokolování](/aspnet/core/fundamentals/logging/)

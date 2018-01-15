@@ -11,7 +11,7 @@
 
 | Distribuce | Ovladač |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Distribuce založené na CentOS 7.3 | NVIDIA mřížky 5.0, ovladač větve R384|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Distribuce založené na CentOS 7.3 | 5.2 NVIDIA mřížky, ovladač větve R384|
 
 > [!NOTE]
 > Microsoft znovu distribuuje NVIDIA mřížky ovladač instalačních programů pro virtuální počítače vs. Nainstalujte pouze tyto ovladače mřížky na virtuálních počítačích Azure vs. Tyto ovladače zahrnují licencování pro mřížky virtuální grafický procesor Software v Azure.

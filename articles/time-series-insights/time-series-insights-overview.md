@@ -11,17 +11,24 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Co je Azure časové řady Insights?
 
 Statistika řady čas je vytvořené pro ukládání, vizualizace a dotazování velké objemy dat řady čas, jako je například generovaná zařízeními IoT.  Pokud chcete uložit, spravovat, dotaz nebo vizualizovat data řady čas v cloudu, je pravděpodobné, práva pro přehledy časové řady.  
 
-Pokud vytváříte aplikace pro využívání interní nebo externí zákazníky, pokud chcete použít, časové řady Insights slouží jako back-end pro indexování, ukládání a agregování dat časové řady.  V horní části můžete vytvořit vlastní vizualizace a uživatelské prostředí.  Statistika časové řady zpřístupní REST API dotazu chcete povolit tento scénář.  
+Statistika časové řady má čtyři klíčové úlohy:
+
+- Nejprve je plně integrované s cloudové brány, jako je Azure IoT Hub a Azure Event Hubs. Snadno se připojuje k tyto zdroje událostí a analyzuje JSON ze zprávy a struktury, které mají data v čisté řádků a sloupců. Se připojí metadata s telemetrií a indexy vaše data v sloupcovém úložiště.
+- Druhé časové řady Statistika spravuje úložiště dat. Kvůli zajištění bezpečnosti dat vždy snadno dostupný, ukládá vaše data v paměti a na SSD až 400 dní. Až miliardy událostí můžete interaktivně dotazu v sekundách – na vyžádání.
+- Třetí časové řady statistika poskytuje vizualizace se na pole prostřednictvím TSI explorer.  
+- Statistika časové řady čtvrté, poskytuje službu, dotaz, v Průzkumníku TSI i pomocí rozhraní API, která se dají snadno integrovat pro vložení dat v řadě čas do vlastních aplikací.  
+
+Umožňuje vytvářet aplikace, pro využívání interní nebo externí zákazníky, pokud chcete použít, časové řady Statistika lze nastavit jako back-end pro indexování, ukládání a agregování dat časové řady. V horní části můžete vytvořit vlastní vizualizace a uživatelské prostředí.  Statistika časové řady zpřístupňuje rozhraní API dotazu chcete povolit tento scénář.  
 
 Pokud si nejste jistí, pokud jsou vaše data časové řady, zde je co byste měli vědět.  Data řady čas představuje, jak prostředku nebo proces změny v čase.  Je jedinečný v, že má časovým razítkem a čas smysluplných jako osu.  Data řady čas obvykle dorazí v pořadí časů a obvykle považuje za typu vložení, nikoli aktualizaci vaší databáze.  Protože časové řady Statistika zaznamená a uloží každou novou událost jako řádek, změna se měří v čase, umožňuje hledat zpětné a předpovídat budoucí změny.  Ve velkých svazků může být náročné ukládání, indexování, dotazování, analýze a detekční data časové řady.  
 

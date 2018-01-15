@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Správa funkce aplikace na portálu Azure 
 
@@ -70,7 +70,7 @@ Další informace o tom, jak pracovat s nastavením služby App Service najdete 
 
 | | |
 |-|-|
-| ![Nastavení aplikace funkce aplikace.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **nastavení aplikace** okno je, kde můžete konfigurovat a spravovat framework verze, vzdálené ladění, nastavení aplikace a připojovací řetězce. Při integraci s jinými Azure a služby třetích stran, funkce aplikace, můžete upravit tato nastavení zde. |
+| ![Nastavení aplikace funkce aplikace.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **nastavení aplikace** okno je, kde můžete konfigurovat a spravovat framework verze, vzdálené ladění, nastavení aplikace a připojovací řetězce. Při integraci s jinými Azure a služby třetích stran, funkce aplikace, můžete upravit tato nastavení zde. Pokud chcete odstranit nastavení, posuňte doprava a vyberte **X** ikonu na pravém konci řádku (to není znázorněné na následujícím obrázku).
 
 ![Konfigurace nastavení aplikace](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -125,7 +125,7 @@ Další informace o tom, jak pracovat s nastavením služby App Service najdete 
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 + [Konfigurace nastavení služby Azure App Service](../app-service/web-sites-configure.md)
 + [Průběžné nasazování se službou Azure Functions](functions-continuous-deployment.md)

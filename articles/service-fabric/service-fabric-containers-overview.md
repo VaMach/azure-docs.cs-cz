@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric a kontejnery
 > [!NOTE]
-> Nasazení kontejnerů do clusteru Service Fabric v systému Windows 10 se zatím nepodporuje. 
+> Nasazení kontejnerů do clusteru Service Fabric v systému Windows 10 nebo s Docker CE není podporována. 
 >   
+
+> [!NOTE]
+> Service Fabric verze 6.1 má preview podporu pro systém Windows Server verze. 1709. Otevřete sítě a služba DNS prostředků infrastruktury se systémem Windows Server verze. 1709 nefungují. 
+> 
 
 ## <a name="introduction"></a>Úvod
 Azure Service Fabric je [orchestrator](service-fabric-cluster-resource-manager-introduction.md) služeb mezi clustery počítačů za několik let využití a optimalizace v masivním měřítku služeb společnosti Microsoft. Služby mohou být vytvořeny v mnoha směrech pomocí [Service Fabric programovací modely](service-fabric-choose-framework.md) nasazení [spustitelné soubory hosta](service-fabric-deploy-existing-app.md). Ve výchozím nastavení Service Fabric nasadí a aktivuje tyto služby jako procesy. Procesy poskytují nejrychlejší aktivace a nejvyšší hustotu využití prostředků v clusteru. Service Fabric lze také nasadit services v kontejneru bitové kopie. Je důležité je možné kombinovat služby v procesy a služby v kontejnerech ve stejné aplikaci.   
@@ -83,7 +87,7 @@ Service Fabric má několik kontejneru možnosti, které vám pomůžou vytvář
 * Možnost nastavit pověření zabezpečení na kontejneru.
 * Volba různé sítě režimy kontejnery.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste se dozvěděli o kontejnery, Service Fabric je kontejner orchestrator, a že Service Fabric obsahuje funkce, které podporují kontejnery. Jako další krok jsme přejděte přes příklady každé funkce, které chcete ukazují, jak je používat.
 
 [Vytvoření první aplikace Service Fabric kontejneru v systému Windows](service-fabric-get-started-containers.md)

@@ -1,6 +1,6 @@
 ---
 title: "Azure Backup: zálohování konzistentní s aplikací virtuálních počítačů Linux | Microsoft Docs"
-description: "Chcete-li zaručit zálohování konzistentní s aplikací do Azure, pro virtuální počítače s Linuxem pomocí skriptů. Skripty se vztahují pouze na virtuální počítače s Linuxem v nasazení Resource Manager; skripty se nevztahují na virtuální počítače Windows nebo nasazení service manager. Tento článek vás provede kroky pro konfiguraci skripty, včetně řešení potíží."
+description: "Vytvořte zálohování konzistentní s aplikací virtuálních počítačů Linux do Azure. Tento článek vysvětluje, konfiguraci rozhraní skript pro zálohování Azure nasazené virtuální počítače s Linuxem. Tento článek obsahuje také informace o odstraňování potíží."
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Zálohování konzistentní s aplikací virtuálních počítačů Linux Azure (preview)
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Zálohování konzistentní s aplikací Azure Linux virtuálních počítačů
 
-Tento článek hovoří o sady Linux předem skript a po skriptu framework a jak ho lze provést zálohování konzistentní s aplikací Azure Linux virtuálních počítačů.
-
-> [!Note]
-> Rozhraní framework skript před a po skript je podporována pouze pro virtuální počítače s Linuxem nasazení Azure Resource Manager. Skripty pro konzistence aplikací nejsou podporovány pro nasazení portálu Service Manager virtuální počítače nebo virtuální počítače s Windows.
->
+Při pořizování snímků záloh virtuálních počítačů, konzistence aplikací znamená, že vaše aplikace spustit v případě, že virtuální počítače spustit po obnovena. Jak si lze představit, je velmi důležité konzistence aplikace. Aby virtuální počítače Linux jsou aplikace konzistentní že rozhraní skript před a po skript Linux můžete provést zálohování konzistentní s aplikací. Rozhraní framework skript před a po skript podporuje virtuální počítače s Linuxem nasazení Azure Resource Manager. Skripty pro konzistence aplikací nepodporují nasazení portálu Service Manager virtuální počítače nebo virtuální počítače s Windows.
 
 ## <a name="how-the-framework-works"></a>Jak funguje rozhraní
 
-Rozhraní framework poskytuje možnost spustit vlastní skripty před a po skriptů při přenášíte snímky virtuálních počítačů. Předběžné skripty se spouštějí těsně před pořídíte snímek virtuálního počítače, a po skripty se spouštějí ihned po pořídíte snímek virtuálního počítače. To vám dává flexibilní možnost určit aplikaci a prostředí při přenášíte snímky virtuálních počítačů.
+Rozhraní framework poskytuje možnost spustit vlastní skripty před a po skriptů při přenášíte snímky virtuálních počítačů. Spustit předběžné skripty těsně před provedením snímku virtuálního počítače a po skripty spustit okamžitě po pořídíte snímek virtuálního počítače. Před a po skriptů poskytují flexibilitu pro řízení aplikací a prostředí při přenášíte snímky virtuálních počítačů.
 
-V tomto scénáři je důležité zajistit konzistentní s aplikací zálohování virtuálních počítačů. Předběžné skriptu můžete volat rozhraní API nativní aplikace pro uvedení IOs a vyprázdnit obsah v paměti na disk. To zajistí, že snímek bude konzistentní s aplikacemi (to znamená, která se dodává aplikace až když se virtuální počítač spustí po obnovení). Po skriptu slouží k uvolnění IOs. Dělá to pomocí rozhraní API nativní aplikace tak, aby aplikace můžete obnovit normální provozní podmínky post-VM snímku.
+Předběžné skripty vyvolání nativní aplikace rozhraní API, které uvedení IOs a vyprázdnit obsah v paměti na disk. Tyto akce Ujistěte se, že snímek je aplikace, které jsou konzistentní. Po skripty pomocí nativní aplikace rozhraní API se odblokování IOs, které umožní aplikaci obnovit normální provozní podmínky po snímek virtuálního počítače.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Postup konfigurace skript před a po skript
 
 1. Přihlaste se jako kořenový uživatel do virtuálního počítače s Linuxem, které chcete zálohovat.
 
-2. Stáhněte si **VMSnapshotScriptPluginConfig.json** z [Githubu](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)a potom ho zkopírujete do **/etc/azure** složky na všechny virtuální počítače, které chcete zálohovat. Vytvořte **/etc/azure** adresáře, pokud již neexistuje.
+2. Z [Githubu](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), stáhněte si **VMSnapshotScriptPluginConfig.json** a zkopírujte ho do **/etc/azure** složky pro všechny virtuální počítače, které chcete zálohovat. Pokud **/etc/azure** složka neexistuje, vytvořte ho.
 
 3. Zkopírujte skript před a po skript pro vaši aplikaci na všech virtuálních počítačích, které chcete zálohovat. Skripty můžete zkopírovat do libovolného umístění, do virtuálního počítače. Nezapomeňte aktualizovat úplnou cestu souborů skriptů v **VMSnapshotScriptPluginConfig.json** souboru.
 
@@ -51,20 +47,20 @@ V tomto scénáři je důležité zajistit konzistentní s aplikací zálohován
    - **Po skriptu** oprávnění "700." Například by měl mít jenom uživatel "root" "číst", "zápisu" a "spustit" oprávnění k tomuto souboru.
 
    > [!Important]
-   > Rozhraní framework poskytuje uživatelům spoustu napájení. Je důležité, aby je bezpečné a že pouze "root" uživatel má přístup k souborům kritické JSON a skript.
-   > Pokud předchozí požadavky nejsou splněny, skript není spuštěn. Výsledkem je konzistentní zálohování nebo selhání systému souborů.
+   > Rozhraní framework poskytuje uživatelům spoustu napájení. Zabezpečení rozhraní a ujistěte se, že pouze "root" uživatel má přístup k kritické JSON a soubory skriptu.
+   > Pokud požadavky nejsou splněny, skript se nespustí, výsledkem je selhání systému souborů a konzistentní zálohování.
    >
 
 5. Konfigurace **VMSnapshotScriptPluginConfig.json** podle postupu popsaného tady:
-    - **pluginName**: Toto pole, jako je zůstat nebo skripty nemusí fungovat podle očekávání.
+    - **pluginName**: ponechat toto pole, jako je nebo skripty nemusí fungovat podle očekávání.
 
     - **preScriptLocation**: zadat úplnou cestu předběžné skriptu ve virtuálním počítači, který se bude zálohovat.
 
     - **postScriptLocation**: zadat úplnou cestu po skriptu ve virtuálním počítači, který se bude zálohovat.
 
-    - **preScriptParams**: Zadejte volitelné parametry, které je třeba předávané předběžné skriptu. Všechny parametry musí být v uvozovkách a musí být oddělené čárkami, pokud existuje více parametrů.
+    - **preScriptParams**: Zadejte volitelné parametry, které je třeba předávané předběžné skriptu. Všechny parametry musí být v uvozovkách. Pokud chcete použít několik parametrů, oddělte čárkou parametry.
 
-    - **postScriptParams**: Zadejte volitelné parametry, které je třeba předat po skriptu. Všechny parametry musí být v uvozovkách a musí být oddělené čárkami, pokud existuje více parametrů.
+    - **postScriptParams**: Zadejte volitelné parametry, které je třeba předat po skriptu. Všechny parametry musí být v uvozovkách. Pokud chcete použít několik parametrů, oddělte čárkou parametry.
 
     - **preScriptNoOfRetries**: nastavte počet pokusů před skript by měl opakovat, pokud chybě před ukončením. Zkuste pouze jeden nula znamená a žádné opakování. Pokud dojde k selhání.
 
@@ -95,5 +91,5 @@ Ujistěte se, že přidáte příslušné protokolování při psaní skriptů p
 | Před ScriptTimeout | Doba pro provedení konzistentní s aplikací zálohování před skriptu vypršel. | Zkontrolujte skript a zvýšit časový limit v **VMSnapshotScriptPluginConfig.json** soubor, který se nachází v **/etc/azure**. |
 | POST-ScriptTimeout | Vypršel časový limit spuštění zálohování konzistentní s aplikací po skriptu. | Zkontrolujte skript a zvýšit časový limit v **VMSnapshotScriptPluginConfig.json** soubor, který se nachází v **/etc/azure**. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Konfigurace zálohování virtuálních počítačů do trezoru služeb zotavení](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

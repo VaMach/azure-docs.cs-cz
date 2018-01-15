@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 039012b8ba0b83f6338128a2200d1232ae6467f3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Spravovat účty pro správu přístupu nouze ve službě Azure AD 
 
@@ -48,11 +48,11 @@ Jednou z možností je, aby uživatele členy *globálního správce* role. Tato
 
 Aby se snížilo riziko útoku vyplývající z ohroženého heslo, Azure AD doporučuje vyžadovat Vícefaktorové ověřování pro všechny jednotlivé uživatele. Tato skupina by měla obsahovat správce a všechny ostatní uživatele (například finanční osoby) jejichž ohrožení bezpečnosti účtu by mít významný dopad. 
 
-Ale pokud vaše organizace nemá sdílená zařízení, Multi-Factor Authentication nemusí být možné pro tyto účty pro nouzový přístup. Pokud konfigurujete zásady podmíněného přístupu tak, aby vyžadovala [registrace služby Multi-Factor Authentication pro každé správce](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) pro Azure AD a druhý software jako služba (SaaS) aplikace, možná budete muset nakonfigurovat zásady vyloučení vyloučit účty pro nouzový přístup z tohoto požadavku.
+Ale pokud vaše organizace nemá sdílená zařízení, Multi-Factor Authentication nemusí být možné pro tyto účty pro nouzový přístup. Pokud konfigurujete zásady podmíněného přístupu tak, aby vyžadovala [registrace služby Multi-Factor Authentication pro každé správce](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) pro Azure AD a druhý software jako služba (SaaS) aplikace, možná budete muset nakonfigurovat zásady vyloučení vyloučit účty pro nouzový přístup z tohoto požadavku.
 
 ### <a name="initial-configuration-with-approvals"></a>Počáteční konfigurace s schválení
 
-Další možností je nakonfigurovat uživatele jako způsobilých a schvalovatele aktivovat *globálního správce* role. Tato možnost by vyžadovaly vaše organizace má Azure AD Premium P2 odběry. Bude vyžadovat také možnost vícefaktorového ověřování, který je vhodný pro použití sdílené mezi více osob a síťové prostředí. Tyto požadavky jsou, protože aktivace *globálního správce* role vyžaduje, aby uživatelé provedli dříve Multi-Factor Authentication. Další informace najdete v tématu [jak vyžadovat Vícefaktorové ověřování v Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Další možností je nakonfigurovat uživatele jako způsobilých a schvalovatele aktivovat *globálního správce* role. Tato možnost by vyžadovaly vaše organizace má Azure AD Premium P2 odběry. Bude vyžadovat také možnost vícefaktorového ověřování, který je vhodný pro použití sdílené mezi více osob a síťové prostředí. Tyto požadavky jsou, protože aktivace *globálního správce* role vyžaduje, aby uživatelé provedli dříve Multi-Factor Authentication. Další informace najdete v tématu [jak vyžadovat Vícefaktorové ověřování v Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
 Nedoporučujeme používat službu Multi-Factor Authentication, který je spojen s osobní zařízení pro účty pro nouzový přístup. V případě nouze skutečná osoba, která potřebuje přístup k zařízení registrované služby Multi-Factor Authentication nemusí být k tomu, který má osobní zařízení. 
 
@@ -60,7 +60,7 @@ Zvažte také povahu hrozeb. Například může dojít nepředvídatelné okolno
 
 ## <a name="ongoing-monitoring"></a>Průběžné monitorování
 
-Monitorování [přihlášení k Azure AD a auditu v protokolech](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) pro všechny přihlášení a audit aktivity z nouzové přístupové účty. Tyto účty za normálních okolností by neměl být přihlášení a nesmí být provádění změn, tak z nich je pravděpodobně být neobvyklé a vyžadují zabezpečení šetření.
+Monitorování [přihlášení k Azure AD a auditu v protokolech](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) pro všechny přihlášení a audit aktivity z nouzové přístupové účty. Tyto účty za normálních okolností by neměl být přihlášení a nesmí být provádění změn, tak z nich je pravděpodobně být neobvyklé a vyžadují zabezpečení šetření.
 
 ## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Ověření kontrolu účtu se musí vyskytovat v pravidelných intervalech
 

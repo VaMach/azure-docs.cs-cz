@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centrálně spravovat ITSM pracovních položek pomocí IT Service Management Connector (Preview)
 
@@ -98,11 +98,11 @@ ServiceDeskWorkItemType_s = "Incidentem"
 - Dopad
 - Priorita
 - Eskalaci
-- Autor
+- Vytvořil(a)
 - Vyřešil
 - Uzavřené
 - Zdroj
-- Přiřazené
+- Přiřazeno komu
 - Kategorie
 - Název
 - Popis
@@ -120,10 +120,10 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 **Pole**
 - ServiceDeskConnectionName
 - ID služby podpory
-- Autor
+- Vytvořil(a)
 - Uzavřené
 - Zdroj
-- Přiřazené
+- Přiřazeno komu
 - Název
 - Typ
 - Kategorie
@@ -134,7 +134,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Priorita
 - Riziko
 - Dopad
-- Přiřazené
+- Přiřazeno komu
 - Datum vytvoření
 - Datum uzavření
 - Datum poslední změny
@@ -156,16 +156,16 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Impact_s |Dopad|
 | Priority_s | Priorita |
 | CreatedBy_s | Otevřít |
-| ResolvedBy_s | Vyřešil|
+| ResolvedBy_s | Vyřešil(a)|
 | ClosedBy_s  | Uzavřené |
 | Source_s| Obraťte se na typ |
-| AssignedTo_s | Přiřazené  |
+| AssignedTo_s | Přiřazená komu  |
 | Category_s | Kategorie |
 | Title_s|  Krátký popis |
 | Description_s|  Poznámky |
-| CreatedDate_t|  Otevřít |
-| ClosedDate_t| uzavřený|
-| ResolvedDate_t|Vyřešil|
+| CreatedDate_t|  Otevřeno |
+| ClosedDate_t| zavřené|
+| ResolvedDate_t|Vyřešené|
 | Počítač  | položky konfigurace |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Výstupní data pro ServiceNow žádost o změnu
@@ -173,9 +173,9 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Pole OMS | ITSM pole |
 |:--- |:--- |
 | ServiceDeskId_s| Číslo |
-| CreatedBy_s | Požadoval |
+| CreatedBy_s | Žadatel |
 | ClosedBy_s | Uzavřené |
-| AssignedTo_s | Přiřazené  |
+| AssignedTo_s | Přiřazená komu  |
 | Title_s|  Krátký popis |
 | Type_s|  Typ |
 | Category_s|  Kategorie |
@@ -292,11 +292,11 @@ Při vytváření nebo úpravách Azure pravidla výstrahy, použijte skupinu ak
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Řešení potíží s ITSM připojení v OMS
 1.  Pokud připojení selže z uživatelského rozhraní připojené zdroje s **Chyba při ukládání připojení** zpráva, proveďte následující kroky:
- - Pro připojení ServiceNow, Cherwell a Provance  
-        -Zkontrolujte správně zadali uživatelské jméno, heslo, ID klienta a tajný klíč klienta pro jednotlivá připojení.  
-        -Zkontrolujte, pokud máte dostatečná oprávnění v rámci odpovídající ITSM produktu pro připojení.  
- - U připojení k portálu Service Manager  
-        -Zajistěte, aby webová aplikace je úspěšně nasazen a hybridní připojení se vytvoří. Ověřte připojení se úspěšně naváže na místní počítač portálu Service Manager, najdete na adresu URL webové aplikace podle popisu v dokumentaci k provádění [hybridní připojení](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+- Pro připojení ServiceNow, Cherwell a Provance  
+       -Zkontrolujte správně zadali uživatelské jméno, heslo, ID klienta a tajný klíč klienta pro jednotlivá připojení.  
+       -Zkontrolujte, pokud máte dostatečná oprávnění v rámci odpovídající ITSM produktu pro připojení.  
+- U připojení k portálu Service Manager  
+       -Zajistěte, aby webová aplikace je úspěšně nasazen a hybridní připojení se vytvoří. Ověřte připojení se úspěšně naváže na místní počítač portálu Service Manager, najdete na adresu URL webové aplikace podle popisu v dokumentaci k provádění [hybridní připojení](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Pokud není získávání synchronizovat data z ServiceNow k analýze protokolů, zajistěte, aby ServiceNow instance není pozastaveno. Instance ServiceNow Dev někdy přejděte do režimu spánku při nečinnosti, po dlouhou dobu. Jinak ohlaste daný problém.
 3.  Pokud OMS výstrahy fire, ale pracovní položky nejsou vytvořeny v produktu ITSM nebo položek konfigurace nejsou vytvořen nebo propojené pracovní položky nebo další obecné informace, podívejte se na těchto místech:
@@ -313,5 +313,5 @@ Při vytváření nebo úpravách Azure pravidla výstrahy, použijte skupinu ak
 
 Pro dotazy nebo zpětnou vazbu na správu konektoru služby IT, kontaktujte nás na adrese [ omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Přidání ITSM produktů nebo služeb do konektoru služby správy IT](log-analytics-itsmc-connections.md).

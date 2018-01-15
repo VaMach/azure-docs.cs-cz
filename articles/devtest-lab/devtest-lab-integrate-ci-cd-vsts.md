@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-craic
-ms.openlocfilehash: db2ee6a25626f0a47bf86c5ee286fddc2441d3f8
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 6c6bd4fbd89ec87cbbdbfb9ed42f86a484acf7ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrovat Azure DevTest Labs do vaší služby VSTS průběžnou integraci a doručení kanálu
 Můžete použít *Azure DevTest Labs úlohy* rozšíření, který je nainstalován ve Visual Studio Team Services (služby VSTS) na snadno integrovat Azure DevTest Labs svůj kanál CI/CD sestavení a verze. Instalaci rozšíření je tři úkoly: 
@@ -111,7 +111,7 @@ Další fáze nasazení je pro vytvoření virtuálního počítače, který chc
    > [!NOTE]
    > Chcete-li vytvořit virtuální počítač, který chcete použít pro další nasazení, přečtěte si téma [úlohy Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Pro **předplatné Azure RM**, vyberte připojení v **dostupné připojení služby Azure** seznamu, nebo vytvořit více omezená oprávnění připojení k předplatnému Azure. Další informace najdete v tématu [koncový bod služby Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Pro **předplatné Azure RM**, vyberte připojení v **dostupné připojení služby Azure** seznamu, nebo vytvořit více omezená oprávnění připojení k předplatnému Azure. Další informace najdete v tématu [koncový bod služby Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. Pro **název testovacího prostředí**, vyberte název instance, kterou jste vytvořili dříve.
 
@@ -141,7 +141,7 @@ Další fáze nasazení je pro vytvoření virtuálního počítače, který chc
 
    a. Pro **typ připojení Azure**, vyberte **Azure Resource Manager**.
 
-   b. Pro **předplatné Azure RM**, vyberte připojení ze seznamu v části **dostupné připojení služby Azure**, nebo vytvořit více omezená oprávnění připojení k předplatnému Azure. Další informace najdete v tématu [koncový bod služby Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. Pro **předplatné Azure RM**, vyberte připojení ze seznamu v části **dostupné připojení služby Azure**, nebo vytvořit více omezená oprávnění připojení k předplatnému Azure. Další informace najdete v tématu [koncový bod služby Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    c. Pro **typ skriptu**, vyberte **soubor skriptu**.
  
@@ -168,7 +168,7 @@ Další fáze je vytvoření bitové kopie nově nasazené virtuální počíta�
    > [!NOTE]
    > Pokud chcete vytvořit bitovou kopii, najdete v části [úlohy Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Pro **předplatné Azure RM**v **dostupné připojení služby Azure** seznamu, vyberte připojení ze seznamu nebo vytvořte připojení více omezená oprávnění k předplatnému Azure. Další informace najdete v tématu [koncový bod služby Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Pro **předplatné Azure RM**v **dostupné připojení služby Azure** seznamu, vyberte připojení ze seznamu nebo vytvořte připojení více omezená oprávnění k předplatnému Azure. Další informace najdete v tématu [koncový bod služby Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. Pro **název testovacího prostředí**, vyberte název instance, které jste vytvořili dříve.
 
@@ -189,7 +189,7 @@ Závěrečná fáze je odstranit virtuální počítač, který jste nasadili ve
       > [!NOTE]
       > Chcete-li odstranit virtuální počítač, přečtěte si téma [Azure DevTest Labs úlohy](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Pro **předplatné Azure RM**, vyberte připojení v **dostupné připojení služby Azure** seznamu, nebo vytvořit více omezená oprávnění připojení k předplatnému Azure. Další informace najdete v tématu [koncový bod služby Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Pro **předplatné Azure RM**, vyberte připojení v **dostupné připojení služby Azure** seznamu, nebo vytvořit více omezená oprávnění připojení k předplatnému Azure. Další informace najdete v tématu [koncový bod služby Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
  
    b. Pro **ID virtuálního počítače testovacím**, pokud jste změnili výchozí název proměnné prostředí, která se vyplní automaticky s ID v prostředí virtuálního počítače starší úlohou sem ho upravit. Výchozí hodnota je **$(labVMId)**.
 

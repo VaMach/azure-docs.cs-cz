@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 82da49924e71a38ca557f244f2830e1da45826b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Jak spravovat registrace zařízení s Azure zařízení zřizování služby SDK
 A *registrace zařízení* vytvoří záznam jednoho zařízení nebo skupinu zařízení, které může v určitém okamžiku zaregistrovat službu zřizování zařízení. Záznam zápisu obsahuje počáteční požadované konfigurace pro zařízení v rámci této registrace, včetně požadované služby IoT hub. Tento článek ukazuje, jak spravovat registrace zařízení služby zřizování programově pomocí sady Azure IoT zřizování služby SDK.  Sady SDK jsou k dispozici na Githubu v úložišti stejné jako SDK služby Azure IoT.
@@ -29,18 +29,18 @@ Tento článek zkontroluje nejvyšších úrovní koncepty pro správu registrac
 ## <a name="prerequisites"></a>Požadavky
 * Připojovací řetězec z instance služby zřizování zařízení
 * Artefakty zabezpečení zařízení:
-    * [**ČIP TPM**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
+    * [**ČIP TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
         * Jednotlivé registrace: ID registrace a TPM ověřovací klíč z fyzického zařízení nebo z simulátoru TPM.
         * Registrace skupiny se nevztahuje na ověření čipu TPM.
-    * [**X.509**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-        * Jednotlivé registrace: [listu certifikát](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#leaf-certificate) z fyzického zařízení nebo emulátoru ROZČLENĚNÍ.
-        * Registrace skupiny: [kořenový certifikát](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) nebo [zprostředkující certifikát](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate)používané k vytvoření certifikátu zařízení na fyzické zařízení.  Lze ji také vygenerovat z emulátoru ROZČLENĚNÍ.
+    * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+        * Jednotlivé registrace: [listu certifikát](https://docs.microsoft.com/azure/iot-dps/concepts-security#leaf-certificate) z fyzického zařízení nebo emulátoru ROZČLENĚNÍ.
+        * Registrace skupiny: [kořenový certifikát](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) nebo [zprostředkující certifikát](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)používané k vytvoření certifikátu zařízení na fyzické zařízení.  Lze ji také vygenerovat z emulátoru ROZČLENĚNÍ.
 
 ## <a name="create-a-device-enrollment"></a>Vytvoření registrace zařízení
 
 Existují dva způsoby, kterými se můžete zaregistrovat svoje zařízení v zřizování služby:
 
-* **Registrace skupiny** je záznam pro skupinu zařízení, které sdílejí společný mechanismus ověření certifikátů X.509, podepsaný [kořenový certifikát](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) nebo [zprostředkující certifikát ](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate). Doporučujeme používat skupinu registrace pro velký počet zařízení, které sdílejí požadované počáteční konfigurace, nebo pro zařízení všechny má stejné klienta. Všimněte si, že můžete registrovat jenom zařízení, která používají tento mechanismus ověření X.509 jako *registrace skupiny*. 
+* **Registrace skupiny** je záznam pro skupinu zařízení, které sdílejí společný mechanismus ověření certifikátů X.509, podepsaný [kořenový certifikát](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) nebo [zprostředkující certifikát ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Doporučujeme používat skupinu registrace pro velký počet zařízení, které sdílejí požadované počáteční konfigurace, nebo pro zařízení všechny má stejné klienta. Všimněte si, že můžete registrovat jenom zařízení, která používají tento mechanismus ověření X.509 jako *registrace skupiny*. 
 
     Můžete vytvořit skupinu registrace pomocí sady SDK následující tento pracovní postup:
 
@@ -67,7 +67,7 @@ Tento pracovní postup ukazují [ukázky](#samples).
 Po vytvoření záznam zápisu, můžete při aktualizaci registrace.  Možných scénářů zahrnovat aktualizace požadované vlastnosti, aktualizace metodu ověření nebo odvolání přístupu k zařízení.  Existují různé rozhraní API pro jednotlivé registrace a registrace ve skupině, ale žádný rozdíl pro ověření mechanismu.
 
 Můžete aktualizovat položku registrace následující tento pracovní postup:
-* **Jednotlivé registrace**:
+* **Jednotlivá registrace:**
     1. Získat nejnovější registraci ze služby zřizování první pomocí rozhraní API sady SDK služby ```getIndividualEnrollment```.
     2. Upravte parametr nejnovější zápisu podle potřeby. 
     3. Pomocí nejnovější registrace volání rozhraní API sady SDK služby ```createOrUpdateIndividualEnrollment``` aktualizovat zadání registrace.

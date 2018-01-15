@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> Integrace se službou Azure Active Directory je k dispozici v [Developer a Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) pouze úrovně.
+> Integrace se službou Azure Active Directory je k dispozici v [Developer, Standard a Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) pouze úrovně.
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Jak se mají autorizovat vývojářským účtům pomocí služby Azure Active Directory v Azure API Management
 ## <a name="overview"></a>Přehled
@@ -78,7 +78,7 @@ Přejděte do dolní části kartu Konfigurace, vyberte **oprávnění aplikací
 
 Vyberte **delegování oprávnění** rozevíracího seznamu a zkontrolujte **povolit přihlášení a čtení uživatelských profilů**.
 
-![Přidělená oprávnění][api-management-aad-delegated-permissions]
+![Delegovaná oprávnění][api-management-aad-delegated-permissions]
 
 > Další informace o aplikaci a přidělená oprávnění najdete v tématu [přístup k rozhraní Graph API][Accessing the Graph API].
 > 
@@ -86,11 +86,11 @@ Vyberte **delegování oprávnění** rozevíracího seznamu a zkontrolujte **po
 
 Kopírování **Id klienta** do schránky.
 
-![Id klienta][api-management-aad-app-client-id]
+![ID klienta][api-management-aad-app-client-id]
 
 Přepněte zpět na portál vydavatele a vložte **Id klienta** zkopírovaných z konfigurace aplikace Azure Active Directory.
 
-![Id klienta][api-management-client-id]
+![ID klienta][api-management-client-id]
 
 Přepněte zpět na konfiguraci služby Azure Active Directory a klikněte na tlačítko **vyberte dobu trvání** rozevírací seznam v **klíče** části a zadat interval. V tomto příkladu **1 rok** se používá.
 
@@ -110,7 +110,7 @@ Přepněte zpět na portál vydavatele a vložte klíč do **tajný klíč klien
 
 **Povolené klienty** Určuje adresáře, které mají přístup k rozhraním API v instanci služby API Management. Zadejte domény instancí Azure Active Directory, ke kterým chcete udělit přístup. Více domén můžete oddělit vložení znaků newline, mezery nebo čárkami.
 
-![Povolené klientů][api-management-client-allowed-tenants]
+![Povolení tenanté][api-management-client-allowed-tenants]
 
 
 Jakmile je zadána požadované konfigurace, klikněte na možnost **Uložit**.
@@ -148,7 +148,7 @@ Přepnout **viditelnost** a klikněte na **přidat skupiny z Azure Active Direct
 
 Vyberte **klienta Azure Active Directory** z rozevíracího seznamu a pak zadejte název požadované skupiny v **skupiny** přidat textové pole.
 
-![Vyberte skupinu][api-management-select-group]
+![Vybrat skupinu][api-management-select-group]
 
 Tento název skupiny lze nalézt v **skupiny** seznam pro Azure Active Directory, jak je znázorněno v následujícím příkladu.
 
@@ -168,7 +168,7 @@ Zkontrolujte a konfigurujte vlastnosti externí skupiny po byly přidány, klikn
 
 Zde můžete upravit **název** a **popis** skupiny.
 
-![Úprava skupiny][api-management-edit-group]
+![Upravit skupinu][api-management-edit-group]
 
 Uživatelé z nakonfigurovaných Azure Active Directory můžete přihlásit k portálu pro vývojáře a zobrazení a přihlášení k odběru do žádné skupiny, ke kterým mají viditelnost podle pokynů uvedených v následující části.
 
