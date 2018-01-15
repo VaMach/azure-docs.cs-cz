@@ -16,7 +16,7 @@
 #### [Proměnné](resource-manager-templates-variables.md)
 #### [Prostředky](resource-manager-templates-resources.md)
 #### [Výstupy](resource-manager-templates-outputs.md)
-### [Propojení s ostatními šablonami](resource-group-linked-templates.md)
+### [Propojené a vnořené šablony](resource-group-linked-templates.md)
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
 ### [Vytvoření víc instancí](resource-group-create-multiple.md)
 ### [Aktualizace prostředku](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -32,7 +32,7 @@
 #### [Nasazení šablony](resource-group-template-deploy-cli.md)
 #### [Nasazení privátní šablony s tokenem SAS](resource-manager-cli-sas-token.md)
 #### [Export šablony a opětovné nasazení](resource-manager-export-template-cli.md)
-### portál Azure
+### Azure Portal
 #### [Nasazení prostředků](resource-group-template-deploy-portal.md)
 #### [Export šablony](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -43,7 +43,7 @@
 ## Spravovat
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure Portal](resource-group-portal.md)
+### [portál Azure Portal](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Použití značek k uspořádání prostředků](resource-group-using-tags.md)
 ### [Přesunutí prostředků do nové skupiny nebo předplatného](resource-group-move-resources.md)
@@ -55,7 +55,7 @@
 ### Vytvoření instančního objektu
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure Portal](resource-group-create-service-principal-portal.md)
+#### [portál Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Ověřovací rozhraní API pro přístup k předplatným](resource-manager-api-authentication.md)
 ### [Uzamčení prostředků](resource-group-lock-resources.md)
 
@@ -80,7 +80,7 @@
 #### [Potíže s nasazením Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Vysvětlení chyb nasazení](resource-manager-troubleshoot-tips.md)
 
-# Referenční informace
+# Odkaz
 ## [Formát šablon](/azure/templates/)
 ## [Funkce šablon](resource-group-template-functions.md)
 ### [Funkce pole a objektu](resource-group-template-functions-array.md)

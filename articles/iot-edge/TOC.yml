@@ -6,13 +6,13 @@
       href: how-iot-edge-works.md
 - name: Šablony Rychlý start
   items:
-    - name: Nasazení do hraničních zařízení – Linux
+    - name: Nasazení do hraničních zařízení – Linux/Mac
       href: quickstart-linux.md
     - name: Nasazení do hraničních zařízení – Windows
       href: quickstart.md
 - name: Kurzy
   items:
-    - name: Simulace hraničního zařízení – Linux
+    - name: Simulace hraničního zařízení – Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: Simulace hraničního zařízení – Windows
       href: tutorial-simulate-device-windows.md

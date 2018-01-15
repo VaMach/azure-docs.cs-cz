@@ -220,9 +220,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Optimalizace clusterů s využitím webového uživatelského rozhraní Ambari
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Použití rozhraní Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Správa protokolů pro cluster HDInsight
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Přidání účtů úložiště
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -271,6 +277,9 @@
           maintainContext: true
     - name: Řešení potíží
       items:
+        - name: Řešení potíží s pomalým clusterem HDInsight nebo jeho selháním
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Řešení potíží se Sparkem
           href: apache-troubleshoot-spark.md
         - name: Řešení potíží s HDFS
@@ -281,7 +290,7 @@
           maintainContext: true
         - name: Známé problémy
           href: apache-spark-known-issues.md
-        - name: Zdroje
+        - name: Zdroje a prostředky
           items:
             - name: Informace o používání HDInsightu v Linuxu
               href: ../hdinsight-hadoop-linux-information.md
@@ -317,10 +326,10 @@
         - name: Plán pro podnikové zabezpečení
           href: ../domain-joined/apache-domain-joined-architecture.md
           maintainContext: true
-        - name: Konfigurace podnikového zabezpečení v HDInsightu
+        - name: Konfigurace podnikového zabezpečení ve službě HDInsight
           href: ../domain-joined/apache-domain-joined-configure.md
           maintainContext: true
-        - name: Konfigurace podnikového zabezpečení v HDInsightu s využitím Azure AD DS
+        - name: Konfigurace podnikového zabezpečení ve službě HDInsight s využitím Azure AD DS
           href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
           maintainContext: true
         - name: Konfigurace zásad Hivu
@@ -354,7 +363,7 @@
         - name: Monitorování výkonu clusteru
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
@@ -370,7 +379,7 @@
       href: /rest/api/hdinsight/
     - name: REST API (Spark)
       href: /rest/api/hdinsightspark/
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: "Poznámky k\_verzi"
       href: ../hdinsight-release-notes.md
