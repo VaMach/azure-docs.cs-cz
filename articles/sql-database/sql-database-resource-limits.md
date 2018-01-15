@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 12/14/2017
+ms.date: 01/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 6bc8979eebb2b727d0cae02fe7ca4e95cb32dc36
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 13641b190c3c157f5b302314f88a42a160a1f2e0
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Omezení prostředků Azure SQL Database
 
@@ -146,4 +146,4 @@ Při zjištění vysoké využití relace nebo pracovního procesu, možnosti om
 - Informace o elastické fondy najdete v tématu [elastické fondy](sql-database-elastic-pool.md).
 - Informace o obecných omezeních Azure najdete v tématu [předplatného Azure a omezení služby, kvóty a omezení](../azure-subscription-service-limits.md).
 - Informace o Dtu a Edtu najdete v tématu [Dtu a Edtu](sql-database-what-is-a-dtu.md).
-- Informace o databázi tempdb velikosti omezení naleznete v tématu https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- Informace o databázi tempdb velikosti omezení naleznete v tématu https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

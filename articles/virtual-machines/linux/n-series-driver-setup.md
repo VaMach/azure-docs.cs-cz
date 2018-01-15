@@ -4,7 +4,7 @@ description: "Jak nastavit NVIDIA GPU ovladače pro N-series virtuální počít
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 01/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalace ovladačů NVIDIA GPU v N-series virtuální počítače se systémem Linux
 
@@ -214,11 +214,11 @@ Instalace ovladačů NVIDIA mřížky na virtuálních počítačích vs, prove�
 5. Stáhněte a nainstalujte ovladač mřížky:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 
 6. Pokud se dotaz, zda chcete spustit nástroj nvidia xconfig aktualizovat vaše X konfigurační soubor, vyberte **Ano**.
@@ -279,11 +279,11 @@ Instalace ovladačů NVIDIA mřížky na virtuálních počítačích vs, prove�
 5. Stáhněte a nainstalujte ovladač mřížky:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 6. Pokud se dotaz, zda chcete spustit nástroj nvidia xconfig aktualizovat vaše X konfigurační soubor, vyberte **Ano**.
 
@@ -331,7 +331,7 @@ BusID můžete najít spuštěním
 /usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
 ```
  
-BusID lze změnit, pokud virtuální počítač získá znovu přidělit, nebo restartovat. Proto můžete chtít použít skript k aktualizaci BusID v X11 konfigurace, pokud je virtuální počítač restartovat. Například:
+BusID lze změnit, pokud virtuální počítač získá znovu přidělit, nebo restartovat. Proto můžete chtít použít skript k aktualizaci BusID v X11 konfigurace, pokud je virtuální počítač restartovat. Příklad:
 
 ```bash 
 #!/bin/bash
@@ -349,6 +349,6 @@ Tento soubor nelze vyvolat jako kořenová na spouštěcí tak, že vytvoříte 
 * Můžete nastavit pomocí režimu trvalost `nvidia-smi` tak výstup příkazu je rychlejší, když potřebujete karty dotazu. Nastavení režimu trvalost, provést `nvidia-smi -pm 1`. Všimněte si, že pokud restartování virtuálního počítače s nastavením režimu Vyčkat. Vždy můžete skript režim provést při spuštění.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * K zachycení bitové kopie virtuálního počítače s Linuxem s vaší nainstalované ovladače NVIDIA, najdete v části [generalize a zachycení virtuální počítač s Linuxem](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

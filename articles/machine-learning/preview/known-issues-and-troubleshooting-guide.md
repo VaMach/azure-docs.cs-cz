@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
@@ -118,7 +118,7 @@ Po přihlášení může získat na prázdnou obrazovku zprávou zobrazující "
 3. Restartujte aplikaci.
 
 ## <a name="cant-delete-experimentation-account"></a>Nelze odstranit účet experimentování
-Rozhraní příkazového řádku můžete použít k odstranění účtu experimentování, ale je nutné odstranit nejprve podřízených pracovních prostorů a podřízené projekty v rámci těchto podřízených pracovních prostorů. Jinak zobrazí chybu.
+Rozhraní příkazového řádku můžete použít k odstranění účtu experimentování, ale je nutné odstranit nejprve podřízených pracovních prostorů a podřízené projekty v rámci těchto podřízených pracovních prostorů. Jinak se zobrazí chyba "prostředek budete moct odstranit po odstranění vnořených prostředků."
 
 ```azure-cli
 # delete a project
@@ -145,6 +145,8 @@ Pokud ji experimentování spouštět s využitím `az ml experiment submit` neb
 - V systému macOS použijte kombinaci kláves Ctrl-c
 
 Upozorňujeme, že pouze přeruší do výstupního datového proudu v okně příkazového řádku. Je ve skutečnosti nezastaví úlohu, která je spouštěna. Pokud chcete zrušit probíhající úlohy, použijte `az ml experiment cancel -r <run_id> -t <target name>` příkaz.
+
+Na počítačích se systémem Windows pomocí klávesnice, které nemají zalomení klíč možné mezi ně patří Fn-B, Ctrl-Fn-B nebo Fn + Esc. Kombinace konkrétní naleznete v dokumentaci od dodavatele hardwaru.
 
 ## <a name="docker-error-read-connection-refused"></a>Chyba docker "číst: odmítl připojení"
 Při provádění proti místní kontejner Docker, v některých případech může zobrazit chybová zpráva: 
@@ -198,7 +200,7 @@ $ docker system prune -a
 
 Můžete také přidat datový disk a nakonfigurovat modul Docker použít datový disk pro ukládání bitových kopií. Tady je [jak přidat datový disk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Pak můžete [změnu kde Docker ukládá bitové kopie](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Případně můžete rozšířit disk operačního systému a nemáte přístup ke konfiguraci modulu Docker. Tady je [jak můžete rozšířit disk operačního systému](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+Případně můžete rozšířit disk operačního systému a nemáte přístup ke konfiguraci modulu Docker. Tady je [jak můžete rozšířit disk operačního systému](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
 #Deallocate VM (stopping will not work)

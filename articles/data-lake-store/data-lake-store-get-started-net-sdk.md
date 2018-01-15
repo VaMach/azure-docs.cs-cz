@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/13/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 682e8c9fc9e7f16d6b69cd73535c76e6c53c6b49
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operace správy účtů v Azure Data Lake Store pomocí sady .NET SDK
 > [!div class="op_single_selector"]
@@ -46,8 +46,8 @@ Pokyny k provádění operací správy dat ve službě Data Lake Store pomocí s
    | --- | --- |
    | Kategorie |Šablony/Visual C#/Windows |
    | Šablona |Konzolová aplikace |
-   | Name (Název) |VytvořeníAplikaceADL |
-4. Kliknutím na tlačítko **OK** vytvořte projekt.
+   | Název |VytvořeníAplikaceADL |
+4. Projekt vytvoříte kliknutím na **OK**.
 5. Přidejte do projektu balíčky NuGet.
 
    1. V Průzkumníku řešení klikněte pravým tlačítkem na název projektu a klikněte na možnost **Správa balíčků NuGet**.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: dobett
-ms.openlocfilehash: 8ae91e0dc0f3173b770bc8360a85abfe5d1e7740
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Nasazení hraniční brány pro připojené objekt pro vytváření předkonfigurovaného řešení v systému Windows nebo Linux
 
@@ -179,6 +179,6 @@ Přidání vlastního OPC UA serverů pro připojené vytváření předkonfigur
 
 ## <a name="next-steps"></a>Další postup
 
-Další informace o architektuře připojené objekt pro vytváření předkonfigurovaného řešení najdete v tématu [připojené factory návod pro předkonfigurované řešení](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Další informace o architektuře připojené objekt pro vytváření předkonfigurovaného řešení najdete v tématu [připojené factory návod pro předkonfigurované řešení](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
-Další informace o [OPC vydavatele odkaz na implementaci](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-publisher).
+Další informace o [OPC vydavatele odkaz na implementaci](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

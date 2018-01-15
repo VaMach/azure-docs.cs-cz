@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>Lekce 6: Vytvoření měr
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>Vytvoření měr
 
 V této lekci vytvoříte míry, které se mají zahrnout do modelu. Podobně jako počítané sloupce, které jste vytvořili, je míra výpočtem vytvořeným pomocí vzorce DAX. Na rozdíl od počítaných sloupců se ale míry vyhodnocují na základě uživatelem vybraného *filtru*. Příkladem může být konkrétní sloupec nebo průřez přidaný do pole Popisky řádků v kontingenční tabulce. Hodnota pro každou buňku ve filtru se pak vypočítá podle použité míry. Míry jsou efektivní, flexibilní výpočty, které můžete zahrnout do téměř všech tabulkových modelů za účelem provádění dynamických výpočtů na číselných datech. Další informace najdete v tématu [Míry](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
   

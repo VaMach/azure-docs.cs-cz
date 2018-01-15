@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 06e8d99aa2ad4eb11e594a729c6dab39d5cd1eb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>Přesunuty služby StorSimple Manager zařízení z klasického portálu Azure: Nejčastější dotazy (FAQ)
 
@@ -38,7 +38,7 @@ Otázky a odpovědi jsou uspořádány do následujících kategorií:
 
 ### <a name="once-i-have-moved-to-azure-portal-can-i-still-create-a-storsimple-manager-service-in-the-classic-portal"></a>Jednou I byl přesunut do portálu Azure, lze přesto vytvořit službu StorSimple Manager na portálu classic?
 
-Ne. Po přesunutí služby StorSimple Manager k portálu Azure, nelze vytvořit novou službu na portálu classic. Navíc se nedají spravovat zařízení prostřednictvím portálu classic. Další informace, přejděte na [přesunout služby k portálu Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Ne. Po přesunutí služby StorSimple Manager k portálu Azure, nelze vytvořit novou službu na portálu classic. Navíc [portálu classic nebudete mít k dispozici z 8 leden 2018](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### <a name="i-have-multiple-storsimple-managers-running-in-the-classic-portal-can-i-choose-which-ones-to-move-to-the-azure-portal"></a>Došlo k několika správci StorSimple spuštění portálu classic. Můžete zvolit ty, které chcete přesunout na portál Azure?
 
@@ -67,14 +67,14 @@ Ano. Virtuální počítače spojené s stávajících zařízení 8010/8020 clo
 
 Pokud jste vytvořili zařízení StorSimple cloudu modelu 8010/8020 spuštění aktualizace 3.0 a vyšší, nejsou ovlivněny služby Přesun do nového portálu Azure. Byste měli mít plně spravovat svoje zařízení cloudu bez problémů. 
 
-Pokud máte cloudu zařízení se systémem verze starší než Update 3.0 na portálu classic, pak pouze máte omezený počet funkce je k dispozici. Další informace naleznete [seznam nepodporované operací pro zařízení se systémem verze starší než Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Pokud máte cloudu zařízení se systémem verze starší než Update 3.0 na portálu classic, pak pouze máte omezený počet funkce je k dispozici. Další informace naleznete [seznam nepodporované operací pro zařízení se systémem verze starší než Update 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Cloudové zařízení nelze aktualizovat. Použijte nejnovější verzi softwaru k vytvoření nové zařízení cloudu a potom převzít existující kontejnery svazků pro vytvoření nové zařízení cloudu. Další informace, přejděte na [převzetí služeb při selhání zařízení cloudu](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance)
 
 
 ### <a name="my-storsimple-8000-series-device-is-running-update-20-i-migrated-my-service-to-new-azure-portal-my-device-connected-successfully-but-it-seems-that-i-am-not-able-to-fully-manage-my-device-how-do-i-resolve-this-behavior"></a>Moje zařízení řady StorSimple 8000 je spuštěna aktualizace 2.0. Můžu migrovat mé služby na nový portál Azure. Moje zařízení připojené úspěšně, ale zdá se, že nejsem plně spravovat svoje zařízení. Jak tento problém vyřešit?
 
-Nový portál Azure je podporován pouze u zařízení StorSimple se systémem aktualizace 3.0 a vyšší. Pokud zařízení byla spuštěna aktualizace 2.0, můžete pouze omezená funkce je k dispozici pro toto zařízení. Další informace naleznete [seznam nepodporované operací pro zařízení se systémem verze starší než Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Nový portál Azure je podporován pouze u zařízení StorSimple se systémem aktualizace 3.0 a vyšší. Pokud zařízení byla spuštěna aktualizace 2.0, můžete pouze omezená funkce je k dispozici pro toto zařízení. Další informace naleznete [seznam nepodporované operací pro zařízení se systémem verze starší než Update 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Plně spravovat zařízení, nainstalujte nejnovější aktualizace na vašem zařízení. Další informace, přejděte na [instalaci aktualizací 5](storsimple-8000-install-update-5.md).
 
@@ -130,11 +130,9 @@ Ne. S vaší služby přesunu na nový portál Azure by měl být žádný vliv 
 
 ## <a name="moving-storsimple-data-manager-service"></a>Přesunutí služby StorSimple Manager dat
 
-### <a name="i-am-using-storsimple-data-manager-service-how-should-i-proceed-with-this-move"></a>Používám služby StorSimple Data Manager. Jak je by měl tento přesun pokračovat?
+### <a name="i-am-using-storsimple-data-manager-service-in-classic-azure-portal-how-should-i-proceed-with-this-move"></a>Používám služby StorSimple Manager dat na portálu Azure classic. Jak je by měl tento přesun pokračovat?
 
-Pokud používáte službu StorSimple Manager dat, je třeba váš správce zařízení StorSimple nejprve přesunout do portálu Azure. Po dokončení přesunu vytvořte nové správci dat StorSimple na portálu Azure. Správce dat StorSimple vytvořené před přesunutí nefungují.
-
-Další informace o migraci služby StorSimple Manager zařízení, přejděte na [přesunout služby k portálu Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). Další informace o vytvoření StorSimple Manager dat, přejděte na [vytvořit službu StorSimple Manager dat](storsimple-data-manager-ui.md).
+Pokud používáte službu StorSimple Manager dat, byla automaticky přesunete na portál Azure.
 
 ## <a name="miscellaneous"></a>Různé
 
@@ -146,9 +144,9 @@ Ne. Neexistuje žádný vliv na StorSimple Snapshot Manager při přesunutí slu
 
 Ne. Nelze přejmenovat zařízení, svazky, kontejnery svazků nebo zásady zálohování na portálu Azure.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Další podrobné postupy [přesunout služby StorSimple Manager zařízení na portál Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Další informace o [podporována operací na zařízení se systémem starším před aktualizací 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 

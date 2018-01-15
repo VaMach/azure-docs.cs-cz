@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Jak škálovat kódování pomocí sady .NET SDK
 > [!div class="op_single_selector"]
@@ -54,9 +54,6 @@ Chcete-li změnit typ jednotku rezervovanou a počet jednotky rezervované pro k
 
 ## <a name="opening-a-support-ticket"></a>Otevření lístku podpory
 Ve výchozím nastavení každých účtu Media Services můžete škálovat až 25 kódování a 5 na vyžádání jednotek rezervovaných pro streamování. Vyšší limit můžete požádat tak, že otevřete lístek podpory.
-
-### <a name="open-a-support-ticket"></a>Otevřete lístek podpory
-V portálu Azure přejděte do [Nápověda a podpora](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Pokud nejste přihlášeni do Azure, zobrazí se výzva k zadání přihlašovacích údajů.
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: "Výstrahy zabezpečení podle typu ve službě Azure Security Center | Microsoft Docs"
+title: "Výstrahy zabezpečení podle typu ve službě Azure Security Center | Dokumentace Microsoftu"
 description: "Tento článek popisuje různé druhy výstrah zabezpečení dostupných ve službě Azure Security Center."
 services: security-center
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Principy výstrah zabezpečení ve službě Azure Security Center
 Tento článek vám pomůže porozumět různým typům výstrah zabezpečení a souvisejícím přehledům, které jsou dostupné ve službě Azure Security Center. Další informace o správě těchto výstrah a incidentů najdete v tématu [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -144,7 +144,6 @@ Security Center používá pokročilou analýzu k identifikaci ohrožených pros
 * **Podezřelé přihlašovací údaje k dokumentu**: Tato výstraha indikuje podezřelou předvypočítanou hodnotu hash hesla, kterou používá malware používaný ke spouštění souboru.
 * **Dynamické vytváření skriptu PS**: Tato výstraha indikuje dynamické vytváření skriptu PowerShellu. Útočníci používají tuto techniku k postupnému vytváření skriptu s cílem obejít systémy IDS (zjišťování neoprávněných vniknutí).
 * **Indikátory Metasploitu**: Tato výstraha indikuje aktivitu spojenou s architekturou Metasploitu, která útočníkovi poskytuje celou řadu funkcí a nástrojů.
-* **Manipulace se službou SENSE**: Tato výstraha indikuje, že došlo k pokusu o zakázání služby SENSE (služby monitorování zabezpečení v rámci ochrany ATP v programu Windows Defender).
 * **Podezřelá aktivita účtu**: Tato výstraha indikuje, že došlo k pokusu o připojení k počítači pomocí účtu, který byl nedávno napaden.
 * **Možný podezřelý přístup k plánování úloh**: Tato výstraha indikuje, že se spustila úloha Cron, pomocí které můžou útočníci na základě plánu spouštět škodlivé programy.
 * **Možný podezřelý přístup k souboru s historií příkazů**: Tato výstraha indikuje neobvyklý přístup k souboru s historií příkazů.
@@ -189,7 +188,7 @@ Detekce síťových hrozeb ve službě Security Center funguje tak, že se autom
 
 Analýza prostředků ve službě Security Center se soustředí na služby modelu Platforma jako služba (PaaS), jako je například integrace s funkcí [Zjišťování hrozeb Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection). V závislosti na výsledcích analýzy z těchto oblastí služba Security Center aktivuje výstrahu vztahující se na prostředek.
 
-* **Potenciální útok prostřednictvím injektáže SQL**: Při útoku prostřednictvím injektáže SQL se škodlivý kód vkládá do řetězců, které se potom předávají instanci SQL Serveru k parsování a spuštění. SQL Server spouští všechny syntakticky platné dotazy, které obdrží. Všechny procedury, které sestavují SQL příkazy, by tedy měly být chráněny proti tomuto typu útoku. Zjišťování hrozeb SQL využívá k určení podezřelých událostí, které mohou probíhat ve vašich databázích SQL Azure, strojové učení, analýzu chování a detekci anomálií. Například: 
+* **Potenciální útok prostřednictvím injektáže SQL**: Při útoku prostřednictvím injektáže SQL se škodlivý kód vkládá do řetězců, které se potom předávají instanci SQL Serveru k parsování a spuštění. SQL Server spouští všechny syntakticky platné dotazy, které obdrží. Všechny procedury, které sestavují SQL příkazy, by tedy měly být chráněny proti tomuto typu útoku. Zjišťování hrozeb SQL využívá k určení podezřelých událostí, které mohou probíhat ve vašich databázích SQL Azure, strojové učení, analýzu chování a detekci anomálií. Příklad: 
     * Pokus o přístup k databázi bývalým zaměstnancem
     * Útoky prostřednictvím injektáže SQL
     * Neobvyklý přístup k produkční databázi uživatelem z domova

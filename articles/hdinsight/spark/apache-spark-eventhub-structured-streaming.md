@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: f302b84685b1992faef4813c0262223bcb5909aa
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/12/2018
@@ -84,7 +84,7 @@ Pomocí tohoto bodu musí být připravené clusteru HDInsight. Pokud ne, budete
 
 5. Aplikace, kterou vytvoříte vyžaduje balíček Spark streamování Event Hubs. Ke spuštění Spark prostředí tak, aby je automaticky načte tuto závislost z [Maven centrální](https://search.maven.org), ujistěte se, zadejte přepínač balíčky s souřadnice Maven následujícím způsobem:
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Po dokončení prostředí Spark načítání, měli byste vidět:
 
@@ -92,10 +92,10 @@ Pomocí tohoto bodu musí být připravené clusteru HDInsight. Pokud ne, budete
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -113,8 +113,12 @@ Pomocí tohoto bodu musí být připravené clusteru HDInsight. Pokud ne, budete
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. Pokud se podíváte na váš koncový bod kompatibilní s EventHub v následující podobě, rámci, který čte `iothub-xxxxxxxxxx` je název vaší EventHub-compatible Namespace a lze použít pro `eventhubs.namespace`. Pole `SharedAccessKeyName` lze použít pro `eventhubs.policyname`, a `SharedAccessKey` pro `eventhubs.policykey`: 
 
-8. Vložte fragment upravené do scala čekání > řádku a stiskněte klávesu návratový. Zobrazený výstup by měl vypadat přibližně takto:
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. Vložte fragment upravené do scala čekání > řádku a stiskněte klávesu návratový. Zobrazený výstup by měl vypadat přibližně takto:
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -128,31 +132,31 @@ Pomocí tohoto bodu musí být připravené clusteru HDInsight. Pokud ne, budete
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. V dalším kroku začnete vytvářet Spark strukturovaných streamování dotazu se zadat zdroj. Vložte následující údaje do prostředí Spark a stiskněte klávesu návratový.
+10. V dalším kroku začnete vytvářet Spark strukturovaných streamování dotazu se zadat zdroj. Vložte následující údaje do prostředí Spark a stiskněte klávesu návratový.
 
         val inputStream = spark.readStream.
         format("eventhubs").
         options(eventhubParameters).
         load()
 
-10. Zobrazený výstup by měl vypadat přibližně takto:
+11. Zobrazený výstup by měl vypadat přibližně takto:
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. V dalším kroku napsat dotaz tak, aby se zapíše svůj výstup do konzoly. To lze proveďte tak, že zkopírujete následující do prostředí Spark a stisknutím návratový.
+12. V dalším kroku napsat dotaz tak, aby se zapíše svůj výstup do konzoly. To lze proveďte tak, že zkopírujete následující do prostředí Spark a stisknutím návratový.
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. Měli byste vidět některé dávky začínat výstup podobný následujícímu
+13. Měli byste vidět některé dávky začínat výstup podobný následujícímu
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. Následují výstup výsledky zpracování jednotlivých microbatch události. 
+14. Následují výstup výsledky zpracování jednotlivých microbatch události. 
 
         -------------------------------------------
         Batch: 0
@@ -184,8 +188,8 @@ Pomocí tohoto bodu musí být připravené clusteru HDInsight. Pokud ne, budete
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. Jako nové události přicházejí od výrobce událostí, jsou zpracovávány tímto dotazem strukturovaných streamování.
-15. Ujistěte se, že po dokončení spuštění této ukázce odstranění clusteru HDInsight.
+15. Jako nové události přicházejí od výrobce událostí, jsou zpracovávány tímto dotazem strukturovaných streamování.
+16. Ujistěte se, že po dokončení spuštění této ukázce odstranění clusteru HDInsight.
 
 
 

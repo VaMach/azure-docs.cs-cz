@@ -1,5 +1,7 @@
 
-**Poslední aktualizace dokumentů**: 6 leden 6:30 PM PST.
+
+
+**Poslední aktualizace dokumentů**: 12. ledna 3:00 PM PST.
 
 Poslední zveřejnění [nová třída ohrožení zabezpečení procesoru](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) se označuje jako spekulativní provádění straně kanál útoky má za následek otázky z zákazníky, kteří potřebují další přehlednost.  
 
@@ -43,9 +45,7 @@ Pokud používáte Linux a hostování nedůvěryhodnými, měli byste také akt
 
 
 
-
-
-
+Budeme nadále Aktualizujte tyto doporučené postupy, jak jsme dostávat aktualizace mikrokódu od dodavatelů hardwaru. Zkontrolujte zpět aktualizované pokyny.
 
 
 ## <a name="next-steps"></a>Další postup

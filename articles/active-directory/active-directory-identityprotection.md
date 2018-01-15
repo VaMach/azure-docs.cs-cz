@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -96,7 +96,7 @@ Další podrobnosti najdete v tématu [přiřazení rolí správce v Azure Activ
 
 Azure Active Directory Identity Protection analýz konfiguraci a zjistí chyby zabezpečení, které můžou mít vliv na identit uživatelů. Další podrobnosti najdete v tématu [chyb zabezpečení detekovaných službou Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
-### <a name="risk-events"></a>Riziko události
+### <a name="risk-events"></a>Rizikové události
 
 Azure Active Directory používá algoritmy adaptivní strojového učení a heuristiky ke zjištění podezřelé akce, které se vztahují k identit uživatelů. Systém vytvoří záznam pro každé zjištěné podezřelé akce. Tyto záznamy se také označují jako rizikových událostech.  
 Další podrobnosti najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-identity-protection-risk-events.md).
@@ -119,7 +119,7 @@ Dokáže spojit vaše aktivity šetření a [oznámení](active-directory-identi
 Následující části poskytují další podrobnosti a kroky, které se vztahují k vyšetřování.  
 
 
-## <a name="risky-sign-ins"></a>Rizikové přihlášení
+## <a name="risky-sign-ins"></a>Riziková přihlášení
 
 Azure Active Directory zjistí [rizik typů událostí](active-directory-reporting-risk-events.md#risk-event-types) v reálném čase a offline. Každý riziko událost, která byla zjištěna u přihlášení uživatele přispívá k logický pojem, který volá rizikové přihlášení. Rizikové přihlášení je indikátorem pro pokusu přihlášení, který nemusí provedly legitimní vlastníkem uživatelského účtu.
 
@@ -132,7 +132,7 @@ Azure Active Directory zjistí [rizik typů událostí](active-directory-reporti
 
 Zmírnění je akci, kterou chcete omezit schopnost útočník zneužít ohroženými identity nebo zařízení bez obnovení identity nebo zařízení do bezpečného stavu. Zmírnění nevyřeší předchozí přihlášení rizikových událostech spojených s identity nebo zařízení.
 
-Pro zmírnění rizikové přihlášení automaticky, můžete nakonfigurovat policicies přihlášení riziko zabezpečení. Pomocí těchto zásad, zvažte úroveň rizika uživatele nebo přihlášení k blokování rizikové přihlášení nebo vyžadovat, aby uživatel k provedení ověřování Multi-Factor authentication. Tato akce může zabránit útočníkům ve využívání odcizené identity způsobit poškození a může získáte chvíli k zabezpečení identity.
+Pro zmírnění rizikové přihlášení automaticky, můžete nakonfigurovat zásady zabezpečení riziko přihlášení. Pomocí těchto zásad, zvažte úroveň rizika uživatele nebo přihlášení k blokování rizikové přihlášení nebo vyžadovat, aby uživatel k provedení ověřování Multi-Factor authentication. Tato akce může zabránit útočníkům ve využívání odcizené identity způsobit poškození a může získáte chvíli k zabezpečení identity.
 
 ### <a name="sign-in-risk-security-policy"></a>Zásady zabezpečení riziko přihlášení
 Zásady přihlášení riziko je zásadu podmíněného přístupu, která vyhodnotí riziko pro konkrétní přihlášení a použije způsoby zmírnění rizik na základě předem definované podmínky a pravidla.
@@ -210,11 +210,11 @@ Přehled související uživatelské prostředí najdete v tématu:
 
 
 
-## <a name="users-flagged-for-risk"></a>Uživatelé označení příznakem rizik
+## <a name="users-flagged-for-risk"></a>Uživatelé označení příznakem rizika
 
 Všechny aktivní [rizik události](active-directory-identity-protection-risk-events.md) , byly zjištěny službou Azure Active Directory pro uživatele můžete přispět k logický pojem, který volá riziko pro uživatele. Uživatele s příznakem pro riziko je indikátorem pro uživatelský účet, který byl napaden.
 
-![Uživatelé označení příznakem rizik](./media/active-directory-identityprotection/1200.png)
+![Uživatelé označení příznakem rizika](./media/active-directory-identityprotection/1200.png)
 
 
 ### <a name="user-risk-level"></a>Úroveň rizika uživatele
@@ -359,7 +359,7 @@ Blokování přihlášení:
 
 
 
-## <a name="multi-factor-authentication-registration-policy"></a>Zásady registrace služby Multi-Factor authentication
+## <a name="multi-factor-authentication-registration-policy"></a>Zásady registrace pro vícefaktorové ověřování
 Ověřování Azure Multi-Factor authentication je metoda ověřování, který jste, která vyžaduje použití víc věcí než jenom uživatelské jméno a heslo. Poskytuje druhou vrstvu zabezpečení uživatelská přihlášení a transakce.  
 Doporučujeme vyžadovat ověřování Azure Multi-Factor authentication pro přihlášení uživatele, protože ho:
 
@@ -396,7 +396,7 @@ Přehled související uživatelské prostředí najdete v tématu:
 
     ![Zásady vícefaktorového ověřování](./media/active-directory-identityprotection/1019.png "zásad vícefaktorového ověřování")
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Kanál 9: Azure AD a Identity zobrazení: Identity Protection verze Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 * [Povolení ochrany identit Azure Active Directory](active-directory-identityprotection-enable.md)

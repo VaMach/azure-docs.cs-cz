@@ -27,7 +27,7 @@ Následující tabulka uvádí omezení, která se vztahují na prostředky slu�
 | Maximální počet doručení zpráv se zpětnou vazbou <br/> v reakci na zprávu typu cloud-zařízení |100 |
 | Maximální hodnota TTL pro zprávy se zpětnou vazbou <br/> v reakci na zprávu typu cloud-zařízení |2 dny |
 | Maximální velikost dvojčete zařízení <br/> (značky, ohlášené vlastnosti a požadované vlastnosti) | 8 kB |
-| Maximální velikost řetězcové hodnoty dvojčete zařízení | 512 bajtů |
+| Maximální velikost řetězcové hodnoty dvojčete zařízení | 4 KB |
 | Maximální hloubka objektu ve dvojčeti zařízení | 5 |
 | Maximální velikost datové části přímé metody | 8 kB |
 | Maximální doba uchování historie úlohy | 30 dní |

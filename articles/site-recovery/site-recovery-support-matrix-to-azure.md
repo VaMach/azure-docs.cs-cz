@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z místního do Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 Tento článek shrnuje podporované konfigurace a součásti služby Azure Site Recovery při replikaci a obnovení do Azure. Další informace o požadavcích na Azure Site Recovery najdete v tématu [požadavky](site-recovery-prereq.md).
 
 > [!NOTE]
-> Ujistěte se, že je aktualizovat na nejnovější verzi zprostředkovatele Site Recovery a agenta k dosažení kompatibility s aktualizacemi v matici podpory.
+> Zkontrolujte, že je aktualizovat na nejnovější verzi zprostředkovatele Site Recovery a agenta, abyste dosáhli kompatibilitu s aktualizace v matici podpory.
 
 
 ## <a name="support-for-deployment-options"></a>Podporu pro možnosti nasazení
@@ -68,34 +68,34 @@ Následující tabulka shrnuje podporu pro replikované operačního systému v 
 
  **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez VMM)** |
 --- | --- |
-64bitová verze systému Windows Server 2016 (jádra serveru, serveru pomocí možnosti práce s počítačem)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 s v minimálně SP1<br/><br/> Red Hat Enterprise Linux: 5.2 k 5,11, 6.1 k 6.9 7.0 na 7.3 <br/><br/>CentOS: 5.2 k 5,11, 6.1 k 6.9 7.0 na 7.3 <br/><br/>Ubuntu 14.04 LTS server[ (podporované verze jádra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (podporované verze jádra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 systémem Red Hat kompatibilní jádra nebo nedělitelné Enterprise jádra verze 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade replikaci počítačů z SLES 11 SP3 na SLES 11 SP4 není podporována. V případě upgradu replikovaného počítače z SLES 11SP3 pro SLES 11 SP4, musíte zakázat replikaci a chránit počítač znovu po upgradu.) | Všechny hostovaný operační systém [nepodporuje v Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64bitová verze systému Windows Server 2016 (jádra serveru, serveru pomocí možnosti práce s počítačem)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 s v minimálně SP1<br/><br/> Red Hat Enterprise Linux: 5.2 k 5,11, 6.1 k 6.9 7.0 až 7,4<br/><br/>CentOS: 5.2 k 5,11, 6.1 k 6.9 7.0 až 7,4 <br/><br/>Ubuntu 14.04 LTS server[ (podporované verze jádra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (podporované verze jádra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 systémem Red Hat kompatibilní jádra nebo nedělitelné Enterprise jádra verze 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade replikaci počítačů z SLES 11 SP3 na SLES 11 SP4 není podporována. V případě upgradu replikovaného počítače z SLES 11SP3 pro SLES 11 SP4, musíte zakázat replikaci a chránit počítač znovu po upgradu.) | Všechny hostovaný operační systém [nepodporuje v Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \*Windows Server 2016 Nano Server není podporována.
-
->[!IMPORTANT]
->(Platí pro VMware nebo fyzické servery replikující se do Azure)
 >
-> Na Red Hat Enterprise Linux Server 7 + a CentOS 7 + servery je podporována verze 3.10.0-514 jádra od 9.8 verzi služby Azure Site Recovery Mobility.<br/><br/>
-> Zákazníci na jádru 3.10.0-514 s verzí nižší než verze 9.8 služba Mobility je potřeba zakázat replikaci, aktualizujte verzi 9.8 verze služby Mobility a pak povolení replikace znovu.
+> Na Linuxových distribucích jsou podporovány pouze uložené jádra, které jsou součástí verzi nebo aktualizaci podverze rozdělení.
+>
+> Upgrady mezi hlavní verze Linux rozdělení na Azure Site Recovery chráněný virtuální počítač VMware nebo fyzický server není podporováno. Při upgradu operačního systému přes hlavní verze (například CentOS 6.* k CentOS 7.*), zakažte replikaci pro počítač, upgrade operačního systému na počítači a potom povolit replikaci znovu.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Podporované verze Ubuntu jádra pro VMware nebo fyzické servery
 
 **Verze** | **Verze služby mobility** | **Verze jádra** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic k 3.13.0-117-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic k 3.13.0-121-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic k 3.13.0-128-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic k 3.13.0-132-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic k 3.13.0-137-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic k 4.4.0-81-generic,<br/>4.8.0-34-Generic k 4.8.0-56-generic,<br/>4.10.0-14-Generic k 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic k 4.4.0-91-generic,<br/>4.8.0-34-Generic k 4.8.0-58-generic,<br/>4.10.0-14-Generic k 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic k 4.4.0-96-generic,<br/>4.8.0-34-Generic k 4.8.0-58-generic,<br/>4.10.0-14-Generic k 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic k 4.4.0-104-generic,<br/>4.8.0-34-Generic k 4.8.0-58-generic,<br/>4.10.0-14-Generic k 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Podporované souborové systémy a konfigurace úložiště hostovaný v systému Linux (VMware nebo fyzické servery)
 
-Následující soubor systémy a úložiště konfigurace softwaru je podporována v systému Linux servery se systémem VMware nebo fyzických serverů:
+Následující systémy souborů a úložiště konfigurace softwaru jsou podporovány pro servery Linux spuštěné v VMware nebo fyzických serverů:
 * Systémy souborů: ext3, ext4, ReiserFS (Suse Linux Enterprise Server pouze), XFS
 * Správce svazků: LVM2
 * Software s funkcí Multipath: Mapovač zařízení
@@ -105,8 +105,7 @@ Blokovat více fronty vstupně-výstupní operace zařízení nejsou podporován
 Fyzické servery s řadič úložiště HP CCISS nejsou podporovány.<br/>
 
 >[!Note]
-> Na servery se systémem Linux následující adresáře (Pokud nastavený jako samostatné oddíly/souboru systems) musí být na stejném disku (disk operačního systému) na zdrojovém serveru: / (kořenová), / Boot, USR, /usr/local, /var, etc<br/><br/>
-> Funkce XFSv5 na XFS systémy, jako je například kontrolního součtu metadata jsou podporované od 9.10 verzi služby Mobility. Pokud používáte funkce XFSv5, ověřte, že používáte verzi služby Mobility 9.10 nebo novější. Můžete použít nástroj xfs_info ke kontrole tzv XFS pro oddíl. Pokud ftype nastavena na hodnotu 1, se právě používají XFSv5 funkce.
+> Na servery se systémem Linux následující adresáře (Pokud nastavený jako samostatné oddíly/souboru systems) musí být na stejném disku (disk operačního systému) na zdrojovém serveru: / (kořenová), / Boot, USR, /usr/local, /var, etc; a/Boot by měla být na oddílu disku a nesmí být svazek LVM<br/><br/>
 >
 
 
@@ -130,7 +129,7 @@ Seskupování síťových adaptérů | Ne | Ne
 IPv4 | Ano | Ano
 IPv6 | Ne | Ne
 Statická IP adresa (Windows) | Ano | Ano
-Statická IP adresa (Linux) | Ano <br/><br/>Virtuální počítače je nakonfigurován pro používání protokolu DHCP na navrácení služeb po obnovení  | Ne
+Statická IP adresa (Linux) | Ano <br/><br/>Virtuální počítače jsou nakonfigurované na používání protokolu DHCP na navrácení služeb po obnovení  | Ne
 Více síťovými Kartami | Ano | Ano
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Konfigurace sítě virtuálních počítačů Azure při selhání
@@ -138,7 +137,7 @@ Více síťovými Kartami | Ano | Ano
 **Síť Azure** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Ano | Ano
-ILB | Ano | Ano
+Interní nástroj pro vyrovnávání zatížení | Ano | Ano
 REŽIM MANAGEOUT | Ano | Ano
 Traffic Manager | Ano | Ano
 Více síťovými Kartami | Ano | Ano
@@ -212,7 +211,7 @@ Site Recovery můžete nasadit za účelem replikace virtuálních počítačů 
 **Entity** | **Požadavky** | **Podrobnosti**
 --- | --- | ---
 **Hostovaný operační systém** | Technologie Hyper-V na Azure replikaci: Site Recovery podporuje všechny operační systémy, které jsou [nepodporuje v Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Pro fyzický server replikace a VMware: Zkontrolujte Windows a Linux [požadavky](site-recovery-vmware-to-azure-classic.md) | Kontrola předpokladů se nezdaří, pokud není podporován.
-**Architektura operačního systému hosta** | 64bitová verze | Kontrola předpokladů se nezdaří, pokud není podporován
+**Architektura operačního systému hosta** | 64 bitů | Kontrola předpokladů se nezdaří, pokud není podporován
 **Velikost disku operačního systému** | Pokud replikujete až 2048 GB **virtuální počítače VMware nebo fyzických serverů do Azure**.<br/><br/>Až 2048 GB pro **technologie Hyper-V generace 1** virtuálních počítačů.<br/><br/>Až 300 GB pro **virtuálních počítačů technologie Hyper-V generace 2**.  | Kontrola předpokladů se nezdaří, pokud není podporován
 **Počet disků operačního systému** | 1 | Kontrola předpokladů se nezdaří, pokud není podporován.
 **Počet datových disků** | Pokud 64 nebo méně replikujete **virtuálních počítačů VMware do Azure**; 16 nebo méně Pokud replikujete **virtuálních počítačů Hyper-V do Azure** | Kontrola předpokladů se nezdaří, pokud není podporován
@@ -247,5 +246,5 @@ Přesunout úložiště, sítě, virtuální počítače Azure mezi skupinami pr
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Kontrola požadavků](site-recovery-prereq.md)

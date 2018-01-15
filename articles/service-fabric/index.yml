@@ -15,11 +15,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
-  ms.openlocfilehash: d50c30ccb4fe6d5d6c56edb2a53d4822796af6d4
-  ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+  ms.openlocfilehash: b9f76a98894485f48d495f32f352672784b86316
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Service Fabric je platforma distribuovaných systémů usnadňující balení, nasazování a spravování škálovatelných a spolehlivých mikroslužeb a kontejnerů. Vývojáři a správci se můžou vyhnout problémům se složitou infrastrukturou a místo toho se soustředit na implementaci zásadních a náročných úloh, které jsou škálovatelné, spolehlivé a spravovatelné. Naučte se používat službu Azure Service Fabric prostřednictvím našich šablon Rychlý start, kurzů a ukázek."
 sections:
@@ -102,15 +102,15 @@ sections:
       html: "<p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/\">Začínáme</a></p><p><a href=\"https://github.com/Azure-Samples/service-fabric-dotnet-quickstart\">Hlasování</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/\">Webový odkaz</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/\">IoT</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/\">Sledovací zařízení</a></p>"
     - title: Java
       html: "<p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/\">Začínáme</a></p>"
-- title: "Referenční informace"
+- title: Odkaz
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: "Příkazový řádek"
-      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
     - title: Jazyky
-      html: "<p><a href=\"/java/api/overview/azure/servicefabric\">Rozhraní API Java</a></p><p><a href=\"/dotnet/api/overview/azure/service-fabric?view=azure-dotnet\">.NET</a></p><p><a href=\"/azure/service-fabric/service-fabric-service-model-schema\">Schéma XML modelu služeb</a></p>"
+      html: "<p><a href=\"/java/api/overview/azure/servicefabric\">Rozhraní API Javy</a></p><p><a href=\"/dotnet/api/overview/azure/service-fabric?view=azure-dotnet\">.NET</a></p><p><a href=\"/azure/service-fabric/service-fabric-service-model-schema\">Schéma XML modelu služeb</a></p>"
     - title: REST
       html: "<p><a href=\"/rest/api/servicefabric\">Reference k rozhraní REST API</a></p>"

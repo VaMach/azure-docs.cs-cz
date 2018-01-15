@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/15/2017
-ms.openlocfilehash: 615db0d30337b7cb3f41fe985dc42b28f101e5ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b0916f565d91f5a59d1bfb4653f29bfbdb573443
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sprint-2-qfe---december-2017"></a>Sprint 2 QFE – prosinec 2017 
 
 #### <a name="version-number-01171115323"></a>Číslo verze: 0.1.1711.15323
 
->Zde je, jak můžete [najít číslo verze](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Zde je, jak můžete [najít číslo verze](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
 
 Vítá vás oprava QFE (Quick Fix Engineering) verzi třetí aktualizace Azure Machine Learning Workbench. Tato verze je vedlejší verzi. Ho řeší problémy několik telemetrie a pomáhá produktový tým, abyste lépe pochopili, jak je produkt používán. Ve znalostní bázi můžete přejít do budoucích úsilí o zlepšování zkušeností produktu. 
 

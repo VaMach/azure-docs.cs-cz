@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-10-create-partitions"></a>Lekce 10: Vytvoření oddílů
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-partitions"></a>Vytvoření oddílů
 
 V této lekci vytvoříte oddíly pro rozdělení tabulky FactInternetSales na menší logické jednotky s možností zpracování (aktualizace) nezávisle na ostatních oddílech. Ve výchozím nastavení má každá tabulka zahrnutá do modelu jeden oddíl, který obsahuje všechny sloupce a řádky tabulky. Pro tabulku FactInternetSales chceme data rozdělit podle roku – jeden oddíl pro každých pět let v tabulce. Jednotlivé oddíly pak bude možné zpracovávat nezávisle na sobě. Další informace najdete v tématu [Oddíly](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular). 
   
 Odhadovaný čas dokončení této lekce: **15 minut**  
   
 ## <a name="prerequisites"></a>Požadavky  
-Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 9: Vytvoření hierarchií](../tutorials/aas-lesson-9-create-hierarchies.md).  
+Toto téma je součástí kurzu tabulkového modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 9: Vytvoření hierarchií](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
 ## <a name="create-partitions"></a>Vytvoření oddílů  
   

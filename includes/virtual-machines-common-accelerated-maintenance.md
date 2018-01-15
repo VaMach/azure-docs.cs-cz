@@ -28,7 +28,7 @@ Tato aktualizace infrastruktury Azure adresy známé chyby zabezpečení na úro
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Bude k dispozici dopad na výkon v důsledku této aktualizace řešení?
 
-Většina zákazníků Azure ještě neviděli znatelný dopad na výkon pomocí této aktualizace. Jsme pracovali k optimalizaci využití procesoru a disku vstupně-výstupní cestu a po použití opravu nejsou zobrazuje znatelný dopad na výkon. Malého zákazníků může zaznamenat některé síťové vlivu na výkon. To lze řešit pomocí Accelerated sítí Azure, pro [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) nebo [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli), který je k dispozici všem zákazníkům Azure bezplatné funkce.
+Většina zákazníků Azure ještě neviděli znatelný dopad na výkon pomocí této aktualizace. Jsme pracovali k optimalizaci využití procesoru a disku vstupně-výstupní cestu a po použití opravu nejsou zobrazuje znatelný dopad na výkon. Malého zákazníků může zaznamenat některé síťové vlivu na výkon. To lze řešit pomocí Accelerated sítí Azure, pro [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) nebo [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), který je k dispozici všem zákazníkům Azure bezplatné funkce.
 
 ## <a name="i-follow-your-recommendations-for-high-availability-will-my-environment-remain-highly-available-during-the-reboot"></a>I podle vaše doporučení pro vysokou dostupnost, bude Moje prostředí stále vysoce dostupný během restartování?
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Nasazení služby Správce zařízení StorSimple pro řadu zařízení StorSimple 8000
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 11/17/2017
 Služba Správce zařízení StorSimple běží v Microsoft Azure a připojí k více zařízení StorSimple. Po vytvoření služby, můžete ke správě všech zařízení, které jsou připojené ke službě StorSimple Manager zařízení z jedné centrální umístění, a současně minimalizujete její související administrativní zátěže.
 
 Tento kurz popisuje kroky potřebné k vytváření, odstraňování, migrace služby a správu registrační klíč služby. Informace obsažené v tomto článku se vztahuje pouze na řadu zařízení StorSimple 8000. Další informace o pole virtuální zařízení StorSimple, přejděte na [nasazení služby StorSimple Manager zařízení pro vaše pole virtuální zařízení StorSimple](storsimple-virtual-array-manage-service.md).
+
+> [!NOTE]
+> Všechny klasické Správci zařízení StorSimple byly automaticky přesunout do nového portálu Azure. Pokud máte nějaké dotazy, přečtěte si téma [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md). Rutiny prostředí PowerShell Azure Service Management (ASM) nejsou podporovány po přechodu na nový portál Azure. Skripty ke správě svých zařízení a potom přejděte na Aktualizovat [skriptů založených na používání Azure Resource Manager SDK ke správě zařízení StorSimple](storsimple-8000-automation-azurerm-scripts.md) Další informace. Nový portál Azure podporuje zařízení se systémem aktualizace 5.0 nebo novější. Pokud zařízení není aktuální, okamžitou instalaci aktualizací 5. Další informace, přejděte na [instalaci aktualizací 5](storsimple-8000-install-update-5.md). Pokud používáte zařízení s StorSimple cloudu (8010/8020), nejde aktualizovat o cloudu zařízení. Použijte nejnovější verzi softwaru se vytvořit nové zařízení cloudu s 5.0 aktualizace a pak převzetí služeb při selhání pro vytvoření nové zařízení cloudu. Všechna zařízení se systémem aktualizace 4.0 nebo starší, budou mít [snižuje funkčnost správy](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Vytvoření služby
 Postup vytvoření služby StorSimple Manager zařízení, musíte mít:
@@ -57,86 +60,6 @@ Pro každou službu StorSimple Manager zařízení existují následující atri
 * **Stav** – stav služby, která může být **Active**, **vytváření**, nebo **Online**.
 * **Umístění** – zeměpisné umístění, ve kterém se nasadí zařízení StorSimple.
 * **Předplatné** – fakturace předplatného, které je přidružené k vaší službě.
-
-## <a name="move-a-service-to-azure-portal"></a>Přesuňte službu na portálu Azure
-Řady StorSimple 8000 je nyní spravovat na portálu Azure. Pokud máte existující službu ke správě zařízení StorSimple, doporučujeme přesunout služby do portálu Azure. Klasický portál Azure pro službu StorSimple Manager není podporována po 30 září 2017. Pokud chcete přesunout na nový portál Azure, podívejte se [důležité informace týkající se přechodu](#considerations-for-transition). 
-
-> [!NOTE]
-> Od 5 říjen 2017 vaší klasického Správce zařízení StorSimple automaticky přesune do nového portálu Azure. Toto je postupné zavádění a budeme je aktualizovat o přesunutí prostřednictvím e-mailu a portálu oznámení. Pokud máte nějaké dotazy, přečtěte si téma [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
-
-### <a name="considerations-for-transition"></a>Důležité informace týkající se přechodu
-
-Zkontrolujte dopad migrace na nový portál Azure, před přesunutím službu.
-
-> [!NOTE]
-> Stávající rutiny prostředí PowerShell Azure Service Management (ASM) nejsou podporovány po přesunutí nový portál Azure. Skripty ke správě svých zařízení prostřednictvím sady SDK Azure Resource Manager aktualizujte. Další informace najdete na [skriptů založených na používání Azure Resource Manager SDK ke správě zařízení StorSimple](storsimple-8000-automation-azurerm-scripts.md).
-> Nový portál Azure podporuje zařízení se systémem aktualizace 3.0 nebo novější. Pokud zařízení není aktuální, důrazně doporučujeme použít co nejdříve aktualizací 5.
-
-#### <a name="before-you-transition"></a>Před přechod
-
-* Vaše zařízení používá aktualizace 3.0 nebo novější. Pokud vaše zařízení běží starší verze, důrazně doporučujeme nainstalovat aktualizace 5 prostřednictvím metody oprav hotfix. Další informace, přejděte na [instalaci aktualizací 5](storsimple-8000-install-update-5.md). Pokud používáte zařízení s StorSimple cloudu (8010/8020), nejde aktualizovat o cloudu zařízení. Použijte nejnovější verzi softwaru k vytvoření nové zařízení cloudu s 5.0 aktualizace a pak převzetí služeb při selhání pro vytvoření nové zařízení cloudu.
-
-* Jakmile kvůli na nový portál Azure nelze použít klasický portál Azure ke správě zařízení StorSimple.
-
-* Přechod je omezovaly a nedojde k žádnému výpadku pro zařízení.
-
-* Kvůli všechny správce zařízení StorSimple v rámci zadaného předplatného.
-
-#### <a name="during-the-transition"></a>Během přechodu
-
-* Nelze spravovat vaše zařízení z portálu.
-* Operace, například vrstvení a naplánované zálohování pokračovat dojít.
-* Neodstraňujte staré Správci zařízení StorSimple, když probíhá přechod.
-
-#### <a name="after-the-transition"></a>Po přechodu
-
-* Zařízení již nebude možné spravovat na klasickém portálu.
-
-* Stávající rutiny prostředí PowerShell Azure Service Management (ASM) nejsou podporovány. Skripty ke správě svých zařízení prostřednictvím Správce Azure Resource Manager aktualizujte. Ukázkové skripty pomocí sady SDK Resource Manager, najdete v části [storsimpledevicemgmttools githubu](https://github.com/anoobbacker/storsimpledevicemgmttools).
-
-* Konfiguraci služby a zařízení zůstanou zachovány. Všechny svazky a zálohy jsou také přešla na portál Azure.
-
-### <a name="begin-transition"></a>Začněte přechodu
-
-Proveďte následující kroky přechodu služby k portálu Azure.
-
-1. Přejděte na stávající služby StorSimple Manager v na nový portál Azure.
-    ![Další služby](./media/storsimple-8000-manage-service/service-browse01.png) ![správce vyberte zařízení](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. Zobrazí oznámení, že informuje, že služby StorSimple Manager zařízení je nyní k dispozici na portálu Azure. Na portálu Azure služby se označuje jako služba StorSimple Manager zařízení.
-    ![Migrace oznámení](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. Ujistěte se, že jste si přečetli úplné dopad migrace.
-    2. Projděte si seznam správců zařízení StorSimple, který budou přesunuty z klasického portálu.
-
-3. Klikněte na tlačítko **migrovat**. Přechod spustí a trvá několik minut na dokončení.
-
-Po dokončení přechodu můžete spravovat zařízení prostřednictvím služby StorSimple Manager zařízení na portálu Azure. Pokud nevidíte možnost migrace na portálu Azure, ale chcete přesunout, můžete [odeslat žádost o](https://aka.ms/ss8000-cx-signup).
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Podporované operace u zařízení se systémem starším před aktualizací 3.0
-Na portálu Azure jsou podporovány pouze zařízení StorSimple se systémem aktualizace 3.0 a vyšší. Zařízení, která se používají starší verze mít omezenou podporu. Po provedení migrace na portál Azure, slouží k pochopení operací, které jsou podporovány v zařízení se systémem starším před aktualizací 3.0 v následující tabulce.
-
-| Operace                                                                                                                       | Podporuje se      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registrovat zařízení                                                                                                               | Ano            |
-| Konfigurace nastavení zařízení, jako je například obecné, sítě a zabezpečení                                                                | Ano            |
-| Kontrola, stáhnout a nainstalovat aktualizace                                                                                             | Ano            |
-| Deaktivovat zařízení                                                                                                               | Ano            |
-| Odstranění zařízení                                                                                                                   | Ano            |
-| Vytvářet, upravovat a odstraňovat kontejneru svazků                                                                                   | Ne             |
-| Vytvářet, upravovat a odstraňovat svazku                                                                                             | Ne             |
-| Vytvářet, upravovat a odstraňovat zásady zálohování                                                                                      | Ne             |
-| Proveďte ruční zálohy                                                                                                            | Ne             |
-| Proveďte zálohu naplánované                                                                                                         | Neuvedeno |
-| Obnovení z záloh                                                                                                        | Ne             |
-| Klonovat na zařízení se systémem aktualizace 3.0 a novějších <br> Zdrojového zařízení používá verzi před aktualizací 3.0.                                | Ano            |
-| Klonovat na zařízení se systémem verze starší než Update 3.0                                                                          | Ne             |
-| Převzetí služeb při selhání jako zdrojového zařízení <br> (ze zařízení používá verzi před 3.0 aktualizace do zařízení se systémem aktualizace 3.0 a novější)                                                               | Ano            |
-| Převzetí služeb při selhání jako cílové zařízení <br> (pro zařízení používající verzi softwaru před aktualizací 3.0)                                                                                   | Ne             |
-| Vymazat výstrahu                                                                                                                  | Ano            |
-| Zobrazit zásady zálohování, zálohování katalog, svazky, kontejnery svazků, monitorování grafy, úlohy a výstrahy vytvořené v portálu classic | Ano            |
-| Zapnutí a vypnutí řadiče zařízení                                                                                              | Ano            |
-
 
 ## <a name="delete-a-service"></a>Odstranění služby
 
@@ -263,7 +186,32 @@ Proveďte následující kroky k aktualizaci šifrování dat služby ve vašem 
 
 Tento skript zajistí, že tento šifrovací klíč dat služby je nastaven na všechna zařízení 8010/8020 cloudu v rámci Správce zařízení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Podporované operace u zařízení se systémem starším před aktualizací 5.0
+Na portálu Azure jsou podporovány pouze zařízení StorSimple se systémem aktualizace 5.0 nebo vyšší. Zařízení, která se používají starší verze mít omezenou podporu. Po provedení migrace na portál Azure, slouží k pochopení operací, které jsou podporovány v zařízení se systémem starším před aktualizací 5.0 v následující tabulce.
+
+| Operace                                                                                                                       | Podporováno      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Registrovat zařízení                                                                                                               | Ano            |
+| Konfigurace nastavení zařízení, jako je například obecné, sítě a zabezpečení                                                                | Ano            |
+| Kontrola, stáhnout a nainstalovat aktualizace                                                                                             | Ano            |
+| Deaktivovat zařízení                                                                                                               | Ano            |
+| Odstranit zařízení                                                                                                                   | Ano            |
+| Vytvářet, upravovat a odstraňovat kontejneru svazků                                                                                   | Ne             |
+| Vytvářet, upravovat a odstraňovat svazku                                                                                             | Ne             |
+| Vytvářet, upravovat a odstraňovat zásady zálohování                                                                                      | Ne             |
+| Proveďte ruční zálohy                                                                                                            | Ne             |
+| Proveďte zálohu naplánované                                                                                                         | Neuvedeno |
+| Obnovení z záloh                                                                                                        | Ne             |
+| Klonovat na zařízení se systémem aktualizace 3.0 a novějších <br> Zdrojového zařízení používá verzi před aktualizací 3.0.                                | Ano            |
+| Klonovat na zařízení se systémem verze starší než Update 3.0                                                                          | Ne             |
+| Převzetí služeb při selhání jako zdrojového zařízení <br> (ze zařízení používá verzi před 3.0 aktualizace do zařízení se systémem aktualizace 3.0 a novější)                                                               | Ano            |
+| Převzetí služeb při selhání jako cílové zařízení <br> (pro zařízení používající verzi softwaru před aktualizací 3.0)                                                                                   | Ne             |
+| Vymazat výstrahu                                                                                                                  | Ano            |
+| Zobrazit zásady zálohování, zálohování katalog, svazky, kontejnery svazků, monitorování grafy, úlohy a výstrahy vytvořené v portálu classic | Ano            |
+| Zapnutí a vypnutí řadiče zařízení                                                                                              | Ano            |
+
+
+## <a name="next-steps"></a>Další postup
 * Další informace o [proces nasazení zařízení StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * Další informace o [Správa účtu úložiště StorSimple](storsimple-8000-manage-storage-accounts.md).
 * Další informace o tom, jak [použít službu StorSimple Manager zařízení ke správě zařízení StorSimple](storsimple-8000-manager-service-administration.md).

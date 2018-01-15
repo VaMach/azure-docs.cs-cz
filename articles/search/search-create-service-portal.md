@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Vytvoření služby Azure Search v portálu.
 
-Naučte se vytvořit nebo zřídit služby Azure Search na portálu. Prostředí PowerShell pokyny najdete v tématu [spravovat Azure Search pomocí prostředí PowerShell](search-manage-powershell.md).
+Naučte se vytvořit nebo zřídit služby Azure Search na portálu. 
+
+Dáváte přednost prostředí PowerShell? Pomocí Azure Resource Manager [šablony služby](https://azure.microsoft.com/resources/templates/101-azure-search-create/). Začínáme pomoc najdete v tématu [spravovat Azure Search pomocí prostředí PowerShell](search-manage-powershell.md) pozadí.
 
 ## <a name="subscribe-free-or-paid"></a>Přihlášení k odběru (volné nebo placené)
 
@@ -47,7 +49,7 @@ Požadavky na název služby:
    * Vyhněte se pomlčky ("-") v první 2 znaky nebo jako poslední jeden znak
    * Žádné po sobě jdoucí pomlčky ("--") kdekoli
 
-## <a name="select-a-subscription"></a>Vyberte předplatné.
+## <a name="select-a-subscription"></a>Vyberte předplatné
 Pokud máte více než jedno předplatné, vyberte ten, který má také služby úložiště dat nebo souboru. Vyhledávání systému Azure můžete automaticky rozpoznat úložiště Azure Table a objektů Blob, databáze SQL a Azure Cosmos DB pro indexování prostřednictvím [ *indexery*](search-indexer-overview.md), ale pouze pro služby ve stejném předplatném.
 
 ## <a name="select-a-resource-group"></a>Vybrat skupinu prostředků
@@ -107,7 +109,7 @@ I když většina zákazníků používat jenom jedna služba, redundance služb
 
 Druhý služby není nutné pro zajištění vysoké dostupnosti. Vysoká dostupnost pro dotazy se dosáhne, když používáte 2 nebo více replik v rámci stejné služby. Aktualizace repliky jsou sekvenční, což znamená, že je alespoň jeden funkční při aktualizaci služby se nasazuje. Další informace o provozu najdete v tématu [smlouvy o úrovni služeb](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po zřízení služby Azure Search, budete chtít [definujte index](search-what-is-an-index.md) vám umožní nahrát a hledání vaše data. 
 
 > [!div class="nextstepaction"]

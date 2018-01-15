@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 14/12/2017
+ms.date: 1/02/2018
 ms.author: bsiva
-ms.openlocfilehash: 3cf2478eb810961604e1218731f5303abd0f611a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ee4847a61392a8eacde82ea62c3812d601b489f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="replicate-and-failover-vmware-virtual-machines-to-azure-using-azure-site-recovery-powershell"></a>Replikace a převzetí služeb při selhání virtuálních počítačů VMware do Azure pomocí Azure PowerShell obnovení lokality
 
@@ -109,7 +109,7 @@ Pomocí registračního klíče stažený trezoru a postupujte podle kroků v č
 ## <a name="set-the-vault-context"></a>Nastavit kontext trezoru
 
 > [!TIP]
-> Modul Azure PowerShell obnovení lokality (AzureRm.RecoveryServices.SiteRecovery modul) obsahuje snadno použitelný aliasy pro většinu rutin. Rutiny v modulu ve formě  *\<operaci >-**AzureRmRecoveryServicesAsr**\<objekt >* a mít ekvivalentní aliasy, které ve formě  *\<operaci >-**automatické obnovení systému**\<objekt >*. Tento článek používá rutinu aliasy pro snadnější čtení.
+> Modul Azure PowerShell obnovení lokality (AzureRm.RecoveryServices.SiteRecovery modul) obsahuje snadno použitelný aliasy pro většinu rutin. Rutiny v modulu ve formě  *\<operaci >-**AzureRmRecoveryServicesAsr**\<objekt >* a mít ekvivalentní aliasů, které mají formát  *\<Operaci >-**automatické obnovení systému**\<objekt >*. Tento článek používá rutinu aliasy pro snadnější čtení.
 
 Nastavte pomocí rutiny Set-ASRVaultContext kontext úložiště. Po nastavení, následných operací Azure Site Recovery v relaci prostředí PowerShell se provádějí v kontextu vybraného trezoru. V následujícím příkladu podrobnosti trezoru z $vault proměnná slouží k určení kontextu trezoru pro relace prostředí PowerShell.
  ```azurepowershell
@@ -329,7 +329,7 @@ Jak dlouho trvá asi 15-20 minut pro virtuální počítače, které mají být 
 Budete potřebovat následující podrobnosti k ochraně zjištěných virtuálního počítače:
 * Chránitelná položka replikovat.
 * Účet úložiště k replikaci virtuálního počítače. Kromě toho úložiště protokolů je potřeba k ochraně virtuálních počítačů na účet úložiště premium.
-* Procesový Server, který se má použít pro replikaci. Načíst a uložit v seznamu serverů procesu k dispozici ***$ProcessServers [0]****(škálování-Server)* a ***$ProcessServers [1]*** *(ConfigurationServer)* proměnné.  
+* Procesový Server, který se má použít pro replikaci. Načíst a uložit v seznamu serverů procesu k dispozici ***$ProcessServers [0]****(škálování-Server)* a ***$ProcessServers [1]*** *(ConfigurationServer)* proměnné.
 * Účet, který se má použít pro vynucené instalace softwaru služby Mobility na počítačích. Načíst a uložené v seznamu dostupných účtů ***$AccountHandles*** proměnné.
 * Mapování kontejnerů ochrany pro zásady replikace, který se má použít pro replikaci.
 * Skupinu prostředků, ve kterém musí být vytvořen virtuální počítače na převzetí služeb při selhání.
@@ -478,5 +478,5 @@ Succeeded
 
 Po převzetí služeb při selhání úspěšně, můžete provést převzetí služeb při selhání operace a instalační program zpětná replikace z Azure zpět na místní lokalita VMware.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Zobrazení [Azure Site Recovery PowerShell odkaz ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) se dozvíte, jak můžete provádět další úlohy, jako je například vytváření plánů obnovení a testování převzetí služeb při selhání plánů obnovení pomocí prostředí PowerShell.

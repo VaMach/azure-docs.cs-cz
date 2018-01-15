@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/09/2018
 ms.author: damaerte
-ms.openlocfilehash: 16c17bd5635a6f61077e52196fdb8efe901f8050
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 45a5c474191192975bfd8d6fc1bf3c0e497d369c
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkce a nástroje pro prostředí PowerShell v prostředí cloudu Azure (Preview)
 
@@ -91,7 +91,7 @@ Tyto příkazy jsou postavená na vzdálenou komunikaci prostředí PowerShell a
 
 |**Kategorie**    |**Název**                                 |
 |----------------|-----------------------------------------|
-|Nástroje Azure     |[Prostředí Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Rozhraní příkazového řádku Azure (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
+|Nástroje Azure     |[Prostředí Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Rozhraní příkazového řádku Azure (2.0.23)](https://docs.microsoft.com/cli/azure/overview)|
 |Textové editory    |VIM<br> nano                             |
 |Správce balíčků |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Správa zdrojového kódu  |Git                                      |
@@ -107,7 +107,7 @@ Tyto příkazy jsou postavená na vzdálenou komunikaci prostředí PowerShell a
 |PowerShell  |5.1 a [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Rychlé spuštění pomocí prostředí PowerShell v prostředí cloudu (Preview)](quickstart-powershell.md)
 

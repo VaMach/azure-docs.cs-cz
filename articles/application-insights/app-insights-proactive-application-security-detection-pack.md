@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e4604a154c16b785db1ab903587ae4a35d93c05
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 837525d70f28c0710b8a8b86d411a7854402207f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-security-detection-pack-preview"></a>Sada zjišťování zabezpečení aplikace (preview)
 
 Application Insights automaticky analyzuje příchozí telemetrická data generované vaší aplikace a zjistí potenciální potíže se zabezpečením. Tato funkce umožňuje identifikovat případné problémy zabezpečení a mohli je zpracovat opravou aplikace nebo provedením nezbytná bezpečnostní opatření.
 
-Tato funkce vyžaduje žádné speciální nastavení jiné než [konfigurace aplikace k odesílání telemetrie](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-overview).
+Tato funkce vyžaduje žádné speciální nastavení jiné než [konfigurace aplikace k odesílání telemetrie](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Při obdržení tento typ upozornění Inteligentní detekce
 Existují tři typy zabezpečení problémy, které jsou zjištěny:

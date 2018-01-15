@@ -12,17 +12,17 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7985fba68ef2c6f651c64756f8c534928b573de5
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 6f1dad648b228163219c8f722eed3897f4ba4d22
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Tom, jak odebrat zařízení přístup ke službě zřizování na portálu Azure
 
 Správné správu přihlašovacích údajů, zařízení je zásadní pro systémy vysokou profil jako řešení IoT. Osvědčeným postupem pro tyto systémy je mít zrušte plán o odvolání přístupu pro zařízení v případech, kde přihlašovacích údajů, zda SAS token nebo certifikátu X.509, může dojít k ohrožení. Tento článek popisuje, jak odvolat přístup k zařízením v kroku zřizování.
 
-Další informace o odvolání přístupu zařízení do služby IoT hub po zařízení zřízená. v tématu [zakázat zařízení](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Další informace o odvolání přístupu zařízení do služby IoT hub po zařízení zřízená. v tématu [zakázat zařízení](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
 
 > [!NOTE] 
 > Pamatujte na zařízení, která odvolání přístupu pro zásady opakování. Zařízení s zásadu nekonečné opakování například nepřetržitě pokusit zaregistrovat službu zřizování náročné na prostředky služby a které by mohly mít mělo vliv na výkon.

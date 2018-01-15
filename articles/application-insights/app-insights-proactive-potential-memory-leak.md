@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 452d0a9d0231e54df2a7f1df76c3c2c0fcd94d87
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="memory-leak-detection-preview"></a>Zjišťování nevracení paměti (preview)
 
 Application Insights automaticky analyzuje využití paměti jednotlivých procesů ve vaší aplikaci a může vás upozorní na potenciální nevracení paměti nebo využití vyšší paměti.
 
-Tato funkce vyžaduje žádné speciální nastavení jiné než [Konfigurace čítačů výkonu](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) pro vaši aplikaci. Bude aktivní, pokud vaše aplikace generuje telemetrická čítače výkonu dostatek paměti (například soukromých bajtů).
+Tato funkce vyžaduje žádné speciální nastavení jiné než [Konfigurace čítačů výkonu](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) pro vaši aplikaci. Bude aktivní, pokud vaše aplikace generuje telemetrická čítače výkonu dostatek paměti (například soukromých bajtů).
 
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Při obdržení tento typ upozornění Inteligentní detekce
