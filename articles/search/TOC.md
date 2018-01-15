@@ -1,53 +1,71 @@
-# [Přehled](search-what-is-azure-search.md)
-## [Co je Azure Search?](search-what-is-azure-search.md)
+# Přehled
+## [Informace o Azure Search](search-what-is-azure-search.md)
 
-# Začínáme
+# Šablony Rychlý start
 
 ## [Vytvoření služby](search-create-service-portal.md)
-## [Vytvoření indexu](search-what-is-an-index.md)
-### [Azure Portal](search-create-index-portal.md)
-### [.NET](search-create-index-dotnet.md)
-### [REST](search-create-index-rest-api.md)
-## [Přidání dat](search-what-is-data-import.md)
-### [portál Azure Portal](search-import-data-portal.md)
-### [.NET](search-import-data-dotnet.md)
-### [REST](search-import-data-rest-api.md)
-## [Prohledání indexu](search-query-overview.md)
-### [Azure Portal](search-explorer.md)
-### [.NET](search-query-dotnet.md)
-### [REST](search-query-rest-api.md)
+## Portál
+### [Vytvoření indexu](search-create-index-portal.md)
+### [Import dat](search-import-data-portal.md)
+### [Průzkumník služby Search](search-explorer.md)
+## .NET
+### [Vytvoření indexu](search-create-index-dotnet.md)
+### [Import dat](search-import-data-dotnet.md)
+### [Search](search-query-dotnet.md)
+## REST
+### [Vytvoření indexu](search-create-index-rest-api.md)
+### [Import dat](search-import-data-rest-api.md)
+### [Search](search-query-rest-api.md)
+### [Testování s využitím klientů REST](search-fiddler.md)
 
 # Kurzy
 
-## [Vývoj v .NET](search-howto-dotnet-sdk.md)
-## [Náhled synonym v .NET](search-synonyms-tutorial-sdk.md)
-## [Indexer dat SQL v .NET](search-indexer-tutorial.md)
-## [Průvodce portálem](search-get-started-portal.md)
-## [Prohledávání částečně strukturovaných dat](search-semi-structured-data.md)
-## [Zkoumání rozhraní REST API](search-fiddler.md)
+## [1. Indexování Azure SQL Database](search-indexer-tutorial.md)
+## [2. Indexování objektů blob Azure](search-semi-structured-data.md)
+## [3. Přidání synonym v .NET](search-synonyms-tutorial-sdk.md)
+## [4. Průvodce portálem](search-get-started-portal.md)
 
-# Postup
+# Ukázky
+## [Ukázky kódu Azure](https://azure.microsoft.com/resources/samples/?service=search)
+## [Ukázky Githubu](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+
+# Koncepty
+## [Fulltextové vyhledávání](search-lucene-query-architecture.md)
+## [Indexování](search-what-is-data-import.md)
+## [Definice indexu](search-what-is-an-index.md)
+## [Lingvistická analýza](search-analyzers.md)
+
+# Návody
 
 ## Plánování a návrh
 ### [Volba SKU](search-sku-tier.md)
 ### [Omezení služby](search-limits-quotas-capacity.md)
 ### [Škálovatelnost služby](search-capacity-planning.md)
 ### [Způsoby návrhu pro architekturu s více tenanty](search-modeling-multitenant-saas-applications.md)
+### [Výkon a optimalizace](search-performance-optimization.md)
+
 ## Zabezpečení
 ### [Zabezpečení dat a provozní zabezpečení](search-security-overview.md)
-### [Zabezpečení s využitím filtrů identit](search-security-trimming-for-azure-search.md)
-### [Zabezpečení s využitím služby Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+### [Zabezpečení pomocí filtrů identity](search-security-trimming-for-azure-search.md)
+### [Zabezpečení pomocí služby Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+
 ## Vývoj
 ### [Verze rozhraní API](search-api-versions.md)
+### [Vývoj v .NET](search-howto-dotnet-sdk.md)
 ### [Vývoj v Node.js](search-get-started-nodejs.md)
 ### [Vývoj v Javě](search-get-started-java.md)
 ### [Upgrade sady SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade rozhraní REST API](search-api-migration.md)
 ### [Modelování komplexních datových typů](search-howto-complex-data-types.md)
 ### [Zpracování souběžných aktualizací](search-howto-concurrency.md)
-### [Ukázky kódu](https://azure.microsoft.com/resources/samples/?service=search)
-## Načtení dat
-### [Přehled indexeru](search-indexer-overview.md)
+### [Výsledky stránkování](search-pagination-page-layout.md)
+
+## Analýza textu
+### [Analyzátory jazyka](https://docs.microsoft.com/rest/api/searchservice/language-support)
+### [Vlastní analyzátory](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+
+## Indexování dat
+### [Přehled indexerů](search-indexer-overview.md)
 ### [Indexer pro Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 ### [Indexer pro Azure Table Storage](search-howto-indexing-azure-tables.md)
 ### [Indexer pro Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -56,33 +74,25 @@
 ### [Indexování objektů blob JSON](search-howto-index-json-blobs.md)
 ### [Konfigurace připojení indexeru do SQL Serveru na virtuálním počítači Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mapování polí v indexerech](search-indexer-field-mappings.md)
-##  Hledání
-### [Jak funguje fulltextové vyhledávání](search-lucene-query-architecture.md)
-### Konstrukce dotazů
-#### [Jednoduchá syntaxe dotazů](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-#### [Syntaxe dotazů Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Příklady dotazů Lucene](search-query-lucene-examples.md)
-### Analyzátory ve službě Azure Search
-#### [Přehled](search-analyzers.md)
-#### [Analyzátory jazyka](https://docs.microsoft.com/rest/api/searchservice/language-support)
-#### [Vlastní analyzátory](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
-### Filtry ve službě Azure Search
-#### [Přehled](search-filters.md)
-#### [Filtry omezující vlastnost](search-filters-facets.md)
-#### [Filtry jazyka](search-filters-language.md)
-#### [Reference k syntaxi výrazů](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### [Výsledky stránkování](search-pagination-page-layout.md)
-### [Vyhodnocování](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-### [Návrhy](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+##  Search
+### [Konstrukce základních dotazů](search-query-overview.md)
+### [Jednoduchá syntaxe dotazů](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+### [Syntaxe dotazů Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+### [Příklady dotazů syntaxe Lucene](search-query-lucene-examples.md)
 ### [Fasetová navigace](search-faceted-navigation.md)
-### [Náhled synonym](search-synonyms.md)
-### [moreLikeThis preview](search-more-like-this.md)
+### [Profily skórování](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Návrhy](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+### [Synonyma (ve verzi Preview)](search-synonyms.md)
+## Filtry
+### [Přehled filtrů](search-filters.md)
+### [Filtry omezující vlastnost](search-filters-facets.md)
+### [Syntaxe výrazů OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+
 ## Správa a analýzy
-### [Správa s využitím webu Azure Portal](search-manage.md)
-### [Správa s využitím PowerShellu](search-manage-powershell.md)
+### [Správa (portál)](search-manage.md)
+### [PowerShell (Azure Search)](search-manage-powershell.md)
 ### [Monitorování využití a statistiky](search-monitor-usage.md)
 ### [Prohledání analýzy provozu](search-traffic-analytics.md)
-### [Výkon a optimalizace](search-performance-optimization.md)
 
 # Odkaz
 
@@ -97,7 +107,6 @@
 
 ## [Nejčastější dotazy](search-faq-frequently-asked-questions.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
-## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
 ## Studijní materiály a kurzy
 ### [Videa a kurzy](search-video-demo-tutorial-list.md)
@@ -107,11 +116,7 @@
 ### [Živé ukázkové aplikace](https://searchsamples.azurewebsites.net/)
 ### [Aplikace výpisu úloh](http://aka.ms/azjobsdemo)
 ## Partneři a komunita
-### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Fórum na webu MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Fórum Azure Search na webu MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blog: Modelování relačních dat](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [blog: Víceúrovňové omezování vlastností](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-
-
-
