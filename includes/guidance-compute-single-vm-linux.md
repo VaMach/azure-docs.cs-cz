@@ -51,7 +51,7 @@ Pro zajištění nejlepšího výkonu diskových operací doporučujeme použít
 
 Pro každý virtuální počítač vytvořte samostatné účty úložiště Azure pro uložení virtuálních pevných disků (VHD). Nenarazíte tak na limity IOPS pro účty úložiště. 
 
-Přidejte jeden nebo několik datových disků. Když vytvoříte virtuální pevný disk, je neformátovaný. Přihlaste se k virtuálnímu počítači a disk naformátujte. V prostředí Linuxu se datové disky zobrazují jako `/dev/sdc`, `/dev/sdd` atd. Spuštěním příkazu `lsblk` můžete zobrazit seznam blokových zařízení, včetně těchto disků. Pokud chcete použít datový disk, vytvořte oddíl a souborový systém a potom disk připojte. Například:
+Přidejte jeden nebo několik datových disků. Když vytvoříte virtuální pevný disk, je neformátovaný. Přihlaste se k virtuálnímu počítači a disk naformátujte. V prostředí Linuxu se datové disky zobrazují jako `/dev/sdc`, `/dev/sdd` atd. Spuštěním příkazu `lsblk` můžete zobrazit seznam blokových zařízení, včetně těchto disků. Pokud chcete použít datový disk, vytvořte oddíl a souborový systém a potom disk připojte. Příklad:
 
 ```bat
 # Create a partition.
@@ -161,7 +161,7 @@ Nasazení pro tuto referenční architekturu je dostupné na [GitHubu][github-fo
 3. Počkejte, než se nasazení dokončí.
 4. Soubory parametrů zahrnují pevně zakódované uživatelské jméno a heslo správce. Důrazně doporučujeme obě tyto hodnoty okamžitě změnit. Na webu Azure Portal klikněte na virtuální počítač s názvem `ra-single-vm0 `. Potom v části **Podpora a řešení potíží** klikněte na **Resetovat heslo**. V rozevíracím seznamu **Režim** vyberte **Resetovat heslo** a potom vyberte nové **uživatelské jméno** a **heslo**. Po kliknutí na tlačítko **Aktualizovat** se nové uživatelské jméno a heslo nastaví.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pro zajištění vyšší dostupnosti nasaďte dva nebo víc virtuálních počítačů za nástrojem pro vyrovnávání zatížení. Další informace najdete v tématu [Spuštění několika virtuálních počítačů v Azure][multi-vm].
 
 <!-- links -->

@@ -87,7 +87,7 @@ Tady je příklad, který používá [názvy rutin)] [úloha]. Obsahuje příkaz
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 <!--At a minimum, include a link back to the migration task list article. Use the formats shown below. See create-links-markdown.md for more info -->
 <!--use this format for links to other articles, such as the migration task list. -->
 [Správa dostupnosti](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

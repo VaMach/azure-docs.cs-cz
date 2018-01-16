@@ -22,7 +22,7 @@ Po přejití řadiče zobrazení, měli byste vidět tabulku, která obsahuje z�
 |**Název** |Jméno a příjmení uživatele | Jméno a příjmení uživatele.
 |**Uživatelské jméno** |uživatel<span>@domain.com</span> | Uživatelské jméno, který se používá k identifikaci uživatele.
 |**Předmět** |Předmět |Řetězec, který jednoznačně identifikuje uživatele na webu.|
-|**ID klienta** |Identifikátor GUID | A **guid** který jedinečně reprezentuje uživatele organizaci Azure AD.|
+|**ID klienta** |Guid | A **guid** který jedinečně reprezentuje uživatele organizaci Azure AD.|
 
 Kromě toho měli byste vidět tabulku všechny deklarace identity, které jsou v žádosti o ověření. Další informace najdete v tématu [seznam deklarací identity, které jsou v tokenu ID služby Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 

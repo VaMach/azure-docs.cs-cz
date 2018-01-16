@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 ms.openlocfilehash: e791ff0377137557b6e9f38a8e1b6b35be948ab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Název (maximální 120 znaků, cílové primární – klíčové slovo)
 *V popisu použijte sekundární klíčová slova 2-3.*
@@ -67,7 +67,7 @@ Tyto {chyby} | {Problémy} dojít, protože {velmi obecné reason}.
 
 *Obecně platí tak dlouho, dokud chyba neindikuje "požadovaná velikost virtuálního počítače není podporováno", můžete vždy opakovat později, protože dostatek prostředků, může bylo uvolněno nahoru v clusteru, aby dokázala pojmout vaši žádost. Pokud problém požadovaná velikost virtuálního počítače není podporováno, zkuste jinou velikost virtuálního počítače; jedinou možností, jinak je odebrání Připnutí omezení.*
 
-## <a name="troubleshooting-steps"></a>Řešení potíží
+## <a name="troubleshooting-steps"></a>postup řešení potíží
 *Seznam řešení v pořadí použitelnost a jednoduchost, což znamená nejjednodušším získáte nejúčinnějším a užitečné řešení by první.*
 
 *Vyberte jednu z verzí, které se vztahují na vaši situaci.*
@@ -76,7 +76,7 @@ Tyto {chyby} | {Problémy} dojít, protože {velmi obecné reason}.
 |:--- |:--- |:--- |
 | <p><h3>[Problém 1] \ |[Chyba 1]</h3><h4>Příčina</h4>[Příčina podrobnosti]</p><p><h4>Řešení 1</h4><em>(nejjednodušší a co nejúčinnější)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><p><h4>Řešení 2</h4><em>(menší jednoduchý nebo efektivní)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><p><h3>[Problém 2] \ |[Chyba 2]</h3><h4>Příčina</h4>[Příčina podrobnosti]</p><p><h4>Řešení 1</h4><em>(nejjednodušší a co nejúčinnější)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><p><h4>Řešení 2</h4><em>(nejjednodušší a co nejúčinnější)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 *Zahrnout tuto část, pokud existují konkrétní 1 -3, vysoce relevantní další kroky, kterou má uživatel provést. Odstraňte, pokud nejsou žádné další kroky. Toto není nastavené pro seznam odkazů. Pokud zahrnete odkazy na další kroky, ujistěte se, zda je text, který vysvětluje, proč se v dalších krocích relevantní / důležité zahrnout.*
 
 *Pokud je článek v sekci fakturace, patří následující Poznámka: (poznámka níže se poněkud liší od jedné na začátku tohoto článku):*

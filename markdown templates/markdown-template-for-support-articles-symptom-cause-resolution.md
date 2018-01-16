@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 ms.openlocfilehash: 1f86194857a54ed3a903c2696efc9b23d482c274
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Název (maximální 120 znaků, cílové primární – klíčové slovo)
 *V popisu použijte sekundární klíčová slova 2-3.*
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 |:--- |:--- |:--- |
 | <p><h3>Řešení 1</h3><em>(nejjednodušší a co nejúčinnější)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><p><h3>Řešení 2</h3><em>(menší jednoduchý nebo efektivní)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /> |<p><h3>Řešení 1</h3><em>(nejjednodušší a co nejúčinnější)</em></p><ol><li>[Krok 1]</li><li>Pokud používáte model nasazení classic [to udělat].<br />Pokud používáte model nasazení Resource Manager [to udělat].</li><li>[Krok 3]</li></ol><p><h3>Řešení 2</h3><em>(menší jednoduchý nebo efektivní)</em></p><ol><li>[Krok 1]</li><li>Pokud používáte model nasazení classic [to udělat].<br />Pokud používáte model nasazení Resource Manager [to udělat].</li><li>[Krok 3]</li></ol> |<img src="media/markdown-template-for-support-articles-symptom-cause-resolution/rm-classic.png" alt="ARM-Classic"><p><h3>Řešení 1</h3><em>(nejjednodušší a co nejúčinnější)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><p><h3>Řešení 2</h3><em>(menší jednoduchý nebo efektivní)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><br /><br /><br /><br /> |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 *Zahrnout tuto část, pokud existují konkrétní 1 -3, vysoce relevantní další kroky, kterou má uživatel provést. Odstraňte, pokud nejsou žádné další kroky. Toto není nastavené pro seznam odkazů. Pokud zahrnete odkazy na další kroky, ujistěte se, zda je text, který vysvětluje, proč se v dalších krocích relevantní / důležité zahrnout.*
 
 *Pokud je článek v sekci fakturace, patří následující Poznámka: (poznámka níže se poněkud liší od jedné na začátku tohoto článku):*

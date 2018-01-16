@@ -10,7 +10,7 @@ Při počáteční spuštění prostředí cloudu vás vyzve k přidružit nové
 ### <a name="create-new-storage"></a>Vytvoření nového úložiště
 
 Když používáte základní nastavení a vyberte pouze předplatné, cloudové prostředí vytvoří tři zdroje vaším jménem v podporované oblasti, které je nejblíže můžete:
-* Skupina prostředků:`cloud-shell-storage-<region>`
+* Skupina prostředků: `cloud-shell-storage-<region>`
 * Účet úložiště:`cs<uniqueGuid>`
 * Sdílené složky:`cs-<user>-<domain>-com-<uniqueGuid>`
 

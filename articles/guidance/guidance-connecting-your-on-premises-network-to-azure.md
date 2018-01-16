@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/25/2016
 ms.author: cherylmc
 ms.openlocfilehash: 37d83d3b6dea1763d85f2411816ba2fee4279100
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Připojení vaší místní sítě do Azure
 Společnost Microsoft poskytuje několik typů cloudových služeb. Můžete se sice připojit ke všem službám prostřednictvím veřejného Internetu, můžete také připojit k některým službám pomocí tunelového propojení virtuální privátní sítě (VPN) přes Internet nebo prostřednictvím přímé a privátní připojení společnosti Microsoft. Tento článek vám pomůže určit možnosti připojení, kterou bude nejlépe vyhovovat vašim potřebám, v závislosti na typech cloudové služby společnosti Microsoft, které spotřebujete. Většina organizací využívat více typů připojení, které jsou popsané dál.
@@ -103,7 +103,7 @@ Další informace o [ExpressRoute](../expressroute/expressroute-introduction.md)
 * Některé z výše uvedených možností mají různé maximální limit, který může podporovat pro připojení virtuální sítě, připojení brány a dalších kritérií. Doporučujeme, abyste si prošli Azure [sítě omezení](../azure-subscription-service-limits.md#networking-limits) pochopit, pokud některý z nich mít vliv na typy připojení chcete použít.
 * Pokud máte v plánu připojit bránu z připojení VPN typu site-to-site ke stejné síti VNet jako bránu ExpressRoute, byste si měli přečíst s důležitá omezení nejdřív. Najdete v článku [konfigurace ExpressRoute a Site-to-Site připojení, která](../expressroute/expressroute-howto-coexist-resource-manager.md#limits-and-limitations) další podrobnosti najdete v článku.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Níže uvedených zdrojů vysvětlují, jak implementovat typy připojení popsaná v tomto článku.
 
 * [Implementace připojení point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)

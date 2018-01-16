@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Připojit k aplikaci Dynamics 365 z pracovní postupy aplikace logiky
 
@@ -113,7 +113,7 @@ Například můžete použít dotaz filter získat pouze aktivní účty a pořa
 
 Při přidejte hodnotu do pole, musí odpovídat typ pole, ať už zadejte hodnotu, nebo vyberte hodnotu ze seznamu dynamického obsahu.
 
-Typ pole  |Způsob použití  |Kde najít  |Name (Název)  |Datový typ  
+Typ pole  |Způsob použití  |Kde najít  |Název  |Typ dat  
 ---------|---------|---------|---------|---------
 Textová pole|Textová pole vyžadují jeden řádek textu nebo dynamický obsah, který je pole typu text. Mezi příklady patří pole kategorie a dílčí kategorie.|Nastavení > Přizpůsobení > Přizpůsobení systému > entity > úlohy > pole |category |Jeden řádek textu        
 Pole celé číslo | Některá pole vyžadují celé číslo nebo dynamický obsah, který je pole typu integer. Mezi příklady patří dokončeno % a doby trvání. |Nastavení > Přizpůsobení > Přizpůsobení systému > entity > úlohy > pole |Procento dokončení |Celé číslo         
@@ -170,5 +170,5 @@ Další informace o odstraňování potíží s aplikací logiky najdete v téma
 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/crm/). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
