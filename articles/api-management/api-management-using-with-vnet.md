@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak používat Azure API Management s virtuálními sítěmi
 Virtuální sítě Azure (virtuální sítě) umožňují některé z vašich prostředků Azure umístění v síti routeable Internetu jiných výrobců, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií sítě VPN. Další informace o virtuálních sítí Azure začínat zde uvedené informace: [Přehled virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).
@@ -107,9 +107,9 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
 
 | Zdrojové nebo cílové porty | Směr | Přenosový protokol | Zdroj / cíl | Účel (*) | Typ virtuální sítě |
 | --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |Příchozí |TCP |INTERNET NEBO VIRTUAL_NETWORK|Komunikaci klientů API Management|Externí |
-| * / 3443 |Příchozí |TCP |INTERNET NEBO VIRTUAL_NETWORK|Koncový bod správy pro portál Azure a prostředí Powershell |Interní |
-| * / 80, 443 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislost na službě Azure Storage, Azure Service Bus a Azure Active Directory (v případě potřeby).|Externí & interní | 
+| * / 80, 443 |Příchozí |TCP |INTERNET / VIRTUAL_NETWORK|Komunikaci klientů API Management|Externí |
+| * / 3443 |Příchozí |TCP |INTERNET / VIRTUAL_NETWORK|Koncový bod správy pro portál Azure a prostředí Powershell |Interní |
+| * / 80, 443 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Závislost na službě Azure Storage**, Azure Service Bus a Azure Active Directory (v případě potřeby).|Externí & interní | 
 | * / 1433 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k koncové body Azure SQL** |Externí & interní |
 | * / 5671, 5672 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislosti pro protokol do centra událostí zásadu a agent monitorování |Externí & interní |
 | * / 445 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislost na sdílenou složku Azure pro GIT |Externí & interní |
@@ -132,7 +132,7 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
  * UDR použije na podsíť obsahující Azure API Management definuje 0.0.0.0/0 s typ dalšího segmentu z Internetu.
  Celkové požadavky tyto kroky je, že na úrovni podsítě UDR má přednost před ExpressRoute vynucené tunelování, čímž zajišťuje odchozí přístup k Internetu z Azure API Management.
 
-**Směrování prostřednictvím síťových virtuálních zařízení**: konfigurace, které používají UDR výchozí trasa (0.0.0.0/0) směrovat přenosy z Internetu určené z podsítě API Management prostřednictvím zařízení vitrual sítě běžící v Azure zabrání úplné komunikace mezi API Management a požadované služby. Tato konfigurace není podporována. 
+**Směrování prostřednictvím síťových virtuálních zařízení**: konfigurace, které používají UDR výchozí trasa (0.0.0.0/0) směrovat přenosy z Internetu určené z podsítě API Management prostřednictvím virtuálního zařízení sítě běžící v Azure zabrání úplné komunikace mezi API Management a požadované služby. Tato konfigurace není podporována. 
 
 >[!WARNING]  
 >Azure API Management není podporovaný s konfigurací ExpressRoute, **nesprávně Inzerovat trasy z cesty veřejného partnerského vztahu k cestou soukromého partnerského vztahu mezi**. Konfigurace ExpressRoute, které mají veřejné partnerské vztahy nakonfigurované, obdrží inzerování trasy od společnosti Microsoft pro velké sady rozsahů adres Microsoft Azure IP. Pokud tyto rozsahy adres nesprávně ohlášené mezi na cestou soukromého partnerského vztahu, konečným výsledkem je, že všechny odchozí síťových paketů z podsítě instance Azure API Management jsou nesprávně force tunelovým propojením zákazníka místní síťové infrastruktuře. Tento tok sítě dělí Azure API Management. Řešení tohoto problému je zastavit směrování mezi – reklamu z cesty veřejného partnerského vztahu cestou soukromého partnerského vztahu.

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 67fc333a47333fff0cd95aebd0616892cd6c6a42
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab11f27ceed716ba90e9027eee1775c190d2d93f
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory identitu ochrana – jak odblokovat uživatele
 S Azure Active Directory Identity Protection můžete nakonfigurovat zásady pro blokování uživatele, pokud jsou splněny podmínky nakonfigurované. Obvykle blokovaný uživatel kontakty technické podpory k odblokování. Tato témata vysvětluje kroky můžete provádět, abyste odblokovat blokovaný uživatel.
@@ -33,7 +33,7 @@ Můžete získat typ zásady, který má blokovaný uživatel z záhlaví v dial
 | Zásada | Dialogové okno uživatele |
 | --- | --- |
 | Riziko přihlášení |![Blokované přihlášení](./media/active-directory-identityprotection-unblock-howto/02.png) |
-| Riziko pro uživatele |![Zablokovaný účet](./media/active-directory-identityprotection-unblock-howto/104.png) |
+| Riziko uživatele |![Zablokovaný účet](./media/active-directory-identityprotection-unblock-howto/104.png) |
 
 Uživatel, který je blokována:
 
@@ -55,5 +55,5 @@ Chcete-li odblokovat účtu ohrožený, máte následující možnosti:
 3. **Vyloučit ze zásad** – Pokud se domníváte, že aktuální konfiguraci zásad přihlášení způsobuje problémy pro konkrétní uživatele, můžete vyloučit uživatele z něj. V tématu [Azure Active Directory Identity Protection](active-directory-identityprotection.md) další podrobnosti.
 4. **Zakažte zásadu** – Pokud se domníváte, že vaše konfigurace zásad způsobuje problémy pro všechny uživatele, můžete zakázat zásadu. V tématu [Azure Active Directory Identity Protection](active-directory-identityprotection.md) další podrobnosti.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
  Opravdu chcete získat další informace o Azure AD Identity Protection? Podívejte se na [Azure Active Directory Identity Protection](active-directory-identityprotection.md).

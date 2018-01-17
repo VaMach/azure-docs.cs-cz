@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e213e6fcf10e98cb8e4344692475eb8d41d1afb5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Přihlašovací aktivity sestav Azure Active Directory referenční dokumentace rozhraní API
 Toto téma je součástí kolekce témat o službě Azure Active Directory, vytváření sestav rozhraní API.  
@@ -133,7 +133,7 @@ Parametr data a času musí být ve formátu UTC
 Hodnota ID uživatele je řetězcová hodnota
 
 - - -
-### <a name="userprincipalname"></a>UserPrincipalName
+### <a name="userprincipalname"></a>userPrincipalName
 **Podporované operátory**: eq
 
 **Příklad**:
@@ -186,7 +186,7 @@ Hodnota appDisplayName je řetězcová hodnota
 Existují dvě možnosti pro loginStatus: 0 - Úspěch, 1 – Chyba
 
 - - -
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Chcete příklady pro filtrovaný přihlašovací aktivity? Podívejte se [ukázky sestavy rozhraní API služby Azure Active Directory přihlašovací aktivita](active-directory-reporting-api-sign-in-activity-samples.md).
 * Opravdu chcete získat další informace o generování sestav rozhraní API Azure AD? V tématu [Začínáme s Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
 

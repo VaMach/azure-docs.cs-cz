@@ -2,4 +2,4 @@
 
 V tomto návodu se přesunul na – příručka přispěvatele interní na docs.microsoft.com.
 
-[https://aka.MS/pr-Best-Practices](https://aka.ms/pr-best-practices)
+[https://aka.ms/pr-best-practices](https://aka.ms/pr-best-practices)

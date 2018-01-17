@@ -2,4 +2,4 @@
 
 V tomto návodu se přesunul na – příručka přispěvatele interní na docs.microsoft.com.
 
-[https://aka.MS/Azure-File-Names](https://aka.ms/azure-file-names)
+[https://aka.ms/azure-file-names](https://aka.ms/azure-file-names)

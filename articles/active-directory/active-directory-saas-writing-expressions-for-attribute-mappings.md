@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Zapisují se výrazy pro mapování atributů v Azure Active Directory
 Při konfiguraci zřizování k aplikaci SaaS, je jeden z typů mapování atributů, které můžete zadat mapování u výrazu. Pro tyto musíte napsat skript jako výraz, který umožňuje transformovat data uživatelů do formátů, které jsou více přijatelné pro aplikace SaaS.
@@ -27,7 +27,7 @@ Syntaxe pro výrazy pro mapování atributů je připomínající jazyka Visual 
 
 * Celý výraz musí být definován z hlediska funkcí, které se skládají z název, za nímž následují argumenty v závorce: <br>
   *%{FunctionName/ (<< argument 1 >>, <<argument N>>)*
-* Funkce v sobě navzájem může vnořit. Příklad: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+* Funkce v sobě navzájem může vnořit. Příklad: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * Tři různé typy argumentů můžete předat do funkce:
   
   1. Atributy, které musí být uzavřena do odmocnina hranaté závorky. Příklad: [attributeName]
@@ -49,7 +49,7 @@ Syntaxe pro výrazy pro mapování atributů je připomínající jazyka Visual 
 | Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **zdroj** |Požaduje se |Řetězec |Obvykle název atributu, ze zdrojového objektu |
-| **přípona** |Požaduje se |Řetězec |Řetězec, který má být připojen na konec zdrojové hodnoty. |
+| **suffix** |Požaduje se |Řetězec |Řetězec, který má být připojen na konec zdrojové hodnoty. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -77,8 +77,8 @@ Pokud je jedna z hodnot zdroj vícehodnotový atribut, pak každá hodnota v ten
 
 | Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
-| **Oddělovač** |Požaduje se |Řetězec |Řetězec slouží k oddělení zdroj hodnoty, když jsou zřetězeny do jednoho řetězce. Může být "" Pokud žádné oddělovače je vyžadován. |
-| ** zdroj1... zdrojN ** |Požadované proměnné počet pokusů |Řetězec |Řetězec hodnoty, které mají být propojeny. |
+| **separator** |Požaduje se |Řetězec |Řetězec slouží k oddělení zdroj hodnoty, když jsou zřetězeny do jednoho řetězce. Může být "" Pokud žádné oddělovače je vyžadován. |
+| ** zdroj1... sourceN ** |Požadované proměnné počet pokusů |Řetězec |Řetězec hodnoty, které mají být propojeny. |
 
 - - -
 ### <a name="mid"></a>Mid –
@@ -137,7 +137,7 @@ Nahradí hodnoty v řetězci. Funguje jinak v závislosti na parametry zadané:
 | **regexGroupName** |Nepovinné |Řetězec |Název skupiny uvnitř **regexPattern**. Jenom v případě, že se používá replacementPropertyName, jsme jako zastaralá z vlastnosti nahrazení extrahuje hodnotu této skupiny. |
 | **Zastaralá** |Nepovinné |Řetězec |Nová hodnota nahradit starý s. |
 | **replacementAttributeName** |Nepovinné |Řetězec |Název atributu, který má být použit pro nahrazující hodnotou, pokud zdroj nemá žádnou hodnotu. |
-| **šablony** |Nepovinné |Řetězec |Když **šablony** je zadána hodnota, podíváme se **oldValue** uvnitř šablony a nahraďte ji metodou hodnota zdroje. |
+| **template** |Nepovinné |Řetězec |Když **šablony** je zadána hodnota, podíváme se **oldValue** uvnitř šablony a nahraďte ji metodou hodnota zdroje. |
 
 - - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment

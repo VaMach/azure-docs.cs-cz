@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: d02994a4fba64605c79edae3f68db36dc8935b28
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Připojení k nové zařízení Windows 10 s Azure AD při prvním spuštění
 
@@ -81,7 +81,7 @@ Pokud chcete ověřit, jestli se zařízení připojí ke službě Azure AD, př
 ![Přístup k práci nebo ve škole](./media/device-management-azuread-joined-devices-frx/13.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další podrobnosti najdete v tématu [Úvod do správy zařízení v Azure Active Directory](device-management-introduction.md).
 

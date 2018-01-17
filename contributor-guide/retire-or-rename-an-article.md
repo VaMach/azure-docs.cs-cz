@@ -2,4 +2,4 @@
 
 V tomto návodu se přesunul na – příručka přispěvatele interní na docs.microsoft.com.
 
-[https://aka.MS/retire-or-Rename](https://aka.ms/retire-or-rename)
+[https://aka.ms/retire-or-rename](https://aka.ms/retire-or-rename)

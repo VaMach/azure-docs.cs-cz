@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure zásobníku diagnostické nástroje
 
@@ -121,21 +121,21 @@ if($s)
    | ACS                     | ACSFabric              | ACSFrontEnd        |
    | ACSTableMaster          | ACSTableServer         | ACSWac             |
    | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CERTIFIKAČNÍ AUTORITY                     | ISP                |
+   | BRP                     | CA                     | CPI                |
    | CRP.                     | DeploymentMachine      | DHCP               |
-   | Domény                  | ECE                    | ECESeedRing        | 
+   | Doména                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | brána                 | HealthMonitoring       | HRP                |   
-   | B-ISDN                     | InfraServiceController | KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
    | SRP                     | Úložiště                | StorageController  |
-   | URP                     | UsageBridge            | virtuálních počítačů    |  
-   | BYL                     | WASPUBLIC              | SLUŽBA WDS                |
+   | URP                     | UsageBridge            | VirtualMachines    |  
+   | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Shromažďování protokolů pomocí grafického uživatelského rozhraní
+### <a name="bkmk_gui"></a>Shromažďování protokolů pomocí grafického uživatelského rozhraní
 Místo poskytuje požadované parametry pro rutinu Get-AzureStackLog získat protokoly zásobník Azure, můžete využít i nástroje zásobník Azure k dispozici s otevřeným zdrojem umístěný v hlavní zásobník Azure nástrojů nástroje úložiště GitHub v http://aka.ms/AzureStackTools.
 
 **ERCS_AzureStackLogs.ps1** skript prostředí PowerShell je uložen v úložišti GitHub nástroje a se aktualizuje v pravidelných intervalech. K zajištění, že máte k dispozici nejnovější verzi, by ho stáhnout přímo z http://aka.ms/ERCS. Skript spustit z relace prostředí PowerShell pro správu, připojí k privilegované koncového bodu a spustí Get-AzureStackLog pomocí zadaných parametrů. Pokud jsou zadány žádné parametry, skript výchozí výzvy pro parametry přes grafické uživatelské rozhraní.
@@ -157,5 +157,6 @@ Další informace o skriptu prostředí PowerShell ERCS_AzureStackLogs.ps1, mů�
 > [!NOTE]
 > Velikost a stáří limity prosazují na protokoly shromážděny, protože to je nezbytné k zajištění efektivní využití prostoru úložiště zajistit, že není získají přenášeny s protokoly. Při diagnostice problém někdy však protokoly, které už možná neexistuje z důvodu těchto mezních hodnot. Z toho důvodu je **důrazně doporučujeme** snižování zátěže protokolů k prostorem externího úložiště (účet úložiště v Azure, zařízení s další místní úložiště atd.) každých 8 až 12 hodin a zůstanou existuje pro 1 – 3 měsíce, v závislosti na vaší požadavky. Také zkontrolujte, zda že toto umístění úložiště je zašifrovaná.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Řešení potíží s Microsoft Azure zásobníku](azure-stack-troubleshooting.md)
+

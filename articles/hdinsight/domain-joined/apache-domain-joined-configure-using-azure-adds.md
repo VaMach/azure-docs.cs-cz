@@ -3,7 +3,7 @@ title: "Konfigurace clusterů HDInsight připojený k doméně pomocí nástroje
 description: "Zjistěte, jak připravit a nakonfigurovat clusterů HDInsight připojený k doméně pomocí nástroje Azure Active Directory Domain Services"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 0dfda9b87e970f7bf0ae2df699897b9c8bb73004
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurace clusterů HDInsight připojený k doméně pomocí nástroje Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ V tomto článku zjistěte, jak nakonfigurovat cluster HDInsight připojený k d
 Budete muset vytvořit Azure AD DS před vytvořením clusteru služby HDInsight. Vytvoření služby Azure přidá naleznete v tématu [povolit Azure Active Directory Domain Services pomocí webu Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Pouze správci klientů mají oprávnění k vytvoření služby domain services. 
+> Pouze správci klientů mají oprávnění k vytvoření služby domain services. V případě Azure Data Lake Storage - AAD klienta kde >> povolíte AADDS musí být výchozí klient předplatného, kde můžete vytvořit účet úložiště Azure Data Lake a cluster.
 
 Po zřídil službu domény musíte vytvořit účet služby v **správci řadič domény služby Azure AD** skupiny k vytvoření clusteru HDInsight. Účet služby musí být globální správce na Azure AD.
 

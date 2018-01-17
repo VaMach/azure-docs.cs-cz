@@ -5,14 +5,14 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/16/2018
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure zásobníku datacenter integrace – Publikování koncové body
 
@@ -37,32 +37,32 @@ Interní infrastruktury virtuální IP adresy nejsou uvedené, protože není js
 
 |Koncový bod (VIP)|Záznam hostitele DNS|Protocol (Protokol)|Porty|
 |---------|---------|---------|---------|
-|SLUŽBA AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Portál (správce)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
-|Azure Resource Manager (správce)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Portál (uživatel)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (uživatel)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Graph|`Graph.[Region].[External FQDN]`|HTTPS|443|
-|Seznam odvolaných certifikátů|`Crl.[Region].[External FQDN]`|HTTP|80|
-|DNS|`*.[Region].[External FQDN]`|TCP A UDP|53|
-|Key Vault (uživatel)|`*.vault.[Region].[External FQDN]`|TCP|443|
-|Key Vault (správce)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
-|Fronty úložiště|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Tabulka úložiště|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Objekt Blob úložiště|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portál (správce)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Azure Resource Manager (správce)|Adminmanagement.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443<br>30024|
+|Portál (uživatel)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Azure Resource Manager (uživatel)|Správa.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443<br>30024|
+|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Seznam odvolaných certifikátů|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP A UDP|53|
+|Key Vault (uživatel)|*.Vault.*  &lt;oblast >.&lt; plně kvalifikovaný název domény > *|TCP|443|
+|Key Vault (správce)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Fronta úložiště|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Tabulka úložiště|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Objekt Blob úložiště|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 
 ## <a name="ports-and-urls-outbound"></a>Porty a adresy URL (odchozí)
 
 Azure zásobníku podporuje pouze transparentní proxy servery. V nasazení, kde transparentní proxy odchozí připojení pro tradiční proxy server, musíte povolit následující porty a adresy URL pro odchozí komunikace:
 
 
-|Účel|ADRESA URL|Protocol (Protokol)|Porty|
+|Účel|Adresa URL|Protocol (Protokol)|Porty|
 |---------|---------|---------|---------|
-|Identita|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
-|Syndikace Marketplace.|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
-|Opravy a aktualizace|`https://*.azureedge.net`|HTTPS|443|
-|Registrace|`https://management.azure.com`|HTTPS|443|
-|Využití|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
+|Identita|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|Syndikace Marketplace.|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Opravy a aktualizace|https://&#42;.azureedge.net|HTTPS|443|
+|Registrace|https://management.azure.com|HTTPS|443|
+|Využití|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 ## <a name="firewall-publishing"></a>Publikování brány firewall
 
@@ -107,6 +107,6 @@ Pokud neveřejný směrovatelné IP adresy jsou používány pro veřejné fondu
 - Pro hybridní scénáře cloudu s Azure zvažte, že Azure nepodporuje nastavení tunelového připojení sítě VPN pro koncový bod pomocí adres (NAT)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Zásobník datacenter integrace se službou Azure - zabezpečení](azure-stack-integrate-security.md)

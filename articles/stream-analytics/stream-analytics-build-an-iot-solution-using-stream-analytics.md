@@ -4,8 +4,8 @@ description: "Úvodní kurz pro řešení Stream Analytics IoT mýtná celnice s
 keywords: "řešení IOT, okno funkce"
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Vytvoření řešení IoT pomocí služby Stream Analytics
+
 ## <a name="introduction"></a>Úvod
 V tomto kurzu se dozvíte, jak získat přehledy v reálném čase z vašich dat pomocí Azure Stream Analytics. Datové proudy dat, například klikněte na tlačítko-datové proudy, protokoly a události generované zařízení mohou vývojáři kombinovat snadno s staré záznamy nebo referenční data odvození informací o podniku. Jako výpočetní služba plně spravovaná, v reálném čase datový proud, který je hostován v Microsoft Azure Azure Stream Analytics poskytuje integrované odolnost proti chybám, s nízkou latencí a škálovatelnost, které jste si a spustit v minutách.
 
@@ -54,14 +55,14 @@ V tomto kurzu pracuje se dvěma datových proudů. Nainstalovaných ve vstupu a 
 ### <a name="entry-data-stream"></a>Vstupní datový proud
 Vstupní datový proud obsahuje informace o aut při vstupu projedou stanice.
 
-| TollID | EntryTime | LicensePlate | Stav | Ujistěte se | Model | VehicleType | VehicleWeight | Projedou | Značka |
+| TollID | EntryTime | LicensePlate | Stav | Make | Model | VehicleType | VehicleWeight | Projedou | Značka |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
-| 3 |2014-09-10 12:02:00.000 |ABC 1004 |BERTE |Ford |Taurus |1 |0 |5 |456789123 |
-| 2 |2014-09-10 12:03:00.000 |XYZ 1003 |BERTE |Toyota |Koruny |1 |0 |4 | |
+| 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
+| 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NI |Toyota |4 x 4 |1 |0 |6 |321987654 |
+| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NI |Toyota |4x4 |1 |0 |6 |321987654 |
 
 Zde je stručný popis sloupce:
 
@@ -71,7 +72,7 @@ Zde je stručný popis sloupce:
 | EntryTime |Datum a čas položky vehicle k stánek projedou v UTC |
 | LicensePlate |Počet registrační nástroj |
 | Stav |Stav v USA |
-| Ujistěte se |Výrobce daného automobilu |
+| Make |Výrobce daného automobilu |
 | Model |Číslo modelu daného automobilu |
 | VehicleType |Buď 1 pro osobní vozidel či 2 pro komerční vozidel |
 | WeightType |Vehicle váhy v tunách; 0 pro osobní vozidel |
@@ -101,11 +102,11 @@ Zde je stručný popis sloupce:
 ### <a name="commercial-vehicle-registration-data"></a>Vehicle komerční registrační data
 Tento kurz používá statický snímek databáze komerční vehicle registrace.
 
-| LicensePlate | RegistrationId | Platnost |
+| LicensePlate | RegistrationId | Vypršela platnost |
 | --- | --- | --- |
 | SVT 6023 |285429838 |1 |
 | XLZ 3463 |362715656 |0 |
-| ZÁ 1005 |876133137 |1 |
+| BAC 1005 |876133137 |1 |
 | RIV 8632 |992711956 |0 |
 | SNY 7188 |592133890 |0 |
 | ELH 9896 |678427724 |1 |
@@ -116,7 +117,7 @@ Zde je stručný popis sloupce:
 | --- | --- |
 | LicensePlate |Počet registrační nástroj |
 | RegistrationId |ID registrace vehicle |
-| Platnost |Stav registrace nástroj: 0, pokud je aktivní, vehicle registrace 1, pokud platnost registrace |
+| Vypršela platnost |Stav registrace nástroj: 0, pokud je aktivní, vehicle registrace 1, pokud platnost registrace |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Nastavení prostředí pro Azure Stream Analytics
 K dokončení tohoto kurzu potřebujete předplatné Microsoft Azure. Společnost Microsoft nabízí bezplatné zkušební verze pro služby Microsoft Azure.
@@ -175,24 +176,11 @@ Zobrazí se také další okno, který je podobný na následujícím snímku ob
 Nyní byste měli mít vašich prostředků na portálu Azure nyní zobrazeny. Přejděte na <https://portal.azure.com>a přihlaste se pomocí přihlašovacích údajů účtu. Všimněte si, že aktuálně některé funkce využívá portálu classic. Tyto kroky bude jasně označen.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
-Na portálu Azure klikněte na tlačítko **další služby** na spodní části podokna levém správy. Typ **služby Event hubs** zadané v poli a klikněte na tlačítko **služby Event hubs**. Spustí se nové okno prohlížeče zobrazíte **SERVICE BUS** oblasti v **portálu classic**. Zde se zobrazí vytvořen skriptem Setup.ps1 centra událostí.
 
-![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-Klikněte na ten, který začíná *tolldata*. Klikněte **EVENT HUBS** kartě. Zobrazí se dva centra událostí s názvem *položka* a *ukončete* vytvořit v tomto oboru názvů.
-
-![Karta centra událostí portálu classic](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+Z portálu Azure klikněte na tlačítko **další služby** na spodní části podokna levém správy. Typ **služby Event hubs** v v poli se zobrazí nový obor názvů centra událostí, který začíná **tolldata**. Tento namesapce je vytvořen skriptem Setup.ps1. Zobrazí se dva centra událostí s názvem **položka** a **ukončete** vytvořit v tomto oboru názvů.
 
 ### <a name="azure-storage-container"></a>Kontejner úložiště Azure
-1. Přejděte zpět na kartu ve vaší otevřete prohlížeč na portálu Azure. Klikněte na tlačítko **úložiště** na levé straně na portálu Azure zobrazíte kontejner Azure Storage, který je použit v tomto kurzu.
-   
-    ![Položky nabídky úložiště](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Klikněte na jeden, který bude začínat *tolldata*. Klikněte **kontejnery** karty zobrazíte vytvořený kontejner.
-   
-    ![Karta kontejnery na portálu Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Klikněte **tolldata** kontejneru zobrazíte nahrávaný soubor JSON, který má vehicle registrační data.
-   
-    ![Snímek obrazovky registration.json soubor v kontejneru](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+Z portálu Azure přejděte do účtů úložiště, měli byste vidět účet úložiště, který začíná **tolldata**. Klikněte **tolldata** kontejneru zobrazíte nahrávaný soubor JSON, který má vehicle registrační data.
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 1. Přejděte zpět na portál Azure na první kartě, kterou jste otevřeli v prohlížeči. Klikněte na tlačítko **databází SQL** na levé straně na portálu Azure SQL database, která se použije v tomto kurzu a klikněte na tlačítko Zobrazit **tolldatadb**.
@@ -285,7 +273,7 @@ Nyní jsou definovány všechny vstupy.
 1. V podokně přehled úlohy Stream Analytics vyberte **výstupy**.
    
     ![Karta Výstup a možnost "Přidat výstup"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
-2. Klikněte na tlačítko **Přidat**.
+2. Klikněte na tlačítko **Add** (Přidat).
 3. Nastavte **alias pro výstup** k "výstupní" a potom **jímky** k **databáze SQL**.
 3. Vyberte název serveru, který se používal v části "Připojení k databázi ze sady Visual Studio" v článku. Název databáze je **TollDataDB**.
 4. Zadejte **tolladmin** v **uživatelské jméno** pole, **123toll!** v **heslo** pole, a **TollDataRefJoin** v **tabulky** pole.
@@ -323,9 +311,9 @@ Teď, když jste napsali svůj první dotaz Azure Stream Analytics, je třeba ot
 
 Tato složka obsahuje následující soubory:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Otázka č. 1: Počet vozidel zadávání stánek projedou
 1. Otevřete portál Azure a přejděte na vytvořenou úlohu Azure Stream Analytics. Klikněte **dotazu** kartě a vložte dotaz z předchozí části.

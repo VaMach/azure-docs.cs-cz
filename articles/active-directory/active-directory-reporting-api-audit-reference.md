@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory auditu referenční dokumentace rozhraní API
 Toto téma je součástí kolekce témat o službě Azure Active Directory, vytváření sestav rozhraní API.  
@@ -95,7 +95,7 @@ Pokud chcete zadat typ záznamů, které se zajímáte o, můžete vytvořit fil
 * [cíl/upn](#targetupn) -definuje objektu actor v podobě název Princip objektu actor uživatele (UPN)   
 
 - - -
-### <a name="activitydate"></a>Datum
+### <a name="activitydate"></a>activityDate
 **Podporované operátory**: eq, ge, le, gt, lt
 
 **Příklad**:
@@ -130,7 +130,7 @@ data a času musí být ve formátu UTC
 
     $filter=category eq 'SSPR'
 - - -
-### <a name="activitystatus"></a>ActivityStatus
+### <a name="activitystatus"></a>activityStatus
 
 **Podporované hodnoty**:
 
@@ -158,7 +158,7 @@ data a času musí být ve formátu UTC
 malá a velká písmena
 
 - - -
-### <a name="activity"></a>Aktivity
+### <a name="activity"></a>aktivita
 **Podporované operátory**: eq, obsahuje, startsWith
 
 **Příklad**:

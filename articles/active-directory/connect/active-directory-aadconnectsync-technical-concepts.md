@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi;andkjell
-ms.openlocfilehash: c852e33621ba7f4280858f3990380b518535b514
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b757f6d75e5025049a381d3b64576f0b19a7ca8
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Synchronizace služby Azure AD Connect: Technické koncepty
 Tento článek je uveden seznam tématu [Principy architektura](active-directory-aadconnectsync-technical-concepts.md).
@@ -31,13 +31,13 @@ Sestavování na serveru MIIS, ILM a FIM, synchronizaci služby Active Directory
 
 Následující části obsahují další podrobnosti o následující aspekty synchronizační služba FIM:
 
-* konektor
+* Konektor
 * Toku atributů
 * Prostoru konektoru
 * Úložiště Metaverse
 * Zřizování
 
-## <a name="connector"></a>konektor
+## <a name="connector"></a>Konektor
 Moduly kódu, které se používají ke komunikaci s připojený adresář se nazývají konektory (dříve označované jako agenti pro správu (MAs)).
 
 Byly nainstalovány na počítači se systémem synchronizace Azure AD Connect. Konektory umožňují bez agentů komunikaci pomocí protokolů vzdáleného systému namísto spoléhání na nasazení specializované agentů. To znamená ke snížení rizika a dobu nasazení, zejména v případě, že zabývající se kritické aplikace a systémy.
@@ -83,7 +83,7 @@ To vytváří ze své podstaty odkaz a obousměrně pokračovat toku atributů.
 
 Vždy, když pravidlo zjistí, že je potřeba vytvořit nový objekt prostoru konektoru, nazývá se zřizování. Ale protože tato operace je provedeno pouze v rámci prostoru konektoru, je neprovádí do připojeného zdroje dat do provedení exportu.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 * [Azure AD Connect Sync: Možnosti přizpůsobení synchronizace](active-directory-aadconnectsync-whatis.md)
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 

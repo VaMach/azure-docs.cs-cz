@@ -15,28 +15,33 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 53a241f12373acdb5d40575915d8d6c2f3c86b9a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 53adef0f512c54e036a981dbaa0d08453db6b194
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Virtuální počítače s Linuxem pomocí rozšíření Azure vlastních skriptů
-Rozšíření vlastních skriptů stahuje a spouští skripty na virtuálních počítačích Azure. Toto rozšíření je užitečné pro konfiguraci po nasazení, instalaci softwaru nebo jakékoli jiné úlohy konfigurace nebo správy. Skripty můžete stáhnout z úložiště Azure nebo jiné dostupné umístění v Internetu nebo zadat čas spuštění rozšíření. Rozšíření vlastních skriptů se integruje s šablon Azure Resource Manageru a můžete také spustit pomocí rozhraní příkazového řádku Azure, PowerShell, portálu Azure nebo REST API pro virtuální počítač Azure.
+# <a name="use-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Virtuální počítače s Linuxem pomocí rozšíření vlastních skriptů Azure
+Rozšíření vlastních skriptů stáhne a spustí skripty na virtuálních počítačích Azure. Toto rozšíření je užitečné pro konfiguraci po nasazení, instalace softwaru nebo jiná úloha správy nebo konfigurace. Skripty si můžete stáhnout z Azure Storage nebo jiné dostupné umístění v Internetu, nebo je můžete zadat rozšíření modulu runtime. 
 
-Tento dokument podrobnosti o tom, jak používat rozšíření vlastních skriptů z rozhraní příkazového řádku Azure a šablonu Azure Resource Manager a také podrobnosti o řešení potíží v systémech Linux.
+Rozšíření vlastních skriptů se integruje s šablon Azure Resource Manageru. Můžete také spustit jej pomocí rozhraní příkazového řádku Azure, PowerShell, portálu Azure nebo REST API pro virtuální počítače Azure.
+
+Tento článek podrobně popisuje, jak používat rozšíření vlastních skriptů z příkazového řádku Azure a jak spustit rozšíření pomocí šablony Azure Resource Manager. Tento článek také obsahuje pokyny k odstraňování potíží pro systémy Linux.
 
 ## <a name="extension-configuration"></a>Konfigurace rozšíření
-Konfigurace rozšíření vlastních skriptů určuje takové věci, jako umístění skriptu a příkaz ke spuštění. Tato konfigurace může být uložen v konfiguračních souborů, zadané na příkazovém řádku, nebo šablonu Azure Resource Manager. Citlivá data se uloží v chráněném konfigurace, který je šifrovaný a dešifrovat jenom ve virtuálním počítači. Chráněné konfigurace je užitečné při provádění příkazu zahrnuje tajné klíče, jako například heslo.
+Konfigurace rozšíření vlastních skriptů určuje takové věci, jako umístění skriptu a příkaz ke spuštění. Můžete tuto konfiguraci uložit konfigurační soubory, zadejte na příkazovém řádku nebo zadejte jej v šablonu Azure Resource Manager. 
+
+V konfiguraci chráněného, které se budou šifrovat a dešifrovat jenom ve virtuálním počítači můžete ukládat citlivá data. Chráněné konfigurace je užitečné při provádění příkazu zahrnuje tajné klíče, jako například heslo.
 
 ### <a name="public-configuration"></a>Veřejná konfigurace
-Schéma:
+Schéma veřejné konfigurace je následující.
 
-**Poznámka:** -názvy těchto vlastností jsou velká a malá písmena. Používejte názvy, jak vidíte níže, abyste předešli problémům s nasazení.
+>[!NOTE]
+>Názvy těchto vlastností jsou malá a velká písmena. Abyste zabránili problémům nasazení, použijte názvy, jak je vidět tady.
 
-* **commandToExecute**: (vyžaduje se, řetězce) k provedení skriptu bodu položka
-* **fileUris**: (volitelné, pole řetězců) adresy URL pro soubory ke stažení.
-* **časové razítko** (volitelné, celé číslo) můžete do tohoto pole pouze pro aktivaci spusťte skript tím, že změníte hodnotu tohoto pole.
+* **commandToExecute** (vyžaduje se, řetězce): spuštění skriptu vstupní bod.
+* **fileUris** (volitelná pole řetězců): adresách URL soubory ke stažení.
+* **časové razítko** (volitelné, celé číslo): časové razítko skriptu. Změňte hodnotu tohoto pole pouze v případě, že se má spustit spusťte skript.
 
 ```json
 {
@@ -46,13 +51,14 @@ Schéma:
 ```
 
 ### <a name="protected-configuration"></a>Chráněné konfigurace
-Schéma:
+Schéma pro chráněné konfigurace je následující.
 
-**Poznámka:** -názvy těchto vlastností jsou velká a malá písmena. Používejte názvy, jak vidíte níže, abyste předešli problémům s nasazení.
+>[!NOTE]
+>Názvy těchto vlastností jsou malá a velká písmena. Abyste zabránili problémům nasazení, použijte názvy, jak je vidět tady.
 
-* **commandToExecute**: (volitelné, string) k provedení skriptu bodu položku. Toto pole použijte místo toho, pokud váš příkaz obsahuje tajné klíče, jako jsou hesla.
-* **storageAccountName**: (volitelné, string) název účtu úložiště. Pokud chcete zadat pověření pro úložiště, musí být všechny fileUris adresy URL pro objekty BLOB Azure.
-* **storageAccountKey**: (volitelné, string) přístupový klíč účtu úložiště.
+* **commandToExecute** (volitelný, řetězec): spuštění skriptu vstupní bod. Toto pole použijte, pokud váš příkaz obsahuje tajné klíče, jako jsou hesla.
+* **storageAccountName** (volitelný, řetězec): název účtu úložiště. Pokud chcete zadat pověření pro úložiště, všechny soubor identifikátory URI musí být adresy URL pro objekty BLOB Azure.
+* **storageAccountKey** (volitelný, řetězec): přístupový klíč účtu úložiště.
 
 ```json
 {
@@ -63,13 +69,13 @@ Schéma:
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-Pokud používáte Azure CLI ke spuštění rozšíření vlastních skriptů, vytvořte konfigurační soubor nebo soubory obsahující alespoň identifikátor uri souboru a spuštění příkazu skriptu.
+Pokud používáte Azure CLI ke spuštění rozšíření vlastních skriptů, vytvořte konfigurační soubor nebo soubory. Minimálně konfigurační soubory obsahují soubor URI a spuštění příkazu skriptu.
 
 ```azurecli
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-Volitelně můžete nastavení zadané v příkazu jako řetězec formátu JSON. To umožňuje konfiguraci zadat během provádění a bez jiný konfigurační soubor.
+Volitelně můžete zadat nastavení v příkazu jako řetězec formátu JSON. To umožňuje konfiguraci zadat během provádění a bez jiný konfigurační soubor.
 
 ```azurecli
 az vm extension set '
@@ -80,9 +86,9 @@ az vm extension set '
   --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
 ```
 
-### <a name="azure-cli-examples"></a>Příklady rozhraní příkazového řádku Azure
+### <a name="azure-cli-examples"></a>Příklady Azure CLI
 
-**Příklad 1** -veřejné konfigurace pomocí souboru skriptu.
+#### <a name="public-configuration-with-script-file"></a>Veřejná konfigurace pomocí souboru skriptu
 
 ```json
 {
@@ -97,7 +103,7 @@ Azure CLI příkaz:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-**Příklad 2** -veřejné konfigurace s žádný soubor skriptu.
+#### <a name="public-configuration-with-no-script-file"></a>Veřejná konfigurace s žádný soubor skriptu
 
 ```json
 {
@@ -111,7 +117,9 @@ Azure CLI příkaz:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-**Příklad 3** – veřejné konfigurační soubor se používá k určení souboru skriptu URI a chráněné konfigurační soubor se používá k určení příkaz, který má být proveden.
+#### <a name="public-and-protected-configuration-files"></a>Veřejné a chráněné konfigurační soubory
+
+Použít soubor veřejné konfigurace zadat soubor skriptu identifikátor URI. Použijete chráněné konfiguračního souboru k zadání příkazu ke spuštění.
 
 Veřejné konfigurační soubor:
 
@@ -139,7 +147,8 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 Rozšíření vlastních skriptů Azure můžete spustit v době nasazení virtuálního počítače pomocí šablony Resource Manageru. Uděláte to tak, přidejte do šablony nasazení správně formátovaný JSON.
 
 ### <a name="resource-manager-examples"></a>Příklady Resource Manager
-**Příklad 1** -veřejné konfigurace.
+
+#### <a name="public-configuration"></a>Veřejná konfigurace
 
 ```json
 {
@@ -168,7 +177,7 @@ Rozšíření vlastních skriptů Azure můžete spustit v době nasazení virtu
 }
 ```
 
-**Příklad 2** -spuštění příkazu v chráněné konfigurace.
+#### <a name="execution-command-in-protected-configuration"></a>Spuštění příkazu v chráněné konfigurace
 
 ```json
 {
@@ -199,22 +208,22 @@ Rozšíření vlastních skriptů Azure můžete spustit v době nasazení virtu
 }
 ```
 
-Najdete v článku .net Core Hudba úložiště ukázkové kompletní příklad - [Hudba úložiště ukázkové](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Úplný příklad, najdete v článku [.NET Hudba úložiště ukázkové](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## <a name="troubleshooting"></a>Řešení potíží
-Při spuštění rozšíření vlastních skriptů, skript se vytvoří nebo stáhli do adresáře podobně jako v následujícím příkladu. Výstup příkazu je také uložen do tohoto adresáře `stdout` a `stderr` souboru.
+Při spuštění rozšíření vlastních skriptů, skript se vytvoří nebo stáhli do adresáře, který je podobný v následujícím příkladu. Výstup příkazu je také uložen do tohoto adresáře `stdout` a `stderr` soubory.
 
 ```bash
 /var/lib/waagent/custom-script/download/0/
 ```
 
-Přípona skriptu Azure vytvoří protokol, který je zde uveden.
+Přípona skriptu Azure vytvoří protokol, který najdete tady:
 
 ```bash
 /var/log/azure/custom-script/handler.log
 ```
 
-Provádění stav rozšíření vlastních skriptů je také možné načíst pomocí rozhraní příkazového řádku Azure.
+Provádění stav rozšíření vlastních skriptů můžete také načíst pomocí rozhraní příkazového řádku Azure:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
@@ -232,6 +241,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>Další kroky
-Informace o skriptu rozšíření jiných virtuálních počítačů, v tématu [přehled Azure rozšíření skriptů pro Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="next-steps"></a>Další postup
+Informace o skriptu rozšíření jiných virtuálních počítačů, v tématu [přehled rozšíření Azure skriptů pro Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

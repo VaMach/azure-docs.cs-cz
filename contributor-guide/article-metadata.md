@@ -4,4 +4,4 @@
 
 V tomto návodu se přesunul na – příručka přispěvatele interní na docs.microsoft.com.
 
-V tématu [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)
+See [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)

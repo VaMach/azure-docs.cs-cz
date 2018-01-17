@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7953e218614ba259db3cd45220de6b6c880608ad
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronizace identit a odolnost duplicitních atributů
 Duplicitní atribut odolnosti je funkce v Azure Active Directory, který bude eliminovat třecí způsobené **UserPrincipalName** a **ProxyAddress** konfliktu při spuštění jeden společnosti Microsoft Nástroje pro synchronizaci.
@@ -37,7 +37,7 @@ Pokud dojde pokusu o zřídit nový objekt s hodnotou UPN nebo ProxyAddress, kte
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Chování při odolnosti duplicitní atribut
 Místo zcela neúspěšné zřizovat nebo aktualizovat objekt s duplicitní atribut, Azure Active Directory "umístí do karantény" duplicitní atribut, který by způsobila porušení omezení jedinečnosti. Pokud tento atribut je požadován pro zřizování, jako jsou UserPrincipalName, službu přiřadí hodnotu zástupného symbolu. Formát dočasné hodnoty  
-"***<OriginalPrefix>+ < 4DigitNumber > @<InitialTenantDomain>. onmicrosoft.com***".  
+“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
 Pokud atribut není potřeba, jako například **ProxyAddress**, Azure Active Directory jednoduše umístí do karantény atribut konfliktu a pokračuje v objektu vytvoření nebo aktualizace.
 
 Při umístění do karantény atribut, informace o konflikt odesílána ve stejné chyba sestav e-mailu, použít v původním chování. Ale tyto informace se zobrazí pouze v zprávy o chybách jednou, když se stane karanténu, ho nebude dále být přihlášení budoucí e-mailů. Navíc vzhledem k tomu exportu pro tento objekt byl úspěšný, klienta synchronizace neprotokoluje chybu a neopakuje vytvořením / aktualizace operace při následné synchronizaci cykly.
@@ -139,7 +139,7 @@ V následujícím článku popisuje různé strategie pro odstraňování potí�
 **Základní chování:**
 
 1. Objektů s určitým atributem konfigurace dál dostávat export chyby oproti duplicitní atributy, které jsou v karanténě.  
-   Například:
+   Příklad:
    
     a. Po vytvoření nového uživatele ve službě AD s název UPN  **Joe@contoso.com**  a ProxyAddress**smtp:Joe@contoso.com**
    
@@ -151,7 +151,7 @@ V následujícím článku popisuje různé strategie pro odstraňování potí�
 **Sestavy portálu Office**:
 
 1. Podrobná chybová zpráva pro dva objekty v sadě konflikt UPN je stejný. To znamená, že budou obě neměla jejich UPN změnit / do karantény, když ve skutečnosti jenom jeden z nich měl žádná data změnit.
-2. Podrobná chybová zpráva pro konflikt UPN zobrazuje nesprávné displayName pro uživatele, kteří byli jejich UPN, změnit nebo v karanténě. Například:
+2. Podrobná chybová zpráva pro konflikt UPN zobrazuje nesprávné displayName pro uživatele, kteří byli jejich UPN, změnit nebo v karanténě. Příklad:
    
     a. **Uživatel A** synchronizuje si první s **UPN = User@contoso.com** .
    
@@ -168,7 +168,7 @@ Odkaz pro *postup, chcete-li vyřešit tento problém* je nesprávný:
 
 By měla odkazovat na [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Synchronizace služby Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 * [Identifikovat chyby synchronizace adresáře v Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

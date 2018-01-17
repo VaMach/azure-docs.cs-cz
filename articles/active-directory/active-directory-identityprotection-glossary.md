@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Slovník ochrany identit Azure Active Directory
 ### <a name="at-risk-user"></a>Riziko (uživatel)
@@ -91,7 +91,7 @@ Detekce anomálií a vyhodnocení rizik na událost, jako je například pokus p
 ### <a name="remediated-risk-event"></a>Opravené (riziko událost)
 Stav události riziko automaticky nastavuje ochranu Identity, která určuje, že událost riziko nápravy pomocí standardní nápravy akce pro tento typ události riziko. Například když se resetuje heslo uživatele, mnoho událostí rizik, které označují, že došlo k ohrožení předchozí heslo napravují automaticky.
 
-### <a name="remediation"></a>Nápravy
+### <a name="remediation"></a>Náprava
 Akce, abyste mohli zabezpečit identity nebo zařízení, které byly dříve by mohly vzbuzovat podezření nebo známé došlo k narušení. Akce nápravy obnoví identity nebo zařízení do bezpečného stavu a odstraňuje předchozí rizikových událostech spojených s identity nebo zařízení.
 
 ### <a name="resolved-risk-event"></a>Vyřešit (riziko událost)
@@ -100,7 +100,7 @@ Stav události riziko nastavit ručně uživatelem ochrany identit, indikující
 ### <a name="risk-event-status"></a>Riziko stav události.
 Vlastnosti události riziko, která udává, zda je událost aktivní a pokud zavřená, důvod zavřením.
 
-### <a name="risk-event-type"></a>Typ události rizik
+### <a name="risk-event-type"></a>Typ rizikové události
 Kategorie události riziko, označující typ anomálií, která způsobila, že události považovat za rizikové.
 
 ### <a name="risk-level-risk-event"></a>Úroveň rizika (riziko událost)
@@ -142,24 +142,24 @@ Událost riziko, aktivuje, když se uživatel úspěšně přihlásí z nového 
 ### <a name="sign-in-risk"></a>Riziko přihlášení
 V tématu riziko úroveň (sign-in)
 
-### <a name="sign-in-risk-policy"></a>Zásady přihlášení rizik
+### <a name="sign-in-risk-policy"></a>Zásady rizik přihlašování
 Zásady podmíněného přístupu, která vyhodnotí riziko pro konkrétní přihlášení a použije způsoby zmírnění rizik na základě předem definované podmínky a pravidla.
 
 ### <a name="user-compromise-risk"></a>Riziko ohrožení zabezpečení pro uživatele
 V tématu riziko úroveň (ohrožení zabezpečení uživatele)
 
-### <a name="user-risk"></a>Riziko pro uživatele
+### <a name="user-risk"></a>Riziko uživatele
 V tématu riziko úroveň (ohrožení zabezpečení uživatele).
 
-### <a name="user-risk-policy"></a>Riziko zásady uživatele
+### <a name="user-risk-policy"></a>Zásady rizik uživatelů
 Zásady podmíněného přístupu, který zvažuje přihlášení a způsoby zmírnění rizik na základě předem definované podmínky a pravidla se vztahují.
 
-### <a name="users-flagged-for-risk"></a>Uživatelé označení příznakem rizik
+### <a name="users-flagged-for-risk"></a>Uživatelé označení příznakem rizika
 Uživatelé, kteří mají rizikových událostech, které jsou aktivní nebo napravených
 
-### <a name="vulnerability"></a>Ohrožení zabezpečení
+### <a name="vulnerability"></a>Chyba zabezpečení
 Konfigurace nebo podmínku v Azure Active Directory, který adresář náchylné k zneužití nebo hrozeb.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Ochrany identit Azure Active Directory](active-directory-identityprotection.md)
 

@@ -2,4 +2,4 @@
 
 V tomto návodu se přesunul na – příručka přispěvatele interní na docs.microsoft.com.
 
-[https://aka.MS/Git-Commands-Master](https://aka.ms/git-commands-master)
+[https://aka.ms/git-commands-master](https://aka.ms/git-commands-master)

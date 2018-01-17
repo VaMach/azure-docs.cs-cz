@@ -96,6 +96,7 @@
 ##### [Parametry upgradu aplikace](service-fabric-application-upgrade-parameters.md)
 ##### [Serializace dat v upgradech aplikací](service-fabric-application-upgrade-data-serialization.md)
 ##### [Pokročilá témata týkající se upgradů aplikací](service-fabric-application-upgrade-advanced.md)
+#### [Správa aplikací pro víc prostředí](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Testování aplikací pomocí analýzy chyb](service-fabric-testability-overview.md)
 #### [Nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Práce ve vývojovém prostředí Windows/VS
 ### [Správa aplikací v sadě Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Konfigurace zabezpečených připojení v sadě Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Konfigurace aplikace pro více prostředí](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Ladění služby .NET ve VS](service-fabric-debugging-your-application.md)
 ### [Běžné chyby a výjimky](service-fabric-errors-and-exceptions.md)
 ### [Místní monitorování a diagnostika](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## Správa životního cyklu aplikace
 ### [Balení aplikace](service-fabric-package-apps.md)
+### [Použití parametrů pro konfigurační soubory](service-fabric-how-to-parameterize-configuration-files.md)
+### [Zadání čísel portů pomocí parametrů](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Zadání proměnných prostředí](service-fabric-how-to-specify-environment-variables.md)
 
 ### Nasazení nebo odebrání aplikací
 #### [Nasazení aplikací v místním clusteru](service-fabric-get-started-with-a-local-cluster.md)
@@ -328,12 +331,13 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Schéma XML modelu služeb](service-fabric-service-model-schema.md)
+## [Proměnné prostředí](service-fabric-environment-variables-reference.md)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Časté dotazy](service-fabric-common-questions.md)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Ceny](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Ukázka kódu](http://aka.ms/servicefabricsamples)

@@ -2,4 +2,4 @@
 
 V tomto návodu se přesunul na – příručka přispěvatele interní na docs.microsoft.com.
 
-V tématu [https://aka.ms/tools-and-setup](https://aka.ms/tools-and-setup)
+See [https://aka.ms/tools-and-setup](https://aka.ms/tools-and-setup)

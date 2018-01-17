@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="resource-governance"></a>Zásady správného řízení prostředků 
 
@@ -115,8 +115,7 @@ Omezení zásad správného řízení prostředků jsou určené v manifest apli
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ V tomto příkladu se nazývá balíček služby **ServicePackageA** získá jed
 Proto v tomto příkladu CodeA1 získá 2 / 3 jádro a CodeA2 získá jednu třetinu jádro (a rezervace konfigurace soft záruku stejného). Když CpuShares nejsou zadané pro balíčky kódu, Service Fabric vydělí jader rovnoměrně mezi nimi.
 
 Omezení paměti jsou absolutní, takže oba balíčky kódu jsou omezeny na 1024 MB paměti (a rezervace konfigurace soft záruku stejného). Kód balíčky (kontejnerů a procesy) nemůžete přidělit víc paměti než tento limit a pokus Uděláte to tak má za následek výjimku z důvodu nedostatku paměti. Aby vynucení omezení prostředků fungovala, musí být omezení paměti zadaná pro všechny balíčky kódu v rámci balíčku služby.
+
+### <a name="using-application-parameters"></a>Pomocí parametrů aplikace
+
+Při zadávání zásad správného řízení prostředků je možné použít [parametry aplikace](service-fabric-manage-multiple-environment-app-configuration.md) ke správě konfigurací s více aplikací. Následující příklad ukazuje použití aplikace parametry:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+Výchozí hodnoty parametrů jsou v tomto příkladu nastavené pro produkční prostředí, kde každý balíček služby by získat 4 jádra a 2 GB paměti. Je možné změnit výchozí hodnoty s soubory parametrů aplikace. V tomto příkladu jeden parametr soubor lze použít pro testování aplikace místně, kde ji získat méně prostředků než v provozním prostředí: 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> Zadání prostředků zásad správného řízení s parametry aplikace je k dispozici počínaje Service Fabric verze 6.1.<br> 
+>
+> Pokud parametry aplikace používají k určení zásad správného řízení prostředků, Service Fabric nelze převést na nižší verze starší než verze 6.1. 
+
 
 ## <a name="other-resources-for-containers"></a>Další zdroje informací pro kontejnery
 Kromě toho procesoru a paměti je možné zadat další omezení prostředků pro kontejnery. Tato omezení jsou zadány na úrovni balíček kódu a se použijí při spuštění kontejneru. Na rozdíl od s procesoru a paměti, správce prostředků clusteru není informace o těchto prostředků a nebude se žádné kontroly kapacity nebo pro ně Vyrovnávání zatížení. 
@@ -160,6 +207,6 @@ Tyto prostředky můžete kombinovat s procesoru a paměti. Tady je příklad to
     </ServiceManifestImport>
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o službě Správce prostředků clusteru, přečtěte si [představení správce prostředků clusteru Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
 * Další informace o modelu aplikace, balíčky služeb a balíčky kód – a jak mapování repliky na jejich – číst [Model aplikace v Service Fabric](service-fabric-application-model.md).

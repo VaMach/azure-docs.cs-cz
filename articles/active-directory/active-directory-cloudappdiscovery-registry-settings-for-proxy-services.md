@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e227d6e15789b29b40197a9ff71b2116312da78
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Cloud App Discovery. nastavení registru pro služby Proxy
 Účelem tohoto tématu je poradit, jak provádět nastavit požadovaný port v počítačích se systémem agenta Cloud App Discovery. Ve výchozím nastavení agenta Cloud App Discovery konfigurován pro použití pouze porty 80 nebo 443. Pokud plánujete instalaci Cloud App Discovery v prostředí s proxy serveru, který používá vlastní port (80 ani 443), budete muset nakonfigurovat agenty na tento port použít. Konfigurace je založena na klíč registru.
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
   ![Spustit](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
 2. Přejděte na nebo vytvořte následující klíč registru: **Discovery\Endpoint HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud aplikace**
 3. Vytvořte novou **víceřetězcovou** hodnotu s názvem **porty**. 
-  ![Nový](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
+  ![New](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
 4. Otevřete **Upravit víceřetězcovou** dialogové okno, dvakrát klikněte **porty** hodnotu.
 5. V **údaj hodnoty**, zadejte následující hodnoty a přidejte všechny vlastní porty, které se používají ve vaší organizaci: <br><br>
    **80** <br>
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
    ![Upravit víceřetězcovou](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 6. Klikněte na tlačítko **OK** zavřete **Upravit víceřetězcovou** dialogové okno.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Jak může zjišťovat nedovolené cloudové aplikace, které se používají v rámci Moje organizace](active-directory-cloudappdiscovery-whatis.md) 
 
