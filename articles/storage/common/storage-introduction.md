@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Úvod do Microsoft Azure Storage
 
@@ -35,9 +35,7 @@ V tomto článku jsou probrána následující témata:
 * přenos dat do nebo z úložiště
 * velký počet dostupných klientských knihoven pro úložiště
 
-Pokud chcete rychle zprovoznit Azure Storage, podívejte se na některý z následujících rychlých startů:
-* [Vytvoření účtu úložiště pomocí PowerShellu](storage-quickstart-create-storage-account-powershell.md)
-* [Vytvoření účtu úložiště pomocí rozhraní příkazového řádku](storage-quickstart-create-storage-account-cli.md)
+Informace o zprovoznění s využitím Azure Storage najdete v tématu [Vytvoření účtu úložiště](storage-quickstart-create-account.md).
 
 ## <a name="introducing-the-azure-storage-services"></a>Seznámení se službami Azure Storage
 
@@ -219,9 +217,7 @@ Prostředky Azure Storage jsou dostupné přes jakýkoli jazyk, který umí vytv
 * [Další informace o službě File Storage](../storage-files-introduction.md)
 * [Další informace o službě Queue Storage](../queues/storage-queues-introduction.md)
 
-Pokud chcete rychle zprovoznit Azure Storage, podívejte se na některý z následujících rychlých startů:
-* [Vytvoření účtu úložiště pomocí PowerShellu](storage-quickstart-create-storage-account-powershell.md)
-* [Vytvoření účtu úložiště pomocí rozhraní příkazového řádku](storage-quickstart-create-storage-account-cli.md)
+Informace o zprovoznění s využitím Azure Storage najdete v tématu [Vytvoření účtu úložiště](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

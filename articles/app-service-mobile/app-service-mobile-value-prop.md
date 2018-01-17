@@ -3,7 +3,7 @@ title: Informace o funkci Mobile Apps v Azure App Service
 description: "Zjistěte, jaké výhody App Service přináší pro vaše firemní mobilní aplikace."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"></a>Informace o funkci Mobile Apps v Azure App Service
 Azure App Service nabízí plně spravovanou [platformu jako službu](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) pro profesionální vývojáře. Tato služba přináší bohatou sadu možností pro webové, mobilní a integrační scénáře. 
@@ -65,7 +65,7 @@ U systémů pro mobilní zařízení v provozním prostředí jsou užitečné n
 
   Projděte si další informace o [přípravná prostředí].
 
-* **Průběžné nasazování:** App Service umožňuje integraci s běžnými systémy správy dodavatelského řetězce (SCM), takže můžete automaticky nasadit novou verzi back-endu formou větvení tohoto systému.
+* **Průběžné nasazování:** App Service umožňuje integraci s běžnými systémy správy zdrojového kódu (SCM), takže můžete automaticky nasadit novou verzi back-endu formou větvení tohoto systému.
 
   Projděte si další informace o [možnostech nasazení](../app-service/app-service-deploy-local-git.md).
 

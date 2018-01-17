@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Kurz Machine Learningu: Vytvoření prvního experimentu z oblasti datové vědy v nástroji Azure Machine Learning Studio
 
@@ -81,7 +81,7 @@ V tomto kurzu strojového učení vytvoříte experiment provedením pěti zákl
 [Krok 5: Předpověď cen nových automobilů]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Pracovní kopii následujícího experimentu najdete na webu [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Přejděte k části **[První experiment z oblasti datové vědy – predikce ceny automobilu](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**, klikněte na **Open in Studio** (Otevřít v sadě Studio) a stáhněte kopii experimentu do pracovního prostoru Machine Learning Studio.
+> Pracovní kopii následujícího experimentu najdete v [galerii Azure AI](https://gallery.cortanaintelligence.com). Přejděte k části **[První experiment z oblasti datové vědy – predikce ceny automobilu](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**, klikněte na **Open in Studio** (Otevřít v sadě Studio) a stáhněte kopii experimentu do pracovního prostoru Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Krok 1: Získání dat
@@ -327,7 +327,7 @@ Konečný experiment by měl vypadat přibližně takto:
 Právě jste dokončili první kurz strojového učení a máte vytvořený experiment. Teď můžete pokračovat, pokusit se model vylepšit a potom ho nasadit jako prediktivní webovou službu.
 
 - **Iterace pro vylepšení modelu** – Můžete například změnit příznaky, které ve své predikci používáte. Dále můžete upravit vlastnosti algoritmu [Lineární regrese][linear-regression] nebo zkusit úplně jiný algoritmus. Dokonce je možné přidat do experimentu několik algoritmů strojového učení najednou a porovnat dva z nich pomocí modulu [Vyhodnocení modelu][evaluate-model].
-Příklad porovnávání několik modelů v jednom experimentu najdete v tématu věnovaném [porovnání regresorů ](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) na webu [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
+Příklad porovnávání několik modelů v jednom experimentu najdete v tématu věnovaném [porovnání regresorů](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) v [galerii Azure AI](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
     > Pomocí tlačítka **ULOŽIT JAKO** v dolní části stránky je možné zkopírovat kteroukoli iteraci experimentu. Všechny iterace experimentu si můžete zobrazit kliknutím na **ZOBRAZIT HISTORII SPUŠTĚNÍ** v dolní části stránky. Další podrobnosti najdete v tématu [Správa iterací experimentů v nástroji Azure Machine Learning Studio][runhistory].

@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplikace, oprávnění a vyjádření souhlasu v Azure Active Directory
-V rámci Azure Active Directory můžete do svého adresáře přidávat aplikace.  Aplikace se mohou lišit v závislosti na typu aplikace.  Pokud chcete zobrazit aplikace na portálu Classic, vyberte adresář a zvolte Aplikace.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+V rámci Azure Active Directory můžete do svého adresáře přidávat aplikace.  Aplikace se mohou lišit v závislosti na typu aplikace.  Pokud chcete zobrazit aplikace na portálu, vyberte adresář a zvolte požadované aplikace.
 
 > [!IMPORTANT]
-> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek.
+> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal (místo webu Azure Portal, na který odkazuje tento článek).
 
 ## <a name="types-of-apps"></a>Typy aplikací
 
@@ -73,9 +71,7 @@ Shrňme si to:
 
 ## <a name="controls"></a>Ovládací prvky
 
-Následuje seznam ovládacích prvků správce, které jsou k dispozici pro toto chování. Ovládací prvky správce jsou přístupné v adresáři na portálu Classic pod možností Konfigurovat.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+Následuje seznam ovládacích prvků správce, které jsou k dispozici pro toto chování.
 
 Na webu Azure Portal v části **Spravovat**, **Uživatelské nastavení**.
 
@@ -85,18 +81,14 @@ Na webu Azure Portal v části **Spravovat**, **Uživatelské nastavení**.
 
 - Můžete řídit, jestli uživatelé mohou souhlasit s aplikacemi:
 
-Na portálu Classic vyberte možnost „**Users may give applications permissions to access their data**“ (Uživatelé mohou udělovat aplikacím oprávnění k přístupu ke svým datům).
-![](media/active-directory-apps-permissions-consent/apps8.png)
-
 Na webu Azure Portal vyberte **Uživatelé můžou povolit aplikacím přístup ke svým datům**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Můžete řídit, jestli uživatelé mohou registrovat své vlastní obchodní aplikace s jedním tenantem: Na portálu Classic vyberte možnost „**Users may add integrated applications**“ (Uživatelé mohou přidávat integrované aplikace).
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- Můžete řídit, jestli uživatelé mohou registrovat vlastní aplikace LOB s jedním tenantem:
 
-Na webu Azure Portal vyberte **Uživatelé můžou povolit aplikacím přístup ke svým datům**.
+Na webu Azure Portal vyberte **Uživatelé můžou registrovat aplikace**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ Na webu Azure Portal vyberte **Uživatelé můžou povolit aplikacím přístup 
 >- Při registraci obchodní aplikace pro jednoho tenanta uživatelé nemohou požadovat delegovaná oprávnění k jiným aplikacím, pokud taková oprávnění vyžadují souhlas správce.
 >- Uživatelé nemohou provádět změny aplikací, pokud nejsou jejich vlastníky.
 
-
-
-- Můžete řídit, jestli sami uživatelé mohou přidávat předem integrované aplikace, které používají jednotné přihlašování pomocí hesla (neboli ukládání hesel do trezoru).![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- Můžete řídit, za jakých podmínek je aplikace přístupná (tj. podmíněný přístup). Mějte na paměti, že to platí pro klientské aplikace i pro aplikace prostředků. Řekněme třeba, že jste nastavili zásadu podmíněného přístupu, která říká, že aplikace Office 365 Exchange Online je přístupná pouze ze zařízení dodržujících předpisy.  Tato zásada se uplatní také ve chvíli, kdy se uživatel pokusí použít klientskou aplikaci, která požaduje oprávnění k Exchange Online.
-
-
-
-- Máte přehled o odsouhlasených a používaných aplikacích.
-
-1.  Když uživatel vyjádří souhlas s aplikací, v tenantovi se vytvoří objekt ServicePrincipal. Vytvoření objektu ServicePrincipal je součástí sestavy auditu.
-2.  Sestavy aktivit přihlašování uživatele vám řeknou, ke které aplikaci se uživatel přihlašuje. 
 
 ## <a name="example"></a>Příklad
 

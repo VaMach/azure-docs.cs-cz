@@ -2,7 +2,7 @@
 
 Pokud chcete aplikaci Mobile Engagement povolit, aby vaším jménem odesílala nabízená oznámení, musíte jí udělit přístup k vašemu klíči rozhraní API. To provedete tak, že svůj klíč nakonfigurujete a zadáte na portál Mobile Engagement.
 
-1. Na portálu Azure Classic zkontrolujte, jestli pracujete v aplikaci určené pro tento projekt, a potom klikněte na tlačítko **Engage** (Zpřístupnit), které najdete dole:
+1. Na webu Azure Portal zkontrolujte, jestli pracujete v aplikaci určené pro tento projekt, a potom klikněte na tlačítko **Engage** (Zpřístupnit), které najdete dole:
 
     ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 

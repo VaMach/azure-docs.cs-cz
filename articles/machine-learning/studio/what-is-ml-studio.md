@@ -1,5 +1,5 @@
 ---
-title: Co je Azure Machine Learning Studio? | Dokumentace Microsoftu
+title: Co je Azure Machine Learning Studio? | Dokumenty Microsoft
 description: "Přehled nástroje Azure ML Studio, který umožňuje přetahováním rychle vytvářet modely z předpřipravených knihoven algoritmů a modulů"
 keywords: azure machine learning,azure ml,ml studio
 services: machine-learning
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 923bf1163e4d27e8c453fc2fcd58ebb80222bd6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a96e80fa3ece14c40159c6937a0e34c1ebc634ff
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co je Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio je nástroj pro spolupráci, ve kterém je možné přetahováním vytvářet, testovat a nasazovat řešení prediktivní analýzy dat. Machine Learning Studio publikuje modely jako webové služby, které je možné snadno využívat ve vlastních aplikacích nebo nástrojích BI, například v Excelu.
@@ -64,9 +64,9 @@ Kliknutím na **Studio** přejdete do nástroje **Azure Machine Learning Studio*
 * **NASTAVENÍ** – Kolekce nastavení, kterou můžete použít ke konfiguraci účtu a prostředků
 
 ### <a name="gallery"></a>Galerie
-Kliknutím na **Galerie** přejdete na web **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. Galerie je místo, kde komunita datových vědců a vývojářů sdílí řešení vytvořená pomocí komponent sady Cortana Intelligence Suite.
+Kliknutím na **Galerie** přejdete na ke **[galerii Azure AI](http://gallery.cortanaintelligence.com/)**. Galerie je místo, kde komunita datových vědců a vývojářů sdílí řešení vytvořená pomocí komponent sady Cortana Intelligence Suite.
 
-Další informace o galerii najdete v tématu [Sdílení a hledání řešení na webu Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md).
+Další informace o této galerii najdete v tématu věnovaném [sdílení a hledání řešení v galerii Azure AI](gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Komponenty experimentu
 Experiment sestává z datových sad, které poskytují data analytickým modulům. Ty pak lze vzájemně propojit a vytvořit tak model prediktivní analýzy. Platný experiment má konkrétně tyto charakteristiky:

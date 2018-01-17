@@ -1,5 +1,5 @@
 ---
-title: Co je Machine Learning v Azure? | Dokumentace Microsoftu
+title: Co je Machine Learning v Azure? | Dokumenty Microsoft
 description: "Dočtete se o základních konceptech strojového učení v cloudu, dozvíte se, k čemu ho můžete využít, a seznámíte se s terminologií strojového učení."
 keywords: "co je strojové učení, terminologie strojového učení, prediktivní, co je prediktivní analýza, terminologie strojového učení"
 services: machine-learning
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Úvod do služby Machine Learning v cloudu Azure
 
@@ -33,7 +33,7 @@ Stručný přehled získáte třeba zhlédnutím série videí [Datová věda pr
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Co je Machine Learning v cloudu Microsoft Azure?
 Azure Machine Learning je cloudová služba pro prediktivní analýzu, která umožňuje rychle vytvářet a nasazovat prediktivní modely jako analytická řešení.
 
-Můžete pracovat s knihovnou algoritmů připravených k použití, vytvářet pomocí nich modely na počítači připojeném k internetu a rychle nasadit prediktivní řešení. Začněte s příklady a řešeními připravenými k použití v [Galerii Cortana Intelligence](https://gallery.cortanaintelligence.com/).
+Můžete pracovat s knihovnou algoritmů připravených k použití, vytvářet pomocí nich modely na počítači připojeném k internetu a rychle nasadit prediktivní řešení. Začněte s příklady a řešeními připravenými k použití v [galerii Azure AI](https://gallery.cortanaintelligence.com/).
 
 ![Co je strojové učení? Základní pracovní postup pro zprovoznění prediktivních analýz v Azure Machine Learning](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -48,9 +48,9 @@ Azure Machine Learning obsahuje vše, co potřebujete k vytváření kompletníc
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: Vytváření prediktivních modelů
 Rychlé vytváření prediktivních modelů v nástroji [Machine Learning Studio](what-is-ml-studio.md) usnadňuje přetahování myší a propojování modulů. Můžete experimentovat s různými kombinacemi, [sami si to zdarma vyzkoušejte](https://studio.azureml.net/?selectAccess=true&o=2).
 
-* Na webu [Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md) si můžete vyzkoušet analytická řešení připravená ostatními uživateli nebo přispět svým vlastním. V komunitě můžete klást otázky nebo publikovat komentáře k experimentům, případně sdílet odkazy na experimenty prostřednictvím sociálních sítí, jako je LinkedIn a Twitter.
+* V [galerii Azure AI](gallery-how-to-use-contribute-publish.md) si můžete vyzkoušet analytická řešení připravená ostatními uživateli nebo přispět svým vlastním. V komunitě můžete klást otázky nebo publikovat komentáře k experimentům, případně sdílet odkazy na experimenty prostřednictvím sociálních sítí, jako je LinkedIn a Twitter.
 
-  ![Zkoušení prediktivních experimentů nebo poskytování vlastních na webu Azure Cortana Intelligence Gallery](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Zkoušení prediktivních experimentů nebo poskytování vlastních v galerii Azure AI](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Díky rozsáhlé knihovně [algoritmů a modulů pro strojové učení](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) v nástroji Machine Learning Studio se můžete hned pustit do sestavování prediktivních modelů. Můžete vybírat z ukázkových experimentů, balíčků R a Python a nejlepších algoritmů ve své třídě z divizí Microsoftu, jako jsou Xbox a Bing. Moduly ze Studia můžete rozšířit vlastními skripty [R](extend-your-experiment-with-r.md) a [Python](execute-python-scripts.md).
 
   ![Co je to prediktivní analýza: Příklad experimentu s prediktivní analýzou v nástroji Azure Machine Learning Studio](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
