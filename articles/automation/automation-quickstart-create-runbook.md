@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Vytvoření runbooku Azure Automation
 
@@ -71,7 +72,7 @@ Po vytvoření runbooku ho otestujete, abyste ověřili, že funguje.
 
 1. Na stránce **Upravit powershellový runbook** klikněte na **Publikovat** a publikujte runbook jako oficiální verzi runbooku v tomto účtu.
 
-   ![Přehled runbooku](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Testovací úloha Runbooku](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Spuštění runbooku
 
@@ -83,11 +84,11 @@ Po publikování runbooku se zobrazí stránka s přehledem.
 
 1. Parametr **Name** (Název) nechte prázdný, aby se použila výchozí hodnota, a klikněte na **OK**. Úloha runbooku se odešle a zobrazí se stránka úlohy.
 
-   ![Testovací úloha Runbooku](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Testovací úloha Runbooku](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. Až bude **Stav úlohy** hlásit **Spuštěno** nebo **Dokončeno**, kliknutím na **Výstup** otevřete podokno **Výstup** a zobrazte výstup runbooku.
 
-    ![Testovací úloha Runbooku](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Testovací úloha Runbooku](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
