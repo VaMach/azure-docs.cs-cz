@@ -94,7 +94,7 @@ Pomocí nástroje Visual Studio Code navažte připojení k serveru služby Azur
 
    | Nastavení       | Navrhovaná hodnota | Popis |
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | ** Název serveru | Plně kvalifikovaný název serveru | Název musí vypadat přibližně takto: **mynewserver20170313.database.windows.net**. |
+   | \** Název serveru | Plně kvalifikovaný název serveru | Název musí vypadat přibližně takto: **mynewserver20170313.database.windows.net**. |
    | **Název databáze** | mySampleDatabase | Název databáze, ke které se chcete připojit. |
    | **Ověřování** | Přihlášení k SQL serveru| Ověřování SQL je jediný typ ověřování, který jsme v tomto kurzu nakonfigurovali. |
    | **Uživatelské jméno** | Účet správce serveru | Jedná se o účet, který jste zadali při vytváření serveru. |
