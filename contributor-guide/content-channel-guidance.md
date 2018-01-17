@@ -2,4 +2,4 @@
 
 V tomto návodu se přesunul na – příručka přispěvatele interní na docs.microsoft.com.
 
-V tématu [https://aka.ms/content-channel-guidance](https://aka.ms/content-channel-guidance)
+See [https://aka.ms/content-channel-guidance](https://aka.ms/content-channel-guidance)

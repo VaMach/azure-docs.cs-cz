@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: e4977edd19d77b78f08163a6c0ff750fdbefcb3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Řešení potíží s Enterprise State Roaming nastavení ve službě Azure Active Directory
 
@@ -109,7 +109,7 @@ Aby se zabránilo úniku dat, data, která je chráněná pomocí [Windows Infor
 
 
 **Doporučená akce**  
-Žádné. Tento problém může vyřešit budoucí aktualizace systému Windows.
+Žádné Tento problém může vyřešit budoucí aktualizace systému Windows.
 
 ---
 
@@ -118,7 +118,7 @@ Aby se zabránilo úniku dat, data, která je chráněná pomocí [Windows Infor
 Zařízení, které jsou připojené k doméně už nebude synchronizace pro nastavení datum, čas a oblast: automatické čas. Pomocí automatické času mohou přepsat jiné datum, čas a oblasti nastavení a tato nastavení nejsou pro synchronizaci. 
 
 **Doporučená akce**  
-Žádné. 
+Žádné 
 
 ---
 
@@ -135,7 +135,7 @@ Ověřte, zda má kumulativní aktualizaci klienta v1511 Windows 10 ([KB3140743]
 Pokud se pokusíte se přihlásit k zařízení s Windows pomocí čipové karty a virtuální čipové karty, nastavení synchronizace přestanou fungovat.     
 
 **Doporučená akce**  
-Žádné. Tento problém může vyřešit budoucí aktualizace systému Windows.
+Žádné Tento problém může vyřešit budoucí aktualizace systému Windows.
 
 ---
 
@@ -175,7 +175,7 @@ Postupujte podle kroků uvedených [KB3196528](https://support.microsoft.com/kb/
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Použití [User Voice fórum](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) poskytnout zpětnou vazbu a zaslat návrhy pro zlepšení Enterprise State Roaming.
 

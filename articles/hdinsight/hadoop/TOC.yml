@@ -285,6 +285,9 @@
               href: apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: Spuštění pomocí Azure PowerShellu
               href: apache-hadoop-use-sqoop-powershell.md
+        - name: Zprovoznění kanálu datových analýz
+          href: ../hdinsight-operationalize-data-pipeline.md
+          maintainContext: true
         - name: Použití Oozie pro pracovní postupy
           href: ../hdinsight-use-oozie-linux-mac.md
           maintainContext: true
@@ -397,7 +400,7 @@
           maintainContext: true
         - name: Analýza protokolů Hadoop
           href: apache-hadoop-debug-jobs.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

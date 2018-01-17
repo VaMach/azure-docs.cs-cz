@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Reverzní proxy server v Azure Service Fabric
 Reverzní proxy server, které jsou součástí Azure Service Fabric pomáhá mikroslužeb spuštění v clusteru Service Fabric zjistit a komunikovat s jinými službami, které mají koncových bodů protokolu http.
@@ -39,11 +39,13 @@ Reverzní proxy server vystavuje jeden nebo více koncových bodů na místní u
 
 ![Interní komunikaci][1]
 
+> [!NOTE]
 > **Podporované platformy**
 >
 > Reverzní proxy server v Service Fabric aktuálně podporuje tyto platformy
 > * *Windows Cluster*: Windows 8 a novější nebo Windows Server 2012 a novější
 > * *Cluster s Linuxem*: Reverse Proxy není aktuálně k dispozici u clusterů systému Linux
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Dosažení mikroslužeb z mimo cluster
 Výchozí model externí komunikace pro mikroslužeb je model opt-in, kde každé služby nelze přistupovat přímo z externích klientů. [Azure nástroj pro vyrovnávání zatížení](../load-balancer/load-balancer-overview.md), což je hranici sítě mezi mikroslužeb a externími klienty, provádí překlad síťových adres a předává externí požadavky do koncových bodů interní IP: port. Chcete-li koncový bod mikroslužbu přímo přístupné pro externími klienty, musíte nejdřív nakonfigurovat nástroj pro vyrovnávání zatížení pro přenos dat na každý port, který služba používá v clusteru. Kromě toho většina mikroslužeb, zejména stavová mikroslužeb, nemáte live na všech uzlech clusteru. Mikroslužeb můžete přesouvat mezi uzly na převzetí služeb při selhání. V takových případech nástroj pro vyrovnávání zatížení nemůže zjistit efektivně umístění cílový uzel replik, na které by měla předávat provoz.
@@ -309,7 +311,7 @@ Nejdřív získat šablonu pro cluster, který chcete nasadit. Můžete použít
 > [!NOTE]
 > Pokud používáte certifikáty, které se liší od clusteru certifikát, který chcete povolit reverzní proxy server na existující cluster, nainstalujte certifikát reverzní proxy server a aktualizace seznamu řízení přístupu v clusteru, než povolíte reverzní proxy server. Dokončení [šablony Azure Resource Manageru](service-fabric-cluster-creation-via-arm.md) nasazení s použitím nastavení uvedeno dříve než zahájíte nasazení povolit reverzní proxy server v kroky 1 – 4.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Zobrazit příklad komunikaci pomocí protokolu HTTP mezi službami v [ukázkového projektu na Githubu](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Předávání služby Zabezpečené HTTP s reverzní proxy server](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Volání vzdálených procedur s vzdálenou komunikaci spolehlivé služby](service-fabric-reliable-services-communication-remoting.md)

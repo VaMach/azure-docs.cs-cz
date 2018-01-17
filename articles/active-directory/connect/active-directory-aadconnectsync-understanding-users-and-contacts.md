@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi;andkjell
-ms.openlocfilehash: a08e3f3593e1ec04ebf65fef2880c965e02775d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd13ecfc1b92c6c4b2eb0f8665675c6646e469f2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Synchronizace Azure AD Connect: Principy uživatelů, skupin a kontaktů
 Existuje několik různých důvodů, proč by měla mít několik doménových struktur služby Active Directory a existuje několik různých nasazení topologie. Po fúze a akvizice zahrnovat běžné modely k nasazení účtu prostředků a GAL sync'ed doménových struktur. Ale i v případě, že jsou čistá modely, hybridní modely jsou společné také. Výchozí konfigurace v synchronizaci Azure AD Connect nepředpokládá žádné konkrétní modelu, ale v závislosti na tom, jak hledání shody uživatelů jste vybrali v instalační příručce, může být dodržen různé chování.
@@ -70,7 +70,7 @@ Za předpokladu je, že pokud je účet zakázaný uživatel nalezen, pak jsme n
 ## <a name="changing-sourceanchor"></a>Změna sourceAnchor
 Pokud objekt byly exportovány do služby Azure AD a změnit sourceAnchor už není povoleno. Když byl objekt exportovat atribut úložiště metaverse **cloudSourceAnchor** nastavena **sourceAnchor** hodnota přijata službou Azure AD. Pokud **sourceAnchor** mění a neshodují **cloudSourceAnchor**, pravidlo **Out aad – připojení uživatele k** vyvolá výjimku chyba **došlo ke změně atribut sourceAnchor**. V takovém případě konfigurace nebo data musí být opraveny tak stejné sourceAnchor je k dispozici v úložišti metaverse znovu před objekt lze znovu synchronizovat.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 * [Azure AD Connect Sync: Možnosti přizpůsobení synchronizace](active-directory-aadconnectsync-whatis.md)
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 

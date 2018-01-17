@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b6038e1d6bedccca107688fd258088ae992af678
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c9ae098df6e2357ca4bda513c0de5f5d42c7d9af
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory ověřování prostřednictvím certifikátu v systému iOS
 
@@ -86,7 +86,7 @@ Můžete použít [MSOLDomainFederationSettings](/powershell/module/msonline/set
 V systému iOS 9 nebo novější je podporovaná nativní aplikace pro iOS e-mailového klienta. Pro všechny ostatní aplikace Exchange ActiveSync Pokud chcete zjistit, pokud je tato funkce podporována, obraťte se na vývojáře vaší aplikace.  
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud chcete nakonfigurovat ověřování pomocí certifikátů ve vašem prostředí, přečtěte si téma [Začínáme s ověřováním na základě certifikátu v systému Android](active-directory-certificate-based-authentication-get-started.md) pokyny.
 

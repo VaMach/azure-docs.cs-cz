@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 276997bb6800fda9cb432384ebaaaa717b8426ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Rejstřík článků o správě aplikací ve službě Azure Active Directory
 Tato stránka obsahuje úplný seznam každému dokumentu zapsána o různých funkcích týkající se aplikace v Azure Active Directory (Azure AD).
@@ -184,9 +184,9 @@ Přístupový Panel Azure AD je, kde se koncoví uživatelé můžou spouštět 
 | Článek Průvodce |  |
 |:---:| --- |
 | Porovnání různé možnosti, které jsou k dispozici pro nasazení aplikace přihlášení pro uživatele |[Nasazení služby Azure AD integrovaných aplikací pro uživatele](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
-| Přehled na přístupovém panelu a jeho mobilních ekvivalentní MyApps |[Úvod do přístupového panelu a MyApps](active-directory-saas-access-panel-introduction.md)<br />– [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| Přehled na přístupovém panelu a jeho mobilních ekvivalentní MyApps |[Úvod do přístupového panelu a MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Jak získat přístup z webu Office 365 aplikace Azure AD. |[Pomocí Spouštěč aplikace Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Jak získat přístup z mobilní aplikace Intune Managed Browser aplikace Azure AD. |[Spravovaný prohlížeč Intune](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />– [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Jak získat přístup z mobilní aplikace Intune Managed Browser aplikace Azure AD. |[Spravovaný prohlížeč Intune](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Jak získat přístup k zahájení jednotné přihlašování pomocí přímých odkazů aplikace Azure AD. |[Získávání přímé odkazy přihlašování pro vaše aplikace](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Přístupový Panel je k dispozici pro [všechny edice služby Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -203,7 +203,7 @@ Azure Active Directory poskytuje několik sestavy a výstrahy, které vám pomů
 
 Chcete-li zobrazit sestavy se dodává s různými edicemi služby Azure Active Directory, [kliknutím sem](active-directory-view-access-usage-reports.md).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 [Představení služby Azure Active Directory](active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)

@@ -2,4 +2,4 @@
 
 V tomto návodu se přesunul na – příručka přispěvatele interní na docs.microsoft.com.
 
-[https://aka.MS/markdown-Links](https://aka.ms/markdown-links)
+[https://aka.ms/markdown-links](https://aka.ms/markdown-links)

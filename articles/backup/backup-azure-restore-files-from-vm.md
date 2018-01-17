@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Obnovit soubory ze zálohy virtuálního počítače Azure
 
@@ -65,12 +65,15 @@ Chcete-li obnovit soubory nebo složky z bodu obnovení, přejděte k virtuáln�
     Pokud spustíte skript na počítači s omezeným přístupem, ujistěte se, je přístup k:
 
     - download.microsoft.com
-    - Koncové body Azure použít pro zálohování virtuálních počítačů Azure
+    - [Koncové body Azure použít pro zálohování virtuálních počítačů Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - odchozí port 3260
 
-   Pro systémy Linux vyžaduje skript 'open-iscsi' a 'lshw' součásti pro připojení k bodu obnovení. Pokud komponenty neexistují v počítači, kde je skript spuštěn, skript požádá o oprávnění k instalaci součásti. Zadejte souhlasu nainstalujte nezbytné součásti.  
-         
-   Tento skript můžete spustit na jakýkoli počítač, který má operační systém stejného (nebo kompatibilní) jako zálohované virtuální počítač. Najdete v článku [kompatibilní operační systém tabulky](backup-azure-restore-files-from-vm.md#system-requirements) pro kompatibilní operační systémy. Pokud chráněný virtuální počítač Azure používá prostory úložiště ve Windows (pro virtuální počítače Windows Azure) nebo pole LVM/RAID (pro virtuální počítače s Linuxem), nebudete moci spustit spustitelný soubor nebo skript na jednom virtuálním počítači. Místo toho spusťte spustitelný soubor nebo skript z jakéhokoli počítače s kompatibilní operační systém.
+    Pro systémy Linux vyžaduje skript 'open-iscsi' a 'lshw' součásti pro připojení k bodu obnovení. Pokud komponenty neexistují v počítači, kde je skript spuštěn, skript požádá o oprávnění k instalaci součásti. Zadejte souhlasu nainstalujte nezbytné součásti.
+    
+    Přístup k download.microsoft.com je nutný ke stažení součásti sloužící k vytvoření zabezpečeného kanálu mezi počítači, kde se spouští skript a data v bodu obnovení.         
+
+    Tento skript můžete spustit na jakýkoli počítač, který má operační systém stejného (nebo kompatibilní) jako zálohované virtuální počítač. Najdete v článku [kompatibilní operační systém tabulky](backup-azure-restore-files-from-vm.md#system-requirements) pro kompatibilní operační systémy. Pokud chráněný virtuální počítač Azure používá prostory úložiště ve Windows (pro virtuální počítače Windows Azure) nebo pole LVM/RAID (pro virtuální počítače s Linuxem), nebudete moci spustit spustitelný soubor nebo skript na jednom virtuálním počítači. Místo toho spusťte spustitelný soubor nebo skript z jakéhokoli počítače s kompatibilní operační systém.
+ 
 
 ### <a name="identifying-volumes"></a>Identifikace svazky
 
@@ -177,7 +180,7 @@ V následující tabulce jsou uvedeny kompatibilitu mezi serverem a počítačem
 
 V systému Linux musí podporovat operačního systému počítače použitého k obnovení souborů systému souborů chráněného virtuálního počítače. Když vyberete počítač pro spuštění skriptu, zkontrolujte na počítači má kompatibilní operační systém a používá jednu z verzí identifikovat v následující tabulce:
 
-|Linux operačního systému | Verze  |
+|Operační systém Linux | Verze  |
 | --------------- | ---- |
 | Ubuntu | 12.04 a vyšší |
 | CentOS | verze 6.5 a vyšší  |

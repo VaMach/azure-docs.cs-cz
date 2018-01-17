@@ -20,7 +20,7 @@ Po přihlášení, měli byste vidět informace o profilu uživatele, který se 
 |---------|---------|---------|
 |**Název** |Jméno a příjmení uživatele |Jméno a příjmení uživatele.|
 |**Uživatelské jméno** |<span>user@domain.com</span> |Uživatelské jméno, který se používá k identifikaci uživatele.|
-|**Platnost tokenu vyprší** |Datum a čas |Čas, kdy vyprší platnost tokenu. MSAL rozšiřuje datum vypršení platnosti obnovením token podle potřeby.|
+|**Token Expires** |Datum a čas |Čas, kdy vyprší platnost tokenu. MSAL rozšiřuje datum vypršení platnosti obnovením token podle potřeby.|
 |**Přístupový Token** |Řetězec |Řetězec tokenu, který je odeslán protokolu HTTP požadavků, které vyžadují *autorizační hlavičky*.|
 
 <!--start-collapse-->

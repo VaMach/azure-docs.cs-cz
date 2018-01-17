@@ -1,11 +1,11 @@
 ---
-title: "Stream Analytics: Otáčení protokolu pověření pro vstupy a výstupy | Microsoft Docs"
+title: "Stream Analytics: Otočit přihlašovací údaje pro vstupy a výstupy | Microsoft Docs"
 description: "Zjistěte, jak aktualizovat přihlašovací údaje pro Stream Analytics vstupy a výstupy."
 keywords: "přihlašovací údaje"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
@@ -13,236 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a1a927fa9c34b38e54fdb22782e80fd13bf430c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/11/2018
+ms.author: sngun
+ms.openlocfilehash: c1aded8fefc7b56acd2e9ff36bb2c9641665db76
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>Otočit přihlašovací údaje pro vstupy a výstupy úlohy Stream Analytics
-## <a name="abstract"></a>Abstraktní
-Azure Stream Analytics dnes neumožňuje nahrazení přihlašovacích údajů na vstupu a výstupu při běhu úlohy.
+# <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Otočit přihlašovací údaje pro vstupy a výstupy úlohy Stream Analytics
 
-Zatímco Azure Stream Analytics podporuje obnovení úlohy z posledního výstupu, jsme chtěli sdílet celý proces pro minimalizaci prodleva mezi zastavení a spuštění úlohy a otáčení přihlašovací údaje.
+Vždy, když jste znovu vygenerovat přihlašovací údaje pro vstup nebo výstup úlohy Stream Analytics, by měl aktualizovat úlohy s novými pověřeními. Je nutné zastavit úlohu před aktualizací přihlašovací údaje, přihlašovací údaje nelze nahradit, při běhu úlohy. Aby se snížilo prodleva mezi zastavením a restartováním úlohu, Stream Analytics podporuje obnovení úlohy z posledního výstup. Toto téma popisuje proces otáčení přihlašovací údaje a restartování stav úlohy s novými pověřeními.
 
-## <a name="part-1---prepare-the-new-set-of-credentials"></a>Část 1 – Příprava novou sadu přihlašovacích údajů:
-Tato část se vztahuje na následující vstupy/výstupy:
+## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>Znovu vygenerujte nové přihlašovací údaje a aktualizovat vaše úlohy s novými pověřeními 
 
-* Blob Storage
-* Event Hubs
-* SQL Database
-* Table Storage
-
-Pro ostatní vstupy/výstupy pokračujte část 2.
+V této části jsme vás provede opakované generování pověření pro úložiště objektů Blob, Event Hubs, databáze SQL a Table Storage. 
 
 ### <a name="blob-storagetable-storage"></a>Úložiště objektů BLOB úložiště/tabulky
-1. Přejdete na rozšíření úložiště na portálu pro správu Azure:  
-   ![graphic1][graphic1]
-2. Vyhledejte úložiště používá vaše úloha a přejděte do ní:  
-   ![graphic2][graphic2]
-3. Klikněte na příkaz Spravovat přístupové klíče:  
-   ![graphic3][graphic3]
-4. Mezi primární přístupový klíč a sekundární přístupový klíč **vyberte ten není používá vaše úloha**.
-5. Stiskněte tlačítko znovu vygenerovat:  
-   ![graphic4][graphic4]
-6. Zkopírujte nově vygenerovaný klíč:  
-   ![graphic5][graphic5]
-7. Pokračujte částí 2.
+1. Přihlaste se k portálu Azure > Procházet účet úložiště, který jste použili jako vstup/výstup pro úlohu služby Stream Analytics.    
+2. V části nastavení, otevřete **přístupové klíče**. Mezi dvě výchozí klíče (key1, key2) vyberte ten, který nepoužívá úlohu a znovu:  
+   ![Obnovit klíče účtu úložiště](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+3. Zkopírujte nově vygenerovaný klíč.    
+4. Z portálu Azure přejděte úlohu služby Stream Analytics > vyberte **Zastavit** a počkejte na zastavení úlohy.    
+5. Vyhledejte objekt Blob nebo Table storage vstupu a výstupu, pro který chcete aktualizovat přihlašovací údaje.    
+6. Najít **klíč účtu úložiště** pole a vložte nově vygenerovaný klíč > klikněte na tlačítko **Uložit**.    
+7. Test připojení se automaticky spustí, když uložení změn, můžete ji zobrazit na kartě oznámení. Jsou dvě oznámení: 1 odpovídá ukládání aktualizace a jiné odpovídá testování připojení:  
+   ![Oznámení po dokončení úprav klíč](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
+8. Pokračujte [spustit úlohu při posledním zastaven] (#start-your-job-from-the-last-stopped-time) oddílu.
 
-### <a name="event-hubs"></a>Služba Event hubs
-1. Přejdete na Service Bus rozšíření na portálu pro správu Azure:  
-   ![graphic6][graphic6]
-2. Vyhledejte Namespace Service Bus, používá vaše úloha a přejděte do ní:  
-   ![graphic7][graphic7]
-3. Pokud vaše úlohy používá zásady sdíleného přístupu na Namespace sběrnice služby, přejít na krok 6  
-4. Přejděte na kartu centra událostí:  
-   ![graphic8][graphic8]
-5. Vyhledejte centra událostí, které používá vaše úloha a přejděte do ní:  
-   ![graphic9][graphic9]
-6. Přejděte na kartu konfigurace:  
-   ![graphic10][graphic10]
-7. Na název zásady rozevíracího seznamu vyhledejte zásady sdíleného přístupu používá vaše úloha:  
-   ![graphic11][graphic11]
-8. Mezi primární klíč a sekundární klíč **vyberte ten není používá vaše úloha**.  
-9. Stiskněte tlačítko znovu vygenerovat:  
-   ![graphic12][graphic12]
-10. Zkopírujte nově vygenerovaný klíč:  
-   ![graphic13][graphic13]
-11. Pokračujte částí 2.  
+### <a name="event-hubs"></a>Event Hubs
 
-### <a name="sql-database"></a>SQL Database
-> [!NOTE]
-> Poznámka: budete muset připojit ke službě SQL Database. Přidáme ukazují, jak to provést pomocí prostředí pro správu na portálu pro správu Azure, ale můžete použít některé klientské nástroje, jako je SQL Server Management Studio také.
->
-> 
+1. Přihlaste se k portálu Azure > Procházet centra událostí, které jste použili jako vstup/výstup pro úlohu služby Stream Analytics.    
+2. V části nastavení, otevřete **zásady sdíleného přístupu** a vyberte zásadu, požadovaný přístup. Mezi **primární klíč** a **sekundární klíč**, vyberte ten, který nepoužívá úlohu a znovu:  
+   ![Obnovit klíče pro centra událostí](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
+3. Zkopírujte nově vygenerovaný klíč.    
+4. Z portálu Azure přejděte úlohu služby Stream Analytics > vyberte **Zastavit** a počkejte na zastavení úlohy.    
+5. Vyhledejte události rozbočovače vstupu a výstupu, pro který chcete aktualizovat přihlašovací údaje.    
+6. Najít **klíč události rozbočovače zásad** pole a vložte nově vygenerovaný klíč > klikněte na tlačítko **Uložit**.    
+7. Test připojení se automaticky spustí, když uložíte změny, ujistěte se, že má úspěšně úspěšně.    
+8. Pokračujte [spustit úlohu při posledním zastaven](#start-your-job-from-the-last-stopped-time) části.
 
-1. Přejděte do databáze SQL rozšíření na portálu pro správu Azure:  
-   ![graphic14][graphic14]
-2. Vyhledejte databázi SQL používanou nástrojem úlohu a **klikněte na server** odkaz na stejném řádku:  
-   ![graphic15][graphic15]
-3. Klikněte na příkaz Spravovat:  
-   ![graphic16][graphic16]
-4. Hlavní databáze typu:  
-   ![graphic17][graphic17]
-5. Zadejte uživatelské jméno, heslo a klikněte na protokolu:  
-   ![graphic18][graphic18]
-6. Klikněte na nový dotaz:  
-   ![graphic19][graphic19]
-7. Typ v následujícím dotazu nahraďte < login_name > vaše uživatelské jméno a nahraďte <enterStrongPasswordHere> pomocí nového hesla:  
-   `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
-8. Klikněte na tlačítko spustit:  
-   ![graphic20][graphic20]
-9. Vraťte se ke kroku 2 a tuto dobu, klepněte na databázi:  
-   ![graphic21][graphic21]
-10. Klikněte na příkaz Spravovat:  
-   ![graphic22][graphic22]
-11. Zadejte uživatelské jméno, heslo a klikněte na možnost přihlášení:  
-   ![graphic23][graphic23]
-12. Klikněte na nový dotaz:  
-   ![graphic24][graphic24]
-13. Zadejte následující dotaz nahrazování < uživatelské_jméno > s názvem, podle kterého chcete identifikovat toto přihlášení v kontextu této databáze (můžete zadat stejnou hodnotu, který jste zadali pro < login_name >, třeba) a nahraďte < login_name > nové uživatelské jméno:  
-   `CREATE USER <user_name> FROM LOGIN <login_name>`
-14. Klikněte na tlačítko spustit:  
-   ![graphic25][graphic25]
-15. Nový uživatel by měl poskytovat teď se stejnou rolí a oprávnění měl původního uživatele.
-16. Pokračujte částí 2.
+### <a name="sql-database"></a>Databáze SQL
 
-## <a name="part-2-stopping-the-stream-analytics-job"></a>Část 2: Ukončení úlohy Stream Analytics
-1. Přejdete na rozšíření Stream Analytics na portálu pro správu Azure:  
-   ![graphic26][graphic26]
-2. Najděte úlohu a přejděte do ní:  
-   ![graphic27][graphic27]
-3. Přejděte na kartu vstupů nebo výstupů založené na tom, jestli jsou otáčení přihlašovací údaje na vstup nebo výstup.  
-   ![graphic28][graphic28]
-4. Klikněte na příkaz k ukončení a potvrďte, že úloha byla zastavena:  
-   ![graphic29][graphic29] počkejte na zastavení úlohy.
-5. Vyhledejte vstupu a výstupu, který chcete otočit na přihlašovací údaje a přejděte do ní:  
-   ![graphic30][graphic30]
-6. Přejděte k části 3.
+Potřebujete připojit k databázi SQL a aktualizovat přihlašovací údaje stávajícího uživatele. Přihlašovací údaje můžete aktualizovat pomocí portálu Azure nebo klienta nástroje, jako je SQL Server Management Studio. V této části ukážeme proces aktualizace přihlašovacích údajů pomocí portálu Azure.
 
-## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>Část 3: Úprava přihlašovací údaje u úlohy Stream Analytics
-### <a name="blob-storagetable-storage"></a>Úložiště objektů BLOB úložiště/tabulky
-1. Najít pole klíč účtu úložiště a vložte do něj nově vygenerovaný klíč:  
-   ![graphic31][graphic31]
-2. Klikněte na příkaz Uložit a potvrďte uložení změn:  
-   ![graphic32][graphic32]
-3. Test připojení se automaticky spustí, když uložíte změny, ujistěte se, že je úspěšně byla úspěšná.
-4. Přejděte k části 4.
+1. Přihlaste se k portálu Azure > Procházet databázi SQL, který jste použili jako výstup pro úlohu služby Stream Analytics.    
+2. Z **Průzkumníku dat**, přihlašovací údaje nebo připojení k vaší databázi > vyberte typ autorizace jako **ověřování systému SQL server** > zadejte vaše **přihlášení** a  **Heslo** podrobnosti > vyberte **Ok**.  
+   ![Obnovit přihlašovací údaje pro databázi SQL.](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
 
-### <a name="event-hubs"></a>Služba Event hubs
-1. Najít pole klíče události rozbočovače zásady a vložit vaše nově vygenerovaný klíč do ní:  
-   ![graphic33][graphic33]
-2. Klikněte na příkaz Uložit a potvrďte uložení změn:  
-   ![graphic34][graphic34]
-3. Test připojení se automaticky spustí, když uložíte změny, ujistěte se, že má úspěšně úspěšně.
-4. Přejděte k části 4.
+3. Na kartě dotaz změnit heslo pro jednoho uživatele spuštěním následujícího dotazu (Nezapomeňte nahradit `<user_name>` s vaše uživatelské jméno a `<new_password>` pomocí nového hesla):  
+
+   ```SQL
+   Alter user `<user_name>` WITH PASSWORD = '<new_password>'
+   Alter role db_owner Add member `<user_name>`
+   ```
+
+4. Poznamenejte si nové heslo.    
+5. Z portálu Azure přejděte úlohu služby Stream Analytics > vyberte **Zastavit** a počkejte na zastavení úlohy.    
+6. Vyhledejte výstupu SQL databáze, pro který chcete otočit přihlašovací údaje. Aktualizace hesla a uložte změny.    
+7. Test připojení se automaticky spustí, když uložíte změny, ujistěte se, že má úspěšně úspěšně.    
+8. Pokračujte [spustit úlohu při posledním zastaven](#start-your-job-from-the-last-stopped-time) části.
 
 ### <a name="power-bi"></a>Power BI
-1. Klikněte na tlačítko Obnovit autorizace:  
+1. Přihlaste se k portálu Azure > Procházet vaše úloha Stream Analytics > vyberte **Zastavit** a počkejte na zastavení úlohy.    
+2. Vyhledejte výstup Power BI, pro kterou chcete obnovit přihlašovací údaje > klikněte na tlačítko **obnovit autorizace** (měla zobrazit zpráva úspěch) > **Uložit** změny.    
+3. Test připojení se automaticky spustí, když uložíte změny, ujistěte se, že úspěšně úspěšně prošel.    
+4. Pokračujte [spustit úlohu při posledním zastaven](#start-your-job-from-the-last-stopped-time) části.
 
-   ![graphic35][graphic35]
-2. Zobrazí se po potvrzení:  
+## <a name="start-your-job-from-the-last-stopped-time"></a>Spustit úlohu při posledním zastaven
 
-   ![graphic36][graphic36]
-3. Klikněte na příkaz Uložit a potvrďte uložení změn:  
-   ![graphic37][graphic37]
-4. Test připojení se automaticky spustí, když uložíte změny, ujistěte se, že úspěšně úspěšně prošel.
-5. Přejděte k části 4.
+1. Přejděte do úlohy **přehled** podokně > vyberte **spustit** spustíte úlohu.    
+2. Vyberte **při poslední zastavení** > klikněte na tlačítko **spustit**. Všimněte si, že "při poslední zastavení" možnost se zobrazí pouze pokud jste dříve spustil úlohu a měl některé výstup vygenerovat. Restartování úlohy na základě na poslední výstupní hodnotu času.
+   ![Spustit úlohu](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
 
-### <a name="sql-database"></a>SQL Database
-1. Najít pole uživatelské jméno a heslo a vkládání do nich vaše nově vytvořenou sadu přihlašovacích údajů:  
-   ![graphic38][graphic38]
-2. Klikněte na příkaz Uložit a potvrďte uložení změn:  
-   ![graphic39][graphic39]
-3. Test připojení se automaticky spustí, když uložíte změny, ujistěte se, že má úspěšně úspěšně.  
-4. Přejděte k části 4.
-
-## <a name="part-4-starting-your-job-from-last-stopped-time"></a>Část 4: Od poslední zastaven úlohu
-1. Opustit vstupu a výstupu:  
-   ![graphic40][graphic40]
-2. Klikněte na příkaz ke spuštění:  
-   ![graphic41][graphic41]
-3. Vyberte naposledy zastaveno a klikněte na tlačítko OK:  
-   ![graphic42][graphic42]
-4. Přejděte k části 5.  
-
-## <a name="part-5-removing-the-old-set-of-credentials"></a>Část 5: Odebrání původní sadu přihlašovacích údajů
-Tato část se vztahuje na následující vstupy/výstupy:
-
-* Blob Storage
-* Event Hubs
-* SQL Database
-* Table Storage
-
-### <a name="blob-storagetable-storage"></a>Úložiště objektů BLOB úložiště/tabulky
-Část 1 opakujte pro přístupový klíč, který byl dříve používán vaše úloha obnovení nyní nepoužívané přístupový klíč.
-
-### <a name="event-hubs"></a>Služba Event hubs
-Část 1 opakujte pro klíč, který byl dříve používán vaše úloha obnovíte klíč, teď nepoužívá.
-
-### <a name="sql-database"></a>SQL Database
-1. Přejděte zpět do okna dotazu z část 1 kroku 7 a zadejte následující dotaz, nahraďte < previous_login_name > uživatelské jméno, který byl dříve používán vaše úlohy:  
-   `DROP LOGIN <previous_login_name>`  
-2. Klikněte na tlačítko spustit:  
-   ![graphic43][graphic43]  
-
-Měli byste obdržet následující potvrzení: 
-
-    Command(s) completed successfully.
-
-## <a name="get-help"></a>Podpora
-Další podporu naleznete v našem [fóru služby Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
-
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Úvod do služby Azure Stream Analytics](stream-analytics-introduction.md)
 * [Začínáme používat službu Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Škálování služby Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referenční příručka k jazyku Azure Stream Analytics Query Language](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referenční příručka k rozhraní REST API pro správu služby Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-[graphic1]: ./media/stream-analytics-login-credentials-inputs-outputs/1-stream-analytics-login-credentials-inputs-outputs.png
-[graphic2]: ./media/stream-analytics-login-credentials-inputs-outputs/2-stream-analytics-login-credentials-inputs-outputs.png
-[graphic3]: ./media/stream-analytics-login-credentials-inputs-outputs/3-stream-analytics-login-credentials-inputs-outputs.png
-[graphic4]: ./media/stream-analytics-login-credentials-inputs-outputs/4-stream-analytics-login-credentials-inputs-outputs.png
-[graphic5]: ./media/stream-analytics-login-credentials-inputs-outputs/5-stream-analytics-login-credentials-inputs-outputs.png
-[graphic6]: ./media/stream-analytics-login-credentials-inputs-outputs/6-stream-analytics-login-credentials-inputs-outputs.png
-[graphic7]: ./media/stream-analytics-login-credentials-inputs-outputs/7-stream-analytics-login-credentials-inputs-outputs.png
-[graphic8]: ./media/stream-analytics-login-credentials-inputs-outputs/8-stream-analytics-login-credentials-inputs-outputs.png
-[graphic9]: ./media/stream-analytics-login-credentials-inputs-outputs/9-stream-analytics-login-credentials-inputs-outputs.png
-[graphic10]: ./media/stream-analytics-login-credentials-inputs-outputs/10-stream-analytics-login-credentials-inputs-outputs.png
-[graphic11]: ./media/stream-analytics-login-credentials-inputs-outputs/11-stream-analytics-login-credentials-inputs-outputs.png
-[graphic12]: ./media/stream-analytics-login-credentials-inputs-outputs/12-stream-analytics-login-credentials-inputs-outputs.png
-[graphic13]: ./media/stream-analytics-login-credentials-inputs-outputs/13-stream-analytics-login-credentials-inputs-outputs.png
-[graphic14]: ./media/stream-analytics-login-credentials-inputs-outputs/14-stream-analytics-login-credentials-inputs-outputs.png
-[graphic15]: ./media/stream-analytics-login-credentials-inputs-outputs/15-stream-analytics-login-credentials-inputs-outputs.png
-[graphic16]: ./media/stream-analytics-login-credentials-inputs-outputs/16-stream-analytics-login-credentials-inputs-outputs.png
-[graphic17]: ./media/stream-analytics-login-credentials-inputs-outputs/17-stream-analytics-login-credentials-inputs-outputs.png
-[graphic18]: ./media/stream-analytics-login-credentials-inputs-outputs/18-stream-analytics-login-credentials-inputs-outputs.png
-[graphic19]: ./media/stream-analytics-login-credentials-inputs-outputs/19-stream-analytics-login-credentials-inputs-outputs.png
-[graphic20]: ./media/stream-analytics-login-credentials-inputs-outputs/20-stream-analytics-login-credentials-inputs-outputs.png
-[graphic21]: ./media/stream-analytics-login-credentials-inputs-outputs/21-stream-analytics-login-credentials-inputs-outputs.png
-[graphic22]: ./media/stream-analytics-login-credentials-inputs-outputs/22-stream-analytics-login-credentials-inputs-outputs.png
-[graphic23]: ./media/stream-analytics-login-credentials-inputs-outputs/23-stream-analytics-login-credentials-inputs-outputs.png
-[graphic24]: ./media/stream-analytics-login-credentials-inputs-outputs/24-stream-analytics-login-credentials-inputs-outputs.png
-[graphic25]: ./media/stream-analytics-login-credentials-inputs-outputs/25-stream-analytics-login-credentials-inputs-outputs.png
-[graphic26]: ./media/stream-analytics-login-credentials-inputs-outputs/26-stream-analytics-login-credentials-inputs-outputs.png
-[graphic27]: ./media/stream-analytics-login-credentials-inputs-outputs/27-stream-analytics-login-credentials-inputs-outputs.png
-[graphic28]: ./media/stream-analytics-login-credentials-inputs-outputs/28-stream-analytics-login-credentials-inputs-outputs.png
-[graphic29]: ./media/stream-analytics-login-credentials-inputs-outputs/29-stream-analytics-login-credentials-inputs-outputs.png
-[graphic30]: ./media/stream-analytics-login-credentials-inputs-outputs/30-stream-analytics-login-credentials-inputs-outputs.png
-[graphic31]: ./media/stream-analytics-login-credentials-inputs-outputs/31-stream-analytics-login-credentials-inputs-outputs.png
-[graphic32]: ./media/stream-analytics-login-credentials-inputs-outputs/32-stream-analytics-login-credentials-inputs-outputs.png
-[graphic33]: ./media/stream-analytics-login-credentials-inputs-outputs/33-stream-analytics-login-credentials-inputs-outputs.png
-[graphic34]: ./media/stream-analytics-login-credentials-inputs-outputs/34-stream-analytics-login-credentials-inputs-outputs.png
-[graphic35]: ./media/stream-analytics-login-credentials-inputs-outputs/35-stream-analytics-login-credentials-inputs-outputs.png
-[graphic36]: ./media/stream-analytics-login-credentials-inputs-outputs/36-stream-analytics-login-credentials-inputs-outputs.png
-[graphic37]: ./media/stream-analytics-login-credentials-inputs-outputs/37-stream-analytics-login-credentials-inputs-outputs.png
-[graphic38]: ./media/stream-analytics-login-credentials-inputs-outputs/38-stream-analytics-login-credentials-inputs-outputs.png
-[graphic39]: ./media/stream-analytics-login-credentials-inputs-outputs/39-stream-analytics-login-credentials-inputs-outputs.png
-[graphic40]: ./media/stream-analytics-login-credentials-inputs-outputs/40-stream-analytics-login-credentials-inputs-outputs.png
-[graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
-[graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
-[graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-

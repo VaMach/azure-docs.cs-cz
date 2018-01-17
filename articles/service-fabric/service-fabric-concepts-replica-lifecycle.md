@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: b4a01752cf2658bcc8dea663462336ca5c610d70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4037fc869d3e26d52f33baa62c626f4621cd11f5
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="replicas-and-instances"></a>Repliky a instancí 
 Tento článek nabízí přehled životního cyklu replik instancí služby bezstavové a stavové služby.
@@ -140,7 +140,7 @@ Následující diagram znázorňuje přechody role repliky a několik ukázkový
 > Modely programování vyšší úrovně, jako například [Reliable Actors](service-fabric-reliable-actors-introduction.md) a [spolehlivé služby](service-fabric-reliable-services-introduction.md), skrýt konceptu repliky rolí od vývojáře. V aktéři není nutné představu o roli. V dialogovém okně služby je z velké části zjednodušený pro většinu scénářů.
 >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o konceptech Service Fabric najdete v následujícím článku:
 
 [Životní cyklus Reliable Services – C#](service-fabric-reliable-services-lifecycle.md)

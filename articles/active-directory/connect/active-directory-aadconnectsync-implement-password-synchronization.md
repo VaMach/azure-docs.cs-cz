@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: billmath
-ms.openlocfilehash: 0dbd3bbb9a45b206d9c89a1083b62852c1b2285a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50534fd1fd94eeb4eec7748857a0b7baf93cb9d2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>Implementace synchronizace hesel s synchronizace Azure AD Connect
 Tento článek obsahuje informace, které potřebujete synchronizovat hesla služby uživatele z místní instance služby Active Directory do Azure Active Directory (Azure AD) instance založené na cloudu.
@@ -179,6 +179,6 @@ Informace o zabezpečení a FIPS najdete v tématu [AAD Sync heslo, šifrování
 ## <a name="troubleshoot-password-synchronization"></a>Řešení potíží s synchronizace hesel
 Pokud máte problémy s synchronizace hesel, najdete v části [řešení synchronizace hesel](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Synchronizace Azure AD Connect: přizpůsobení možnosti synchronizace](active-directory-aadconnectsync-whatis.md)
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)

@@ -18,7 +18,7 @@ ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Koupit vlastní název domény pro Azure Web Apps
 
@@ -171,9 +171,9 @@ Vyberte **přidat název hostitele**.
 ### <a name="configure-hostname"></a>Nakonfigurujte název hostitele
 V **přidat název hostitele** dialogové okno, zadejte plně kvalifikovaný název domény vaší domény služby aplikace nebo jakékoli subdomény. Příklad:
 
-- kontoso.NET
-- www.kontoso.NET
-- ABC.kontoso.NET
+- kontoso.net
+- www.kontoso.net
+- abc.kontoso.net
 
 Po dokončení vyberte **ověřením**. Typ záznamu název hostitele je automaticky vybrána pro vás.
 
@@ -218,7 +218,7 @@ Chcete-li ručně obnovit doménu, vyberte **obnovení domény**. Ale toto tlač
 
 V Azure, záznamy DNS pro doménu služby App Service se spravují pomocí [Azure DNS](https://azure.microsoft.com/services/dns/). Můžete přidat, odebrat a aktualizovat záznamy DNS, stejně jako pro externě zakoupené doménu.
 
-### <a name="open-app-service-domain"></a>Otevřete aplikaci služby domény
+### <a name="open-app-service-domain"></a>Open App Service Domain
 
 Na portálu Azure v levé nabídce vyberte **více služeb** > **doménami aplikací služby**.
 
@@ -238,7 +238,7 @@ Tato akce otevře [zónu DNS](../dns/dns-zones-records.md) stránku vaší domé
 
 Po zakoupení služby doména aplikace máte zrušit nákup pro vrátit celou částku pět dní. Po pět dní můžete odstranit doménu služby aplikace ale nemůže přijímat náhrada.
 
-### <a name="open-app-service-domain"></a>Otevřete aplikaci služby domény
+### <a name="open-app-service-domain"></a>Open App Service Domain
 
 Na portálu Azure v levé nabídce vyberte **více služeb** > **doménami aplikací služby**.
 

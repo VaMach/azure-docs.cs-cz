@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b5b48edda76bedc14d5528fa82f1d9b7bfffe53a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Povolit Microsoft Windows Hello pro firmy ve vaší organizaci
 Po [připojení zařízení s Windows 10 připojených k doméně se službou Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), proveďte postup pro povolení Microsoft Windows Hello pro firmy v organizaci:
@@ -57,7 +57,7 @@ Pomocí nástroje System Center Configuration Manager je preferovanou metodu, kd
 5. Přejděte na **konfigurace počítače** > **zásady** > **šablony pro správu** > **Windows Součásti** > **Windows Hello pro firmy**.
 6. Klikněte pravým tlačítkem na **povolit Windows Hello pro firmy**a potom vyberte **upravit**.
 7. Vyberte **povoleno** a pak klikněte na tlačítko **použít**. Klikněte na **OK**.
-8. Teď můžete objekt zásad skupiny se propojit k umístění podle vaší volby. Chcete-li tato zásada u všech zařízení připojených k doméně Windows 10 ve vaší organizaci, propojte zásad skupiny do domény. Například:
+8. Teď můžete objekt zásad skupiny se propojit k umístění podle vaší volby. Chcete-li tato zásada u všech zařízení připojených k doméně Windows 10 ve vaší organizaci, propojte zásad skupiny do domény. Příklad:
    * Konkrétní organizační jednotku (OU) ve službě Active Directory, kde budou umístěné počítače s Windows 10 připojených k doméně
    * Skupinu zabezpečení, která obsahuje připojený k doméně počítače Windows 10, které se budou automaticky registrovat s Azure AD
 
@@ -105,7 +105,7 @@ Pokud používáte ověřování pomocí certifikátů pro místní ověřován�
 
 Na **zápis SCEP** stránky profilu certifikátu, je třeba vybrat **instalovat do služby Passport pro Work jinak dojde k selhání** jako **zprostředkovatele úložiště klíčů**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Windows 10 pro firmy: Možnosti, jak používat zařízení pro práci](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Rozšíření možností cloudu u zařízení s Windows 10 prostřednictvím služby Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Ověření bez hesla](active-directory-azureadjoin-passport.md)

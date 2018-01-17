@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: dc69da316870f897fb126d8033e09a066bf89153
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Správa aplikací pomocí služby Azure Active Directory
 Mimo pracovní postup nebo obsahu firmy mají dva základní požadavky pro všechny aplikace:
@@ -98,7 +98,7 @@ Některé aplikace poskytují rozhraní automatizace pro vytváření a odebrán
 ## <a name="access-management"></a>Správa přístupu
 Pomocí služby Azure AD můžete spravovat přístup k aplikacím pomocí jednotlivých nebo pravidlo řízené přiřazení. Můžete taky delegovat přístup správu odpovídajícím lidem v organizaci zajistit nejlepší dohledu a snížení zatížení na technickou podporu.
 
-## <a name="on-premises-applications"></a>místní aplikace
+## <a name="on-premises-applications"></a>Místní aplikace
 Předdefinovaných proxy aplikace umožňuje publikování aplikací pro vaše uživatele, což je místní i konzistentní přístup k prostředí s moderní cloudové aplikace a výhody z možnosti monitorování, vytváření sestav a zabezpečení služby Azure AD.
 
 ## <a name="reporting-and-monitoring"></a>Monitorování a vytváření sestav
@@ -110,6 +110,6 @@ S Azure AD můžete zabezpečit vaše aplikace s zásady granulární přístupu
 ## <a name="getting-started"></a>Začínáme
 Abyste mohli začít, integrace aplikací s Azure AD, prohlédněte si [Příručka Začínáme integrace Azure Active Directory s aplikacemi, získávání](active-directory-integrating-applications-getting-started.md).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 [Rejstřík článků o správě aplikací ve službě Azure Active Directory](active-directory-apps-index.md)
 
