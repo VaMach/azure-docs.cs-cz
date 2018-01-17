@@ -1,5 +1,5 @@
 ---
-title: "Přidání existujícího předplatného Azure do adresáře služby Azure AD | Microsoft Docs"
+title: "Přidání existujícího předplatného Azure do adresáře služby Azure AD | Dokumentace Microsoftu"
 description: "Přidání existujícího předplatného do adresáře služby Azure AD"
 services: active-directory
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Přiřazení nebo přidání předplatného Azure do služby Azure Active Directory
 
@@ -46,7 +46,7 @@ Všichni uživatelé mají jeden domovský adresář, který je ověřuje, ale m
 
     ![Snímek obrazovky s uživatelským rozhraním pro změnu adresáře](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Klikněte na **Změnit**.
-6. Výborně! Pomocí přepínače adresářů přejděte do nového adresáře.
+6. Výborně! Pomocí přepínače adresářů přejděte do nového adresáře. Správné zobrazení všech komponent může trvat až 10 minut.
 
     ![Snímek obrazovky s oznámením o úspěšné změně adresáře](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

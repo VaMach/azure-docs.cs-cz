@@ -1,5 +1,5 @@
 ---
-title: "Co je služba Azure Analysis Services | Dokumentace Microsoftu"
+title: "Přehled služby Azure Analysis Services | Dokumentace Microsoftu"
 description: "Získejte celkový přehled o službě Analysis Services v Azure."
 services: analysis-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>Co je služba Azure Analysis Services?
+# <a name="azure-analysis-services-overview"></a>Přehled služby Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services poskytuje modelování dat na podnikové úrovni v cloudu. Je to plně spravovaná platforma jako služba (PaaS) integrovaná se službami datové platformy Azure. 
@@ -95,7 +95,7 @@ Spravujte servery a modelové databáze pomocí aplikace [SQL Server Management 
 ## <a name="your-data-is-secure"></a>Vaše data jsou v bezpečí
 ![Vizualizace dat](./media/analysis-services-overview/aas-overview-secure.png)
 
-#### <a name="authentication"></a>Ověřování
+#### <a name="authentication"></a>Authentication
 Ověřování uživatelů pro Azure Analysis Services zařizuje služba [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Při pokusu o přihlášení k databázi Azure Analysis Services používají uživatelé identitu účtu organizace s přístupem k databázi, ke které se snaží získat přístup. Tyto identity uživatelů musí být členy výchozí služby Azure Active Directory pro předplatné, ve kterém se server služby Azure Analysis Services nachází. Další informace najdete v tématu [Ověřování a uživatelská oprávnění](analysis-services-manage-users.md).
 
 #### <a name="data-security"></a>Zabezpečení dat

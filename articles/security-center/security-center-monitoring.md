@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Sledování stavu zabezpečení v Azure Security Center
 Tento článek vám pomůže s využíváním možností v Azure Security Center ke sledování dodržování zásad.
@@ -48,11 +48,11 @@ Po kliknutí na dlaždici **Compute** se zobrazí tři karty:
 Na každé kartě můžete mít několik částí a v každé části můžete vybrat jednotlivé možnosti, abyste zobrazili další podrobnosti o doporučeném postupu k vyřešení konkrétního problému.
 
 #### <a name="monitoring-recommendations"></a>Doporučení pro monitorování
-Tato část uvádí celkový počet virtuálních počítačů a počítačů, které byly inicializovány pro automatické zřizování, a jejich aktuální stavy. Po kliknutí na tuto položku se otevře **Problémy s monitorováním stavu agentů**.
+Tato část uvádí celkový počet virtuálních počítačů a počítačů, které byly inicializovány pro automatické zřizování, a jejich aktuální stavy. Tento příklad obsahuje jedno doporučení, **Problémy s monitorováním stavu agentů**.  Vyberte toto doporučení.
 
 ![Problémy s monitorováním stavu agentů](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Tady budou uvedené virtuální počítače a počítače, které služba Security Center nedokáže úspěšně monitorovat. Výběrem virtuálního počítače nebo počítače zobrazíte podrobné informace. **STAV MONITOROVÁNÍ** definuje příslušný problém.
+Doporučení **Problémy s monitorováním stavu agentů** se otevře. Tady budou uvedené virtuální počítače a počítače, které služba Security Center nedokáže úspěšně monitorovat. Výběrem virtuálního počítače nebo počítače zobrazíte podrobné informace. **STAV MONITOROVÁNÍ** uvádí důvod, proč Security Center nemůže monitorovat. Seznam hodnot, popisů a postupů řešení pro hodnoty **STAV MONITOROVÁNÍ** najdete v [průvodci odstraňováním potíží pro Security Center](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
 
 #### <a name="recommendations"></a>Doporučení
 Tato část obsahuje sadu [doporučení pro každý virtuální počítač a počítač](security-center-virtual-machine-recommendations.md) monitorovaný pomocí Azure Security Center. První sloupec uvádí doporučení. Druhý sloupec zobrazuje celkový počet virtuálních počítačů a počítačů, které jsou ovlivněny tímto doporučením. Třetí sloupec zobrazuje závažnost problému, jak je znázorněno na následujícím snímku obrazovky:

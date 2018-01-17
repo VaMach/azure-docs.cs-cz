@@ -2,15 +2,15 @@
 Potom si nastavte vývojové prostředí v sadě Visual Studio, abyste byli připraveni vyzkoušet příklady kódů z této příručky.
 
 ### <a name="create-a-windows-console-application-project"></a>Vytvoření projektu konzolové aplikace pro Windows
-V sadě Visual Studio vytvořte novou konzolovou aplikaci pro Windows. Následující kroky ukazují, jak vytvořit konzolovou aplikaci v sadě Visual Studio 2017, ale kroky v jiných verzích sady Visual Studio se podobají.
+V sadě Visual Studio vytvořte novou konzolovou aplikaci pro Windows. Následující kroky ukazují, jak vytvořit konzolovou aplikaci v sadě Visual Studio 2017. Kroky u ostatních verzí sady Visual Studio jsou podobné.
 
-1. Vyberte **Soubor**  >  **Nový**  >  **Projekt**.
+1. Vyberte **Soubor** > **Nový** > **Projekt**.
 2. Vyberte **Instalováno** > **Šablony** > **Visual C#** > **Klasická plocha Windows**.
 3. Vyberte **Aplikace konzoly (.NET Framework)**.
 4. Do pole **Název** zadejte název vaší aplikace.
 5. Vyberte **OK**.
 
-![Dialogové okno vytvoření projektu v sadě Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Snímek dialogového okna Nový projekt v sadě Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
 Všechny příklady kódu v tomto kurzu můžete přidat do metody `Main()` v souboru `Program.cs` vaší konzolové aplikace.
 
@@ -24,9 +24,9 @@ Abyste mohli tento kurz dokončit, potřebujete ze svého projektu odkazovat na 
 
 K získání obou balíčků můžete použít balíček NuGet. Postupujte následovně:
 
-1. Klikněte v **Průzkumníku řešení** pravým tlačítkem na projekt a vyberte **Spravovat balíčky NuGet**.
-2. Proveďte online hledání textu „WindowsAzure.Storage“ a kliknutím na **Instalovat** nainstalujte balíček knihovny klienta úložiště a jeho závislosti.
-3. Proveďte online hledání textu „WindowsAzure.ConfigurationManager“ a kliknutím na **Instalovat** nainstalujete správce konfigurace Azure.
+1. V **Průzkumníku řešení** klikněte pravým tlačítkem na projekt a vyberte **Spravovat balíčky NuGet**.
+2. Online vyhledejte text „WindowsAzure.Storage“, vyberte **Instalovat** a nainstalujte balíček knihovny klienta úložiště a jeho závislosti.
+3. Proveďte online hledání textu „WindowsAzure.ConfigurationManager“ a výběrem **Instalovat** nainstalujete správce konfigurace Azure.
 
 > [!NOTE]
 > Balíček knihovny klienta služby Storage je také součástí [sady Azure SDK for .NET](https://azure.microsoft.com/downloads/). Přesto doporučujeme, abyste si knihovnu klienta služby Storage nainstalovali také z balíčku NuGet, protože tím si zajistíte nejnovější verzi knihovny klienta.
@@ -51,10 +51,10 @@ Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z webu Azure 
 ### <a name="configure-your-storage-connection-string"></a>Konfigurace připojovacího řetězce úložiště
 Knihovna klienta služby Azure Storage pro .NET podporuje použití připojovacího řetězce úložiště ke konfiguraci koncových bodů a přihlašovacích údajů pro přístup ke službám úložiště. Připojovací řetězec úložiště se nejlépe uchovává v konfiguračním souboru. 
 
-Další informace o připojovacích řetězcích najdete v článku [Konfigurace připojovací řetězce pro službu Azure Storage](../articles/storage/common/storage-configure-connection-string.md).
+Další informace o připojovacích řetězcích najdete v tématu věnovaném [konfiguraci připojovacího řetězce pro službu Azure Storage](../articles/storage/common/storage-configure-connection-string.md).
 
 > [!NOTE]
-> Klíč účtu úložiště je podobný kořenovému heslu vašeho účtu úložiště. Vždy klíč účtu úložiště pečlivě chraňte. Nedávejte ho jiným uživatelům, nezakódovávejte ho ani ho neukládejte do souboru ve formátu prostého textu, který je přístupný ostatním uživatelům. Pokud se domníváte, že je klíč ohrožený, vygenerujte ho znovu pomocí webu Azure Portal.
+> Klíč účtu úložiště je podobný kořenovému heslu vašeho účtu úložiště. Vždy klíč účtu úložiště pečlivě chraňte. Nedávejte ho jiným uživatelům, nezakódovávejte ho ani ho neukládejte do souboru ve formátu prostého textu, který je přístupný ostatním uživatelům. Pokud se domníváte, že klíč je ohrožený, vygenerujte ho znovu pomocí webu Azure Portal.
 > 
 > 
 

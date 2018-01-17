@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c59ad25294fe88f6145b6e55bb498cd958dbca2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Příprava vývojového prostředí v Linuxu
 > [!div class="op_single_selector"]
@@ -128,6 +128,10 @@ sudo apt-get install servicefabricsdkcommon
   > Samostatné clustery nejsou podporované v systému Linux.
   >
 
+
+>   [!TIP]
+    Pokud je dostupný disk SSD, pro zajištění špičkového výkonu se doporučuje předat cestu ke složce SSD pomocí `--clusterdataroot` s devclustersetup.sh.
+
 ## <a name="set-up-the-service-fabric-cli"></a>Nastavení rozhraní příkazového řádku Service Fabric
 
 [Rozhraní příkazového řádku Service Fabric](service-fabric-cli.md) obsahuje příkazy pro komunikaci s entitami služby Service Fabric, včetně clusterů a aplikací.
@@ -180,7 +184,7 @@ Modul plug-in Eclipse pro Service Fabric můžete nainstalovat z integrovaného 
 
 3. V poli **Work with** (Pracovat s) zadejte **http://dl.microsoft.com/eclipse**.
 
-4. Klikněte na **Přidat**.
+4. Klikněte na tlačítko **Add** (Přidat).
 
     ![Stránka Available Software (Dostupný software)][sf-eclipse-plugin]
 

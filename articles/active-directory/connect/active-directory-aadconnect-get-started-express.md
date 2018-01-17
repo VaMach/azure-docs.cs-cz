@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 638e654cb9e7a2454b37beb6067cb5a2fb9a57b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d180a83d7b0a8e02ed04d8771d2ad2c6fa386c6
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Začínáme se službou Azure AD Connect s použitím expresního nastavení
 **Expresní nastavení** Azure AD Connect se používá, pokud máte jednoduchou doménovou strukturu a [synchronizaci hesel](active-directory-aadconnectsync-implement-password-synchronization.md) pro ověřování. **Expresní nastavení** je výchozí možnost a používá se u scénáře, který je nasazován nejčastěji. Stačí jen několik kliknutí a budete moci svůj místní adresář rozšířit do cloudu.
@@ -36,7 +36,8 @@ Praktickou ukázku těchto kroků si můžete prohlédnout v sekci [videí](#vid
 4. Na obrazovce expresního nastavení klikněte na **Použít expresní nastavení**.  
    ![Vítá vás Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Na obrazovce připojení ke službě Azure AD zadejte uživatelské jméno a heslo pro globálního správce vaší služby Azure AD. Klikněte na **Další**.  
-   ![Připojení ke službě Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Pokud se zobrazí chybová zpráva a máte problémy s připojením, přejděte na téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
+   ![Připojení k Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)  
+   Pokud se zobrazí chyba a máte problémy s připojením, přečtěte si téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Na obrazovce Připojení ke službě AD DS zadejte uživatelské jméno a heslo pro účet správce podnikové sítě. Součást domény můžete zadat buď ve formátu NetBios, nebo jako plně kvalifikovaný název domény, tj. FABRIKAM\administrator nebo fabrikam.com\administrator. Klikněte na **Další**.  
    ![Připojení ke službě AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. Stránka [**Konfigurace přihlášení k Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) se zobrazí pouze pokud jste nedokončili [ověření svých domén](../active-directory-domains-add-azure-portal.md) v rámci [požadavků](active-directory-aadconnect-prerequisites.md).
@@ -53,8 +54,8 @@ Praktickou ukázku těchto kroků si můžete prohlédnout v sekci [videí](#vid
 Video o používání expresní instalace najdete v následujících tématech:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Další kroky
 Nyní, když máte nainstalovanou službu Azure AD Connect, si můžete [ověřit instalaci a přiřadit licence](active-directory-aadconnect-whats-next.md).
@@ -66,10 +67,10 @@ Zjistěte více o těchto běžných tématech: [plánovač a spouštění synch
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="related-documentation"></a>Související dokumentace
-| Téma |
-| --- | --- |
-| Přehled služby Azure AD Connect |
-| Instalace s vlastním nastavením |
-| Upgrade z nástroje DirSync |
-| Účty použité k instalaci |
 
+| Téma | Odkaz |
+| --- | --- |
+| Přehled služby Azure AD Connect | [Integrace místních adresářů do služby Azure Active Directory](active-directory-aadconnect.md)
+| Instalace s vlastním nastavením | [Vlastní instalace služby Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
+| Upgrade z nástroje DirSync | [Upgrade ze synchronizačního nástroje služby Azure AD (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+| Účty použité k instalaci | [Další informace o účtech a oprávněních služby Azure AD Connect](active-directory-aadconnect-accounts-permissions.md) |

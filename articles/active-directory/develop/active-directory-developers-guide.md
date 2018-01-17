@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c7375b91790cc7a089560bd823e99850e3b34fec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 89a232af6387f6403e6e341cced16d06e9979dae
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory pro vývojáře
-Azure Active Directory (Azure AD) je cloudová služba identit, která vývojářům umožňuje bezpečně přihlásit uživatele s pracovním nebo školním účtem Microsoft. Tato dokumentace vám ukáže, jak do vaší aplikace přidat podporu Azure AD s použitím standardních oborových protokolů OAuth a OpenID Connect.
+Azure Active Directory (Azure AD) je cloudová služba identit, která vývojářům umožňuje bezpečně přihlásit uživatele s pracovním nebo školním účtem Microsoft. Tato dokumentace vám ukáže, jak do vaší aplikace přidat podporu Azure AD s použitím standardních oborových protokolů OAuth 2.0 a OpenID Connect.
 
 | | |
 | --- | --- |
@@ -33,11 +33,11 @@ Následující praktická nastavení vás provedou použitím knihoven ověřov�
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| <center>![Mobilní a desktopové aplikace](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Mobilní a desktopové aplikace</center> | [Přehled](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET](active-directory-devquickstarts-dotnet.md)<br /><br />[Windows](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md)<br /><br />[OAuth 2.0](active-directory-protocols-oauth-code.md) |
-| <center>![Webové aplikace](./media/active-directory-developers-guide/Web_app.png)<br />Webové aplikace</center> | [Přehled](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)<br /><br />[OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) |  |
+| <center>![Mobilní a desktopové aplikace](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Mobilní a desktopové aplikace</center> | [Přehled](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET (WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[.NET (UPW)](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md) |
+| <center>![Webové aplikace](./media/active-directory-developers-guide/Web_app.png)<br />Webové aplikace</center> | [Přehled](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |  |
 | <center>![Jednostránkové aplikace](./media/active-directory-developers-guide/SPA.png)<br />Jednostránkové aplikace</center> | [Přehled](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
 | <center>![Webová rozhraní API](./media/active-directory-developers-guide/Web_API.png)<br />Webová rozhraní API</center> | [Přehled](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Služba-služba](./media/active-directory-developers-guide/Service_App.png)<br />Služba-služba</center> | [Přehled](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Přihlašovací údaje pro klienta OAuth 2.0](active-directory-protocols-oauth-service-to-service.md) |  |
+| <center>![Služba-služba](./media/active-directory-developers-guide/Service_App.png)<br />Služba-služba</center> | [Přehled](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
 
 ## <a name="how-to-guides"></a>Návody
 Následující návody obsahují informace o provádění běžných úloh s Azure AD.

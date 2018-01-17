@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Nahrávání souborů do účtu Media Services pomocí služby Aspera Server On Demand v Azure
 
@@ -33,7 +33,7 @@ Tento kurz vás provede jednotlivými kroky pro nahrávání souborů do účtu 
 Příklad, který ukazuje, jak používat Azure Functions s Asperou a službou Media Services můžete najít [zde](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->Maximální velikost souboru podporovaná při zpracování pomocí procesorů médií služby Azure Media Services je omezená. Podrobnosti o omezení velikosti souboru najdete [tady](media-services-quotas-and-limitations.md).
+>Maximální velikost souboru podporovaná při zpracování pomocí procesorů médií služby Azure Media Services je omezená. Podrobnosti o omezení velikosti souboru najdete v [tomto článku](media-services-quotas-and-limitations.md).
 >
 
 ## <a name="prerequisites"></a>Požadavky 
@@ -41,7 +41,7 @@ Příklad, který ukazuje, jak používat Azure Functions s Asperou a službou M
 Pro absolvování tohoto kurzu potřebujete:
 
 * Windows Live ID
-* [Účet Azure](https://azure.microsoft.com). Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* [Účet Azure](https://azure.microsoft.com). Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * [Účet Azure Media Services](media-services-portal-create-account.md).
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>Nákup služby Aspera On Demand pro Azure
@@ -56,7 +56,7 @@ Po přihlášení na webu Azure Marketplace postupujte podle těchto základníc
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. Zadejte podrobnosti předplatného služby Server On Demand.
+3. Zadejte podrobné informace o předplatném služby Server On Demand.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
@@ -118,7 +118,7 @@ Po přihlášení na webu Azure Marketplace postupujte podle těchto základníc
 
     ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
-## <a name="resources"></a>Zdroje
+## <a name="resources"></a>Zdroje a prostředky
 
 V tomto článku byly zmíněny následující zdroje informací. 
 

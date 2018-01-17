@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2985ed0b4bf5d9525bc2274d71b703922524f5a8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Plánovač nasazení služby Azure Site Recovery pro nasazení VMware do Azure
 Tento článek představuje uživatelskou příručku k nástroji Azure Site Recovery Deployment Planner pro produkční nasazení VMware do Azure.
@@ -29,7 +29,7 @@ Než začnete chránit jakékoli virtuální počítače VMware pomocí Site Rec
 
 Také je nutné vytvořit správný typ a počet cílových účtů služby Azure Storage. Vytvoříte účty služby Storage úrovně Standard nebo Premium, které budou zohledňovat nárůst počtu vašich zdrojových produkčních serverů způsobený zvyšováním využití v průběhu času. Typ úložiště zvolíte pro každý virtuální počítač na základě charakteristik úloh (jako je počet vstupně-výstupních operací [IOPS] čtení a zápisu za sekundu nebo četnost změn dat) a omezení Site Recovery.
 
-Plánovač nasazení služby Azure Site Recovery (verze 2) je nástroj příkazového řádku dostupný pro scénáře zotavení po havárii z Hyper-V do Azure i z VMware do Azure. Pomocí tohoto nástroje můžete vzdáleně profilovat virtuální počítače VMware (bez jakéhokoli dopadu na produkční prostředí) a porozumět tak požadavkům na šířku pásma a službu Azure Storage pro úspěšnou replikaci a testovací převzetí služeb při selhání. Nástroj můžete spustit místně bez nutnosti instalace jakýchkoli komponent Site Recovery. Nicméně pro získání přesných výsledků dosažené propustnosti se doporučuje spustit Deployment Planner na Windows Serveru splňujícím minimální požadavky konfiguračního serveru Azure Site Recovery, který časem budete muset nasadit v jednom z prvních kroků produkčního nasazení.
+Plánovač nasazení služby Azure Site Recovery je nástroj příkazového řádku pro scénáře zotavení po havárii z Hyper-V do Azure i z VMware do Azure. Pomocí tohoto nástroje můžete vzdáleně profilovat virtuální počítače VMware (bez jakéhokoli dopadu na produkční prostředí) a porozumět tak požadavkům na šířku pásma a službu Azure Storage pro úspěšnou replikaci a testovací převzetí služeb při selhání. Nástroj můžete spustit místně bez nutnosti instalace jakýchkoli komponent Site Recovery. Nicméně pro získání přesných výsledků dosažené propustnosti se doporučuje spustit Deployment Planner na Windows Serveru splňujícím minimální požadavky konfiguračního serveru Azure Site Recovery, který časem budete muset nasadit v jednom z prvních kroků produkčního nasazení.
 
 Nástroj poskytuje následující podrobnosti:
 
@@ -106,9 +106,9 @@ Složka obsahuje několik souborů a podsložek. Spustitelný soubor je ASRDeplo
 
     Příklad:  
     Zkopírujte soubor .zip na jednotku E:\ a rozbalte jej.
-   E:\ASR Deployment Planner_v2.0zip
+   E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Aktualizace na nejnovější verzi plánovače nasazení
 Pokud máte předchozí verzi plánovače nasazení, proveďte jednu z následujících akcí:
@@ -121,6 +121,11 @@ Pokud máte předchozí verzi plánovače nasazení, proveďte jednu z následuj
  >Při spuštění profilace v nové verzi předejte stejnou cestu k výstupnímu adresáři, aby nástroj připojil data profilu k existujícím souborům. K vygenerování sestavy se použije úplná sada dat profilace. Pokud předáte jiný výstupní adresář, vytvoří se nové soubory a stará data profilace se k vygenerování sestavy nepoužijí.
  >
  >Každý nový Deployment Planner je kumulativní aktualizací souboru .zip. Nemusíte kopírovat nejnovější soubory do předchozí složky. Můžete vytvořit a použít novou složku.
+
+
+## <a name="version-history"></a>Historie verzí
+Nejnovější verzí Plánovače nasazení ASR je verze 2.1.
+Opravy přidané v jednotlivých aktualizacích najdete na stránce [historie verzí Plánovače nasazení ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx).
 
 ## <a name="next-steps"></a>Další kroky
 * [Spuštění plánovače nasazení](site-recovery-vmware-deployment-planner-run.md)

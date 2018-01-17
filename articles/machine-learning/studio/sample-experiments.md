@@ -1,7 +1,7 @@
 ---
-title: "Kopírování příkladů experimentů se strojovým učením – Azure | Dokumentace Microsoftu"
-description: "Naučte se používat příklady experimentů se strojovým učením k vytváření nových experimentů s galerií Cortana Intelligence a službou Microsoft Azure Machine Learning."
-keywords: machine learning examples, sample experiment, machine learning sample
+title: "Vytváření experimentů na základě příkladů strojového učení – Azure | Dokumentace Microsoftu"
+description: "Naučte se používat příklady experimentů se strojovým učením k vytváření nových experimentů s galerií Azure AI a službou Azure Machine Learning."
+keywords: machine learning examples, sample experiment, machine learning sample, AI examples
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2017
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ea19f137acb23d3527315aae2624c746e138545
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Vytváření nových experimentů se strojovým učením na základě kopírování příkladů experimentů
-Zjistěte, jak začít s příklady experimentů z [Galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) místo vytváření experimentů se strojovým učením od začátku. Příklady můžete použít k sestavení vlastních řešení strojového učení.
+# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Vytváření experimentů se strojovým učením na základě funkčních příkladů v galerii Azure AI
+
+Zjistěte, jak začít s příklady experimentů z [galerie Azure AI](https://gallery.cortanaintelligence.com/) místo vytváření experimentů se strojovým učením od nuly. Příklady můžete použít k sestavení vlastních řešení strojového učení.
 
 V galerii jsou příklady experimentů od týmu Microsoft Azure Machine Learning i příklady sdílené komunitou služby Machine Learning. Také můžete klást otázky nebo experimenty komentovat.
 
@@ -30,7 +31,7 @@ Abyste se dozvěděli, jak používat galerii, podívejte se na tříminutové v
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="find-an-experiment-to-copy-in-cortana-intelligence-gallery"></a>Nalezení experimentu pro zkopírování v Cortana Intelligence Gallery
+## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Vyhledání experimentu ke zkopírování v galerii Azure AI
 Pokud se chcete podívat, jaké experimenty jsou k dispozici, přejděte do [Galerie](https://gallery.cortanaintelligence.com/) a klikněte na **Experimenty** v horní části stránky.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>Nalezení nejnovějších nebo nejoblíbenějších experimentů
@@ -42,8 +43,8 @@ Procházení všech experimentů:
 1. V horní části stránky klikněte na **Browse all** (Procházet vše).
 2. Na levé straně v oddílu **Zpřesnit podle** v části **Kategorie** vyberte **Experiment**. Zobrazí se všechny experimenty v galerii.
 3. Experimenty, které splňují vaše požadavky, můžete najít několika různými způsoby:
-   * **Vyberte filtry vlevo.** Pokud chcete například procházet experimenty, které používají algoritmus detekce anomálií založený na PCA, s vybranou možností **Experiment** v části **Kategorie** klikněte na **Zobrazit vše**. Potom v části **Použité algoritmy** zvolte **Detekce anomálií založená na PCA**. <br></br>
-     ![Vybrat filtry](./media/sample-experiments/refine-the-view.png)
+   * **Vyberte filtry vlevo.** Pokud chcete například procházet experimenty, které používají algoritmus detekce anomálií založený na PCA, klikněte na **Experiment** v části **Kategorie**. Potom v části **použitých algoritmů** klikněte na **Zobrazit vše** a v dialogovém okně zvolte **Detekce anomálií založená na PCA**. Možná si budete muset posunout zobrazení, abyste tuto možnost viděli.<br></br>
+     ![Výběr filtrů](./media/sample-experiments/choose-an-algorithm.png)
    * **Použijte vyhledávací pole.** Pokud chcete například najít experimenty, kterými přispěl Microsoft, které se týkají rozpoznávaní číslic a které používají algoritmus podpůrného vektorového stroje se dvěma třídami, zadejte do vyhledávacího pole „digit recognition“. Vyberte filtry **Experiment**, **Microsoft content only** (Jen obsah Microsoftu) a **Two-Class Support Vector Machine**:<br></br>
      ![Použití vyhledávacího pole](./media/sample-experiments/search-for-experiments.png)
 4. Kliknutím na experiment o něm zobrazíte více informací.
