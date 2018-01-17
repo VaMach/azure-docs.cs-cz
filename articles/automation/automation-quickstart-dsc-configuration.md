@@ -6,14 +6,14 @@ keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e9e75f1714217f452d55aba49929fec767df3353
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Konfigurace virtuálního počítače s Linuxem s využitím konfigurace požadovaného stavu
 
@@ -31,7 +31,7 @@ K dokončení tohoto rychlého startu je potřeba:
 Přihlaste se k Azure na adrese https://portal.azure.com.
 
 ## <a name="onboard-a-virtual-machine"></a>Připojení virtuálního počítače
-Existuje celá řada různých metod, jak připojit počítač a povolit konfiguraci požadovaného stavu. Tento rychlý start popisuje připojení přes účet Automation. Další informace o různých metodách připojení počítačů ke konfiguraci požadovaného stavu najdete v článku o [připojování](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding).
+Existuje celá řada různých metod, jak připojit počítač a povolit konfiguraci požadovaného stavu. Tento rychlý start popisuje připojení přes účet Automation. Další informace o různých metodách připojení počítačů ke konfiguraci požadovaného stavu najdete v článku o [připojování](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. V levém podokně webu Azure Portal vyberte **Účty Automation**. Pokud tuto možnost v levém podokně nevidíte, klikněte na **Všechny služby** a vyhledejte ji ve výsledném zobrazení.
 1. V seznamu vyberte účet Automation.
@@ -39,7 +39,7 @@ Existuje celá řada různých metod, jak připojit počítač a povolit konfigu
 1. Klikněte na možnost nabídky **Přidat virtuální počítač Azure**.
 1. Vyhledejte virtuální počítače, pro který chcete povolit DSC. K vyhledání konkrétního virtuálního počítače můžete použít vyhledávací pole a možnosti filtru.
 1. Klikněte na vybraný virtuální počítač a vyberte **Připojit**.
-1. Vyberte vhodné nastavení DSC pro tento virtuální počítač. Pokud již máte připravenou konfiguraci, můžete ji zadat jako *Název konfigurace uzlu*. Pokud chcete řídit chování konfigurace počítače, můžete nastavit [režim konfigurace](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig).
+1. Vyberte vhodné nastavení DSC pro tento virtuální počítač. Pokud již máte připravenou konfiguraci, můžete ji zadat jako *Název konfigurace uzlu*. Pokud chcete řídit chování konfigurace počítače, můžete nastavit [režim konfigurace](https://docs.microsoft.com/powershell/dsc/metaconfig).
 1. Klikněte na tlačítko **OK**.
 
 ![Připojení virtuálního počítače Azure k DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -105,7 +105,7 @@ Import konfigurace:
 
 ## <a name="compile-a-configuration"></a>Kompilace konfigurace
 
-Konfigurace DSC se musí před přiřazením k uzlu zkompilovat do konfigurace uzlu (dokument MOF). Kompilace ověří konfiguraci a umožňuje zadat hodnoty parametrů. Další informace o kompilaci konfigurace najdete v tématu [Kompilace konfigurací v Azure Automation DSC](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Konfigurace DSC se musí před přiřazením k uzlu zkompilovat do konfigurace uzlu (dokument MOF). Kompilace ověří konfiguraci a umožňuje zadat hodnoty parametrů. Další informace o kompilaci konfigurace najdete v tématu [Kompilace konfigurací v Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 
 Kompilace konfigurace:
 
@@ -141,6 +141,6 @@ V rámci tohoto rychlého startu jste připojili virtuální počítač s Linuxe
 > [!div class="nextstepaction"]
 > [Průběžné nasazování do virtuálního počítače pomocí DSC a Chocolatey](./automation-dsc-cd-chocolatey.md)
 
-* Další informace o konfiguraci požadovaného stavu PowerShellu najdete v tématu [Přehled konfigurace požadovaného stavu PowerShellu](https://docs.microsoft.com/en-us/powershell/dsc/overview).
-* Další informace o správě Automation DSC z PowerShellu najdete v tématu [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/?view=azurermps-5.0.0).
-* Informace o přesměrování sestav DSC do Log Analytics za účelem generování sestav a upozorňování najdete v tématu [Přesměrování generování sestav DSC do Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics). 
+* Další informace o konfiguraci požadovaného stavu PowerShellu najdete v tématu [Přehled konfigurace požadovaného stavu PowerShellu](https://docs.microsoft.com/powershell/dsc/overview).
+* Další informace o správě Automation DSC z PowerShellu najdete v tématu [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0).
+* Informace o přesměrování sestav DSC do Log Analytics za účelem generování sestav a upozorňování najdete v tématu [Přesměrování generování sestav DSC do Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 

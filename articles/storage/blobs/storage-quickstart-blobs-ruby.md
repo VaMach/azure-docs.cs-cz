@@ -10,11 +10,11 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/7/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 30cda1997ca93f237dafd34cfffc2a86b86d6c7c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3b0bc01047b9aa7459cf6cc33f004cf7506e5826
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Přenos objektů do a z úložiště objektů blob v Azure pomocí Ruby
 V tomto rychlém startu zjistíte, jak pomocí Ruby nahrávat, stahovat a vypisovat objekty blob bloku v kontejneru v úložišti objektů blob v Azure. 
@@ -23,7 +23,7 @@ V tomto rychlém startu zjistíte, jak pomocí Ruby nahrávat, stahovat a vypiso
 
 K provedení kroků v tomto kurzu Rychlý start je potřeba: 
 * Instalace [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Nainstalujte [knihovnu Azure Storage pro Ruby](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) pomocí balíčku rubygem. 
+* Nainstalujte [knihovnu Azure Storage pro Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) pomocí balíčku rubygem. 
 
 ```
 gem install azure-storage
