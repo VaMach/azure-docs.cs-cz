@@ -52,7 +52,7 @@
       href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
     - name: Syntaxe dotazů
       href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Související služby
       items:
@@ -76,3 +76,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
     - name: Možnosti podpory
       href: 'https://azure.microsoft.com/support/options/'
+    - name: Videa
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'

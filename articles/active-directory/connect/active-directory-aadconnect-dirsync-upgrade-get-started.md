@@ -3,7 +3,7 @@ title: "Azure AD Connect: Upgrade z nástroje DirSync | Dokumentace Microsoftu"
 description: "Zjistěte, jak upgradovat z nástroje DirSync na Azure AD Connect. Tento článek popisuje kroky upgradování z nástroje DirSync na Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: c691bc2725f92578a22dff352ee39b66de08c870
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a7287a6b3fa26e69167334ec47413dfc570d031
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Upgrade z nástroje DirSync
 Azure AD Connect je nástupcem nástroje DirSync. V tomto tématu najdete popis způsobů upgradu z nástroje DirSync. Pokud upgradujete z jiné verze služby Azure AD Connect nebo ze služby Azure AD Sync, tyto kroky nefungují.
@@ -209,10 +209,10 @@ Měli byste vidět následující:
 Azure AD Connect je nyní váš aktivní server a už nemůžete přejít zpět na stávající server DirSync.
 
 ## <a name="next-steps"></a>Další kroky
-Nyní, když máte nainstalovanou službu Azure AD Connect, si můžete [ověřit instalaci a přiřadit licence](active-directory-aadconnect-whats-next.md).
+Nyní, když máte nainstalovanou službu Azure AD Connect, můžete si [ověřit instalaci a přiřadit licence](active-directory-aadconnect-whats-next.md).
 
 Zjistěte více o těchto nových funkcích, které byly povoleny v rámci instalace: [automatický upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [prevence náhodných odstranění](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) a [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 
-Zjistěte více o těchto běžných tématech: [plánovač a spouštění synchronizace](active-directory-aadconnectsync-feature-scheduler.md).
+Zjistěte více o těchto běžných tématech: [plánovač a jak aktivovat synchronizaci](active-directory-aadconnectsync-feature-scheduler.md).
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc3ba82003d7714ee26ffcfb32f096f0374d2800
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 39129572ac9908429dc9b9ef64930e896afc355f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím nativního ověřování certifikátů Azure: Azure Portal
 
@@ -36,7 +36,7 @@ Brána VPN typu Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojen
 
 Klienti při připojování mohou využít následující metody ověřování:
 
-* Server RADIUS – aktuálně ve verzi Preview
+* Server RADIUS
 * Nativní ověřování certifikátů Azure ve službě VPN Gateway
 
 Tento článek vám pomůže nakonfigurovat konfiguraci P2S s ověřováním pomocí nativního ověřování certifikátů Azure. Pokud chcete RADIUS využít k ověřování připojujících se uživatelů, přečtěte si téma věnované [P2S s využitím ověřování pomocí protokolu RADIUS](point-to-site-how-to-radius-ps.md).
@@ -47,7 +47,7 @@ Připojení typu Point-to-Site nevyžadují zařízení VPN ani veřejnou IP adr
 
 * SSTP je tunel VPN založený na SSL, který se podporuje jenom na klientských platformách Windows. Může proniknout branami firewall a díky tomu je ideální možností pro připojení k Azure odkudkoli. Na straně serveru podporujeme SSTP verze 1.0, 1.1 a 1.2. Klient rozhodne, která verze se má použít. Pro Windows 8.1 a novější se standardně používá SSTP verze 1.2.
 
-* IKEv2 VPN, řešení IPsec VPN založené na standardech. IKEv2 VPN je možné použít k připojení ze zařízení se systémem Mac (OSX verze 10.11 a vyšší). IKEv2 je aktuálně ve verzi Preview.
+* IKEv2 VPN, řešení IPsec VPN založené na standardech. IKEv2 VPN je možné použít k připojení ze zařízení se systémem Mac (OSX verze 10.11 a vyšší).
 
 Připojení typu Point-to-Site s nativním ověřováním certifikátů Azure vyžadují následující:
 
@@ -139,7 +139,7 @@ Po vytvoření brány nahrajete informace o veřejném klíči kořenového cert
 
 Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než který jste použili k vytvoření klientských certifikátů, budete muset klientský certifikát nainstalovat. Při instalaci klientského certifikátu budete potřebovat heslo, které bylo vytvořeno při jeho exportu.
 
-Zkontrolujte, že se klientský certifikát vyexportoval jako soubor .pfx spolu s celým řetězem certifikátů (to je výchozí nastavení). Jinak informace o kořenovém certifikátu na klientském počítači nejsou a klient se nebude moct správně ověřit. 
+Zkontrolujte, že se klientský certifikát vyexportoval jako soubor .pfx spolu s celým řetězem certifikátů (to je výchozí nastavení). Jinak informace o kořenovém certifikátu na klientském počítači nejsou a klient se nebude moct správně ověřit.
 
 Postup instalace najdete v tématu věnovaném [instalaci klientského certifikátu](point-to-site-how-to-vpn-client-install-azure-cert.md).
 

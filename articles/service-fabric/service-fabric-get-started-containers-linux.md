@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8ff3c60ea2e0e96a9ade2e1f2d711197bb3252ed
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Vytvoření první aplikace Service Fabric typu kontejner v Linuxu
 > [!div class="op_single_selector"]
@@ -371,17 +371,20 @@ Pokud chcete přidat další službu kontejneru do aplikace již vytvořené pom
 
 Můžete nakonfigurovat časový interval, který určuje, jak dlouho modul runtime počká před odebráním kontejneru po zahájení odstraňování služby (nebo jejího přesunu do jiného uzlu). Konfigurací časového intervalu se do kontejneru odešle příkaz `docker stop <time in seconds>`.   Další podrobnosti najdete v dokumentaci k příkazu [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Časový interval pro čekání se zadává v části `Hosting`. Následující fragment manifestu clusteru ukazuje nastavení intervalu čekání:
 
-```xml
+
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "ContainerDeactivationTimeout": "10",
+                "name": "ContainerDeactivationTimeout",
+                "value" : "10"
+          },
           ...
-          }
         ]
 }
 ```
+
 Výchozí časový interval je nastavený na 10 sekund. Vzhledem k tomu, že je tato konfigurace dynamická, časový limit aktualizuje v clusteru upgrade pouze konfigurace. 
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Konfigurace modulu runtime pro odebrání nepoužívaných imagí kontejneru
@@ -389,13 +392,18 @@ Výchozí časový interval je nastavený na 10 sekund. Vzhledem k tomu, že je 
 Cluster Service Fabric můžete nakonfigurovat tak, aby z uzlu odebral nepoužívané image kontejneru. Tato konfigurace umožňuje znovu získat místo na disku v případě, že je na uzlu příliš mnoho imagí kontejneru.  Pokud chcete tuto funkci povolit, aktualizujte část `Hosting` v manifestu clusteru, jak je znázorněno v následujícím fragmentu kódu: 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "PruneContainerImages": “True”,
-            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+                "name": "PruneContainerImages",
+                "value": "True"
+          },
+          {
+                "name": "ContainerImagesToSkip",
+                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+          }
           ...
           }
         ]
