@@ -113,6 +113,8 @@
           href: log-analytics-computer-groups.md
         - name: Konektor pro Flow
           href: log-analytics-flow-tutorial.md
+        - name: Rozhraní API pro prohledávání protokolů
+          href: 'https://dev.loganalytics.io/'
     - name: Starší verze vyhledávání protokolu
       items:
         - name: Přehled prohledávání protokolů
@@ -122,6 +124,11 @@
           items:
             - name: Regulární výrazy
               href: log-analytics-log-searches-regex.md
+        - name: Rozhraní API pro prohledávání protokolů
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
     - name: Analýza dat
       items:
         - name: Řídicí panely
@@ -258,14 +265,9 @@
           href: log-analytics-powershell-workspace-configuration.md
         - name: Šablony Resource Manageru
           href: log-analytics-template-workspace-configuration.md
-        - name: Rozhraní API pro prohledávání protokolů
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
         - name: Rozhraní API pro výstrahy
           href: log-analytics-api-alerts.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Referenční informace k jazyku
       href: 'https://docs.loganalytics.io/docs/Language-Reference'
