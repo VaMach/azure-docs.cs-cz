@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8. Upgrade clusteru
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Koncepty
+  items:
+    - name: Kvóty a místní omezení
+      href: container-service-quotas.md
 - name: Návody
   items:
     - name: Škálování clusteru AKS
@@ -49,11 +53,13 @@
       href: kubernetes-service-principal.md
     - name: Konfigurace svazků s daty
       items:
+        - name: Disky Azure – trvalý svazek
+          href: azure-disks-dynamic-pv.md
         - name: Soubory Azure – trvalý svazek
           href: azure-files-dynamic-pv.md
         - name: Soubory Azure – svazek
           href: azure-files.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Azure CLI
       href: /cli/azure/aks

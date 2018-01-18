@@ -35,6 +35,7 @@
 ### [Vizualizace dat s využitím Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Předpověď počasí s využitím Azure Machine Learningu](iot-hub-weather-forecast-machine-learning.md)
 ### [Správa zařízení s využitím iothub-exploreru](iot-hub-device-management-iothub-explorer.md)
+### [Správa zařízení s využitím rozšíření IoT pro Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Vzdálené monitorování a oznámení s využitím Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Návody

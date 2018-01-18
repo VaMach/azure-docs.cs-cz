@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Systém podpory replikace z Azure do Azure
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Systém podpory replikace z místního prostředí do Azure
-      href: site-recovery-support-matrix-to-azure.md
+    - name: Systém podpory replikace z VMware do Azure
+      href: support-matrix-vmware-to-azure.md
     - name: Systém podpory replikace z Hyper-V do Azure
       href: support-matrix-hyper-v-to-azure.md
+    - name: Systém podpory replikace z místního prostředí do Azure
+      href: site-recovery-support-matrix-to-azure.md
     - name: Systém podpory replikace z místního prostředí do sekundární lokality
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Zotavení po havárii pro úlohy
@@ -181,6 +183,8 @@
           items:
             - name: Zdrojové prostředí pro replikaci z VMware do Azure
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: Nasazení konfiguračního serveru pro VMware a fyzické servery
+              href: how-to-deploy-configuration-server.md
             - name: Zdrojové prostředí pro replikaci z fyzických prostředků do Azure
               href: site-recovery-set-up-physical-to-azure.md
         - name: Nastavení cílového prostředí
@@ -273,7 +277,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Shromažďování protokolů a řešení potíží s místním prostředím
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

@@ -44,7 +44,12 @@
 ## Řešení potíží
 ### [Nejčastější dotazy](active-directory-ds-faqs.md)
 ### [Průvodce řešením problémů](active-directory-ds-troubleshooting.md)
+### [Řešení výstrah](active-directory-ds-troubleshoot-alerts.md)
+#### [Oprava narušené konfigurace NSG](active-directory-ds-troubleshoot-nsg.md)
+#### [Obnovení chybějících objektů služby](active-directory-ds-troubleshoot-service-principals.md)
+#### [Chyby protokolu Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
 ### [Řešení chyb neshod tenantů](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

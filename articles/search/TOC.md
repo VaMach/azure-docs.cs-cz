@@ -54,7 +54,10 @@
 ### [Vývoj v .NET](search-howto-dotnet-sdk.md)
 ### [Vývoj v Node.js](search-get-started-nodejs.md)
 ### [Vývoj v Javě](search-get-started-java.md)
-### [Upgrade sady SDK](search-dotnet-sdk-migration.md)
+### Upgrade sady SDK
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [.NET Management SDK](search-dotnet-mgmt-sdk-migration.md)
 ### [Upgrade rozhraní REST API](search-api-migration.md)
 ### [Modelování komplexních datových typů](search-howto-complex-data-types.md)
 ### [Zpracování souběžných aktualizací](search-howto-concurrency.md)
@@ -94,7 +97,7 @@
 ### [Monitorování využití a statistiky](search-monitor-usage.md)
 ### [Prohledání analýzy provozu](search-traffic-analytics.md)
 
-# Odkaz
+# Referenční informace
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (správa)](/dotnet/api/?term=microsoft.azure.management.search)
