@@ -202,7 +202,7 @@
 ### [Rutiny prostředí Windows PowerShell pro StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple Data Manager (Private Preview)
+# Správce dat StorSimple
 
 ## Přehled
 ### [Informace o řešení](storsimple-data-manager-overview.md)

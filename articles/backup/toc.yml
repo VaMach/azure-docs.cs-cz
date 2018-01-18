@@ -83,7 +83,7 @@
       items:
         - name: Příprava virtuálního počítače
           items:
-            - name: Příprava virtuálních počítačů nasazených pomocí Resource Manageru
+            - name: Příprava virtuálních počítačů nasazovaných Resource Managerem
               href: backup-azure-arm-vms-prepare.md
             - name: Aplikačně konzistentní zálohování virtuálních počítačů s Linuxem
               href: backup-azure-linux-app-consistent.md
@@ -93,7 +93,7 @@
               href: backup-azure-vms-introduction.md
         - name: Zálohování virtuálních počítačů
           items:
-            - name: Zálohování virtuálních počítačů Azure do trezoru služby Recovery Services
+            - name: Zálohování virtuálních počítačů do trezoru služby Recovery Services
               href: backup-azure-arm-vms.md
             - name: Zálohování šifrovaných virtuálních počítačů
               href: backup-azure-vms-encryption.md
@@ -101,13 +101,13 @@
           items:
             - name: Správa záloh virtuálních počítačů Azure na webu Azure Portal
               href: backup-azure-manage-vms.md
-            - name: Monitorování upozornění pro zálohy virtuálních počítačů Azure na webu Azure Portal
+            - name: Monitorování výstrah pro zálohy virtuálních počítačů Azure
               href: backup-azure-monitor-vms.md
         - name: Obnovení dat z virtuálních počítačů
           items:
             - name: Obnovení souborů ze záloh virtuálních počítačů Azure
               href: backup-azure-restore-files-from-vm.md
-            - name: Obnovení virtuálních počítačů nasazených pomocí Resource Manageru na webu Azure Portal
+            - name: Obnovení virtuálních počítačů na webu Azure Portal
               href: backup-azure-arm-restore-vms.md
             - name: Obnovení šifrovaných virtuálních počítačů
               href: backup-azure-vms-encryption.md
@@ -125,7 +125,7 @@
       items:
         - name: Příprava úloh DPM na webu Azure Portal
           href: backup-azure-dpm-introduction.md
-        - name: Použití nástroje System Center DPM k zálohování serveru Exchange
+        - name: Použití DPM k zálohování serveru Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Obnovení dat na alternativní server DPM
           href: backup-azure-alternate-dpm-server.md
