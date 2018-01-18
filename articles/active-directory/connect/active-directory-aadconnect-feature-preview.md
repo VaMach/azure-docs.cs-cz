@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Funkce ve verzi preview | Microsoft Docs'
 description: "Toto téma popisuje v další podrobnosti o funkcích, které jsou ve verzi preview v Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cba65b0fe2c2fa0ed92cd2f95464e300a29a7f54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Další informace o funkcích ve verzi preview
 Toto téma popisuje, jak používat funkce, které jsou aktuálně ve verzi preview.
@@ -42,13 +42,13 @@ Skupiny služby Office 365 je reprezentován jako distribuční skupiny v místn
 > 
 >
 
-## <a name="user-writeback"></a>Zpětný zápis uživatelů.
+## <a name="user-writeback"></a>Zpětný zápis uživatelů
 > [!IMPORTANT]
 > Funkce preview zpětný zápis uživatelů byla odebrána v srpnu 2015 aktualizaci na Azure AD Connect. Pokud jste ho povolili, měli byste zakázat tuto funkci.
 >
 >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokračovat vaše [vlastní instalace Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

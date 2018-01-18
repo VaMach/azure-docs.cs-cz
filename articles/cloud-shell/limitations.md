@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e498582d78d2807070c943dfd838dd9efeb4ed2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Omezení prostředí cloudu Azure
 
@@ -47,7 +47,7 @@ Cloudové prostředí podporuje nejnovější verze Microsoft Edge, Microsoft In
 
 Uživatelé mohou spouštět pouze jeden typ prostředí najednou, buď **Bash** nebo **prostředí PowerShell**. Ale může mít více instancí spuštěné v jednom okamžiku Bash nebo prostředí PowerShell. Vzájemná záměna mezi Bash nebo prostředí PowerShell příčiny cloudové prostředí k restartování, což Ukončí existující relací.
 
-### <a name="usage-limits"></a>Omezení využití
+### <a name="usage-limits"></a>Limity využití
 
 Cloudové prostředí je určen pro případy použití interaktivní. V důsledku toho ukončení relací neinteraktivní všechny dlouhodobé bez upozornění.
 
@@ -56,7 +56,9 @@ Cloudové prostředí je určen pro případy použití interaktivní. V důsled
 ### <a name="user-permissions"></a>Uživatelská oprávnění
 
 Máte nastavená oprávnění jako běžní uživatelé bez přístupu sudo. Všechny instalace mimo vaší `$Home` adresáře není trvalý.
-I když některé příkazy v rámci `clouddrive` adresář, jako třeba `git clone`, nemáte správná oprávnění, vaše `$Home` directory nemá oprávnění.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB omezenými oprávněními
+Některé příkazy v rámci `clouddrive` adresář, jako třeba `git clone`, ještě nemá příslušná oprávnění pro čtení/zápisu určitých souborů. Jestli jste nedosáhli tento problém, zkuste to znovu z vaší `$Home` adresář, který nemá omezení protokolu SMB.
 
 ### <a name="editing-bashrc"></a>Úpravy .bashrc
 
@@ -84,7 +86,7 @@ Pomocí rutin prostředí PowerShell, uživatelé nemůžou vytvářet soubory v
 
 Pokud uživatel spustí příkaz, který by vytvořit dialogové okno Windows, jako například `Connect-AzureAD` nebo `Login-AzureRMAccount`, například jeden zobrazí chybovou zprávu: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Řešení potíží s cloudové prostředí](troubleshooting.md) <br>
 [Rychlý start pro Bash](quickstart.md) <br>

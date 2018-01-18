@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 08ac10a160ef6305322714eb9d134be95c3b5e17
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasifikace Iris – část 3: Nasazení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce. Datoví vědci pomocí nich můžou připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -134,37 +134,7 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
 
    Příkazový řádek se otevře v aktuálním umístění složky projektu **c:\temp\myIris>**.
 
-2. Ujistěte se, že je ve vašem předplatném zaregistrovaný poskytovatel prostředků Azure **Microsoft.ContainerRegistry**. Tohoto poskytovatele prostředků musíte zaregistrovat před vytvořením prostředí v kroku 3. To, jestli už je zaregistrovaný, můžete zkontrolovat pomocí následujícího příkazu:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   Měl by se zobrazit výstup podobný tomuto: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Pokud není poskytovatel **Microsoft.ContainerRegistry** zaregistrovaný, můžete ho zaregistrovat pomocí následujícího příkazu:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   Registrace může trvat několik minut. Stav registrace můžete zkontrolovat pomocí předchozího příkazu **az provider list** nebo následujícího příkazu:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   Ve třetím řádku výstupu se zobrazí **"registrationState": "Registrace"**. Chvíli počkejte a pak příkaz **show** opakujte, dokud se ve výstupu nezobrazí **"registrationState": "Registrováno"**.
-
-   >[!NOTE] 
-   Pokud nasazujete do clusteru služby ACS, je nutné zaregistrovat **Microsoft.ContainerService** také pomocí přesně stejný přístup poskytovatele prostředků.
-
-3. Vytvořte prostředí. Tento krok je potřeba provést jednou pro každé prostředí. Například jej provedete jednou pro vývojové a jednou pro produkční prostředí. Pro první prostředí použijte _místní režim_. Později můžete zkusit v tomto příkazu použít přepínač `-c` nebo `--cluster` a nastavit prostředí v _režimu clusteru_.
+2. Vytvořte prostředí. Tento krok je potřeba provést jednou pro každé prostředí. Například jej provedete jednou pro vývojové a jednou pro produkční prostředí. Pro první prostředí použijte _místní režim_. Později můžete zkusit v tomto příkazu použít přepínač `-c` nebo `--cluster` a nastavit prostředí v _režimu clusteru_.
 
    Poznámka: Následující příkaz pro nastavení vyžaduje přístup k předplatnému na úrovni Přispěvatel. Pokud ho nemáte, potřebujete přístup na úrovni Přispěvatel alespoň ke skupině prostředků, do které nasazujete. V druhém případě je potřeba zadat název skupiny prostředků jako součást příkazu pro nastavení pomocí příznaku `-g`. 
 
@@ -176,17 +146,17 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
    
    Název clusteru nabízí způsob, jak identifikovat příslušné prostředí. Umístění by mělo být stejné jako umístění účtu služby Správa modelů vytvořeného na webu Azure Portal.
 
-4. Vytvořte účet služby Správa modelů. (Jedná se o jednorázové nastavení.)  
+3. Vytvořte účet služby Správa modelů. (Jedná se o jednorázové nastavení.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Nastavte účet služby Správa modelů.  
+4. Nastavte účet služby Správa modelů.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Nastavte prostředí.
+5. Nastavte prostředí.
 
    Po dokončení nastavení nastavte pomocí následujícího příkazu proměnné prostředí nutné k zprovoznění prostředí. Použijte stejný název prostředí, který jste už dříve použili v kroku 4. Použijte stejný název skupiny prostředků, který byl výstupem v příkazovém okně při dokončení procesu nastavení.
 
@@ -194,7 +164,7 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Pokud chcete zkontrolovat, jestli jste zprovozněné prostředí pro nasazení místní webové služby nastavili správně, zadejte následující příkaz:
+6. Pokud chcete zkontrolovat, jestli jste zprovozněné prostředí pro nasazení místní webové služby nastavili správně, zadejte následující příkaz:
 
    ```azurecli
    az ml env show

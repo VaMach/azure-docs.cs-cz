@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Povolit licencovanou image ve vašem testovacím prostředí v Azure DevTest Labs
 
-V Azure DevTest Labs licencovanou image je ten, který zahrnuje podmínky a ujednání – obvykle od třetích stran –, které musí přijmout před bitovou kopii je přístupný pro uživatele v testovacím prostředí. Následující části popisují, jak pracovat s licencovanou Image, aby byly k dispozici pro použití vytváření virtuálních počítačů.
+V Azure DevTest Labs licencovanou image je ten, který zahrnuje podmínky a ujednání – obvykle od třetích stran –, musí přijmout před bitovou kopii je přístupný pro uživatele v testovacím prostředí. Následující části popisují, jak pracovat s licencovanou Image, aby byly k dispozici pro použití vytváření virtuálních počítačů.
 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Stanovení, zda je k dispozici uživatelům licencovanou image
 Prvním krokem k povolení uživatelům vytvářet virtuální počítače z licencovanou image je zajistit, aby podmínky a ujednání byly přijaty licencovanou bitové kopie. Následující postup ukazuje, jak můžete zobrazit stav nabídka licencovanou image a, v případě potřeby, přijměte jeho podmínky a ujednání.
@@ -53,12 +53,14 @@ Pokud chcete mít jistotu, že licencovanou image je k dispozici uživatelům pr
 
 Pomocí následujícího postupu můžete povolit programové nasazení licencovanou bitové kopie:
 
-1. V [portál Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) na seznamu **Marketplace image**, identifikujte licencovanou bitovou kopii, pro které chcete mít přístup k uživatelům ale jehož podmínky nebyly přijaty. Například může zobrazit Data vědecké účely virtuální počítač, který zobrazí stav buď **podmínky přijmout** nebo **podmínky zkontrolujte potřeby**.
+1. V [portál Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), přejděte na seznam **Marketplace image**.
+
+1. Identifikujte licencovanou bitovou kopii, pro které chcete mít přístup k uživatelům ale jehož podmínky nebyly přijaty. Například může zobrazit Data vědecké účely virtuální počítač, který zobrazí stav buď **podmínky přijmout** nebo **podmínky zkontrolujte potřeby**.
 
     ![Konfigurovat programové nasazení časový interval](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Virtuální počítače, vědecké účely data jsou bitové kopie virtuálního počítače Azure, předinstalovaným, konfiguraci a testování s několik oblíbených nástrojů, které se běžně používají pro data analytics, machine learning a školení AI. [Úvod do Azure Data vědecké účely virtuálního počítače pro systémy Linux a Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) poskytuje značnou část informace o DSVMs.
+   > Virtuální počítače, vědecké účely data jsou bitové kopie virtuálního počítače Azure, předinstalovaným, konfiguraci a testovány s několik oblíbených nástrojů, které se běžně používají pro data analytics, machine learning a školení AI. [Úvod do Azure Data vědecké účely virtuálního počítače pro systémy Linux a Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) poskytuje značnou část informace o DSVMs.
    >
    >
 

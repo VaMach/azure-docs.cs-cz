@@ -4,7 +4,7 @@ description: "Tento dokument téma popisuje šifrovací klíč a jak ho ukončil
 services: active-directory
 keywords: "Účtu synchronizační služby Azure AD, heslo"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Změna hesla účtu služby synchronizace Azure AD Connect
 Pokud změníte heslo účtu služby synchronizace Azure AD Connect, synchronizační služby nebude možné spustit správně opuštění šifrovací klíč a heslo účtu služby Azure AD Connect sync znovu inicializován. 
@@ -43,7 +43,7 @@ Druhý pro určité podmínky, pokud je aktualizovat heslo, služba synchronizac
 Zobrazí se chyby, jako:
 
 - V části správce řízení služeb systému Windows Pokud pokusu o spuštění synchronizační službu a nemůže získat šifrovací klíč, se nezdaří s chybou "** Windows se nepodařilo spustit Microsoft Azure AD Sync v místním počítači. Další informace vyhledejte v protokolu událostí systému. Pokud je služba jiného výrobce než Microsoftu, obraťte se na dodavatele služby a pročtěte si kód chyby-**-21451857952 ***. "
-- V prohlížeči událostí systému Windows v protokolu událostí aplikace obsahuje chybu s **6028 ID události** a chybovou zprávou *"**šifrovacího klíče serveru nelze získat přístup.* *"*
+- V prohlížeči událostí systému Windows v protokolu událostí aplikace obsahuje chybu s **6028 ID události** a chybovou zprávou *"**šifrovacího klíče serveru nelze získat přístup.**"*
 
 Aby se tyto chyby neobdrží, postupujte podle pokynů v [zrušení šifrovací klíč Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) při změně hesla.
  
@@ -107,7 +107,7 @@ Teď, když služba synchronizace má přístup k šifrovací klíč a všechna 
 1. Přejděte do Windows správce řízení služeb (počáteční → služeb).
 2. Vyberte **Microsoft Azure AD Sync** a klikněte na tlačítko Restartovat.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 **Témata s přehledem**
 
 * [Synchronizace Azure AD Connect: pochopení a přizpůsobení synchronizace](active-directory-aadconnectsync-whatis.md)

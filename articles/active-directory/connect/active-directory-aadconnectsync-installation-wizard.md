@@ -4,7 +4,7 @@ description: "Vysvětluje, jak funguje Průvodce instalací druhá, když jej sp
 keywords: "Průvodce instalací služby Azure AD Connect vám umožní nakonfigurovat nastavení údržby druhý čas spuštění"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5688175f5277139b09b648bedbedd7e91e1478f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Synchronizace Azure AD Connect: opětovným spuštěním Průvodce instalací
 Při prvním spuštění Průvodce instalací služby Azure AD Connect, se vás provede procesem konfigurace instalace. Pokud znovu spustíte Průvodce instalací, nabízí možnosti pro údržbu.
@@ -41,7 +41,7 @@ Vyberte jednu z úloh a klikněte na **Další** pokračujte.
 >
 >
 
-## <a name="view-current-configuration"></a>Aktuální konfigurace zobrazení
+## <a name="view-current-configuration"></a>Zobrazit aktuální konfiguraci
 Tato možnost poskytuje rychlý přehled o aktuálně nakonfigurované možnosti.
 
 ![Stránka se seznam všech možností a jejich stavu](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
@@ -62,7 +62,7 @@ Další možnosti z počáteční instalaci nelze změnit a nejsou k dispozici. 
 * Změňte metodu spojující pro objekty z jiné doménové struktuře.
 * Povolte filtrování podle skupiny.
 
-## <a name="refresh-directory-schema"></a>Aktualizace schématu adresáře
+## <a name="refresh-directory-schema"></a>Aktualizovat schéma adresáře
 Tato možnost se používá, pokud jste změnili schéma v jednom z místními doménovými strukturami služby AD DS. Například je může Exchange nainstalovali nebo upgradovali schématu systému Windows Server 2012 s objekty zařízení. V takovém případě budete muset pokyn Azure AD Connect číst schéma znovu ze služby AD DS a aktualizovat své mezipaměti. Tato akce také regeneruje pravidla synchronizace. Pokud přidáte schéma Exchange jako příklad, pravidla synchronizace pro Exchange se přidají do konfigurace.
 
 Když vyberete tuto možnost, jsou uvedeny všechny adresáře ve vaší konfiguraci. Můžete ponechat výchozí nastavení a aktualizujte všechny doménové struktury nebo zrušení výběru některé z nich.
@@ -78,12 +78,12 @@ Možnost ukazuje, zda je aktuálně povolena nebo zakázána pracovní:
 Na změnu stavu, vyberte tuto možnost a vyberte nebo zrušte výběr zaškrtávací políčko.  
 ![Možnost, která se také zobrazuje aktuální stav pracovní režim](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Změnit přihlášení uživatele
+## <a name="change-user-sign-in"></a>Změna přihlašovacích údajů uživatele
 Tato možnost umožňuje změnit z synchronizaci hesla k federaci nebo naopak. Nelze změnit na **nekonfigurujte**.
 
 Další informace o této možnosti najdete v tématu [přihlášení uživatele](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o konfiguraci modelu používá synchronizaci Azure AD Connect v [Principy deklarativní zřizování](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Témata s přehledem**

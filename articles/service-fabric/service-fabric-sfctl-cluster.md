@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl clusteru
 Vyberte, Správa a provoz clusterů Service Fabric.
@@ -29,20 +29,20 @@ Vyberte, Správa a provoz clusterů Service Fabric.
 | --- | --- |
 |    verze kódu| Získá seznam prostředků infrastruktury verze kódu, které jsou zřízené v clusteru Service Fabric.|
 |    Konfigurace verze | Získá seznam prostředků infrastruktury verze konfigurace, které jsou zřízené v clusteru Service Fabric.|
-|    Stav       | Získá stav clusteru Service Fabric.|
+|    stav       | Získá stav clusteru Service Fabric.|
 |    Manifest     | Získáte manifestu clusteru Service Fabric.|
 |    operace zrušení| Selhání vyvolané uživatel operaci zruší.|
 |    operationgit | Získá seznam operací vyvolané uživatele selhání filtrovaná podle zadaného vstupu.|
 |    Zřizování     | Zřídit balíčky kód nebo konfigurace clusteru Service Fabric.|
-|    obnovení systému  | Do clusteru Service Fabric označuje, že mají pokusit o obnovení systémových služeb, které jsou aktuálně zablokované ve ztrátě kvora.|
-|Sestava stavu   | Odešle zprávu o stavu na cluster Service Fabric.|
-|    Vyberte       | Připojí se ke clusteru koncový bod Service Fabric.|
+|    recover-system  | Do clusteru Service Fabric označuje, že mají pokusit o obnovení systémových služeb, které jsou aktuálně zablokované ve ztrátě kvora.|
+|report-health   | Odešle zprávu o stavu na cluster Service Fabric.|
+|    vybrat       | Připojí se ke clusteru koncový bod Service Fabric.|
 | Zrušení zajišťování     | Zrušit zřízení balíčky kód nebo konfigurace clusteru Service Fabric.|
 |    upgrade         | Spusťte upgrade verze kódu nebo konfigurace clusteru Service Fabric.|
-|    obnovení upgradu  | Proveďte upgrade clusteru přejde k další upgradovací doméně.|
-|    vrácení upgradu| Upgrade clusteru Service Fabric se vrátit zpět.|
-|    Stav upgradu  | Získá průběh aktuální upgrade clusteru.|
-|upgrade aktualizace  | Aktualizujte upgradu parametry upgradu clusteru Service Fabric.|
+|    upgrade-resume  | Proveďte upgrade clusteru přejde k další upgradovací doméně.|
+|    upgrade-rollback| Upgrade clusteru Service Fabric se vrátit zpět.|
+|    upgrade-status  | Získá průběh aktuální upgrade clusteru.|
+|upgrade-update  | Aktualizujte upgradu parametry upgradu clusteru Service Fabric.|
 
 
 ## <a name="sfctl-cluster-health"></a>sfctl stavu clusteru
@@ -54,18 +54,18 @@ Získá stav clusteru Service Fabric. EventsHealthStateFilter použijte k filtro
 
 |Argument|Popis|
 | --- | --- |
-| --aplikace stavu stavu filtru| Umožňuje filtrování vrácených ve výsledku dotazu stavu clusteru na základě jejich stavu objektů stavu stavu aplikace. Možné hodnoty pro tento parametr patří získaný od členů nebo bitové operace u členů výčtu HealthStateFilter celočíselnou hodnotu. Vrátí se pouze aplikace, které odpovídají filtru.  Všechny aplikace se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou příznak založené na výčtu, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 stavu aplikací s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
-| --události stavu stavu filtru   | Umožňuje filtrování vrácených objektů HealthEvent kolekce na základě stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Se vrátí jenom události, které odpovídají filtru. Všechny události se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou příznak - založené na výčtu, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění.  Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
-|--statistiky vyloučení stavu                   | Určuje, zda má být vrácen stav statistiky jako součást výsledků dotazu. Chcete-li hodnotu false ve výchozím nastavení. Statistiku zobrazují počet podřízených entit ve stavu Ok, upozornění a chyby.|
- |   --zahrnují system--stavu statistik aplikace| Určuje, zda statistiky stavu by měla obsahovat topologie fabric: / statistik stavu aplikace systému. Chcete-li hodnotu false ve výchozím nastavení. Pokud IncludeSystemApplicationHealthStatistics nastavena na hodnotu true, stav statistiky zahrnují entitami, které patří do topologie fabric: / aplikaci systému. Výsledek dotazu obsahuje, jinak hodnota stavu statistiky pouze pro uživatele aplikace. Statistiky stavu musí být součástí výsledek dotazu pro tento parametr má být použita.|
-| --uzly stavu stavu filtru    | Umožňuje filtrování vrácených ve výsledku dotazu stavu clusteru na základě jejich stavu uzlu stavu stavu objektů. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Vrátí se pouze uzly, které odpovídají filtru. Všechny uzly se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je "6" stav uzlů s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění.  Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
+| --applications-health-state-filter| Umožňuje filtrování vrácených ve výsledku dotazu stavu clusteru na základě jejich stavu objektů stavu stavu aplikace. Možné hodnoty pro tento parametr patří získaný od členů nebo bitové operace u členů výčtu HealthStateFilter celočíselnou hodnotu. Vrátí se pouze aplikace, které odpovídají filtru.  Všechny aplikace se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou příznak založené na výčtu, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 stavu aplikací s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
+| --events-health-state-filter   | Umožňuje filtrování vrácených objektů HealthEvent kolekce na základě stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Se vrátí jenom události, které odpovídají filtru. Všechny události se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou příznak - založené na výčtu, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění.  Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
+|--exclude-health-statistics                   | Určuje, zda má být vrácen stav statistiky jako součást výsledků dotazu. Chcete-li hodnotu false ve výchozím nastavení. Statistiku zobrazují počet podřízených entit ve stavu Ok, upozornění a chyby.|
+ |   --include-system-application-health-statistics| Určuje, zda statistiky stavu by měla obsahovat topologie fabric: / statistik stavu aplikace systému. Chcete-li hodnotu false ve výchozím nastavení. Pokud IncludeSystemApplicationHealthStatistics nastavena na hodnotu true, stav statistiky zahrnují entitami, které patří do topologie fabric: / aplikaci systému. Výsledek dotazu obsahuje, jinak hodnota stavu statistiky pouze pro uživatele aplikace. Statistiky stavu musí být součástí výsledek dotazu pro tento parametr má být použita.|
+| --nodes-health-state-filter    | Umožňuje filtrování vrácených ve výsledku dotazu stavu clusteru na základě jejich stavu uzlu stavu stavu objektů. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Vrátí se pouze uzly, které odpovídají filtru. Všechny uzly se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je "6" stav uzlů s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění.  Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
 | časový limit – -t                   | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 
 |Argument|Popis|
 | --- | --- |
-| – ladění                        | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug                        | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h                      | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o                    | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.                    Výchozí: json.|
 | --dotazu                        | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
@@ -86,7 +86,7 @@ Získáte manifestu clusteru Service Fabric. V manifestu clusteru obsahuje vlast
 
 |Argument|Popis|
 | --- | --- |
-| – ladění  | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug  | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h| Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
 | --dotazu  | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
@@ -100,7 +100,7 @@ Ověřte a zřídit balíčky kód nebo konfigurace clusteru Service Fabric.
 
 |Argument|Popis|
 | --- | --- |
-|--clusteru manifest souboru cesta| Cesta k souboru manifestu clusteru.|
+|--cluster-manifest-file-path| Cesta k souboru manifestu clusteru.|
 |    --cestu souboru kódu            | Cesta souboru clusteru kód balíčku.|
 |    časový limit – -t                | Server časový limit v sekundách.  Výchozí: 60.|
 
@@ -108,7 +108,7 @@ Ověřte a zřídit balíčky kód nebo konfigurace clusteru Service Fabric.
 
 |Argument|Popis|
 | --- | --- |
-| – ladění | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h  | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o| Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
 | --dotazu | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
@@ -125,8 +125,8 @@ Pokud připojení k zabezpečení clusteru, zadejte certifikát (CRT) a soubor k
 | --- | --- |
 | --koncový bod [vyžaduje]| Clusteru adresu URL koncového bodu, včetně port a předponu HTTP nebo HTTPS.|
 | --aad             | Pro ověřování pomocí služby Azure Active Directory.|
-| --certifikační autority              | Cestu k adresáři certifikátů certifikační Autority zacházet s jako platná nebo soubor kompletu certifikační Autority.|
-| --certifikátu.            | Cesta k souboru certifikátu klienta.|
+| --ca              | Cestu k adresáři certifikátů certifikační Autority zacházet s jako platná nebo soubor kompletu certifikační Autority.|
+| --cert            | Cesta k souboru certifikátu klienta.|
 | – klíč             | Cesta k souboru klíče certifikátu klienta.|
 | – Ověřte ne       | Zakázat ověřování pro certifikáty při použití protokolu HTTPS, Všimněte si: Toto je nezabezpečené možnost a by se neměla používat pro provozní prostředí.|
 | --pem             | Cesta k klientský certifikát jako soubor .pem.|
@@ -135,7 +135,7 @@ Pokud připojení k zabezpečení clusteru, zadejte certifikát (CRT) a soubor k
 
 |Argument|Popis|
 | --- | --- |
-| – ladění           | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug           | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h         | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o       | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
 | --dotazu           | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
@@ -156,7 +156,7 @@ Zrušit zřízení balíčky kód nebo konfigurace clusteru Service Fabric.
 ### <a name="global-arguments"></a>Globální argumenty
 |Argument|Popis|
 | --- | --- |
-|– ladění         | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+|--debug         | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
  |   – Nápověda -h       | Zobrazte tuto zprávu nápovědy a ukončení.|
  |   --výstup -o     | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
  |   --dotazu         | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
@@ -170,36 +170,36 @@ Ověření upgradu zadaných parametrů a spusťte upgrade verze kódu nebo konf
 ### <a name="arguments"></a>Argumenty
 |Argument|Popis|
 | --- | --- |
-|    --aplikaci. stav mapy                      | Slovník JSON kódovaný dvojici název aplikace a maximální procento není v pořádku, než se vyvolá chybu.|
- |   – aplikace typu stavu mapy                 | Slovník JSON kódovaný dvojici název typu aplikace a maximální procento není v pořádku, než se vyvolá chybu.|
+|    --app-health-map                      | Slovník JSON kódovaný dvojici název aplikace a maximální procento není v pořádku, než se vyvolá chybu.|
+ |   --app-type-health-map                 | Slovník JSON kódovaný dvojici název typu aplikace a maximální procento není v pořádku, než se vyvolá chybu.|
  |   --verze kódu                        | Verze kódu clusteru.|
  |   – Konfigurace verze                      | Verze konfigurace clusteru.|
  |   --vyhodnocení stavu rozdílů             | Umožňuje vyhodnocení stavu rozdílové místo zkušební verzi absolutní stavu po dokončení každé upgradované domény.|
- |   --rozdílů není v pořádku uzly               | Maximální povolené procento uzlů snížení stavu během upgradu clusteru povoleny.  Výchozí: 10. Mezi stav uzlů na začátku upgradu a stav uzlů v době vyhodnocení stavu se měří delta. Kontrola se provádí po dokončení upgradu každé upgradované domény a ujistěte se, že je globální stav clusteru. povolená omezení.|
+ |   --delta-unhealthy-nodes               | Maximální povolené procento uzlů snížení stavu během upgradu clusteru povoleny.  Výchozí: 10. Mezi stav uzlů na začátku upgradu a stav uzlů v době vyhodnocení stavu se měří delta. Kontrola se provádí po dokončení upgradu každé upgradované domény a ujistěte se, že je globální stav clusteru. povolená omezení.|
  |   --selhání akce                      | Možné hodnoty patří: "Neplatná',"Vrácení","Ruční".|
  |   --Vynutit restartování                       | Vynuťte restartování.|
- |   --stavu. Zkontrolujte opakování                  | Časový limit opakování kontroly stavu se měří v milisekundách.|
+ |   --health-check-retry                  | Časový limit opakování kontroly stavu se měří v milisekundách.|
  |   --stavu. Zkontrolujte nestabilním                 | Stav zkontrolujte stabilní doba v milisekundách.|
-  |  –--Čekání na kontrolu stavu                   | Doba čekání kontroly stavu se měří v milisekundách.|
-  |  --repliky set kontrola-časový limit           | Upgrade repliky nastavit časový limit kontroly, které měří v sekundách.|
- |   --vrácení režimu upgradu                | Možné hodnoty patří: "Neplatná', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitorované'.  Výchozí: UnmonitoredAuto.|
+  |  --health-check-wait                   | Doba čekání kontroly stavu se měří v milisekundách.|
+  |  --replica-set-check-timeout           | Upgrade repliky nastavit časový limit kontroly, které měří v sekundách.|
+ |   --rolling-upgrade-mode                | Možné hodnoty patří: "Neplatná', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitorované'.  Výchozí: UnmonitoredAuto.|
   |  časový limit – -t                          | Server časový limit v sekundách.  Výchozí: 60.|
   |  --není v pořádku – aplikace              | Maximální povolené procento žádostí, není v pořádku, než ohlásí chybu. Například povolit 10 % aplikací jako chybný, tato hodnota je 10. Procento představuje maximální procento. povolená aplikací, které může být není v pořádku, než clusteru považován za chybu. Pokud je dodržena procento, ale existuje alespoň jedna aplikace není v pořádku, stav budou vyhodnocené jako varování. To se vypočítá jako podíl počtu není v pořádku aplikace přes celkový počet instancí aplikace v clusteru, s výjimkou aplikace typy aplikací, které jsou součástí ApplicationTypeHealthPolicyMap. Výpočet zaokrouhlí na tolerovat selhání jednoho na malý počet aplikací.|
- |   --není v pořádku uzly                     | Maximální povolené procento není v pořádku uzlů než ohlásí chybu. Například povolit 10 % uzlů jako chybný, tato hodnota je 10. Procento představuje maximální procento. povolená uzlů, které může být není v pořádku, než clusteru považován za chybu. Pokud je dodržena procento, ale je alespoň jeden uzel a není v pořádku, stav budou vyhodnocené jako varování. Procentuální se vypočítá jako podíl počtu uzlů není v pořádku přes celkový počet uzlů v clusteru. Výpočet zaokrouhlí na tolerovat jeden selhání na malém počtu uzlů. Ve velkých clusterech některé uzly bude vždy mimo provoz nebo se pro opravy, takže toto procento by měl být nakonfigurovaný pro tolerovat možnost, která.|
- |   --upgradu domény delta-není v pořádku – uzly| Maximální povolené procento uzly domény upgradu snížení stavu během upgradu clusteru povoleny. Výchozí: 15. Mezi uzly domény upgradu na začátku upgrade stav a stav uzly domény upgradu v době vyhodnocení stavu se měří delta. Kontrola se provádí po dokončení upgradu každé upgradované domény pro všechny dokončení upgradu domén a ujistěte se, že stav upgradu domény nacházela v rozsahu. povolená.|
- |   – časový limit upgradu domény              | Časový limit domény upgradu se měří v milisekundách.|
+ |   --unhealthy-nodes                     | Maximální povolené procento není v pořádku uzlů než ohlásí chybu. Například povolit 10 % uzlů jako chybný, tato hodnota je 10. Procento představuje maximální procento. povolená uzlů, které může být není v pořádku, než clusteru považován za chybu. Pokud je dodržena procento, ale je alespoň jeden uzel a není v pořádku, stav budou vyhodnocené jako varování. Procentuální se vypočítá jako podíl počtu uzlů není v pořádku přes celkový počet uzlů v clusteru. Výpočet zaokrouhlí na tolerovat jeden selhání na malém počtu uzlů. Ve velkých clusterech některé uzly bude vždy mimo provoz nebo se pro opravy, takže toto procento by měl být nakonfigurovaný pro tolerovat možnost, která.|
+ |   --upgrade-domain-delta-unhealthy-nodes| Maximální povolené procento uzly domény upgradu snížení stavu během upgradu clusteru povoleny. Výchozí: 15. Mezi uzly domény upgradu na začátku upgrade stav a stav uzly domény upgradu v době vyhodnocení stavu se měří delta. Kontrola se provádí po dokončení upgradu každé upgradované domény pro všechny dokončení upgradu domén a ujistěte se, že stav upgradu domény nacházela v rozsahu. povolená.|
+ |   --upgrade-domain-timeout              | Časový limit domény upgradu se měří v milisekundách.|
  |   – upgrade vypršení časového limitu                     | Časový limit upgradu se měří v milisekundách.|
- |   --upozornění jako chyba                    | Upozornění jsou zachází se stejnou závažnost jako chyby.|
+ |   --warning-as-error                    | Upozornění jsou zachází se stejnou závažnost jako chyby.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 |Argument|Popis|
 | --- | --- |
-|– ladění                               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+|--debug                               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 |    – Nápověda -h                             | Zobrazte tuto zprávu nápovědy a ukončení.|
 |    --výstup -o                           | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv. Výchozí: json.|
 |    --dotazu                               | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
 |    -verbose                             | Zvýšit protokolování podrobností. Použití – ladění pro úplné ladění protokoly.|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Instalační program](service-fabric-cli.md) Service Fabric rozhraní příkazového řádku.
 - Další informace o použití pomocí Service Fabric rozhraní příkazového řádku [ukázkové skripty](/azure/service-fabric/scripts/sfctl-upgrade-application).

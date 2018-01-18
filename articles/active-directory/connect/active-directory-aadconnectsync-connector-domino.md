@@ -3,7 +3,7 @@ title: Konektoru Lotus Domino | Microsoft Docs
 description: "Tento článek popisuje postup při konfiguraci konektoru Domino Lotus společnosti Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Technické reference Domino konektoru Lotus
 Tento článek popisuje konektoru Lotus Domino. Se článek vztahuje následující produkty:
@@ -71,19 +71,19 @@ Operace buď přejděte přímo k adresáři Domino nebo prostřednictvím Admin
 
 | Objekt | Vytvořit | Aktualizace | Odstranění |
 | --- | --- | --- | --- |
-| Osoba |AdminP |Přímé |AdminP |
-| Skupina |AdminP |Přímé |AdminP |
-| MailInDB |Přímé |Přímé |Přímé |
-| Prostředek |AdminP |Přímé |AdminP |
+| Osoba |AdminP |Přímý |AdminP |
+| Skupina |AdminP |Přímý |AdminP |
+| MailInDB |Přímý |Přímý |Přímý |
+| Prostředek |AdminP |Přímý |AdminP |
 
 **Sekundární adresáře**
 
 | Objekt | Vytvořit | Aktualizace | Odstranění |
 | --- | --- | --- | --- |
-| Osoba |Není k dispozici |Přímé |Přímé |
-| Skupina |Přímé |Přímé |Přímé |
-| MailInDB |Přímé |Přímé |Přímé |
-| Prostředek |Není k dispozici |Není dostupné. |Není k dispozici |
+| Osoba |neuvedeno |Přímý |Přímý |
+| Skupina |Přímý |Přímý |Přímý |
+| MailInDB |Přímý |Přímý |Přímý |
+| Prostředek |neuvedeno |neuvedeno |neuvedeno |
 
 Když je vytvořen prostředek, vytvoří se poznámky k dokumentu. Podobně při odstranění prostředku je odstranit poznámky k dokumentu.
 
@@ -119,7 +119,7 @@ Na stránce připojení musíte zadat název serveru Lotus Domino a zadejte při
 
 Vlastnost serveru Domino podporuje dva formáty pro název serveru:
 
-* serverName
+* ServerName
 * ServerName/DirectoryName
 
 **ServerName/DirectoryName** formát je upřednostňovaný formát pro tento atribut, protože když konektor kontaktuje Domino Server poskytuje rychlejší reakci.
@@ -135,7 +135,7 @@ Pro **rozdílový Import** máte tyto možnosti:
 V **možnosti schématu** máte následující možnosti:
 
 * **Výchozí schéma**. Konektor zjistí schématu ze serveru Domino. Tato volba je výchozí možností.
-* **Schéma DSML**. Použít jen v případě serveru Domino nevystavuje schématu. Potom můžete vytvořit soubor DSML se schématem a importujte ho. Další informace o DSML najdete v tématu [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
+* **DSML-Schema**. Použít jen v případě serveru Domino nevystavuje schématu. Potom můžete vytvořit soubor DSML se schématem a importujte ho. Další informace o DSML najdete v tématu [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
 Po kliknutí na tlačítko Další, je ověřeno uživatelské ID a heslo parametry konfigurace.
 
@@ -186,7 +186,7 @@ Tyto objekty mají VC =\_kontakt přidán do jejich rozlišující název.
 
 Ve velkých Domino implementace je možné, že více objektů mají stejný název domény z důvodu problémů s replikací. V těchto případech by konektor zobrazí dva objekty s jinou UniversalIDs ale stejné rozlišující název. Tento konflikt by způsobilo objekt přechodný vytváří v prostoru konektoru. Konektor můžete ignorovat objekty, které byly vybrány v Domino jako obětí replikace. Doporučuje se zachovat toto políčko zaškrtnuto.
 
-#### <a name="export-settings"></a>Export nastavení
+#### <a name="export-settings"></a>Exportovat nastavení
 Pokud možnost **použít AdminP aktualizace odkazů** nezaškrtnuté, pak export atributy typu odkaz, jako je například člena, je přímé volání a nepoužívá AdminP proces. Tuto možnost použijte pouze v případě AdminP nebyl nakonfigurován k udržení referenční integrity.
 
 #### <a name="routing-information"></a>Informace o směrování
@@ -208,25 +208,25 @@ Operace možností exportu podporuje dva způsoby:
 
 Příklad: Atribut pomocníka osoba objektu má následující hodnoty:
 
-* CN = Gregu Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = Jan Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Pokud nového Pomocníka s názvem **David Alexander** je přiřazen k tomuto objektu osoba, výsledkem je:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Připojit položky** – Pokud vyberete tuto možnost, konektor uchovává existující hodnoty pro atribut v Domino a vložení nové hodnoty v horní části seznamu data.
 
 Příklad: Atribut pomocníka osoba objektu má následující hodnoty:
 
-* CN = Gregu Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = Jan Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Pokud nového Pomocníka s názvem **David Alexander** je přiřazen k tomuto objektu osoba, výsledkem je:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = Gregu Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = Jan Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Import**  
 Možnost operace importu podporuje dva způsoby:
@@ -240,9 +240,9 @@ Možnost operace importu podporuje dva způsoby:
 
 Příklad: Atribut pomocníka osoba objektu má následující hodnoty:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = Gregu Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = Jan Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Nejnovější aktualizace pro tento atribut je **David Alexander**. Vzhledem k tomu, že je možnost operace importu nastavena na Multivalued pro jednu hodnotu, konektor importuje jenom **David Alexander** do prostoru konektoru.
 
@@ -265,7 +265,7 @@ Při konfiguraci konektoru Lotus Domino, přeskočte tuto stránku dialogové ok
 Když konfigurujete oddílů a hierarchií, musíte vybrat primární adresář s názvem NAB=names.nsf. Kromě primární adresáře aplikace můžete vybrat sekundární adresářů, pokud existují.  
 ![Oddíly](./media/active-directory-aadconnectsync-connector-domino/partitions.png)
 
-### <a name="select-attributes"></a>Vyberte atributy
+### <a name="select-attributes"></a>Vybrat atributy
 Když konfigurujete vaší atributy, je nutné vybrat všechny atributy, které mají předponu  **\_MMS\_**. Tyto atributy jsou požadovaná při zřizování nové objekty, které se Lotus Domino
 
 ![Atributy](./media/active-directory-aadconnectsync-connector-domino/attributes.png)
@@ -413,10 +413,10 @@ Tato část obsahuje seznam atributy, které jsou pro každý podporovaný objek
 | Typ objektu | Povinné atributy |
 | --- | --- |
 | Skupina |<li>ListName</li> |
-| V hlavní databázi |<li>Úplný název</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
-| Osoba |<li>Příjmení</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
+| V hlavní databázi |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Osoba |<li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Obraťte se na (osoba s žádné certifier) |<li>\_MMS_IDRegType</li> |
-| Prostředek |<li>Úplný název</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Lokality</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Prostředek |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Web</li><li>Zobrazovaný název</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Běžné problémy a otázky
 ### <a name="schema-detection-does-not-work"></a>Schéma detekce nefunguje.

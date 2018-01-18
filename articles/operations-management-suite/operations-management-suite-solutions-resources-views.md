@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Zobrazení v řešení pro správu Operations Management Suite (OMS) (Preview)
 > [!NOTE]
@@ -75,11 +75,10 @@ Přidejte následující zobrazení prostředek, který **prostředky** element 
 
 Přidejte následující proměnné na prvek proměnné soubor řešení a nahraďte hodnoty, které se pro vaše řešení.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Všimněte si, že může kopírovat prostředek celého zobrazení z exportovaného zobrazení souboru, ale budete muset provést následující změny pro ho na spolupráci ve vašem řešení.  
 
@@ -90,10 +89,22 @@ Všimněte si, že může kopírovat prostředek celého zobrazení z exportovan
 * Názvy parametrů musí změnit tak, aby odpovídaly vyžaduje sadu parametrů.
 * Proměnné by měl definovaný v řešení a použít v příslušné vlastnosti.
 
+### <a name="log-analytics-api-version"></a>Verze rozhraní API analýzy protokolů
+Všechny prostředky analýzy protokolů, které jsou definované v šabloně Resource Manager mít vlastnost **apiVersion** verzi rozhraní API by měl použít na prostředek, který definuje.  Tato verze je pro zobrazení s dotazy, které používají jiné [starší verze a upgradovaný dotazovací jazyk](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ Následující tabulka obsahuje verze rozhraní API analýzy protokolů pro zobrazení ve starší verzi a upgradovali pracovních prostorů: 
+
+| Verze pracovního prostoru | Verze API | Dotaz |
+|:---|:---|:---|
+| V1 (starší)   | 2015-11-01-preview | Starší verze formátu.<br> Příklad: Zadejte = událostí EventLevelName = chyby  |
+| v2 (upgradu) | 2015-11-01-preview | Starší verze formátu.  Převedeny na formát upgradované na instalaci.<br> Příklad: Zadejte = událostí EventLevelName = chyby<br>Převést na: Událost &#124; kde EventLevelName == "Error.  |
+| v2 (upgradu) | 2017-03-03-preview | Upgrade formátu. <br>Příklad: Událost &#124; kde EventLevelName == "Error.  |
+
+
 ## <a name="add-the-view-details"></a>Přidání zobrazení podrobností
 Zobrazení prostředků v souboru exportovaný zobrazení bude obsahovat dva elementy v **vlastnosti** element s názvem **řídicí panel** a **OverviewTile** obsahující podrobnou konfiguraci zobrazení.  Zkopírujte tyto dva prvky a jejich obsah do **vlastnosti** element zobrazení prostředku v souboru řešení.
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 Například následující příklad ukazuje soubor simple řešení se zobrazením.  Výpustky (...) se zobrazují pro **řídicí panel** a **OverviewTile** obsah z důvodů místa.
 
     {

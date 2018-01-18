@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Předávací ověřování – agenty ověřování upgradu preview | Microsoft Docs"
+title: "Agenty Azure AD Connect - předávací ověřování – upgradu auth | Microsoft Docs"
 description: "Tento článek popisuje postup upgradu konfiguraci předávací ověřování Azure Active Directory (Azure AD)."
 services: active-directory
 keywords: "Azure AD Connect předávací ověřování, instalace služby Active Directory, požadované součásti pro Azure AD, jednotné přihlašování, jednotné přihlašování"
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 01/14/2018
 ms.author: billmath
-ms.openlocfilehash: 96d4e8e240d845be5f04bf0e724d91d740ad9cdf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure předávací ověřování služby Active Directory: Agenti ověřování upgradu preview
 
@@ -84,5 +85,5 @@ Použijte následující postup upgradu agentů ověřování na jiných servere
 >[!NOTE]
 >Pokud zaškrtnete okně předávací ověřování na [centra pro správu Azure Active Directory](https://aad.portal.azure.com) po dokončení předchozí kroky, uvidíte dvě položky ověřování agenta na server - jednu položku zobrazující Agent ověřování jako **Active** a jiných jako **neaktivní**. Toto je _očekává_. **Neaktivní** položku automaticky vyřazen po několik dní.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [**Řešení potíží s** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – zjistěte, jak řešit obvyklé problémy s funkcí.

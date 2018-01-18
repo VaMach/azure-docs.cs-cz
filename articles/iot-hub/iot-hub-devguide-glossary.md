@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 23008d3619af4606703bca41f370e14cf020a16a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosář termínů služby IoT Hub
 V tomto článku jsou uvedeny některé z běžných termínů používaných v článcích IoT Hub.
@@ -36,10 +36,10 @@ V tomto článku jsou uvedeny některé z běžných termínů používaných v 
 ## <a name="azure-iot-device-sdks"></a>Azure SDK zařízení IoT
 Existují _sady SDK pro zařízení_ k dispozici více jazyků, které vám umožní vytvořit [aplikací pro zařízení](#device-app) které komunikují s služby IoT hub. IoT Hub kurzy vám ukážou, jak používat tyto sady SDK zařízení. Zdrojový kód a další informace o zařízení sady SDK můžete najít v této Githubu [úložiště](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-iot-service-sdks"></a>Služby sady SDK služby Azure IoT
+## <a name="azure-iot-service-sdks"></a>Azure IoT service SDKs
 Existují _služby sady SDK_ k dispozici více jazyků, které vám umožní vytvořit [back-end aplikace](#back-end-app) které komunikují s služby IoT hub. IoT Hub kurzy vám ukážou, jak používat tyto služby SDK. Zdrojový kód a další informace o sadách SDK služby můžete najít v této Githubu [úložiště](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-portal"></a>portál Azure
+## <a name="azure-portal"></a>Azure Portal
 [Portálu Microsoft Azure](https://portal.azure.com) je centrálním místem, kde můžete zřizovat a správě prostředků Azure. Slouží k uspořádání obsahu pomocí _okna_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -57,13 +57,13 @@ Existují _služby sady SDK_ k dispozici více jazyků, které vám umožní vyt
 ## <a name="back-end-app"></a>Back-end aplikace
 V kontextu [IoT Hub](#iot-hub), back-end aplikace je aplikace, která se připojuje k jeden z koncových bodů služby orientovaný na služby IoT hub. Například může načíst back-end aplikačním [zařízení cloud](#device-to-cloud)zprávy nebo spravovat [registru identit](#identity-registry). Obvykle back-end aplikace běží v cloudu, ale v mnoha kurzů k back-end aplikace jsou aplikace konzoly, spuštěna na místním vývojovém počítači.
 
-## <a name="built-in-endpoints"></a>Předdefinované koncové body
+## <a name="built-in-endpoints"></a>Integrované koncové body
 Každé centrum IoT obsahuje integrované [koncový bod](iot-hub-devguide-endpoints.md) který je kompatibilní s centrem událostí. Můžete použít všechny mechanismu, který funguje s Event Hubs umožní číst zprávy typu zařízení cloud ze tento koncový bod.
 
 ## <a name="cloud-gateway"></a>Cloudová brána
 Cloudové brány umožňuje připojení pro zařízení, která nelze se připojit přímo na [IoT Hub](#iot-hub). Cloudové brány je hostovaná v cloudu v rozdíl a [brána pole](#field-gateway) používající místní do vašeho zařízení. Typické použití případu pro cloudové brány je implementace překlad protokolu pro vaše zařízení.
 
-## <a name="cloud-to-device"></a>Cloud zařízení
+## <a name="cloud-to-device"></a>Cloud-zařízení
 Odkazuje na zprávy odeslané ze služby IoT hub na připojené zařízení. Tyto zprávy jsou často příkazy, které dáte pokyn zařízení o provedení akce. Další informace najdete v tématu [odesílat a přijímat zprávy službou IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="connection-string"></a>Připojovací řetězec
@@ -86,7 +86,7 @@ V kontextu [dvojče zařízení](iot-hub-devguide-device-twins.md), desired conf
 ## <a name="desired-properties"></a>Požadované vlastnosti
 V kontextu [dvojče zařízení](iot-hub-devguide-device-twins.md), požadovaného vlastnosti je dílčí části dvojče zařízení, která se používá s [hlášené vlastnosti](#reported-properties) k synchronizaci konfigurace zařízení nebo podmínku. Požadované vlastnosti lze nastavit pouze [back-end aplikačním](#back-end-app) a jsou dodržovat [aplikaci zařízení](#device-app).
 
-## <a name="device-to-cloud"></a>Zařízení cloud
+## <a name="device-to-cloud"></a>Zařízení-cloud
 Odkazuje na zprávy odeslané z připojených zařízení a [IoT Hub](#iot-hub). Tyto zprávy mohou být [datového bodu](#data-point-message) nebo [interaktivní](#interactive-message) zprávy. Další informace najdete v tématu [odesílat a přijímat zprávy službou IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Zařízení
@@ -178,8 +178,8 @@ Můžete použít [IoT Hub prostředků zprostředkovatele REST API](https://doc
 ## <a name="iot-suite"></a>IoT Suite
 Azure IoT Suite balíčky současně více služeb Azure s předkonfigurovaných řešení. Tato předkonfigurovaná řešení umožňují rychle začít používat začátku do konce implementace běžné scénáře IoT. Další informace najdete v tématu [co je Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
-## <a name="iothub-explorer"></a>iothub-explorer
-[Iothub-explorer](https://github.com/azure/iothub-explorer) je nástroj pro různé platformy, příkazového řádku. Tento nástroj umožňuje spravovat zařízení pomocí [registru identit](#identity-registry), odesílání a příjem zpráv a soubory z vašich zařízení a sledovat vaše operace centra IoT.
+## <a name="the-iot-extension-for-azure-cli-20"></a>Rozšíření IoT pro Azure CLI 2.0
+[Rozšíření IoT pro Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) je nástroj pro různé platformy, příkazového řádku. Tento nástroj umožňuje spravovat zařízení pomocí [registru identit](#identity-registry), odesílání a příjem zpráv a soubory z vašich zařízení a sledovat vaše operace centra IoT.
 
 ## <a name="job"></a>Úloha
 Můžete použít váš back-end řešení [úlohy](iot-hub-devguide-jobs.md) k plánování a sledování činností na sadu zařízení registrovaná službou IoT hub. Aktivity zahrnují aktualizace dvojče zařízení [potřeby vlastnosti](#desired-properties), aktualizuje dvojče zařízení [značky](#tags)a vyvolání [přímé metody](#direct-method). [IoT Hub](#iot-hub) také používá úloh [pro import a export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) z [registru identit](#identity-registry).

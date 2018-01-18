@@ -1,5 +1,5 @@
 ---
-title: "Začínáme s Azure Active Directory Identity Protection a Microsoft Graph | Microsoft Docs"
+title: Microsoft Graph pro ochrany identit Azure Active Directory | Microsoft Docs
 description: "Zjistěte, jak dotazovat Microsoft Graph seznam rizikových událostech a přidružené informace ze služby Azure Active Directory."
 services: active-directory
 keywords: "ochrany identit Azure active directory, riziko událostí, ohrožení zabezpečení, zásady zabezpečení, Microsoft Graph"
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fafad74f46baaf56a8220dab05028781b2f2258e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Začínáme s Azure Active Directory Identity Protection a Microsoft Graph
 Microsoft Graph je Microsoft unified koncový bod rozhraní API a součástí [Azure Active Directory Identity Protection](active-directory-identityprotection.md) rozhraní API. Rozhraní API first **identityRiskEvents**, umožňuje dotazování Microsoft Graph seznam [rizik události](active-directory-identityprotection-risk-events-types.md) a související informace. Tento článek vám pomůže začít dotazování toto rozhraní API. Podrobný úvod, úplnou dokumentaci a přístup do Průzkumníka grafu naleznete v tématu [Microsoft Graph lokality](https://graph.microsoft.io/).
@@ -206,7 +207,7 @@ Stačí přidáte vaše ID klienta a tajný klíč, doména klienta.
     } 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Blahopřejeme, jste právě provedli vaše první volání Microsoft Graph.  
 Nyní můžete dotaz identity rizikových událostech a použije data, ale svých potřeb.

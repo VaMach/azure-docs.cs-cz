@@ -1,5 +1,5 @@
 ---
-title: "Přizpůsobení službou Azure AD Connect a Active Directory Federation Services management | Microsoft Docs"
+title: "Azure AD Connect – přizpůsobení a Správa služby AD FS | Microsoft Docs"
 description: "Správa služby AD FS s Azure AD Connect a přizpůsobení uživatele AD FS přihlašování uživatelů s Azure AD Connect a prostředí PowerShell."
 keywords: "Služba AD FS, služba AD FS, služby AD FS správy, AAD Connect, připojení, přihlášení, služby AD FS přizpůsobení, opravte federačního vztahu důvěryhodnosti, O365, předávající strany"
 services: active-directory
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Spravovat a přizpůsobit Active Directory Federation Services přes Azure AD Connect
 Tento článek popisuje, jak spravovat a přizpůsobit Active Directory Federation Services (AD FS) pomocí služby Azure Active Directory (Azure AD) připojit. Zahrnuje také dalších běžných úkolů služby AD FS, které možná budete muset udělat pro celou konfiguraci farmy služby AD FS.
@@ -104,11 +105,11 @@ Konfigurace alternativního přihlašovacího ID pro službu AD FS zahrnuje dva 
 
    ![Heslo certifikátu](media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
 
-    ![Zadejte certifikát SSL](media/active-directory-aadconnect-federation-management/AddNewADFSServer5.PNG)
+    ![Zadání certifikátu SSL](media/active-directory-aadconnect-federation-management/AddNewADFSServer5.PNG)
 
 5. Na **servery služby AD FS** stránky, zadejte název serveru nebo IP adresu pro přidání do farmy služby AD FS.
 
-   ![Servery služby AD FS](media/active-directory-aadconnect-federation-management/AddNewADFSServer6.PNG)
+   ![Servery AD FS](media/active-directory-aadconnect-federation-management/AddNewADFSServer6.PNG)
 
 6. Klikněte na tlačítko **Další**a projít konečné **konfigurace** stránky. Po dokončení přidávání serverů do farmy služby AD FS na Azure AD Connect bude mít možnost ověřit připojení.
 
@@ -132,7 +133,7 @@ Konfigurace alternativního přihlašovacího ID pro službu AD FS zahrnuje dva 
 3. Na **certifikát SSL zadejte** stránky, zadejte heslo pro soubor PFX, který jste zadali při konfiguraci farmy služby AD FS službou Azure AD Connect.
    ![Heslo certifikátu](media/active-directory-aadconnect-federation-management/WapServer3.PNG)
 
-    ![Zadejte certifikát SSL](media/active-directory-aadconnect-federation-management/WapServer4.PNG)
+    ![Zadání certifikátu SSL](media/active-directory-aadconnect-federation-management/WapServer4.PNG)
 
 4. Přidáte server, který se má přidat jako WAP server. Protože serveru WAP nemusí být připojené k doméně, Průvodce zobrazí pro pověření pro správu pro server, který chcete přidat.
 
@@ -269,5 +270,5 @@ Pokud chcete, aby kořenové domény v hodnotě vystavitele deklarace, změňte 
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [možnosti přihlášení uživatele](active-directory-aadconnect-user-signin.md).

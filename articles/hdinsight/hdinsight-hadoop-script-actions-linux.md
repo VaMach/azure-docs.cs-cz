@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Vývoj akcí skriptů v prostředí HDInsight
 
@@ -36,7 +36,7 @@ Skript akce se dá použít prostřednictvím následujících metod:
 
 | Pomocí této metody můžete použít skript... | Při vytvoření clusteru... | Na clusteru s podporou spuštěné... |
 | --- |:---:|:---:|
-| portál Azure |✓ |✓ |
+| Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Azure CLI |&nbsp; |✓ |
 | Sada HDInsight .NET SDK |✓ |✓ |
@@ -118,7 +118,7 @@ Osvědčeným postupem je ke stažení a archivaci vše v účtu Azure Storage n
 > [!IMPORTANT]
 > Účet úložiště používané musí být výchozí účet úložiště pro cluster nebo kontejner veřejné, jen pro čtení na jiný účet úložiště.
 
-Například ukázky od společnosti Microsoft jsou uloženy v [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) účet úložiště. Toto je veřejný, jen pro čtení kontejner udržovat týmem HDInsight.
+Například ukázky od společnosti Microsoft jsou uloženy v [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) účet úložiště. Toto umístění je veřejný, jen pro čtení kontejner udržovat týmem HDInsight.
 
 ### <a name="bPS4"></a>Použití předem zkompilovat prostředky
 
@@ -156,13 +156,13 @@ HDInsight zaznamená výstup skriptu, který je zapsán do STDOUT a STDERR. Mů�
 > [!NOTE]
 > Ambari je dostupné pouze při cluster se úspěšně vytvořil. Pokud použijete akci skriptu během vytváření clusteru a vytvoření selže, najdete v části řešení potíží [HDInsight přizpůsobit clustery pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) pro další způsoby, jak přístup k informacím o protokolu.
 
-Většina nástrojů a instalační balíčky již zapisovat informace do STDOUT a STDERR, ale můžete chtít přidat další protokolování. Chcete-li odeslat text do STDOUT, použijte `echo`. Například:
+Většina nástrojů a instalační balíčky již zapisovat informace do STDOUT a STDERR, ale můžete chtít přidat další protokolování. Chcete-li odeslat text do STDOUT, použijte `echo`. Příklad:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Ve výchozím nastavení `echo` odešle řetězec STDOUT. Pro přesměrování je na STDERR, přidejte `>&2` před `echo`. Například:
+Ve výchozím nastavení `echo` odešle řetězec STDOUT. Pro přesměrování je na STDERR, přidejte `>&2` před `echo`. Příklad:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -314,7 +314,7 @@ fi
 
 ## <a name="deployScript"></a>Kontrolní seznam pro nasazení akce skriptu
 
-Zde jsou kroky, které jsme trvalo při přípravě nasazení těchto skriptů:
+Zde jsou proveďte kroky při přípravě nasazení skriptu:
 
 * Uveďte soubory, které obsahují vlastní skripty na místě, která je přístupná na uzlech clusteru během nasazení. Například výchozí úložiště pro cluster. Soubory můžete také uloženy ve veřejně čitelné hostitelských služeb.
 * Ověřte, že skript impotent. To uděláte skript, který chcete spustit několikrát na stejném uzlu.
@@ -325,7 +325,7 @@ Zde jsou kroky, které jsme trvalo při přípravě nasazení těchto skriptů:
 
 Akce skriptu můžete použít k přizpůsobení clusterů HDInsight pomocí následujících metod:
 
-* portál Azure
+* Azure Portal
 * Azure PowerShell
 * Šablony Azure Resource Manageru
 * .NET SDK služby HDInsight.

@@ -3,8 +3,8 @@ title: "Azure AD Connect: Řešení potíží s chybami při synchronizaci | Mic
 description: "Vysvětluje, jak k řešení chyb zjištěných při synchronizaci se službou Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: karavar
-manager: samueld
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Řešení potíží s chybami při synchronizaci
 Při synchronizaci dat identity z Windows Server Active Directory (AD DS) do Azure Active Directory (Azure AD), může dojít k chybám. Tento článek obsahuje přehled různých typů chyb synchronizace, některé možných scénářů, které způsobují tyto chyby a opravte potenciální způsoby. Tento článek obsahuje běžné typy chyb a nemusí zahrnovat všechny možné chyby.
@@ -51,7 +51,7 @@ Azure schéma služby Active Directory neumožňuje dvou nebo více objektů do 
 * ProxyAddresses
 * UserPrincipalName
 * onPremisesSecurityIdentifier
-* objectId
+* ObjectId
 
 > [!NOTE]
 > [Azure AD atribut duplicitní atribut odolnosti](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) je také se nasazuje funkce jako výchozí chování služby Azure Active Directory.  Tím se sníží počet chyb synchronizace pohledu Azure AD Connect (stejně jako ostatní klienty synchronizace) tím, že Azure AD pružnější způsobem zpracovává duplicitní ProxyAddresses UserPrincipalName atributy a přítomný v v prostředí místní AD. Tato funkce není opravte chyby duplicita. Proto data pořád je potřeba opravit. Ale umožňuje zřizování nových objektů, které jsou jinak blokovaná se zřídí kvůli duplicitní hodnoty ve službě Azure AD. Tím se také sníží počet chyb synchronizace vrácen do klienta synchronizace.
@@ -148,7 +148,7 @@ Pokud Azure AD Connect se pokusí přidat nový objekt nebo aktualizovat existuj
    * **smtp:bob@contoso.com**
 4. Nový uživatel **Bob Taylora**, se přidá do místních služby Active Directory.
 5. Bob Taylora **UserPrincipalName** je nastaven jako  **bobt@contoso.com** .
-6. **Bob Taylora** má následující hodnoty pro **ProxyAddresses** atribut i. smtp:bobt@contoso.comII. smtp:bob.taylor@contoso.com
+6. **Bob Taylora** má následující hodnoty pro **ProxyAddresses** atribut i. smtp:bobt@contoso.com ii. smtp:bob.taylor@contoso.com
 7. Bob Taylora objektu je úspěšně synchronizovat s Azure AD.
 8. Správce se rozhodli aktualizovat Bob Taylora **ProxyAddresses** atribut s následující hodnotou: i. **smtp:bob@contoso.com**
 9. Azure AD bude pokus o aktualizaci Bob Taylora objektu ve službě Azure AD s hodnotu uvedenou výše, ale tato operace se nezdaří jako že ProxyAddresses hodnota je již přiřazen k Bob Smith, výsledkem je chyba "AttributeValueMustBeUnique".
@@ -186,7 +186,7 @@ Toto je zvláštní případ, jejímž výsledkem **"FederatedDomainChangeError"
 #### <a name="scenarios"></a>Scénáře
 Pro synchronizované uživatele příponou UserPrincipalName byl změněn z jedné federované domény na jiné federované domény místně. Například *UserPrincipalName = bob@contoso.com*  byl změněn na *UserPrincipalName = bob@fabrikam.com* .
 
-#### <a name="example"></a>Příklad
+#### <a name="example"></a>Příklad:
 1. Bob Smith, účtu pro Contoso.com, získá přidat jako nový uživatel ve službě Active Directory s UserPrincipalNamebob@contoso.com
 2. Bob přesune do různých dělení contoso.com názvem Fabrikam.com a jeho UserPrincipalName se změní nabob@fabrikam.com
 3. Domény contoso.com a fabrikam.com jsou federovaných domén v Azure Active Directory.

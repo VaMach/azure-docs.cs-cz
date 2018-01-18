@@ -3,7 +3,7 @@ title: "Synchronizace Azure AD Connect: prevence náhodného odstranění | Micr
 description: "Toto téma popisuje funkci prevence náhodného odstranění (prevence náhodného odstranění) ve službě Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 57ce7b2fcece751b1386ef1d57762ad8d1c27c62
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronizace Azure AD Connect: Prevence náhodného odstranění
 Toto téma popisuje funkci prevence náhodného odstranění (prevence náhodného odstranění) ve službě Azure AD Connect.
@@ -63,7 +63,7 @@ V případě potřeby všechna odstranění se potom postupujte takto:
 3. Pomocí Azure konektor služby Active Directory stále vybrána, vyberte akci, která **spustit** a vyberte **exportovat**.
 4. Chcete-li znovu povolit ochranu, spusťte rutinu prostředí PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Nahraďte hodnotu, kterou jste si všimli při načítání aktuální prahová hodnota odstranění 500. Zadejte účet Azure AD globálního správce a heslo.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 **Témata s přehledem**
 
 * [Synchronizace Azure AD Connect: pochopení a přizpůsobení synchronizace](active-directory-aadconnectsync-whatis.md)

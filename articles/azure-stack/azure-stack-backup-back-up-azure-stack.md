@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: daea97c0f5ee6ef855dc50c1ed6c7934aa85a1c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>Zálohování Azure zásobníku
 
@@ -26,13 +26,22 @@ ms.lasthandoff: 01/10/2018
 
 Proveďte zálohu na vyžádání v zásobníku Azure se zálohováním na místě. Pokud potřebujete aktivovat službu zálohování infrastruktury, najdete v části [povolit zálohování pro zásobník Azure z portálu pro správu](azure-stack-backup-enable-backup-console.md).
 
+> [!Note]  
+>  Nástroje Azure zásobníku obsahovat **Start-AzSBackup** rutiny. Pokyny k instalaci nástroje najdete v tématu [zprovoznění pomocí prostředí PowerShell v zásobníku Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+
 ## <a name="start-azure-stack-backup"></a>Spustit zálohování Azure zásobníku
 
-Otevřete prostředí Windows PowerShell s řádku se zvýšenými oprávněními a spusťte následující příkazy:
+Otevřete prostředí Windows PowerShell se v prostředí správy operátor řádku se zvýšenými oprávněními a spusťte následující příkazy:
 
-   ```powershell
-   Start-AzSBackup -Location $location.Name
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Potvrďte zálohování v portálu pro správu bylo dokončeno
 

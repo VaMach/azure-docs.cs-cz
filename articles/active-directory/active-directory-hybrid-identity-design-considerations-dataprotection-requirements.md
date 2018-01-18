@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybridní identity aspekty návrhu - určení požadavků na ochranu dat | Microsoft Docs"
+title: "Návrhu hybridní identity – požadavky na ochranu dat Azure | Microsoft Docs"
 description: "Při plánování řešení hybridní identity, určete požadavky na ochranu dat pro vaši firmu a jaké možnosti jsou dostupné pro nejlépe splnit tyto požadavky."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Plán pro zlepšení zabezpečení dat prostřednictvím řešení silné identity
 Prvním krokem k ochraně dat je identifikovat, kdo má přístup k těmto datům a řešení, které můžete v rámci tohoto procesu je potřeba mít identity se integruje s systému a poskytuje možnosti ověřování a autorizace. Ověřování a autorizace často matoucí mezi sebou a nesprávně pochopeny jejich rolí. Ve skutečnosti jsou výrazně lišit, jak je znázorněno na obrázku níže:
@@ -79,7 +80,7 @@ Požadavky předpisů, zákony a nařízení se liší podle odvětví, který j
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
  [Stanovení požadavků na správu obsahu](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Viz také

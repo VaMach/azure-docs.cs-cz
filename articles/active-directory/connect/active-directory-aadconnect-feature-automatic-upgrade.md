@@ -3,7 +3,7 @@ title: "Azure AD Connect: Automatický upgrade | Microsoft Docs"
 description: "Toto téma popisuje předdefinované funkce Automatické aktualizace v synchronizaci Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddf23193e7b9c2fb7a69045be539841dbb6e6249
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatický upgrade
 Tato funkce byla zavedená s sestavení 1.1.105.0 (vydané. února 2016).
@@ -34,10 +34,10 @@ Automatický upgrade je povoleno ve výchozím nastavení pro následující:
 
 Aktuální stav automatický upgrade lze zobrazit pomocí rutiny prostředí PowerShell `Get-ADSyncAutoUpgrade`. Má následující stavy:
 
-| Stav | Komentář |
+| Stav | Poznámka |
 | --- | --- |
 | Povoleno |Je povolen automatický upgrade. |
-| pozastaveno |Nastavte pouze v systému. V systému už není vhodné na automatické aktualizace. |
+| Pozastaveno |Nastavte pouze v systému. V systému už není vhodné na automatické aktualizace. |
 | Zakázáno |Automatický upgrade je zakázána. |
 
 Můžete volit mezi **povoleno** a **zakázané** s `Set-ADSyncAutoUpgrade`. Pouze v systému měli nastavit stav **pozastaveno**.
@@ -100,5 +100,5 @@ Tady je seznam nejčastějších zprávy, které můžete najít. Neobsahuje vš
 | UpgradeNotSupportedStagingModeEnabled |Server je nastaven v [pracovním režimu](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Povolili jste [zpětný zápis uživatelů](active-directory-aadconnect-feature-preview.md#user-writeback) funkce. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

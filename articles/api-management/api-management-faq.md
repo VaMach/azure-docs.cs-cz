@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>Nejčastější dotazy Azure API Management
 Získejte odpovědi na časté otázky, vzorce a osvědčené postupy pro Azure API Management.
@@ -33,7 +33,6 @@ Získejte odpovědi na časté otázky, vzorce a osvědčené postupy pro Azure 
 * [Můžete spravovat instance Moje API Management prostřednictvím kódu programu?](#can-i-manage-my-api-management-instance-programmatically)
 * [Jak přidat uživatele do skupiny Administrators?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Proč se zásadami, které chcete přidat k dispozici v editoru zásad?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [Jak používat správu verzí rozhraní API ve službě API Management?](#how-do-i-use-api-versioning-in-api-management)
 * [Jak nastavím prostředí s více v jediného rozhraní API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Můžete použít protokolu SOAP s API Management?](#can-i-use-soap-with-api-management)
 * [Je konstanta IP adresu brány API Management? Můžete je používat v pravidlech brány firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ Máte několik možností k zabezpečení připojení mezi bránou rozhraní API
 
 * Základní ověřování pomocí protokolu HTTP. Další informace najdete v tématu [importu a publikování vašeho prvního rozhraní API](import-and-publish.md).
 * Používá vzájemné ověřování SSL, jak je popsáno v [jak zabezpečit back endové služby pomocí klienta ověření certifikátu ve službě Azure API Management](api-management-howto-mutual-certificates.md).
-* Vytvoření seznamu povolených IP použijte na back endové službě. Pokud máte Standard nebo Premium instance API Management vrstvě, konstantní IP adresu brány. Můžete nastavit seznamu povolených serverů povolit tuto IP adresu. Na řídicím panelu portálu Azure můžete získat IP adresu instanci služby API Management.
+* Vytvoření seznamu povolených IP použijte na back endové službě. Na všech úrovních služby API Management, IP adresu brány, zůstane konstantní, s několika [upozornění](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Můžete nastavit seznamu povolených serverů povolit tuto IP adresu. Na řídicím panelu portálu Azure můžete získat IP adresu instanci služby API Management.
 * Vaše instance služby API Management se připojte k virtuální síti Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Jak kopírovat Moje instance služby API Management na novou instanci?
@@ -97,13 +96,6 @@ Teď nově přidané Přispěvatel můžete použít Azure PowerShell [rutiny](h
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Proč se zásadami, které chcete přidat k dispozici v editoru zásad?
 Pokud neaktivní nebo stínování editoru zásad, ujistěte se, že jste ve správném oboru pro zásadu, zobrazí se zásadami, které chcete přidat. Každý prohlášení o zásadách je určená pro v konkrétní obory a části zásady použití. Zkontrolovat zásady části a obory pro zásady, najdete v tématu Použití nastavení zásad [zásady služby API Management](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>Jak používat správu verzí rozhraní API ve službě API Management?
-Máte několik možností pro použití správy verzí rozhraní API v API Management:
-
-* Ve službě API Management můžete nakonfigurovat představují různé verze rozhraní API. Například můžete mít dvě různé rozhraní API, MyAPIv1 a MyAPIv2. Vývojář můžete vybrat verzi, která chce používat vývojář.
-* Můžete také konfigurovat rozhraní API s adresou URL služby, která nezahrnuje segment verze, například https://my.api. Potom nakonfigurujte segment verze na každou operaci [přepisu adresy URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) šablony. 
-* Pokud chcete zachovat segment "Výchozí" verze v rozhraní API služby adresy URL, na vybrané operace, nastavit zásady, které používá [nastavení back-end služby](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) zásady, chcete-li změnit cestu požadavku back-end.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Jak nastavím prostředí s více v jediného rozhraní API?
 Nastavit několik prostředí, například testovací prostředí a provozním prostředí, do jediného rozhraní API, máte dvě možnosti. Můžete:
 
@@ -114,7 +106,7 @@ Nastavit několik prostředí, například testovací prostředí a provozním p
 [Průchozí SOAP](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) podpora je k dispozici. Správci mohou importovat WSDL své služby SOAP. Azure API Management se vytvoří front-end protokolu SOAP. Portál dokumentaci pro vývojáře, testovací konzoly, zásady a analýzy byly všechny dostupné pro služby SOAP.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>Je konstanta IP adresu brány API Management? Můžete je používat v pravidlech brány firewall?
-Na úrovních Standard a Premium je veřejnou adresu IP (VIP) rozhraní API správy klienta statické po dobu jeho existence klienta s několika výjimkami. Změny IP adresy v těchto případech:
+Na všech úrovních služby API Management veřejnou adresu IP (VIP) klienta API Management je statická po dobu jeho existence klientovi, na několik výjimek. Změny IP adresy v těchto případech:
 
 * Služba je odstranit a pak znovu vytvoří.
 * Předplatné služby je [pozastaveno](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) nebo [upozorněn](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (například nonpayment) a pak obnoveny.

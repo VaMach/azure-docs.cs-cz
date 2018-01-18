@@ -1,24 +1,24 @@
 ---
 title: "Provedení operace úložiště Azure Table pomocí prostředí PowerShell | Microsoft Docs"
 description: "Provedení operace úložiště Azure Table pomocí prostředí PowerShell"
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 0174b6fe02008a1c22a165b077c694af7e8618ab
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Provedení operace úložiště Azure Table pomocí prostředí Azure PowerShell 
 
@@ -58,7 +58,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Načíst seznam umístění
 
-Pokud si nejste jisti umístění, které chcete použít, můžete seznam dostupných umístění. Jakmile se zobrazí v seznamu, najít ten, který chcete použít. Tyto příklady použití **eastus**. Uložení této hodnoty v proměnné **umístění** pro budoucí použití.
+Pokud nevíte, jaké umístění máte použít, můžete vypsat všechna dostupná umístění. Po zobrazení seznamu vyhledejte umístění, které chcete použít. Tyto příklady použití **eastus**. Uložení této hodnoty v proměnné **umístění** pro budoucí použití.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -76,7 +76,7 @@ $resourceGroup = "pshtablesrg"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>Vytvořit účet úložiště
+## <a name="create-storage-account"></a>Vytvoření účtu úložiště
 
 Vytvořte účet standardního úložiště pro obecné účely s místně redundantní úložiště (LRS) pomocí [AzureRmStorageAccount nový](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Získá kontext účtu úložiště, který definuje účet úložiště, který se má použít. Když funguje na účet úložiště, můžete odkazovat na kontext místo opakovaně přihlašovací údaje.
 
@@ -137,7 +137,7 @@ Pokud jste vytvořili nový účet skupiny a úložiště prostředků na začá
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto postupu článku jste se dozvěděli o běžných operací úložiště Azure Table pomocí prostředí PowerShell, včetně postup: 
 
@@ -151,7 +151,7 @@ V tomto postupu článku jste se dozvěděli o běžných operací úložiště 
 
 Další informace naleznete v následujících článcích
 
-* [Rutiny prostředí PowerShell úložiště](/powershell/module/azurerm.storage#storage)
+* [Rutiny PowerShellu pro úložiště](/powershell/module/azurerm.storage#storage)
 
 * [Práce s tabulkami úložiště Azure z prostředí PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 

@@ -3,7 +3,7 @@ title: "Konektor prostředí PowerShell | Microsoft Docs"
 description: "Tento článek popisuje, jak nakonfigurovat konektor služby společnosti Microsoft Windows PowerShell."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Technické informace o konektoru služby Windows PowerShell
 Tento článek popisuje Windows PowerShell Connector. Se článek vztahuje následující produkty:
@@ -62,12 +62,12 @@ Můžete nakonfigurovat následující parametry připojení:
 | Parametr | Výchozí hodnota | Účel |
 | --- | --- | --- |
 | Server |<Blank> |Název serveru, který konektor musí připojit k. |
-| Domény |<Blank> |Doména pověření, která se uloží pro použití při spuštění konektoru. |
+| Doména |<Blank> |Doména pověření, která se uloží pro použití při spuštění konektoru. |
 | Uživatel |<Blank> |Uživatelské jméno pověření k uložení pro použití při spuštění konektoru. |
 | Heslo |<Blank> |Heslo pověření, která se uloží pro použití při spuštění konektoru. |
 | Zosobnit účet konektoru |False |V případě hodnoty true synchronizační služba běží v kontextu pověření zadaná skriptů prostředí Windows PowerShell. Pokud je to možné, doporučujeme **$Credentials** parametr se předává pro každý skript se používá namísto zosobnění. Další informace o další oprávnění, které jsou nutné pro tuto možnost použijte, najdete v tématu [další konfiguraci pro zosobnění](#additional-configuration-for-impersonation). |
 | Načíst profil uživatele při zosobnění |False |Dá pokyn Windows načíst profil uživatele konektoru přihlašovacích údajů během zosobnění. Pokud se zosobněným uživatelem má cestovní profil, konektor nenačte profilu roamingu. Další informace o další oprávnění, které jsou nutné k použití tohoto parametru najdete v tématu [další konfiguraci pro zosobnění](#additional-configuration-for-impersonation). |
-| Typ přihlášení při zosobnění |Žádný |Typ přihlášení během zosobnění. Další informace najdete v tématu [dwLogonType] [ dw] dokumentaci. |
+| Typ přihlášení při zosobnění |Žádné |Typ přihlášení během zosobnění. Další informace najdete v tématu [dwLogonType] [ dw] dokumentaci. |
 | Pouze podepsaných skriptů |False |V případě hodnoty true konektor prostředí Windows PowerShell ověří, že každý skript má platný digitální podpis. Pokud je hodnota false, zajistěte, aby byl zásady spouštění prostředí Windows PowerShell serveru služby synchronizace RemoteSigned nebo bez omezení. |
 
 **Běžné modulu**  
@@ -88,7 +88,7 @@ Skript ověření je volitelné skript prostředí Windows PowerShell, které je
 
 Ověření skriptu přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |Na kartě Konfigurace nebo dialogové okno, který aktivoval žádosti o ověření. |
 | ConfigParameters |[Kolekci KeyedCollection] [ keyk] [řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
@@ -96,12 +96,12 @@ Ověření skriptu přijímá následující parametry z konektoru nástroje:
 
 Ověření skriptu by měl vrátit a jeden objekt ParameterValidationResult do kanálu.
 
-**Zjištění schématu**  
+**Schema Discovery**  
 Skript zjišťování schématu je povinný. Tento skript vrátí typy objektů, atributy a atribut omezení, které služba synchronizace používá při konfiguraci pravidla toku atributu. Skript zjišťování schématu se spustí při vytváření konektoru a naplní schématu konektor. Používá se také pomocí akce aktualizovat schéma Synchronization Service Manager.
 
 Skript zjišťování schématu přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection] [ keyk] [řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
@@ -148,7 +148,7 @@ Oddíl je samostatný obor názvů v rámci jedné sdílené schématu. Napřík
 
 Skript zjišťování oddílu přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
@@ -160,7 +160,7 @@ Skript zjišťování hierarchie se používá pouze v případě schopností ro
 
 Skript zjišťování hierarchie přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
@@ -176,12 +176,12 @@ Spuštění skriptu importu begin na začátku na import spustit krok. Během to
 
 Začátek importního skriptu přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Skript informuje o typ importu spustit (Rozdílová nebo úplné), oddíl, hierarchie, vodoznak, velikost očekávané stránky. |
-| Typy |[Schéma][schema] |Schéma pro prostoru konektoru, který není importován. |
+| Typy |[Schema][schema] |Schéma pro prostoru konektoru, který není importován. |
 
 Skript musí vracet jedné [OpenImportConnectionResults] [ oicres] objektu do kanálu, například:`Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
@@ -190,13 +190,13 @@ Import dat je volán konektorem dokud skriptu určuje, že neexistuje žádná d
 
 Import dat skript přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
 | GetImportEntriesRunStep |[ImportRunStep][irs] |Obsahuje vodoznak (CustomData), který se dá použít během stránkovaného importy a importuje delta. |
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Skript informuje o typ importu spustit (Rozdílová nebo úplné), oddíl, hierarchie, vodoznak, velikost očekávané stránky. |
-| Typy |[Schéma][schema] |Schéma pro prostoru konektoru, který není importován. |
+| Typy |[Schema][schema] |Schéma pro prostoru konektoru, který není importován. |
 
 Import dat skriptu musíte napsat seznam [[CSEntryChange][csec]] objektu do kanálu. Tato kolekce se skládá z CSEntryChange atributy, které představují každý importovaný objekt. Během spuštění úplný Import tuto kolekci měli kompletní CSEntryChange objektů, které mají všechny atributy pro každý objekt. Během importu rozdílů by měly obsahovat objekt CSEntryChange buď úrovně rozdílů atribut pro každý objekt, který chcete importovat nebo dokončení reprezentace objektů, které se změnily (nahraďte režim).
 
@@ -205,7 +205,7 @@ Po dokončení importu spustit spuštění skriptu End importovat. Tento skript 
 
 Importovat skript end přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
@@ -222,12 +222,12 @@ Skripty pro export begin běží na začátku na krok exportu. Během tohoto kro
 
 Skripty pro export begin přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
 | OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Skript informuje o typu export spustit (Rozdílová nebo úplné), oddíl, hierarchie a velikost očekávané stránky. |
-| Typy |[Schéma][schema] |Schéma pro prostoru konektoru, která je exportována. |
+| Typy |[Schema][schema] |Schéma pro prostoru konektoru, která je exportována. |
 
 Skript nesmí vrátit žádný výstup do kanálu.
 
@@ -236,13 +236,13 @@ Služba synchronizace volá exportovat Data skriptu jako tolikrát, kolikrát je
 
 Skripty pro export dat přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
 | CSEntries |IList[CSEntryChange][csec] |Seznam všech prostoru konektoru objekty s čekající exporty mají být zpracovány během této relace. |
 | OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Skript informuje o typu export spustit (Rozdílová nebo úplné), oddíl, hierarchie a velikost očekávané stránky. |
-| Typy |[Schéma][schema] |Schéma pro prostoru konektoru, která je exportována. |
+| Typy |[Schema][schema] |Schéma pro prostoru konektoru, která je exportována. |
 
 Skripty pro export dat musí vracet [PutExportEntriesResults] [ peeres] objektu do kanálu. Tento objekt není nutné zahrnout výsledek informace pro každý konektor exportovaný nenastane chybu nebo ke změně atributu ukotvení. Chcete-li například vrátí objekt PutExportEntriesResults do kanálu:`Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
 
@@ -251,7 +251,7 @@ V závěru exportu, spuštění, spuštění skriptu End exportovat. Tento skrip
 
 Skripty pro export end přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
@@ -265,7 +265,7 @@ Konektory prostředí Windows PowerShell můžete použít jako cíl pro změny 
 
 Skript heslo přijímá následující parametry z konektoru nástroje:
 
-| Name (Název) | Datový typ | Popis |
+| Název | Typ dat | Popis |
 | --- | --- | --- |
 | ConfigParameters |[Kolekci KeyedCollection][keyk][řetězec, [ConfigParameter][cp]] |Tabulka parametry konfigurace pro konektor. |
 | Přihlašovací údaj |[Přihlašovací údaje][pscred] |Obsahuje všechny přihlašovací údaje správce zadali na kartě připojení. |
@@ -291,8 +291,8 @@ Udělte následující oprávnění na serveru služby synchronizace zosobnit u�
 
 Přístup pro čtení k tyto klíče registru:
 
-* HKEY_USERS\\\Software\Microsoft\PowerShell [SynchronizationServiceServiceAccountSID]
-* HKEY_USERS\\\Environment [SynchronizationServiceServiceAccountSID]
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Software\Microsoft\PowerShell
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
 
 Pokud chcete zjistit identifikátor zabezpečení (SID) účtu služby synchronizační služba, spusťte následující příkazy prostředí PowerShell:
 
@@ -304,8 +304,8 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 Přístup pro čtení do následující složky systému souborů:
 
 * %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\Extensions
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\MaData\\{Názevkonektoru}
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
 
 Nahraďte název konektoru prostředí Windows PowerShell pro zástupný symbol {Názevkonektoru}.
 

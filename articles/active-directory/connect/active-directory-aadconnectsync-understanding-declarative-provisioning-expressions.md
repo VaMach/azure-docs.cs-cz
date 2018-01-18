@@ -3,7 +3,7 @@ title: "Azure AD Connect: Výrazů deklarativního zřizování | Microsoft Docs
 description: "Vysvětluje výrazů deklarativního zřizování."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 83fe949468a67318c766f0070498c35300af4deb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Synchronizace Azure AD Connect: Principy výrazů deklarativní zřizování
 Synchronizace Azure AD Connect je založený na deklarativní zřizování poprvé dostupné ve verzi produktu Forefront Identity Manager 2010. Umožňuje implementovat obchodní logiku integrace kompletní identity bez nutnosti napsat zkompilovaný kód.
@@ -50,7 +50,7 @@ Parametr je definována pomocí konektoru nebo pomocí správce pomocí prostře
 
 Konektor služby Active Directory k dispozici následující parametry pro příchozí pravidla synchronizace:
 
-| Název parametru | Komentář |
+| Název parametru | Poznámka |
 | --- | --- |
 | Domain.Netbios |Formát pro rozhraní NetBIOS domény aktuálně importována, například FABRIKAMSALES |
 | Domain.FQDN |Plně kvalifikovaný název domény formát domény aktuálně importována, například sales.fabrikam.com |
@@ -79,12 +79,12 @@ Operátory se vyhodnocují zleva doprava a se stejnou prioritou vyhodnocení. To
 ## <a name="multi-valued-attributes"></a>Více hodnot atributů
 Funkce mohou pracovat s jednou hodnotou i více hodnot atributů. Pro více hodnot atributů funkce funguje v každé hodnotě a platí stejnou funkci ke každé hodnotě.
 
-Například:  
+Příklad:  
 `Trim([proxyAddresses])`Proveďte operace Trim každé hodnoty v atributu proxyAddress.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"`Pro každou hodnotu s @-sign, nahraďte doméně s @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Vyhledejte adresu SIP a odebere ji z hodnot.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o konfiguraci modelu v [Principy deklarativní zřizování](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Najdete v tématu Jak deklarativní zřizování je použité out-of-box v [Principy výchozí konfigurace](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Informace o tom, praktické změnit pomocí deklarativní zřizování v [jak provést změnu výchozí konfigurace](active-directory-aadconnectsync-change-the-configuration.md).

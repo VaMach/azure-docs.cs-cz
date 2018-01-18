@@ -3,7 +3,7 @@ title: "Synchronizace Azure AD Connect: referenční dokumentace funkcí | Micro
 description: "Odkaz výrazů deklarativního zřizování v synchronizaci Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronizace Azure AD Connect: odkaz na funkce
 Ve službě Azure AD Connect funkce se používají k manipulaci s hodnotou atributu během synchronizace.  
@@ -952,7 +952,7 @@ Vrátí "hn proveďte".
 Vrátí "Doe"
 
 - - -
-### <a name="now"></a>Ihned
+### <a name="now"></a>Teď
 **Popis:**  
 Funkce nyní vrací hodnotu DateTime, zadáte aktuální datum a čas podle systémového data a času v počítači.
 
@@ -1242,7 +1242,7 @@ Hodnota může být také chybovou funkci, která by vrátit vlastní řetězec.
 Vrátí jazyk používaný v některé hlavní města, jinak vrátí chybu.
 
 - - -
-### <a name="trim"></a>Uvolnění dočasné paměti
+### <a name="trim"></a>Oříznout
 **Popis:**  
 Funkce Trim odebere úvodní a koncové mezery z řetězce.
 
@@ -1269,7 +1269,7 @@ Funkce UCase převede všechny znaky v řetězci na velká písmena.
 Vrátí hodnotu "TEST".
 
 - - -
-### <a name="where"></a>kde
+### <a name="where"></a>Kde
 
 **Popis:**  
 Vrátí podmnožinu hodnoty z více hodnot atributů (nebo výstupní výrazu) na základě konkrétní podmínky.

@@ -3,7 +3,7 @@ title: "Azure AD Connect: Požadavky a hardware | Microsoft Docs"
 description: "Toto téma popisuje požadavky a požadavky na hardware pro Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 1dc33bbd686d97f21c7b9d61752d9f2c584a79fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Požadavky pro Azure AD Connect
 Toto téma popisuje požadavky a požadavky na hardware pro Azure AD Connect.
@@ -117,7 +117,7 @@ Další informace najdete v případě, že máte problémy s připojením, [ře
 ### <a name="powershell-and-net-framework"></a>Prostředí PowerShell a rozhraní .net Framework
 Azure AD Connect, závisí na Microsoft PowerShell a rozhraní .NET Framework 4.5.1. Je nutné tuto verzi nebo novější verze na serveru nainstalována. V závislosti na vaší verze systému Windows Server postupujte takto:
 
-* Windows Server 2012 R2
+* Windows Server 2012R2
   * Microsoft PowerShell je nainstalován ve výchozím nastavení. Není vyžadována žádná akce.
   * Rozhraní .NET framework 4.5.1 a pozdějších verzích jsou nabízena prostřednictvím služby Windows Update. Zkontrolujte, zda že jsou nainstalovány nejnovější aktualizace na Windows Server v Ovládacích panelech.
 * Windows Server 2008 R2 a Windows Server 2012
@@ -207,5 +207,5 @@ Minimální požadavky na počítačích se systémem služby AD FS nebo servery
 * PAMĚŤ: 2 GB nebo vyšší
 * Virtuálního počítače Azure: Konfigurace A2 nebo vyšší
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0a4118a8927e4261fafa307af5b9c29623ce5c3f
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: e2e9d93af3889714ade1d0364a6f747c184e6d75
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Otočit tajné klíče v Azure zásobníku
 
@@ -32,15 +32,36 @@ Aktualizace hesla pro součásti zásobníku Azure v pravidelných cadence.
 
 1. Aktualizujte BMC na fyzických serverech zásobník Azure podle pokynů vaší výrobce OEM. Heslo pro každou BMC ve vašem prostředí musí být stejné.
 2. Otevřete koncový bod privilegované v relacích zásobník Azure. Pokyny naleznete v tématu [pomocí privilegované koncový bod v zásobníku Azure](azure-stack-privileged-endpoint.md).
-3. Po vaše prostředí PowerShell řádku změnil na **[ERCS virtuálního počítače nebo IP adresu name]: PS >** nebo **[azs-ercs01]: PS >**, v závislosti na prostředí, spusťte `Set-BmcPassword` spuštěním `invoke-command`. Vaše proměnná privilegované koncový bod relace předejte jako parametr.  
-Příklad:
+3. Po vaše prostředí PowerShell řádku změnil na **[ERCS virtuálního počítače nebo IP adresu name]: PS >** nebo **[azs-ercs01]: PS >**, v závislosti na prostředí, spusťte `Set-BmcPassword` spuštěním `invoke-command`. Vaše proměnná privilegované koncový bod relace předejte jako parametr. Příklad:
+
     ```powershell
-    $PEPSession = New-PSSession -ComputerName <ERCS computer name> -Credential <CloudAdmin credential> -ConfigurationName "PrivilegedEndpoint"  
-    
+    # Interactive Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
+    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        param($password)
-        set-bmcpassword -bmcpassword $password
-    } -ArgumentList (<LatestPassword as a SecureString>) 
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
+    ```
+    
+    Můžete také použít statické verze prostředí PowerShell s hesla jako řádky kódu:
+    
+    ```powershell
+    # Static Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
+    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
+    $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
+    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
+    Invoke-Command -Session $PEPSession -ScriptBlock {
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
     ```
 
 ## <a name="next-steps"></a>Další postup

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity, kvóty a omezení předplatného a služeb Azure
 Tento dokument uvádí některé z nejběžnějších omezení Microsoft Azure, což se taky někdy označují jako kvóty. Tento dokument nepokrývá aktuálně všech služeb Azure. V čase v seznamu rozbalit a aktualizovat tak, aby pokrývalo více platformou.
@@ -61,6 +61,7 @@ V níže uvedené limity se přidal nové tabulky, aby odrážela případné ro
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
+* [Službu kontejneru (AKS)](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -127,6 +128,9 @@ Následující omezení platí při použití skupiny prostředků Azure a Azure
 V následující tabulce jsou funkcí a omezení Basic, Standard a Premium [úrovních služeb](./container-registry/container-registry-skus.md).
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>Omezuje služby kontejneru (AKS)
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Síťová omezení
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -313,7 +317,7 @@ Omezení SQL Database, najdete v části [limitů prostředků databáze SQL](sq
 ### <a name="sql-data-warehouse-limits"></a>Omezení SQL Data Warehouse
 Omezení SQL Data Warehouse, najdete v části [SQL Data Warehouse prostředků omezení](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 [Seznámení s Azure omezení a zvyšuje](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Virtuální počítač velikost služeb a Cloud pro Azure.](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

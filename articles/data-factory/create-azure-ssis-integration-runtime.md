@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 7796df75d811ad34967aee66478eae992fd449fe
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a5ed3cbfac0b86cedde5718cef4231a7fcc36f2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Vytvoření modulu runtime integrace Azure SSIS v Azure Data Factory
 Tento článek popisuje kroky pro zřizování modulu runtime integrace Azure SSIS v Azure Data Factory. Následně můžete pomocí SQL Server Data Tools (SSDT) nebo aplikace SQL Server Management Studio (SSMS) do tohoto modulu runtime v Azure nasadit balíčky SSIS (SQL Server Integration Services).
@@ -44,7 +44,7 @@ Koncepční informace o připojení Azure SSIS IR k virtuální síti a konfigur
 > [!NOTE]
 > Seznam oblastí podporovaných službou Azure Data Factory V2 a prostředím Azure SSIS Integration Runtime najdete v tématu [Dostupné produkty v jednotlivých oblastech](https://azure.microsoft.com/regions/services/). Rozbalením možnosti **Data a analýzy** zobrazíte **Data Factory V2** a **SSIS Integration Runtime**.
 
-## <a name="use-azure-portal"></a>Použití webu Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
@@ -142,7 +142,7 @@ Koncepční informace o připojení Azure SSIS IR k virtuální síti a konfigur
     ![Zadejte typ integrace modulu runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 4. Najdete v článku [zřídit modulu runtime integrace Azure SSIS](#provision-an-azure-ssis-integration-runtime) části pro zbývající kroky k nastavení služby Azure SSIS infračerveného signálu.
 
-## <a name="use-azure-powershell"></a>Použití Azure Powershell
+## <a name="azure-powershell"></a>Azure PowerShell
 
 ### <a name="create-variables"></a>Vytvoření proměnných
 Definujte proměnné, které se použijí ve skriptech v tomto kurzu:
@@ -411,12 +411,74 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
+## <a name="azure-resource-manager-template"></a>Šablona Azure Resource Manageru
+Šablonu Azure Resource Manager můžete použít k vytvoření modulu runtime integrace Azure SSIS. Zde je ukázka návod: 
 
+1. Vytvořte soubor JSON pomocí následující šablony Resource Manageru. Nahraďte vlastními hodnotami hodnoty v lomené závorky (zástupného). 
+
+    ```json
+    {
+        "contentVersion": "1.0.0.0",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "parameters": {},
+        "variables": {},
+        "resources": [{
+            "name": "<Specify a name for your data factory>",
+            "apiVersion": "2017-09-01-preview",
+            "type": "Microsoft.DataFactory/factories",
+            "location": "East US",
+            "properties": {},
+            "resources": [{
+                "type": "integrationruntimes",
+                "name": "<Specify a name for the Azure SSIS IR>",
+                "dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "Managed",
+                    "typeProperties": {
+                        "computeProperties": {
+                            "location": "East US",
+                            "nodeSize": "Standard_D1_v2",
+                            "numberOfNodes": 1,
+                            "maxParallelExecutionsPerNode": 1
+                        },
+                        "ssisProperties": {
+                            "catalogInfo": {
+                                "catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
+                                "catalogAdminUserName": "<Azure SQL user",
+                                "catalogAdminPassword": {
+                                    "type": "SecureString",
+                                    "value": "<Azure SQL Password>"
+                                },
+                                "catalogPricingTier": "Basic"
+                            }
+                        }
+                    }
+                }
+            }]
+        }]
+    }
+    ```
+2. Pokud chcete nasadit šablonu Resource Manager, spuštěním příkazu New-AzureRmResourceGroupDeployment jak je znázorněno v následujícím exmaple. V tomto příkladu je ADFTutorialResourceGroup název skupiny prostředků. C:\adfgetstarted je soubor, který obsahuje definici JSON pro vytváření dat a infračerveného signálu Azure SSIS. 
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
+    ```
+
+    Tento příkaz vytvoří objekt pro vytváření dat a vytvoří Azure SSIS IR v něm, ale nespustí infračerveného signálu. 
+3. Spusťte IR Azure SSIS, spusťte příkaz Start-AzureRmDataFactoryV2IntegrationRuntime: 
+
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name> `
+                                             -DataFactoryName <Data Factory Name> `
+                                             -Name <Azure SSIS IR Name> `
+                                             -Force
+    ``` 
 
 ## <a name="deploy-ssis-packages"></a>Nasazení balíčků SSIS
 Teď použijte SQL Server Data Tools (SSDT) nebo aplikaci SQL Server Management Studio (SSMS) k nasazení vašich balíčků SSIS do Azure. Připojte se k serveru SQL Azure, který hostuje katalog služby SSIS (SSISDB). Název serveru SQL Azure je ve formátu &lt;název_serveru&gt;.database.windows.net (pro službu Azure SQL Database). Pokyny najdete v článku věnovaném [nasazení balíčků](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 Najdete v dalších tématech IR Azure SSIS v této dokumentaci:
 
 - [Modul Runtime integrace Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Tento článek obsahuje koncepční informace o integraci runtimes obecně včetně infračerveného signálu Azure SSIS. 

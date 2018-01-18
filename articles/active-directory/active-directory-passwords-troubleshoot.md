@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: c489cf13574c49161b2dde22500f4ab7478a928b
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: c038a9ec682a5971a5f79b9fe36e667493702cbd
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Řešení potíží s samoobslužné resetování hesla
 
@@ -170,7 +170,7 @@ Nejběžnější bodem selhání je, aby brána firewall a nebo jsou nesprávně
 Azure AD Connect verze 1.1.443.0 a vyšší, můžete potřebovat HTTPS odchozí přístup k následující:
 
    - passwordreset.microsoftonline.com
-   - servicebus.Windows.NET
+   - servicebus.windows.net
 
 Pro další členitosti odkazovat aktualizovaný seznam [Microsoft Azure Datacenter rozsahy IP adres](https://www.microsoft.com/download/details.aspx?id=41653) aktualizovat každou středu a umístí platit následující pondělí.
 

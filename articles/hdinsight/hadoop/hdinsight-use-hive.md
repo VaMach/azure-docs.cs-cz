@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 2bcaa53ea0a97186b9617ae2ca757e3c806b325e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Co je Apache Hive a HiveQL v Azure HDInsight?
 
@@ -49,7 +49,7 @@ Pomocí následující tabulky způsob používání Hive s HDInsight:
 | [Beeline klienta](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X nebo systému Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux nebo Windows * |Linux, Unix, Mac OS X nebo systému Windows |
 | [Nástroje HDInsight pro Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux nebo Windows * |Windows |
-| [Prostředí Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux nebo Windows * |Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux nebo Windows * |Windows |
 
 > [!IMPORTANT]
 > \*Linux je jenom operační systém používaný v HDInsight verze 3.4 nebo novější. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -199,7 +199,7 @@ HDInsight poskytuje LLAP v clusteru typu interaktivní dotazu. Další informace
 
 Integrace služby SSIS (SQL Server) můžete použít ke spuštění úlohy Hive. Azure Feature Pack pro službu SSIS poskytuje následující součásti, které pracují se úlohy Hive v HDInsight.
 
-* [Úloha Azure HDInsight Hive][hivetask]
+* [Azure HDInsight Hive Task][hivetask]
 
 * [Správce připojení k Azure předplatného][connectionmanager]
 

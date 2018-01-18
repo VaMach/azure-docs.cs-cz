@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8cf926bab45705802cfaca95973ec1071d8d175a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architektura připojení k databázi Azure SQL 
 
@@ -71,7 +71,7 @@ Následující tabulka uvádí primární a sekundární IP adresy brány Azure 
 | Střed USA | 23.99.160.139 | 13.67.215.62 |
 | Východní Asie | 191.234.2.139 | 52.175.33.150 |
 | Východní USA 1 | 191.238.6.43 | 40.121.158.30 |
-| Východní USA 2 | 191.239.224.107 | 40.79.84.180 |
+| Východní USA 2 | 191.239.224.107 | 40.79.84.180 * |
 | Indie – střed | 104.211.96.159  | |
 | Indie – jih | 104.211.224.146  | |
 | Indie – západ | 104.211.160.80 | |
@@ -92,6 +92,8 @@ Následující tabulka uvádí primární a sekundární IP adresy brány Azure 
 | Západní USA 1 | 23.99.34.75 | 104.42.238.205 |
 | Západní USA 2 | 13.66.226.202  | |
 ||||
+
+\***Poznámka:** *východní USA 2* má také terciární IP adresu z `2.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Změnit zásady připojení databáze SQL Azure
 

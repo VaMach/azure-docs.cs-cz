@@ -3,7 +3,7 @@ title: "Synchronizace Azure AD Connect: Konfigurace filtrování | Microsoft Doc
 description: "Vysvětluje, jak nakonfigurovat filtrování v synchronizaci Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: cbcf448ccff22219adb8c7d3652e7698ef4d231e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizace Azure AD Connect: Konfigurace filtrování
 Pomocí filtrování můžete řídit objektů, které se zobrazí v Azure Active Directory (Azure AD) z vašeho místního adresáře. Výchozí konfigurace trvá všechny objekty ve všech doménách v doménové struktuře nakonfigurované. Obecně platí to je doporučená konfigurace. Uživatele, kteří používají úlohami Office 365, jako je Exchange Online a Skype pro firmy, těžit z úplný seznam globální adresy tak, aby jejich odeslání e-mailu a volání everyone. U výchozí konfigurace že by měla mít stejné prostředí, které se mají s implementace místní Exchange nebo Lync.
@@ -67,7 +67,7 @@ Pokud chcete zakázat naplánované úlohy, která aktivuje synchronizační cyk
 
 1. Spustit **Plánovač úloh** z **spustit** nabídky.
 2. Přímo pod **Knihovna plánovače úloh**, najít úloha s názvem **Azure AD Sync Scheduler**, klikněte pravým tlačítkem a vyberte **zakázat**.  
-   ![Plánovač úloh](./media/active-directory-aadconnectsync-configure-filtering/taskscheduler.png)  
+   ![Task Scheduler](./media/active-directory-aadconnectsync-configure-filtering/taskscheduler.png)  
 3. Teď můžete provádět změny konfigurace a spustit ručně z synchronizační modul **Synchronization Service Manager** konzoly.
 
 Po dokončení všech filtrování změny, nezapomeňte se vrátit a **povolit** úlohu opakujte.
@@ -118,7 +118,7 @@ Pokud jste aktualizovali domény filtru, musíte také aktualizovat profilů spu
 2. Vyhledat a identifikovat následující profily:
     * Úplný Import
     * Úplná synchronizace
-    * Rozdílový Import
+    * Delta Import
     * Rozdílová synchronizace
     * Export
 3. Pro každý profil upravit **přidat** a **odebrat** domén.
@@ -305,6 +305,6 @@ Při synchronizaci více doménových struktur služby AD, můžete nakonfigurov
 * Máte-li uživatel v jedné doménové struktuře, která má odpovídající e-mailu kontaktujte v jiné doménové struktuře. Navíc jste nakonfigurovali Azure AD Connect propojení uživatele s e-mailu kontakt. Oba objekty musí být v rámci na základě skupiny filtrování oboru. Uživatel, jinak nebudou synchronizovány do Azure AD.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.
 - Další informace o [integrace místních identit s Azure AD](active-directory-aadconnect.md).

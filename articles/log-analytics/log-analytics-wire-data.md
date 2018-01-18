@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Řešení přenosu dat 2.0 (Preview) v analýzy protokolů
 
@@ -186,10 +186,10 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 #### <a name="dependency-agent-downloads"></a>Agent služby Dependency soubory ke stažení
 
-| **File** | **OPERAČNÍ SYSTÉM** | **Verze** | **ALGORITMUS SHA-256** |
+| **File** | **OS** | **Verze** | **SHA-256** |
 | --- | --- | --- | --- |
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
@@ -219,7 +219,7 @@ Nainstalujte z příkazového řádku pomocí možnosti z v následující tabul
 
 InstallDependencyAgent Windows.exe /?
 
-| **Příznak** | **Popis** |
+| **Flag** | **Popis** |
 | --- | --- |
 | <code>/?</code> | Získejte seznam možností příkazového řádku. |
 | <code>/S</code> | Proveďte bezobslužnou instalaci s žádné uživatelské výzvy. |
@@ -244,7 +244,7 @@ Pokud chcete zobrazit seznam příznaky instalace, spusťte instalační program
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Příznak** | **Popis** |
+| **Flag** | **Popis** |
 | --- | --- |
 | <code>-help</code> | Získejte seznam možností příkazového řádku. |
 | <code>-s</code> | Proveďte bezobslužnou instalaci s žádné uživatelské výzvy. |
@@ -375,16 +375,13 @@ Použijte následující informace k instalaci a konfiguraci řešení.
 
 Po mají nainstalovat agenti a nainstalovat řešení, dlaždice 2.0 přenosu dat se zobrazí v pracovním prostoru.
 
-> [!NOTE]
-> V současné době vyžaduje použití portálu OMS Chcete-li zobrazit data kabelové sítě. Chcete-li zobrazit data kabelové sítě nelze pomocí portálu Azure.
-
 ![Dlaždice Data kabelové sítě](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Pomocí řešení přenosu dat 2.0
 
 Na portálu OMS, klikněte **přenosu dat 2.0** dlaždici otevřete řídicí panel Data kabelové sítě. Řídicí panel obsahuje okna v následující tabulce. Každý okno uvádí až 10 položky odpovídající kritériím tohoto okna pro zadaný obor a časový rozsah. Můžete spustit vyhledávání protokolu, který vrátí všechny záznamy kliknutím **zobrazit všechny** v dolní části okna, nebo kliknutím na záhlaví okna.
 
-| **Okno** | **Popis** |
+| **Blade** | **Popis** |
 | --- | --- |
 | Agenti zachytávající síťový přenos | Zobrazuje počet agentů, kteří jsou zachytávání síťového provozu a uvádí top 10 počítačů, které jsou zachycení provozu. Klikněte na číslo ke spuštění protokolu vyhledejte <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Klikněte na počítač, v seznamu ke spuštění vyhledávání protokolu vrátí celkový počet bajtů zaznamenat. |
 | Místní podsítě | Zobrazuje počet místní podsítě, které byly zjištěny agenty.  Klikněte na číslo ke spuštění protokolu vyhledejte <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> , obsahuje seznam všech podsítí s počet bajtů odeslaných přes každé z nich. Klikněte na podsíť v seznamu ke spuštění vyhledávání protokolu vrátí celkový počet bajtů odeslaných přes podsíť. |
@@ -451,6 +448,6 @@ Záznam s typem _WireData_ se vytvoří pro každý typ vstupní data. WireData 
 | RemoteIPLatitude | Zeměpisná šířka IP |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [V protokolech Hledat](log-analytics-log-searches.md) zobrazíte podrobné přenosu dat vyhledávání záznamů.

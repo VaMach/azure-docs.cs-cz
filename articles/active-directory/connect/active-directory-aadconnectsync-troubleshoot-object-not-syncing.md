@@ -3,7 +3,7 @@ title: "Řešení potíží s objekt, který není synchronizované s Azure AD |
 description: "Poradce při potížích se objekt není synchronizované s Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Řešení potíží s objekt, který není synchronizované s Azure AD
 
@@ -40,10 +40,10 @@ V horní polovině zobrazuje všechny spustí chronické pořadí. Ve výchozím
 
 **Stav** je nejdůležitější informace a ukazuje nejzávažnějšího problém pro spuštění. Zde je stručný nejběžnější stavů v pořadí podle priority prozkoumat (kde * znamenat několik řetězců možná chyba).
 
-| Status | Komentář |
+| Status | Poznámka |
 | --- | --- |
 | ukončeno-* |Spuštění se nepodařilo dokončit. Například pokud vzdálený systém je vypnutý a nelze kontaktovat. |
-| Zastavit limit chyb |Existuje více než 5 000 chyby. Spustit automaticky zastavila z důvodu velkého počtu chyb. |
+| stopped-error-limit |Existuje více než 5 000 chyby. Spustit automaticky zastavila z důvodu velkého počtu chyb. |
 | dokončené -\*– chyby |Spustit dokončilo, ale nejsou chyby (méně než 5 000), které by se měly prozkoumat. |
 | dokončené -\*– upozornění |Spustit dokončena, ale některá data, není v očekávaném stavu. Pokud máte chyby, pak tato zpráva je obvykle jenom příznakem. Dokud nebude mít řešit chyby, by neměl prozkoumat upozornění. |
 | úspěch |Žádné problémy. |
@@ -140,7 +140,7 @@ Pokud chybí konektor služby Azure AD, přečtěte si [MV atributy](#MV-attribu
 
 Na této kartě můžete také přejít k [objektu prostoru konektoru](#connector-space-object-properties). Vyberte řádek a klikněte na tlačítko **vlastnosti**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

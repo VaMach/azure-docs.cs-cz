@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Průvodce odstraňováním potíží s
 Tento článek obsahuje pokyny k odstranění potíží pro problémy, se kterými se můžete setkat při nastavení nebo jejich správě Azure Active Directory (AD) Domain Services.
@@ -122,6 +122,7 @@ Zkontrolujte, zda jste zakázali aplikaci s identifikátorem 00000002-0000-0000-
 
 Tuto chybu vyřešit, povolte tuto aplikaci a zkuste povolit pro vašeho tenanta Azure AD Domain Services.
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Uživatelé se nemůžou přihlásit ke spravované doméně Azure AD Domain Services
 Pokud jeden nebo více uživatelů v klientovi služby Azure AD nejde se přihlásit k nově vytvořený spravované doméně, proveďte následující kroky řešení potíží:
 
@@ -145,12 +146,17 @@ Pokud jeden nebo více uživatelů v klientovi služby Azure AD nejde se přihl�
     2. net start "Microsoft Azure AD Sync.
 * **Jen cloudové účty**: Pokud ovlivněných uživatelský účet účet uživatele jenom pro cloud, zajistěte, že uživatel došlo ke změně hesla po povolení služby Azure AD Domain Services. Tento krok způsobí, že se vygenerují hodnoty hash přihlašovacích údajů potřebné pro Azure AD Domain Services.
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Na vaší spravované domény nejsou jedné nebo několika výstrah
+
+Zjistit, jak vyřešit výstrahy na vaší spravované domény tak, že navštívíte [řešení výstrahy](active-directory-ds-troubleshoot-alerts.md) článku.
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Uživatelé odebrána z vašeho klienta Azure AD nejsou odebrány z vaší spravované domény
 Azure AD vás chrání před náhodným odstraněním objektů uživatelů. Když odstraníte uživatelský účet z vašeho tenanta Azure AD, odpovídající objekt uživatele se přesune do složky Koš. Pokud tuto operace odstranění se synchronizuje s vaší spravované domény, budou odpovídající uživatelskému účtu označeno jako zakázané. Tato funkce vám pomůže obnovit nebo zrušení odstranění uživatelský účet později.
 
 Uživatelský účet zůstane v zakázaném stavu ve vaší spravované domény, i když je znovu vytvořit uživatelský účet s stejný hlavní název uživatele v adresáři služby Azure AD. Chcete-li odebrat uživatelský účet z vaší spravované domény, nuceně odstranit z vašeho klienta Azure AD.
 
 Chcete-li odebrat uživatelský účet plně z vaší spravované domény, trvale odstraňte uživatele z vašeho klienta Azure AD. Použití `Remove-MsolUser` rutiny prostředí PowerShell s `-RemoveFromRecycleBin` možnost, jak je popsáno v tomto [článku na webu MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+
 
 ## <a name="contact-us"></a>Kontaktujte nás
 Obraťte se na produktový tým Azure Active Directory Domain Services na [sdílet zpětnou vazbu nebo pro podporu](active-directory-ds-contact-us.md).

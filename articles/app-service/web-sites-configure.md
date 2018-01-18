@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurace webových aplikací v prostředí Azure App Service
 
@@ -62,7 +62,7 @@ Technické z důvodů povolení pro aplikace Java zakáže možnosti .NET, PHP a
 **Vzdálené ladění**. Umožňuje vzdálené ladění. Když je povolené, můžete v sadě Visual Studio vzdáleného ladicího programu pro připojení přímo k vaší webové aplikace. Vzdálené ladění zůstane zapnutá 48 hodin. 
 
 ### <a name="app-settings"></a>Nastavení aplikací
-Tato část obsahuje dvojice název/hodnota, které vaší webové aplikace načte při spuštění. 
+Tato část obsahuje dvojice název/hodnota, které webové aplikace se načte při spuštění. 
 
 * Pro aplikace .NET, tato nastavení jsou vloženy do vaší konfigurace .NET `AppSettings` v době běhu přepsání stávajícího nastavení. 
 * Aplikace PHP, Python, Java a uzel mají přístup k tato nastavení jako proměnné prostředí za běhu. Pro každé nastavení aplikace jsou vytvořeny dvou proměnných prostředí; jednu s názvem zadaným v položce nastavení aplikace a druhý s předponou APPSETTING_. Oba obsahují stejnou hodnotu.
@@ -74,7 +74,7 @@ Pro aplikace .NET, tyto připojovací řetězce jsou vloženy do konfiguraci .NE
 
 Pro aplikace PHP, Python, Java a uzel budou tato nastavení k dispozici jako proměnné prostředí v době běhu předponu typ připojení. Předpony proměnné prostředí jsou následující: 
 
-* SQL Server:`SQLCONNSTR_`
+* SQL Server: `SQLCONNSTR_`
 * MySQL:`MYSQLCONNSTR_`
 * Databáze SQL:`SQLAZURECONNSTR_`
 * Vlastní:`CUSTOMCONNSTR_`

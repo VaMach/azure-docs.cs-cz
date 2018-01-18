@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Použití iothub Průzkumníka pro správu zařízení Azure IoT Hub
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 [iothub-explorer](https://github.com/azure/iothub-explorer) je nástroj příkazového řádku, který spustíte na hostiteli pro správu identit zařízení v registru centra IoT. Součástí možnosti správy, které můžete provádět různé úlohy.
 
 | Možnost správy          | Úkol                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Přímé metody             | Nastavit zařízení fungovat jako je například spuštění nebo zastavení odesílání zpráv nebo restartování zařízení.                                        |
 | Vlastnosti Twin potřeby    | Umístěte zařízení do určité stavy, například nastavit DIODU na zelenou nebo nastavení intervalu odeslání telemetrie do 30 minut.         |
 | Twin hlášené vlastnosti   | Zjištění hlášené stavu zařízení. Například zařízení ohlásí, že nyní bliká Indikátor.                                    |
@@ -54,9 +54,9 @@ Spusťte Průzkumníka iothub s různé možnosti správy.
 ## <a name="what-you-need"></a>Co potřebujete
 
 - Kurz [nastavit vaše zařízení](iot-hub-raspberry-pi-kit-node-get-started.md) dokončit, která zahrnuje následující požadavky:
-  - Aktivní předplatné Azure.
-  - V rámci svého předplatného služby Azure IoT hub.
-  - Klientská aplikace, která odesílá zprávy do služby Azure IoT hub.
+- Aktivní předplatné Azure.
+- V rámci svého předplatného služby Azure IoT hub.
+- Klientská aplikace, která odesílá zprávy do služby Azure IoT hub.
 - Zajistěte, aby že vaše zařízení se systémem s klienta aplikace v průběhu tohoto kurzu.
 - iothub-explorer [nainstalovat iothub-explorer](https://github.com/azure/iothub-explorer) na vývojovém počítači.
 
@@ -114,7 +114,6 @@ Přidání role pole = teploty a vlhkosti do zařízení tak, že spustíte nás
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Pomocí Průzkumníka iothub zprávy typu Cloud zařízení
@@ -141,7 +140,7 @@ Dotaz na všechna zařízení kromě těch, které se značkou role = 'teploty a
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Když jste se naučili použití iothub Průzkumníka pomocí různých možností správy.
 

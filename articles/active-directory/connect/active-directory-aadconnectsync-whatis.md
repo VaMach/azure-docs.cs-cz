@@ -3,7 +3,7 @@ title: "Synchronizace Azure AD Connect: pochopení a přizpůsobení synchroniza
 description: "Vysvětluje, jak Azure AD Connect synchronizovat funguje a jak přizpůsobit."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: c3f5d469850cf06d21821bd2f642666dc5c48644
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Synchronizace Azure AD Connect: pochopení a přizpůsobení synchronizace
 Synchronizace služby Azure Active Directory Connect (Azure AD Connect sync) je hlavní součást služby Azure AD Connect. Se stará o všechny operace, které se vztahují k synchronizaci dat identity mezi místním prostředím a Azure AD. Synchronizace Azure AD Connect je nástupcem nástroje DirSync, Azure AD Sync a produktu Forefront Identity Manager s Azure Active Directory Connector nakonfigurované.
@@ -62,6 +62,6 @@ Synchronizační služby se skládá ze dvou komponent, místní **synchronizace
 | [Atributy synchronizované se službou Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) |Zobrazuje seznam všech atributů synchronizovaných mezi místní AD a Azure AD. |
 | [Reference k funkcím](active-directory-aadconnectsync-functions-reference.md) |Obsahuje seznam všech funkcí, které jsou k dispozici v deklarativní zřizování. |
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 

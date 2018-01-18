@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Řešení potíží s synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -135,6 +135,8 @@ Pokud jednotlivé soubory se nepodařilo synchronizovat:
 
     > [!NOTE]
     > Synchronizace služby Azure soubor pravidelně trvá snímků služby VSS pro synchronizaci souborů s otevřenými popisovači.
+
+Aktuálně nepodporujeme přesunutí prostředku do jiného předplatného nebo na, Přesun do jiné služby Azure AD klienta.  Pokud předplatné přesune na jiný klienta, sdílenou složkou Azure nedostupné naše služby založené na změnu v hodnotě vlastnictví. Pokud dojde ke změně klienta, budete muset odstranit koncové body serveru a koncového bodu cloudu (najdete v části synchronizace skupiny Management část pokyny čistém znovu použít sdílenou složku Azure file) a znovu vytvořte skupiny synchronizace.
 
 ## <a name="cloud-tiering"></a>Vrstvení cloudu 
 Existují dvě cesty pro selhání v cloudu vrstvení:

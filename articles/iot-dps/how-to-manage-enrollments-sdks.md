@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Jak spravovat registrace zařízení s Azure zařízení zřizování služby SDK
 A *registrace zařízení* vytvoří záznam jednoho zařízení nebo skupinu zařízení, které může v určitém okamžiku zaregistrovat službu zřizování zařízení. Záznam zápisu obsahuje počáteční požadované konfigurace pro zařízení v rámci této registrace, včetně požadované služby IoT hub. Tento článek ukazuje, jak spravovat registrace zařízení služby zřizování programově pomocí sady Azure IoT zřizování služby SDK.  Sady SDK jsou k dispozici na Githubu v úložišti stejné jako SDK služby Azure IoT.
@@ -25,11 +25,12 @@ A *registrace zařízení* vytvoří záznam jednoho zařízení nebo skupinu za
 Tento článek zkontroluje nejvyšších úrovní koncepty pro správu registrace zařízení služby zřizování programově pomocí sady Azure IoT zřizování služby SDK.  Přesný volání rozhraní API se může lišit kvůli jazyk rozdíly.  Přečtěte si ukázky, které poskytujeme na Githubu podrobnosti:
 * [Ukázky Java zřizování klienta služby](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Ukázky zřizování klienta služby Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [Ukázky rozhraní .NET zřizování klienta služby](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## <a name="prerequisites"></a>Požadavky
 * Připojovací řetězec z instance služby zřizování zařízení
 * Artefakty zabezpečení zařízení:
-    * [**ČIP TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+    * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
         * Jednotlivé registrace: ID registrace a TPM ověřovací klíč z fyzického zařízení nebo z simulátoru TPM.
         * Registrace skupiny se nevztahuje na ověření čipu TPM.
     * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):

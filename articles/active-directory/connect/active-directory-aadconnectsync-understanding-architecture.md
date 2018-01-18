@@ -3,7 +3,7 @@ title: 'Synchronizace Azure AD Connect: Principy architekturu | Microsoft Docs'
 description: "Toto téma popisuje architekturu synchronizace Azure AD Connect a vysvětluje pojmy použít."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6150dca80a137e9787d943bfe9abb4224e6fe6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronizace Azure AD Connect: Principy architektura
 Toto téma popisuje základní architekturu pro synchronizaci Azure AD Connect. V mnoha aspektům se podobně jako jeho předchůdci serveru MIIS 2003 ILM 2007 a FIM 2010. Synchronizace Azure AD Connect je vývoj těchto technologií. Pokud jste obeznámeni s žádným z těchto starších technologií, obsah tohoto tématu bude povědomé také. Pokud jste ještě synchronizace, pak toto téma je pro vás. Je ale není potřeba znát podrobnosti o něm být úspěšné při přizpůsobení synchronizace služby Azure AD Connect (nazývané synchronizační modul v tomto tématu).
@@ -253,7 +253,7 @@ Synchronizační modul úložiště exportovat a importovat informace o jednotli
 
 Například pokud synchronizační modul exportuje atribut C, který má hodnotu 5, do připojeného zdroje dat, uloží C = 5 v jeho export stavu paměti. Každý další export na tento objekt výsledky při pokusu o export C = 5 do připojeného zdroje dat znovu vzhledem k tomu, že synchronizační modul se předpokládá, že tato hodnota nebyla použita trvale pro objekt (Pokud na jinou hodnotu nedávno naimportované z připojeného zdroje dat). Export paměti není zaškrtnuto, když je obdržena C = 5 během operace importu v objektu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

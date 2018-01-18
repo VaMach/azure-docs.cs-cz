@@ -4,7 +4,7 @@ description: "Toto téma doporučuje použití funkce Koš služby AD s Azure AD
 services: active-directory
 keywords: "Koš služby AD, náhodným odstraněním, zdrojové ukotvení"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 36a9b5a50a18b73626b0c6e03ed258e387d5c20b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 45bff0585eb6f1990a7300ae3d16632eab78a83c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Synchronizace Azure AD Connect: zapnutí koše AD
 Doporučujeme, abyste povolili funkce Koš služby AD pro adresáře Active na místě, které jsou synchronizovány do Azure AD. 
@@ -40,7 +40,7 @@ Tato funkce vám pomůže s obnovováním objekty uživatele Azure AD následuj�
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 **Témata s přehledem**
 
 * [Synchronizace Azure AD Connect: pochopení a přizpůsobení synchronizace](active-directory-aadconnectsync-whatis.md)

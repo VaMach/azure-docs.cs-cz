@@ -3,7 +3,7 @@ title: "Synchronizace Azure AD Connect: provedení změn v synchronizaci Azure A
 description: "Vás provede procesem jak provést změnu konfigurace v synchronizaci Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 1fd07d506b2edc789d71001ac520b9ebddc3e1d9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ed71272d2d10cd8b71fd3b2722d3ba033f1b51f9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Synchronizace Azure AD Connect: jak provést změnu výchozí konfigurace
 Účelem tohoto tématu je vám ukážeme, jak změnit výchozí konfigurace v synchronizaci Azure AD Connect. Popisuje kroky pro některé běžné scénáře. Replikace byste měli možnost provádět některé jednoduché změny do vlastní konfigurace založené na vlastní obchodní pravidla.
@@ -183,7 +183,7 @@ Oblasti v Office 365 jsou:
 | APC | Asie a Tichomoří |
 | JPN | Japonsko |
 | AUSTRÁLIE | Austrálie |
-| MŮŽETE | Kanada |
+| CAN | Kanada |
 | GBR | Velká Británie |
 | LÁM | Latinská Amerika |
 
@@ -280,9 +280,9 @@ Pravidla synchronizace příchozích dat umožňuje hodnota atributu, které jso
 5. Zachovat **Scoping filtru** prázdný zahrnovalo všechny objekty. Budete muset upravit oboru filtru, podle vašeho nasazení Azure AD Connect.
 6. Přejděte na **transformace karta** a implementovat následující pravidla transformace:
 
-    | Typ toku | Atribut target | Zdroj | Použít jednou | Merge – typ |
+    | Typ toku | Cílový atribut | Zdroj | Použít jednou | Merge – typ |
     | --- | --- | --- | --- | --- |
-    |Přímé | PreferredDataLocation | Vyberte zdrojový atribut | Nezaškrtnuto | Aktualizace |
+    |Přímý | PreferredDataLocation | Vyberte zdrojový atribut | Nezaškrtnuto | Aktualizace |
 
 7. Klikněte na tlačítko **přidat** k vytvoření příchozího pravidla.
 
@@ -317,9 +317,9 @@ Pravidlo odchozí synchronizace umožňuje hodnota atributu, které jsou předá
 
 6. Přejděte na **transformace** kartě a implementovat následující pravidla transformace:
 
-    | Typ toku | Atribut target | Zdroj | Použít jednou | Merge – typ |
+    | Typ toku | Cílový atribut | Zdroj | Použít jednou | Merge – typ |
     | --- | --- | --- | --- | --- |
-    | Přímé | PreferredDataLocation | PreferredDataLocation | Nezaškrtnuto | Aktualizace |
+    | Přímý | PreferredDataLocation | PreferredDataLocation | Nezaškrtnuto | Aktualizace |
 
 7. Zavřít **přidat** vytvoření odchozí pravidla.
 
@@ -482,15 +482,15 @@ Pravidla synchronizace příchozích dat umožňuje hodnota atributu, které jso
 
 6. Přejděte na **transformace karta** a implementovat pravidla požadované transformace. Například jste určili nepoužité místní AD atribut (například extensionAttribute1) jako zdrojový atribut pro UserType, můžete implementovat toku přímé atributů:
 
-    | Typ toku | Atribut target | Zdroj | Použít jednou | Merge – typ |
+    | Typ toku | Cílový atribut | Zdroj | Použít jednou | Merge – typ |
     | --- | --- | --- | --- | --- |
-    | Přímé | UserType | extensionAttribute1 | Nezaškrtnuto | Aktualizace |
+    | Přímý | UserType | extensionAttribute1 | Nezaškrtnuto | Aktualizace |
 
     Další příklad – chcete odvodit hodnotu pro atribut UserType od dalších vlastností. Například chcete synchronizovat všechny uživatele jako hosta v případě místních atribut AD UserPrincipalName končí část domény "@partners.fabrikam123.org". Můžete implementovat výrazu:
 
-    | Typ toku | Atribut target | Zdroj | Použít jednou | Merge – typ |
+    | Typ toku | Cílový atribut | Zdroj | Použít jednou | Merge – typ |
     | --- | --- | --- | --- | --- |
-    | Přímé | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Člen", "Guest"), chyba ("UserPrincipalName není přítomen k určení UserType")) | Nezaškrtnuto | Aktualizace |
+    | Přímý | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Člen", "Guest"), chyba ("UserPrincipalName není přítomen k určení UserType")) | Nezaškrtnuto | Aktualizace |
 
 7. Klikněte na tlačítko **přidat** k vytvoření příchozího pravidla.
 
@@ -525,9 +525,9 @@ Pravidlo odchozí synchronizace umožňuje hodnota atributu, které jsou předá
 
 6. Přejděte na **transformace** kartě a implementovat následující pravidla transformace:
 
-    | Typ toku | Atribut target | Zdroj | Použít jednou | Merge – typ |
+    | Typ toku | Cílový atribut | Zdroj | Použít jednou | Merge – typ |
     | --- | --- | --- | --- | --- |
-    | Přímé | UserType | UserType | Nezaškrtnuto | Aktualizace |
+    | Přímý | UserType | UserType | Nezaškrtnuto | Aktualizace |
 
 7. Zavřít **přidat** vytvoření odchozí pravidla.
 

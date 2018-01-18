@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Nejčastější dotazy ke službě Azure AD Connect Health
 Tento článek obsahuje odpovědi na nejčastější dotazy (FAQ) o stavu připojení služby Azure Active Directory (Azure AD). Tyto nejčastější dotazy se týkají dotazy o tom, jak používat službu, která zahrnuje fakturační model, možnosti, omezení a podpory.
@@ -34,7 +34,7 @@ Následující tabulka uvádí role a podporované verze operačního systému.
 
 |Role| Operační systém nebo verzi|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|AD FS (Active Directory Federation Services)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 |Azure AD Connect | Verze 1.0.9125 nebo vyšší|
 |Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
@@ -45,6 +45,7 @@ Všimněte si, že funkce poskytované službou můžou lišit podle role a oper
 * První Agent Connect Health vyžaduje alespoň jednu licenci Azure AD Premium.
 * Každý další registrované agent vyžaduje 25 další licence Azure AD Premium.
 * Počet agentů je ekvivalentní celkový počet agentů, které jsou zaregistrovány v rámci všech monitorovaných rolí (služby AD FS, Azure AD Connect a služby AD DS).
+* AAD Connect Health licencování nevyžaduje, abyste určitým uživatelům přiřadit licence. Potřebujete mít požadovaný počet platných licencí.
 
 Informace o licencích také nachází na [stránky Azure AD cenová](https://aka.ms/aadpricing).
 

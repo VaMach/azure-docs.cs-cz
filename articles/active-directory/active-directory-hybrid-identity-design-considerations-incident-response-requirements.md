@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybridní identity aspekty návrhu - stanovení požadavků na incidentu rResponse | Microsoft Docs"
+title: "Návrhu hybridní identity - požadavků na reakce na incidenty Azure | Microsoft Docs"
 description: "Určení schopnosti sledování a hlášení pro hybridní řešení identit, které můžete využít k provádění akcí na zjišťovat a zmírňovat potenciální hrozby IT"
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dd612c0634782ed758835b8bf264fcc884c428fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Stanovení požadavků na reakce na incidenty pro vaše řešení hybridní identity
 Střední a velké organizace s největší pravděpodobností bude mít [reakcí na incidenty zabezpečení](https://technet.microsoft.com/library/cc700825.aspx) v mechanismy, které pomáhají IT odpovídajícím způsobem proveďte akce na úroveň incidentu. Systém správy identit je důležitou součástí při proces reakcí na incidenty, protože je možné použít ke identifikace, kdo provedl konkrétní akce na cíli. Hybridní řešení identit musí být schopen poskytnout funkce monitorování a vytváření sestav, které můžete využít k provádění akcí na zjišťovat a zmírňovat potenciální hrozbu IT. V plánu reakcí na incidenty typické máte následující fáze jako součást plánu:
@@ -30,7 +31,7 @@ Střední a velké organizace s největší pravděpodobností bude mít [reakc�
 5. Zachování důkaz.
 6. Oznámení odpovídající stranám.
 7. Obnovení systému.
-8. Dokumentace.
+8. Dokumentace
 9. Poškození a náklady na hodnocení.
 10. Proces a plán revize.
 
@@ -60,7 +61,7 @@ Během kontroly poškození a snížení rizika – fáze je potřeba rychle sn�
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Definování strategie ochrany dat](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
 ## <a name="see-also"></a>Viz také

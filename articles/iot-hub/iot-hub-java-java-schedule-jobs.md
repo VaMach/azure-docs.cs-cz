@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Úlohy plán a všesměrového vysílání (Java)
 
@@ -62,7 +62,7 @@ Pro absolvování tohoto kurzu potřebujete:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Pokud dáváte přednost pro vytvoření identity zařízení prostřednictvím kódu programu, najdete v příslušné části [připojení zařízení do služby IoT hub pomocí jazyka Java](iot-hub-java-java-getstarted.md#create-a-device-identity) článku. Můžete také [iothub-explorer](https://github.com/Azure/iothub-explorer) nástroje pro přidání zařízení do služby IoT hub.
+Pokud dáváte přednost pro vytvoření identity zařízení prostřednictvím kódu programu, najdete v příslušné části [připojení zařízení do služby IoT hub pomocí jazyka Java](iot-hub-java-java-getstarted.md#create-a-device-identity) článku. Můžete také [IoT rozšíření pro Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) nástroje pro přidání zařízení do služby IoT hub.
 
 ## <a name="create-the-service-app"></a>Vytvořit aplikaci aplikační služby
 
@@ -477,7 +477,7 @@ Nyní jste připraveni ke spuštění aplikace konzoly.
 
     ![Klient v zařízení reaguje na změny](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste nakonfigurovali novou službu IoT Hub na webu Azure Portal a potom jste vytvořili identitu zařízení v registru identit ve službě IoT Hub. Vytvořili jste back-end aplikačním spustit dvě úlohy. První úlohy nastavte hodnoty požadované vlastnosti a druhý úloha s názvem přímá metoda.
 

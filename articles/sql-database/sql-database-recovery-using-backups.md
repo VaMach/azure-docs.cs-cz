@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Obnovit pomocí zálohy automatizované databáze Azure SQL database
 SQL Database nabízí tyto možnosti pro databázi pomocí obnovení [automatizované zálohování databáze](sql-database-automated-backups.md) a [záloh v dlouhodobé uchovávání](sql-database-long-term-retention.md). Můžete obnovit ze zálohy databáze pro:
@@ -83,14 +83,14 @@ Obecně obnovení databáze do dřívějšího bodu pro účely obnovení. Když
 * ***Databáze nahrazení:*** Pokud obnovené databáze je určena k nahrazení původní databáze, byste měli ověřit úroveň výkonu a vrstvu služby jsou vhodné a škálovat databázi, v případě potřeby. Můžete přejmenovat původní databáze a pak umožnit obnovené databáze na původní název pomocí [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) v T-SQL. 
 * ***Obnovení dat:*** Pokud budete chtít načíst data z obnovené databáze pro obnovení po chybě uživatele nebo aplikace, budete muset zapisovat a spouštět skripty obnovení potřebná data extrahovat data z obnovené databáze do původní databáze. Přestože operace obnovení může být časově náročná, obnovení databáze je zobrazená v seznamu databáze v průběhu procesu obnovení. Odstranění databáze během obnovení zrušeny operace obnovení a vám není účtován databázi, která se nedokončila obnovení. 
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Pokud chcete obnovit do bodu v čase pomocí portálu Azure, otevřete stránku pro vaši databázi a klikněte na tlačítko **obnovení** na panelu nástrojů.
 
-![bod v době obnovení](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
+![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Obnovení odstraněné databáze
-K odstranění dobu odstraněnou databázi na stejný logický server pomocí portálu Azure můžete obnovit odstraněnou databázi [prostředí PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), nebo [REST (createMode = obnovit)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+K odstranění dobu odstraněnou databázi na stejný logický server pomocí portálu Azure můžete obnovit odstraněnou databázi [prostředí PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), nebo [REST (createMode = obnovit)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Můžete obnovit odstraněnou databázi do dřívějšího bodu v době uchování pomocí [prostředí PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > Skript prostředí PowerShell ukázkový znázorňující postup obnovit odstraněnou databázi, naleznete v části [obnovte databázi SQL pomocí prostředí PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -100,14 +100,14 @@ K odstranění dobu odstraněnou databázi na stejný logický server pomocí po
 > Pokud odstraníte instanci serveru Azure SQL Database, budou odstraněny také její databáze a nelze jej obnovit. Aktuálně neexistuje žádná podpora pro obnovení odstraněné serveru.
 > 
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Chcete-li obnovit odstraněnou databázi během jeho [dobu uchování](sql-database-service-tiers.md) pomocí portálu Azure, otevřete stránku pro váš server a v oblasti operace, klikněte na tlačítko **odstranila databáze**.
 
-![Odstranit database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
+![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
 
-![Odstranit database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
+![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 ## <a name="geo-restore"></a>Geografické obnovení
 Můžete obnovit databázi SQL na libovolném serveru v libovolné oblasti Azure z nejnovější geograficky replikované úplné a rozdílové zálohy. Geografické obnovení používá geograficky redundantní zálohy jako zdroj a slouží k obnovení databáze, i když je nedostupná v důsledku výpadku databáze nebo datacenter. 
@@ -126,7 +126,7 @@ Obnovení bodu v čase geo sekundární není aktuálně podporován. V okamžik
 > Obnovení ze zálohy je nejzákladnější řešení zotavení po havárii, která je k dispozici v databázi SQL s cíl bodu nejdelší obnovení (RPO) a odhad obnovení čas (Vložit). Pro řešení pomocí základní databáze geografické obnovení je často přiměřené řešení zotavení po Havárii s vložit 12 hodin. Pro řešení pomocí větší Standard nebo Premium databází, které vyžadují kratší časy obnovení, měli byste zvážit použití [aktivní geografickou replikací](sql-database-geo-replication-overview.md). Aktivní geografickou replikací nabízí mnohem menší plánovaný bod obnovení a vložit jako vyžaduje pouze zahájit převzetí služeb při selhání na nepřetržitě replikované sekundární. Další informace o možnosti kontinuity obchodních najdete v tématu [přehled kontinuity podnikových procesů](sql-database-business-continuity.md).
 > 
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 K geografické obnovení a databáze během jeho [dobu uchování](sql-database-service-tiers.md) pomocí portálu Azure, otevřete stránku databází SQL a pak klikněte na tlačítko **přidat**. V **zvolit zdroj** textového pole, vyberte **zálohování**. Zadejte záloha, ze které se má provést obnovení v oblasti a na serveru podle svého výběru. 
 
@@ -139,7 +139,7 @@ Jako uvedeno výše, kromě portálu Azure lze provést obnovení databáze prog
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Získá jednu nebo více databází. |
 | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Získá odstraněné databáze, kterou můžete obnovit. |
 | [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Získá geograficky redundantní zálohy databáze. |
-| [Obnovení AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Obnoví databázi SQL. |
+| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Obnoví databázi SQL. |
 |  | |
 
 ### <a name="rest-api"></a>REST API
@@ -152,7 +152,7 @@ Jako uvedeno výše, kromě portálu Azure lze provést obnovení databáze prog
 ## <a name="summary"></a>Souhrn
 Automatické zálohování chránit vaše databáze z uživatelů a chyby aplikace, databáze náhodného odstranění a provozu v případě delších výpadků. Tato integrované funkce je dostupná pro všechny úrovně služeb a úrovně výkonu. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Přehled kontinuity obchodních a scénářů najdete v tématu [obchodní kontinuity přehled](sql-database-business-continuity.md).
 * Další informace o Azure SQL Database automatizované zálohování najdete v tématu [automatizované zálohování SQL Database](sql-database-automated-backups.md).
 * Další informace o dlouhodobé uchovávání záloh, najdete v části [dlouhodobé uchovávání záloh](sql-database-long-term-retention.md).

@@ -3,7 +3,7 @@ title: "Rozdíly a důležité informace pro virtuální počítače v Azure zá
 description: "Další informace o rozdílech a důležité informace při práci s virtuálními počítači v Azure zásobníku."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Důležité informace pro virtuální počítače v Azure zásobníku
 
@@ -28,7 +28,7 @@ Virtuální počítače jsou na vyžádání, škálovatelných výpočetních p
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Tahák: rozdíly virtuálního počítače
 
-| Funkce | Azure (globální) | Azure Stack |
+| Funkce | Azure (global) | Azure Stack |
 | --- | --- | --- |
 | Bitové kopie virtuálních počítačů | Azure Marketplace obsahuje bitové kopie, které můžete použít k vytvoření virtuálního počítače. Najdete v článku [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) stránky pro zobrazení seznamu bitových kopií, které jsou k dispozici v Azure Marketplace. | Ve výchozím nastavení nejsou k dispozici všechny Image, k dispozici v zásobníku Azure marketplace. Správce cloudu Azure zásobníku by měla publikovat nebo před uživatelé používají stáhli bitové kopie do zásobníku Azure marketplace. |
 | Velikosti virtuálních počítačů | Azure podporuje širokou škálu velikostí pro virtuální počítače. Další informace o dostupných velikostí a možnosti, naleznete [velikosti virtuálních počítačů Windows](../../virtual-machines/virtual-machines-windows-sizes.md) a [velikostí virtuálních počítačů Linux](../../virtual-machines/linux/sizes.md) témata. | Azure zásobníku podporuje podmnožinu velikostí virtuálních počítačů, které jsou k dispozici v Azure. Chcete-li zobrazit seznam podporovaných velikostí, naleznete [velikostí virtuálních počítačů](#virtual-machine-sizes) tohoto článku. |
@@ -59,7 +59,7 @@ Velikosti virtuálních počítačů a jejich přidružených prostředků počt
 
 ## <a name="virtual-machine-extensions"></a>Rozšíření virtuálních počítačů
 
- Development Kit zásobník Azure podporuje následující verze rozšíření virtuálního počítače:
+ Zásobník Azure podporuje následující verze rozšíření virtuálního počítače:
 
 ![Rozšíření virtuálních počítačů](media/azure-stack-vm-considerations/vm-extensions.png)
 
@@ -75,7 +75,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 ## <a name="api-versions"></a>Verze rozhraní API
 
-Funkce virtuálních počítačů v Azure zásobníku Development Kit podporují následující verze rozhraní API:
+Funkce virtuálních počítačů v Azure zásobníku podporují následující verze rozhraní API:
 
 ![Typy prostředků virtuálních počítačů](media/azure-stack-vm-considerations/vm-resoource-types.png)
 

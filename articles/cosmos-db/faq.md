@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Nejčastější dotazy k Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Základy Azure Cosmos DB
@@ -28,7 +28,7 @@ Azure Cosmos DB je globálně replikované databáze, více modelu služba, kter
 
 Azure Cosmos DB je správným řešením pro webové, mobilní a herní, a aplikace či aplikace IoT při předvídatelnou propustnost, vysokou dostupnost, nízkou latenci a bez schémat datového modelu jsou klíčové požadavky. Poskytuje flexibilitu schémat a bohaté indexování a zahrnuje podporu transakcí několika dokumentů s integrovaným JavaScriptem. 
 
-Další databáze otázky, odpovědi a pokyny pro nasazení a používání této služby najdete v tématu [dokumentace stránky Azure Cosmos DB] ((https://docs.microsoft.com/azure/cosmos-db/).
+Další databáze otázky, odpovědi a pokyny pro nasazení a používání této služby najdete v tématu [stránce dokumentace Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### <a name="what-happened-to-the-documentdb-api"></a>Co se stalo rozhraní API DocumentDB?
 
@@ -74,7 +74,16 @@ Pokud jste Azure ještě nepoužívali, můžete si zaregistrovat [bezplatný ú
 Můžete také [emulátoru DB Cosmos Azure](local-emulator.md) pro vývoj a testování vaší aplikace místně pro uvolnění bez vytváření předplatného Azure. Až budete spokojeni s jak funguje aplikaci v emulátoru DB Cosmos Azure, můžete přejít k používání účtu Azure Cosmos DB v cloudu.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Jak můžete získat další pomoc s Azure Cosmos DB?
-Pokud potřebujete pomoc, oslovení nám na [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) nebo [fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), nebo zasláním e-mailu můžete naplánovat očima chat s technického týmu Azure Cosmos DB [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
+
+Položte technické dotazy, můžete odeslat na jednu z těchto dvou otázku a odpovědět fóra:
+* [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Přetečení zásobníku](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Přetečení zásobníku je nejvhodnější pro dotazy programování. Zkontrolujte, že váš dotaz je [na téma](https://stackoverflow.com/help/on-topic) a [zadejte tolik podrobnosti nejdříve provádění na otázku, zrušte zaškrtnutí a který jej](https://stackoverflow.com/help/how-to-ask). 
+
+Pokud chcete požádat o nové funkce, vytvořit novou žádost o na [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+
+Chcete-li vyřešit problém s vaším účtem, souborů [žádost o podporu](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) na portálu Azure.
+
+Další otázky, můžete odeslat týmu v [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); ale to není alias se na technickou podporu. 
 
 <a id="try-cosmos-db"></a>
 ## <a name="try-azure-cosmos-db-subscriptions"></a>Zkuste předplatných Azure Cosmos DB
@@ -206,10 +215,10 @@ Existují určité rozdíly chování, které uživatelé pocházejících z Azu
 Z hlediska rozhraní REST API existuje několik možností koncových bodů nebo dotazu, které nepodporuje rozhraní API služby Azure Cosmos DB tabulky:
 | Metodu nebo metody REST | Možnost koncový bod/dotazu REST | Adresy URL dokumentu | Vysvětlení |
 | ------------| ------------- | ---------- | ----------- |
-| GET A PUT | /? restype =service@comp= vlastnosti| [Nastavit vlastnosti služby Table](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) a [získat vlastnosti služby Table](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Tento koncový bod se používá k nastavení pravidla CORS, konfigurace úložiště analýzy a nastavení protokolování. Protokolování a analýza jsou zpracovávány jinak v Azure DB Cosmos než úložiště tabulek Azure a CORS není aktuálně podporována. |
-| MOŽNOSTI | / < název tabulky zdroje > | [Požadavek tabulky před letu CORS](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Toto je část CORS, která Azure Cosmos DB v současné době nepodporuje. |
+| GET, PUT | /? restype =service@comp= vlastnosti| [Nastavit vlastnosti služby Table](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) a [získat vlastnosti služby Table](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Tento koncový bod se používá k nastavení pravidla CORS, konfigurace úložiště analýzy a nastavení protokolování. Protokolování a analýza jsou zpracovávány jinak v Azure DB Cosmos než úložiště tabulek Azure a CORS není aktuálně podporována. |
+| MOŽNOSTI | /<table-resource-name> | [Požadavek tabulky před letu CORS](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Toto je část CORS, která Azure Cosmos DB v současné době nepodporuje. |
 | GET | /? restype =service@comp= statistiky | [Získat statistiky služby Table](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Poskytuje informace o tom, jak rychle replikuje data mezi primární a sekundární repliky. Toto není nutné Cosmos DB jako replikace je součástí zápisy. |
-| GET A PUT | /mytable? comp = seznamu acl | [Získejte tabulku seznamu ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) a [nastavit tabulky seznamu ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | To získá a nastaví zásady uložené přístupu používat ke správě podpisy sdíleného přístupu (SAS). I když SAS se podporuje, jsou nastavit a spravovat jinak. |
+| GET, PUT | /mytable? comp = seznamu acl | [Získejte tabulku seznamu ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) a [nastavit tabulky seznamu ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | To získá a nastaví zásady uložené přístupu používat ke správě podpisy sdíleného přístupu (SAS). I když SAS se podporuje, jsou nastavit a spravovat jinak. |
 
 Kromě toho rozhraní API služby Azure Cosmos DB tabulka podporuje jenom formátu JSON, není ATOM.
 
@@ -220,7 +229,7 @@ Pro .NET SDK konkrétně, existují některé třídy a metody, které databázi
 | Třída | Nepodporované – metoda |
 |-------|-------- |
 | CloudTableClient | \*ServiceProperties * |
-|                  | \*ServiceStats * |
+|                  | \*ServiceStats* |
 | CloudTable | Měli * |
 |            | GetPermissions * |
 | TableServiceContext | * (Tato třída je ve skutečnosti zastaralý) |
@@ -235,7 +244,7 @@ Váš názor můžete sdílet v některém z následujících způsobů:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Přetečení zásobníku](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Přetečení zásobníku je nejvhodnější pro dotazy programování. Zkontrolujte, že váš dotaz je [na téma](https://stackoverflow.com/help/on-topic) a [zadejte tolik podrobnosti nejdříve provádění na otázku, zrušte zaškrtnutí a který jej](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Co je připojovací řetězec, který je nutné použít pro připojení k rozhraní API tabulky?
 Připojovací řetězec je:
@@ -248,7 +257,7 @@ Na stránce připojovací řetězec na portálu Azure můžete získat připojov
 Informace o nastavení konfigurace najdete v tématu [možnosti Azure Cosmos DB](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). Některá nastavení jsou zpracovávány o CreateCloudTableClient metoda a dalších pomocí souboru app.config v sekci appSettings klientské aplikace.
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Existují změny pro zákazníky, kteří používají je stávající úložiště Azure Table sady SDK?
-Žádné. Neexistují žádné změny pro existující nebo nové zákazníky, kteří používají je stávající úložiště Azure Table sady SDK. 
+Žádné Neexistují žádné změny pro existující nebo nové zákazníky, kteří používají je stávající úložiště Azure Table sady SDK. 
 
 ### <a name="how-do-i-view-table-data-that-is-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Zobrazení tabulky dat, které jsou uložené v Azure Cosmos DB pro použití s rozhraním API pro tabulku? 
 Na portálu Azure můžete procházet data. Můžete také použít kódu rozhraní API tabulky nebo uvedené v další odpovědí nástroje. 
@@ -382,7 +391,7 @@ Ano, můžete na portálu Azure Cosmos DB škálování podokně škálování p
 Ano, pokud TableThroughput prostřednictvím app.config nepotlačí a nepoužívejte kontejner předem vytvořené v Azure Cosmos DB, služba vytvoří tabulku s propustností 400.
  
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Je k dispozici žádné změně ceny pro stávající zákazníky služby Azure Table storage?
-Žádné. Neexistuje žádná změna v ceny pro stávající zákazníky služby úložiště Azure Table. 
+Žádné Neexistuje žádná změna v ceny pro stávající zákazníky služby úložiště Azure Table. 
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Výpočtu ceny pro rozhraní API tabulky 
 Cena závisí na přidělené TableThroughput. 

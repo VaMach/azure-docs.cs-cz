@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Připojte se k databázi Cosmos Azure pomocí nástrojů BI analýzy pomocí ovladače ODBC
 
@@ -38,9 +38,11 @@ Teď umožňuje Začínáme pomocí ovladače ODBC.
 
 1. Stáhněte si ovladače pro vaše prostředí:
 
-    * [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) pro 64bitový systém Windows
-    * [Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) pro 32bitovou verzi na 64bitovém systému Windows
-    * [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) pro 32bitový systém Windows
+    | Instalační program | Podporované operační systémy| 
+    |---|---| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) pro 64bitový systém Windows| 64bitová verze Windows 8.1 nebo novější, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 a Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) pro 32bitovou verzi na 64bitovém systému Windows| 64bitové verze Windows 8.1 nebo novější, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 a Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) pro 32bitový systém Windows|32bitové verze Windows 8.1 nebo novější, Windows 8, Windows 7, Windows XP a Windows Vista.|
 
     Spusťte soubor msi místně, která se spouští **Průvodce instalací ovladačů DB Microsoft Azure Cosmos ODBC**. 
 2. Dokončení Průvodce instalací pomocí výchozího vstup pro instalaci ovladače ODBC.
@@ -58,16 +60,16 @@ Teď umožňuje Začínáme pomocí ovladače ODBC.
     ![Azure okno nastavení DSN ovladač ODBC pro Cosmos DB](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Název zdroje dat**: vlastní popisný název DSN rozhraní ODBC. Tento název je jedinečný pro váš účet Azure Cosmos DB, takže název správně Pokud máte více účtů.
     - **Popis**: stručný popis zdroje dat.
-    - **Hostitele**: identifikátor URI pro váš účet Azure Cosmos DB. Můžete načíst to z okna Azure Cosmos DB klíče na portálu Azure, jak je znázorněno na následujícím snímku obrazovky. 
-    - **Přístup ke klíči**: primární nebo sekundární, čtení a zápis nebo jen pro čtení klíče z okna Azure Cosmos DB klíče na portálu Azure, jak je znázorněno na následujícím snímku obrazovky. Doporučujeme, že abyste použili klíč jen pro čtení, pokud název zdroje dat se používá pro zpracování dat jen pro čtení a vytváření sestav.
-    ![Azure okna klíče DB Cosmos](./media/odbc-driver/odbc-driver-keys.png)
+    - **Hostitele**: identifikátor URI pro váš účet Azure Cosmos DB. Můžete načíst to ze stránky Azure Cosmos DB klíče na portálu Azure, jak je znázorněno na následujícím snímku obrazovky. 
+    - **Přístup ke klíči**: klíč primární nebo sekundární, čtení a zápis nebo jen pro čtení z klíče DB Cosmos Azure stránky na portálu Azure, jak je znázorněno na následujícím snímku obrazovky. Doporučujeme, že abyste použili klíč jen pro čtení, pokud název zdroje dat se používá pro zpracování dat jen pro čtení a vytváření sestav.
+    ![Stránky Azure DB klíče Cosmos](./media/odbc-driver/odbc-driver-keys.png)
     - **Přístupový klíč pro šifrování**: vybrat nejlepší volbou založená na uživatelích tohoto počítače. 
 4. Klikněte **Test** tlačítko a ujistěte se, zda se můžete připojit ke svému účtu Azure Cosmos DB. 
 5. Klikněte na tlačítko **pokročilé možnosti** a nastavte následující hodnoty:
     - **Dotaz konzistence**: vyberte [úroveň konzistence](consistency-levels.md) pro operace. Výchozí hodnota je relace.
     - **Počet opakovaných pokusů**: Zadejte počet pokusů o opakování operace, pokud úvodního požadavku není dokončena z důvodu omezení služby.
     - **Soubor se schématem**: Zde máte několik možností.
-        - Ve výchozím nastavení tato položka, jako je (prázdný), a kontroluje ovladače data na první stránce pro všechny kolekce k určení schéma každou kolekci. To se označuje jako kolekce mapování. Bez soubor schéma definované ovladače se má provést kontrola pro každou relaci ovladačů a může mít za následek vyšší spuštění provoz aplikace pomocí DSN. Doporučujeme vždy přiřadit soubor schématu pro zdroje dat DSN.
+        - Ve výchozím nastavení tato položka, jako je (prázdný), a kontroluje ovladače data na první stránce pro všechny kolekce k určení schéma každou kolekci. To se označuje jako kolekce mapování. Bez soubor schéma definované ovladače se má provést kontrola pro každou relaci ovladačů a může mít za následek vyšší doba spuštění aplikace pomocí DSN. Doporučujeme vždy přiřadit soubor schématu pro zdroje dat DSN.
         - Pokud již máte soubor schématu (může být ten, který jste vytvořili pomocí [schématu Editor](#schema-editor)), můžete kliknout na **Procházet**, přejděte k souboru, klikněte na **Uložit**a potom klikněte na **OK**.
         - Pokud chcete vytvořit nové schéma, klikněte na tlačítko **OK**a potom klikněte na **schématu Editor** v hlavním okně. Pak pokračujte [schématu Editor](#schema-editor) informace. Při vytváření nového souboru schématu, nezapomeňte prosím vraťte se **pokročilé možnosti** okno zahrnout schématu nově vytvořený soubor.
 
@@ -148,4 +150,4 @@ Pokud se zobrazí následující chyba, zkontrolujte **hostitele** a **přístup
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o databázi Cosmos Azure najdete v tématu [co je Azure Cosmos DB?](introduction.md).
+Další informace o databázi Cosmos Azure najdete v tématu [Vítá vás Azure Cosmos DB](introduction.md).

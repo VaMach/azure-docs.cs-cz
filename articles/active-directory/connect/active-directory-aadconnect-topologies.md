@@ -3,7 +3,7 @@ title: "Azure AD Connect: Podporované topologie | Microsoft Docs"
 description: "Toto téma podrobnosti podporované a nepodporované topologie pro Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie pro Azure AD Connect
 Tento článek popisuje různé místní a topologie služby Azure Active Directory (Azure AD), které využívají synchronizace Azure AD Connect jako klíče integrační řešení. Tento článek obsahuje podporované a nepodporované konfigurace.
@@ -178,7 +178,7 @@ Záměrně jsou izolované klienty Azure AD. Tyto úlohy nejsou podporovány:
 
 FIM 2010 nebo MIM 2016 místní můžete použít k synchronizaci uživatelů (prostřednictvím GALSync) mezi dvěma organizacemi Exchange. Uživatelé v jedné organizaci se zobrazí jako cizí uživatele a kontakty v jiné organizaci. Tyto jiné místní služby Active Directory instance může synchronizováni s vlastní klienty Azure AD.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Informace o instalaci Azure AD Connect pro tyto scénáře, najdete v tématu [vlastní instalace Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.

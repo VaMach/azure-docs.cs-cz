@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a27c3555f36560f8c945d997a15e98a42e1e5d4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Řízení přístupu k IoT Hubu
 
@@ -87,7 +87,7 @@ V obou případech pole pro heslo obsahuje token, jak je popsáno v [tokeny zabe
 
 HTTPS implementuje ověřování zahrnutím platný token v **autorizace** hlavičky žádosti.
 
-#### <a name="example"></a>Příklad
+#### <a name="example"></a>Příklad:
 
 Uživatelské jméno (DeviceId je malá a velká písmena):`iothubname.azure-devices.net/DeviceId`
 
@@ -134,7 +134,7 @@ Zde jsou očekávaných hodnot:
 | --- | --- |
 | {podpis} |Řetězec podpisu HMAC SHA256 ve tvaru: `{URL-encoded-resourceURI} + "\n" + expiry`. **Důležité**: klíč je dekódovat z formátu base64 a použít jako klíč, aby prováděly výpočty HMAC SHA256. |
 | {resourceURI} |Předpony identifikátoru URI (podle segmentu) koncových bodů, které lze přistupovat pomocí tohoto tokenu, počínaje název hostitele služby IoT hub (žádné protocol). Například `myHub.azure-devices.net/devices/device1`. |
-| {vypršení platnosti} |Řetězce UTF8 pro počet sekund od 00:00:00 UTC epoch na 1. ledna pod hodnotou 1970. |
+| {expiry} |Řetězce UTF8 pro počet sekund od 00:00:00 UTC epoch na 1. ledna pod hodnotou 1970. |
 | {Adresu URL-kódovaný resourceURI} |Nižší případ kódování URL prostředku malá identifikátor URI |
 | {policyName} |Název zásady sdíleného přístupu, na který odkazuje tento token. Chybějící Pokud token odkazuje na přihlašovací údaje registru zařízení. |
 
@@ -268,7 +268,7 @@ Výsledek, který uděluje přístup ke všem funkcím pro device1, bude:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Je možné vytvořit token SAS pomocí .NET [explorer zařízení] [ lnk-device-explorer] nástroje nebo a platformy, na základě uzlu [iothub-explorer] [ lnk-iothub-explorer]nástroj příkazového řádku.
+> Je možné vytvořit token SAS pomocí .NET [explorer zařízení] [ lnk-device-explorer] nástroje nebo a platformy, na základě Python [IoT rozšíření pro Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] nástroj příkazového řádku.
 
 ### <a name="use-a-shared-access-policy"></a>Použijte zásady sdíleného přístupu
 
@@ -441,7 +441,7 @@ Další témata referenční příručka vývojáře IoT Hub patří:
 * [IoT Hub dotazovací jazyk] [ lnk-query] popisuje dotazovací jazyk, můžete použít k načtení informací ze služby IoT Hub o úlohách a dvojčata zařízení.
 * [Podpora IoT Hub MQTT] [ lnk-devguide-mqtt] poskytuje další informace o podpoře služby IoT Hub pro protokol MQTT.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste se naučili řízení přístupu služby IoT Hub, možná by vás také zajímat v následujících tématech Příručka vývojáře IoT Hub:
 
@@ -487,7 +487,7 @@ Pokud chcete vyzkoušet některé konceptů popsaných v tomto článku, najdete
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

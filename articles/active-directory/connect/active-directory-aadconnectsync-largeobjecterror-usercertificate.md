@@ -1,9 +1,9 @@
 ---
-title: "Synchronizace Azure AD Connect: LargeObject zpracování chyb vzniklých při userCertificate atribut | Microsoft Docs"
+title: "Azure AD Connect – LargeObject chyby způsobené userCertificate atribut | Microsoft Docs"
 description: "Toto téma obsahuje postup nápravy LargeObject chyby způsobené userCertificate atribut."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronizace Azure AD Connect: LargeObject zpracování chyb vzniklých při userCertificate atribut
 
@@ -90,8 +91,8 @@ Měla by existovat existující synchronizační pravidlo, které je povolené a
     | --- | --- |
     | Směr |**Odchozí** |
     | Typ objektu MV |**Osoba** |
-    | konektor |*název vašeho konektoru služby Azure AD* |
-    | Typ objektu konektoru |**uživatel** |
+    | Konektor |*název vašeho konektoru služby Azure AD* |
+    | Typ objektu konektoru |**user** |
     | Atribut MV |**userCertificate** |
 
 3. Pokud používáte OOB (out-of-box) synchronizační pravidla pro Azure AD connector. Chcete-li exportovat userCertficiate atribut pro uživatelské objekty, měli byste obdržet *"Se do AAD – uživatel ExchangeOnline"* pravidlo.
@@ -113,10 +114,10 @@ Nové pravidlo synchronizace musí mít stejnou **oboru filtru** a **vyšší pr
 
     | Atribut | Hodnota | Podrobnosti |
     | --- | --- | --- |
-    | Name (Název) | *Zadejte název* | Například *"Se aad – vlastní přepsání pro userCertificate"* |
+    | Název | *Zadejte název* | Například *"Se aad – vlastní přepsání pro userCertificate"* |
     | Popis | *Zadejte popis* | Například *"Pokud userCertificate atribut má více než 15 hodnot, export hodnotu NULL."* |
     | Připojený systém | *Vyberte konektoru služby Azure AD* |
-    | Typ objektu systému připojené | **uživatel** | |
+    | Typ objektu systému připojené | **user** | |
     | Typ objektu úložiště Metaverse | **osoba** | |
     | Typ propojení | **Spojení** | |
     | Priorita | *Zvolili číslo mezi 1 a 99* | Číslo zvolený nesmí používat žádné existující pravidlo synchronizace a má nižší hodnotu (a tedy vyšší prioritu) než existující synchronizační pravidlo. |
@@ -127,8 +128,8 @@ Nové pravidlo synchronizace musí mít stejnou **oboru filtru** a **vyšší pr
 
     | Atribut | Hodnota |
     | --- | --- |
-    | Typ toku |**Výraz** |
-    | Atribut target |**userCertificate** |
+    | Typ toku |**Expression** |
+    | Cílový atribut |**userCertificate** |
     | Zdrojový atribut |*Použijte následující výraz*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Klikněte **přidat** tlačítko pro vytvoření pravidla synchronizace.
@@ -177,6 +178,6 @@ Teď, když je problém vyřešen, znovu povolte plánovače předdefinované sy
 > [!Note]
 > Předchozí kroky platí pouze pro novější verze (1.1.xxx.x) služby Azure AD Connect s integrovanou plánovače. Pokud používáte starší verze (1.0.xxx.x) služby Azure AD Connect, který používá plánovače úloh systému Windows nebo používáte vlastní vlastní plánovače (ne běžné) k aktivaci periodickou synchronizaci, musíte je zakázat odpovídajícím způsobem.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
 

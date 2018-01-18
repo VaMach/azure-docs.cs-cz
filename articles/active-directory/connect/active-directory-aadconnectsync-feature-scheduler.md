@@ -3,7 +3,7 @@ title: 'Synchronizace Azure AD Connect: Scheduler | Microsoft Docs'
 description: "Toto téma popisuje funkci integrované plánovače v synchronizaci Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 418dcf67844bff7352b63db31ddfa3be3f7f29e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizace Azure AD Connect: plánovače
 Toto téma popisuje předdefinované plánovače v synchronizaci Azure AD Connect (také známa jako synchronizační modul).
@@ -168,7 +168,7 @@ Na obrázku výše je první řádek z stavu, kdy je synchronizační modul neč
 ## <a name="scheduler-and-installation-wizard"></a>Průvodce Plánovač a instalace
 Pokud spustíte Průvodce instalací, Plánovač dočasně pozastaveno. Toto chování je vzhledem k tomu, že se předpokládá, provedete změny v konfiguraci a nelze ji použít tato nastavení, pokud aktivně synchronizační modul běží. Z tohoto důvodu nenechávejte Průvodce instalací otevřete vzhledem k tomu, že zastaví synchronizační modul provádět všechny akce synchronizace.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
