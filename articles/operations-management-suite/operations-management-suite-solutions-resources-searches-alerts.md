@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Přidání analýzy protokolů uložené hledání a výstrahy OMS řešení pro správu (Preview)
 
@@ -45,17 +45,14 @@ Název pracovního prostoru je názvu každého prostředku analýzy protokolů.
 ## <a name="log-analytics-api-version"></a>Verze rozhraní API analýzy protokolů
 Všechny prostředky analýzy protokolů, které jsou definované v šabloně Resource Manager mít vlastnost **apiVersion** verzi rozhraní API by měl použít na prostředek, který definuje.  Tato verze je pro prostředky, které používají jiné [starší verze a upgradovaný dotazovací jazyk](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- Následující tabulka obsahuje verze Log Analytics API pro starší verze a upgradovali pracovních prostorů a ukázkový dotaz pro každé zadejte jinou syntaxi. 
+ Následující tabulka obsahuje verze rozhraní API analýzy protokolů pro uložená hledání ve starší verzi a upgradovali pracovních prostorů: 
 
-| Verze pracovního prostoru | Verze rozhraní API | Ukázkový dotaz |
+| Verze pracovního prostoru | Verze API | Dotaz |
 |:---|:---|:---|
-| V1 (starší)   | 2015-11-01-preview | Typ = událostí EventLevelName = chyby             |
-| v2 (upgradu) | 2017-03-15-preview | Událost &#124; kde EventLevelName == "Error.  |
+| V1 (starší)   | 2015-11-01-preview | Starší verze formátu.<br> Příklad: Zadejte = událostí EventLevelName = chyby  |
+| v2 (upgradu) | 2015-11-01-preview | Starší verze formátu.  Převedeny na formát upgradované na instalaci.<br> Příklad: Zadejte = událostí EventLevelName = chyby<br>Převést na: Událost &#124; kde EventLevelName == "Error.  |
+| v2 (upgradu) | 2017-03-03-preview | Upgrade formátu. <br>Příklad: Událost &#124; kde EventLevelName == "Error.  |
 
-Vezměte na vědomí následující, pro které jsou podporovány pracovní prostory v různých verzích.
-
-- V pracovním prostoru starší verze nebo upgradované lze nainstalovat šablony, které používají starší verze dotazovací jazyk.  Pokud nainstalovaná v upgradované prostoru, se při spuštění uživatelem dotazy převedou za chodu nový jazyk.
-- Šablony používající upgradovaný dotazovací jazyk lze nainstalovat pouze v upgradované prostoru.
 
 
 ## <a name="saved-searches"></a>Uložená hledání
@@ -85,7 +82,7 @@ Každou vlastnost uloženého hledání jsou popsané v následující tabulce.
 | Vlastnost | Popis |
 |:--- |:--- |
 | category | Kategorie pro uložené hledání.  Všechny uložená hledání ve stejném řešení, bude často sdílet jednu kategorii, jsou seskupeny dohromady v konzole. |
-| DisplayName | Název zobrazení pro uložené hledání na portálu. |
+| displayname | Název zobrazení pro uložené hledání na portálu. |
 | query | Dotaz spustit. |
 
 > [!NOTE]
@@ -132,7 +129,7 @@ Vlastnosti pro plán prostředky jsou popsány v následující tabulce.
 |:--|:--|:--|
 | povoleno       | Ano | Určuje, zda je povoleno výstrahu, když je vytvořeno. |
 | interval      | Ano | Jak často spuštění dotazu v minutách. |
-| QueryTimeSpan | Ano | Časový interval v minutách, přes který vyhodnotit výsledky. |
+| queryTimeSpan | Ano | Časový interval v minutách, přes který vyhodnotit výsledky. |
 
 Plán prostředku by měl závisí na uloženého hledání tak, aby se vytvoří před plán.
 
@@ -190,12 +187,12 @@ Vlastnosti výstrah akce prostředky jsou popsané v následujících tabulkách
 | Název elementu | Požaduje se | Popis |
 |:--|:--|:--|
 | Typ | Ano | Typ akce.  Toto je **výstraha** pro akce výstrah. |
-| Name (Název) | Ano | Zobrazovaný název výstrahy.  Toto je název, který se zobrazí v konzole pro pravidlo výstrahy. |
+| Název | Ano | Zobrazovaný název výstrahy.  Toto je název, který se zobrazí v konzole pro pravidlo výstrahy. |
 | Popis | Ne | Volitelný popis výstrahy. |
 | Závažnost | Ano | Závažnost výstrahy záznam z následujících hodnot:<br><br> **Kritické**<br>**Upozornění**<br>**Informační** |
 
 
-##### <a name="threshold"></a>Prahová hodnota
+##### <a name="threshold"></a>Mezní hodnota
 Tento oddíl je povinný.  Definuje vlastnosti prahové hodnoty pro výstrahu.
 
 | Název elementu | Požaduje se | Popis |
@@ -228,12 +225,12 @@ Tato část je volitelné.  Pokud chcete pro potlačení výstrahy ze stejného 
 
 | Název elementu | Požaduje se | Popis |
 |:--|:--|:--|
-| Příjemce | Ano | Čárkami oddělený seznam e-mailové adresy k odesílání oznámení, pokud je výstrahy vytvořeny jako v následujícím příkladu.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Příjemci | Ano | Čárkami oddělený seznam e-mailové adresy k odesílání oznámení, pokud je výstrahy vytvořeny jako v následujícím příkladu.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Předmět | Ano | Řádek předmětu e-mailu. |
-| Přílohy | Ne | Přílohy nejsou aktuálně podporovány.  Pokud tento element je zahrnuto, by měla být **žádné**. |
+| Příloha | Ne | Přílohy nejsou aktuálně podporovány.  Pokud tento element je zahrnuto, by měla být **žádné**. |
 
 
-##### <a name="remediation"></a>Nápravy
+##### <a name="remediation"></a>Náprava
 Tato část je volitelný ho zahrňte, pokud chcete sadu runbook spustit v reakci na výstrahy. |
 
 | Název elementu | Požaduje se | Popis |
@@ -520,7 +517,7 @@ Následující soubor parametrů obsahuje hodnoty ukázky pro toto řešení.
     }
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Přidání zobrazení](operations-management-suite-solutions-resources-views.md) do řešení pro správu.
 * [Přidat runbooků služeb automatizace a dalším prostředkům](operations-management-suite-solutions-resources-automation.md) do řešení pro správu.
 

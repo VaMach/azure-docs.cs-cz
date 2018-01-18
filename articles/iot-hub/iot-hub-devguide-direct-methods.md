@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Rady pro pochopení a volat přímé metody ze služby IoT Hub
 Centrum IoT vám dává možnost vyvolat přímé metody na zařízení z cloudu. Přímé metody představuje požadavek odpověď interakci s zařízení podobné volání protokolu HTTP v, které budou úspěch nebo neúspěch okamžitě (po časový limit definované uživatelem). Tento přístup je užitečné v případech, kde se liší v závislosti na tom, jestli se zařízení schopné reagovat, například odeslání služby SMS funkce wake-up do zařízení, pokud je zařízení offline (Probíhá dražší než volání metody SMS) během okamžitý zásah.
-
 Každá metoda zařízení cílí jedno zařízení. [Úlohy] [ lnk-devguide-jobs] poskytnout způsob, jak volat přímé metody na několika zařízeních a naplánovat volání metody pro odpojené zařízení.
 
 Každý, kdo má **služba připojit** oprávnění na IoT Hub může vyvolat metodu na zařízení.
@@ -44,7 +43,7 @@ Přímé metody jsou synchronní a buď úspěšné nebo neúspěšné po uplynu
 
 Přímé metody jsou HTTPS jen z cloudu straně a MQTT nebo AMQP ze strany zařízení.
 
-Datová část pro metoda požadavky a odpovědi je až 8 KB dokumentu JSON.
+Datová část pro metoda požadavky a odpovědi je až 128 KB dokumentu JSON.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Volání metody přímé z back-end aplikace
 ### <a name="method-invocation"></a>Volání metody

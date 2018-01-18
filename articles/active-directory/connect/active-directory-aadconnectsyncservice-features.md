@@ -3,7 +3,7 @@ title: "Funkce služby synchronizace Azure AD Connect a konfigurace | Microsoft 
 description: "Popisuje funkce straně služby pro službu synchronizace Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 830692d6df6856e73b8c192db91edf75fdcaec35
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funkce služby Azure AD Connect sync
 Funkce synchronizace služby Azure AD Connect má dvě součásti:
@@ -31,13 +31,13 @@ Toto téma vysvětluje, jak tyto funkce **služba Azure AD Connect sync** práci
 Tato nastavení jsou konfigurována pomocí [Azure Active Directory modul pro prostředí Windows PowerShell](http://aka.ms/aadposh). Stáhněte a nainstalujte samostatně z Azure AD Connect. Rutiny popsané v tomto tématu se zavedly v [verze března 2016 (sestavení 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Pokud nemáte rutiny popsané v tomto tématu nebo nevedou stejný výsledek, zkontrolujte, že spustíte na nejnovější verzi.
 
 Chcete-li zobrazit konfigurace v adresáři služby Azure AD, spusťte `Get-MsolDirSyncFeatures`.  
-![Get-MsolDirSyncFeatures výsledek](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
+![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
 
 Mnoho z těchto nastavení můžete změnit jenom přes Azure AD Connect.
 
 Následující nastavení se dá nakonfigurovat pomocí `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Komentář |
+| DirSyncFeature | Poznámka |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Umožňuje objekty, které chcete připojit na userPrincipalName kromě primární adresa SMTP. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Umožňuje synchronizační modul aktualizovat atribut userPrincipalName pro spravované nebo licencovaných uživatelů (nefederovaných). |
@@ -51,7 +51,7 @@ Poté, co povolíte funkci nelze zakázat znovu.
 
 Následující nastavení jsou nakonfigurované přes Azure AD Connect a nelze změnit pomocí `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Komentář |
+| DirSyncFeature | Poznámka |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Povolení zpětného zápisu zařízení](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Synchronizace Azure AD Connect: rozšíření adresáře](active-directory-aadconnectsync-feature-directory-extensions.md) |
@@ -104,7 +104,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Po povolení této funkce, zůstanou existující hodnoty userPrincipalName jako-je. Při další změně userPrincipalName atribut místní normální rozdílová synchronizace na uživatele se aktualizuje název UPN.  
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Synchronizace služby Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrace místních identit s Azure Active Directory](active-directory-aadconnect.md).
 

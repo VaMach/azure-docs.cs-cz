@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Požadavky sítě pro Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Jak vybrat virtuální síť Azure
@@ -74,15 +74,15 @@ Následující porty jsou povinné pro Azure AD Domain Services do služby a úd
 * Je nutné povolit přístup na tento port ve vaší skupině. Bez přístupu na tento port není synchronizována s adresáře Azure AD vaší spravované domény. Uživatelé nebudou moci přihlásit, protože nejsou synchronizovány změny hesla k vaší spravované domény.
 * Příchozí přístup můžete omezit na tento port na IP adresy, které patří do rozsahu Azure IP adres.
 
-**Port 5986 (Vzdálená komunikace prostředí PowerShell)** 
+**Port 5986 (Vzdálená komunikace prostředí PowerShell)**
 * Slouží k provádění úloh správy pomocí vzdálenou komunikaci prostředí PowerShell na vaší spravované domény.
 * Je nutné povolit přístup pomocí tohoto portu ve vaší skupině. Bez přístupu na tento port vaší spravované domény nemůže být aktualizované, nakonfigurované, zálohované nebo monitorovaných.
-* Příchozí přístup můžete omezit na tento port pro následující zdrojové IP adresy: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* Příchozí přístup můžete omezit na tento port pro následující zdrojové IP adresy: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * Řadiče domény pro vaší spravované domény Nenaslouchat obvykle na tento port. Služba otevře tento port na spravovaných řadičích domény se jenom v případě, že operace údržby nebo správy je nutné provést pro spravovanou doménu. Při dokončení operace vypne službu tento port na spravovaných řadičích domény.
 
-**Port 3389 (Vzdálená plocha)** 
-* Používá se pro připojení ke vzdálené ploše na řadiče domény vaší spravované domény. 
-* Otevírání tohoto portu prostřednictvím vaší NSG je volitelný. 
+**Port 3389 (Vzdálená plocha)**
+* Používá se pro připojení ke vzdálené ploše na řadiče domény vaší spravované domény.
+* Otevírání tohoto portu prostřednictvím vaší NSG je volitelný.
 * Tento port je také zůstane na vaší spravované domény z velké části vypnuty. Tento mechanismus není průběžně použít, protože pro správu a sledování úkolů se provádí pomocí vzdálenou komunikaci prostředí PowerShell. Tento port se používá pouze v výjimečná událost, která Microsoft potřebuje vzdáleně připojit k vaší spravované domény pro pokročilé řešení problémů. Port je zavřený, při řešení potíží operace se dokončila.
 
 **Port 636 zabezpečený LDAP)**
@@ -99,7 +99,7 @@ Následující tabulka znázorňuje ukázku NSG můžete nakonfigurovat pro virt
 
 Kromě toho NSG také ukazuje, jak zamknout zabezpečený LDAP přístup přes internet. Přeskočte toto pravidlo, pokud jste nepovolili zabezpečený LDAP přístup k vaší spravované domény přes internet. NSG obsahuje sadu pravidel, která povolí příchozí LDAPS přístup přes port TCP 636 pouze ze zadané sady IP adres. Pravidla NSG pro povolení LDAPS přístupu přes internet ze zadaných IP adres má vyšší prioritu než skupina NSG DenyAll pravidlo.
 
-![Ukázka skupiny NSG k zabezpečení přístupu k LDAPS přes internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Ukázka skupiny NSG k zabezpečení přístupu k LDAPS přes internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **Další informace** - [vytvořit skupinu zabezpečení sítě](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -126,7 +126,7 @@ Virtuální síť využívající Resource Manager můžete připojit k Azure kl
     ![Připojení k virtuální síti pomocí partnerského vztahu](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Další informace - virtuální sítě partnerského vztahu](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **Připojení VNet-to-VNet pomocí připojení site-to-site VPN**: propojení virtuální sítě s jinou virtuální sítí (VNet-to-VNet) je podobné propojení virtuální sítě do umístění místního webu. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE.
 
     ![Připojení k virtuální síti s použitím brány VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

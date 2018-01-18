@@ -3,7 +3,7 @@ title: "Azure AD Connect: Principy deklarativní zřizování | Microsoft Docs"
 description: "Vysvětluje deklarativní zřizování konfigurační model v Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synchronizace Azure AD Connect: Principy deklarativní zřizování
 Toto téma vysvětluje konfigurační model v Azure AD Connect. Model se nazývá deklarativní zřizování a umožňuje snadno změníte konfiguraci. Celou řadu věcí, které jsou popsané v tomto tématu jsou rozšířené a není potřeba pro většinu scénářů zákazníka.
@@ -57,10 +57,10 @@ Modul oboru podporuje následující operace.
 | OBSAHUJE, NOTCONTAINS |Porovnat řetězec, která vyhodnotí Pokud hodnotu lze nalézt někde uvnitř hodnotu v atributu. |
 | STARTSWITH, NOTSTARTSWITH |Porovnat řetězec, který se vyhodnotí jako, pokud hodnota je na začátku hodnotu v atributu. |
 | ENDSWITH, NOTENDSWITH |Porovnat řetězec, který se vyhodnotí jako, pokud hodnota je na konci hodnotu v atributu. |
-| GREATERTHAN GREATERTHAN_OR_EQUAL |Porovnat řetězec, která vyhodnotí, pokud je hodnota vyšší než hodnota atributu. |
-| ISNULL ISNOTNULL |Vyhodnotí, jestli je chybí atribut z objektu. Pokud atribut není přítomen a proto hodnotu null, pravidlo je v oboru. |
-| ISIN ISNOTIN |Vyhodnotí, pokud je hodnota v definovaný atribut. Tato operace je více hodnot variantu ROVNO a NOTEQUAL. Atribut by měl být více hodnot atributů a pokud hodnotu lze najít na žádném ze hodnoty atributu, pak toto pravidlo je v oboru. |
-| ISBITSET ISNOTBITSET |Vyhodnotí, pokud je konkrétní bit nastavený. Například můžete použít k vyhodnocení bity v userAccountControl chcete zobrazit, pokud uživatel povolený nebo zakázaný. |
+| GREATERTHAN, GREATERTHAN_OR_EQUAL |Porovnat řetězec, která vyhodnotí, pokud je hodnota vyšší než hodnota atributu. |
+| ISNULL, ISNOTNULL |Vyhodnotí, jestli je chybí atribut z objektu. Pokud atribut není přítomen a proto hodnotu null, pravidlo je v oboru. |
+| ISIN, ISNOTIN |Vyhodnotí, pokud je hodnota v definovaný atribut. Tato operace je více hodnot variantu ROVNO a NOTEQUAL. Atribut by měl být více hodnot atributů a pokud hodnotu lze najít na žádném ze hodnoty atributu, pak toto pravidlo je v oboru. |
+| ISBITSET, ISNOTBITSET |Vyhodnotí, pokud je konkrétní bit nastavený. Například můžete použít k vyhodnocení bity v userAccountControl chcete zobrazit, pokud uživatel povolený nebo zakázaný. |
 | ISMEMBEROF ISNOTMEMBEROF |Hodnota by měla obsahovat rozlišující název pro skupinu v prostoru konektoru. Pokud se objekt členem skupiny zadán, je pravidlo v oboru. |
 
 ## <a name="join"></a>Spojit
@@ -148,7 +148,7 @@ Pokud máte několik objektů ve stejném připojený ke stejnému objektu úlo�
 Pro tento scénář potřebujete změnit obor pravidel synchronizace, takže zdrojové objekty mají různé synchronizační pravidla v oboru. Který umožňuje definovat jinou prioritu.  
 ![Více objektů spojeno do stejného objektu mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o jazyk výrazů v [Principy deklarativní zřizování výrazy](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Najdete v tématu Jak deklarativní zřizování je použité out-of-box v [Principy výchozí konfigurace](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Informace o tom, praktické změnit pomocí deklarativní zřizování v [jak provést změnu výchozí konfigurace](active-directory-aadconnectsync-change-the-configuration.md).

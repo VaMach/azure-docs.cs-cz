@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Nasazení hraniční brány pro připojené objekt pro vytváření předkonfigurovaného řešení v systému Windows nebo Linux
 
@@ -57,7 +57,7 @@ Během instalace Docker pro systém Windows vyberte jednotku na počítači host
 ![Nainstalujte Docker pro Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> Můžete také provést tento krok po instalaci dockerem **nastavení** dialogové okno. Klikněte pravým tlačítkem na **Docker** ikonu na hlavním panelu systému Windows a vyberte **nastavení**.
+> Můžete také provést tento krok po instalaci dockerem **nastavení** dialogové okno. Klikněte pravým tlačítkem na **Docker** ikonu na hlavním panelu systému Windows a vyberte **nastavení**. Pokud hlavní aktualizace systému Windows se nasadilo do systému, například aktualizaci Creators patří Windows, zrušení sdílení jednotky a sdílet je znovu a aktualizujte přístupová práva.
 
 Pokud používáte Linux, není nutná žádná další konfigurace pro povolení přístupu k systému souborů.
 
@@ -65,7 +65,7 @@ V systému Windows vytvořte složku na jednotku, kterou jste sdíleli s Docker,
 
 Když odkazujete `<SharedFolder>` v příkazu Docker, je nutné používat správnou syntaxi pro operační systém. Zde jsou dva příklady, jednu pro systém Windows a druhou pro Linux:
 
-- Pokud vaše jsou pomocí složce `D:\shared` v systému Windows jako vaše `<SharedFolder>`, tady je syntax příkazu Docker `//d/shared`.
+- Pokud vaše jsou pomocí složce `D:\shared` v systému Windows jako vaše `<SharedFolder>`, tady je syntax příkazu Docker `d:/shared`.
 
 - Pokud vaše jsou pomocí složce `/shared` v systému Linux jako vaše `<SharedFolder>`, tady je syntax příkazu Docker `/shared`.
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - `<IoTHubOwnerConnectionString>` Je **iothubowner** sdílené připojovací řetězec s přístupem zásady z portálu Azure. Tento připojovací řetězec jste zkopírovali v předchozím kroku. Potřebujete jenom tento připojovací řetězec pro první spuštění OPC vydavatele. Při dalším spuštění by měl vynechejte ho zaškrtávací bezpečnostní riziko.
 
-- `<SharedFolder>` Používáte a jeho syntaxe je popsaný v části [nainstalovat a nakonfigurovat Docker](#install-and-configure-docker). OPC vydavatel používá `<SharedFolder>` ke čtení konfiguračního souboru OPC vydavatele, zapsat soubor protokolu a ujistěte se, jak tyto soubory k dispozici mimo kontejneru.
+- `<SharedFolder>` Používáte a jeho syntaxe je popsaný v části [nainstalovat a nakonfigurovat Docker](#install-and-configure-docker). OPC vydavatel používá `<SharedFolder>` ke čtení a zápis do konfiguračního souboru OPC vydavatele, zapisovat do souboru protokolu a zpřístupnit oba tyto soubory mimo kontejneru.
 
-- OPC vydavatele načte konfiguraci z **publishednodes.json** souboru, který byste měli umístit do `<SharedFolder>/docker` složky. Tento konfigurační soubor definuje, která data uzlu OPC UA na daném serveru OPC UA, které se musí přihlásit k odběru OPC vydavatele.
-
-- Vždy, když server OPC UA upozorní OPC vydavatel změny dat, nová hodnota se odesílají do služby IoT Hub. V závislosti na nastavení dávkování nejprve OPC vydavatele shromažďovat data předtím, než odešle data do služby IoT Hub v dávce.
-
-- Úplná syntaxe **publishednodes.json** souboru je popsaný v [OPC vydavatele](https://github.com/Azure/iot-edge-opc-publisher) stránky na Githubu.
-
-    Následující fragment kódu ukazuje jednoduchý příklad **publishednodes.json** souboru. Tento příklad ukazuje, jak publikovat **aktualnicas** hodnotu z OPC UA serveru s názvem hostitele **win10pc**:
+- OPC vydavatele načte konfiguraci z **publishednodes.json** souboru, který je číst z a zapisovat do `<SharedFolder>/docker` složky. Tento konfigurační soubor definuje, která data uzlu OPC UA na daném serveru OPC UA, které se musí přihlásit k odběru OPC vydavatele. Úplná syntaxe **publishednodes.json** souboru je popsaný v [OPC vydavatele](https://github.com/Azure/iot-edge-opc-publisher) stránky na Githubu. Když přidáváte bránu, put prázdnou **publishednodes.json** do složky:
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    V **publishednodes.json** souboru OPC UA, server je zadána adresa URL koncového bodu. Pokud zadáte název hostitele pomocí štítku název hostitele (například **win10pc**) jako v předchozím příkladu místo IP adresy, překlad síťových adres v kontejneru musí umět přeložit tento popisek názvu hostitele na IP adresu.
+- Vždy, když server OPC UA upozorní OPC vydavatel změny dat, nová hodnota se odesílají do služby IoT Hub. V závislosti na nastavení dávkování nejprve OPC vydavatele shromažďovat data předtím, než odešle data do služby IoT Hub v dávce.
 
 - Docker nepodporuje překlad názvů pro rozhraní NetBIOS, pouze překlad názvu DNS. Pokud nemáte DNS server v síti, můžete použít alternativní řešení v předchozím příkladu příkazového řádku. Předchozí příklad příkazového řádku používá `--add-host` parametr přidání položky do souboru hostitelů kontejnery. Umožňuje vyhledávání název hostitele pro tuto položku daném `<OpcServerHostname>`, řešení pro danou adresu IP `<IpAddressOfOpcServerHostname>`.
 
@@ -169,15 +155,20 @@ Již se můžete připojit k bráně z cloudu a jste připraveni přidat servery
 
 Přidání vlastního OPC UA serverů pro připojené vytváření předkonfigurovaného řešení:
 
-1. Vyhledejte **připojit serverem OPC UA** na portálu řešení připojených objekt pro vytváření. Postupujte stejným způsobem jako v předchozí části k navázání vztahu důvěryhodnosti mezi portálem připojené objekt pro vytváření a OPC UA serveru.
+1. Vyhledejte **připojit serverem OPC UA** na portálu řešení připojených objekt pro vytváření.
 
-    ![Portál řešení](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. Spuštění, které chcete připojit k serveru OPC UA. Ujistěte se, že váš server OPC UA dostupný z OPC vydavatele a Proxy OPC spuštěné v kontejneru (viz předchozí komentáře o překladu názvů).
+    1. Zadejte adresu URL koncového bodu serveru OPC UA (`opc.tcp://<host>:<port>`) a klikněte na tlačítko **Connect**.
+    1. Jako součást instalace připojení je vytvořen vztah důvěryhodnosti mezi portálem připojené factory (OPC UA klienta) a OPC UA serveru, který se pokoušíte připojit. Na řídicím panelu připojené factory získáte **nelze ověřit certifikát serveru se chcete připojit** upozornění. Když se zobrazí varování týkající se certifikátu, klikněte na tlačítko **pokračovat**.
+    1. Obtížnější instalační program je konfiguraci certifikátu, který se pokoušíte připojit k serveru OPC UA. Pro počítače na základě OPC UA serverů, můžete v řídicím panelu můžete potvrdit obdržet právě dialog s upozorněním. Pro systémy embedded OPC UA server najdete v dokumentaci OPC UA serveru k vyhledání jak tento úkol probíhá. Tuto úlohu dokončit, musíte certifikát klienta OPC UA portálu připojené objekt pro vytváření. Správce můžete na stáhnout tento certifikát **připojit serverem OPC UA** stránky:
 
-1. Procházet uzlů stromu OPC UA OPC UA serveru, klikněte pravým tlačítkem na OPC uzly, které chcete odeslat do připojené factory a vyberte **publikování**.
+        ![Portál řešení](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Procházet uzlů stromu OPC UA OPC UA serveru, klikněte pravým tlačítkem na OPC uzly, které chcete odeslat hodnoty pro vytváření připojené a vyberte **publikování**.
 
 1. Telemetrická data jsou nyní z zařízení brány. Můžete zobrazit telemetrii v **umístění objektu pro vytváření** zobrazení portálu připojené factory pod **nový objekt pro vytváření**.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Další informace o architektuře připojené objekt pro vytváření předkonfigurovaného řešení najdete v tématu [připojené factory návod pro předkonfigurované řešení](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d641971811f20b2a6e9c14f134cf0d80f95944eb
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Pomocí propojená a vnořené šablony při nasazování prostředků Azure
 
@@ -82,7 +82,8 @@ Pokud chcete vnořit šablony v rámci hlavní šablony, pomocí **šablony** vl
 ]
 ```
 
-Pro vnořené šablony nemůžete použít parametry nebo proměnné, které jsou definovány v rámci vnořené šablony. Můžete použít parametry a proměnné z hlavní šablony. V předchozím příkladu `[variables('storageName')]` načte hodnotu z hlavní šablony není vnořené šablony. Toto omezení se nevztahuje na externí šablony.
+> [!NOTE]
+> Pro vnořené šablony nemůžete použít parametry nebo proměnné, které jsou definovány v rámci vnořené šablony. Můžete použít parametry a proměnné z hlavní šablony. V předchozím příkladu `[variables('storageName')]` načte hodnotu z hlavní šablony není vnořené šablony. Toto omezení se nevztahuje na externí šablony.
 
 ### <a name="external-template-and-external-parameters"></a>Externí šablony a externí parametry
 

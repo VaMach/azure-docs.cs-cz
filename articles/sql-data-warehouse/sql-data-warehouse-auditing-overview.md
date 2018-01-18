@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditování v Azure SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Auditování](sql-data-warehouse-auditing-overview.md)
-> * [Detekce hrozeb](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
-Auditování SQL Data Warehouse umožňuje záznam, který protokolují se události v databázi auditování v účtu úložiště Azure. Auditování vám může pomoct zajistit dodržování předpisů, porozumět databázové aktivitě a proniknout do nesrovnalostí a anomálií, které by mohly být známkou problémů obchodního charakteru nebo by mohly vzbuzovat podezření narušení zabezpečení. Auditování SQL Data Warehouse taky integruje s Microsoft Power BI pro procházení analýz a generování sestav.
+Auditování SQL Data Warehouse umožňuje záznam, který protokolují se události v databázi auditování v účtu úložiště Azure. Auditování vám může pomoct zajistit dodržování předpisů, porozumět databázové aktivitě a proniknout do nesrovnalostí a anomálií, které by mohly být známkou problémů obchodního charakteru nebo by mohly vzbuzovat podezření narušení zabezpečení. Auditování SQL Data Warehouse taky integruje s Microsoft Power BI pro vytváření sestav a analýzu.
 
 Nástroje auditování povolit a zajištění dodržování standardů dodržování předpisů, ale nezaručují dodržování předpisů. Další informace o Azure programy dodržování standardů tuto podporu, najdete v části <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centrum zabezpečení Azure</a>.
 
-* [Základy auditování databáze]
-* [Nastavení auditování pro vaši databázi]
-* [Analýza protokolů auditu a sestavy]
-
-## <a id="subheading-1"></a>Základy Azure SQL Data Warehouse databáze auditování
+## <a id="subheading-1"></a>Základní informace o auditování
 Auditování databáze SQL Data Warehouse umožňuje:
 
 * **Zachovat** monitorovat vybrané události. Můžete definovat kategorie akce databáze k auditování.
@@ -59,19 +50,19 @@ Další informace o aktivitách a auditovat události najdete v tématu <a href=
 
 Protokoly auditu jsou uložené v účtu úložiště Azure. Můžete definovat po dobu uchování protokolu auditu.
 
-Zásady pro auditování lze definovat pro konkrétní databázi nebo jako výchozí zásady serveru. Výchozí zásady auditování serveru se vztahuje na všechny databáze na serveru, které nemají konkrétní přepsání databáze auditování definované zásady.
+Můžete definovat zásady pro auditování pro konkrétní databázi nebo jako výchozí zásady serveru. Výchozí zásady auditování serveru se vztahuje na všechny databáze na serveru, které nemají žádný zvláštní přepsání databáze auditování zásady definované.
 
 Před nastavením auditování kontrolu, pokud používáte auditu ["Starších klientů."](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Nastavení auditování pro vaši databázi
 1. Spusťte <a href="https://portal.azure.com" target="_blank">portál Azure</a>.
-2. Přejděte na **nastavení** okna SQL Data Warehouse, které chcete auditovat. V **nastavení** vyberte **auditování a detekce hrozeb**.
+2. Přejděte na **nastavení** pro SQL Data Warehouse, které chcete auditovat. Vyberte **auditování a detekce hrozeb**.
    
     ![][1]
 3. Dál povolte auditování kliknutím **ON** tlačítko.
    
     ![][3]
-4. V okně Konfigurace auditování vyberte **podrobnosti úložiště** otevřete okno úložiště protokoly auditu. Vyberte účet úložiště Azure, kam bude uložena protokoly a dobu uchování. 
+4. V panelu Konfigurace auditování vyberte **podrobnosti úložiště** otevřete panel úložiště protokoly auditu. Vyberte účet úložiště Azure pro protokoly a dobu uchování. 
 >[!TIP]
 >Použijte stejný účet úložiště pro všechny databáze, auditované k plnému využití mimo šablony předem nakonfigurované sestavy.
    
@@ -91,11 +82,12 @@ Protokoly auditu je agregován v kolekci úložiště tabulek s **SQLDBAuditLogs
 ## <a id="subheading-4"></a>Opětovné generování klíče úložiště
 V produkčním prostředí budete pravděpodobně pravidelně aktualizovat klíče úložiště. Při aktualizaci klíče, je nutné uložit zásadu. Proces je následující:
 
-1. V okně Konfigurace auditování (popsaný výše v instalačním programu auditování část) přepnout **přístupový klíč k úložišti** z *primární* k *sekundární* a **Uložit**.
+1. Auditování konfigurace panel, který je popsaný v předchozím nastavení auditování oddíl, změňte **přístupový klíč k úložišti** z *primární* k *sekundární* a  **Uložit**.
 
    ![][4]
-2. Přejděte do okna konfigurace úložiště a **znovu vygenerovat** *primární přístupový klíč*.
-3. Přejděte zpět do okna Konfigurace auditování, přepněte **přístupový klíč k úložišti** z *sekundární* k *primární* a stiskněte klávesu **Uložit**.
+2. Přejděte na panelu Konfigurace úložiště a **znovu vygenerovat** *primární přístupový klíč*.
+3. Přejděte zpět na panelu Konfigurace auditování 
+4. Přepnout **přístupový klíč k úložišti** z *sekundární* k *primární* a stiskněte klávesu **Uložit**.
 4. Přejděte zpět na úložiště uživatelského rozhraní a **znovu vygenerovat** *sekundární přístupový klíč* (jako příprava pro další aktualizace cyklu klíče.
 
 ## <a id="subheading-5"></a>Automatizace (prostředí PowerShell nebo REST API)
@@ -103,18 +95,41 @@ Můžete taky nakonfigurovat auditování v Azure SQL Data Warehouse pomocí ná
 
 * **Rutiny prostředí PowerShell**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Odebrat AzureRMSqlDatabaseAuditing][103]
-   * [Odebrat AzureRMSqlServerAuditing][104]
-   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Použití AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Podpora klientů nižší úrovně pro auditování a dynamické maskování dat.
+Auditování funguje s klienty SQL, které podporují přesměrování TDS.
+
+Libovolného klienta, který implementuje TDS 7.4 také podporuje přesměrování. Výjimky zahrnují JDBC 4.0, ve kterém funkci přesměrování není plně podporována a Tedious pro Node.JS, ve které přesměrování nebyla implementována.
+
+Pro "Klienty nižší úrovně" podporující TDS verze 7.3 a níže, upravte plně kvalifikovaný název domény serveru v připojovacím řetězci následujícím způsobem:
+
+- Původní server plně kvalifikovaný název domény v připojovacím řetězci: <*název serveru*>. database.windows.net
+- Upravené plně kvalifikovaný název domény serveru v připojovacím řetězci: <*název serveru*> .database. **zabezpečené**. windows.net
+
+Částečný seznam "Klienty nižší úrovně" zahrnuje:
+
+* Rozhraní .NET 4.0 a níže,
+* ODBC 10.0 a níže.
+* JDBC (při JDBC podporuje TDS 7.4, TDS přesměrování funkce není podporována plně)
+* Zdlouhavé (pro platformu Node.JS)
+
+**Poznámka:** předchozí server úpravy plně kvalifikovaného názvu domény může být užitečné také pro použití zásad auditování na úrovni SQL serveru bez potřebu konfiguraci krok v každé databázi (dočasné zmírnění).     
+
+
+
 
 <!--Anchors-->
-[Základy auditování databáze]: #subheading-1
-[Nastavení auditování pro vaši databázi]: #subheading-2
-[Analýza protokolů auditu a sestavy]: #subheading-3
+[Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
@@ -125,11 +140,3 @@ Můžete taky nakonfigurovat auditování v Azure SQL Data Warehouse pomocí ná
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

@@ -12,24 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Hledání protokolu analýzy protokolů REST API
+
+> [!IMPORTANT]
+> Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak se seznamte s [dokumentace pro novou verzi protokolu hledání rozhraní API](https://dev.loganalytics.io/).  Toto starší verze rozhraní API i přesto fungovat s upgradovaný pracovního prostoru, ale brzy bude depracated.  Změňte všechny existující řešení používat nové rozhraní API.
+
 Tato příručka obsahuje základní kurz, včetně příkladů, jak můžete pomocí rozhraní REST API Log Analytics Search. Analýzy protokolů je součástí Operations Management Suite (OMS).
 
-> [!NOTE]
-> Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak se seznamte s [dokumentace pro novou verzi protokolu hledání rozhraní API](https://dev.loganalytics.io/).
-
-> [!NOTE]
-> Analýzy protokolů volala dřív Operational Insights, proto je název používaný v poskytovatele prostředků.
->
->
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Přehled protokolu hledání rozhraní REST API
 Rozhraní REST API Log Analytics Search je dosáhl standardu RESTful a je přístupný prostřednictvím rozhraní API služby Azure Resource Manager. Tento článek obsahuje příklady přístup k rozhraní API prostřednictvím [ARMClient](https://github.com/projectkudu/ARMClient), nástroje příkazového řádku s otevřeným zdrojem, který zjednodušuje volání rozhraní API služby Azure Resource Manager. Použití ARMClient je jedním z mnoha možností pro přístup k rozhraní API pro vyhledávání Analytics protokolu. Další možností je použít modul Azure PowerShell pro OperationalInsights, který obsahuje rutiny pro přístup k vyhledávání. Pomocí těchto nástrojů můžete využít rozhraní API služby Azure Resource Manager provádět volání do OMS pracovních prostorů a provádět příkazy vyhledávání v nich. Rozhraní API výstupy výsledků vyhledávání ve formátu JSON, budete moci použít výsledky hledání v mnoha různými způsoby prostřednictvím kódu programu.
@@ -138,12 +135,12 @@ Následující tabulka popisuje vlastnosti, které jsou k dispozici.
 | **Vlastnost** | **Popis** |
 | --- | --- |
 | Horní |Maximální počet výsledků vrátit. |
-| Zvýrazněte |Obsahuje předběžné a post parametry, obvykle použité pro zvýraznění odpovídající pole |
+| Zvýraznit |Obsahuje předběžné a post parametry, obvykle použité pro zvýraznění odpovídající pole |
 | Před |Předpony daný řetězec, který má vaše odpovídající pole. |
 | POST |Daný řetězec připojí k vaší odpovídající pole. |
 | query |Vyhledávací dotaz, použít ke shromažďování a vrátí výsledky. |
 | start |Začátek časový interval, který chcete výsledky, která se má najít z. |
-| End |Konec časový interval, který chcete výsledky, která se má najít z. |
+| konec |Konec časový interval, který chcete výsledky, která se má najít z. |
 
 **Odpověď:**
 
@@ -225,9 +222,9 @@ Následující tabulka popisuje vlastnosti, které jsou k dispozici.
 | --- | --- |
 | ID |Jedinečný identifikátor. |
 | Značka Etag |**Vyžaduje se pro opravu**. Server aktualizaci na každý zápis. Hodnota musí být stejná jako aktuální hodnota uložené nebo ' *' aktualizovat. 409 vrátil hodnoty starý nebo neplatná. |
-| Properties.Query |**Požadované**. Vyhledávací dotaz. |
+| properties.query |**Požadované**. Vyhledávací dotaz. |
 | properties.displayName |**Požadované**. Uživatelem definované zobrazovaný název dotazu. |
-| Properties.category |**Požadované**. Uživatelem definované kategorie dotaz. |
+| properties.category |**Požadované**. Uživatelem definované kategorie dotaz. |
 
 > [!NOTE]
 > Rozhraní API pro vyhledávání analýzy protokolů aktuálně vrací hodnotu vytvořené uživatelem uložená hledání při dotazování pro uložená hledání v pracovním prostoru. Rozhraní API nevrací uložená hledání poskytované řešení.
@@ -416,5 +413,5 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) k vytvoření dotazů pomocí vlastních polí pro kritéria.

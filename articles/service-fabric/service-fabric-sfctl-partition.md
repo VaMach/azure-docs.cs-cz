@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-partition"></a>sfctl oddílu
 Dotazování a správu oddílů pro libovolnou službu.
@@ -28,20 +28,20 @@ Dotazování a správu oddílů pro libovolnou službu.
 |Příkaz|Popis|
 | --- | --- |
 |    ztrátě dat.      | Toto rozhraní API indukuje ztráta dat pro zadaný oddíl.|
-|    Stav ztráty dat  | Získá průběh operace ztráty dat oddílu pomocí rozhraní API StartDataLoss spuštěna.|
-|    Stav         | Získá stav zadaný oddíl Service Fabric.|
+|    data-loss-status  | Získá průběh operace ztráty dat oddílu pomocí rozhraní API StartDataLoss spuštěna.|
+|    stav         | Získá stav zadaný oddíl Service Fabric.|
 |    Informace o           | Získá informace o oddílu Service Fabric.|
-|    seznam           | Získá seznam oddílů služby Service Fabric.|
+|    Seznam           | Získá seznam oddílů služby Service Fabric.|
 |    načítání           | Získá zatížení zadaný oddíl Service Fabric.|
 |    Resetování zatížení     | Obnoví aktuální zatížení oddílu Service Fabric.|
 |    ztrátě kvora    | Indukuje ztrátě kvora pro daný stavové služby oddíl.|
 |    kvora. ke ztrátě stavu| Získá průběh operace ztráty kvora v oddílu pomocí rozhraní API StartQuorumLoss spuštěna.|
 |    Obnovení        | Do clusteru Service Fabric označuje, že mají pokusit o obnovení na konkrétní oddíl, který je aktuálně zablokované ve ztrátě kvora.|
 |    Obnovit všechny    | Do clusteru Service Fabric označuje, že mají pokusit o obnovení služby (včetně systémových služeb), které jsou aktuálně zablokované ve ztrátě kvora.|
-|    Sestava stavu  | Odešle zprávu o stavu v oddílu Service Fabric.|
+|    report-health  | Odešle zprávu o stavu v oddílu Service Fabric.|
 |    Restartování        | Toto rozhraní API restartuje některé nebo všechny repliky nebo instancí zadaný oddíl.|
-|    restart stavu | Získá průběh operace PartitionRestart pomocí StartPartitionRestart spuštěna.|
-|    Název SVC       | Získá název služby Service Fabric pro oddíl.|
+|    restart-status | Získá průběh operace PartitionRestart pomocí StartPartitionRestart spuštěna.|
+|    svc-name       | Získá název služby Service Fabric pro oddíl.|
 
 
 ## <a name="sfctl-partition-health"></a>sfctl oddílu stavu
@@ -55,16 +55,16 @@ ReplicasHealthStateFilter použijte k filtrování kolekce objektů ReplicaHealt
 |Argument|Popis|
 | --- | --- |
 | – id oddílu [vyžaduje]| Identita oddílu.|
-| --události stavu stavu filtru  | Umožňuje filtrování vrácených objektů HealthEvent kolekce na základě stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů.                Se vrátí jenom události, které odpovídají filtru. Všechny události se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8.                -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState.                Hodnota je 65535.|
-|--statistiky vyloučení stavu   | Určuje, zda má být vrácen stav statistiky jako součást výsledků dotazu. Chcete-li hodnotu false ve výchozím nastavení. Statistiku zobrazují počet podřízených entit ve stavu Ok, upozornění a chyby.|
-| --repliky stavu stavu filtru| Umožňuje filtrování kolekce objektů ReplicaHealthState v oddílu. Hodnota je možné získat od členů nebo bitové operace u členů HealthStateFilter. Vrátí se pouze repliky, které odpovídají filtru. Všechny repliky se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
+| --events-health-state-filter  | Umožňuje filtrování vrácených objektů HealthEvent kolekce na základě stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů.                Se vrátí jenom události, které odpovídají filtru. Všechny události se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8.                -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState.                Hodnota je 65535.|
+|--exclude-health-statistics   | Určuje, zda má být vrácen stav statistiky jako součást výsledků dotazu. Chcete-li hodnotu false ve výchozím nastavení. Statistiku zobrazují počet podřízených entit ve stavu Ok, upozornění a chyby.|
+| --replicas-health-state-filter| Umožňuje filtrování kolekce objektů ReplicaHealthState v oddílu. Hodnota je možné získat od členů nebo bitové operace u členů HealthStateFilter. Vrátí se pouze repliky, které odpovídají filtru. Všechny repliky se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
 | časový limit – -t               | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 
 |Argument|Popis|
 | --- | --- |
-| – ladění                    | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug                    | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h                  | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o                | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.                Výchozí: json.|
 | --dotazu                    | Řetězec dotazu JMESPath. Další informace a příklady naleznete v tématu http://jmespath.org/. |
@@ -86,7 +86,7 @@ Koncový bod oddíly vrací informace o zadaný oddíl. Odpověď obsahuje ID od
 
 |Argument|Popis|
 | --- | --- |
-| – ladění               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h             | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o           | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
 | --dotazu               | Řetězec dotazu JMESPath. Další informace a příklady naleznete v tématu http://jmespath.org/.|
@@ -109,7 +109,7 @@ Získá seznam oddílů služby Service Fabric. S ID oddílu, informace o vytvá
 
 |Argument|Popis|
 | --- | --- |
-| – ladění             | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug             | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h           | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o         | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
 | --dotazu             | Řetězec dotazu JMESPath. Další informace a příklady naleznete v tématu http://jmespath.org/.|
@@ -131,7 +131,7 @@ Vrací informace o zadaný oddíl. Odpověď obsahuje seznam načíst informace 
 
 |Argument|Popis|
 | --- | --- |
-| – ladění               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h             | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o           | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
 | --dotazu               | Řetězec dotazu JMESPath. Další informace a příklady naleznete v tématu http://jmespath.org/.|
@@ -153,7 +153,7 @@ Do clusteru Service Fabric označuje, že mají pokusit o obnovení na konkrétn
 
 |Argument|Popis|
 | --- | --- |
-| – ladění               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h             | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o           | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
 | --dotazu               | Řetězec dotazu JMESPath. Další informace a příklady naleznete v tématu http://jmespath.org/.|
@@ -178,12 +178,12 @@ Toto rozhraní API je užitečné pro testování převzetí služeb při selhá
 
 |Argument|Popis|
 | --- | --- |
-| – ladění                         | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
+| --debug                         | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h                       | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o                     | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.                     Výchozí: json.|
 | --dotazu                         | Řetězec dotazu JMESPath. Další informace a příklady naleznete v tématu http://jmespath.org/.|
 | -verbose                       | Zvýšit protokolování podrobností. Použití – ladění pro úplné ladění protokoly.|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Instalační program](service-fabric-cli.md) Service Fabric rozhraní příkazového řádku.
 - Další informace o použití pomocí Service Fabric rozhraní příkazového řádku [ukázkové skripty](/azure/service-fabric/scripts/sfctl-upgrade-application).

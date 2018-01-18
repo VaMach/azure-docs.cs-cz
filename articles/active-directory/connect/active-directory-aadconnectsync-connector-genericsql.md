@@ -3,7 +3,7 @@ title: "Konektor obecné SQL | Microsoft Docs"
 description: "Tento článek popisuje postup při konfiguraci konektoru SQL obecné společnosti Microsoft."
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
-ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: billmath
+ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Technické informace o obecné konektor SQL
 Tento článek popisuje obecný konektor SQL. Se článek vztahuje následující produkty:
@@ -38,7 +38,7 @@ Z hlediska vysoké úrovně služba aktuální verzi konektor podporuje následu
 
 | Funkce | Podpora |
 | --- | --- |
-| Připojeného zdroje dat |Konektor podporuje všechny ovladače ODBC 64-bit. Byl testován s následujícími službami: <li>Microsoft SQL Server a SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 a 11 g</li><li>MySQL 5.x</li> |
+| Připojeného zdroje dat |Konektor podporuje všechny ovladače ODBC 64-bit. Byl testován s následujícími službami: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 a 11 g</li><li>MySQL 5.x</li> |
 | Scénáře |<li>Správa životního cyklu objektu</li><li>Správa hesel</li> |
 | Operace |<li>Úplný Import a rozdílový Import, Export</li><li>Pro Export: Přidání, aktualizaci, odstranit a nahradit</li><li>Nastavení hesla, změnit heslo</li> |
 | Schéma |<li>Dynamické zjišťování objektů a atributů</li> |
@@ -226,7 +226,7 @@ Obecné konektor SQL podporu úplné a rozdílový Import pomocí těchto metod:
 * Table
 * Zobrazení
 * Uložená procedura
-* Dotaz SQL
+* Příkaz jazyka SQL
 
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
@@ -263,7 +263,7 @@ Udělejte toto:
 * Sady více výsledků dotazů není podporována.
 * Dotaz SQL podporuje číslování stránek a zadejte počáteční a koncové indexem jako proměnnou pro podporu stránkování.
 
-### <a name="delta-import"></a>Rozdílový Import
+### <a name="delta-import"></a>Delta Import
 ![runstep6](./media/active-directory-aadconnectsync-connector-genericsql/runstep6.png)
 
 Rozdílový Import konfigurace vyžaduje určitou další konfiguraci ve srovnání s úplný Import.
@@ -282,7 +282,7 @@ Obecné konektor SQL podporují Export pomocí čtyř podporované metody, jako 
 * Table
 * Zobrazení
 * Uložená procedura
-* Dotaz SQL
+* Příkaz jazyka SQL
 
 **Tabulka/zobrazení**  
 Pokud zvolíte možnost tabulky či zobrazení, konektor generuje příslušných dotazů udělat Export.

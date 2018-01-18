@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformace dat pomocí aktivity uložené procedury serveru SQL v Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Aktivita uložené procedury můžete vyvolat uloženou proceduru v jednom z ná
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- Databáze systému SQL Server.  Pokud používáte systém SQL Server, nainstalujte modul runtime vlastním hostováním integrace ve stejném počítači, který je hostitelem databáze nebo na samostatný počítač, který má přístup k databázi. Integrace s vlastním hostováním runtime je, že komponenty, která připojí datového zdroje na místní nebo na virtuální počítač Azure s cloudovými službami v zabezpečený a spravovaný. V tématu [hostovanou na vlastním integrace runtime](create-self-hosted-integration-runtime.md) článku.
+- SQL Server Database.  Pokud používáte systém SQL Server, nainstalujte modul runtime vlastním hostováním integrace ve stejném počítači, který je hostitelem databáze nebo na samostatný počítač, který má přístup k databázi. Integrace s vlastním hostováním runtime je, že komponenty, která připojí datového zdroje na místní nebo na virtuální počítač Azure s cloudovými službami v zabezpečený a spravovaný. V tématu [hostovanou na vlastním integrace runtime](create-self-hosted-integration-runtime.md) článku.
 
 > [!IMPORTANT]
 > Při kopírování dat do Azure SQL Database nebo SQL Server, můžete nakonfigurovat **SqlSink** v aktivitě kopírování k vyvolání uložené procedury pomocí **sqlWriterStoredProcedureName** vlastnost. Podrobnosti o vlastnosti, viz následující články konektor: [Azure SQL Database](connector-azure-sql-database.md), [systému SQL Server](connector-sql-server.md). Volání uložené procedury při kopírování dat do Azure SQL Data Warehouse pomocí aktivity kopírování není podporována. Ale aktivity uložené procedury můžete vyvolat uloženou proceduru v SQL Data Warehouse. 
@@ -74,10 +74,10 @@ Následující tabulka popisuje tyto vlastnosti JSON:
 | ------------------------- | ---------------------------------------- | -------- |
 | jméno                      | Název aktivity                     | Ano      |
 | description               | Text popisující, co se používá aktivitu pro | Ne       |
-| type                      | U aktivity uložené procedury je typ aktivity SqlServerStoredProcedure | Ano      |
-| linkedServiceName         | Odkaz na databázi SQL Azure nebo Azure SQL Data Warehouse nebo SQL Server zaregistrován jako propojené služby ve službě Data Factory. Další informace o této propojené služby najdete v tématu [výpočetní propojené služby](compute-linked-services.md) článku. | Ano      |
-| storedProcedureName       | Zadejte název uložené procedury v Azure SQL database nebo databáze Azure SQL Data Warehouse nebo SQL Server, která je reprezentována propojené služby, která používá výstupní tabulka. | Ano      |
-| storedProcedureParameters | Zadejte hodnoty pro parametry uložené procedury. Použití `"param1": { "value": "param1Value","type":"param1Type" }` k předání parametru hodnoty a jejich nativní typ podporovaný zdroj dat. Pokud potřebujete předat hodnotu null pro parametr, použijte *"param1": {"value": null}* (všechny malá písmena). | Ne       |
+| type                      | U aktivity uložené procedury je typ aktivity **SqlServerStoredProcedure** | Ano      |
+| linkedServiceName         | Odkaz na **Azure SQL Database** nebo **Azure SQL Data Warehouse** nebo **systému SQL Server** registrován jako propojené služby ve službě Data Factory. Další informace o této propojené služby najdete v tématu [výpočetní propojené služby](compute-linked-services.md) článku. | Ano      |
+| storedProcedureName       | Zadejte název uložené procedury, která bude vyvolána. | Ano      |
+| storedProcedureParameters | Zadejte hodnoty pro parametry uložené procedury. Použití `"param1": { "value": "param1Value","type":"param1Type" }` předat hodnoty parametrů a jejich typu zdroje dat nepodporuje. Pokud potřebujete předat hodnotu null pro parametr, použijte `"param1": { "value": null }` (všechny malá písmena). | Ne       |
 
 ## <a name="next-steps"></a>Další kroky
 Najdete v následujících článcích, které vysvětlují, jak k transformaci dat jinými způsoby: 

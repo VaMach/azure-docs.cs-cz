@@ -4,7 +4,7 @@ description: "Tento dokument téma popisuje postup aktualizace Azure AD Connect 
 services: active-directory
 keywords: "AD DS účet, heslo a účet služby Active Directory"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: bd2970a723aa6b9073e25fd19493232af50e7985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Změna hesla účtu služby AD DS
 Účet služby AD DS odkazuje na uživatelský účet používaný ke komunikaci s místní služby Active Directory přes Azure AD Connect. Pokud změníte heslo účtu služby AD DS, je třeba aktualizovat službu Azure AD Connect synchronizace pomocí nového hesla. Jinak synchronizace mohou už správně synchronizovat s místní služby Active Directory a bude dojde k následujícím chybám:
@@ -49,7 +49,7 @@ Chcete-li aktualizovat synchronizační služby pomocí nového hesla:
 
 8. Restartování Azure AD Connect synchronizační služba v modulu snap-in Správce řízení služeb systému Windows. To je potřeba zajistit, že všechny odkazy na staré heslo je odebraných z mezipaměti v paměti.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 **Témata s přehledem**
 
 * [Synchronizace Azure AD Connect: pochopení a přizpůsobení synchronizace](active-directory-aadconnectsync-whatis.md)

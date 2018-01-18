@@ -12,19 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/2/2017
+ms.date: 01/17/2018
 ms.author: damaerte
-ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Řešení potíží s prostředí cloudu Azure
 
 Řešení známých problémů v prostředí cloudu Azure patří:
 
 ## <a name="general-resolutions"></a>Obecné řešení
+
+### <a name="early-timeouts-in-firefox"></a>Časná vypršení časových limitů ve Firefoxu
+- **Podrobnosti o**: prostředí cloudu využívá otevřete websocket předat vstupu a výstupu do prohlížeče. FireFox má přednastavené zásady, které můžete zavřít websocket předčasně způsobuje časná vypršení časových limitů v prostředí cloudu.
+- **Řešení**: Otevřete FireFox a přejděte do "o: konfigurace" do pole Adresa URL. Vyhledejte "network.websocket.timeout.ping.request" a změňte hodnotu od 0 do 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Dialogové okno úložiště - Chyba: 403 RequestDisallowedByPolicy
 - **Podrobnosti o**: při vytváření účtu úložiště prostřednictvím cloudové prostředí, se nezdařilo z důvodu zásady služby Azure umístit váš správce. Chybová zpráva bude obsahovat:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`

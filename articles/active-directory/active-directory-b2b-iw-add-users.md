@@ -1,5 +1,5 @@
 ---
-title: "Jak informační pracovníci přidat uživatele spolupráce B2B do Azure Active Directory | Dokumentace Microsoftu"
+title: "Přidání uživatelů spolupráce B2B jako Organizační pracovník – Azure Active Directory | Microsoft Docs"
 description: "Spolupráce B2B umožňuje pracovníkům k přidání uživatele do Azure AD pro přístup z jejich organizace | Microsoft Docs"
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 255ee5c11aa7e76fec23837d3bdccf2175c2f9fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Jak informační pracovníci přidat uživatele spolupráce B2B do Azure Active Directory
 
@@ -37,7 +37,7 @@ Informační pracovníci podobně můžete přidat uživatele spolupráce B2B do
 > Uživatelé spolupráce B2B nelze přidat do dynamická skupina nebo skupiny, který je synchronizovaný s místní služby Active Directory.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

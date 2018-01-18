@@ -6,14 +6,14 @@ keywords:
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 269f77e5015175e45e0078926ef06699811889a4
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cad28b4e6d4e46058641da19795cd71efdbd0c92
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-c-module-with-azure-iot-edge"></a>Použití kódu v jazyce Visual Studio k vývoji modulu jazyka C# s hranou Azure IoT
 Tento článek obsahuje podrobné pokyny pro používání [Visual Studio Code](https://code.visualstudio.com/) jako hlavní vývojový nástroj k vývoji a nasazení moduly IoT okraj. 
@@ -48,21 +48,37 @@ Seznam zařízení IoT hub v produktu VS Code dvěma způsoby. Můžete buď zp�
 1. V příkazu palety (F1 nebo Ctrl + Shift + P), zadejte a vyberte **Azure: Přihlaste**. Pak klikněte na tlačítko  **kopie* & Otevřít** v místní nabídce. Vložte (Ctrl + V) kód v prohlížeči a klikněte na tlačítko Pokračovat. Potom se přihlaste pomocí účtu Azure. Můžete zobrazit informace o účtu v VS Code stavový řádek.
 2. V příkazu palety (F1 nebo Ctrl + Shift + P), zadejte a vyberte **IoT: Vyberte IoT Hub**. Nejprve vybrat předplatné, které jste vytvořili službu IoT hub v předchozí kurzu. Zvolte Centrum IoT, který obsahuje IoT hraniční zařízení.
 
+    ![Seznam zařízení](./media/how-to-vscode-develop-csharp-module/device-list.png)
 
 #### <a name="set-iot-hub-connection-string"></a>Nastavit připojovací řetězec centra IoT
-1. V příkazu palety (F1 nebo Ctrl + Shift + P), zadejte a vyberte **IoT: nastavit připojovací řetězec centra IoT**. Ujistěte se, vložte připojovací řetězec v rámci zásad **iothubowner** (najdete ji v zásady sdíleného přístupu služby IoT hub v portálu Azure).
+V příkazu palety (F1 nebo Ctrl + Shift + P), zadejte a vyberte **IoT: nastavit připojovací řetězec centra IoT**. Ujistěte se, vložte připojovací řetězec v rámci zásad **iothubowner** (najdete ji v zásady sdíleného přístupu služby IoT hub v portálu Azure).
  
-
 Zobrazí seznam zařízení v Průzkumníku zařízení IoT Hub na levé straně panelu.
 
 ### <a name="start-your-iot-edge-runtime-and-deploy-a-module"></a>Spuštění vaší hraniční IoT runtime a nasazení modulu
 Instalace a spuštění modulu runtime Azure IoT Edge ve vašem zařízení. A nasadit simulované senzor modul, který bude posílat telemetrická data do služby IoT Hub.
 1. V příkazu palety, vyberte **Edge: Instalační program Edge** a zvolte vaší hraniční IoT ID zařízení. Klikněte pravým tlačítkem na hraniční ID zařízení v seznamu zařízení a vyberte **instalace Edge**.
+
+    ![Instalace modulu runtime Edge](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
+
 2. V příkazu palety, vyberte **Edge: spuštění Edge** spuštění vaší hraniční runtime. Zobrazí odpovídající výstupy v integrovaném terminálu.
+
+    ![Počáteční okraj runtime](./media/how-to-vscode-develop-csharp-module/start-edge.png)
+
 3. Zkontrolujte stav modulu runtime Edge v Průzkumníku Docker. Zelená znamená, že je spuštěna. Vaše IoT Edge runtime byl úspěšně spuštěn.
-4. Teď vaší hraniční runtime běží, což znamená, že váš počítač nyní simuluje hraniční zařízení. Dalším krokem je k simulaci sensorthing, který udržuje odesílání zpráv do hraniční zařízení. V příkazu palety, zadejte a vyberte **Edge: generování Edge konfigurační soubor**. A vyberte složku pro vytvoření tohoto souboru. V souboru generovaného deployment.json, nahraďte řádek "<registry>/<image>:<tag>" s `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+
+    ![Modul runtime Edge běží](./media/how-to-vscode-develop-csharp-module/edge-runtime.png)
+
+4. Teď vaší hraniční runtime běží, což znamená, že váš počítač nyní simuluje hraniční zařízení. Dalším krokem je k simulaci sensorthing, který udržuje odesílání zpráv do hraniční zařízení. V příkazu palety, zadejte a vyberte **Edge: generování Edge konfigurační soubor**. A vyberte složku pro vytvoření tohoto souboru. V souboru generovaného deployment.json, nahradí obsah `<registry>/<image>:<tag>` s `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` a soubor uložte.
+
+    ![Senzor modulu](./media/how-to-vscode-develop-csharp-module/sensor-module.png)
+
 5. Vyberte **Edge: vytvoření nasazení pro hraniční zařízení** a zvolte ID hraniční zařízení k vytvoření nového nasazení. Nebo můžete klikněte pravým tlačítkem na hraniční ID zařízení v seznamu zařízení a vybrat **vytvořit nasazení pro hraniční zařízení**. 
-6. Měli byste vidět vaší hraniční IoT spustit v Průzkumníku Docker s simulované senzoru. Klikněte pravým tlačítkem na kontejner v Průzkumníku Docker. Podívejte se na docker protokolů pro každý modul.
+
+6. Měli byste vidět vaší hraniční IoT spustit v Průzkumníku Docker s simulované senzoru. Klikněte pravým tlačítkem na kontejner v Průzkumníku Docker. Podívejte se na docker protokolů pro každý modul. Navíc můžete zobrazit seznam modulů v seznamu zařízení.
+
+    ![Seznam modulů](./media/how-to-vscode-develop-csharp-module/module-list.png)
+
 7. Klikněte pravým tlačítkem na ID hraniční zařízení a také můžete monitorovat D2C zprávy v produktu VS Code.
 8. K zastavení modulu runtime vaší hraniční IoT a modul senzor, typ a vyberte **Edge: Zastavit Edge** v příkazu palety.
 
@@ -97,12 +113,18 @@ Následující kroky zobrazení můžete jak vytvořit modul IoT Edge založené
  
 3. Vyberte **soubor** > **otevřete složku**.
 4. Vyhledejte **FilterModule** složky a klikněte na tlačítko **vyberte složku** otevřete projekt v produktu VS Code.
-5. V Průzkumníku VS Code, klikněte na tlačítko **Program.cs** ho otevřete.
+5. V Průzkumníku VS Code, klikněte na tlačítko **Program.cs** ho otevřete. V horní části **program.cs**, zahrnout pod obory názvů.
+   ```csharp
+   using Microsoft.Azure.Devices.Shared;
+   using System.Collections.Generic;  
+   using Newtonsoft.Json;
+   ```
+
 6. Přidat `temperatureThreshold` proměnnou **Program** třídy. Tato proměnná nastaví hodnotu, která nesmí být větší než teplota měřená v pořadí pro data k odeslání do služby IoT Hub. 
 
-    ```csharp
-    static int temperatureThreshold { get; set; } = 25;
-    ```
+   ```csharp
+   static int temperatureThreshold { get; set; } = 25;
+   ```
 
 7. Přidat `MessageBody`, `Machine`, a `Ambient` třídy k **Program** třídy. Tyto třídy definují očekávané schéma pro tělo příchozí zprávy.
 
@@ -225,16 +247,22 @@ Následující kroky zobrazení můžete jak vytvořit modul IoT Edge založené
     }
     ```
 
-11. Pro sestavení projektu, klikněte pravým tlačítkem myši **FilterModule.csproj** soubor v Průzkumníku a klikněte na **modul sestavení IoT Edge**. Tento proces kompilovaný modul a exportuje binárního souboru a jeho závislosti do složky, která se používá k vytvoření bitové kopie Docker.
+11. Pro sestavení projektu, klikněte pravým tlačítkem myši **FilterModule.csproj** soubor v Průzkumníku a klikněte na **modul sestavení IoT Edge**. Tento proces kompilovaný modul a exportuje binárního souboru a jeho závislosti do složky, která se používá k vytvoření bitové kopie Docker. 
 
+    ![Sestavení modulu](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Vytvoření bitové kopie Docker a publikujete ho v registru
 
 1. V Průzkumníku VS Code rozbalte **Docker** složky. Poté rozbalte složku pro vaši platformu kontejneru buď **linux x64** nebo **windows nano**.
 2. Klikněte pravým tlačítkem myši **soubor Docker** souboru a klikněte na tlačítko **sestavení IoT Edge modulu Docker image**. 
+
+    ![Sestavení docker bitové kopie](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
+
 3. V **vyberte složku** okně vyhledejte nebo zadejte `./bin/Debug/netcoreapp2.0/publish`. Klikněte na tlačítko **vyberte složku EXE_DIR**.
 4. Automaticky otevírané okno textového pole v horní části okna VS Code zadejte název bitové kopie. Například: `<your container registry address>/filtermodule:latest`. Když nasazujete do místního registru, měla by být `localhost:5000/filtermodule:latest`.
-5. Do úložiště Docker push bitovou kopii. Použití **Edge: Push IoT Edge modulu Docker image** příkaz a zadejte adresu URL bitové kopie do místní textového pole v horní části okna VS Code. Použijte stejnou adresu URL obrázku jste použili v výše krok.
+5. Do úložiště Docker push bitovou kopii. Použití **Edge: Push IoT Edge modulu Docker image** příkaz a zadejte adresu URL bitové kopie do místní textového pole v horní části okna VS Code. Použijte stejnou adresu URL obrázku jste použili v výše krok. Zkontrolujte protokol konzoly a ujistěte se, že bylo úspěšně posunuto bitovou kopii.
+
+    ![Push docker image](./media/how-to-vscode-develop-csharp-module/push-image.png) ![stisknutí docker image](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
 ### <a name="deploy-your-iot-edge-modules"></a>Nasazení moduly IoT Edge
 
@@ -264,21 +292,26 @@ Následující kroky zobrazení můžete jak vytvořit modul IoT Edge založené
 
 2. Nahraďte **trasy** část s následující obsah:
     ```json
-    {
-        "routes": {
-            "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-            "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-        }
-    }
+    "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+    "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
    > Deklarativní pravidel v modulu runtime definovat, kde se tyto zprávy toku. V tomto kurzu musíte dvě trasy. První trasy určena k přenosu zprávy teplotní snímač modul filtr prostřednictvím koncového bodu "input1", což je koncový bod, který jste nakonfigurovali s FilterMessages obslužnou rutinou. Druhá trasa je určena k přenosu zpráv z modulu filtru do služby IoT Hub. V této trase je nadřazený speciální cílového umístění, které informuje Edge rozbočovače k odesílání zpráv do služby IoT Hub.
 
 3. Uložte tento soubor.
 4. V příkazu palety, vyberte **Edge: vytvoření nasazení pro hraniční zařízení**. Pak vyberte ID zařízení IoT Edge k vytvoření nasazení. Klikněte pravým tlačítkem na ID zařízení v seznamu zařízení a vyberte **vytvořit nasazení pro hraniční zařízení**.
+
+    ![Vytvoření nasazení](./media/how-to-vscode-develop-csharp-module/create-deployment.png)
+
 5. Vyberte `deployment.json` vás informovat. V okně výstupu uvidíte odpovídající výstupy pro vaše nasazení.
+
+    ![Nasazení bylo úspěšné.](./media/how-to-vscode-develop-csharp-module/deployment-succeeded.png)
+
 6. Spuštění vaší hraniční runtime v příkazu palety. **Okraj: Počáteční hranu**
 7. Můžete zobrazit vaše IoT Edge runtime spustit v Průzkumníku Docker simulované senzor a modul filtru.
+
+    ![Řešení IoT běží](./media/how-to-vscode-develop-csharp-module/solution-running.png)
+
 8. Klikněte pravým tlačítkem na ID hraniční zařízení a také můžete monitorovat D2C zprávy v produktu VS Code.
 
 

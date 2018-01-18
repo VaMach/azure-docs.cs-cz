@@ -3,7 +3,7 @@ title: "Synchronizace Azure AD Connect: Principy výchozí konfigurace | Microso
 description: "Tento článek popisuje výchozí konfigurace v synchronizaci Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizace služby Azure AD Connect: Principy výchozí konfigurace
 Tento článek vysvětluje out-of-box konfigurační pravidla. Ho dokumentů, pravidla a jak tato pravidla vliv na konfiguraci. Je také vás provede výchozí konfigurace synchronizace služby Azure AD Connect. Cílem je, že čtečka plně chápe, jak funguje konfigurační model s názvem deklarativní zřizování v příkladu reálného. Tento článek předpokládá, že jste již nainstalovali a konfigurace synchronizace služby Azure AD Connect pomocí Průvodce instalací.
@@ -134,7 +134,7 @@ Instalaci synchronizace Azure AD Connect SRE je nástroj resource kit. Chcete-li
 
 V tomto podokně zobrazí všechny synchronizační pravidla, které jsou vytvořeny pro vaši konfiguraci. Každý řádek v tabulce představuje jeden synchronizační pravidlo. Na levé straně v části typy pravidel, jsou uvedeny dva různé typy: příchozí a odchozí. Příchozí a odchozí je z pohledu úložiště metaverse. Zaměřuje se chystáte především na příchozích pravidel v tomto přehledu. Skutečný seznam pravidel synchronizace závisí na schéma zjištěného v AD. Na obrázku výše doménové struktury účtu (fabrikamonline.com) nemá žádné služby, například Exchange a Lync, a žádná pravidla synchronizace byly vytvořeny pro tyto služby. Ale v doménové struktuře prostředku (res.fabrikamonline.com) zjistíte synchronizační pravidla pro tyto služby. Obsah pravidla se liší v závislosti na verzi zjištěna. Například v nasazení s Exchange 2013 existují další toky atributů, které jsou nakonfigurované než v systému Exchange 2010 nebo 2007.
 
-### <a name="synchronization-rule"></a>Pravidlo synchronizace
+### <a name="synchronization-rule"></a>Synchronizační pravidlo
 Pravidlo synchronizace je objekt konfigurace sadu atributů toku, pokud je podmínka. Používá se také k popisu, jak je související objekt v prostoru konektoru k objektu v úložišti metaverse, označuje jako **spojení** nebo **odpovídat**. Synchronizační pravidla mají přednost před hodnotu, která určuje, jak se vztahují k sobě navzájem. Pravidlo synchronizace s nižší číselná hodnota má vyšší prioritu a v konfliktu tok atributů, vyšší prioritu služby wins řešení konfliktů.
 
 Jako příklad, podívejte se na synchronizační pravidlo **v ze služby Active Directory – uživatel AccountEnabled**. Označit tento řádek v SRE a vyberte **upravit**.
@@ -217,7 +217,7 @@ Prioritu pro synchronizační pravidla nastavená ve skupinách, Průvodce insta
 ### <a name="putting-it-all-together"></a>Třeba umisťovat všechny společně
 Víme teď dost o synchronizační pravidla, abyste mohli pochopit, jak funguje v konfiguraci s jinými pravidly synchronizace. Pokud se podíváte na uživatele a atributy, které jsou na úložiště metaverse podílí, pravidla se použijí v uvedeném pořadí:
 
-| Name (Název) | Komentář |
+| Název | Poznámka |
 |:--- |:--- |
 | V ze služby Active Directory – připojení uživatele |Pravidlo pro připojení objekty konektoru místa s úložiště metaverse. |
 | V ze služby Active Directory – povolené uživatelské účty |Atributy, které jsou potřebné pro přihlášení ke službě Azure AD a Office 365. Chceme, aby tyto atributy z aktivovaný účet. |
@@ -226,7 +226,7 @@ Víme teď dost o synchronizační pravidla, abyste mohli pochopit, jak funguje 
 | V ze služby Active Directory – Exchange uživatele |Existuje pouze pokud byl zjištěn Exchange. Ho toky všechny atributy Exchange infrastruktury. |
 | V ze služby Active Directory – uživatele aplikace Lync |Existuje pouze pokud byla zjištěna aplikace Lync. Ho toky všechny atributy Lync infrastruktury. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o konfiguraci modelu v [Principy deklarativní zřizování](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Další informace o jazyk výrazů v [Principy deklarativní zřizování výrazy](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Pokračujte ve čtení fungování konfigurace out-of-box [Principy uživatelů a kontaktů](active-directory-aadconnectsync-understanding-users-and-contacts.md)

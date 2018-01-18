@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Nejčastější dotazy pro IoT Suite připojené vytváření předkonfigurovaného řešení
 
@@ -82,7 +82,7 @@ Pokud jste nasadili řešení od www.azureiotsuite.com, nemůžete se přihlási
 1. Chcete-li zkontrolovat, které kontejnery jsou aktivní, spusťte: `docker ps`.
 1. Chcete-li ukončit všechny kontejnery simulace, spusťte: `./stopsimulation`.
 1. Chcete-li spustit všechny kontejnery simulace:
-    * Export proměnnou prostředí s názvem **IOTHUB_CONNECTIONSTRING**. Použijte hodnotu **IotHubOwnerConnectionString** nastavení v `<name of your deployment>.config.user` souboru. Například:
+    * Export proměnnou prostředí s názvem **IOTHUB_CONNECTIONSTRING**. Použijte hodnotu **IotHubOwnerConnectionString** nastavení v `<name of your deployment>.config.user` souboru. Příklad:
 
         ```
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -104,20 +104,20 @@ Můžete také získat připojovací řetězec pomocí portálu Azure. V rámci 
 
 Simulace vlastní zaregistruje následující zařízení:
 
-* proxy.Beijing.corp.contoso
+* proxy.beijing.corp.contoso
 * proxy.capetown.corp.contoso
-* proxy.Mumbai.corp.contoso
+* proxy.mumbai.corp.contoso
 * proxy.munich0.corp.contoso
-* proxy.Rio.corp.contoso
-* proxy.SEATTLE.corp.contoso
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.SEATTLE.corp.contoso
+* proxy.rio.corp.contoso
+* proxy.seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
-Pomocí [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) nebo [iothub-explorer](https://github.com/azure/iothub-explorer) nástroj, můžete zkontrolovat zařízení, která jsou zaregistrovaná v centru IoT používá vaše řešení. Tyto nástroje používat, budete potřebovat připojovací řetězec pro službu IoT hub ve vašem nasazení.
+Pomocí [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) nebo [IoT rozšíření pro Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) nástroj, můžete zkontrolovat zařízení, která jsou zaregistrovaná v centru IoT používá vaše řešení. Použití Průzkumníka zařízení, budete potřebovat připojovací řetězec pro službu IoT hub ve vašem nasazení. Použití rozšíření IoT pro Azure CLI 2.0, je třeba název vaší služby IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Načtení dat protokolu z komponenty simulace?
 
@@ -135,18 +135,24 @@ S [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/too
 
 Zkontrolujte data odeslaná vydavatele zařízení:
 
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.SEATTLE.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
 Pokud se žádná data, odeslané do služby IoT Hub, nastane problém s simulace. Jako první krok analysis byste měli provést analýzu souborů protokolu součásti simulace. V tématu [načtení dat protokolu z komponenty simulace?](#how-can-i-get-log-data-from-the-simulation-components) V dalším kroku pokusí zastavit a spustit simulaci a v případě stále nejsou žádná data odesílá, aktualizujte simulaci úplně. V tématu [jak aktualizovat simulace ve virtuálním počítači?](#how-do-i-update-the-simulation-in-the-vm)
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Jak povolit interaktivní mapu v mém řešení připojených vytváření?
 
-Pokud chcete povolit interaktivní mapu ve vašem řešení připojených objekt pro vytváření, musí mít existující rozhraní API map Bing pro plán Enterprise. Pokud máte rozhraní API map Bing pro plán Enterprise, když nasadíte řešení připojených factory z www.azureiotsuite.com, je automaticky povoleno interaktivní mapu.
+Pokud chcete povolit interaktivní mapu ve vašem řešení připojených objekt pro vytváření, musí mít existující rozhraní API map Bing pro plán Enterprise.
+
+Při nasazení z [www.azureiotsuite.com](http://www.azureiotsuite.com), proces nasazení ověří, že vaše předplatné má povoleno rozhraní API map Bing pro plán Enterprise a interaktivní mapu automaticky nasadí do připojeného objektu pro vytváření. Pokud tomu tak není, můžete stále povolit interaktivní mapu ve vašem nasazení následujícím způsobem:
+
+Při nasazení pomocí `build.ps1` skript v továrně připojené úložiště GitHub a budete mít rozhraní API map Bing pro plánu podnikového, nastavte proměnnou prostředí `$env:MapApiQueryKey` v okně sestavení na klíč dotazu plánu. Interaktivní mapu se pak automaticky povolí.
+
+Pokud nemáte rozhraní API map Bing pro plán Enterprise, nasadit řešení připojených factory z [www.azureiotsuite.com](http://www.azureiotsuite.com) nebo pomocí `build.ps1` skriptu. Pak přidejte rozhraní API map Bing pro plánu podnikového do vašeho předplatného, jak je popsáno v [vytvoření rozhraní API map Bing pro účet organizace?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Vyhledání klíče dotazu tohoto účtu, jak je popsáno v [získání rozhraní API map Bing pro Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) a uložte tento klíč. Přejděte na portál Azure a přístup k prostředku služby App Service ve vašem nasazení připojené objekt pro vytváření. Přejděte na **nastavení aplikace**, kde najít oddíl **nastavení aplikace**. Nastavte **MapApiQueryKey** na klíč dotazu, který jste získali. Uložte nastavení a potom přejděte na **přehled** a restartujte službu aplikace.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Vytvoření rozhraní API map Bing pro účet Enterprise
 
@@ -202,7 +208,7 @@ Chcete-li Neodesílat telemetrická data z jiných OPC UA zařízení k vytvář
 
 1. Restartujte připojené objekt pro vytváření služby App Service.
 
-### <a name="next-steps"></a>Další kroky
+### <a name="next-steps"></a>Další postup
 
 Můžete si taky prostudovat některé další funkce a možnosti předkonfigurovaných řešení sady IoT Suite:
 

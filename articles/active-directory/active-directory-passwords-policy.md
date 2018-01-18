@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Zásady hesel a omezení v Azure Active Directory
 
@@ -85,7 +85,7 @@ Každý uživatelský účet, který se musí přihlásit do služby Azure AD mu
 
 | Vlastnost | UserPrincipalName požadavky |
 | --- | --- |
-| Povolené znaky |<ul> <li>A – Z</li> <li>a – z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Povolené znaky |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
 | Znaky nejsou povoleny |<ul> <li>Všechny "@" znak, který není oddělení uživatelského jména z domény.</li> <li>Nesmí obsahovat období znak "." bezprostředně předcházející "@" symbol</li></ul> |
 | Omezení délky |<ul> <li>Celková délka nesmí přesáhnout délku 113 znaků</li><li>Může být až 64 znaků, než "@" symbol</li><li>Může být maximálně 48 znaků po "@" symbol</li></ul> |
 
@@ -95,7 +95,7 @@ Následující tabulka popisuje nastavení zásad k dispozici heslo, které moho
 
 | Vlastnost | Požadavky |
 | --- | --- |
-| Povolené znaky |<ul><li>A – Z</li><li>a – z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Povolené znaky |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Znaky nejsou povoleny |<ul><li>Znaky kódování Unicode.</li><li>Prostory.</li><li> Silná hesla pouze: nesmí obsahovat tečku znak "." bezprostředně předcházející "@" symbol.</li></ul> |
 | Omezení hesla |<ul><li>Minimálně 8 znaků a maximálně 16 znaků.</li><li>Silná hesla pouze: vyžaduje tři ze čtyř z následujících akcí:<ul><li>Malá písmena.</li><li>Velká písmena.</li><li>Čísla (0-9).</li><li>Symboly (viz předchozí omezení hesla).</li></ul></li></ul> |
 | Doba vypršení platnosti hesla |<ul><li>Výchozí hodnota: **90** dnů.</li><li>Hodnota je možné konfigurovat pomocí `Set-MsolPasswordPolicy` rutiny z Azure Active Directory modul pro prostředí Windows PowerShell.</li></ul> |

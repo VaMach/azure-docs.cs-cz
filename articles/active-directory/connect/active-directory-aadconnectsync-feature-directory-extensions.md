@@ -3,7 +3,7 @@ title: "Synchronizace Azure AD Connect: rozšíření adresáře | Microsoft Doc
 description: "Toto téma popisuje funkce rozšíření adresáře v Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 3ab8b02ad30315de23e5d8e7370cc385a53ecf3a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 31758568f7ce916a4c242aad743bb4b0cb9b2d6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronizace Azure AD Connect: rozšíření adresáře
 Rozšíření adresáře můžete rozšířit schéma ve službě Azure AD s vlastními atributy z místní služby Active Directory. Tato funkce umožňuje vytvářet obchodní aplikace, které využívají atributy nadále spravovat místní. Tyto atributy mohou být využívány prostřednictvím [rozšíření adresáře Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) nebo [Microsoft Graph](https://graph.microsoft.io/). Můžete zobrazit dostupné atributy pomocí [Azure AD Graph explorer](https://graphexplorer.azurewebsites.net/) a [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) v uvedeném pořadí.
@@ -49,7 +49,7 @@ Tyto atributy jsou nyní k dispozici prostřednictvím grafu:
 
 Atributy mají předponu rozšíření\_{AppClientId}\_. AppClientId mají stejnou hodnotu pro všechny atributy v klientovi služby Azure AD.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

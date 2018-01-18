@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.openlocfilehash: e9e55f05c97fe335a315683294805b1027b53784
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 555f82ec9351c8c3610ad99a95159cc47d2ee539
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Nainstalujte nebo aktualizujte Mono v HDInsight
 
@@ -35,13 +35,13 @@ Tento skript přijímá následující parametr:
 
 Skript nainstaluje Mono následujících balíčků:
 
-* __dokončení mono__
+* __mono-complete__
 
-* __certifikační autority certifikáty mono__
+* __ca-certificates-mono__
 
 ## <a name="the-script"></a>Skript
 
-__Skript umístění__: [https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
+__Script location__: [https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
 
 __Požadavky na__:
 
@@ -60,7 +60,7 @@ Pokud chcete zadat Mono verzi, která je nainstalovaná, použijte číslo verze
 > [!NOTE]
 > Při konfiguraci HDInsight pomocí tohoto skriptu, označí skript jako __trvalé__. Toto nastavení umožňuje HDInsight použít skript k pracovním uzlům přidávají prostřednictvím škálování operace.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Jste se naučili postup instalaci nebo upgrade na konkrétní verzi Mono v HDInsight. Další informace o používání aplikací .NET s Mono v HDInsight najdete v následujících dokumentech:
 

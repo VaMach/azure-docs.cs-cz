@@ -3,7 +3,7 @@ title: "Obecné konektor SQL krok za krokem | Microsoft Docs"
 description: "Tento článek je proti prostřednictvím jednoduchý systém HR podrobné pomocí obecné konektoru SQL."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91eb50a06bbf2e6c5510c42bd1d3ae961fd0bddd
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Podrobný postup pro obecný konektor SQL
 Toto téma je podrobný průvodce. Vytvoří databáze HR jednoduchého ukázkového a použít jej pro import někteří uživatelé a jejich členství ve skupině.
@@ -101,7 +101,7 @@ Vyplňte nějaká testovací data v ukázkové databázi. Až budete připraven�
 
 Zde je uživatel s dvě telefonní čísla a skupiny se některé členy.  
 ![cs1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
-![CS2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
+![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
 ## <a name="appendix-a"></a>Příloha A
 **Skript SQL k vytvoření ukázkové databáze**

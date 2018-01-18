@@ -109,7 +109,7 @@
 #### [Konfigurace pojmenovaných umístění](active-directory-named-locations.md)
 #### [Vyhledávání sestav aktivit](active-directory-reporting-migration.md)
 #### [Použití sady Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Odkaz
+### Referenční informace
 #### [Uchování](active-directory-reporting-retention.md)
 #### [Latence](active-directory-reporting-latencies-azure-portal.md)
 #### [Oznámení](active-directory-reporting-notifications.md)
@@ -288,6 +288,7 @@
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Vysvětlení zásad zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrace klasických zásad](active-directory-conditional-access-migration.md)
+#### [Nástroj pro analýzy „co kdyby“](active-directory-conditional-access-whatif.md)
 #### Úlohy
 ##### [Migrace klasických zásad MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Nastavení podmíněného přístupu na základě zařízení](active-directory-conditional-access-policy-connected-applications.md)
@@ -344,7 +345,7 @@
 ### [Scénáře PoC: Stavební bloky](active-directory-playbook-building-blocks.md)
 
 
-# Odkaz
+# Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Rutiny Azure PowerShellu](/powershell/azure/overview)
 ## [Referenční informace k Java API](/java/api)

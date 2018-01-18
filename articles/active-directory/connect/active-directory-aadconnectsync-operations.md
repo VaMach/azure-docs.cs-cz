@@ -3,7 +3,7 @@ title: "Synchronizace Azure AD Connect: provozní úlohy a důležité informace
 description: "Toto téma popisuje provozní úlohy synchronizace Azure AD Connect a postup přípravy operační této součásti."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4252a5ff3dd985185745060073cbe5432dba726a
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 0dfdae45ef7508337a1233c651d355d83b9f0430
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Synchronizace Azure AD Connect: provozní úlohy a zvážení
 Cílem tohoto tématu je k popisu provozní úlohy pro synchronizaci Azure AD Connect.
@@ -124,7 +124,7 @@ Pokud nepoužíváte SQL Server Express, která se dodává s Azure AD Connect, 
 
 K Azure AD Connect v verze 1.1.524.0 byla přidána podpora pro SQL AOA. Před instalací Azure AD Connect je nutné povolit SQL AOA. Při instalaci Azure AD Connect zjistí, zda zadaná instance SQL je povoleno pro SQL AOA, nebo ne. Pokud je povoleno SQL AOA, Azure AD Connect další hodnoty, pokud SQL AOA je konfigurovaná pro použití replikace synchronní nebo asynchronní replikaci. Při nastavování naslouchacího procesu skupiny dostupnosti, se doporučuje nastavit vlastnost RegisterAllProvidersIP na 0. Je to proto, že Azure AD Connect aktuálně používá SQL Native Client k připojení k SQL a nativní klient SQL nepodporuje použití vlastnosti MultiSubNetFailover.
 
-## <a name="appendix-csanalyzer"></a>Příloha CSAnalyzer
+## <a name="appendix-csanalyzer"></a>Appendix CSAnalyzer
 Najdete v části [ověřte](#verify) o tom, jak pomocí tohoto skriptu.
 
 ```
@@ -266,7 +266,7 @@ Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 **Témata s přehledem**  
 
 * [Synchronizace Azure AD Connect: pochopení a přizpůsobení synchronizace](active-directory-aadconnectsync-whatis.md)  

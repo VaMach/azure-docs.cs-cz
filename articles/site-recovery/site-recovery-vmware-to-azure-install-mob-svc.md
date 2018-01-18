@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Instalaci služby Mobility (VMware nebo fyzických do Azure)
 Služba Mobility Azure Site Recovery zaznamenává datové zápisy na počítači a předává je na procesní server. Nasazení služby Mobility do jednotlivých počítačů (virtuálních počítačů VMware nebo fyzických serverů), který chcete replikovat do Azure. Služba Mobility můžete nasadit na servery, které chcete chránit pomocí následujících metod:
@@ -50,16 +45,16 @@ Než nainstalujete službu Mobility ručně na vašem serveru, proveďte násled
 
 | Název šablony souboru instalačního programu| Operační systém |
 |---|--|
-|Microsoft automatické obnovení systému\_uživatelský Agent\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bitů) </br> Windows Server 2012 (64 bitů) </br> Windows Server 2012 R2 (64 bitů) </br> Windows Server 2016 (64 bitů) |
-|Microsoft automatické obnovení systému\_uživatelský Agent\*RHEL6 64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (pouze 64bitové) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (pouze 64bitové) |
-|Microsoft automatické obnovení systému\_uživatelský Agent\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (pouze 64bitové) </br> CentOS 7.0, 7.1, 7.2, 7.3 (pouze 64bitové) |
-|Microsoft automatické obnovení systému\_uživatelský Agent\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (pouze 64bitové)|
-|Microsoft automatické obnovení systému\_uživatelský Agent\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (pouze 64bitové)|
-|Microsoft automatické obnovení systému\_uživatelský Agent\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (pouze 64bitové)|
-|Microsoft automatické obnovení systému\_uživatelský Agent\*UBUNTU 14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (pouze 64bitové)|
-|Microsoft automatické obnovení systému\_uživatelský Agent\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (pouze 64bitová verze)|
-|Microsoft ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (pouze 64bitové)|
-|Microsoft ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (pouze 64bitové)|
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64 bitů) </br> Windows Server 2016 (64 bitů) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (pouze 64bitové) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (pouze 64bitové) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (pouze 64bitové) </br> CentOS 7.0, 7.1, 7.2, 7.3 (pouze 64bitové) |
+|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (pouze 64bitové)|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (pouze 64bitové)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (pouze 64bitové)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (pouze 64bitové)|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (pouze 64bitová verze)|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (pouze 64bitové)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (pouze 64bitové)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Nainstalujte službu Mobility ručně pomocí grafického uživatelského rozhraní
@@ -92,7 +87,7 @@ Po instalaci služby Mobility na portálu Azure vyberte **+ replikovat** tlačí
 ## <a name="update-mobility-service"></a>Aktualizace služby Mobility
 
 > [!WARNING]
-> Zajistěte, aby konfigurační Server, serverů se Škálováním na proces a všechny servery hlavního cíle, které jsou součástí vašeho nasazení bude aktualizován, než začnete aktualizaci služby Mobility na chráněných serverech. Další informace na [jak aktualizovat konfigurační Server](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) a [postup aktualizace serverech se Škálováním na více systémů procesu](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Zajistěte, aby konfigurační Server, serverů se Škálováním na proces a všechny servery hlavního cíle, které jsou součástí vašeho nasazení bude aktualizován, než začnete aktualizaci služby Mobility na chráněných serverech.
 
 1. Na portálu Azure Procházet k <Your Vault> -> zobrazení replikované položky.
 2. Pokud **konfigurační server** již aktualizoval na nejnovější verzi, pak byste měli vidět oznámení, který čte *je dostupná aktualizace agenta replikace obnovení nové lokality. Klikněte na tlačítko nainstalovat*

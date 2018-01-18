@@ -1,5 +1,5 @@
 ---
-title: "Definování strategie přijetí hybridní identity Azure Active Directory hybridní identity aspekty návrhu - | Microsoft Docs"
+title: "Návrhu hybridní identity - strategii přijetí Azure | Microsoft Docs"
 description: "Azure Active Directory pomocí podmíněného řízení přístupu, zkontroluje konkrétní podmínky, kterou vyberete při ověřování uživatele a před povolením přístupu k aplikaci. Po splnění těchto podmínek je uživatel ověřený a přistupovat k aplikaci."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definování strategie přijetí hybridní identity
 V této úloze definujete strategií hybridní identity přijetí řešení hybridní identity splňovat obchodní požadavky, které se zabývá:
@@ -189,9 +190,9 @@ I když vám může mít vyrovnané na řešení pro strategie, přesto potřebu
 | Umístění uživatele | Upřednostňovanou možnost |
 | --- | --- |
 | Azure Active Directory |Více-FactorAuthentication v cloudu |
-| Azure AD a místní AD využívající federaci se službou AD FS |Obě |
-| Azure AD a místní AD pomocí služby Azure AD Connect bez synchronizace hesla |Obě |
-| Azure AD a místní pomocí služby Azure AD Connect se synchronizací hesla |Obě |
+| Azure AD a místní AD využívající federaci se službou AD FS |Obojí |
+| Azure AD a místní AD pomocí služby Azure AD Connect bez synchronizace hesla |Obojí |
+| Azure AD a místní pomocí služby Azure AD Connect se synchronizací hesla |Obojí |
 | Místní AD |Server Multi-Factor Authentication |
 
 > [!NOTE]
@@ -207,9 +208,9 @@ Služba Multi-Factor authentication je k dispozici ve výchozím nastavení pro 
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Určení požadavků na ochranu dat](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 [Přehled aspektů návrhu](active-directory-hybrid-identity-design-considerations-overview.md)
 

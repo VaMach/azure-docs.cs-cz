@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Přizpůsobení předkonfigurovaného řešení vzdáleného monitorování
 
@@ -24,6 +24,10 @@ Tento článek poskytuje informace o tom, jak můžete přístup ke zdrojovému 
 
 * Úložiště Githubu, které obsahují zdrojového kódu a prostředky pro mikroslužeb, který vytváří předkonfigurovaného řešení.
 * Běžné scénáře přizpůsobení, jako je například přidávání nového typu zařízení.
+
+Následující video obsahuje přehled možností pro přizpůsobení předkonfigurovaného řešení vzdáleného monitorování:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Přehled projektu
 
@@ -78,7 +82,7 @@ Výchozí nasazení používá název společnosti Contoso a logo v uživatelsk�
     CONTOSO: 'Contoso',
     ```
 
-1. Nahraďte `Contoso` s názvem vaší společnosti. Například:
+1. Nahraďte `Contoso` s názvem vaší společnosti. Příklad:
 
     ```js
     CONTOSO: 'YourCo',
@@ -96,7 +100,7 @@ Výchozí nasazení používá název společnosti Contoso a logo v uživatelsk�
     import ContosoIcon from '../../../assets/icons/Contoso.svg';
     ```
 
-1. Nahraďte `Contoso.svg` s názvem souboru loga. Například:
+1. Nahraďte `Contoso.svg` s názvem souboru loga. Příklad:
 
     ```js
     import ContosoIcon from '../../../assets/icons/YourCo.svg';
@@ -108,7 +112,7 @@ Výchozí nasazení používá název společnosti Contoso a logo v uživatelsk�
     alt="ContosoIcon"
     ```
 
-1. Nahraďte `ContosoIcon` s vaší `alt` text. Například:
+1. Nahraďte `ContosoIcon` s vaší `alt` text. Příklad:
 
     ```js
     alt="YourCoIcon"
@@ -249,7 +253,7 @@ Pokud chcete upravit infrastruktury v řešení vzdáleného monitorování, mů
 * [Adaptér úložiště (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
 * [Adaptér úložiště (Java)](https://github.com/Azure/pcs-storage-adapter-java)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto článku jste se dozvěděli o zdrojích, které vám umožní přizpůsobit předkonfigurovaného řešení.
 

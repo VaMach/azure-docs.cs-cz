@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Pro zařízení Azure IoT SDK pro jazyk C
 
@@ -68,9 +68,9 @@ Teď, když máte ukázka zdrojový kód, dalším krokem je získat sadu pově�
 Je několik nástrojů s otevřeným zdrojem, které vám pomohou spravovat služby IoT hub.
 
 * Aplikace systému Windows s názvem [explorer zařízení](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Nástroj příkazového řádku node.js napříč platformami názvem [iothub-explorer](https://github.com/azure/iothub-explorer).
+* Nástroj příkazového řádku Python napříč platformami názvem [IoT rozšíření pro Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Tento kurz používá grafickém *explorer zařízení* nástroj. Můžete také *iothub-explorer* Pokud byste radši chtěli použít nástroj příkazového řádku.
+Tento kurz používá grafickém *explorer zařízení* nástroj. Můžete také *IoT rozšíření pro Azure CLI 2.0* Pokud byste radši chtěli použít nástroj příkazového řádku.
 
 Nástroj Průzkumník zařízení používá k provádění různých funkcí na IoT Hub, včetně přidávání zařízení knihovny služby Azure IoT. Pokud používáte nástroj Průzkumník zařízení pro přidání zařízení, můžete získat připojovací řetězec pro vaše zařízení. Je nutné tento připojovací řetězec ke spuštění ukázkové aplikace.
 
@@ -151,7 +151,7 @@ Předáte kopii zařízení připojovací řetězec, který jste obdrželi z ná
 
 Pokud máte platný **IOTHUB\_klienta\_zpracování**, můžete spustit volání rozhraní API odesílat a přijímat zprávy do a ze služby IoT Hub.
 
-### <a name="send-messages"></a>Odesílání zpráv
+### <a name="send-messages"></a>Poslat zprávy
 
 Ukázkovou aplikaci nastaví smyčku k odesílání zpráv do služby IoT hub. Následující fragment kódu:
 
@@ -214,7 +214,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 
 Všimněte si volání **IoTHubMessage\_Destroy** fungovat po dokončení se zprávou. Tato funkce uvolní prostředky přidělené při vytvoření zprávy.
 
-### <a name="receive-messages"></a>Příjem zpráv
+### <a name="receive-messages"></a>Přijmout zprávy
 
 Přijímání zprávy je asynchronní operace. Nejprve zaregistrovat zpětného volání, který má být vyvolán při zařízení obdrží zprávu:
 
@@ -402,7 +402,7 @@ V tomto příkladu je jednotný model názvem **ContosoAnemometer**. Tento model
 
 Data a akce definované v modelu definovat plochy rozhraní API, které můžete použít k odesílání zpráv do služby IoT Hub a reakce na zprávy odeslané do zařízení. Použití tohoto modelu odhalíte nejlépe v příkladu.
 
-### <a name="send-messages"></a>Odesílání zpráv
+### <a name="send-messages"></a>Poslat zprávy
 
 Model definuje data, která můžete odeslat do služby IoT Hub. V tomto příkladu to znamená, jeden dvě datové položky definované pomocí **WITH_DATA** makro. Existuje několik kroků, které jsou potřebné k odeslání **DeviceId** a **větru** hodnoty do služby IoT hub. První je nastavit data, která se mají posílat:
 
@@ -472,7 +472,7 @@ Druhý parametr je ukazatel na kontext uživatele; Předaný stejné ukazatele *
 
 To je všechno je zasílání zpráv typu zařízení cloud. Jediné, co ponecháno tak, aby pokrývalo je jak přijmout zprávy.
 
-### <a name="receive-messages"></a>Příjem zpráv
+### <a name="receive-messages"></a>Přijmout zprávy
 
 Příjem zpráv funguje podobně jako způsob zprávy fungovat **IoTHubClient** knihovny. Nejprve zaregistrovat funkci zpětného volání zpráva:
 
@@ -570,7 +570,7 @@ Další informace o vývoji pro IoT Hub, najdete v tématu [SDK služby Azure Io
 
 Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
-* [Nasazení AI do hraniční zařízení s Azure IoT Edge][lnk-iotedge]
+* [Nasazení AI do hraničních zařízení s použitím Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

@@ -4,13 +4,13 @@ description: "Tento článek obsahuje přehled součásti a architektura použí
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/15/2018
 ms.author: raynew
-ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 7999f23d167c6e8a7bcaf3a817e0cd2e80a1d649
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Z VMware do Azure replikace architektura
 
@@ -24,11 +24,9 @@ Následující obrázek a tabulka poskytují souhrnné zobrazení komponenty pou
 **Komponenta** | **Požadavek** | **Podrobnosti**
 --- | --- | ---
 **Azure** | Předplatné Azure, účet úložiště Azure a sítě Azure. | Replikovaná data z místně virtuálních počítačů je uložený v účtu úložiště. Virtuální počítače Azure vytvořené mají replikovaných dat při spuštění selhání z místního do Azure. Virtuální počítače Azure se připojí k virtuální síti Azure po svém vytvoření.
-**Konfigurační server** | Jediný místního nasazení virtuálního počítače VMware na všechny místní spuštění součásti Site Recovery. Virtuální počítač se spustí konfigurační server, procesový server a hlavní cílový server. | Konfigurační server koordinuje komunikaci mezi místním prostředím a Azure a spravuje replikaci dat.
- **Procesový server:**  | Ve výchozím nastavení společně s konfiguračním serveru nainstalovaná. | Funguje jako replikační brána. Přijímá data replikace, optimalizuje je pomocí ukládání do mezipaměti, komprese a šifrování a odesílá je do úložiště Azure.<br/><br/> Procesový server také nainstaluje služba Mobility na virtuálních počítačích, které chcete replikovat, a provádí automatického zjišťování virtuálních počítačů na místní servery VMware.<br/><br/> S růstem nasazení můžete přidat další, samostatný proces serverů, aby zvládla větší objemy přenosů replikace.
- **Hlavní cílový server** | Ve výchozím nastavení společně s konfiguračním serveru nainstalovaná. | Zpracovává replikační data během navracení služeb z Azure po obnovení.<br/><br/> Nasazení ve velkých organizacích můžete přidat další, samostatné hlavní cílový server navrácení služeb po obnovení.
+**Konfigurace počítače serveru** | Jeden na místním počítači. Doporučujeme, že abyste spustili jako virtuální počítač VMware, který můžete nasadit z ve stažené šabloně OVF.<br/><br/> Počítač se spustí všechny součásti Site Recovery na místě, včetně konfigurační server, procesový server a hlavní cílový server. | **Konfigurační server**: koordinuje komunikaci mezi místními a Azure a spravuje replikaci dat.<br/><br/> **Procesový server**: nainstalované ve výchozím nastavení na konfiguračním serveru. Přijímá data replikace, optimalizuje je pomocí ukládání do mezipaměti, komprese a šifrování a odešle ji do úložiště Azure. Procesový server také nainstaluje služba Mobility na virtuálních počítačích, které chcete replikovat, a provádí automatického zjišťování počítačů místně. S růstem nasazení můžete přidat další, samostatný proces serverů, aby zvládla větší objemy přenosů replikace.<br/><br/>  **Hlavní cílový server**: nainstalované ve výchozím nastavení na konfiguračním serveru. Zpracovává replikační data během navrácení služeb po obnovení z Azure. Nasazení ve velkých organizacích můžete přidat další, samostatné hlavní cílový server navrácení služeb po obnovení.
 **Servery VMware** | Virtuální počítače VMware jsou hostovány na místních vSphere ESXi serverů. Doporučujeme, abyste server vCenter pro správu hostitele. | Během nasazování Site Recovery přidat servery VMware do trezoru služeb zotavení.
-**Replikované počítače** | Služba Mobility je nainstalovaná na jednotlivé virtuální počítače VMware, kterého budete replikovat. | Doporučujeme že povolit automatické instalace z procesového serveru. Případně můžete ručně nainstalovat službu, nebo použijte metodu automatického nasazení, jako je například System Center Configuration Manager. 
+**Replikované počítače** | Služba Mobility je nainstalovaná na jednotlivé virtuální počítače VMware, kterého budete replikovat. | Doporučujeme že povolit automatické instalace z procesového serveru. Případně můžete ručně nainstalovat službu, nebo použijte metodu automatického nasazení, jako je například System Center Configuration Manager.
 
 **Architektura replikace z VMware do Azure**
 
@@ -36,15 +34,17 @@ Následující obrázek a tabulka poskytují souhrnné zobrazení komponenty pou
 
 ## <a name="replication-process"></a>Proces replikace
 
-1. Nastavení nasazení, včetně místní a Azure součásti. V trezoru služeb zotavení určíte replikace zdroje a cíle, nastavení konfigurace serveru, vytvořte zásadu replikace a povolení replikace.
-2. Replikovat počítače v souladu s zásady replikace a počáteční kopii data virtuálního počítače se replikují do úložiště Azure.
-3. Po dokončení počáteční replikace začne replikace rozdílové změny do Azure. Sledované změny se pro jednotlivé počítače ukládají do souboru .hrl.
+1.  Připravíte prostředků Azure a místní komponenty.
+2.  V trezoru služeb zotavení zadejte nastavení zdroje replikace. V rámci tohoto procesu se nastavit místní konfigurační server. Pokud chcete nasadit tento server jako virtuální počítače VMware, stáhněte šablonu připravené OVF a naimportujte ho do VMware vytvořte virtuální počítač.
+3. Zadejte nastavení replikace cíl, vytvořte zásadu replikace a povolení replikace pro virtuální počítače VMware.
+4.  Replikovat počítače v souladu s zásady replikace a počáteční kopii data virtuálního počítače se replikují do úložiště Azure.
+5.  Po dokončení počáteční replikace začne replikace rozdílové změny do Azure. Sledované změny se pro jednotlivé počítače ukládají do souboru .hrl.
     - Počítače komunikují s konfiguračním serverem na portu 443 protokolu HTTPS příchozí pro správu replikace.
     - Počítače odesílat data replikace na procesový server na port HTTPS 9443 příchozí (lze upravit).
     - Konfigurační server orchestruje správu replikace s Azure přes odchozí port HTTPS 443.
     - Procesový server přijímá data ze zdrojového počítače, optimalizuje je a šifruje, a pak je odesílá do úložiště Azure přes odchozí port 443.
     - Po povolení konzistence pro víc Virtuálních počítačů v replikační skupině vzájemně komunikovat přes port 20004. Konzistence více virtuálních počítačů znamená, že seskupíte víc virtuálních počítačů do replikační skupiny, v rámci které se sdílí body obnovení konzistentní vzhledem k selháním a konzistentní vzhledem k aplikacím, když dojde k převzetí služeb při selhání. To je užitečné, pokud je počítačích spuštěná stejná úloha a je třeba, aby zůstala konzistentní.
-4. Provoz se přes internet replikuje do veřejných koncových bodů úložiště Azure. Alternativně můžete použít [veřejný partnerský vztah](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) Azure ExpressRoute. Přenos replikačních dat přes síť site-to-site VPN z místního serveru do Azure není podporovaný.
+6.  Provoz replikuje do úložiště Azure veřejné koncové body, přes internet. Alternativně můžete použít zure ExpressRoute [veřejného partnerského vztahu](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Přenos replikačních dat přes síť site-to-site VPN z místního serveru do Azure není podporovaný.
 
 
 **Z VMware do Azure replikační proces**
@@ -75,6 +75,6 @@ Až bude vaše místní lokalita opět dostupná, můžete službu navrátit.
 ![Navrácení služeb po obnovení](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Postupujte podle [v tomto kurzu](tutorial-vmware-to-azure.md) povolit VMware do Azure replikace.

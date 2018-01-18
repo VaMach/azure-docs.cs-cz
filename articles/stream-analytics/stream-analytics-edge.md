@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2017
+ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT hranu (preview)
 
@@ -46,18 +46,23 @@ Tato funkce je ve verzi preview, pokud máte jakékoli otázku nebo připomínky
 
 ASA používá k nasazení edge úloh do zařízení IoT Hub. Další informace o [IoT Edge nasazení můžete zobrazit tady](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
-![Úloha Edge](media/stream-analytics-edge/ASAedge_job.png)
+![Hraniční úloha](media/stream-analytics-edge/ASAedge_job.png)
 
 
 ### <a name="installation-instructions"></a>Pokyny k instalaci
 Hlavní kroky jsou popsané v následující tabulce. Další podrobnosti jsou uvedeny v následujících částech.
 |      |Krok   | Místní     | Poznámky   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Vytvořit úlohu ASA edge**   | portál Azure      |  Vytvořit novou úlohu, vyberte **Edge** jako **hostování prostředí**. <br> Tyto úlohy se vytvořit nebo spravovat z cloudu a spusťte na zařízení IoT okraj.     |
-| 2   | **Vytvoření kontejneru úložiště**   | portál Azure       | Kontejnery úložiště se používají k uložíte definici úlohy, které lze k nim vaše zařízení IoT. <br>  Všechny existující kontejner úložiště můžete znovu použít.     |
+| 1   | **Vytvořit úlohu ASA edge**   | Azure Portal      |  Vytvořit novou úlohu, vyberte **Edge** jako **hostování prostředí**. <br> Tyto úlohy se vytvořit nebo spravovat z cloudu a spusťte na zařízení IoT okraj.     |
+| 2   | **Vytvoření kontejneru úložiště**   | Azure Portal       | Kontejnery úložiště se používají k uložíte definici úlohy, které lze k nim vaše zařízení IoT. <br>  Všechny existující kontejner úložiště můžete znovu použít.     |
 | 3   | **Nastavení prostředí IoT Edge na vašem zařízení**   | Zařízení      | Pokyny pro [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) nebo [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Nasazení ASA na vaše zařízení IoT Edge**   | portál Azure      |  Definice úlohy ASA se exportují do kontejneru úložiště vytvořili dříve.       |
-Můžete postupovat podle [Tento podrobný kurz](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) nasazení vaše první práce ASA hranu IoT.
+| 4   | **Nasazení ASA na vaše zařízení IoT Edge**   | Azure Portal      |  Definice úlohy ASA se exportují do kontejneru úložiště vytvořili dříve.       |
+Můžete postupovat podle [Tento podrobný kurz](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) nasazení vaše první práce ASA hranu IoT. Následující video by vám pomůže porozumět procesu spustit úlohu služby Stream Analytics v hraniční zařízení IoT:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### <a name="create-an-asa-edge-job"></a>Umožňuje vytvořit úlohu služby ASA Edge
 1. Z portálu Azure vytvořte novou "úloha Stream Analytics". [Přímý odkaz na vytvoření zde nové úlohy ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
@@ -119,7 +124,7 @@ Další podrobnosti o nasazení IoT Edge najdete v tématu [tuto stránku](https
 Okraj IoT poskytuje způsob, jak deklarativně směrování zpráv mezi moduly a mezi moduly a IoT Hub. Úplná syntaxe je popsán [zde](https://docs.microsoft.com/azure/iot-edge/module-composition).
 Názvy vstupy a výstupy vytvořené v úlohy ASA slouží jako koncové body pro směrování.  
 
-###### <a name="example"></a>Příklad
+###### <a name="example"></a>Příklad:
 ```
 {
 "routes": {                                              

@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 03cd5088b55e37b2ada78e0f531702705d45a4c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b412be8b93e1f871c09b7a4452141ac334d53ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Používání úložiště Azure Table z Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -189,7 +189,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > Ve výchozím nastavení aktualizaci entity nekontroluje zobrazíte, když data aktualizované dříve byla změněna jiným procesem. Podpora souběžných aktualizace:
 >
 > 1. Získá značku ETag objekt je aktualizován. K této chybě dochází v rámci `response` pro všechny operace související entity a mohou být načteny prostřednictvím `response['.metadata'].etag`.
-> 2. Při provádění operace aktualizace na entitu, přidání značka ETag informace dříve načtené do nové entity. Například:
+> 2. Při provádění operace aktualizace na entitu, přidání značka ETag informace dříve načtené do nové entity. Příklad:
 >
 >       entity2 [.metadata] .etag = currentEtag;
 > 3. Proveďte operaci aktualizace. Pokud byla entita od načíst hodnotu značka ETag, jako je například jiná instance aplikace, změněna `error` bude vrácen s informacemi o tom, zda je aktualizace podmínka uvedená v žádosti nebyla splněná.
@@ -443,7 +443,7 @@ Jakmile je nastavená seznamu ACL, potom můžete vytvořit SAS na základě ID 
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace najdete v následujících zdrojích informací.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) je bezplatná samostatná aplikace od Microsoftu, která umožňuje vizuálně pracovat s daty Azure Storage ve Windows, macOS a Linuxu.

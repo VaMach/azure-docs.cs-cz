@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 010/19/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="about-point-to-site-vpn"></a>O Point-to-Site VPN
 
@@ -36,7 +36,7 @@ Point-to-site VPN můžete použít jednu z těchto protokolů:
 Pokud máte prostředí různých klientských skládající se z zařízení s Windows a Mac, nakonfigurujte SSTP a IKEv2.
 
 >[!NOTE]
->IKEv2 pro P2S je aktuálně ve verzi Preview a je k dispozici pro model nasazení Resource Manager.
+>IKEv2 pro P2S je k dispozici pro model nasazení Resource Manager. Není k dispozici pro model nasazení classic.
 >
 
 ## <a name="authentication"></a>Jak jsou klienti P2S VPN ověřuje?
@@ -57,28 +57,36 @@ Ověřování v doméně AD umožňuje uživatelům připojit se k Azure pomocí
 
 RADIUS server můžete také integrovat s jinými systémy externí identity. Otevře se hodně možnosti ověřování pro P2S VPN, včetně možnosti vícefaktorového.
 
->[!NOTE]
->Ověřování pomocí protokolu RADIUS pro P2S je aktuálně ve verzi Preview.
->
-
 ! [point-to-site]] (./media/point-to-site-about/p2s.png "Point-to-Site")
 
 ### <a name="configuration-requirements-for-client-devices"></a>Požadavky na konfiguraci pro klientská zařízení
 
 Uživatelé používat nativní klienti VPN na zařízeních s Windows a Mac pro P2S. Azure poskytuje klienta VPN zip konfigurační soubor, který obsahuje nastavení, které jsou potřebné tyto nativní klienty pro připojení k Azure.
 
-  * Konfigurace klienta VPN se skládá z instalační balíček, který uživatelé instalují do svých zařízení pro zařízení s Windows.
-  * Pro zařízení se systémem Mac obsahuje mobileconfig souboru, který uživatelé instalují do svých zařízení.
+* Konfigurace klienta VPN se skládá z instalační balíček, který uživatelé instalují do svých zařízení pro zařízení s Windows.
+* Pro zařízení se systémem Mac obsahuje mobileconfig souboru, který uživatelé instalují do svých zařízení.
 
 Soubor zip také obsahuje hodnoty některých důležitých nastavení na straně Azure, můžete použít k vytvoření vlastního profilu pro tato zařízení. Některé hodnoty zahrnují adresu brány VPN, typy nakonfigurované tunelu, trasy a kořenový certifikát pro ověřování brány.
 
-### <a name="which-gateway-skus-support-p2s-vpn"></a>Které P2S podporu SKU brány sítě VPN?
+### <a name="gwsku"></a>Které P2S podporu SKU brány sítě VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
 * Srovnávací test agregované propustnosti je založen na měření více tunelů agregovaných prostřednictvím jedné brány. Není zaručenou propustnost kvůli internetové přenosy podmínky a chování vaší aplikace.
 * Informace o cenách najdete na stránce cena 
 * Na stránce SLA naleznete informace o dokumentu SLA (smlouvy o úrovni služeb).
+
+>[!NOTE]
+>Základní SKU nepodporuje ověřování IKEv2 nebo RADIUS.
+>
+
+## <a name="configure"></a>Konfigurování připojení P2S
+
+Konfigurace P2S vyžaduje několik určité kroky. V následujících článcích obsahovat postup vás provede procesem konfigurace P2S a odkazy na konfiguraci klientských zařízení sítě VPN:
+
+* [Nakonfigurujte připojení P2S - ověřování pomocí protokolu RADIUS](point-to-site-how-to-radius-ps.md)
+
+* [Nakonfigurujte připojení P2S - ověření Azure nativní certifikátu](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## <a name="faqcert"></a>Nejčastější dotazy týkající se ověřování pomocí certifikátu nativní Azure
 
@@ -90,6 +98,6 @@ Soubor zip také obsahuje hodnoty některých důležitých nastavení na stran�
 
 ## <a name="next-steps"></a>Další kroky
 
-[Konfigurace připojení P2S - ověřování pomocí protokolu RADIUS](point-to-site-how-to-radius-ps.md)
+* [Nakonfigurujte připojení P2S - ověřování pomocí protokolu RADIUS](point-to-site-how-to-radius-ps.md)
 
-[Konfigurace připojení P2S - ověření Azure nativní certifikátu](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Nakonfigurujte připojení P2S - ověření Azure nativní certifikátu](vpn-gateway-howto-point-to-site-rm-ps.md)

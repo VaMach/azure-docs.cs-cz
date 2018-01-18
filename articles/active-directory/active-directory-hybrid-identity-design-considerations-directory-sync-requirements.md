@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybridní identity aspekty návrhu - určení požadavků na synchronizaci adresáře | Microsoft Docs"
+title: "Návrhu hybridní identity – požadavky na synchronizaci adresářů Azure | Microsoft Docs"
 description: "Určit, jaké požadavky jsou nezbytné k synchronizaci všech uživatelů mezi na = místní a cloudové pro podnik."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Určení požadavků na synchronizaci adresáře
 Synchronizace slouží k poskytování identity v cloudu na základě jejich identity místní uživatelé. Zda se bude používat synchronizované účet pro ověřování nebo federovaného ověřování, uživatelé budou stále musí být identity v cloudu.  Tato identita muset udržuje a pravidelně aktualizuje.  Aktualizace můžete mít mnoho forem, od title změny změny hesla.  
@@ -68,9 +69,9 @@ Také budete muset určit synchronizace adresářů požadavky a omezení zabezp
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Stanovení požadavků na službu Multi-Factor authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 [Přehled aspektů návrhu](active-directory-hybrid-identity-design-considerations-overview.md)
 

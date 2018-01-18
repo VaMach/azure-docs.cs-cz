@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 926005eace0acde27e26619a2787368ba0954351
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Výkon aplikace nejčastější dotazy pro webové aplikace v Azure
 
@@ -96,7 +96,7 @@ Ve výchozím nastavení jsou uvolněna webové aplikace, pokud jsou na nastaven
 2. Vyberte **nastavení aplikace**.
 3. Pro **Always On**, vyberte **na**.
 
-## <a name="how-do-i-turned-on-failed-request-tracing"></a>Jak po zapnutí trasování chybných požadavků?
+## <a name="how-do-i-turn-on-failed-request-tracing"></a>Jak lze zapnout trasování chybných požadavků?
 
 Chcete-li zapnout trasování chybných požadavků:
 

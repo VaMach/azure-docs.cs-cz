@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybridní identita aspekty návrhu - určete úlohy správy hybridní identity | Microsoft Docs"
+title: "Návrhu hybridní identity - úloh správy Azure | Microsoft Docs"
 description: "Azure Active Directory pomocí podmíněného řízení přístupu, zkontroluje konkrétní podmínky, kterou vyberete při ověřování uživatele a před povolením přístupu k aplikaci. Po splnění těchto podmínek je uživatel ověřený a přistupovat k aplikaci."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plánování životního cyklu hybridní Identity
 Identita je jedním ze základů strategie enterprise mobility a aplikaci přístup. Jestli se přihlašujete vaše mobilní zařízení nebo na aplikaci SaaS, vaší identity je klíč k získání přístupu k vše. Na nejvyšší úrovni do řešení pro správu identity zahrnuje synchronizovat mezi vaší identity úložiště, které zahrnuje automatizaci a centralizuje proces zřizování prostředků a je sjednotit. Řešení identity by měl být centralizované identity v rámci místní a cloudové a také použít nějaký způsob federaci identit a udržovat centralizované ověřování a bezpečně sdílet spolupracovat s externími uživateli a podnikům. Prostředky v rozsahu od operačních systémů a aplikací na osoby ve nebo spojit s organizace. Organizační struktura může být upraven, aby odpovídal zřizování zásady a postupy.
@@ -61,7 +62,7 @@ Jedním z cílů identity Manageru, abyste mohli dostat všech poskytovatelů id
 • Co jsou jednotného přihlašování možnosti dostupné?
 • Jaké jsou možnosti pro federaci identit mezi B2B a B2C?
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Určení strategie přijetí správy hybridní identity](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
 ## <a name="see-also"></a>Viz také

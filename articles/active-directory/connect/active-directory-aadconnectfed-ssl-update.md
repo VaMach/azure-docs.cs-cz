@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Aktualizovat certifikát SSL pro farmy služby Active Directory Federation Services (AD FS) | Microsoft Docs"
+title: "Azure AD Connect – aktualizujte certifikát SSL pro farmu služby AD FS | Microsoft Docs"
 description: "Tato dokument podrobně popisuje postup aktualizace certifikátu SSL farmu služby AD FS pomocí Azure AD Connect."
 services: active-directory
 keywords: "služby Azure ad connect, aktualizace ssl služby AD FS, aktualizace certifikátů služby AD FS, změnit certifikát služby AD FS, nový certifikát služby AD FS, certifikát služby AD FS, aktualizace služby AD FS certifikát ssl, aktualizace ssl certifikát služby AD FS, nakonfigurovat certifikát ssl služby AD FS, služba AD FS, ssl, certifikát, certifikát komunikace služby AD FS, federation aktualizace, konfigurace federace, aad connect"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Aktualizovat certifikát SSL pro farmy služby Active Directory Federation Services (AD FS)
 
@@ -102,7 +103,7 @@ Po dokončení konfigurace Azure AD Connect zobrazí zprávu, která označuje s
 
     Odebrání serveru ze seznamu ve službě Azure AD Connect, neodstraní se v konfiguraci služby AD FS. Azure AD Connect odkazuje služby AD FS (Windows Server 2016 nebo vyšší) pro žádné informace o farmy. Pokud je server stále existuje v konfiguraci služby AD FS, objeví se zpět v seznamu.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Azure AD Connect a federace](active-directory-aadconnectfed-whatis.md)
 - [Přizpůsobení službou Azure AD Connect a správy služby Active Directory Federation Services](active-directory-aadconnect-federation-management.md)

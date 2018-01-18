@@ -3,7 +3,7 @@ title: "Správa clusterů HDInsight připojený k doméně - Azure | Microsoft D
 description: "Zjistěte, jak Správa clusterů HDInsight připojený k doméně"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
-ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Správa clusterů HDInsight připojený k doméně
 Další uživatelé a role v doméně HDInsight a Správa clusterů HDInsight připojený k doméně.
@@ -33,10 +33,10 @@ Zabezpečení a uživatelských izolace jsou důležité pro cluster HDInsight s
 
 |Úloha|Scénář|Metoda přístupu|
 |--------|--------|-------------|
-|Hadoop|Hive – úlohy interaktivních/dotazů |<ul><li>[Beeline](#beeline)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Nástroje sady Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Úlohy interaktivních nebo dotazů, interaktivní PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin s Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Nástroje sady Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Hadoop|Hive – úlohy interaktivních/dotazů |<ul><li>[Beeline](#beeline)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Úlohy interaktivních nebo dotazů, interaktivní PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin s Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Spark|Scénáře batch – Spark odeslání, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
-|Interaktivní dotazu (LLAP)|Interaktivní|<ul><li>[Beeline](#beeline)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Nástroje sady Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Interaktivní dotazu (LLAP)|Interaktivní|<ul><li>[Beeline](#beeline)</li><li>[Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[Rozhraní ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Všechny|Instalace vlastní aplikace|<ul><li>[Akce skriptu](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
 
@@ -81,9 +81,8 @@ Najít plně kvalifikovaný název domény headnode, použijte informace v sprav
 Cluster služby HDInsight, který není připojený k doméně má dva uživatelské účty, které jsou vytvořeny při vytvoření clusteru:
 
 * **Správce Ambari**: Tento účet je také označován jako *Hadoop uživatele* nebo *HTTP uživatele*. Tento účet lze použít pro přihlášení k Ambari na https://&lt;clustername >. azurehdinsight.net. Můžete ho také použít ke spouštění dotazů na zobrazení Ambari, spouštění úloh prostřednictvím externích nástrojů (například prostředí PowerShell, Templeton, Visual Studio) a ověření pomocí ovladače Hive ODBC a BI nástroje (například aplikace Excel, PowerBI nebo Tableau).
-* **Uživatel SSH**: Tento účet je možné pomocí protokolu SSH a spuštěním příkazu "sudo" příkazů. Má kořenový oprávnění pro virtuální počítače s Linuxem.
 
-Cluster HDInsight připojený k doméně má tři nové uživatele kromě správce Ambari a uživatel SSH.
+Cluster HDInsight připojený k doméně má tři nové uživatele kromě správce Ambari.
 
 * **Správce škálu**: Tento účet je místní účet správce Apache škálu. Není uživatele domény služby active directory. Tento účet slouží k nastavení zásad a zajistit další uživatelé, správci nebo delegovaní správci (takže tito uživatelé mohou spravovat zásady). Ve výchozím nastavení je uživatelské jméno *správce* a heslo je stejné jako heslo správce Ambari. Na stránce nastavení v škálu lze aktualizovat heslo.
 * **Uživatel domény s oprávněními správce clusteru**: Tento účet je určený jako správce clusteru Hadoop, včetně Ambari a škálu uživatele domény služby active directory. Při vytváření clusteru, je třeba zadat pověření uživatele. Tento uživatel má následující oprávnění:
@@ -162,4 +161,3 @@ HDInsight připojený k doméně mají následující role:
 ## <a name="next-steps"></a>Další postup
 * Pokud chcete konfigurovat cluster HDInsight připojený k doméně, přečtěte si téma [Konfigurace clusterů HDInsight připojených k doméně](apache-domain-joined-configure.md).
 * Pokud chcete konfigurovat zásady Hivu a spouštět dotazy Hivu, přečtěte si téma [Konfigurace zásad Hivu pro clustery HDInsight připojené k doméně](apache-domain-joined-run-hive.md).
-* Spuštění dotazů Hive pomocí protokolu SSH v clusterech HDInsight připojený k doméně, najdete v části [použití SSH s HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

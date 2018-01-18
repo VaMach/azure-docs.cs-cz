@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Vyberte typ instalace | Microsoft Docs'
 description: "Toto téma vás provede jak vybrat typ instalace, který má být použit pro Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Vyberte typ instalace, která se má použít pro Azure AD Connect
 Azure AD Connect má dva typy instalace pro novou instalaci: Express a přizpůsobit. V tomto tématu můžete rozhodnout, které můžete použít během instalace.
@@ -41,7 +41,7 @@ Můžete získat:
 
 Možnosti, kde můžete dál používat Express:
 
-- Pokud nechcete synchronizovat všechny organizační jednotky, můžete stále používají systém Express a na poslední stránce, zrušte výběr **spustit proces synchronizace...** *. Pak znovu spusťte Průvodce instalací a změnit organizačních jednotek ve [možnosti konfigurace](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) a povolte plánované synchronizaci.
+- Pokud nechcete synchronizovat všechny organizační jednotky, můžete stále používají systém Express a na poslední stránce, zrušte výběr ** zahájit proces synchronizace... ***. Pak znovu spusťte Průvodce instalací a změnit organizačních jednotek ve [možnosti konfigurace](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) a povolte plánované synchronizaci.
 - Chcete povolit jedna z funkcí v Azure AD Premium, jako je například zpětný zápis hesla. Nejdřív projít express získat počáteční instalaci dokončit. Pak znovu spusťte Průvodce instalací a změnit [možnosti konfigurace](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Vlastní
@@ -71,5 +71,5 @@ Pokud používáte Azure AD Sync, pak můžete provést [stejný postup](active-
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrace z FIM2010 nebo MIM2016
 Pokud aktuálně používáte produktu Forefront Identity Manager 2010 nebo Microsoft Identity Manager 2016 se konektor služby Azure AD, je jedinou možností migrace. Postupujte podle kroků popsaných v [dráha migrace](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). V krocích nahraďte FIM2010/MIM2016 uvedeny žádné informace o Azure AD Sync.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V závislosti na možnosti, kterou jste se rozhodli použít použijte v tabulce obsahu na levé straně najít váš článek s podrobné kroky.

@@ -1,9 +1,9 @@
 ---
-title: "Řešení potíží s Azure RBAC | Microsoft Docs"
+title: "Řešení potíží s řízení přístupu na základě role Azure RBAC | Microsoft Docs"
 description: "Získáte pomoc s problémy nebo dotazy týkající se řízení přístupu na základě Role prostředky."
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 8ca6c53b24c3e708d4631becabcedc523d436d6b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>Na základě rolí řešení potíží s řízení přístupu
+# <a name="troubleshooting-azure-role-based-access-control"></a>Řešení potíží s řízení přístupu Azure na základě rolí 
 
 Tento dokument článku naleznete odpovědi na časté otázky týkající se konkrétní přístupová práva, kterým je uděleno oprávnění s rolemi, abyste věděli, co očekávat při použití role v portálu Azure a může poradce při potížích přístup. Tyto tři role popisuje všechny typy prostředků:
 
@@ -41,8 +42,8 @@ Když udělíte přístup jen pro čtení uživatelů do jedné webové aplikace
 * Konfigurace diagnostických protokolů
 * Konzole (příkazového řádku)
 * Aktivní a poslední nasazení (pro místní git průběžné nasazování)
-* Odhadované tráví
-* Testy webu
+* Předpokládaná útrata
+* Webové testy
 * Virtuální síť (viditelné pouze pro čtečku, pokud uživatel s přístup pro zápis byl dříve nakonfigurován virtuální sítě).
 
 Pokud nemůžete použít žádnou z těchto dlaždicích, budete muset požádat správce pro přispěvatele přístup do webové aplikace.
@@ -65,8 +66,8 @@ Tyto položky vyžadují **zápisu** přístup k celé **skupiny prostředků** 
 * Certifikáty SSL a vazeb (certifikáty SSL lze sdílet mezi lokalitami ve stejné skupině prostředků a geografického umístění)  
 * Pravidla výstrah  
 * nastavení automatického škálování  
-* Přehled součásti aplikace  
-* Testy webu  
+* Komponenty Application Insights  
+* Webové testy  
 
 ## <a name="virtual-machine-workloads"></a>Úlohy virtuálních počítačů
 Podobně jako s webovými aplikacemi, některé funkce v okně virtuálního počítače vyžadují přístup pro zápis k virtuálnímu počítači nebo k jiným prostředkům ve skupině prostředků.

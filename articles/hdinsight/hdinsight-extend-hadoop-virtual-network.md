@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 67a58c2377af129d8e2bc0c67d2dffe179fe998f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 30536d240bfd967bee0b3c91b71c7e772288464f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Rozšíření Azure HDInsight pomocí virtuální síť Azure
 
@@ -129,8 +129,8 @@ Azure poskytuje překlad názvů pro služby Azure, které jsou nainstalovány v
 
 * Jakémukoli prostředku, který je ve stejné virtuální síti Azure, pomocí __interní název DNS__ prostředku. Například pokud používáte překlad výchozí, následuje příklad interní DNS názvy přiřazené k pracovním uzlům HDInsight:
 
-    * wn0 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Obě tyto uzly může komunikovat přímo s a jiné uzly v HDInsight pomocí interní názvy DNS.
 

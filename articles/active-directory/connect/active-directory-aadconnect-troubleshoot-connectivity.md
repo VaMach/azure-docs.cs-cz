@@ -3,7 +3,7 @@ title: "Azure AD Connect: Problémů s připojením | Microsoft Docs"
 description: "Vysvětluje, jak chcete-li vyřešit potíže se službou Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Řešení potíží s připojením službou Azure AD Connect
 Tento článek vysvětluje, jak funguje připojení mezi Azure AD Connect a službou Azure AD a jak vyřešit problémy s připojením. Tyto problémy budou pravděpodobně se zobrazí v prostředí s proxy serverem.
@@ -40,14 +40,14 @@ Proxy server musí mít také otevřít požadované adresy URL. Oficiální sez
 
 Tyto adresy URL v následující tabulce je absolutní minimum, abyste mohli připojit ke službě Azure AD ve všech. Tento seznam neobsahuje žádné volitelné funkce, jako je například zpětný zápis hesla nebo Azure AD Connect Health. Je popsané v tomto poli při řešení potíží pro počáteční konfiguraci.
 
-| ADRESA URL | Port | Popis |
+| Adresa URL | Port | Popis |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Používá ke stahování seznamů CRL. |
-| \*. verisign.com |HTTP/80 |Používá ke stahování seznamů CRL. |
-| \*. entrust.com |HTTP/80 |Používá ke stahování seznamů CRL pro MFA. |
-| \*.windows.net |PROTOKOL HTTPS NEBO 443 |Použít pro přihlášení k Azure AD. |
-| Secure.aadcdn.microsoftonline p.com |PROTOKOL HTTPS NEBO 443 |Použít pro MFA. |
-| \*.microsoftonline.com |PROTOKOL HTTPS NEBO 443 |Použít ke konfiguraci adresáře služby Azure AD a importu a exportu dat. |
+| \*.verisign.com |HTTP/80 |Používá ke stahování seznamů CRL. |
+| \*.entrust.com |HTTP/80 |Používá ke stahování seznamů CRL pro MFA. |
+| \*.windows.net |HTTPS/443 |Použít pro přihlášení k Azure AD. |
+| secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Použít pro MFA. |
+| \*.microsoftonline.com |HTTPS/443 |Použít ke konfiguraci adresáře služby Azure AD a importu a exportu dat. |
 
 ## <a name="errors-in-the-wizard"></a>Chyby v Průvodci
 Průvodce instalací je pomocí dvou různých kontextech zabezpečení. Na stránce **připojit k Azure AD**, používá aktuálně přihlášeného uživatele. Na stránce **konfigurace**, je změna na [účtu využívajícího službu pro synchronizační modul](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Pokud nastane problém, zobrazí se pravděpodobně už na **připojit k Azure AD** stránku průvodce, protože je globální konfiguraci proxy serveru.
@@ -90,9 +90,9 @@ Pokud se zobrazí **nebylo možné se připojit ke vzdálenému serveru**, pak s
 Pokud proxy server není nakonfigurovaná správně, dojde k chybě: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Chyba | Text chyby | Komentář |
+| Chyba | Text chyby | Poznámka |
 | --- | --- | --- |
-| 403 |Je zakázané |Proxy server nebyl otevřen pro požadovanou adresu URL. Pokroku konfiguraci proxy serveru a zajistěte, aby [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) jsou otevřené. |
+| 403 |Zakázáno |Proxy server nebyl otevřen pro požadovanou adresu URL. Pokroku konfiguraci proxy serveru a zajistěte, aby [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) jsou otevřené. |
 | 407 |Vyžadováno ověření proxy serveru |Proxy server vyžaduje přihlášení a nebyl poskytnut žádný. Pokud proxy server vyžaduje ověřování, ujistěte se, že jste nemá toto nastavení nakonfigurované v souboru machine.config. Také zkontrolujte, zda že používáte doménové účty pro uživatele spuštěním průvodce a pro účet služby. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Časový limit nečinnosti nastavení proxy serveru
@@ -101,7 +101,7 @@ Pokud Azure AD Connect odešle žádost o export do služby Azure AD, Azure AD m
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Vzor komunikace mezi Azure AD Connect a službou Azure AD
 Pokud jste provedli všechny předchozí kroky a pořád nemůžete připojit, může v tuto chvíli spustit vyhledávání v síťových protokolech. Tato část je dokumentace se vzorem normálního a úspěšné připojení. Je také je výpis běžné red herrings, které můžete ignorovat při čtení protokoly sítě.
 
-* Existují volání https://dc.services.visualstudio.com. Není nutné mít tuto adresu URL, otevřete v proxy server pro instalace proběhla úspěšně a těchto volání můžete ignorovat.
+* There are calls to https://dc.services.visualstudio.com. Není nutné mít tuto adresu URL, otevřete v proxy server pro instalace proběhla úspěšně a těchto volání můžete ignorovat.
 * Uvidíte, že překlad názvů dns uvádí skutečné hostitelů v nsatc.net místo názvu DNS a jiných oborech názvů není v části microsoftonline.com. Ale na serveru skutečné názvy nejsou k dispozici žádné žádosti webové služby a není třeba přidávat tyto adresy URL k proxy serveru.
 * Koncové body adminwebservice a provisioningapi jsou koncové body pro zjišťování a použít k vyhledání skutečný koncový bod používat. Tyto koncové body se liší v závislosti na vaší oblasti.
 
@@ -110,39 +110,39 @@ Tady je výpis z protokolu skutečné proxy serveru a na stránku průvodce inst
 
 **Připojení k Azure AD**
 
-| Čas | ADRESA URL |
+| Čas | Adresa URL |
 | --- | --- |
-| 1/11/2016 8:31 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |připojení: / /*bba800 ukotvení*. microsoftonline.com:443 |
-| 1/11/2016 8:32 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |připojení: / /*bwsc02 předávání*. microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Konfigurace**
 
-| Čas | ADRESA URL |
+| Čas | Adresa URL |
 | --- | --- |
-| 1/11/2016 8:43 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |připojení: / /*bba800 ukotvení*. microsoftonline.com:443 |
-| 1/11/2016 8:43 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |připojení: / /*bba900 ukotvení*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |připojení: / /*bba800 ukotvení*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |připojení: / /*bwsc02 předávání*. microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Počáteční synchronizace**
 
-| Čas | ADRESA URL |
+| Čas | Adresa URL |
 | --- | --- |
-| 1/11/2016 8:48 |Connect://Login.Windows.NET:443 |
-| 1/11/2016 8:49 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |připojení: / /*bba900 ukotvení*. microsoftonline.com:443 |
-| 1/11/2016 8:49 |připojení: / /*bba800 ukotvení*. microsoftonline.com:443 |
+| 1/11/2016 8:48 |connect://login.windows.net:443 |
+| 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Chybám při ověřování
 Tato část obsahuje chyby, které mohou být vráceny z ADAL (knihovnu ověřování používá Azure AD Connect) a prostředí PowerShell. Chyba vysvětlené by vám pomůže v pochopit další kroky.
@@ -180,7 +180,7 @@ Ověření bylo úspěšné. Nelze načíst informace o společnosti z Azure AD.
 ### <a name="retrievedomains"></a>RetrieveDomains
 Ověření bylo úspěšné. Nelze načíst informace o doméně z Azure AD.
 
-### <a name="unexpected-exception"></a>Došlo k neočekávané výjimce
+### <a name="unexpected-exception"></a>Neočekávaná výjimka
 Zobrazit jako Neočekávaná chyba v Průvodci instalací. Může dojít, pokud se pokusíte použít **Account Microsoft** ne **školní nebo organizace účet**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Řešení potíží pro předchozí verze.
@@ -197,5 +197,5 @@ Tato chyba se zobrazí, když se Pomocník pro přihlášení nemůže připojit
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Pokud toto vypadá správné, postupujte podle kroků v [ověření proxy serveru konektivity](#verify-proxy-connectivity) zobrazíte, když problém se nachází mimo Průvodce také.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

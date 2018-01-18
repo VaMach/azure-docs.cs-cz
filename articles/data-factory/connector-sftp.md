@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 0d293d3874b0cb43cee9f85c6c575e87c48ad291
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2cfeb212213088bb8d871e4c82daee559e4b36ff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopírování dat ze serveru pomocí protokolu SFTP pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Chcete-li základní ověřování použijte, nastavte vlastnost "authentication
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| Uživatelské jméno | Uživatel, který má přístup k serveru pomocí protokolu SFTP. |Ano |
+| userName | Uživatel, který má přístup k serveru pomocí protokolu SFTP. |Ano |
 | heslo | Heslo pro uživatele (uživatelské jméno). Toto pole můžete označte jako SecureString. | Ano |
 
 **Příklad:**
@@ -100,10 +100,10 @@ Chcete-li použít ověření veřejného klíče SSH, nastavte vlastnost "authe
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| Uživatelské jméno | Uživatel, který má přístup k serveru pomocí protokolu SFTP |Ano |
+| userName | Uživatel, který má přístup k serveru pomocí protokolu SFTP |Ano |
 | privateKeyPath | Zadejte absolutní cestu k souboru privátního klíče, který přístup integrace modulu Runtime. Platí jenom v případě, že je zadán vlastním hostováním typ integrace Runtime v "connectVia". | Zadejte buď `privateKeyPath` nebo `privateKeyContent`.  |
 | privateKeyContent | Kódováním base64, pomocí SSH privátní klíče obsahu. Privátní klíč SSH musí být ve formátu OpenSSH. Toto pole můžete označte jako SecureString. | Zadejte buď `privateKeyPath` nebo `privateKeyContent`. |
-| přístupové heslo | Zadejte průchodu fráze nebo hesla k dešifrování privátního klíče, pokud soubor klíče je chráněn heslo. Toto pole můžete označte jako SecureString. | Ano, pokud heslo je chráněný soubor privátního klíče. |
+| passPhrase | Zadejte průchodu fráze nebo hesla k dešifrování privátního klíče, pokud soubor klíče je chráněn heslo. Toto pole můžete označte jako SecureString. | Ano, pokud heslo je chráněný soubor privátního klíče. |
 
 > [!NOTE]
 > Pomocí protokolu SFTP konektor podporuje pouze klíč OpenSSH. Ujistěte se, že je váš soubor klíče ve správném formátu. Nástroj pro Putty můžete převést na formát OpenSSH .ppk.
@@ -219,7 +219,7 @@ Ke zkopírování dat z protokolu SFTP, nastavte typ zdroje v aktivitě kopírov
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typ zdroje kopie aktivity musí být nastavena na: **FileSystemSource** |Ano |
-| Rekurzivní | Označuje, zda je data načíst rekurzivně z dílčí složky nebo pouze do zadané složky.<br/>Povolené hodnoty jsou: **true** (výchozí), **false** | Ne |
+| Rekurzivní | Označuje, zda je data načíst rekurzivně z dílčí složky nebo pouze do zadané složky. Poznámka: když rekurzivní nastavena na hodnotu true a jímka je na základě souborů úložiště, prázdné složky nebo dílčí-folder nebudou zkopírovat nebo vytvořit v jímky.<br/>Povolené hodnoty jsou: **true** (výchozí), **false** | Ne |
 
 **Příklad:**
 
@@ -254,5 +254,5 @@ Ke zkopírování dat z protokolu SFTP, nastavte typ zdroje v aktivitě kopírov
 ```
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
-ms.custom: end-user
-ms.openlocfilehash: 976eb5e710b0ffca48dae268b394b3d31fe2e938
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: end-user;seohack1
+ms.openlocfilehash: ffdffc0c471970e5a7e7a0bb291658cefe99ed71
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>Registrace pro samoobslužné resetování hesla
 
@@ -54,7 +54,7 @@ Správce může vyžadovat potvrďte ověřovací metody po určitou dobu a ujis
 
 | Chyb| Jaké chyby se zobrazí?| Řešení |
 | --- | --- | --- |
-| Zobrazí na stránce ", kontaktujte prosím správce" po zadání ID uživatele | Obraťte se na správce. <br> <br> Zjistili jsme, že heslo vašeho uživatelského účtu nespravuje společnost Microsoft. Snažíme se v důsledku toho nelze automaticky resetovat heslo. <br> <br> Pracovníci IT požádejte o pomoc. | Tato zpráva se zobrazuje, protože pracovníci oddělení IT spravuje vaše heslo v místním prostředí a neumožňuje resetování hesla z **nelze získat přístup k účtu** odkaz. <br> <br> Pokud chcete resetovat heslo, obraťte se na vaši informatici přímo. Dáte jim vědět, že chcete resetovat heslo, takže se můžete povolit tuto funkci můžete.|
+| Zobrazí na stránce ", kontaktujte prosím správce" po zadání ID uživatele | Kontaktujte svého správce. <br> <br> Zjistili jsme, že heslo vašeho uživatelského účtu nespravuje společnost Microsoft. Snažíme se v důsledku toho nelze automaticky resetovat heslo. <br> <br> Pracovníci IT požádejte o pomoc. | Tato zpráva se zobrazuje, protože pracovníci oddělení IT spravuje vaše heslo v místním prostředí a neumožňuje resetování hesla z **nelze získat přístup k účtu** odkaz. <br> <br> Pokud chcete resetovat heslo, obraťte se na vaši informatici přímo. Dáte jim vědět, že chcete resetovat heslo, takže se můžete povolit tuto funkci můžete.|
 | Zobrazí chybu "váš účet není povolen pro resetování hesla" po zadání ID uživatele | Váš účet není povolen pro resetování hesla. <br> <br> Je nám líto, ale pracovníci IT nenastavil váš účet pro použití s touto službou. <br> <br> Pokud chcete, můžeme kontaktovat správce ve vaší organizaci k resetování hesla. | Tato zpráva se zobrazuje, protože pracovníci IT nepovolil resetování hesla pro vaší organizace **nelze získat přístup k účtu** odkaz nebo není licencovaná vám umožní používat funkci. <br> <br> Chcete-li resetovat heslo, vyberte **, kontaktujte správce** odkaz. Odešle e-mail pro vaši společnost zaměstnanců IT. E-mailu umožňuje, aby věděli, že chcete resetovat heslo, takže se můžete povolit tuto funkci můžete. |
 | Zobrazí chybu "jsme nemohl ověřit váš účet" po zadání ID uživatele | Nemohli jsme ověřit váš účet. <br> <br> Pokud chcete, můžeme kontaktovat správce ve vaší organizaci k resetování hesla. | Tato zpráva se zobrazuje, protože jste povolen pro resetování hesla, ale nejsou zaregistrované pro používání služby. Chcete-li zaregistrovat pro resetování hesla, přejděte na [registrační stránku resetování hesla](http://aka.ms/ssprsetup) po jste znovu získali přístup ke svému účtu. <br> <br> Pokud chcete resetovat heslo, vyberte **, kontaktujte správce** odkaz Odeslat e-mail pro vaši společnost zaměstnanců IT. |
 

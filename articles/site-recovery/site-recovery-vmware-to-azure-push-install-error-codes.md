@@ -2,23 +2,18 @@
 title: "Azure Site Recovery řešení potíží s z VMware do Azure | Microsoft Docs"
 description: "Řešení chyb při replikaci virtuálních počítačů Azure"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Služba Mobility nabízené řešení potíží s instalací
 
@@ -27,7 +22,7 @@ Tento článek popisuje běžné problémy, která vám může při instalaci sl
 ## <a name="error-78007---the-requested-operation-could-not-be-completed"></a>Chyba 78007 - požadovanou operaci nelze dokončit.
 Tato chyba může být vyvolána službou z několika důvodů. Zvolte odpovídající chyby zprostředkovatele další řešení.
 
-* [Chyba 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
+* [Error 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
 * [Chyba 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
 * [Chyba 95107](#error-95107---protection-could-not-be-enabled-ep0858) 
 * [Chyba 95108](#error-95108---protection-could-not-be-enabled-ep0859) 
@@ -74,7 +69,7 @@ Tato chyba může být vyvolána službou z několika důvodů. Zvolte odpovída
 
 **Kód chyby** | **Možné příčiny** | **Chyba konkrétní doporučení**
 --- | --- | ---
-95108 </br>**Zpráva:** nabízenou instalaci služby mobility na zdrojovém počítači se nezdařilo s kódem chyby **EP0859**. <br>| Že přihlašovací údaje poskytnuté pro instalaci služby mobility je nesprávný nebo uživatelský účet nemá dostatečná oprávnění <br>| Zajistěte, aby zadaná pověření **kořenové** přihlašovací údaje účtu. K [přidat či upravit přihlašovací údaje uživatele](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords), přejděte na konfigurační server a klikněte na ikonu "Cspsconfigtool" zástupce na ploše. Klikněte na "Účet spravovat" můžete přidat nebo upravit přihlašovací údaje.|
+95108 </br>**Zpráva:** nabízenou instalaci služby mobility na zdrojovém počítači se nezdařilo s kódem chyby **EP0859**. <br>| Že přihlašovací údaje poskytnuté pro instalaci služby mobility je nesprávný nebo uživatelský účet nemá dostatečná oprávnění <br>| Zajistěte, aby zadaná pověření **kořenové** přihlašovací údaje účtu. Pokud chcete přidat či upravit přihlašovací údaje uživatele, přejděte na konfigurační server a klikněte na ikonu "Cspsconfigtool" zástupce na ploše. Klikněte na "Účet spravovat" můžete přidat nebo upravit přihlašovací údaje.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Chyba 95265 - ochranu nelze povolit (EP0902)
 
@@ -92,13 +87,14 @@ Tato chyba může být vyvolána službou z několika důvodů. Zvolte odpovída
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Prostředek k odstraňování problémů instalace push
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Řešení problémů sdílení souborů a tiskáren
-*  [Povolit nebo zakázat sdílení souborů pomocí zásad skupiny](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [Povolení souboru a tisku sdílení přes bránu Windows Firewall](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Povolit nebo zakázat sdílení souborů pomocí zásad skupiny](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Povolení souboru a tisku sdílení přes bránu Windows Firewall](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Řešení problémů WMI
 * [Testování základní rozhraní WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [Řešení problémů WMI](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [Řešení potíží s skripty WMI a služby WMI](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [Řešení problémů WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [Řešení potíží s skripty WMI a služby WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
-## <a name="next-steps"></a>Další kroky
-- [Povolení replikace pro virtuální počítače VMware](vmware-walkthrough-enable-replication.md)
+## <a name="next-steps"></a>Další postup
+
+[Zjistěte, jak](tutorial-vmware-to-azure.md) nastavit zotavení po havárii pro virtuální počítače VMware.

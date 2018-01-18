@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Vytvoření a instalace souborů konfigurace klienta VPN pro ověřování pomocí protokolu RADIUS P2S (Preview)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Vytvoření a instalace souborů konfigurace klienta VPN pro ověřování pomocí protokolu RADIUS P2S
 
 Soubory konfigurace klienta VPN jsou obsaženy v souboru zip. Konfigurační soubory, zadejte požadované nastavení pro nativní klient systému Windows nebo Mac IKEv2 VPN pro připojení k virtuální síti přes Point-to-Site. RADIUS server poskytuje několik možností ověřování a jako takový se liší pro jednotlivé možnosti konfigurace klienta VPN.
 
@@ -91,7 +91,7 @@ Pomocí následujícího postupu můžete nakonfigurovat Nativní klient VPN ve 
   ![Instalace](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
 4. Klikněte na tlačítko **pokračovat** vytvoříte vztah důvěryhodnosti odesílatel profilu a pokračujte v instalaci.
 
-  ![Pokračovat](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
+  ![pokračovat](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
 5. Během instalace profilu máte možnost zadat uživatelské jméno a heslo použité pro ověřování sítě VPN. Není nutné zadat tyto informace. -Li zadána, je informace uložit a automaticky používá při inicializaci připojení. Klikněte na tlačítko **nainstalovat** pokračovat.
 
   ![settings](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
@@ -161,11 +161,11 @@ Nativní klient VPN nakonfigurovat v systému Mac pro ověření certifikátu po
 1. Import **VpnServerRoot** a **RadiusServerRoot** kořenové certifikáty pro vaše Mac. To lze provést tak, že kopírování souboru přes do počítače Mac a dvakrát klikněte na jeho.  
 Klikněte na tlačítko **přidat** k importu.
 
-  **Přidat VpnServerRoot**
+  **Add VpnServerRoot**
 
   ![Přidání certifikátu](./media/point-to-site-vpn-client-configuration-radius/addcert.png)
 
-  **Přidat RadiusServerRoot**
+  **Add RadiusServerRoot**
 
   ![Přidání certifikátu](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. Otevřete **sítě** dialogové okno pod **sítě Předvolby** a klikněte na tlačítko **'+'** k vytvoření nového profilu připojení VPN klienta pro připojení P2S k virtuální síti Azure.
@@ -187,7 +187,7 @@ Klikněte na tlačítko **přidat** k importu.
   ![identity](./media/point-to-site-vpn-client-configuration-radius/identity.png)
 7. V **místní ID** pole, zadejte název certifikátu (z kroku 5). V tomto příkladu je "ikev2Client.com". Potom klikněte na **použít** tlačítko a uložte změny.
 
-  ![Použít](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
+  ![použít](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 8. Na **sítě** dialogové okno, klikněte na tlačítko **použít** uložit všechny změny. Potom klikněte na **Connect** spustit připojení P2S do virtuální sítě Azure.
 
 ## <a name="otherauth"></a>Práce s jinými typy ověřování nebo protokoly
@@ -205,6 +205,6 @@ Chcete používat různá ověřovací typu (například OTP) a ne uživatelské
   * Trasy - tras, které jste nakonfigurovali v profilu tak, aby provoz vázaný jenom virtuální síť Azure je odesílán prostřednictvím tunelu P2S.
   * Složka GenenericDevice obsahuje také do souboru .cer s názvem 'VpnServerRoot'. Tento soubor obsahuje kořenový certifikát, který je nutné k ověření služby Azure VPN Gateway během instalace připojení P2S. Nainstalujte certifikát na všech zařízeních, která se budou připojovat k službě Azure VNet. 
  
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Vrátit do článku do [dokončit konfiguraci P2S](point-to-site-how-to-radius-ps.md).

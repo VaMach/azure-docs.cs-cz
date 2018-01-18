@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>S vysokou hustotou hostování na Azure App Service
 Při používání služby App Service, odpojené od kapacitu přidělených dvěma konceptů aplikace:
@@ -87,7 +87,7 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp. SiteConfig.NumberOfWorkers je různá $newapp. MaxNumberOfWorkers. Jednotlivé aplikace používá škálování $newapp. SiteConfig.NumberOfWorkers k určení charakteristik škálování aplikace.
+> $newapp. SiteConfig.NumberOfWorkers se liší od $newapp. MaxNumberOfWorkers. Jednotlivé aplikace používá škálování $newapp. SiteConfig.NumberOfWorkers k určení charakteristik škálování aplikace.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Pokud na škálování aplikace pomocí Azure Resource Manager
 
@@ -154,7 +154,7 @@ Postupujte podle těchto kroků nakonfigurujete vysokou hustotou hostování pro
 1. Vytvoření jednoho plánu služby App Service a škálujte ji používat všechny dostupné kapacity ve fondu pracovních procesů.
 1. Nastavte příznak PerSiteScaling plán aplikační služby na hodnotu true.
 1. Nové aplikace jsou vytvořeny a přiřazené plán služby App Service pomocí **numberOfWorkers** vlastnost nastavena na hodnotu **1**. Pomocí této konfigurace poskytuje nejvyšší hustotou možné u tohoto fondu pracovního procesu.
-1. Počet pracovních procesů může být nakonfigurováno nezávisle na aplikaci podle potřeby udělovat další prostředky. Například:
+1. Počet pracovních procesů může být nakonfigurováno nezávisle na aplikaci podle potřeby udělovat další prostředky. Příklad:
     - Můžete nastavit aplikaci intenzivně využívaných **numberOfWorkers** k **3** tak, aby měl větší kapacitu zpracování pro tuto aplikaci. 
     - Nízká použití aplikace se nastavuje **numberOfWorkers** k **1**.
 

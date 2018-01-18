@@ -3,7 +3,7 @@ title: "Azure AD Connect sync služby stínové atributy | Microsoft Docs"
 description: "Popisuje, jak fungují stínové atributy ve službě Azure AD Connect sync service."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 00488391c496f06cfcad12e67f5a874313c57e08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync služby stínové atributy
 Většina atributy jsou reprezentována stejným způsobem jako ve službě Azure AD, jako jsou ve vaší místní službě Active Directory. Ale některé atributy mají některé zvláštní zpracování a hodnota atributu ve službě Azure AD může být jiná než co Azure AD Connect synchronizuje.
@@ -32,7 +32,7 @@ Abyste lépe pochopili chování, podívejte se na tomto příkladu ze společno
 ![Domény](./media/active-directory-aadconnectsyncservice-shadow-attributes/domains.png)  
 Mají více přípon UPN ve svojí místní službě Active Directory, ale jeden pouze ověřit.
 
-### <a name="userprincipalname"></a>UserPrincipalName
+### <a name="userprincipalname"></a>userPrincipalName
 Uživatel má následující hodnoty atributu v doméně ověřit:
 
 | Atribut | Hodnota |
@@ -71,6 +71,6 @@ ProxyCalc může trvat nějakou dobu zpracování změn na uživatele a není sy
 ### <a name="quarantined-attribute-values"></a>Hodnoty atributů v karanténě
 Stínové atributy se také používají po duplicitními hodnotami atributů. Další informace najdete v tématu [odolnosti duplicitní atribut](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Synchronizace služby Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrace místních identit s Azure Active Directory](active-directory-aadconnect.md).

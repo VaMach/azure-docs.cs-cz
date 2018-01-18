@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybridní identity aspekty návrhu - definování strategie pro ochranu dat | Microsoft Docs"
+title: "Návrhu hybridní identity - strategie ochrany dat Azure | Microsoft Docs"
 description: "Můžete definovat strategie ochrany dat pro řešení hybridní identity splňovat obchodní požadavky, které jste definovali."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
 ms.author: billmath
-ms.openlocfilehash: ab8f884449aa21f91ff873901b44753d8e15bcd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definování strategie ochrany dat pro vaše řešení hybridní identity
 V této úloze určíte strategie ochrany dat pro vaše řešení hybridní identity k splňovat obchodní požadavky definovaný v:
@@ -41,10 +42,10 @@ V závislosti na tom, jak jste odpověděli na otázky v [určení požadavků n
 
 | Možnosti ochrany dat | V klidovém stavu uložených v cloudu | Na rest na místě | Při přenosu |
 | --- | --- | --- | --- |
-| Nástroj BitLocker Drive Encryption |X |X | |
+| Šifrování jednotky nástrojem BitLocker |X |X | |
 | SQL Server k šifrování databáze |X |X | |
 | Šifrování virtuálních počítačů VM | | |X |
-| SSL/TLS. | | |X |
+| SSL/TLS | | |X |
 | Síť VPN | | |X |
 
 > [!NOTE]
@@ -92,7 +93,7 @@ Poskytuje jednotné přihlašování k tisícům aplikací SaaS Azure Active Dir
 
 * Security Assertion Markup Language (SAML)
 * OAuth
-* Pomocí protokolu Kerberos
+* Kerberos
 * Tokeny
 * Certifikáty
 
@@ -164,7 +165,7 @@ Kromě vykazovací funkci základní Azure AD Premium, kterou můžete také pou
 
 Vzhledem k tomu použít s vícevrstvých možnosti reakcí na incidenty, není použitelný pro tento úkol porovnání mezi těmito možnostmi. Ujistěte se, že se využívá všechny možnosti, které jsou dostupné pro každý scénář, který vyžaduje použití funkce vytváření sestav Azure AD jako součást procesu reakcí na incidenty vaší společnosti.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Určení úlohy správy hybridní identity](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 ## <a name="see-also"></a>Viz také

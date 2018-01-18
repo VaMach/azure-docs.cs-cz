@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Přehled prostředí cloudu Azure
 Prostředí Azure Cloud je interaktivní, přístupných prohlížeče prostředí pro správu prostředků Azure.
-Nabízí flexibilitu zvolit prostředí shell, které nejlépe vyhovuje způsobu práce.
+Poskytuje flexibilitu zvolit prostředí shell, které nejlépe vyhovuje způsobu práce.
 Uživatelé Linuxu si mohou vybrat Bash. Uživatelé Windows se mohou rozhodnout pro PowerShell.
 
 Zkuste z shell.azure.com pomocí tohoto tlačítka.
@@ -52,8 +52,8 @@ Zobrazit v seznamu úplné nástrojů [prostředí Bash](features.md#tools) a [p
 
 ### <a name="multiple-access-points"></a>Několik přístupových bodů
 Cloudové prostředí je flexibilní nástroj, který lze použít z:
-* [Portal.Azure.com](https://portal.azure.com)
-* [Shell.Azure.com](https://shell.azure.com)
+* [portal.azure.com](https://portal.azure.com)
+* [shell.azure.com](https://shell.azure.com)
 * [Dokumentace Azure "Vyzkoušet" 2.0 rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Mobilní aplikace Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Účet Azure kód rozšíření sady Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
@@ -101,6 +101,6 @@ Další informace o funkcích v [Bash v prostředí cloudu](features.md) a [pros
 ## <a name="pricing"></a>Ceny
 Tento počítač hostování prostředí cloudu je bezplatná s předpoklad připojené sdílené složky Azure Files. Náklady na úložiště regulární použít.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Bash v prostředí cloudu rychlý start](quickstart.md) <br>
 [Prostředí PowerShell v prostředí cloudu (Preview) rychlý start](quickstart-powershell.md)

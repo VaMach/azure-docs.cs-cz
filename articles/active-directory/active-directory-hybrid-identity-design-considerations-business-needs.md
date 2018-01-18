@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybridní identity aspekty návrhu - stanovit požadavky na identity | Microsoft Docs"
+title: "Požadavky na identit pro hybridní cloudové identity návrhu Azure | Microsoft Docs"
 description: "Identifikace obchodních potřeb společnosti, které povede k definování požadavky návrhu hybridní identity."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Stanovení požadavků na identit pro hybridní řešení identit
 Prvním krokem při navrhování řešení hybridní identity je určit požadavky na obchodní organizace, která bude mít využívání tohoto řešení.  Hybridní identita se spustí jako podpůrné role (podporuje jiných řešení cloud tím, že poskytuje ověřování) a přejde na, zadejte nové a zajímavé funkce, které odemknutí nové úlohy pro uživatele.  Tyto úlohy nebo služby, které chcete použít pro vaše uživatele se určují požadavky na návrh hybridní identity.  Tyto služby a úlohy muset využívají hybridní identita jak místně a v cloudu.  
@@ -64,7 +65,7 @@ Dále musíte vyhodnotit požadavky na integraci identity. Je důležité určit
 
 * Bude vaše organizace používat federační, standardní ověřování nebo obojí?
 * Je federation požadavek?  Z důvodu následující:
-  * Jednotné přihlašování založené na protokolu Kerberos
+  * Kerberos-based SSO
   * Má vaše společnost místní aplikace (buď vytvořen interní nebo 3. stran), která používá SAML nebo podobné možnosti federace.
   * Vícefaktorové ověřování pomocí čipové karty. RSA SecurID atd.
   * Pravidla klientské přístupu, které řeší níže uvedené otázky:
@@ -103,9 +104,9 @@ Máte také k vyhodnocení požadavků na uživatele. Toto testování je důle�
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Určení požadavků na synchronizaci adresáře](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 [Přehled aspektů návrhu](active-directory-hybrid-identity-design-considerations-overview.md)
 

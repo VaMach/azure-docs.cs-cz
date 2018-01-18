@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Dostupnost a spolehlivost clusterů Hadoop ve službě HDInsight
 
@@ -110,7 +110,7 @@ Můžete připojit k uzlů, které nejsou přímo přístupné přes internet po
 
 Chcete-li zkontrolovat stav služby, které běží o hlavních uzlech, použijte rozhraní Ambari Web nebo Ambari REST API.
 
-### <a name="ambari-web-ui"></a>Webovému uživatelskému rozhraní Ambari
+### <a name="ambari-web-ui"></a>Ambari Web UI
 
 Webové uživatelské rozhraní Ambari jsou viditelná na https://CLUSTERNAME.azurehdinsight.net. Nahraďte **CLUSTERNAME** názvem vašeho clusteru. Pokud se zobrazí výzva, zadejte přihlašovací údaje HTTP pro váš cluster. Výchozí uživatelské jméno protokolu HTTP je **správce** a heslo je heslo, které jste zadali při vytvoření clusteru.
 

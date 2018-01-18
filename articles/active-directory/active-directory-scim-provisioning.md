@@ -1,5 +1,5 @@
 ---
-title: "Pomocí systému pro správu identit napříč doménami automaticky zřízení uživatelů a skupin ze služby Azure Active Directory k aplikacím | Microsoft Docs"
+title: "Automatizovat zřizování aplikací v Azure Active Directory pomocí SCIM | Microsoft Docs"
 description: "Azure Active Directory, mohou automaticky poskytovat uživatelé a skupiny do aplikace nebo identity úložiště, který je přední stěnou webovou službou pomocí rozhraní definované v specifikace protokolu SCIM"
 services: active-directory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
-ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.custom: aaddev;it-pro;seohack1
+ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Pomocí systému pro správu identit napříč doménami pro automatické zřizování uživatelů a skupin ze služby Azure Active Directory k aplikacím
 
@@ -352,33 +352,33 @@ Uživatel prostředky jsou označeny identifikátor schématu urn: ietf:params:s
 Skupiny prostředků jsou identifikovány identifikátor schématu http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabulka 2 níže znázorňuje výchozí mapování atributů skupin v Azure Active Directory atributy http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group prostředků.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabulka 1: Výchozí mapování atributů uživatele
-| Uživatele Azure Active Directory | název urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Uživatele Azure Active Directory | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
-| IsSoftDeleted |Aktivní |
+| IsSoftDeleted |aktivní |
 | displayName |displayName |
-| TelephoneNumber faxu |.value phoneNumbers [typ eq "fax"] |
+| Facsimile-TelephoneNumber |.value phoneNumbers [typ eq "fax"] |
 | givenName |name.givenName |
-| pracovní funkce |Název |
-| E-mailu |.value e-mailů [typ eq "práce"] |
+| pracovní funkce |název |
+| mail |.value e-mailů [typ eq "práce"] |
 | mailNickname |externalId |
 | Správce |Správce |
 | mobilní |.value phoneNumbers [eq typ "mobilní"] |
 | objectId |id |
 | PSČ |adresy [typ eq "práce"] .postalCode |
-| proxy adresy |[Zadejte eq "ostatní"] e-mailů. Hodnota |
-| fyzický. doručení OfficeName |adresy [Zadejte eq "ostatní"]. Formátu |
+| proxy-Addresses |[Zadejte eq "ostatní"] e-mailů. Hodnota |
+| physical-Delivery-OfficeName |adresy [Zadejte eq "ostatní"]. Formátu |
 | StreetAddress |adresy [typ eq "práce"] .streetAddress |
-| Příjmení |name.familyName |
-| telefonní číslo |.value phoneNumbers [typ eq "práce"] |
-| PrincipalName uživatele |Uživatelské jméno |
+| surname |name.familyName |
+| telephone-Number |.value phoneNumbers [typ eq "práce"] |
+| user-PrincipalName |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabulka 2: Výchozí skupiny mapování atributů
-| Skupiny Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
+| Skupina Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
 | displayName |externalId |
-| E-mailu |.value e-mailů [typ eq "práce"] |
+| mail |.value e-mailů [typ eq "práce"] |
 | mailNickname |displayName |
-| Členy |Členy |
+| členové |členové |
 | objectId |id |
 | proxyAddresses |[Zadejte eq "ostatní"] e-mailů. Hodnota |
 
@@ -442,11 +442,11 @@ Následující obrázek znázorňuje zprávy, že Azure Active Directory odešle
     }
   ````
   V následující ukázce dotazu pro uživatele s danou hodnotou atributu externalId jsou hodnoty argumentů předaný metodě dotazu: 
-  * Parametry. AlternateFilters.Count: 1
-  * Parametry. AlternateFilters.ElementAt(0). AttributePath: "externalId"
-  * Parametry. AlternateFilters.ElementAt(0). Porovnávací operátor: ComparisonOperator.Equals
+  * parameters.AlternateFilters.Count: 1
+  * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
+  * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
   * Parametry. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
-  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. ID žádosti"] 
+  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Pokud odpověď na dotaz pro webovou službu pro uživatele s hodnotou atributu externalId odpovídající hodnota atributu mailNickname uživatele nevrátí žádné uživatele, pak Azure Active Directory požadavky že službu zřizovat uživatele odpovídající tomu v Azure Active Directory.  Tady je příklad této žádosti: 
   ````
@@ -527,7 +527,7 @@ Následující obrázek znázorňuje zprávy, že Azure Active Directory odešle
   V příkladu požadavek na načtení aktuálního stavu uživatele jsou hodnoty vlastností objektu zadaný jako hodnota argumentu parametry: 
   
   * Identifikátor: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. Pokud atribut typu odkaz je potřeba aktualizovat, Azure Active Directory dotazuje službu, kterou chcete zjistit, zda aktuální hodnotu atributu odkaz v úložišti identity přední stěnou službou již odpovídá hodnota tohoto atributu v Azure Active Adresář. Pro uživatele pouze atributů, které aktuální hodnota je dotazován tímto způsobem je atribut správce. Tady je příklad požadavku k určení, zda atribut manager objektu konkrétní uživatel aktuálně má určitou hodnotu: 
   ````
@@ -538,15 +538,15 @@ Následující obrázek znázorňuje zprávy, že Azure Active Directory odešle
 
   Pokud služba je vytvořená pomocí knihovny Common Language Infrastructure od společnosti Microsoft pro implementaci služby SCIM, je požadavek přeložit na volání metody dotazu zprostředkovatele služby. Hodnota vlastnosti objektu zadaný jako hodnota argumentu parametry jsou následující: 
   
-  * Parametry. AlternateFilters.Count: 2
+  * parameters.AlternateFilters.Count: 2
   * Parametry. AlternateFilters.ElementAt(x). AttributePath: "id"
-  * Parametry. AlternateFilters.ElementAt(x). Porovnávací operátor: ComparisonOperator.Equals
-  * Parametry. AlternateFilter.ElementAt(x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * Parametry. AlternateFilters.ElementAt(y). AttributePath: "správce"
-  * Parametry. AlternateFilters.ElementAt(y). Porovnávací operátor: ComparisonOperator.Equals
-  * Parametry. AlternateFilter.ElementAt(y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * Parametry. RequestedAttributePaths.ElementAt(0): "id"
-  * Parametry. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+  * parameters.RequestedAttributePaths.ElementAt(0): "id"
+  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
   Zde hodnotu indexu x může být 0 a hodnotu index y může být 1, nebo může být hodnota parametru x 1 a hodnota y může být 0, v závislosti na pořadí výrazy parametru dotazu filtru.   
 
@@ -654,13 +654,13 @@ Následující obrázek znázorňuje zprávy, že Azure Active Directory odešle
     V příkladu požadavek na aktualizaci uživatele má zadaný jako hodnota argumentu oprava objekt hodnoty těchto vlastností: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
-  * (PatchRequest jako PatchRequest2). Operations.Count: 1
+  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * (PatchRequest as PatchRequest2).Operations.Count: 1
   * (PatchRequest jako PatchRequest2). Operations.ElementAt(0). OperationName: OperationName.Add
   * (PatchRequest jako PatchRequest2). Operations.ElementAt(0). Path.AttributePath: "správce"
   * (PatchRequest jako PatchRequest2). Operations.ElementAt(0). Value.Count: 1
-  * (PatchRequest jako PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Referenční dokumentace: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-  * (PatchRequest jako PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Hodnota: 2819c223-7f76-453a-919d-413861904646
+  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
+  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
 6. Zrušte zřídit uživatele z identity úložiště přední stěnou služba SCIM, Azure AD, jako odešle žádost: 
   ````
@@ -680,7 +680,7 @@ Následující obrázek znázorňuje zprávy, že Azure Active Directory odešle
   Zadaný jako hodnota argumentu resourceIdentifier objekt má tyto hodnoty vlastností v příkladu žádost zrušte zřídit uživatele: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Zřizování skupiny a jeho rušení
 Následující obrázek znázorňuje zprávy, že Azure AcD odešle SCIM službě pro správu životního cyklu skupiny v jiné úložiště identit.  Tyto zprávy se liší od zprávy týkající se uživatelů třemi způsoby: 

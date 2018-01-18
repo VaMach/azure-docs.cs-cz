@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: dobett
-ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referenční dokumentace - IoT Hub kvóty a omezení
 
@@ -41,12 +41,14 @@ Následující tabulka obsahuje vynucené omezení. Hodnoty se vztahují k rozbo
 | Odesílání typu zařízení-cloud | Vyšší 100 za sekundu nebo 12/sec/jednotka <br/> Například dvě jednotky S1 jsou 2\*12 = 24/sec, ale, že nejméně 100 za sekundu napříč vaší jednotky. U devět S1 jednotek, máte 108 za sekundu (9\*12) mezi vaší jednotky. | 120/sec/jednotka | 6000/sec/jednotka |
 | Odesílání typu cloud-zařízení | 1.67/sec/Unit (min/100/unit) | 1.67/sec/Unit (min/100/unit) | 83.33/sec/Unit (5000/minimální/unit) |
 | Příjem typu cloud-zařízení <br/> (jenom když zařízení používá protokol HTTPS)| 16.67/sec/Unit (1000/minimální/unit) | 16.67/sec/Unit (1000/minimální/unit) | 833.33/sec/Unit (50000/minimální/unit) |
-| Nahrávání souborů | 1.67 souboru nahrávání oznámení/sec/jednotka (min/100/unit) | 1.67 souboru nahrávání oznámení/sec/jednotka (min/100/unit) | 83.33 souboru odesílání oznámení/sec/jednotky (5000/minimální/unit) |
-| Přímé metody | 20/sec/jednotka | 60/sec/jednotka | 3000/sec/jednotka | 
+| Nahrání souboru | 1.67 souboru nahrávání oznámení/sec/jednotka (min/100/unit) | 1.67 souboru nahrávání oznámení/sec/jednotka (min/100/unit) | 83.33 souboru odesílání oznámení/sec/jednotky (5000/minimální/unit) |
+| Přímé metody | 160KB/sec/jednotka<sup>1</sup> | 480KB/sec/jednotka<sup>1</sup> | 24MB za sekundu nebo jednotku<sup>1</sup> | 
 | Čtení dvojčat zařízení | 10 za sekundu | Vyšší 10 za sekundu nebo 1/sec/jednotka | 50/sec/jednotka |
 | Aktualizace dvojčat zařízení | 10 za sekundu | Vyšší 10 za sekundu nebo 1/sec/jednotka | 50/sec/jednotka |
 | Operace úloh <br/> (vytvoření, aktualizace, výpis, odstranění) | 1.67/sec/Unit (min/100/unit) | 1.67/sec/Unit (min/100/unit) | 83.33/sec/Unit (5000/minimální/unit) |
 | Propustnost operací úloh jednotlivých zařízení | 10 za sekundu | Vyšší 10 za sekundu nebo 1/sec/jednotka | 50/sec/jednotka |
+
+<sup>1</sup>omezení velikosti měření je 8 KB
 
 Je důležité o vysvětlení, že *připojení zařízení* omezení řídí rychlost, jakou by bylo možné navázat nová připojení zařízení pomocí služby IoT hub. *Připojení zařízení* omezení neřídí maximální počet současně připojených zařízení. Omezení závisí na počtu jednotek, které jsou zřízené pro službu IoT hub.
 
@@ -75,6 +77,7 @@ IoT Hub vynucuje jiné provozní omezení:
 | Zasílání zpráv typu zařízení cloud | Maximální velikost 256 KB |
 | Zasílání zpráv typu cloud zařízení | Maximální velikost 64 KB |
 | Zasílání zpráv typu cloud zařízení | Maximální počet čekajících zpráv pro doručení je 50 |
+| Přímá metoda | Přímá metoda maximální velikost datové části je 128KB |
 
 > [!NOTE]
 > Maximální počet zařízení, které se můžete připojit k jedné IoT hub je v současné době 500 000. Pokud chcete tento limit zvýšit, obraťte se na [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -89,7 +92,7 @@ Centrum IoT se snaží poskytovat s nízkou latencí pro všechny operace. Ale k
 Víc jednotek služby IoT Hub ovlivnit omezení, jak je popsáno výše, ale neposkytuje žádné další latence výhody nebo záruky.
 Pokud se zobrazí neočekávané zvýšení latence operace, obraťte se na [Microsoft Support](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Zahrnout další referenční témata v této příručce pro vývojáře IoT Hub:
 
 * [Koncové body centra IoT][lnk-devguide-endpoints]
