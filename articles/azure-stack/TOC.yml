@@ -233,9 +233,9 @@
               href: azure-stack-supported-os.md
             - name: Přidání vlastní image virtuálního počítače
               href: azure-stack-add-vm-image.md
-            - name: Přidání škálovacích sad virtuálních počítačů
+            - name: Nabízejí škálovací sadu virtuálních počítačů
               href: azure-stack-compute-add-scalesets.md
-            - name: Nasazení virtuálních počítačů s Linuxem
+            - name: Virtuální počítače s Linuxem nabídka
               href: azure-stack-linux.md
         - name: Využití a fakturace
           items:
