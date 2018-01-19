@@ -8,7 +8,7 @@
 
     ![Povolení protokolu TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. V podokně konzoly klikněte na **SQL Server Services** (Služby SQL Serveru). V podokně podrobností klikněte pravým tlačítkem na **SQL Server (*název name*)** (výchozí instancí je **SQL Server (MSSQLSERVER)**) a potom klikněte na **Restartovat**. Instance SQL Serveru se zastaví a restartuje.
+1. V podokně konzoly klikněte na **SQL Server Services** (Služby SQL Serveru). V podokně podrobností klikněte pravým tlačítkem na **systému SQL Server (*název instance*)** (výchozí instance je **serveru SQL (MSSQLSERVER)**) a pak klikněte na tlačítko **restartujte**zastavit a restartovat instanci systému SQL Server.
 
     ![Restartování databázového stroje](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

@@ -3,8 +3,8 @@ title: "Zřídit Redis Cache pomocí Azure Resource Manager | Microsoft Docs"
 description: "Šablona Azure Resource Manager k nasazení Azure Redis Cache."
 services: app-service
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: b26116b974abbfe410b0a6ebc0186d73f4eea1bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Vytvoření mezipaměti Redis Cache pomocí šablony
 V tomto tématu se dozvíte, jak vytvořit šablonu Azure Resource Manager, která nasazuje Azure Redis Cache. Mezipaměti umožňuje s existujícím účtem úložiště zachovat diagnostická data. Také zjistíte, jak definovat prostředky, ke kterým nasazených a jak definovat parametry, které jsou zadané, když se spustí nasazení. Tuto šablonu můžete použít pro vlastní nasazení nebo ji upravit, aby splňovala vaše požadavky.
@@ -67,7 +67,7 @@ Název existující účet úložiště pro diagnostiku.
       "type": "string"
     }
 
-### <a name="enablenonsslport"></a>EnableNonSslPort
+### <a name="enablenonsslport"></a>enableNonSslPort
 Logická hodnota, která určuje, jestli se má povolit přístup přes porty bez SSL.
 
     "enableNonSslPort": {

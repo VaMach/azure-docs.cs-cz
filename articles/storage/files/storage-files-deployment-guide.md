@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Nasazení služby Soubory Azure
 [Soubory Azure](storage-files-introduction.md) nabízí plně spravované sdílené složky v cloudu, které jsou přístupné přes průmyslový standard protokolu SMB. Tento článek vám ukáže, jak to prakticky nasazení Azure souborů v rámci vaší organizace.
@@ -35,7 +35,7 @@ Tento článek předpokládá, že jste již dokončili následující kroky:
 Chcete migrovat existující sdílené složky, například těchto uložených místně na novou sdílenou složku Azure File. V této části vám ukáže, jak přesunout data do Azure File sdílet přes několik oblíbených metod z [Příručka pro plánování](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Synchronizace Azure File (Preview)
-Soubor synchronizace služby Azure (Preview) umožňuje že centralizovat vaší organizace sdílené složky v souborech Azure bez nutnosti poskytnutí flexibilitu, výkonu a kompatibility pro místní souborový server. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
+Soubor synchronizace služby Azure (Preview) umožňuje centralizovat vaší organizace sdílené složky v souborech Azure bez nutnosti poskytnutí flexibilitu, výkonu a kompatibility pro místní souborový server. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
 
 Synchronizace služby Azure soubor slouží k migraci dat do služby Azure sdílené složky, i když tento synchronizační mechanismus není žádoucí pro dlouhodobé používání. Další informace o tom, jak používat Azure synchronizaci souborů k přenosu dat do sdílené složky Azure File naleznete v [plánování nasazení Azure souboru Sync](storage-sync-files-planning.md) a [jak nasadit Azure souboru Sync](storage-sync-files-deployment-guide.md).
 
@@ -145,15 +145,15 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Jednoduché bash skript v kombinaci s SSH přispět stejný výsledek v následujícím příkladu. `$computer` Proměnné je podobně zleva uživatelem zadáno jinak:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Plánování nasazení služby Azure souboru Sync](storage-sync-files-planning.md)
 - [Řešení potíží s soubory v systému Windows Azure](storage-troubleshoot-windows-file-connection-problems.md)
 - [Řešení potíží s Azure soubory v systému Linux](storage-troubleshoot-linux-file-connection-problems.md)

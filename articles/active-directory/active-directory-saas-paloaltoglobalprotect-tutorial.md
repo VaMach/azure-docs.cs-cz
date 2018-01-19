@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: b7c85dd01802bd67724e405f786481ba128e559a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c851c056095ef8e7fb40d7d2ead76457495b2118
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Kurz: Azure Active Directory integrace se sítěmi Palo Alto - GlobalProtect
 
@@ -123,7 +123,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     
     | Název atributu | Hodnota atributu |
     | --- | --- |    
-    | uživatelské jméno | User.userPrincipalName |
+    | uživatelské jméno | user.userprincipalname |
 
     a. Klikněte na tlačítko **přidat atribut** otevřete **přidat atribut** dialogové okno.
 
@@ -146,7 +146,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_general_400.png)
 
-8. Otevřete web Palo Alto jako správce v jiném okně prohlížeče.
+8. Otevřete uživatelské rozhraní Správce brány Firewall sítě Palo Alto jako správce v jiném okně prohlížeče.
 
 9. Klikněte na **zařízení**.
 
@@ -160,7 +160,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurace Palo Alto jednotné přihlašování](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    a. V **název profilu** textovému poli, zadejte název např, Azure AD globálního chránit.
+    a. V **název profilu** textovému poli, zadejte název např Azure AD GlobalProtect.
     
     b. V **metadat zprostředkovatelů Identity**, klikněte na tlačítko **Procházet** a vyberte soubor metadata.xml, který jste si stáhli z portálu Azure
     
@@ -243,7 +243,7 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 Po kliknutí na tlačítko Palo Alto Networks - GlobalProtect dlaždice na přístupovém panelu jste měli získat automaticky přihlášení k Palo Alto Networks - GlobalProtect aplikace.
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

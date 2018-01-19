@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Spravovat zachycení paketů s sledovací proces sítě Azure pomocí portálu
 
@@ -83,7 +83,7 @@ Vlastnosti, které lze definovat na zachytáváním paketů jsou:
 - **Účet úložiště** -Určuje, pokud se zachytáváním paketů je uložen v účtu úložiště.
 - **Soubor** -Určuje, pokud se zachytáváním paketů se místně uloží na virtuálním počítači.
 - **Účty úložiště** – vybraný účet úložiště se zachytáváním paketů v uložit. Výchozí umístění je id name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription účtu https://{storage} /resourcegroups/ {název počítače name}/providers/microsoft.compute/virtualmachines/{virtual skupiny prostředků} / {RR} / {MM} / {DD} / {HH} packetcapture__{MM}_CAP _ {XXX} {SS}. (Aktivní, pouze pokud **úložiště** je vybraná)
-- **Cesta k souboru místní** -místní cestu na virtuální počítač uložit zachytáváním paketů. (Aktivní, pouze pokud **soubor** je vybraný). Je nutné zadat platnou cestu
+- **Cesta k souboru místní** -místní cestu na virtuální počítač uložit zachytáváním paketů. (Aktivní, pouze pokud **soubor** je vybraný). Je nutné zadat platnou cestu. Pro virtuální počítač s Linuxem, musí cesta začínat */var/zaznamená*.
 - **Maximální počet bajtů paketu** – počet bajtů z jednotlivých paketů, které jsou zachyceny, všechny bajty zachyceny, pokud je ponecháno prázdné.
 - **Maximální počet bajtů za relace** – celkový počet bajtů, které jsou zachyceny, hodnota v případě dosažení Zastaví zachytávání paketů.
 - **Časový limit (sekundy)** -nastaví časový limit pro zachytávání paketů zastavit. Výchozí hodnota je 18000 sekund.

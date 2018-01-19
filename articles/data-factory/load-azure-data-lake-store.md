@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: a684f8bcdefc8e3338fae59e56863dfc37c23f1f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3f73cd65b0ceb3148ce8ceb83d7b4e1be1280077
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-using-azure-data-factory"></a>Načtení dat do Azure Data Lake Store pomocí Azure Data Factory
 
@@ -125,7 +125,11 @@ V tomto článku se dozvíte, jak pomocí nástroje Data Factory kopírovat Data
 
     ![Spustí monitorování aktivity](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-15. Ověřte, že data budou zkopírována do Azure Data Lake Store. 
+15. Podrobnosti o provádění každou aktivitu kopírování, můžete sledovat další kliknutím **podrobnosti** v části **akce** v aktivitě zobrazení monitorování. Zobrazuje informace, včetně objem dat zkopíruje ze zdroje jímka, propustnost, kroky se prochází s odpovídající doba trvání a použít konfigurace.
+
+    ![Podrobnosti o spuštění aktivity monitorování](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
+
+16. Ověřte, že data budou zkopírována do Azure Data Lake Store. 
 
     ![Zkontrolujte výstup Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 

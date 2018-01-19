@@ -3,8 +3,8 @@ title: "Postup konfigurace Redis clusterů pro mezipaměť Azure Redis Cache Pre
 description: "Naučte se vytvářet a spravovat Redis clusteringu pro vaše úroveň Premium instance služby Azure Redis Cache"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: 86a4a605dbb3b11924c14ff42238009742f72898
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Postup konfigurace Redis clusterů pro mezipaměť Azure Redis Cache Premium
 Azure Redis Cache má jiný mezipaměti nabídky, které poskytují flexibilitu při výběru velikost mezipaměti a funkce, včetně funkce úrovně Premium, jako je clustering, trvalosti a podpory služby virtual network. Tento článek popisuje postup konfigurace clusterů v instanci služby Azure Redis Cache premium.
@@ -159,7 +159,7 @@ Clustering je dostupná jenom pro prémiových mezipamětí.
 ### <a name="i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do"></a>Zobrazuje PŘESUNUTÍ výjimky při používání StackExchange.Redis a clusteringu, co dělat?
 Pokud používáte StackExchange.Redis a přijímat `MOVE` výjimky při použití clusteringu, ujistěte se, že používáte [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) nebo novější. Pokyny týkající se konfigurace aplikace .NET pro používání StackExchange.Redis najdete v tématu [konfigurace klientů mezipaměti](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Naučte se používat další funkce mezipaměti premium.
 
 * [Úvod do Azure Redis Cache na úrovni Premium](cache-premium-tier-intro.md)

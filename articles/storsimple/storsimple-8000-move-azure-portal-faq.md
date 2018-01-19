@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>Přesunuty služby StorSimple Manager zařízení z klasického portálu Azure: Nejčastější dotazy (FAQ)
 
@@ -144,7 +144,7 @@ Ne. Neexistuje žádný vliv na StorSimple Snapshot Manager při přesunutí slu
 
 Ne. Nelze přejmenovat zařízení, svazky, kontejnery svazků nebo zásady zálohování na portálu Azure.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Další informace o [podporována operací na zařízení se systémem starším před aktualizací 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 

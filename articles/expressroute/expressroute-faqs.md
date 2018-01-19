@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute – nejčastější dotazy
 
@@ -83,7 +83,7 @@ ExpressRoute podporuje [tři domény směrování](expressroute-circuit-peerings
   * Dynamics 365 pro prodej
   * Dynamics 365 zákaznický servis
   * Dynamics 365 služby pole
-  * Dynamics 365 pro – služba projektu
+  * Dynamics 365 for Project Service
 * Pomocí [směrovat filtry](#route-filters-for-microsoft-peering), získat přístup ke službám ve stejné veřejné s partnerského vztahu Microsoftu:
   * Power BI
   * Dynamics 365 Finance a operace
@@ -121,11 +121,11 @@ Ano. Každý okruh ExpressRoute má redundantní dvojici křížové připojení
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Bude ztrátě připojení, pokud jeden z odkazů Moje ExpressRoute?
 
-Pokud jeden z křížové připojení selže, nedojde ke ztrátě připojení. Redundantní připojení je k dispozici pro podporu zatížení sítě. Kromě toho můžete vytvořit více okruhů v jiném umístění partnerského vztahu zajistit odolnost proti selhání.
+Pokud jeden z křížové připojení selže, nedojde ke ztrátě připojení. Redundantní připojení je k dispozici pro podporu zatížení sítě a zajištění vysoké dostupnosti váš okruh ExpressRoute. Kromě toho můžete vytvořit okruh v jiném umístění partnerského vztahu k dosažení okruh úroveň odolnosti.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Jak zjistím, vysokou dostupnost ve virtuální síti připojená k ExpressRoute?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Jak zjistím, vysokou dostupnost ve virtuální síti připojená k ExpressRoute?
 
-Připojení k virtuální síti více okruhů ExpressRoute v různých umístění partnerského vztahu, můžete dosáhnout vysoké dostupnosti. Například pokud jedna lokalita ExpressRoute přestane fungovat, připojení bude převzetí služeb při selhání do jiné lokality ExpressRoute. Ve výchozím nastavení je veden odchozího provozu z vaší virtuální sítě založené na stejné náklady s více cestami směrování ECMP (). Váha připojení můžete raději jedno připojení na jiný. V tématu [optimalizace směrování ExpressRoute](expressroute-optimize-routing.md) další podrobnosti o připojení váhy.
+Vysoké dostupnosti můžete dosáhnout připojením okruhy ExpressRoute v různých umístění partnerského vztahu (např. Singapur, Singapore2) k virtuální síti. Pokud jeden okruh ExpressRoute přestane fungovat, připojení bude převzetí služeb při selhání jiného okruhu ExpressRoute. Ve výchozím nastavení je veden odchozího provozu z vaší virtuální sítě založené na stejné náklady s více cestami směrování ECMP (). Váha připojení můžete do jiného dáváte přednost jeden okruh. V tématu [optimalizace směrování ExpressRoute](expressroute-optimize-routing.md) další podrobnosti o připojení váhy.
 
 ### <a name="onep2plink"></a>Pokud nejste společně umístěné na výměně cloudu a poskytovateli služeb nabízí připojení typu point-to-point, je nutné pořadí dvě fyzického připojení mezi Moje místní sítí a Microsoftem?
 
@@ -145,9 +145,12 @@ Ano. Můžete mít více než jeden okruh ExpressRoute v rámci vašeho předpla
 
 Ano. Okruhy ExpressRoute může mít s mnoho poskytovatelů služeb. Každý okruh ExpressRoute je přidružen pouze jedna služba Zprostředkovatel. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Může mít více okruhů ExpressRoute ve stejném umístění?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Zobrazuje, dvě umístění partnerského vztahu ExpressRoute ve stejné metro, například Singapur a Singapore2. Které umístění partnerského vztahu by měl vybrat pro vytvoření okruhu ExpressRoute?
+Pokud váš poskytovatel služeb nabízí ExpressRoute v obou lokalitách, můžete pracovat s poskytovatelem a vyberte buď server a nastavte ExpressRoute. 
 
-Ano. Více okruhů ExpressRoute, můžete mít s poskytovatelé služeb stejný nebo jiný ve stejném umístění. Více než jeden okruh ExpressRoute nelze však propojit stejné virtuální síti ze stejného umístění.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Může mít více okruhů ExpressRoute ve stejné metro. Můžete propojit je s stejnou virtuální síť?
+
+Ano. Můžete mít více okruhů ExpressRoute zprostředkovatelům stejné nebo jiné služby. Pokud metro má více umístění partnerského vztahu ExpressRoute a okruhy se vytvářejí v různých umístění partnerského vztahu, můžete propojit stejné virtuální síti. Pokud jsou okruhy vytvořené na stejné umístění partnerského vztahu, nelze propojit stejné virtuální síti.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Postup připojení Můj virtuální sítě k okruhu ExpressRoute
 

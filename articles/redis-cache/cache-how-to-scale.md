@@ -3,8 +3,8 @@ title: "Postup škálování Azure Redis Cache | Microsoft Docs"
 description: "Zjistěte, jak se škálovat vaše instance služby Azure Redis Cache"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: sdanie
-ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Postup škálování Azure Redis Cache
 Azure Redis Cache má jiný mezipaměti nabídky, které poskytují flexibilitu při výběru velikost mezipaměti a funkce. Po vytvoření mezipaměti je možné škálovat na velikost a cenovou úroveň mezipaměti, pokud se změní požadavky vaší aplikace. Tento článek ukazuje, jak se škálovat vaši mezipaměť na portálu Azure a pomocí nástrojů, jako je Azure PowerShell a rozhraní příkazového řádku Azure.
@@ -28,7 +28,7 @@ Můžete použít [monitorování](cache-how-to-monitor.md) funkce Azure Redis C
 
 Můžete monitorovat následující metriky, které vám pomohou určit, pokud potřebujete škálování.
 
-* Zatížení serveru redis
+* Zatížení serveru Redis
 * Využití paměti
 * Šířka pásma sítě
 * Využití procesoru

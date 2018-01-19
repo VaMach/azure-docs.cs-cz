@@ -77,11 +77,13 @@
       href: use-hsm-with-sdk.md
     - name: Řízení přístupu ke službě zřizování
       href: how-to-control-access.md
+    - name: Použití Azure CLI ke správě služeb zřizování zařízení
+      href: how-to-manage-dps-with-cli.md
 - name: Referenční informace
   items:
     - name: REST
       href: /rest/api/iot-dps
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Azure IoT Hub
       href: 'https://azure.microsoft.com/services/iot-hub/'

@@ -3,8 +3,8 @@ title: "Úvod do Azure Redis Cache Premium vrstvy | Microsoft Docs"
 description: "Zjistěte, jak vytvořit a spravovat trvalost Redis, Redis clustering a podpora virtuální sítě pro vaše instance služby Azure Redis Cache úrovně Premium"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 38a43756678a3628040b1b995966eff6dd9fb363
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Představení služby Azure Redis Cache na úrovni Premium
 Azure Redis Cache je mezipaměť distribuovaná, kterou spravuje vám usnadní vytváření vysoce škálovatelné a dobře reagovaly aplikací tím, že poskytuje extrémně rychlého přístup k datům. 
@@ -32,7 +32,7 @@ Nové úrovni Premium je připraven vrstvou Enterprise, která zahrnuje všechny
 
 Další informace o velikosti, propustnosti a šířky pásma u prémiových mezipamětí najdete v tématu [Azure Redis Cache – nejčastější dotazy](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
-## <a name="redis-data-persistence"></a>Trvalosti dat redis
+## <a name="redis-data-persistence"></a>Trvalost dat Redis
 Úroveň Premium umožňuje zachovat data v mezipaměti v účtu Azure Storage. V mezipaměti Basic nebo Standard všechna data uložena pouze v paměti. V případě základní infrastruktura může být problémy existuje potenciální ztrátě dat. Doporučujeme používat funkce trvalosti dat Redis zvyšte odolnost proti ztrátě dat v úrovni Premium. Azure Redis Cache nabízí RDB a AOF (už brzy) možnosti v [trvalosti Redis](http://redis.io/topics/persistence). 
 
 Pokyny týkající se konfigurace trvalosti najdete v článku [Postup konfigurace trvalosti pro mezipaměť Azure Redis Cache Premium](cache-how-to-premium-persistence.md).
@@ -40,7 +40,7 @@ Pokyny týkající se konfigurace trvalosti najdete v článku [Postup konfigura
 ## <a name="redis-cluster"></a>Cluster redis
 Pokud budete chtít vytvořit větší než 53 GB mezipaměti nebo chcete sdílení dat mezi různými uzly Redis, můžete použít clustering, která je dostupná v úrovni Premium Redis. Každý uzel se skládá z dvojice primární/replika mezipaměti spravuje Azure pro vysokou dostupnost. 
 
-**Redis clustering poskytuje maximální měřítko a propustnosti.** Propustnost zvyšuje lineárně zvýšit počet horizontálních oddílů (uzlů) v clusteru. Např. Pokud vytvoříte cluster P4 10 horizontálními oddíly, je k dispozici propustnost 250 TIS * 10 = 2,5 milionu požadavků za sekundu. Podrobnosti najdete [Azure Redis Cache – nejčastější dotazy](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) další podrobnosti o velikosti, propustnosti a šířky pásma u prémiových mezipamětí.
+**Redis clustering poskytuje maximální měřítko a propustnosti.** Propustnost zvyšuje lineárně zvýšit počet horizontálních oddílů (uzlů) v clusteru. Eg. Pokud vytvoříte cluster P4 10 horizontálními oddíly, je k dispozici propustnost 250 TIS * 10 = 2,5 milionu požadavků za sekundu. Podrobnosti najdete [Azure Redis Cache – nejčastější dotazy](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) další podrobnosti o velikosti, propustnosti a šířky pásma u prémiových mezipamětí.
 
 Začínáme s clustering, najdete v tématu [postup konfigurace clusterů pro mezipaměť Azure Redis Cache Premium](cache-how-to-premium-clustering.md).
 
@@ -93,7 +93,7 @@ Další informace najdete v tématu [konfiguraci geografická replikace pro Azur
 ## <a name="to-scale-to-the-premium-tier"></a>Škálování na plán úrovně premium
 Škálování na vrstvě | premium, jednoduše vyberte jednu z úrovní premium v **změna cenové úrovně** okno. Také je možné škálovat vaše mezipaměť na vrstvě | premium pomocí prostředí PowerShell a rozhraní příkazového řádku. Podrobné pokyny najdete v tématu [postup škálování Azure Redis Cache](cache-how-to-scale.md) a [jak automatizovat škálování operaci](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Vytvoření mezipaměti a prozkoumat nové funkce úrovně premium.
 
 * [Konfigurace trvalosti pro Azure Redis Cache ve verzi Premium](cache-how-to-premium-persistence.md)

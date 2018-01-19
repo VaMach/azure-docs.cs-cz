@@ -42,7 +42,7 @@ Databázový stroj SQL Serveru nemůže používat ověřování systému Window
 1. Zůstaňte připojeni k virtuálnímu počítači a na úvodní stránce zadejte **SQL Server Management Studio** a klikněte na vybranou ikonu.
    
     Při prvním otevření sady Management Studio se musí vytvořit uživatelské prostředí sady Management Studio. Tato operace může chvíli trvat.
-2. Management Studio zobrazí dialogové okno **Připojit k serveru**. Do pole **Název serveru** zadejte název virtuálního počítače, který se má připojit k databázovému stroji s využitím Průzkumníka objektů. (Místo názvu virtuálního počítače můžete také jako **název serveru** použít text **(local)** nebo jednu tečku). Vyberte **Ověřování systému Windows**, a v poli **Uživatelské jméno** ponechejte ***název_virtuálního_počítače*\místní_správce**. Klikněte na **Připojit**.
+2. Management Studio zobrazí dialogové okno **Připojit k serveru**. Do pole **Název serveru** zadejte název virtuálního počítače, který se má připojit k databázovému stroji s využitím Průzkumníka objektů. (Místo názvu virtuálního počítače můžete také jako **název serveru** použít text **(local)** nebo jednu tečku). Vyberte **ověřování systému Windows**a nechat ***název_virtuálního_počítače * \your_local_administrator** v **uživatelské jméno** pole. Klikněte na **Připojit**.
    
     ![Připojení k serveru](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. V Průzkumníku objektů systému SQL Server klikněte pravým tlačítkem na název instance SQL Serveru (název virtuálního počítače) a potom klikněte na **Vlastnosti**.

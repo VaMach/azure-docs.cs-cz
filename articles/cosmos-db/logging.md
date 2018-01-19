@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
 ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Protokolování diagnostiky Azure Cosmos DB
 
@@ -415,7 +415,7 @@ Následující tabulka popisuje obsah každé položky protokolu.
 | properties | neuvedeno | Obsah tohoto pole jsou popsané v následující řádky. |
 | ID aktivity | activityId_g | Jedinečný identifikátor GUID pro protokolovaných operací. |
 | UserAgent | userAgent_s | Řetězec, který určuje uživatelský agent klienta provádění požadavku. Formát je {uživatelské jméno agenta} / {version}.|
-| Typ prostředku | ResourceType | Typ prostředku, u níž. Tato hodnota může být jakýkoli z následujících typů prostředků: databáze, kolekce, dokument, přílohy, uživatele, oprávnění, StoredProcedure, aktivační události, UserDefinedFunction nebo nabídku. |
+| resourceType | ResourceType | Typ prostředku, u níž. Tato hodnota může být jakýkoli z následujících typů prostředků: databáze, kolekce, dokument, přílohy, uživatele, oprávnění, StoredProcedure, aktivační události, UserDefinedFunction nebo nabídku. |
 | statusCode |statusCode_s | Stav odpovědi operace. |
 | requestResourceId | ID prostředku | ResourceId týkající se žádosti, mohou odkazovat databaseRid, collectionRid nebo documentRid v závislosti na operaci provést.|
 | clientIpAddress | clientIpAddress_s | IP adresa klienta. |
@@ -426,7 +426,7 @@ Následující tabulka popisuje obsah každé položky protokolu.
 | responseLength | responseLength_s | Délka odpovědi v bytech.|
 | resourceTokenUserRid | resourceTokenUserRid_s | Toto je neprázdný při [prostředků tokeny](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) slouží k ověřování a bodů pro ID prostředku uživatele. |
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Získat představu o není pouze to, jak povolit protokolování, ale také podporuje různé Azure kategorie metrik a protokolu služby přečíst, i [přehled metriky v Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) a [přehled Azure Diagnostické protokoly](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) články.
 - Přečtěte si další informace o službě event hubs tyto články:

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funkcí jazyka C# referenční informace pro vývojáře
 
@@ -177,7 +177,7 @@ public static class SimpleExample
 > [!NOTE]
 > Informace o novější rozhraní protokolování, který můžete použít místo `TraceWriter`, najdete v části [zápisu protokolů v C# funkce](functions-monitoring.md#write-logs-in-c-functions) v **monitorování Azure Functions** článku.
 
-## <a name="async"></a>Asynchronní
+## <a name="async"></a>Async
 
 Chcete-li funkci asynchronní, použijte `async` – klíčové slovo a vraťte se `Task` objektu.
 
@@ -317,10 +317,10 @@ Následující tabulka uvádí aktivační události a vazba atributy, které js
 |------   | ------    | ------  |
 | [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Objekt BLOB](functions-bindings-storage-blob.md#input---attributes)| [Objekt BLOB](functions-bindings-storage-blob.md#output---attributes)|
 | [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
-| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [Centrum EventHub](functions-bindings-event-hubs.md#output---attributes) |
+| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
 | [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
 | [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Fronty](functions-bindings-storage-queue.md#output---attributes) |
-| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [Sběrnice](functions-bindings-service-bus.md#output---attributes) |
+| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [ServiceBus](functions-bindings-service-bus.md#output---attributes) |
 | [TimerTrigger](functions-bindings-timer.md#attributes) | ||
 | |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
 | |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 

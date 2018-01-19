@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 6ba6bed8321e1ffde8bc8959443682725da36827
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: cd14f0e5259e5c0b6cbf11790bbdf08164267ffa
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Aspekty plánování pro Azure zásobníku integrované systémy
 Pokud byste chtěli v systému Azure zásobníku integrované, byste měli porozumět některé hlavní informace o plánování řešení nasazení a jak systému zapadá do vašeho datového centra. Tento článek obsahuje přehled těchto aspektů, který vám pomůže provádět rozhodnutí důležité infrastruktury pro systém Azure zásobníku více uzly. Pochopení těchto aspektů pomáhá při práci s dodavatele hardwaru, od výrobců OEM jako jejich nasazení do vašeho datového centra Azure zásobníku.  
@@ -31,12 +31,12 @@ K nasazení zásobník Azure existuje sada rozhodnutí, která budete muset udě
 
 Informace požadované rozsahy napříč sítí, zabezpečení a informace o identitě s mnoha důležitých rozhodnutí, které mohou vyžadovat znalost z mnoha různých oblastech a vedoucím pracovníkům. Proto můžete chtít stáhnout osoby z více týmy ve vaší organizaci k zajištění, že máte všechny požadované informace, které jsou připravené před zahájením nasazení. Obraťte se na dodavatele hardwaru, při shromažďování těchto informací, protože mohou mít užitečné vaše rozhodování Rady, jak může pomoct.
 
-Analýza a shromažďování požadované informace, možná budete muset udělat nějaké změny konfigurace před nasazením do prostředí vaší sítě. To může zahrnovat rezervování adresní prostory IP adres pro řešení Azure zásobníku, konfigurace směrovače, přepínače a brány firewall, aby příprava pro připojení k nové řešení přepínače zásobník Azure. Ujistěte se, že máte expert oblasti subjektu leží až, vám pomohou s plánování.
+Analýza a shromažďování požadované informace, možná budete muset udělat nějaké změny konfigurace před nasazením do prostředí vaší sítě. To může zahrnovat rezervování adresní prostory IP adres pro řešení Azure zásobníku a konfigurace směrovače, přepínače a brány firewall, aby příprava pro připojení k nové řešení přepínače zásobník Azure. Ujistěte se, že máte expert oblasti subjektu srovnáte a zahrnuta v rámci projektu nasazení vám pomohou při plánování.
 
 ## <a name="management-considerations"></a>Aspekty správy
 Azure zásobník je zapečetěné systému, kde infrastruktury je uzamčené z oprávnění i a síťový perspektivy. Sítě seznamy řízení přístupu (ACL) se použijí pro blokovat veškerý příchozí provoz neoprávněným a všechny zbytečné komunikace mezi součástmi infrastruktury. Díky tomu je obtížné neoprávněným uživatelům přístup k systému.
 
-Pro každodenní správu a operace neexistuje žádný správce neomezený přístup k infrastruktuře. Operátory Azure zásobníku musí spravovat systém prostřednictvím portálu správce nebo prostřednictvím Správce Azure Resource Manager (prostřednictvím prostředí PowerShell nebo rozhraní REST API). Není k dispozici přístup k systému pomocí jiné nástroje pro správu, například Správce technologie Hyper-V nebo Správce clusteru převzetí služeb při selhání. K ochraně systému, nelze nainstalovat software jiných výrobců (například agenty) uvnitř součástí infrastruktury Azure zásobníku. Vzájemná funkční spolupráce s externí správu a zabezpečení softwaru dojde k pomocí prostředí PowerShell nebo rozhraní REST API.
+Pro každodenní správu a operace neexistuje žádný správce neomezený přístup k infrastruktuře. Operátory Azure zásobníku musí spravovat systém prostřednictvím portálu správce nebo prostřednictvím Správce Azure Resource Manager (přes rozhraní příkazového řádku Azure, PowerShell nebo rozhraní REST API). Není k dispozici přístup k systému pomocí jiné nástroje pro správu, například Správce technologie Hyper-V nebo Správce clusteru převzetí služeb při selhání. K ochraně systému, nelze nainstalovat software jiných výrobců (například agenty) uvnitř součástí infrastruktury Azure zásobníku. Vzájemná funkční spolupráce s externí správu a zabezpečení softwaru dojde prostřednictvím rozhraní příkazového řádku Azure, PowerShell nebo rozhraní REST API.
 
 Vyšší úroveň přístupu je potřeba pro řešení potíží, které nejsou přeložit prostřednictvím výstrahy zprostředkování kroky, musíte spolupracovat s podpory. Prostřednictvím podpory je metoda zajistit dočasný správce s úplnými oprávněními přístup k systému provádět pokročilejší operace. 
 
@@ -93,9 +93,9 @@ Další informace o jaké infrastruktury veřejných KLÍČŮ jsou certifikáty 
 
 
 ## <a name="time-synchronization"></a>Synchronizaci času
-Musíte vybrat určitý čas, který server s se používá k synchronizaci Azure zásobníku.  Čas symbolization je velmi důležité zásobník Azure a její role infrastruktury, jako se používá ke generování lístky protokolu Kerberos, které se používají k ověření interních služeb mezi sebou.
+Musíte vybrat určitý čas, který server s se používá k synchronizaci Azure zásobníku.  Synchronizaci času je velmi důležité zásobník Azure a její role infrastruktury, jako se používá ke generování lístky protokolu Kerberos, které se používají k ověření interních služeb mezi sebou.
 
-Je nutné zadat, že IP adresy pro čas synchronizace serveru, i když většina komponenty v infrastruktuře můžete vyřešit adresu URL, některé podporuje pouze IP adresy. Pokud jste se používá možnost odpojené nasazení, je nutné zadat čas serveru ve vaší podnikové síti, které jste opravdu dosažitelný z infrastruktury sítě v Azure zásobníku.
+Je nutné zadat IP adresy pro server synchronizace času, protože i když většina komponenty v infrastruktuře můžete vyřešit adresu URL, některá podporují pouze IP adresy. Pokud jste se používá možnost odpojené nasazení, je nutné zadat čas serveru ve vaší podnikové síti, které jste opravdu dosažitelný z infrastruktury sítě v Azure zásobníku. Může to vyžadovat zvážit při plánování sítě integrace část projektu nasazení.
 
 
 ## <a name="network-connectivity"></a>Připojení k síti
@@ -123,22 +123,22 @@ Síťové infrastruktury pro Azure zásobníku se skládá z několika logické 
 Tato síť je vyhrazen až po připojení všech řadiči pro správu (také označované jako služby procesory, například iDRAC, iLO, iBMC, atd.) pro síť pro správu. Pokud je k dispozici, hostitele životního cyklu hardwaru (HLH) budou umístěny v této síti a může poskytnout určitým softwarem OEM pro údržbu hardwaru nebo monitorování. 
 
 #### <a name="private-network"></a>Privátní síť
-Tato /24 254 hostitele sítě (IP na) je privátní oblast Azure zásobníku (nerozšiřuje nad rámec zařízení přepínač ohraničení oblasti Azure zásobníku) a je rozdělená do dvou podsítí:
+Tato /24 (254 hostitele IP adresy) sítě je privátní oblast Azure zásobníku (nerozšiřuje nad rámec zařízení přepínač ohraničení oblasti Azure zásobníku) a je rozdělená do dvou podsítí:
 
-- **Síť úložiště**. Migrace za provozu /25 126 hostitele sítě (IP na) použitá k podpoře použití prostorů Direct a Server Message Block (SMB) přenosy dat úložiště a virtuální počítač. 
-- **Interní virtuální síť IP**. A/25 síti vyhrazený pro interní jen VIP pro vyrovnávání zatížení softwaru.
+- **Síť úložiště**. /25 (126 hostitele IP adresy) sítě použitá k podpoře použití prostory úložiště – přímé (S2D) a přenosy dat úložiště serveru SMB (Message Block) a migrace za provozu virtuálního počítače. 
+- **Interní virtuální síť IP**. A/25 síti vyhrazený pro interní jen VIP pro vyrovnávání zatížení softwaru (SLB).
 
 #### <a name="azure-stack-infrastructure-network"></a>Síť infrastruktury Azure zásobníku
-To/24 síť je vyhrazená pro interní součásti zásobníku Azure, aby se mohli komunikovat a výměnu dat mezi sebou. Tato podsíť vyžaduje směrovatelné IP adresy, ale se ukládají privátní do řešení pomocí seznamů řízení přístupu (ACL), není očekáván směrování nad rámec přepínače ohraničení s výjimkou velmi malé rozsah ekvivalentní velikost/27 sítě využívaných některé z těchto služby, při které vyžadují přístup k externím prostředkům nebo k Internetu. 
+To/24 síť je vyhrazená pro interní součásti zásobníku Azure, aby se mohli komunikovat a výměnu dat mezi sebou. Tato podsíť vyžaduje směrovatelné IP adresy, ale se ukládají privátní do řešení pomocí seznamů řízení přístupu (ACL).  Neočekává směrování nad rámec přepínače ohraničení s výjimkou velmi malé rozsah ekvivalentní velikost/27 síť, což je využít pomocí některé z těchto služeb v případě, které vyžadují přístup k externím prostředkům nebo k Internetu. 
 
 #### <a name="public-infrastructure-network"></a>Infrastruktura veřejných sítě
-To/27 síť je velmi malé rozsahu podsítě infrastruktury Azure zásobníku, již bylo zmíněno dříve, nevyžaduje veřejné IP adresy, ale vyžaduje přístup k Internetu prostřednictvím NAT nebo transparentní proxy server. Tato síť se přidělí pro nouzové obnovení konzoly System (ERCS), virtuální počítač ERCS během registrace do Azure vyžaduje přístup k Internetu a musí být směrovatelné vaší síti pro správu pro účely odstraňování potíží.
+To/27 síť je velmi malé rozsahu podsítě infrastruktury Azure zásobníku, již bylo zmíněno dříve, nevyžaduje veřejné IP adresy, ale vyžaduje přístup k Internetu prostřednictvím NAT nebo transparentní proxy server. Tato síť se přidělí pro nouzové obnovení konzoly System (ERCS). Virtuální počítač ERCS během registrace do Azure vyžaduje přístup k Internetu a musí být směrovatelné vaší síti pro správu pro účely odstraňování potíží.
 
 #### <a name="public-vip-network"></a>Veřejné síti VIP
 Veřejné síti VIP je přiřazen do síťového adaptéru v zásobníku Azure. Není logická síť na přepínači. SLB pomocí fondu adres a přiřadí/32 sítě pro úlohy klientů. V tabulce směrování přepínače jsou inzerovaný těchto 32 IP adres jako trasu k dispozici prostřednictvím protokolu BGP. Tato síť obsahuje externí dostupný nebo veřejné IP adresy. Infrastruktura Azure zásobníku používá aspoň 8 adres z této veřejné síti VIP, zatímco zbytek používá klientské virtuální počítače. Velikost sítě v této podsíti může být v rozsahu od minimálně /26 (64 hostitele) do maximálně /22 (1022 hostitele), doporučujeme, abyste naplánovali pro/24 sítě.
 
 #### <a name="switch-infrastructure-network"></a>Přepínač síti infrastruktury.
-To, 26 sítě je podsítě, která obsahuje podsítě/30 IP směrovatelné point-to-point (2 hostitele IP na) a vytváření, které jsou vyhrazené zpětných smyček nebo přepínač 32 podsítě pro integrované správy a ID směrovače protokolu BGP Tento rozsah IP adres musí být směrovatelné externě z řešení Azure zásobníku vašeho datového centra, mohou být privátní nebo veřejné IP adresy.
+To, 26 sítě je podsítě, která obsahuje podsítě/30 IP směrovatelné point-to-point (2 hostitele IP na) a vytváření, které jsou vyhrazené zpětných smyček nebo přepínač 32 podsítě pro integrované správy a ID směrovače protokolu BGP Tento rozsah IP adres musí být směrovatelné externě z řešení Azure zásobníku vašeho datového centra a mohou být privátní nebo veřejné IP adresy. V rámci nevyužívá dělené tabulky více scénář poskytovatele služeb, může být povinné, ale v rámci přísně řízená podnikové nasazení veřejné IP adresy, privátních IP adres může být například upřednostňované.
 
 #### <a name="switch-management-network"></a>Síť pro správu přepínače
 Tato /29 (6 hostitele IP adresy) sítě je vyhrazen pro správu porty přepínačů připojení. To umožňuje přístup out-of-band pro nasazení, správu a řešení potíží. Vypočítá ze sítě infrastruktury přepínač uvedených výše.
@@ -203,7 +203,7 @@ Následující diagram znázorňuje ExpressRoute pro scénář více klientů.
 ## <a name="external-monitoring"></a>Externí monitorování
 Získat jediné zobrazení všech výstrah ze zařízení a nasazení Azure zásobníku a integrovat do existujících IT služby pracovních postupů správy pro zpracování lístků výstrahy, kterou můžete integrovat zásobník Azure se externí datacenter sledování řešení.
 
-Je součástí řešení Azure zásobníku, hostitele životního cyklu hardwaru počítače mimo Azure zásobníku, který spouští nástroje pro správu poskytuje výrobce OEM pro hardware. Můžete použít tyto nástroje nebo jiná řešení, které přímo integrovat existující řešení monitorování ve vašem datovém centru.
+Je součástí řešení Azure zásobníku, hostitele životního cyklu hardwaru (HLH) počítače mimo Azure zásobníku, který spouští nástroje pro správu poskytuje výrobce OEM pro hardware. Můžete použít tyto nástroje nebo jiná řešení, které přímo integrovat existující řešení monitorování ve vašem datovém centru.
 
 Následující tabulka shrnuje seznam aktuálně dostupných možností.
 
@@ -243,7 +243,7 @@ Pokud chcete replikovat data do sekundárního umístění a orchestraci převze
 > [!IMPORTANT]
 > V původním vydáním integrované systémy podporujeme ochrany technologie, které fungují na úrovni hosta virtuálního počítače IaaS. Nelze instalovat agenty na základní servery infrastruktury.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Informace o případy použití, nákup, partneři a OEM výrobci hardwaru najdete v tématu [zásobník Azure](https://azure.microsoft.com/overview/azure-stack/) stránky produktu.
 - Informace o plán a geografická dostupnosti pro zásobník Azure integrované systémy, najdete v dokumentu white paper: [Azure zásobník: rozšíření Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurace zásad protokolu IPsec/IKE pro připojení S2S VPN nebo VNet-to-VNet
 
@@ -38,7 +38,7 @@ Tento článek obsahuje pokyny k vytvoření a konfiguraci zásad protokolu IPse
 
 > [!IMPORTANT]
 > 1. Všimněte si, že zásady protokolu IPsec/IKE funguje pouze na následující SKU brány:
->    * ***VpnGw1, VpnGw2, VpnGw3*** (trasové)
+>    * ***VpnGw1, VpnGw2, VpnGw3*** (route-based)
 >    * ***Standardní*** a ***HighPerformance*** (trasové)
 > 2. Pro jedno připojení můžete zadat pouze ***jednu*** kombinaci zásad.
 > 3. Je nutné zadat všechny algoritmy a parametry pro IKE (hlavní režim) a protokolu IPsec (rychlý režim). Zadání částečných zásad není povoleno.
@@ -54,7 +54,7 @@ Tato část popisuje postup vytvoření a aktualizace zásady protokolu IPsec/IK
 
 Podle pokynů v tomto článku vám pomůže nastavit a konfigurovat zásady protokolu IPsec/IKE, jak je vidět v diagramu:
 
-![zásady protokolu IPSec ike](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Část 2 - podporované kryptografické algoritmy & klíče síly
 
@@ -194,21 +194,14 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 Následující ukázkový skript vytvoří zásadu protokolu IPsec/IKE se tyto algoritmy a parametry:
 
-* IKEv2: DHGroup24 AES256, SHA384
-* Protokol IPsec: AES256, SHA256, PFS None, 7200 životnost přidružení zabezpečení sekund a 102400000KB
+* IKEv2: AES256, SHA384, DHGroup24
+* Protokol IPsec: AES256, SHA256, PFS None, sekund 14400 životnost přidružení zabezpečení a 102400000KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-Pokud používáte GCMAES pro IPsec, musíte použít stejné GCMAES algoritmus a délku klíče pro šifrování pomocí protokolu IPsec a integritu, například:
-
-* IKEv2: DHGroup24 AES256, SHA384
-* Protokol IPsec: **GCMAES256, GCMAES256**, PFS None, 7200 životnost přidružení zabezpečení sekund & 102400000 KB
-
-```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
-```
+Pokud používáte GCMAES pro IPsec, musíte použít stejné GCMAES algoritmus a délku klíče pro šifrování pomocí protokolu IPsec a integrity. Třeba vyšší, bude mít odpovídající parametry "-IpsecEncryption GCMAES256 - IpsecIntegrity GCMAES256" při použití GCMAES256.
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Vytvoření připojení k síti VPN S2S s zásad protokolu IPsec/IKE
 
@@ -287,11 +280,11 @@ Podobá se připojení S2S VPN, vytvoření zásady protokolu IPsec/IKE pak pou�
 #### <a name="1-create-an-ipsecike-policy"></a>1. Vytvoření zásady protokolu IPsec/IKE
 
 Následující ukázkový skript vytvoří jiné zásady protokolu IPsec/IKE s parametry data a tyto algoritmy:
-* IKEv2: DHGroup14 AES128, SHA1,
-* Protokol IPsec: GCMAES128, GCMAES128, PFS14, životnost přidružení zabezpečení 7200 sekund a 4096KB
+* IKEv2: AES128, SHA1, DHGroup14
+* Protokol IPsec: GCMAES128 GCMAES128, PFS14 14400 životnost přidružení zabezpečení sekund & 102400000KB
 
 ```powershell
-$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 4096
+$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. Vytvoření připojení VNet-to-VNet s zásad protokolu IPsec/IKE
@@ -312,7 +305,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 Po dokončení těchto kroků, připojení za pár minut a bude mít následující topologie sítě, jak je znázorněno v začátku:
 
-![zásady protokolu IPSec ike](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>Část 5 – zásady aktualizace protokolu IPsec/IKE pro připojení
@@ -339,11 +332,11 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-Poslední příkaz uvádí aktuální zásady protokolu IPsec/IKE, které jsou nakonfigurované na připojení, pokud existuje. Následující ukázkový výstup je pro připojení:
+Poslední příkaz uvádí aktuální zásady protokolu IPsec/IKE, které jsou nakonfigurované na připojení, pokud existuje. Toto je ukázkový výstup pro připojení:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
 IpsecEncryption     : AES256
 IpsecIntegrity      : SHA256
 IkeEncryption       : AES256
@@ -363,7 +356,7 @@ $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
-$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup None -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
+$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
@@ -384,13 +377,13 @@ $connection6.IpsecPolicies
 Výstup z posledního řádku, byste měli vidět, jak je znázorněno v následujícím příkladu:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
-IpsecEncryption     : GCMAES128
-IpsecIntegrity      : GCMAES128
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
 IkeEncryption       : AES128
 IkeIntegrity        : SHA1
-DhGroup             : DHGroup14--
+DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 
@@ -411,7 +404,7 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 Stejný skriptu můžete použít ke kontrole, pokud zásada byla odebrána z připojení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tématu [připojení více místně na základě zásad zařízení VPN](vpn-gateway-connect-multiple-policybased-rm-ps.md) další podrobnosti týkající se provozu na základě zásad selektorů.
 

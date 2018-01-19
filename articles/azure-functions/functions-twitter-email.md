@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Vytvoří funkci, která se integruje se službou Azure Logic Apps
 
@@ -53,7 +53,7 @@ Kognitivní rozhraní API služby jsou dostupné v Azure jako jednotlivé prost�
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-2. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+2. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
 
 3. Klikněte na tlačítko **AI + analýzy** > **Analýza textu rozhraní API**. Pak používat nastavení zadané v tabulce, přijměte podmínky a zkontrolujte **připnout na řídicí panel**.
 
@@ -183,13 +183,13 @@ Aplikace je teď připojený k Twitter. V dalším kroku připojíte k Analýza 
 
 2. V **vybrat akci**, klikněte na tlačítko **Analýza textu**a pak klikněte na tlačítko **zjistit postojích** akce.
 
-    ![Zjištění postojích](media/functions-twitter-email/detect_sent.png)
+    ![Zjistit mínění](media/functions-twitter-email/detect_sent.png)
 
 3. Zadejte například název připojení `MyCognitiveServicesConnection`, vložte klíč pro vaše kognitivní rozhraní API služby, který jste uložili a klikněte na **vytvořit**.  
 
 4. Klikněte na tlačítko **Text k analýze** > **Tweet text**a potom klikněte na **Uložit**.  
 
-    ![Zjištění postojích](media/functions-twitter-email/ds_tta.png)
+    ![Zjistit mínění](media/functions-twitter-email/ds_tta.png)
 
 Teď, když je nakonfigurovaná postojích detekce, můžete přidat připojení k vaší funkci, která spotřebovává výstup postojích skóre.
 
@@ -271,7 +271,7 @@ Chcete-li zakázat aplikaci logiky, klikněte na tlačítko **přehled** a pak k
 
 ![Protokoly – funkce](media/functions-twitter-email/disable-logic-app.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 

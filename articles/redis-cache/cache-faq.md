@@ -3,8 +3,8 @@ title: "Azure Redis Cache – nejčastější dotazy | Microsoft Docs"
 description: "Další odpovědi na časté otázky, vzory a osvědčené postupy pro Azure Redis Cache"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Nejčastější dotazy k Azure Redis Cache
 Další odpovědi na časté otázky, vzorce a osvědčené postupy pro Azure Redis Cache.
@@ -31,7 +31,7 @@ Pokud váš dotaz není zde uvedeno, dejte nám vědět, a pomůžeme vám nají
 * Pokud chcete, aby se žádosti o funkci, můžete odeslat požadavky a nápady, jak [Azure Redis Cache User Voice](https://feedback.azure.com/forums/169382-cache).
 * Můžete také odeslat e-mailu na nás na adrese [externí zpětnou vazbu mezipaměti Azure](mailto:azurecache@microsoft.com).
 
-## <a name="azure-redis-cache-basics"></a>Základy služby Azure Redis Cache
+## <a name="azure-redis-cache-basics"></a>Azure Redis Cache basics
 Nejčastější dotazy v této části se věnují některé základní informace o Azure Redis Cache.
 
 * [Co je Azure Redis Cache?](#what-is-azure-redis-cache)
@@ -165,10 +165,10 @@ Ano, Azure Redis Cache je dostupná v cloudu Azure Government, Čína cloudu Azu
 
 | Cloud   | Přípona DNS pro Redis            |
 |---------|---------------------------------|
-| Veřejné  | *. redis.cache.windows.net       |
-| Vláda USA  | *. redis.cache.usgovcloudapi.net |
-| Německo | *. redis.cache.cloudapi.de       |
-| Čína   | *. redis.cache.chinacloudapi.cn  |
+| Veřejné  | *.redis.cache.windows.net       |
+| Vláda USA  | *.redis.cache.usgovcloudapi.net |
+| Německo | *.redis.cache.cloudapi.de       |
+| Čína   | *.redis.cache.chinacloudapi.cn  |
 
 Další informace o informace týkající se použití Azure Redis Cache s ostatních cloudů najdete v následujících tématech.
 
@@ -201,7 +201,7 @@ Výchozí hodnoty klienta jsou obvykle dostatečná. Můžete upřesnit možnost
   * Používala jedna instance ConnectionMultiplexer pro aplikaci. LazyConnection můžete použít k vytvoření jediné instance, který je vrácen vlastností připojení, jak je znázorněno v [připojení k mezipaměti pomocí třídy ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Nastavte `ConnectionMultiplexer.ClientName` vlastnost, která má jedinečný název instance aplikace k diagnostickým účelům.
   * Použití více `ConnectionMultiplexer` instance pro vlastní úlohy.
-      * Tento model můžete provést, pokud máte různých zatížení ve vaší aplikaci. Například:
+      * Tento model můžete provést, pokud máte různých zatížení ve vaší aplikaci. Příklad:
       * Můžete mít jednu multiplexor pro práci s velké klíče.
       * Můžete mít jednu multiplexor pro práci s malé klíče.
       * Můžete nastavit různé hodnoty pro vypršení časových limitů připojení a logika opakovaných pokusů pro každou ConnectionMultiplexer, který používáte.

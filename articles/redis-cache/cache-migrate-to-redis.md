@@ -3,8 +3,8 @@ title: "Migrace aplikací spravovaných Cache Service k Redis - Azure | Microsof
 description: "Zjistěte, jak migrovat aplikací spravované služby mezipaměti a mezipaměť hostovaná v instanci Role na Azure Redis Cache"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 87a31ac992592cbbbc54a487867a65346ad06a0b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrovat na Azure Redis Cache z Managed Cache Service
 Migrace vaší aplikace, které používají Azure spravované mezipaměti Service k Azure Redis Cache lze provést s minimálními změnami k vaší aplikaci, v závislosti na spravované služby mezipaměti funkce, které používá aplikaci ukládání do mezipaměti. Když rozhraní API jsou přesně stejný jsou podobné a většinu váš stávající kód, který používá služba spravovaných mezipaměti pro přístup k mezipaměti lze opětovně použít s minimálními změnami. Toto téma ukazuje, jak chcete-li nezbytné konfigurace a změny aplikace k migraci aplikace spravované služby mezipaměti použití Azure Redis Cache a ukazuje, jak některé funkce Azure Redis Cache lze použít k implementaci funkce Managed Mezipaměť služby mezipaměti.
@@ -187,6 +187,6 @@ Azure Redis Cache může pracovat s objekty .NET, jakož i primitivní datové t
 ## <a name="migrate-aspnet-session-state-and-output-caching-to-azure-redis-cache"></a>Migrace stavu relace ASP.NET a ukládání výstupu do mezipaměti pro Azure Redis Cache
 Azure Redis Cache má zprostředkovatele pro stavu relace ASP.NET a stránky ukládání výstupu do mezipaměti. K migraci aplikace, který používá služba spravovaných mezipaměti verze těchto poskytovatelů, nejprve odeberte stávající části ze souboru web.config a pak nakonfigurujte Azure Redis Cache verze zprostředkovatele. Pokyny k používání Azure Redis Cache ASP.NET zprostředkovatele najdete v tématu [poskytovatele stavu relace ASP.NET pro Azure Redis Cache](cache-aspnet-session-state-provider.md) a [poskytovatel výstupní mezipaměti technologie ASP.NET pro Azure Redis Cache](cache-aspnet-output-cache-provider.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Prozkoumejte [dokumentace k Azure Redis Cache](https://azure.microsoft.com/documentation/services/cache/) pro kurzy, ukázky, videa a další.
 

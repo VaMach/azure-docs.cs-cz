@@ -3,8 +3,8 @@ title: "Správa Azure Redis Cache pomocí rozhraní příkazového řádku Azure
 description: "Zjistěte, jak nainstalovat rozhraní příkazového řádku Azure na jakékoli platformě, jak používat pro připojení k účtu Azure a jak vytvořit a spravovat mezipaměti Redis z příkazového řádku Azure."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Jak vytvořit a spravovat Azure Redis Cache pomocí rozhraní příkazového řádku Azure (Azure CLI)
 > [!div class="op_single_selector"]
@@ -47,19 +47,19 @@ Následující vlastnosti se používají při vytváření nebo aktualizaci ins
 
 | Vlastnost | Přepínač | Popis |
 | --- | --- | --- |
-| jméno |-n, – název |Název mezipaměti Redis. |
+| jméno |-n, --name |Název mezipaměti Redis. |
 | skupina prostředků |-g, – skupinu prostředků |Název skupiny prostředků. |
 | location |-l, – umístění |Umístění pro vytvoření mezipaměti. |
-| Velikost |-z, – velikost |Velikost mezipaměti Redis. Platné hodnoty: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| SKU |-x, – sku |Redis SKU. By měl být jeden z: [Basic, Standard, Premium] |
+| velikost |-z, --size |Velikost mezipaměti Redis. Platné hodnoty: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| sku |-x, --sku |Redis SKU. By měl být jeden z: [Basic, Standard, Premium] |
 | EnableNonSslPort |-e, – enable bez--port ssl |Vlastnost EnableNonSslPort Redis Cache. Přidejte tento příznak, pokud chcete povolit Port bez SSL pro mezipaměť |
-| Konfigurace redis |-c, – konfigurací redis |Redis konfigurace. Zadejte řetězec formátu JSON konfigurace klíčů a hodnot v tomto poli. Formát: "{" ":""," ":" "}" |
+| Konfigurace redis |-c, --redis-configuration |Redis konfigurace. Zadejte řetězec formátu JSON konfigurace klíčů a hodnot v tomto poli. Formát: "{" ":""," ":" "}" |
 | Konfigurace redis |-f, – redis. konfigurační soubor |Redis konfigurace. Zadejte cestu k souboru obsahující konfigurační klíče a hodnoty v tomto poli. Formát vstupního souboru: {"": "","": ""} |
 | Počet horizontálních |-r, – počet horizontálních |Počet horizontálních oddílů vytvořit na clusteru Cache ve verzi Premium s clusteringem. |
-| Virtual Network |-v, – virtuální sítě |Při hostování vaší mezipaměti ve virtuální síti, určuje přesné ARM ID prostředku virtuální sítě pro nasazení mezipaměti redis v. Příklad formátu: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Virtual Network |-v, --virtual-network |Při hostování vaší mezipaměti ve virtuální síti, určuje přesné ARM ID prostředku virtuální sítě pro nasazení mezipaměti redis v. Příklad formátu: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Typ klíče |-t, – typ klíče |Typ klíče pro obnovení. Platné hodnoty: [primární, sekundární] |
 | StaticIP |-p, – statické ip < statické ip > |Při hostování vaší mezipaměti ve virtuální síti, určuje jedinečnou IP adresu v mezipaměti v podsíti. Pokud není zadaná, jeden z podsítě vybrali za vás. |
-| Podsíť |t, – podsítě<subnet> |Při hostování vaší mezipaměti ve virtuální síti, určuje název podsítě, ve které chcete nasadit do mezipaměti. |
+| Podsíť |t, --subnet <subnet> |Při hostování vaší mezipaměti ve virtuální síti, určuje název podsítě, ve které chcete nasadit do mezipaměti. |
 | VirtualNetwork |-v, – virtuální sítě < virtuálních sítí > |Při hostování vaší mezipaměti ve virtuální síti, určuje přesné ARM ID prostředku virtuální sítě pro nasazení mezipaměti redis v. Příklad formátu: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Předplatné |-s, – předplatné |Identifikátor předplatného. |
 

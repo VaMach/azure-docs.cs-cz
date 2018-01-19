@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Shromažďování, uchování a ukládání dat v nástroji Application Insights
 
@@ -99,10 +99,10 @@ Může exportovat vámi a členové týmu a může být zkopírován do jiných 
 Společnost Microsoft používá data pouze, aby bylo možné poskytnout službu pro vás.
 
 ## <a name="where-is-the-data-held"></a>Kde se nachází data?
-* V USA nebo Evropa. Můžete vybrat umístění, když vytvoříte nový prostředek Application Insights. 
+* V USA, Evropa nebo jihovýchodní Asie. Můžete vybrat umístění, když vytvoříte nový prostředek Application Insights. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>Znamená to, že Moje aplikace musí být hostované v USA nebo v Evropě?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Znamená to, že Moje aplikace musí být hostované v USA, Evropa nebo jihovýchodní Asie?
 * Ne. Aplikace, můžete spustit v hostitelů místně nebo v cloudu.
 
 ## <a name="how-secure-is-my-data"></a>Do jaké míry je svá data?
@@ -158,15 +158,15 @@ Sady SDK se liší mezi platformami a je několik součástí, které můžete n
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Třídy dat odesílaných v různých scénářích
 | Vaše akce | Datové třídy, které jsou shromážděny (viz další tabulce) |
 | --- | --- |
-| [Přidání Application Insights SDK do projektu webové rozhraní .NET][greenbrown] |Kontext<br/>Odvodit<br/>Čítače výkonu<br/>Požadavky<br/>**Výjimky**<br/>Relace<br/>uživatelé |
-| [Nainstalujte monitorování stavu ve službě IIS][redfield] |Závislosti<br/>Kontext<br/>Odvodit<br/>Čítače výkonu |
-| [Přidejte Application Insights SDK do webové aplikace Java][java] |Kontext<br/>Odvodit<br/>Žádost<br/>Relace<br/>uživatelé |
-| [Přidá do webové stránky JavaScript SDK][client] |ClientContext <br/>Odvodit<br/>Stránka<br/>ClientPerf<br/>AJAX |
+| [Přidání Application Insights SDK do projektu webové rozhraní .NET][greenbrown] |ServerContext<br/>Odvodit<br/>Čítače výkonu<br/>Požadavky<br/>**Výjimky**<br/>Relace<br/>uživatelé |
+| [Nainstalujte monitorování stavu ve službě IIS][redfield] |Závislosti<br/>ServerContext<br/>Odvodit<br/>Čítače výkonu |
+| [Přidejte Application Insights SDK do webové aplikace Java][java] |ServerContext<br/>Odvodit<br/>Žádost<br/>Relace<br/>uživatelé |
+| [Přidá do webové stránky JavaScript SDK][client] |ClientContext <br/>Odvodit<br/>Stránka<br/>ClientPerf<br/>Ajax |
 | [Definovat výchozí vlastnosti][apiproperties] |**Vlastnosti** na všechny standardní a vlastní události |
 | [Volání TrackMetric][api] |Číselné hodnoty.<br/>**Vlastnosti** |
 | [Volání sledovat *][api] |Název události<br/>**Vlastnosti** |
 | [Volání TrackException][api] |**Výjimky**<br/>Výpis zásobníku<br/>**Vlastnosti** |
-| Sady SDK nelze shromažďovat data. Například: <br/> -nemůže získat přístup k čítače výkonu<br/> -výjimky v inicializátoru telemetrie |Diagnostika SDK |
+| Sady SDK nelze shromažďovat data. Příklad: <br/> -nemůže získat přístup k čítače výkonu<br/> -výjimky v inicializátoru telemetrie |Diagnostika SDK |
 
 Pro [sady SDK pro jiné platformy][platforms], najdete v části své dokumenty.
 
@@ -177,17 +177,17 @@ Pro [sady SDK pro jiné platformy][platforms], najdete v části své dokumenty.
 | DeviceContext |ID, IP, národní prostředí, model zařízení, sítě, typ sítě, název výrobce OEM, rozlišení obrazovky, instanci Role, název Role, typ zařízení |
 | ClientContext |Operační systém, národní prostředí, jazyka, sítě, okno řešení |
 | Relace |Id relace |
-| Kontext |Název počítače, národní prostředí, operačního systému, zařízení, uživatelské relace, kontextu uživatele, operace |
+| ServerContext |Název počítače, národní prostředí, operačního systému, zařízení, uživatelské relace, kontextu uživatele, operace |
 | Odvodit |geografické umístění z IP adresy, časové razítko, operačního systému, prohlížeč |
 | Metriky |Název metriky a hodnotu |
 | Události |Název události a hodnotu |
 | PageViews |Název adresy URL a stránky nebo obrazovky |
 | Výkonu klienta |Název adresy URL/stránky, čas načítání prohlížeče |
-| AJAX |Volání protokolu HTTP z webové stránky k serveru |
+| Ajax |Volání protokolu HTTP z webové stránky k serveru |
 | Požadavky |Adresa URL, doba trvání, kód odpovědi |
 | Závislosti |Typ (SQL, protokolu HTTP,...), připojovací řetězec nebo identifikátor URI, synchronizace nebo asynchronní, doba trvání, úspěch, příkaz jazyka SQL (s monitorování stavu) |
 | **Výjimky** |Typ, **zpráva**, zpětná volání, zdrojového souboru a řádku číslo id vlákna |
-| Dojde k chybě |Id procesu, id nadřazeného procesu havárií id vlákna; Oprava aplikace, id, sestavení;  Typ výjimky, adresu, důvod; zakódovaná symboly a registrů, binární počáteční a koncové adresy, binární název a cesta, typ procesoru |
+| Havárie |Id procesu, id nadřazeného procesu havárií id vlákna; Oprava aplikace, id, sestavení;  Typ výjimky, adresu, důvod; zakódovaná symboly a registrů, binární počáteční a koncové adresy, binární název a cesta, typ procesoru |
 | Trasování |**Zpráva** a úroveň závažnosti |
 | Čítače výkonu |Čas procesoru, dostupná paměť, rychlost požadavků, výjimka sazba, proces nesdílených bajtů, vstupně-výstupní operace sazba, doba trvání požadavku, délka fronty požadavků |
 | Dostupnost |Kód odpovědi webového testu, doba trvání jednotlivých test krok, název testu, časové razítko, úspěch, doby odezvy, umístění testu |

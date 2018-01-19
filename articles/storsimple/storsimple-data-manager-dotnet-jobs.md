@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 7ecb3ed41a8a05f3ced2488226fa0380107b1b43
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Zahájit transformaci dat pomocí .net SDK
 
@@ -79,7 +79,7 @@ Proveďte následující kroky spusťte úlohu transformace dat pomocí rozhran�
 
         ![Vytvoření projektu 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Nyní přidejte všechny knihovny DLL v [složky knihoven DLL](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) jako **odkazy** v projektu, který jste vytvořili. Chcete-li stáhnout soubory knihoven dll, postupujte takto:
+4.  Nyní přidejte všechny knihovny DLL v [složky knihoven DLL](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) jako **odkazy** v projektu, který jste vytvořili. Chcete-li přidat soubory knihoven dll, postupujte takto:
 
     1. V sadě Visual Studio, přejděte na **zobrazení > Průzkumníku řešení**.
     2. Klikněte na šipku nalevo od projekt aplikace transformaci dat. Klikněte na tlačítko **odkazy** , klikněte pravým tlačítkem na **přidat odkaz na**.
@@ -117,19 +117,14 @@ Proveďte následující kroky spusťte úlohu transformace dat pomocí rozhran�
 
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
-
     ```
-   Jakmile se vloží kód, sestavte řešení. Zde je snímek obrazovky fragmentu kódu k chybě při inicializaci instance úlohy transformace data.
-
-   ![Fragment kódu k chybě při inicializaci úloha transformace dat](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
-
+   
 7. Zadejte parametry, pomocí kterých je potřeba spustit definici úlohy
 
     ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
-
     ```
 
     (OR)
@@ -159,7 +154,6 @@ Proveďte následující kroky spusťte úlohu transformace dat pomocí rozhran�
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    
     ```
 
 8. Po inicializaci přidejte následující kód k aktivaci úlohy transformace dat v definici úlohy. Zařadit do příslušné **název definice úlohy**.
@@ -169,12 +163,17 @@ Proveďte následující kroky spusťte úlohu transformace dat pomocí rozhran�
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
+    Console.WriteLine("jobid: ", jobId);
+    Console.ReadLine();
 
     ```
+    Jakmile se vloží kód, sestavte řešení. Zde je snímek obrazovky fragmentu kódu k chybě při inicializaci instance úlohy transformace data.
 
-9. Tato úloha odešle odpovídající nachází v kořenovém adresáři souborů na svazku zařízení StorSimple do zadaného kontejneru. Při odeslání souboru se zahodí zprávy ve frontě (ve stejném účtu úložiště jako kontejner) se stejným názvem jako definici úlohy. Tato zpráva slouží jako trigger k zahájení dalšího zpracování souboru.
+   ![Fragment kódu k chybě při inicializaci úloha transformace dat](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-10. Jakmile úloha byla spuštěna, přidejte následující kód se sledovat úlohu pro dokončení.
+9. Tato úloha transformace dat, která odpovídá kořenového adresáře a souboru filtrů v rámci svazku zařízení StorSimple a vloží je do zadaného kontejneru nebo sdílené složky. Při transformaci souboru se přidá zprávu do fronty úložiště (ve stejném účtu úložiště jako kontejner nebo sdílené složky) se stejným názvem jako definici úlohy. Tato zpráva slouží jako trigger k zahájení dalšího zpracování souboru.
+
+10. Jakmile úloha byla spuštěna, můžete použít následující kód se sledovat úlohu pro dokončení. Není to povinné přidat tento kód pro spuštění úlohy.
 
     ```
     Job jobDetails = null;
@@ -200,6 +199,6 @@ Proveďte následující kroky spusťte úlohu transformace dat pomocí rozhran�
 
  ![Úplné fragment kódu k aktivaci úlohy rozhraní .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Data Manager zařízení StorSimple pomocí uživatelského rozhraní pro transformaci dat](storsimple-data-manager-ui.md).

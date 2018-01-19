@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Kurz: Azure Active Directory integrace s Palo Alto sítě - Správce uživatelského rozhraní
 
@@ -37,7 +37,7 @@ Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, n
 Konfigurace integrace Azure AD s Palo Alto sítě - Správce uživatelského rozhraní, potřebujete následující položky:
 
 - Předplatné služby Azure AD
-- Palo Alto sítě - uživatelského rozhraní správce jednotné přihlašování povoleno předplatného
+- Brána Firewall příští generace Palo Alto sítě nebo – Panorama (centralizovanou správu systém pro bránu firewall)
 
 > [!NOTE]
 > K testování kroky v tomto kurzu, nedoporučujeme používání provozním prostředí.
@@ -72,7 +72,7 @@ Při konfiguraci integrace Palo Alto sítí - uživatelského rozhraní správce
 
 4. Do vyhledávacího pole zadejte **Palo Alto Networks - uživatelského rozhraní správce**, vyberte **Palo Alto Networks - uživatelského rozhraní správce** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
 
-    ![Palo Alto sítě - Správce uživatelského rozhraní v seznamu výsledků](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Palo Alto sítě - Správce uživatelského rozhraní v seznamu výsledků](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
 
@@ -108,9 +108,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Palo Alto sítě - správce domény uživatelského rozhraní a adresy URL jeden přihlašování informace](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<Customer Firewall URL>/php/login.php`
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<Customer Firewall FQDN>/php/login.php`
 
-    b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<Customer Firewall URL>/SAML20/SP`
+    b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [Palo Alto sítě - Správce uživatelského rozhraní klienta tým podpory](https://support.paloaltonetworks.com/support) k získání těchto hodnot. 
@@ -123,7 +123,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
         
     | Název atributu | Hodnota atributu |
     | --- | --- |    
-    | uživatelské jméno | User.userPrincipalName |
+    | uživatelské jméno | user.userprincipalname |
     | adminrole | customadmin |
 
     a. Klikněte na tlačítko **přidat atribut** otevřete **přidat atribut** dialogové okno.
@@ -151,7 +151,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Otevřete web Palo Alto jako správce v jiném okně prohlížeče.
+8. Otevřete uživatelské rozhraní Správce brány Firewall sítě Palo Alto jako správce v jiném okně prohlížeče.
 
 9. Klikněte na **zařízení**.
 
@@ -248,7 +248,7 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 Po kliknutí na tlačítko Palo Alto Networks - dlaždice správce uživatelského rozhraní na přístupovém panelu jste měli získat automaticky přihlášení k Palo Alto sítě - Správce uživatelského rozhraní aplikace.
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

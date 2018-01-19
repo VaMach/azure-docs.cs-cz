@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
 ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Používání podporující RDMA nebo grafický procesor s podporou instancí ve fondech Batch
 
@@ -49,9 +49,9 @@ Funkce RDMA a GPU velikostí náročné jsou podporovány pouze v určitých ope
 
 | Velikost | Schopnost | Operační systémy | Požadovaný software | Nastavení fondu. |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, nebo<br/>Na základě centOS HPC<br/>(Azure Marketplace) | Intel MPI 5 | Povolit komunikaci mezi uzly, zakažte provedení souběžné úlohy |
-| [NC řady *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | Tesla – měrná K80 NVIDIA GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, nebo<br/>Distribuce založené na CentOS 7.3<br/>(Azure Marketplace) | Ovladače NVIDIA CUDA Toolkit 9.0 | neuvedeno | 
-| [Řady VS](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | Tesla – měrná M60 NVIDIA GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, nebo<br/>Distribuce založené na CentOS 7.3<br/>(Azure Marketplace) | 4.3 mřížky NVIDIA ovladače | neuvedeno |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, nebo<br/>Na základě centOS HPC<br/>(Azure Marketplace) | Intel MPI 5 | Povolit komunikaci mezi uzly, zakažte provedení souběžné úlohy |
+| [NC řady *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, nebo<br/>Distribuce založené na CentOS 7.3<br/>(Azure Marketplace) | Ovladače NVIDIA CUDA Toolkit 9.0 | neuvedeno | 
+| [Řady VS](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, nebo<br/>Distribuce založené na CentOS 7.3<br/>(Azure Marketplace) | 4.3 mřížky NVIDIA ovladače | neuvedeno |
 
 * Připojení RDMA na virtuálních počítačích NC24r je podporována v Ubuntu 16.04 LTS nebo na základě CentOS 7.3 HPC (z Azure Marketplace) s Intel MPI.
 
@@ -61,9 +61,9 @@ Funkce RDMA a GPU velikostí náročné jsou podporovány pouze v určitých ope
 
 | Velikost | Schopnost | Operační systémy | Požadovaný software | Nastavení fondu. |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 nebo<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 nebo novější, nebo<br/> Intel MPI 5<br/><br/>Rozšíření virtuálního počítače Azure HpcVMDrivers | Povolit komunikaci mezi uzly, zakažte provedení souběžné úlohy |
-| [NC řady *](../virtual-machines/windows/n-series-driver-setup.md) | Tesla – měrná K80 NVIDIA GPU | Windows Server 2016 nebo <br/>Windows Server 2012 R2 (Azure Marketplace) | Tesla – měrná NVIDIA ovladače nebo CUDA Toolkit 9.0 ovladače| neuvedeno | 
-| [Řady VS](../virtual-machines/windows/n-series-driver-setup.md) | Tesla – měrná M60 NVIDIA GPU | Windows Server 2016 nebo<br/>Windows Server 2012 R2 (Azure Marketplace) | 4.3 mřížky NVIDIA ovladače | neuvedeno |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 nebo novější, nebo<br/> Intel MPI 5<br/><br/>Rozšíření virtuálního počítače Azure HpcVMDrivers | Povolit komunikaci mezi uzly, zakažte provedení souběžné úlohy |
+| [NC řady *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 nebo <br/>Windows Server 2012 R2 (Azure Marketplace) | Tesla – měrná NVIDIA ovladače nebo CUDA Toolkit 9.0 ovladače| neuvedeno | 
+| [Řady VS](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 nebo<br/>Windows Server 2012 R2 (Azure Marketplace) | 4.3 mřížky NVIDIA ovladače | neuvedeno |
 
 * Připojení RDMA na virtuálních počítačích NC24r je podporována v systému Windows Server 2012 R2 (z Azure Marketplace) s příponou HpcVMDrivers a Microsoft MPI nebo Intel MPI.
 
@@ -75,7 +75,7 @@ Funkce RDMA a GPU velikostí náročné jsou podporovány pouze v určitých ope
 
 | Velikost | Schopnost | Operační systémy | Požadovaný software | Nastavení fondu. |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2<br/>Windows Server 2012, nebo<br/>Windows Server 2008 R2 (hostovaného operačního systému rodiny) | Microsoft MPI 2012 R2 nebo novější, nebo<br/>Intel MPI 5<br/><br/>Rozšíření virtuálního počítače Azure HpcVMDrivers | Povolit komunikaci mezi uzly<br/> zakázat provedení souběžné úlohy |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012, or<br/>Windows Server 2008 R2 (hostovaného operačního systému rodiny) | Microsoft MPI 2012 R2 nebo novější, nebo<br/>Intel MPI 5<br/><br/>Rozšíření virtuálního počítače Azure HpcVMDrivers | Povolit komunikaci mezi uzly<br/> zakázat provedení souběžné úlohy |
 
 
 
@@ -131,7 +131,7 @@ Ke spuštění CUDA aplikací ve fondu uzlů Linux NC, musíte nainstalovat CUDA
 | ---- | ---- |
 | **Obrázek – typ** | Vlastní Image |
 | **Vlastní Image** | Název bitové kopie |
-| **Uzel agenta SKU** | batch.Node.Ubuntu 16.04 |
+| **Uzel agenta SKU** | batch.node.ubuntu 16.04 |
 | **Velikost uzlu** | NC6 Standard |
 
 

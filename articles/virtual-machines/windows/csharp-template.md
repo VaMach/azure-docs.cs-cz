@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b82a70d1b654ff9601db501011d9aa21af8e36c2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Nasazení virtuálního počítače Azure pomocí jazyka C# a šablony Resource Manageru
 Tento článek ukazuje, jak nasadit šablonu Azure Resource Manager pomocí jazyka C#. Šablona, kterou vytvoříte nasadí jednoho virtuálního počítače se systémem Windows Server v nové virtuální sítě s jedinou podsítí.
@@ -282,11 +282,11 @@ container.SetPermissionsAsync(containerPermissions).Wait();
 
 Console.WriteLine("Uploading template file...");
 var templateblob = container.GetBlockBlobReference("CreateVMTemplate.json");
-templateblob.UploadFromFile("..\\..\\CreateVMTemplate.json");
+templateblob.UploadFromFileAsync("..\\..\\CreateVMTemplate.json").Result();
 
 Console.WriteLine("Uploading parameters file...");
 var paramblob = container.GetBlockBlobReference("Parameters.json");
-paramblob.UploadFromFile("..\\..\\Parameters.json");
+paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 ```
 
 ## <a name="deploy-the-template"></a>Nasazení šablony
@@ -326,6 +326,6 @@ Dokončit má trvat přibližně pět minut, než tato Konzolová aplikace spust
 
 2. Před stisknutím klávesy **Enter** zahájíte odstranění prostředků, může trvat několik minut na ověření vytváření prostředků na portálu Azure. Klikněte na tlačítko Stav nasazení zobrazíte informace o tomto nasazení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Pokud byly nějaké problémy s nasazením, je dalším krokem by mohla být podívejte se na [odstraňování běžných chyb nasazení Azure pomocí Azure Resource Manageru](../../resource-manager-common-deployment-errors.md).
 * Informace o nasazení virtuálního počítače a jeho podpůrné prostředků kontrolou [nasazení služby Azure virtuálního počítače pomocí jazyka C#](csharp.md).

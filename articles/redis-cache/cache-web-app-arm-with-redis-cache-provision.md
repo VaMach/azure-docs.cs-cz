@@ -3,8 +3,8 @@ title: "Zřízení webové aplikace s Redis Cache"
 description: "Šablona Azure Resource Manager k nasazení webové aplikace s Redis Cache."
 services: app-service
 documentationcenter: 
-author: steved0x
-manager: erickson-doug
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: sdanie
-ms.openlocfilehash: 810c1cedd4fe0bd6ecdf9bd32dfb241f5f345300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: b787b3f2caaff5535557c03c45b058e1bbb0c77d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Vytvoření webové aplikace a Redis Cache pomocí šablony
 V tomto tématu se dozvíte, jak vytvořit šablonu Azure Resource Manager, nasadí webové aplikace Azure s Redis cache. Se dozvíte, jak definovat prostředky, ke kterým nasazených a jak definovat parametry, které jsou zadané, když se spustí nasazení. Tuto šablonu můžete použít pro vlastní nasazení nebo ji upravit, aby splňovala vaše požadavky.
@@ -31,7 +31,7 @@ Pro úplnou šablonu, najdete v části [webové aplikace s Redis Cache šablony
 V této šabloně je nasadit:
 
 * Webové aplikace Azure
-* Mezipaměť Redis systému Azure.
+* Azure Redis Cache.
 
 Pokud chcete nasazení spustit automaticky, klikněte na následující tlačítko:
 

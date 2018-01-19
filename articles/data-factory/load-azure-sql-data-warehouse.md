@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: cf960ac827db94b9a43361288b1d0863dac86555
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 36e24da50386d1abc441e2beb09f570a9612a346
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-using-azure-data-factory"></a>Načtení dat do Azure SQL Data Warehouse pomocí Azure Data Factory
 
@@ -128,6 +128,10 @@ V tomto článku se dozvíte, jak pomocí nástroje Data Factory kopírovat Data
 15. Chcete-li zobrazit běh aktivit, které jsou přidružené k kanálu spustit, klikněte na tlačítko **zobrazení aktivity spouští** odkaz v **akce** sloupec. Jsou 10 kopie aktivity v kanálu, každý zkopíruje jednu tabulku dat. Přepněte zpět do kanálu spustí zobrazení, klikněte na tlačítko **kanály** odkaz v horní části. Klikněte na tlačítko **aktualizovat** k aktualizaci seznamu. 
 
     ![Spustí monitorování aktivity](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+
+16. Podrobnosti o provádění každou aktivitu kopírování, můžete sledovat další kliknutím **podrobnosti** v části **akce** v aktivitě zobrazení monitorování. Zobrazuje informace, včetně objem dat zkopíruje ze zdroje jímka, propustnost, kroky se prochází s odpovídající doba trvání a použít konfigurace.
+
+    ![Podrobnosti o spuštění aktivity monitorování](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
 ## <a name="next-steps"></a>Další postup
 

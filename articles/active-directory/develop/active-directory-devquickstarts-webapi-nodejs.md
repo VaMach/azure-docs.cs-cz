@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 2ed0874b79601976e0d5a73fe82c7c03331d9bea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js webového rozhraní API Začínáme
 
@@ -129,13 +129,18 @@ Jak zabezpečit koncový bod, je nutné zadat strategie zodpovědná za určení
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
-    let userToken = authenticatedUserTokens.find((user) => user.sub === token.sub);
+    let currentUser = null;
+
+    let userToken = authenticatedUserTokens.find((user) => {
+        currentUser = user;
+        user.sub === token.sub;
+    });
 
     if(!userToken) {
         authenticatedUserTokens.push(token);
     }
 
-    return done(null, user, token);
+    return done(null, currentUser, token);
 });
 ```
 Tato implementace používá automatické registrace přidáním tokeny ověřování do `authenticatedUserTokens` pole, pokud dosud neexistují.
@@ -234,7 +239,7 @@ Unauthorized
 ```
 Teď, když jste vytvořili zabezpečené rozhraní API, můžete implementovat klienta, který se bude moct předat tokeny ověřování rozhraní API.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Jak jsme uvedli v úvodu, je nutné implementovat příslušného klienta pro připojení k serveru, který zpracovává přihlášení, odhlášení a správě tokeny. Příklady založené na kódu, můžete použít odkaz na klientské aplikace v [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) a [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Podrobný kurz najdete v následujícím článku:
 
 > [!div class="nextstepaction"]

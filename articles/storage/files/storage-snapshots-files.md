@@ -3,7 +3,7 @@ title: "Přehled sdílení snímků pro soubory Azure (preview) | Microsoft Docs
 description: "Sdílené složky snímků je jen pro čtení verze Azure Files sdílené složky, která je provedená v bodě v čase, jako způsob, jak zálohovat sdílenou složku."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 2504e180799164845a89a7f89ca6a6c61352304f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Přehled sdílení snímků pro soubory Azure (preview)
 Soubory Azure poskytuje schopnost pořizovat snímky sdílenou složku Sdílené složky. Sdílené složky snímků (preview) zaznamenat stav sdílené složky v tomto bodě v čase. V tomto článku jsme popisují, jaké funkce poskytovat sdílené složky snímků a jak můžete využít výhod těchto ve vašem případě vlastní použití.
@@ -96,7 +96,7 @@ Před nasazením Plánovač sdílenou složku snímku, pečlivě zvažte frekven
 
 Sdílené složky snímků zajišťují jenom ochranu souborů. Sdílené složky snímků nemáte zabránit odstranění prstem fat na účet sdílenou složku nebo úložiště souborů. K ochraně účtu úložiště před náhodným odstraněním, můžete uzamčení účtu úložiště nebo skupinu prostředků.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Práce s snímky sdílené složky](storage-how-to-use-files-snapshots.md)
 * [Sdílená složka snímku – nejčastější dotazy](storage-files-faq.md)
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Zkontrolujte připojení s sledovací proces sítě Azure pomocí Azure CLI 2.0
 
@@ -36,39 +36,8 @@ Tento článek předpokládá, že máte v následujících zdrojích informací
 
 * Zkontrolujte připojení k virtuálním počítačům.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > Kontrola připojení vyžaduje rozšíření virtuálního počítače `AzureNetworkWatcherExtension`. Instalaci rozšíření na virtuální počítač s Windows najdete v článku [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Windows](../virtual-machines/windows/extensions-nwa.md) a u virtuálního počítače s Linuxem, navštivte [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Registrace funkce preview 
-
-Kontrola připojení je aktuálně ve verzi public preview k použití této funkce, které musí být registrováno. Chcete-li to provést, spusťte následující ukázka rozhraní příkazového řádku
-
-```azurecli 
-az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
-
-az provider register --namespace Microsoft.Network 
-``` 
-
-Chcete-li ověřit, zda že byla registrace úspěšná, spusťte následující příkaz rozhraní příkazového řádku:
-
-```azurecli
-az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
-```
-
-Pokud funkci byla správně zaregistrovány, by měl odpovídat následující výstup: 
-
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowNetworkWatcherConnectivityCheck",
-  "name": "Microsoft.Network/AllowNetworkWatcherConnectivityCheck",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-``` 
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Zkontrolujte připojení k virtuálnímu počítači
 

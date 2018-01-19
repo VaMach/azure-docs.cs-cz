@@ -1,6 +1,6 @@
 ---
-title: "Dlaždice odkaz pro Návrhář zobrazení v OMS Log Analytics | Microsoft Docs"
-description: "Návrhář zobrazení v analýzy protokolů umožňuje vytvářet vlastní zobrazení v konzole OMS, které obsahují různé vizualizace dat v úložišti OMS. Tento článek obsahuje odkaz nastavení pro každou z dlaždice, které jsou k dispozici pro použití ve vaší vlastní zobrazení."
+title: "Dlaždice odkaz pro Návrhář zobrazení v Azure Log Analytics | Microsoft Docs"
+description: "Návrhář zobrazení v analýzy protokolů umožňuje vytvářet vlastní zobrazení na portálu Azure, které obsahují různé vizualizace dat v pracovním prostoru analýzy protokolů. Tento článek obsahuje odkaz nastavení pro každou z dlaždice, které jsou k dispozici pro použití ve vaší vlastní zobrazení."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Odkazy na dlaždici protokol Návrhář zobrazení analýzy
-Návrhář zobrazení v analýzy protokolů umožňuje vytvářet vlastní zobrazení v konzole OMS, které obsahují různé vizualizace dat v úložišti OMS. Tento článek obsahuje odkaz nastavení pro každou z dlaždice, které jsou k dispozici pro použití ve vaší vlastní zobrazení.
+Návrhář zobrazení v analýzy protokolů umožňuje vytvářet vlastní zobrazení na portálu Azure, které obsahují různé vizualizace dat v pracovním prostoru analýzy protokolů. Tento článek obsahuje odkaz nastavení pro každou z dlaždice, které jsou k dispozici pro použití ve vaší vlastní zobrazení.
 
 Další články, které jsou k dispozici pro Návrhář zobrazení jsou:
 
@@ -49,10 +49,10 @@ Následující tabulka uvádí různé typy dlaždice, které jsou k dispozici v
 
 | Nastavení | Popis |
 |:--- |:--- |
-| Name (Název) |Text, který se zobrazí v horní části na dlaždici. |
+| Název |Text, který se zobrazí v horní části na dlaždici. |
 | Popis |Text, který se zobrazí pod názvem dlaždice. |
 | **Dlaždice** | |
-| Legendy |Text, který se zobrazí v části hodnota. |
+| Legenda |Text, který se zobrazí v části hodnota. |
 | Dotaz |Dotaz spustit.  Zobrazí se počet záznamů vrácených dotazem. |
 | **Upřesnit** |**> Ověření toku dat** |
 | Povoleno |Vyberte, pokud ověření toku dat by měla být povolená pro dlaždici.  To poskytuje alternativní zprávu, pokud data nejsou k dispozici pro dlaždici.  To se obvykle používá k poskytování zprávu dočasné období, když je nainstalován zobrazení a dodává data k dispozici. |
@@ -67,13 +67,13 @@ Následující tabulka uvádí různé typy dlaždice, které jsou k dispozici v
 
 | Nastavení | Popis |
 |:--- |:--- |
-| Name (Název) |Text, který se zobrazí v horní části na dlaždici. |
+| Název |Text, který se zobrazí v horní části na dlaždici. |
 | Popis |Text, který se zobrazí pod názvem dlaždice. |
 | **První dlaždice** | |
-| Legendy |Text, který se zobrazí v části hodnota. |
+| Legenda |Text, který se zobrazí v části hodnota. |
 | Dotaz |Dotaz spustit.  Zobrazí se počet záznamů vrácených dotazem. |
 | **Druhý dlaždice** | |
-| Legendy |Text, který se zobrazí v části hodnota. |
+| Legenda |Text, který se zobrazí v části hodnota. |
 | Dotaz |Dotaz spustit.  Zobrazí se počet záznamů vrácených dotazem. |
 | **Upřesnit** |**> Ověření toku dat** |
 | Povoleno |Vyberte, pokud ověření toku dat by měla být povolená pro dlaždici.  To poskytuje alternativní zprávu, pokud data nejsou k dispozici pro dlaždici.  To se obvykle používá k poskytování zprávu dočasné období, když je nainstalován zobrazení a dodává data k dispozici. |
@@ -88,7 +88,7 @@ Následující tabulka uvádí různé typy dlaždice, které jsou k dispozici v
 
 | Nastavení | Popis |
 |:--- |:--- |
-| Name (Název) |Text, který se zobrazí v horní části na dlaždici. |
+| Název |Text, který se zobrazí v horní části na dlaždici. |
 | Popis |Text, který se zobrazí pod názvem dlaždice. |
 | **Prstenec** | |
 | Dotaz |Dotaz, aby běžel prstenec.  První vlastností by měl být textovou hodnotu a druhou vlastností číselná hodnota.  Toto je obvykle dotaz, který používá **měr** – klíčové slovo pro shrnutí výsledků. |
@@ -112,7 +112,7 @@ Následující tabulka uvádí různé typy dlaždice, které jsou k dispozici v
 
 | Nastavení | Popis |
 |:--- |:--- |
-| Name (Název) |Text, který se zobrazí v horní části na dlaždici. |
+| Název |Text, který se zobrazí v horní části na dlaždici. |
 | Popis |Text, který se zobrazí pod názvem dlaždice. |
 | **Spojnicový graf** | |
 | Dotaz |Dotaz pro spojnicový graf.  První vlastností by měl být textovou hodnotu a druhou vlastností číselná hodnota.  Toto je obvykle dotaz, který používá **měr** – klíčové slovo pro shrnutí výsledků.  Pokud dotaz používá **interval** – klíčové slovo pak osy x grafu budou používat tento časový interval.  Pokud dotaz neobsahuje **interval** – klíčové slovo a každou hodinu intervaly se používají pro osu x. |
@@ -133,7 +133,7 @@ Následující tabulka uvádí různé typy dlaždice, které jsou k dispozici v
 
 | Nastavení | Popis |
 |:--- |:--- |
-| Name (Název) |Text, který se zobrazí v horní části na dlaždici. |
+| Název |Text, který se zobrazí v horní části na dlaždici. |
 | Popis |Text, který se zobrazí pod názvem dlaždice. |
 | **Spojnicový graf** | |
 | Dotaz |Dotaz pro spojnicový graf.  První vlastností by měl být textovou hodnotu a druhou vlastností číselná hodnota.  Toto je obvykle dotaz, který používá **měr** – klíčové slovo pro shrnutí výsledků.  Pokud dotaz používá **interval** – klíčové slovo pak osy x grafu budou používat tento časový interval.  Pokud dotaz neobsahuje **interval** – klíčové slovo a každou hodinu intervaly se používají pro osu x. |
@@ -158,15 +158,15 @@ Následující tabulka uvádí různé typy dlaždice, které jsou k dispozici v
 
 | Nastavení | Popis |
 |:--- |:--- |
-| Name (Název) |Text, který se zobrazí v horní části na dlaždici. |
+| Název |Text, který se zobrazí v horní části na dlaždici. |
 | Popis |Text, který se zobrazí pod názvem dlaždice. |
 | První graf | |
-| Legendy |Text, který se zobrazí v části popisku řady, první. |
+| Legenda |Text, který se zobrazí v části popisku řady, první. |
 | Barva |Barva má být použita pro sloupce v první řadě. |
 | Graf dotazu |Dotaz pro první řady.  Počet záznamů v každém časovém intervalu budou odpovídat sloupcům grafu. |
 | Operace |Operace k plnění vlastnost value pro shrnutí pro jednu hodnotu pro popisek.<br><br>-Průměr: Průměr hodnoty ze všech záznamů.<br>-Count: Počet všech záznamů vrácených dotazem.<br>-Posledního vzorku: Hodnota od posledního intervalu zahrnuté v grafu.<br>-Max: Maximální hodnota z intervalů zahrnuté v grafu. |
 | **Druhý graf** | |
-| Legendy |Text, který se zobrazí v části popisku řady, druhý. |
+| Legenda |Text, který se zobrazí v části popisku řady, druhý. |
 | Barva |Barva má být použita pro sloupce v druhé řady. |
 | Graf dotazu |Dotaz pro druhý řady.  Počet záznamů v každém časovém intervalu budou odpovídat sloupcům grafu. |
 | Operace |Operace k plnění vlastnost value pro shrnutí pro jednu hodnotu pro popisek.<br><br>-Průměr: Průměr hodnoty ze všech záznamů.<br>-Count: Počet všech záznamů vrácených dotazem.<br>-Posledního vzorku: Hodnota od posledního intervalu zahrnuté v grafu.<br>-Max: Maximální hodnota z intervalů zahrnuté v grafu. |
@@ -176,6 +176,6 @@ Následující tabulka uvádí různé typy dlaždice, které jsou k dispozici v
 | Zpráva |Zpráva zobrazí, pokud datový tok ověření dotazu nevrátí žádná data.  Pokud zadáte žádná zpráva *provádění Assessment* se zobrazí. |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) pro podporu dotazů v dlaždice.
 * Přidat [vizualizace částí](log-analytics-view-designer-parts.md) do vlastních zobrazení.

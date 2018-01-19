@@ -13,7 +13,7 @@
     Předplatné|*Vaše předplatné*|Vyberte předplatné Azure, který chcete použít pro tento účet Azure Cosmos DB. 
     Skupina prostředků|*Zadejte stejný jedinečný název, který výše uvedeného v ID*|Zadejte nový název skupiny prostředků pro váš účet. V zájmu jednoduchosti můžete použít název, který se shoduje s vaším ID. 
     Umístění|*Vyberte oblast nejbližší uživatelům.*|Vyberte zeměpisné umístění, ve kterém k hostování účtu Azure Cosmos DB. Použijte umístění, které je nejblíže k uživatelům poskytnout nejrychlejší přístup k datům.
-    Povolit geografická redundance| Ponechte prázdné | Tím se vytvoří replikované verzi databáze v druhé (spárované) oblasti. Nechte prázdné.  
+    Povolit geografickou redundanci| Ponechte prázdné | Tím se vytvoří replikované verzi databáze v druhé (spárované) oblasti. Nechte prázdné.  
     Připnutí na řídicí panel | Vyberte | Zaškrtněte toto políčko, aby nový databázový účet se přidá do řídicího panelu portálu pro snadný přístup.
 
     Poté klikněte na **Vytvořit**.

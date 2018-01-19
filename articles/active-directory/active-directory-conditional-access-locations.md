@@ -17,10 +17,10 @@ ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Podmínky umístění v Azure Active Directory podmíněného přístupu 
 
@@ -93,8 +93,8 @@ Pokud oba kroky nezdaří, uživatel se považuje za na důvěryhodných adres I
 Pokud nakonfigurujete podmínku umístění, máte možnost k rozlišení mezi:
 
 - Libovolné umístění 
-- Všechny důvěryhodné umístění
-- Vybrané umístění
+- Všechna důvěryhodná umístění
+- Vybraná umístění
 
 ![Umístění](./media/active-directory-conditional-access-locations/01.png)
 
@@ -102,7 +102,7 @@ Pokud nakonfigurujete podmínku umístění, máte možnost k rozlišení mezi:
 
 Ve výchozím nastavení výběr **libovolného umístění** způsobí, že zásady má být použita pro všechny IP adresy, což znamená všechny adresy v síti Internet. Toto nastavení není omezen na IP adresy, které jste nakonfigurovali jako s názvem umístění. Když vyberete **libovolného umístění**, stále můžete vyloučit konkrétní umístění ze zásady. Například můžete použít zásady do všech umístění důvěryhodného umístění nastavit obor na všech umístěních, s výjimkou podnikové síti, s výjimkou.
 
-### <a name="all-trusted-locations"></a>Všechny důvěryhodné umístění
+### <a name="all-trusted-locations"></a>Všechna důvěryhodná umístění
 
 Tato možnost platí pro:
 
@@ -110,7 +110,7 @@ Tato možnost platí pro:
 - **Důvěryhodné IP adresy MFA** (Pokud je nakonfigurováno)
 
 
-### <a name="selected-locations"></a>Vybrané umístění
+### <a name="selected-locations"></a>Vybraná umístění
 
 Pomocí této možnosti můžete vybrat jeden nebo více umístění s názvem. Pro zásady se toto nastavení použít uživatel potřebuje k připojení z vybraného umístění. Kde kliknutí **vyberte** otevře se ovládací prvek výběru pojmenované sítě, který zobrazí seznam pojmenované sítě. V seznamu také ukazuje, zda umístění v síti byl označen jako důvěryhodné. Pojmenované umístění nazývá **MFA důvěryhodné IP adresy** se používá k zahrnují nastavení IP adresy, které lze nakonfigurovat na stránce nastavení služby Multi-Factor authentication service.
 

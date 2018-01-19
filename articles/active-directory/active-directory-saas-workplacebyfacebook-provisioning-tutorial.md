@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Kurz: Konfigurace síti na pracovišti ve službě Facebook pro zřizování uživatelů
 
@@ -73,9 +73,9 @@ Azure AD podporuje možnost automaticky synchronizovat Podrobnosti účtu přiř
 
 4. Nastavte **režimu zřizování** k **automatické**. 
 
-    ![Zřizování](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. V části **přihlašovací údaje správce** zadejte tajný klíč tokenu a URL klienta ze svého pracoviště správcem sítě Facebook.
+5. V části **přihlašovací údaje správce** části, zadejte tajný klíč tokenu pracovišti správcem sítě Facebook a nastavte hodnotu URL klienta `https://www.facebook.com/scim/v1/` .
 
 6. Na portálu Azure klikněte na tlačítko **Test připojení** zajistit Azure AD může připojit k pracovní ploše aplikace Facebook. Pokud se nepovede připojit, zajistěte, aby že vaše pracoviště Facebook účet má oprávnění správce týmu.
 
@@ -95,9 +95,8 @@ Další informace o tom, jak nakonfigurovat automatické zřizování najdete v 
 
 Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet byl synchronizován k síti na pracovišti ve službě Facebook Počkejte až 20 minut.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Konfigurovat jednotné přihlašování](active-directory-saas-workplacebyfacebook-tutorial.md)
-

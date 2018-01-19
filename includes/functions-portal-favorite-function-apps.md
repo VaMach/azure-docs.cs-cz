@@ -2,7 +2,7 @@
 
 Pokud jste to ještě neudělali, přidejte si aplikace Function App mezi oblíbené položky na webu Azure Portal. Díky tomu pak svoje aplikace Function App snadněji najdete. Pokud jste to už udělali, přejděte k další části. 
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 2. Kliknutím na šipku vlevo dole rozbalte všechny služby, do pole **Filtr** zadejte `Functions` a potom klikněte na hvězdičku vedle možnosti **Aplikace Function App**.  
  

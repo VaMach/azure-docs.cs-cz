@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Nasazení virtuálních počítačů Azure pro SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -351,7 +351,7 @@ Následující informace pro nastavení velikosti SAP vědět:
 ### <a name="resource-groups"></a>Skupiny prostředků
 V Azure Resource Manager, můžete použít skupin prostředků ke správě všechny prostředky aplikace ve vašem předplatném Azure. Další informace najdete v tématu [přehled Azure Resource Manageru][resource-group-overview].
 
-## <a name="resources"></a>Zdroje
+## <a name="resources"></a>Zdroje a prostředky
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Prostředky SAP
 Pokud nastavujete nasazení SAP softwaru, je třeba na následujících odkazech SAP:
@@ -890,7 +890,7 @@ Prostředí PowerShell nebo rozhraní příkazového řádku Azure můžete pou�
 Chcete-li nainstalovat Azure rozšířené monitorování rozšíření pro SAP pomocí prostředí PowerShell:
 
 1. Ujistěte se, že instalaci nejnovější verze rutiny Azure Powershellu. Další informace najdete v tématu [rutin nasazení prostředí Azure PowerShell][deployment-guide-4.1].  
-2. Spuštěním následující rutiny prostředí PowerShell.
+2. Spusťte následující rutinu Azure PowerShellu.
     Seznam dostupných prostředí, spusťte `commandlet Get-AzureRmEnvironment`. Pokud chcete použít globální Azure, je prostředí **AzureCloud**. Azure v Číně, vyberte **AzureChinaCloud**.
 
     ```powershell
@@ -1055,7 +1055,7 @@ Pokud některý z těchto kontrol selhání a podrobné informace o tom, jak zno
 Pokud některé z monitorování dat není správně, jak je uvedeno testem popsané v doručí [kontrolu připravenosti pro Azure rozšířené monitorování pro SAP][deployment-guide-5.1]spusťte `Test-AzureRmVMAEMExtension` rutiny zkontrolujte, zda Azure monitorování infrastruktury a monitorování rozšíření pro SAP jsou správně nakonfigurované.
 
 1.  Ujistěte se, že instalaci nejnovější verze rutiny Azure Powershellu, jak je popsáno v [rutin nasazení prostředí Azure PowerShell][deployment-guide-4.1].
-2.  Spuštěním následující rutiny prostředí PowerShell. Seznam dostupných prostředí, spusťte rutinu `Get-AzureRmEnvironment`. Chcete-li použít globální Azure, vyberte **AzureCloud** prostředí. Azure v Číně, vyberte **AzureChinaCloud**.
+2.  Spusťte následující rutinu Azure PowerShellu. Seznam dostupných prostředí, spusťte rutinu `Get-AzureRmEnvironment`. Chcete-li použít globální Azure, vyberte **AzureCloud** prostředí. Azure v Číně, vyberte **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Login-AzureRmAccount -Environment $env

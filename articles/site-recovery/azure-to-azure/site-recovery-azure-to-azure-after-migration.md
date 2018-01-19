@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replikace virtuálních počítačů Azure do jiné oblasti po migraci na Azure pomocí Azure Site Recovery
 
@@ -61,7 +61,7 @@ Následující tabulka obsahuje další informace o instalaci agenta virtuální
 | **Operace** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalace agenta virtuálního počítače |Stáhněte si a nainstalujte [MSI agenta](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Budete potřebovat oprávnění správce k dokončení instalace. |Nainstalujte si nejnovější verzi [agenta systému Linux](../../virtual-machines/linux/agent-user-guide.md). Budete potřebovat oprávnění správce k dokončení instalace. Doporučujeme nainstalovat agenta z distribuční úložiště. Jsme *nedoporučujeme* instalace agenta virtuálního počítače s Linuxem přímo z Githubu.  |
-| Ověření instalace agenta virtuálního počítače |1. Přejděte do složky C:\WindowsAzure\Packages ve virtuálním počítači Azure. Měli byste vidět přítomný soubor WaAppAgent.exe. <br>2. Pravým tlačítkem myši klikněte na soubor, přejděte na **Vlastnosti** a poté vyberte kartu **Podrobnosti**. **Verze produktu** pole by mělo být 2.6.1198.718 nebo vyšší. |Není k dispozici |
+| Ověření instalace agenta virtuálního počítače |1. Přejděte do složky C:\WindowsAzure\Packages ve virtuálním počítači Azure. Měli byste vidět přítomný soubor WaAppAgent.exe. <br>2. Pravým tlačítkem myši klikněte na soubor, přejděte na **Vlastnosti** a poté vyberte kartu **Podrobnosti**. **Verze produktu** pole by mělo být 2.6.1198.718 nebo vyšší. |neuvedeno |
 
 
 ### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>Krok 3: Odebrání služba Mobility migrovaného virtuálního počítače
@@ -100,6 +100,6 @@ Odinstalujte službu Mobility na počítači s Windows serverem, použijte jednu
 Po dokončení odinstalace služby Mobility, restartujte virtuální počítač předtím, než nastavení replikace na jiné oblasti Azure.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Začněte chránit vaše úlohy [replikovat virtuální počítače Azure](azure-to-azure-quickstart.md).
 - Další informace o [sítě pokyny pro replikaci virtuálních počítačů Azure](site-recovery-azure-to-azure-networking-guidance.md).

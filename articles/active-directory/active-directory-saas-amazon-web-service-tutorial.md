@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Kurz: Azure Active Directory integrace s Amazon Web Services (AWS)
 
@@ -116,8 +116,8 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     
     | Název atributu  | Hodnota atributu | Obor názvů |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | User.userPrincipalName | https://AWS.Amazon.com/SAML/Attributes |
-    | Role            | User.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
+    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Musíte nakonfigurovat zřizování uživatelů ve službě Azure AD se načíst všechny role z konzoly AWS. Najdete v následujících zřizování kroků.
@@ -131,6 +131,8 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     b. V **název** textovému poli, zadejte název atributu, který je uvedený na příslušném řádku.
 
     c. Z **hodnotu** seznamu, zadejte hodnotu atributu, který je uvedený na příslušném řádku.
+
+    d. V **Namespace** textovému poli, zadejte hodnotu oboru názvů, který je uvedený na příslušném řádku.
     
     d. Klikněte na tlačítko **OK**.
 
@@ -230,19 +232,13 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Vytvoření nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Vytvořte vlastní zásadu načíst všechny role z AWS účty. V **vytvořit vlastní zásadu** části klikněte na **vyberte** tlačítko.
-    
+25. Vytvořte vlastní zásadu načíst všechny role z AWS účty tak, že provedete následující kroky:
+
     ![Vytvoření nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Definujte nové zásady tak, že provedete následující kroky:
+    a. V **"Vytvořit zásady"** části klikněte na **"JSON"** kartě.
 
-    ![Definovat nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. Zadejte **název zásady** jako **AzureAD_SSOUserRole_Policy**.
-
-    b. Můžete zadat **popis** zásad jako **tyto zásady vám umožní načíst role z účtů AWS**.
-    
-    c. V dokumentu zásady, přidejte níže JSON.
+    b. V dokumentu zásady, přidejte níže JSON.
     
     ```
     
@@ -271,13 +267,21 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     }
     
     ```
+
+    c. Klikněte na **zkontrolujte zásady tlačítko** se ověřit zásady.
+
+    ![Definovat nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Definování **nové zásady** provedením následujících kroků:
+
+    ![Definovat nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. Zadejte **název zásady** jako **AzureAD_SSOUserRole_Policy**.
+
+    b. Můžete zadat **popis** zásad jako **tyto zásady vám umožní načíst role z účtů AWS**.
     
-    d. Ujistěte se, že můžete kontrolovat na **použít automatické formátování pro úpravy zásad**.
-    
-    e. Klikněte na **ověření zásad** tlačítko dole.
-    
-    f. Jakmile zásady je potvrzená správně pak můžete kliknutím na **vytvořit zásadu** tlačítko.
-    
+    c. Klikněte na **"Vytvořit zásadu"** tlačítko.
+        
 27. Vytvořte nový uživatelský účet ve službě IAM AWS provedením následujících kroků:
 
     a. Klikněte na **uživatelé** navigace v konzole AWS IAM.

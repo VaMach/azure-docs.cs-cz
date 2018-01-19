@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: cf8a3eb502a808945e97822e10e44d38137d1161
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurace názvu vlastní domény 
 
@@ -55,10 +55,10 @@ K provedení kroků popsaných v tomto článku, musíte mít:
 1. Kliknutím na tlačítko použít.
 
     >[!NOTE]
-    >Proces přiřazení certifikátu může trvat 15 minut.
+    >Proces přiřazení certifikátu může trvat 15 minut nebo déle v závislosti na velikosti nasazení. Vývojáře SKU má výpadek, Basic a vyšší skladová položka společnosti nemají výpadku.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Upgrade a škálování služby](upgrade-and-scale.md)
