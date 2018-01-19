@@ -2,24 +2,24 @@
 title: "Vytvoření aplikace Azure Service Fabric typu kontejner v Linuxu | Dokumentace Microsoftu"
 description: "Vytvoříte svou první aplikaci typu kontejner pro Linux na platformě Azure Service Fabric.  Sestavíte image Dockeru s vaší aplikací, nahrajete image do registru kontejneru a sestavíte a nasadíte aplikaci Service Fabric typu kontejner."
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Nasazení aplikace Azure Service Fabric typu kontejner pro Linux v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -66,30 +66,41 @@ Informace o vytvoření vlastního clusteru najdete v tématu věnovaném [vytvo
 > Webová front-end služba je nakonfigurovaná k naslouchání příchozímu provozu na portu 80. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte cluster Party, je tento port otevřený.
 >
 
-### <a name="deploy-the-application-manifests"></a>Nasazení manifestů aplikace 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Install rozhraní příkazového řádku služby Service Fabric a připojení ke clusteru
 Nainstalujte ve svém prostředí rozhraní příkazového řádku [Service Fabric CLI (sfctl)](service-fabric-cli.md).
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Připojte se pomocí Azure CLI ke clusteru Service Fabric v Azure. Koncový bod je koncový bod správy vašeho clusteru, například `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Nasazení aplikace Service Fabric 
+Kontejnerové aplikace Service Fabric je možné nasadit pomocí popsaného balíčku aplikace Service Fabric nebo nástroje Docker Compose. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Nasazení pomocí balíčku aplikace Service Fabric
 Pomocí instalačního skriptu, poskytnutého ke zkopírování definice hlasovací aplikace do clusteru, zaregistrujte typ aplikace a vytvořte její instanci.
 
 ```azurecli-interactive
 ./install.sh
 ```
 
+#### <a name="deploy-the-application-using-docker-compose"></a>Nasazení aplikace pomocí Docker Compose
+K nasazení a instalaci aplikace v clusteru Service Fabric s využitím nástroje Docker Compose použijte následující příkaz.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
+```
+
 Otevřete prohlížeč a přejděte na Service Fabric Explorer na adrese http://\<adresa_url_vašeho_clusteru_service_fabric>:19080/Explorer – například `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Rozbalte uzel Aplikace a všimněte si, že už obsahuje položku pro typ hlasovací aplikace a instanci, kterou jste vytvořili.
 
 ![Service Fabric Explorer][sfx]
 
-Připojte se ke spuštěnému kontejneru.  Otevřete webový prohlížeč a přejděte na adresu URL vašeho clusteru – například `http://linh1x87d1d.westus.cloudapp.azure.com:80`. V prohlížeči by se měla zobrazit hlasovací aplikace.
+Připojte se ke spuštěnému kontejneru.  Otevřete webový prohlížeč a přejděte na adresu URL vašeho clusteru, například `http://linh1x87d1d.westus.cloudapp.azure.com:80`. V prohlížeči by se měla zobrazit hlasovací aplikace.
 
 ![quickstartpic][quickstartpic]
 

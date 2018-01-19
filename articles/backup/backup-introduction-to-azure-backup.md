@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 9/29/2017
+ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 59beaac1d8619c3f4afa1c75074546a849dfce6b
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Přehled funkcí ve službě Azure Backup
 Azure Backup je služba Azure, kterou můžete využívat k zálohování (ochraně) a obnovování vašich dat v Microsoft Cloudu. Azure Backup nahrazuje současná řešení místního nebo odlehlého zálohování spolehlivým, bezpečným a cenově konkurenceschopným cloudovým řešením. Azure Backup nabízí několik komponent, které můžete stáhnout a nasadit na vhodném počítači, na serveru, nebo v cloudu. Nasazená komponenta nebo agent závisí na tom, co chcete chránit. Všechny komponenty služby Azure Backup (bez ohledu na to, jestli chráníte data v místním nebo cloudovém úložišti) je možné použít k zálohování dat do trezoru služby Recovery Services v Azure. Informace o tom, kterou komponentu použít pro ochranu konkrétních data, aplikací nebo úloh, najdete v [tabulce komponent Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (dále v tomto článku).
@@ -224,12 +224,7 @@ Trezor služby Recovery Services je entita online úložiště v Azure, která s
 Trezory služby Backup, které jsou založené na správci Azure Service Manager, byly první verzí trezorů. Trezory služby Recovery Services, které přidávají modelové funkce správce Azure Resource Manager, jsou druhou verzí trezorů. Úplný popis rozdílů funkcí najdete v článku [Přehled trezoru služby Recovery Services](backup-azure-recovery-services-vault-overview.md). Pomocí portálu už nemůžete trezory služby Backup vytvářet, ale trezory služby Backup jsou i nadále podporovány. Ke správě trezorů služby Backup musíte používat Azure Portal.
 
 > [!IMPORTANT]
-> Trezory služby Backup můžete upgradovat na trezory služby Recovery Services. Podrobnosti najdete v článku [Upgrade trezoru služby Backup na trezor služby Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft doporučuje, abyste upgradovali své trezory služby Backup na trezory služby Recovery Services.<br/> Od **30. listopadu 2017** už nebude možné pomocí PowerShellu vytvářet trezory služby Backup. <br/>
-Do 30. listopadu 2017:
-- Všechny zbývající trezory služby Backup budou automaticky upgradovány na trezory služby Recovery Services.
-- Nebudete mít přístup k datům záloh na portálu Classic. Pro přístup k datům záloh v trezorech služby Recovery Services místo toho použijte Azure Portal.
-
-
+> Trezory služby Backup můžete upgradovat na trezory služby Recovery Services. Podrobnosti najdete v článku [Upgrade trezoru služby Backup na trezor služby Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft doporučuje, abyste upgradovali své trezory služby Backup na trezory služby Recovery Services.<br/> Po 30. listopadu 2017 už není možné používat PowerShell k vytváření trezorů služby Backup a všechny zbývající trezory služby Backup se budou automaticky upgradovat na trezory služby Recovery Services.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Čím se liší Azure Backup od Azure Site Recovery?
 Služby Azure Backup a Azure Site Recovery spolu souvisí v tom smyslu, že obě služby zálohují data a můžou tato data obnovit. Tyto služby však v podniku slouží k jiným účelům, co se týče zajištění kontinuity podnikových procesů a zotavení po havárii. Pomocí služby Azure Backup můžete chránit a obnovovat data na podrobnější úrovni. Pokud se například poškodí prezentace na přenosném počítači, pomocí služby Azure Backup můžete tuto prezentaci obnovit. Pokud chcete replikovat konfiguraci a data virtuálního počítače do jiného datacentra, použijte službu Azure Site Recovery.

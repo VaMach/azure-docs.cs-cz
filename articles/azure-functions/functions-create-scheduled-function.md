@@ -13,24 +13,24 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 01/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Vytvoření funkce v Azure aktivované časovačem
 
-Zjistěte, jak ve službě Azure Functions vytvořit funkci, která se spouští na základě vámi definovaného plánu.
+Zjistěte, jak ve službě Azure Functions vytvořit funkci [bez serveru](https://azure.microsoft.com/overview/serverless-computing/), která se spouští na základě vámi definovaného plánu.
 
 ![Vytvoření aplikace Function App na webu Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Požadavky
 
-K provedení kroků v tomto kurzu je potřeba:
+Pro absolvování tohoto kurzu potřebujete:
 
 + Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
@@ -71,7 +71,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
     ![Prohlížeč protokolu funkcí na webu Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Teď můžete změnit plán funkce tak, aby se funkce spouštěla méně často, třeba jednou za hodinu. 
+Teď můžete změnit plán funkce tak, aby se spouštěla jednou za hodinu (a ne jednou za minutu). 
 
 ## <a name="update-the-timer-schedule"></a>Aktualizace plánu časovače
 

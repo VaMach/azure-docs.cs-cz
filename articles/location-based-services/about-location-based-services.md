@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Úvod do služeb Azure Location Based Services (Preview)
 Azure Location Based Services je portfolio geoprostorových služeb, mezi které patří rozhraní API pro mapy, vyhledávání, trasy, provoz a časová pásma. Portfolio služeb odpovídajících standardu Azure OneAPI umožňuje používat známé nástroje pro vývojáře k rychlému vývoji a škálování komponent, které integrují informace o poloze do vašich řešení v Azure. Azure Location Based Services poskytuje vývojářům ze všech odvětví výkonné geoprostorové funkce společně s čerstvými mapovými daty, které jsou nezbytné k zajištění geografického kontextu pro webové a mobilní aplikace. Azure Location Based Services je sada rozhraní odpovídajících standardu Azure One API doplněná o webové řízení v JavaScriptu pro zajištění snadného, flexibilního a přenositelného vývoje napříč různými médii. 
@@ -61,9 +61,23 @@ Služby Azure Location Based Services se skládají z pěti primární služeb p
 
 ![Azure Location Based Services Traffic](media/about-location-based-services/Introduction_Traffic.png)
 
-Služby Azure Location Based Services jsou navržené pro mobilní aplikace a je možné na nich založit i víceplatformní aplikace, protože jejich programovací model je agnostický a podporuje výstup JSON prostřednictvím rozhraní REST API. Kromě toho Azure LBS nabízejí pohodlný javascriptový ovládací prvek mapy s jednoduchým programovacím modelem pro rychlý a snadný vývoj webových i mobilních aplikací. 
+Služby Azure Location Based Services jsou navržené pro mobilní aplikace a je možné na nich založit i víceplatformní aplikace, protože jejich programovací model je agnostický a podporuje výstup JSON prostřednictvím rozhraní REST API. Kromě toho služby Azure LBS nabízejí pohodlný javascriptový ovládací prvek mapy s jednoduchým programovacím modelem pro rychlý a snadný vývoj webových i mobilních aplikací. 
 
 Služby Azure Location Based Services používá schéma ověřování na základě klíčů, takže přístup ke služby je otázkou přechodu na web [Azure Portal](http://portal.azure.com) a vytvoření účtu Azure Location Based Services. V účtu budou pro vás předem vygenerované dva klíče. Při zahájení integrace těchto polohových služeb do vaší aplikace můžete v požadavcích na službu Azure Location Based Services použít kterýkoli z obou klíčů.
+
+**Vztah ke službě Mapy Bing** – Upozorňujeme, že služby Azure Location Based Services popsané v tomto dokumentu se liší od těch, které poskytuje služba Mapy Bing.  Přestože tyto dvě služby sdílejí velmi podobné funkce, jsou rozdílné a vzájemně nesouvisejí.  Dostupnost této nové služby, která se bude spravovat samostatně, neovlivní plány nebo nabídku produktů Mapy Bing.
+
+Cílem společnosti Microsoft je poskytnout komunitě vývojářů s ohledem na služby zjišťování polohy možnost volby.  Dál uvádíme stručné informace pro vývojáře, které služby jsou vhodné pro různé případy použití a zákaznické situace.  Upozorňujeme, že tyto informace se aktuálně vztahují na Azure LBS ve fázi Public Preview a budou se aktualizovat, jakmile tato služba v roce 2018 přejde do fáze obecné dostupnosti.
+
+| Zákaznická kritéria | Azure Location Based Services použijte, když… | Mapy Bing použijte, když… |
+| ------------- | ------------- | ------------- |
+| Vývojové prostředí | Využíváte jiné služby Azure nebo v nich sestavujete | Využíváte cloud třetí strany nebo jiné vývojové prostředí |
+| Vývojová fáze  | Vzhledem k tomu, že portfolio Azure LBS je aktuálně ve verzi Public Preview, je optimalizované pro vývoj testování konceptu a testování v počáteční fázi. | Pro produkční prostředí se vyžaduje smlouva SLA na podnikové úrovni. |
+| Cenové možnosti | Postačují předběžné cenové možnosti pro vývojáře. | Vyžadují se individuální ceny na podnikové úrovni. |
+| Prostředí pro případy použití | Vyžaduje se využití ve vozidle. | Nevyžaduje se využití ve vozidle. |
+| Geografické pokrytí | Indie, Čína, Japonsko a Jižní Korea se nevyžadují. | Pokrytí pro Indii, Čínu, Japonsko a Jižní Koreu se vyžaduje. |
+| Obsah map | Postačují standardní mapy povrchu. | Vyžadují se satelitní mapy, letecké mapy a obrázky ulic. |
+| Základní zdroj map | Upřednostňují se mapovací data TomTom. | Upřednostňují se mapovací data HERE. |
 
 Vytvořte si účet [Azure Location Based Services](http://aka.ms/azurelbsportal) ještě dnes!
 

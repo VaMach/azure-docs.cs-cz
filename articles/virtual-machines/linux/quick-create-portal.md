@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal
 
@@ -32,13 +32,15 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 K dokončení tohoto rychlého startu potřebujete pár klíčů SSH. Pokud máte existující pár klíčů SSH, můžete tento krok přeskočit.
 
-Z prostředí Bash spusťte tento příkaz a postupujte podle pokynů na obrazovce. Výstup příkazu zahrnuje název souboru veřejného klíče. Zkopírujte obsah souboru veřejného klíče do schránky.
+Z prostředí Bash spusťte tento příkaz a postupujte podle pokynů na obrazovce. Výstup příkazu zahrnuje název souboru veřejného klíče. Zkopírujte obsah souboru veřejného klíče (`cat ~/.ssh/id_rsa.pub`) do schránky. Pokud použijete subsystém Windows pro Linux, ověřte, že nekopírujete znaky konce řádku z výstupu. Poznamenejte si název souboru privátního klíče pro pozdější použití.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure. 
+Podrobnější informace o tomto procesu najdete [tady](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+
+## <a name="log-in-to-azure"></a>Přihlášení k Azure 
 
 Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
@@ -102,7 +104,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 2. Vyberte **skupinu zabezpečení sítě**. NSG můžete identifikovat pomocí sloupce **Typ**. 
 3. V nabídce vlevo v části Nastavení klikněte na **Příchozí pravidla zabezpečení**.
 4. Klikněte na **Přidat**.
-5. Do pole **Název** zadejte **http**. Zkontrolujte, že **Rozsah portů** je nastavený na 80 a **Akce** je nastavená na **Povolit**. 
+5. Do pole **Název** zadejte **http**. Ověřte, že **Rozsah zdrojových portů** je nastavený na `*`, **Rozsah cílových portů** je nastavený na *80* a **Akce** je nastavená na *Povolit*. 
 6. Klikněte na **OK**.
 
 

@@ -15,17 +15,17 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/02/2017
+ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 7f85d569fee4e13c28a09347159f16fc4b4ae626
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: Použití editoru dotazů SQL k připojení a dotazování dat
 
-Editor dotazů SQL je dotazovací nástroj založený na prohlížeči, který poskytuje efektivní a jednoduchý způsob zpracování dotazů SQL pro Azure SQL Database nebo Azure SQL Data Warehouse, aniž byste museli opustit Azure Portal. Tento rychlý start ukazuje použití editoru dotazů pro připojení k databázi SQL a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi. 
+Editor dotazů SQL je dotazovací nástroj založený na prohlížeči, který poskytuje efektivní a jednoduchý způsob zpracování dotazů SQL pro Azure SQL Database nebo Azure SQL Data Warehouse, aniž byste museli opustit Azure Portal. Tento rychlý start ukazuje použití editoru dotazů pro připojení k databázi SQL a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -44,17 +44,15 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 1. V nabídce nalevo klikněte na **Databáze SQL** a potom klikněte na databázi, pro kterou chcete zadat dotaz.
 
-2. Na stránce Databáze SQL pro vaši databázi klikněte na panelu nástrojů na **Nástroje**. Otevře se stránka Nástroje.
+2. Na stránce databáze SQL pro vaši databázi klikněte v levé nabídce na **Průzkumník dat (Preview)**.
 
-    ![nabídka nástroje](./media/sql-database-connect-query-portal/tools-menu.png)
+    ![vyhledání editoru dotazů](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Klikněte na **Editor dotazů (Preview)**, zaškrtněte políčko **Podmínky verze Preview** a pak klikněte na **OK**. Otevře se stránka Editor dotazů.
+3. Klikněte na **Přihlásit**, na vyzvání vyberte **Ověřování SQL Serveru** a potom zadejte přihlašovací jméno a heslo správce serveru, které jste zadali při vytváření této databáze.
 
-4. Klikněte na **Přihlásit**, na vyzvání vyberte **Ověřování SQL Serveru** a potom zadejte přihlašovací jméno a heslo správce serveru, které jste zadali při vytváření této databáze.
+    ![přihlášení](./media/sql-database-connect-query-portal/login-menu.png)
 
-    ![přihlášení](./media/sql-database-connect-query-portal/login-menu.png) 
-
-5. Přihlaste se kliknutím na **OK**.
+4. Přihlaste se kliknutím na **OK**.
 
 
 ## <a name="connect-using-azure-ad"></a>Připojení pomocí Azure AD
@@ -70,11 +68,11 @@ Konfigurace správce služby Active Directory umožňuje používat jednu identi
 
 3. V okně správce Active Directory klikněte na příkaz **Nastavit správce** a vyberte uživatele nebo skupinu, kteří budou správcem Active Directory.
 
-    ![Výběr Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png) 
+    ![Výběr Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
 4. Kliknutím na příkaz **Uložit** v horní části okna správce Active Directory nastavíte správce Active Directory.
 
-Přejděte do databáze SQL, pro kterou chcete zadat dotaz, na panelu nástrojů klikněte na **příkaz Nástroje** a vyberte možnost **Editor dotazů (Preview)**. Stránka editoru dotazů se otevře a automaticky vás připojí k databázi.
+Přejděte k databázi SQL, pro kterou chcete zadat dotaz, a v nabídce vlevo klikněte na **Průzkumník dat (Preview)**. Průzkumník dat se otevře a automaticky vás připojí k databázi.
 
 
 ## <a name="run-query-using-query-editor"></a>Spuštění dotazu pomocí editoru dotazů
@@ -154,13 +152,13 @@ Při práci s editorem dotazů ve verzi Preview byste měli vědět pár věcí:
 
 1. Ověřte, že jste v nastavení brány firewall Azure SQL Serveru zapnuli možnost Povolit přístup ke službám Azure. Tato možnost poskytuje editoru dotazů SQL přístup k datovým skladům a databázím SQL.
 
-2. Přihlášení správce Azure Active Directory nefunguje pro účty, které mají povolené dvoufaktorové ověřování. 
+2. Přihlášení správce Azure Active Directory nefunguje pro účty, které mají povolené dvoufaktorové ověřování.
 
 3. E-mailové účty (například outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) se zatím jako správce Active Directory nepodporují. Nezapomeňte vybrat uživatele, který byl buď v Azure Active Directory vytvořený nativně, nebo který byl do Azure Active Directory federovaný.
 
 4. Editor dotazů ještě nepodporuje dotazy na prostorové datové typy. Výsledkem dotazu na prostorový sloupec bude chyba System.IO.FileNotFoundException.
 
-5. IntelliSense pro databázové tabulky a zobrazení se nepodporuje. Editor ale podporuje automatické dokončování názvů, které jste už zadali. 
+5. IntelliSense pro databázové tabulky a zobrazení se nepodporuje. Editor ale podporuje automatické dokončování názvů, které jste už zadali.
 
 6. Stisknutí klávesy F5 aktualizuje stránku editoru dotazů a způsobí ztrátu dotazu, který se právě zpracovává. K provádění dotazů použijte tlačítko Spustit na panelu nástrojů.
 
