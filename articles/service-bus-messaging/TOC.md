@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Sestavení vícevrstvé aplikace Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Postup
 ## Plánování a návrh
@@ -29,6 +28,7 @@
 ### [Řízení přístupu na základě rolí (Preview)](service-bus-role-based-access-control.md)
 ### [Zasílání zpráv úrovně Premium](service-bus-premium-messaging.md)
 ### [Srovnání front Azure a front Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Sestavení vícevrstvé aplikace Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimalizace výkonu](service-bus-performance-improvements.md)
 ### [Geografické zotavení po havárii a geografická replikace](service-bus-geo-dr.md)
 ### [Asynchronní zasílání zpráv a vysoká dostupnost](service-bus-async-messaging.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Použití Azure PowerShellu ke zřizování entit](service-bus-manage-with-ps.md)
 
-# Odkaz
+# Referenční informace
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

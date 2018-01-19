@@ -2,7 +2,7 @@
 ## [Co je služba Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Začínáme
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+## [portál Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -11,7 +11,7 @@
 # Postup
 
 ## Správa služby Data Lake Analytics
-### [Azure Portal](data-lake-analytics-manage-use-portal.md)
+### [portál Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -52,12 +52,13 @@
 ## [REST](/rest/api/datalakeanalytics/)
 ## [Rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/dla)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Blog služby Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Váš názor na UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Videa](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
