@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 9d310df29156f16f6b5290ff0575ff43d083a26c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurace mapy služeb v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Můžete ji zobrazit vaše servery co možná z nich – jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy a porty mezi všechny architektura připojení TCP se žádná konfigurace vyžaduje, než instalace agenta.
@@ -28,8 +28,8 @@ Tento článek popisuje podrobnosti konfigurace agentů mapy služeb a registrac
 ## <a name="dependency-agent-downloads"></a>Agent služby Dependency soubory ke stažení
 | File | Operační systém | Verze | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>Připojené zdroje
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Rozšíření virtuálního počítače Azure
-Můžete snadno nasadit agenta závislostí k virtuálním počítačům Azure pomocí [rozšíření virtuálního počítače Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Pomocí rozšíření virtuálního počítače Azure můžete nasadit agenta závislost na virtuální počítače pomocí skriptu prostředí PowerShell nebo přímo v šabloně Virtuálního počítače Azure Resource Manager.  Rozšíření není k dispozici pro Windows (DependencyAgentWindows) i Linux (DependencyAgentLinux).  Pokud nasazujete prostřednictvím rozšíření virtuálního počítače Azure, můžete agenty automaticky aktualizují na nejnovější verzi.
+Můžete snadno nasadit agenta závislostí k virtuálním počítačům Azure pomocí [rozšíření virtuálního počítače Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions-classic).  Pomocí rozšíření virtuálního počítače Azure můžete nasadit agenta závislost na virtuální počítače pomocí skriptu prostředí PowerShell nebo přímo v šabloně Virtuálního počítače Azure Resource Manager.  Rozšíření není k dispozici pro Windows (DependencyAgentWindows) i Linux (DependencyAgentLinux).  Pokud nasazujete prostřednictvím rozšíření virtuálního počítače Azure, můžete agenty automaticky aktualizují na nejnovější verzi.
 
 Pokud chcete nasadit rozšíření virtuálního počítače Azure pomocí prostředí PowerShell, můžete v následujícím příkladu:
 ```PowerShell

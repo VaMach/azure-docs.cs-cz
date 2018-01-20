@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimalizace výkonu a spolehlivosti Azure functions
 
@@ -40,7 +40,7 @@ Kdykoli je to možné, refactor velké funkce do menší funkce nastaví které 
 
 ### <a name="cross-function-communication"></a>Mezi funkce komunikace
 
-[Trvanlivý funkce](durable-functions-overview.md) a [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) využívají ke správě přechodů mezi stavy a komunikace mezi víc funkcí.
+[Trvanlivý funkce](durable-functions-overview.md) a [Azure Logic Apps](../logic-apps/logic-apps-overview.md) využívají ke správě přechodů mezi stavy a komunikace mezi víc funkcí.
 
 Pokud nepoužíváte trvanlivý funkce nebo Logic Apps pro integraci s více funkcemi, je obecně doporučujeme používat fronty úložiště pro různé funkce komunikace.  Hlavním důvodem je, že jsou fronty úložiště levnější a výrazně usnadňují zřizování. 
 

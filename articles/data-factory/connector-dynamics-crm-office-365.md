@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopírování dat z/do Dynamics 365 / Dynamics CRM pomocí Azure Data Factory
 
@@ -42,7 +42,7 @@ Dynamics 365 konkrétně následující typy aplikací jsou podporované:
 - Dynamics 365 pro prodej
 - Dynamics 365 zákaznický servis
 - Dynamics 365 služby pole
-- Dynamics 365 projektu služby Automation
+- Dynamics 365 for Project Service Automation
 - Dynamics 365 pro Marketing
 
 > [!NOTE]
@@ -50,7 +50,7 @@ Dynamics 365 konkrétně následující typy aplikací jsou podporované:
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které se používají k definování entit služby Data Factory, které jsou specifické pro Dynamics.
 
@@ -58,7 +58,7 @@ Následující části obsahují podrobnosti o vlastnosti, které se používaj�
 
 Pro Dynamics propojené služby jsou podporovány následující vlastnosti:
 
-### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 a Dynamics CRM Online
+### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 and Dynamics CRM Online
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
@@ -111,7 +111,7 @@ Pro Dynamics propojené služby jsou podporovány následující vlastnosti:
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Dynamics**. | Ano |
 | deploymentType | Typ nasazení Dynamics instance. Musí být **"OnPremisesWithIfd"** pro Dynamics místně s IFD.| Ano |
-| **název hostitele** | Název hostitele serveru Dynamics místně. | Ano |
+| **hostName** | Název hostitele serveru Dynamics místně. | Ano |
 | **port** | Port serveru Dynamics místně. | Ne, výchozí hodnota je 443 |
 | Název organizace | Název organizace Dynamics instance. | Ano |
 | authenticationType. | Typ ověřování pro připojení k serveru Dynamics. Zadejte **"Ifd"** pro Dynamics místně s IFD. | Ano |
@@ -331,7 +331,7 @@ Nakonfigurujte odpovídající datový typ objektu pro vytváření dat ve struk
 | AttributeType.Customer | Guid | ✓ |  |
 | AttributeType.DateTime | Datum a čas | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Double | ✓ | ✓ |
+| AttributeType.Double | Dvojitý | ✓ | ✓ |
 | AttributeType.EntityName | Řetězec | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ |  |

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Vytvořte v reálném čase zákazníka přehledný řídicí panel s funkcemi Azure a Azure Logic Apps
 
@@ -37,7 +37,7 @@ Může být celé řešení [sestavení v sadě Visual Studio](logic-apps-deploy
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Vytvoření aplikace logiky k aktivaci na data zákazníků
 
-Po [vytvoření aplikace logiky](logic-apps-create-a-logic-app.md) v sadě Visual Studio nebo portálu Azure:
+Po [vytvoření aplikace logiky](quickstart-create-first-logic-app-workflow.md) v sadě Visual Studio nebo portálu Azure:
 
 1. Přidat aktivační událost pro **na nové Tweetů** ze služby Twitter.
 2. Nakonfigurujte aktivační událost pro naslouchání na tweetů na – klíčové slovo nebo hashtag.
@@ -99,7 +99,7 @@ Jakmile byla vyvinuta řešení, můžete zachytit a nasazují přes šablonu na
 
 Azure Functions také být použity během nasazení šablony - tak celé řešení s všechny závislosti můžete spravovat jako jednu šablonu.  Příklad funkce šablony nasazení lze nalézt v [úložiště šablony Azure rychlý Start](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Zobrazit další příklady a scénáře pro Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Podívejte se na video s návodem k vytvoření tohoto řešení pro kompletní](http://aka.ms/logicappsdemo)

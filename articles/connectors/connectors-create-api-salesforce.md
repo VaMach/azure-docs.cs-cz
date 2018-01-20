@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb865924191418c12b9fea37edfbfb282f334eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Začínáme s konektor služby Salesforce
 Konektor Salesforce poskytuje rozhraní API pro práci s objekty Salesforce.
 
-Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-salesforce-connector"></a>Připojit ke konektoru služby Salesforce
 Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připojení* ke službě. A [připojení](connectors-overview.md) poskytuje připojení mezi aplikace logiky a jiné služby.  
@@ -35,7 +35,7 @@ Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připoje
 > 
 
 ## <a name="use-a-salesforce-connector-trigger"></a>Použít aktivační událost konektor služby Salesforce
-Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 > 
@@ -47,7 +47,7 @@ Aktivační událost je událost, která můžete použít ke spuštění pracov
 > 
 
 ## <a name="use-a-salesforce-connector-action"></a>Použít akci konektor služby Salesforce
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 > 
@@ -57,6 +57,6 @@ Akce je operace prováděné definované v aplikaci logiky pracovního postupu. 
 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/salesforce/). 
 
-## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
+## <a name="next-steps"></a>Další postup
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

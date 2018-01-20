@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/29/2017
+ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: d892c5979d0dec54767fe5a9ef84b05739683604
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 923778e54a1ae5967d681751841c3a2b3fb45130
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-application-lifecycle"></a>Životní cyklus aplikace Service Fabric
 Jako s jinými platformami, aplikace na Azure Service Fabric obvykle projde má tyto fáze: návrh, vývoj, testování, nasazení, upgrade, údržbu a odebírání. Service Fabric nabízí prvotřídní podporu pro celou aplikaci životního cyklu aplikací cloudu, od vývoje přes nasazení, každodenní správu a údržbu na případné vyřazení z provozu. Model služby umožňuje několik různých rolí se zúčastnit nezávisle v průběhu životního cyklu aplikace. Tento článek obsahuje přehled rozhraní API a jak se používají různé role v průběhu fáze životního cyklu aplikace Service Fabric.
@@ -91,11 +91,11 @@ Najdete v článku [upgradu kurz aplikace](service-fabric-application-upgrade-tu
 
 V tématu [nasazení aplikace](service-fabric-deploy-remove-applications.md) příklady.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o vývoji testování a Správa aplikací Service Fabric a služeb, najdete v části:
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Nasazení aplikace](service-fabric-deploy-remove-applications.md)
-* [Upgrade aplikace](service-fabric-application-upgrade.md)
+* [Upgrade aplikací](service-fabric-application-upgrade.md)
 * [Přehled testovatelnosti](service-fabric-testability-overview.md)

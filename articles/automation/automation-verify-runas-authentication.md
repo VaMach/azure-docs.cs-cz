@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 187673fad2b5984441b93aa5313df31f1e8a3d2d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 1413b5d9625ebc2e3b2419f50e7e78be994d8d68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Test ověření účtu Azure Automation Spustit jako
 Po úspěšném vytvoření účtu Automation můžete provést jednoduchý test a zkontrolovat, že se jde úspěšně ověřit v nasazení Azure Resource Manager nebo Azure Classic pomocí nově vytvořeného nebo aktualizovaného účtu Automation Spustit jako.    
@@ -66,7 +66,7 @@ Pomocí níže uvedeného ukázkového kódu [vytvořte powershellový runbook](
 
 Všimněte si, že rutina používaná pro ověřování v runbooku – **Add-AzureRmAccount**, používá sadu parametrů *ServicePrincipalCertificate*.  Ověřování provádí pomocí certifikátu objektu služby a ne pomocí přihlašovacích údajů.  
 
-Když [spustíte runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pro ověření účtu Spustit jako, vytvoří se [úloha runbooku](automation-runbook-execution.md), zobrazí se okno Úloha a na dlaždici **Souhrn úlohy** se zobrazí stav úlohy. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.
+Při můžete [spuštění sady runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) k ověření účtu spustit jako [úlohy runbooku](automation-runbook-execution.md) vytvoření úlohy se zobrazí stránka a stav úlohy se zobrazí v **Souhrn úlohy** dlaždici. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.
 
 Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.  Na stránce **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech prostředků ve všech skupinách prostředků v rámci vašeho předplatného.  
 

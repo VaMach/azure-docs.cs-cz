@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: dac4e926868e76d73512bc8b16856bfff2a889aa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ea2258b953925116f759655583d9601c5a55db7c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopírování dat z HBase pomocí Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru HBase.
 
@@ -45,7 +45,7 @@ Pro HBase propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **HBase** | Ano |
-| hostitel | IP adresu nebo název hostitele serveru HBase. (tj. 192.168.222.160)  | Ano |
+| hostitel | IP adresu nebo název hostitele serveru HBase. (i.e. 192.168.222.160)  | Ano |
 | port | Port TCP, který používá instanci HBase naslouchat pro připojení klientů. Výchozí hodnota je 9090.  | Ne |
 | httpPath | Částečné adresa URL odpovídající serveru HBase. (tj. /gateway/sandbox/hbase/version)  | Ne |
 | authenticationType. | Metoda ověřování, který se má použít pro připojení k serveru HBase. <br/>Povolené hodnoty jsou: **anonymní**, **základní** | Ano |

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 0950d453e53a70f96f59de572ac10326ef030444
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 89346113c6231442beb1147c4c4fea524d03d909
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Jak zabezpečit přístup do katalogu data catalog a datových prostředků
 > [!IMPORTANT]
@@ -34,7 +34,7 @@ Zadejte uživatele nebo skupinu přístup do katalogu data catalog a nastavit op
     ![data catalog – nastavení](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. Na stránce nastavení, rozbalte **uživatelé katalogu** části.
     ![Katalogu uživatelé – přidat](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
-3. Klikněte na tlačítko **Přidat**.
+3. Klikněte na tlačítko **Add** (Přidat).
 4. Zadejte plně kvalifikovaný **uživatelské jméno** nebo název **skupiny zabezpečení** v Azure Active Directory (AAD) přidružené k katalogu. Čárkou (', ') jako oddělovač, chcete-li přidat více než jeden uživatel nebo skupina.
     ![Uživatelé katalogu - uživatele nebo skupiny](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 5. Stiskněte klávesu **ENTER** nebo **KARTĚ** mimo textové pole. 
@@ -54,6 +54,6 @@ Zadejte uživatele nebo skupinu přístup do katalogu data catalog a nastavit op
 - Oprávnění přiřazená uživateli skupiny zabezpečení jsou aditivní. Vyslovte uživatel je ve dvou skupinách. Jedna skupina má opatřit poznámkami oprávnění a jiné skupiny není mají opatřit poznámkami oprávnění. Potom uživatel má opatřit poznámkami oprávnění. 
 - Oprávnění přiřazená uživateli explicitně přepsat oprávnění přiřazená do skupin, do kterých uživatel patří. V předchozím příkladu Řekněme, můžete explicitně přidat uživatele katalogu uživatelů a provádět není přiřazení opatřit poznámkami oprávnění. Uživatele nelze opatřit poznámkami datové prostředky, i když je uživatel členem skupiny, která nemá opatřit poznámkami oprávnění.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Začínáme s Azure Data Catalogem](data-catalog-get-started.md)
 

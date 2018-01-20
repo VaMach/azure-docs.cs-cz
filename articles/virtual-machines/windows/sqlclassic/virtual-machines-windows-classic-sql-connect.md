@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f6dc1b2ab8198ec2c03615aedced98a314bf66d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Připojení k virtuálnímu počítači s SQL Serverem v Azure (klasické nasazení)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Způsob, jakým se klient připojí k serveru SQL Server spuštěny na virtuáln
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Připojení k systému SQL Server v rámci stejné cloudové služby
-Více virtuálních počítačů lze vytvořit v rámci stejné cloudové služby. Zjistit tento scénář virtuálních počítačů najdete v části [postupy pro připojení virtuálních počítačů pomocí virtuální sítě nebo cloudové služby](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Tento scénář je při klienta na jeden virtuální počítač pro připojení k SQL Server běžící na jiný virtuální počítač v rámci stejné cloudové služby.
+Více virtuálních počítačů lze vytvořit v rámci stejné cloudové služby. Zjistit tento scénář virtuálních počítačů najdete v části [postupy pro připojení virtuálních počítačů pomocí virtuální sítě nebo cloudové služby](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Tento scénář je při klienta na jeden virtuální počítač pro připojení k SQL Server běžící na jiný virtuální počítač v rámci stejné cloudové služby.
 
 V tomto scénáři můžete připojit pomocí virtuální počítač **název** (také uvedené jako **název počítače** nebo **hostname** na portálu). Toto je název, který jste zadali pro virtuální počítač při vytvoření. Například, pokud jste s názvem virtuální počítač SQL **mysqlvm**, může klient virtuálních počítačů v rámci stejné cloudové služby může používat následující připojovací řetězec pro připojení:
 

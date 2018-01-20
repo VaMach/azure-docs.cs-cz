@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Konfigurace webhook, jehož na výstrahu Azure metriky
 Webhooky umožňují směrovat Azure oznámení výstrahy k jiným systémům pro následné zpracování nebo vlastní akce. Webhook, jehož na výstrahu slouží k směrovat do služeb, které odeslání serveru SMS, protokolu chyb, upozornění tým prostřednictvím služby zasílání zpráv nebo chatu nebo provádět řadu dalších akcí. Tento článek popisuje, jak nastavit webhook, jehož na výstrahu Azure metriky a datové části pro HTTP POST na webhook, jehož vypadá jako. Informace o instalaci a schéma pro výstrahu protokol činnosti Azure (výstraha na událostech) [místo toho najdete na této stránce](insights-auditlog-to-webhook-email.md).
@@ -40,34 +40,37 @@ Operaci POST obsahuje následující datové části JSON a schéma pro všechny
 
 ```JSON
 {
-"status": "Activated",
-"context": {
+    "WebhookName": "Alert1515515157799",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
             "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
             "condition": {
-                        "metricName": "Requests",
-                        "metricUnit": "Count",
-                        "metricValue": "10",
-                        "threshold": "10",
-                        "windowSize": "15",
-                        "timeAggregation": "Average",
-                        "operator": "GreaterThanOrEqual"
-                },
+                "metricName": "Requests",
+                "metricUnit": "Count",
+                "metricValue": "10",
+                "threshold": "10",
+                "windowSize": "15",
+                "timeAggregation": "Average",
+                "operator": "GreaterThanOrEqual"
+            },
             "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
+            "resourceGroupName": "useast",
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
+        },
+        "properties": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 
@@ -81,18 +84,18 @@ Operaci POST obsahuje následující datové části JSON a schéma pro všechny
 | jméno |Ano | |Název výstrahy. |
 | description |Ano | |Popis výstrahy. |
 | conditionType |Ano |"Metriky", "Událost" |Podporuje dva typy výstrah. Jeden založené na podmínce metriky a dalších založené na události v protokolu aktivit. Tato hodnota se používá ke kontrole, pokud je výstraha podle metrika nebo událostí. |
-| Podmínka |Ano | |Na conditionType na základě konkrétních polí zkontrolujte. |
+| podmínka |Ano | |Na conditionType na základě konkrétních polí zkontrolujte. |
 | metricName |Metriky výstrahy | |Název metriky, která definuje, co pravidlo monitoruje. |
-| metricUnit |Metriky výstrahy |"Bajtů", "BytesPerSecond", "Count", "CountPerSecond", "Procenta", "Seconds" |Jednotka v metriku povoleny. [Povolené hodnoty jsou zde uvedeny](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |Metriky výstrahy |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds" |Jednotka v metriku povoleny. [Povolené hodnoty jsou zde uvedeny](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Metriky výstrahy | |Aktuální hodnota metriku, která způsobila výstrahu. |
 | Prahová hodnota |Metriky výstrahy | |Prahová hodnota, na které se aktivuje výstrahu. |
 | velikost_okna |Metriky výstrahy | |Časový interval, který se používá k monitorování výstrah aktivity podle prahovou hodnotu. Musí být mezi 5 minutami a 1 dnem. Doba trvání formátu ISO 8601. |
 | Agregace času |Metriky výstrahy |"Průměru", "Posledního", "Maximální", "Minimální", "Žádný", "celkové" |Data, která se shromažďují jak by měla být kombinovány časem. Výchozí hodnota je průměr. [Povolené hodnoty jsou zde uvedeny](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
 | Operátor |Metriky výstrahy | |Operátor použit k porovnání aktuální metriky data, která mají nastavenou prahovou hodnotu. |
 | subscriptionId |Ano | |ID předplatného Azure. |
-| Název skupiny prostředků |Ano | |Název skupiny prostředků pro prostředek dopad. |
+| resourceGroupName |Ano | |Název skupiny prostředků pro prostředek dopad. |
 | resourceName |Ano | |Název prostředku ovlivněné prostředku. |
-| Typ prostředku |Ano | |Typ prostředku ovlivněné prostředku. |
+| resourceType |Ano | |Typ prostředku ovlivněné prostředku. |
 | resourceId |Ano | |ID prostředku ovlivněné prostředku. |
 | resourceRegion |Ano | |Oblast nebo umístění ovlivněné prostředku. |
 | portalLink |Ano | |Přímý odkaz na stránce Souhrn portálu prostředků. |
@@ -103,7 +106,7 @@ Operaci POST obsahuje následující datové části JSON a schéma pro všechny
 >
 >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o Azure výstrahy a pomocí webhooků ve videu [integrovat Azure výstrahy s PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
 * [Spustit skripty Azure Automation (Runbooky) na Azure výstrahy](http://go.microsoft.com/fwlink/?LinkId=627081)
 * [Pomocí aplikace logiky můžete odeslat zprávu SMS prostřednictvím Twilio z Azure výstrahy](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Sledování komunikace B2B v Microsoft Operations Management Suite (OMS)
 
@@ -32,7 +32,7 @@ Po nastavení komunikace B2B mezi dvěma systémem obchodních procesů nebo apl
 
 ## <a name="requirements"></a>Požadavky
 
-* Aplikace logiky, který je nastavený s protokolování diagnostiky. Další informace [postup vytvoření aplikace logiky](logic-apps-create-a-logic-app.md) a [postup nastavení protokolování pro tuto aplikaci logiky](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Aplikace logiky, který je nastavený s protokolování diagnostiky. Další informace [postup vytvoření aplikace logiky](quickstart-create-first-logic-app-workflow.md) a [postup nastavení protokolování pro tuto aplikaci logiky](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Integrace účet, který je nastavený s sledování a protokolování. Další informace [postup vytvoření účtu integrace](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) a [postup nastavení sledování a protokolování pro tento účet](../logic-apps/logic-apps-monitor-b2b-message.md).
 
@@ -150,14 +150,14 @@ Tady jsou popisy vlastností pro každou zprávu AS2.
 | Vlastnost | Popis |
 | --- | --- |
 | Odesílatel | Partnerovi hosta zadaný v **přijímat nastavení**, nebo hostitele partnera zadaný v **odeslat nastavení** pro smlouvy AS2 |
-| Příjemce | Hostitele partnera, zadaný v **přijímat nastavení**, nebo partnera hosta zadaný v **odeslat nastavení** pro smlouvy AS2 |
+| Receiver | Hostitele partnera, zadaný v **přijímat nastavení**, nebo partnera hosta zadaný v **odeslat nastavení** pro smlouvy AS2 |
 | Aplikace logiky | Aplikace logiky, kde se nastaví AS2 akce |
 | Status | Stav zpráv AS2 <br>Úspěch = přijatých nebo odeslaných zprávu platný AS2. Žádné MDN je nastavený. <br>Úspěch = přijatých nebo odeslaných zprávu platný AS2. Nastavení a obdrží MDN nebo odesílání MDN. <br>Se nezdařilo = přijatá neplatná zpráva AS2. Žádné MDN je nastavený. <br>Čekající = přijatých nebo odeslaných zprávu platný AS2. MDN nastavení a MDN se očekává. |
 | Potvrzení | Stav zpráv MDN <br>Přijatá = přijatých nebo odeslaných kladné MDN. <br>Čekající na vyřízení = čekání na příjem nebo odeslání MDN. <br>Odmítl = přijatých nebo odeslaných záporné MDN. <br>Není vyžadována = MDN není nastavený smlouvy. |
 | Směr | Směr zprávy AS2 |
 | ID korelace | ID, které koreluje všechny aktivační události a akce v aplikaci logiky |
 | ID zprávy | ID zprávy AS2 ze záhlaví zprávy AS2 |
-| časové razítko | Čas, kdy akce AS2 zpracována zprávy |
+| Časové razítko | Čas, kdy akce AS2 zpracována zprávy |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -168,8 +168,8 @@ Tady jsou formáty názvu pro každou složku zpráva stažené AS2 a soubory.
 
 | Složka nebo soubor | Formát názvu |
 | :------------- | :---------- |
-| Složka zpráv | [odesílatele] \_[příjemce]\_AS2\_[ID korelace]\_[ID zprávy]\_[časové razítko] |
-| Vstupní, výstupní a v případě nastavení, potvrzení soubory | **Datová část vstupního**: [odesílatele]\_[příjemce]\_AS2\_[ID korelace]\_input_payload.txt </p>**Výstupní datové**: [odesílatele]\_[příjemce]\_AS2\_[ID korelace]\_výstup\_payload.txt </p></p>**Vstupy**: [odesílatele]\_[příjemce]\_AS2\_[ID korelace]\_inputs.txt </p></p>**Výstupy**: [odesílatele]\_[příjemce]\_AS2\_[ID korelace]\_outputs.txt |
+| Složka zpráv | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
+| Vstupní, výstupní a v případě nastavení, potvrzení soubory | **Input payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
@@ -181,7 +181,7 @@ Zde je uveden popis vlastnost pro každý X12 zprávy.
 | Vlastnost | Popis |
 | --- | --- |
 | Odesílatel | Partnerovi hosta zadaný v **přijímat nastavení**, nebo hostitele partnera zadaný v **odeslat nastavení** pro X12 smlouvy |
-| Příjemce | Hostitele partnera, zadaný v **přijímat nastavení**, nebo partnera hosta zadaný v **odeslat nastavení** pro X12 smlouvy |
+| Receiver | Hostitele partnera, zadaný v **přijímat nastavení**, nebo partnera hosta zadaný v **odeslat nastavení** pro X12 smlouvy |
 | Aplikace logiky | Aplikace logiky kde X12 jsou nastavení akce |
 | Status | X12 zprávy stav <br>Úspěch = přijatých nebo odeslaných platný X12 zprávy. Je nastavený žádný funkční potvrzení. <br>Úspěch = přijatých nebo odeslaných platný X12 zprávy. Funkční potvrzení se nastavení služby a přijímají nebo odesílání funkční potvrzení. <br>Se nezdařilo = přijatých nebo odeslaných neplatný X12 zprávy. <br>Čekající = přijatých nebo odeslaných platný X12 zprávy. Funkční potvrzení nastavení a funkční potvrzení se očekává. |
 | Potvrzení | Funkční stav Ack (997) <br>Přijatá = přijatých nebo odeslaných kladné funkční ack. <br>Odmítl = přijatých nebo odeslaných záporné funkční ack. <br>Čekající na vyřízení = očekává funkční potvrzení, ale nebyl přijat. <br>Čekající na vyřízení = generované funkční potvrzení, ale nelze odeslat na partnera. <br>Není vyžadována = funkčnosti ack není nastaven. |
@@ -190,7 +190,7 @@ Zde je uveden popis vlastnost pro každý X12 zprávy.
 | Msg typu | Typ EDI X 12 zprávy |
 | ICN | Číslo řízení Interchange X12 zpráv |
 | TSCN | Transakce nastavit číslo ovládací prvek pro X12 zpráv |
-| časové razítko | Čas při X12 akci zpracovat zprávu |
+| Časové razítko | Čas při X12 akci zpracovat zprávu |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -201,8 +201,8 @@ Tady jsou formáty názvu pro každý stáhnout X12 složky a soubory zpráv.
 
 | Složka nebo soubor | Formát názvu |
 | :------------- | :---------- |
-| Složka zpráv | [odesílatele] \_[příjemce]\_X12\_[číslo datového přenosu řízení]\_[globální – ovládací prvek číslo]\_[transakce set řízení number]\_[časové razítko] |
-| Vstupní, výstupní a v případě nastavení, potvrzení soubory | **Datová část vstupního**: [odesílatele]\_[příjemce]\_X12\_[číslo datového přenosu řízení]\_input_payload.txt </p>**Výstupní datové**: [odesílatele]\_[příjemce]\_X12\_[číslo datového přenosu řízení]\_výstup\_payload.txt </p></p>**Vstupy**: [odesílatele]\_[příjemce]\_X12\_[číslo datového přenosu řízení]\_inputs.txt </p></p>**Výstupy**: [odesílatele]\_[příjemce]\_X12\_[číslo datového přenosu řízení]\_outputs.txt |
+| Složka zpráv | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
+| Vstupní, výstupní a v případě nastavení, potvrzení soubory | **Input payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
@@ -214,7 +214,7 @@ Tady jsou popisy vlastností pro každou zprávu EDIFACT.
 | Vlastnost | Popis |
 | --- | --- |
 | Odesílatel | Partnerovi hosta zadaný v **přijímat nastavení**, nebo hostitele partnera zadaný v **odeslat nastavení** pro smlouvy EDIFACT |
-| Příjemce | Hostitele partnera, zadaný v **přijímat nastavení**, nebo partnera hosta zadaný v **odeslat nastavení** pro smlouvy EDIFACT |
+| Receiver | Hostitele partnera, zadaný v **přijímat nastavení**, nebo partnera hosta zadaný v **odeslat nastavení** pro smlouvy EDIFACT |
 | Aplikace logiky | Aplikace logiky, kde se nastaví EDIFACT akce |
 | Status | Stav zpráv EDIFACT <br>Úspěch = přijatých nebo odeslaných zprávu platný EDIFACT. Je nastavený žádný funkční potvrzení. <br>Úspěch = přijatých nebo odeslaných zprávu platný EDIFACT. Funkční potvrzení se nastavení služby a přijímají nebo odesílání funkční potvrzení. <br>Se nezdařilo = přijatých nebo odeslaných neplatná zpráva EDIFACT <br>Čekající = přijatých nebo odeslaných zprávu platný EDIFACT. Funkční potvrzení nastavení a funkční potvrzení se očekává. |
 | Potvrzení | Funkční stav Ack (997) <br>Přijatá = přijatých nebo odeslaných kladné funkční ack. <br>Odmítl = přijatých nebo odeslaných záporné funkční ack. <br>Čekající na vyřízení = očekává funkční potvrzení, ale nebyl přijat. <br>Čekající na vyřízení = generované funkční potvrzení, ale nelze odeslat na partnera. <br>Není vyžadována = funkční Ack není nastaven. |
@@ -223,7 +223,7 @@ Tady jsou popisy vlastností pro každou zprávu EDIFACT.
 | Msg typu | Typ zprávy EDIFACT |
 | ICN | Ovládací prvek číslo Interchange EDIFACT zprávy |
 | TSCN | Nastavit řízení číslo transakce pro zprávu EDIFACT |
-| časové razítko | Čas, kdy akce EDIFACT zpracována zprávy |
+| Časové razítko | Čas, kdy akce EDIFACT zpracována zprávy |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
@@ -234,11 +234,11 @@ Tady jsou formáty názvu pro každou složku zpráva stažené EDIFACT a soubor
 
 | Složka nebo soubor | Formát názvu |
 | :------------- | :---------- |
-| Složka zpráv | [odesílatele] \_[příjemce]\_EDIFACT\_[číslo datového přenosu řízení]\_[globální – ovládací prvek číslo]\_[transakce set řízení number]\_[časové razítko] |
-| Vstupní, výstupní a v případě nastavení, potvrzení soubory | **Datová část vstupního**: [odesílatele]\_[příjemce]\_EDIFACT\_[číslo datového přenosu řízení]\_input_payload.txt </p>**Výstupní datové**: [odesílatele]\_[příjemce]\_EDIFACT\_[číslo datového přenosu řízení]\_výstup\_payload.txt </p></p>**Vstupy**: [odesílatele]\_[příjemce]\_EDIFACT\_[číslo datového přenosu řízení]\_inputs.txt </p></p>**Výstupy**: [odesílatele]\_[příjemce]\_EDIFACT\_[číslo datového přenosu řízení]\_outputs.txt |
+| Složka zpráv | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
+| Vstupní, výstupní a v případě nastavení, potvrzení soubory | **Input payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Výstupní datové**: [odesílatele]\_[příjemce]\_EDIFACT\_[číslo datového přenosu řízení]\_výstup\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Dotaz pro B2B zprávy v Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Schémata sledování AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

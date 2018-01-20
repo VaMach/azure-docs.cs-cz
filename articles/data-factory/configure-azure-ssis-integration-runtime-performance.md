@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7320b632c7bd623f5a0e67ecd105cf5b263969b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurace modulu Runtime Azure SSIS integrace pro vysoký výkon
 
@@ -26,7 +26,7 @@ Tento článek popisuje postup konfigurace služby Azure SSIS integrace modulu R
 
 Následující část konfigurační skript zobrazuje vlastnosti, které můžete nakonfigurovat při vytváření modulu Runtime integrace Azure SSIS. Dokončení skriptu prostředí PowerShell a popis najdete v tématu [balíčky nasazení SQL Server Integration Services do Azure](tutorial-deploy-ssis-packages-azure.md).
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -42,7 +42,7 @@ $AzureSSISLocation = "EastUS"
 $AzureSSISNodeSize = "Standard_A4_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -60,7 +60,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Verzi public preview služby Azure Data Factory v2, včetně Azure SSIS IR, podporuje následující možnosti:
 -   Standardní\_A4\_v2
--   Standardní\_A8\_v2
+-   Standard\_A8\_v2
 -   Standardní\_D1\_v2
 -   Standardní\_D2\_v2
 -   Standardní\_D3\_v2
@@ -90,7 +90,8 @@ Pokud máte velké balíčky ke spuštění a vám nejvíc záleží celkovou pr
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Pokud už používáte výkonné pracovního uzlu ke spuštění balíčky, zvýšení **AzureSSISMaxParallelExecutionsPerNode** může zvýšit celkovou propustnost integrace modulu runtime. Chcete-li odhadnout odpovídající hodnotu na základě nákladů vašeho balíčku a následující konfigurace pro uzly pracovního procesu. Další informace najdete v tématu [velikostí virtuálních počítačů pro obecné účely](../virtual-machines/windows/sizes-general.md).
+Pokud už používáte výkonné pracovního uzlu ke spuštění balíčky, zvýšení **AzureSSISMaxParallelExecutionsPerNode** může zvýšit celkovou propustnost integrace modulu runtime. Paralelní spuštění 1 – 4 na uzel Standard_D1_v2 uzly jsou podporovány. Pro všechny ostatní typy uzlů jsou podporovány paralelní spuštěních 1 – 8 na každém uzlu.
+Chcete-li odhadnout odpovídající hodnotu na základě nákladů vašeho balíčku a následující konfigurace pro uzly pracovního procesu. Další informace najdete v tématu [velikostí virtuálních počítačů pro obecné účely](../virtual-machines/windows/sizes-general.md).
 
 | Velikost             | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Maximální propustnost dočasného úložiště: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Max. počet síťových karet / Očekávaný výkon sítě (Mb/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -99,7 +100,7 @@ Pokud už používáte výkonné pracovního uzlu ke spuštění balíčky, zvý
 | Standardní\_D3\_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 8 / 8×500                         | 4 / 3 000                                       |
 | Standardní\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16×500                       | 8 / 6 000                                       |
 | Standardní\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8×500                         | 4 / 1 000                                       |
-| Standardní\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16×500                       | 8 / 2 000                                       |
+| Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16×500                       | 8 / 2 000                                       |
 
 Tady najdete pokyny pro nastavení správné hodnoty **AzureSSISMaxParallelExecutionsPerNode** vlastnost: 
 
@@ -120,5 +121,5 @@ Můžete také upravit databázi cenová úroveň na základě [jednotky transak
 ## <a name="design-for-high-performance"></a>Návrh pro vysoký výkon
 Navrhování balíčku služby SSIS ke spuštění na Azure se liší od návrhu balíček pro místní spuštění. Místo kombinace více nezávislých úloh ve stejném balíčku, oddělte je do více balíčků pro více efektivní provádění v infračerveného signálu Azure SSIS. Vytvořte spouštění balíčku pro každý balíček, takže není nutné čekat na Další ukončíte. Tento přístup výhody z škálovatelnost runtime integrace Azure SSIS a zlepšuje celkovou propustnost.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o běhu integrace Azure SSIS. V tématu [Runtime integrace Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).

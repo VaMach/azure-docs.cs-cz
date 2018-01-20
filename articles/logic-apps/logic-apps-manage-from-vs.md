@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ce65ec272c9fe5be8f95371179de092c5df2f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Správa aplikace logiky s cloudu Průzkumníka Visual Studio
 
@@ -31,7 +31,7 @@ Než budete moct přístup a Správa aplikace logiky v sadě Visual Studio, nain
 
 * [Visual Studio 2015 nebo Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [Nejnovější sadu Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 nebo vyšší)
-* [Průzkumník cloudu sady Visual Studio](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)
+* [Visual Studio Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)
 * Přístup k webovému při použití návrháře embedded
 
 ## <a name="install-visual-studio-tools-for-logic-apps"></a>Instalace nástrojů Visual Studio pro Logic Apps
@@ -69,7 +69,7 @@ V Průzkumníku cloudu můžete otevřít aplikace logiky aktuálně nasazená v
 
 * Chcete-li spustit novou spustit, zvolte **spustit aktivační událost**.
 
-![Návrhář aplikace logiky](./media/logic-apps-manage-from-vs/designer.png)
+![Návrhář pro Logic Apps](./media/logic-apps-manage-from-vs/designer.png)
 
 Z návrháře, můžete také **Stáhnout** aplikace logiky. Tato akce automaticky parameterizes definici aplikace logiky a uloží definici jako šablonu nasazení Azure Resource Manager. Tato šablona nasazení můžete přidat do projektu skupiny prostředků Azure.
 
@@ -77,15 +77,15 @@ Z návrháře, můžete také **Stáhnout** aplikace logiky. Tato akce automatic
 
 Chcete-li zobrazit historii spouštění aplikace logiky, klikněte pravým tlačítkem na svou aplikaci logiky a vyberte **historie spouštění otevřete**. Chcete-li změnit pořadí historii spuštění na základě některé vlastnosti zobrazené, vyberte na záhlaví sloupce.
 
-![Historie spouštění](media/logic-apps-manage-from-vs/runs.png)
+![Historie běhů](media/logic-apps-manage-from-vs/runs.png)
 
 Pokud chcete zobrazit historii spouštění instance, můžete zkontrolovat spuštění výsledky, včetně vstupy a výstupy z každého kroku, dvakrát klikněte na jednu z instancí spuštění.
 
 ![Výsledky historie spouštění, vstupy a výstupy z kroků](./media/logic-apps-manage-from-vs/history.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-* [Vytvoření první aplikace logiky](logic-apps-create-a-logic-app.md)
+* [Vytvoření první aplikace logiky](quickstart-create-first-logic-app-workflow.md)
 * [Návrh, vytvoření a nasazení aplikace logiky v sadě Visual Studio](logic-apps-deploy-from-vs.md)
 * [Zobrazení běžných příkladů a scénářů](logic-apps-examples-and-scenarios.md).
 * [Video: Automatizovat firemní procesy službou Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)

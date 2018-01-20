@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 71c73f034a3c32c9bdf1532106a3aba9521afb17
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1988d293c78e7fb51f08d040ab96a6d7a3abbb87
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Kopírování dat z hranaté pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke odmocnina konektoru.
 
@@ -48,7 +48,7 @@ Odmocnina propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **hranaté** | Ano |
-| hostitel | Adresa URL odmocnina instance. (tj. mystore.mysquare.com)  | Ano |
+| hostitel | Adresa URL odmocnina instance. (i.e. mystore.mysquare.com)  | Ano |
 | clientId | ID klienta přidružené odmocnina aplikace.  | Ano |
 | clientSecret | Tajný klíč klienta přidružené odmocnina aplikace. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | redirectUri | Adresa URL pro přesměrování přiřazené v řídicím panelu odmocnina aplikace. (tj. http://localhost:2500)  | Ano |

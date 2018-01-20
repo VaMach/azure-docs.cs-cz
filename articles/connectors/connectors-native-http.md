@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Začínáme s akce HTTP
 
@@ -30,7 +30,7 @@ Můžete:
 * Vytvořte logiku aplikace pracovní postupy, které aktivovat (aktivační události), kdy web, který spravujete přestane fungovat.
 * Komunikovat s žádný koncový bod přes protokol HTTP rozšířit vaše pracovní postupy k dalším službám.
 
-Chcete-li začít používat akce HTTP v aplikaci logiky, přečtěte si téma [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li začít používat akce HTTP v aplikaci logiky, přečtěte si téma [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-trigger"></a>Pomocí triggeru protokolu HTTP
 Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu, který je definován v aplikaci logiky. [Další informace o aktivační události](connectors-overview.md).
@@ -107,24 +107,24 @@ Tady jsou uvedené podrobnosti pro akci, která tento konektor podporuje. Konekt
 ## <a name="http-details"></a>Podrobnosti protokolu HTTP
 Následující tabulky popisují požadované a volitelné vstupních polí pro akce a odpovídající výstup podrobnosti, které jsou spojené s použitím akce.
 
-#### <a name="http-request"></a>Požadavek HTTP
+#### <a name="http-request"></a>Požadavek protokolu HTTP
 Níže jsou uvedeny vstupních polí pro akce, která umožňuje odchozí požadavku HTTP.
 A * znamená, že je povinné pole.
 
 | Zobrazované jméno | Název vlastnosti | Popis |
 | --- | --- | --- |
-| Metoda * |– Metoda |Příkaz protokolu HTTP k použití |
-| IDENTIFIKÁTOR URI * |identifikátor URI |Identifikátor URI pro požadavek HTTP |
-| Záhlaví |Záhlaví |Objekt JSON zahrnují hlaviček protokolu HTTP |
-| Tělo |Text |Požadavek HTTP |
+| Metoda * |metoda |Příkaz protokolu HTTP k použití |
+| IDENTIFIKÁTOR URI * |identifikátor uri |Identifikátor URI pro požadavek HTTP |
+| Záhlaví |hlavičky |Objekt JSON zahrnují hlaviček protokolu HTTP |
+| Tělo |hlavní část |Požadavek HTTP |
 | Authentication |Ověřování |Podrobnosti v [ověřování](#authentication) části |
 
 <br>
 
-#### <a name="output-details"></a>Podrobnosti o výstupu
+#### <a name="output-details"></a>Podrobnosti výstupu
 Níže jsou uvedeny podrobnosti výstup pro odpověď HTTP.
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
 | Záhlaví |Objekt |Hlavičky odpovědi |
 | Tělo |Objekt |Objekt odpovědi |
@@ -142,17 +142,17 @@ Funkce Logic Apps umožňuje používat různé typy ověřování proti koncov�
 Následující objekt ověřování je potřeba pro základní ověřování.
 A * znamená, že je povinné pole.
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
-| Typ * |type |Typ ověřování (musí být `Basic` pro základní ověřování) |
-| Uživatelské jméno * |uživatelské jméno |Uživatelské jméno k ověření |
+| Type* |type |Typ ověřování (musí být `Basic` pro základní ověřování) |
+| Username* |uživatelské jméno |Uživatelské jméno k ověření |
 | Heslo * |heslo |Heslo k ověření |
 
 > [!TIP]
 > Pokud chcete použít heslo, které nelze načíst z definice, použití `securestring` parametr a `@parameters()`  
 >  [funkce definice pracovního postupu](http://aka.ms/logicappdocs).
 
-Například:
+Příklad:
 
 ```javascript
 {
@@ -166,17 +166,17 @@ Například:
 
 Následující objekt ověřování je potřeba pro ověřování pomocí certifikátu klienta. A * znamená, že je povinné pole.
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
-| Typ * |type |Typ ověřování (musí být `ClientCertificate` pro klientské certifikáty SSL) |
-| SOUBOR PFX * |Soubor PFX |Obsah kódováním Base64 soubor Personal Information Exchange (PFX) |
+| Type* |type |Typ ověřování (musí být `ClientCertificate` pro klientské certifikáty SSL) |
+| PFX* |pfx |Obsah kódováním Base64 soubor Personal Information Exchange (PFX) |
 | Heslo * |heslo |Heslo pro přístup k souboru PFX |
 
 > [!TIP]
 > Chcete-li použít parametr, který nebude možné číst v definici po uložení aplikaci logiky, můžete použít `securestring` parametr a `@parameters()`  
 >  [funkce definice pracovního postupu](http://aka.ms/logicappdocs).
 
-Například:
+Příklad:
 
 ```javascript
 {
@@ -189,20 +189,20 @@ Například:
 #### <a name="azure-ad-oauth-authentication"></a>Ověřování služby Azure AD OAuth
 Následující objekt ověřování je potřeba pro ověřování Azure AD OAuth. A * znamená, že je povinné pole.
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
-| Typ * |type |Typ ověřování (musí být `ActiveDirectoryOAuth` pro Azure AD OAuth) |
-| Klienta * |Klienta |Identifikátor klienta pro klienta Azure AD |
-| Cílová skupina * |Cílová skupina |Prostředek se požaduje autorizaci používat. Příklad: `https://management.core.windows.net/` |
+| Type* |type |Typ ověřování (musí být `ActiveDirectoryOAuth` pro Azure AD OAuth) |
+| Tenant* |tenant |Identifikátor klienta pro klienta Azure AD |
+| Audience* |Cílová skupina |Prostředek se požaduje autorizaci používat. Příklad: `https://management.core.windows.net/` |
 | Klient ID * |clientId |Identifikátor klienta pro aplikaci Azure AD |
-| Tajný klíč * |tajný klíč |Tajný klíč klienta, který požaduje tokenu |
+| Tajný klíč * |Tajný kód |Tajný klíč klienta, který požaduje tokenu |
 
 > [!TIP]
 > Můžete použít `securestring` parametr a `@parameters()` [funkce definice pracovního postupu](http://aka.ms/logicappdocs) použít parametr, který nebude možné číst v definici po uložení.
 > 
 > 
 
-Například:
+Příklad:
 
 ```javascript
 {
@@ -214,6 +214,6 @@ Například:
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
-Teď vyzkoušet platformu a [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). Ostatní konektory k dispozici v Logic Apps můžete prozkoumat pohledem na našem [rozhraní API seznamu](apis-list.md).
+## <a name="next-steps"></a>Další postup
+Teď vyzkoušet platformu a [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). Ostatní konektory k dispozici v Logic Apps můžete prozkoumat pohledem na našem [rozhraní API seznamu](apis-list.md).
 

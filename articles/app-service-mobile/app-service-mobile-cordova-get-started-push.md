@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Přidání nabízených oznámení do vaší aplikace Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Spusťte následující příkaz:
 
 2. Klikněte na šipku vedle zdroje instalace.
 3. V **SENDER_ID**, pokud již máte ID číselné projektu pro projekt vývojářské konzole Google, můžete přidat sem. Jinak zadejte hodnotu zástupného symbolu, jako je 777777.  Pokud cílíte na Android, můžete je aktualizovat tuto hodnotu v config.xml později.
+     Všimněte si, že od verze 2.0.0 SENDER_ID byl odebrán z instalace čas a google services.json musí být nainstalovaný v kořenové složce projektu.  Další podrobnosti najdete v části [sem.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 4. Klikněte na tlačítko **Add** (Přidat).
 
 Modul plug-in nabízené je nyní nainstalován.

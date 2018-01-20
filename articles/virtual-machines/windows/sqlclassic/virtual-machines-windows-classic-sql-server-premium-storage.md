@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Použití Azure Premium Storage s SQL Serverem na virtuálních počítačích
 ## <a name="overview"></a>Přehled
@@ -119,7 +119,7 @@ Pro každý disk použijte následující postup:
 
 1. Získání seznamu disky připojené k virtuálnímu počítači s **Get-AzureVM** příkaz:
 
-    Get-AzureVM - ServiceName <servicename> -název <vmname> | Get-AzureDataDisk
+    Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 2. Poznamenejte si Diskname a logické jednotky.
 
     ![DisknameAndLUN][2]
@@ -270,7 +270,7 @@ Tento scénář předvádí, kdy máte existující přizpůsobené bitové kopi
 
 
 #### <a name="step-3-use-existing-image"></a>Krok 3: Použití existující bitová kopie
-Můžete použít stávající image. Nebo můžete [trvat image existujícího počítače](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Poznámka: Tento počítač je obrázek nemá být DS * počítače. Až budete mít bitovou kopii, následující kroky ukazují, jak ho zkopírujte do účet úložiště Premium se **Start-AzureStorageBlobCopy** prostředí PowerShell.
+Můžete použít stávající image. Nebo můžete [trvat image existujícího počítače](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Poznámka: Tento počítač je obrázek nemá být DS * počítače. Až budete mít bitovou kopii, následující kroky ukazují, jak ho zkopírujte do účet úložiště Premium se **Start-AzureStorageBlobCopy** prostředí PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -549,13 +549,13 @@ Tento scénář předpokládá, že budete mít zdokumentovaný instalaci vaší
 Zbývající část tohoto tématu poskytuje podrobný příklad převodu vždy na cluster více lokalit do úložiště úrovně Premium. Převede také naslouchací proces pomocí externím vyrovnáváním zatížení (ELB) vyrovnávání interní zatížení (ILB).
 
 ### <a name="environment"></a>Prostředí
-* Windows 2k 12 / SQL 2k 12
+* Windows 2k12 / SQL 2k12
 * 1 DB soubory na SP
 * 2 x fondy úložiště na každý uzel
 
 ![Appendix1][11]
 
-### <a name="vm"></a>VIRTUÁLNÍ POČÍTAČ:
+### <a name="vm"></a>VM:
 V tomto příkladu přidáme k předvedení přesunutí ze ELB ILB. Režim Manageout nebylo k dispozici před ILB, takže to ukazuje, jak přepnout na to během migrace.
 
 ![Appendix2][12]
@@ -1095,7 +1095,7 @@ Chcete-li přidat IP adresu, přečtěte si téma [příloha](#appendix-migratin
 
     ![Appendix15][25]
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 * [Azure Premium Storage](../premium-storage.md)
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 * [Systému SQL Server na virtuálních počítačích Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)

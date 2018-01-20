@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Připojit k místní systémy souborů z aplikace logiky s konektorem systému souborů
 
@@ -30,7 +30,7 @@ Spravovat data a bezpečný přístup k místním prostředkům, můžete použ�
 
 * Nainstalujte a nastavte si nejnovější místní brána data gateway, verze 1.15.6150.1 nebo vyšší. Pokyny najdete v tématu [připojit ke zdrojům dat místně](http://aka.ms/logicapps-gateway). Než budete pokračovat v těchto krocích, je nutné nainstalovat bránu na místní počítač.
 
-* Základní znalosti o [postup vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
+* Základní znalosti o [postup vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Přidání aktivační události a akcí pro připojení k systému souborů
 
@@ -79,16 +79,16 @@ Blahopřejeme, nyní máte pracovní aplikace logiky, která může připojit k 
 
 Zkuste zkoumat další funkce, které nabízí konektor, například:
 
-- Vytvoření souboru
+- Vytvořit soubor
 - Zobrazit seznam souborů ve složce
-- Připojení souboru
+- Připojit soubor
 - Odstranit soubor
 - Získat obsah souboru
 - Získat obsah souboru pomocí cesty
 - Získat metadata souboru
 - Získat metadata souboru pomocí cesty
 - Zobrazit seznam souborů v kořenové složce
-- Soubor aktualizace
+- Aktualizovat soubor
 
 ## <a name="view-the-swagger"></a>Zobrazení swagger
 
@@ -100,7 +100,7 @@ Najdete v článku [swagger podrobnosti](/connectors/fileconnector/).
 
 * K vylepšení Azure Logic Apps a konektory, hlasovat o nebo odeslání nápadů na [Azure Logic Apps User Voice lokality](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Připojení k místním datům](../logic-apps/logic-apps-gateway-connection.md) 
 * [Monitorování aplikací logiky](../logic-apps/logic-apps-monitor-your-logic-apps.md)

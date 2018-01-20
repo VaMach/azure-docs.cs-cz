@@ -5,23 +5,23 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/18/2017
+ms.date: 01/19/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Směrování událostí služby Blob Storage do vlastního webového koncového bodu (Preview)
 
 Azure Event Grid je služba zpracování událostí pro cloud. V tomto článku se pomocí Azure CLI přihlásíte k odběru událostí služby Blob Storage a aktivujete událost, abyste viděli výsledek. 
 
-Obvykle odesíláte události do koncového bodu, který na událost reaguje například webhookem nebo funkcí Azure Functions. Pro zjednodušení příkladu v tomto článku budeme události odesílat na adresu URL, která jenom shromažďuje zprávy. Tuto adresu URL vytvoříte pomocí open source nástroje třetí strany [RequestBin](https://requestb.in/).
+Obvykle odesíláte události do koncového bodu, který na událost reaguje například webhookem nebo funkcí Azure Functions. Pro zjednodušení příkladu v tomto článku budeme události odesílat na adresu URL, která jenom shromažďuje zprávy. Vytvořit tuto adresu URL pomocí nástroje open source, třetích stran názvem [RequestBin](https://requestb.in/).
 
 > [!NOTE]
-> **RequestBin** je open source nástroj, který není určený pro použití vyžadující vysokou propustnost. Zde uvedené použití tohoto nástroje je čistě demonstrativní. Pokud najednou nabídnete více než jednu událost, možná se v nástroji nezobrazí všechny.
+> **RequestBin** je otevřený nástroj, který není určen pro použití vysoké propustnosti. Zde uvedené použití tohoto nástroje je čistě demonstrativní. Pokud najednou nabídnete více než jednu událost, možná se v nástroji nezobrazí všechny.
 
 Po dokončení kroků popsaných v tomto článku uvidíte, že se data událostí odeslala do koncového bodu.
 
@@ -31,7 +31,7 @@ Po dokončení kroků popsaných v tomto článku uvidíte, že se data událost
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, pro účely tohoto článku musíte používat nejnovější verzi Azure CLI (2.0.14 nebo novější). Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli).
+Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, v tomto článku vyžaduje, že používáte nejnovější verzi rozhraní příkazového řádku Azure (2.0.24 nebo novější). Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Pokud nepoužíváte cloudové prostředí, musíte se nejdřív přihlásit pomocí `az login`.
 
@@ -70,20 +70,19 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Vytvoření koncového bodu zpráv
 
-Před přihlášením k odběru událostí z účtu služby Blob Storage vytvoříme koncový bod pro zprávy události. Místo psaní kódu, který by na událost reagoval, vytvoříme koncový bod, který bude shromažďovat zprávy, abyste je mohli zobrazit. RequestBin je open source nástroj třetí strany, který umožňuje vytvořit koncový bod a zobrazit požadavky, které se do něj odesílají. Přejděte na web [RequestBin](https://requestb.in/) a klikněte na **Create a RequestBin** (Vytvořit přihrádku žádostí).  Zkopírujte adresu URL přihrádky, protože ji budete potřebovat při přihlašování k odběru tématu.
+Před přihlášením k odběru událostí z účtu služby Blob Storage vytvoříme koncový bod pro zprávy události. Místo psaní kódu, který by na událost reagoval, vytvoříme koncový bod, který bude shromažďovat zprávy, abyste je mohli zobrazit. RequestBin je nástroj open source, třetí strany, který umožňuje vytvořit koncový bod a zobrazit požadavků, které jsou do ní poslané. Přejděte na web [RequestBin](https://requestb.in/) a klikněte na **Create a RequestBin** (Vytvořit přihrádku žádostí).  Zkopírujte adresu URL přihrádky, protože ji budete potřebovat při přihlašování k odběru tématu.
 
 ## <a name="subscribe-to-your-blob-storage-account"></a>Přihlášení k odběru účtu služby Blob Storage
 
 K odběru tématu se přihlašujete, aby služba Event Grid věděla, které události chcete sledovat. Následující příklad se přihlásí k odběru účtu služby Blob Storage, který jste vytvořili, a předá adresu URL z nástroje RequestBin jako koncový bod pro oznámení události. Nahraďte `<event_subscription_name>` jedinečným názvem vašeho odběru událostí a `<URL_from_RequestBin>` hodnotou adresy URL z nástroje RequestBin z předchozí části. Díky zadání koncového bodu při přihlašování k odběru bude služba Event Grid zpracovávat směrování událostí do tohoto koncového bodu. Místo `<resource_group_name>` a `<storage_account_name>` použijte hodnoty názvu skupiny prostředků a názvu účtu úložiště, které jste vytvořili dříve. 
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create \
---endpoint <URL_from_RequestBin> \
---name <event_subscription_name> \
---provider-namespace Microsoft.Storage \
---resource-type storageAccounts \
---resource-group <resource_group_name> \
---resource-name <storage_account_name>
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Aktivace události ze služby Blob Storage
@@ -122,7 +121,9 @@ Právě jste aktivovali událost a služba Event Grid odeslala zprávu do koncov
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 
 ```
@@ -136,7 +137,7 @@ Nahraďte `<resource_group_name>` názvem skupiny prostředků, kterou jste vytv
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Když teď víte, jak vytvářet témata a odběry událostí, zjistěte více o událostech služby Blob Storage a s čím vám služba Event Grid ještě může pomoct:
 

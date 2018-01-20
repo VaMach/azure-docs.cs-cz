@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8795687c002282b68ebd1a4fa3fe18a9b102af4a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Přehled integrace enterprise s plochých souborů
 
-Můžete se ke kódování obsahu XML před jejím odesláním obchodním partnerům ve scénáři business-to-business (B2B). V aplikaci logiky můžete k tomu plochý soubor kódování konektor. Aplikace logiky, který vytvoříte může získat jeho XML obsah z různých zdrojů, včetně aktivační procedury pro požadavek HTTP, z jiné aplikace nebo dokonce od dalších [konektory](../connectors/apis-list.md). Další informace o aplikacích logiky najdete v tématu [dokumentaci aplikace logiky](logic-apps-what-are-logic-apps.md "Další informace o aplikacích logiky").  
+Můžete se ke kódování obsahu XML před jejím odesláním obchodním partnerům ve scénáři business-to-business (B2B). V aplikaci logiky můžete k tomu plochý soubor kódování konektor. Aplikace logiky, který vytvoříte může získat jeho XML obsah z různých zdrojů, včetně aktivační procedury pro požadavek HTTP, z jiné aplikace nebo dokonce od dalších [konektory](../connectors/apis-list.md). Další informace o aplikacích logiky najdete v tématu [dokumentaci aplikace logiky](logic-apps-overview.md "Další informace o aplikacích logiky").  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>Vytvořit plochý soubor kódování konektoru
 Postupujte podle těchto kroků přidejte plochý soubor kódování konektoru pro svou aplikaci logiky.
@@ -82,6 +82,6 @@ V tomto okamžiku jste dokončili nastavení plochého souboru dekódování kon
 
 Nyní můžete otestovat váš konektor tím, že požadavek na koncový bod HTTP a včetně obsah XML, který chcete dekódovat v textu požadavku.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Další informace o integračního balíčku Enterprise](logic-apps-enterprise-integration-overview.md "Další informace o Enterprise integračního balíčku").  
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Začínáme s akce dotazu
 Pomocí akce dotazu, můžete pracovat se dávek a aby provést pracovní postupy pro pole:
@@ -27,7 +27,7 @@ Pomocí akce dotazu, můžete pracovat se dávek a aby provést pracovní postup
 * Vytvořte úlohu pro všechny záznamy s vysokou prioritou z databáze.
 * Uložte všechny přílohy PDF pro e-mailů do objektu blob Azure.
 
-Chcete-li začít používat akce dotazu v aplikaci logiky, přečtěte si téma [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li začít používat akce dotazu v aplikaci logiky, přečtěte si téma [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Pomocí akce dotazu
 Akce je operace, která se provádí v pracovním postupu, který je definován v aplikaci logiky. [Další informace o akcích](connectors-overview.md).  
@@ -56,29 +56,29 @@ Tady jsou uvedené podrobnosti pro akci, která tento konektor podporuje. Konekt
 
 | Akce | Popis |
 | --- | --- |
-| Pole filtru |Vyhodnocuje podmínku pro každou položku v pole a vrátí výsledky |
+| Filtrovat pole |Vyhodnocuje podmínku pro každou položku v pole a vrátí výsledky |
 
-## <a name="action-details"></a>Podrobnosti akce
+## <a name="action-details"></a>Detaily akce
 Akce dotazu obsahuje jednu možné akci. Následující tabulky popisují požadované a volitelné vstupních polí pro akce a odpovídající výstup podrobnosti, které jsou spojené s použitím akce.
 
-### <a name="filter-array"></a>Pole filtru
+### <a name="filter-array"></a>Filtrovat pole
 Níže jsou uvedeny vstupních polí pro akce, která umožňuje odchozí požadavku HTTP.
 A * znamená, že je povinné pole.
 
 | Zobrazované jméno | Název vlastnosti | Popis |
 | --- | --- | --- |
-| Z * |Z |Pole pro filtrování |
+| Z * |od |Pole pro filtrování |
 | Podmínka * |kde |Podmínku, která má vyhodnotit pro každou položku |
 
 <br>
 
-### <a name="output-details"></a>Podrobnosti o výstupu
+### <a name="output-details"></a>Podrobnosti výstupu
 Níže jsou uvedeny podrobnosti výstup pro odpověď HTTP.
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
-| Filtrované pole |Pole |Pole, které obsahuje objekt pro každý filtrované výsledek |
+| Filtrované pole |pole |Pole, které obsahuje objekt pro každý filtrované výsledek |
 
-## <a name="next-steps"></a>Další kroky
-Teď vyzkoušet platformu a [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). Ostatní konektory k dispozici v aplikace logiky můžete prozkoumat pohledem na našem [rozhraní API seznamu](apis-list.md).
+## <a name="next-steps"></a>Další postup
+Teď vyzkoušet platformu a [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). Ostatní konektory k dispozici v aplikace logiky můžete prozkoumat pohledem na našem [rozhraní API seznamu](apis-list.md).
 

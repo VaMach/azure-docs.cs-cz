@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Přesunutí ze služby BizTalk Services Logic Apps
 
@@ -39,7 +39,7 @@ Následující tabulka obsahuje mapování funkcí služby BizTalk Services na L
 
 | BizTalk Services   | Logic Apps            | Účel                  |
 | ------------------ | --------------------- | ---------------------------- |
-| konektor          | konektor             | Odesílání a příjmu dat   |
+| Konektor          | Konektor             | Odesílání a příjmu dat   |
 | Most             | Aplikace logiky             | Procesor kanálu           |
 | Ověření fáze     | Ověření XML akce      | Ověření dokument XML pro schéma.             |
 | Zlepšit komunikaci oddělení fáze       | Tokeny dat      | Povyšte vlastnosti do zprávy nebo pro rozhodnutí o směrování             |
@@ -126,6 +126,6 @@ Služba Logic Apps poskytuje bohatší sledování a monitorování funkcí v [p
 K dosažení vysoké dostupnosti (HA) ve službě BizTalk Services, můžete použít více než jedna instance v dané oblasti sdílení zatížení. S logic apps v oblasti HA je integrovaný a dodává bez dalších poplatků. Pro zotavení po havárii na více systémů oblast pro zpracování B2B ve službě BizTalk Services se vyžaduje procesu zálohování a obnovení. V Logic Apps, mezi oblastmi aktivní/pasivní [možnost zotavení po Havárii](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) je poskytována – což umožňuje synchronizace dat B2B mezi účty pro integraci v různých oblastech pro kontinuitu podnikových procesů.
 
 ## <a name="next"></a>Další
-* [Co je služba Logic Apps?](logic-apps-what-are-logic-apps.md)
-* [Vytvořte první aplikaci logiky](logic-apps-create-a-logic-app.md) nebo můžete rychle začít pomocí [předem připravené šablony](logic-apps-create-logic-apps-from-templates.md).  
+* [Co je služba Logic Apps?](logic-apps-overview.md)
+* [Vytvořte první aplikaci logiky](quickstart-create-first-logic-app-workflow.md) nebo můžete rychle začít pomocí [předem připravené šablony](logic-apps-create-logic-apps-from-templates.md).  
 * [Prohlédněte si všechny dostupné konektory](../connectors/apis-list.md), které můžete použít v aplikaci logiky.

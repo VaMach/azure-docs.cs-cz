@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Vytvořte vlastní rozhraní API, která můžete volat z pracovních aplikace logiky
 
@@ -31,7 +31,7 @@ I když Azure Logic Apps nabízí [100 + předdefinované konektory](../connecto
 
 V podstatě, konektory jsou webové rozhraní API, která pomocí REST pro modulární rozhraní [formátu metadat Swagger](http://swagger.io/specification/) na dokumentaci a formát JSON jako jejich formát dat systému exchange. Vzhledem k tomu, že konektory jsou rozhraní REST API, které komunikují prostřednictvím koncových bodů protokolu HTTP, můžete použít žádný jazyk, jako je rozhraní .NET, Java nebo Node.js, pro tvorbu konektorů. Vaše rozhraní API je také možné hostovat na [Azure App Service](../app-service/app-service-web-overview.md), platformy jako služba (PaaS) nabídka, která jedním ze způsobů nejlepší, nejjednodušší a nejvíce škálovatelným poskytuje pro hostování rozhraní API. 
 
-Pro vlastní rozhraní API pro práci s logic apps, může být vaše rozhraní API [ *akce* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) které provádějí konkrétní úlohy v pracovních postupech logiku aplikace. Rozhraní API se mohou chovat i jako [ *aktivační událost* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) , spustí pracovní postup aplikace logiky, pokud nová data nebo událost splňuje zadanou podmínku. Toto téma popisuje běžných vzorů, které můžete provést pro tvorbu akce a aktivační události v rozhraní API, na základě chování, které chcete poskytnout rozhraní API.
+Pro vlastní rozhraní API pro práci s logic apps, může být vaše rozhraní API [ *akce* ](./logic-apps-overview.md#logic-app-concepts) které provádějí konkrétní úlohy v pracovních postupech logiku aplikace. Rozhraní API se mohou chovat i jako [ *aktivační událost* ](./logic-apps-overview.md#logic-app-concepts) , spustí pracovní postup aplikace logiky, pokud nová data nebo událost splňuje zadanou podmínku. Toto téma popisuje běžných vzorů, které můžete provést pro tvorbu akce a aktivační události v rozhraní API, na základě chování, které chcete poskytnout rozhraní API.
 
 Vaše rozhraní API můžete hostovat na [Azure App Service](../app-service/app-service-web-overview.md), platformy jako služba (PaaS) nabídka, která nabízí vysoce škálovatelnou a snadno hostování rozhraní API.
 
@@ -73,7 +73,7 @@ Mnoho knihovny jako [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle
 
 ## <a name="action-patterns"></a>Vzory akce
 
-Pro aplikace logiky k provádění úloh, by měl poskytovat vlastního rozhraní API [ *akce*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Každé operace v rozhraní API se mapuje na akci. Základní akce je kontroler, který přijímá požadavky protokolu HTTP a vrátí odpovědi HTTP. Aplikace logiky, například odešle požadavek HTTP pro webovou aplikaci nebo aplikaci API. Aplikace pak vrátí odpověď HTTP spolu s obsahem, který dokáže zpracovat aplikaci logiky.
+Pro aplikace logiky k provádění úloh, by měl poskytovat vlastního rozhraní API [ *akce*](./logic-apps-overview.md#logic-app-concepts). Každé operace v rozhraní API se mapuje na akci. Základní akce je kontroler, který přijímá požadavky protokolu HTTP a vrátí odpovědi HTTP. Aplikace logiky, například odešle požadavek HTTP pro webovou aplikaci nebo aplikaci API. Aplikace pak vrátí odpověď HTTP spolu s obsahem, který dokáže zpracovat aplikaci logiky.
 
 Pro standardní akci můžete napsat metodu požadavku HTTP v rozhraní API a popisují dané metody v souboru Swagger. Potom můžete volat rozhraní API přímo pomocí [akce HTTP](../connectors/connectors-native-http.md) nebo [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) akce. Ve výchozím nastavení, musí být odpovědi vrácené v rámci [časový limit požadavku](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Pro tento vzor nastavit dva koncové body na vašem řadiči: `subscribe` a`unsu
 
 ## <a name="trigger-patterns"></a>Vzory aktivační události
 
-Vlastního rozhraní API může fungovat jako [ *aktivační událost* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) , spustí aplikace logiky, pokud nová data nebo událost splňuje zadanou podmínku. Této aktivační události můžete buď, pravidelně kontrolovat, nebo počkejte a naslouchat pro nová data nebo události na váš koncový bod služby. Pokud nová data nebo událost splňuje zadanou podmínku, aktivační událost se aktivuje a spustí aplikaci logiky, která naslouchá k této aktivační události. Při spuštění aplikace logiky tímto způsobem můžete postupujte vaše rozhraní API [ *cyklického dotazování aktivační událost* ](#polling-triggers) nebo [ *aktivační události webhooku* ](#webhook-triggers) vzor. Tyto vzory jsou podobné svým pro [dotazování akce](#async-pattern) a [akce webhooku](#webhook-actions). Také další informace o [měření využití pro aktivační procedury](logic-apps-pricing.md).
+Vlastního rozhraní API může fungovat jako [ *aktivační událost* ](./logic-apps-overview.md#logic-app-concepts) , spustí aplikace logiky, pokud nová data nebo událost splňuje zadanou podmínku. Této aktivační události můžete buď, pravidelně kontrolovat, nebo počkejte a naslouchat pro nová data nebo události na váš koncový bod služby. Pokud nová data nebo událost splňuje zadanou podmínku, aktivační událost se aktivuje a spustí aplikaci logiky, která naslouchá k této aktivační události. Při spuštění aplikace logiky tímto způsobem můžete postupujte vaše rozhraní API [ *cyklického dotazování aktivační událost* ](#polling-triggers) nebo [ *aktivační události webhooku* ](#webhook-triggers) vzor. Tyto vzory jsou podobné svým pro [dotazování akce](#async-pattern) a [akce webhooku](#webhook-actions). Také další informace o [měření využití pro aktivační procedury](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -170,8 +170,8 @@ Zde jsou konkrétní kroky pro aktivační událost dotazování, popsané z hle
 
 | Najít nová data nebo událost?  | Odpověď rozhraní API | 
 | ------------------------- | ------------ |
-| Najít | Vrátí HTTP `200 OK` stav s datovou část odpovědi (vstup pro další krok). <br/>Tato odezva vytvoří instanci aplikace logiky a spustí pracovní postup. | 
-| Nebyl nalezen | Vrátí HTTP `202 ACCEPTED` stavu `location` záhlaví a `retry-after` záhlaví. <br/>Pro aktivační události `location` záhlaví by obsahovat také `triggerState` parametr dotazu, který je obvykle "razítka". Rozhraní API můžete použít tento identifikátor ke sledování posledního byla aktivována aplikaci logiky. | 
+| Nalezeno | Vrátí HTTP `200 OK` stav s datovou část odpovědi (vstup pro další krok). <br/>Tato odezva vytvoří instanci aplikace logiky a spustí pracovní postup. | 
+| Nenalezeno | Vrátí HTTP `202 ACCEPTED` stavu `location` záhlaví a `retry-after` záhlaví. <br/>Pro aktivační události `location` záhlaví by obsahovat také `triggerState` parametr dotazu, který je obvykle "razítka". Rozhraní API můžete použít tento identifikátor ke sledování posledního byla aktivována aplikaci logiky. | 
 ||| 
 
 Například může pravidelně zkontrolujte vaši službu pro nové soubory, sestavte cyklického dotazování aktivační událost, která má tyto chování:
@@ -223,7 +223,7 @@ Po nastavení ověřování, nastavení nasazení pro vaše rozhraní API. Dalš
 
 ## <a name="publish-custom-apis-to-azure"></a>Publikovat vlastní rozhraní API do Azure
 
-Chcete-li vaše vlastní rozhraní API k dispozici pro ostatní uživatele Logic Apps v Azure, musíte přidat zabezpečení a zaregistrujte se jako aplikace logiky konektory. Další informace najdete v tématu [vlastní konektory přehled](../logic-apps/custom-connector-overview.md). 
+Chcete-li vaše vlastní rozhraní API k dispozici pro ostatní uživatele Logic Apps v Azure, musíte přidat zabezpečení a zaregistrujte se jako aplikace logiky konektory. Další informace najdete v tématu [Přehled vlastních konektorů](../logic-apps/custom-connector-overview.md). 
 
 Pokud chcete zpřístupnit vaše vlastní rozhraní API pro všechny uživatele v Logic Apps, Microsoft Flow a Microsoft PowerApps, musíte zvýšit zabezpečení, registrovat vaše rozhraní API jako aplikace logiky konektory a jmenovat vaší konektory pro [programu Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
@@ -233,9 +233,9 @@ Pokud chcete zpřístupnit vaše vlastní rozhraní API pro všechny uživatele 
 
 * Pokud máte dotazy, navštivte [fórum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* K vylepšení Logic Apps, hlasovat o nebo odeslání nápadů na [web pro zasílání názorů uživatele Logic Apps](http://aka.ms/logicapps-wish). 
+* Pokud chcete pomoci při vylepšování Logic Apps, hlasujte nebo zanechte své nápady na [webu zpětné vazby uživatelů Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Zpracování chyb a výjimek](../logic-apps/logic-apps-exception-handling.md)
 * [Volání, aktivaci nebo vnořit aplikace logiky s koncovými body HTTP](../logic-apps/logic-apps-http-endpoint.md)

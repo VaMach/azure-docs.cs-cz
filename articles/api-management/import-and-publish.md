@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: cd6ceaf5f8cdcfbde5d0d2bebb4b89488d0122e9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Import a publikování vašeho prvního rozhraní API 
 
@@ -54,12 +54,12 @@ V této části ukazuje, jak importovat a publikovat backendu OpenAPI specifikac
 
     |Nastavení|Hodnota|Popis|
     |---|---|---|
-    |**Specifikace OpenAPI**|http://conferenceapi.azurewebsites.NET?Format=JSON|Odkazuje na službu implementace rozhraní API. Rozhraní API správy předá požadavky na tuto adresu.|
+    |**Specifikace OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Odkazuje na službu implementace rozhraní API. Rozhraní API správy předá požadavky na tuto adresu.|
     |**Zobrazovaný název**|*Rozhraní API konferenční Demo*|Pokud jste po zadání adresy URL služby stiskněte klávesu tab, APIM vyplní toto pole, podle toho, co je v kódu json. <br/>Tento název se zobrazí na portálu pro vývojáře.|
-    |**Název**|*Demo konference – rozhraní api*|Poskytuje jedinečný název pro rozhraní API. <br/>Pokud jste po zadání adresy URL služby stiskněte klávesu tab, APIM vyplní toto pole, podle toho, co je v kódu json.|
+    |**Název**|*demo-conference-api*|Poskytuje jedinečný název pro rozhraní API. <br/>Pokud jste po zadání adresy URL služby stiskněte klávesu tab, APIM vyplní toto pole, podle toho, co je v kódu json.|
     |**Popis**|Zadejte volitelný popis rozhraní API.|Pokud jste po zadání adresy URL služby stiskněte klávesu tab, APIM vyplní toto pole, podle toho, co je v kódu json.|
-    |**Přípona adresy URL rozhraní API**|*konference*|Přípona se připojuje k základní adresu URL pro službu správy rozhraní API. API Management odlišuje rozhraní API podle jejich přípona a proto přípona musí být jedinečný pro každé rozhraní API pro daného vydavatele.|
-    |**Schéma adresy URL**|*PROTOKOL HTTPS*|Určuje protokoly, které lze použít pro přístup k rozhraní API. |
+    |**Přípona adresy URL rozhraní API**|*conference*|Přípona se připojuje k základní adresu URL pro službu správy rozhraní API. API Management odlišuje rozhraní API podle jejich přípona a proto přípona musí být jedinečný pro každé rozhraní API pro daného vydavatele.|
+    |**Schéma adresy URL**|*HTTPS*|Určuje protokoly, které lze použít pro přístup k rozhraní API. |
     |**Produkty**|*Unlimited*| Rozhraní API publikujete tím, že přidružíte rozhraní API s produktem. Volitelně můžete přidat toto nové rozhraní API pro určitý produkt, zadejte název produktu. Tento krok můžete přidat rozhraní API k více produktům opakuje vícekrát.<br/>Produkty jsou přidružení jeden nebo více rozhraní API. Může obsahovat několik rozhraní API a poskytněte jim pro vývojáře prostřednictvím portálu pro vývojáře. Vývojáři musí nejdřív přihlásit k odběru produktu získat přístup k rozhraní API. Pokud se přihlášení k odběru získají předplatné klíč, který je vhodný pro jakéhokoli rozhraní API v produktu. Pokud jste vytvořili instanci APIM, jste správcem již, takže jsou přihlášení k odběru každého produktu ve výchozím nastavení.<br/> Ve výchozím nastavení, každá instance API Management obsahuje dva ukázkové produkty: **Starter** a **neomezený**. |
 3. Vyberte **Vytvořit**.
 
@@ -67,13 +67,10 @@ V této části ukazuje, jak importovat a publikovat backendu OpenAPI specifikac
 
 Operace lze volat přímo z portálu Azure, který představuje pohodlný způsob pro zobrazení a testování operací v rozhraní API.  
 1. Vyberte rozhraní API, které jste vytvořili v předchozím kroku.
-2. Stiskněte **Test** kartě.
-
-    ![Rozhraní API testu](./media/api-management-get-started/test-api.png)
+2. Stiskněte **Test** kartě.  ![Rozhraní API testu](./media/api-management-get-started/test-api.png)
 3. Klikněte na **GetSpeakers**.
-
-    Na stránce se zobrazí pole pro parametry dotazu, ale v takovém případě nemáme žádné. Na stránce také zobrazuje pole hlavičky. Jednu z hlaviček "Ocp-Apim-Subscription-Key", je pro předplatné klíč produktu, který je přidružen toto rozhraní API. Pokud jste vytvořili instanci APIM, jste správcem již, tak klíč se vyplní automaticky. 
-4. Stiskněte klávesu **odeslat**.
+    Na stránce se zobrazí pole pro parametry dotazu, ale v takovém případě nemáme žádné. Na stránce také zobrazuje pole hlavičky. Jednu z hlaviček "Ocp-Apim-Subscription-Key", je pro předplatné klíč produktu, který je přidružen toto rozhraní API. Klíč se vyplní automaticky.
+4. Stiskněte **Odeslat**.
 
     Back-end odpoví **200 OK** a některá data.
 
@@ -93,7 +90,7 @@ Operace lze také volat **portál pro vývojáře** k testování rozhraní API.
     
     Na stránce se zobrazí pole pro parametry dotazu, ale v takovém případě nemáme žádné. Na stránce také zobrazuje pole hlavičky. Jednu z hlaviček "Ocp-Apim-Subscription-Key", je pro předplatné klíč produktu, který je přidružen toto rozhraní API. Pokud jste vytvořili instanci APIM, jste správcem již, tak klíč se vyplní automaticky.
 6. Stiskněte klávesu **vyzkoušet**.
-7. Stiskněte klávesu **odeslat**.
+7. Stiskněte **Odeslat**.
     
     Po vyvolání operace portál pro vývojáře zobrazí **Stav odpovědi**, **Hlavičky odpovědi** a jakýkoli **Obsah odpovědi**.
 

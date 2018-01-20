@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Řešení potíží s připojení SSH pro virtuální počítač Azure Linux který selže, chyby, nebo bylo odmítnuto
 Existují různé příčiny, že dojde k chybám Secure Shell (SSH), selhání připojení SSH, nebo SSH bylo odmítnuto, při pokusu o připojení k virtuálnímu počítači (VM) Linux. Tento článek pomůže najít a opravit problémy. Portál Azure, rozhraní příkazového řádku Azure nebo rozšíření pro přístup virtuálních počítačů pro Linux můžete použít k řešení problémů s připojením.
@@ -178,7 +178,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ## <a name="restart-a-vm"></a>Restartování virtuálního počítače
 Pokud máte resetování konfigurace a uživatelská pověření SSH, nebo došlo k chybě při tom, můžete zkusit restartování virtuálního počítače na adresu základní výpočetní problémy.
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 Restartování virtuálního počítače pomocí portálu Azure, vyberte virtuální počítač a klikněte na **restartujte** tlačítko jako v následujícím příkladu:
 
 ![Restartujte virtuální počítač na portálu Azure](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
@@ -206,7 +206,7 @@ Můžete znovu nasadit virtuální počítač do jiného uzlu v rámci Azure, kt
 > 
 > 
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 K opětovnému nasazení virtuálního počítače pomocí portálu Azure, vyberte virtuální počítač a přejděte dolů k položce **podporu + Poradce při potížích s** části. Klikněte **znovu nasaďte** tlačítko jako v následujícím příkladu:
 
 ![Opětovné nasazení virtuálního počítače na portálu Azure](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
@@ -234,7 +234,7 @@ Opakujte tyto kroky k vyřešení většiny běžných chyb připojení SSH pro 
 * Opětovné nasazení virtuálního počítače do nového uzlu Azure. Informace o tom, jak znovu nasadit virtuální počítač najdete v tématu [znovu nasadit virtuální počítač do nového uzlu Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Po dokončení této operace dočasné disku data budou ztracena a zaktualizuje dynamické IP adresy, které jsou spojeny s virtuálním počítačem.
-* Postupujte podle pokynů v [jak resetovat heslo nebo SSH pro virtuální počítače se systémem Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) na:
+* Postupujte podle pokynů v [jak resetovat heslo nebo SSH pro virtuální počítače se systémem Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) na:
   
   * Resetovat heslo nebo klíč SSH.
   * Vytvoření *sudo* uživatelský účet.
@@ -242,8 +242,8 @@ Opakujte tyto kroky k vyřešení většiny běžných chyb připojení SSH pro 
 * Zkontrolujte stav Virtuálního počítače prostředků pro nějaký problém s platformou.<br>
      Vyberte virtuální počítač a přejděte dolů **nastavení** > **Kontrola stavu**.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 * Pokud jste stále se nedaří SSH pro virtuální počítač po provedení kroků po, najdete v části [podrobnější pokyny k odstraňování potíží](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) zobrazíte další kroky k vyřešení problému.
 * Další informace o odstraňování potíží s přístup k aplikaci najdete v tématu [řešení potíží s přístupem k aplikaci spuštěné na virtuálním počítači Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Další informace o odstraňování potíží s virtuálních počítačů, které byly vytvořeny pomocí modelu nasazení classic najdete v tématu [jak resetovat heslo nebo SSH pro virtuální počítače se systémem Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Další informace o odstraňování potíží s virtuálních počítačů, které byly vytvořeny pomocí modelu nasazení classic najdete v tématu [jak resetovat heslo nebo SSH pro virtuální počítače se systémem Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

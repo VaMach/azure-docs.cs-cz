@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2016
 ms.author: cjiang
-ms.openlocfilehash: 4f97f28118e0fc6e92373f04c45450537723fce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 581fbaa477bd603fea5fdc0ef77c6ef7498b7897
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Řešení problémů nasazení classic s vytvoření nového virtuálního počítače Linux v Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -50,7 +50,7 @@ Na portálu Azure klikněte na tlačítko **Procházet** > **virtuální počít
 
 **Řešení:**
 
-Obě tyto chyby vyřešíte nahrajte původní virtuální pevný disk, k dispozici místní, stejné nastavení jako pro operační systém (zobecněn/specializuje). Pokud chcete nahrát jako zobecněn, nezapomeňte spustit - nejprve zrušit jejich zřízení. V tématu [vytvořte a nahrajte virtuální pevný Disk, který obsahuje operační systém Linux](create-upload-vhd.md) Další informace.
+Obě tyto chyby vyřešíte nahrajte původní virtuální pevný disk, k dispozici místní, stejné nastavení jako pro operační systém (zobecněn/specializuje). Pokud chcete nahrát jako zobecněn, nezapomeňte spustit - nejprve zrušit jejich zřízení. V tématu [vytvořte a nahrajte virtuální pevný Disk, který obsahuje operační systém Linux](create-upload-vhd-classic.md) Další informace.
 
 **Zaznamenat chyby:**
 
@@ -60,7 +60,7 @@ Obě tyto chyby vyřešíte nahrajte původní virtuální pevný disk, k dispoz
 
 **Řešení:**
 
-Chcete-li obě tyto chyby, odstraňte aktuální image z portálu, a [kopii z aktuální virtuální pevné disky](capture-image.md) stejné nastavení jako pro operační systém (zobecněn/specializuje).
+Chcete-li obě tyto chyby, odstraňte aktuální image z portálu, a [kopii z aktuální virtuální pevné disky](capture-image-classic.md) stejné nastavení jako pro operační systém (zobecněn/specializuje).
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problém: Vlastní nebo Galerie / marketplace obrázku; došlo k chybě přidělení
 Tato chyba nastane v situacích, odeslání novou žádost o virtuální počítač do clusteru, který buď nemá dostupné volné místo pro uložení žádosti, nebo nepodporuje požadovanou velikost virtuálního počítače. Není možné kombinovat různé řadu virtuálních počítačů v rámci stejné cloudové služby. Takže pokud chcete vytvořit nový virtuální počítač je jiný než co cloudové služby může podporovat velikost, výpočetní požadavek nezdaří.
@@ -88,6 +88,6 @@ V závislosti na omezení cloudové služby, kterou použijete k vytvoření nov
 * Vytvořte nový virtuální počítač v nové virtuální sítě.
 * [Připojit existující virtuální síť](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) do nové virtuální sítě. Další informace [regionálních virtuálních sítí](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Alternativně můžete [migrace na základě vztahů skupiny virtuální sítě na regionální virtuální síť](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)a pak vytvořte nový virtuální počítač.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud dojde k potížím při spuštění zastavený virtuální počítač s Linuxem nebo změnit jeho velikost existující virtuální počítač s Linuxem v Azure, najdete v části [nasazení classic potíží s restartováním nebo změnou velikosti existující virtuální počítač Linux v Azure](restart-resize-error-troubleshooting.md).
 

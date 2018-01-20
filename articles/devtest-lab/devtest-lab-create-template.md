@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Vytvořit vlastní image ze souboru virtuálního pevného disku
 
@@ -57,7 +57,16 @@ Následující postup vás provede procesem vytvoření vlastní image ze soubor
 
 1. Vyberte **virtuálního pevného disku** z rozevírací nabídky. Toto je virtuální pevný disk, který se použije k vytvoření nové vlastní image. V případě potřeby vyberte k **nahrát virtuální pevný disk pomocí prostředí PowerShell**.
 
-1. Pokud společnost Microsoft není publikována image použitá k vytvoření vlastní image, můžete zadat také název plánu, nabídka plán a plán vydavatele.
+1. Pokud image použitá k vytvoření vlastní image není licencovanou image (publikovaný microsoftem), můžete zadat také název plánu, nabídka plán a plán vydavatele.
+
+   - **Název plánu:** zadejte název image Marketplace (SKU) ze které se vytvoří tento vlastní image 
+   - **Plánování nabídka:** zadejte Marketplace bitové kopie, ze kterého je vytvořen tuto vlastní bitovou kopii produktu (nabídka) 
+   - **Plánování vydavatele:** zadejte vydavatele image Marketplace, ze kterého je vytvořen tento vlastní image
+
+   > [!NOTE]
+   > Pokud je image, který používáte pro vytvoření vlastní image **není** licencovanou image a pak tato pole jsou prázdné a může být vyplněno, pokud si zvolíte. Pokud bitovou kopii **je** licencovanou image a pak pole se automaticky vyplní s informace o plánu. Pokud se pokusíte v tomto případě je změnit, se zobrazí zpráva s upozorněním.
+   >
+   >
 
 1. Vyberte **OK** vytvořit vlastní image.
 

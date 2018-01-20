@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 9d272072ce77aca159edb36a6b7a78c94aee476d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 440a644e0b43fd42a446ec3e1a6a8d32a0b247cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Kopírování dat z Presto pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke Presto konektoru.
 
@@ -48,8 +48,8 @@ Pro Presto propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Presto** | Ano |
-| hostitel | IP adresu nebo název hostitele serveru Presto. (tj. 192.168.222.160)  | Ano |
-| endVerze | Verze serveru Presto. (tj. 0.148-t)  | Ano |
+| hostitel | IP adresu nebo název hostitele serveru Presto. (i.e. 192.168.222.160)  | Ano |
+| serverVersion | Verze serveru Presto. (tj. 0.148-t)  | Ano |
 | Katalog | Kontext katalogu pro všechny žádosti na server.  | Ano |
 | port | Port TCP, který používá Presto server naslouchat pro připojení klientů. Výchozí hodnota je 8080.  | Ne |
 | authenticationType. | Mechanismus ověřování používaný pro připojení k serveru Presto. <br/>Povolené hodnoty jsou: **anonymní**, **LDAP** | Ano |
@@ -60,7 +60,7 @@ Pro Presto propojené služby jsou podporovány následující vlastnosti:
 | useSystemTrustStore | Určuje, jestli se má použít certifikát Certifikační autority z úložiště důvěryhodnosti systému nebo z určeného souboru PEM. Výchozí hodnota je false.  | Ne |
 | allowHostNameCNMismatch | Určuje, jestli chcete vyžadovat protokol SSL vydaný certifikační Autoritou název certifikátu shodovat s názvem hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je false.  | Ne |
 | allowSelfSignedServerCert | Určuje, jestli se má povolit certifikáty podepsané svým držitelem ze serveru. Výchozí hodnota je false.  | Ne |
-| ID časové zóny | Místní časové pásmo používaný pro připojení. Platné hodnoty pro tuto možnost, jsou určené v databázi IANA časové pásmo. Výchozí hodnota je systémovým časovým pásmem.  | Ne |
+| timeZoneID | Místní časové pásmo používaný pro připojení. Platné hodnoty pro tuto možnost, jsou určené v databázi IANA časové pásmo. Výchozí hodnota je systémovým časovým pásmem.  | Ne |
 
 **Příklad:**
 

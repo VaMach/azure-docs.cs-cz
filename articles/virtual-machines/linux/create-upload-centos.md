@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 16256203cc11ebaf7df402a3502328a63d4c2718
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e003d31b42c7a9518668fb8ddfb6accb9c158c90
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/19/2018
@@ -331,5 +331,5 @@ Příprava CentOS 7 virtuálního počítače na Azure je velmi podobné CentOS 
 14. Klikněte na tlačítko **akce -> vypnutí dolů** ve Správci technologie Hyper-V. Svůj disk VHD Linux je nyní připravena k odeslání do Azure.
 
 ## <a name="next-steps"></a>Další postup
-Nyní jste připraveni použít systému CentOS Linux virtuální pevný disk k vytvoření nové virtuální počítače v Azure. Pokud je poprvé, že jste nahrávání souboru VHD do Azure, najdete v části [vytváření a odesílání virtuální pevný disk, který obsahuje operační systém Linux](upload-vhd.md#option-1-upload-a-vhd).
+Nyní jste připraveni použít systému CentOS Linux virtuální pevný disk k vytvoření nové virtuální počítače v Azure. Pokud je poprvé, že jste nahrávání souboru VHD do Azure, najdete v části [vytváření a odesílání virtuální pevný disk, který obsahuje operační systém Linux](upload-vhd.md).
 

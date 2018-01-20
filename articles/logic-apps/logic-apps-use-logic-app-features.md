@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3957ffcc149bdaf5c196960c7c7f23913f8b5c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-logic-apps-features"></a>Pomocí funkcí Logic Apps
 
-V [předchozí téma](../logic-apps/logic-apps-create-a-logic-app.md), jste vytvořili svou první aplikaci logiky. Chcete-li řídit svou aplikaci logiky pracovního postupu, můžete zadat různé cesty pro svou aplikaci logiky ke spuštění a postupy zpracování dat v polích, kolekce a dávek. V pracovním postupu aplikace logiky můžete zahrnout tyto prvky:
+V [předchozí téma](../logic-apps/quickstart-create-first-logic-app-workflow.md), jste vytvořili svou první aplikaci logiky. Chcete-li řídit svou aplikaci logiky pracovního postupu, můžete zadat různé cesty pro svou aplikaci logiky ke spuštění a postupy zpracování dat v polích, kolekce a dávek. V pracovním postupu aplikace logiky můžete zahrnout tyto prvky:
 
 * Podmínky a [přepínač příkazy](../logic-apps/logic-apps-switch-case.md) umožní aplikaci logiky spustit různé akce, které jsou založené na tom, zda jsou splněny určité podmínky.
 
@@ -48,7 +48,7 @@ Předpokládejme například, že máte aplikaci logiky, který odesílá příl
 2. Do umístění pracovního postupu, který chcete přidáte podmínku. 
 
    Chcete-li přidat podmínku mezi existující kroky v pracovním postupu aplikace logiky, přesuňte ukazatel přes na šipku, ve které chcete přidat podmínku. 
-   Vyberte **znaménko plus** (**+**), pak zvolte **přidat podmínku**. Například:
+   Vyberte **znaménko plus** (**+**), pak zvolte **přidat podmínku**. Příklad:
 
    ![Přidejte podmínku do aplikace logiky](./media/logic-apps-use-logic-app-features/add-condition.png)
 
@@ -57,7 +57,7 @@ Předpokládejme například, že máte aplikaci logiky, který odesílá příl
 
 3. Nyní můžete Definujte podmínku. Zadejte zdrojové pole, které chcete vyhodnotit, operaci provést a cílová hodnota nebo pole. Chcete-li přidat existující pole na vaše podmínky, zvolte z **dynamického obsahu seznamu přidat**.
 
-   Například:
+   Příklad:
 
    ![Upravit podmínky v základní režimu](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
 
@@ -66,13 +66,13 @@ Předpokládejme například, že máte aplikaci logiky, který odesílá příl
    ![Dokončení podmínky](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
 
    > [!TIP]
-   > Chcete-li definovat podmínku v kódu, zvolte **upravit v rozšířeném režimu**. Například:
+   > Chcete-li definovat podmínku v kódu, zvolte **upravit v rozšířeném režimu**. Příklad:
    > 
    > ![Upravit podmínky v kódu](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
 
 4. V části **Pokud Ano** a **ne v případě**, přidávat postupy založené na tom, zda je splněna podmínka.
 
-   Například:
+   Příklad:
 
    ![Podmínky se Ano a žádné cesty](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
 
@@ -143,7 +143,7 @@ Chcete-li spustit pracovní postup, služby zavolat koncový bod logiku aplikace
 <!-- Shared links -->
 [portál Azure]: https://portal.azure.com
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Příkazech Switch](../logic-apps/logic-apps-switch-case.md) 
 * [Smyčky, obory a rozdělení dávek](../logic-apps/logic-apps-loops-and-scopes.md)

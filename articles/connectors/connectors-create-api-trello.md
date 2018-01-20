@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 526a14710f24ee4a4b61a11873aa6caa0b47dc10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fedf0ffe11763dcfccadf78c0b258c8bce773376
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-trello-connector"></a>Začínáme s konektorem Trello
 Trello poskytuje perspektivy nad všechny projekty, v práci a doma.  Jedná se o snadný, volné, flexibilní a visual způsob organizace čehokoliv a řízení projektů.  Připojte k Trello ke správě panely, seznamy a karty.
 
-Začněte vytvořením aplikace logiky; v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Začněte vytvořením aplikace logiky; v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-trello"></a>Umožňuje vytvořit připojení k Trello
 Chcete-li vytvořit Logic apps s Trello, nejprve vytvořit **připojení**a zadejte podrobnosti pro následující vlastnosti:
 
 | Vlastnost | Požaduje se | Popis |
 | --- | --- | --- |
-| Token |Ano |Zadejte přihlašovací údaje Trello |
+| Token |Ano |Zadat přihlašovací údaje k Trellu |
 
 Po vytvoření připojení, můžete ke spouštění akcí a naslouchat aktivačních událostí.
 

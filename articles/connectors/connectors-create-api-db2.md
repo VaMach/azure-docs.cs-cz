@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>Začínáme s konektorem DB2
 Konektor Microsoft pro DB2 připojí k prostředkům uloženým v databázi IBM DB2 Logic Apps. Tento konektor zahrnuje klienta Microsoft ke komunikaci se vzdálenými počítači server DB2 přes síť TCP/IP. To zahrnuje cloudu databáze, například IBM Bluemix dashDB nebo IBM DB2 pro systém Windows spuštěn v Azure virtualizace a místní databáze, které používají bránu dat na místě. Najdete v článku [podporované seznamu](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2 platforem a verzí (v tomto tématu).
@@ -35,7 +35,7 @@ DB2 konektor podporuje následující databáze operace:
 
 Toto téma ukazuje, jak k používání konektoru v aplikaci logiky a databázové operace procesu.
 
-Další informace o Logic Apps najdete v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Další informace o Logic Apps najdete v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Dostupné akce
 Konektor DB2 podporuje aplikace logiky takto:
@@ -86,7 +86,7 @@ Tento konektor podporuje připojení databáze hostovaná místně a v cloudu po
 | Vlastnost | Popis |
 | --- | --- |
 | server |Povinná hodnota. Přijme řetězcovou hodnotu, kterou představuje adresu TCP/IP nebo alias, ve formátu protokolu IPv4 nebo IPv6, a potom (oddělený středníkem) podle čísla portu TCP/IP. |
-| Databáze |Povinná hodnota. Přijme hodnotu řetězce, který představuje DRDA název pro relační databáze (RDBNAM). DB2 pro z/OS přijímá řetězec 16 bajtů (databáze se označuje jako IBM DB2 pro umístění z/OS). DB2 pro i5/OS přijímá řetězec 18 bajtů (databáze se označuje jako IBM DB2 pro i relační databáze). DB2 pro LUW přijme řetězec 8 bajtů. |
+| databáze |Povinná hodnota. Přijme hodnotu řetězce, který představuje DRDA název pro relační databáze (RDBNAM). DB2 pro z/OS přijímá řetězec 16 bajtů (databáze se označuje jako IBM DB2 pro umístění z/OS). DB2 pro i5/OS přijímá řetězec 18 bajtů (databáze se označuje jako IBM DB2 pro i relační databáze). DB2 pro LUW přijme řetězec 8 bajtů. |
 | Ověřování |Volitelné. Přijme hodnotu položky seznamu, Basic nebo Windows (kerberos). |
 | uživatelské jméno |Povinná hodnota. Přijme hodnotu řetězce. DB2 pro z/OS přijme řetězec 8 bajtů. DB2 pro i přijímá řetězec 10 bajtů. DB2 pro Linux nebo UNIX přijme řetězec 8 bajtů. DB2 pro systém Windows přijme řetězec 30 bajtů. |
 | heslo |Povinná hodnota. Přijme hodnotu řetězce. |
@@ -280,6 +280,6 @@ Tento konektor podporuje na následujících platformách IBM DB2 a verze, a tak
 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/db2/). 
 
-## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
+## <a name="next-steps"></a>Další postup
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
 

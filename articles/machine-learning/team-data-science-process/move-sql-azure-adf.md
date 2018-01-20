@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Přesun dat z místního serveru SQL do SQL Azure s Azure Data Factory
 Toto téma ukazuje, jak pro přesun dat z databáze serveru SQL místní databázi SQL Azure přes Azure Blob Storage pomocí Azure Data Factory (ADF).
@@ -67,7 +67,7 @@ Používáme [datovou sadu NYC taxíkem](http://chriswhong.com/open-data/foil_ny
 Můžete přizpůsobit postup uvedený v tomto poli na sadu svoje vlastní data, nebo postupujte podle kroků, jak je popsáno pomocí NYC taxíkem datovou sadu. Datová sada NYC taxíkem nahrát do místní databáze systému SQL Server, postupujte podle pokynů uvedených v [hromadně importovat Data do databáze serveru SQL](sql-walkthrough.md#dbload). Tyto pokyny jsou pro systém SQL Server na virtuální počítač Azure, ale postup pro odesílání na místní SQL Server je stejný.
 
 ## <a name="create-adf"></a>Vytvoření služby Azure Data Factory
-Pokyny pro vytvoření nové Azure Data Factory a skupiny prostředků v [portál Azure](https://portal.azure.com/) jsou k dispozici [vytvoření služby Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Název nové instance ADF *adfdsp* a pojmenujte vytvoření skupiny prostředků *adfdsprg*.
+Pokyny pro vytvoření nové Azure Data Factory a skupiny prostředků v [portál Azure](https://portal.azure.com/) jsou k dispozici [vytvoření služby Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Název nové instance ADF *adfdsp* a pojmenujte vytvoření skupiny prostředků *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalace a konfigurace se Brána pro správu dat
 Povolit kanály v objektu pro vytváření dat Azure pro práci s SQL serveru místní, musíte ji přidat k objektu pro vytváření dat jako propojené služby. K vytvoření propojené služby SQL serveru místní, musíte:
@@ -82,7 +82,7 @@ Pokyny k instalaci a informace o Brána pro správu dat najdete v tématu [přes
 ## <a name="adflinkedservices"></a>Vytvoření propojených služeb pro připojení ke zdrojům dat
 Propojená služba definuje informace potřebné pro vytváření dat Azure pro připojení k prostředku data. Máme tři zdroje v tomto scénáři, pro které jsou potřeba propojené služby:
 
-1. Místní SQL Server
+1. On-premises SQL Server
 2. Azure Blob Storage
 3. Databáze SQL Azure
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 42d7fddd592b9cea8fbfa38bf39ca5def3542d66
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 48b13eef0960afb4aab68923fb97b5b9c14a3d9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registrace zdrojů dat v Azure Data Catalog
 ## <a name="introduction"></a>Úvod
@@ -85,5 +85,5 @@ Opakováním registrace zdroj dat již zaregistrován provede operaci sloučení
 ## <a name="summary"></a>Souhrn
 Protože kopíruje strukturální a popisný metadat ze zdroje dat do katalogu služby, registrace zdroje dat v katalogu Data Catalog usnadňuje data vyhledat a pochopit. Po registraci zdroje dat můžete opatřit poznámkami, spravovat a zjistit pomocí portálu katalogu Data Catalog.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o registraci zdrojů dat najdete v tématu [Začínáme s Azure Data Catalog](data-catalog-get-started.md) kurzu.

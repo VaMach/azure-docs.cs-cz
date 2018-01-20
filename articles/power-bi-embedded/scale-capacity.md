@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Škálovat vaše Power BI Embedded kapacita
 
@@ -26,7 +26,8 @@ Tento článek vás provede postup škálování Power BI Embedded kapacity v Mi
 
 Předpokladem je, že jste vytvořili Power BI Embedded kapacity. Pokud máte není, najdete v části [vytvořit Power BI na Embedded kapacity na portálu Azure](create-capacity.md) začít pracovat.
 
-Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
+> [!NOTE]
+> Škálování operace může trvat o několik minut. Během této doby nebudou dostupné kapacity. Vložený obsah se pravděpodobně nepodaří načíst.
 
 ## <a name="scale-a-capacity"></a>Škálování kapacitu
 
@@ -58,7 +59,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
     ![Potvrďte aktuální úroveň](media/scale-capacity/azure-portal-confirm-tier.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pozastavení nebo spustit vaše kapacita, najdete v části [pozastavit a spusťte vaše Power BI Embedded kapacita v portálu Azure](pause-start.md).
 

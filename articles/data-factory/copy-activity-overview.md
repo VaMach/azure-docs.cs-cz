@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: f26f36f241edba2e1fcd1156587b82b79d559e2d
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Aktivita kopírování v Azure Data Factory
 
@@ -158,7 +158,7 @@ Kliknutím zobrazíte seznam aktivit v tomto kanálu spuštění. V **akce** slo
 
 ![Spustí monitorování aktivity](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Klikněte "**podrobnosti**" v části **akce** zobrazíte podrobnosti o aktivitě kopírování provádění a výkonové charakteristiky. Zobrazuje informace včetně: objem dat zkopíruje ze zdroje jímka, propustnost, kroky se prochází s odpovídající doba trvání a použít konfigurace pro váš scénář kopírování.
+Klikněte "**podrobnosti**" v části **akce** zobrazíte podrobnosti o aktivitě kopírování provádění a výkonové charakteristiky. Zobrazuje informace včetně svazku nebo řádků nebo soubory dat kopírovány z zdroje jímky, propustnost, kroky se prochází s odpovídající doba trvání a použít konfigurace pro váš scénář kopírování.
 
 **Příklad: kopírování z Amazon S3 do Azure Data Lake Store**
 ![podrobnosti o spuštění aktivity monitorování](./media/copy-activity-overview/monitor-activity-run-details-adls.png)

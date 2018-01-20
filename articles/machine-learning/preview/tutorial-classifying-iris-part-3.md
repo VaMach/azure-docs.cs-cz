@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 08ac10a160ef6305322714eb9d134be95c3b5e17
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasifikace Iris – část 3: Nasazení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce. Datoví vědci pomocí nich můžou připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -158,7 +158,7 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
 
 5. Nastavte prostředí.
 
-   Po dokončení nastavení nastavte pomocí následujícího příkazu proměnné prostředí nutné k zprovoznění prostředí. Použijte stejný název prostředí, který jste už dříve použili v kroku 4. Použijte stejný název skupiny prostředků, který byl výstupem v příkazovém okně při dokončení procesu nastavení.
+   Po dokončení nastavení nastavte pomocí následujícího příkazu proměnné prostředí nutné k zprovoznění prostředí. Použijte stejný název prostředí, který jste použili dříve v kroku 2. Použijte stejný název skupiny prostředků, který byl výstupem v příkazovém okně při dokončení procesu nastavení.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>

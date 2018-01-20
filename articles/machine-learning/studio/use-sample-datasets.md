@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Použití vzorových datových sad v Azure Machine Learning Studiu
 [top]: #machine-learning-sample-datasets
@@ -102,15 +102,6 @@ Dárce data zahrnují měsíců od poslední odběru) a četnost nebo celkový p
 <b>Související Research:</b> Já, systémem, (2008). UCI strojového učení úložiště <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, certifikační Autorita: Univerzity kalifornské, školní informace a vědecké účely počítače
 <p></p>
 Já, I-vývoj: Cheng, Yang, král-Jang a si toho, jde Tao "zjišťování znalostní báze na modelu do režimu omezené Funkčnosti pomocí Bernoulliho pořadí" Expert systémy s aplikacemi, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-  </td>
-</tr>
-
-<tr>
-  <td>Kniha recenze z Amazon</td>
-  <td>
-Recenze knih v Amazon, provedenou univerzity Velká Británie výzkumných pracovníků z webu amazon.com (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">postojích</a>). Najdete v dokumentu paper research "biografie, Bollywood, výložníku polí a Blenders: přizpůsobení a domény pro klasifikaci postojích" Jan Blitzer, označit Dredze a Fernando Pereira; Přidružení výpočetní Linguistics (ACL), 2007.
-<p></p>
-Původní datové sady má 975 tisíc recenze s pořadím 1, 2, 3, 4 nebo 5. Recenze napsaných v angličtině, jsou z období 1997-2007. Tuto datovou sadu, musí být nižší vzorků do 10 tisíc recenze.
   </td>
 </tr>
 
@@ -212,7 +203,7 @@ Obsahuje data, počasí, jako je například teploty a vlhkosti indexy a rychlos
 <p></p>
 <b>Související Research:</b> Cortez, P. & Morais A. (2008). UCI strojového učení úložiště <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, certifikační Autorita: Univerzity kalifornské, školní informace a vědecké účely počítače
 <p></p>
-[Cortez a Morais 2007] P. Cortez a A. Morais. Na Data Mining přístup k předvídání lesních požárech pomocí meteorologických Data. V J. Neves, M. F. Santos a Edit.: J. Machado, nové trendy v umělé inteligence řízení 13. EPIA 2007 - portugalština konference o umělé Intelligence, prosinec, 523-Guimarães, Portugalsko s. 512, 2007. APPIA, ISBN 13 978-989-95618-0-9. K dispozici na: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez a Morais 2007] P. Cortez a A. Morais. Na Data Mining přístup k předvídání lesních požárech pomocí meteorologických Data. V J. Neves, M. F. Santos a Edit.: J. Machado, nové trendy v umělé inteligence řízení 13. EPIA 2007 - portugalština konference o umělé Intelligence, prosinec, 523-Guimarães, Portugalsko s. 512, 2007. APPIA, ISBN-13 978-989-95618-0-9. K dispozici na: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -401,7 +392,7 @@ Datová sada byla stažena a uložená v úložišti objektů Blob v Azure (<a h
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
 Téma přiřazení pro články s příspěvky v datové sadě RCV1 V2 Reuters zprávy. Aktuální článek lze přiřadit na několik témat. Formát každý řádek je "&lt;název tématu&gt; &lt;id dokumentu&gt; 1". Datová sada obsahuje 2.6M tématu přiřazení. Datová sada byla provedena dostupné David. D. Lewis.
   </td>

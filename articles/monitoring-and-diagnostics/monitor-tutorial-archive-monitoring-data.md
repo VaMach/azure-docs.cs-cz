@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiv Azure dat monitorování
 
@@ -66,11 +66,11 @@ Data ze svého předplatného monitorování je nyní předávaných do účtu �
 
 Nyní nakonfigurujeme data na úrovni prostředků (metrika prostředků a diagnostických protokolů) směrovat do účtu úložiště nastavením **nastavení diagnostiky pro prostředek**.
 
-1. Klikněte **monitorování** tlačítko nachází na levé navigační seznamu, pak na **nastavení pro diagnostiku**. Zde se zobrazí seznam všech prostředků v rámci vašeho předplatného, které vytváří monitorování dat pomocí Azure sledování. Pokud nemáte žádné prostředky v tomto seznamu, můžete [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md) než budete pokračovat, tak, aby na prostředek, který můžete nakonfigurovat nastavení diagnostiky na.
+1. Klikněte **monitorování** tlačítko nachází na levé navigační seznamu, pak na **nastavení pro diagnostiku**. Zde se zobrazí seznam všech prostředků v rámci vašeho předplatného, které vytváří monitorování dat pomocí Azure sledování. Pokud nemáte žádné prostředky v tomto seznamu, můžete [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md) než budete pokračovat, tak, aby na prostředek, který můžete nakonfigurovat nastavení diagnostiky na.
 
 2. Klikněte na prostředek v seznamu a pak klikněte na tlačítko **zapněte diagnostiku**.
    
-   ![Zapněte diagnostiku](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
+   ![Zapnout diagnostiku](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    Pokud je již nakonfigurována nastavení, zobrazí místo stávající nastavení a tlačítko pro **přidat nastavení diagnostiky**. Kliknutím na toto tlačítko.
 
@@ -164,7 +164,7 @@ Jste teď úspěšně nastavili monitorování dat archivaci na účet úložiš
 
 5. Pokud jste vytvořili virtuálního počítače nebo aplikace logiky předchozí kroky, i ty odstraňte.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste zjistili, jak nastavit dat monitorování od prostředí Azure (předplatné, prostředků a hostovaný operační systém) archivaci na účet úložiště. 
 

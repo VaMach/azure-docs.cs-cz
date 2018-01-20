@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Začínáme s konektorem webhooku
 
@@ -81,33 +81,33 @@ Zde jsou další informace o aktivační události a akce se tento webhook podpo
 
 | Akce | Popis |
 | --- | --- |
-| Webhooku protokolu HTTP |Přihlášení k odběru adresu URL zpětné volání pro službu, která můžete volat adresu URL aplikace logiky podle potřeby aktivovat. |
+| Webhook HTTP |Přihlášení k odběru adresu URL zpětné volání pro službu, která můžete volat adresu URL aplikace logiky podle potřeby aktivovat. |
 
 ### <a name="trigger-details"></a>Podrobnosti o aktivační události
 
-#### <a name="http-webhook"></a>Webhooku protokolu HTTP
+#### <a name="http-webhook"></a>Webhook HTTP
 
 Přihlášení k odběru adresu URL zpětné volání pro službu, která můžete volat adresu URL aplikace logiky podle potřeby aktivovat.
 * Znamená povinné pole.
 
 | Zobrazovaný název | Název vlastnosti | Popis |
 | --- | --- | --- |
-| Přihlášení k odběru metoda * |– Metoda |Metoda HTTP pro žádost o přihlásit k odběru |
-| Přihlášení k odběru URI * |identifikátor URI |Identifikátor URI HTTP má pro požadavek přihlásit k odběru |
-| Odhlášení metoda * |– Metoda |Metoda HTTP pro žádosti o odhlášení odběru |
-| Odhlášení URI * |identifikátor URI |Identifikátor URI HTTP pro žádosti o odhlášení odběru |
-| Přihlášení k odběru textu |Text |Požadavku HTTP pro přihlásit k odběru |
-| Přihlášení k odběru hlavičky |Záhlaví |Hlavičky požadavku HTTP pro přihlásit k odběru |
+| Přihlášení k odběru metoda * |metoda |Metoda HTTP pro žádost o přihlásit k odběru |
+| Přihlášení k odběru URI * |identifikátor uri |Identifikátor URI HTTP má pro požadavek přihlásit k odběru |
+| Odhlášení metoda * |metoda |Metoda HTTP pro žádosti o odhlášení odběru |
+| Odhlášení URI * |identifikátor uri |Identifikátor URI HTTP pro žádosti o odhlášení odběru |
+| Přihlášení k odběru textu |hlavní část |Požadavku HTTP pro přihlásit k odběru |
+| Přihlášení k odběru hlavičky |hlavičky |Hlavičky požadavku HTTP pro přihlásit k odběru |
 | Přihlášení k odběru ověřování |Ověřování |Ověřování protokolu HTTP pro přihlásit k odběru. [Najdete v části konektor HTTP](connectors-native-http.md#authentication) podrobnosti |
-| Odhlášení textu |Text |Požadavku HTTP pro zrušení odběru |
-| Odhlášení hlavičky |Záhlaví |Hlavičky požadavku HTTP pro zrušení odběru |
+| Odhlášení textu |hlavní část |Požadavku HTTP pro zrušení odběru |
+| Odhlášení hlavičky |hlavičky |Hlavičky požadavku HTTP pro zrušení odběru |
 | Zrušit ověřování |Ověřování |Ověřování protokolu HTTP pro zrušení odběru. [Najdete v části konektor HTTP](connectors-native-http.md#authentication) podrobnosti |
 
 **Podrobnosti o výstupu**
 
 Žádost o Webhooku
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
 | Záhlaví |Objekt |Hlavičky žádosti Webhooku |
 | Tělo |Objekt |Objekt žádosti Webhooku |
@@ -117,39 +117,39 @@ Přihlášení k odběru adresu URL zpětné volání pro službu, která může
 
 | Akce | Popis |
 | --- | --- |
-| Webhooku protokolu HTTP |Přihlášení k odběru adresu URL zpětné volání pro službu, která můžete volat adresu URL k obnovení pracovního postupu krok podle potřeby. |
+| Webhook HTTP |Přihlášení k odběru adresu URL zpětné volání pro službu, která můžete volat adresu URL k obnovení pracovního postupu krok podle potřeby. |
 
-### <a name="action-details"></a>Podrobnosti akce
+### <a name="action-details"></a>Detaily akce
 
-#### <a name="http-webhook"></a>Webhooku protokolu HTTP
+#### <a name="http-webhook"></a>Webhook HTTP
 
 Přihlášení k odběru adresu URL zpětné volání pro službu, která můžete volat adresu URL k obnovení pracovního postupu krok podle potřeby.
 * Znamená povinné pole.
 
 | Zobrazovaný název | Název vlastnosti | Popis |
 | --- | --- | --- |
-| Přihlášení k odběru metoda * |– Metoda |Metoda HTTP pro žádost o přihlásit k odběru |
-| Přihlášení k odběru URI * |identifikátor URI |Identifikátor URI HTTP má pro požadavek přihlásit k odběru |
-| Odhlášení metoda * |– Metoda |Metoda HTTP pro žádosti o odhlášení odběru |
-| Odhlášení URI * |identifikátor URI |Identifikátor URI HTTP pro žádosti o odhlášení odběru |
-| Přihlášení k odběru textu |Text |Požadavku HTTP pro přihlásit k odběru |
-| Přihlášení k odběru hlavičky |Záhlaví |Hlavičky požadavku HTTP pro přihlásit k odběru |
+| Přihlášení k odběru metoda * |metoda |Metoda HTTP pro žádost o přihlásit k odběru |
+| Přihlášení k odběru URI * |identifikátor uri |Identifikátor URI HTTP má pro požadavek přihlásit k odběru |
+| Odhlášení metoda * |metoda |Metoda HTTP pro žádosti o odhlášení odběru |
+| Odhlášení URI * |identifikátor uri |Identifikátor URI HTTP pro žádosti o odhlášení odběru |
+| Přihlášení k odběru textu |hlavní část |Požadavku HTTP pro přihlásit k odběru |
+| Přihlášení k odběru hlavičky |hlavičky |Hlavičky požadavku HTTP pro přihlásit k odběru |
 | Přihlášení k odběru ověřování |Ověřování |Ověřování protokolu HTTP pro přihlásit k odběru. [Najdete v části konektor HTTP](connectors-native-http.md#authentication) podrobnosti |
-| Odhlášení textu |Text |Požadavku HTTP pro zrušení odběru |
-| Odhlášení hlavičky |Záhlaví |Hlavičky požadavku HTTP pro zrušení odběru |
+| Odhlášení textu |hlavní část |Požadavku HTTP pro zrušení odběru |
+| Odhlášení hlavičky |hlavičky |Hlavičky požadavku HTTP pro zrušení odběru |
 | Zrušit ověřování |Ověřování |Ověřování protokolu HTTP pro zrušení odběru. [Najdete v části konektor HTTP](connectors-native-http.md#authentication) podrobnosti |
 
 **Podrobnosti o výstupu**
 
 Žádost o Webhooku
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
 | Záhlaví |Objekt |Hlavičky žádosti Webhooku |
 | Tělo |Objekt |Objekt žádosti Webhooku |
 | Stavový kód |celá čísla |Stavový kód žádosti o Webhooku |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-* [Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Vyhledání jiných konektorů](apis-list.md)

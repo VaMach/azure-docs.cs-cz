@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/02/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 1e2ce06f5993280dbdb67121849591e67f7979e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89bf0ffec759fca4af5f99af1b6a2dd8d641ff6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-azure-service-bus-connector"></a>Začínáme s Azure Service Bus konektoru
 Připojení k Azure Service Bus odesílat a přijímat zprávy. Můžete provést akce, například odeslání do fronty, odesílat do tématu, přijímání z fronty a přijímat z předplatného.
 
-Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-service-bus"></a>Připojení k Service Bus
 Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit připojení ke službě. A [připojení](connectors-overview.md) poskytuje připojení mezi aplikace logiky a jiné služby.  
@@ -34,14 +34,14 @@ Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit připojen
 > 
 
 ## <a name="use-a-service-bus-trigger"></a>Použít aktivační událost Service Bus
-Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]
 > 
 > 
 
 ## <a name="use-a-service-bus-action"></a>Pomocí akce sběrnice
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 [!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]
 
@@ -49,6 +49,6 @@ Akce je operace prováděné definované v aplikaci logiky pracovního postupu. 
 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/servicebus/). 
 
-## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+## <a name="next-steps"></a>Další postup
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

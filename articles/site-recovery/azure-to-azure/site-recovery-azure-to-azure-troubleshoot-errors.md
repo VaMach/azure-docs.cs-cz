@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7231c5d58dfd2d6eddd40e9003b63206f4c7f859
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Řešení problémů replikace virtuálního počítače Azure do Azure
 
@@ -109,13 +109,13 @@ Nový disk připojen k virtuálnímu počítači musí být inicializován.
 
 **Kód chyby** | **Možné příčiny** | **Recommendations** (Doporučení)
 --- | --- | ---
-150039<br></br>**Zpráva**: Azure datový disk (DiskName) (DiskURI) se logická jednotka (LUN) (LUNValue) nebyl namapovaný na odpovídající disk z hlásí v rámci virtuálního počítače, který má stejnou hodnotu, logickou jednotku. | -Nový datový disk se připojil k virtuálnímu počítači, ale nebyl inicializován.</br></br>-Datový disk ve virtuálním počítači není správně reporting hodnota logické jednotky, kdy byla disk připojen k virtuálnímu počítači.| Zajistěte, aby se inicializují datových disků a potom operaci opakujte.</br></br>Pro Windows: [připojení a inicializovat nový disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Pro Linux: [inicializovat nový datový disk v systému Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Zpráva**: Azure datový disk (DiskName) (DiskURI) se logická jednotka (LUN) (LUNValue) nebyl namapovaný na odpovídající disk z hlásí v rámci virtuálního počítače, který má stejnou hodnotu, logickou jednotku. | -Nový datový disk se připojil k virtuálnímu počítači, ale nebyl inicializován.</br></br>-Datový disk ve virtuálním počítači není správně reporting hodnota logické jednotky, kdy byla disk připojen k virtuálnímu počítači.| Zajistěte, aby se inicializují datových disků a potom operaci opakujte.</br></br>Pro Windows: [připojení a inicializovat nový disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Pro Linux: [inicializovat nový datový disk v systému Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 ### <a name="fix-the-problem"></a>Opravte problém
 Zajistěte, aby byly inicializovány datových disků a potom operaci opakujte:
 
 - Pro Windows: [připojení a inicializovat nový disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Pro Linux: [inicializovat nový datový disk v systému Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+- Pro Linux: [inicializovat nový datový disk v systému Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 Pokud potíže potrvají, obraťte se na podporu.
 

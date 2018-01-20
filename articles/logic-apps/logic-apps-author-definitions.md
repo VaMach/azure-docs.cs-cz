@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Vytvoření definice pracovního postupu pro logic apps pomocí JSON
 
-Vytvořením definice pracovního postupu pro [Azure Logic Apps](logic-apps-what-are-logic-apps.md) jednoduchý a deklarativní jazyce JSON. Pokud jste to ještě neudělali, přečtěte si nejprve [postup vytvoření první aplikace logiky pomocí návrháře aplikace logiky](logic-apps-create-a-logic-app.md). Další informace naleznete [úplné referenční dokumentace pro jazyk definic workflowů](http://aka.ms/logicappsdocs).
+Vytvořením definice pracovního postupu pro [Azure Logic Apps](logic-apps-overview.md) jednoduchý a deklarativní jazyce JSON. Pokud jste to ještě neudělali, přečtěte si nejprve [postup vytvoření první aplikace logiky pomocí návrháře aplikace logiky](quickstart-create-first-logic-app-workflow.md). Další informace naleznete [úplné referenční dokumentace pro jazyk definic workflowů](http://aka.ms/logicappsdocs).
 
 ## <a name="repeat-steps-over-a-list"></a>Opakujte kroky pro seznam
 

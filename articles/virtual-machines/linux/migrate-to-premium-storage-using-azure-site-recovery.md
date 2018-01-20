@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3b5c3a80262adc71374fe30092006fa6cb6865c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrace na Storage úrovně Premium pomocí Azure Site Recovery
 
@@ -199,7 +199,7 @@ Site Recovery se vytvoří instance virtuálního počítače, jejichž typ je s
 ## <a name="post-migration-steps"></a>Kroky po migraci
 
 1. **Nakonfigurovat replikované virtuální počítače pro skupinu dostupnosti případně**. Site Recovery nepodporuje migraci virtuálních počítačů spolu s skupiny dostupnosti. V závislosti na nasazení replikované virtuální počítač proveďte jednu z následujících akcí:
-   * Pro virtuální počítač vytvořený pomocí modelu nasazení classic: Přidání virtuálního počítače pro skupinu dostupnosti na portálu Azure. Podrobné kroky, přejděte na [přidat existující virtuální počítač do skupiny dostupnosti](../linux/classic/configure-availability.md#addmachine).
+   * Pro virtuální počítač vytvořený pomocí modelu nasazení classic: Přidání virtuálního počítače pro skupinu dostupnosti na portálu Azure. Podrobné kroky, přejděte na [přidat existující virtuální počítač do skupiny dostupnosti](../linux/classic/configure-availability-classic.md).
    * Pro virtuální počítač vytvořený pomocí modelu nasazení Resource Manager: Uložit konfiguraci virtuálního počítače a pak odstraňte a znovu vytvořit virtuální počítače v sadě dostupnosti. Uděláte to tak, použijte skript v [nastavit Azure Resource Manager virtuálních počítačů sady dostupnosti](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Před spuštěním tohoto skriptu zkontrolujte jeho omezení a naplánovat odstávka.
 
 2. **Odstranit staré virtuální počítače a disky**. Ujistěte se, že prémiové disky jsou konzistentní s disky, zdroje a že nové virtuální počítače provádí stejnou funkci jako zdrojové virtuální počítače. Odstraňte virtuální počítač a odstraňte disky ze zdrojového účtů úložiště na portálu Azure. Pokud dojde k problému, který disk není odstraněn, i když jste odstranili virtuálního počítače naleznete v tématu [řešení chyb při odstranění virtuální pevné disky](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
@@ -211,20 +211,20 @@ Site Recovery se vytvoří instance virtuálního počítače, jejichž typ je s
 * [Monitorování a řešení ochrany pro virtuální počítače a fyzické servery](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Fórum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 U konkrétních scénářů pro migraci virtuálních počítačů najdete v následujících materiálech:
 
 * [Migrovat virtuální počítače, které jsou mezi účty úložiště Azure](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Vytvoření a nahrání virtuálního pevného disku serveru Windows Azure](../windows/classic/createupload-vhd.md)
-* [Vytváření a odesílání virtuální pevný disk, který obsahuje operační systém Linux](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Vytváření a odesílání virtuální pevný disk, který obsahuje operační systém Linux](../linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrace virtuálních počítačů z Amazon AWS k Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Zkontrolujte také, další informace o Azure Storage a virtuální počítače Azure v následujících zdrojích:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Virtuální počítače Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Úložiště Premium: Vysoce výkonné úložiště pro úlohy virtuálního počítače Azure](premium-storage.md)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Storage úrovně Premium: Vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

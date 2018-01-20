@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Povolit licencovanou image ve vašem testovacím prostředí v Azure DevTest Labs
 
@@ -29,7 +29,7 @@ Prvním krokem k povolení uživatelům vytvářet virtuální počítače z lic
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Vyberte **Další služby** a poté ze seznamu vyberte **DevTest Labs**.
+1. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 
 1. Ze seznamu labs vyberte požadované testovací prostředí.  
 
@@ -76,7 +76,15 @@ Pomocí následujícího postupu můžete povolit programové nasazení licencov
    >
 
 
-1. Vyberte **Uložit**. V seznamu obrázků marketplace, které obrázku teď **podmínky přijmout** a je k dispozici pro uživatele k vytvoření virtuálních počítačů.
+1. Vyberte **Uložit**. 
+
+    V seznamu obrázků marketplace, které obrázku teď **podmínky přijmout** a je k dispozici pro uživatele k vytvoření virtuálních počítačů.
+
+> [!NOTE]
+> Uživatelé mohou vytvářet vlastní image z licencovanou image. V tématu [vytvořit vlastní image ze souboru virtuálního pevného disku](devtest-lab-create-template.md) Další informace.
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Příspěvky blogu související
 
@@ -85,4 +93,6 @@ Pomocí následujícího postupu můžete povolit programové nasazení licencov
 
 ## <a name="next-steps"></a>Další postup
 
+- [Vytvořit vlastní image z virtuálního počítače](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Vytvořit vlastní image ze souboru virtuálního pevného disku](devtest-lab-create-template.md)
 - [Přidejte virtuální počítač do testovacího prostředí](devtest-lab-add-vm.md)

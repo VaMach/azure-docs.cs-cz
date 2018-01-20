@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 026ec3195f9851164a85613f2060b1c282f8bb7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopírování dat do indexu Azure Search pomocí Azure Data Factory
 
@@ -36,7 +36,7 @@ Jakékoli úložiště podporované zdroje dat může kopírovat data do indexu 
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které se používají k definování entit služby Data Factory, které jsou specifické pro konektor Azure Search.
 
@@ -175,7 +175,7 @@ Následující tabulka určuje, zda datového typu Azure Search je podporováno,
 | Řetězec | Ano |
 | Int32 | Ano |
 | Int64 | Ano |
-| Double | Ano |
+| Dvojitý | Ano |
 | Logická hodnota | Ano |
 | DataTimeOffset | Ano |
 | Pole řetězců | N |

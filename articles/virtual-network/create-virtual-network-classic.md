@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Vytvoření virtuální sítě (klasické) s několika podsítěmi
 
@@ -46,7 +46,7 @@ Vytvoříte virtuální sítě (klasické) pomocí [portál Azure](#portal), [ro
 
     |Nastavení|Hodnota|
     |---|---|
-    |Name (Název)|myVnet|
+    |Název|myVnet|
     |Adresní prostor|10.0.0.0/16|
     |Název podsítě|Veřejné|
     |Rozsah adres podsítě|10.0.0.0/24|
@@ -159,10 +159,10 @@ Vytvoříte virtuální sítě (klasické) pomocí [portál Azure](#portal), [ro
 
 ---
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o všech virtuální síť a podsíť nastavení najdete v tématu [spravovat virtuální sítě](virtual-network-manage-network.md) a [spravovat podsítě virtuální sítě](virtual-network-manage-subnet.md). Máte různé možnosti pro splňují odlišné požadavky pomocí virtuální sítě a podsítě v produkčním prostředí.
 - Filtrovat podsíť příchozí a odchozí provoz, vytvoření a použití [skupin zabezpečení sítě](virtual-networks-nsg.md) k podsítím.
-- Vytvoření [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nebo [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuálního počítače a připojte ho k existující virtuální síť.
+- Vytvoření [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nebo [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuálního počítače a připojte ho k existující virtuální síť.
 - Pro připojení dvou virtuálních sítí ve stejné oblasti Azure, vytvořte [partnerský vztah virtuální sítě](create-peering-different-deployment-models.md) mezi virtuálními sítěmi. Virtuální síť (Resource Manager) může rovnocenných počítačů k virtuální síti (klasické), ale nemůžete vytvořit partnerský vztah mezi dvěma virtuálními sítěmi (klasické).
 - Připojit virtuální síť k místní síti pomocí [brány VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nebo [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) okruh.

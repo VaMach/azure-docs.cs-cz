@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Začínáme s konektorem služby Twitter.
 Konektor Twitter můžete:
@@ -28,7 +28,7 @@ Konektor Twitter můžete:
 * Časové osy přístup, přátele a délky
 * Proveďte jednu z dalších akcí a aktivační události popsané dole  
 
-Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/logic-apps-create-a-logic-app.md).  
+Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
 
 ## <a name="connect-to-twitter"></a>Připojení k Twitteru
 Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připojení* ke službě. A [připojení](connectors-overview.md) poskytuje připojení mezi aplikace logiky a jiné služby.  
@@ -39,7 +39,7 @@ Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připoje
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Použít aktivační událost služby Twitter.
-Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 V tomto příkladu I vám ukáže, jak používat **při odeslání nové tweet** aktivační událost k hledání #Seattle a pokud najde #Seattle, aktualizujte soubor v Dropbox text z tweet. V příklad enterprise může vyhledat název vaší společnosti a aktualizace databáze SQL z tweet textu.
 
@@ -80,7 +80,7 @@ Vzhledem k tomu, že jsme zajímá pouze tweetů od uživatelů s více než 50 
    ![Twitter podmínku obrázek 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Pomocí akce služby Twitter.
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Teď, když jste přidali aktivační událost, použijte následující postup přidání akce, která bude odeslána nové tweet s obsahem tweetů nalezena. aktivační událost. Pro účely tohoto návodu budou odeslány pouze tweetů od uživatelů s více než 50 délky.  
 
@@ -103,6 +103,6 @@ V dalším kroku přidáte Twitter akci, která bude odeslána tweet pomocí ně
 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/twitterconnector/). 
 
-## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
+## <a name="next-steps"></a>Další postup
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

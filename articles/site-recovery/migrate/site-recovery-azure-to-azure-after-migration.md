@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
-ms.openlocfilehash: 2943d33744a29da7ffd1f1544fc81696195ecce1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: fe7966d1817dc7f7896435f9202d2bcea981b5f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replikace virtuálních počítačů Azure do jiné oblasti po migraci na Azure pomocí Azure Site Recovery
 
@@ -51,7 +51,7 @@ Po migraci nemusíte potvrďte, nebo odstraňte převzetí služeb při selhán�
 2. **Dokončení migrace** akci dokončí proces migrace, odebere replikaci pro počítač a zastaví fakturace Site Recovery pro tento počítač.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Krok 2: Instalace agenta virtuálního počítače Azure na virtuálním počítači
-Azure [agenta virtuálního počítače](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) musí být nainstalován na virtuálním počítači pro obnovení lokality rozšíření pro práci a k ochraně virtuálního počítače.
+Azure [agenta virtuálního počítače](../../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) musí být nainstalován na virtuálním počítači pro obnovení lokality rozšíření pro práci a k ochraně virtuálního počítače.
 
 >[!IMPORTANT]
 >Počínaje verzí 9.7.0.0, na virtuální počítače s Windows, instalační program služby Mobility nainstaluje nejnovější dostupný agent virtuálního počítače Azure. Virtuální počítač na migraci, splňuje instalace agenta požadované pro používání všech rozšíření virtuálního počítače, včetně přípony Site Recovery. Agent virtuálního počítače Azure je nutné ručně nainstalovat jenom v případě, že je služba Mobility na migrované počítači nainstalovaná verze 9,6 nebo dřívější.

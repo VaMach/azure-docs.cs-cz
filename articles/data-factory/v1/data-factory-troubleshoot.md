@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 8273647aa1cf8f7d35a9c645d44c64455e554cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b57b30688d6ca3b9c1a0fc8e87db80fc051c4f90
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Poradce při potížích se službou Data Factory
 > [!NOTE]
-> Tento článek se týká verze 1 Azure Data Factory, který je všeobecně dostupná (GA). 
+> Tento článek se týká verze 1 služby Azure Data Factory, která je obecně dostupná (GA). 
 
 Tento článek obsahuje tipy k řešení potíží pro problémy při použití Azure Data Factory. V tomto článku nejsou uvedeny všechny možné problémy při použití služby, týká se však některé problémy a Obecné tipy k řešení potíží.   
 
@@ -117,7 +117,7 @@ V tématu [ladění kanálu s aktivitou vlastní](data-factory-use-custom-activi
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Řešení potíží pomocí portálu Azure
 ### <a name="using-portal-blades"></a>Pomocí portálu oken
-V tématu [monitorování kanálu](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) kroky.
+V tématu [monitorování kanálu](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) kroky.
 
 ### <a name="using-monitor-and-manage-app"></a>Pomocí aplikace Monitorování a správa
 V tématu [monitorování a Správa kanálů služby data factory pomocí monitorování a Správa aplikací](data-factory-monitor-manage-app.md) podrobnosti.

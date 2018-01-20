@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eeef5b522996146eed6be393692b3c0a4a8747f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Podrobné SSH řešení potíží s kroky pro připojení k virtuální počítač s Linuxem v Azure
 Existuje mnoho možných příčin, které použije klient SSH nemusí být možné kontaktovat službu SSH ve virtuálním počítači. Pokud jste provedli prostřednictvím Čím více [obecné SSH při řešení potíží](troubleshoot-ssh-connection.md), budete muset dále řešit potíže s připojením. Tento článek vás provede podrobný postup řešení potíží k určení, kde se nedaří připojení SSH a jak je vyřešit.
@@ -70,8 +70,8 @@ Pokud platí jedna z těchto podmínek, dočasně zakázat softwaru a zkuste př
 
 Pokud používáte ověřování pomocí certifikátu, ověřte zda máte tato oprávnění ke složce .ssh v domovském adresáři:
 
-* Chmod – 700 ~/.ssh
-* Chmod – 644 ~/.ssh/\*.pub
+* Chmod 700 ~/.ssh
+* Chmod 644 ~/.ssh/\*.pub
 * Chmod – 600 ~/.ssh/id_rsa (nebo všechny soubory, které mají vaši privátní klíče uložené v nich)
 * Chmod – 644 ~/.ssh/known_hosts (obsahuje hostitele, na které jste připojeni prostřednictvím SSH.)
 
@@ -120,7 +120,7 @@ Poslední zdroj možné problémy je virtuální počítač Azure, sám sebe.
 
 ![Diagram, který označuje systémem Linux virtuálního počítače Azure](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Pokud jste tak ještě neučinili, postupujte podle pokynů [resetovat heslo nebo SSH pro virtuální počítače se systémem Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Pokud jste tak ještě neučinili, postupujte podle pokynů [resetovat heslo nebo SSH pro virtuální počítače se systémem Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Zkuste se znovu připojit z vašeho počítače. Pokud stále selže, toto jsou některé z možných problémů:
 

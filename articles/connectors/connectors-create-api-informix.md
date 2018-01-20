@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-informix-connector"></a>Začínáme s konektorem Informix
 Konektor Microsoft pro Informix připojí k prostředkům uloženým v databázi IBM Informix Logic Apps. Konektor Informix zahrnuje klienta Microsoft ke komunikaci se vzdáleným počítačům serveru Informix přes síť TCP/IP. To zahrnuje cloudu databáze, například IBM Informix pro systém Windows spuštěn v Azure virtualizace a místní databáze, které používají bránu dat na místě. Najdete v článku [podporované seznamu](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix platforem a verzí (v tomto tématu).
@@ -35,7 +35,7 @@ Konektor podporuje následující databáze operace:
 
 Toto téma ukazuje, jak k používání konektoru v aplikaci logiky a databázové operace procesu.
 
-Další informace o Logic Apps najdete v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Další informace o Logic Apps najdete v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Dostupné akce
 Tento konektor podporuje aplikace logiky takto:
@@ -86,7 +86,7 @@ Tento konektor podporuje připojení k databázi místně a v cloudu pomocí ná
 | Vlastnost | Popis |
 | --- | --- |
 | server |Povinná hodnota. Přijme řetězcovou hodnotu představující adresu TCP/IP nebo alias, ve formátu protokolu IPv4 nebo IPv6, a potom (dvojtečkou oddělený tabulátory) podle čísla portu TCP/IP. |
-| Databáze |Povinná hodnota. Přijme řetězcovou hodnotu představující DRDA název pro relační databáze (RDBNAM). Informix přijímá řetězec 128 bajtů (databáze se označuje jako IBM Informix název databáze (dbname)). |
+| databáze |Povinná hodnota. Přijme řetězcovou hodnotu představující DRDA název pro relační databáze (RDBNAM). Informix přijímá řetězec 128 bajtů (databáze se označuje jako IBM Informix název databáze (dbname)). |
 | Ověřování |Volitelné. Přijme hodnotu položky seznamu, Basic nebo Windows (kerberos). |
 | uživatelské jméno |Povinná hodnota. Přijme hodnotu řetězce. |
 | heslo |Povinná hodnota. Přijme hodnotu řetězce. |
@@ -275,6 +275,6 @@ Tento konektor podporuje následující verze IBM Informix, když nakonfigurovan
 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/informix/). 
 
-## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
+## <a name="next-steps"></a>Další postup
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
 

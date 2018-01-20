@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorování, příjem a odesílání událostí s konektorem služby Event Hubs
 
@@ -30,7 +30,7 @@ Chcete-li nastavit monitorování událostí tak, aby aplikace logiky můžete z
 
 * Musíte mít [Event Hubs obor názvů a centra událostí](../event-hubs/event-hubs-create.md) v Azure. Další informace [postup vytvoření oboru názvů služby Event Hubs a Centrum událostí](../event-hubs/event-hubs-create.md). 
 
-* Chcete-li použít [všechny konektory](https://docs.microsoft.com/azure/connectors/apis-list) ve vaší aplikaci logiky, musíte nejprve vytvořte aplikaci logiky. Další informace [postup vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+* Chcete-li použít [všechny konektory](https://docs.microsoft.com/azure/connectors/apis-list) ve vaší aplikaci logiky, musíte nejprve vytvořte aplikaci logiky. Další informace [postup vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Zkontrolujte oprávnění k oboru názvů služby Event Hubs a najděte připojovací řetězec
@@ -64,7 +64,7 @@ Zkontrolujte svá oprávnění a získat připojovací řetězec, postupujte pod
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Spustit pracovní postup v případě, že Centrum událostí obdrží nové události
 
-A [ *aktivační událost* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) je událost, která se spouští v aplikaci logiky pracovního postupu. Spuštění pracovního postupu odeslání nové události do vašeho centra událostí, postupujte podle těchto kroků pro přidání aktivační událost, která zjistí tuto událost.
+A [ *aktivační událost* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) je událost, která se spouští v aplikaci logiky pracovního postupu. Spuštění pracovního postupu odeslání nové události do vašeho centra událostí, postupujte podle těchto kroků pro přidání aktivační událost, která zjistí tuto událost.
 
 1.  V [portál Azure](https://portal.azure.com "portál Azure"), přejděte do existující aplikace logiky nebo vytvoření aplikace logiky prázdné.
 
@@ -94,7 +94,7 @@ A [ *aktivační událost* ](../logic-apps/logic-apps-what-are-logic-apps.md#log
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Odesílání událostí do vašeho centra událostí z aplikace logiky
 
-[*Akce*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) je úloha, kterou provádí pracovní postup vaší aplikace logiky. Když do aplikace logiky přidáte trigger, můžete přidat akci, která bude provádět určitou operaci s daty generovanými triggerem. Pro odeslání události do vašeho centra událostí z aplikace logiky, postupujte podle těchto kroků.
+[*Akce*](../logic-apps/logic-apps-overview.md#logic-app-concepts) je úloha, kterou provádí pracovní postup vaší aplikace logiky. Když do aplikace logiky přidáte trigger, můžete přidat akci, která bude provádět určitou operaci s daty generovanými triggerem. Pro odeslání události do vašeho centra událostí z aplikace logiky, postupujte podle těchto kroků.
 
 1.  V návrháři aplikace logiky, vyberte v části vaší aktivační událostí aplikace logiky **nový krok** > **přidat akci**.
 
@@ -131,6 +131,6 @@ Klást otázky, odpovídat na ně a poučit se ze zkušeností jiných uživatel
 
 Pokud chcete pomoci při vylepšování Logic Apps a konektorů, hlasujte nebo zanechte své nápady na [webu zpětné vazby uživatelů Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 *  [Najít další konektory pro Azure Logic apps](./apis-list.md)

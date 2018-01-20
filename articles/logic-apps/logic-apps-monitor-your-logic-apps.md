@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorování stavu, nastavit protokolování diagnostiky a zapnutí výstrah pro Azure Logic Apps
 
-Po jste [vytvořte a spusťte aplikaci logiky](../logic-apps/logic-apps-create-a-logic-app.md), můžete zkontrolovat historii spustí, historie aktivační událost, stavu a výkonu. Nastavení pro sledování událostí v reálném čase a bohatší ladění, [protokolování diagnostiky](#azure-diagnostics) pro svou aplikaci logiky. Tímto způsobem můžete [najít a zobrazit události](#find-events), jako jsou aktivační události, spuštění události a události akce. Můžete také použít tuto [diagnostická data s jinými službami](#extend-diagnostic-data), jako jsou služby Azure Storage a Azure Event Hubs. 
+Po jste [vytvořte a spusťte aplikaci logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md), můžete zkontrolovat historii spustí, historie aktivační událost, stavu a výkonu. Nastavení pro sledování událostí v reálném čase a bohatší ladění, [protokolování diagnostiky](#azure-diagnostics) pro svou aplikaci logiky. Tímto způsobem můžete [najít a zobrazit události](#find-events), jako jsou aktivační události, spuštění události a události akce. Můžete také použít tuto [diagnostická data s jinými službami](#extend-diagnostic-data), jako jsou služby Azure Storage a Azure Event Hubs. 
 
 Pokud chcete dostávat oznámení o selhání nebo jiné možné problémy, nastavte [výstrahy](#add-azure-alerts). Například můžete vytvořit výstrahu, která zjistí "při více než pět spustí nezdaří za hodinu." Můžete také nastavit monitorování, sledování a protokolování programově pomocí [Azure Diagnostics událostí nastavení a vlastností](#diagnostic-event-properties).
 
@@ -37,7 +37,7 @@ Pokud chcete dostávat oznámení o selhání nebo jiné možné problémy, nast
 
 2. Vyberte svou aplikaci logiky, a potom vyberte **přehled**.
 
-   Portál Azure se zobrazuje historie spustí a historii aktivační událost pro svou aplikaci logiky. Například:
+   Portál Azure se zobrazuje historie spustí a historii aktivační událost pro svou aplikaci logiky. Příklad:
 
    ![Spuštění aplikace logiky historie historie a aktivační události](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -51,7 +51,7 @@ Pokud chcete dostávat oznámení o selhání nebo jiné možné problémy, nast
 
 3. Chcete-li zobrazit kroky z konkrétní spuštění, v části **spouští historie**, vyberte, které používají. 
 
-   Zobrazení monitorování uvádí každý krok v tom, že spustit. Například:
+   Zobrazení monitorování uvádí každý krok v tom, že spustit. Příklad:
 
    ![Akce pro konkrétní spustit](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -61,7 +61,7 @@ Pokud chcete dostávat oznámení o selhání nebo jiné možné problémy, nast
 
    Například můžete získat spuštění **ID korelace**, což může být nutné při použití [REST API pro Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
-5. Chcete-li získat podrobnosti o konkrétní krok, zvolte tohoto kroku. Nyní můžete zkontrolovat podrobnosti, třeba vstupy, výstupy a všechny chyby, které pro tento krok se stalo. Například:
+5. Chcete-li získat podrobnosti o konkrétní krok, zvolte tohoto kroku. Nyní můžete zkontrolovat podrobnosti, třeba vstupy, výstupy a všechny chyby, které pro tento krok se stalo. Příklad:
 
    ![Podrobnosti o krok](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -168,7 +168,7 @@ Společně s Azure Log Analytics můžete rozšířit použití aplikace logiky 
 * [Archiv, který Azure Diagnostics protokolů v úložišti Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Datový proud protokolů Azure Diagnostics do služby Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-Můžete pak monitorování pomocí telemetrie a analýzy z jiných služeb, jako například get v reálném čase [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) a [Power BI](../log-analytics/log-analytics-powerbi.md). Například:
+Můžete pak monitorování pomocí telemetrie a analýzy z jiných služeb, jako například get v reálném čase [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) a [Power BI](../log-analytics/log-analytics-powerbi.md). Příklad:
 
 * [Datový proud dat ze služby Event Hubs do služby Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analýza dat pomocí služby Stream Analytics a vytvořit řídicí panel analýzu v reálném čase v Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -279,7 +279,7 @@ Například `ActionCompleted` událost má `clientTrackingId` a `trackedProperti
   }
   ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Vytvoření šablony pro nasazení aplikace logiky a správa verzí](../logic-apps/logic-apps-create-deploy-template.md)
 * [Scénáře B2B s Enterprise integračního balíčku](../logic-apps/logic-apps-enterprise-integration-overview.md)

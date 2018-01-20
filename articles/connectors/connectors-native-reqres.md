@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Začínáme s komponentami žádosti a odpovědi
 S žádostí a odpovědí komponenty aplikace logiky můžete v reálném čase reakce na události.
@@ -30,7 +30,7 @@ Můžete například provést následující věci:
 * Aktivovat aplikaci logiky z externí webhooku události.
 * Volání aplikace logiky pomocí akce žádostí a odpovědí z v rámci jiné aplikace logiky.
 
-Chcete-li začít používat žádostí a odpovědí akce v aplikaci logiky, přečtěte si téma [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li začít používat žádostí a odpovědí akce v aplikaci logiky, přečtěte si téma [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Použít aktivační událost požadavku HTTP
 Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu, který je definován v aplikaci logiky. [Další informace o aktivační události](connectors-overview.md).
@@ -86,7 +86,7 @@ Zde je vstupní pole pro aktivační událost z příchozí žádosti protokolu 
 
 | Zobrazované jméno | Název vlastnosti | Popis |
 | --- | --- | --- |
-| Schématu JSON |Schéma |JSON schéma požadavku HTTP |
+| Schématu JSON |schema |JSON schéma požadavku HTTP |
 
 <br>
 
@@ -94,7 +94,7 @@ Zde je vstupní pole pro aktivační událost z příchozí žádosti protokolu 
 
 Níže jsou uvedeny podrobnosti výstup pro daný požadavek.
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
 | Záhlaví |Objekt |Hlavičky požadavku |
 | Tělo |Objekt |Objekt žádosti |
@@ -105,9 +105,9 @@ Níže jsou uvedeny vstupních polí pro akce HTTP odpovědi. A * znamená, že 
 | Zobrazované jméno | Název vlastnosti | Popis |
 | --- | --- | --- |
 | Stavový kód * |statusCode |Stavový kód protokolu HTTP |
-| Záhlaví |Záhlaví |Objekt JSON všechny hlavičky odpovědi zahrnout |
-| Tělo |Text |Text odpovědi |
+| Záhlaví |hlavičky |Objekt JSON všechny hlavičky odpovědi zahrnout |
+| Tělo |hlavní část |Text odpovědi |
 
-## <a name="next-steps"></a>Další kroky
-Teď vyzkoušet platformu a [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). Ostatní konektory k dispozici v aplikace logiky můžete prozkoumat pohledem na našem [rozhraní API seznamu](apis-list.md).
+## <a name="next-steps"></a>Další postup
+Teď vyzkoušet platformu a [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). Ostatní konektory k dispozici v aplikace logiky můžete prozkoumat pohledem na našem [rozhraní API seznamu](apis-list.md).
 

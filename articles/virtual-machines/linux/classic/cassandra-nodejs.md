@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Spusťte Cassandra clusteru v systému Linux v Azure pomocí Node.js
 
@@ -117,7 +117,7 @@ Během nasazení se používají následující verze softwaru:
 
 <table>
 <tr><th>Software</th><th>Zdroj</th><th>Verze</th></tr>
-<tr><td>PROSTŘEDÍ JRE    </td><td>[PROSTŘEDÍ JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
@@ -156,8 +156,8 @@ Na obrazovce "Konfigurace virtuálního počítače" #2 zadejte následující i
 <table>
 <tr><th>NÁZEV POLE             </th><th> HODNOTA POLE                       </th><th> POZNÁMKY                                 </th></tr>
 <tr><td> CLOUDOVÉ SLUŽBY    </td><td> Vytvořte novou cloudovou službu    </td><td>Cloudová služba je kontejner výpočetní prostředky, a to jako virtuální počítače</td></tr>
-<tr><td> NÁZEV CLOUDOVÉ SLUŽBY DNS    </td><td>Ubuntu template.cloudapp.net    </td><td>Pojmenujte nástroje pro vyrovnávání zatížení lhostejné počítače</td></tr>
-<tr><td> OBLASTI NEBO SKUPINY VZTAHŮ NEBO VIRTUÁLNÍ SÍTĚ </td><td>    Západní USA    </td><td> Vyberte oblast, ve kterém webových aplikací přístup ke clusteru Cassandra</td></tr>
+<tr><td> NÁZEV CLOUDOVÉ SLUŽBY DNS    </td><td>ubuntu-template.cloudapp.net    </td><td>Pojmenujte nástroje pro vyrovnávání zatížení lhostejné počítače</td></tr>
+<tr><td> REGION/AFFINITY GROUP/VIRTUAL NETWORK </td><td>    Západní USA    </td><td> Vyberte oblast, ve kterém webových aplikací přístup ke clusteru Cassandra</td></tr>
 <tr><td>ÚČET ÚLOŽIŠTĚ </td><td>    Použít výchozí    </td><td>Použít výchozí účet úložiště nebo předem vytvořený účet úložiště v určité oblasti.</td></tr>
 <tr><td>SADY DOSTUPNOSTI. </td><td>    Žádný </td><td>    Ponechat prázdné</td></tr>
 <tr><td>KONCOVÉ BODY    </td><td>Použít výchozí </td><td>    Použít výchozí konfiguraci SSH </td></tr>
@@ -169,7 +169,7 @@ Klikněte na šipku vpravo, ponechte výchozí nastavení na obrazovce #3. Klikn
 #### <a name="step-1-upload-tarballs"></a>Krok 1: Nahrávání tarballs
 Spojovací bod služby nebo pscp používáte, zkopírujte dříve stažené softwaru ~/downloads adresář v následujícím formátu příkaz:
 
-##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-prostředí jre-8u5-linux-x64.tar.gzlocaladmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
+##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 Zopakujte výše uvedeném příkazu pro prostředí JRE také jako Cassandra bits.
 
 #### <a name="step-2-prepare-the-directory-structure-and-extract-the-archives"></a>Krok 2: Příprava strukturu adresáře a extrahovat archivu
@@ -279,7 +279,7 @@ Upravte cassandra.yaml na každý virtuální počítač tak, aby odrážela kon
 
 <table>
 <tr><th>Název pole   </th><th> Hodnota  </th><th>    Poznámky </th></tr>
-<tr><td>název_clusteru </td><td>    "CustomerService"    </td><td> Použijte název, který se vztahuje k nasazení</td></tr>
+<tr><td>cluster_name </td><td>    “CustomerService”    </td><td> Použijte název, který se vztahuje k nasazení</td></tr>
 <tr><td>listen_address    </td><td>[necháte prázdné]    </td><td> Odstranit "localhost" </td></tr>
 <tr><td>rpc_addres   </td><td>[necháte prázdné]    </td><td> Odstranit "localhost" </td></tr>
 <tr><td>semen    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Seznam všech adres IP, které jsou určené jako vstupní.</td></tr>
@@ -292,7 +292,7 @@ Přihlaste se k virtuálnímu počítači pomocí názvu hostitele (hk template.
 Spusťte následující posloupnost akcí k zachycení bitové kopie:
 
 ##### <a name="1-deprovision"></a>1. Deprovision
-Použijte příkaz "sudo příkaz waagent – deprovision + uživatele" odebrat konkrétní informace o instanci virtuálního počítače. Zobrazit [jak zachytit virtuální počítač s Linuxem](capture-image.md) chcete použít jako šablonu podrobnosti na proces zachycení bitové kopie.
+Použijte příkaz "sudo příkaz waagent – deprovision + uživatele" odebrat konkrétní informace o instanci virtuálního počítače. Zobrazit [jak zachytit virtuální počítač s Linuxem](capture-image-classic.md) chcete použít jako šablonu podrobnosti na proces zachycení bitové kopie.
 
 ##### <a name="2-shut-down-the-vm"></a>2: vypnutí virtuálního počítače
 Ujistěte se, že virtuální počítač je označený a klikněte na odkaz vypnutí z řádku nabídek dolní.
@@ -307,7 +307,7 @@ Tento proces trvat několik sekund a bitovou kopii, která by měla být k dispo
 
 <table>
 <tr><th>Atribut název virtuálního počítače.</th><th>Hodnota</th><th>Poznámky</th></tr>
-<tr><td>Název</td><td>vnet-cass západní USA</td><td></td></tr>
+<tr><td>Název</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Oblast</td><td>Západní USA</td><td></td></tr>
 <tr><td>Servery DNS</td><td>Žádné</td><td>Toto ignorovat, protože jsme nejsou pomocí serveru DNS</td></tr>
 <tr><td>Adresní prostor</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -319,7 +319,7 @@ Přidejte následující podsítě:
 
 <table>
 <tr><th>Název</th><th>Počáteční IP adresu</th><th>CIDR</th><th>Poznámky</th></tr>
-<tr><td>webové</td><td>10.1.1.0</td><td>/24 (251)</td><td>Podsíť pro webové farmy</td></tr>
+<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Podsíť pro webové farmy</td></tr>
 <tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Podsíť pro databázové uzly</td></tr>
 </table>
 
@@ -329,16 +329,16 @@ Data a webové podsítě se dají chránit pomocí skupin zabezpečení sítě p
 
 <table>
 <tr><th>Název počítače    </th><th>Podsíť    </th><th>IP adresa    </th><th>Skupina dostupnosti</th><th>DC/Rack</th><th>Počáteční hodnoty?</th></tr>
-<tr><td>(Hong Kong) c1-západní USA    </td><td>data    </td><td>10.1.2.4    </td><td>(Hong Kong) c sada-1    </td><td>DC = WESTUS rack = rack1 </td><td>Ano</td></tr>
-<tr><td>(Hong Kong) c2-západní USA    </td><td>data    </td><td>10.1.2.5    </td><td>(Hong Kong) c sada-1    </td><td>DC = WESTUS rack = rack1    </td><td>Ne </td></tr>
-<tr><td>(Hong Kong) c3-západní USA    </td><td>data    </td><td>10.1.2.6    </td><td>(Hong Kong) c sada-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ano</td></tr>
-<tr><td>(Hong Kong) c4-západní USA    </td><td>data    </td><td>10.1.2.7    </td><td>(Hong Kong) c sada-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ne </td></tr>
-<tr><td>(Hong Kong) c5-západní USA    </td><td>data    </td><td>10.1.2.8    </td><td>(Hong Kong) c sada-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ano</td></tr>
-<tr><td>(Hong Kong) c6-západní USA    </td><td>data    </td><td>10.1.2.9    </td><td>(Hong Kong) c sada-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ne </td></tr>
-<tr><td>(Hong Kong)-s c7 – západní USA    </td><td>data    </td><td>10.1.2.10    </td><td>(Hong Kong) c sada-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ano</td></tr>
-<tr><td>(Hong Kong) c8-západní USA    </td><td>data    </td><td>10.1.2.11    </td><td>(Hong Kong) c sada-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ne </td></tr>
-<tr><td>(Hong Kong) w1 – západní USA    </td><td>webové    </td><td>10.1.1.4    </td><td>(Hong Kong) w sada-1    </td><td>                       </td><td>neuvedeno</td></tr>
-<tr><td>(Hong Kong) w2 – západní USA    </td><td>webové    </td><td>10.1.1.5    </td><td>(Hong Kong) w sada-1    </td><td>                       </td><td>neuvedeno</td></tr>
+<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack = rack1 </td><td>Ano</td></tr>
+<tr><td>hk-c2-west-us    </td><td>data    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack = rack1    </td><td>Ne </td></tr>
+<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ano</td></tr>
+<tr><td>hk-c4-west-us    </td><td>data    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ne </td></tr>
+<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ano</td></tr>
+<tr><td>hk-c6-west-us    </td><td>data    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ne </td></tr>
+<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ano</td></tr>
+<tr><td>hk-c8-west-us    </td><td>data    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ne </td></tr>
+<tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>neuvedeno</td></tr>
+<tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>neuvedeno</td></tr>
 </table>
 
 Vytvoření seznamu virtuálních počítačů, vyžaduje následující proces:
@@ -425,7 +425,7 @@ Přihlaste se do jednoho z uzlů (například hk-c1-západní us) a spusťte ná
 Měli byste vidět zobrazení podobné níže 8 uzlů clusteru:
 
 <table>
-<tr><th>Status</th><th>Adresa    </th><th>Načtení    </th><th>Tokeny    </th><th>Vlastní </th><th>ID hostitele    </th><th>Rack</th></tr>
+<tr><th>Status</th><th>Adresa    </th><th>Načtení    </th><th>Tokeny    </th><th>Vlastní </th><th>ID hostitele    </th><th>Stojan</th></tr>
 <tr><th>ZRUŠENÍ    </td><td>10.1.2.4     </td><td>87.81 KB    </td><td>256    </td><td>38.0%    </td><td>Identifikátor GUID (odebrat)</td><td>rack1</td></tr>
 <tr><th>ZRUŠENÍ    </td><td>10.1.2.5     </td><td>41.08 KB    </td><td>256    </td><td>68.9%    </td><td>Identifikátor GUID (odebrat)</td><td>rack1</td></tr>
 <tr><th>ZRUŠENÍ    </td><td>10.1.2.6     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>Identifikátor GUID (odebrat)</td><td>rack2</td></tr>
@@ -441,7 +441,7 @@ Použijte následující postup k testování clusteru:
 
 1. Pomocí příkazu Get-AzureInternalLoadbalancer prostředí PowerShell., získejte IP adresu služby Vyrovnávání zatížení pro vnitřní (například 10.1.2.101). Syntaxe příkazu je zobrazena níže: Get-AzureLoadbalancer – ServiceName "(Hong Kong) c-svc západní USA" [zobrazí podrobnosti o vyrovnávání zatížení pro vnitřní společně s jeho IP adresy]
 2. Přihlaste se k webové farmy virtuálního počítače (například hk-w1 – západní us) pomocí klienta Putty ssh nebo
-3. Spuštění $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Chcete-li ověřit, zda je cluster funkční, použijte následující příkazy CQL:
    
      Vytvoření KEYSPACE customers_ks REPLIKACE s = {'class': 'SimpleStrategy', 'replication_factor': 3};   POUŽITÍ customers_ks;   Vytvoření tabulky Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Vložit do VALUES(1, 'John', 'Doe') Customers(customer_id, firstname, lastname);   Vložit do Customers(customer_id, firstname, lastname) hodnoty (2, 'Jana', 'Doe');
@@ -451,9 +451,9 @@ Použijte následující postup k testování clusteru:
 Měli byste vidět něco podobného jako následující výsledky:
 
 <table>
-  <tr><th> customer_id </th><th> FirstName </th><th> Příjmení </th></tr>
-  <tr><td> 1 </td><td> Jan </td><td> Doe </td></tr>
-  <tr><td> 2 </td><td> Jana </td><td> Doe </td></tr>
+  <tr><th> customer_id </th><th> FirstName </th><th> lastname </th></tr>
+  <tr><td> 1 </td><td> Jan </td><td> Novák </td></tr>
+  <tr><td> 2 </td><td> Jana </td><td> Novák </td></tr>
 </table>
 
 Keyspace vytvořili v kroku 4 používá SimpleStrategy s replication_factor 3. SimpleStrategy se doporučuje pro jednoho datového centra nasazení zatímco NetworkTopologyStrategy pro více data center nasazení. Replication_factor 3 poskytuje odolnost proti selhání uzlu.
@@ -466,7 +466,7 @@ Přihlaste se k portálu Azure a vytvořit virtuální síť s atributy zobrazen
 
 <table>
 <tr><th>Název atributu    </th><th>Hodnota    </th><th>Poznámky</th></tr>
-<tr><td>Název    </td><td>vnet-cass východ nám</td><td></td></tr>
+<tr><td>Název    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Oblast    </td><td>Východ USA</td><td></td></tr>
 <tr><td>Servery DNS        </td><td></td><td>Toto ignorovat, protože jsme nejsou pomocí serveru DNS</td></tr>
 <tr><td>Konfigurace VPN typu point-to-site</td><td></td><td>        Můžete tuto zprávu ignorovat</td></tr>
@@ -480,7 +480,7 @@ Přidejte následující podsítě:
 
 <table>
 <tr><th>Název    </th><th>Počáteční IP adresu    </th><th>CIDR    </th><th>Poznámky</th></tr>
-<tr><td>webové    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Podsíť pro webové farmy</td></tr>
+<tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Podsíť pro webové farmy</td></tr>
 <tr><td>data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Podsíť pro databázové uzly</td></tr>
 </table>
 
@@ -490,18 +490,18 @@ Do místní sítě v Azure virtuální sítě je adresní prostor proxy serveru,
 
 Vytvořte dvě místní sítě za následující podrobnosti:
 
-| Název sítě | Adresa brány sítě VPN | Adresní prostor | Poznámky |
+| Síťový název | Adresa brány sítě VPN | Adresní prostor | Poznámky |
 | --- | --- | --- | --- |
-| HK-lnet-map-to-East-us |23.1.1.1 |10.2.0.0/16 |Při vytváření místní síti poskytněte zástupný symbol adresu brány. Po vytvoření brány, naplní adresu skutečné brány. Ujistěte se, že adresní prostor přesně odpovídá příslušné virtuální sítě vzdálené; v takovém případě síť VNET vytvořena v oblasti Východ USA. |
-| HK-lnet-map-to-West-us |23.2.2.2 |10.1.0.0/16 |Při vytváření místní síti poskytněte zástupný symbol adresu brány. Po vytvoření brány, naplní adresu skutečné brány. Ujistěte se, že adresní prostor přesně odpovídá příslušné virtuální sítě vzdálené; v takovém případě síť VNET vytvořena v oblasti západní USA. |
+| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Při vytváření místní síti poskytněte zástupný symbol adresu brány. Po vytvoření brány, naplní adresu skutečné brány. Ujistěte se, že adresní prostor přesně odpovídá příslušné virtuální sítě vzdálené; v takovém případě síť VNET vytvořena v oblasti Východ USA. |
+| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Při vytváření místní síti poskytněte zástupný symbol adresu brány. Po vytvoření brány, naplní adresu skutečné brány. Ujistěte se, že adresní prostor přesně odpovídá příslušné virtuální sítě vzdálené; v takovém případě síť VNET vytvořena v oblasti západní USA. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Krok 3: "Local" sítě mapu příslušných virtuálních sítí
 Z portálu Azure vyberte každý virtuální síť, klikněte na tlačítko "Konfigurace", "Připojení k místní síti" a vyberte místní sítě za následující podrobnosti:
 
 | Virtual Network | Místní sítě |
 | --- | --- |
-| (Hong Kong) vnet západní USA |HK-lnet-map-to-East-us |
-| (Hong Kong) vnet-– východ nám |HK-lnet-map-to-West-us |
+| hk-vnet-west-us |hk-lnet-map-to-east-us |
+| hk-vnet-east-us |hk-lnet-map-to-west-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Krok 4: Vytvoření brány na VNET1 a VNET2
 Na řídicím panelu virtuální sítě klikněte na možnost vytvořit BRÁNU pro aktivaci služby VPN gateway procesu zřizování. Po několika minutách řídicí panel každý virtuální sítě by měl obsahovat adresu skutečného brány.
@@ -511,8 +511,8 @@ Upravte místní sítě nahradit IP adresu brány zástupný symbol skutečné I
 
 <table>
 <tr><th>Místní sítě    </th><th>Brána virtuální sítě</th></tr>
-<tr><td>HK-lnet-map-to-East-us </td><td>Brána (Hong Kong) vnet západní USA</td></tr>
-<tr><td>HK-lnet-map-to-West-us </td><td>Brána (Hong Kong) vnet-– východ nám</td></tr>
+<tr><td>hk-lnet-map-to-east-us </td><td>Brána (Hong Kong) vnet západní USA</td></tr>
+<tr><td>hk-lnet-map-to-west-us </td><td>Brána (Hong Kong) vnet-– východ nám</td></tr>
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>Krok 6: Aktualizace sdílený klíč
@@ -526,15 +526,15 @@ Vytvoření bitové kopie Ubuntu, jak je popsáno v oblasti #1 nasazení podle s
 
 | Název počítače | Podsíť | IP adresa | Skupina dostupnosti | DC/Rack | Počáteční hodnoty? |
 | --- | --- | --- | --- | --- | --- |
-| (Hong Kong) c1-východ nám |data |10.2.2.4 |(Hong Kong) c sada-1 |DC = EASTUS rack = rack1 |Ano |
-| (Hong Kong) c2-východ nám |data |10.2.2.5 |(Hong Kong) c sada-1 |DC = EASTUS rack = rack1 |Ne |
-| (Hong Kong) c3-východ nám |data |10.2.2.6 |(Hong Kong) c sada-1 |DC = EASTUS rack = rack2 |Ano |
-| (Hong Kong) c5-východ nám |data |10.2.2.8 |(Hong Kong) c sada-2 |DC = EASTUS rack = rack3 |Ano |
-| (Hong Kong) c6-východ nám |data |10.2.2.9 |(Hong Kong) c sada-2 |DC = EASTUS rack = rack3 |Ne |
-| (Hong Kong)-s c7 – východ nám |data |10.2.2.10 |(Hong Kong) c sada-2 |DC = EASTUS rack = rack4 |Ano |
-| (Hong Kong) c8-východ nám |data |10.2.2.11 |(Hong Kong) c sada-2 |DC = EASTUS rack = rack4 |Ne |
-| (Hong Kong) w1 – východ nám |webové |10.2.1.4 |(Hong Kong) w sada-1 |neuvedeno |neuvedeno |
-| (Hong Kong) w2 – východ nám |webové |10.2.1.5 |(Hong Kong) w sada-1 |neuvedeno |neuvedeno |
+| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |DC = EASTUS rack = rack1 |Ano |
+| hk-c2-east-us |data |10.2.2.5 |hk-c-aset-1 |DC = EASTUS rack = rack1 |Ne |
+| hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |DC = EASTUS rack = rack2 |Ano |
+| hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |DC = EASTUS rack = rack3 |Ano |
+| hk-c6-east-us |data |10.2.2.9 |hk-c-aset-2 |DC = EASTUS rack = rack3 |Ne |
+| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |DC = EASTUS rack = rack4 |Ano |
+| hk-c8-east-us |data |10.2.2.11 |hk-c-aset-2 |DC = EASTUS rack = rack4 |Ne |
+| hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |neuvedeno |neuvedeno |
+| hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |neuvedeno |neuvedeno |
 
 Použijte stejné pokyny jako oblast #1, ale použít 10.2.xxx.xxx adresní prostor.
 
@@ -551,13 +551,13 @@ Přihlaste se k každý virtuální počítač a spusťte Cassandra na pozadí s
 Nyní Cassandra nasazený na 16 uzlů s 8 uzly v každé oblasti Azure. Tyto uzly jsou ve stejném clusteru na základě běžný název clusteru a počáteční konfigurace uzlu. Použijte následující postup k testování clusteru:
 
 ### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>Krok 1: Získání IP nástroje pro vyrovnávání zatížení pro vnitřní pro oblasti pomocí prostředí PowerShell
-* Get-AzureInternalLoadbalancer - ServiceName "(Hong Kong) c-svc západní USA"
-* Get-AzureInternalLoadbalancer - ServiceName "(Hong Kong) c-svc Východ USA"  
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
   
     Poznámka: adresy IP (pro – příklad západ - 10.1.2.101, východ - 10.2.2.101) zobrazí.
 
 ### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>Krok 2: Spuštěním následujících v této oblasti po přihlášení na hk-w1 – západní USA
-1. Spuštění $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+1. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 2. Spuštěním následujících příkazů CQL:
    
      Vytvoření KEYSPACE customers_ks REPLIKACE s = {'class': 'NetworkToplogyStrategy', 'WESTUS': 3, 'EASTUS': 3};   POUŽITÍ customers_ks;   Vytvoření tabulky Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Vložit do VALUES(1, 'John', 'Doe') Customers(customer_id, firstname, lastname);   Vložit do Customers(customer_id, firstname, lastname) hodnoty (2, 'Jana', 'Doe');   Vyberte * od zákazníků;
@@ -566,21 +566,21 @@ Měli byste vidět zobrazení stejný, jako je nižší než:
 
 | customer_id | FirstName | Příjmení |
 | --- | --- | --- |
-| 1 |Jan |Doe |
-| 2 |Jana |Doe |
+| 1 |Jan |Novák |
+| 2 |Jana |Novák |
 
 ### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>Krok 3: Spusťte následující v oblasti Východ po přihlášení na hk-w1 – východ us:
-1. Spuštění $CASS_HOME/bin/cqlsh 10.2.2.101 9160
+1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
 2. Spuštěním následujících příkazů CQL:
    
-     POUŽITÍ customers_ks;   Vytvoření tabulky Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Vložit do VALUES(1, 'John', 'Doe') Customers(customer_id, firstname, lastname);   Vložit do Customers(customer_id, firstname, lastname) hodnoty (2, 'Jana', 'Doe');   Vyberte * od zákazníků;
+     USE customers_ks;   CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');   SELECT * FROM Customers;
 
 Jak je vidět pro oblast západní byste měli vidět stejné zobrazení:
 
 | customer_id | FirstName | Příjmení |
 | --- | --- | --- |
-| 1 |Jan |Doe |
-| 2 |Jana |Doe |
+| 1 |Jan |Novák |
+| 2 |Jana |Novák |
 
 Provést několik další vložení a v tématu, aby těch, které se replikovaly západ-nám součástí clusteru.
 

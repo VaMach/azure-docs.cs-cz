@@ -1,6 +1,6 @@
 ---
-title: "Začínáme s Azure Automation | Dokumentace Microsoftu"
-description: "Tento článek obsahuje přehled služby Azure Automation. Najdete tu popis návrhu a podrobnosti implementace v rámci přípravy na zprovoznění nabídky z Azure Marketplace."
+title: "Začínáme s Azure Automation | Microsoft Docs"
+description: "Tento článek obsahuje přehled služby Azure Automation. Ho zkontroluje podrobnosti o návrhu a implementace v rámci přípravy registrace nabídky z Azure Marketplace."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,108 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d6ee5c35ce9866f6106c7b5dbc51599b666c3eb1
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/20/2018
 ---
-# <a name="getting-started-with-azure-automation"></a>Začínáme s Azure Automation
+# <a name="get-started-with-azure-automation"></a>Začínáme s Azure Automation
 
-Tato příručka Začínáme představuje základní koncepty související s nasazením služby Azure Automation. Ať už se službou Automation v Azure teprve začínáte nebo máte zkušenostmi se softwarem pro pracovní postupy automatizace, jako je System Center Orchestrator, tento průvodce vám pomůže porozumět přípravě a zprovoznění služby Automation.  Potom budete připraveni začít vyvíjet runbooky na podporu vašich potřeb automatizace procesů. 
+Tento článek představuje základní koncepty související s nasazením Azure Automation. Pokud začínáte Automation v Azure nebo se zkušenostmi s nástrojem automatizace pracovního postupu software System Center Orchestrator, můžete se dozvědět, jak připravit a zařadit automatizace. Po přečtení tohoto článku, budete připraveni začít vývoj runbooky na podporu vašich automatizačních potřeb procesu. 
 
 
 ## <a name="automation-architecture-overview"></a>Přehled architektury služby Automation
 
 ![Přehled Azure Automation](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Azure Automation je aplikace SaaS (software jako služba), která poskytuje škálovatelné a spolehlivé víceklientské prostředí pro automatizaci procesů pomocí runbooků a správu změn konfigurace v systémech Windows a Linux s využitím konfigurace požadovaného stavu (DSC) v Azure, ostatních cloudových službách nebo místním prostředí. Entity obsažené ve vašem účtu Automation, jako jsou runbooky, prostředky a účty Spustit jako, jsou izolované od ostatních účtů Automation v rámci vašeho předplatného a ostatních předplatných.  
+Služby Azure Automation je software jako služba (SaaS) aplikace, která umožňuje škálovatelného a spolehlivého víceklientském prostředí ve kterém můžete použít k automatizaci procesů sady runbook. Konfigurace požadovaného stavu (DSC) můžete použít v Azure, jiných cloudových služeb, nebo v místním prostředí a spravovat konfiguraci změny systémy Windows a Linux. Entity v účtu Automation, včetně sady runbook, prostředky a účty spustit jako jsou izolované od jiných účtech Automation v rámci vašeho předplatného a od jiných předplatných.  
 
-Runbooky, které spouštíte v Azure, běží v sandboxech Automation, které jsou hostované ve virtuálních počítačích Azure typu platforma jako služba (PaaS).  Sandboxy Automation poskytují izolaci tenantů pro všechny aspekty spuštění runbooků – moduly, úložiště, paměť, síťové komunikace, datové proudy úlohy atd. Tato role je spravovaná službou, není dostupná z vašeho účtu Azure nebo Azure Automation a nemůžete ji řídit.         
+Sady Runbook, které běží v Azure jsou spouštěny na automatizace izolovaných prostorů. Izolovaných prostorů jsou hostované v platformy Azure jako virtuální počítače služba (PaaS). 
 
-K automatizaci nasazení a správy prostředků v místním datovém centru nebo jiných cloudových službách můžete po vytvoření účtu Automation určit jeden nebo několik počítačů, na kterých poběží role [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md).  Každý proces HRW vyžaduje agenta Microsoft Management Agent s připojením k pracovnímu prostoru Log Analytics a účet Automation.  Log Analytics se používá ke spuštění instalace, údržbě agenta Microsoft Management Agent a monitorování procesu HRW.  Doručování runbooků a instrukce k jejich spuštění provádí Azure Automation.
+Automatizace izolovaných prostorů poskytují izolaci klientů pro všechny aspekty spuštění sady runbook, včetně modulů, úložiště, paměť, síťové komunikace a datové proudy úlohy. Tato role je spravované službou. Nelze získat přístup, nebo z účtu Azure nebo Automatizace správy rolí.         
 
-Můžete nasadit několik HRW k zajištění vysoké dostupnosti pro runbooky, vyrovnávání zatížení runboiokových úloh a v některých případech je můžete vyhradit pro konkrétní úlohy nebo prostředí.  Microsoft Monitoring Agent v procesu HRW navazuje komunikaci se službou Automation přes port TCP 443 a nemá žádné požadavky na bránu firewall pro příchozí provoz.  Když je runbook spuštěný v procesu HRW v rámci prostředí a chcete ho využít k provádění úloh správy pro jiné počítače nebo služby v tomto prostředí, je možné, že runbook bude potřebovat přístup i k dalším portům.  Pokud zásady zabezpečení IT neumožňují, aby se počítače ve vaší síti připojovaly k internetu, přečtěte si článek o [bráně OMS](../log-analytics/log-analytics-oms-gateway.md), která pro HRW funguje jako proxy pro shromažďování stavu úloh a příjem konfiguračních informací z vašeho účtu Automation.
+K automatizaci nasazení a správu prostředků ve vašem místním datovém centru nebo jiných cloudových služeb, po vytvoření účtu Automation, můžete určit jeden nebo více virtuálních počítačů ke spuštění [hybridní pracovní proces Runbooku](automation-hybrid-runbook-worker.md) role. Každý hybridní pracovní proces Runbooku vyžaduje Microsoft Management agenta k instalaci a účet Automation. Agent musí mít připojení k pracovnímu prostoru analýzy protokolů Azure. Analýzy protokolů můžete použít k navázání připojení v instalaci, údržbě Microsoft Management agenta a monitorování funkčnosti hybridního pracovního procesu Runbooku. Automatizace Azure provádí doručování sady runbook a pokyny, abyste je mohli spustit.
 
-Runbooky, které běží v HRW, se spouští v kontextu místního systémového účtu v počítači, který je doporučeným kontextem zabezpečení při provádění akcí správy v místním počítači s Windows. Pokud chcete, aby runbook spouštěl úlohy s využitím prostředků mimo místní počítač, je možné, že budete muset definovat zabezpečené assety přihlašovacích údajů v účtu Automation, ke kterému máte z runbooku přístup, a používat je k ověřování pro externí zdroj. Assety [Přihlašovací údaje](automation-credentials.md), [Certifikát](automation-certificates.md) a [Propojení](automation-connections.md) ve vašem runbooku můžete používat s rutinami, které umožňují specifikovat přihlašovací údaje, abyste je mohli ověřit.
+Můžete nasadit více procesy Hybrid Runbook Worker. Pro zajištění vysoké dostupnosti pro sady runbook a vyrovnávání zatížení úlohy sady runbook pomocí procesů Hybrid Runbook Worker. V některých případech můžete vyhradit úlohy sady runbook pro konkrétní úlohy nebo prostředí. Microsoft Monitoring Agent na hybridní pracovní proces Runbooku inicializuje komunikaci s služby Automation přes TCP port 443. Procesy hybrid Runbook Worker nemá žádné brány firewall pro příchozí požadavky.  
 
-Konfigurace DSC uložené ve službě Azure Automation je možné použít přímo na virtuálních počítačích Azure. Ostatní fyzické a virtuální počítače mohou žádat o konfigurace ze serveru vyžádané replikace Azure Automation DSC.  Pro správu konfigurací vašich místních fyzických nebo virtuálních systémů Windows a Linux nemusíte nasazovat žádnou infrastrukturu pro podporu serveru vyžádané replikace Automatizace DSC. Stačí, aby byl odchozí internetový přístup z každého systému spravovaný Automatizací DSC a aby se ke komunikaci se službou OMS využíval port TCP 443.   
+Můžete chtít sadu runbook, která běží na hybridní pracovní proces Runbooku k provádění úloh správy na jiné počítače nebo služby ve vašem prostředí. V tomto scénáři sada runbook může být taky potřebujete přístup k další porty. Pokud vaše zásady zabezpečení IT Nepovolit počítače v síti pro připojení k Internetu, zkontrolujte [OMS brány](../log-analytics/log-analytics-oms-gateway.md). Brána Operations Management Suite (OMS) funguje jako proxy pro hybridní pracovní proces Runbooku. Ho shromažďovat stav úlohy a přijímat informace o konfiguraci z vašeho účtu Automation.
+
+Sady Runbook, které běží na hybridní pracovní proces Runbooku se spouštějí v kontextu účtu místního systému v počítači. Při provádění akcí na místním počítači Windows doporučujeme kontextu zabezpečení. Pokud chcete runbook ke spouštění úloh na prostředky, které jsou mimo místní počítač, musíte může definovat zabezpečené přihlašovací údaje prostředky v účtu Automation. Můžete používat prostředky zabezpečené přihlašovací údaje ze sady runbook a použít je k ověření pomocí externího zdroje. Můžete použít [pověření](automation-credentials.md), [certifikát](automation-certificates.md), a [připojení](automation-connections.md) prostředky ve vašem runbooku. Prostředky pomocí rutin, které můžete zadat pověření k jejich ověření.
+
+Můžete použít konfigurace DSC, které jsou uložené ve službě Azure Automation k virtuálním počítačům. Další fyzické a virtuální počítače může požádat o konfiguraci ze serveru vyžádané replikace Automation DSC. Nemusíte nasazovat jakékoliv infrastruktury pro podporu serveru vyžádané replikace Automation DSC ke správě konfigurace vaší místní fyzické nebo virtuální systémy Windows a Linux. Potřebujete jenom odchozí přístup k Internetu každého systému, která bude spravovat pomocí Automation DSC. Komunikace probíhá přes port 443 protokolu TCP pro službu OMS.   
 
 ## <a name="prerequisites"></a>Požadavky
 
 ### <a name="automation-dsc"></a>Automatizace DSC
-Azure Automation DSC se dá využít ke správě různých počítačů:
+Automatizace DSC můžete použít ke správě těchto počítačů:
 
-* Virtuální počítače Azure (klasické) s Windows nebo Linuxem
-* Virtuální počítače Azure s Windows nebo Linuxem
-* Virtuální počítače AWS (Amazon Web Services) s Windows nebo Linuxem
-* Fyzické nebo virtuální počítače s Windows v místním prostředí nebo v jiném cloudu než Azure nebo AWS
-* Fyzické nebo virtuální počítače s Linuxem v místním prostředí nebo v jiném cloudu než Azure nebo AWS
+* Virtuální počítače Azure (klasický) s Windows nebo Linux.
+* Virtuální počítače Azure s Windows nebo Linux.
+* Amazon Web Services (AWS) virtuálních počítačů s Windows nebo Linux.
+* Fyzické a virtuální počítače Windows, které jsou místní nebo v cloudu, než Azure nebo AWS.
+* Fyzické a virtuální počítače Linux, které jsou místní nebo v cloudu, než Azure nebo AWS.
 
-K zajištění komunikace Windows s Azure Automation musí být nainstalovaná nejnovější verze WMF 5 pro agenta PowerShell DSC. K zajištění komunikace Linuxu s Azure Automation musí být nainstalovaná nejnovější verze [agenta PowerShell DSC pro Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150).
+Pro počítače s Windows musí být nainstalována nejnovější verze služby Windows Management Framework (WMF) 5. Pro počítače se systémem Linux, nejnovější verzi [DSC Powershellu agenta pro Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150) musí být nainstalován. DSC prostředí PowerShell agent používá ke komunikaci s automatizace WMF 5. 
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker  
-Počítač pro spuštění hybridních runbookových úloh musí splňovat tyto podmínky:
+Pokud určíte počítač ke spuštění úlohy sady runbook hybridní, počítač musí splňovat následující požadavky:
 
-* Windows Server 2012 nebo novější
-* Windows PowerShell 4.0 nebo novější  Pro zvýšení spolehlivosti doporučujeme na tento počítač nainstalovat Windows PowerShell 5.0. Nejnovější verzi si můžete stáhnout z webu [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=50395).
-* .NET Framework 4.6.2 nebo novější
-* Minimálně dvě jádra
-* Minimálně 4 GB paměti RAM
+* Windows Server 2012 nebo novější.
+* Windows PowerShell 4.0 nebo novější Pro větší spolehlivost doporučujeme prostředí Windows PowerShell 5.0. Můžete [stáhnout nové verze](https://www.microsoft.com/download/details.aspx?id=50395) z webu Microsoft Download Center.
+* Rozhraní .NET framework 4.6.2 nebo novější.
+* Minimálně dvě jádra.
+* Minimálně 4 GB paměti RAM.
 
-### <a name="permissions-required-to-create-automation-account"></a>Oprávnění požadovaná k vytvoření účtu Automation
-Pokud chcete vytvořit nebo aktualizovat účet Automation, musíte mít následující specifická oprávnění vyžadovaná k dokončení tohoto tématu.   
+### <a name="permissions-required-to-create-an-automation-account"></a>Oprávnění potřebná k vytvoření účtu Automation
+Vytvořit nebo aktualizovat účet automatizace a splnit úkoly popsané v tomto článku, musíte mít následující oprávnění a oprávnění:   
  
-* Abyste mohli vytvořit účet Automation, váš uživatelský účet AD musí být přidán do role se stejnými oprávněními jako role vlastníka pro prostředky Microsoft.Automation, jak je uvedeno v článku [Řízení přístupu na základě role ve službě Azure Automation](automation-role-based-access-control.md).  
-* Pokud je nastavení Registrace aplikací nastaveno na **Ano**, uživatelé ve vašem tenantovi Azure AD, kteří nejsou správci, můžou [registrovat aplikace služby AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Pokud je nastavení Registrace aplikací nastaveno na **Ne**, uživatel provádějící tuto akci musí být globálním správcem služby Azure AD. 
+* Pokud chcete vytvořit účet Automation, musí být účtu uživatele Azure Active Directory (Azure AD) přidaný k roli s oprávnění na roli vlastníka pro **Microsoft.Automation** prostředky. Další informace najdete v tématu [řízení přístupu na základě rolí ve službě Azure Automation](automation-role-based-access-control.md).  
+* Na portálu Azure v části **Azure Active Directory** > **SPRAVOVAT** > **registrace aplikace**, pokud **registrace aplikace**  je nastaven na **Ano**, mohou uživatelé bez oprávnění správce v klientovi služby Azure AD [registraci aplikace služby Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Pokud **registrace aplikace** je nastaven na **ne**, uživatele, který provádí tato akce musí být globálním správcem ve službě Azure AD. 
 
-Pokud před přidáním do role globálního správce nebo spolusprávce nejste členem instance Active Directory příslušného předplatného, budete do služby Active Directory přidaní jako host. V takové situaci se zobrazí upozornění Nemáte oprávnění k vytvoření... v okně **Přidání účtu Automation**. Uživatele, kteří byli nejdřív přidaní do role globálního správce nebo spolusprávce, je možné z instance Active Directory předplatného odebrat a potom je znovu přidat – tak se z nich ve službě Active Directory stanou úplní uživatelé. Takovou situaci můžete ověřit v podokně **Azure Active Directory** na webu Azure Portal. Vyberte **Uživatelé a skupiny**, potom **Všichni uživatelé** a po výběru konkrétního uživatele vyberte **Profil**. Hodnota atributu **Typ uživatele** v profilu uživatele by neměla být **Host**.
+Pokud nejste členem odběru instanci Active Directory předtím, než jsou přidány do role Globální správce nebo spolusprávce odběru, jsou přidány do služby Active Directory jako Host. V tomto scénáři se zobrazí tato zpráva na **přidat účet Automation** stránky: "Nemáte oprávnění k vytvoření." 
 
-## <a name="authentication-planning"></a>Plánování ověřování
-Azure Automation umožňuje automatizovat úlohy s prostředky v Azure, v místním prostředí a u jiných poskytovatelů cloudu.  Aby mohl runbook provádět požadované akce, musí mít oprávnění pro bezpečný přístup k prostředkům s minimálními požadovanými právy v rámci předplatného.  
+Pokud je uživatel přidaný k roli globálního správce nebo spolusprávce nejprve můžete můžete je odebrat z instance odběru služby Active Directory a potom je znovu přidat na úplné role uživatele ve službě Active Directory.
 
-### <a name="what-is-an-automation-account"></a>Co je účet Automation 
-Všechny úlohy automatizace, které s prostředky provádíte pomocí rutin Azure ve službě Azure Automation, se ověřují pro Azure pomocí ověřování na základě přihlašovacích údajů organizační identity v Azure Active Directory.  Účet Automation nesouvisí s účtem, který používáte k přihlášení na portál a konfiguraci a použití prostředků Azure.  Součástí účtu Automation jsou následující prostředky služby Automation:
+Ověření role uživatele:
+1. V portálu Azure přejděte do **Azure Active Directory** podokně.
+2. Vyberte **uživatelů a skupin**.
+3. Vyberte **všichni uživatelé**. 
+4. Po výběru konkrétního uživatele, vyberte **profil**. Hodnota **typ uživatele** atribut v profilu uživatele by neměl být **hosta**.
 
-* **Certifikáty** – obsahuje certifikát používaný k ověřování z runbooku nebo konfigurace DSC nebo je možné ho přidat.
-* **Připojení** – obsahuje ověřovací a konfigurační údaje vyžadované pro připojení k externí službě nebo aplikaci z runbooku nebo konfigurace DSC.
-* **Přihlašovací údaje** – jedná se o objekt PSCredential obsahující přihlašovací údaje zabezpečení, jako je uživatelské jméno a heslo, vyžadované pro ověření z runbooku nebo konfigurace DSC.
-* **Integrační moduly** – jedná se o moduly PowerShellu zahrnuté v účtu Azure Automation, které umožňují používání rutin v rámci runbooků a konfigurací DSC.
-* **Plány** – obsahuje plány, které v zadaném čase spouští nebo zastavují runbooky, včetně frekvencí opakování.
-* **Proměnné** – obsahuje hodnoty, které jsou dostupné z runbooku nebo konfigurace DSC.
-* **Konfigurace DSC** – jsou skripty PowerShellu popisující, jak nakonfigurovat funkci nebo nastavení operačního systému nebo jak nainstalovat aplikaci na počítači s Windows nebo Linuxem.  
-* **Runbooky** – jsou sady úloh, které provádějí určité automatizované procesy v Azure Automation na základě Windows PowerShellu.    
+## <a name="authentication-planning"></a>Plán pro ověřování
+Ve službě Azure Automation můžete automatizovat úlohy s prostředky, které jsou v Azure, místně a v jiných cloudových služeb. Pro sadu runbook provádět požadované akce musí mít oprávnění pro bezpečný přístup k prostředkům. Musí mít minimální práva potřebná v rámci předplatného.  
 
-Prostředky Automation jednotlivých účtů Automation jsou přidružené k jedné oblasti Azure, ale účty Automation mohou spravovat veškeré prostředky v rámci předplatného. Účty Automation vytvořte v různých oblastech, pokud máte zásady, které vyžadují izolaci dat a prostředků v určité oblasti.
+### <a name="what-is-an-automation-account"></a>Co je účet služby Automation 
+Všechny úlohy automatizace, které s prostředky provádíte pomocí rutin ve službě Azure Automation ověřování v Azure pomocí ověřování na základě přihlašovacích údajů organizační identity Azure AD.  Účet automatizace je nezávislý na účet, který používáte pro přihlášení k portálu pro konfiguraci a používání prostředků Azure. 
 
-Když na webu Azure Portal vytvoříte účet Automation, automaticky se vytvoří dvě ověřovací entity:
+V následujících zdrojích informací jsou součástí účet Automation:
 
-* Účet Spustit jako. Tento účet vytvoří instanční objekt ve službě Azure Active Directory (Azure AD) a certifikát. Přiřadí také řízení přístupu na základě role Přispěvatel (RBAC), které spravuje prostředky Resource Manageru pomocí runbooků.
-* Účet Spustit jako pro Azure Classic. Tento účet nahraje certifikát pro správu, který se používá ke správě klasických prostředků pomocí runbooků.
+* **Certifikáty**. Obsahuje certifikát, který se používá k ověřování ze sady runbook nebo konfigurace DSC. Můžete také přidat certifikáty.
+* **Připojení**. Obsahuje informace o ověřování a konfigurace, které je nutné se připojit externí služby nebo aplikace ze sady runbook nebo konfigurace DSC.
+* **Přihlašovací údaje**. Obsahuje **PSCredential** objekt, který má pověření zabezpečení, jako je například uživatelské jméno a heslo. Přihlašovací údaje jsou potřebné k ověření ze sady runbook nebo konfigurace DSC.
+* **Integrační moduly**. Moduly Powershellu, které jsou součástí účtu Automation. Moduly prostředí PowerShell pomocí rutin v runboocích a konfiguracích DSC.
+* **Plány**. Obsahuje plány, které spuštění nebo zastavení sady runbook v zadanou dobu, včetně opakovaných frekvencí.
+* **Proměnné**. Obsahují hodnoty, které jsou k dispozici ze sady runbook nebo konfigurace DSC.
+* **Konfigurace DSC**. Skripty prostředí PowerShell, které popisují, jak nakonfigurovat nastavení nebo funkce operačního systému, nebo jak nainstalovat aplikace na počítači s Windows nebo Linux.  
+* **Sady Runbook**. Sadu úloh, které provádějí automatizovaného procesu v automatizace založené na prostředí Windows PowerShell.    
 
-Řízení přístupu na základě role je dostupné v aplikaci Azure Resource Manager pro udělování povolených akcí na uživatelském účtu služby Azure AD a účtu Spustit jako a ověřování takového objektu služby.  Přečtěte si článek [Řízení přístupu na základě role ve službě Azure Automation](automation-role-based-access-control.md), kde najdete další informace, které vám pomůžou s vývojem vašeho modelu pro správu oprávnění ve službě Automation.  
+Prostředky Automation jednotlivých účtů Automation jsou přidružené k jedné oblasti Azure. Účty Automation můžete však použít ke správě všechny prostředky ve vašem předplatném. Účty Automation vytvořte v různých oblastech, pokud máte zásady, které vyžadují izolaci dat a prostředků v určité oblasti.
+
+Když vytvoříte účet Automation na portálu Azure, se automaticky vytvoří dvě entity ověřování:
+
+* **Účet Spustit jako**. Tento účet provede následující úlohy:
+  - Vytvoří objekt služby ve službě Azure AD.
+  - Vytvoří certifikát.
+  - Přiřadí Contributor Role-Based řízení přístupu (RBAC), která spravuje prostředky Azure Resource Manageru pomocí sad runbook.
+* **Classic účet Spustit jako**. Tento účet odešle certifikát pro správu. Certifikát se používá ke správě klasické prostředky pomocí sad runbook.
+
+RBAC je k dispozici s Resource Managerem k udělování povolených akcí na účtu uživatele Azure AD a účet Spustit jako. RBAC můžete také použít k ověření tohoto objektu služby. Další informace a nápovědu k vývoji modelu pro správu oprávnění automatizace, najdete v části [řízení přístupu na základě rolí v Azure Automation článku](automation-role-based-access-control.md).  
 
 #### <a name="authentication-methods"></a>Metody ověřování
-Následující tabulka shrnuje různé metody ověřování pro jednotlivá prostředí podporovaná službou Azure Automation.
+Následující tabulka shrnuje metod ověřování, které můžete použít pro každé prostředí, který podporuje Azure Automation.
 
 | Metoda | Prostředí 
 | --- | --- | 
 | Účet Spustit jako pro Azure a Spustit jako pro Azure Classic |Azure Resource Manager a nasazení Azure Classic |  
 | Uživatelský účet Azure AD |Azure Resource Manager a nasazení Azure Classic |  
-| Ověřování systému Windows |Místní datové centrum nebo jiný poskytovatele cloudu s využitím procesu Hybrid Runbook Worker |  
+| Ověřování systému Windows |Místní datacenter nebo ostatní poskytovatele cloudových služeb pomocí role hybridní pracovní proces Runbooku |  
 | Přihlašovací údaje služby Amazon Web Services |Amazon Web Services |  
 
-V části **Postupy\Ověřování a zabezpečení** najdete doprovodné články s přehledem a postupem implementace pro konfiguraci ověřování v těchto prostředích, a to buď pomocí stávajícího účtu, nebo nového účtu, který vyhradíte pro příslušné prostředí.  Pro účty Spustit jako pro Azure a Spustit jako pro Azure Classic téma [Aktualizace účtu Automation Spustit jako](automation-create-runas-account.md) popisuje, jak aktualizovat stávající účet Automation s účty Spustit jako z portálu nebo pomocí PowerShellu, pokud původně nebyl s účtem Spustit jako pro Azure nebo Spustit jako pro Azure Classic nakonfigurovaný. Pokud chcete vytvořit účet Spustit jako a účet Spustit jako pro Azure Classic s využitím certifikátu vydaného certifikační autoritou (CA) vaší organizace, přečtěte si tento článek, ve kterém zjistíte, jak vytvořit účty s touto konfigurací.     
+Následující články poskytují přehled a doporučený postup konfigurace ověřování pro tato prostředí. Články popisují používání existující a nový účet, který můžete vyhradit pro prostředí. 
+* [Vytvořit samostatný účet Azure Automation.](automation-create-standalone-account.md)
+* [Ověření Runbooků pomocí Azure nasazení classic a Resource Manager](automation-create-aduser-account.md)
+* [Ověření Runbooků pomocí Amazon Web Services](automation-config-aws-account.md)
+* [Aktualizace účtu Automation spustit jako](automation-create-runas-account.md)
+
+Pro účty spustit v Azure jako a Classic spustit jako [aktualizace účtu Automation spustit jako](automation-create-runas-account.md) popisuje postup aktualizace existujícího účtu automatizace s účty spustit jako z portálu. Také popisuje, jak pomocí prostředí PowerShell, pokud účet Automation nebyl původně nakonfigurované s účtem spustit jako nebo Classic spustit jako. Účet Spustit jako a účet Classic spustit jako můžete vytvořit pomocí certifikátu, který vystavila vaše podnikové certifikační autority (CA). Zkontrolujte [aktualizace účtu Automation spustit jako](automation-create-runas-account.md) se dozvíte, jak vytvořit účty pomocí této konfigurace.     
  
 ## <a name="network-planning"></a>Plánování sítě
-Aby se Hybrid Runbook Worker připojil k sadě Microsoft Operations Management Suite (OMS) a registroval, musí mít přístup k portu a adresám URL, které jsou uvedené dál.  To je navíc k [portům a adresám URL požadovaným pro agenta MMA (Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agent.md) pro připojení k OMS. Pokud ke komunikaci mezi agentem a službou OMS používáte proxy server, budete se muset ujistit, že jsou dostupné příslušné prostředky. Pokud používáte k omezení přístupu k internetu bránu firewall, je nutné ji nakonfigurovat tak, aby povolovala přístup.
+Pro Runbook Worker hybridní připojení k a zaregistrovat u OMS musí mít přístup k adresám URL, které jsou popsané v této části a číslo portu. Toto je kromě [portů a adres URL potřebných pro agenta Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) se připojit k OMS. 
 
-Dál jsou uvedené informace o portu a adresách URL, které jsou potřeba k tomu, aby Hybrid Runbook Worker mohl komunikovat se službou Automation.
+Pokud používáte proxy server pro komunikaci mezi agentem a službu OMS, zajistěte, aby byly dostupné s příslušnými prostředky. Pokud používáte bránu firewall k omezení přístupu k Internetu, musíte nakonfigurovat bránu firewall tak, aby povolovala přístup.
 
-* Port: Vyžaduje se jenom TCP 443 pro odchozí internetový přístup.
-* Globální adresa URL: *.azure-automation.net
+Následující portů a adres URL jsou vyžadovány pro roli hybridní pracovní proces Runbooku ke komunikaci s automatizace:
 
-Pokud máte účet Automation definovaný pro konkrétní oblast a chcete komunikaci s tímto datovým centrem omezit, následující tabulka obsahuje záznam DNS pro každou oblast.
+* Port: Pouze TCP 443 je vyžadována pro odchozí přístup k Internetu.
+* Global URL: *.azure-automation.net.
+
+Pokud máte účet Automation, který je definován pro určitou oblast, můžete omezit komunikaci s místní stejné datové centrum. Následující tabulka obsahuje záznam DNS pro každou oblast.
 
 | **Oblast** | **Záznam DNS** |
 | --- | --- |
@@ -132,59 +157,61 @@ Pokud máte účet Automation definovaný pro konkrétní oblast a chcete komuni
 | Spojené království – jih | uks-jobruntimedata-prod-su1.azure-automation.net |
 | USA (Gov) – Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Pokud chcete seznam IP adres místo názvů, z Microsoft Download Center si stáhněte a prohlédněte soubor XML [IP adresy datacentra Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
+Seznam IP adres oblasti namísto názvů oblast, stáhněte si [Azure Datacenter IP adresu](https://www.microsoft.com/download/details.aspx?id=41653) souboru XML z webu Microsoft Download Center. 
 
 > [!NOTE]
-> Tento soubor obsahuje rozsahy IP adres (včetně rozsahů pro Compute, SQL a službu Storage), které se používají v datacentrech Microsoft Azure. Každý týden se zveřejňuje aktualizovaný soubor odrážející aktuálně nasazené rozsahy a všechny nadcházející změny rozsahů IP adres. Rozsahy, které jsou v souboru uvedeny nově, se v datacentrech nebudou používat ještě minimálně týden. Každý týden si stáhněte nový soubor XML a proveďte na svém webu potřebné změny pro zajištění správné identifikace služeb spuštěných v Azure. Uživatelé ExpressRoute si můžou všimnout, že se tento soubor používá k aktualizaci inzerování prostoru Azure pomocí protokolu BGP, která probíhá první týden každého měsíce. 
+> Soubor XML adresu IP Datacentra Azure seznam rozsahů IP adres, které se používají v datových centrech Microsoft Azure. Výpočty, SQL a úložiště rozsahy jsou zahrnuty v souboru. 
+>
+>Aktualizovaný soubor odeslání každý týden. Soubor odráží aktuálně nasazená rozsahy a žádné nadcházející změny rozsahy IP. Nové rozsahy, které se zobrazují v souboru nebudou používány v datacentru alespoň jeden týden. 
+>
+> Je vhodné stáhnout nový soubor XML každý týden. Aktualizujte lokalitu se správně identifikují služby spuštěné v Azure. Azure ExpressRoute uživatelé Upozorňujeme, že tento soubor se používá k aktualizaci inzerování protokolu BGP (Border Gateway) Azure místa první týden v měsíci. 
 > 
 
 ## <a name="creating-an-automation-account"></a>Vytvoření účtu Automation
 
-Účet Automation můžete na webu Azure Portal vytvořit několika různými způsoby.  Následující tabulka uvádí jednotlivé typy nasazení a rozdíly mezi nimi.  
+Následující tabulka uvádí metody pro vytvoření účtu Automation na portálu Azure. Tabulka popisuje každý typ nasazení a rozdíly mezi nimi.  
 
 |Metoda | Popis |
 |-------|-------------|
-| Výběr Automation and Control z Marketplace | Nabídka, která vytvoří vzájemně propojený účet Automation a pracovní prostor OMS ve stejné skupině prostředků a oblasti.  Jednou z výhod integrace s OMS je také možnost použít službu Log Analytics k monitorování a analýze stavů úloh runbooků a datových proudů úloh v průběhu času a využít pokročilé funkce k eskalaci nebo vyšetření problémů. Tato nabídka také nasadí řešení Change Tracking a Update Management, které jsou ve výchozím nastavení povolené. |
-| Výběr Automation z Marketplace | Vytvoří účet Automation v nové nebo stávající skupině prostředků, který není propojený s pracovním prostorem OMS a neobsahuje žádné dostupné řešení z nabídky Automation and Control. Toto je základní konfigurace, která vás seznámí se službou Automation. Můžete se jejím prostřednictvím naučit, jak psát runbooky, konfigurovat DSC a využívat funkce této služby. |
-| Vybraná řešení pro správu | Pokud vyberete řešení – **[Správa aktualizací](../operations-management-suite/oms-solution-update-management.md)**, **[Spustit nebo zastavit virtuální počítače mimo pracovní dobu](automation-solution-vm-management.md)** nebo **[Sledování změn](../log-analytics/log-analytics-change-tracking.md)**, vyzve vás k výběru existujícího účtu Automation a pracovního prostoru OMS nebo vám nabídne možnost vytvořit tento účet i prostor tak, jak to řešení k nasazení ve vašem předplatném potřebuje. |
+| Vyberte **automatizace a řízení** v Azure Marketplace | Nabídky Azure Marketplace vytvoří účet Automation a pracovním prostorem OMS, které jsou propojené a ve stejné skupině prostředků a oblast. Integrace s OMS také zahrnuje výhodou používání analýzy protokolů monitorovat a analyzovat runbook úlohy stav úlohy datové proudy a v čase. Také můžete pokročilých funkcí v analýzy protokolů eskalovat nebo prozkoumat problémy. Nabídku nasadí **sledování změn** a **správy aktualizací** řešení, které jsou ve výchozím nastavení povolené. |
+| Vyberte **automatizace** na webu Marketplace | Tato metoda vytváří účet Automation ve skupině nový nebo existující prostředek, který není přidružený k pracovnímu prostoru OMS. Neobsahuje žádné dostupné řešení z **automatizace a řízení** nabídky. Tato metoda je základní konfigurace, které vás seznámí se automatizace. Další informace o zápisu runboocích a konfiguracích DSC, a zjistěte, jak používat funkce služby může pomoct. |
+| Vyberte **správy** řešení | Pokud vyberete **správy** řešení, včetně [správy aktualizací](../operations-management-suite/oms-solution-update-management.md), [spuštění a zastavení virtuálních počítačů během mimo špičku](automation-solution-vm-management.md), nebo [sledování změn](../log-analytics/log-analytics-change-tracking.md), řešení zobrazí výzva k výběru existující účet Automation a pracovním prostorem OMS. Řešení nabízí možnost vytvořit účet Automation a pracovním prostorem OMS podle potřeby pro řešení nasadit v rámci vašeho předplatného. |
 
-Toto téma vás provede vytvořením účtu Automation a pracovního prostoru OMS připojením nabídky Automation and Control.  Pokud chcete vytvořit samostatný účet Automation pro testování nebo zobrazení náhledu služby, přečtěte si článek [Vytvoření samostatného účtu Automation](automation-create-standalone-account.md).  
+### <a name="create-an-automation-account-thats-integrated-with-oms"></a>Vytvoření účtu Automation, které jsou integrovány v OMS
+Chcete zařadit automatizace, doporučujeme, že jste vybrali **automatizace a řízení** nabídky na Marketplace. Pomocí této metody vytvoří účet Automation a vytvoří integrace s pracovní prostor služby OMS. Pokud použijete tuto metodu, máte také možnost instalace řešení pro správu, které jsou k dispozici v nabídce.  
 
-### <a name="create-automation-account-integrated-with-oms"></a>Vytvoření účtu Automation integrovaného s OMS
-Doporučenou metodou připojení služby Automation je výběr nabídky Automation and Control z Marketplace.  Tím se vytvoří účet Automation a naváže integrace s pracovním prostorem OMS, včetně možnosti instalovat řešení pro správu, které jsou pro tuto nabídku dostupné.  
+[Vytvořit samostatný účet Automation](automation-create-standalone-account.md) vás provede procesem vytvoření účet Automation a pracovním prostorem OMS pomocí registrace **automatizace a řízení** nabídky. Můžete zjistěte, jak vytvořit samostatný účet Automation pro testování nebo náhled službu.  
 
-1. Přihlaste se k webu Azure Portal pomocí účtu, který je členem role správců předplatného a spolusprávcem předplatného.
+Vytvoření účtu Automation a pracovní prostor OMS s použitím **automatizace a řízení** nabídky Marketplace:
 
-2. Klikněte na možnost **Nové**.<br><br> ![Výběr možnosti Nové na webu Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+1. Přihlaste se k portálu Azure pomocí účtu, který je členem role Správci předplatného a spolusprávce předplatného.
+2. Vyberte **nové**.<br><br> ![Na portálu Azure vyberte nový.](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+3. Vyhledejte **automatizace**. Ve výsledcích hledání vyberte **automatizace a řízení**.<br><br> ![Vyhledejte a vyberte ovládací prvek a Automation v Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+4. Přečtěte si popis nabídky a pak vyberte **vytvořit**.  
+5. V části **automatizace a řízení**, vyberte **pracovním prostorem OMS**. V části **pracovních prostorů OMS**, vyberte pracovní prostor OMS, propojené předplatné Azure, účet Automation je v. Pokud nemáte pracovním prostorem OMS, vyberte **vytvořit nový pracovní prostor**. V části **pracovním prostorem OMS**: 
+  1. Pro **pracovním prostorem OMS**, zadejte název pro nový pracovní prostor.
+  2. Pro **předplatné**, vybrat odběr, který má být propojen s. Není-li výchozí výběr předplatné, které chcete použít, vyberte z rozevíracího seznamu předplatné.
+  3. Pro **skupiny prostředků**, můžete vytvořit skupinu prostředků nebo vyberte existující skupinu prostředků.  
+  4. Pro **umístění**, vyberte oblast. Další informace najdete v tématu [oblasti, které jsou k dispozici v Azure Automation](https://azure.microsoft.com/regions/services/). Řešení jsou nabízena v dvou vrstev: úroveň free a na uzel (OMS). Úroveň free může mít na množství dat, která shromáždil denně, dobu uchovávání informací a minut runtime úlohy sady runbook. Jednom uzlu (OMS) vrstvy nemá omezení na množství dat denně shromážděných.  
+  5. Vyberte **Účet Automation**.  Pokud vytvoříte nový pracovní prostor OMS, musí taky vytvořit účet Automation, který je spojen s nový pracovní prostor OMS. Zahrnují vaše předplatné, skupinu prostředků a oblast. 
+    1. Vyberte **vytvořit účet Automation**.
+    2. V části **účet Automation**v **název** pole, zadejte název účtu služby Automation.
+    Všechny ostatní možnosti se vyplní automaticky na základě na pracovní prostor OMS vybrané. Tyto možnosti se nedá změnit. 
+    3. Účet Spustit v Azure jako představuje výchozí metodu ověřování pro tuto nabídku. Po výběru **OK**, se ověřují možností konfigurace a vytvoření účtu Automation. Chcete-li sledovat její průběh v nabídce vyberte **oznámení**. 
+    4. Další možností je vybrat existující účet služby Automation Spustit jako. Účet, který jste vybrali již nelze propojit s jiným pracovním prostorem OMS. Pokud se jedná, zobrazí se zpráva oznámení. Pokud účet je již propojený pracovním prostorem OMS, vyberte jiný účet Automation spustit jako nebo vytvořit.
+    5. Po zadejte nebo vyberte požadované informace, vyberte **vytvořit**. Informace o ověření a vytvoření účtů účet Automation a spustit jako. Automaticky se vrátíte na **pracovním prostorem OMS** podokně.  
+6. Po zadejte nebo vyberte požadované informace na **pracovním prostorem OMS** podokně, vyberte **vytvořit**.  Ověření informací a je vytvořen v pracovním prostoru. Chcete-li sledovat její průběh v nabídce vyberte **oznámení**. Vrátíte se **přidat řešení** podokně.  
+7. V části **automatizace a řízení** nastavení, potvrďte, že chcete instalovat doporučené řešení zkontrolujte předem vybrané. Pokud změníte některá výchozí možnosti, můžete nainstalovat řešení jednotlivě později.  
+8. Chcete-li pokračovat s registrací ve službě Automation a pracovním prostorem OMS, vyberte **vytvořit**. Všechna nastavení ověření a poté se pokusí nasazení nabídky v rámci vašeho předplatného Azure. Tento proces může trvat několik sekund. Chcete-li sledovat průběh, v nabídce vyberte **oznámení**. 
 
-3. Vyhledejte **Automation** a potom ve výsledcích hledání vyberte **Automation and Control***.<br><br> ![Vyhledání a výběr Automation & Control na Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)<br>   
-
-4. Přečtěte si popis této nabídky a klikněte na **Vytvořit**.  
-
-5. V okně nastavení **Automation and Control** vyberte **Pracovní prostor OMS**.  V okně **Pracovní prostory OMS** vyberte pracovní prostor OMS propojený s předplatným Azure, které obsahuje příslušný účet Automation, nebo vytvořte nový pracovní prostor OMS.  Pokud nemáte pracovní prostor OMS, můžete vybrat **Vytvořit nový pracovní prostor** a v okně **Pracovní prostor OMS** provést následující kroky: 
-   - Zadejte název pro nový **pracovní prostor OMS**.
-   - Vyberte **předplatné**, které má být cílem propojení, výběrem z rozevíracího seznamu, pokud výchozí vybrané předplatné není vhodné.
-   - U položky **Skupina prostředků** můžete vytvořit skupinu prostředků nebo vybrat už existující skupinu prostředků.  
-   - Vyberte **Umístění**.  Další informace najdete na stránce uvádějící [oblasti, ve kterých je dostupná služba Azure Automation](https://azure.microsoft.com/regions/services/).  Řešení se nabízejí ve dvou úrovních: úroveň Free a úroveň Per Node (OMS).  V úrovni Free je omezen objem dat shromážděných za den, doba uchovávání a počet minut běhu úloh runbooku.  V úrovni Per Node (OMS) není objem dat shromážděných za den nijak omezený.  
-   - Vyberte **Účet Automation**.  Pokud vytváříte nový pracovní prostor OMS, bude potřeba, abyste vytvořili i nový účet služby Automation, který je přidružený k novému pracovnímu prostoru OMS určenému dříve, a to včetně vašeho předplatného Azure, skupiny prostředků a oblasti.  Můžete vybrat **Vytvořit účet Automation** a v okně **čet Automation** zadat následující údaje: 
-  - Do pole **Název** zadejte název účtu služby Automation.
-
-    Všechny ostatní možnosti se vyplní automaticky na základě vybraného pracovního prostoru OMS. Tyto možnosti nelze upravovat.  Účet Spustit v Azure jako představuje výchozí metodu ověřování pro tuto nabídku.  Po kliknutí na **OK** se ověří možnosti konfigurace a vytvoří se účet služby Automation.  Průběh zpracování můžete sledovat prostřednictvím možnosti nabídky **Oznámení**. 
-
-    Další možností je vybrat existující účet služby Automation Spustit jako.  Účet, který vyberete, nemůže být propojený s jiným pracovním prostorem OMS. V opačném případě se v okně zobrazí příslušné oznámení.  Pokud je toto propojení už vytvořené, je potřeba vybrat jiný účet služby Automation Spustit jako nebo vytvořit nový.
-
-    Po dokončení požadovaných informací klikněte na **Vytvořit**.  Informace se ověří a vytvoří se účet Automation a účet Spustit jako.  Automaticky se vrátíte do okna **Pracovní prostor OMS**.  
-
-6. Po zadání požadovaných informací v okně **Pracovní prostor OMS** klikněte na **Vytvořit**.  Během ověřování informací a vytváření pracovního prostoru můžete průběh zpracování sledovat prostřednictvím položky nabídky **Oznámení**.  Vrátíte se zpátky do okna **Přidat řešení**.  
-
-7. V okně nastavení **Automation and Control** potvrďte, že chcete nainstalovat doporučená předem vybraná řešení. Pokud výběr některého z nich zrušíte, můžete ho nainstalovat později.  
-
-8. Klikněte na **Vytvořit** a pokračujte ve zprovozňování služby Automation a pracovního prostoru OMS. Všechna nastavení se ověří a potom se provede pokus o nasazení nabídky v rámci vašeho předplatného.  Dokončení tohoto procesu může trvat několik sekund a průběh zpracování můžete sledovat prostřednictvím možnosti nabídky **Oznámení**. 
-
-Po zprovoznění nabídky můžete začít vytvářet runbooky, pracovat s řešeními pro správu, která jste povolili, nasadit roli [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) nebo začít využívat službu [Log Analytics](https://docs.microsoft.com/azure/log-analytics) ke shromažďování dat vygenerovaných vašimi prostředky v cloudových nebo místních prostředích.   
+Jakmile nabídce zařazený nemá, můžete provést následující úlohy:
+* Zahájení vytváření sad runbook.
+* Spolupracovat s řešení pro správu, které jste povolili.
+* Nasazení [hybridní pracovní proces Runbooku](automation-hybrid-runbook-worker.md) role.
+* Zahájení práce s [analýzy protokolů](https://docs.microsoft.com/azure/log-analytics) ke shromažďování dat, která je generován prostředků ve vašem prostředí cloudu nebo místně.   
 
 ## <a name="next-steps"></a>Další postup
-* Pokud chcete ověřit, že nový účet Automation umožňuje ověřování prostřednictvím prostředků Azure, prohlédněte si [test ověřování účtu Azure Automation Spustit jako](automation-verify-runas-authentication.md).
-* Pokud chcete začít s vytvářením runbooků, před samotným vytváření nejprve zkontrolujte podporované [Typy runbooků ve službě Automation](automation-runbook-types.md) a související důležité informace.
+* Ověřte, že váš nový účet Automation se můžou ověřovat proti prostředků Azure. Další informace najdete v tématu [Test spustit v Azure Automation jako ověření účtu](automation-verify-runas-authentication.md).
+* Zjistěte, jak začít s vytvářením sad runbook a souvisejících hledisek, než začnete, vytváření obsahu. Další informace najdete v tématu [typy runbooků Automation](automation-runbook-types.md).
 
 

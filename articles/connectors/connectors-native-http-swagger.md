@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Začínáme s HTTP + Swagger akce
 
 Můžete vytvořit první třídy konektor pro libovolný koncový bod REST prostřednictvím [dokumentu Swagger](https://swagger.io) při použití protokolu HTTP + Swagger akce v pracovním postupu logiku aplikace. Můžete také rozšířit logic apps, abyste volat žádný koncový bod REST prvotřídní prostředí návrhář aplikace logiky.
 
-Chcete-li informace o vytváření aplikací logiky s konektory, přečtěte si téma [vytvoření nové aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li informace o vytváření aplikací logiky s konektory, přečtěte si téma [vytvoření nové aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Použít protokol HTTP + Swagger jako aktivační událost nebo akci.
 
@@ -79,35 +79,35 @@ Aktivační událost je událost, která můžete použít ke spuštění pracov
 
 | Trigger | Popis |
 | --- | --- |
-| HTTP + Swagger |Ujistěte se, volání protokolu HTTP a vrátit obsahu odpovědi |
+| HTTP + swagger |Ujistěte se, volání protokolu HTTP a vrátit obsahu odpovědi |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger akce
 Akce je operace, která se provádí v pracovním postupu, který je definován v aplikaci logiky. [Další informace o akcích.](connectors-overview.md) HTTP + Swagger konektor má jednu možné akci.
 
 | Akce | Popis |
 | --- | --- |
-| HTTP + Swagger |Ujistěte se, volání protokolu HTTP a vrátit obsahu odpovědi |
+| HTTP + swagger |Ujistěte se, volání protokolu HTTP a vrátit obsahu odpovědi |
 
-### <a name="action-details"></a>Podrobnosti akce
+### <a name="action-details"></a>Detaily akce
 HTTP + Swagger konektor se dodává s možné jednu akci. Dále najdete informace o jednotlivých akce, jejich povinné a nepovinné vstupní pole a odpovídající výstup podrobnosti, které jsou spojeny s jejich využití.
 
-#### <a name="http--swagger"></a>HTTP + Swagger
+#### <a name="http--swagger"></a>HTTP + swagger
 Pomoc při metadat Swagger Zkontrolujte odchozí požadavku HTTP.
 Znak hvězdičky (*) znamená povinné pole.
 
 | Zobrazované jméno | Název vlastnosti | Popis |
 | --- | --- | --- |
-| Metoda * |– Metoda |Příkaz HTTP, používat. |
-| IDENTIFIKÁTOR URI * |identifikátor URI |Identifikátor URI pro požadavek HTTP. |
-| Záhlaví |Záhlaví |Objekt JSON hlaviček HTTP, které chcete zahrnout. |
-| Tělo |Text |Požadavek HTTP. |
+| Metoda * |metoda |Příkaz HTTP, používat. |
+| IDENTIFIKÁTOR URI * |identifikátor uri |Identifikátor URI pro požadavek HTTP. |
+| Záhlaví |hlavičky |Objekt JSON hlaviček HTTP, které chcete zahrnout. |
+| Tělo |hlavní část |Požadavek HTTP. |
 | Authentication |Ověřování |Ověřování chcete použít pro požadavek. Další informace najdete v tématu [HTTP konektor](connectors-native-http.md#authentication). |
 
 **Podrobnosti o výstupu**
 
 Odpověď HTTP
 
-| Název vlastnosti | Datový typ | Popis |
+| Název vlastnosti | Typ dat | Popis |
 | --- | --- | --- |
 | Záhlaví |Objekt |Hlavičky odpovědi |
 | Tělo |Objekt |Objekt odpovědi |
@@ -116,18 +116,18 @@ Odpověď HTTP
 ### <a name="http-responses"></a>Odpovědi HTTP
 Při volání různé akce, může být určité odpovědi. Následuje tabulka, která popisuje odpovídající odpovědi a popisy.
 
-| Name (Název) | Popis |
+| Název | Popis |
 | --- | --- |
 | 200 |OK |
-| 202 |Přijmout |
-| 400 |Chybný požadavek |
+| 202 |Přijato |
+| 400 |Nesprávná žádost |
 | 401 |Neautorizováno |
-| 403 |Je zakázané |
-| 404 |Nebyl nalezen |
-| 500 |Vnitřní chybu serveru. Došlo k neznámé chybě. |
+| 403 |Zakázáno |
+| 404 |Nenalezené |
+| 500 |Vnitřní chyba serveru Došlo k neznámé chybě. |
 
 - - -
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-* [Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Vyhledání jiných konektorů](apis-list.md)

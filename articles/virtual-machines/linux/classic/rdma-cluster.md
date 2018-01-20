@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Nastavení clusteru Linux RDMA pro spouštění aplikací MPI
 Zjistěte, jak nastavit clusteru s podporou Linux RDMA v Azure pomocí [vysokovýkonné výpočetní velikosti virtuálních počítačů](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ke spouštění paralelních aplikací Message Passing Interface (MPI). Tento článek obsahuje kroky k přípravě image Linux HPC ke spuštění v clusteru s podporou Intel MPI. Po přípravě nasazení clusteru virtuálních počítačů pomocí tuto bitovou kopii a jeden velikostí podporující RDMA virtuální počítač Azure (aktuálně H16r, H16mr, A8 a A9). Použijte cluster ke spouštění aplikací MPI, které efektivně komunikují přes síť s nízkou latencí, vysokou propustností založené na technologii do paměti vzdáleného přímý přístup do (počítače RDMA).
@@ -151,7 +151,7 @@ K zachycení bitové kopie, nejprve spusťte následující příkaz na virtuál
 sudo waagent -deprovision
 ```
 
-Na klientském počítači spusťte následující příkazy rozhraní příkazového řádku Azure k zachycení bitové kopie. Další informace najdete v tématu [jak zachytit klasický Linuxový virtuální počítač jako image](capture-image.md).  
+Na klientském počítači spusťte následující příkazy rozhraní příkazového řádku Azure k zachycení bitové kopie. Další informace najdete v tématu [jak zachytit klasický Linuxový virtuální počítač jako image](capture-image-classic.md).  
 
 ```
 azure vm shutdown <vm-name>

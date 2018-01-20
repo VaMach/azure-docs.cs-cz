@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Odesílání, příjem a zpracování zpráv v aplikacích logiky služby batch
 
@@ -39,7 +39,7 @@ Postup popsaný v tomto příkladu, budete potřebovat tyto položky:
 
 * Předplatné Azure. Pokud předplatné nemáte, můžete [začít s bezplatným účtem Azure](https://azure.microsoft.com/free/). Jinak si můžete [zaregistrovat předplatné s průběžnými platbami](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Základní znalosti o [postup vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Základní znalosti o [postup vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * E-mailový účet s žádným [e-mailu zprostředkovatele nepodporuje Azure Logic Apps](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Aplikace logiky odesílatele potřebovat věděli, kde k odeslání položek, za
       Například pokud máte pracovní nebo školní účet, vyberte konektor Office 365 Outlook. 
       Pokud máte účet Gmail, vyberte konektor z Gmailu.
 
-   3. Vyberte tuto akci pro vaše konektor:  **{*poskytovatele e-mailu*}-odeslat e-mailu **
+   3. Vyberte tuto akci pro vaše konektor: **{*poskytovatele e-mailu*}-odeslat e-mail**
 
-      Například:
+      Příklad:
 
       ![Vyberte možnost odeslat e-mail panel. pro váš poskytovatel e-mailu](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Pokud jste nevytvořili dříve připojení pro poskytovatele e-mailu, zadejte svoje přihlašovací údaje e-mailu pro ověřování při zobrazení výzvy. Další informace o [ověřování přihlašovacích údajů e-mailu](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Pokud jste nevytvořili dříve připojení pro poskytovatele e-mailu, zadejte svoje přihlašovací údaje e-mailu pro ověřování při zobrazení výzvy. Další informace o [ověřování přihlašovacích údajů e-mailu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Nastavte vlastnosti pro akci, kterou jste právě přidali.
 
@@ -200,7 +200,7 @@ Aplikace logiky BatchSender spouští každou minutu, vygeneruje náhodné čís
 > [!IMPORTANT]
 > Po dokončení testování, ujistěte se, že zakážete aplikace logiky BatchSender zastavit odesílání zpráv a předcházeli přetížení vaší doručené poště.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Sestavení na definice aplikace logiky pomocí JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Sestavení bez serveru aplikace v sadě Visual Studio s funkcemi a Azure Logic Apps](../logic-apps/logic-apps-serverless-get-started-vs.md)

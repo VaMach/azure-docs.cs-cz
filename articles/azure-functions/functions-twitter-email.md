@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8137892c4360a6b55cfe48d62226c2421a791d5e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Vytvoří funkci, která se integruje se službou Azure Logic Apps
 
@@ -288,5 +288,5 @@ Přechodu na v dalším kurzu se dozvíte, jak vytvořit bez serveru rozhraní A
 > [!div class="nextstepaction"] 
 > [Vytvoření rozhraní API bez serveru pomocí služby Azure Functions](functions-create-serverless-api.md)
 
-Další informace o Logic Apps najdete v tématu [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
+Další informace o Logic Apps najdete v tématu [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 

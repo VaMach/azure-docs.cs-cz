@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Provádění různých akcí v aplikacích logiky s příkaz switch
 
@@ -34,7 +34,7 @@ Příkaz přepínač můžete použít k implementaci těchto scénářů. Aplik
 ## <a name="prerequisites"></a>Požadavky
 
 - Aktivní předplatné Azure. Pokud nemáte předplatné Azure aktivní [vytvořit bezplatný účet](https://azure.microsoft.com/free/), nebo zkuste [volné aplikace logiky pro](https://tryappservice.azure.com/).
-- [Základní znalosti o aplikace logiky](logic-apps-what-are-logic-apps.md)
+- [Základní znalosti o aplikace logiky](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Do pracovního postupu přidat příkaz switch
 
@@ -120,7 +120,7 @@ Klást otázky, odpovídat na ně a poučit se ze zkušeností jiných uživatel
 
 Pokud chcete pomoci při vylepšování Azure Logic Apps a konektorů, hlasujte nebo zanechte své nápady na [webu zpětné vazby uživatelů Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zjistěte, jak [přidat podmínky](logic-apps-use-logic-app-features.md)
 - Další informace o [chyb a výjimek](logic-apps-exception-handling.md)

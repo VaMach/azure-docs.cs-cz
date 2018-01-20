@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.openlocfilehash: cb46c3f2809fa86fea7a8370d4c417f04040b74c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9c2ac737c9f4e13b4e5e4f5dba18c7a697f6e6c3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrace na Azure Premium Storage (nespravované disků)
 
@@ -61,7 +61,7 @@ Existuje pět typů disků, které lze použít s vaší virtuálních počíta�
 
 | Disky typu Premium  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Velikost disku           | 128 GB| 512 GB| 1024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
+| Velikost disku           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 | Vstupně-výstupní operace za sekundu / disk       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Propustnost / disk | 100 MB za sekundu | 150 MB za sekundu | 200 MB za sekundu | 250 MB za sekundu | 250 MB za sekundu |
 
@@ -755,18 +755,18 @@ Ladění aplikace pro lepší výkon disku, naleznete v [optimalizace výkonu ap
 ### <a name="application-migrations"></a>Migrace aplikací
 Databáze a jiné komplexní aplikace může vyžadovat zvláštní postup podle definice poskytovatele aplikace pro migraci. Naleznete v dokumentaci k příslušné aplikace. Například Obvykle můžete migrovat databází pomocí zálohování a obnovení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících materiálech u konkrétních scénářů pro migraci virtuálních počítačů:
 
 * [Migrovat virtuální počítače, které jsou mezi účty úložiště Azure](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Vytvoření a nahrání virtuálního pevného disku serveru Windows do Azure.](../../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Vytváření a odesílání virtuální pevný Disk, který obsahuje operační systém Linux](../../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Vytváření a odesílání virtuální pevný Disk, který obsahuje operační systém Linux](../../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrace virtuálních počítačů z Amazon AWS k Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Zkontrolujte také, další informace o Azure Storage a virtuální počítače Azure v následujících zdrojích:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Virtuální počítače Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Storage úrovně Premium: Vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

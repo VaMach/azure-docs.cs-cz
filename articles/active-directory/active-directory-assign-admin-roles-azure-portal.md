@@ -1,6 +1,6 @@
 ---
 title: "Přiřazení rolí správce v Azure Active Directory | Microsoft Docs"
-description: "Roli správce můžete vytvořit nebo upravit uživatele, přiřadit role správců jiným uživatelům, resetovat uživatelská hesla, spravovat uživatelské licence nebo spravovat domény. Uživatel, který je přiřazen roli správce má stejné oprávnění mezi všechny cloudové služby, na které má vaše organizace předplatné."
+description: "Roli správce můžete přidat uživatele, přiřadit role pro správu, resetovat uživatelská hesla, spravovat uživatelské licence nebo spravovat domény. Uživatel, který je přiřazen roli správce má stejné oprávnění mezi všechny cloudové služby, na které má vaše organizace předplatné."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Přiřazení rolí správce v Azure Active Directory
 
@@ -65,7 +65,7 @@ Následující role správce jsou k dispozici:
 
 * **Partner podpory vrstvy 2**: nepoužívejte. Tato role se už nepoužívá a bude odebrána z Azure AD v budoucnu. Tato role je určená pro malý počet prodej partnery společnosti Microsoft a není určena pro obecné použití.
 
-* **Heslo správce nebo správce technické podpory**: uživatelé s touto rolí můžete resetovat hesla, spravovat žádosti o služby a sledovat stav služeb. Správci hesel můžou resetovat hesla jenom uživatelům a jiným správcům hesel.
+* **Heslo správce nebo správce technické podpory**: uživatelé s touto rolí můžete změnit hesla, spravovat žádosti o služby a sledovat stav služeb. Správci technické podpory, můžete změnit hesla jenom uživatelům a jiným správcům technickou podporu. 
 
   > [!NOTE]
   > V Microsoft Graph API, Azure AD Graph API a Azure AD PowerShell tato role je označeno "Helpdesk Administrator". Je "Heslo správce" v [portál Azure](https://portal.azure.com/).
@@ -91,7 +91,7 @@ Následující role správce jsou k dispozici:
   >
   >
 
-* **Správce účtu uživatele**: uživatelé k této roli mohou vytvářet a spravovat všechny aspekty uživatelů a skupin. Kromě toho tato role zahrnuje schopnost spravovat lístky žádostí o podporu a monitorování služby stavu. Platí určitá omezení. Například tato role neumožňuje odstraňování globální správce, a při povolit, změna hesla pro bez oprávnění správce, neumožňuje Změna hesla pro globální správci nebo jiné privilegované správce.
+* **Správce účtu uživatele**: uživatelé k této roli mohou vytvářet a spravovat všechny aspekty uživatelů a skupin. Kromě toho tato role zahrnuje schopnost spravovat lístky žádostí o podporu a monitorování služby stavu. Platí určitá omezení. Například tato role neumožňuje odstraňování globálního správce. Správci účtu uživatele, můžete změnit hesla pro uživatele, správce technické podpory a jiné uživatelský účet správce.
 
 ## <a name="administrator-permissions"></a>Oprávnění správce
 
@@ -110,34 +110,34 @@ Následující role správce jsou k dispozici:
 ### <a name="global-administrator"></a>Globální správce
 | Můžete provést | Nelze provést |
 | --- | --- |
-|<p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Provádět operace fakturace a nákupu produktů Office</p><p>Resetovat uživatelská hesla</p><p>Resetovat hesla jiných správce</p> <p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Povolení nebo zakázání služby Multi-Factor authentication</p><p>Zobrazení protokolů auditování</p> |Není k dispozici |
+|<p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Provádět operace fakturace a nákupu produktů Office</p><p>Resetovat uživatelská hesla</p><p>Resetovat hesla jiných správce</p> <p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Povolení nebo zakázání služby Multi-Factor authentication</p><p>Zobrazení protokolů auditování</p> |neuvedeno |
 
-### <a name="password-administrator"></a>Správce hesel
+### <a name="password-administrator--helpdesk-administrator"></a>Heslo správce nebo správce technické podpory
 | Můžete provést | Nelze provést |
 | --- | --- |
-| <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Resetovat uživatelská hesla</p> <p>Resetovat hesla jiných správce</p>|<p>Provádět operace fakturace a nákupu produktů Office</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Zobrazení sestav</p>|
+| <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Změna hesla pro uživatele a další technickou podporu správci</p>|<p>Provádět operace fakturace a nákupu produktů Office</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Zobrazení sestav</p>|
 
 ### <a name="service-administrator"></a>Správce služeb
 | Můžete provést | Nelze provést |
 | --- | --- |
 | <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p> |<p>Resetovat uživatelská hesla</p><p>Provádět operace fakturace a nákupu produktů Office</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Zobrazení protokolů auditování</p> |
 
-### <a name="user-administrator"></a>Správce uživatele
+### <a name="user-account-administrator"></a>Správce účtu uživatele
 | Můžete provést | Nelze provést |
 | --- | --- |
-| <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Resetujte uživatelská hesla, ale s omezením.</p><p>Resetovat hesla jiných správce</p><p>Resetovat hesla jiných uživatelů</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvořit, upravit a odstraňovat uživatele a skupiny a spravovat uživatelské licence, ale s omezením. Potvrdí nelze odstraňovat globální správce ani vytvářet jiné správce.</p> |<p>Provádět operace fakturace a nákupu produktů Office</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Povolení nebo zakázání služby Multi-Factor authentication</p><p>Zobrazení protokolů auditování</p> |
+| <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Změna hesla pro uživatele, správce technické podpory a jiné uživatelský účet správce</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvořit, upravit a odstraňovat uživatele a skupiny a spravovat uživatelské licence, ale s omezením. Potvrdí nelze odstraňovat globální správce ani vytvářet jiné správce.</p> |<p>Provádět operace fakturace a nákupu produktů Office</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Povolení nebo zakázání služby Multi-Factor authentication</p><p>Zobrazení protokolů auditování</p> |
 
-### <a name="security-reader"></a>Čtečka zabezpečení
+### <a name="security-reader"></a>Čtecí zařízení pro zabezpečení
 | V | Můžete provést |
 | --- | --- |
-| Centrum pro ochranu identity |Číst všechny sestavy zabezpečení a informace o nastavení pro funkce zabezpečení<ul><li>Proti spamu<li>Šifrování<li>Zabránění ztrátě dat<li>Proti malwaru<li>Pokročilé threat protection<li>Ochrana proti podvodným<li>Mailflow pravidla |
+| Centrum Identity Protection |Číst všechny sestavy zabezpečení a informace o nastavení pro funkce zabezpečení<ul><li>Anti-spam<li>Šifrování<li>Zabránění ztrátě dat<li>Anti-malware<li>Pokročilé threat protection<li>Ochrana proti podvodným<li>Mailflow pravidla |
 | Privileged Identity Management |<p>Má přístup jen pro čtení ke všem informacím prezentované v Azure AD PIM: zásady a sestav pro Azure AD přiřazení rolí zabezpečení zkontroluje a v budoucnu přístup pro čtení k zásad datům a sestavám pro scénáře kromě přiřazení role Azure AD.<p>**Nelze** registrace pro Azure AD PIM nebo proveďte změny. PIM na portálu nebo pomocí prostředí PowerShell někdo v této roli můžete aktivovat další role (například globální správce nebo správce privilegovaných rolí), pokud je uživatel kandidátem pro ně. |
 | <p>Monitorování stavu služby Office 365</p><p>Centru dodržování předpisů a zabezpečení Office 365</p> |<ul><li>Číst a spravovat výstrahy<li>Zásady zabezpečení pro čtení<li>Číst analýzou hrozeb, Cloud App Discovery a karantény v hledání a prošetřit<li>Číst všechny sestavy |
 
-### <a name="security-administrator"></a>Správce zabezpečení.
+### <a name="security-administrator"></a>Správce zabezpečení
 | V | Můžete provést |
 | --- | --- |
-| Centrum pro ochranu identity |<ul><li>Všechna oprávnění role zabezpečení čtečky.<li>Kromě toho možnost provádět všechny operace IPC s výjimkou resetování hesla. |
+| Centrum Identity Protection |<ul><li>Všechna oprávnění role zabezpečení čtečky.<li>Kromě toho možnost provádět všechny operace IPC s výjimkou resetování hesla. |
 | Privileged Identity Management |<ul><li>Všechna oprávnění role zabezpečení čtečky.<li>**Nelze** spravovat členství v rolích Azure AD nebo nastavení. |
 | <p>Monitorování stavu služby Office 365</p><p>Centru dodržování předpisů a zabezpečení Office 365 |<ul><li>Všechna oprávnění role zabezpečení čtečky.<li>Můžete nakonfigurovat všechna nastavení ve funkci Advanced Threat Protection (ochrany proti malwaru a virů, škodlivý konfigurace adresy URL, adresa URL trasování atd.). |
 
@@ -165,14 +165,14 @@ Naučte se přiřazovat správní role pro uživatele v Azure Active Directory, 
 
 Následující role není vhodné používat. Budou se nepoužívá a bude odebrána z Azure AD v budoucnu.
 
-* Správce licencí ad hoc
-* Tvůrce ověřené uživatele e-mailu
+* Správce ad hoc licencí
+* Tvůrce uživatelů ověřovaných na základě e-mailu
 * Připojení zařízení k
-* Správce zařízení.
+* Správci zařízení
 * Uživatelé zařízení
-* Připojení zařízení k síti na pracovišti
+* Připojení pracovních zařízení
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Další informace o tom, jak změnit správce pro předplatné služby Azure naleznete v tématu [Postup přidání nebo změna role správce služby Azure](../billing-add-change-azure-subscription-administrator.md)
 * Další informace o tom, jak se přístup k prostředkům řídí ve službě Microsoft Azure, najdete v části [Principy přístupu k prostředkům ve službě Azure](active-directory-understanding-resource-access.md)

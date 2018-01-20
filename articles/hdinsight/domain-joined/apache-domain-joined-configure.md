@@ -4,7 +4,7 @@ description: "Zjistěte, jak připravit a nakonfigurovat clustery HDInsight při
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurace prostředí izolovaného prostoru HDInsight připojený k doméně
 
@@ -49,7 +49,7 @@ Pomocí samostatné služby Active Directory spuštěné v Azure IaaS je popsan�
 ## <a name="option-1-one-step-approach"></a>Možnost 1: jednoduchý přístup
 V této části otevřete šablonu správu prostředků Azure z portálu Azure. Šablona se používá k vytvoření samostatné služby Active Directory a HDInsight cluster. Můžete vytvořit aktuálně připojený k doméně clusteru Hadoop, Spark cluster a interaktivní dotazu cluster.
 
-1. Kliknutím na následující obrázek otevřete šablonu na portálu Azure Portal. Šablona se nachází v [šablony Azure QuickStart](https://azure.microsoft.com/resources/templates/).
+1. Kliknutím na následující obrázek otevřete šablonu na portálu Azure Portal. Tuto šablonu najdete v [šablonách Azure pro rychlý start](https://azure.microsoft.com/resources/templates/).
    
     Vytvoření clusteru Spark:
 
@@ -197,7 +197,7 @@ V této části použijete k přidání clusteru služby HDInsight do virtuáln�
 
 6. V **upřesňující nastavení** části:
 
-    - Nastavení domény:
+    - Domain settings:
 
         ![Upřesnit nastavení domény připojený k doméně HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
         

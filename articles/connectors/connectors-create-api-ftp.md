@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Začínáme s konektor FTP
 Pomocí konektoru serveru FTP monitorovat, spravovat a vytvoření souborů na serveru FTP. 
 
-Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-ftp"></a>Připojení k serveru FTP
 Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připojení* ke službě. A [připojení](connectors-overview.md) poskytuje připojení mezi aplikace logiky a jiné služby.  
@@ -35,7 +35,7 @@ Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připoje
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Použít aktivační událost FTP
-Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > Konektor FTP vyžaduje serveru FTP, který je dostupný z Internetu a je nakonfigurován na provoz s pasivní režim. Konektor FTP je taky **není kompatibilní s implicitní FTPS (FTP přes protokol SSL)**. Konektor FTP podporuje pouze explicitní FTPS (FTP přes protokol SSL).  
@@ -61,7 +61,7 @@ Aplikace logiky v tomto okamžiku je nakonfigurovaná s aktivační událost, kt
 > 
 
 ## <a name="use-a-ftp-action"></a>Pomocí akce FTP
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Teď, když jste přidali aktivační událost, použijte následující postup přidání akce, která bude získán obsah souboru nové nebo upravené nalezena. aktivační událost.    
 
@@ -73,7 +73,7 @@ Teď, když jste přidali aktivační událost, použijte následující postup 
    ![Obrázek akce FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    **Získat obsah souboru** řízení otevře. **Poznámka:**: Zobrazí se výzva k autorizaci aplikace logiky k přístupu k účtu serveru FTP, pokud jste tak dosud neučinili dříve.  
    ![Obrázek akce FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Vyberte **soubor** ovládací prvek (mezeru nacházel pod **souboru***). Zde můžete vytvořit různé vlastnosti ze souboru nové nebo upravené nalezena na serveru FTP.  
+5. Vyberte **souboru** ovládací prvek (mezeru nacházel pod ** souboru ***). Zde můžete vytvořit různé vlastnosti ze souboru nové nebo upravené nalezena na serveru FTP.  
 6. Vyberte **souboru obsahu** možnost.  
    ![Obrázek akce FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. Ovládací prvek se aktualizuje, což indikuje, že **FTP – získat obsah souboru** akce získáte *souboru obsahu* nové nebo upravené souboru na serveru FTP.      
@@ -91,5 +91,5 @@ Nyní můžete přidat další akci, jako [SQL Server – vložit řádek](conne
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

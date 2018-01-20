@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: szark
-ms.openlocfilehash: 18b7a5ec2a04962523a70886e1aa2344eb818458
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: de1465afe3ac301adcd1f1867e6290bd50dfab50
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure
 V tomto článku se dozvíte, jak připravit virtuální počítač Red Hat Enterprise Linux (RHEL) pro použití v Azure. Verze RHEL, které jsou popsané v tomto článku jsou 6.7 + a 7.1 +. Hypervisory pro přípravu, které jsou popsané v tomto článku jsou virtuální počítače Hyper-V, na základě jádra (KVM) a VMware. Další informace o požadavcích na podmínky pro účasti v programu Red Hat přístup ke cloudu najdete v tématu [webu přístup do cloudu Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) a [systémem RHEL v Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -165,7 +165,7 @@ V této části předpokládá, že jste již získat soubor ISO z webu Red Hat 
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7. Upravte řádku spouštěcí jádra ve vaší konfiguraci grub pro zahrnutí dalších jádra parametry Azure. Chcete-li provést tuto změny, otevřete `/etc/default/grub` v textovém editoru a upravit `GRUB_CMDLINE_LINUX` parametr. Například:
+7. Upravte řádku spouštěcí jádra ve vaší konfiguraci grub pro zahrnutí dalších jádra parametry Azure. Chcete-li provést tuto změny, otevřete `/etc/default/grub` v textovém editoru a upravit `GRUB_CMDLINE_LINUX` parametr. Příklad:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -344,7 +344,7 @@ V této části předpokládá, že jste již získat soubor ISO z webu Red Hat 
 19. Bitovou kopii qcow2 převeďte na formát VHD.
 
 > [!NOTE]
-> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -417,7 +417,7 @@ V této části předpokládá, že jste již získat soubor ISO z webu Red Hat 
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-8. Upravte řádku spouštěcí jádra ve vaší konfiguraci grub pro zahrnutí dalších jádra parametry Azure. Chcete-li provést tuto konfiguraci, otevřete `/etc/default/grub` v textovém editoru a upravit `GRUB_CMDLINE_LINUX` parametr. Například:
+8. Upravte řádku spouštěcí jádra ve vaší konfiguraci grub pro zahrnutí dalších jádra parametry Azure. Chcete-li provést tuto konfiguraci, otevřete `/etc/default/grub` v textovém editoru a upravit `GRUB_CMDLINE_LINUX` parametr. Příklad:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -493,7 +493,7 @@ V této části předpokládá, že jste již získat soubor ISO z webu Red Hat 
 19. Bitovou kopii qcow2 převeďte na formát VHD.
 
 > [!NOTE]
-> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -565,7 +565,7 @@ V této části se předpokládá, že jste již nainstalovali RHEL virtuálníh
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-8. Upravte řádku spouštěcí jádra ve vaší konfiguraci grub pro zahrnutí dalších jádra parametry Azure. Chcete-li to provést, otevřete `/etc/default/grub` v textovém editoru a upravit `GRUB_CMDLINE_LINUX` parametr. Například:
+8. Upravte řádku spouštěcí jádra ve vaší konfiguraci grub pro zahrnutí dalších jádra parametry Azure. Chcete-li to provést, otevřete `/etc/default/grub` v textovém editoru a upravit `GRUB_CMDLINE_LINUX` parametr. Příklad:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
@@ -620,7 +620,7 @@ V této části se předpokládá, že jste již nainstalovali RHEL virtuálníh
 15. Vypněte virtuální počítač a převeďte soubor VMDK na soubor VHD.
 
 > [!NOTE]
-> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -671,7 +671,7 @@ V této části se předpokládá, že jste již nainstalovali RHEL virtuálníh
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-5. Upravte řádku spouštěcí jádra ve vaší konfiguraci grub pro zahrnutí dalších jádra parametry Azure. Chcete-li provést tuto změny, otevřete `/etc/default/grub` v textovém editoru a upravit `GRUB_CMDLINE_LINUX` parametr. Například:
+5. Upravte řádku spouštěcí jádra ve vaší konfiguraci grub pro zahrnutí dalších jádra parametry Azure. Chcete-li provést tuto změny, otevřete `/etc/default/grub` v textovém editoru a upravit `GRUB_CMDLINE_LINUX` parametr. Příklad:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -734,7 +734,7 @@ V této části se předpokládá, že jste již nainstalovali RHEL virtuálníh
 14. Vypněte virtuální počítač a převeďte soubor VMDK na formát VHD.
 
 > [!NOTE]
-> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -896,7 +896,7 @@ V této části se předpokládá, že jste již nainstalovali RHEL virtuálníh
 
     c.  Nastavení systému BIOS spouštění z disku CD.
 
-5. Spuštění virtuálního počítače. Jakmile se zobrazí v instalační příručce, stiskněte klávesu **kartě** nakonfigurovat možnosti spuštění.
+5. Umožňuje spustit virtuální počítač. Jakmile se zobrazí v instalační příručce, stiskněte klávesu **kartě** nakonfigurovat možnosti spuštění.
 
 6. Zadejte `inst.ks=<the location of the kickstart file>` na konci možnosti spuštění a stiskněte klávesu **Enter**.
 
@@ -921,7 +921,7 @@ Znovu sestavte initramfs:
 
 Další podrobnosti najdete v tématu informace [znovu sestavit initramfs](https://access.redhat.com/solutions/1958).
 
-## <a name="next-steps"></a>Další kroky
-Nyní jste připraveni používat virtuální pevný disk Red Hat Enterprise Linux k vytvoření nové virtuální počítače v Azure. Pokud je poprvé, že jste nahrávání souboru VHD do Azure, najdete v části kroky 2 a 3 v [vytváření a odesílání virtuální pevný disk, který obsahuje operační systém Linux](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+## <a name="next-steps"></a>Další postup
+Nyní jste připraveni používat virtuální pevný disk Red Hat Enterprise Linux k vytvoření nové virtuální počítače v Azure. Pokud je poprvé, že jste nahrávání souboru VHD do Azure, najdete v části kroky 2 a 3 v [vytváření a odesílání virtuální pevný disk, který obsahuje operační systém Linux](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Další podrobnosti o hypervisorů, které jsou certifikované ke spuštění Red Hat Enterprise Linux najdete v tématu [webu Red Hat](https://access.redhat.com/certified-hypervisors).

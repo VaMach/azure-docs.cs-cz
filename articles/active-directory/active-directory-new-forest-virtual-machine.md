@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acfdb94323853161e835b88ef441eaed681bde25
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalace nové doménové struktury služby Active Directory na virtuální síť Azure
 Tento článek ukazuje, jak vytvořit nového prostředí služby Active Directory pro Windows Server na virtuálním počítači (VM) na [virtuální síť Azure](../virtual-network/virtual-networks-overview.md). V takovém případě virtuální síť Azure není připojen k místní síti.
@@ -67,9 +67,9 @@ Vytvoření virtuálních počítačů místo uživatelského rozhraní pomocí 
    |  **Konfigurace virtuálního počítače** |<p>Název virtuálního počítače: Zadejte název bez přípony (například AzureDC1).</p><p>Nové uživatelské jméno: Zadejte název uživatele. Tento uživatel bude členem místní skupiny Administrators na virtuálním počítači. Je nutné tento název se přihlásit k virtuálnímu počítači poprvé. Předdefinovaný účet s názvem správce nebude fungovat.</p><p>Nové heslo nebo potvrďte: Zadejte heslo</p> |
    |  **Konfigurace virtuálního počítače** |<p>Cloudové služby: Zvolte <b>vytvořte novou cloudovou službu</b> pro první virtuální počítač, vyberte tento stejný název cloudové služby při vytváření další virtuální počítače, který bude hostitelem role řadiče domény.</p><p>Název DNS cloudové služby: Zadejte globálně jedinečného názvu</p><p>Oblasti nebo skupiny vztahů nebo virtuální sítě: Zadejte název virtuální sítě (například WestUSVNet).</p><p>Účet úložiště: Zvolte <b>použít účet úložiště automaticky generované</b> pro první virtuální počítač a potom vyberte tento stejný název účtu úložiště při vytváření další virtuální počítače, který bude hostitelem role řadiče domény.</p><p>Skupinu dostupnosti: Zvolit <b>vytvořit skupinu dostupnosti</b>.</p><p>Název sady dostupnosti: Zadejte název pro dostupnost nastavit při vytváření první virtuální počítač a potom vyberte stejný název, když vytvoříte další virtuální počítače.</p> |
    |  **Konfigurace virtuálního počítače** |<p>Vyberte <b>nainstalujte agenta virtuálního počítače</b> a další rozšíření, budete potřebovat.</p> |
-2. Připojte disk pro každý virtuální počítač, který se spustí roli serveru řadiče domény. Další disk je nutný k uložení databáze AD, protokoly a adresáře SYSVOL. Zadejte velikost disku (například 10 GB) a nechte **předvoleb mezipaměti hostitele** nastavena na **žádné**. Pokyny najdete v tématu [jak připojit datový Disk do virtuálního počítače s Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Připojte disk pro každý virtuální počítač, který se spustí roli serveru řadiče domény. Další disk je nutný k uložení databáze AD, protokoly a adresáře SYSVOL. Zadejte velikost disku (například 10 GB) a nechte **předvoleb mezipaměti hostitele** nastavena na **žádné**. Pokyny najdete v tématu [jak připojit datový Disk do virtuálního počítače s Windows](../virtual-machines/windows/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Po prvním přihlášení k virtuálnímu počítači, otevřete **správce serveru** > **Souborová služba a služba úložiště** k vytvoření svazku na tento disk pomocí systému souborů NTFS.
-4. Vyhradit statickou IP adresu pro virtuální počítače, které budou spouštět roli řadiče domény. Můžete vyhradit statickou IP adresu, stažení služby instalace webové platformy společnosti Microsoft a [nainstalovat Azure PowerShell](/powershell/azure/overview) a spusťte rutinu Set-AzureStaticVNetIP. Například:
+4. Vyhradit statickou IP adresu pro virtuální počítače, které budou spouštět roli řadiče domény. Můžete vyhradit statickou IP adresu, stažení služby instalace webové platformy společnosti Microsoft a [nainstalovat Azure PowerShell](/powershell/azure/overview) a spusťte rutinu Set-AzureStaticVNetIP. Příklad:
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -112,7 +112,7 @@ Další informace o používání prostředí Windows PowerShell najdete v téma
 * [Instalaci řadiče domény repliky Active Directory v virtuální sítě Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IaaS IT specialista: Základy (01) virtuálního počítače](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS IT specialista: (05) vytváření virtuální sítě a připojení mezi různými místy](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Přehled virtuálních sítí](../virtual-network/virtual-networks-overview.md)
+* [Přehled služby Virtual Network](../virtual-network/virtual-networks-overview.md)
 * [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Referenční informace k rutinám Azure](/powershell/azure/get-started-azureps)

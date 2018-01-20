@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Příprava prostředí pro zálohování virtuálních počítačů s nasazením Resource Manageru
 
@@ -181,7 +181,7 @@ Jakmile povolíte úspěšně zálohování, zásady zálohování se spustí po
 Pokud máte potíže s registrací virtuální počítač, zobrazíte následující informace o instalaci agenta virtuálního počítače a na připojení k síti. Pravděpodobně ani nepotřebujete následující informace Pokud chráníte virtuální počítače vytvořené v Azure. Ale pokud jste migrovali virtuální počítače Azure, ujistěte se, zda správně nainstalovaný agent virtuálního počítače a virtuální počítač může komunikovat se službou virtuální sítě.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Nainstalujte agenta virtuálního počítače na virtuálním počítači
-Pro rozšíření Backup pracovat, Azure [agenta virtuálního počítače](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) musí být nainstalován na virtuální počítač Azure. Pokud byl váš virtuální počítač vytvořen z Azure Marketplace, agent virtuálního počítače již existuje ve virtuálním počítači. 
+Pro rozšíření Backup pracovat, Azure [agenta virtuálního počítače](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) musí být nainstalován na virtuální počítač Azure. Pokud byl váš virtuální počítač vytvořen z Azure Marketplace, agent virtuálního počítače již existuje ve virtuálním počítači. 
 
 Následující informace slouží pro situacích, kdy jsou *není* pomocí virtuální počítač vytvořen z Azure Marketplace. Například jste migrovali virtuální počítač z překážek místní datacentra. V takovém případě musí být nainstalovaný za účelem ochrany virtuálního počítače agenta virtuálního počítače.
 

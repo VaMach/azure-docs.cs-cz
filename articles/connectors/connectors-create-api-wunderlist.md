@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 899110992cc52ca5edf1706320fd5570473de784
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3657955ca4280fecd3a0fb1ea64b90e0a5c5c765
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Začínáme s konektorem Wunderlist
 Wunderlist zadejte manager todo seznamu a úlohy umožníte uživatelům získat jejich věcem Hotovo.  Zda sdílíte s blízkým jeden seznam na nákup, práci na projektu nebo plánování dovolenou, Wunderlist snadno zachycení, sdílet a dokončit vaše to¬dos. Wunderlist se okamžitě synchronizuje mezi telefon, tablet a počítači, všechny úlohy nabízí přístup odkudkoli.
 
-Začněte vytvořením aplikace logiky nyní; v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Začněte vytvořením aplikace logiky nyní; v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-wunderlist"></a>Umožňuje vytvořit připojení k Wunderlist
 Postup vytvoření aplikace logiky se Wunderlist, musíte nejdřív vytvořit **připojení** pak zadejte podrobnosti pro následující vlastnosti:
 
 | Vlastnost | Požaduje se | Popis |
 | --- | --- | --- |
-| Token |Ano |Zadejte přihlašovací údaje Wunderlist |
+| Token |Ano |Zadat přihlašovací údaje k Wunderlistu |
 
 Po vytvoření připojení, můžete ke spouštění akcí a naslouchat aktivačních událostí.
 
