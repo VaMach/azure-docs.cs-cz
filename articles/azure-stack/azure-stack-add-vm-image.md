@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Zpřístupnit image vlastní virtuálního počítače v Azure zásobníku
 
@@ -43,7 +43,7 @@ Spusťte následující předpoklady, buď z [development kit](azure-stack-conne
    Azure zásobníku podporuje formát virtuálního pevného disku pevný disk. Opravené formátu struktury logický disk lineárně v souboru tak, že disku Posun X je uložený na objekt blob posunu X. Malé zápatí na konec objektu blob popisuje vlastnosti virtuálního pevného disku. Chcete-li potvrdit, pokud je pevný disk, použijte [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) příkaz prostředí PowerShell.  
 
    > [!IMPORTANT]
-   >  Azure zásobník nepodporuje dynamického disku VHD. Změna velikosti dynamický disk, který je připojen k virtuálnímu počítači ponechá virtuální počítač ve stavu selhání. Ke zmírnění tohoto problému, odstraňte virtuální počítač bez odstranění disku Virtuálního počítače, objekt blob souboru VHD v účtu úložiště. Převod virtuálního pevného disku z dynamický disk na pevný disk a znovu vytvořte virtuální počítač.
+   >  Azure zásobník nepodporuje dynamického disku VHD. Změna velikosti dynamický disk, který je připojen k virtuálnímu počítači ponechá virtuální počítač ve stavu selhání. Ke zmírnění tohoto problému, odstraňte virtuální počítač bez odstranění disku Virtuálního počítače, objekt blob souboru VHD v účtu úložiště. Potom převést virtuální pevný disk na dynamický disk na pevný disk a znovu vytvořte virtuální počítač.
 
 Chcete-li přidat bitovou kopii do Azure Marketplace zásobníku, proveďte následující kroky:
 
