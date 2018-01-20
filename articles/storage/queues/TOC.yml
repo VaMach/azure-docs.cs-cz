@@ -142,7 +142,7 @@
           href: /rest/api/storagerp
         - name: Import/export
           href: /rest/api/storageimportexport
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/?category=storage'
