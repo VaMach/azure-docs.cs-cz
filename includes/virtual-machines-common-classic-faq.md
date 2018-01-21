@@ -33,8 +33,7 @@ Každý datový disk může mít velikost až 1 TB. Počet datových disků, kte
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Jaké typy virtuálních pevných disků můžu použít?
 Azure podporuje pouze virtuální pevné disky s pevnou velikostí a ve formátu VHD. Pokud máte disk ve formátu VHDX, který chcete použít v Azure, musíte ho nejprve převést pomocí Správce technologie Hyper-V nebo rutiny [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Až to uděláte, pomocí rutiny [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (v režimu správy služby) nahrajte disk VHD do účtu úložiště v Azure, abyste ho mohli použít s virtuálními počítači.
 
-* Pokyny pro Linux najdete v tématu [Vytvoření a nahrání virtuálního pevného disku obsahujícího operační systém Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* Pokyny pro Windows najdete v tématu [Vytvoření a nahrání virtuálního pevného disku s Windows Serverem do Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Pokyny pro Linux najdete v tématu [Vytvoření a nahrání virtuálního pevného disku obsahujícího operační systém Linux](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Jsou tyto virtuální počítače stejné jako virtuální počítače Hyper-V?
 V mnoha ohledech jsou podobné 1. generaci virtuálních počítačů Hyper-V, ale nejsou úplně stejné. Oba typy poskytují virtualizovaný hardware a virtuální pevné disky ve formátu VHD jsou kompatibilní. To znamená, že je můžete přesouvat mezi Hyper-V a Azure. Tři hlavní rozdíly, které někdy překvapí uživatele Hyper-V, jsou:
