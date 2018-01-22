@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: Horká, studená a archivní úroveň úložiště
 
@@ -93,11 +93,11 @@ V následující tabulce najdete porovnání studené, horké a archivní úrovn
 
 | | **Horká vrstva úložiště** | **Studená vrstva úložiště** | **Úroveň úložiště Archive**
 | ---- | ----- | ----- | ----- |
-| **Dostupnost** | 99,9 % | 99 % | Není k dispozici |
-| **Dostupnost** <br> **(přístupy pro čtení RA-GRS)**| 99,99 % | 99,9 % | Není k dispozici |
+| **Dostupnost** | 99,9 % | 99 % | neuvedeno |
+| **Dostupnost** <br> **(přístupy pro čtení RA-GRS)**| 99,99 % | 99,9 % | neuvedeno |
 | **Poplatky za využití** | Vyšší poplatky za úložiště, nižší poplatky za přístup a transakce | Nižší poplatky za úložiště, vyšší poplatky za přístup a transakce | Nejnižší poplatky za úložiště, nejvyšší poplatky za přístup a transakce |
-| **Minimální velikost objektu** | Není k dispozici | Není dostupné. | Není k dispozici |
-| **Minimální doba uložení** | Není k dispozici | 30 dnů (pouze GPv2) | 180 dnů
+| **Minimální velikost objektu** | neuvedeno | neuvedeno | neuvedeno |
+| **Minimální doba uložení** | neuvedeno | 30 dnů (pouze GPv2) | 180 dnů
 | **Latence** <br> **(čas do prvního bajtu)** | milisekundy | milisekundy | < 15 hodin
 | **Škálovatelnost a cíle výkonnosti** | Stejné jako u účtů úložiště pro obecné účely | Stejné jako u účtů úložiště pro obecné účely | Stejné jako u účtů úložiště pro obecné účely |
 
@@ -189,7 +189,7 @@ Limit úložiště dat je společně s dalšími limity nastavený na úrovni ú
 
 ## <a name="next-steps"></a>Další kroky
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>Vyhodnocení horké, studené a archivní úrovně v účtech GPv2 a Blob Storage
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Vyhodnocení horké, studené a archivní úrovně v účtech GPv2 a Blob Storage
 
 [Ověření dostupnosti horké, studené a archivní úrovně v jednotlivých oblastech](https://azure.microsoft.com/regions/#services)
 

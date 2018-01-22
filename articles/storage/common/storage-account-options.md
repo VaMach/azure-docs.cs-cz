@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: jirwin
-ms.openlocfilehash: 7f07734433694999d38429ca264c58c5f3c619e1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-account-options"></a>Možnosti účtu Azure Storage
 
@@ -31,7 +31,7 @@ Azure Storage poskytuje tři různé možnosti účtu s různými cenami a podpo
 * Účty pro **obecné účely v1 (GPv1)** umožňují používat všechny služby Azure Storage, ale nemusí zahrnovat nejnovější funkce nebo nejnižší ceny za GB. Účty GPv1 například nepodporují studené úložiště a úložiště archivu.  Ceny za transakce jsou nižší, takže z tohoto typu účtu můžou mít užitek úlohy s vysokou četností změn dat nebo vysokou frekvencí čtení.
 
 ### <a name="changing-account-kind"></a>Změna druhu účtu
-Uživatelé můžou účet GPv1 nebo Blob Storage kdykoli upgradovat na účet Gv2 prostřednictvím portálu, rozhraní příkazového řádku nebo PowerShellu. Tato změna je nevratná a žádné jiné změny nejsou povoleny.
+Uživatelé můžou účet GPv1 kdykoli upgradovat na účet GPv2 prostřednictvím portálu, rozhraní příkazového řádku nebo PowerShellu. Tato změna je nevratná a žádné jiné změny nejsou povoleny. Už brzy bude možný upgrade účtů služby Blob Storage na účty GPv2.
 
 ## <a name="general-purpose-v2"></a>Obecné účely v2
 Účty pro **obecné účely v2 (GPv2)** jsou účty úložiště, které podporují všechny funkce všech služeb úložiště, včetně objektů blob, souborů, front a tabulek. Pro objekty blob bloku si můžete vybrat mezi horkou a studenou úrovní úložiště na úrovni účtu, nebo mezi horkou, studenou a archivní úrovní na úrovni objektu blob, a to v závislosti na vzorech přístupu. Pro zajištění optimalizace nákladů ukládejte často, občas a zřídka používaná data v horké, studené a archivní úrovni úložiště (v uvedeném pořadí). Důležité je, že jakýkoli účet GPv1 je možné upgradovat na účet GPv2 pomocí portálu, rozhraní příkazového řádku nebo PowerShellu. Účty GPv2 podporují všechna rozhraní API a všechny funkce, které podporují účty Blob Storage a GPv1, a mají stejně vysokou odolnost, dostupnost, škálovatelnost a výkonnost jako tyto typy účtů.
@@ -130,7 +130,7 @@ V následujících příkladech nejde nastavit úroveň přístupu Na Archive, p
 
 11. Vytvořte účet úložiště kliknutím na **Vytvořit**.
 
-### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Převod účtu GPv1 nebo Blob Storage na účet úložiště GPv2 pomocí webu Azure Portal
+### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Převod účtu GPv1 na účet úložiště GPv2 pomocí webu Azure Portal
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
@@ -247,7 +247,7 @@ Také cena za přenos dat geografické replikace pro účty Blob Storage se v p�
 
 ## <a name="migrating-existing-data"></a>Migrace existujících dat
 
-Účty GPv1 nebo Blob Storage je možné snadno upgradovat na účty GPv2, a to bez výpadků, změn rozhraní API a nutnosti přesouvat data. To je jedna z hlavních výhod účtů GPv2 oproti účtům Blob Storage.
+Účet GPv1 je možné snadno upgradovat na účet GPv2, a to bez výpadků, změn rozhraní API a nutnosti přesouvat data. To je jedna z hlavních výhod účtů GPv2 oproti účtům Blob Storage.
 
 Pokud však potřebujete migrovat na účet Blob Storage, můžete postupovat podle pokynů níže.
 
@@ -280,15 +280,19 @@ Další informace najdete v tématu [Začínáme se službou Azure Blob Storage]
 
 **Jsou existující účty úložiště stále dostupné?**
 
-Ano, existující účty úložiště jsou stále dostupné a jejich funkce ani cena se nemění.  Není u nich možné vybrat úroveň úložiště a tato možnost nebude ani v budoucnosti.
+Ano, existující účty úložiště (GPv1) jsou stále dostupné a jejich funkce ani cena se nemění.  U účtů GPv1 není možné vybrat úroveň úložiště a tato možnost nebude ani v budoucnosti.
 
 **Proč a kdy bych měl/a začít používat účty úložiště GPv2?**
 
 Účty úložiště GPv2 jsou specializované na poskytování nejnižších cen za GB úložiště při současném poskytování konkurenceschopných cen za transakce a přístup k datům. Výhledově se účty úložiště GPv2 doporučují pro ukládání objektů blob, protože na základě tohoto typu účtu se budou zavádět funkce jako upozornění na změny. Kdy budete chtít upgradovat ale záleží na vás a vašich obchodních potřebách.  Před upgradem se například můžete rozhodnout optimalizovat vzorce transakcí.
 
+Downgrade z účtů GPv2 se nepodporuje, proto před upgradováním svých účtů na účty GPv2 zvažte všechny cenové důsledky.
+
 **Můžu svůj existující účet úložiště upgradovat na účet úložiště GPv2?**
 
-Ano. Účty GPv1 nebo Blob Storage je možné snadno upgradovat na účty GPv2 pomocí portálu.
+Ano. Účty GPv1 je možné snadno upgradovat na účty GPv2 pomocí portálu, PowerShellu nebo rozhraní příkazového řádku. Účty služby Blob Storage je možné upgradovat na účty GPv2 pomocí PowerShellu nebo rozhraní příkazového řádku. Už brzy bude možný upgrade účtů služby Blob Storage na účty GPv2 pomocí portálu.
+
+Downgrade z účtů GPv2 se nepodporuje, proto před upgradováním svých účtů na účty GPv2 zvažte všechny cenové důsledky.
 
 **Můžu na jednom účtu ukládat objekty do obou úrovní úložiště?**
 
@@ -315,6 +319,8 @@ Ne. Účty Blob Storage podporují pouze objekty blob bloku a doplňovací objek
 **Musím měnit své existující aplikace, aby používaly účty úložiště GPv2?**
 
 Účty úložiště GPv2 jsou z hlediska rozhraní API 100% konzistentní s účty GPv1 a Blob Storage. Pokud aplikace používá objekty blob bloku nebo objekty blob připojení a vy používáte verzi rozhraní [služby úložiště REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) z 14. 2. 2014 nebo novější, měla by aplikace fungovat. Pokud používáte starší verzi protokolu, budete muset aplikaci aktualizovat, aby používala novou verzi, a mohla tak bez problémů pracovat s oběma typy účtů úložiště. Celkově vždy doporučujeme používat nejnovější verzi bez ohledu na to, který typ účtu úložiště používáte.
+
+Ceny za transakce a šířku pásma jsou u účtů GPv2 obecně vyšší než u účtů GPv1. Proto možná budete muset před upgradem optimalizovat vzory transakcí, aby se vaše celková fakturovaná částka nezvýšila.
 
 **Mění se něco v uživatelském rozhraní?**
 
