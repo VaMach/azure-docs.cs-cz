@@ -44,6 +44,8 @@
         - name: Nástroje pro VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Odesílání úloh z Nástrojů R pro Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Rozšíření clusterů
       items:
         - name: Přizpůsobení clusterů pomocí Bootstrap
@@ -269,7 +271,7 @@
         - name: Monitorování výkonu clusteru
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

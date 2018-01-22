@@ -52,9 +52,15 @@
     - name: 2. Nastavení zařízení
       href: tutorial-set-up-device.md
     - name: 3. Zřízení zařízení v IoT Hubu
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4. Zřízení zařízení v několika centrech
       href: tutorial-provision-multiple-hubs.md
+    - name: 5. Zřízení skupinových registrací
+      href: tutorial-group-enrollments.md
 - name: Koncepty
   items:
     - name: Koncepty zařízení
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Odvolání přístupu k zařízení
       href: how-to-revoke-device-access-portal.md
+    - name: Zrušení zřízení zařízení
+      href: how-to-unprovision-devices.md
     - name: Použití HSM s SDK
       href: use-hsm-with-sdk.md
     - name: Řízení přístupu ke službě zřizování

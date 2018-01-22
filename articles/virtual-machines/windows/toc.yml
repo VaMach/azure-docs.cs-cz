@@ -286,6 +286,8 @@
           href: convert-disk-storage.md
         - name: Migrace na Storage úrovně Premium s Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Vyhledání nepřipojených disků
+          href: find-unattached-disks.md
         - name: Použití úložiště souborů
           href: mount-azure-file-storage.md
         - name: Nasazení disků pomocí šablony
@@ -418,7 +420,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Použití vnořené virtualizace
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Azure CLI
       href: /cli/azure/vm

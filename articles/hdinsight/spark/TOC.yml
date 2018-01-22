@@ -115,6 +115,9 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
     - name: Analýza velkých objemů dat
       items:
+        - name: Použití Sparku ke čtení a zápisu dat HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Analýza protokolů Telemetrie Application Insights
           href: apache-spark-analyze-application-insight-logs.md
     - name: Rozšíření clusterů
@@ -178,6 +181,8 @@
           maintainContext: true
     - name: Spravovat
       items:
+        - name: Optimalizace sparkových úloh
+          href: apache-spark-perf.md
         - name: Plánování kapacity clusteru
           href: ../hdinsight-capacity-planning.md
           maintainContext: true

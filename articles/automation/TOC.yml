@@ -131,10 +131,10 @@
       items:
         - name: Galerie runbooků
           href: automation-runbook-gallery.md
+        - name: Spuštění runbooku z výstrah Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Vytvoření virtuálního počítače webové služby Amazon
           href: automation-scenario-aws-deployment.md
-        - name: Náprava výstrah virtuálních počítačů Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Spuštění/zastavení virtuálního počítače se značkami JSON
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Odebrání skupiny prostředků
@@ -193,7 +193,7 @@
       href: /rest/api/automation
     - name: REST (Classic)
       href: 'https://msdn.microsoft.com/library/azure/mt163781'
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Úvodní video ke službě Automation
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'

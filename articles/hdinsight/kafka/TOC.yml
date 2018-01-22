@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Vývoj
       items:
+        - name: Použití rozhraní Kafka Producer and Consumer API
+          href: apache-kafka-producer-consumer-api.md
+        - name: Použití rozhraní Kafka Streams API
+          href: apache-kafka-streams-api.md
         - name: Použití prázdných hraničních uzlů
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
