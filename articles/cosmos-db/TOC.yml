@@ -341,7 +341,7 @@
         - name: Správa klíčů a konzistence
           href: manage-account.md
         - name: Azure Storage Explorer
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Zabezpečení
           items:
             - name: Šifrování v klidovém stavu

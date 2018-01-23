@@ -28,13 +28,13 @@
 ### [Řízení přístupu na základě rolí (Preview)](service-bus-role-based-access-control.md)
 ### [Zasílání zpráv úrovně Premium](service-bus-premium-messaging.md)
 ### [Srovnání front Azure a front Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Sestavení vícevrstvé aplikace Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimalizace výkonu](service-bus-performance-improvements.md)
 ### [Geografické zotavení po havárii a geografická replikace](service-bus-geo-dr.md)
 ### [Asynchronní zasílání zpráv a vysoká dostupnost](service-bus-async-messaging.md)
 ### [Zvládání výpadků a havárií](service-bus-outages-disasters.md)
 
 ## Vývoj
+### [Sestavení vícevrstvé aplikace Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Zpracování zpráv
 #### [Fronty, témata a odběry](service-bus-queues-topics-subscriptions.md)
 #### [Zprávy, datové části a serializace](service-bus-messages-payloads.md)
