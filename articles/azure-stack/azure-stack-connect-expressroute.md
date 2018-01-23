@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Připojit zásobník Azure do Azure pomocí služby ExpressRoute
 
@@ -88,9 +88,9 @@ Chcete-li vytvořit k požadovaným síťovým zdrojům v zásobníku Azure pro 
 
    |Pole  |Hodnota  |
    |---------|---------|
-   |Name (Název)     |Tenant1VNet1         |
+   |Název     |Tenant1VNet1         |
    |Adresní prostor     |10.1.0.0/16|
-   |Název podsítě     |Tenant1 Sub1|
+   |Název podsítě     |Tenant1-Sub1|
    |Rozsah adres podsítě     |10.1.1.0/24|
 
 6. V poli **Předplatné** by se mělo zobrazovat předplatné, které jste vytvořili dřív.
@@ -205,19 +205,22 @@ Směrovači je virtuálního počítače s Windows serverem (**AzS BGPNAT01**) s
    V příkladu diagramy *adresu externího BGPNAT* je 10.10.0.62 a *interní IP adresu* je 192.168.102.1.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ Směrovači je virtuálního počítače s Windows serverem (**AzS BGPNAT01**) s
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ Směrovači je virtuálního počítače s Windows serverem (**AzS BGPNAT01**) s
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```
@@ -247,7 +250,7 @@ Směrovači je virtuálního počítače s Windows serverem (**AzS BGPNAT01**) s
 ## <a name="configure-azure"></a>Konfigurace Azure
 Teď, když jste dokončili konfigurace protokolů Azure, můžete nasadit některé prostředky Azure. Následující diagram znázorňuje klienta ukázka virtuální sítě v Azure. Můžete použít libovolný název a schéma adresování pro vaši virtuální síť v Azure. Rozsah adres virtuální sítě v Azure a Azure zásobníku však musí být jedinečné a není překrývat.
 
-![Virtuálních sítí Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Azure Vnets](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
 **Diagram 3**
 
@@ -564,5 +567,5 @@ Pokud budete chtít vědět, kolik provozu je předávání přes připojení, m
 
    ![Data v Data](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Nasazení aplikací do Azure a Azure zásobníku](azure-stack-solution-pipeline.md)

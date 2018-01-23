@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Představení IDN pro Azure zásobníku
 
@@ -30,7 +30,7 @@ Také umožňuje registraci názvů interní virtuální síť. Díky tomu můž
 Je něco, co byla vždy existuje v Azure, ale je k dispozici v systému Windows Server 2016 a zásobník Azure příliš.
 
 ## <a name="what-does-idns-do"></a>Jakým způsobem IDN?
-S IDN v zásobníku Azure získáte následující možnosti, aniž byste museli zadat vlastní položky serveru DNS.
+S IDN v zásobníku Azure získáte následující možnosti, aniž byste museli zadat vlastní položky serveru DNS:
 
 * Sdílené služby překladu názvů DNS pro úlohy klientů.
 * Autoritativní služby DNS pro rozlišení názvů a registraci DNS v rámci virtuální sítě klienta.
@@ -47,7 +47,7 @@ V Azure máte možnost zadat popisek názvu DNS, který může být spojen s ve�
 
 Na předchozím obrázku, Azure vytvoří "A" záznamu DNS pro popisek názvu DNS, který je zadán v rámci zóny **westus.cloudapp.azure.com**. Předpona a přípona společně tvoří plně kvalifikovaný domény název (FQDN), můžete vyřešit kdekoli na veřejného Internetu.
 
-Azure zásobníku IDN podporuje pouze pro interní název registraci, proto nelze provést následující.
+Azure zásobníku IDN podporuje pouze pro interní název registraci, proto nelze provést následující:
 
 * Vytvořte záznam DNS v rámci stávající hostované zónu DNS (například local.azurestack.external).
 * Vytvoření zóny DNS (například Contoso.com).
