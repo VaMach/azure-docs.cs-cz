@@ -265,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Odstranění trezoru
           href: delete-vault.md
-    - name: Řešení potíží
+    - name: Monitorování a odstraňování potíží
       items:
         - name: Potíže s replikací z Azure do Azure
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -275,8 +275,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Potíže s převzetím služeb při selhání do Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Shromažďování protokolů a řešení potíží s místním prostředím
-          href: site-recovery-monitoring-and-troubleshooting.md
+        - name: Monitorování služby Azure Site Recovery
+          href: site-recovery-monitor-and-troubleshoot.md
 - name: Referenční informace
   items:
     - name: Azure PowerShell

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d5cb69d7832b974ec5e5b8b4e9f83b66fc9b98a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Kurz: Azure Active Directory integrace s Grovo
 
@@ -127,7 +127,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     > [!NOTE] 
     > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte s skutečné přihlašovací identifikátor, adresa URL odpovědi, na adresu URL a předávací stavu. Obraťte se na [tým podpory Grovo](https://www.grovo.com/contact-us) k získání těchto hodnot.
  
-5. Aplikace Grovo očekává SAML kontrolní výrazy ve specifickém formátu. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z "**uživatelské atributy**" části na stránce integrace aplikace. Následující snímek obrazovky ukazuje příklad pro tento.
+5. Aplikace Grovo očekává SAML kontrolní výrazy ve specifickém formátu. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z "**uživatelské atributy**" části na stránce integrace aplikace. Je nutné namapovat **uživatelský identifikátor** s **user.mail** a nakonfigurovat další atributy, jak je znázorněno v následující snímek obrazovky.
     
     ![Konfigurovat jednotné přihlašování attb](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     

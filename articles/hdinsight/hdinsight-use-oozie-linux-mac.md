@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Použití Oozie se systémem Hadoop k definování a spuštění workflowu v Azure HDInsight se systémem Linux
 
@@ -505,7 +505,7 @@ Pomocí rozhraní REST API Oozie můžete vytvořit vlastní nástroje, které p
 
 * **Identifikátor URI**: můžete přístup k rozhraní REST API z mimo cluster v `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Ověřování**: Chcete-li ověřit, použít rozhraní API účet clusteru HTTP (správce) a heslo. Například:
+* **Ověřování**: Chcete-li ověřit, použít rozhraní API účet clusteru HTTP (správce) a heslo. Příklad:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -731,7 +731,7 @@ Například by pro úlohu v tomto dokumentu, použijte následující kroky:
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se dozvěděli, jak definovat pracovním postupu Oozie a jak spustit úlohu Oozie. Další informace o tom, jak pracovat s HDInsight, naleznete v následujících článcích:
 

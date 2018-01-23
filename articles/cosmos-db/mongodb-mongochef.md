@@ -1,7 +1,7 @@
 ---
-title: "Použít MongoChef pro Azure Cosmos DB | Microsoft Docs"
-description: "Další informace o použití MongoChef se Azure DB Cosmos: rozhraní API pro MongoDB účet"
-keywords: mongochef
+title: "Použít Studio 3T (MongoChef) s Azure Cosmos DB | Microsoft Docs"
+description: "Další informace o použití Studio 3T s účtem Azure Cosmos DB MongoDB rozhraní API"
+keywords: mongochef, studio 3T
 services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
@@ -13,58 +13,58 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 01/18/2018
 ms.author: anhoh
-ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0341fbf668bbbc8f02e78bc1f6c7a00ecc939cc2
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Pomocí Azure DB Cosmos MongoChef: rozhraní API pro MongoDB účet
+# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB: Pomocí Studio 3T s účtem MongoDB rozhraní API
 
-Pro připojení k databázi Azure Cosmos: rozhraní API pro MongoDB účet, musíte:
+Chcete-li připojit k účtu Azure Cosmos DB MongoDB rozhraní API, postupujte takto:
 
-* Stáhněte a nainstalujte [MongoChef](http://3t.io/mongochef)
-* Mít vaše Azure DB Cosmos: rozhraní API pro MongoDB účet [připojovací řetězec](connect-mongodb-account.md) informace
+* Stáhněte a nainstalujte [Studio 3T](https://studio3t.com/) (dříve označované jako MongoChef)
+* Mít vaše Azure DB Cosmos [připojovací řetězec](connect-mongodb-account.md) informací pro váš účet MongoDB
 
-## <a name="create-the-connection-in-mongochef"></a>Vytvoření připojení v MongoChef
-Přidání vaší Azure DB Cosmos: rozhraní API pro MongoDB účet pro připojení správce MongoChef, proveďte následující kroky.
+## <a name="create-the-connection-in-studio-3t"></a>Vytvoření připojení v Studio 3T
+Pokud chcete přidat do Správce připojení 3T Studio účtu Azure Cosmos DB, proveďte následující kroky:
 
-1. Načíst vaše Azure DB Cosmos: rozhraní API pro informace o připojení MongoDB pomocí pokynů [zde](connect-mongodb-account.md).
+1. Načíst informace o připojení Azure Cosmos databázi MongoDB API účtu pomocí pokynů v [připojit MongoDB aplikace pro Azure Cosmos DB](connect-mongodb-account.md) článku.
 
-    ![Snímek obrazovky okna řetězec připojení](./media/mongodb-mongochef/ConnectionStringBlade.png)
+    ![Snímek obrazovky stránky řetězec připojení](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Klikněte na tlačítko **připojit** a otevřít Správce připojení, potom klikněte na **nové připojení**
 
-    ![Snímek obrazovky Správce připojení MongoChef](./media/mongodb-mongochef/ConnectionManager.png)
-3. V **nové připojení** okno na **Server** zadejte hostitele (FQDN) systému Cosmos databázi Azure: rozhraní API pro MongoDB účet a PORT.
+    ![Snímek obrazovky Správce Studio 3T připojení](./media/mongodb-mongochef/ConnectionManager.png)
+3. V **nové připojení** okno na **Server** zadejte hostitele (FQDN) účtu Azure Cosmos DB a PORT.
 
-    ![Snímek obrazovky na kartu server manager MongoChef připojení](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. V **nové připojení** okno na **ověřování** , zvolte režim ověřování **Standard (MONGODB CR nebo SCARM-SHA-1)** a zadejte uživatelské jméno a heslo.  Přijměte výchozí ověřování databáze (správce) nebo zadejte vlastní hodnotu.
+    ![Snímek obrazovky karty Studio 3T připojení správce serveru](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+4. V **nové připojení** okno na **ověřování** , zvolte režim ověřování **Basic (MONGODB CR nebo SCARM-SHA-1)** a zadejte uživatelské jméno a heslo.  Přijměte výchozí ověřování databáze (správce) nebo zadejte vlastní hodnotu.
 
-    ![Snímek obrazovky s kartou ověřování MongoChef připojení správce](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+    ![Snímek obrazovky kartě Studio 3T připojení Správce ověřování](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 5. V **nové připojení** okno na **SSL** zkontrolujte **protokol SSL používá pro připojení** zaškrtávací políčko a **přijmout SSL certifikáty podepsané svým držitelem serveru**  přepínač.
 
-    ![Snímek obrazovky s kartou SSL MongoChef připojení správce](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+    ![Snímek obrazovky s kartou SSL na připojení manager Studio 3T](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Klikněte **Test připojení** a ověřte informace o připojení, klikněte na tlačítko **OK** vraťte do okna nové připojení, a pak klikněte na **Uložit**.
 
-    ![Snímek obrazovky okna MongoChef test připojení](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Snímek obrazovky okna Studio 3T test připojení](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Použít MongoChef k vytvoření databáze, kolekce a dokumentů
-K vytvoření databáze, kolekce a dokumenty pomocí MongoChef, proveďte následující kroky.
+## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Použít Studio 3T k vytvoření databáze, kolekce a dokumentů
+K vytvoření databáze, kolekce a dokumenty pomocí Studio 3T, proveďte následující kroky:
 
 1. V **Správce připojení**, zvýrazněte připojení a klikněte na **Connect**.
 
-    ![Snímek obrazovky Správce připojení MongoChef](./media/mongodb-mongochef/ConnectToAccount.png)
+    ![Snímek obrazovky Správce Studio 3T připojení](./media/mongodb-mongochef/ConnectToAccount.png)
 2. Klikněte pravým tlačítkem na hostitele a zvolte **přidat databázi**.  Zadejte název databáze a klikněte na tlačítko **OK**.
 
-    ![Snímek obrazovky možnost MongoChef přidat databáze](./media/mongodb-mongochef/AddDatabase1.png)
+    ![Snímek obrazovky možnost přidat databáze 3T Studio](./media/mongodb-mongochef/AddDatabase1.png)
 3. Klikněte pravým tlačítkem na databázi a zvolte **přidat kolekce**.  Zadejte název kolekce a klikněte na **vytvořit**.
 
-    ![Snímek obrazovky možnost MongoChef přidat kolekce](./media/mongodb-mongochef/AddCollection.png)
+    ![Snímek obrazovky možnost přidat kolekce 3T Studio](./media/mongodb-mongochef/AddCollection.png)
 4. Klikněte na tlačítko **kolekce** nabídky položky, klepněte na tlačítko **přidat dokument**.
 
-    ![Snímek obrazovky MongoChef přidat dokument položky nabídky](./media/mongodb-mongochef/AddDocument1.png)
+    ![Snímek obrazovky položky nabídky přidat dokument 3T Studio](./media/mongodb-mongochef/AddDocument1.png)
 5. V dialogovém okně Přidat dokument vložte následující a potom klikněte na **přidat dokument**.
 
         {
@@ -83,7 +83,7 @@ K vytvoření databáze, kolekce a dokumenty pomocí MongoChef, proveďte násle
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Přidání jiného dokumentu, tentokrát s následujícím obsahem.
+6. Přidání jiného dokumentu, tentokrát s následujícím obsahem:
 
         {
         "_id": "WakefieldFamily",
@@ -114,5 +114,5 @@ K vytvoření databáze, kolekce a dokumenty pomocí MongoChef, proveďte násle
 
     ![Snímek obrazovky Mongo Chef výsledky dotazu](./media/mongodb-mongochef/QueryDocument1.png)
 
-## <a name="next-steps"></a>Další kroky
-* Prozkoumejte Azure Cosmos DB: Rozhraní API pro MongoDB [ukázky](mongodb-samples.md).
+## <a name="next-steps"></a>Další postup
+* Prozkoumejte rozhraní API služby Azure Cosmos DB MongoDB [ukázky](mongodb-samples.md).

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Vytvoření protokolu hledání v Azure Log Analytics pomocí portálu hledání protokolů
 
@@ -37,11 +37,11 @@ Tento kurz předpokládá, že už máte pracovní prostor analýzy protokolů s
 - Připojit aspoň jeden [agenta Windows](log-analytics-windows-agent.md) nebo jednu [agenta systému Linux](log-analytics-linux-agents.md) do pracovního prostoru.  
 
 ## <a name="open-the-log-search-portal"></a>Otevřete portál hledání protokolů
-Začněte otevřením portálu hledání protokolů.  Můžete k němu přístup v portálu Azure nebo na portálu OMS.
+Začněte otevřením portálu hledání protokolů. 
 
-1. Otevřete portál Azure.
+1. Otevřete web Azure Portal.
 2. Přejděte k analýze protokolů a vyberte pracovní prostor.
-3. Vyberte buď **hledání protokolů** zůstat na webu Azure portal nebo spusťte na portálu OMS výběrem **portálu OMS** a kliknutím na tlačítko Hledat protokolu.
+3. Vyberte **protokolu vyhledávání**.
 
 ![Tlačítko vyhledat protokolu](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
@@ -160,7 +160,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Spojnicový graf](media/log-analytics-log-search-log-search-portal/log-search-portal-14.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o analýzy protokolů dotazovací jazyk v [Začínáme s portálu analýza](https://go.microsoft.com/fwlink/?linkid=856079).
 - Provede kurz pomocí [Advanced Analytics portál](https://go.microsoft.com/fwlink/?linkid=856587) která umožňuje spouštět stejné dotazy a přístup ke stejným datům jako portál hledání protokolů.

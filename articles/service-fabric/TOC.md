@@ -311,6 +311,7 @@
 ### Sledování výkonu
 #### [Sledování výkonu s využitím WAD](service-fabric-diagnostics-perf-wad.md)
 
+
 # Referenční informace
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Rozhraní API Javy](/java/api/overview/azure/servicefabric)
+### [Klientské rozhraní API REST Javy](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Schéma XML modelu služeb](service-fabric-service-model-schema.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Přehled služby Azure standardní nástroje pro vyrovnávání zatížení (preview)
 
@@ -217,7 +217,7 @@ Při použití odchozí připojení s zónově redundantní front-end, připojen
 
 Nového algoritmu v standardní nástroje pro vyrovnávání zatížení preallocates překládat pomocí SNAT porty na síťový adaptér každého virtuálního počítače. Pokud síťový adaptér je přidán do fondu, překládat pomocí SNAT porty jsou souhrnů ještě neumístěných na základě velikosti fondu. V následující tabulce jsou uvedeny preallocations port pro šest úrovně velikostí fond back-end:
 
-| Velikost fondu (instance virtuálních počítačů) | Předběžně přidělené překládat pomocí SNAT portu |
+| Velikost fondu (instance virtuálních počítačů) | Předběžně přidělené počet portů překládat pomocí SNAT |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
@@ -349,7 +349,7 @@ Následující tabulka porovnává omezení a dalo základní nástroje pro vyro
 | Dostupnost virtuálních IP adres  | Nepodporuje se | Dostupné |
 | Rychlé IP Mobility | Nepodporuje se | Dostupné |
 |Scénáře dostupnosti zóny | Pouze oblastmi | Oblastmi, Zónově redundantní, Vyrovnávání zatížení mezi zóny |
-| Odchozí překládat pomocí SNAT algoritmus | Na vyžádání | Souhrnů ještě neumístěných |
+| Odchozí překládat pomocí SNAT algoritmus | On-demand | Souhrnů ještě neumístěných |
 | Odchozí překládat pomocí SNAT front-end výběr | Nejde konfigurovat více kandidáty | Volitelné konfigurace pro snížení kandidáty |
 | Skupina zabezpečení sítě | Volitelné na síťový adaptér a podsítě | Požaduje se |
 
@@ -452,7 +452,7 @@ Tato omezení platí v době preview a se mohou změnit:
 - V kontextu dostupnosti zóny nelze z jedné zóny na jiný přesunout oblastmi veřejnou IP adresu.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o [základní nástroje pro vyrovnávání zatížení](load-balancer-overview.md).
 - Další informace o [dostupnost zóny](../availability-zones/az-overview.md).

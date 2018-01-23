@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: d3b5c3a80262adc71374fe30092006fa6cb6865c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5912a395798f2a37ed939b771698282ae594ce8e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrace na Storage úrovně Premium pomocí Azure Site Recovery
 
@@ -216,8 +216,7 @@ Site Recovery se vytvoří instance virtuálního počítače, jejichž typ je s
 U konkrétních scénářů pro migraci virtuálních počítačů najdete v následujících materiálech:
 
 * [Migrovat virtuální počítače, které jsou mezi účty úložiště Azure](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Vytvoření a nahrání virtuálního pevného disku serveru Windows Azure](../windows/classic/createupload-vhd.md)
-* [Vytváření a odesílání virtuální pevný disk, který obsahuje operační systém Linux](../linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Nahrání virtuálního pevného disku Linux](upload-vhd.md)
 * [Migrace virtuálních počítačů z Amazon AWS k Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Zkontrolujte také, další informace o Azure Storage a virtuální počítače Azure v následujících zdrojích:

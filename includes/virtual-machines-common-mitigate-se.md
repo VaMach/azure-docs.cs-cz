@@ -1,11 +1,14 @@
 
 
 
-**Poslední aktualizace dokumentů**: 12. ledna 3:00 PM PST.
+**Poslední aktualizace dokumentů**: 22. ledna 3:00 PM PST.
 
 Poslední zveřejnění [nová třída ohrožení zabezpečení procesoru](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) se označuje jako spekulativní provádění straně kanál útoky má za následek otázky z zákazníky, kteří potřebují další přehlednost.  
 
 Je chráněn infrastrukturu, která používá Azure a izoluje úloh zákazníka od sebe navzájem.  To znamená, spuštěné v Azure se zákazníci navzájem nelze napadnout vaší aplikace pomocí těchto chyb zabezpečení.
+
+> [!NOTE] 
+> Azure jejich zmírnění dříve oznámeny na 3 ledna 2018 jsou poškozena seznamu nedávných [aktualizované pokyny](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Na virtuální počítače zákazníka v důsledku této nové informace společností Intel, nebude žádná aktivita další údržby.
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Průběžná aktualizace operačních systémů
 

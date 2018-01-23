@@ -113,6 +113,8 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Použití se sadou Microsoft Cognitive Toolkit
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Vytvoření kanálu strojového učení Sparku
+          href: apache-spark-creating-ml-pipelines.md
     - name: Analýza velkých objemů dat
       items:
         - name: Použití Sparku ke čtení a zápisu dat HBase

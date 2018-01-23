@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 01/18/2018
-ms.openlocfilehash: ece359ed7c4d6d627b4bacf5efed88d34d754e02
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 1738fdd85391135357d34fefa878538866f21b91
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Vytvářet a spravovat databáze Azure pro pravidla brány firewall MySQL pomocí rozhraní příkazového řádku Azure
 Pravidla brány firewall na úrovni serveru umožňují správcům řídit přístup k databázi Azure pro Server databáze MySQL z konkrétní IP adresu nebo rozsah IP adres. Pomocí vhodného rozhraní příkazového řádku Azure, můžete vytvořit, aktualizovat, odstranit, seznamu a zobrazit pravidla brány firewall ke správě serveru. Přehled informací o Azure databáze MySQL brány firewall, najdete v článku [databáze Azure pro pravidla brány firewall serveru MySQL](./concepts-firewall-rules.md)
@@ -38,7 +38,7 @@ Příkazy:
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Seznam vaší databázi Azure pro servery, MySQL a přihlaste se k Azure
 Bezpečně připojit pomocí rozhraní příkazového řádku Azure s vaším účtem Azure **az přihlášení** příkaz.
 
-1. Z příkazového řádku spusťte následující příkaz:
+1. Na příkazovém řádku spusťte následující příkaz:
 ```azurecli
 az login
 ```
@@ -79,11 +79,23 @@ Pomocí Azure MySQL název serveru a název skupiny prostředků, vytvořte nov�
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
+
 Povolit přístup pro jednu IP adresu, zadejte stejnou IP adresu jako počáteční IP a koncové IP adresy, jako v následujícím příkladu.
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
-Po úspěšné výstupu příkazu jsou uvedeny podrobnosti o pravidlo brány firewall, které jste vytvořili, ve formátu JSON (ve výchozím nastavení). Pokud dojde k selhání, ukazuje výstup text chybové zprávy.
+
+Povolit aplikacím z Azure IP adres se připojit k vaší databázi Azure pro server databáze MySQL, zadejte IP adresu 0.0.0.0 jako počáteční IP a koncové IP adresy, jako v následujícím příkladu.
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myResourceGroup  
+--server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
+> [!IMPORTANT]
+> Touto možností se brána firewall nakonfiguruje tak, aby povolovala všechna připojení z Azure, včetně připojení z předplatných ostatních zákazníků. Když vyberete tuto možnost, ujistěte se, že vaše přihlašovací a uživatelská oprávnění omezují přístup pouze na autorizované uživatele.
+> 
+
+Po úspěšné vytvářet každý příkaz výstup uvádí podrobnosti o pravidlo brány firewall, které jste vytvořili, ve formátu JSON (ve výchozím nastavení). Pokud dojde k selhání, ukazuje výstup text chybové zprávy.
 
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Aktualizace databáze Azure pravidlo brány firewall pro server databáze MySQL 
 Pomocí Azure MySQL název serveru a název skupiny prostředků, aktualizujte existující pravidlo brány firewall na serveru. Použití [az mysql server brány firewall aktualizace](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update) příkaz. Zadejte název existující pravidla brány firewall jako vstup, jakož i spuštění IP adresy a koncové IP atributů k aktualizaci.

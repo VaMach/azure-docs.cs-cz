@@ -3,8 +3,8 @@ title: "Podporované hostované operační systémy pro Azure zásobníku | Micr
 description: "V zásobníku Azure lze tyto hostované operační systémy."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: Brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: JeffGoldner
-ms.openlocfilehash: 0a31da6cbc2c245b959825a4e715d0dc7511ba99
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.date: 01/18/2018
+ms.author: Brenduns
+ms.reviewer: JeffGoldner
+ms.openlocfilehash: c9f5bee38772623fb79fa081be8eaece981cc8ab
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Hostované operační systémy podporované v Azure zásobníku
 
@@ -31,20 +32,24 @@ Během nasazení zásobník Azure zajistí, že je vhodná verze agenta hosta vl
 
 | Operační systém | Popis | Vydavatel | OS Type | Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Windows Server 2008 R2 SP1 | 64 bitů | Microsoft | Windows | Datacentrum |
-| Windows Server 2012 | 64 bitů | Microsoft | Windows | Datacentrum |
-| Windows Server 2012 R2 | 64 bitů | Microsoft | Windows | Datacentrum |
+| Windows Server 2008 R2 SP1 | 64 bitů | Microsoft | Windows | Datové centrum |
+| Windows Server 2012 | 64 bitů | Microsoft | Windows | Datové centrum |
+| Windows Server 2012 R2 | 64 bitů | Microsoft | Windows | Datové centrum |
 | Windows Server 2016 | 64 bitů | Microsoft | Windows | Datacenter, Datacenter základní datového centra s kontejnery |
 | Windows 7 | 64-bit, Pro a Enterprise | Microsoft | Windows | Ne |
 | Windows 8.1 | 64-bit, Pro a Enterprise | Microsoft | Windows | Ne |
-| Windows 10 | 64-bit, Pro a Enterprise | Microsoft | Windows | Ne |
+| Windows 10 *(viz poznámka 1)* | 64-bit, Pro a Enterprise | Microsoft | Windows | Ne |
+
+***Poznámka 1:****k nasazení Windows 10 klientské operační systémy v zásobníku Azure, musí mít [Windows licence vázané na uživatele](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) nebo nakupovat prostřednictvím kvalifikovaný hostitele víceklientské ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).* 
+
 
 ## <a name="linux"></a>Linux
 
-Linuxových distribucích tady zahrnují nezbytné Windows Azure Linux Agent (WALA). 
+Linuxových distribucích tady zahrnují nezbytné Windows Azure Linux Agent (WALA).
 
-> [!NOTE]
-> Bitové kopie vytvořené s WALA verze starší než 2.2.3 *není* nepodporuje a není pravděpodobné, že chcete nasadit.
+> [!NOTE]   
+> Bitové kopie vytvořené s WALA verze starší než 2.2.3 *není* nepodporuje a není pravděpodobné, že chcete nasadit. Některé verze agenta WALA se ví, není funkce na virtuálních počítačích Azure zásobníku, včetně verze 2.2.12 a 2.2.13.
+
 
 | Distribuce | Popis | Vydavatel | Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -62,7 +67,3 @@ Linuxových distribucích tady zahrnují nezbytné Windows Azure Linux Agent (WA
 | Ubuntu 16.04-LTS | 64 bitů | Canonical | Ano |
 
 Další Linuxových distribucích může být podporovaná v budoucnu.
-
-
-
-

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Příprava prostředí pro zálohování virtuálních počítačů s nasazením Resource Manageru
 
@@ -54,7 +54,7 @@ Než se připravíte prostředí, ujistěte se, že jste pochopili tato omezení
 * Zálohování virtuálních počítačů s daty velikosti disku je větší než 1,023 GB není podporována.
 
   > [!NOTE]
-  > Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s 1 TB (nebo vyšší) nespravované disky. Podrobnosti najdete v části [privátní Preview verzi pro podporu zálohování virtuálních počítačů velké diskové](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s disky > 1TB. Podrobnosti najdete v části [privátní Preview verzi pro podporu zálohování virtuálních počítačů velké diskové](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Zálohování virtuálních počítačů s vyhrazenou IP adresu a žádný definovaný koncový bod není podporována.
@@ -181,7 +181,7 @@ Jakmile povolíte úspěšně zálohování, zásady zálohování se spustí po
 Pokud máte potíže s registrací virtuální počítač, zobrazíte následující informace o instalaci agenta virtuálního počítače a na připojení k síti. Pravděpodobně ani nepotřebujete následující informace Pokud chráníte virtuální počítače vytvořené v Azure. Ale pokud jste migrovali virtuální počítače Azure, ujistěte se, zda správně nainstalovaný agent virtuálního počítače a virtuální počítač může komunikovat se službou virtuální sítě.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Nainstalujte agenta virtuálního počítače na virtuálním počítači
-Pro rozšíření Backup pracovat, Azure [agenta virtuálního počítače](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) musí být nainstalován na virtuální počítač Azure. Pokud byl váš virtuální počítač vytvořen z Azure Marketplace, agent virtuálního počítače již existuje ve virtuálním počítači. 
+Pro rozšíření Backup pracovat, Azure [agenta virtuálního počítače](../virtual-machines/windows/agent-user-guide.md) musí být nainstalován na virtuální počítač Azure. Pokud byl váš virtuální počítač vytvořen z Azure Marketplace, agent virtuálního počítače již existuje ve virtuálním počítači. 
 
 Následující informace slouží pro situacích, kdy jsou *není* pomocí virtuální počítač vytvořen z Azure Marketplace. Například jste migrovali virtuální počítač z překážek místní datacentra. V takovém případě musí být nainstalovaný za účelem ochrany virtuálního počítače agenta virtuálního počítače.
 
@@ -219,7 +219,7 @@ Připojení k úložišti konkrétní oblasti můžete povolit pomocí [služby 
 ![Skupina NSG s značky úložiště pro oblast](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Značky úložiště jsou k dispozici pouze v určitých oblastí a jsou ve verzi preview. Seznam oblastí naleznete v tématu [služby značky pro úložiště](../virtual-network/security-overview.md#service-tags).
+> Značky služby úložiště jsou k dispozici pouze v určitých oblastí a jsou ve verzi preview. Seznam oblastí naleznete v tématu [služby značky pro úložiště](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Použít proxy server HTTP pro zálohování virtuálních počítačů
 Pokud zálohujete virtuální počítač, rozšíření zálohování na virtuální počítač odešle snímek příkazy pro správu do služby Azure Storage pomocí rozhraní API HTTPS. Směrujte provoz rozšíření zálohování přes server proxy protokolu HTTP, protože se jedná o jedinou komponentou nakonfigurovaný pro přístup do veřejného Internetu.

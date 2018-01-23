@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 648d8f04952a4dbe474b44f385075c0ac1c9fd57
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e68f02484c0b8de8319a2d9a6d7e3a01ee06c69a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Rozhodování o použití objektů BLOB služby Azure, Azure soubory nebo disky Azure
 
@@ -78,4 +78,4 @@ Při rozhodování o tom, jak je vaše data uložené a získat přístup, měli
   
 Některé funkce protokolu SMB se nedají použít do cloudu. Další informace najdete v tématu [funkce nejsou podporovány službou Azure File](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Další informace o discích najdete v tématu [Správa disků a bitové kopie](../../virtual-machines/windows/about-disks-and-vhds.md) a [jak připojit datový Disk do virtuálního počítače s Windows](../../virtual-machines/windows/classic/attach-disk-classic.md).
+Další informace o discích najdete v tématu [Správa disků a bitové kopie](../../virtual-machines/windows/about-disks-and-vhds.md) a [jak připojit datový Disk do virtuálního počítače s Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).

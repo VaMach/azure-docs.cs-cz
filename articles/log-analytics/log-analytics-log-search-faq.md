@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nejčastější dotazy k vyhledávání a známé problémy protokolu nové analýzy protokolů
 
@@ -86,11 +86,11 @@ Uvidíte porovnání dva portály v [portály pro vytváření a úpravy dotazů
 
 Váš prohlížeč vyžaduje přístup ke spouštění dotazů analýzy protokolů po upgradu na následující adresy.  Pokud váš prohlížeč je přístup k portálu Azure přes bránu firewall, musíte povolit přístup pro tyto adresy.
 
-| identifikátor URI | IP adresa | Porty |
+| URI | IP adresa | Porty |
 |:---|:---|:---|
-| Portal.loganalytics.IO | Dynamická | 80,443 |
-| API.loganalytics.IO    | Dynamická | 80,443 |
-| docs.loganalytics.IO   | Dynamická | 80,443 |
+| portal.loganalytics.io | Dynamická | 80,443 |
+| api.loganalytics.io    | Dynamická | 80,443 |
+| docs.loganalytics.io   | Dynamická | 80,443 |
 
 
 
@@ -160,13 +160,12 @@ V nadcházejících měsících bude zastaralá hledání starších protokolů.
 Před zveřejněním může vrátit pracovního prostoru po upgradu.  Teď, když nový jazyk dosáhl obecné dostupnosti, tato funkce byla odebrána jako jsme počáteční vyřadit z provozu starší verze platformy.
 
 
-
 ## <a name="views"></a>Zobrazení
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Otázka: Jak lze vytvořit nové zobrazení pomocí návrháře zobrazení?
-Před upgradem můžete vytvořit nové zobrazení pomocí návrháře zobrazit z dlaždice na řídicím panelu hlavní.  Pracovní prostor upgradován, odeberou se tato dlaždice.  Můžete vytvořit nové zobrazení pomocí návrháře zobrazení na portálu OMS kliknutím na tlačítko v levé nabídce + zelená.
+Před upgradem můžete vytvořit nové zobrazení pomocí návrháře zobrazit z dlaždice na řídicím panelu hlavní na portálu OMS.  Pracovní prostor upgradován, odeberou se tato dlaždice.  Můžete vytvořit nové zobrazení pomocí návrháře zobrazení na portálu OMS kliknutím na tlačítko v levé nabídce + zelená.  Budete pokračovat, chcete-li vytvořit nové zobrazení pomocí portálu Azure klikněte na dlaždici Návrhář zobrazení.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o [upgrade na novou pracovní prostor analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md).

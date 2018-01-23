@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: ca86787e344aa5e9e68934dee6e9e83aeb4cc340
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 15c2d882a121df48c94d457719287cd510d0c093
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Vyhodnocení aplikace Azure Service Fabric a micro-services pomocí prostředí PowerShell
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Postupujte podle těchto tří jednoduché kroky k instalaci a konfiguraci řeš
 3. Povolte řešení Service Fabric v pracovním prostoru.
 
 ## <a name="configure-log-analytics-to-collect-and-view-service-fabric-logs"></a>Konfigurace analýzy protokolů můžete shromažďovat a zobrazovat protokoly Service Fabric
-V této části se dozvíte, postup konfigurace analýzy protokolů pro načtení protokoly Service Fabric. Protokoly umožňují zobrazit, analyzovat a řešení problémů v clusteru nebo v aplikací a služeb spuštěných v daném clusteru pomocí portálu OMS.
+V této části se dozvíte, postup konfigurace analýzy protokolů pro načtení protokoly Service Fabric. Protokoly umožňují zobrazit, analyzovat a řešení problémů v clusteru nebo v aplikací a služeb spuštěných v daném clusteru pomocí portálu Azure.
 
 > [!NOTE]
 > Konfigurace rozšíření Azure Diagnostics odeslat protokoly pro úložiště tabulek. Tabulky se musí shodovat co hledá analýzy protokolů. Další informace najdete v tématu [postup shromažďování protokolů pomocí Azure Diagnostics](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md). Příklady nastavení konfigurace v tomto článku ukazují, že jste názvy tabulek úložiště by měla být. Jakmile diagnostiky je nastavený na clusteru a odesílá protokoly na účet úložiště, dalším krokem je konfigurace analýzy protokolů pro shromažďování těchto protokolů.
@@ -61,7 +61,7 @@ Ujistěte se, že aktualizujete **EtwEventSourceProviderConfiguration** tématu 
 Tyto nástroje jsou používány k provádění některých operací v této části:
 
 * Azure PowerShell
-* [Operations Management Suite](http://www.microsoft.com/oms)
+* [Log Analytics](log-analytics-overview.md)
 
 ### <a name="configure-a-log-analytics-workspace-to-show-the-cluster-logs"></a>Konfigurovat pracovní prostor analýzy protokolů zobrazit protokoly clusteru
 
@@ -421,10 +421,10 @@ $WADtables = @("WADServiceFabricReliableActorEventTable",
                )
 
 <#
-    Check if OMS Log Analytics is configured to index service fabric events from the specified table
+    Check if Log Analytics is configured to index service fabric events from the specified table
 #>
 
-function Check-OMSLogAnalyticsConfiguration {
+function Check-LogAnalyticsConfiguration {
     param(
     [psobject]$workspace,
     [psobject]$storageAccount,
@@ -439,21 +439,21 @@ function Check-OMSLogAnalyticsConfiguration {
 
         if ("WADServiceFabric*EventTable" -in $currentStorageAccountInsight.Tables)
         {
-            Write-Verbose ("OMS Log Analytics workspace " + $workspace.Name + " is configured to index service fabric actor, service and operational events from " + $storageAccount.Name)
+            Write-Verbose ("Log Analytics workspace " + $workspace.Name + " is configured to index service fabric actor, service and operational events from " + $storageAccount.Name)
         } else
         {
-            Write-Warning ("OMS Log Analytics workspace " + $workspace.Name + " is not configured to index service fabric actor, service and operational events from " + $storageAccount.Name)
+            Write-Warning ("Log Analytics workspace " + $workspace.Name + " is not configured to index service fabric actor, service and operational events from " + $storageAccount.Name)
         }
         if ("WADETWEventTable" -in $currentStorageAccountInsight.Tables)
         {
-            Write-Verbose ("OMS Log Analytics workspace " + $workspace.Name + " is configured to index service fabric application events from " + $storageAccount.Name)
+            Write-Verbose ("Log Analytics workspace " + $workspace.Name + " is configured to index service fabric application events from " + $storageAccount.Name)
         } else
         {
-            Write-Warning ("OMS Log Analytics workspace " + $workspace.Name + " is not configured to index service fabric application events from " + $storageAccount.Name)
+            Write-Warning ("Log Analytics workspace " + $workspace.Name + " is not configured to index service fabric application events from " + $storageAccount.Name)
         }
     } else
     {
-        Write-Warning ("OMS Log Analytics workspace " + $workspace.Name + "is not configured to read service fabric events from " + $storageAccount.Name)
+        Write-Warning ("Log Analytics workspace " + $workspace.Name + "is not configured to read service fabric events from " + $storageAccount.Name)
     }    
 }
 
@@ -614,9 +614,9 @@ catch [System.Management.Automation.PSInvalidOperationException]
 
 $allResources = Get-AzureRmResource
 
-$OMSworkspace = $allResources.Where({($_.ResourceType -eq "Microsoft.OperationalInsights/workspaces") -and ($_.ResourceName -eq $workspaceName)})
+$logAnalyticsWorkspace = $allResources.Where({($_.ResourceType -eq "Microsoft.OperationalInsights/workspaces") -and ($_.ResourceName -eq $workspaceName)})
 
-if ($OMSworkspace.Name -ne $workspaceName)
+if ($logAnalyticsWorkspace.Name -ne $workspaceName)
 {
     Write-Error ("Unable to find Log Analytics Workspace " + $workspaceName)
 }
@@ -644,10 +644,10 @@ $storageAccountsToCheck = ($allResources.Where({($_.ResourceType -eq "Microsoft.
 foreach($storageAccount in $storageAccountsToCheck)
 {
     Check-TablesForData $storageAccount
-    Check-OMSLogAnalyticsConfiguration $OMSworkspace $storageAccount
+    Check-LogAnalyticsConfiguration $logAnalyticsWorkspace $storageAccount
 }
  ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Použití [protokolu hledání v analýzy protokolů](log-analytics-log-searches.md) zobrazíte podrobné data události Service Fabric.

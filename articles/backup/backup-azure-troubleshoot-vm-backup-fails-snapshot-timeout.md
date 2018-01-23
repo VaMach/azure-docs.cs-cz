@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Řešení potíží s Azure Backup selhání: problémy s agenta nebo rozšíření
 
@@ -78,7 +78,7 @@ Po registraci a naplánovat virtuálního počítače pro službu Azure zálohov
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Zadaná konfigurace disku nejsou podporovány
 
 > [!NOTE]
-> Máme verzi Private Preview pro podporu záloh pro virtuální počítače s nespravovanými disky většími než 1 TB. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s > disky 1TB. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Správné fungování rozšíření zálohování vyžaduje připojení k Azure 
 
 ####  <a name="solution"></a>Řešení
 Chcete-li problém vyřešit, zkuste jednu z metod, které jsou zde uvedeny.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Povolit přístup do rozsahů IP datové centrum Azure
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Povolit přístup k úložišti Azure odpovídající oblast
 
-1. Získat [seznam IP adres Azure datacenter](https://www.microsoft.com/download/details.aspx?id=41653) pro povolení přístupu k.
-2. Odblokování IP adresy spuštěním **New-NetRoute** rutiny ve virtuálním počítači Azure v okně Powershellu se zvýšenými oprávněními. Rutinu spusťte jako správce.
-3. Povolit přístup k IP adresy, přidejte pravidla na skupinu zabezpečení sítě, pokud nemáte.
+Připojení k úložišti konkrétní oblasti můžete povolit pomocí [služby značky](../virtual-network/security-overview.md#service-tags). Ujistěte se, že pravidlo, které umožňuje přístup k účtu úložiště má vyšší prioritu než pravidlo, které blokuje přístup k Internetu. 
+
+![Skupina NSG s značky úložiště pro oblast](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Značky služby úložiště jsou k dispozici pouze v určitých oblastí a jsou ve verzi preview. Seznam oblastí naleznete v tématu [služby značky pro úložiště](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Vytvoření cesty pro tok provozu HTTP
 
@@ -166,8 +169,6 @@ Selhání úlohy snímku mohou způsobovat následující podmínky:
 | --- | --- |
 | Virtuální počítač má nakonfigurované zálohování serveru SQL Server. | Ve výchozím nastavení zálohování virtuálních počítačů běží VSS úplného zálohování na virtuální počítače Windows. Na virtuální počítače, které jsou spuštěné na serveru SQL servery a na které systém SQL Server zálohování je nakonfigurované, může docházet k prodlevám provádění snímku.<br><br>Pokud dochází k selhání zálohování kvůli potížím snímek, nastavte následující klíč registru:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | Stav virtuálního počítače je nesprávně uvést, protože virtuální počítač je vypnutý v protokolu RDP. | Pokud se vypnout virtuální počítač v protokolu RDP (Remote Desktop), zkontrolujte portálu k určení, zda je správný stav virtuálního počítače. Pokud není správný, vypněte virtuální počítač na portálu pomocí **vypnutí** možnost na řídicím panelu virtuálních počítačů. |
-| Hodně virtuálních počítačů z stejné cloudové služby jsou nakonfigurovány pro zálohování ve stejnou dobu. | Je osvědčeným postupem šíření plánů zálohování pro virtuální počítače z stejné cloudové služby. |
-| Virtuální počítač běží na vysoké využití procesoru nebo paměti. | Pokud je virtuální počítač spuštěný na vysoké využití procesoru (více než 90 procent) nebo velké množství paměti, úloze snímků je ve frontě a odložené a nakonec časového limitu. V takovém případě zkuste zálohu na vyžádání. |
 | Virtuální počítač nemůže získat adresu hostitele nebo prostředků infrastruktury z DHCP. | DHCP musí být povolen v hosta pro zálohování virtuálních počítačů IaaS pracovat.  Pokud virtuální počítač nemůže získat adresu hostitele nebo prostředků infrastruktury z odpovědi DHCP 245, nemůže stáhnout nebo spustit libovolné rozšíření. Pokud potřebujete statickou privátní IP adresu, byste ho měli nakonfigurovat prostřednictvím platformy. Možnost DHCP ve virtuálním počítači by měly být vlevo povoleny. Další informace najdete v tématu [nastavení statickou privátní IP interní](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Rozšíření zálohování se nezdaří aktualizace nebo zatížení
@@ -192,24 +193,6 @@ Pokud chcete odinstalovat rozšíření, postupujte takto:
 6. Klikněte na tlačítko **odinstalovat**.
 
 Tento postup způsobí, že rozšíření nutné přeinstalovat během příští zálohování.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Virtuální počítače Azure Classic může vyžadovat další krok k dokončení registrace
-Agent v Azure klasické virtuální počítače by měl registraci navázat připojení ke službě zálohování a spusťte zálohování
-
-#### <a name="solution"></a>Řešení
-
-Po instalaci agenta hosta virtuálního počítače, spusťte prostředí Azure PowerShell <br>
-1. Přihlášení pomocí účtu služby Azure <br>
-       `Login-AzureAsAccount`<br>
-2. Ověřte, pokud parametr ProvisionGuestAgent vlastnosti Virtuálního počítače je nastavena na hodnotu True, pomocí následujících příkazů <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Pokud je vlastnost nastavena na hodnotu FALSE, postupujte podle níže příkazy pro ni nastavit na hodnotu TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Spusťte následující příkaz k aktualizaci virtuálního počítače <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Vyzkoušejte si inicializaci zálohování. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Zálohování služby nemá oprávnění k odstranění staré body obnovení z důvodu zámku skupiny prostředků
 Tento problém je specifická pro spravovaných virtuálních počítačů, kde uživatel uzamkne skupině prostředků a služba zálohování není možné odstranit starší body obnovení. Z důvodu to nových záloh spustit selhání, jako je omezení maximální 18 body obnovení uložené z back-end.

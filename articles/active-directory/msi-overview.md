@@ -3,7 +3,7 @@ title: "Identita spravované služby (MSI) pro Azure Active Directory"
 description: "Přehled identita spravované služby pro prostředky Azure."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: skwan
+ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Spravovaná služba Identity (MSI) pro prostředky Azure
 
@@ -63,6 +63,7 @@ Zkuste identita spravované služby kurzu se dozvíte začátku do konce scéná
 |                    | [Přístup k prostředku mimo Azure AD s Azure Key Vault a identita služby spravovaných virtuálních počítačů Linux](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Identita spravované služby pomocí služby Azure App Service nebo Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure – funkce     | [Identita spravované služby pomocí služby Azure App Service nebo Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Uživatel identita spravované služby se Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Které služby Azure podporuje identita spravované služby?
 
@@ -74,9 +75,9 @@ Následující služby Azure podporují identita spravované služby.
 
 | Služba | Status | Datum | Konfigurace | Získání tokenu |
 | ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Preview | 2017 září | [portál Azure Portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Šablony Azure Resource Manageru](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Přejděte](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
+| Azure Virtual Machines | Preview | 2017 září | [portál Azure Portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Šablony Azure Resource Manageru](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Go](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | Preview | 2017 září | [portál Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Šablona Azure Resource Manageru](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Funkce Azure | Preview | 2017 září | [portál Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Šablona Azure Resource Manageru](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Functions | Preview | 2017 září | [portál Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Šablona Azure Resource Manageru](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Preview | 2017 listopadu | [portál Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Sada SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Azure services, ověření podpory Azure AD
@@ -85,12 +86,12 @@ Následující služby podporují ověřování Azure AD a byly testovány s kli
 
 | Služba | ID prostředku | Status | Datum | Přiřadit přístup pro |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://Management.Azure.com/ | Dostupné | 2017 září | [portál Azure Portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://Vault.Azure.NET/ | Dostupné | 2017 září | |
-| Azure Data Lake | https://datalake.Azure.NET/ | Dostupné | 2017 září | |
-| Azure SQL | https://Database.Windows.NET/ | Dostupné | Říjen 2017 | |
-| Azure Event Hubs | https://eventhubs.Azure.NET/ | Dostupné | 2017 prosinec | |
-| Azure Service Bus | https://servicebus.Azure.NET/ | Dostupné | 2017 prosinec | |
+| Azure Resource Manager | https://management.azure.com/ | Dostupné | 2017 září | [portál Azure Portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Dostupné | 2017 září | |
+| Azure Data Lake | https://datalake.azure.net/ | Dostupné | 2017 září | |
+| Azure SQL | https://database.windows.net/ | Dostupné | Říjen 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net/ | Dostupné | 2017 prosinec | |
+| Azure Service Bus | https://servicebus.azure.net/ | Dostupné | 2017 prosinec | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Kolik identita spravované služby stojí?
 

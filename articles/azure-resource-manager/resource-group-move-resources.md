@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Přesunutím prostředků do nové skupiny prostředků nebo předplatného
 
@@ -106,7 +106,7 @@ Služby, které umožňují přesun na novou skupinu prostředků a předplatné
 * Automation
 * Azure Cosmos DB
 * Batch
-* Mapy Bing
+* Mapy Bingu
 * CDN
 * Cloudové služby - viz [omezení nasazení Classic](#classic-deployment-limitations)
 * Kognitivní služby
@@ -118,9 +118,9 @@ Služby, které umožňují přesun na novou skupinu prostředků a předplatné
 * DNS
 * Event Hubs
 * Clustery HDInsight - najdete v části [omezení HDInsight](#hdinsight-limitations)
-* Centra IoT
+* IoT Huby
 * Key Vault
-* Nástroje pro vyrovnávání zatížení
+* Služby vyrovnávání zatížení
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -150,8 +150,8 @@ Služby, které umožňují přesun na novou skupinu prostředků a předplatné
 
 Služby, které aktuálně nepovolujte přesunutí prostředku jsou:
 
-* Služba AD Domain Services
-* Hybridní AD Health Service
+* AD Domain Services
+* AD Hybrid Health Service
 * Application Gateway
 * BizTalk Services
 * Container Service
@@ -208,7 +208,7 @@ Možnosti jsou:
 
 Všechny ostatní kombinace zahrnovat ponechat za typ prostředku, který nemůže být ponecháno za při přesunu plán služby App Service (libovolný typ prostředku služby App Service).
 
-Pokud vaše webová aplikace se nachází v jiné skupině prostředků než jeho plán služby App Service, ale chcete přesunout na novou skupinu prostředků, je nutné provést přesun ve dvou krocích. Například:
+Pokud vaše webová aplikace se nachází v jiné skupině prostředků než jeho plán služby App Service, ale chcete přesunout na novou skupinu prostředků, je nutné provést přesun ve dvou krocích. Příklad:
 
 * **webové a** se nachází v **skupinu webových**
 * **plán a** se nachází v **plán skupiny**
@@ -315,6 +315,12 @@ Přesunutí není povolen pro úložiště, sítě, nebo výpočetní prostředk
 
 Předpokládejme například, jste nastavili replikaci počítačů na místě na účet úložiště (Storage1) a chcete chráněného počítače přijít po převzetí služeb při selhání do Azure jako virtuální počítač (VM1) připojených k virtuální síti (Network1). Některé z těchto prostředků Azure - Storage1, VM1 a Network1 - nelze přesunout skupiny prostředků v rámci stejného předplatného nebo pro odběry.
 
+Chcete-li přesunout virtuální počítač zaregistrovaný v **zálohování Azure** mezi skupinami prostředků:
+ 1. Dočasně zastavení zálohování a zachovat zálohovaná data
+ 2. Přesuňte virtuální počítač cílová skupina prostředků
+ 3. Znovu proveďte její ochranu pod stejnou nebo nové úložiště, které uživatelé mohou obnovit z bodů obnovení k dispozici vytvořil před operaci přesunutí.
+Pokud se uživatel přesune virtuální počítač zálohovaná ve předplatných, kroky 1 a 2 zůstávají stejné. V kroku 3 musí uživatel ochranu virtuálního počítače v části nový trezor přítomen / vytvořené v cílové předplatné. Podpora neobsahuje křížové předplatné zálohy trezoru služeb zotavení.
+
 ## <a name="hdinsight-limitations"></a>Omezení HDInsight
 
 Clustery HDInsight se můžete přesunout do nové předplatné nebo skupinu prostředků. Však nelze přesouvat mezi odběry síťových prostředků propojené ke clusteru HDInsight (například virtuální sítě, síťové karty nebo nástroj pro vyrovnávání zatížení). Kromě toho nelze přesunout do nové skupiny prostředků síťový adaptér, který je připojen k virtuálnímu počítači pro cluster.
@@ -380,7 +386,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 V těle žádosti je zadat cílová skupina prostředků a prostředky, které chcete přesunout. Další informace o operaci REST přesunutí najdete v tématu [přesunout prostředky](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Další informace o rutinách prostředí PowerShell pro správu předplatného, najdete v části [pomocí prostředí Azure PowerShell s Resource Managerem](powershell-azure-resource-manager.md).
 * Další informace o rozhraní příkazového řádku Azure pro správu předplatného najdete v tématu [pomocí rozhraní příkazového řádku Azure s Resource Managerem](xplat-cli-azure-resource-manager.md).

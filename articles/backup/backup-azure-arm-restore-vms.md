@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d420e0a39edf2af4bb050dd735dd7b4d1e604d6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Obnovení virtuálních počítačů pomocí portálu Azure
 Ochrana dat pomocí snímky dat na definovaných intervalech. Tyto snímky jsou známé jako body obnovení a byly uloženy do trezory služeb zotavení. Pokud je nutné opravit nebo znovu vytvořit virtuální počítač (VM), můžete obnovit virtuální počítač z jakýchkoli bodů obnovení uložené. Pokud obnovíte bod obnovení, můžete:
@@ -196,7 +196,7 @@ Pokud chcete získat šablony, který byl vytvořen jako součást obnovení mo�
    ![Odeslání nasazení šablony](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Po obnovení kroky
-* Pokud používáte cloudové na init Linux distribuci, jako je například Ubuntu, z bezpečnostních důvodů, je blokován heslo post obnovení. Použití rozšíření VMAccess na obnovený virtuální počítač [resetování hesla](../virtual-machines/linux/classic/reset-access-classic.md). Doporučujeme, abyste pomocí klíče SSH na tyto distribuce, aby se zabránilo resetování post obnovení hesla.
+* Pokud používáte cloudové na init Linux distribuci, jako je například Ubuntu, z bezpečnostních důvodů, je blokován heslo post obnovení. Použití rozšíření VMAccess na obnovený virtuální počítač [resetování hesla](../virtual-machines/linux/reset-password.md). Doporučujeme, abyste pomocí klíče SSH na tyto distribuce, aby se zabránilo resetování post obnovení hesla.
 * Při konfiguraci zálohy rozšíření jsou nainstalovány, ale nebude povolen. Pokud se problém, přeinstalujte rozšíření. 
 * Pokud zálohované virtuální počítač má statickou IP post obnovení, obnovený virtuální počítač má dynamické IP, aby se zabránilo konfliktu při vytváření obnoveným virtuálním Počítačem. Další informace o tom, jak můžete [přidat statickou IP adresu pro virtuální počítač obnovený](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Obnovený virtuální počítač nemá hodnotu dostupnosti nastavit. Doporučujeme použít možnost obnovení disky [přidejte skupinu dostupnosti](../virtual-machines/windows/tutorial-availability-sets.md) při vytváření virtuálního počítače z prostředí PowerShell nebo šablon pomocí obnovit disky. 

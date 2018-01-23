@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: d0fd1063194ecbccb0af1abc0c441aa65b18883b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Jak používat správu služby z Pythonu
 Tento průvodce vám ukáže, jak programově provádět běžné úlohy správy služby z Pythonu. **ServiceManagementService** třídy v [Azure SDK pro jazyk Python](https://github.com/Azure/azure-sdk-for-python) podporuje programový přístup k mnohem týkajících se správy funkcí služby, který je k dispozici v [Azure portál] [ management-portal] (například **vytváření, aktualizaci a odstraňování cloudové služby, nasazení, služby pro správu dat a virtuální počítače**). Tato funkce může být užitečné při vytváření aplikace, které potřebují programový přístup ke správě služby.
@@ -394,9 +394,9 @@ Nakonec vytvoření virtuálního počítače pomocí zaznamenané bitové kopie
         role_size='Small',
         vm_image_name = image_name)
 
-Další informace o tom, jak zachytit virtuální počítač s Linuxem najdete v tématu [jak zachytit virtuální počítač s Linuxem.](../virtual-machines/linux/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Další informace o tom, jak zachytit virtuální počítač s Linuxem v modelu nasazení classic najdete v tématu [jak zachytit virtuální počítač s Linuxem.](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Další informace o tom, jak zachytit virtuální počítač Windows najdete v tématu [jak zachytit virtuální počítač Windows.](../virtual-machines/windows/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Další informace o tom, jak zachytit virtuální počítač Windows v modelu nasazení classic najdete v tématu [jak zachytit virtuální počítač Windows.](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"></a>Další kroky
 Teď, když jste se naučili základy používání služby Správa služby, dostanete [referenční dokumentace dokončení rozhraní API pro Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) a provádět komplexní úlohy snadno ke správě aplikace python.

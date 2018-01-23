@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Hodnocení aplikace Service Fabric a micro služby pomocí portálu Azure
 
@@ -37,7 +37,7 @@ Service Fabric řešení používá Azure Diagnostics data z virtuálních poč�
 Chcete-li začít pracovat s řešením, cluster Service Fabric připojit k pracovní prostor analýzy protokolů. Tady jsou tři scénáře, které je třeba zvážit:
 
 1. Pokud jste nenasadili cluster Service Fabric, postupujte podle kroků v ***nasadit Service Fabric Cluster připojené k pracovní prostor analýzy protokolů*** k nasazení do nového clusteru a konfigurace. do sestavy k analýze protokolů.
-2. Pokud potřebujete shromáždit čítače výkonu z hostitele tak, aby pomocí jiných řešení OMS například zabezpečení na váš Cluster Service Fabric, postupujte podle kroků v ***nasadit Service Fabric Cluster připojené k pracovní prostor analýzy protokolů pomocí rozšíření virtuálního počítače nainstalovat.***
+2. Pokud potřebujete shromáždit čítače výkonu z hostitele tak, aby pomocí jiných řešení pro správu jako je například zabezpečení na váš Cluster Service Fabric, postupujte podle kroků v ***nasadit Service Fabric Cluster připojené k pracovní prostor analýzy protokolů pomocí rozšíření virtuálního počítače nainstalovat.***
 3. Pokud už jste nasadili cluster Service Fabric a chcete se připojit k analýze protokolů, postupujte podle kroků v ***přidání stávající účet úložiště k analýze protokolů.***
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Nasaďte Cluster Service Fabric, připojení k pracovní prostor analýzy protokolů.
@@ -161,6 +161,6 @@ Následující tabulka uvádí metody shromažďování dat a další podrobnost
 >
 >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Použití [protokolu hledání v analýzy protokolů](log-analytics-log-searches.md) zobrazíte podrobné data události Service Fabric.

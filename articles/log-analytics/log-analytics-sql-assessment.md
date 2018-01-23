@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalizace prostředí SQL s řešením kontroly stavu serveru SQL v analýzy protokolů
 
@@ -64,7 +64,7 @@ Pokud je nástrojem Operations Manager serveru SQL Server, musíte nakonfigurova
 Kontrola stavu SQL shromažďuje data z následujících zdrojů pomocí agenta, který jste povolili: 
 
 * Windows Management Instrumentation (WMI) 
-* Registru 
+* Registr 
 * Čítače výkonu
 * Výsledky zobrazení dynamické správy SQL Server 
 
@@ -165,14 +165,14 @@ Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Proveďte opravné akce a zobrazit doporučení pro oblastí zájmu
 1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
 2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
-3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **portálu OMS** dlaždici.  
+3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **přehled** dlaždici.  
 4. Na **přehled** klikněte na tlačítko **SQL stavu zkontrolujte** dlaždici. 
 5. Na **kontroly stavu** zkontrolujte souhrnné informace v jednom z okna oblasti fokus a pak klikněte na jednu zobrazíte doporučení pro tuto oblast fokus.
 6. Na všech stránkách oblasti fokus můžete zobrazit seřazený podle priority doporučení, která se pro vaše prostředí. Klikněte na tlačítko doporučení v části **vliv na objekty** Chcete-li zobrazit podrobnosti, proč se provádí doporučení.<br><br> ![Obrázek kontroly stavu SQL doporučení](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Můžete provést nápravné akce navržený v **doporučované akce**. Když položka vyřeší, bude záznam novější vyhodnocování které doporučené akce provedené a zvýší se vaše skóre dodržování předpisů. Opravené položky se zobrazí jako **předán objekty**.
 
 ## <a name="ignore-recommendations"></a>Ignorovat doporučení
-Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový soubor, který OMS použije k zabránění doporučení ze storu ve výsledky hodnocení.
+Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový soubor, který analýzy protokolů použije k zabránění doporučení ze storu ve výsledky hodnocení.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -245,7 +245,7 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 
 * Se shromažďují následující typy dat:
   * ROZHRANÍ WMI
-  * Registru
+  * Registr
   * Čítače výkonu
   * Zobrazení dynamické správy SQL (DMV).
 
@@ -265,5 +265,5 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 
 * Ano, najdete v části [ignorovat doporučení](#ignore-recommendations) část výše.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [V protokolech Hledat](log-analytics-log-searches.md) se dozvíte, jak analyzovat doporučení a podrobné údaje o kontrolu stavu SQL.

@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>S vysokou hustotou hostování na Azure App Service
 Při používání služby App Service, odpojené od kapacitu přidělených dvěma konceptů aplikace:
@@ -38,12 +38,12 @@ Ale při více aplikací sdílet plán služby App Service, instance této aplik
 Jednotlivé aplikace škáluje škálování aplikace nezávisle plán služby App Service, který je hostitelem ho. Tímto způsobem plán služby App Service můžete škálovat na 10 instancí, ale aplikace může být nastaven na použití pouze pěti.
 
    >[!NOTE]
-   >Jednotlivé aplikace škálování je dostupná jenom pro **Premium** plánů služby App Service SKU
+   >Na aplikace škálování, je k dispozici pouze pro **standardní**, **Premium**, **Premium V2** a **izolovaná** plánů služby App Service SKU
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Jednotlivé aplikace příjmu pomocí Powershellu
 
-Můžete vytvořit plán nakonfigurovaný jako *za škálování aplikace* plán předáním v ```-perSiteScaling $true``` atribut ```New-AzureRmAppServicePlan``` PowerShell.
+Vytvoření plánu nakonfigurovaný jako *za škálování aplikace* plán předáním v ```-perSiteScaling $true``` atribut ```New-AzureRmAppServicePlan``` PowerShell.
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-Na úrovni aplikace je potřeba nakonfigurovat počet instancí, které aplikace můžete používat v plánu služby app service.
+Na úrovni aplikace nakonfigurujte počet instancí, které aplikace můžete používat v plánu služby app service.
 
 V následujícím příkladu je omezený na dvě instance bez ohledu na to, kolik instancí základní plán služby app service horizontálně navýší kapacitu pro aplikaci.
 

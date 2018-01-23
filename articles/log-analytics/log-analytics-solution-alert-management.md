@@ -1,6 +1,6 @@
 ---
-title: "Výstrahy řešení pro správu v Operations Management Suite (OMS) | Microsoft Docs"
-description: "Řešení pro správu výstrah v analýzy protokolů umožňuje analyzovat všechny výstrahy ve vašem prostředí.  Kromě konsolidace výstrahy generované v rámci OMS, se importuje výstrahy z připojených skupin pro správu System Center Operations Manager do analýzy protokolů."
+title: "Výstrahy řešení pro správu v Azure Log Analytics | Microsoft Docs"
+description: "Řešení pro správu výstrah v analýzy protokolů umožňuje analyzovat všechny výstrahy ve vašem prostředí.  Kromě sloučením výstrahy generované v rámci analýzy protokolů se importuje výstrahy z připojených skupin pro správu System Center Operations Manager do analýzy protokolů."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Výstrahy řešení pro správu v Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Výstrahy řešení pro správu v Azure Log Analytics
 
 ![Ikona správy výstrah](media/log-analytics-solution-alert-management/icon.png)
 
@@ -34,10 +34,10 @@ Toto řešení funguje se všechny záznamy v úložišti analýzy protokolů s 
 - Pro System Center Operations Manager výstrahy [připojte svoji skupinu správy nástroje Operations Manager do pracovního prostoru analýzy protokolů](log-analytics-om-agents.md).  Všechny výstrahy vytvořené v nástroji System Center Operations Manager jsou importovány do analýzy protokolů.  
 
 ## <a name="configuration"></a>Konfigurace
-Přidat do řešení pro správu výstrah do pracovního prostoru OMS pomocí procesu popsaného v tématu [přidat řešení](log-analytics-add-solutions.md).  Není nutná žádná další konfigurace.
+Přidat do řešení pro správu výstrah do pracovního prostoru analýzy protokolů pomocí procesu popsaného v tématu [přidat řešení](log-analytics-add-solutions.md).  Není nutná žádná další konfigurace.
 
 ## <a name="management-packs"></a>Sady Management Pack
-Pokud vaše skupina pro správu System Center Operations Manager je připojený k vaším pracovním prostorem OMS, jsou při přidání tohoto řešení následující sady management Pack nainstalované v System Center Operations Manager.  Neexistuje žádná konfigurace ani údržby sad management Pack vyžaduje.  
+Pokud vaše skupina pro správu System Center Operations Manager je připojen do pracovního prostoru analýzy protokolů, jsou při přidání tohoto řešení následující sady management Pack nainstalované v System Center Operations Manager.  Neexistuje žádná konfigurace ani údržby sad management Pack vyžaduje.  
 
 * Microsoft System Center Advisor správu výstrah (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -59,7 +59,7 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 - Výstrahy odeslání dat ze skupiny pro správu nástroje Operations Manager k analýze protokolů každé tři minuty.  
 
 ## <a name="using-the-solution"></a>Použití řešení
-Když přidáte do řešení pro správu výstrah do pracovního prostoru OMS **správu výstrah** dlaždice se přidá na řídicí panel OMS.  Tuto dlaždici zobrazí počet a grafické znázornění počet aktuálně aktivních výstrah, které byly vygenerovány během posledních 24 hodin.  Tento časový rozsah nelze změnit.
+Když přidáte do řešení pro správu výstrah do pracovního prostoru analýzy protokolů **správu výstrah** dlaždice se přidá na řídicí panel.  Tuto dlaždici zobrazí počet a grafické znázornění počet aktuálně aktivních výstrah, které byly vygenerovány během posledních 24 hodin.  Tento časový rozsah nelze změnit.
 
 ![Dlaždice výstrah správy](media/log-analytics-solution-alert-management/tile.png)
 
@@ -84,7 +84,7 @@ Pokud jste se posuňte doprava, řídicí panel uvádí několik běžných dota
 
 | Vlastnost | Popis |
 |:--- |:--- |
-| Typ |*Výstrahy* |
+| Typ |*Alert* |
 | SourceSystem |*OpsManager* |
 | AlertContext |Podrobnosti o datová položka, která způsobila výstrahu, kterou chcete vygenerovat ve formátu XML. |
 | AlertDescription |Podrobný popis výstrahy. |
@@ -133,5 +133,5 @@ Následující tabulka obsahuje ukázkový protokol hledání výstrah záznamů
 | Upozornit &#124; kde SourceSystem == "OpsManager" a TimeRaised > ago(1d) &#124; Řadit podle RepeatCount desc |Výstrahy vyvolané za poslední 1 den seřazené podle počtu opakování |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Podrobnosti o generování upozornění ze služby Log Analytics najdete v tématu [Upozornění v Log Analytics](log-analytics-alerts.md).
