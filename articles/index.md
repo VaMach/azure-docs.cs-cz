@@ -4,11 +4,11 @@ hide_bc: True
 title: Dokumentace k Microsoft Azure
 description: "Naučte se vytvářet a spravovat výkonné aplikace pomocí cloudových služeb Microsoft Azure. Získejte dokumentaci, ukázkový kód, výukové kurzy a další materiály."
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Škálovací sady virtuálních počítačů</h3>
-                                                    <p>Správa a škálování desítek až tisícovek virtuálních počítačů s Linuxem a Windows</p>
+                                                    <p>Správa a vertikální navýšení kapacity až na tisíce virtuálních počítačů s Linuxem a Windows</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Nasazení webových aplikací v Linuxu pomocí kontejnerů</p>
+                                                    <p>Rychlé vytváření výkonných cloudových aplikací pro webové a mobilní prostředí</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Spuštění kontejnerizované aplikace se škálováním pomocí Kubernetes</p>
+                                                    <p>Zjednodušení nasazení, správy a provozu protokolu Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním zatížení HTTP a řízením dodání </p>
+                                                    <p>Vytváření zabezpečených škálovatelných a vysoce dostupných webových front-endů v Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Dodávání obsahu koncovým zákazníkům prostřednictvím robustní globální sítě datových center</p>
+                                                    <p>Zabezpečené a spolehlivé doručování obsahu se širokým globálním dosahem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>Monitorování a diagnostika podmínek na úrovni síťového scénáře</p>
+                                                    <p>Řešení pro monitorování výkonu a diagnostiku sítě</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>Masivně škálovatelné úložiště objektů pro nestrukturovaná data</p>
+                                                    <p>Úložiště objektů založené na protokolu REST pro nestrukturovaná data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Diskové úložiště</h3>
-                                                    <p>Diskové úložiště pro virtuální počítače</p>
+                                                    <p>Možnosti trvalého zabezpečeného disku s podporou virtuálních počítačů</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Queue Storage</h3>
-                                                    <p>Odolné fronty pro cloudové služby s velkými objemy</p>
+                                                    <p>Efektivní škálování aplikací podle provozu</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Jednoduchý distribuovaný systém souborů pro různé platformy</p>
+                                                    <p>Sdílené složky, které využívají standardní protokol SMB 3.0</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Hybridní cloudové úložiště pro podniky, které zlepšuje zabezpečení dat</p>
+                                                    <p>Snížení nákladů díky hybridnímu cloudovému úložišti pro podniky</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1845,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrace zotavení po havárii pro virtuální počítače Azure a místní virtuální počítače a fyzické servery</p>
+                                                    <p>Orchestrace ochrany a obnovení privátních cloudů</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Dodávání obsahu koncovým zákazníkům prostřednictvím robustní globální sítě datových center </p>
+                                                    <p>Zabezpečené a spolehlivé doručování obsahu se širokým globálním dosahem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Škálovatelný modul pro zasílání nabízených oznámení umožňující rychle rozesílat miliony zpráv</p>
+                                                    <p>Posílání nabízených oznámení na jakoukoliv platformu z jakéhokoliv back-endu</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Spuštění kontejnerizované aplikace se škálováním pomocí Kubernetes</p>
+                                                    <p>Zjednodušení nasazení, správy a provozu protokolu Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Databáze SQL</h3>
-                                                    <p>Spravovaná relační databáze jako služba</p>
+                                                    <p>Spravovaná relační databáze SQL jako služba</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>Globálně distribuovaná databázová služba pro libovolné škálování</p>
+                                                    <p>Úložiště hodnot klíčů NoSQL s využitím částečně strukturovaných datových sad</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Cache</h3>
-                                                    <p>Sestavování rychlých a škálovatelných aplikací díky vysoké propustnosti a nízké latenci při přístupu k datům</p>
+                                                    <p>Zajištění vysoké propustnosti a nízké latence při přístupu k datům</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Modelování dat na podnikové úrovni v cloudu</p>
+                                                    <p>Analytický modul na podnikové úrovni jako služba</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Výkonný cloudový nástroj prediktivní analýzy umožňující prediktivní údržbu</p>
+                                                    <p>Snadné vytváření, nasazování a správa řešení prediktivní analýzy</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Povolení samoobslužného zjišťování zdrojů dat v podniku</p>
+                                                    <p>Lepší využití prostředků podnikových dat</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Služby Machine Learning</h3>
-                                                    <p>Výkonný cloudový nástroj prediktivní analýzy umožňující prediktivní údržbu</p>
+                                                    <p>Přístup k AI pro všechny díky komplexní, škálovatelné a důvěryhodné platformě se správou experimentů a modelů</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Rozšíření inteligentních cloudových funkcí do hraničních zařízení</p>
+                                                    <p>Rozšíření inteligence z cloudu do hraničních zařízení</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>Mapy, navigační pokyny, hledání a další robustní geoprostorové služby</p>
+                                                    <p>Jednoduchá a bezpečná rozhraní API pro umístění zajišťující geoprostorový kontext pro data</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Služby Machine Learning</h3>
-                                                    <p>Výkonný cloudový nástroj prediktivní analýzy umožňující prediktivní údržbu</p>
+                                                    <p>Přístup k AI pro všechny díky komplexní, škálovatelné a důvěryhodné platformě se správou experimentů a modelů</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Škálovatelný modul pro zasílání nabízených oznámení umožňující rychle rozesílat miliony zpráv</p>
+                                                    <p>Posílání nabízených oznámení na jakoukoliv platformu z jakéhokoliv back-endu</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Hybridní cloudové úložiště pro podniky, které zlepšuje zabezpečení dat</p>
+                                                    <p>Snížení nákladů díky hybridnímu cloudovému úložišti pro podniky</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Povolení samoobslužného zjišťování zdrojů dat v podniku</p>
+                                                    <p>Lepší využití prostředků podnikových dat</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Ochrana před hrozbami, jejich rozpoznání a reakce na ně se zvýšenou viditelností</p>
+                                                    <p>Zajištění jednotné správy zabezpečení a pokročilé ochrany před hrozbami napříč hybridními cloudovými úlohami</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>Jak spravovat kryptografické a tajné klíče</p>
+                                                    <p>Zabezpečení a zachování kontroly nad klíči a jinými tajnými kódy</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-factor Authentication</h3>
-                                                    <p>Zabezpečený přístup k datům a aplikacím s dodatečnou úrovní ověřování</p>
+                                                    <p>Lepší zabezpečení vašich dat a aplikací, aniž byste tím obtěžovali uživatele</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Zásady Azure</h3>
-                                                    <p>Vytvoření, přiřazení a správa definic zásad </p>
+                                                    <p>Implementace firemních zásad správného řízení a standardů pro prostředky Azure ve velkém měřítku</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Správa nákladů v Azure</h3>
-                                                    <p>Sledování využití cloudu a výdajů</p>
+                                                    <p>Optimalizace nákladů na cloud při maximalizaci potenciálu cloudu</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Jak transformovat strojová data na provozní informace</p>
+                                                    <p>Shromažďování, vyhledávání a vizualizace počítačových dat z místních počítačů a cloudu</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Zlepšení finanční efektivity, výkonu, vysoké dostupnosti a zabezpečení vašich prostředků Azure</p>
+                                                    <p>Modul individuálních doporučení pro osvědčené postupy Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Service Health</h3>
-                                                    <p>Poskytuje individuální pokyny a podporu v případě, že se vás týkají problémy se službami Azure.</p>
+                                                    <p>Individuální pokyny a podpora pro případ, že se vás týkají problémy se službami Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Spravované aplikace</h3>
-                                                    <p>Správa nasazených řešení pro vaše zákazníky</p>
+                                                    <p>Zjednodušení správy cloudových nabídek</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -75,10 +75,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Odesílání zpráv z cloudu do zařízení
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Nahrání souborů ze zařízení
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +90,13 @@
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java back-end / zařízení Java](iot-hub-java-java-twin-getstarted.md)
+#### [Back-end Python / zařízení Python](iot-hub-python-twin-getstarted.md)
 ### Použití přímých metod
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-direct-methods.md)
 #### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java back-end / zařízení Java](iot-hub-java-java-direct-methods.md)
+#### [Back-end Python / zařízení Python](iot-hub-python-python-direct-methods.md)
 ### Začínáme se správou zařízení
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-device-management-get-started.md)

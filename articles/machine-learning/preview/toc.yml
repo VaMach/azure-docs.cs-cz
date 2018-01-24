@@ -182,7 +182,9 @@
           href: release-notes-sprint-2.md
         - name: Sprint 2 QFE – prosinec 2017
           href: release-notes-sprint-2.1.md
-- name: Zdroje
+        - name: Sprint 3 – leden 2018
+          href: release-notes-sprint-3.md
+- name: Zdroje a prostředky
   items:
     - name: Nejčastější dotazy
       href: frequently-asked-questions.md
