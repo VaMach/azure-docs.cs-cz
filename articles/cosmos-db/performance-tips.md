@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 84a1913bd218d512f7f2818291f59d98628a7272
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -60,7 +60,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
 
      Režim připojení je nakonfigurovat při vytváření instance DocumentClient s parametrem ConnectionPolicy. Pokud se používá přímý režim, můžete v rámci parametr ConnectionPolicy nastavit protokol.
 
-    ```C#
+    ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
     var authKey = new "your authKey from the Azure portal";
     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
@@ -158,7 +158,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
 
     Zásady indexování cosmos DB společnosti můžete také zadat které cesty dokumentu zahrnout nebo vyloučit z indexování s využitím indexování cesty (IndexingPolicy.IncludedPaths a IndexingPolicy.ExcludedPaths). Použití indexování cesty můžete jako indexování náklady jsou přímo korelační počet jedinečných cesty indexované nabízet zápisu lepší výkon a dolní index úložiště pro scénáře, ve kterých jsou předem, známé typy dotazů.  Například následující kód ukazuje, jak vyloučit celý oddíl dokumentů (také známa jako podstrom) indexování pomocí "*" zástupný znak.
 
-    ```C#
+    ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
@@ -180,7 +180,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
 
     K měření režijní náklady na všechny operace (vytvoření, aktualizace nebo odstranění), zkontrolujte [x-ms požadavku poplatků](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) záhlaví (nebo ekvivalentní vlastnost RequestCharge v ResourceResponse<T> nebo FeedResponse<T> v. NET SDK) k měření počtu jednotek žádosti uplatníte tyto operace.
 
-    ```C#
+    ```csharp
     // Measure the performance (request units) of writes
     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);

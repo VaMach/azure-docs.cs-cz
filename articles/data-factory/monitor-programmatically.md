@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 376bc64bee85fbc073b6ea4a39ecd013c23e791f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 8d47ebe5ad40aee8289420e8424ec4d745baf2df
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Prostřednictvím kódu programu Sledování služby Azure data factory
 Tento článek popisuje, jak monitorovat kanál v objekt pro vytváření dat pomocí různých software development Kit (SDK). 
@@ -146,6 +146,6 @@ Kompletní a podrobný postup vytváření a monitorování kanálu pomocí pros
 
 Kompletní dokumentaci o rutinách prostředí PowerShell najdete v tématu [odkazu na rutiny Powershellu objekt pro vytváření dat](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tématu [monitorování kanálů pomocí Azure monitorování](monitor-using-azure-monitor.md) článku Další informace o použití Azure monitorování pro monitorování kanálů služby Data Factory. 
 

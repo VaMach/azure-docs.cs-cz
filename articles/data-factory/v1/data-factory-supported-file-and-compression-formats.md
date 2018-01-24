@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b933adc884c8c353d50f94b40de2b977f852671
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f3faaf964c33ca336d91c1cf207e077046f617e9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formáty souborů a komprese podporovaných službou Azure Data Factory
 *Toto téma se vztahuje na následující konektory: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [objektů Blob v Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [systém souborů](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), a [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
-> Tento článek se týká verze 1 Azure Data Factory, který je všeobecně dostupná (GA). Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [podporované formáty souborů a komprese kodeky v datové továrně verze 2](../supported-file-formats-and-compression-codecs.md).
+> Tento článek se týká verze 1 služby Azure Data Factory, která je obecně dostupná (GA). Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [podporované formáty souborů a komprese kodeky v datové továrně verze 2](../supported-file-formats-and-compression-codecs.md).
 
 Azure Data Factory podporuje následující typy souboru formátu:
 
@@ -228,7 +228,7 @@ a chcete ho zkopírovat do tabulky Azure SQL v následujícím formátu a přito
 Vstupní datová sada typu **JsonFormat** je definovaná následujícím způsobem (částečná definice obsahující jenom relevantní části). A konkrétně:
 
 - Oddíl `structure` definuje vlastní názvy sloupců a odpovídající datový typ při převodu do tabulkového formátu. Pokud mapování sloupců není potřeba, je tento oddíl **nepovinný**. V tématu [mapování zdrojové sloupce datové sady na cílový datovou sadu sloupců](data-factory-map-columns.md) další podrobnosti.
-- `jsonPathDefinition` určuje cestu JSON pro jednotlivé sloupce a udává, odkud se mají extrahovat data. Chcete-li kopírovat data z pole, můžete použít tvar **pole[x].vlastnost** a extrahovat hodnotu dané vlastnosti z x-tého objektu, nebo můžete použít tvar  **pole[*].vlastnost** a najít hodnotu v libovolném objektu, který obsahuje tuto vlastnost.
+- `jsonPathDefinition` určuje cestu JSON pro jednotlivé sloupce a udává, odkud se mají extrahovat data. Chcete-li kopírovat data z pole, můžete použít **.property pole [x]** extrahovat hodnotu dané vlastnosti z objektu x, nebo můžete použít **.property pole [*]** k nalezení hodnoty z libovolného objektu, který obsahuje Vlastnost.
 
 ```json
 "properties": {
@@ -505,7 +505,7 @@ Pokud zadáte `compression` vlastnost ve vstupní datové sady JSON kanálu mů�
 * Číst kompresí GZIP dat z Azure blob, dekomprimovat ho, je pomocí BZIP2 komprimovat a zapsat Výsledná data do Azure blob. Definujete vstupní datové sady objektu Blob Azure s `compression` `type` nastavena na GZIP a výstupní datovou sadu s `compression` `type` nastavena na BZIP2 v tomto případě.   
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících článcích pro úložiště dat na základě souborů podporovaných službou Azure Data Factory:
 
 - [Azure Blob Storage](data-factory-azure-blob-connector.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90402e047caff2446591dca9cc9392c9d0344b5f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Provádění aktivity kanál v Azure Data Factory
 Aktivita spustit kanál umožňuje kanálu pro vytváření dat má být vyvolán jiné kanálu.
@@ -66,7 +66,7 @@ Vlastnost | Popis | Povolené hodnoty | Požaduje se
 -------- | ----------- | -------------- | --------
 jméno | Název aktivity kanálu execute. | Řetězec | Ano
 type | Musí být nastavena na: **ExecutePipeline**. | Řetězec | Ano
-Kanál | Kanál odkaz na závislé kanálu, který volá tento kanál. Referenční objekt kanálu má dvě vlastnosti: **Název_odkazu** a **typu**. Vlastnost Název_odkazu Určuje název kanálu odkaz. Vlastnost typu musí být nastavena na PipelineReference. | PipelineReference | Ano
+kanál | Kanál odkaz na závislé kanálu, který volá tento kanál. Referenční objekt kanálu má dvě vlastnosti: **Název_odkazu** a **typu**. Vlastnost Název_odkazu Určuje název kanálu odkaz. Vlastnost typu musí být nastavena na PipelineReference. | PipelineReference | Ano
 parameters | Parametry, které mají být předány vyvolaná kanálu | Objekt JSON, která mapuje názvy parametrů hodnot argumentů | Ne
 waitOnCompletion | Definuje, zda provedení aktivity čeká na provedení závislé kanálu ukončíte. | Výchozí hodnota je false. | Logická hodnota | Ne
 
@@ -257,7 +257,7 @@ Hlavní kanálu předá tyto hodnoty na vyvolanou kanál, jak je znázorněno v 
 }
 
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v části Další aktivity toku řízení podporovaných službou Data Factory: 
 
 - [Pro každou aktivitu](control-flow-for-each-activity.md)

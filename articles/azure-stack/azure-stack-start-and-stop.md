@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c22b22b49664a55b8a9e77936df3b1362d5b88
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 9bbfffe15dc23d5d7d7b17aa4c79edc8a2aaab8c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Spuštění a zastavení Azure zásobníku
 
@@ -41,6 +41,15 @@ Pomocí následujících kroků vypněte zásobník Azure:
 > [!Note]  
 > Podle pokynů od výrobce (OEM) kdo zadaný hardwaru zásobník Azure můžete ověřit stav napájení fyzického uzlu. 
 
+## <a name="start-azure-stack"></a>Spustit Azure zásobníku 
+
+Spusťte zásobník Azure pomocí následujících kroků. Postupujte podle těchto kroků bez ohledu na to, jak Azure zásobníku zastavena.
+
+1. Napájení na všech fyzických uzlů ve vašem prostředí Azure zásobníku. Zapnutí pokyny pro fyzických uzlů ověřte podle pokynů od výrobce (OEM) kdo zadaná hardware pro vaši Azure zásobníku.
+
+2. Počkejte na spuštění služby infrastruktury Azure zásobníku. Služby infrastruktury Azure zásobníku může vyžadovat dvou hodin k dokončení procesu spuštění. Počáteční stav zásobníku Azure s si můžete ověřit [ **Get-ActionStatus** rutiny](#get-the-startup-status-for-azure-stack).
+
+
 ## <a name="get-the-startup-status-for-azure-stack"></a>Získat stav spuštění Azure zásobníku
 
 Získáte spuštění pro spuštění rutiny zásobník Azure pomocí následujících kroků:
@@ -52,14 +61,6 @@ Získáte spuštění pro spuštění rutiny zásobník Azure pomocí následuj�
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
-
-## <a name="start-azure-stack"></a>Spustit Azure zásobníku 
-
-Spusťte zásobník Azure pomocí následujících kroků. Postupujte podle těchto kroků bez ohledu na to, jak Azure zásobníku zastavena.
-
-1. Napájení na všech fyzických uzlů ve vašem prostředí Azure zásobníku. Zapnutí pokyny pro fyzických uzlů ověřte podle pokynů od výrobce (OEM) kdo zadaná hardware pro vaši Azure zásobníku.
-
-2. Počkejte na spuštění služby infrastruktury Azure zásobníku. Služby infrastruktury Azure zásobníku může vyžadovat dvou hodin k dokončení procesu spuštění. Počáteční stav zásobníku Azure s si můžete ověřit [ **Get-ActionStatus** rutiny](#get-the-startup-status-for-azure-stack).
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Řešení potíží s spuštění a vypnutí Azure zásobníku
 

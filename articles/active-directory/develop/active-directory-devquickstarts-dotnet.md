@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET Desktop (WPF) Začínáme
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -74,7 +74,7 @@ Základní princip za ADAL je, že vždy, když aplikace potřebuje přístupov�
 
 * V `DirectorySearcher` projekt, otevřete `MainWindow.xaml.cs` a najděte `MainWindow()` metoda.  Prvním krokem je k chybě při inicializaci aplikace `AuthenticationContext` -ADAL je primární třídou.  Toto je, kde je předat ADAL souřadnice musí komunikovat s Azure AD a určit, jak pro ukládání do mezipaměti tokenů.
 
-```C#
+```csharp
 public MainWindow()
 {
     InitializeComponent();
@@ -87,7 +87,7 @@ public MainWindow()
 
 * Nyní najít `Search(...)` metoda, která se vyvolá, když uživatel klikne na tlačítko "Vyhledat" v uživatelském rozhraní aplikace.  Tato metoda vytváří požadavek GET na Azure AD Graph API k dotazu pro uživatele, jehož UPN začíná zadaný hledaný termín.  Pro dotaz na rozhraní Graph API, musíte zahrnout access_token v, ale `Authorization` hlavičky požadavku – to přichází ADAL.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     // Validate the Input String
@@ -121,7 +121,7 @@ private async void Search(object sender, RoutedEventArgs e)
 * Všimněte si, že `AuthenticationResult` objekt obsahuje `UserInfo` objekt, který můžete použít ke shromažďování informací může být nutné vaší aplikace.  V DirectorySearcher `UserInfo` slouží k přizpůsobení uživatelského rozhraní aplikace s id uživatele.
 * Když uživatel klikne na tlačítko "Odhlásit", chceme, abyste ověřili, že další volání `AcquireTokenAsync(...)` požádá uživatele k přihlášení.  Pomocí knihovny ADAL to je stejně snadná jako vymazání mezipamětí tokenů:
 
-```C#
+```csharp
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
     // Clear the token cache
@@ -133,7 +133,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 
 * Ale pokud uživatel není klikněte na tlačítko "Odhlásit", budete chtít zachovat relace uživatele pro příští, na které poběží DirectorySearcher.  Při spuštění aplikace můžete zkontrolovat mezipamětí tokenů na ADAL pro existující token a uživatelského rozhraní se aktualizují odpovídajícím způsobem.  V `CheckForCachedToken()` metoda, proveďte jiné volání `AcquireTokenAsync(...)`, tentokrát předávání v `PromptBehavior.Never` parametr.  `PromptBehavior.Never`ADAL bude informovat, že by neměl být uživatel vyzván pro přihlašování a ADAL místo toho by měla vyvolána výjimka, pokud nelze vrátit token.
 
-```C#
+```csharp
 public async void CheckForCachedToken() 
 {
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.

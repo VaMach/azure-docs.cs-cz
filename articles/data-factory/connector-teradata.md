@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 905a2bf1b42819a531bc4b16dd1e6f5539e80068
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopírování dat z Teradata pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -115,7 +115,7 @@ Ke zkopírování dat z Teradata, nastavte vlastnost typu datové sady, která *
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem Teradata.
 
@@ -167,44 +167,44 @@ Při kopírování dat z Teradata, se používají následující mapování Ter
 | Datový typ Teradata | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
 | BigInt |Int64 |
-| Objekt blob |Byte] |
-| Bajtů |Byte] |
+| Objekt blob |Byte[] |
+| Bajtů |Byte[] |
 | ByteInt |Int16 |
 | Char |Řetězec |
 | Datový typ CLOB |Řetězec |
 | Datum |Datum a čas |
 | Decimal |Decimal |
-| Double |Double |
+| Dvojitý |Dvojitý |
 | Obrázek |Řetězec |
 | Integer |Int32 |
-| Interval den |Časový interval |
-| Interval den a hodina |Časový interval |
-| Denní interval minuty. |Časový interval |
-| Denní interval sekundy. |Časový interval |
-| Interval hodinu |Časový interval |
-| Interval hodiny, minuty. |Časový interval |
-| Interval hodinu sekundu |Časový interval |
-| Interval minutu |Časový interval |
-| Interval minuty, sekundy. |Časový interval |
+| Interval den |TimeSpan |
+| Interval den a hodina |TimeSpan |
+| Denní interval minuty. |TimeSpan |
+| Denní interval sekundy. |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval hodiny, minuty. |TimeSpan |
+| Interval hodinu sekundu |TimeSpan |
+| Interval minutu |TimeSpan |
+| Interval minuty, sekundy. |TimeSpan |
 | Interval měsíc |Řetězec |
-| Interval druhý |Časový interval |
+| Interval druhý |TimeSpan |
 | Interval roku |Řetězec |
 | Interval rok, měsíc |Řetězec |
-| Číslo |Double |
+| Číslo |Dvojitý |
 | Period(Date) |Řetězec |
 | Period(Time) |Řetězec |
 | Období (čas s časovým pásmem) |Řetězec |
 | Period(Timestamp) |Řetězec |
 | Období (časové razítko s časovým pásmem) |Řetězec |
 | SmallInt |Int16 |
-| Čas |Časový interval |
+| Čas |TimeSpan |
 | Čas s časovým pásmem |Řetězec |
 | Časové razítko |Datum a čas |
-| Časové razítko s časovým pásmem |Datový typ DateTimeOffset |
-| VarByte |Byte] |
+| Časové razítko s časovým pásmem |DateTimeOffset |
+| VarByte |Byte[] |
 | VarChar |Řetězec |
 | VarGraphic |Řetězec |
-| XML |Řetězec |
+| Xml |Řetězec |
 
 
 ## <a name="next-steps"></a>Další postup

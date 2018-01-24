@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: cb70b6fee5257a07dda673d6d0f6feb07ad66958
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopírování dat z SAP HANA pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Pro SAP HANA propojené služby jsou podporovány následující vlastnosti:
 | type | Vlastnost typu musí být nastavena na: **SapHana** | Ano |
 | server | Název serveru, na kterém se nachází instance SAP HANA. Pokud váš server používá vlastní port, zadejte `server:port`. | Ano |
 | authenticationType. | Typ ověřování používaný pro připojení k databázi SAP HANA.<br/>Povolené hodnoty jsou: **základní**, a **Windows** | Ano |
-| Uživatelské jméno | Jméno uživatele, který má přístup k serveru SAP. | Ano |
+| userName | Jméno uživatele, který má přístup k serveru SAP. | Ano |
 | heslo | Heslo pro uživatele. Toto pole můžete označte jako SecureString. | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Modul Runtime Self-hosted integrace se vyžaduje, jak je uvedeno v [požadavky](#prerequisites). |Ano |
 
@@ -114,7 +114,7 @@ Ke zkopírování dat z SAP HANA, nastavte vlastnost typu datové sady, která *
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem SAP HANA.
 
@@ -167,9 +167,9 @@ Při kopírování dat z SAP HANA, se používají následující mapování SAP
 |:--- |:--- |
 | ALPHANUM | Řetězec |
 | BIGINT | Int64 |
-| OBJEKT BLOB | Byte] |
+| OBJEKT BLOB | Byte[] |
 | LOGICKÁ HODNOTA | Bajtů |
-| DATOVÝ TYP CLOB | Byte] |
+| DATOVÝ TYP CLOB | Byte[] |
 | DATE (Datum) | Datum a čas |
 | DECIMAL | Decimal |
 | DOUBLE | Svobodný/svobodná |
@@ -178,7 +178,7 @@ Při kopírování dat z SAP HANA, se používají následující mapování SAP
 | SKUTEČNÉ | Svobodný/svobodná |
 | SECONDDATE | Datum a čas |
 | SMALLINT | Int16 |
-| ČAS | Časový interval |
+| ČAS | TimeSpan |
 | ČASOVÉ RAZÍTKO | Datum a čas |
 | TINYINT | Bajtů |
 | VARCHAR | Řetězec |

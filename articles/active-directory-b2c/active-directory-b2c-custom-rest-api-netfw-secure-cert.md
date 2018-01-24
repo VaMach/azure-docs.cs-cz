@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Zabezpečení služby RESTful pomocí klientských certifikátů
 V souvisejícím článku jste [vytvoření RESTful služby](active-directory-b2c-custom-rest-api-netfw.md) který komunikuje se službou Azure Active Directory B2C (Azure AD B2C).
@@ -181,7 +181,7 @@ Nahraďte tento certifikát **název subjektu**, **název vystavitele**, a **kry
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 přidat funkci IsValidClientCertificate
 Otevřete *Controllers\IdentityController.cs* souboru a pak přidejte do `Identity` řadiče třídy následující funkce: 
 
-```C#
+```csharp
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -283,7 +283,7 @@ V předchozím ukázkovém kódu můžeme přijmout si certifikát platný, pouz
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 volání funkce IsValidClientCertificate
 Otevřete *Controllers\IdentityController.cs* souboru a potom na začátku `SignUp()` fungovat, přidejte následující fragment kódu: 
 
-```C#
+```csharp
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

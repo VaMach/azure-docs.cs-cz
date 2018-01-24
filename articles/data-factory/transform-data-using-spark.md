@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f1548c6ad397a7154482fa73e992aef9201c5752
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformace dat pomocí aktivity Spark v Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,14 +71,14 @@ Následující tabulka popisuje vlastnostech JSON použitých v definici JSON:
 | description           | Popisuje, jakým způsobem aktivita naloží text.  | Ne       |
 | type                  | Typ aktivity pro aktivitu Spark je HDInsightSpark. | Ano      |
 | linkedServiceName     | Název propojené služby HDInsight Spark, který je spuštěn Spark program. Další informace o této propojené služby najdete v tématu [výpočetní propojené služby](compute-linked-services.md) článku. | Ano      |
-| sparkJobLinkedService | Azure Storage propojená služba, která obsahuje Spark soubor úlohy, závislosti a protokoly.  Pokud hodnotu pro tuto vlastnost nezadáte, použije se úložiště přidružený k clusteru HDInsight. | Ne       |
+| SparkJobLinkedService | Azure Storage propojená služba, která obsahuje Spark soubor úlohy, závislosti a protokoly.  Pokud hodnotu pro tuto vlastnost nezadáte, použije se úložiště přidružený k clusteru HDInsight. | Ne       |
 | rootPath              | Kontejner objektů Blob v Azure a složky, která obsahuje soubor Spark. Název souboru je malá a velká písmena. Struktura složek najdete části (další části) Další informace o struktuře této složky. | Ano      |
 | entryFilePath         | Relativní cesta ke kořenové složce Spark kódu nebo balíčku. | Ano      |
-| Název třídy             | Hlavní třídy aplikace Java/Spark      | Ne       |
+| className             | Hlavní třídy aplikace Java/Spark      | Ne       |
 | Argumenty             | Seznam argumentů příkazového řádku pro Spark program. | Ne       |
 | proxyUser             | Uživatelský účet zosobnění spuštění programu Spark | Ne       |
 | sparkConfig           | Zadejte hodnoty pro vlastnosti konfigurace Spark vypsané v tomto tématu: [Spark konfigurace – vlastnosti aplikace](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Ne       |
-| getdebuginfo –          | Určuje, kdy soubory protokolu Spark se zkopírují do úložiště Azure používá HDInsight cluster (nebo) zadaný ve sparkJobLinkedService. Povolené hodnoty: None, vždy nebo selhání. Výchozí hodnota: žádné. | Ne       |
+| getDebugInfo          | Určuje, kdy soubory protokolu Spark se zkopírují do úložiště Azure používá HDInsight cluster (nebo) zadaný ve sparkJobLinkedService. Povolené hodnoty: None, vždy nebo selhání. Výchozí hodnota: žádné. | Ne       |
 
 ## <a name="folder-structure"></a>Struktura složek
 Spark úlohy jsou extensible více než úlohy Pig nebo Hive. Pro úlohy Spark, můžete zadat více závislostí, jako jar balíčky (umístěné v jazyce java cesty pro třídy), soubory python (umístit na PYTHONPATH) a všechny další soubory.
@@ -89,7 +89,7 @@ Vytvořte následující strukturu složek ve službě Azure Blob storage, na kt
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.`(uživatel root)            | Kořenová cesta úlohy Spark v úložišti propojená služba | Ano      | Složka |
 | &lt;uživatelem definované&gt; | Cesta k souboru položka úlohy Spark | Ano      | File   |
-| . / jars                | Všechny soubory v této složce se nahrála a umístit na cestě třídy java clusteru | Ne       | Složka |
+| ./jars                | Všechny soubory v této složce se nahrála a umístit na cestě třídy java clusteru | Ne       | Složka |
 | . / pyFiles             | Všechny soubory v této složce se nahrála a umístit do PYTHONPATH clusteru | Ne       | Složka |
 | . / soubory               | Všechny soubory v této složce se nahrála a umístit na vykonavatele pracovní adresář | Ne       | Složka |
 | . / archivy            | Všechny soubory v této složce nekomprimované | Ne       | Složka |
@@ -115,7 +115,7 @@ SparkJob2
         script2.py
     logs
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících článcích, které vysvětlují, jak k transformaci dat jinými způsoby: 
 
 * [Aktivita U-SQL](transform-data-using-data-lake-analytics.md)

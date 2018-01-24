@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 875f00064f94b37ab5efdde54ca3e6cbda779654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 055f04d496b56a5e8542911aa78292d7746ae80b
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-port-settings"></a>Nastavení portu Azure předávání
 
@@ -34,11 +34,11 @@ Hybridní připojení používá jako podkladový přenosový mechanismus, kter�
 |[Třída BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (klient)|Ano|HTTPS| 
 | |" |Ne|HTTP|  
 |[Třída BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (služba)|Buď|9351/HTTP|  
-|[Třída NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (klient)|Ano|9351 NEBO HTTPS|  
+|[Třída NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (klient)|Ano|9351/HTTPS|  
 ||" |Ne|9350/HTTP|  
 |[Třída NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (služba)|Buď|9351/HTTP|  
 |[Třída NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (klienta nebo služba)|Buď|5671/9352/HTTP (9352/9353 Pokud používáte hybridní)|  
-|[Třída NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (klient)|Ano|9351 NEBO HTTPS|  
+|[Třída NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (klient)|Ano|9351/HTTPS|  
 ||" |Ne|9350/HTTP|  
 |[Třída NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (služba)|Buď|9351/HTTP|  
 |[Třída WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (klient)|Ano|HTTPS|  
@@ -48,7 +48,7 @@ Hybridní připojení používá jako podkladový přenosový mechanismus, kter�
 ||" |Ne|HTTP|  
 |[Třída WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (služba)|Buď|9351/HTTP|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o předávání přes Azure, najdete pomocí těchto odkazů:
 * [Co je Azure Relay?](relay-what-is-it.md)
 * [Přenos – nejčastější dotazy](relay-faq.md)

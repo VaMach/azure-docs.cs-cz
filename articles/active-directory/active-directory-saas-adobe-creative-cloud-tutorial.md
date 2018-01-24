@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Kurz: Azure Active Directory integrace s Adobe Creative cloudu
 
@@ -133,9 +133,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     | Název atributu | Hodnota atributu |
     | ---------------| ----------------|
-    | FirstName |User.givenName |
-    | Příjmení |User.Surname |
-    | E-mail |User.Mail |
+    | FirstName |user.givenname |
+    | LastName |user.surname |
+    | E-mail |user.mail |
 
     a. Klikněte na tlačítko **přidat atribut** otevřete **přidat atribut** dialogové okno.
     
@@ -157,11 +157,11 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurace Adobe Creative cloudu](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. V okně prohlížeče jiný web přihlášení jako správce klienta Adobe Creative cloudu.
+10. V okně prohlížeče jiný web, přihlaste se do [konzoly pro správu Adobe](https://adminconsole.adobe.com) jako správce.
 
-11. Přejděte na **Identity** na levém navigačním podokně a klikněte na doménu. Potom proveďte následující kroky na **jeden znak na konfigurace požadované** části.
+11. Přejděte na **nastavení** v horním navigačním panelu a potom zvolte **Identity**. Otevře se seznam domén. Klikněte na tlačítko **konfigurace** odkaz vůči vaší doméně. Potom proveďte následující kroky na **jeden znak na konfigurace požadované** části. Další informace najdete v tématu [nastavení domény](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-    ![Nastavení](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "nastavení")
+    ![Nastavení](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "nastavení")
     
     a. Klikněte na tlačítko **Procházet** na kterou odešlete certifikát stažený z Azure AD **IDP certifikát**.
     
@@ -176,8 +176,6 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     f. Klikněte na tlačítko **Uložit** tlačítko.
 
 12. Řídicí panel bude nyní k dispozici soubor XML **"Stáhnout Metadata"** souboru. Obsahuje EntityDescriptor adresy URL a adresy URL AssertionConsumerService na Adobe. Otevřete soubor a nakonfigurujete je v aplikaci Azure AD.
-
-    ![Konfigurace jednotného přihlašování na straně aplikace](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![Konfigurace jednotného přihlašování na straně aplikace](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -226,11 +224,9 @@ Pokud chcete povolit uživatelům Azure AD přihlášení do cloudu tvůrčí Ad
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Ke zřízení uživatelských účtů, proveďte následující kroky:
 
-1. Přihlaste se na váš web společnosti Adobe Creative Cloud jako správce.
+1. Přihlaste se k [konzoly pro správu Adobe](https://adminconsole.adobe.com) lokality jako správce.
 
-2. Přidat uživatele v rámci konzoly na Adobe jako federované ID a přiřaďte je do skupiny pro uplatnění nároku
-
-    ![Odkaz Adobe Creative cloudu v seznamu aplikací](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Přidejte uživatele v rámci konzoly na Adobe jako federované ID a přiřadit profil produktu. Podrobné informace o přidávání uživatelů naleznete v tématu [přidat uživatele v konzole pro správu Adobe](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. V tuto chvíli zadejte e-mailovou adresu nebo upn do formuláře přihlášení Adobe, stisknutím klávesy tab a jste měli federovaný zpět do Azure AD:
     * Webový přístup: www.adobe.com > přihlášení
@@ -274,10 +270,12 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 Když kliknete na dlaždici Adobe Creative cloudu na přístupovém panelu, můžete by měl získat automaticky přihlášení k aplikaci Adobe Creative cloudu.
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Nastavení domény (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Konfigurace Azure pro použití s Adobe jednotné přihlašování (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

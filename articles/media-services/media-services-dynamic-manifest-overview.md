@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtry a dynamické manifestů
 Od verze 2.17, Media Services umožňuje definovat filtry pro vaše prostředky. Tyto filtry jsou pravidla na straně serveru, které vám umožní vašim zákazníkům, kde můžete provádět například následující akce: přehrávání pouze část videa (namísto přehrávání celou video), nebo zadejte pouze podmnožinu interpretace audia a videa, které může zařízení vašich zákazníků (místo toho zpracovat všechny interpretací, jsou přidružený asset). Tento filtrování vaše prostředky bude archivován prostřednictvím **dynamické Manifest**ů, které jsou vytvořené na žádost zákazníka Streamovat videa podle zadané filtry.
 
-Tato témata popisuje běžné scénáře, ve kterém pomocí filtrů by bylo velmi užitečné k vašim zákazníkům a odkazy na témata, které ukazují, jak vytvářet filtry prostřednictvím kódu programu (v současné době můžete vytvořit filtry pomocí rozhraní REST API pouze).
+Tato témata popisuje běžné scénáře, ve kterém pomocí filtrů by bylo velmi užitečné k vašim zákazníkům a odkazy na témata, které ukazují, jak vytvářet filtry prostřednictvím kódu programu.
 
 ## <a name="overview"></a>Přehled
 Při doručování obsahu zákazníkům (streaming živé události nebo vyžádání, video-on-demand) je vaším cílem poskytování vysoce kvalitního videa pro různá zařízení v různých síťových podmínkách. K dosažení tohoto cíle provést následující kroky:
@@ -67,14 +67,14 @@ Tady je příklad souboru manifestu:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Dynamické manifestů
-Existují [scénáře](media-services-dynamic-manifest-overview.md#scenarios) když váš klient potřebuje více flexibility než co je popsaný v souboru manifestu výchozí asset. Například:
+Existují [scénáře](media-services-dynamic-manifest-overview.md#scenarios) když váš klient potřebuje více flexibility než co je popsaný v souboru manifestu výchozí asset. Příklad:
 
 * Zařízení, konkrétní: poskytovat sleduje jazyk, které podporuje zařízení, která je zadána nebo zadaný interpretace pouze používá k přehrávání obsahu ("interpretace filtrování"). 
 * Snižte manifest zobrazíte dílčí klip živé události ("dílčí klip filtrování").
 * Trim – začátek video ("ořezávání video").
 * Upravte prezentace okno (DVR) Chcete-li poskytovat omezené délky okna formátu DVR v player ("okno s úpravou prezentace").
 
-K dosažení tuto flexibilitu potřebují, Media Services nabízí **dynamické manifesty** založené na předem definované [filtry](media-services-dynamic-manifest-overview.md#filters).  Jakmile definujete filtry, vaši klienti využít k vysílání datového proudu konkrétní interpretace nebo dílčí klipů videa. Filtry by zadanému v adrese URL streamování. Použít filtry i adaptivní přenosové rychlosti streamování protokolů podporovaných [dynamické balení](media-services-dynamic-packaging-overview.md): HLS, MPEG DASH a technologie Smooth Streaming. Například:
+K dosažení tuto flexibilitu potřebují, Media Services nabízí **dynamické manifesty** založené na předem definované [filtry](media-services-dynamic-manifest-overview.md#filters).  Jakmile definujete filtry, vaši klienti využít k vysílání datového proudu konkrétní interpretace nebo dílčí klipů videa. Filtry by zadanému v adrese URL streamování. Použít filtry i adaptivní přenosové rychlosti streamování protokolů podporovaných [dynamické balení](media-services-dynamic-packaging-overview.md): HLS, MPEG DASH a technologie Smooth Streaming. Příklad:
 
 Adresa URL MPEG DASH s filtrem
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Nastavte Application Insights: sledování závislostí
 A *závislostí* je externí komponenta, která je volána aplikace. Obvykle se jedná o službu volat pomocí protokolu HTTP, nebo databázi nebo systému souborů. [Application Insights](app-insights-overview.md) měří, jak dlouho aplikace čeká závislosti a jak často závislostí volání selže. Můžete prozkoumat konkrétní volání a propojovat je na požadavky a výjimkami.
@@ -43,9 +43,9 @@ Můžete taky napsat vlastní volání sady SDK k monitorování Další závisl
 
 | Platforma | Instalace |
 | --- | --- |
-| Server služby IIS |Buď [nainstalujte monitorování stavu na serveru](app-insights-monitor-performance-live-website-now.md) nebo [upgradu vaší aplikace rozhraní .NET Framework 4.6 nebo novější](http://go.microsoft.com/fwlink/?LinkId=528259) a nainstalujte [Application Insights SDK](app-insights-asp-net.md) ve vaší aplikaci. |
+| IIS Server |Buď [nainstalujte monitorování stavu na serveru](app-insights-monitor-performance-live-website-now.md) nebo [upgradu vaší aplikace rozhraní .NET Framework 4.6 nebo novější](http://go.microsoft.com/fwlink/?LinkId=528259) a nainstalujte [Application Insights SDK](app-insights-asp-net.md) ve vaší aplikaci. |
 | Webové aplikace Azure |Ve webové aplikaci ovládacího panelu [otevřete okno Application Insights ve webové aplikaci ovládacího panelu](app-insights-azure-web-apps.md) a instalace zvolte, pokud se zobrazí výzva. |
-| Cloudové služby Azure |[Úloha spuštění použití](app-insights-cloudservices.md) nebo [nainstalovat rozhraní .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Cloudová služba Azure |[Úloha spuštění použití](app-insights-cloudservices.md) nebo [nainstalovat rozhraní .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Kde najít data závislostí
 * [Mapa aplikace](#application-map) vizualizuje závislosti mezi aplikací a sousedních součásti.
@@ -131,7 +131,7 @@ Proklikejte se k výskytu chybné žádosti a podívejte se na jeho přidružen�
 
 ![Klikněte na typ požadavku, klikněte na instanci systému na získat do jiného zobrazení stejné instance, klikněte na něj získat podrobnosti o výjimce.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
-## <a name="analytics"></a>Analýza
+## <a name="analytics"></a>Analýzy
 Můžete sledovat v závislosti [analýzy protokolů dotazu jazyka](https://docs.loganalytics.io/). Zde je několik příkladů:
 
 * Najděte žádné volání se nezdařilo závislost:
@@ -178,7 +178,7 @@ Můžete napsat kód, který odesílá informace o závislostech, používajíc�
 
 Například pokud vytvoříte kódu se sestavením, které nebylo napsat sami, může čas všechna volání, a zjistěte, jaký příspěvek umožňuje na váš doby odezvy. Pokud chcete, aby tato data zobrazí v grafech závislosti ve službě Application Insights, odeslat pomocí `TrackDependency`.
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -208,7 +208,7 @@ Pokud chcete vypnout modul sledování standardní závislostí, odeberte odkaz 
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Výjimky](app-insights-asp-net-exceptions.md)
 * [Data uživatele a stránky](app-insights-javascript.md)
 * [Dostupnost](app-insights-monitor-web-app-availability.md)

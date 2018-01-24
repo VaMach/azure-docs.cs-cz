@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Přesun dat z Amazon Redshift pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,11 +64,11 @@ Následující tabulka obsahuje popis elementy JSON, které jsou specifické pro
 | Vlastnost | Popis | Požaduje se |
 | --- | --- | --- |
 | **Typ** |Tato vlastnost musí být nastavená na **AmazonRedshift**. |Ano |
-| **Server** |IP adresu nebo název hostitele serveru Amazon Redshift. |Ano |
+| **server** |IP adresu nebo název hostitele serveru Amazon Redshift. |Ano |
 | **port** |Číslo portu TCP, který používá server Amazon Redshift naslouchat pro připojení klientů. |Ne (výchozí hodnota je 5439) |
-| **databáze** |Název databáze Amazon Redshift. |Ano |
-| **uživatelské jméno** |Jméno uživatele, který má přístup k databázi. |Ano |
-| **heslo** |Heslo pro uživatelský účet. |Ano |
+| **database** |Název databáze Amazon Redshift. |Ano |
+| **username** |Jméno uživatele, který má přístup k databázi. |Ano |
+| **password** |Heslo pro uživatelský účet. |Ano |
 
 ## <a name="dataset-properties"></a>Vlastnosti datové sady
 
@@ -78,7 +78,7 @@ Seznam oddílů a vlastnosti, které jsou k dispozici pro definování datové s
 
 | Vlastnost | Popis | Požaduje se |
 | --- | --- | --- |
-| **Název tabulky** |Název tabulky v databázi Amazon Redshift, který propojená služba odkazuje na. |Ne (Pokud **dotazu** vlastnost aktivity kopírování typu **RelationalSource** je zadána) |
+| **tableName** |Název tabulky v databázi Amazon Redshift, který propojená služba odkazuje na. |Ne (Pokud **dotazu** vlastnost aktivity kopírování typu **RelationalSource** je zadána) |
 
 ## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
 
@@ -207,7 +207,7 @@ Ukázka zkopíruje data z výsledku dotazu v Amazon Redshift do objektu blob Azu
 }
 ```
 
-**Výstupní datovou sadu objektů Blob v Azure**
+**Výstupní datová sada Azure Blob**
 
 Data se zapisují do nového objektu blob každou hodinu nastavením **frekvence** vlastnost "Hodinu" a **interval** vlastnost na hodnotu 1. **FolderPath** dynamicky vyhodnotí vlastnost pro tento objekt blob. Hodnota vlastnosti vychází čas zahájení řez, který je zpracovávána. Cesta ke složce používá rok, měsíc, den a čas části čas spuštění.
 
@@ -335,13 +335,13 @@ Aktivita kopírování převádí data z typ Amazon Redshift na typ .NET jsou po
 | CELÉ ČÍSLO |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| SKUTEČNÉ |Jeden |
-| DVOJITÁ PŘESNOST |Double |
+| SKUTEČNÉ |Svobodný/svobodná |
+| DVOJITÁ PŘESNOST |Dvojitý |
 | LOGICKÁ HODNOTA |Řetězec |
 | CHAR – |Řetězec |
 | VARCHAR |Řetězec |
-| DATUM |Data a času |
-| ČASOVÉ RAZÍTKO |Data a času |
+| DATE (Datum) |Datum a čas |
+| ČASOVÉ RAZÍTKO |Datum a čas |
 | TEXT |Řetězec |
 
 ## <a name="map-source-to-sink-columns"></a>Mapování zdroje jímky sloupců
@@ -353,5 +353,5 @@ Při kopírování dat z relační datové úložiště, uvědomte si, aby se za
 ## <a name="performance-and-tuning"></a>Výkon a ladění
 Další informace o klíčových faktorů, které ovlivňují výkon aktivity kopírování a způsoby, jak optimalizovat výkon v [výkonu kopie aktivity a ladění průvodce](data-factory-copy-activity-performance.md). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Podrobné pokyny pro vytvoření kanálu s aktivitou kopírování najdete v tématu [aktivity kopírování kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurace uživatelského rozhraní s dynamickým obsahem pomocí vlastních zásad
 Pomocí Azure Active Directory B2C (Azure AD B2C) vlastní zásady, můžete odeslat parametr v řetězci dotazu. Pomocí předání parametru váš koncový bod HTML, můžete dynamicky měnit obsah stránky. Například můžete změnit obrázek pozadí na Azure AD B2C registrace nebo přihlášení stránky, na základě parametr, který můžete předat z webu nebo mobilních aplikací. 
@@ -41,16 +41,16 @@ Ve vlastních zásadách definuje definici obsahu stránce HTML5 identifikátor 
 
 | ID obsahu definice | Výchozí HTML5 šablony| Popis | 
 |-----------------------|--------|-------------|
-| *API.Error* | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Chybové stránky**. Tato stránka se zobrazí, když je došlo k výjimce nebo došlo k chybě. |
-| *API.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Stránka Výběr zprostředkovatele identity**. Tato stránka obsahuje seznam zprostředkovatelů identity, které uživatelé mohou vybírat z během přihlášení. Možnosti jsou obvykle poskytovatelů identit enterprise, poskytovatelů identit sociálních třeba Facebook a Google + nebo místní účty. |
-| *API.idpselections.Signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Výběr zprostředkovatele identity pro registraci**. Tato stránka obsahuje seznam zprostředkovatelů identity, které uživatelé mohou vybírat z během registrace. Možnosti jsou poskytovatelů identit enterprise, poskytovatelů identit sociálních třeba Facebook a Google + nebo místním účtům. |
-| *API.localaccountpasswordreset* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Zapomněli jste heslo**. Tato stránka obsahuje formulář, který uživatelé musí dokončit zahájíte resetování hesla.  |
-| *API.localaccountsignin* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Přihlašovací stránka místní účet**. Tato stránka obsahuje formulář pro přihlašování pomocí místního účtu, který je založený na e-mailovou adresu nebo uživatelské jméno. Formulář může obsahovat vstupní textové pole a pole pro zadání hesla. |
-| *API.localaccountsignup* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Místní účet registrační stránku**. Tato stránka obsahuje formulář pro registraci pro místní účet, který je založený na e-mailovou adresu nebo uživatelské jméno. Formulář může obsahovat různé vstupní ovládací prvky, jako například: textový vstupní pole, pole pro zadání hesla, přepínače, polí rozevíracího seznamu vyberte jeden a více zaškrtněte políčka. |
-| *API.phonefactor* | [vícefaktorové 1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Stránka služby Multi-Factor authentication**. Na této stránce uživatelé mohli ověřit jejich telefonní čísla (pomocí textové nebo hlasové) během registrace nebo přihlášení. |
-| *API.selfasserted* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Stránku pro přihlášení sociálních účet**. Tato stránka obsahuje formulář, který uživatelé musí dokončit při registraci pomocí stávající účet ze sociálních identity zprostředkovatele. Tato stránka je podobný na předchozí sociálních registrační stránku účtu, s výjimkou pole pro zadání hesla. |
-| *API.selfasserted.profileupdate* | [updateprofile.HTML](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Stránka pro aktualizaci profilu**. Tato stránka obsahuje formulář, který mohou uživatelé aktualizovat svůj profil. Tato stránka je podobná registrační stránku sociálních účtu, s výjimkou pole pro zadání hesla. |
-| *API.signuporsignin* | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Jednotná stránku registrace nebo přihlášení**. Tato stránka zpracovává proces registrace a přihlášení uživatele. Uživatelé mohou pomocí poskytovatelů identit enterprise, poskytovatelů identit sociálních třeba Facebook nebo Google + nebo místní účty.  |
+| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Chybové stránky**. Tato stránka se zobrazí, když je došlo k výjimce nebo došlo k chybě. |
+| *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Stránka Výběr zprostředkovatele identity**. Tato stránka obsahuje seznam zprostředkovatelů identity, které uživatelé mohou vybírat z během přihlášení. Možnosti jsou obvykle poskytovatelů identit enterprise, poskytovatelů identit sociálních třeba Facebook a Google + nebo místní účty. |
+| *api.idpselections.signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Výběr zprostředkovatele identity pro registraci**. Tato stránka obsahuje seznam zprostředkovatelů identity, které uživatelé mohou vybírat z během registrace. Možnosti jsou poskytovatelů identit enterprise, poskytovatelů identit sociálních třeba Facebook a Google + nebo místním účtům. |
+| *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Zapomněli jste heslo**. Tato stránka obsahuje formulář, který uživatelé musí dokončit zahájíte resetování hesla.  |
+| *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Přihlašovací stránka místní účet**. Tato stránka obsahuje formulář pro přihlašování pomocí místního účtu, který je založený na e-mailovou adresu nebo uživatelské jméno. Formulář může obsahovat vstupní textové pole a pole pro zadání hesla. |
+| *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Místní účet registrační stránku**. Tato stránka obsahuje formulář pro registraci pro místní účet, který je založený na e-mailovou adresu nebo uživatelské jméno. Formulář může obsahovat různé vstupní ovládací prvky, jako například: textový vstupní pole, pole pro zadání hesla, přepínače, polí rozevíracího seznamu vyberte jeden a více zaškrtněte políčka. |
+| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Stránka služby Multi-Factor authentication**. Na této stránce uživatelé mohli ověřit jejich telefonní čísla (pomocí textové nebo hlasové) během registrace nebo přihlášení. |
+| *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Stránku pro přihlášení sociálních účet**. Tato stránka obsahuje formulář, který uživatelé musí dokončit při registraci pomocí stávající účet ze sociálních identity zprostředkovatele. Tato stránka je podobný na předchozí sociálních registrační stránku účtu, s výjimkou pole pro zadání hesla. |
+| *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Stránka pro aktualizaci profilu**. Tato stránka obsahuje formulář, který mohou uživatelé aktualizovat svůj profil. Tato stránka je podobná registrační stránku sociálních účtu, s výjimkou pole pro zadání hesla. |
+| *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Jednotná stránku registrace nebo přihlášení**. Tato stránka zpracovává proces registrace a přihlášení uživatele. Uživatelé mohou pomocí poskytovatelů identit enterprise, poskytovatelů identit sociálních třeba Facebook nebo Google + nebo místní účty.  |
 
 ## <a name="serving-dynamic-content"></a>Poskytování dynamického obsahu
 V [přizpůsobení konfigurace uživatelského rozhraní ve vlastních zásadách pro](active-directory-b2c-ui-customization-custom.md) článek, odešle HTML5 soubory do úložiště objektů Blob v Azure. Tyto soubory HTML5 statické a vykreslení stejné HTML obsahu pro každý požadavek. 
@@ -105,7 +105,7 @@ Vlastní šablony HTML5 je založený na šabloně předdefinované HTML5 Azure 
 
 7. V tomto návodu budeme odeberte odkaz na stránce rozložení. Přidejte následující fragment kódu do _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -264,7 +264,7 @@ Změnit HomeController `unified` metoda tak, aby přijímal parametr campaignId.
 
 1. Otevřete *Controllers\HomeController.cs* souboru a poté změňte `unified` metoda přidáním následující fragment kódu:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

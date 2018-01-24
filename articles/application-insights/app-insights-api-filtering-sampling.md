@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrování a předběžného zpracování telemetrie Application Insights SDK
 
@@ -122,7 +122,7 @@ Můžete předat hodnoty řetězce ze souboru .config tím, že poskytuje veřej
 
 **Alternativně** můžete inicializovat filtru v kódu. Ve třídě vhodný inicializace – například AppStart v Global.asax.cs - vložte do řetězu procesor:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -166,7 +166,7 @@ Filtrovat robotů a webové testy. I když Průzkumníku metrik poskytuje možno
 #### <a name="failed-authentication"></a>Ověřování se nezdařilo
 Filtrování požadavků s odpovědi "401".
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -224,7 +224,7 @@ Pokud zadáte inicializátoru telemetrie, nazývá metod Track*() vždy, když j
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -263,7 +263,7 @@ Pokud zadáte inicializátoru telemetrie, nazývá metod Track*() vždy, když j
 
 **Načíst vaše inicializátoru**
 
-V souboru ApplicationInsights.config:
+In ApplicationInsights.config:
 
     <ApplicationInsights>
       <TelemetryInitializers>
@@ -275,7 +275,7 @@ V souboru ApplicationInsights.config:
 
 *Alternativně* můžete vytvořit instanci inicializátoru v kódu, například v souboru Global.aspx.cs:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...
@@ -356,7 +356,7 @@ Jaký je rozdíl mezi procesory telemetrie a inicializátory telemetrie?
 
 ## <a name="sdk-code"></a>Kód SDK
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
-* [SADY SDK TECHNOLOGIE ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Další kroky

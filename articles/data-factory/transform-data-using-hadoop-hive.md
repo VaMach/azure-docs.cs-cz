@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 579df714910020e1e16e410a051c8b3773369dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a29d826a948788c5374ad2cc20b6a2040230ad
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformace dat pomocí aktivity Hadoop Hive v Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,11 +67,11 @@ Pokud jste do Azure Data Factory nové, přečtěte si [Úvod do Azure Data Fact
 | linkedServiceName   | Referenční dokumentace ke clusteru HDInsight registrován jako propojené služby ve službě Data Factory. Další informace o této propojené služby najdete v tématu [výpočetní propojené služby](compute-linked-services.md) článku. | Ano      |
 | scriptLinkedService | Odkaz na propojenou službu úložiště Azure používají k ukládání ke spuštění skriptu Hive. Pokud tato propojená služba nezadáte, použije se propojené služby Azure Storage definované v propojené službě HDInsight. | Ne       |
 | scriptPath          | Zadejte cestu k souboru skriptu, který je uložený ve službě Azure Storage, na které odkazuje scriptLinkedService. Název souboru je malá a velká písmena. | Ano      |
-| getdebuginfo –        | Určuje, kdy soubory protokolu se zkopírují do úložiště Azure používaný v clusteru HDInsight (a) zadaný ve scriptLinkedService. Povolené hodnoty: None, vždy nebo selhání. Výchozí hodnota: žádné. | Ne       |
+| getDebugInfo        | Určuje, kdy soubory protokolu se zkopírují do úložiště Azure používaný v clusteru HDInsight (a) zadaný ve scriptLinkedService. Povolené hodnoty: None, vždy nebo selhání. Výchozí hodnota: žádné. | Ne       |
 | Argumenty           | Určuje pole argumentů pro úlohy Hadoop. Argumenty, které jsou předány jako argumenty příkazového řádku pro každý úkol. | Ne       |
 | definuje             | Zadejte parametry pro odkazování v rámci skriptu Hive jako páry klíč/hodnota. | Ne       |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících článcích, které vysvětlují, jak k transformaci dat jinými způsoby: 
 
 * [Aktivita U-SQL](transform-data-using-data-lake-analytics.md)

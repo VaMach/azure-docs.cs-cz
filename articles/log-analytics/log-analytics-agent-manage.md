@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/23/2018
 ms.author: magoedte
-ms.openlocfilehash: e917b64c32c2f99c9a8b0397e70a32b2dbb2e3cf
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Správu a údržbu agenta analýzy protokolů pro systém Windows a Linux
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agenta systému Linux
-Pokud vaše počítače Linux je nutné komunikují prostřednictvím proxy serveru nebo brány OMS k analýze protokolů, proveďte následující kroky.  Hodnota konfigurace proxy má následující syntaxi: `[protocol://][user:password@]proxyhost[:port]`.
+Pokud vaše počítače Linux je nutné komunikují prostřednictvím proxy serveru nebo brány OMS k analýze protokolů, proveďte následující kroky.  Hodnota konfigurace proxy má následující syntaxi: `[protocol://][user:password@]proxyhost[:port]`.  *Proxyhost* vlastnost přijímá parametry s plně kvalifikovaný název domény nebo IP adresu proxy serveru.
 
 1. Spuštěním následujících příkazů upravte soubor `/etc/opt/microsoft/omsagent/proxy.conf` a změňte hodnoty na vaše konkrétní nastavení.
 
@@ -178,6 +178,6 @@ Proveďte následující kroky konfigurace agenta OMS pro Linux informuje o skup
 2. Ujistěte se, že na začátek řádku s `httpsport=` definuje port 1270. Například:`httpsport=1270`
 3. Restartujte OMI server:`sudo /opt/omi/bin/service_control restart`
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zkontrolujte [řešení potíží s agenta systému Linux](log-analytics-agent-linux-support.md) když dojde k potížím při instalaci nebo správě agenta.  

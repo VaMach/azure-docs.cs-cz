@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Přesun dat z OData zdroje pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -149,18 +149,18 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 
 | Vlastnost | Popis | Požaduje se |
 | --- | --- | --- |
-| Cesta |Cesta k prostředku OData |Ne |
+| path |Cesta k prostředku OData |Ne |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vlastnosti dostupné v rámci typeProperties části aktivity se liší na druhé straně každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
 
 Pokud je zdroj typu **RelationalSource** (která zahrnuje OData) následující vlastnosti jsou k dispozici v rámci typeProperties části:
 
-| Vlastnost | Popis | Příklad | Požaduje se |
+| Vlastnost | Popis | Příklad: | Požaduje se |
 | --- | --- | --- | --- |
-| query |Čtení dat pomocí vlastního dotazu. |"? $select = název, popis a $top = 5" |Ne |
+| query |Čtení dat pomocí vlastního dotazu. |"?$select=Name, Description&$top=5" |Ne |
 
 ## <a name="type-mapping-for-odata"></a>Mapování typu pro OData
 Jak je uvedeno v [aktivity přesunu dat](data-factory-data-movement-activities.md) článku aktivita kopírování provádí automatické typ převody z typů zdroje do jímky typů s následující postup ve dvou krocích.
@@ -170,23 +170,23 @@ Jak je uvedeno v [aktivity přesunu dat](data-factory-data-movement-activities.m
 
 Při přesouvání dat od OData, se používají následující mapování z typů OData k typ formátu .NET.
 
-| Typ dat OData | Typ formátu .NET |
+| Typ dat OData | .NET Type |
 | --- | --- |
-| Edm.Binary |Byte] |
-| Edm.Boolean |BOOL |
-| Edm.Byte |Byte] |
-| Edm.DateTime |Data a času |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Logická hodnota (Bool) |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |Datum a čas |
 | Edm.Decimal |Decimal |
-| Edm.Double |Double |
-| Edm.Single |Jeden |
-| Edm.Guid |Identifikátor GUID |
+| Edm.Double |Dvojitý |
+| Edm.Single |Svobodný/svobodná |
+| Edm.Guid |Guid |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
 | Edm.String |Řetězec |
-| Edm.Time |Časový interval |
-| Edm.DateTimeOffset |Datový typ DateTimeOffset |
+| Edm.Time |TimeSpan |
+| Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
 > Komplexní data OData typy například objekt nejsou podporovány.

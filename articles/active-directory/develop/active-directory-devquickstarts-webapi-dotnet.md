@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Azure AD webového rozhraní API .NET Začínáme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -73,7 +73,7 @@ Chcete-li ověřit příchozí požadavky a tokeny, nastavte aplikaci komunikova
 
 3. Změňte deklaraci třídy k `public partial class Startup`. Již implementovali jsme součástí této třídy pro vás v jiném souboru. V `Configuration(…)` metoda, zkontrolujte zavolá `ConfgureAuth(…)` nastavení ověřování pro webovou aplikaci.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ Chcete-li ověřit příchozí požadavky a tokeny, nastavte aplikaci komunikova
 
 4. Otevřete soubor `App_Start\Startup.Auth.cs` a implementovat `ConfigureAuth(…)` metoda. Parametry, které zadáte v `WindowsAzureActiveDirectoryBearerAuthenticationOptions` bude sloužit jako souřadnice pro vaši aplikaci komunikovat s Azure AD.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ Chcete-li ověřit příchozí požadavky a tokeny, nastavte aplikaci komunikova
 
 5. Nyní můžete pomocí `[Authorize]` atributů k ochraně vašich řadičů a akce s ověřování nosiče tokenu pro webové JSON (JWT). Uspořádání `Controllers\TodoListController.cs` se značky autorizovat. Tato akce vynutí uživatele k přihlášení před přístupem k této stránce.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ Chcete-li ověřit příchozí požadavky a tokeny, nastavte aplikaci komunikova
 
 6. Běžné požadavky pro webová rozhraní API jsou ověření „oborů“ v tokenu. Tím se zajistí, že uživatel souhlasí s tím oprávnění požadovaná pro přístup k provést seznamu službu.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD
@@ -147,7 +147,7 @@ Než budete moct vidět na udělat seznamu službu v akci, budete muset nakonfig
   * `ida:ClientId`je ID aplikace, kterou jste zkopírovali z portálu Azure.
   * `todo:TodoListResourceId`je identifikátor ID URI aplikace do služby seznamu se aplikace, která jste zadali v portálu Azure.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nakonec vyčistit, sestavte a spusťte každý projekt. Pokud jste to ještě neudělali, nyní je čas vytvořit nového uživatele ve vašem klientovi s *. onmicrosoft.com domény. Přihlaste se na seznam úkolů klienta se tento uživatel a některé úlohy přidat do seznamu úkolů uživatele.
 
 Pro srovnání je hotová ukázka (bez vašich hodnot nastavení) k dispozici v [Githubu](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Nyní se můžete přesunout další identity scénářů.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: b6814eea9120e0ee86afe333c11354fe49821978
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 0097f1c02b88343a135b6489130a6e0d35cf6fba
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Úvod do úložiště objektů Blob
 
@@ -42,7 +42,7 @@ Služba Blob service obsahuje následující součásti:
 
 * **Kontejner:** Kontejner zajišťuje seskupení sady objektů blob. Všechny objekty blob musí být v kontejneru. Účet může obsahovat neomezený počet kontejnerů. Kontejner můžete pojmout neomezený počet objektů blob. Všimněte si, že název kontejneru musí být psaný malými písmeny.
 
-* **Objekt blob:** Soubor libovolného typu a velikosti. Úložiště Azure Storage nabízí tři typy objektů blob – objekty blob bloků, doplňovací objekty blob a objekty blob stránek.
+* **Objekt blob:** Soubor libovolného typu a velikosti. Azure Storage nabízí tři typy objektů blob: blokovat objekty BLOB, [stránek](storage-blob-pageblob-overview.md)a doplňovací objekty BLOB.
   
     *Objekty blob bloků* jsou ideální pro ukládání textových nebo binárních souborů, například dokumentů a multimediálních souborů. *Doplňovací objekty blob* jsou podobné objektům blob bloku v tom, že je tvoří bloky, ale jsou optimalizované pro doplňovací operace, takže se hodí pro scénáře protokolování. Jeden objekt blob bloku může obsahovat až 50 000 bloků, každý o velikosti až 100 MB, v celkové velikosti o něco větší než 4,75 TB (100 MB × 50 000). Jeden doplňovací objekt blob může obsahovat až 50 000 bloků, každý o velikosti až 4 MB, v celkové velikosti o něco větší než 195 GB (4 MB × 50 000).
   

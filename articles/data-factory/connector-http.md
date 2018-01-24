@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopírování dat z koncový bod HTTP pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Z HTTP zdroje můžete zkopírovat data do úložiště dat žádné podporovan�
 Konkrétně tento konektor HTTP podporuje:
 
 - Načítání dat z koncového bodu protokolu HTTP/s pomocí protokolu HTTP **získat** nebo **POST** metoda.
-- Načítání dat pomocí následující ověření: **anonymní**, **základní**, **Digest**, **Windows**, a  **ClientCertificate**.
+- Načítání dat pomocí následující ověření: **anonymní**, **základní**, **Digest**, **Windows**, a ** ClientCertificate**.
 - Kopírování jako odpověď HTTP-je nebo je analýza [podporované formáty souborů a komprese kodeky](supported-file-formats-and-compression-codecs.md).
 
 Rozdíl mezi tohoto konektoru a [konektor tabulky webových](connector-web-table.md) je, že k tomu slouží k extrahování obsahu tabulky z HTML webové stránky.
@@ -65,7 +65,7 @@ Nastavte vlastnost "authenticationType" na **základní**, **Digest**, nebo **Wi
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| Uživatelské jméno | Uživatelské jméno pro přístup k koncový bod HTTP. | Ano |
+| userName | Uživatelské jméno pro přístup k koncový bod HTTP. | Ano |
 | heslo | Heslo pro uživatele (uživatelské jméno). Toto pole můžete označte jako SecureString. | Ano |
 
 **Příklad**
@@ -99,7 +99,7 @@ Chcete-li použít ověřování ClientCertificate, nastavte vlastnost "authenti
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | embeddedCertData | Data certifikátu kódováním base64. | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
-| CertThumbprint | Kryptografický otisk certifikátu, který je nainstalován v úložišti certifikátů počítače Self-hosted integrace Runtime. Platí jenom v případě, že je zadán vlastním hostováním typ integrace Runtime v connectVia. | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
+| certThumbprint | Kryptografický otisk certifikátu, který je nainstalován v úložišti certifikátů počítače Self-hosted integrace Runtime. Platí jenom v případě, že je zadán vlastním hostováním typ integrace Runtime v connectVia. | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
 | heslo | Heslo přidružené k certifikátu. Toto pole můžete označte jako SecureString. | Ne |
 
 Pokud používáte "certThumbprint" pro ověřování a je certifikát nainstalován v osobním úložišti místního počítače, je třeba udělit oprávnění ke čtení modulu runtime Self-hosted integrace:
@@ -208,7 +208,7 @@ Ke zkopírování dat z protokolu HTTP, nastavte vlastnost typu datové sady, kt
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje zdroje pomocí protokolu HTTP.
 

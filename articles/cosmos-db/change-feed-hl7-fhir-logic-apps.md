@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e5fa40dc128412e3b5b39c9fbdb751c797ca0cc7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Upozornění pacientů HL7 FHIR zdravotní péče záznam změn pomocí Logic Apps a Azure Cosmos DB
 
@@ -91,7 +91,7 @@ Používáme [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/libr
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>Operace GetNewOrModifiedFhirDocuments
 
 **Vstupy**
-- Hodnotu DatabaseId
+- DatabaseId
 - CollectionId
 - Název typu prostředku FHIR HL7
 - Logická hodnota: Začít od začátku
@@ -105,7 +105,7 @@ Používáme [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/libr
 
 **Zdroj pro aplikace API**
 
-```C#
+```csharp
 
     using System.Collections.Generic;
     using System.Linq;
@@ -228,7 +228,7 @@ Následující obrázek znázorňuje všechny služby Azure pro toto řešení s
 - S využitím Logic Apps, můžete vytvořit pracovní postupy bez psaní jakéhokoli kódu.
 - Pomocí fronty služby Service Bus Azure pro zpracování distribuce pro HL7 FHIR dokumenty.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o databázi Cosmos Azure najdete v tématu [domovské stránky Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Více informací o Logic Apps, naleznete v části [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

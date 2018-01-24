@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Škálování clusteru Service Fabric prostřednictvím kódu programu 
 
@@ -57,7 +57,7 @@ Hlavní název služby může být vytvořen pomocí následujících kroků:
 
 Knihovna fluent výpočetní umožní přihlásit se pomocí těchto přihlašovacích údajů takto (Všimněte si, že základní fluent Azure typy jako `IAzure` v [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) balíčku):
 
-```C#
+```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
                 ClientId = AzureClientId,
                 ClientSecret = 
@@ -79,7 +79,7 @@ Po přihlášení, počet instancí sady škálování může být dotazován pr
 ## <a name="scaling-out"></a>Horizontální navýšení kapacity
 Použití fluent Azure výpočetní SDK, instancí mohou být přidány do sad s několika volání - škálování virtuálního počítače
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -95,7 +95,7 @@ Změna velikosti v je podobná škálování. Skutečné škálovací sady virtu
 
 Příprava uzlu pro vypnutí zahrnuje hledání, že uzel, který má být odebrána (nedávno přidané uzel) a její deaktivace ho. Pro uzly – počáteční hodnoty novější uzlů najdete tak, že porovnáte `NodeInstanceId`. 
 
-```C#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -109,7 +109,7 @@ Uzly počáteční hodnoty se liší a není nutně podle konvence, že jsou vě
 
 Jakmile je nalezen uzel, který má být odebrána, můžete deaktivovat a odebrat pomocí stejné `FabricClient` instance a `IAzure` instance z dříve.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 Jako s škálování, rutiny prostředí PowerShell pro úpravy škálování virtuálních počítačů sady kapacity lze také zde Pokud skriptování přístup je vhodnější. Odebraný instanci virtuálního počítače stav uzlu Service Fabric se může odebrat.
 
-```C#
+```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
@@ -144,7 +144,7 @@ Jak je předvedeno v předchozích fragmentů kódu, vytvoření vlastního šk�
 
 Jak by měl postupovat, Service Fabric škálování závisí na vašem scénáři. Pokud škálování neobvyklé, možnost přidávat nebo odebírat uzly ručně je pravděpodobně dostatečná. Složitější scénáře pravidel automatického škálování a sady SDK vystavení schopnost škálování prostřednictvím kódu programu nabízí výkonné alternativy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Abyste mohli začít implementace vlastní logiky automatické škálování, seznamte se s následující koncepty a užitečné rozhraní API:
 

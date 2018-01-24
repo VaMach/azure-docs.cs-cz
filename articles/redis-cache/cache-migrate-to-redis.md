@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 87a31ac992592cbbbc54a487867a65346ad06a0b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0d52454ae1c2159814d4601d07259aba319e8598
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrovat na Azure Redis Cache z Managed Cache Service
 Migrace vaší aplikace, které používají Azure spravované mezipaměti Service k Azure Redis Cache lze provést s minimálními změnami k vaší aplikaci, v závislosti na spravované služby mezipaměti funkce, které používá aplikaci ukládání do mezipaměti. Když rozhraní API jsou přesně stejný jsou podobné a většinu váš stávající kód, který používá služba spravovaných mezipaměti pro přístup k mezipaměti lze opětovně použít s minimálními změnami. Toto téma ukazuje, jak chcete-li nezbytné konfigurace a změny aplikace k migraci aplikace spravované služby mezipaměti použití Azure Redis Cache a ukazuje, jak některé funkce Azure Redis Cache lze použít k implementaci funkce Managed Mezipaměť služby mezipaměti.
@@ -125,7 +125,7 @@ Ve spravované službě mezipaměti byly připojení k mezipaměti zpracována `
 
 Přidejte následující pomocí příkazu na začátek souboru, ve kterém chcete přístup do mezipaměti.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -138,7 +138,7 @@ Pokud se tento obor názvů se nevyřeší, ujistěte se, že jste přidali bal�
 
 Pokud chcete připojit k instanci služby Azure Redis Cache, zavolejte statickou `ConnectionMultiplexer.Connect` metoda a předejte jí koncový bod a klíč. Jeden ze způsobů sdílení instance `ConnectionMultiplexer` v aplikaci je pomocí statické vlastnosti, která vrací připojenou instanci, podobně jako v následujícím příkladu.  Tento přístup poskytuje způsob inicializace jedné připojené instance `ConnectionMultiplexer`, který je bezpečný pro přístup z více vláken. V tomto příkladu `abortConnect` nastaven na hodnotu false, to znamená, že volání bude úspěšné i v případě, že nedojde k vytvoření připojení k mezipaměti. Klíčovou vlastností `ConnectionMultiplexer` je automatické obnovení připojení k mezipaměti po vyřešení problémů se sítí nebo jiných příčin.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -157,7 +157,7 @@ Koncový bod mezipaměti, klíče a portů můžete získat **Redis Cache** okn�
 
 Po vytvoření připojení vrátíte odkaz na databázi mezipaměti Redis zavoláním `ConnectionMultiplexer.GetDatabase` metoda. Objekt vrácený metodou `GetDatabase` je prostý průchozí objekt a není nutné jej ukládat.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -178,7 +178,7 @@ Při volání metody `StringGet`, pokud objekt existuje, bude vrácen, a pokud n
 
 Chcete-li zadat vypršení platnosti položky v mezipaměti, použijte parametr `TimeSpan` metody `StringSet`.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 

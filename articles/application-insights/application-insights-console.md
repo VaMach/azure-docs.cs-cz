@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights pro rozhraní .NET Konzolová aplikace
 [Application Insights](app-insights-overview.md) umožňuje monitorování vaší webové aplikace pro dostupnosti, výkonu a využití.
@@ -31,7 +31,7 @@ Potřebujete předplatné s [Microsoft Azure](http://azure.com). Přihlaste se p
 * Nainstalujte nejnovější [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) balíčku.
 * Nastavte klíč instrumentace před sledování všech telemetrie v kódu (nebo nastavená proměnná prostředí APPINSIGHTS_INSTRUMENTATIONKEY). Potom byste měli ručně sledovat telemetrie a zobrazit ji na portálu Azure
 
-```C#
+```csharp
 TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
 var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
@@ -45,13 +45,13 @@ Může inicializace a konfigurace Application Insights z kódu nebo použití `A
 
 Ve výchozím nastavení, Application Insights SDK hledá `ApplicationInsights.config` souboru v pracovním adresáři při `TelemetryConfiguration` se vytváří
 
-```C#
+```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Read ApplicationInsights.config file if present
 ```
 
 Můžete také určit cestu k souboru config.
 
-```C#
+```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
 ```
 
@@ -90,7 +90,7 @@ Další informace najdete v tématu [referenci na konfigurační soubor](app-ins
 
 * Při spuštění aplikace vytvořit a nakonfigurovat `DependencyTrackingTelemetryModule` instance - musí být singleton a musí být zachováno pro životního cyklu aplikace.
 
-```C#
+```csharp
 var module = new DependencyTrackingTelemetryModule();
 
 // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
@@ -109,7 +109,7 @@ module.Initialize(configuration);
 
 * Přidat běžné inicializátory telemetrie
 
-```C#
+```csharp
 // stamps telemetry with correlation identifiers
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 
@@ -121,7 +121,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesPars
 
 #### <a name="full-example"></a>Úplný příklad
 
-```C#
+```csharp
 static void Main(string[] args)
 {
     TelemetryConfiguration configuration = TelemetryConfiguration.Active;

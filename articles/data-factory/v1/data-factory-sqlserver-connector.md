@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 37eb7b728bebcec5c389a8bdf68be6baf97f3c38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19398a33e17bde7f496070d1f1c84e61dbe65855
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Přesun dat do a z místní SQL Server nebo na IaaS (virtuální počítač Azure) pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ V rámci typeProperties části se liší pro jednotlivé typy datovou sadu a po
 | --- | --- | --- |
 | tableName |Název tabulky nebo zobrazení instance databáze serveru SQL, kterou propojená služba odkazuje. |Ano |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Pokud přesouváte data z databáze systému SQL Server, nastavíte typ zdroje v aktivitě kopírování do **SqlSource**. Podobně pokud přesouváte data do databáze serveru SQL, nastavíte typ jímky v aktivitě kopírování do **SqlSink**. Tato část obsahuje seznam vlastností, které jsou podporované SqlSource a SqlSink.
 
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
@@ -171,7 +171,7 @@ Pokud nezadáte sqlReaderQuery nebo sqlReaderStoredProcedureName, sloupce defino
 | writeBatchSize |Vloží data do tabulky SQL, když velikost vyrovnávací paměti dosáhne writeBatchSize. |Celé číslo (počet řádků) |Ne (výchozí: 10000) |
 | sqlWriterCleanupScript |Zadejte dotaz aktivity kopírování provést tak, aby se vyčistit data určitý řez. Další informace najdete v tématu [opakovatelných kopie](#repeatable-copy) části. |Příkaz dotazu. |Ne |
 | sliceIdentifierColumnName |Zadejte název sloupce pro aktivitu kopírování vyplníte identifikátor automaticky generovány řez, který se používá k vyčištění dat určitý řez při spusťte znovu. Další informace najdete v tématu [opakovatelných kopie](#repeatable-copy) části. |Název sloupce sloupce s datovým typem binary(32). |Ne |
-| sqlWriterStoredProcedureName |Název uložené procedury upserts (aktualizace nebo vložení) dat do cílové tabulky. |Název uložené procedury. |Ne |
+| sqlWriterStoredProcedureName |Název uložené procedury, která definuje, jak použít zdroj dat do cílové tabulky, například na proveďte upserts nebo transformace pomocí vlastní obchodní logiku. <br/><br/>Tuto uloženou proceduru bude **vyvolat na jednu dávku**. Pokud budete chtít provést operaci, která pouze se spustí jednou a nijak nesouvisí se zdrojovými daty, například odstranit nebo zkrátit proveďte pomocí `sqlWriterCleanupScript` vlastnost. |Název uložené procedury. |Ne |
 | storedProcedureParameters |Parametry pro uloženou proceduru. |Páry název/hodnota. Názvy a malá a velká písmena parametry musí odpovídat názvům a malá a velká písmena parametry uložené procedury. |Ne |
 | sqlWriterTableType |Zadejte název typu tabulky má být použit v uložené proceduře. Aktivita kopírování zpřístupní přesouvání dat v dočasné tabulce s tímto typem tabulky. Uložená procedura kód pak sloučit data kopírovány s existujícími daty. |Zadejte název tabulky. |Ne |
 
@@ -248,7 +248,7 @@ Nastavení "externí": "PRAVDA" informuje služba Data Factory, datová sada je 
   }
 }
 ```
-**Výstupní datovou sadu objektů Blob v Azure**
+**Výstupní datová sada Azure Blob**
 
 Data se zapisují do nového objektu blob každou hodinu (frekvence: hodiny, interval: 1). Cesta ke složce pro tento objekt blob je vyhodnocován dynamicky podle času zahájení řezu, které jsou zpracovávány. Cesta ke složce používá rok, měsíc, den a čas částí čas spuštění.
 
@@ -655,37 +655,37 @@ Mapování je stejný jako mapování SQL Server datového typu pro technologii 
 | Typ databázového stroje SQL Server | Typ rozhraní .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| Binární |Byte] |
+| Binární |Byte[] |
 | Bit |Logická hodnota |
 | Char |Řetězec, Char] |
-| Datum |Data a času |
-| Data a času |Data a času |
-| datetime2 |Data a času |
-| Datový typ DateTimeOffset |Datový typ DateTimeOffset |
+| datum |Datum a čas |
+| Datum a čas |Datum a čas |
+| datetime2 |Datum a čas |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atribut FILESTREAM (varbinary(max)) |Byte] |
-| Plovoucí desetinná čárka |Double |
-| Bitové kopie |Byte] |
+| Atribut FILESTREAM (varbinary(max)) |Byte[] |
+| Float |Dvojitý |
+| Bitové kopie |Byte[] |
 | celá čísla |Int32 |
-| peníze |Decimal |
+| money |Decimal |
 | nchar |Řetězec, Char] |
 | ntext |Řetězec, Char] |
 | číselné |Decimal |
 | nvarchar |Řetězec, Char] |
-| skutečné |Jeden |
-| ROWVERSION |Byte] |
-| smalldatetime |Data a času |
+| skutečné |Svobodný/svobodná |
+| ROWVERSION |Byte[] |
+| smalldatetime |Datum a čas |
 | smallint |Int16 |
 | Smallmoney |Decimal |
-| SQL_VARIANT |Objekt * |
+| sql_variant |Objekt * |
 | Text |Řetězec, Char] |
-| time |Časový interval |
-| časové razítko |Byte] |
+| time |TimeSpan |
+| časové razítko |Byte[] |
 | tinyint |Bajtů |
-| Typ UniqueIdentifier |Identifikátor GUID |
-| varbinary |Byte] |
+| Typ UniqueIdentifier |Guid |
+| varbinary |Byte[] |
 | varchar |Řetězec, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Mapování zdroje jímky sloupců
 Mapování sloupců z datové sady zdroje na sloupce ze sady jímku dat naleznete v tématu [mapování sloupců datovou sadu v Azure Data Factory](data-factory-map-columns.md).

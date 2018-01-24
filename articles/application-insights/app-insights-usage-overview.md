@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9f3eb14340205709b5409a3d16d631cc2d02eb32
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analýzy používání pomocí nástroje Application Insights
 
@@ -59,7 +59,7 @@ Statistika na pravé straně bodu zajímavých vzorců v sadě dat.
 
 [Další informace o nástroje uživatelů, relací a události](app-insights-usage-segmentation.md)  
 
-## <a name="page-views"></a>Zobrazení stránky
+## <a name="page-views"></a>Zobrazení stránek
 
 V okně využití klikněte na tlačítko prostřednictvím zobrazení stránky dlaždicí a získejte rozpis nejoblíbenější stránky:
 
@@ -110,7 +110,7 @@ Z aplikace na straně klienta může být protokolovány události:
 
 Nebo na straně serveru:
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -141,7 +141,7 @@ V portálu služby Application Insights filtrovat a rozdělení dat na hodnoty v
 
 K tomu, [nastavení inicializátoru telemetrie](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -156,7 +156,7 @@ K tomu, [nastavení inicializátoru telemetrie](app-insights-api-filtering-sampl
 
 Ve webové aplikaci inicializátoru například Global.asax.cs:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -168,7 +168,7 @@ Ve webové aplikaci inicializátoru například Global.asax.cs:
 
 Všechny nové TelemetryClients automaticky přidat hodnotu vlastnosti, které zadáte. Jednotlivé telemetrické události můžete přepsat výchozí hodnoty.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
    - [Uživatelé, relace, události](app-insights-usage-segmentation.md)
    - [Trychtýře](usage-funnels.md)
    - [Uchování](app-insights-usage-retention.md)

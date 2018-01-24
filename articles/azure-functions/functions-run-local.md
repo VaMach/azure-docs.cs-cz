@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3fd392a3f5b48d6b8d19af530c949d91cd461099
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kód a testovat místně na Azure Functions
 
@@ -130,7 +130,7 @@ Soubor local.settings.json ukládá nastavení aplikace, řetězce připojení a
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Pokud nastavíte hodnotu **true**, všechny hodnoty jsou šifrované pomocí klíče místního počítače. Použít s `func settings` příkazy. Výchozí hodnota je **false**. |
 | **Hodnoty** | Kolekce nastavení aplikace používá při místním spuštění. **AzureWebJobsStorage** a **AzureWebJobsDashboard** jsou příklady; úplný seznam najdete v tématu [referenční příručka k nastavení aplikace](functions-app-settings.md).  |
-| **Hostitele** | Nastavení v této části přizpůsobit funkce hostitelský proces, při místním spuštění. | 
+| **Hostitel** | Nastavení v této části přizpůsobit funkce hostitelský proces, při místním spuštění. | 
 | **LocalHttpPort** | Nastaví výchozí port použitý při spuštění místního hostitele funkce (`func host start` a `func run`). `--port` Možnost příkazového řádku má přednost před tuto hodnotu. |
 | **CORS** | Definuje zdroje povolené pro [(CORS) pro sdílení prostředků různého původu](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Zdroje se zadávají jako seznam oddělený čárkami bez mezer. Hodnota zástupného znaku (\*) je podporováno, což umožňuje požadavky od jakýkoli původ. |
 | **ConnectionStrings** | Obsahuje databázové připojovací řetězce pro funkcí. Připojovací řetězce v tento objekt se přidají do prostředí s typem zprostředkovatele **System.Data.SqlClient**.  | 
@@ -216,7 +216,7 @@ Při spuštění funkce hostitele výstupy funkce aktivované protokolem URL HTT
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
-ob host started
+Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 

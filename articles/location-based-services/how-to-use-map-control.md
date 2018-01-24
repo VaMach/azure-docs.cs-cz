@@ -9,17 +9,17 @@ ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Jak používat Azure umístění na základě služby mapový ovládací prvek
 Knihovna Javascript na straně klienta mapový ovládací prvek umožňuje vykreslení mapy a vložené funkce služeb na základě umístění Azure do webové nebo mobilních aplikací. 
 
 ## <a name="prerequisites"></a>Požadavky
-Na základě Azure polohy účet a předplatné klíčem. Informace o vytvoření účtu a načítání klíč předplatného najdete v tématu [Správa vašeho účtu služeb na základě umístění Azure a klíče](how-to-manage-account-keys.md). 
+Účet služeb na základě umístění Azure a klíč. Informace o vytvoření účtu a klíč načítání, najdete v části [Správa vašeho účtu služeb na základě umístění Azure a klíče](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Vytvořit nové mapování na webové stránce pomocí rozhraní API mapy ovládacího prvku
 Mapu můžete vložit na webové stránce pomocí knihovny Javascript klienta mapový ovládací prvek.
@@ -42,19 +42,19 @@ Mapu můžete vložit na webové stránce pomocí knihovny Javascript klienta ma
             }
     ``` 
     
-4. Chcete-li inicializovat mapový ovládací prvek, zadejte novou část v těle html a vytvořit skript. Použijte svůj vlastní klíč předplatného z vašeho účtu služeb na základě umístění Azure. 
+4. Chcete-li inicializovat mapový ovládací prvek, zadejte novou část v těle html a vytvořit skript. Použijte vlastní klíč účtu služeb na základě umístění Azure ve skriptu. 
 
     ```html
     <div id="map">
         <script>
-            var subscriptionKey = "<_subscriptionKey_>";
+            var LBSAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey,
+                "subscription-key": LBSAccountKey,
                 center: [47.59093,-122.33263],
                 zoom: 12
             });
-        <script>
-    <div>
+        </script>
+    </div>
     ```
     
 5. Otevřete soubor ve webovém prohlížeči a zobrazit vykreslené mapy.

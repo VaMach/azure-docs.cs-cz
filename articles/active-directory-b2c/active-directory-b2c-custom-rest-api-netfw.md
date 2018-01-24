@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrace rozhraní REST API deklarace identity výměn v vám dobře slouží Azure AD B2C uživatele jako ověřování vstupu uživatele
 S použitím rozhraní Framework Identity, které základem Azure Active Directory B2C (Azure AD B2C), kterou můžete integrovat se rozhraní RESTful API cesty uživatele. V tomto návodu se dozvíte, jak Azure AD B2C komunikuje s rozhraní .NET Framework RESTful služeb (webové rozhraní API).
@@ -88,7 +88,7 @@ Vytvoření modelu, který představuje vstupních deklarací identity následuj
 
 3. Název třídy `InputClaimsModel`a poté přidejte následující vlastnosti pro `InputClaimsModel` třídy:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ Vytvoření modelu, který představuje vstupních deklarací identity následuj
 
 4. Vytvořit nový model, `OutputClaimsModel`a poté přidejte následující vlastnosti pro `OutputClaimsModel` třídy:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ Vytvoření modelu, který představuje vstupních deklarací identity následuj
 
 5. Vytvořte jeden další model `B2CResponseContent`, který použijete k throw ověření vstupu chybové zprávy. Přidejte následující vlastnosti pro `B2CResponseContent` třídy zadejte odkazy na chybějící a pak soubor uložte:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ Ve webové rozhraní API _řadič_ je objekt, který zpracovává požadavky HTT
 
 4. Pokud *IdentityController.cs* soubor již není otevřený, dvakrát na ni klikněte a pak nahraďte kód v souboru s následujícím kódem:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;
@@ -382,6 +382,6 @@ Po přidání nových deklarací identity, předávající strany kódu vypadá 
 * Po dokončení [začít pracovat s vlastními zásadami](active-directory-b2c-get-started-custom.md) návod, doporučujeme vám vytvořit váš scénář pomocí vlastních zásad pro soubory. Pro vaši informaci uvádíme [ukázkové soubory zásad](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * Si můžete stáhnout kompletní kód z [řešení sady Visual Studio ukázkový pro referenci](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
     
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Zabezpečení rozhraní RESTful API pomocí základní ověřování (uživatelské jméno a heslo)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [Zabezpečení rozhraní RESTful API pomocí klientských certifikátů](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

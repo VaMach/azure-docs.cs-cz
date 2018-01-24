@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 20df17ba01cfc18ce751491d154d7401001e706e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Přesun dat z MongoDB pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,7 +74,7 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | uživatelské jméno |Uživatelský účet pro přístup k MongoDB. |Ano (Pokud se používá základní ověřování). |
 | heslo |Heslo pro uživatele. |Ano (Pokud se používá základní ověřování). |
 | authSource |Název databáze MongoDB, kterou chcete použít ke kontrole přihlašovacích údajů pro ověřování. |Volitelný parametr (Pokud se používá základní ověřování). Výchozí: používá účet správce a do databáze určené pomocí vlastnost databaseName. |
-| Název databáze |Název databáze MongoDB, kterou chcete získat přístup. |Ano |
+| databaseName |Název databáze MongoDB, kterou chcete získat přístup. |Ano |
 | gatewayName |Název brány, který přistupuje k úložišti. |Ano |
 | encryptedCredential |Přihlašovací údaje zašifrovaná pomocí brány. |Nepovinné |
 
@@ -87,7 +87,7 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | --- | --- | --- |
 | Název_kolekce |Název kolekce v databázi MongoDB. |Ano |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vlastnosti, které jsou k dispozici v **rámci typeProperties** části aktivity na druhé straně lišit každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
@@ -296,15 +296,15 @@ Při přesunu dat na MongoDB se používají následující mapování z typů M
 
 | Typ MongoDB | Typ rozhraní .NET framework |
 | --- | --- |
-| Binární |Byte] |
+| Binární hodnota |Byte[] |
 | Logická hodnota |Logická hodnota |
-| Datum |Data a času |
-| NumberDouble |Double |
+| Datum |Datum a čas |
+| NumberDouble |Dvojitý |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Řetězec |
 | Řetězec |Řetězec |
-| UUID |Identifikátor GUID |
+| UUID |Guid |
 | Objekt |Renormalized do vyrovnání sloupce s "_" jako vnořené oddělovače |
 
 > [!NOTE]
@@ -322,20 +322,20 @@ Virtuální tabulky odkazovat na data v tabulce skutečné povolení ovladače p
 
 Můžete použít [Průvodce kopírováním](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) intuitivně zobrazit seznam tabulek v databázi MongoDB, včetně virtuální tabulky a zobrazte náhled dat, uvnitř. Můžete také vytvořit dotaz v Průvodci kopírováním a ověření zobrazíte výsledek.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 Například "ExampleTable" pod je MongoDB tabulku, která obsahuje jeden sloupec s pole objektů v každé buňce – faktury a jeden sloupec s pole Skalární typy – hodnocení.
 
-| _id | Jméno zákazníka | Faktury | Úrovně služeb | Hodnocení |
+| _id | Jméno zákazníka | Faktury | Úroveň služby | Hodnocení |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123", položka: "Toaster byl", cena: "456", slevu: "0,2"}, {invoice_id: "124", položka: "sušárny", ceny: slevách "1235": "0,2"}] |Stříbrná |[5,6] |
-| 2222 |XYZ |[{invoice_id: "135", položka: "ledničky", cena: "12543", slevu: "0,0"}] |Zlatý |[1,2] |
+| 1111 |ABC |[{invoice_id: "123", položka: "Toaster byl", cena: "456", slevu: "0,2"}, {invoice_id: "124", položka: "sušárny", ceny: slevách "1235": "0,2"}] |Stříbrný |[5,6] |
+| 2222 |XYZ |[{invoice_id: "135", položka: "ledničky", cena: "12543", slevu: "0,0"}] |Zlatá |[1,2] |
 
 Ovladač by vygeneroval více virtuální tabulky k reprezentaci této jednu tabulku. První virtuální tabulky je základní tabulka s názvem "ExampleTable", viz následující obrázek. Základní tabulka obsahuje všechna data z původní tabulky, ale data z pole byla vynechána a je v tabulkách virtuální rozbalena.
 
-| _id | Jméno zákazníka | Úrovně služeb |
+| _id | Jméno zákazníka | Úroveň služby |
 | --- | --- | --- |
-| 1111 |ABC |Stříbrná |
-| 2222 |XYZ |Zlatý |
+| 1111 |ABC |Stříbrný |
+| 2222 |XYZ |Zlatá |
 
 Virtuální tabulky, které představují původní pole v příkladu v následujících tabulkách. Tyto tabulky obsahují následující:
 

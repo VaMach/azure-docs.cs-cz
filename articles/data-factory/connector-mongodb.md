@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopírování dat z MongoDB pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Pro MongoDB propojené služby jsou podporovány následující vlastnosti:
 | type |Vlastnost typu musí být nastavena na: **MongoDb** |Ano |
 | server |IP adresa nebo název hostitele serveru MongoDB. |Ano |
 | port |Port TCP, který používá MongoDB server naslouchat pro připojení klientů. |Ne (výchozí hodnota je 27017) |
-| Název databáze |Název databáze MongoDB, kterou chcete získat přístup. |Ano |
+| databaseName |Název databáze MongoDB, kterou chcete získat přístup. |Ano |
 | authenticationType. | Typ ověřování používaný pro připojení k databázi MongoDB.<br/>Povolené hodnoty jsou: **základní**, a **anonymní**. |Ano |
 | uživatelské jméno |Uživatelský účet pro přístup k MongoDB. |Ano (Pokud se používá základní ověřování). |
 | heslo |Heslo pro uživatele. Toto pole můžete označte jako SecureString. |Ano (Pokud se používá základní ověřování). |
@@ -119,7 +119,7 @@ Ke zkopírování dat z MongoDB, nastavte vlastnost typu datové sady, která **
 
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem MongoDB.
 
@@ -177,10 +177,10 @@ Při kopírování dat z MongoDB, se používají následující mapování Mong
 
 | MongoDB datový typ | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
-| Binární hodnota |Byte] |
+| Binární hodnota |Byte[] |
 | Logická hodnota |Logická hodnota |
 | Datum |Datum a čas |
-| NumberDouble |Double |
+| NumberDouble |Dvojitý |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Řetězec |

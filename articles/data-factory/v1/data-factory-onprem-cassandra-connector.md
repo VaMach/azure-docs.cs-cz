@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e5c859d13ea8a10e1fa38340df52f189ec6cd4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c8f61cb165b0bfffe2f42b060cdbd666fff3a8b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Přesun dat z databáze Cassandra místně pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | Vlastnost | Popis | Požaduje se |
 | --- | --- | --- |
 | type |Vlastnost typu musí být nastavena na: **OnPremisesCassandra** |Ano |
-| hostitele |Jeden nebo více IP adres nebo názvů hostitelů Cassandra serverů.<br/><br/>Zadejte seznam IP adres nebo názvů hostitelů se připojit na všechny servery současně. |Ano |
+| hostitel |Jeden nebo více IP adres nebo názvů hostitelů Cassandra serverů.<br/><br/>Zadejte seznam IP adres nebo názvů hostitelů se připojit na všechny servery současně. |Ano |
 | port |Port TCP, který používá Cassandra server naslouchat pro připojení klientů. |Ne, výchozí hodnota: 9042 |
 | authenticationType. |Basic nebo Anonymous |Ano |
 | uživatelské jméno |Zadejte uživatelské jméno pro uživatelský účet. |Ano, pokud authenticationType je nastaven na Basic. |
@@ -86,7 +86,7 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | keyspace |Název keyspace nebo schéma v Cassandra databáze. |Ano (Pokud **dotazu** pro **CassandraSource** není definován). |
 | tableName |Název tabulky v databázi Cassandra. |Ano (Pokud **dotazu** pro **CassandraSource** není definován). |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vzhledem k tomu, vlastnosti dostupné v rámci typeProperties části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
@@ -96,7 +96,7 @@ Pokud je zdroj typu **CassandraSource**, následující vlastnosti jsou k dispoz
 | Vlastnost | Popis | Povolené hodnoty | Požaduje se |
 | --- | --- | --- | --- |
 | query |Čtení dat pomocí vlastního dotazu. |Dotaz SQL 92 nebo CQL dotazu. V tématu [CQL odkaz](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Při použití příkazu jazyka SQL, zadejte **keyspace name.table název** představují tabulky, které mají být zobrazeny. |Ne (pokud jsou definovány tableName a keyspace v sadě dat). |
-| consistencyLevel |Úroveň konzistence Určuje, kolik repliky musí odpovědět na požadavek čtení před vrácením dat do klientské aplikace. Cassandra ověří zadaný počet replik pro data, aby pokryl požadavek na čtení. |JEDEN, DVA, TŘI, KVORA, VŠE, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. V tématu [konfigurace konzistenci dat](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) podrobnosti. |Ne. Výchozí hodnota je 1. |
+| consistencyLevel |Úroveň konzistence Určuje, kolik repliky musí odpovědět na požadavek čtení před vrácením dat do klientské aplikace. Cassandra ověří zadaný počet replik pro data, aby pokryl požadavek na čtení. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. V tématu [konfigurace konzistenci dat](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) podrobnosti. |Ne. Výchozí hodnota je 1. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Příklad JSON: kopírování dat z Cassandra do objektu Blob Azure
 Tento příklad obsahuje ukázkové JSON definice, které můžete použít k vytvoření kanálu pomocí [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) nebo [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) nebo [prostředí Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ukazuje, jak zkopírovat data z databáze Cassandra místně do Azure Blob Storage. Však lze zkopírovat data do jakéhokoli z jímky uvádí [sem](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pomocí aktivity kopírování v Azure Data Factory.
@@ -258,21 +258,21 @@ V tématu [vlastnosti typu RelationalSource](#copy-activity-properties) pro sezn
 ```
 
 ### <a name="type-mapping-for-cassandra"></a>Mapování typu pro Cassandra
-| Typ Cassandra | .NET na základě typu |
+| Cassandra Type | .Net Based Type |
 | --- | --- |
 | ASCII |Řetězec |
 | BIGINT |Int64 |
-| OBJEKT BLOB |Byte] |
+| OBJEKT BLOB |Byte[] |
 | LOGICKÁ HODNOTA |Logická hodnota |
 | DECIMAL |Decimal |
-| DOUBLE |Double |
-| PLOVOUCÍ DESETINNÁ ČÁRKA |Jeden |
+| DOUBLE |Dvojitý |
+| PLOVOUCÍ DESETINNÁ ČÁRKA |Svobodný/svobodná |
 | INET |Řetězec |
 | INT |Int32 |
 | TEXT |Řetězec |
-| ČASOVÉ RAZÍTKO |Data a času |
-| TIMEUUID |Identifikátor GUID |
-| UUID |Identifikátor GUID |
+| ČASOVÉ RAZÍTKO |Datum a čas |
+| TIMEUUID |Guid |
+| UUID |Guid |
 | VARCHAR |Řetězec |
 | VARINT |Decimal |
 
@@ -295,7 +295,7 @@ Virtuální tabulky odkazovat na data v tabulce skutečné povolení ovladače p
 
 Můžete použít [Průvodce kopírováním](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) intuitivně zobrazit seznam tabulek v databázi Cassandra včetně virtuální tabulky a zobrazte náhled dat, uvnitř. Můžete také vytvořit dotaz v Průvodci kopírováním a ověření zobrazíte výsledek.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 Například následující "ExampleTable" je Cassandra tabulku databáze, která obsahuje celé číslo primární klíče sloupec s názvem "pk_int", o textový sloupec s názvem hodnotu, sloupce seznamu, mapy sloupec a sadu sloupec (s názvem "StringSet").
 
 | pk_int | Hodnota | Seznam | Mapa | StringSet |
@@ -329,8 +329,8 @@ Následující tabulky popisují virtuální tabulky, které renormalize data ze
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
 #### <a name="table-exampletablevtstringset"></a>Tabulka "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |

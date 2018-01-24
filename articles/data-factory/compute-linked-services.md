@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: db3be2120c998a0c8973a85d375b526f53e73247
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f242a8a15334818d83651cf0af55e8ec39bce212
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Výpočetní prostředí podporovaných službou Azure Data Factory
 Tento článek vysvětluje různé výpočetní prostředí, které můžete použít k datům procesu nebo transformace. Obsahuje také podrobnosti o různých konfiguracích (na vyžádání oproti přineste si vlastní) podporovaných službou Data Factory při konfiguraci propojených služeb propojení tyto výpočetní prostředí s objektem pro vytváření dat Azure.
@@ -55,7 +55,7 @@ Vezměte na vědomí následující **důležité** body o HDInsight na vyžád�
 >
 > 
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 Následující kód JSON určuje základě Linux na vyžádání propojené služby HDInsight. Služba Data Factory automaticky vytvoří **systémem Linux** clusteru HDInsight ke zpracování požadované aktivity. 
 
 ```json
@@ -106,7 +106,7 @@ Následující kód JSON určuje základě Linux na vyžádání propojené slu�
 | clusterResourceGroup         | HDInsight cluster vytvoří v této skupině prostředků. | Ano      |
 | TimeToLive                   | Povolené doby nečinnosti pro cluster HDInsight na vyžádání. Určuje, jak dlouho clusteru HDInsight na vyžádání zůstane aktivní po dokončení činnosti spustit, pokud nejsou žádné aktivní úlohy v clusteru. Minimální povolená hodnota je 5 minut (00: 05:00).<br/><br/>Například pokud spuštění aktivity trvá 6 minut a timetolive nastavena na 5 minut, clusteru zůstává aktivní po dobu 5 minut po spuštění 6 minut zpracování aktivity. Pokud se okno 6 minut proveden jiné aktivity při spuštění, je zpracován stejného clusteru.<br/><br/>Vytvoření clusteru HDInsight na vyžádání je náročná operace (může trvat), takže použití tohoto nastavení podle potřeby ke zlepšení výkonu služby data factory pomocí opakovaného použití clusteru HDInsight na vyžádání.<br/><br/>Pokud hodnota timetolive nastavíte na 0, odstranění clusteru ihned po dokončení spuštění aktivity. Vzhledem k tomu, pokud jste nastavili na vysokou hodnotu, cluster může zůstat nečinné přihlášení pro některá řešení potíží s účel, ale může mít za následek vysoké náklady. Proto je důležité nastavit odpovídající hodnotu na základě potřeb.<br/><br/>Pokud je hodnota vlastnosti timetolive správně nastavena, více kanálů sdílet instanci clusteru HDInsight na vyžádání. | Ano      |
 | clusterType                  | Typ clusteru HDInsight, který se má vytvořit. Povolené hodnoty jsou "hadoop" a "spark". Pokud není zadáno, výchozí hodnota je hadoop. | Ne       |
-| Verze                      | Verze clusteru HDInsight. Pokud není zadaný, používá aktuální verze definované výchozí HDInsight. | Ne       |
+| verze                      | Verze clusteru HDInsight. Pokud není zadaný, používá aktuální verze definované výchozí HDInsight. | Ne       |
 | hostSubscriptionId           | ID předplatného Azure, použít k vytvoření clusteru HDInsight. Pokud není zadaný, používá ID předplatného Azure přihlašovacího kontextu. | Ne       |
 | clusterNamePrefix           | Předpona názvu clusteru HDI, časového razítka se automaticky připojí na konci názvu clusteru| Ne       |
 | sparkVersion                 | Verze spark, pokud je typ clusteru "Spark" | Ne       |
@@ -125,7 +125,7 @@ Následující kód JSON určuje základě Linux na vyžádání propojené slu�
 >
 > 
 
-#### <a name="additionallinkedservicenames-json-example"></a>Příklad additionalLinkedServiceNames JSON
+#### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON example
 
 ```json
 "additionalLinkedServiceNames": [{
@@ -254,7 +254,7 @@ Tento typ konfigurace je podporována pro následující výpočetních prostře
 ## <a name="azure-hdinsight-linked-service"></a>Azure propojené služby HDInsight
 Můžete vytvořit propojené služby Azure HDInsight k registraci vlastní cluster HDInsight s Data Factory.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```json
 {
@@ -305,7 +305,7 @@ Najdete v následujících tématech, pokud začínáte používat službu Azure
 * [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) rutiny k vytvoření účtu Azure Batch (nebo) [portál Azure](../batch/batch-account-create-portal.md) vytvoření účtu Azure Batch pomocí portálu Azure. V tématu [pomocí prostředí PowerShell ke správě účtu Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) téma pro podrobné pokyny k použití rutiny.
 * [Nový-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) rutiny vytvoření fondu Azure Batch.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```json
 {
@@ -338,7 +338,7 @@ Najdete v následujících tématech, pokud začínáte používat službu Azure
 | Vlastnost          | Popis                              | Požaduje se |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Vlastnost typu musí být nastavená na **AzureBatch**. | Ano      |
-| název účtu       | Název účtu Azure Batch.         | Ano      |
+| accountName       | Název účtu Azure Batch.         | Ano      |
 | accessKey         | Přístupový klíč pro účet Azure Batch.  | Ano      |
 | batchUri          | Adresa URL ke svému účtu Azure Batch, ve formátu https://*batchaccountname.region*. batch.azure.com. | Ano      |
 | poolName          | Název fondu virtuálních počítačů.    | Ano      |
@@ -348,7 +348,7 @@ Najdete v následujících tématech, pokud začínáte používat službu Azure
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning propojené služby
 Vytváření služby Azure Machine Learning propojené k registraci dávce Machine Learning vyhodnocovací koncový bod pro služby data factory.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```json
 {
@@ -379,13 +379,13 @@ Vytváření služby Azure Machine Learning propojené k registraci dávce Machi
 | updateResourceEndpoint | URL prostředku aktualizace pro koncový bod Azure ML Web Service používá k aktualizaci souborem trained model prediktivní webové služby | Ne                                       |
 | servicePrincipalId     | Zadejte ID aplikace klienta.     | Vyžaduje, pokud je zadán updateResourceEndpoint |
 | servicePrincipalKey    | Zadejte klíč aplikace.           | Vyžaduje, pokud je zadán updateResourceEndpoint |
-| Klienta                 | Zadejte informace o klienta (název nebo klienta domény ID) v rámci které se nachází aplikace. Můžete ji načíst podržením ukazatele myši v pravém horním rohu portálu Azure. | Vyžaduje, pokud je zadán updateResourceEndpoint |
+| tenant                 | Zadejte informace o klienta (název nebo klienta domény ID) v rámci které se nachází aplikace. Můžete ji načíst podržením ukazatele myši v pravém horním rohu portálu Azure. | Vyžaduje, pokud je zadán updateResourceEndpoint |
 | connectVia             | Integrace modulu Runtime použít k odesílání aktivity k této propojené službě. Můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Ne                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Služba Azure Data Lake Analytics propojené
 Vytvoříte **Azure Data Lake Analytics** propojená služba Azure Data Lake Analytics výpočetní služby s objektem pro vytváření dat Azure. Data Lake Analytics U-SQL aktivitu v kanálu odkazuje na tato propojená služba. 
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```json
 {
@@ -417,13 +417,13 @@ Vytvoříte **Azure Data Lake Analytics** propojená služba Azure Data Lake Ana
 | Vlastnost             | Popis                              | Požaduje se                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | Vlastnost typu musí být nastavená na: **AzureDataLakeAnalytics**. | Ano                                      |
-| název účtu          | Název účtu Azure Data Lake Analytics.  | Ano                                      |
+| accountName          | Název účtu Azure Data Lake Analytics.  | Ano                                      |
 | dataLakeAnalyticsUri | Identifikátor URI služby Azure Data Lake Analytics.           | Ne                                       |
 | subscriptionId       | Id předplatného Azure                    | Ne (když není určeno, předplatné objektu pro vytváření dat se používá). |
-| Název skupiny prostředků    | Název skupiny prostředků Azure.                | Ne (když není určeno, skupinu prostředků objektu pro vytváření dat se používá). |
+| resourceGroupName    | Název skupiny prostředků Azure.                | Ne (když není určeno, skupinu prostředků objektu pro vytváření dat se používá). |
 | servicePrincipalId   | Zadejte ID aplikace klienta.     | Ano                                      |
 | servicePrincipalKey  | Zadejte klíč aplikace.           | Ano                                      |
-| Klienta               | Zadejte informace o klienta (název nebo klienta domény ID) v rámci které se nachází aplikace. Můžete ji načíst podržením ukazatele myši v pravém horním rohu portálu Azure. | Ano                                      |
+| tenant               | Zadejte informace o klienta (název nebo klienta domény ID) v rámci které se nachází aplikace. Můžete ji načíst podržením ukazatele myši v pravém horním rohu portálu Azure. | Ano                                      |
 | connectVia           | Integrace modulu Runtime použít k odesílání aktivity k této propojené službě. Můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Ne                                       |
 
 
@@ -440,11 +440,11 @@ Vytvoření služby SQL serveru propojená a použít je s [aktivity uložené p
 ## <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - pravidla po pojmenování
 Následující tabulka obsahuje pravidla pojmenování artefaktů služby Data Factory.
 
-| Name (Název)                             | Jedinečnost názvu                          | Ověřovací kontroly                        |
+| Název                             | Jedinečnost názvu                          | Ověřovací kontroly                        |
 | :------------------------------- | :--------------------------------------- | :--------------------------------------- |
 | Data Factory                     | Jedinečná napříč Microsoft Azure. Názvy jsou velká a malá písmena, který je `MyDF` a `mydf` odkazovat na stejné služby data factory. | <ul><li>Každý objekt pro vytváření dat je vázaný na přesně jedno předplatné.</li><li>Názvy objektů musí začínat písmenem nebo číslicí a může obsahovat pouze písmena, číslice a pomlčky (-) znaků.</li><li>Každý znak pomlčka (-) musí být okamžitě a následnou písmenem nebo číslem. Po sobě jdoucí pomlčky nejsou povolené v názvech kontejneru.</li><li>Název může být 3 až 63 znaků dlouhý.</li></ul> |
 | Propojených služeb/tabulek/kanálů | Jedinečný s ve službě data factory. Názvy jsou velká a malá písmena. | <ul><li>Maximální počet znaků v názvu tabulky: 260.</li><li>Názvy objektů musí začínat písmenem, číslo nebo podtržítko (_).</li><li>Nejsou povolené tyto znaky: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li></ul> |
 | Skupina prostředků                   | Jedinečná napříč Microsoft Azure. Názvy jsou velká a malá písmena. | <ul><li>Maximální počet znaků: 1 000.</li><li>Název může obsahovat písmena, číslice a tyto znaky: "-", "_",","a"."</li></ul> |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam aktivit transformace podporovaných službou Azure Data Factory najdete v tématu [transformovat data](transform-data.md).

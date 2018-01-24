@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6e5b27493a786daa604124d4572f51bae4bcb20
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopírování dat z SQL serveru pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Pro služby SQL serveru propojená se podporují následující vlastnosti:
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **SqlServer** | Ano |
 | připojovací řetězec |Zadejte připojovací řetězec informace potřebné pro připojení k databázi systému SQL Server pomocí ověřování SQL nebo ověřování systému Windows. Toto pole můžete označte jako SecureString. |Ano |
-| Uživatelské jméno |Zadejte uživatelské jméno, pokud používáte ověřování systému Windows. Příklad: **domainname\\uživatelské jméno**. |Ne |
+| userName |Zadejte uživatelské jméno, pokud používáte ověřování systému Windows. Příklad: **domainname\\uživatelské jméno**. |Ne |
 | heslo |Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole můžete označte jako SecureString. |Ne |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
@@ -139,7 +139,7 @@ Ke zkopírování dat z/do databáze systému SQL Server, nastavte vlastnost typ
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které podporuje SQL Server zdroj a jímka.
 
@@ -256,10 +256,10 @@ Ke zkopírování dat do systému SQL Server, nastavte typ jímky v aktivitě ko
 | type | Vlastnost typ jímky kopie aktivity musí nastavena: **SqlSink** | Ano |
 | writeBatchSize |Vloží data do tabulky SQL, když velikost vyrovnávací paměti dosáhne writeBatchSize.<br/>Povolené hodnoty jsou: celé číslo (počet řádků). |Ne (výchozí: 10000) |
 | writeBatchTimeout |Počkejte, než čas na dokončení předtím, než vyprší časový limit operace dávkové vložení.<br/>Povolené hodnoty jsou: časový interval. Příklad: "00: 30:00" (30 minut). |Ne |
-| sqlWriterStoredProcedureName |Název uložené procedury upserts (aktualizace nebo vložení) dat do cílové tabulky. |Ne |
+| preCopyScript |Zadejte dotaz SQL pro aktivitu kopírování ke spuštění před zápis dat do systému SQL Server. Pouze vyvolání se jednou za kopie spustit. Tato vlastnost slouží k vyčištění předem načtená data. |Ne |
+| sqlWriterStoredProcedureName |Název uložené procedury, která definuje, jak použít zdroj dat do cílové tabulky, například na proveďte upserts nebo transformace pomocí vlastní obchodní logiku. <br/><br/>Tuto uloženou proceduru bude **vyvolat na jednu dávku**. Pokud budete chtít provést operaci, která pouze se spustí jednou a nijak nesouvisí se zdrojovými daty, například odstranit nebo zkrátit proveďte pomocí `preCopyScript` vlastnost. |Ne |
 | storedProcedureParameters |Parametry pro uloženou proceduru.<br/>Povolené hodnoty jsou: páry název/hodnota. Názvy a malá a velká písmena parametry musí odpovídat názvům a malá a velká písmena parametry uložené procedury. |Ne |
 | sqlWriterTableType |Zadejte název typu tabulky má být použit v uložené proceduře. Aktivita kopírování zpřístupní přesouvání dat v dočasné tabulce s tímto typem tabulky. Uložená procedura kód pak sloučit data kopírovány s existujícími daty. |Ne |
-| preCopyScript |Zadejte pro aktivitu kopírování ke spuštění před zápis dat do systému SQL Server v každé spuštění příkazu jazyka SQL. Tato vlastnost slouží k vyčištění předem načtená data. |Ne |
 
 > [!TIP]
 > Při kopírování dat do systému SQL Server, připojí aktivitě kopírování dat do tabulky jímky ve výchozím nastavení. Chcete-li provedení UPSERT nebo jiné obchodní logiky, použijte uloženou proceduru v SqlSink. Podrobné informace z [volání uložené procedury pro SQL jímky](#invoking-stored-procedure-for-sql-sink).
@@ -482,37 +482,37 @@ Při kopírování dat z/do systému SQL Server, se používají následující 
 | Typ dat systému SQL Server | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
 | bigint |Int64 |
-| Binární |Byte] |
+| Binární |Byte[] |
 | Bit |Logická hodnota |
 | Char |Řetězec, Char] |
 | datum |Datum a čas |
 | Datum a čas |Datum a čas |
 | datetime2 |Datum a čas |
-| Datový typ DateTimeOffset |Datový typ DateTimeOffset |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atribut FILESTREAM (varbinary(max)) |Byte] |
-| Plovoucí desetinná čárka |Double |
-| Bitové kopie |Byte] |
+| Atribut FILESTREAM (varbinary(max)) |Byte[] |
+| Float |Dvojitý |
+| Bitové kopie |Byte[] |
 | celá čísla |Int32 |
-| peníze |Decimal |
+| money |Decimal |
 | nchar |Řetězec, Char] |
 | ntext |Řetězec, Char] |
 | číselné |Decimal |
 | nvarchar |Řetězec, Char] |
 | skutečné |Svobodný/svobodná |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |Datum a čas |
 | smallint |Int16 |
 | Smallmoney |Decimal |
-| SQL_VARIANT |Objekt * |
+| sql_variant |Objekt * |
 | Text |Řetězec, Char] |
-| time |Časový interval |
-| časové razítko |Byte] |
+| time |TimeSpan |
+| časové razítko |Byte[] |
 | tinyint |Int16 |
 | Typ UniqueIdentifier |Guid |
-| varbinary |Byte] |
+| varbinary |Byte[] |
 | varchar |Řetězec, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="troubleshooting-connection-issues"></a>Odstraňování potíží s připojením
 

@@ -1,6 +1,6 @@
 ---
-title: "Řešení potíží s brány virtuální sítě Azure a připojení – prostředí PowerShell | Microsoft Docs"
-description: "Tato stránka vysvětluje, jak používat sledovací proces sítě Azure Poradce při potížích s rutiny prostředí PowerShell"
+title: "Řešení potíží s brány virtuální sítě Azure a připojení - portál | Microsoft Docs"
+description: "Tato stránka vysvětluje, jak používat Azure sledovací proces sítě řešení portálu"
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Řešení potíží s brány virtuální sítě a připojení pomocí prostředí PowerShell sledovací proces sítě Azure
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Řešení potíží s brány virtuální sítě a připojení pomocí sledovací proces sítě z portálu Azure
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-troubleshoot-manage-portal.md)
@@ -65,14 +65,14 @@ V **podrobnosti** části okna, **stav** kartě se zobrazují stav poslední Por
 |Prostředek     | Odkaz na prostředek.        |
 |Cestu k úložišti     |  Cesta k účtu úložiště a kontejneru, které obsahují protokolů (Pokud žádné byly vytvořeny během spuštění). Toto nastavení není zachována po opuštění portálu.        |
 |Souhrn     | Shrnutí stavu prostředků.        |
-|Podrobnosti     | Podrobné informace o stavu prostředků.        |
+|Detail     | Podrobné informace o stavu prostředků.        |
 |Naposledy spuštěno     | Čas poslední čas Poradce při potížích se spustil.        |
 
 
 **Akce** karta obsahuje obecné pokyny o tom, jak problém vyřešit. Pokud může být akce pro tento problém, je k dispozici odkaz s další pokyny. V případě, že tam, kde není žádná další pokyny, odpověď obsahuje adresu url pro otevření případu podpory.  Další informace o vlastnostech odpovědi a co je součástí najdete v článku [řešení sledovací proces sítě – přehled](network-watcher-troubleshoot-overview.md)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud nastavení bylo změněno tohoto připojení VPN zastavit, přečtěte si téma [spravovat skupiny zabezpečení sítě](../virtual-network/virtual-network-manage-nsg-arm-portal.md) sledovat pravidla zabezpečení sítě skupiny a zabezpečení, které může být nejistá.
 

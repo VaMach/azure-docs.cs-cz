@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 2175a009f084b07c10ca3a32d43c2df216cd3c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="use-the-hbase-net-sdk"></a>Použití sady .NET SDK HBase
+# <a name="use-the-hbase-net-sdk"></a>Použití sady .NET SDK
 
 [HBase](apache-hbase-overview.md) poskytuje dvě primární možnosti pro práci s daty: [Hive dotazy a volání rozhraní RESTful API HBase je](apache-hbase-tutorial-get-started-linux.md). Můžete pracovat přímo s pomocí rozhraní REST API `curl` příkaz nebo podobného nástroje.
 
@@ -38,7 +38,7 @@ Pro aplikace C# a rozhraní .NET [Microsoft HBase REST Klientská knihovna pro .
 
 K využívání sady SDK, vytvořit novou instanci `HBaseClient` objekt, předávání v `ClusterCredentials` tvořený `Uri` na cluster a Hadoop uživatelské jméno a heslo.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -53,7 +53,7 @@ Data jsou fyzicky uložena v *HFiles*. Jeden hfile – obsahuje data pro jednu t
 
 Pokud chcete vytvořit novou tabulku, zadejte `TableSchema` a sloupců. Následující kód kontroluje, zda je vytvořen v tabulce 'RestSDKTable' již existuje - Pokud ne, v tabulce.
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -71,7 +71,7 @@ Tato nová tabulka obsahuje dva sloupce rodiny, t1 a t2. Vzhledem k tomu, že ro
 
 Pokud chcete odstranit:
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -79,7 +79,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 Pokud chcete vložit data, zadejte jedinečné řádek klíč jako identifikátor řádku. Veškerá data budou uložena v `byte[]` pole. Následující kód definuje a přidá `title`, `director`, a `release_date` sloupce, které chcete rodin t1 sloupců, jako tyto sloupce jsou nejčastěji používaná. `description` a `tagline` sloupce jsou přidány do rodin sloupců t2. Data můžete oddílu do rodinami sloupců, podle potřeby.
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -127,7 +127,7 @@ HBase implementuje BigTable, tak formát dat vypadá takto:
 
 Čtení dat z tabulky HBase, předejte klíč, na název a řádek tabulky `GetCellsAsync` metodu pro návrat `CellSet`.
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -141,7 +141,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 V tomto případě kód vrátí pouze první odpovídající řádek, jako by měla existovat jenom jeden řádek pro jedinečný klíč. Vrácená hodnota se změnil na `string` formátu z `byte[]` pole. Také můžete převést hodnotu na jiné typy, jako je například celé číslo, pro datum vydání na video:
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -158,7 +158,7 @@ Console.WriteLine(releaseDate);
 
 Používá HBase `scan` načíst jeden nebo více řádků. Tento příklad požadavky více řádků v dávkách 10 a načítá data, jejichž hodnoty klíče jsou 25 až 35. Po načtení všechny řádky, odstraňte skeneru vyčištění prostředků.
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

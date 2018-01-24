@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Tom, jak připojit spravované datový disk k virtuálnímu počítači Windows na portálu Azure
 
-Tento článek ukazuje, jak připojit nový spravovaný datový disk pro virtuální počítače s Windows pomocí portálu Azure. Než to uděláte, projděte si tyto tipy:
+Tento článek ukazuje, jak připojit nový spravovaný datový disk pro virtuální počítače s Windows v portálu Azure. Než to uděláte, projděte si tyto tipy:
 
 * Velikost virtuálního počítače určuje, kolik datových disků můžete připojit. Podrobnosti najdete v tématu [velikosti virtuálních počítačů](sizes.md).
 * Pro nový disk nemusíte nejdřív ji vytvořit, protože Azure ji vytvoří, když jeho připojení.
@@ -80,5 +80,5 @@ defrag.exe <volume:> -l
 
 Můžete také zajistit, že celý svazek je oříznut podle formátování svazku.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud aplikace potřebuje používat D: disk k uložení dat, můžete [změnit písmeno jednotky dočasné disk systému Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

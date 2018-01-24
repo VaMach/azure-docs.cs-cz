@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Průvodci odstraňováním potíží Azure Disk Encryption
 
@@ -30,7 +30,7 @@ Tento průvodce je pro odborníky v oblasti IT, analytikům zabezpečení inform
 
 Tato chyba je nejčastěji dochází při pokusu o šifrování disku operačního systému na cílové prostředí virtuálního počítače, který byl změněn nebo se změnila z jeho podporovaných uložených Galerie image. Příklady odchylky od podporované bitovou kopii, která může narušovat rozšíření možnost Odpojit disk operačního systému zahrnují následující:
 - Přizpůsobené Image už neodpovídá podporovaném systému souborů nebo schéma rozdělení oddílů.
-- Například SAP, MongoDB nebo Apache Cassandra velké aplikace jsou nainstalovány a spuštěny v operačním systému před šifrování. Rozšíření nelze správně ukončete tyto aplikace. Pokud aplikace udržovat otevřených popisovačů souborů na jednotce operačního systému, jednotka nemůže nepřipojené způsobující selhání.
+- Velké aplikace například SAP, MongoDB, Apache Cassandra a Docker nejsou podporovány, když jsou nainstalovány a spuštěny v operačním systému před šifrování.  Azure Disk Encryption se nemůže bezpečně vypnout tyto procesy podle potřeby v rámci přípravy na jednotce operačního systému pro šifrování disku.  Pokud jsou stále aktivní procesy podržíte otevřených popisovačů souborů na jednotce operačního systému, jednotka operačního systému nemůže nepřipojené, což vede k selhání při šifrování jednotky operačního systému. 
 - Vlastní skripty, které běží v blízkosti zavřít čas je povolené šifrování, nebo pokud jakékoliv změny jsou prováděny ve virtuálním počítači během procesu šifrování. Tomuto konfliktu může dojít, když šablonu Azure Resource Manager definuje několik rozšíření provést současně, nebo když rozšíření vlastních skriptů nebo jiným běží současně pro šifrování disku. Tento problém může vyřešit serializaci a izolace tyto kroky.
 - Linux rozšířeného zabezpečení (SELinux) nebyla zakázané před povolením šifrování, takže odpojení kroku dojde k chybě. Po dokončení šifrování můžete SELinux opětovně povolena.
 - Disk operačního systému používá schéma Manager logické svazek (LVM). I když je k dispozici omezená podpora disku data LVM, disk operačního systému LVM není.
@@ -44,7 +44,7 @@ V některých případech je zakázána Linux šifrování disku se zdá být za
 
 Pořadí šifrování disku operačního systému Linux dočasně odpojí jednotku operačního systému. Potom provede blok po bloku šifrování celého disku operačního systému, než ji opět připojí ho v jeho šifrovaného stavu. Na rozdíl od Azure Disk Encryption v systému Windows Linux šifrování disku není povoleno pro souběžné používání virtuálního počítače při šifrování probíhá. Výkonové charakteristiky virtuálního počítače mohou být velký rozdíl čas potřebný k dokončení šifrování. Tyto vlastnosti zahrnují velikosti disku a zda je standardní účet úložiště nebo úložiště úrovně premium (SSD).
 
-Pokud chcete zkontrolovat stav šifrování, dotazování **ProgressMessage** vrácená z pole [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) příkaz. Během šifrované jednotky operačního systému, virtuální počítač vstupuje do stavu údržby a zakáže SSH, aby se zabránilo přerušení na probíhající proces. **EncryptionInProgress** zprávy sestavy pro většinu času, když probíhá šifrování. Později, několik hodin **VMRestartPending** zobrazí se výzva k restartování virtuálního počítače. Například:
+Pokud chcete zkontrolovat stav šifrování, dotazování **ProgressMessage** vrácená z pole [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) příkaz. Během šifrované jednotky operačního systému, virtuální počítač vstupuje do stavu údržby a zakáže SSH, aby se zabránilo přerušení na probíhající proces. **EncryptionInProgress** zprávy sestavy pro většinu času, když probíhá šifrování. Později, několik hodin **VMRestartPending** zobrazí se výzva k restartování virtuálního počítače. Příklad:
 
 
 ```
@@ -105,7 +105,7 @@ Chcete-li vyřešit tento problém, kopírovat 4 následující soubory z virtu�
 
    4. Pomocí nástroje DiskPart kontrolovat svazky, a poté pokračujte.  
 
-Například:
+Příklad:
 
 ```
 DISKPART> list vol
@@ -116,7 +116,11 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="troubleshooting-encryption-status"></a>Řešení potíží s stav šifrování
+
+Pokud stav očekávané šifrování neodpovídá obsah hlášení na portálu, najdete v následujícím článku podpory: [stav šifrování se nesprávně zobrazí na portálu pro správu Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
+## <a name="next-steps"></a>Další postup
 
 V tomto dokumentu jste zjistili, informace o některé běžné problémy v Azure Disk Encryption a informace o řešení těchto problémů. Další informace o této služby a jeho funkce najdete v následujících článcích:
 

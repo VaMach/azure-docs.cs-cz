@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: f903b786635213b93769a54ec69964a2fe212172
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopírování dat z databáze Sybase pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Pro databázi Sybase propojené služby jsou podporovány následující vlastno
 | type | Vlastnost typu musí být nastavena na: **Sybase** | Ano |
 | server | Název serveru databáze Sybase. |Ano |
 | databáze | Název databáze Sybase. |Ano |
-| Schéma | Název schématu v databázi. |Ne |
+| schema | Název schématu v databázi. |Ne |
 | authenticationType. | Typ ověřování používaný pro připojení k databázi Sybase.<br/>Povolené hodnoty jsou: **základní**, a **Windows**. |Ano |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k databázi Sybase. |Ano |
 | heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole můžete označte jako SecureString. |Ano |
@@ -118,7 +118,7 @@ Ke zkopírování dat z databáze Sybase, nastavte vlastnost typu datové sady, 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Sybase zdroje.
 

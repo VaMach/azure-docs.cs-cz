@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Řešení potíží: Připojení k Azure site-to-site VPN se nemůže připojit a zastaví práce
 
@@ -87,7 +87,7 @@ Kontrolovat a odeberte uživatelem definované směrování (UDR) nebo skupiny z
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Krok 6. Ověřte, že podsítě přesně odpovídají (Azure na základě zásad brány)
 
--   Ověřte, že podsítě odpovídají přesně mezi virtuální sítí Azure a místními definice pro virtuální síť Azure.
+-   Ověřte, že virtuální sítě adres mezerou (mezerami) odpovídají přesně mezi virtuální sítí Azure a místními definice.
 -   Ověřte, že podsítí mezi přesně odpovídají **bránu místní sítě** a místní definice pro místní sítě.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Krok 7. Ověřte test stavu služba Azure gateway

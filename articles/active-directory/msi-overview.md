@@ -14,8 +14,8 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 07610b178bde6de9eb8d890edc060458fc3b07ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/23/2018
@@ -63,7 +63,7 @@ Zkuste identita spravované služby kurzu se dozvíte začátku do konce scéná
 |                    | [Přístup k prostředku mimo Azure AD s Azure Key Vault a identita služby spravovaných virtuálních počítačů Linux](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Identita spravované služby pomocí služby Azure App Service nebo Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure – funkce     | [Identita spravované služby pomocí služby Azure App Service nebo Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Azure Service Bus  | [Uživatel identita spravované služby se Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Service Bus  | [Identita spravované služby pomocí služby Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Které služby Azure podporuje identita spravované služby?
 

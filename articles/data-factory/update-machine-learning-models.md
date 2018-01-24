@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d4f7df5ceadf8c6219901af6e516453a88aeece7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aktualizovat modely Azure Machine Learning pomocí aktivita prostředku aktualizace
 Tento článek doplňuje hlavní Azure Data Factory – článek integrace Azure Machine Learning: [vytvořit prediktivní kanály pomocí Azure Machine Learning a Azure Data Factory](transform-data-using-machine-learning.md). Pokud jste tak již neučinili, přečtěte si hlavní článek než si přečtete prostřednictvím tohoto článku. 
@@ -272,7 +272,7 @@ Kanál má dvě aktivity: **AzureMLBatchExecution** a **AzureMLUpdateResource**.
     }
 }
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících článcích, které vysvětlují, jak k transformaci dat jinými způsoby: 
 
 * [Aktivita U-SQL](transform-data-using-data-lake-analytics.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Vytvoření služby front-end webové aplikace pomocí ASP.NET Core
 Ve výchozím nastavení neposkytují služby Azure Service Fabric veřejné rozhraní na webu. Vystavit funkcionalitu vaší aplikace do klientů protokolu HTTP, budete muset vytvořit webového projektu fungovat jako vstupní bod a potom z ní sdělit jednotlivých služeb.
@@ -91,7 +91,7 @@ Začněme vytvořením rozhraní fungovat jako kontrakt mezi stavové služby a 
 
 4. V knihovně tříd vytvořit rozhraní s jedinou metodu `GetCountAsync`, a rozšířit rozhraní z `Microsoft.ServiceFabric.Services.Remoting.IService`. Vzdálené komunikace rozhraní musí být odvozeny od tohoto rozhraní to znamená, že je Služba vzdálené komunikace rozhraní.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Teď, když jsme definovali rozhraní, musíme implementovat v stavové služby.
     ![Přidat odkaz na projekt knihovny tříd v stavové služby][vs-add-class-library-reference]
 2. Najít třídu, která dědí z `StatefulService`, jako například `MyStatefulService`, a rozšířit ji k implementaci `ICounter` rozhraní.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Teď, když jsme definovali rozhraní, musíme implementovat v stavové služby.
     ```
 3. Nyní implementovat jednu metodu, která je definována v `ICounter` rozhraní `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ V takovém případě jsme nahradit existující `CreateServiceReplicaListeners`
 
 `CreateServiceRemotingListener` Rozšiřující metody na `IService` rozhraní umožňuje snadno vytvářet `ServiceRemotingListener` s všechna výchozí nastavení. Při použití této metody rozšíření, zajistěte, abyste měli `Microsoft.ServiceFabric.Services.Remoting.Runtime` importovat obor názvů. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ Naše stavové služby je nyní připravena přijímat provoz z jiných služeb 
 
 4. V **řadiče** složku, otevřete `ValuesController` třídy. Všimněte si, že `Get` metoda aktuálně právě vrátí pole pevně řetězce "hodnota1" a "hodnota2"--který by odpovídal co jsme viděli dříve v prohlížeči. Tato implementace nahraďte následujícím kódem:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
@@ -223,7 +223,7 @@ Naopak když jste místní spuštění webové služby, musíte zajistit, že po
 
 Naučte se konfigurovat různé hodnoty pro různé prostředí, najdete v tématu [Správa parametry aplikace pro prostředí s více](service-fabric-manage-multiple-environment-app-configuration.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď, když máte webové přední skončili sadu pro vaši aplikaci s ASP.NET Core, další informace o [ASP.NET Core v Service Fabric spolehlivé služby](service-fabric-reliable-services-communication-aspnetcore.md) pro podrobné pochopení fungování ASP.NET Core s Service Fabric.
 
 Dále [Další informace o komunikaci se službou](service-fabric-connect-and-communicate-with-services.md) v obecné získat úplná obrázek o tom, jak služba funguje komunikace v Service Fabric.

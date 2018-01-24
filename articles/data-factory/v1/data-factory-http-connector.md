@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b03be0df05f85ec9ecd1fca4042e87c838022c7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a6dad8242c709240b57b8a47acc44c5ddfdaa755
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Přesun dat z HTTP zdroje pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +94,7 @@ Chcete-li základní ověřování použijte, nastavte `authenticationType` jako
 | Vlastnost | Popis | Požaduje se |
 | --- | --- | --- |
 | embeddedCertData | Obsah s kódováním base64, pomocí binárních dat soubor Personal Information Exchange (PFX). | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
-| CertThumbprint | Kryptografický otisk certifikátu, který byl nainstalován v úložišti certifikátů počítače brány. Platí jenom v případě, že kopírování dat z místního zdroje HTTP. | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
+| certThumbprint | Kryptografický otisk certifikátu, který byl nainstalován v úložišti certifikátů počítače brány. Platí jenom v případě, že kopírování dat z místního zdroje HTTP. | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
 | heslo | Heslo přidružené k certifikátu. | Ne |
 
 Pokud používáte `certThumbprint` pro ověřování a certifikát nainstalovaný v osobním úložišti místního počítače, musí udělit oprávnění ke čtení ke službě brány:
@@ -203,7 +203,7 @@ Tato propojená služba propojuje datovou továrnu místní webový server HTTP.
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vlastnosti, které jsou k dispozici v **rámci typeProperties** části aktivity na druhé straně lišit každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.

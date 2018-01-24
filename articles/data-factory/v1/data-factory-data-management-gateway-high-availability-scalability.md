@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Brána pro správu dat – vysokou dostupnost a škálovatelnost (Preview)
 > [!NOTE]
@@ -186,7 +186,7 @@ Můžete povolit **upřesňující nastavení** v **brány** stránky najdete v 
 
 Vlastnost monitorování | Popis
 :------------------ | :---------- 
-Name (Název) | Název logické brány a uzly asociovaným s bránou.  
+Název | Název logické brány a uzly asociovaným s bránou.  
 Status | Stav logické brány a uzly brány. Příklad: Online nebo Offline nebo Limited/atd. Informace o těchto stavů najdete v tématu [stav brány](#gateway-status) části. 
 Verze | Zobrazuje verzi logické brány a každý uzel brány. Verze logické brány je určen na základě verze Většina uzlů ve skupině. Pokud nejsou správně uzly s různými verzemi v nastavení logické brány, pouze uzly se číslo verze jako funkce logické brány. Ostatní jsou v režimu omezené a je nutné ručně aktualizovat (pouze v případě automatické aktualizace nezdaří). 
 Dostupná paměť | Dostupná paměť na uzel brány. Tato hodnota je snímku near v reálném čase. 
@@ -204,7 +204,7 @@ Následující tabulka obsahuje možné stavy z **uzel brány**:
 Status  | Komentáře nebo scénáře
 :------- | :------------------
 Online | Uzel připojen ke službě Data Factory.
-V režimu offline | Uzel je offline.
+Offline | Uzel je offline.
 Upgrade | Uzel, která má být automaticky aktualizován.
 Omezená | Problém s připojením. Může být kvůli problému 8050 portu HTTP, problém s připojením služby sběrnice nebo problémům synchronizace přihlašovacích údajů. 
 Neaktivní | Uzel je v konfiguraci se liší od konfigurace jiných Většina uzlů.<br/><br/> Uzlem může být neaktivní, když se nemůže připojit k jiné uzly. 
@@ -216,7 +216,7 @@ Status | Komentáře
 :----- | :-------
 Nutná registrace | K této logické brány je ještě zaregistrován žádný uzel.
 Online | Brána uzly jsou online
-V režimu offline | Žádný uzel ve stavu online.
+Offline | Žádný uzel ve stavu online.
 Omezená | Ne všechny uzly v této brány jsou v dobrém stavu. Tento stav se upozornění, že některé uzel může být mimo provoz! <br/><br/>Může být kvůli problémům synchronizace přihlašovacích údajů na dispečera nebo pracovního uzlu. 
 
 ### <a name="pipeline-activities-monitoring"></a>Kanál / monitorování aktivity
@@ -256,7 +256,7 @@ Vrácení z verze preview, odstraňte všechny uzly, ale jeden uzel. Nezávisle 
 Po odstranění, klikněte na tlačítko **funkce verze preview** ve stejné stránky portálu Azure a zakažte funkci náhledu. Resetujete bránu pro jeden uzel GA (Obecné dostupnosti) brány.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Projděte si následující články:
 - [Brána pro správu dat](data-factory-data-management-gateway.md) -obsahuje podrobný přehled brány.
 - [Přesun dat mezi místní a cloudové úložiště dat](data-factory-move-data-between-onprem-and-cloud.md) – obsahuje návod podrobné pokyny pro bránu pomocí jednoho uzlu. 

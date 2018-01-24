@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 871ace571c275e217e22deaf71c73eef9621aa1d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: edef6987ce85127aff5c44ba526cbb5a3879fd90
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-beta"></a>Kopírování dat z Couchbase pomocí Azure Data Factory (Beta)
 
@@ -93,7 +93,7 @@ Ke zkopírování dat z Couchbase, nastavte vlastnost typu datové sady, která 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Couchbase zdroje.
 

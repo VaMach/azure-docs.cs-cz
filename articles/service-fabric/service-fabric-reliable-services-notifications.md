@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Spolehlivé služby oznámení
 Oznámení klientům sledovat změny provedené na objekt, který se vás zajímá. Oznámení podporují dva typy objektů: *spolehlivé správce stavu* a *spolehlivé slovník*.
@@ -36,7 +36,7 @@ Správce spolehlivé stavu poskytuje oznámení pro následující události:
 * Transakce
   * Potvrzení
 * Správce stavu
-  * Opětovné sestavení
+  * Znovu sestavit
   * Přidání spolehlivé stavu
   * Odebrání spolehlivé stavu
 
@@ -51,7 +51,7 @@ Správce spolehlivé stavu kolekce je znovu sestavit ve třech případech:
 
 Registrace pro oznámení transakce nebo oznámení správce stavu, budete muset zaregistrovat **TransactionChanged** nebo **StateManagerChanged** událostí na spolehlivé správce stavu. Je běžné registraci obslužné rutiny těchto událostí se v konstruktoru stavové služby. Při registraci v konstruktoru, nebude neproběhly všechna oznámení, která je způsobena změnou po dobu životnosti **IReliableStateManager**.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ public MyService(StatefulServiceContext context)
 
 Tady je příklad **TransactionChanged** obslužné rutiny události.
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -91,7 +91,7 @@ Pomocí vlastnosti akce v **NotifyStateManagerChangedEventArgs** přetypovat **N
 
 Tady je příklad **StateManagerChanged** obslužná rutina oznámení.
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ Spolehlivé slovník poskytuje oznámení pro následující události:
 Pokud chcete dostávat oznámení spolehlivé slovník, je potřeba zaregistrovat **DictionaryChanged** obslužné rutiny události na **IReliableDictionary**. Je běžné registraci obslužné rutiny těchto událostí se v **ReliableStateManager.StateManagerChanged** přidat oznámení.
 Při registraci **IReliableDictionary** se přidá do **IReliableStateManager** zajistí, že nebude neproběhly žádné oznámení.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -142,7 +142,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 Předchozí sady kódu **IReliableNotificationAsyncCallback** rozhraní, spolu s **DictionaryChanged**. Protože **NotifyDictionaryRebuildEventArgs** obsahuje **IAsyncEnumerable** rozhraní – které je možné provést výčet asynchronně – opětovné sestavení oznámení při vyvolání prostřednictvím  **RebuildNotificationAsyncCallback** místo **OnDictionaryChangedHandler**.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)
@@ -215,7 +215,7 @@ Zde jsou některé věci, třeba vzít v úvahu:
 * Pro transakce, které obsahují více operací operace se použijí v pořadí, ve kterém byly načteny na primární replice od uživatele.
 * Jako součást zpracování false průběh může být některé operace vrátit zpět. Oznámení jsou vyvolány pro tyto operace vrácení zpět, vracení stavu repliky na bod stabilní. Jeden důležitý rozdíl oznámení vrácení zpět je, že jsou agregovaný události, které mají duplicitní klíče. Například pokud se vrací zpět transakci T1, se zobrazí jeden oznámení Delete(X).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Spolehlivé služby rychlý start](service-fabric-reliable-services-quick-start.md)
 * [Spolehlivé služby zálohování a obnovení (zotavení po havárii)](service-fabric-reliable-services-backup-restore.md)

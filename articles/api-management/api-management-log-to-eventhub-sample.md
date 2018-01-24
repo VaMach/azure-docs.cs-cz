@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 05318f85997111fd3301d819084115fef6d00f6a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Sledovat vaše rozhraní API s Azure API Management, Event Hubs a Runscope
 [Služba API Management](api-management-key-concepts.md) poskytuje mnoho možností pro zlepšení zpracování požadavky HTTP odeslané na rozhraní API HTTP. Je však přechodný existenci požadavky a odpovědi. Zadání požadavku a ven prochází přes službu API Management na váš back-end rozhraní API. Rozhraní API zpracuje požadavek a odpověď toků zpátky pomocí rozhraní API příjemci. Služba API Management udržuje některých důležitých statistik o rozhraní API pro zobrazení v řídicím panelu portálu vydavatele, ale i mimo, že podrobnosti jsou pryč.
@@ -166,7 +166,7 @@ V této ukázce používáme `EventProcessorHost` pro jednoduchost, ale může n
 ### <a name="ieventprocessor"></a>IEventProcessor
 Při použití centrální koncept `EventProcessorHost` je vytvoření implementace `IEventProcessor` rozhraní, které obsahuje metodu `ProcessEventAsync`. Zobrazí se zde je zásadní podpora této metody:
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -193,7 +193,7 @@ Seznam objektů EventData se předávají do metody a jsme iterace v tomto sezna
 ### <a name="httpmessage"></a>HttpMessage
 `HttpMessage` Instance obsahuje tři druhy dat:
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -216,7 +216,7 @@ Tato ukázka rozhodli je zajímavé nabízená požadavku HTTP přes [Runscope](
 
 `IHttpMessageProcessor` Implementace vypadá to,
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;
@@ -273,7 +273,7 @@ Na následujícím obrázku animovaný se zobrazí žádost o odkazy na rozhran�
 ## <a name="summary"></a>Souhrn
 Služba Azure API Management poskytuje ideální místo pro zachycení provozu HTTP na cestách do a z vašich rozhraní API. Azure Event Hubs je vysoce škálovatelné a nízkonákladové řešení pro zaznamenání tento přenos a vložené do sekundární zpracování dat pro protokolování, sledování a dalších sofistikované analýzu. Připojení k monitorování systémů, jako je jednoduché, několik desítek řádků kódu Runscope provoz třetích stran.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o Azure Event Hubs
   * [Začínáme s Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Přijímat zprávy pomocí třídy EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software řady StorSimple 8000, vysokou dostupnost a požadavky na síť
 
@@ -40,7 +40,7 @@ Následující softwarové požadavky jsou pro klienty úložiště, které př�
 | --- | --- | --- |
 | Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Svazky zařízení StorSimple iSCSI jsou podporovány pro použití v pouze následující typy disků systému Windows:<ul><li>Jednoduchý svazek na základním disku</li><li>Jednoduché a zrcadlený svazek na dynamickém disku</li></ul>Jsou podporovány pouze softwaru iniciátory iSCSI nativně součástí operačního systému. Iniciátory iSCSI hardwaru nejsou podporovány.<br></br>Windows Server 2012 a dynamické zajišťování 2016 a ODX funkce jsou podporované, pokud používáte svazek StorSimple iSCSI.<br><br>StorSimple můžete vytvořit dynamicky zajištěné a zcela zřizované svazky. Ji nelze vytvářet částečně zřizované svazky.<br><br>Přeformátování dynamicky zajištěné svazku může trvat dlouhou dobu. Doporučujeme odstranit svazek a vytvořit novou místo přeformátování. Pokud stále však upřednostňuje přeformátujte svazku:<ul><li>Spusťte následující příkaz před přeformátovat aby se zabránilo zpožděním recyklace místa: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Po dokončení formátování, použijte následující příkaz znovu zapnout recyklace místa:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Opravy hotfix systému Windows Server 2012, jak je popsáno v [KB 2878635](https://support.microsoft.com/kb/2870270) do počítače serveru systému Windows.</li></ul></li></ul></ul> Pokud konfigurujete Snapshot Manager zařízení StorSimple nebo adaptér StorSimple pro službu SharePoint, přejděte na [požadavky na Software pro volitelné součásti](#software-requirements-for-optional-components). |
 | VMware ESX |5.5 a 6.0 |U VMware vSphere podporovány jako klient iSCSI. Funkce VAAI-block je podporovaná s VMware vSphere na zařízení StorSimple. |
-| Linux RHEL nebo CentOS |5, 6 a 7 |Podpora pro Linux iSCSI klienty s verzemi iniciátor iSCSI otevřete 5, 6 a 7. |
+| Linux RHEL/CentOS |5, 6 a 7 |Podpora pro Linux iSCSI klienty s verzemi iniciátor iSCSI otevřete 5, 6 a 7. |
 | Linux |SUSE Linux 11 | |
 
 > [!NOTE]
@@ -99,7 +99,7 @@ Doporučujeme vám, že nastavíte vašich pravidlech brány firewall pro odchoz
 | `https://*.backup.windowsazure.com` |Registrace zařízení |Pouze DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Odvolání certifikátu |Povolenou podporu cloudu síťová rozhraní |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorování a účty úložiště Azure |Povolenou podporu cloudu síťová rozhraní |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Servery Microsoft Update<br> |Pevné IP adresy řadiče pouze |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Pevné IP adresy řadiče pouze |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Pevné IP adresy řadiče pouze |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Balíček pro podporu |Povolenou podporu cloudu síťová rozhraní |
 
@@ -107,11 +107,11 @@ Doporučujeme vám, že nastavíte vašich pravidlech brány firewall pro odchoz
 
 | Vzor adresy URL | Komponenta nebo funkce | IP adresy zařízení |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Služba Správce zařízení StorSimple<br>Access Control Service<br>Azure Service Bus<br>Služba ověřování |Povolenou podporu cloudu síťová rozhraní |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Služba Správce zařízení StorSimple<br>Access Control Service<br>Azure Service Bus<br>Služba ověřování |Povolenou podporu cloudu síťová rozhraní |
 | `https://*.backup.windowsazure.us` |Registrace zařízení |Pouze DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Odvolání certifikátu |Povolenou podporu cloudu síťová rozhraní |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorování a účty úložiště Azure |Povolenou podporu cloudu síťová rozhraní |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Servery Microsoft Update<br> |Pevné IP adresy řadiče pouze |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Pevné IP adresy řadiče pouze |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Pevné IP adresy řadiče pouze |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Balíček pro podporu |Povolenou podporu cloudu síťová rozhraní |
 
@@ -144,7 +144,7 @@ Takto lze vysvětlit směrování metriky algoritmem použitým pro Update 2 neb
   
     Vezměte v úvahu zařízení StorSimple se dvěma povolenou podporu cloudu síťovými rozhraními, Data 0 a Data 5. Data 1 až 4 dat jsou cloudu zakázaný, ale mít nakonfigurované brány. Pořadí, ve kterém budou směrovány přenosy pro toto zařízení bude:
   
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > dat 3 (40) > dat 4 (50)*
+    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
   
     *Čísla v závorkách označují příslušných směrování metriky.*
   

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Použití vlastních aktivit v kanálu Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Následující postup obsahuje podrobné pokyny pro vytváření vlastních akti
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Návod: vytvoření vlastní aktivity
 ### <a name="prerequisites"></a>Požadavky
-* Visual Studio 2012/2013 nebo 2015
+* Visual Studio 2012/2013/2015
 * Stáhněte sadu [Azure .NET SDK](https://azure.microsoft.com/downloads/) a nainstalujte ji.
 
 ### <a name="azure-batch-prerequisites"></a>Požadavky Azure Batch
@@ -554,13 +554,13 @@ V tomto kroku vytvoříte datové sady, které představují vstupní a výstupn
 
     Objekt blob nebo soubor výstupu se generuje pro každý vstupní řez. Zde je, jak je výstupní soubor s názvem pro každý řez. Výstupní soubory jsou generovány v jednu výstupní složky: **adftutorial\customactivityoutput**.
 
-   | Řez | Počáteční čas | Výstupní soubor |
+   | Řez | Čas zahájení | Výstupní soubor |
    |:--- |:--- |:--- |
-   | 1 |2016-11-16T00:00:00 |2016 11 16 00.txt |
-   | 2 |2016-11-16T01:00:00 |2016 11 16 01.txt |
-   | 3 |2016-11-16T02:00:00 |2016 11 16 02.txt |
-   | 4 |2016-11-16T03:00:00 |2016 11 16 03.txt |
-   | 5 |2016-11-16T04:00:00 |2016 11 16 04.txt |
+   | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
+   | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
+   | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
+   | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
+   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
     Mějte na paměti, že všechny soubory ve vstupní složky jsou součástí řez s časy zahájení uvedených výše. Při zpracování této řezu se vlastní aktivita prohledává každý soubor a vytvoří řádek ve výstupním souboru s počtem výskytů hledaný termín ("Microsoft"). Pokud jsou inputfolder tři soubory, se ve výstupním souboru pro každý hodinové řez tři řádky: 2016-11-16-00.txt 2016-11-16:01:00:00.txt atd.
 3. K nasazení **OutputDataset**, klikněte na tlačítko **nasadit** na panelu příkazů.

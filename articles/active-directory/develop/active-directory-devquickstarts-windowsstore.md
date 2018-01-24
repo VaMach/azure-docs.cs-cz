@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD univerzální platformu Windows (UWP/XAML) Začínáme
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -89,7 +89,7 @@ Základní princip za ADAL je, že vždy, když aplikace potřebuje přístupov�
 
 1. Inicializace aplikace `AuthenticationContext`, což je primární třídou adal. Tato akce předá ADAL souřadnice musí komunikovat s Azure AD a určit, jak pro ukládání do mezipaměti tokenů.
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ Základní princip za ADAL je, že vždy, když aplikace potřebuje přístupov�
 
 2. Vyhledejte `Search(...)` metodu, která je volána, když uživatelé kliknou na **vyhledávání** tlačítko v uživatelském rozhraní aplikace. Tato metoda vytváří požadavek get na Azure AD Graph API k dotazu pro uživatele, jehož UPN začíná zadaný hledaný termín. Dotaz na rozhraní Graph API, zahrňte přístupový token v žádosti **autorizace** záhlaví. Toto je, kde odeslán ADAL.
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ Základní princip za ADAL je, že vždy, když aplikace potřebuje přístupov�
     Když aplikace požaduje token voláním `AcquireTokenAsync(...)`, ADAL pokusí vrátit token bez požadavku uživatele na přihlašovací údaje. Pokud ADAL zjistí, že uživatel musí pro přihlášení k získání tokenu, zobrazí přihlašovací dialogové okno, shromažďuje přihlašovací údaje uživatele a vrátí token po úspěšném provedení ověřování. Pokud se nepodařilo vrátit token z jakéhokoli důvodu ADAL *AuthenticationResult* stav je k chybě.
 3. Nyní je čas použití tokenu přístupu, kterou jste právě získali. Také v `Search(...)` metoda, připojit k rozhraní Graph API požadavek get v tokenu **autorizace** hlavičky:
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. Můžete použít `AuthenticationResult` objekt, který chcete zobrazit informace o uživateli v aplikaci, jako je například ID uživatele:
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. Můžete taky ADAL pro přihlášení uživatelé mimo aplikaci. Když uživatel klikne **Odhlásit** tlačítko, ujistěte se, že další volání `AcquireTokenAsync(...)` zobrazení přihlášení. Pomocí knihovny ADAL tato akce je stejně snadná jako vymazání mezipamětí tokenů:
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

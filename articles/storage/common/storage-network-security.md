@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurace brány firewall úložiště Azure a virtuálních sítí (preview)
 Úložiště Azure poskytuje vrstvený model zabezpečení umožňuje zabezpečit účtů úložiště na konkrétní sadu povolených sítí.  Pokud jsou nakonfigurovaná pravidla pro sítě, můžete jenom aplikace z povolených sítí přístup k účtu úložiště.  Při volání z povolených sítě, aplikace dál vyžadují správné autorizace (platný přístupový klíč nebo tokenu SAS) pro přístup k účtu úložiště.
@@ -300,7 +300,6 @@ Pokud výjimky "Důvěryhodné služby Microsoft" je povoleno, tyto služby (př
 |Azure DevTest Labs|Microsoft.DevTestLab|Vytváření a artefaktů instalace vlastní image.  [Další informace](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Povolte publikování událostí úložiště objektů Blob.  [Další informace](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archivní data s zaznamenat centra událostí.  [Další informace](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Zřizování clusteru a instalaci.  [Další informace](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Sítě Azure|Microsoft.Networking|Ukládat a analyzovat protokoly síťových přenosů.  [Další informace](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
 ||||
 

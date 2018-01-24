@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 829a03ddb8b7ed5901ba0f8f882477f7308fdb0e
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 8c8edc6e3d3c8330824c767f1bb02668a44e670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopírovat data do nebo ze systému souborů pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -135,7 +135,7 @@ Ke zkopírování dat z/do systému souborů, nastavte vlastnost typu datové sa
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností podporovaný zdroj systému souborů a jímky.
 

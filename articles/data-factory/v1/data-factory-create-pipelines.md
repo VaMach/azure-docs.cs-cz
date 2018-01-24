@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8bfdd9d69b6172ff4fae82be6db4a459dd516716
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Kanály a aktivity v Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,7 +99,7 @@ Teď se blíže podíváme na to, jak se kanál definuje ve formátu JSON. Obecn
 | description | Určuje text popisující, k čemu se kanál používá. |Ano |
 | activities | Část **activities** může obsahovat definici jedné nebo více aktivit. Najdete v části Další informace o elementu, JSON aktivity. | Ano |  
 | start | Počáteční datum a čas pro kanál. Musí být v [formátu ISO](http://en.wikipedia.org/wiki/ISO_8601). Například: `2016-10-14T16:32:41Z`. <br/><br/>Je možné zadat místní čas, například Odhadovaný čas. Tady je příklad: `2016-02-27T06:00:00-05:00`", což je odhadované AM 6<br/><br/>Počáteční a koncové vlastnosti společně zadejte aktivní období kanálu. Výstup řezy jenom vytváří se v tomto aktivní období. |Ne<br/><br/>Pokud zadáte hodnotu pro vlastnost end, zadejte hodnotu pro vlastnost start.<br/><br/>Počáteční a koncový čas i lze vytvořit kanál prázdný. Musíte zadat obě hodnoty se nastavit aktivní období pro kanál ke spuštění. Pokud nezadáte počáteční a koncový čas při vytváření kanálu, můžete nastavit pomocí rutiny Set-AzureRmDataFactoryPipelineActivePeriod později. |
-| End | Koncové datum a čas pro kanál. Pokud zadaný, musí být ve formátu ISO. Příklad: `2016-10-14T17:32:41Z` <br/><br/>Je možné zadat místní čas, například Odhadovaný čas. Tady je příklad: `2016-02-27T06:00:00-05:00`, což je odhadované AM 6<br/><br/>Chcete-li kanál spouštět bez omezení, zadejte jako hodnotu pro vlastnost end 9999-09-09. <br/><br/> Kanál je aktivní jenom mezi její počáteční čas a koncový čas. Nebude provedena před časem zahájení nebo po koncovém čase. Když je pozastavená kanálu, se nebudou provedeny bez ohledu na jeho počáteční a koncový čas. Pro kanál ke spuštění by neměl být pozastavena. V tématu [plánování a provádění](data-factory-scheduling-and-execution.md) pochopit, jak funguje plánování a provádění v Azure Data Factory. |Ne <br/><br/>Pokud zadáte hodnotu pro vlastnost spustit, musíte zadat hodnotu pro vlastnost end.<br/><br/>Naleznete v poznámkách k **spustit** vlastnost. |
+| konec | Koncové datum a čas pro kanál. Pokud zadaný, musí být ve formátu ISO. Příklad: `2016-10-14T17:32:41Z` <br/><br/>Je možné zadat místní čas, například Odhadovaný čas. Tady je příklad: `2016-02-27T06:00:00-05:00`, což je odhadované AM 6<br/><br/>Chcete-li kanál spouštět bez omezení, zadejte jako hodnotu pro vlastnost end 9999-09-09. <br/><br/> Kanál je aktivní jenom mezi její počáteční čas a koncový čas. Nebude provedena před časem zahájení nebo po koncovém čase. Když je pozastavená kanálu, se nebudou provedeny bez ohledu na jeho počáteční a koncový čas. Pro kanál ke spuštění by neměl být pozastavena. V tématu [plánování a provádění](data-factory-scheduling-and-execution.md) pochopit, jak funguje plánování a provádění v Azure Data Factory. |Ne <br/><br/>Pokud zadáte hodnotu pro vlastnost spustit, musíte zadat hodnotu pro vlastnost end.<br/><br/>Naleznete v poznámkách k **spustit** vlastnost. |
 | isPaused | Pokud je nastaven na hodnotu true, kanál nejde spustit. Je v pozastaveném stavu. Výchozí hodnota = false. Tato vlastnost slouží k povolení nebo zakázání kanálu. |Ne |
 | pipelineMode | Metoda pro naplánování spuštění pro kanál. Povolené hodnoty jsou: naplánované (výchozí), jednorázově.<br/><br/>"Pravidelnou" udává, že kanál spouští v zadaném časovém intervalu podle jeho aktivní období (počáteční a koncový čas). 'Jednorázově' udává, že kanál spouští jenom jednou. Po vytvoření jednorázově kanály nelze aktuálně upravit nebo aktualizovat. V tématu [Onetime kanálu](#onetime-pipeline) podrobnosti o jednorázově nastavení. |Ne |
 | ExpirationTime | Doba, po vytvoření, pro kterou [jednorázového kanálu](#onetime-pipeline) je platná a by měla zůstat zřízené. Pokud nemá žádné aktivní, se nezdařilo, nebo až spuštění kanálu je automaticky odstraněna po dorazí čas vypršení platnosti. Výchozí hodnota:`"expirationTime": "3.00:00:00"`|Ne |
@@ -137,7 +137,7 @@ Následující tabulka obsahuje popis vlastností v definici aktivity ve formát
 | description | Text popisující, k čemu aktivita slouží. |Ano |
 | type | Typ aktivity. Najdete v článku [aktivity přesunu dat](#data-movement-activities) a [aktivit transformace dat](#data-transformation-activities) oddíly pro různé typy aktivit. |Ano |
 | Vstupy |Vstupní tabulky použité aktivitou<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Ano |
-| Výstupy |Výstupní tabulky použité aktivitou.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Ano |
+| výstupy |Výstupní tabulky použité aktivitou.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Ano |
 | linkedServiceName |Název propojené služby používané aktivitou. <br/><br/>Aktivita může vyžadovat zadání propojené služby, která odkazuje na požadované výpočetní prostředí. |Ano pro aktivita HDInsight a Azure Machine Learning aktivita dávkového vyhodnocování <br/><br/>Ne ve všech ostatních případech |
 | typeProperties |Vlastnosti v **rámci typeProperties** části závisí na typu aktivity. Pokud chcete zobrazit vlastnosti typu určité aktivity, klikněte na odkaz na aktivitu v předchozí části. | Ne |
 | policy |Zásady, které ovlivňují chování aktivity za běhu. Pokud není zadaný, použijí se výchozí zásady. |Ne |
@@ -152,10 +152,10 @@ Zásady ovlivňují chování běhu aktivity, konkrétně při zpracování řez
 | Souběžnosti |Integer <br/><br/>Maximální hodnota: 10 |1 |Počet souběžných spuštění aktivity.<br/><br/>Určuje počet spuštění paralelní aktivity, které se může stát při jiné řezy. Například pokud aktivitu musí projít, velké sady dostupných dat, mají větší hodnotu souběžnosti urychluje zpracování dat. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Určuje pořadí datové řezy, které jsou zpracovávány.<br/><br/>Pokud máte 2 řezy (jeden situaci ve 4 a další v 17: 00) a jsou obě čekající na zpracování. Pokud jste nastavili executionPriorityOrder být NewestFirst, je nejprve zpracování řezu v 17: 00. Podobně pokud nastavíte executionPriorityORder být OldestFIrst, pak ve 4 zpracování řezu se. |
 | retry |Integer<br/><br/>Maximální hodnota může být 10 |0 |Počet opakování, než se zpracování dat pro řez je označen jako selhání. Provedení aktivity pro datový řez je opakovat až zadaný počet. Opakovaném provádí co nejdříve po selhání. |
-| timeout |Časový interval |00:00:00 |Časový limit aktivity. Příklad: 00:10:00 (znamená časový limit 10 minut)<br/><br/>Pokud hodnota není zadána nebo je 0, časový limit je nekonečno.<br/><br/>Pokud bude čas zpracování dat na řez překročí hodnota časového limitu, se zruší a systém se pokusí opakujte zpracování. Počet pokusů, závisí na vlastnost opakování. Když dojde k vypršení časového limitu, je stav nastaven na TimedOut. |
-| Zpoždění |Časový interval |00:00:00 |Zadejte zpoždění před zpracování dat řezu spustí.<br/><br/>Provádění aktivity pro datový řez se spustí po zpoždění očekávaný čas spuštění.<br/><br/>Příklad: 00:10:00 (znamená zpoždění 10 minut) |
+| timeout |TimeSpan |00:00:00 |Časový limit aktivity. Příklad: 00:10:00 (znamená časový limit 10 minut)<br/><br/>Pokud hodnota není zadána nebo je 0, časový limit je nekonečno.<br/><br/>Pokud bude čas zpracování dat na řez překročí hodnota časového limitu, se zruší a systém se pokusí opakujte zpracování. Počet pokusů, závisí na vlastnost opakování. Když dojde k vypršení časového limitu, je stav nastaven na TimedOut. |
+| Zpoždění |TimeSpan |00:00:00 |Zadejte zpoždění před zpracování dat řezu spustí.<br/><br/>Provádění aktivity pro datový řez se spustí po zpoždění očekávaný čas spuštění.<br/><br/>Příklad: 00:10:00 (znamená zpoždění 10 minut) |
 | opakování po delší době |Integer<br/><br/>Maximální hodnota: 10 |1 |Počet dlouho opakování pokusů, než řez spuštění se nezdařilo.<br/><br/>pokusy o opakování po delší době jsou rozmístěny ve longRetryInterval. Takže pokud je třeba zadat čas mezi pokusy o opakování, použijte opakování po delší době. Pokud jsou zadané opakování a opakování po delší době, jednotlivé pokusy o opakování po delší době zahrnuje opakovaných pokusů a je maximální počet pokusů o opakování * opakování po delší době.<br/><br/>Například, pokud bychom měli následující nastavení v zásadách aktivit:<br/>Opakujte: 3<br/>opakování po delší době: 2<br/>longRetryInterval: 01:00:00<br/><br/>Předpokládá se jenom jeden řez provést (stav Čeká) a provedení aktivity pokaždé, když dojde k chybě. Nejdřív by 3 provádění po sobě jdoucích pokusů. Po každém pokusu o stav řezu bude opakovat. Po první 3 pokusy jsou přes, bude stav řezu opakování po delší době.<br/><br/>Po hodině (který je na longRetryInteval hodnota) bude další sadu 3 provádění po sobě jdoucích pokusů. Poté stav řezu by se nezdařilo a by se pokus o žádné další opakování. Proto celkové 6 pokusy byly provedeny.<br/><br/>Pokud žádné spuštění úspěšné, stav řezu by mít připravené a jsou pokus o žádné další opakování.<br/><br/>opakování po delší době je možné použít situace, kdy závislé data dorazí na Nedeterministický časy nebo je v nestabilním stavu v rámci které zpracování dat dojde celém prostředí. V takových případech to, které opakování, jedna po druhé nemusí být úspěšná a díky tomu v intervalech čas má za následek požadované výstup.<br/><br/>Word varování: nenastavujte vysoké hodnoty pro opakování po delší době nebo longRetryInterval. Vyšší hodnoty obvykle implikují dalších systémových otázek. |
-| longRetryInterval |Časový interval |00:00:00 |Prodleva mezi pokusy o opakování dlouho |
+| longRetryInterval |TimeSpan |00:00:00 |Prodleva mezi pokusy o opakování dlouho |
 
 ## <a name="sample-copy-pipeline"></a>Ukázkový kanál kopírování
 V následujícím ukázkovém kanálu je v části **activities** jedna aktivita typu **Kopírování**. V této ukázce [aktivita kopírování](data-factory-data-movement-activities.md) kopíruje data ze služby Azure Blob Storage do služby Azure SQL Database. 
@@ -292,7 +292,7 @@ Další informace najdete v tématu [plánování a provádění](data-factory-s
 Kanály můžete vytvořit pomocí jedné z těchto nástrojů nebo sady SDK. 
 
 - Průvodce kopírováním. 
-- portál Azure
+- Azure Portal
 - Visual Studio
 - Azure PowerShell
 - Šablona Azure Resource Manageru

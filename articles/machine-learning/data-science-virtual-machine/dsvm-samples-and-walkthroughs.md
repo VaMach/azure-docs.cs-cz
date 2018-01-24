@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Ukázky na datové vědě virtuálních počítačů (DSVM)
 
@@ -34,7 +34,7 @@ DSVMs se dodávají s uvedené ukázky plně fungovala na více systémů ve for
 | **Python** jazyk  | Ukázky v **Python** scénáře, jako je připojení k úložišti dat cloudu Azure a práce s vysvětlením **Azure Machine Learning**.  <br/> [Snímek obrazovky](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Dita** jazyk  | Ukázka v **Dita** který podrobností Plotting v Dita, hluboké učení v Dita, volání C a Python z Dita atd. <br/> [Snímek obrazovky](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft kognitivní Toolkit)  | Přímý učení ukázky publikováno kognitivní Toolkit týmu ve společnosti Microsoft.  <br/> [Snímek obrazovky](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** poznámkových bloků  | Hluboké učení ukázky použití **MXnet** na základě neuronové sítě. Existuje mnoho různých poznámkových bloků od Začátečník až pokročilé scénáře.  <br/> [Snímek obrazovky](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** poznámkových bloků  | Hluboké učení ukázky použití **MXNet** na základě neuronové sítě. Existuje mnoho různých poznámkových bloků od Začátečník až pokročilé scénáře.  <br/> [Snímek obrazovky](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Interakci s **Azure Machine Learning** Studio a vytváření koncových bodů webové služby z místně trénované modely pro cloudové vyhodnocování pracovní postupy. <br/> [Snímek obrazovky](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Hluboké učení ukázky použití **caffe2** na základě neuronové sítě. Existuje několik poznámkových bloků navržený tak, aby uživatelé seznamte s caffe2 a způsobu jeho použití efektivně, včetně příkladů, jako jsou bitové kopie předem zpracování, vytváření datovou sadu, regrese a pomocí předem Trénink modely. <br/> [Snímek obrazovky](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Na základě Python ukázky použití **H2O** řada problémů scénářem z reálného prostředí. <br/> [Snímek obrazovky](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -83,11 +83,11 @@ Přihlaste se pomocí stejné heslo jako vaše přihlašovací údaje pro DSVM.
 <br/>![Ukázky CNTK](./media/cntk-samples2.png)<br/>
 <br/>![Ukázky CNTK](./media/cntk-samples.png)<br/>
 
-## <a name="mxnet"></a>MXnet
+## <a name="mxnet"></a>MXNet
 <br/>![Ukázky MXnet](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 
-<br/>![Ukázky AzurekML](./media/azureml-samples.png)<br/>
+<br/>![AzurekML Samples](./media/azureml-samples.png)<br/>
 
 ## <a name="caffe2"></a>Caffe2 
 <br/>![Ukázky caffe2](./media/caffe2-samples.png)<br/>

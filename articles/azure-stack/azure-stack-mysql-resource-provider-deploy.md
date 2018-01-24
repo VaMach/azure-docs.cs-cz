@@ -3,7 +3,7 @@ title: "Používání databází MySQL jako PaaS v zásobníku Azure | Microsoft
 description: "Zjistěte, jak můžete nasadit MySQL zprostředkovatel prostředků a poskytovat databází MySQL jako službu v Azure zásobníku"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Používání databází MySQL v zásobníku Microsoft Azure
 
@@ -71,9 +71,9 @@ Systémový účet musí mít následující oprávnění:
 
     | Sestavení Azure zásobníku | Instalační program MySQL RP |
     | --- | --- |
-    | 1.0.180102.3 nebo 1.0.180106.1 (více uzly) | [MySQL RP verze 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
-    | 1.0.171122.1 | [MySQL RP verze 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
-    | 1.0.171028.1 | [MySQL RP verze 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+    | 1.0.180102.3 nebo 1.0.180106.1 (více uzly) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
+    | 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
 4.  Kořenový certifikát zásobník Azure se načtou z privilegovaných koncový bod. Pro ASDK se vytvoří certifikát podepsaný svým držitelem v rámci tohoto procesu. Pro více uzly je nutné zadat příslušný certifikát.
 
@@ -90,7 +90,7 @@ Systémový účet musí mít následující oprávnění:
 
 6. [Nainstalovat Azure PowerShell verze 1.2.11](azure-stack-powershell-install.md).
 
-7. Spusťte skript DeploySqlProvider.ps1.
+7. Spusťte skript `DeployMySqlProvider.ps1`.
 
 Skript provede tyto kroky:
 
@@ -155,12 +155,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>Parametry DeploySqlProvider.ps1
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechcete, nebo jakékoli parametr ověření nezdaří, zobrazí se výzva k poskytování požadované těm, které jsou.
 
 | Název parametru | Popis | Komentář nebo výchozí hodnotu |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu potřebné pro přístup k Privleged koncový bod. | _požadované_ |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegované koncový bod. | _požadované_ |
 | **AzCredential** | Zadejte pověření pro účet správce služby Azure zásobníku. Pomocí stejných přihlašovacích údajů jako používat pro nasazování zásobník Azure). | _požadované_ |
 | **VMLocalCredential** | Zadejte pověření pro účet místního správce MySQL zprostředkovatele prostředků virtuálních počítačů. | _požadované_ |
 | **PrivilegedEndpoint** | Zadejte IP adresu nebo název DNS privilegované koncového bodu. |  _požadované_ |
@@ -315,7 +315,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -AcceptLicense
  ```
 
-### <a name="updatemysqlproviderps1-parameters"></a>Parametry UpdateMySQLProvider.ps1
+### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parameters
 Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechcete, nebo jakékoli parametr ověření nezdaří, zobrazí se výzva k poskytování požadované těm, které jsou.
 
 | Název parametru | Popis | Komentář nebo výchozí hodnotu |
@@ -323,7 +323,7 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechce
 | **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegované koncový bod. | _požadované_ |
 | **AzCredential** | Zadejte pověření pro účet správce služby Azure zásobníku. Pomocí stejných přihlašovacích údajů jako používat pro nasazování zásobník Azure). | _požadované_ |
 | **VMLocalCredential** | Zadejte pověření pro účet místního správce zprostředkovatele prostředků SQL virtuálních počítačů. | _požadované_ |
-| **PrivilegedEndpoint** | Zadejte IP adresu nebo název DNS Privleged koncového bodu. |  _požadované_ |
+| **PrivilegedEndpoint** | Zadejte IP adresu nebo název DNS privilegované koncového bodu. |  _požadované_ |
 | **DependencyFilesLocalPath** | Soubor PFX certifikátu musí být umístěny v tomto adresáři také. | _volitelné_ (_povinné_ pro více uzly) |
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát .pfx | _požadované_ |
 | **MaxRetryCount** | Definujte kolikrát chcete každou operaci opakovat, pokud dojde k chybě.| 2 |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88679e7dd71011f767cbe4de295c284516375d20
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Přidání přihlášení do aplikace Windows Desktop
 S koncový bod v2.0, můžete rychle přidat ověřování desktopových aplikací s podporou pro oba osobní účty Microsoft a pracovní nebo školní účty.  Umožňuje také aplikace k bezpečné komunikaci s back-end webové rozhraní api, a také [Microsoft Graph](https://graph.microsoft.io) a několik [Office 365 jednotné rozhraní API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -69,7 +69,7 @@ Základní princip za MSAL je vždy, když aplikace potřebuje přístupový tok
 
 * V `TodoListClient` projekt, otevřete `MainWindow.xaml.cs` a najděte `OnInitialized(...)` metoda.  Prvním krokem je k chybě při inicializaci aplikace `PublicClientApplication` -MSAL na primární Třída reprezentující nativních aplikací.  Toto je, kde můžete předat MSAL souřadnice, které jsou zapotřebí ke komunikaci s Azure AD a určit, jak pro ukládání do mezipaměti tokenů.
 
-```C#
+```csharp
 protected override async void OnInitialized(EventArgs e)
 {
         base.OnInitialized(e);
@@ -82,7 +82,7 @@ protected override async void OnInitialized(EventArgs e)
 
 * Při spuštění aplikace, chceme, můžete zkontrolovat, pokud je uživatel již přihlášen k aplikaci.  Ale nechceme vyvolání uživatelského rozhraní přihlášení zatím – vytočit uživatele, klikněte na tlačítko "Přihlásit" Uděláte to tak.  Také v `OnInitialized(...)` metoda:
 
-```C#
+```csharp
 // As the app starts, we want to check to see if the user is already signed in.
 // You can do so by trying to get a token from MSAL, using the method
 // AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
@@ -119,7 +119,7 @@ catch (MsalException ex)
 
 * Pokud uživatel není přihlášený a kliknutí na tlačítko "Přihlásit", chceme vyvolání přihlášení uživatelského rozhraní a uživatelské zadat své přihlašovací údaje.  Implementace přihlašovací tlačítko obslužná rutina:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // TODO: Sign the user out if they clicked the "Clear Cache" button
@@ -167,7 +167,7 @@ catch (MsalException ex)
 
 * Pokud uživatel úspěšně přihlásí, bude přijímat a token do mezipaměti pro vás MSAL a můžete přejít k volání `GetTodoList()` metoda s jistotou.  Již zbývá k získání úloh uživatele je implementace `GetTodoList()` metoda.
 
-```C#
+```csharp
 private async void GetTodoList()
 {
 
@@ -219,7 +219,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // If the user clicked the 'clear cache' button,
@@ -248,7 +248,7 @@ Pro srovnání je hotová ukázka (bez vašich hodnot nastavení) [je k dispozic
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní se můžete přesunout na pokročilejší témata.  Můžete se pokusit:
 
 * [Zabezpečení webového rozhraní API TodoListService s koncovým bodem v2.0](active-directory-v2-devquickstarts-dotnet-api.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: f7664291c2f45c422d52f682d08dbb67ab32b099
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 81910dd9c2743484ca65bd21e400a1a52e961a19
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automatizované zálohování pro SQL Server na virtuálních počítačích Azure (klasický)
 > [!div class="op_single_selector"]
@@ -48,15 +48,13 @@ Pomocí automatizovaného zálohování, zvažte následující požadavky:
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> SQL Server 2016 není dosud podporována pro automatizované zálohování.
-> 
-> 
+> Automatizované zálohování pro SQL Server 2016 je podporována u virtuálních počítačů Resource Manager. Další informace najdete v tématu [v2 automatizované zálohování pro SQL Server 2016 virtuální počítače Azure (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Konfigurace databáze**:
 
 * Cílové databáze musí mít úplném modelu obnovení.
 
-**Prostředí Azure PowerShell**:
+**Azure PowerShell**:
 
 * [Nainstalujte nejnovější příkazy prostředí Azure PowerShell](/powershell/azure/overview).
 
@@ -106,7 +104,7 @@ Chcete-li zakázat automatické zálohování, spusťte stejný skript bez **-po
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Automatizované zálohování nakonfiguruje spravovaného zálohování na virtuálních počítačích Azure. Proto je důležité [najdete v dokumentaci pro spravovanou zálohu](https://msdn.microsoft.com/library/dn449496.aspx) pochopit chování a důsledky.
 
 Můžete najít další zálohování a obnovení pokyny pro SQL Server na virtuálních počítačích Azure v následujícím tématu: [zálohování a obnovení pro SQL Server v Azure Virtual Machines](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).

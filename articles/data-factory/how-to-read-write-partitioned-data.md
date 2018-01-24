@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 2066847feb3dcdf36ead8901a679d8cae7a6acde
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 3d65158a66ec16bd13ad4ad56af90c6fd28bfe7e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Jak číst nebo zapisovat data v Azure Data Factory verze 2 rozdělena na oddíly
 Azure Data Factory v verze 1, podporované čtení nebo zápis oddílů dat pomocí SliceStart/SliceEnd/WindowStart/WindowEnd systémové proměnné. Ve verzi 2 můžete dosáhnout toto chování pomocí parametru kanálu a čas nebo naplánovaný čas spuštění aktivační události jako hodnotu parametru. 
@@ -71,7 +71,7 @@ V následující definici aktivace naplánovaném čase aktivační události je
 }
 ```
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 
 Zde je ukázka definice datové sady (která používá parametr s názvem: `date`):
 
@@ -174,5 +174,5 @@ Definice kanál:
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Kompletní návod, jak vytvořit objekt pro vytváření dat se zřetězením příkazů, najdete v části [rychlý start: Vytvořte objekt pro vytváření dat](quickstart-create-data-factory-powershell.md). 

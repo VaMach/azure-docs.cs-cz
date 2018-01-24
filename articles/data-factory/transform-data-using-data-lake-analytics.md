@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformace dat pomocí spouštění skriptů U-SQL v Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,10 +40,10 @@ Následující tabulka obsahuje popis obecné vlastnosti používané v definici
 | Vlastnost                 | Popis                              | Požaduje se                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **Typ**                 | Vlastnost typu musí být nastavená na: **AzureDataLakeAnalytics**. | Ano                                      |
-| **název účtu**          | Název účtu Azure Data Lake Analytics.  | Ano                                      |
+| **accountName**          | Název účtu Azure Data Lake Analytics.  | Ano                                      |
 | **dataLakeAnalyticsUri** | Identifikátor URI služby Azure Data Lake Analytics.           | Ne                                       |
-| **ID předplatného**       | ID předplatného Azure                    | Ne (když není určeno, předplatné objektu pro vytváření dat se používá). |
-| **Název skupiny prostředků**    | Název skupiny prostředků Azure.                | Ne (když není určeno, skupinu prostředků objektu pro vytváření dat se používá). |
+| **subscriptionId**       | ID předplatného Azure                    | Ne (když není určeno, předplatné objektu pro vytváření dat se používá). |
+| **resourceGroupName**    | Název skupiny prostředků Azure.                | Ne (když není určeno, skupinu prostředků objektu pro vytváření dat se používá). |
 
 ### <a name="service-principal-authentication"></a>Ověřování instančních objektů
 Azure Data Lake Analytics propojená služba vyžaduje, aby objekt zabezpečení ověřování služby pro připojení ke službě Azure Data Lake Analytics. Pokud chcete použít ověřování hlavní služby, zaregistrujte entitu aplikace v Azure Active Directory (Azure AD) a jí udělit přístup k Data Lake Analytics a Data Lake Store, používá. Podrobné pokyny najdete v tématu [Service-to-service ověřování](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Poznamenejte si následující hodnoty, které můžete použít k definování propojené služby:
@@ -126,7 +126,7 @@ Následující tabulka popisuje názvy a popisy vlastností, které jsou specifi
 | scriptPath          | Cesta ke složce, který obsahuje skript U-SQL. Název souboru je malá a velká písmena. | Ano      |
 | scriptLinkedService | Propojené služby, který odkazuje úložiště, který obsahuje skript pro vytváření dat. | Ano      |
 | degreeOfParallelism | Maximální počet uzlů současně slouží ke spuštění úlohy. | Ne       |
-| Priorita            | Určuje, jaké úlohy mimo všechny, které jsou zařazeny do fronty, měla by být vybrána má spustit jako první. Čím nižší je číslo, tím vyšší je priorita. | Ne       |
+| priorita            | Určuje, jaké úlohy mimo všechny, které jsou zařazeny do fronty, měla by být vybrána má spustit jako první. Čím nižší je číslo, tím vyšší je priorita. | Ne       |
 | parameters          | Parametry pro skript U-SQL          | Ne       |
 | runtimeVersion      | Verze runtime – stroje U-SQL používat | Ne       |
 | compilationMode     | <p>Režim kompilace U-SQL. Musí mít jednu z těchto hodnot: **Semantic:** provádět jenom sémantického kontroly a kontrola nezbytné vhodnosti **úplné:** provést úplné kompilace, včetně kontrola syntaxe, optimalizace, generování kódu atd., **SingleBox:** provést úplné kompilace s TargetType nastavení SingleBox. Pokud nezadáte hodnotu pro tuto vlastnost, server určí režim optimální kompilace. | Ne |
@@ -176,7 +176,7 @@ V definici ukázkový kanál a odhlašování parametry jsou přiřazeny pevně 
 }
 ```
 
-Je možné místo toho použít dynamické parametry. Například: 
+Je možné místo toho použít dynamické parametry. Příklad: 
 
 ```json
 "parameters": {
@@ -187,7 +187,7 @@ Je možné místo toho použít dynamické parametry. Například:
 
 V takovém případě vstupní soubory jsou stále zachyceny ze složky /datalake/input a výstupní soubory se generují ve složce /datalake/output. Názvy souborů jsou dynamické podle času zahájení řez.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících článcích, které vysvětlují, jak k transformaci dat jinými způsoby: 
 
 * [Aktivita Hive](transform-data-using-hadoop-hive.md)

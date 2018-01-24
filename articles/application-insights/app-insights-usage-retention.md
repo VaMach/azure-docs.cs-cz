@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 98ceee23f49d72034432f38307a4f5e8ab87c013
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 03f8bea65e319f357be4ca05fd4aa40da77a3436
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analýza uživatelů uchovávání informací pro webové aplikace pomocí Application Insights
 
@@ -55,14 +55,14 @@ Je dobrým zvykem kód vlastní události, které představují klíče obchodn�
 
 Nebo v serverovém kódu ASP.NET:
 
-```C#
+```csharp
    telemetry.TrackEvent("won game");
 ```
 
 [Další informace o vytváření vlastních událostí](app-insights-api-custom-events-metrics.md#trackevent).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Pokud chcete povolit použití možnosti, zahájit odesílání [vlastních událostí](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) nebo [stránky zobrazení](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Pokud jste již odeslat vlastní události nebo zobrazení stránky, prozkoumejte využití nástroje se dozvíte, jak uživatelé používat služby.
     - [Uživatelé, relace, události](app-insights-usage-segmentation.md)

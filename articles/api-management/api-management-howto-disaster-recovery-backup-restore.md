@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 105c1978c049a9981c865eaf752a465c774ab7fd
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 3fcd2fc4162cfbf549be979e15745934c2e4c6ff
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementace zotavení po havárii pomocí služby zálohování a obnovení v Azure API Management
 
@@ -80,7 +80,7 @@ Všechny úlohy, které můžete provést na prostředků pomocí Azure Resource
 
 Před vyvoláním rozhraní API, která generovat zálohu a obnovte ji, je nutné získat token. Následující příklad používá [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) balíček NuGet pro načtení tokenu.
 
-```c#
+```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
 
@@ -121,7 +121,7 @@ Nahraďte `{tentand id}`, `{application id}`, a `{redirect uri}` podle následuj
 
 Před voláním operace "zálohování a obnovení", které jsou popsané v následujících částech, nastavte hlavičce autorizace požadavku pro volání REST.
 
-```c#
+```csharp
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 

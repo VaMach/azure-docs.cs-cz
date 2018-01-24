@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Odkaz – koncové body centra IoT
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Název služby IoT hub, který je hostitelem koncové body na portálu na můžete najít **přehled** okno. Ve výchozím nastavení, jako název DNS služby IoT hub vypadá takto: `{your iot hub name}.azure-devices.net`.
 
-Azure DNS můžete použít k vytvoření vlastní název DNS pro službu IoT hub. Další informace najdete v tématu [Azure DNS používá k poskytování nastavení vlastní domény pro službu Azure](../dns/dns-custom-domain.md#azure-iot).
+Azure DNS můžete použít k vytvoření vlastní název DNS pro službu IoT hub. Další informace najdete v tématu [Azure DNS používá k poskytování nastavení vlastní domény pro službu Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Seznam předdefinovaných koncové body centra IoT
 
@@ -38,7 +38,7 @@ Následující seznam popisuje koncových bodů:
 
 * **Poskytovatel prostředků**. Zprostředkovatel prostředků služby IoT Hub zpřístupní [Azure Resource Manager] [ lnk-arm] rozhraní. Toto rozhraní umožňuje vlastníky předplatného Azure k vytváření a odstraňování centra IoT a k aktualizaci vlastností centra IoT. Vlastnosti služby IoT Hub řídí [zásad zabezpečení na úrovni centra][lnk-accesscontrol], na rozdíl od řízení přístupu na úrovni zařízení a funkční nastavení pro zasílání zpráv typu cloud zařízení a zařízení cloud. Zprostředkovatel prostředků služby IoT Hub můžete také [exportovat identit zařízení][lnk-importexport].
 * **Správa identit zařízení**. Každé centrum IoT zpřístupňuje řadu koncové body HTTPS REST pro správu identit zařízení (vytvořit, získat, aktualizovat a odstranit). [Identit zařízení] [ lnk-device-identities] se používají pro řízení přístupu a ověřování a zařízení.
-* **Správa zařízení twin**. Každé centrum IoT zpřístupňuje řadu koncový bod HTTPS REST služby směřujících k dotazu a aktualizace [dvojčata zařízení] [ lnk-twins] (aktualizace značky a vlastnosti).
+* **Správa zařízení twin**. Každé centrum IoT zpřístupňuje řadu koncový bod HTTPS REST služby směřujících k dotazu a aktualizace [dvojčata zařízení][lnk-twins] (aktualizace značky a vlastnosti).
 * **Úlohy správy**. Každý IoT hub zpřístupní koncový bod HTTPS REST služby směřujících k dotazování a správu sadu [úlohy][lnk-jobs].
 * **Koncové body zařízení**. Pro každé zařízení v registru identit služby IoT Hub zpřístupní sada koncových bodů:
 
@@ -101,7 +101,7 @@ V řešení IoT *brána pole* nachází mezi zařízeními a vaše koncové body
 
 Můžete použít [Azure IoT Edge] [ lnk-iot-edge] implementovat brána pole. Okraj IoT nabízí funkce, jako je multiplexní komunikaci od více zařízení do stejné připojení služby IoT Hub.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zahrnout další referenční témata v této příručce pro vývojáře IoT Hub:
 

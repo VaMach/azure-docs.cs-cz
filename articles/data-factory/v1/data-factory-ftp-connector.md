@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0452610e56294a19bab302d6df73dff2a70a2eeb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Přesun dat ze serveru FTP pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,15 +67,15 @@ Následující tabulka popisuje elementy JSON, které jsou specifické pro služ
 | Vlastnost | Popis | Požaduje se | Výchozí |
 | --- | --- | --- | --- |
 | type |Tuto možnost nastavíte na Server_ftp. |Ano |&nbsp; |
-| hostitele |Zadejte název nebo IP adresu serveru FTP. |Ano |&nbsp; |
+| hostitel |Zadejte název nebo IP adresu serveru FTP. |Ano |&nbsp; |
 | authenticationType. |Zadejte typ ověřování. |Ano |Anonymní, základní |
 | uživatelské jméno |Zadejte uživatele, který má přístup k serveru FTP. |Ne |&nbsp; |
 | heslo |Zadejte heslo pro uživatele (uživatelské jméno). |Ne |&nbsp; |
 | encryptedCredential |Zadejte šifrované pověření pro přístup k serveru FTP. |Ne |&nbsp; |
 | gatewayName |Zadejte název brány v Brána pro správu dat pro připojení k serveru FTP na místě. |Ne |&nbsp; |
 | port |Zadejte port, na kterém naslouchá FTP server. |Ne |21 |
-| enableSsl |Určete, zda chcete pomocí funkce FTP přes kanál SSL/TLS. |Ne |Hodnota TRUE |
-| enableServerCertificateValidation |Určete, zda chcete povolit ověřování certifikátu serveru SSL při použití FTP přes kanál SSL/TLS. |Ne |Hodnota TRUE |
+| enableSsl |Určete, zda chcete pomocí funkce FTP přes kanál SSL/TLS. |Ne |true (pravda) |
+| enableServerCertificateValidation |Určete, zda chcete povolit ověřování certifikátu serveru SSL při použití FTP přes kanál SSL/TLS. |Ne |true (pravda) |
 
 ### <a name="use-anonymous-authentication"></a>Anonymní ověřování použijte
 
@@ -154,7 +154,7 @@ Následující tabulka popisuje elementy JSON, které jsou specifické pro služ
 | Vlastnost | Popis | Požaduje se |
 | --- | --- | --- |
 | folderPath |Dílčí cestou ke složce. Použít řídicí znak ' \ ' pro speciální znaky v řetězci. V tématu [ukázka propojené definice služby a datovou sadu](#sample-linked-service-and-dataset-definitions) příklady.<br/><br/>Tato vlastnost se můžete kombinovat **partitionBy** cesty ke složce zadat podle řez spuštění a ukončení hodnoty data a času. |Ano |
-| fileName |Zadejte název souboru do **folderPath** Pokud chcete, aby v tabulce odkazovat na konkrétní soubor ve složce. Pokud nezadáte žádnou hodnotu pro tuto vlastnost, tabulka odkazuje na všechny soubory ve složce.<br/><br/>Když **fileName** není zadané pro datovou sadu výstupů, je název vygenerovaný soubor v následujícím formátu: <br/><br/>Data. <Guid>.txt (například: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Ne |
+| fileName |Zadejte název souboru do **folderPath** Pokud chcete, aby v tabulce odkazovat na konkrétní soubor ve složce. Pokud nezadáte žádnou hodnotu pro tuto vlastnost, tabulka odkazuje na všechny soubory ve složce.<br/><br/>Když **fileName** není zadané pro datovou sadu výstupů, je název vygenerovaný soubor v následujícím formátu: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Ne |
 | fileFilter |Zadejte filtr pro umožňuje vybrat podmnožinu souborů v **folderPath**, ne všechny soubory.<br/><br/>Povolené hodnoty jsou: `*` (více znaků) a `?` (jeden znak).<br/><br/>Příklad 1:`"fileFilter": "*.log"`<br/>Příklad 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** lze použít pro datové sadě služby vstupní sdílení souborů. Tato vlastnost není podporována s Hadoop Distributed File System (HDFS). |Ne |
 | partitionedBy |Slouží k zadání dynamický **folderPath** a **fileName** pro data časové řady. Například můžete zadat **folderPath** , je pro každou hodinu dat parametry. |Ne |
 | Formát | Jsou podporovány následující typy formátu: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Nastavte **typ** vlastnost pod formát na jednu z těchto hodnot. Další informace najdete v tématu [textovém formátu](data-factory-supported-file-and-compression-formats.md#text-format), [formátu Json](data-factory-supported-file-and-compression-formats.md#json-format), [Avro formát](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formátu](data-factory-supported-file-and-compression-formats.md#orc-format), a [Parquet formát](data-factory-supported-file-and-compression-formats.md#parquet-format) oddíly. <br><br> Pokud chcete zkopírovat soubory, jako jsou mezi souborové úložiště (binární kopie), přejděte v části formátu v obou definice vstupní a výstupní datové sady. |Ne |
@@ -195,7 +195,7 @@ V tomto příkladu {řez} se nahradí hodnotu objektu pro vytváření dat syst�
 ```
 V tomto příkladu jsou extrahován rok, měsíc, den a čas SliceStart do samostatné proměnné, které jsou používány **folderPath** a **fileName** vlastnosti.
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivit najdete v tématu [vytváření kanálů](data-factory-create-pipelines.md). Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vlastnosti, které jsou k dispozici v **rámci typeProperties** části aktivity, na druhé straně lišit každý typ aktivity. Pro aktivitu kopírování vlastnosti typu lišit v závislosti na typech zdrojů a jímky.
@@ -387,7 +387,7 @@ Kanál obsahuje aktivitu kopírování, který je nakonfigurovaný na použití 
 > [!NOTE]
 > Mapování sloupců z datové sady zdroje na sloupce ze sady jímku dat naleznete v tématu [mapování sloupců datovou sadu v Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Viz následující články:
 
 * Další informace o klíčových faktorů této dopad výkon přesun dat (aktivita kopírování) v objektu pro vytváření dat a různé způsoby, jak ji optimalizovat, najdete v článku [zkopírujte aktivity výkonu a vyladění průvodce](data-factory-copy-activity-performance.md).

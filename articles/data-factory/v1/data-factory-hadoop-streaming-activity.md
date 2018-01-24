@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 80ff1c10f2d66f77242bcec0e17ccbaa701e6aa6
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9022b03af8c87651a552e7fd3f505156daa3924e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformace dat pomocí streamované aktivitě Hadoop v Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -112,7 +112,7 @@ Je třeba počítat s následujícím:
 > 
 > 
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 Kanál v tomto návodu se spustí program streamování mapy nebo snižte počet slov v clusteru Azure HDInsight. 
 
 ### <a name="linked-services"></a>Propojené služby

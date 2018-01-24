@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995983a8e32bc01ddc1ab8bbc64345da96875941
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 566773e9bc787bff4e92d86ec57fb0de3121b079
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformace dat pomocí Hive aktivity v Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -80,13 +80,13 @@ Aktivity HDInsight Hive v datové továrně [kanálu](data-factory-create-pipeli
 | description |Text popisující, co se používá aktivitu pro |Ne |
 | type |HDinsightHive |Ano |
 | Vstupy |Vstupy spotřebovávané aktivitou Hive |Ne |
-| Výstupy |Výstupy produkované aktivitou Hive |Ano |
+| výstupy |Výstupy produkované aktivitou Hive |Ano |
 | linkedServiceName |Referenční dokumentace ke clusteru HDInsight registrován jako propojené služby v datové továrně |Ano |
-| Skript |Zadejte vloženého skriptu Hive |Ne |
+| skript |Zadejte vloženého skriptu Hive |Ne |
 | cestu ke skriptu |Uložení skriptu Hive v Azure blob storage a zadejte cestu k souboru. Pomocí vlastnosti 'skript' nebo 'scriptPath'. Obě nelze použít společně. Název souboru je malá a velká písmena. |Ne |
 | definuje |Zadejte parametry dvojic klíč/hodnota pro odkazování v rámci skriptu Hive pomocí 'hiveconf. |Ne |
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 Zvažte příklad herní protokolů analýzy, kam chcete identifikovat čas strávený uživatelé hraní her spuštění ve vaší společnosti. 
 
 Následující protokol je ukázkový herní protokol, který je čárkou (`,`) oddělený a obsahuje následující pole – ProfileID, SessionStart, doba trvání, SrcIPAddress a GameType.

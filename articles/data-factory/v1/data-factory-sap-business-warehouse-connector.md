@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6bbae79e59a200897f465e1381fea57a7ecde3f1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b81dc9f13533eaeec56625ede0e4c534b83e7cf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Přesun dat z SAP Business Warehouse pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +64,13 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 
 Vlastnost | Popis | Povolené hodnoty | Požaduje se
 -------- | ----------- | -------------- | --------
-server | Název serveru, na kterém se nachází instance SAP BW. | Řetězec | Ano
+server | Název serveru, na kterém se nachází instance SAP BW. | řetězec | Ano
 systemNumber | Číslo systému SAP BW systému. | Desetinné číslo letopočty řetězec. | Ano
 clientId | ID klienta v systému SAP W klienta. | Tři číslice desítkové číslo řetězec. | Ano
-uživatelské jméno | Jméno uživatele, který má přístup k serveru SAP | Řetězec | Ano
-heslo | Heslo pro uživatele. | Řetězec | Ano
-gatewayName | Název brány, kterou služba Data Factory měla použít pro připojení k místní instanci SAP BW. | Řetězec | Ano
-encryptedCredential | Řetězec šifrovaný přihlašovací údaj. | Řetězec | Ne
+uživatelské jméno | Jméno uživatele, který má přístup k serveru SAP | řetězec | Ano
+heslo | Heslo pro uživatele. | řetězec | Ano
+gatewayName | Název brány, kterou služba Data Factory měla použít pro připojení k místní instanci SAP BW. | řetězec | Ano
+encryptedCredential | Řetězec šifrovaný přihlašovací údaj. | řetězec | Ne
 
 ## <a name="dataset-properties"></a>Vlastnosti datové sady
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování datové sady, najdete v článku [vytváření datových sad](data-factory-create-datasets.md) článku. Oddíly, jako je například struktura, dostupnost a zásad JSON datové sady jsou podobné pro všechny typy datovou sadu (Azure SQL Azure blob, tabulky Azure, atd.).
@@ -78,7 +78,7 @@ encryptedCredential | Řetězec šifrovaný přihlašovací údaj. | Řetězec |
 **Rámci typeProperties** oddílu se liší pro jednotlivé typy datovou sadu a informace o umístění dat v úložišti dat. Nejsou žádné vlastnosti specifické pro typ podporované pro SAP BW datovou sadu typu **RelationalTable**. 
 
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky, jsou zásady jsou dostupné pro všechny typy aktivit.
 
 Vzhledem k tomu, vlastnosti dostupné ve **rámci typeProperties** části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
@@ -291,23 +291,23 @@ Při přesouvání dat od SAP BW, se používají následující mapování z ty
 
 Typ dat ve slovníku ABAP | Datový typ rozhraní .net
 -------------------------------- | --------------
-ACCP |  celá čísla
+ACCP |  Int
 CHAR – | Řetězec
 CLNT | Řetězec
 AKTUÁLNÍ | Decimal
 CUKY | Řetězec
 DEC | Decimal
-FLTP | Double
+FLTP | Dvojitý
 INT1 | Bajtů
 INT2 | Int16
-INT4 | celá čísla
+INT4 | Int
 JAZYK | Řetězec
 LCHR | Řetězec
-LRAW | Byte]
+LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
-NEZPRACOVANÁ | Byte]
-RAWSTRING | Byte]
+NEZPRACOVANÁ | Byte[]
+RAWSTRING | Byte[]
 ŘETĚZEC | Řetězec
 JEDNOTKA | Řetězec
 SOUBORY DAT | Řetězec

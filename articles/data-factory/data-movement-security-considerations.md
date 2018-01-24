@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - důležité informace o zabezpečení pro přesun dat
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -187,7 +187,7 @@ Následující cloudové úložiště dat vyžaduje povolených IP adresu počí
 **Odpověď:** vlastním hostováním integrace runtime umožňuje založené na protokolu HTTP připojení k Internetu otevřete. **Odchozí porty 443 a 80** musí být otevřen pro integraci s vlastním hostováním runtime pro toto připojení. Otevřete **příchozí Port 8050** pouze na úrovni počítače (ne na úrovni podniková brána firewall) pro aplikaci správce přihlašovacích údajů. Pokud se databáze SQL Azure nebo Azure SQL Data Warehouse používá jako zdroj / cíl a pak muset otevřít **1433** také portu. Další informace najdete v tématu [konfigurace a vytvoření seznamu povolených IP adresy brány Firewall](#firewall-configurations-and-whitelisting-ip-address-of gateway) části. 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Informace o výkonu aktivitě kopírování najdete v tématu [zkopírujte aktivity výkonu a vyladění průvodce](copy-activity-performance.md).
 
  

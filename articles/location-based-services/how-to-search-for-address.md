@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Postup nalezení adresu pomocí služby Azure na základě polohy (preview) vyhledávání
 Služba vyhledávání se RESTful sada rozhraní API určená pro vývojáře k vyhledání adresy, míst, bodů zájmu, výpisech obchodních a jiných zeměpisné údaje. Služba vyhledávání zeměpisnou šířku a délku přiřadí konkrétní adresu, křížové ulici, geografické funkci nebo v případě zájmu (bodů zájmu). Zeměpisné šířky a délky hodnot vrácených rozhraním API služby vyhledávání můžete použít jako parametry v jiných služeb na základě umístění Azure jako je například rozhraní API toku provozu a trasy.
 
 ## <a name="prerequisites"></a>Požadavky
-Nainstalujte [aplikaci Postman](https://www.getpostman.com/apps).
+* Nainstalujte [aplikaci Postman](https://www.getpostman.com/apps).
 
-Na základě Azure polohy účet a předplatné klíčem. Informace o vytvoření účtu a načítání klíč předplatného najdete v tématu [Správa vašeho účtu služeb na základě umístění Azure a klíče](how-to-manage-account-keys.md). 
+* Máte účet Azure umístění na základě služby a klíč. Informace o vytvoření účtu a klíč načítání, najdete v části [Správa vašeho účtu služeb na základě umístění Azure a klíče](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Pomocí přibližné vyhledávání
 
@@ -41,7 +41,7 @@ Většina vyhledávací dotazy jako výchozí se maxFuzzyLevel = 1' k získání
     | Parametr | Navrhovaná hodnota |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
-    | Adresa URL požadavku | https://Atlas.microsoft.com/search/fuzzy/JSON? |
+    | Adresa URL požadavku | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autorizace | Bez ověřování |
 
     **Json** atribut v cesty URL určuje formát odpovědi. Json v tomto článku používají pro snadné použití a přehlednosti. Můžete najít formáty k dispozici odpověď v **získat přibližné vyhledávání** definice [umístění na základě služby funkční referenční dokumentace rozhraní API] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
@@ -53,7 +53,7 @@ Většina vyhledávací dotazy jako výchozí se maxFuzzyLevel = 1' k získání
     | Klíč | Hodnota |
     |------------------|-------------------------|
     | verze rozhraní API. | 1.0 |
-    | klíč předplatného | *klíč předplatného* |
+    | klíč předplatného | \<klíč služeb na základě umístění Azure\> |
     | query | pizza |
 
 4. Klikněte na tlačítko **odeslat** a zkontrolujte text odpovědi. 
@@ -93,7 +93,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     | Parametr | Navrhovaná hodnota |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
-    | Adresa URL požadavku | https://Atlas.microsoft.com/search/Address/JSON? |
+    | Adresa URL požadavku | https://atlas.microsoft.com/search/address/json? |
     | Autorizace | Bez ověřování |
 
 2. Klikněte na tlačítko **parametry**a zadejte následující klíč / hodnota dvojice k použití jako parametry dotazu nebo cestu v adrese URL požadavku:
@@ -103,7 +103,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     | Klíč | Hodnota |
     |------------------|-------------------------|
     | verze rozhraní API. | 1.0 |
-    | klíč předplatného | *klíč předplatného* |
+    | klíč předplatného | \<klíč služeb na základě umístění Azure\> |
     | query | 400 široce St, Seattle, WA 98109 |
     
 3. Klikněte na tlačítko **odeslat** a zkontrolujte text odpovědi. 
@@ -133,7 +133,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     | Parametr | Navrhovaná hodnota |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
-    | Adresa URL požadavku | https://Atlas.microsoft.com/search/Address/Reverse/JSON? |
+    | Adresa URL požadavku | https://atlas.microsoft.com/search/address/reverse/json? |
     | Autorizace | Bez ověřování |
     
 2. Klikněte na tlačítko **parametry**a zadejte následující klíč / hodnota dvojice k použití jako parametry dotazu nebo cestu v adrese URL požadavku:
@@ -143,7 +143,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     | Klíč | Hodnota |
     |------------------|-------------------------|
     | verze rozhraní API. | 1.0 |
-    | klíč předplatného | *klíč předplatného* |
+    | klíč předplatného | \<klíč služeb na základě umístění Azure\> |
     | query | 47.59093,-122.33263 |
     
 3. Klikněte na tlačítko **odeslat** a zkontrolujte text odpovědi. 
@@ -201,7 +201,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     | Parametr | Navrhovaná hodnota |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
-    | Adresa URL požadavku | https://Atlas.microsoft.com/search/Address/Reverse/crossstreet/JSON? |
+    | Adresa URL požadavku | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Autorizace | Bez ověřování |
     
 3. Klikněte na tlačítko **parametry**a zadejte následující klíč / hodnota dvojice k použití jako parametry dotazu nebo cestu v adrese URL požadavku:
@@ -209,7 +209,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     | Klíč | Hodnota |
     |------------------|-------------------------|
     | verze rozhraní API. | 1.0 |
-    | klíč předplatného | *klíč předplatného* |
+    | klíč předplatného | \<klíč služeb na základě umístění Azure\> |
     | query | 47.59093,-122.33263 |
     
 4. Klikněte na tlačítko **odeslat** a zkontrolujte text odpovědi. 

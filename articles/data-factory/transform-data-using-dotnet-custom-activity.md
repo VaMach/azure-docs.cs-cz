@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Použití vlastních aktivit v kanálu Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Tento příklad ukazuje, jak můžete použít referenceObjects a extendedProper
 
 Po provedení aktivity referenceObjects a extendedProperties jsou uloženy v následující soubory, které jsou nasazeny do stejné složky provádění SampleApp.exe: 
 
-- Activity.JSON
+- activity.json
 
   Ukládá extendedProperties a vlastnosti vlastní aktivity. 
 
@@ -196,13 +196,13 @@ Po provedení aktivity referenceObjects a extendedProperties jsou uloženy v ná
 
   Ukládá pole propojené služby definované ve vlastnosti referenceObjects. 
 
-- datasets.JSON
+- datasets.json
 
   Ukládá v vlastnost referenceObjects definována pole datové sady. 
 
 Následující ukázka kódu ukazují, jak SampleApp.exe můžete přistupovat k požadované informace ze souborů JSON: 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;

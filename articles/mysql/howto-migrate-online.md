@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 3d7e96623ef4ad9abd55deca8b410e9ce0d73b6c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimální dobou výpadku migrace do Azure Database pro databázi MySQL
 Můžete migrovat existující databázi MySQL do databáze Azure pro databázi MySQL pomocí společnosti Attunity replikace pro Migrations Microsoft. Společnosti Attunity replikace je společné nabídky od společnosti Attunity a společnosti Microsoft. Společně se službou migrace databáze Azure je zahrnuta bez dalších poplatků zákazníkům společnosti Microsoft. 
@@ -34,5 +34,5 @@ Přehled procesu k provedení migrace minimální dobou výpadku zahrnuje:
 Další informace o společnosti Attunity replikace pro Microsoft Migrations nabídky najdete v následujících zdrojích informací:
  - Přejděte na [společnosti Attunity replikace pro Microsoft Migrations](https://aka.ms/attunity-replicate) webovou stránku.
  - Stáhněte si [společnosti Attunity replikace pro Microsoft migrace](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Přejděte na [společnosti Attunity replikovat komunity](https://microsoft.attunity.com/) úvodní příručku, kurzy a podporu.
+ - Přejděte na [společnosti Attunity replikovat komunity](https://aka.ms/attunity-community) úvodní příručku, kurzy a podporu.
  - Podrobný návod k migraci databáze MySQL na Azure Database pro databázi MySQL pomocí společnosti Attunity replikace, najdete v článku [příručka k migraci databáze](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).

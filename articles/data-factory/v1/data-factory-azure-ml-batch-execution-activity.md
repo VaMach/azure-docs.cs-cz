@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3169584bc884107ccd34b01264683d8c73c0fecb
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 05ae7cdc78e909c9aaa2b690d03eff8da09b6242
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Vytvořit prediktivní kanály pomocí Azure Machine Learning a Azure Data Factory
 
@@ -135,7 +135,7 @@ V tomto scénáři Azure Machine Learning webovou službu díky předpovědi pom
 >
 >
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 Tento příklad používá úložiště Azure pro uložení vstupní a výstupní data.
 
 Doporučujeme projít si [sestavit svůj první kanál pomocí služby Data Factory] [ adf-build-1st-pipeline] kurz před projít tento příklad. Pomocí editoru služby Data Factory pro vytvoření artefaktů služby Data Factory (propojené služby, datové sady, kanálu) v tomto příkladu.   
@@ -185,7 +185,7 @@ Doporučujeme projít si [sestavit svůj první kanál pomocí služby Data Fact
     }
     ```
 
-    Soubor vstupní csv musí obsahovat řádek záhlaví sloupců. Pokud používáte **aktivity kopírování** k vytvoření nebo přesunutí sdíleném svazku clusteru do úložiště objektů blob, měli nastavit vlastnost jímky **blobWriterAddHeader** k **true**. Například:
+    Soubor vstupní csv musí obsahovat řádek záhlaví sloupců. Pokud používáte **aktivity kopírování** k vytvoření nebo přesunutí sdíleném svazku clusteru do úložiště objektů blob, měli nastavit vlastnost jímky **blobWriterAddHeader** k **true**. Příklad:
 
     ```JSON
     sink:
@@ -354,7 +354,7 @@ Při použití modulu reader v experimentu Azure Machine Learning, můžete zada
 
 ![Azure Blob vlastnosti](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 #### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>Kanál s aktivitou AzureMLBatchExecution s parametry webové služby
 
 ```JSON

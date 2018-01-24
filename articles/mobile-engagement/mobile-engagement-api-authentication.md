@@ -14,25 +14,25 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 66bcd738b86f846eae3499b289a6629323009a44
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 574e699a1cfca2caef0cf20872570bbb8650117b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Ověření s Mobile Engagementem rozhraní REST API
 
 ## <a name="overview"></a>Přehled
 
-Tento dokument popisuje, jak se získat token k ověření s rozhraními API sady Mobile Engagement REST platný AD Oauth Azure.
+Tento dokument popisuje, jak se získat token k ověření s rozhraními API sady Mobile Engagement REST platný OAuth Azure Active Directory (Azure AD).
 
-Předpokládá se, že máte platné předplatné Azure a jste vytvořili aplikaci Mobile Engagement pomocí jedné z [vývojáře kurzy](mobile-engagement-windows-store-dotnet-get-started.md).
+Tento postup předpokládá, že máte platné předplatné Azure a jste vytvořili aplikaci Mobile Engagement pomocí jedné z [vývojáře kurzy](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="authentication"></a>Authentication
 
-Microsoft Azure Active Directory na základě tokenu se používá k ověřování OAuth. 
+Token OAuth na základě Microsoft Azure Active Directory se používá k ověřování. 
 
-Aby žádosti o ověření rozhraní API musí hlavičku autorizace přidány do každého požadavku, která je v následujícím formátu:
+K ověření požadavek rozhraní API, je nutné přidat hlavičku ověřování pro každou žádost. Autorizační hlavičky je v následujícím formátu:
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
 
@@ -41,14 +41,17 @@ Aby žádosti o ověření rozhraní API musí hlavičku autorizace přidány do
 > 
 > 
 
-Existuje několik způsobů, jak získat token. Vzhledem k tomu, že rozhraní API se nazývají z cloudové služby, kterou chcete použít klíč rozhraní API. Klíč rozhraní API v Azure terminologii nazývá hlavní heslo služby. Následující postup popisuje jeden způsob, jak ručně nastavení.
+Existuje několik způsobů, jak získat token. Protože rozhraní API se nazývají z cloudové služby, kterou chcete použít klíč rozhraní API. Klíč rozhraní API v Azure terminologii nazývá instanční objekt hesla. Následující postup popisuje jeden způsob, jak jej nastavit ručně.
 
-### <a name="one-time-setup-using-script"></a>Jednorázové instalace (pomocí skriptu.)
+### <a name="one-time-setup-using-a-script"></a>Jednorázové instalace (pomocí skriptu.)
 
-Postupujte podle sadu pokynů k provedení instalace pomocí skriptu prostředí PowerShell, který přebírá minimální hodnota času pro instalaci, ale používá většina povolenou výchozí hodnoty. Volitelně můžete také podle pokynů [ruční instalaci](mobile-engagement-api-authentication-manual.md) tohoto postupu z portálu Azure přímo a proveďte jemnějšího konfigurace.
+K provedení instalace pomocí skriptu prostředí PowerShell, postupujte podle kroků v následujících pokynech. Skript prostředí PowerShell pro instalační program vyžaduje minimálně množství času, ale používá většina povolenou výchozí hodnoty. 
 
-1. Získat nejnovější verzi prostředí Azure PowerShell z [zde](http://aka.ms/webpi-azps). Další informace o pokyny ke stažení, uvidíte to [odkaz](/powershell/azure/overview).
-2. Po instalaci prostředí Azure PowerShell, použijte následující příkazy k zajištění, že máte **Azure modulu** nainstalován:
+Volitelně můžete také podle pokynů [ruční instalaci](mobile-engagement-api-authentication-manual.md) přímo tohoto postupu z portálu Azure. Při nastavování z portálu Azure, můžete provést podrobnější konfigurace.
+
+1. Získat nejnovější verzi prostředí Azure PowerShell pomocí [Stáhnout](http://aka.ms/webpi-azps). Další informace o pokyny ke stažení najdete v tématu [tento přehled](/powershell/azure/overview).
+
+2. Po instalaci prostředí PowerShell, použijte následující příkazy k zajištění, že máte **Azure modulu** nainstalován:
 
     a. Zkontrolujte, zda že je k dispozici v seznamu dostupných modulů modulu Azure PowerShell.
 
@@ -56,43 +59,53 @@ Postupujte podle sadu pokynů k provedení instalace pomocí skriptu prostředí
 
     ![K dispozici moduly Azure][1]
 
-    b. Pokud v seznamu nenajdete modulu Azure PowerShell, budete muset spustit:
+    b. Pokud nenajdete modulu Azure PowerShell v předchozím seznamu, budete muset spustit:
 
         Import-Module Azure
-3. Přihlášení k Azure Resource Manager z prostředí PowerShell spuštěním následujícího příkazu a poskytuje uživatelské jméno a heslo pro účet Azure: 
+3. Přihlaste se do Azure Resource Manageru z prostředí PowerShell spuštěním následujícího příkazu. Zadejte uživatelské jméno a heslo pro účet Azure: 
 
         Login-AzureRmAccount
-4. Pokud máte více předplatných, pak spusťte:
+4. Pokud máte více předplatných, proveďte následující kroky:
 
-    a. Získat seznam všech odběrů a zkopírujte ID předplatného odběr, který chcete použít. Zajistěte, aby že toto předplatné je stejný jako ten, který má aplikace Mobile Engagementu, který se chystáte interakci s pomocí rozhraní API. 
+    a. Získejte seznam všech vašich předplatných. Zkopírujte **SubscriptionId** odběru, který chcete použít. Zajistěte, aby že toto předplatné se aplikace Mobile Engagement. Chcete tuto aplikaci používat k interakci se rozhraní API. 
 
         Get-AzureRmSubscription
 
-    b. Spusťte následující příkaz poskytování ID odběru konfigurace odběru, který se má použít.
+    b. Spusťte následující příkaz. Zadejte **SubscriptionId** nakonfigurovat odběr, který se chystáte použít:
 
         Select-AzureRmSubscription –SubscriptionId <subscriptionId>
-5. Zkopírujte text pro [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) skriptu do místního počítače a uložte ho jako rutiny prostředí PowerShell (například `APIAuth.ps1`) a spusťte ho `.\APIAuth.ps1`.
-6. Skript zobrazí výzvu k poskytují vstup pro **principalName**. Zadejte vhodný název sem, chcete použít k vytvoření aplikace Active Directory (např. APIAuth). 
-7. Po dokončení skriptu zobrazí následující čtyři hodnoty, které potřebujete k ověření prostřednictvím kódu programu s AD proto nezapomeňte zkopírovat je. 
+5. Zkopírujte text pro [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) skriptu do místního počítače. Pak ho uložte jako rutiny prostředí PowerShell (například `APIAuth.ps1`), a potom ho spusťte.
 
-    **TenantId**, **SubscriptionId**, **ApplicationId**, a **tajný klíč**.
+         `.\APIAuth.ps1`.
 
-    Budete používat TenantId jako `{TENANT_ID}`, ApplicationId jako `{CLIENT_ID}` a tajný jako `{CLIENT_SECRET}`.
+6. Skript požaduje zadání vstup pro **principalName**. Zadejte vhodný název, který chcete použít pro aplikaci služby Active Directory (například APIAuth). 
+
+7. Po dokončení spuštění skriptu zobrazí následujícími čtyřmi hodnotami. Nezapomeňte zkopírovat, protože je k ověření prostřednictvím kódu programu se službou Active Directory potřebujete: 
+
+   - **TenantId**
+   - **ID předplatného**
+   - **ApplicationId**
+   - **Tajný kód**
+
+   Použít TenantId jako `{TENANT_ID}`, ApplicationId jako `{CLIENT_ID}` a tajný jako `{CLIENT_SECRET}`.
 
    > [!NOTE]
-   > Výchozí zásady zabezpečení mohou blokovat spouštění skriptů prostředí PowerShell. Pokud ano, můžete dočasně konfiguraci vaší zásady spouštění povolit spuštění skriptu pomocí následujícího příkazu:
+   > Výchozí zásady zabezpečení mohou blokovat spouštění skriptů prostředí PowerShell. Pokud ano, použijte následující příkaz dočasně konfigurace vaší zásady spouštění povolit spuštění skriptu:
    > 
    > Set-ExecutionPolicy RemoteSigned
-8. Zde je, jak bude vypadat sadu rutin PS.
-    ![][3]
-9. Na portálu Azure přejděte do služby Active Directory, klikněte na **registrace aplikace** a hledání své aplikace a ujistěte se, zda existuje![][4]
+8. Zde je, jak vypadá sadu rutin prostředí PowerShell.
+    ![Rutiny PowerShellu][3]
+9. V portálu Azure přejděte do služby Active Directory, vyberte **registrace aplikace**, a pak hledání své aplikace a ujistěte se, zda existuje.
+    ![Vyhledávání pro vaši aplikaci.][4]
 
 ### <a name="steps-to-get-a-valid-token"></a>Kroky, chcete-li získat platný token
 
-1. Volání rozhraní API s následujícími parametry a nezapomeňte nahradit klienta\_ID, klient\_ID a klienta\_tajný klíč:
+1. Volání rozhraní API s následujícími parametry. Nezapomeňte nahradit **klienta\_ID**, **klienta\_ID**, a **klienta\_tajný klíč**:
    
    * **Adresa URL požadavku** jako`https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
+
    * **Hlavičku HTTP Content-Type** jako`application/x-www-form-urlencoded`
+   
    * **Text žádosti HTTP** jako`grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
      
     Toto je požadavek příklad:
@@ -103,7 +116,7 @@ Postupujte podle sadu pokynů k provedení instalace pomocí skriptu prostředí
     grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
     urce=https%3A%2F%2Fmanagement.core.windows.net%2F
     ```
-    Tady je příklad odpověď:
+    Toto je odpověď příklad:
     ```
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8
@@ -112,28 +125,29 @@ Postupujte podle sadu pokynů k provedení instalace pomocí skriptu prostředí
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
     5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
     ```
-     Tento příklad zahrnuté kódování URL parametrů POST, `resource` hodnota je ve skutečnosti `https://management.core.windows.net/`. Dávejte pozor, abyste také adresu URL kódování `{CLIENT_SECRET}` jako může obsahovat speciální znaky.
+     Tento příklad obsahuje kódování URL parametry POST, ve kterém `resource` hodnota je ve skutečnosti `https://management.core.windows.net/`. Dávejte pozor, abyste také kódování URL `{CLIENT_SECRET}`, protože ho může obsahovat speciální znaky.
 
      > [!NOTE]
-     > Pro testování, můžete použít nástroj pro klienta na HTTP jako [Fiddler](http://www.telerik.com/fiddler) nebo [rozšíření Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) 
+     > Pro testování, můžete použít nástroj pro klienta na protokolu HTTP, jako [Fiddler](http://www.telerik.com/fiddler) nebo [Chrome Postman rozšíření](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop). 
      > 
      > 
 2. Každé volání rozhraní API nyní obsahují hlavičce autorizace požadavku:
    
         Authorization: Bearer {ACCESS_TOKEN}
    
-    Pokud se vrátil kód stavu 401, zkontrolujte text odpovědi se vás může upozornit tokenu vypršela. V takovém případě získáte nový token.
+    Pokud vaše žádost vrátí stavový kód 401, zkontrolujte text odpovědi. Ho vás může upozornit, že vypršela platnost tokenu. V takovém případě získáte nový token.
 
-## <a name="using-the-apis"></a>Pomocí rozhraní API
+## <a name="use-the-apis"></a>Použití rozhraní API
 Teď, když máte platný token, jste připraveni k volání rozhraní API.
 
-1. V každé žádosti o rozhraní API musíte předat token platný, neprošlé, který jste získali v předchozí části.
-2. Musíte se připojit některé parametry do požadavku URI, který identifikuje vaši aplikaci. Požadavek URI vypadá takto
+1. V každé žádosti o rozhraní API musíte předat token platný, neprošlé. Jste získali v předchozí části neprošlé token.
+
+2. Zařaďte některé parametry na žádost o identifikátor URI, který identifikuje vaši aplikaci. Požadavek URI vypadá následující kód:
    
         https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
         providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
    
-    K získání parametrů, klikněte na název vaší aplikace a klikněte na řídicí panel a vy se zobrazí na stránce jako na následujícím obrázku se 3 parametry.
+    Chcete-li získat parametry, vyberte název aplikace. Potom vyberte **řídicí panel**. Zobrazí stránka s všechny tři parametry, následujícím způsobem:
    
    * **1** `{subscription-id}`
    * **2** `{app-collection}`
@@ -141,10 +155,9 @@ Teď, když máte platný token, jste připraveni k volání rozhraní API.
    * **4** název vaše skupiny prostředků bude **MobileEngagement** Pokud jste vytvořili novou. 
 
 > [!NOTE]
-> <br/>
+> Kořenové adresu rozhraní API ignorujte, protože byl pro předchozí rozhraní API.
 > 
-> 1. Ignorujte adresu kořenové rozhraní API, jako to byla pro předchozí rozhraní API.<br/>
-> 2. Pokud jste vytvořili aplikaci pomocí portálu Azure budete muset použijte název prostředku aplikace, které se liší od názvu aplikace, sám sebe. Pokud jste vytvořili aplikaci na portálu Azure doporučujeme, abyste používali samotný (není žádný rozdíl mezi název prostředku aplikace a název aplikace pro aplikace vytvořené v nového portálu) název aplikace.  
+> Pokud jste vytvořili aplikaci pomocí portálu Azure, budete muset použít název prostředku aplikace, který se liší od názvu aplikace, sám sebe. Pokud jste vytvořili aplikaci na portálu Azure, měli byste použít název aplikace. (Není žádný rozdíl mezi název prostředku aplikace a název aplikace pro aplikace, které jsou vytvořené v nového portálu.)
 > 
 > 
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: eb07deab834f63b48b7441f32521c48b27e549ca
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 0f42d971fcf21d0f719468a8c10ff637f2e523f9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Šifrovat přihlašovací údaje pro místní úložiště dat v Azure Data Factory
 Můžete šifrovat a ukládat přihlašovací údaje pro vaše místní data úložiště (propojené služby s citlivými informacemi) na počítači s vlastním hostováním integrace modulu runtime. 
@@ -51,7 +51,7 @@ Nahraďte `<servername>`, `<databasename>`, `<username>`, a `<password>` s hodno
 }
 ```
 
-## <a name="encrypt-credentials"></a>Šifrování přihlašovacích údajů
+## <a name="encrypt-credentials"></a>Šifrovat přihlašovací údaje
 K šifrování citlivých dat z datové části JSON v modulu runtime s vlastním hostováním integrace místní, spusťte **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**a předat na datové části JSON. Tato rutina zajistí, že přihlašovací údaje jsou šifrované pomocí rozhraní DPAPI a uloženy na uzlu runtime vlastním hostováním integrace místně. Výstupní datové části můžete přesměrovat do jiného souboru JSON (v tomto případě "encryptedLinkedService.json"), který obsahuje zašifrované přihlašovací údaje.
 
 ```powershell
@@ -65,6 +65,6 @@ Nyní, nastavit pomocí souboru JSON výstupu z předchozí příkaz, který obs
 Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Informace o aspektech zabezpečení pro přesun dat najdete v tématu [důležité informace o zabezpečení pro přesun dat](data-movement-security-considerations.md).
 

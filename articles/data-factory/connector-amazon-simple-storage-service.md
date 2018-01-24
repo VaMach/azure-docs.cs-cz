@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 152a5145c2a337561fc21d4f3fe67abab2d918f9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopírování dat z Amazon jednoduché úložiště služby pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -160,7 +160,7 @@ Chcete-li kopírovat data z Amazonu S3, nastavte vlastnost typu datové sady, kt
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které podporuje Azure Data Lake zdroj a jímka.
 

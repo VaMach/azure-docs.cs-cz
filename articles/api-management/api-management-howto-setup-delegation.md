@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 0c0a229e973999cb60ca5da2df652a6182c192a8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e94d920c7d55ad643ed81deda43e8ce96c304346
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Pro delegování uživatele registrace a produktu předplatného
 Delegování umožňuje použít existující web pro zpracování vývojáře sign v nebo registrace-množství a předplatné produkty oproti pomocí integrované funkce v portálu pro vývojáře. To umožňuje webu do vlastní data uživatele a provést ověření z těchto kroků vlastní způsobem.
@@ -70,7 +70,7 @@ Teď je potřeba vytvořit **koncový bod delegování**. Je třeba provést ně
    * [žádosti o token jednotného přihlašování (SSO)] prostřednictvím rozhraní API REST API pro správu
    * parametr dotazu returnUrl připojte k adrese URL jednotné přihlašování jste dostali od volání rozhraní API výše:
      
-     > například https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * přesměruje uživatele na výše uvedenou adresu URL vytvořené
@@ -131,7 +131,7 @@ Tyto ukázky kódu ukazují, jak provést *delegování ověřovací klíč*, kt
 
 **Kód jazyka C# pro generování hash returnUrl**
 
-```c#
+```csharp
 using System.Security.Cryptography;
 
 string key = "delegation validation key";
@@ -163,7 +163,7 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 var signature = digest.toString('base64');
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o delegování najdete v následujícím videu.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]

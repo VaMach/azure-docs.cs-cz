@@ -1,5 +1,5 @@
 ---
-title: "Postup vytvoření přeskakující okno aktivační události v Azure Data Factory | Microsoft Docs"
+title: "V Azure Data Factory vytvořit aktivační události přeskakující okno | Microsoft Docs"
 description: "Naučte se vytvořit aktivační událost v Azure Data Factory, která běží na přeskakující okno kanálu."
 services: data-factory
 documentationcenter: 
@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: a3b056ae4bb4eda26fec58ca3b6bed7f0744e36e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1f026683ebc9b3d2bc935cd78aa9d16684e7db40
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Jak vytvořit aktivační událost, která běží na přeskakující okno kanálu
-Tento článek obsahuje kroky k vytvoření, spuštění a monitorování aktivační událost přeskakující okno. Obecné informace o aktivační události a typy podporujeme najdete v tématu [kanálu spouštěcí a aktivační události](concepts-pipeline-execution-triggers.md).
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Vytvořit aktivační událost, která běží na přeskakující okno kanálu
+Tento článek obsahuje kroky k vytvoření, spuštění a monitorování aktivační událost přeskakující okno. Obecné informace o aktivační události a podporované typy najdete v tématu [kanálu spouštěcí a aktivační události](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
-> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [úvod do služby Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Tento článek se týká do Azure Data Factory verze 2, který je aktuálně ve verzi preview. Pokud používáte Azure Data Factory verze 1, který je všeobecně dostupná (GA), najdete v části [Začínáme s Azure Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Přeskakující okno aktivační události jsou typ aktivační událost, která aktivuje se v pravidelných časovém intervalu z zadaný počáteční čas, při zachování stavu. Přeskakující windows jsou řadu pevnou velikostí, které se nepřekrývají a souvislý časové intervaly. Přeskakující okno aktivační událost je v relaci 1:1 se zřetězením příkazů a může odkazovat pouze na singulární kanálu.
+Aktivační události pro přeskakující okno jsou typem aktivačních událostí, které se aktivuje v pravidelných časových intervalech od určeného počátečního okamžiku a které zachovávají stav. Přeskakující windows jsou řadu pevnou velikostí, které se nepřekrývají a souvislý časové intervaly. Přeskakující okno aktivační událost je v relaci 1: 1 se zřetězením příkazů a může odkazovat pouze na singulární kanálu.
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Přeskakujícího okna vlastnosti typ aktivační události
+Přeskakující okno má následující vlastnosti typ aktivační události:
+
 ```  
 {
     "name": "MyTriggerName",
@@ -68,24 +70,25 @@ Přeskakující okno aktivační události jsou typ aktivační událost, která
 }
 ```  
 
-Následující tabulka obsahuje přehled důležité elementy související s opakování a plánování v aktivační události přeskakující okno.
+Následující tabulka obsahuje přehled hlavních prvků JSON, které se vztahují k opakování a plánování aktivační události přeskakující okno:
 
-| **Název JSON** | **Popis** | **Povolené hodnoty** | **Požadované** |
-|:--- |:--- |:--- |:--- |
-| **Typ** | Typ aktivační události. Tento problém je vyřešený jako "TumblingWindowTrigger." | Řetězec | Ano |
-| **runtimeState** | <readOnly>Možné hodnoty: Spuštěna, zastavena, zakázán | Řetězec | Ano, jen pro čtení |
-| **frekvence** |*Frekvence* řetězec představující frekvence jednotka, kdy dojde znovu aktivační událost. Podporované hodnoty jsou "minutu" a "hodinu." Pokud čas zahájení má částí data, která jsou podrobnější než je četnost, se provedou v úvahu k výpočtu okno hranice. Pro ex: Pokud frekvence se každou hodinu a čas spuštění je 2016-04-01T10:10:10Z, je první okno (2017-09-01T10:10:10Z 2017-09-01T11:10:10Z.)  | Řetězec. Podporované typy "minut", "hodina" | Ano |
-| **interval** |*Interval* je kladné celé číslo a označuje je interval *frekvence* který určuje, jak často se spustí aktivační událost. Například pokud *interval* 3 a *frekvence* je "hodina", aktivační událost opakovat každých 3 hodiny. | Integer | Ano |
-| **čas spuštění**|*startTime* je datum a čas. *startTime* je první výskyt a může být v minulosti. První interval aktivační události bude (čas spuštění, startTime + interval). | Datum a čas | Ano |
-| **čas ukončení**|*čas ukončení* je datum a čas. *čas ukončení* je poslední výskyt a může být v minulosti. | Datum a čas | Ano |
-| **zpoždění** | Zadejte zpoždění před zpracováním dat spustí okno. Kanál spustit spustí po očekávaný čas provádění + zpoždění. Zpoždění definuje, jak dlouho se má aktivační procedura čeká po splatnosti čas před aktivací nové spuštění. Čas zahájení okna ho nebude změnit. | Časový interval (Příklad: 00:10:00, znamená zpoždění 10 minut) |  Ne. Výchozí hodnota je "00: 00:00" |
-| **maximální souběžnosti** | Počet souběžných aktivační událost spustí, které se aktivuje například pro windows, které jsou připravené. Příklad: Pokud se s vámi snažíme k obnovení dat každou hodinu pro včerejšího dne, který by 24 windows. Pokud souběžnosti = 10, aktivační události při vyvolání pouze pro prvních 10 windows (00:00-01:00 - 09:00 – 10:00). Po dokončení prvních 10 běží spouštěná kanálu se spustí aktivační událost při vyvolání pro další 10 (10:00 – 11:00 – 19:00 až 20:00). Pokračováním příklad souběžnosti = 10, pokud existují 10 windows připravený, bude 10 běží kanálu. Pokud je pouze 1 okno připraven, budou existovat jenom 1 spustit kanál. | Integer | Ano. Možné hodnoty 1 – 50 |
-| **retryPolicy: počet** | Počet opakovaných pokusů před spuštěním kanálu je označena jako "Failed"  | Integer |  Ne. Výchozí hodnota je 0 opakování |
-| **retryPolicy: intervalInSeconds** | Prodleva mezi pokusy o opakování v sekundách. | Integer |  Ne. Výchozí hodnota je 30 sekund. |
+| JSON – element | Popis | Typ | Povolené hodnoty | Požaduje se |
+|:--- |:--- |:--- |:--- |:--- |
+| **Typ** | Typ aktivační události. Typ je pevná hodnota "TumblingWindowTrigger." | Řetězec | "TumblingWindowTrigger" | Ano |
+| **runtimeState** | Aktuální stav, čas spuštění aktivační události.<br/>**Poznámka:**: Tento element má \<jen pro čtení >. | Řetězec | "Spustit", "Stopped," "Zakázat" | Ano |
+| **frekvence** | Řetězec, který představuje jednotku frekvenci (minut nebo hodin), kdy dojde znovu aktivační událost. Pokud **startTime** hodnoty data jsou podrobnější než **frekvence** hodnota, **startTime** data jsou považovány za, když se vypočítávají v hranicích okno. Například pokud **frekvence** hodnota je každou hodinu a **startTime** hodnota je 2016-04-01T10:10:10Z, je první okno (2017-09-01T10:10:10Z 2017-09-01T11:10:10Z). | Řetězec | "minut", "hodina"  | Ano |
+| **interval** | Kladné celé číslo, které označuje interval **frekvence** hodnotu, která určuje, jak často se spustí aktivační událost. Například pokud **interval** 3 a **frekvence** je "hodina," aktivační událost opakovat každých 3 hodiny. | Integer | Kladné celé číslo. | Ano |
+| **startTime**| První výskyt, který může být v minulosti. Je první interval aktivační události (**startTime**, **startTime** + **interval**). | Datum a čas | Hodnota, datum a čas. | Ano |
+| **endTime**| Poslední výskyt, který může být v minulosti. | Datum a čas | Hodnota, datum a čas. | Ano |
+| **delay** | Množství času zpoždění spuštění zpracování dat pro okno. Spustí kanálu spustit po je očekávaná doba provádění, a navíc **zpoždění**. **Zpoždění** definuje, jak dlouho má aktivační procedura čeká po splatnosti čase před aktivací nového spustit. **Zpoždění** nemění okno **startTime**. Například **zpoždění** hodnota 00:10:00 znamená zpoždění 10 minut. | Časový interval  | Hodnota času, kde výchozí hodnota je 00:00:00. | Ne |
+| **maxConcurrency** | Počet souběžných aktivační událost spustí, které se aktivuje například pro windows, které jsou připravené. Například zálohování výplně každou hodinu pro včerejšek za následek 24 windows běží. Pokud **maxConcurrency** = 10, aktivační události při vyvolání pouze pro prvních 10 windows (00:00-01:00 - 09:00 – 10:00). Po dokončení prvních 10 běží spouštěná kanálu se spustí aktivační událost při vyvolání pro další 10 windows (10:00 – 11:00 – 19:00 až 20:00). Pokračujte v tomto příkladu z **maxConcurrency** = 10, pokud existují 10 windows připravený, existují 10 běží celkový kanálu. Pokud je pouze 1 okno připraven, je pouze 1 spuštění kanálu. | Integer | Celé číslo mezi 1 až 50 znaků. | Ano |
+| **retryPolicy: počet** | Počet opakovaných pokusů před spuštěním kanálu je označena jako "Se nezdařilo."  | Integer | Celé číslo, kde výchozí hodnota je 0 (bez opakování). | Ne |
+| **retryPolicy: intervalInSeconds** | Prodleva mezi pokusy o opakování zadávají v sekundách. | Integer | Počet sekund, kde výchozí hodnota je 30. | Ne |
 
-### <a name="using-system-variables-windowstart-and-windowend"></a>Pomocí systémové proměnné: WindowStart a WindowEnd
+### <a name="windowstart-and-windowend-system-variables"></a>WindowStart a WindowEnd systémové proměnné
 
-Pokud chcete použít WindowStart a WindowEnd přeskakující okno triggeru ve vaší **kanálu** definice (tj. pro část dotazu), musí proměnné předat jako parametry do kanálu v **aktivační událost**definice, například takto:
+Můžete použít **WindowStart** a **WindowEnd** systémové proměnné aktivační události přeskakující okno ve vaší **kanálu** definice (tedy pro část dotazu). Systémové proměnné předat jako parametry do kanálu v **aktivační událost** definice. Následující příklad ukazuje, jak tyto proměnné předat jako parametry:
+
 ```  
 {
     "name": "MyTriggerName",
@@ -113,22 +116,24 @@ Pokud chcete použít WindowStart a WindowEnd přeskakující okno triggeru ve v
 }
 ```  
 
-Potom v definici kanálu WindowStart a WindowEnd hodnoty, použijte parametry odpovídajícím způsobem "MyWindowStart" a "MyWindowEnd"
+Použít **WindowStart** a **WindowEnd** hodnoty proměnných systému v definici kanálu používat vaše parametry "MyWindowStart" a "MyWindowEnd" odpovídajícím způsobem.
 
-### <a name="notes-on-backfill"></a>Poznámky k obnovení dat
-Pokud nejsou k dispozici více windows ke spuštění (esp. ve scénáři obnovení dat), pořadí spouštění systému windows je deterministická a bude z nejstarší nejnovější intervalech. Neexistuje žádný způsob, jak toto chování od nyní změnit.
+### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Pořadí spuštění systému windows v případě obnovení dat
+Po několika windows ke spuštění (zejména v případě obnovení dat) z nejstarší nejnovější intervalech je deterministická, pořadí zpracování pro systém windows. V současné době nelze toto chování změnit.
 
-### <a name="updating-an-existing-triggerresource"></a>Aktualizace stávající TriggerResource
-* Frekvence (nebo velikost okna), aktivační události dojde ke změně, stav windows již zpracována bude *není* resetován. Aktivační událost bude pokračovat pálení pro windows z poslední ten, který se provedla pomocí nové velikost okna.
-* Pokud je aktivační událost změny (přidán nebo aktualizován), stav windows již koncový čas zpracování bude *není* resetován. Aktivační událost se jednoduše nakládá nový koncový čas. Pokud vybraný konečný čas je před windows již proveden, aktivační událost se zastaví. Jinak se zastaví, jakmile narazí nový koncový čas.
+### <a name="existing-triggerresource-elements"></a>Existující TriggerResource elementy
+Toto platí pro existující **TriggerResource** prvky:
 
-## <a name="sample-using-azure-powershell"></a>Ukázka pomocí Azure PowerShell
+* Pokud hodnota **frekvence** elementu (nebo velikost okna) aktivační události změny stavu systému windows, které jsou již zpracovány je *není* resetovat. Aktivační událost dál platit pro windows z poslední okno, které se provedla pomocí nové velikost okna.
+* Pokud hodnota **endTime** element aktivační událost změny (přidán nebo aktualizován), stav systému windows, které jsou již zpracována je *není* resetovat. Aktivační událost ctí nové **endTime** hodnotu. Pokud nové **endTime** hodnota je před windows, které jsou spouštěny již, zastaví aktivační události. Jinak, aktivační události zastaví, když nové **endTime** zjištěna hodnota.
+
+## <a name="sample-for-azure-powershell"></a>Ukázka pro prostředí Azure PowerShell
 V této části se dozvíte, jak pomocí prostředí Azure PowerShell k vytvoření, spuštění a monitorování aktivační událost.
 
-1. Vytvořte soubor JSON s názvem MyTrigger.json ve složce C:\ADFv2QuickStartPSH\ s následujícím obsahem:
+1. Vytvořte soubor JSON s názvem **MyTrigger.json** ve složce C:\ADFv2QuickStartPSH\ s následujícím obsahem:
 
    > [!IMPORTANT]
-   > Nastavit **startTime** na aktuální čas UTC a **endTime** na jednu hodinu po aktuální čas UTC Čas před uložením souboru JSON.
+   > Před uložením souboru JSON, nastavte hodnotu **startTime** element na aktuální čas UTC. Nastavte hodnotu **endTime** element na jednu hodinu po aktuálním čase UTC.
 
     ```json   
     {
@@ -160,32 +165,38 @@ V této části se dozvíte, jak pomocí prostředí Azure PowerShell k vytvoře
       }
     }
     ```  
-2. Vytvořit aktivační událost pomocí **Set-AzureRmDataFactoryV2Trigger** rutiny.
+
+2. Vytvořit aktivační událost pomocí **Set-AzureRmDataFactoryV2Trigger** rutiny:
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    ```
     
-3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet.
+3. Zkontrolujte, zda je stav aktivační události **Zastaveno** pomocí **Get-AzureRmDataFactoryV2Trigger** rutiny:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
+
 4. Spusťte aktivační událost pomocí **Start-AzureRmDataFactoryV2Trigger** rutiny:
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-5. Zkontrolujte, zda je stav aktivační události **Začínáme** pomocí **Get-AzureRmDataFactoryV2Trigger** rutiny.
+
+5. Zkontrolujte, zda je stav aktivační události **Začínáme** pomocí **Get-AzureRmDataFactoryV2Trigger** rutiny:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-6.  Získat spustí aktivační událost pomocí prostředí PowerShell pomocí **Get-AzureRmDataFactoryV2TriggerRun** rutiny. Chcete-li získat informace o aktivační události spuštění, spusťte následující příkaz pravidelně: aktualizace **TriggerRunStartedAfter** a **TriggerRunStartedBefore** hodnoty shodují s hodnotami v definici aktivační události .
+
+6. Aktivační událost se spustí v prostředí Azure PowerShell Get **Get-AzureRmDataFactoryV2TriggerRun** rutiny. Chcete-li získat informace o spuštění aktivační události, spusťte následující příkaz pravidelně. Aktualizace **TriggerRunStartedAfter** a **TriggerRunStartedBefore** hodnoty k hodnotám ve vaší definice aktivační události:
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-Monitorování spustí nebo kanálu aktivační událost se spustí v portálu Azure najdete v tématu [spouští monitorování kanálu](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+    
+Monitorování spustí aktivační události a kanálu se spouští v portálu Azure najdete v tématu [spouští monitorování kanálu](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="next-steps"></a>Další postup
 Podrobné informace o aktivační události najdete v tématu [kanálu spouštěcí a aktivační události](concepts-pipeline-execution-triggers.md#triggers).

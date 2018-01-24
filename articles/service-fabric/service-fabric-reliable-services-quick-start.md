@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Začínáme s Reliable Services
 > [!div class="op_single_selector"]
@@ -188,7 +188,7 @@ Spolehlivé kolekce můžete ukládat jakýkoli typ rozhraní .NET, včetně vla
 Spolehlivé správce stavu spravuje spolehlivé kolekce za vás. Můžete jednoduše pokládat spolehlivé správce stavu pro kolekci spolehlivé podle názvu kdykoli a kdekoli v službě. Spolehlivé správce stavu zajišťuje, získejte odkaz na zpět. Doporučujeme si uložit odkazy na spolehlivé kolekci instancí v člen třídy, proměnné nebo vlastnosti. Musí dát zvláštní pozor zajistit, že je odkaz nastavený na instanci za všech okolností v průběhu životního cyklu služby. Spolehlivé správce stavu zpracuje tato práce pro uživatele a je optimalizovaný pro opakování návštěvách.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Transakční a asynchronní operace
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
@@ -215,7 +215,7 @@ Po službu spustit, můžete zobrazit vygenerované události trasování událo
 
 ![Zobrazení diagnostických událostí v sadě Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Ladění aplikace Service Fabric v sadě Visual Studio](service-fabric-debugging-your-application.md)
 
 [Začínáme: Service Fabric webového rozhraní API služby s vlastním hostování OWIN](service-fabric-reliable-services-communication-webapi.md)

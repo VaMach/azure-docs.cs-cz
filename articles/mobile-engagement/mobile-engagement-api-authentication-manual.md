@@ -1,5 +1,5 @@
 ---
-title: "Ověření pomocí Mobile Engagement REST API – ruční instalaci"
+title: "Ověření pomocí rozhraní REST API Mobile Engagement: ruční instalace"
 description: "Popisuje, jak ručně nastavit ověřování rozhraní REST API Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,89 +14,92 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3b678acbae225c28223a2ee76e5be2462a529362
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Ověření pomocí Mobile Engagement REST API – ruční instalaci
-Tato dokumentace je dokumentaci příloha [ověřit pomocí rozhraní API REST Mobile Engagement](mobile-engagement-api-authentication.md). Zajistěte, aby že si ji nejprve se získat kontext přečíst.
-Popisuje jiný způsob, jak provést jednorázové nastavení pro nastavení ověřování pro rozhraní API REST Mobile Engagement pomocí portálu Azure.
+# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Ověření pomocí rozhraní REST API Mobile Engagement: ruční instalace
+Tato dokumentace je dodatek k [ověřit pomocí rozhraní API REST Mobile Engagement](mobile-engagement-api-authentication.md). Ujistěte se, přečtěte si tento článek nejprve vám pomůže porozumět kontextu. Popisuje také jiný způsob, jak to jednorázové ověření instalace pro rozhraní API REST Mobile Engagement pomocí portálu Azure.
 
 > [!NOTE]
-> Následující pokyny jsou založené na tomto [služby Active Directory průvodce](../azure-resource-manager/resource-group-create-service-principal-portal.md) a přizpůsobit pro co je vyžadován pro ověření pro zapojení mobilních rozhraní API. Proto na ni odkazuje Pokud chcete zjistit, následující postup podrobně.
+> Následující pokyny jsou založené na [této příručce služby Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md). Že jsou přizpůsobené požadavky na ověřování pro zapojení mobilních rozhraní API. Na ně odkazují, pokud chcete pochopit následující kroky podrobně.
 
 1. Přihlaste se k účtu Azure prostřednictvím [portál Azure](https://portal.azure.com/).
 2. Vyberte **služby Active Directory** v levém podokně.
 
-     ![Vyberte možnost Active Directory][1]
+   ![Vyberte možnost Active Directory][1]
 
-3. Chcete-li zobrazit aplikace ve vašem adresáři, klikněte na **registrace aplikace**.
+3. Chcete-li zobrazit aplikace ve vašem adresáři, vyberte **registrace aplikace**.
 
-     ![Zobrazit aplikace][3]
+   ![Zobrazit aplikace][3]
 
-4. Klikněte na **nové registrace aplikace**.
+4. Vyberte **nové registrace aplikace**.
 
-     ![Přidání aplikace][4]
+   ![Přidání aplikace][4]
 
-5. Zadejte název aplikace a ponechat typ aplikace jako **webové aplikace nebo rozhraní API** a klikněte na tlačítko Další. Můžete zadat všechny fiktivní adresy URL pro **adresa URL přihlašování**: nejsou použity pro tento scénář a adresy URL sami nejsou ověřené.
-6. Po dokončení máte aplikaci Azure AD pomocí názvu, který jste zadali. Je vaše **AD\_aplikace\_název**, Zkontrolujte prosím, poznamenejte si ho.
+5. Zadejte název aplikace. Ponechat typ aplikace jako **webové aplikace nebo rozhraní API**a pak vyberte **Další** tlačítko. Můžete zadat všechny fiktivní adresy URL pro **adresa URL přihlašování**. Nejsou použity pro tento scénář a adresy URL sami nejsou ověřené.
 
-     ![název aplikace][8]
+   Po dokončení, máte aplikaci Azure Active Directory (Azure AD) s názvem, který jste zadali. Je vaše **AD\_aplikace\_název**, takže je nutné poznamenejte si ho.
 
-7. Klikněte na název aplikace.
-8. Najít **ID aplikace**, poznamenejte si ho, je možné ID klienta, který má být použita jako **klienta\_ID** pro vaše rozhraní API volání.
+   ![Název aplikace][8]
 
-     ![Konfigurace aplikace][10]
+7. Vyberte název aplikace.
+
+8. Najít **ID aplikace** a poznamenejte si ho. Je ID klienta, který se použije jako **klienta\_ID** pro vaše rozhraní API volání.
+
+   ![Najít ID aplikace][10]
 
 9. Najít **klíče** části na pravé straně.
 
-     ![Konfigurace aplikace][11]
+   ![Část klíče][11]
 
-10. Vytvořte nový klíč a okamžitě ho zkopírovat a uložit ji pro použití. Nikdy zobrazí se znovu.
+10. Vytvořte nový klíč a potom ho zkopírujete okamžitě. Znovu se nezobrazí.
 
-     ![Konfigurace aplikace][12]
+    ![Podokno klíče s podrobnosti klíče][12]
 
     > [!IMPORTANT]
-    > Tento klíč vyprší na konci dobu, která jste zadali, ujistěte se, že ho obnovit, když nastane čas jinak ověřování rozhraní API nebude fungovat. Můžete také odstranit a znovu vytvořit tento klíč, pokud se domníváte, že byl napaden.
+    > Tento klíč vyprší na konci dobu, která jste zadali. Ujistěte se, že ho obnovit, když nastane čas, jinak hodnota rozhraní API ověřování fungovat. Pokud se domníváte, že tento klíč je ohrožené zabezpečení, můžete odstranit a znovu vytvořit.
     >
-    >
-11. Klikněte na **koncové body** tlačítka v horní části stránky a zkopírujte **koncový bod TOKENU OAUTH 2.0**.
+    
+11. Vyberte **koncové body** tlačítka v horní části stránky. Zkopírujte **koncový bod TOKENU OAUTH 2.0**.
 
-    ![][14]
+    ![Zkopírujte koncový bod][14]
 
-16. Tento koncový bod bude ve formuláři následující, kde je identifikátor GUID v adrese URL vaší **TENANT_ID** , poznamenejte si ji:`https://login.microsoftonline.com/<GUID>/oauth2/token`
-17. Nyní budeme pokračovat nakonfigurovat oprávnění v této aplikaci. Pro to budete muset otevře [portál Azure](https://portal.azure.com). 
-18. Klikněte na **skupiny prostředků** a najděte **Mobile Engagement** skupinu prostředků.
+16. Tento koncový bod je v následující podobě, kde je identifikátor GUID v adrese URL vaší **TENANT_ID**:`https://login.microsoftonline.com/<GUID>/oauth2/token`
 
-    ![][15]
+17. Dále je nutné nakonfigurovat oprávnění v této aplikaci. Chcete-li spustit proces, přejděte na [portál Azure](https://portal.azure.com).
 
-19. Klikněte na tlačítko **Mobile Engagement** prostředků skupiny a přejděte do **nastavení** části v tomto poli.
+18. Vyberte **skupiny prostředků**a pak vyhledejte **MobileEngagement** skupinu prostředků.
 
-    ![][16]
+    ![Najít MobileEngagement][15]
 
-20. Klikněte na **uživatelé** v nastavení části a potom klikněte na **přidat** přidat uživatele.
+19. Vyberte **MobileEngagement** prostředku, skupiny a pak vyberte **všechna nastavení**.
 
-    ![][17]
+    ![Přejděte do nastavení pro MobileEngagement][16]
 
-21. Klikněte na **vyberte roli**.
+20. Vyberte **uživatelé** v **nastavení** části. Pak přidat uživatele, vyberte **přidat**.
 
-    ![][18]
+    ![Přidání uživatele][17]
 
-22. Klikněte na **vlastníka**.
+21. Klikněte na tlačítko **vyberte roli**.
 
-    ![][19]
+    ![Výběr role][18]
 
-23. Vyhledávání pro název vaší aplikace **AD\_aplikace\_název** do vyhledávacího pole. Se nezobrazí ve výchozím nastavení v tomto poli. Po nalezení, vyberte ho a klikněte na **vyberte** v dolní části.
+22. Vyberte **vlastníka**.
 
-    ![][20]
+    ![Vyberte vlastníka jako roli][19]
 
-24. Na **přidat přístup** části, se zobrazí jako **1 uživatel, 0 skupiny**. Klikněte na tlačítko **OK** v této části pro potvrzení změny.
+23. Vyhledávání pro název vaší aplikace **AD\_aplikace\_název**, do vyhledávacího pole. Tento název není ve výchozím nastavení v tomto poli. Když zjistíte, je, vyberte ho. Pak klikněte na tlačítko **vyberte** v dolní části.
 
-    ![][21]
+    ![Vyberte název][20]
 
-Teď jste dokončili požadované konfigurace služby Azure AD a jsou nastaveny na volání rozhraní API.
+24. V **přidat přístup** části, se jeví jako **1 uživatel, 0 skupiny**. Pro potvrzení změny, vyberte **OK**.
+
+    ![Potvrďte uživatel přidaný][21]
+
+Teď jste dokončili požadované konfigurace služby Azure AD a jsou nastavena na volání rozhraní API.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png

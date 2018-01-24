@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopírování dat z databáze MySQL pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Pro službu MySQL propojené jsou podporovány následující vlastnosti:
 | type | Vlastnost typu musí být nastavena na: **MySql** | Ano |
 | server | Název serveru databáze MySQL. | Ano |
 | databáze | Název databáze MySQL. | Ano |
-| Schéma | Název schématu v databázi. | Ne |
+| schema | Název schématu v databázi. | Ne |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k databázi MySQL. | Ano |
 | heslo | Zadejte heslo pro uživatelský účet, který jste zadali. Toto pole můžete označte jako SecureString. | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Modul Runtime Self-hosted integrace se vyžaduje, jak je uvedeno v [požadavky](#prerequisites). |Ano |
@@ -117,7 +117,7 @@ Ke zkopírování dat z databáze MySQL, nastavte vlastnost typu datové sady, k
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které podporuje MySQL zdroje.
 

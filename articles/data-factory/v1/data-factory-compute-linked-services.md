@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7733ea111de896ab0f825c85b89be25ebafdbd85
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 071d593108dd96605897cffe179d6451f8789ce6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Výpočetní prostředí podporovaných službou Azure Data Factory
 > [!NOTE]
@@ -128,7 +128,7 @@ Následující kód JSON určuje základě Linux na vyžádání propojené slu�
 | osType                       | Typ operačního systému. Povolené hodnoty jsou: systémy Linux a Windows. Pokud není zadaný, použije se ve výchozím nastavení Linux.  <br/>Důrazně recommand pomocí Linux na bázi clustery HDInsight jako datum vyřazení pro HDInsight v systému Windows je 31 července 2018. | Ne       |
 | hcatalogLinkedServiceName    | Název Azure SQL propojené služby, které odkazují na databázi HCatalog. Cluster HDInsight na vyžádání je vytvořená pomocí Azure SQL database jako metaúložiště. | Ne       |
 
-#### <a name="additionallinkedservicenames-json-example"></a>Příklad additionalLinkedServiceNames JSON
+#### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON example
 
 ```json
 "additionalLinkedServiceNames": [
@@ -300,7 +300,7 @@ Další možností je zajistit batchUri koncový bod, jak znázorňuje následuj
 | Vlastnost          | Popis                              | Požaduje se |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Vlastnost typu musí být nastavená na **AzureBatch**. | Ano      |
-| název účtu       | Název účtu Azure Batch.         | Ano      |
+| accountName       | Název účtu Azure Batch.         | Ano      |
 | accessKey         | Přístupový klíč pro účet Azure Batch.  | Ano      |
 | poolName          | Název fondu virtuálních počítačů.    | Ano      |
 | linkedServiceName | Název úložiště Azure propojená služba přidruženého k této službě Azure Batch propojený. Tato propojená služba se používá pro pracovní soubory potřebné ke spuštění aktivity a ukládání protokoly spuštění aktivity. | Ano      |
@@ -338,10 +338,10 @@ Následující tabulka obsahuje popis obecné vlastnosti používané v definici
 | Vlastnost                 | Popis                              | Požaduje se                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **Typ**                 | Vlastnost typu musí být nastavená na: **AzureDataLakeAnalytics**. | Ano                                      |
-| **název účtu**          | Název účtu Azure Data Lake Analytics.  | Ano                                      |
+| **accountName**          | Název účtu Azure Data Lake Analytics.  | Ano                                      |
 | **dataLakeAnalyticsUri** | Identifikátor URI služby Azure Data Lake Analytics.           | Ne                                       |
-| **ID předplatného**       | Id předplatného Azure                    | Ne (když není určeno, předplatné objektu pro vytváření dat se používá). |
-| **Název skupiny prostředků**    | Název skupiny prostředků Azure.                | Ne (když není určeno, skupinu prostředků objektu pro vytváření dat se používá). |
+| **subscriptionId**       | Id předplatného Azure                    | Ne (když není určeno, předplatné objektu pro vytváření dat se používá). |
+| **resourceGroupName**    | Název skupiny prostředků Azure.                | Ne (když není určeno, skupinu prostředků objektu pro vytváření dat se používá). |
 
 ### <a name="service-principal-authentication-recommended"></a>Objekt zabezpečení ověřování služby (doporučeno)
 Pokud chcete použít ověřování hlavní služby, zaregistrujte entitu aplikace v Azure Active Directory (Azure AD) a jí udělit přístup k Data Lake Store. Podrobné pokyny najdete v tématu [Service-to-service ověřování](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Poznamenejte si následující hodnoty, které můžete použít k definování propojené služby:
@@ -439,12 +439,12 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 V tématu [azuredatalakestorelinkedservice třída](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService třída](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), a [AuthorizationSessionGetResponse třída](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) témata podrobnosti o třídy objektu pro vytváření dat používá v kódu. Přidat odkaz na: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pro třídu WindowsFormsWebAuthenticationDialog. 
 
-## <a name="azure-sql-linked-service"></a>Propojená služba Azure SQL
+## <a name="azure-sql-linked-service"></a>Azure SQL Linked Service
 Vytvoření služby Azure SQL propojené a použít je s [aktivity uložené procedury](data-factory-stored-proc-activity.md) k vyvolání uložené procedury z objektu pro vytváření dat kanál. V tématu [konektor služby Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) článku podrobnosti o této propojené službě.
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL datového skladu propojené služby
 Vytvoření služby Azure SQL Data Warehouse propojené a použít je s [aktivity uložené procedury](data-factory-stored-proc-activity.md) k vyvolání uložené procedury z objektu pro vytváření dat kanál. V tématu [konektor služby Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) článku podrobnosti o této propojené službě.
 
-## <a name="sql-server-linked-service"></a>Propojená služba systému SQL Server
+## <a name="sql-server-linked-service"></a>SQL Server Linked Service
 Vytvoření služby SQL serveru propojená a použít je s [aktivity uložené procedury](data-factory-stored-proc-activity.md) k vyvolání uložené procedury z objektu pro vytváření dat kanál. V tématu [systému SQL Server konektoru](data-factory-sqlserver-connector.md#linked-service-properties) článku podrobnosti o této propojené službě.
 

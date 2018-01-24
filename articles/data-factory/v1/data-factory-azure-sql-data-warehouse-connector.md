@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopírování dat do a z Azure SQL Data Warehouse pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -87,7 +87,7 @@ V rámci typeProperties části se liší pro jednotlivé typy datovou sadu a po
 | --- | --- | --- |
 | tableName |Název tabulky nebo zobrazení v databázi Azure SQL Data Warehouse, která propojená služba odkazuje. |Ano |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 > [!NOTE]
@@ -156,7 +156,7 @@ GO
 | writeBatchSize |Vloží data do tabulky SQL, když velikost vyrovnávací paměti dosáhne writeBatchSize |Celé číslo (počet řádků) |Ne (výchozí: 10000) |
 | writeBatchTimeout |Počkejte, než čas na dokončení předtím, než vyprší časový limit operace dávkové vložení. |Časový interval<br/><br/> Příklad: "00: 30:00" (30 minut). |Ne |
 
-#### <a name="sqldwsink-example"></a>Příklad SqlDWSink
+#### <a name="sqldwsink-example"></a>SqlDWSink example
 
 ```JSON
 "sink": {
@@ -303,24 +303,24 @@ Data Factory vytvoří v cílové úložiště se stejným názvem tabulky v zdr
 
 | Typ sloupce zdrojové databáze SQL | Cílový typ sloupce SQL DW (omezení velikosti) |
 | --- | --- |
-| celá čísla | celá čísla |
+| Int | Int |
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Decimal | Decimal |
 | číselné | Decimal |
-| Plovoucí desetinná čárka | Plovoucí desetinná čárka |
+| Float | Float |
 | peníze | peníze |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binární | Binární |
+| Binární hodnota | Binární hodnota |
 | varbinary | Varbinary (až 8000) |
 | Datum | Datum |
-| Data a času | Data a času |
+| Datum a čas | Datum a čas |
 | DateTime2 | DateTime2 |
 | Čas | Čas |
-| Datový typ DateTimeOffset | Datový typ DateTimeOffset |
+| DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (až 8000) |
 | NText | NVarChar (až 4000) |
@@ -330,7 +330,7 @@ Data Factory vytvoří v cílové úložiště se stejným názvem tabulky v zdr
 | NChar | NChar |
 | VarChar | VarChar (až 8000) |
 | NVarChar | NVarChar (až 4000) |
-| XML | Varchar (až 8000) |
+| Xml | Varchar (až 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,37 +347,37 @@ Mapování je stejné jako [mapování datového typu aplikace SQL Server pro te
 | Typ databázového stroje SQL Server | Typ rozhraní .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| Binární |Byte] |
+| Binární |Byte[] |
 | Bit |Logická hodnota |
 | Char |Řetězec, Char] |
-| Datum |Data a času |
-| Data a času |Data a času |
-| datetime2 |Data a času |
-| Datový typ DateTimeOffset |Datový typ DateTimeOffset |
+| datum |Datum a čas |
+| Datum a čas |Datum a čas |
+| datetime2 |Datum a čas |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atribut FILESTREAM (varbinary(max)) |Byte] |
-| Plovoucí desetinná čárka |Double |
-| Bitové kopie |Byte] |
+| Atribut FILESTREAM (varbinary(max)) |Byte[] |
+| Float |Dvojitý |
+| Bitové kopie |Byte[] |
 | celá čísla |Int32 |
-| peníze |Decimal |
+| money |Decimal |
 | nchar |Řetězec, Char] |
 | ntext |Řetězec, Char] |
 | číselné |Decimal |
 | nvarchar |Řetězec, Char] |
-| skutečné |Jeden |
-| ROWVERSION |Byte] |
-| smalldatetime |Data a času |
+| skutečné |Svobodný/svobodná |
+| ROWVERSION |Byte[] |
+| smalldatetime |Datum a čas |
 | smallint |Int16 |
 | Smallmoney |Decimal |
-| SQL_VARIANT |Objekt * |
+| sql_variant |Objekt * |
 | Text |Řetězec, Char] |
-| time |Časový interval |
-| časové razítko |Byte] |
+| time |TimeSpan |
+| časové razítko |Byte[] |
 | tinyint |Bajtů |
-| Typ UniqueIdentifier |Identifikátor GUID |
-| varbinary |Byte] |
+| Typ UniqueIdentifier |Guid |
+| varbinary |Byte[] |
 | varchar |Řetězec, Char] |
-| xml |XML |
+| xml |Xml |
 
 Můžete také mapovat sloupců z datové sady zdroje na sloupce ze sady jímku dat v definici aktivity kopírování. Podrobnosti najdete v tématu [mapování sloupců datovou sadu v Azure Data Factory](data-factory-map-columns.md).
 

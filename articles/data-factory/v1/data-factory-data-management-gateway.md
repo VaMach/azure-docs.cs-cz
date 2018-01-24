@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway"></a>Brána správy dat
 > [!NOTE]
@@ -139,10 +139,10 @@ Na úrovni podniková brána firewall je nutné nakonfigurovat následující do
 
 | Názvy domén | Porty | Popis |
 | --- | --- | --- |
-| *. servicebus.windows.net |443, 80 |Používá ke komunikaci s back-end služba pro přesun dat |
-| *. core.windows.net |443 |Použít pro kopírování připravený pomocí objektů Blob v Azure (Pokud je nakonfigurováno)|
-| *. frontend.clouddatahub.net |443 |Používá ke komunikaci s back-end služba pro přesun dat |
-| *. servicebus.windows.net |9350-9354, 5671 |Předávání přes volitelné service bus přes TCP používá Průvodce kopírováním |
+| *.servicebus.windows.net |443, 80 |Používá ke komunikaci s back-end služba pro přesun dat |
+| *.core.windows.net |443 |Použít pro kopírování připravený pomocí objektů Blob v Azure (Pokud je nakonfigurováno)|
+| *.frontend.clouddatahub.net |443 |Používá ke komunikaci s back-end služba pro přesun dat |
+| *.servicebus.windows.net |9350-9354, 5671 |Předávání přes volitelné service bus přes TCP používá Průvodce kopírováním |
 
 
 Na úrovni brány firewall systému Windows jsou obvykle povolené tyto Odchozí porty. Pokud není, můžete nakonfigurovat domén a porty odpovídajícím způsobem v počítači brány.
@@ -315,7 +315,7 @@ Domovská stránka umožňuje provést následující akce:
 * **Naplánovat aktualizace** v určitém čase dny.
 * Zobrazit datum, kdy byl brány **poslední aktualizace**.
 
-### <a name="settings-page"></a>Nastavení stránky
+### <a name="settings-page"></a>Stránka Nastavení
 Stránka nastavení umožňuje provádět následující akce:
 
 * Zobrazit, změnit a exportujte **certifikát** používá bránu. Tento certifikát se používá k šifrování přihlašovacích údajů zdroje dat.

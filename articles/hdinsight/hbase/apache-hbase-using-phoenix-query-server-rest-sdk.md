@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: f3b29db2dd74e6b3c0c066045d05cb853d1541f8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f57260b2ee280aa0f49f42cd145477205926cb0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix dotazu serveru REST SDK
 
@@ -39,7 +39,7 @@ Ovladač rozhraní Microsoft .NET pro Apache Phoenix dotazu serveru k dispozici 
 
 Pokud chcete začít používat knihovny, vytvořit novou instanci `PhoenixClient` objekt, předávání v `ClusterCredentials` obsahující `Uri` do clusteru a clusteru Hadoop uživatelské jméno a heslo.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
@@ -50,7 +50,7 @@ Nahraďte název clusteru s názvem clusteru HDInsight HBase a uživatelské jm�
 
 Chcete-li odeslat PQS jeden nebo více požadavků, zahrnují jedinečný identifikátor připojení k přidružení žádosti s připojením.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -60,7 +60,7 @@ Každý příklad nejprve zavolá `OpenConnectionRequestAsync` metodu předání
 
 K volání `ConnectionSyncRequestAsync`, předejte `ConnectionProperties` objektu.
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -79,8 +79,8 @@ Zde jsou některé vlastnosti týkající se:
 
 | Vlastnost | Popis |
 | -- | -- |
-| Režimu automatického zápisu | Logická hodnota představující zda `autoCommit` je povolená pro Phoenix transakce. |
-| Jen pro čtení | Logická hodnota, které označuje, zda je připojení jen pro čtení. |
+| AutoCommit | Logická hodnota představující zda `autoCommit` je povolená pro Phoenix transakce. |
+| ReadOnly | Logická hodnota, které označuje, zda je připojení jen pro čtení. |
 | TransactionIsolation | Celé číslo představující úroveň izolace transakce za specifikace JDBC - najdete v následující tabulce.|
 | Katalog | Název katalogu pro použití při načítání vlastnosti připojení. |
 | Schéma | Název schématu pro použití při načítání vlastnosti připojení. |
@@ -102,7 +102,7 @@ HBase jako ostatní RDBMS ukládá data v tabulkách. Phoenix používá standar
 
 Tento příklad a všechny následné příklady, použijte vytvořenou instanci `PhoenixClient` objekt definovaný v [vytvořit nový objekt PhoenixClient](#instantiate-new-phoenixclient-object).
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -172,13 +172,13 @@ V předchozím příkladu vytvoří novou tabulku s názvem `Customers` pomocí 
 
 Tento příklad ukazuje jednotlivých datových vložit, odkazující `List<string>` kolekce American stavu a území zkratky:
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 V tabulce `StateProvince` hodnota sloupce se použije při následných vyberte operaci.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -289,7 +289,7 @@ Struktury pro provádění příkazu insert je podobná vytvoření nové tabulk
 
 Následující kód je téměř stejný jako kód pro vložení dat jednotlivě. Tento příklad používá `UpdateBatch` objekt v volání `ExecuteBatchRequestAsync`, namísto opakovaného volání `ExecuteRequestAsync` s připravený příkaz.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -407,7 +407,7 @@ Tento příklad ukazuje, jak znovu použít jedno připojení ke spuštění ví
 2. Pomocí příkazu select řádek Celkový počet získat jedna skalární hodnota.
 3. Spusťte příkaz select, který vrátí celkový počet zákazníků za stát nebo území.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 

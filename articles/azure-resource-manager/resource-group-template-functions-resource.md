@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funkce prostředků pro šablony Azure Resource Manager
 
@@ -26,8 +26,8 @@ Resource Manager poskytuje následující funkce pro získání hodnoty prostře
 
 * [listKeys a seznamu {Value}](#listkeys)
 * [Zprostředkovatelé](#providers)
-* [referenční dokumentace](#reference)
-* [Skupina prostředků](#resourcegroup)
+* [reference](#reference)
+* [resourceGroup](#resourcegroup)
 * [ID prostředku](#resourceid)
 * [předplatné](#subscription)
 
@@ -47,8 +47,8 @@ Vrátí hodnoty pro libovolný typ prostředku, který podporuje operaci seznamu
 
 | Parametr | Požaduje se | Typ | Popis |
 |:--- |:--- |:--- |:--- |
-| resourceName nebo resourceIdentifier |Ano |Řetězec |Jedinečný identifikátor pro prostředek. |
-| apiVersion |Ano |Řetězec |Verze rozhraní API stav modulu runtime prostředků. Obvykle ve formátu **rrrr mm-dd**. |
+| resourceName nebo resourceIdentifier |Ano |řetězec |Jedinečný identifikátor pro prostředek. |
+| apiVersion |Ano |řetězec |Verze rozhraní API stav modulu runtime prostředků. Obvykle ve formátu **rrrr mm-dd**. |
 
 ### <a name="return-value"></a>Návratová hodnota
 
@@ -93,7 +93,7 @@ Pokud chcete zjistit, jaké typy prostředků obsahovat operaci seznamu, máte n
 
 Zadejte prostředek pomocí [resourceId funkce](#resourceid), formát nebo `{providerNamespace}/{resourceType}/{resourceName}`.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Následující [příklad šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) ukazuje, jak vrátit primární a sekundární klíče z účtu úložiště v části výstupy.
 
@@ -153,8 +153,8 @@ Vrátí informace o poskytovatele prostředků a jeho typy podporovaných zdroj�
 
 | Parametr | Požaduje se | Typ | Popis |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Ano |Řetězec |Namespace zprostředkovatele |
-| Typ prostředku |Ne |Řetězec |Typ prostředku v rámci zadaného oboru názvů. |
+| providerNamespace |Ano |řetězec |Namespace zprostředkovatele |
+| resourceType |Ne |řetězec |Typ prostředku v rámci zadaného oboru názvů. |
 
 ### <a name="return-value"></a>Návratová hodnota
 
@@ -170,7 +170,7 @@ Každý podporovaný typ je vrácený v následujícím formátu:
 
 Řazení pole vrácené hodnoty není zaručena.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Následující [příklad šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) ukazuje způsob použití funkce zprostředkovatele:
 
@@ -232,7 +232,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="reference" />
 
-## <a name="reference"></a>Referenční dokumentace
+## <a name="reference"></a>odkaz
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Vrátí objekt představující stav modulu runtime prostředku.
@@ -241,9 +241,9 @@ Vrátí objekt představující stav modulu runtime prostředku.
 
 | Parametr | Požaduje se | Typ | Popis |
 |:--- |:--- |:--- |:--- |
-| resourceName nebo resourceIdentifier |Ano |Řetězec |Název nebo identifikátor prostředku. |
-| apiVersion |Ne |Řetězec |Verze rozhraní API zadaný prostředek. Tento parametr zahrnout do prostředku není zřízený v rámci stejné šablony. Obvykle ve formátu **rrrr mm-dd**. |
-| Úplná. |Ne |Řetězec |Hodnota, která určuje, zda chcete vrátit objekt úplné prostředků. Pokud nezadáte `'Full'`, je vrácen pouze objekt vlastnosti prostředku. Objekt úplné obsahuje hodnoty, jako je například ID prostředku a umístění. |
+| resourceName nebo resourceIdentifier |Ano |řetězec |Název nebo identifikátor prostředku. |
+| apiVersion |Ne |řetězec |Verze rozhraní API zadaný prostředek. Tento parametr zahrnout do prostředku není zřízený v rámci stejné šablony. Obvykle ve formátu **rrrr mm-dd**. |
+| Úplná. |Ne |řetězec |Hodnota, která určuje, zda chcete vrátit objekt úplné prostředků. Pokud nezadáte `'Full'`, je vrácen pouze objekt vlastnosti prostředku. Objekt úplné obsahuje hodnoty, jako je například ID prostředku a umístění. |
 
 ### <a name="return-value"></a>Návratová hodnota
 
@@ -251,7 +251,7 @@ Každý typ prostředku vrátí různé vlastnosti pro odkaz funkce. Funkce nevr
 
 ### <a name="remarks"></a>Poznámky
 
-Funkce odkaz odvozuje svou hodnotu z stav modulu runtime a proto jej nelze použít v sekci proměnných. V části výstupů šablony slouží. 
+Funkce odkaz odvozuje svou hodnotu z stav modulu runtime a proto jej nelze použít v sekci proměnných. Je možné v části výstupů šablony nebo [propojené šablony](resource-group-linked-templates.md#link-or-nest-a-template). Nelze zadat v části výstupy [vnořené šablony](resource-group-linked-templates.md#link-or-nest-a-template). K návratu hodnot pro prostředek nasazené v šabloně vnořené, převeďte na šablonu propojené vnořené šablony. 
 
 Pomocí funkce odkaz je implicitně deklarovat, že jeden prostředek závisí na jiný prostředek, pokud odkazovaného prostředku je zřízený v rámci stejné šablony. Není nutné také používat vlastnost dependsOn. Funkce, nebude hodnocen až odkazovaných prostředků po dokončení nasazení.
 
@@ -298,7 +298,7 @@ Použití `'Full'` když potřebujete hodnoty prostředků, které nejsou souč�
 
 Úplný příklad předchozí šablony najdete v tématu [Windows Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Podobně jako příklad je k dispozici pro [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Následující [příklad šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) nasadí prostředku a odkazuje na tento prostředek.
 
@@ -441,7 +441,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourcegroup" />
 
-## <a name="resourcegroup"></a>Skupina prostředků
+## <a name="resourcegroup"></a>resourceGroup
 `resourceGroup()`
 
 Vrátí objekt, který představuje aktuální skupině prostředků. 
@@ -479,7 +479,7 @@ Běžně se používají funkce resourceGroup je vytvoření prostředků ve ste
 ]
 ```
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Následující [příklad šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) vrací vlastnosti skupiny prostředků.
 
@@ -534,10 +534,10 @@ Vrací jedinečný identifikátor prostředku. Tuto funkci použít, když se n�
 | Parametr | Požaduje se | Typ | Popis |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Ne |řetězec (ve formátu identifikátoru GUID) |Výchozí hodnota je aktuální předplatné. Tuto hodnotu zadejte, když potřebujete načíst prostředku v jiné předplatné. |
-| Název skupiny prostředků |Ne |Řetězec |Výchozí hodnota je aktuální skupině prostředků. Tuto hodnotu zadejte, když potřebujete načíst prostředek v jiné skupině prostředků. |
-| Typ prostředku |Ano |Řetězec |Typ prostředku, včetně obor názvů zprostředkovatele prostředků. |
-| resourceName1 |Ano |Řetězec |Název prostředku. |
-| resourceName2 |Ne |Řetězec |Další prostředků název segment Pokud je vnořený prostředek. |
+| resourceGroupName |Ne |řetězec |Výchozí hodnota je aktuální skupině prostředků. Tuto hodnotu zadejte, když potřebujete načíst prostředek v jiné skupině prostředků. |
+| resourceType |Ano |řetězec |Typ prostředku, včetně obor názvů zprostředkovatele prostředků. |
+| resourceName1 |Ano |řetězec |Název prostředku. |
+| resourceName2 |Ne |řetězec |Další prostředků název segment Pokud je vnořený prostředek. |
 
 ### <a name="return-value"></a>Návratová hodnota
 
@@ -620,7 +620,7 @@ ID prostředku pro databázi v jiné skupině prostředků, použijte:
 }
 ```
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Následující [příklad šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) vrátí ID prostředku pro účet úložiště ve skupině prostředků:
 
@@ -652,7 +652,7 @@ Následující [příklad šablony](https://github.com/Azure/azure-docs-json-sam
 
 Výstup z předchozího příkladu s výchozími hodnotami je:
 
-| Name (Název) | Typ | Hodnota |
+| Název | Typ | Hodnota |
 | ---- | ---- | ----- |
 | sameRGOutput | Řetězec | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | Řetězec | /subscriptions/{Current-Sub-ID}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -691,7 +691,7 @@ Funkce vrátí hodnotu v následujícím formátu:
 }
 ```
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Následující [příklad šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) zobrazí v části výstupy volat funkci předplatného. 
 
@@ -721,7 +721,7 @@ Chcete-li nasadit tento příklad šablony v prostředí PowerShell, použijte:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Popis v částech šablonu Azure Resource Manager naleznete v tématu [šablon pro tvorbu Azure Resource Manageru](resource-group-authoring-templates.md).
 * Sloučit několik šablon, najdete v části [použití propojených šablon s Azure Resource Manager](resource-group-linked-templates.md).
 * K iteraci v zadaného počtu opakování při vytváření typu prostředku, najdete v části [vytvořit více instancí prostředků ve službě Správce prostředků Azure](resource-group-create-multiple.md).

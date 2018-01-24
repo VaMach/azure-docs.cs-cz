@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 980b297db87c2829f3c393ae867780f263f8d87c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurace sady Application Insights SDK pomocí souboru ApplicationInsights.config nebo .xml
 Application Insights .NET SDK se skládá z počet balíčků NuGet. [Základní balíček](http://www.nuget.org/packages/Microsoft.ApplicationInsights) poskytuje rozhraní API pro odesílání telemetrie Application insights. [Další balíčky](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) poskytují telemetrie *moduly* a *inicializátory* pro automaticky sledování telemetrie z vaší aplikace a jeho kontextu. Úpravou konfiguračního souboru, můžete povolit nebo zakázat telemetrii moduly a inicializátory a nastavit parametry pro některé z nich.
@@ -49,7 +49,7 @@ Můžete taky napsat vlastní závislost sledování kódu pomocí [TrackDepende
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) balíček NuGet.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Telemetrii Diagnostics Application Insights
-`DiagnosticsTelemetryModule` Sestavy chyb v samotný kód instrumentace Application Insights. Například pokud kód nelze získat přístup k čítače výkonu nebo `ITelemetryInitializer` vyvolá výjimku. Trasování telemetrie sleduje tento modul se zobrazí v [diagnostické vyhledávání][diagnostic]. Odešle dc.services.vsallin.net diagnostická data.
+`DiagnosticsTelemetryModule` Sestavy chyb v samotný kód instrumentace Application Insights. Například pokud kód nelze získat přístup k čítače výkonu nebo `ITelemetryInitializer` vyvolá výjimku. Trasování telemetrie sleduje tento modul se zobrazí v [diagnostické vyhledávání][diagnostic]. Sends diagnostic data to dc.services.vsallin.net.
 
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) balíček NuGet. Pokud máte pouze instalaci tohoto balíčku, není soubor ApplicationInsights.config vytvoří automaticky.
@@ -178,7 +178,7 @@ Tyto parametry vliv na způsob sady Java SDK měli uložit a vyprázdnit telemet
 Počet položek telemetrie, které mohou být uloženy v úložišti sady SDK v paměti. Při dosažení tohoto počtu vyprázdní vyrovnávací paměť telemetrie – to znamená, položky telemetrie posílají se na serveru Application Insights.
 
 * Min: 1
-* Maximální počet: 1 000
+* Max: 1000
 * Výchozí: 500
 
 ```
@@ -196,7 +196,7 @@ Počet položek telemetrie, které mohou být uloženy v úložišti sady SDK v 
 Určuje, jak často mají být data, která je uložená v úložišti v paměti vyprázdněny (odeslané do služby Application Insights).
 
 * Min: 1
-* Maximální počet: 300
+* Max: 300
 * Výchozí: 5
 
 ```
@@ -214,7 +214,7 @@ Určuje, jak často mají být data, která je uložená v úložišti v paměti
 Určuje maximální velikost v MB, která je vymezena pro trvalé úložiště na místním disku. Toto úložiště se používá pro zachování telemetrie položky, které se nepodařilo přenést do koncového bodu služby Application Insights. Pokud velikost úložiště byly splněny, nové položky telemetrie se zahodí.
 
 * Min: 1
-* Maximální počet: 100
+* Max: 100
 * Výchozí: 10
 
 ```
@@ -237,7 +237,7 @@ Pokud chcete nastavit klíč dynamicky – například pokud chcete odeslat výs
 
 Klíč pro všechny instance TelemetryClient, včetně standardní telemetrie moduly nastavit klíč v TelemetryConfiguration.Active. V metodě inicializace, jako jsou například souboru global.aspx.cs v službě ASP.NET, postupujte takto:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -250,7 +250,7 @@ Klíč pro všechny instance TelemetryClient, včetně standardní telemetrie mo
 
 Pokud chcete odeslat sadu událostí na jiný prostředek, můžete nastavit klíč pro konkrétní TelemetryClient:
 
-```C#
+```csharp
 
     var tc = new TelemetryClient();
     tc.Context.InstrumentationKey = "----- my key ----";

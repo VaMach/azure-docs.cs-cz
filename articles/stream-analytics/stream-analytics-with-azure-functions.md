@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Spusťte Azure Functions s úlohy Azure Stream Analytics 
  
@@ -62,7 +62,7 @@ Postupujte podle [odhalování podvodů v reálném čase](stream-analytics-real
 
 2. Vyhledejte **run.csx** funkce. Aktualizujte jej s následujícím kódem. (Nezapomeňte nahradit "\<místo připojovacího řetězce redis cache\>" s Azure Redis Cache primární připojovací řetězec, který jste získali v předchozí části.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +113,7 @@ Postupujte podle [odhalování podvodů v reálném čase](stream-analytics-real
 
    Když Stream Analytics přijme "HTTP požadavku Entity příliš velké" výjimky z funkce, snižuje velikost dávky, který odesílá funkce. Ve funkci použijte následující kód zkontrolujte, že Stream Analytics neodešle nadměrné velikosti dávky. Ujistěte se, že jsou konzistentní s hodnotou zadanou v portálu Stream Analytics batch maximální počet a velikost hodnoty používané ve funkci.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);

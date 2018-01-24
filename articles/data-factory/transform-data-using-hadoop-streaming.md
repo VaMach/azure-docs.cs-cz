@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 0452dcaa039c23b9e41f78a43df88f61d13033be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 449b322089ed3881df6d87276c3461d18d697edf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformace dat pomocí Hadoop streamované aktivitě v Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,14 +82,14 @@ Pokud jste do Azure Data Factory nové, přečtěte si [Úvod do Azure Data Fact
 | reduktorem           | Určuje název spustitelného souboru reduktorem | Ano      |
 | kombinační          | Určuje název spustitelného souboru kombinační | Ne       |
 | fileLinkedService | Odkaz na propojenou službu úložiště Azure používají k ukládání Mapper, kombinační a reduktorem spouštění programů. Pokud tato propojená služba nezadáte, použije se propojené služby Azure Storage definované v propojené službě HDInsight. | Ne       |
-| Cesta k souboru          | Zadejte pole cesty k Mapper, kombinační, a programy reduktorem uložené ve službě Azure Storage, na které se odkazuje fileLinkedService. V této cestě se rozlišují velká a malá písmena. | Ano      |
+| filePath          | Zadejte pole cesty k Mapper, kombinační, a programy reduktorem uložené ve službě Azure Storage, na které se odkazuje fileLinkedService. V této cestě se rozlišují velká a malá písmena. | Ano      |
 | Vstup             | Určuje WASB cestu k souboru vstupního souboru Mapper. | Ano      |
-| Výstup            | Určuje cestu WASB do výstupního souboru pro reduktorem. | Ano      |
-| getdebuginfo –      | Určuje, kdy soubory protokolu se zkopírují do úložiště Azure používaný v clusteru HDInsight (a) zadaný ve scriptLinkedService. Povolené hodnoty: None, vždy nebo selhání. Výchozí hodnota: žádné. | Ne       |
+| output            | Určuje cestu WASB do výstupního souboru pro reduktorem. | Ano      |
+| getDebugInfo      | Určuje, kdy soubory protokolu se zkopírují do úložiště Azure používaný v clusteru HDInsight (a) zadaný ve scriptLinkedService. Povolené hodnoty: None, vždy nebo selhání. Výchozí hodnota: žádné. | Ne       |
 | Argumenty         | Určuje pole argumentů pro úlohy Hadoop. Argumenty, které jsou předány jako argumenty příkazového řádku pro každý úkol. | Ne       |
 | definuje           | Zadejte parametry pro odkazování v rámci skriptu Hive jako páry klíč/hodnota. | Ne       | 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících článcích, které vysvětlují, jak k transformaci dat jinými způsoby: 
 
 * [Aktivita U-SQL](transform-data-using-data-lake-analytics.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Vizuální sledování Azure data Factory
 Azure Data Factory je cloudová služba pro integraci dat umožňující vytváření pracovních postupů řízených daty v cloudu za účelem orchestrace a automatizace přesunu a transformace dat. Pomocí služby Azure Data Factory můžete vytvářet a plánovat pracovní postupy řízené daty (nazývané kanály) se schopností ingestovat data z různorodých úložišť dat, zpracovat a transformovat tato data pomocí výpočetních služeb, jako je Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics a Azure Machine Learning, a publikovat výstupní data do úložišť dat, jako je Azure SQL Data Warehouse, aby je mohly využívat aplikace business intelligence (BI).
@@ -45,13 +45,13 @@ Zobrazení seznamu ji na každý kanál spustit pro objekt pro vytváření dato
 | Akce | Chcete-li zobrazit běh aktivit je jedné akce. |
 | Spustit počáteční | Kanál spustit počáteční datum a čas (MM/DD/RRRR HH: mm: SS dop. / odp.) |
 | Doba trvání | Doba běhu (hh: mm:) |
-| Aktivované | Ruční aktivaci plánu aktivační události |
+| Inicializoval | Ruční aktivaci plánu aktivační události |
 | Status | Chyba, byly úspěšné, v průběhu |
 | Parametry | Kanál spustit parametry (název, hodnotu páry) |
 | Chyba | Kanál spustit chyby (Pokud nebo any) |
-| ID spuštění | ID spuštění kanálu |
+| ID běhu | ID spuštění kanálu |
 
-![Spustí monitorování kanálu](media/monitor-visually/pipeline-runs.png)
+![Monitorování spuštění kanálu](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Spustí monitorování aktivity
 Zobrazení seznamu ji spustí aktivita odpovídající každý kanál spustit. Klikněte na tlačítko **aktivita spuštěna** ikonu pod **"Akce"** sloupce k zobrazení aktivity spouští pro každý kanál spustit. Zahrnuté sloupce:
@@ -67,7 +67,7 @@ Zobrazení seznamu ji spustí aktivita odpovídající každý kanál spustit. K
 | Výstup | Pole JSON s popisem výstupů aktivity |
 | Chyba | Aktivity při spuštění chyby (Pokud nebo any) |
 
-![Spustí monitorování aktivity](media/monitor-visually/activity-runs.png)
+![Monitorování spuštění aktivit](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
 > Je třeba kliknout na **'Aktualizujte'** ikonu na horní k aktualizaci seznamu kanálu a aktivita běží. Automatická aktualizace se aktuálně nepodporuje.
@@ -92,7 +92,7 @@ Pořadí kanálu se spustí v desc/asc spustit Start a filtr kanálu se spustí 
 #### <a name="addremove-columns-to-list-view"></a>Přidat nebo odebrat sloupce k zobrazení seznamu
 Klikněte pravým tlačítkem na hlavičku zobrazení seznamu a vyberte sloupce, které se má zobrazit v zobrazení seznamu
 
-![sloupce](media/monitor-visually/columns.png)
+![Sloupce](media/monitor-visually/columns.png)
 
 #### <a name="reorder-column-widths-in-list-view"></a>Změna pořadí šířku sloupců v zobrazení seznamu
 Zvýšení a snižte šířku sloupců v zobrazení seznamu jednoduše ukazatele myši na záhlaví sloupce
@@ -112,6 +112,6 @@ Klikněte na ikonu 'zpětnou vazbu, sdělte nám svůj názor na různých funkc
 
 ![Váš názor](media/monitor-visually/feedback.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tématu [monitorování a Správa kanálů prostřednictvím kódu programu](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) článku se dozvíte o monitorování a Správa kanálů

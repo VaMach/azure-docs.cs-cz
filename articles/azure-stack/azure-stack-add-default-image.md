@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Přidat bitovou kopii virtuálního počítače Windows serveru 2016 do Azure Marketplace zásobníku
 
@@ -135,19 +135,23 @@ Spusťte následující předpoklady, buď z [development kit](azure-stack-conne
 
 Zajistěte, aby bitovou kopii virtuálního počítače Windows serveru 2016 nejnovější kumulativní aktualizace, zahrňte `IncludeLatestCU` parametr při spuštění `New-AzsServer2016VMImage` rutiny. Informace o povolených parametry `New-AzsServer2016VMImage` rutiny, najdete v části [parametry](#parameters). Jak dlouho trvá přibližně jednu hodinu publikovat bitovou kopii do Azure Marketplace zásobníku. 
 
-## <a name="parameters"></a>Parametry
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Parametry pro nový AzsServer2016VMImage
 
-|Nové AzsServer2016VMImage parametry|Požaduje se|Popis|
-|-----|-----|------|
-|ISOPath|Ano|Úplná cesta k stažené ISO systému Windows Server 2016.|
-|Net35|Ne|Modul runtime rozhraní .NET 3.5 nainstaluje bitovou kopii systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **true**.|
-|Verze|Ne|Určuje **základní**, **úplné**, nebo **i** bitové kopie systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **úplné**.|
-|VHDSizeInMB|Ne|Nastaví velikost image virtuálního pevného disku, které mají být přidány do prostředí Azure zásobníku (v MB). Ve výchozím nastavení je tato hodnota nastavena na 40 960 MB.|
-|CreateGalleryItem|Ne|Určuje, jestli musíte vytvořit položku Marketplace pro bitovou kopii systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **true**.|
-|location |Ne |Určuje umístění, ke které je nutné ji publikovat bitovou kopii systému Windows Server 2016.|
-|IncludeLatestCU|Ne|Nejnovější kumulativní aktualizaci Windows Server 2016 se vztahuje na nový virtuální pevný disk (zkontrolujte skript a ujistěte se, že odkazuje na nejnovější aktualizaci nebo použijte jednu z následujících dvou možností). |
-|CUUri |Ne |Sady Windows Server 2016 kumulativní aktualizace pro spouštění z konkrétní identifikátoru URI. |
-|CUPath |Ne |Sady Windows Server 2016 kumulativní aktualizace pro spouštění z místní cestu. Tato možnost je užitečná, pokud jste nasadili instanci Azure zásobníku v odpojeném prostředí.|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+Vytvoří a odešle nové 2016 jádra serveru a, nebo úplnou bitovou kopii a vytvoří pro ni položku marketplace.
+
+| Parametry | Požaduje se | Příklad: | Popis |
+|-----|-----|------|---- |
+|ISOPath|Ano| N:\ISO\en_windows_16_x64_dvd | Úplná cesta k stažené ISO systému Windows Server 2016.|
+|Net35|Ne| True | Modul runtime rozhraní .NET 3.5 nainstaluje bitovou kopii systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **true**.|
+|Verze|Ne| Úplná |  Určuje **základní**, **úplné**, nebo **i** bitové kopie systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **úplné**.|
+|VHDSizeInMB|Ne| 40,960 | Nastaví velikost image virtuálního pevného disku, které mají být přidány do prostředí Azure zásobníku (v MB). Ve výchozím nastavení je tato hodnota nastavena na 40 960 MB.|
+|CreateGalleryItem|Ne| True | Určuje, jestli musíte vytvořit položku Marketplace pro bitovou kopii systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **true**.|
+|location |Ne | D:\ | Určuje umístění, ke které je nutné ji publikovat bitovou kopii systému Windows Server 2016.|
+|IncludeLatestCU|Ne| False | Nejnovější kumulativní aktualizaci Windows Server 2016 se vztahuje na nový virtuální pevný disk. Zkontrolujte skript a ujistěte se, že odkazuje na nejnovější aktualizaci nebo použijte jednu z následujících dvou možností. |
+|CUUri |Ne | https://yourupdateserver/winservupdate2016 | Sady Windows Server 2016 kumulativní aktualizace pro spouštění z konkrétní identifikátoru URI. |
+|CUPath |Ne | C:\winservupdate2016 | Sady Windows Server 2016 kumulativní aktualizace pro spouštění z místní cestu. Tato možnost je užitečná, pokud jste nasadili instanci Azure zásobníku v odpojeném prostředí.|
 
 ## <a name="next-steps"></a>Další postup
 
