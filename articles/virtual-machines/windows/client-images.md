@@ -14,14 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Pomocí klienta systému Windows v Azure pro scénáře vývoje/testování
-Můžete použít systém Windows 7, Windows 8 nebo Windows 10 v Azure pro scénáře vývoje/testování za předpokladu, že máte příslušné předplatné sady Visual Studio (dříve MSDN). Tento článek popisuje požadavky na podmínky pro spuštěné klienta systému Windows Azure a použít Azure Galerie obrázků.
+Můžete použít systém Windows 7, Windows 8 nebo Windows 10 Enterprise (x64) v Azure pro scénáře vývoje/testování za předpokladu, že máte příslušné předplatné sady Visual Studio (dříve MSDN). Tento článek popisuje požadavky na vhodnost systémem Windows 7, Windows 8.1, Windows 10 Enterprise ve službě Azure a použití na následujících obrázcích v Azure Gallery.
+
+![Podrobnosti bitové kopie z portálu Azure](./media/client-images/windows-client-msdn-images.png) 
+
+> [!NOTE]
+> Windows 10 Pro a Windows 10 Pro N obrázek v galerii Azure, naleznete v [nasazení Windows 10 v Azure s hostování oprávnění víceklientské](windows-desktop-multitenant-hosting-deployment.md)
+>![podrobnosti Pro Image z portálu Azure](./media/client-images/windows-client-pro-images.png) 
+>
 
 ## <a name="subscription-eligibility"></a>Předplatné podmínky
 Aktivní sadě Visual Studio Odběratelé (osoby, které jste získali licenci sady Visual Studio předplatného) můžete použít klienta systému Windows pro účely vývoje a testování. Klient systému Windows lze použít na hardware a Azure virtuální počítače běžící na jakýkoli typ předplatného Azure. Klienta Windows nemusí nasazené nebo použít v Azure pro použití v provozním prostředí normální nebo použít lidmi, kteří nejsou aktivní odběratele Visual Studio.
@@ -40,7 +47,7 @@ V následující tabulce jsou nabídku ID, které jsou způsobilé k nasazení W
 | [Visual Studio Premium with MSDN (benefit)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Visual Studio Enterprise odběratele](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Visual Studio Enterprise (BizSpark) odběratele](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise pro vývoj/testování](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Enterprise Dev/Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Zkontrolujte předplatné Azure
 Pokud si nejste jisti vaše ID nabídky, můžete ho získat prostřednictvím portálu Azure v jednom z těchto způsobů:  
@@ -55,6 +62,6 @@ Můžete také zobrazit ID nabídky z ['odběry, karta](http://account.windowsaz
 
 ![Informace ID z portálu účtu služby Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď můžete nasadit virtuální počítače pomocí [prostředí PowerShell](quick-create-powershell.md), [šablony Resource Manageru](ps-template.md), nebo [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

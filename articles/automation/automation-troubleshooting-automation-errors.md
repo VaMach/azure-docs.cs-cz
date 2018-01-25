@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Odstraňování běžných problémů ve službě Azure Automation 
 Tento článek obsahuje nápovědu k odstraňování běžných chyb, může docházet v Azure Automation a navrhne možná řešení jejich řešení potíží.
@@ -152,7 +152,7 @@ Tento článek obsahuje nápovědu k odstraňování běžných chyb, může doc
   * Aby bylo možné přiřadit konfigurace uzlu do uzlu pomocí rutiny prostředí PowerShell, použijte **Set-AzureRmAutomationDscNode** rutiny
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Scénář: Žádná konfigurace uzlu (soubory MOF) byly vytvořeny při kompilaci konfigurace
-**Chyba:** pozastaví úlohu kompilace DSC s chybou: "kompilace byl úspěšně dokončen, ale byly vygenerovány žádné .mofs konfigurace uzlu".
+**Chyba:** pozastaví úlohu kompilace DSC s chybou: "kompilace byl úspěšně dokončen, ale byly vygenerovány žádné configuration.mofs uzel".
 
 **Důvod chyby:** při následující výraz **uzlu** – klíčové slovo v konfigurace DSC se vyhodnocuje `$null`, pak vytváří se žádné konfigurace uzlů.
 
@@ -190,6 +190,16 @@ Tento kód chyby znamená, že dotaz skupiny uloženého hledání počítače p
 **Tipy k řešení potíží:**
 
 Dotaz pro toto řešení a reonboard řešení, které vytvoří dotaz, můžete odstranit. Dotaz naleznete v rámci pracovního prostoru, v části **uložená hledání**. Název dotazu je **MicrosoftDefaultComputerGroup**, a kategorie dotazu je název řešení přiřazený k tomuto dotazu. Pokud jsou povolené více řešení, **MicrosoftDefaultComputerGroup** zobrazuje vícekrát pod **uložená hledání**.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**Důvod chyby:**
+
+Tento kód chyby znamená, že nasazení se nezdařilo kvůli porušení zásady.
+
+**Tipy k řešení potíží:**
+
+Zkontrolujte oznámení v pravém horním rohu portálu Azure nebo přejděte do skupiny prostředků, která obsahuje váš účet automation a vyberte **nasazení** pod **nastavení** zobrazíte neúspěšný nasazení. Pro další informace o návštěvě zásad Azure: [zásad Azure – přehled](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
 
 ## <a name="next-steps"></a>Další postup
 

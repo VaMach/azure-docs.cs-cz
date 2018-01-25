@@ -53,14 +53,14 @@ Zde jsou k dispozici pro premium se spravovaným diskem velikosti disků:
 
 | **Premium spravované <br>typ disku** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Velikost disku        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
+| Velikost disku        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 Zde jsou k dispozici pro standardní se spravovaným diskem velikosti disků:
 
-| **Standardní spravované <br>typ disku** | **S4** | **S6** | **S10** | **S20** | **ÚROVNĚ S30** | **S40** | **S50** |
+| **Standardní spravované <br>typ disku** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Velikost disku        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
+| Velikost disku        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Počet transakcí**: fakturuje se počet transakcí, které můžete provádět na standardní spravovaného disku. Neexistuje žádné náklady pro transakce pro premium se spravovaným diskem.
@@ -72,7 +72,7 @@ Podrobné informace o cenách pro spravované disky, najdete v části [spravova
 
 ## <a name="managed-disk-snapshots"></a>Spravovaný Disk úrovně snímky
 
-Spravované snímek je jen pro čtení úplnou kopii spravovaným diskem, který je uložený jako standardní spravovaných disků ve výchozím nastavení. Snímky můžete zálohovat vaše spravované disky v libovolném bodě v čase. Tyto snímky existují nezávisle na zdrojový disk a slouží k vytvoření nových disků spravované. Budou se účtují podle použitá velikost. Například pokud vytvoříte snímek se spravovaným diskem s zřízená kapacita 64 GB a skutečná data použité velikosti 10 GB, bude účtován snímku pouze pro velikost dat používaných 10 GB.  
+Spravované snímek je jen pro čtení úplnou kopii spravovaným diskem, který je uložený jako standardní spravovaných disků ve výchozím nastavení. Snímky můžete zálohovat vaše spravované disky v libovolném bodě v čase. Tyto snímky existují nezávisle na zdrojový disk a slouží k vytvoření nových disků spravované. Budou se účtují podle použitá velikost. Například pokud vytvoříte snímek se spravovaným diskem s zřízená kapacita 64 GiB a skutečná data použité velikosti 10 GiB, bude účtován snímku pouze pro velikost dat používaných 10 GiB.  
 
 [Přírůstkové snímky](../articles/virtual-machines/windows/incremental-snapshots.md) nejsou aktuálně podporovány pro spravované disky, ale bude podporovaná v budoucnu.
 

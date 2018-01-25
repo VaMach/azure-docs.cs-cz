@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Poznámky k verzi zařízení StorSimple 8000 řady aktualizací 4
 > [!NOTE]
-> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+> Portál Classic pro StorSimple je zastaralý. Vaši Správci zařízení StorSimple se automaticky přesunou na nový Azure Portal podle plánu ukončování používání. O tomto přesunu vás budeme informovat prostřednictvím e-mailu a oznámení na portálu. Tento dokument zanedlouho také nebude k dispozici. Pokud máte jakékoli dotazy k tomuto přesunu, přečtěte si [Nejčastější dotazy: Přesun na Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 
 ## <a name="overview"></a>Přehled
@@ -59,7 +59,7 @@ V aktualizaci 4 byly provedeny následující klíčových vylepšení a opravy 
 
 * **Aktualizovat změny** – v této verzi bylo opraveno chyby související s aktualizovat selhání.
 
-* **Výstrahy pro selhání disku** – v této verzi se přidá nová výstraha s upozorněním, uživatel brzké selhání disku. Pokud narazíte na tuto výstrahu, obraťte se na Microsoft Support pro odeslání náhradní disk. Další informace, přejděte na [hardwaru výstrahy na zařízení StorSimple](storsimple-manage-alerts.md#hardware-alerts).
+* **Výstrahy pro selhání disku** – v této verzi se přidá nová výstraha s upozorněním, uživatel brzké selhání disku. Pokud narazíte na tuto výstrahu, obraťte se na Microsoft Support pro odeslání náhradní disk. Další informace, přejděte na [hardwaru výstrahy na zařízení StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Změny nahrazení řadiče** – přidání rutinu, která umožňuje uživatelům zjistit stav procesu nahrazení řadiče v této verzi. Další informace naleznete [rutiny zjistit stav nahrazení řadiče](https://technet.microsoft.com/library/dn688168.aspx).
 

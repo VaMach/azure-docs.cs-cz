@@ -31,6 +31,8 @@
   items:
     - name: 1. Aplikace s DB
       items:
+        - name: .NET Core s SQL DB
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET s SQL DB
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP s MySQL
@@ -175,7 +177,7 @@
       href: /powershell
     - name: REST API
       href: /rest/api/appservice/
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'

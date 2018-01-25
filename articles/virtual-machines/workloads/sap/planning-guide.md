@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuálních počítačů, plánování a implementace pro SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -372,7 +372,7 @@ Následující další příručky jsou k dispozici pro téma nasazení SAP v Az
 
 Následující poznámky k SAP souvisí s tématem SAP v Azure:
 
-| Poznámka: číslo | Název |
+| Poznámka: číslo | Nadpis |
 | --- | --- |
 | [1928533] |Aplikace SAP v Azure: podporované produkty a velikosti |
 | [2015553] |SAP na platformě Microsoft Azure: podporovat požadavky |
@@ -1505,7 +1505,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* Vytvořit nový účet úložiště
+* Vytvoření nového účtu úložiště
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1626,7 +1626,7 @@ Minimální požadavek je použití zabezpečené komunikace protokoly, jako je 
 
 V následující tabulce typické SAP jsou uvedeny komunikační porty. V podstatě je pro otevření portu brány SAP dostatečná.
 
-| Služba | Název portu | Příklad `<nn`> = 01 | Výchozí rozsah (min-max) | Komentář |
+| Služba | Název portu | Příklad `<nn`> = 01 | Výchozí rozsah (min-max) | Poznámka |
 | --- | --- | --- | --- | --- |
 | Dispečer |sapdp`<nn>` najdete v části * |3201 |3200 - 3299 |Dispečer SAP, používá SAP grafického uživatelského rozhraní pro systém Windows a Java |
 | Server zpráv |sapms`<sid`> najdete v části ** |3600 |volné sapms`<anySID`> |identifikátor SID = ID systému SAP |
@@ -1965,9 +1965,7 @@ Následující obrázek ukazuje povahu stejné pomocí spravovaných disků.
 ![Architektura HA aplikace SAP NetWeaver s SQL serverem v Azure IaaS][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA v systému Linux
-Architektura pro SAP HA v systému Linux v Azure je v podstatě stejný jako u Windows jak bylo popsáno výše. Od ledna 2016 neexistuje SAP (A) SCS HA řešení zatím nepodporuje v systému Linux v Azure
-
-V důsledku od ledna 2016 systému SAP. Linux Azure nelze dosáhnout stejné dostupnosti jako systém SAP. Windows Azure z důvodu chybějících HA pro SCS (A) instanci a databázi SAP App Service Environment jedné instance.
+Architektura pro SAP HA v systému Linux v Azure je v podstatě stejný jako u Windows jak bylo popsáno výše. Odkazovat na Poznámka SAP [1928533] seznam řešení s vysokou dostupností podporované.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Pomocí automatické spuštění pro instance SAP
 SAP nabízí funkce pro spustit instance SAP ihned po spuštění operačního systému v rámci virtuálního počítače. Přesný postup byly popsané v článku znalostní báze SAP [1909114]. Však není SAP doporučujeme, aby se použilo nastavení už, protože neexistuje žádný ovládací prvek v pořadí restartování instance, za předpokladu, že více než jeden virtuální počítač nebyl vliv nebo více instancí spustili na virtuální počítač. Za předpokladu, že Azure Typický scénář v virtuálního počítače a jeden virtuální počítač nakonec získávání restartování v případě jedné instance serveru aplikace SAP, automatické spuštění není skutečně kritické a lze je povolit přidáním tento parametr:

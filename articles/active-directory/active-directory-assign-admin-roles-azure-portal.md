@@ -12,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/23/2018
 ms.author: curtand
-ms.reviewer: Vince.Smith
+ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Přiřazení rolí správce v Azure Active Directory
 
 Pomocí služby Azure Active Directory (Azure AD), můžete určit samostatné správcům poskytovat různé funkce. Správci mají přístup k různým funkcím v portálu Azure a v závislosti na jejich role, můžete vytvořit nebo upravit uživatele, přiřadit role správců jiným uživatelům, resetovat uživatelská hesla, spravovat uživatelské licence a správě domén, mimo jiné. Uživatel, který je přiřazen roli správce bude mít stejné oprávnění ve všech cloudových služeb, na které má vaše organizace předplatné, bez ohledu na to, jestli přiřadíte roli na portálu Office 365 nebo portálu Azure nebo pomocí modulu Azure AD pro Prostředí Windows PowerShell.
 
+## <a name="details-about-the-global-administrator-role"></a>Podrobnosti o roli globálního správce
+Globální správce má přístup ke všem funkcím pro správu. Ve výchozím nastavení osoba, která se zaregistruje pro předplatné služby Azure má přiřazenou roli globálního správce pro adresář. Jenom globální správci můžete přiřadit další role správců.
+
+## <a name="assign-or-remove-administrator-roles"></a>Přiřazení nebo odebrání role správce
+Naučte se přiřazovat správní role pro uživatele v Azure Active Directory, najdete v tématu [přiřazení uživatele k rolí správce ve službě Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="available-roles"></a>Dostupné role
 Následující role správce jsou k dispozici:
 
 * **Správce fakturace**: může dělat nákupy, spravovat předplatná, spravovat lístky žádostí o podporu a sledovat stav služeb.
@@ -57,6 +64,8 @@ Následující role správce jsou k dispozici:
 
 * **Pozvání hosta odeslal**: uživatelům v této roli můžete spravovat pozvánek uživatele Azure Active Directory s B2B hosta uživatelské nastavení "Členy můžete pozvat" je nastavena na Ne. Další informace o spolupráci B2B v [spolupráce o Azure AD s B2B ve verzi preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Neobsahuje žádné další oprávnění.
 
+* **Správce informačních ochrany**: uživatelé s touto rolí mají přístup k Azure Information Protection na portálu Azure. Můžete nakonfigurovat popisky zásad Azure Information Protection, správě ochrany šablon a aktivujte ochranu.
+
 * **Správce služby Intune**: uživatelé s touto rolí mají globální oprávnění v rámci Microsoft Intune Online, když se služba nachází. Kromě toho tato role zahrnuje schopnost spravovat uživatele a zařízení, aby bylo možné přidružit zásady, a také vytvářet a spravovat skupiny.
 
 * **Poštovní schránky správce**: Tato role se používá pouze v rámci Exchange Online e-mailová podpora pro RIM Blackberry zařízení. Pokud vaše organizace nepoužívá Exchange Online e-mailu na zařízeních RIM Blackberry, nepoužívejte tuto roli.
@@ -75,6 +84,8 @@ Následující role správce jsou k dispozici:
 * **Správce služby Power BI**: uživatelé s touto rolí mají globální oprávnění v rámci Microsoft Power BI, když se služba nachází, a také možnost spravovat lístky žádostí o podporu a sledovat stav služeb. Další informace v [role Správce služeb Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Privilegované Role správce**: uživatelé s touto rolí můžete spravovat přiřazení rolí v Azure Active Directory, a také v rámci Azure AD Privileged Identity Management. Kromě toho tato role umožňuje správu všech aspektů Privileged Identity Management.
+
+* **Sestavy čtečky**: uživatelé k této roli mohou zobrazit využití generování sestav dat a řídicí panel sestavy v Centru pro správu Office 365 a kontext přijetí pack v PowerBI. Kromě toho role poskytuje přístup k přihlašování sestavy a aktivity ve službě Azure AD a vykazování dat vrácených Microsoft Graph API. Uživatel přiřazený k roli čtečky sestavy můžete přístup pouze relevantní využití a přijetí metriky. Nemají žádné oprávnění správce pro konfiguraci nastavení nebo přístupu, kterou centra pro správu konkrétní produkt jako je Exchange. 
 
 * **Správce zabezpečení**: uživatelé s touto rolí mají všechna oprávnění jen pro čtení čtečky role zabezpečení a možnosti správy konfigurace pro služby související se zabezpečením: Azure Active Directory Identity Protection, Azure Information Protection, Privileged Identity Management a zabezpečení Office 365 a centru dodržování předpisů. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -117,15 +128,16 @@ Následující role správce jsou k dispozici:
 | --- | --- |
 | <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Změna hesla pro uživatele a další technickou podporu správci</p>|<p>Provádět operace fakturace a nákupu produktů Office</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Zobrazení sestav</p>|
 
-### <a name="service-administrator"></a>Správce služeb
-| Můžete provést | Nelze provést |
-| --- | --- |
-| <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p> |<p>Resetovat uživatelská hesla</p><p>Provádět operace fakturace a nákupu produktů Office</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Zobrazení protokolů auditování</p> |
-
-### <a name="user-account-administrator"></a>Správce účtu uživatele
-| Můžete provést | Nelze provést |
-| --- | --- |
-| <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Změna hesla pro uživatele, správce technické podpory a jiné uživatelský účet správce</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvořit, upravit a odstraňovat uživatele a skupiny a spravovat uživatelské licence, ale s omezením. Potvrdí nelze odstraňovat globální správce ani vytvářet jiné správce.</p> |<p>Provádět operace fakturace a nákupu produktů Office</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Povolení nebo zakázání služby Multi-Factor authentication</p><p>Zobrazení protokolů auditování</p> |
+### <a name="information-protection-administrator"></a>Správce informačních ochrany 
+V | Můžete provést
+-------- | ---------
+Azure Information Protection | * Nakonfigurovat zásady globální, oboru a popisky<br>* Správa, konfigurace a aktualizace šablon ochrany<br>* Povolení ochrany aktivace pro použití 
+Privileged Identity Management | * Oprávnění ke čtení<br>* Nelze spravovat členství v rolích Azure AD nebo nastavení.
+ 
+### <a name="reports-reader"></a>Čtečka sestavy 
+Můžete provést | Nelze provést
+------ | ----------
+Zobrazení Azure AD přihlášení sestavy a protokoly auditu<br>Zobrazení informací o společnosti a uživatele<br>Přístup k Office 365 použití řídicího panelu | Vytvoření a Správa zobrazení uživatele<br>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence<br>Delegovat role správců jiným uživatelům<br>Spravovat informace o společnosti
 
 ### <a name="security-reader"></a>Čtecí zařízení pro zabezpečení
 | V | Můžete provést |
@@ -141,8 +153,15 @@ Následující role správce jsou k dispozici:
 | Privileged Identity Management |<ul><li>Všechna oprávnění role zabezpečení čtečky.<li>**Nelze** spravovat členství v rolích Azure AD nebo nastavení. |
 | <p>Monitorování stavu služby Office 365</p><p>Centru dodržování předpisů a zabezpečení Office 365 |<ul><li>Všechna oprávnění role zabezpečení čtečky.<li>Můžete nakonfigurovat všechna nastavení ve funkci Advanced Threat Protection (ochrany proti malwaru a virů, škodlivý konfigurace adresy URL, adresa URL trasování atd.). |
 
-## <a name="details-about-the-global-administrator-role"></a>Podrobnosti o roli globálního správce
-Globální správce má přístup ke všem funkcím pro správu. Ve výchozím nastavení osoba, která se zaregistruje pro předplatné služby Azure má přiřazenou roli globálního správce pro adresář. Jenom globální správci můžete přiřadit další role správců.
+### <a name="service-administrator"></a>Správce služeb
+| Můžete provést | Nelze provést |
+| --- | --- |
+| <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p> |<p>Resetovat uživatelská hesla</p><p>Provádět operace fakturace a nákupu produktů Office</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Zobrazení protokolů auditování</p> |
+
+### <a name="user-account-administrator"></a>Správce účtu uživatele
+| Můžete provést | Nelze provést |
+| --- | --- |
+| <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Změna hesla pro uživatele, správce technické podpory a jiné uživatelský účet správce</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvořit, upravit a odstraňovat uživatele a skupiny a spravovat uživatelské licence, ale s omezením. Potvrdí nelze odstraňovat globální správce ani vytvářet jiné správce.</p> |<p>Provádět operace fakturace a nákupu produktů Office</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Povolení nebo zakázání služby Multi-Factor authentication</p><p>Zobrazení protokolů auditování</p> |
 
 ### <a name="to-add-a-colleague-as-a-global-administrator"></a>Chcete-li přidat kolegu o jako globální správce
 
@@ -157,9 +176,6 @@ Globální správce má přístup ke všem funkcím pro správu. Ve výchozím n
 4. V okně uživatele vyberte **Directory role**.
  
 5. V okně role adresáře vyberte **globálního správce** role a uložte.
-
-## <a name="assign-or-remove-administrator-roles"></a>Přiřazení nebo odebrání role správce
-Naučte se přiřazovat správní role pro uživatele v Azure Active Directory, najdete v tématu [přiřazení uživatele k rolí správce ve verzi preview služby Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="deprecated-roles"></a>Nepoužívané role
 

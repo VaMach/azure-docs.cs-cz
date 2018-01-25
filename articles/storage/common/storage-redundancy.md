@@ -2,26 +2,24 @@
 title: Replikace dat v Azure Storage | Microsoft Docs
 description: "Data ve vašem účtu úložiště Microsoft Azure se replikují pro odolnost a vysokou dostupnost. Možnosti replikace zahrnují místně redundantní úložiště (LRS), zónově redundantní úložiště (ZRS), geograficky redundantní úložiště (GRS) a geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 86bdb6d4-da59-4337-8375-2527b6bdf73f
+manager: jeconnoc
 ms.service: storage
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 45883d59e5fe9ab2b7a09bfdc6c11a681bd43d0b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-storage-replication"></a>Účet replikace Azure Storage
-Data na vašem účtu Microsoft Azure Storage se vždy replikují, aby byla zajištěna jejich stálost a vysoká dostupnost. Replikace zkopíruje data, a to buď v rámci stejného datového centra, nebo do druhého datového centra (v závislosti na možnosti replikace, kterou zvolíte). Replikace chrání vaše data a udrží vaše aplikace v provozu v případě krátkodobého selhání hardwaru. Pokud vaše data se replikují do druhého datového centra, je chráněn v primárním umístění závažné selhání.
+
+Data na vašem účtu Microsoft Azure Storage se vždy replikují, aby byla zajištěna jejich stálost a vysoká dostupnost. Replikace zkopíruje data, takže je chráněn proti selhání hardwaru, zachování vaší aplikace doby provozu. 
+
+Je možné replikovat data ve stejném datovém centru, napříč datovými centry ve stejné oblasti, nebo v oblastech. Pokud vaše data se replikují v několika datových centrech nebo v oblastech, jsou taky chráněná závažné selhání v jednom umístění.
 
 Replikace zajišťuje, že váš účet úložiště splňuje [smlouvu o úrovni služeb (SLA) pro Storage](https://azure.microsoft.com/support/legal/sla/storage/) i při selhání. Podívejte se do smlouvy SLA na informace o zárukách služby Azure Storage na stálost a dostupnost.
 
@@ -34,7 +32,7 @@ Při vytvoření účtu úložiště si můžete vybrat jednu z těchto možnost
 
 Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS) je výchozí možností při vytváření účtu úložiště.
 
-Následující tabulka poskytuje rychlý přehled o rozdílech mezi LRS, ZRS, GRS a RA-GRS, zatímco dalších částech adres každý typ replikace podrobněji.
+Následující tabulka poskytuje rychlý přehled o rozdílech mezi LRS, ZRS, GRS a RA-GRS. Následující části tohoto článku adres každý typ replikace podrobněji.
 
 | Strategie replikace | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
@@ -52,76 +50,109 @@ V tématu [Azure Storage – ceny](https://azure.microsoft.com/pricing/details/s
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Zónově redundantní úložiště
-Zónově redundantní úložiště (ZRS) určená k poskytování alespoň % 99.9999999999 (12 na 9) odolnost objektů během daného roku podle asynchronně replikuje data přes datových center v rámci jednoho nebo dvou oblastech, a zajišťuje tak větší odolnost než LRS. Data uložená v ZRS byla odolná i v případě, že primární datové centrum není k dispozici nebo neopravitelné.
-Zákazníci, kteří v úmyslu používat ZRS měli vědět:
 
-* ZRS je dostupná jenom pro objekty BLOB bloku v účtech úložiště pro obecné účely a je podporována pouze v úložišti služby verze 2014-02-14 a novější.
-* Vzhledem k tomu, že asynchronní replikaci zahrnuje zpoždění, v případě havárie místní je možné, že změny, které ještě nebyla replikována na sekundární se ztratí možné obnovit data z primární.
-* Repliky nemusí být k dispozici, dokud Microsoft zahájí převzetí služeb při selhání na sekundární.
-* ZRS účty nelze převést na LRS nebo GRS později. Podobně existující účet LRS nebo GRS nelze převést na účet ZRS.
-* ZRS účty nemají metriky nebo možnosti protokolování.
+Zónově redundantní úložiště (ZRS) (Preview) je navržená ke zjednodušení vývoj aplikace s vysokou dostupností. ZRS poskytuje odolnost pro úložiště objektů alespoň % 99.9999999999 (12 na 9) během daného roku. ZRS synchronně replikuje data napříč několika zón dostupnosti. Zvažte ZRS pro scénáře, jako je transakčních aplikací, kde výpadek není platný.
+
+ZRS umožňuje zákazníkům čtení a zápis dat i v případě jedné oblasti není k dispozici nebo neopravitelné. Vložení a aktualizace dat probíhají synchronně a důrazně konzistentní.   
+
+ZRS je aktuálně dostupné pro náhled v následujících oblastech, s další oblasti již brzy:
+
+- USA – východ 2 
+- USA – střed 
+- Francie centrální (této oblasti je aktuálně ve verzi preview. V tématu [Microsoft Azure preview s zón dostupnosti Azure nyní otevřít v Francie](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) chcete požádat o přístup.)
+
+### <a name="zrs-classic-accounts"></a>ZRS klasické účty
+
+Existující funkce ZRS se nyní označuje jako ZRS Classic. ZRS klasické účty jsou k dispozici pouze pro objekty BLOB bloku v účtech úložiště pro obecné účely V1. 
+
+ZRS Classic replikuje data asynchronně přes datových center v rámci jedné nebo dvou oblastech. Repliky nemusí být k dispozici, pokud Microsoft zahájí převzetí služeb při selhání na sekundární. 
+
+ZRS klasické účty nelze převést na nebo z LRS, GRS nebo RA-GRS. ZRS klasické účty také nepodporují metriky nebo protokolování.   
+
+Jakmile ZRS je všeobecně dostupná v oblasti, už nebudete moct vytvořit účet ZRS Classic z portálu v daném regionu, ale můžete vytvořit jeden jinými způsoby.  
+Proces automatické migrace z klasického ZRS ZRS bude poskytnuta v budoucnu.
+
+ZRS účty podporují, ručně přenesení ZRS účtu v daném regionu do nebo z účtu LRS, GRS a RAGRS. Můžete provést tento ruční migrace pomocí nástroje AzCopy, Azure Storage Explorer, prostředí Azure PowerShell, rozhraní příkazového řádku Azure nebo jeden z knihovny klienta Azure Storage.
+
+> [!NOTE]
+> ZRS klasické účty jsou plánované pro vyřazení a požadované migrace na 31. března 2021. Společnost Microsoft bude posílat podrobnosti ZRS Classic zákazníkům před vyřazení.
+
+Další otázky jsou řešeny v [nejčastější dotazy](#frequently-asked-questions) části. 
 
 ## <a name="geo-redundant-storage"></a>Geograficky redundantní úložiště
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>Geograficky redundantní úložiště s přístupem pro čtení
-Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS) maximalizuje dostupnost pro váš účet úložiště, tím, že poskytuje přístup jen pro čtení k datům v sekundárním umístění, kromě replikace rámci dvou oblastí poskytované GRS.
+Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS) maximalizuje dostupnost pro váš účet úložiště. RA-GRS poskytuje přístup jen pro čtení k datům v sekundárním umístění, kromě geografická replikace v rámci dvou oblastí.
 
-Když povolíte přístup jen pro čtení k datům v sekundární oblasti, vaše data jsou k dispozici na sekundárním koncovým bodem, kromě primární koncový bod pro váš účet úložiště. Sekundární koncový bod je podobná primární koncový bod, ale připojí přípona `–secondary` k názvu účtu. Například, pokud je váš primární koncový bod služby objektů Blob `myaccount.blob.core.windows.net`, pak je sekundární koncový bod `myaccount-secondary.blob.core.windows.net`. Přístupové klíče účtu úložiště jsou stejné pro obě primární a sekundární koncové body.
+Když povolíte přístup jen pro čtení k datům v sekundární oblasti, vaše data jsou k dispozici na sekundárním koncovým bodem, a také na primární koncový bod pro váš účet úložiště. Sekundární koncový bod je podobná primární koncový bod, ale připojí přípona `–secondary` k názvu účtu. Například, pokud je váš primární koncový bod služby objektů Blob `myaccount.blob.core.windows.net`, pak je sekundární koncový bod `myaccount-secondary.blob.core.windows.net`. Přístupové klíče účtu úložiště jsou stejné pro obě primární a sekundární koncové body.
 
-Aspekty:
+Některé aspekty při používání RA-GRS mějte na paměti:
 
 * Aplikace má ke správě kterému koncovému bodu je interakci s při použití RA-GRS.
-* Vzhledem k tomu, že asynchronní replikaci zahrnuje zpoždění, v případě havárie regionální je možné, že od primární oblasti nelze obnovit data budou ztracena změny, které ještě nebyla replikována do sekundární oblasti.
+* Vzhledem k tomu, že asynchronní replikaci zahrnuje zpoždění, změny, které ještě nebyla replikována do sekundární oblasti mohou být ztraceny, pokud data nelze obnovit z primární oblasti, například v případě místní havárie.
 * Pokud Microsoft zahájí převzetí služeb při selhání pro sekundární oblast, budete mít ke čtení a zápis do dat po převzetí služeb po dokončení. Další informace najdete v tématu [pokyny pro zotavení po havárii](../storage-disaster-recovery-guidance.md).
-* RA-GRS, je určena pro účely vysokou dostupnost. Pokyny k škálovatelnost, přečtěte si [kontrolní seznam výkonu](../storage-performance-checklist.md).
+* RA-GRS, je určena pro účely vysokou dostupnost. Škálovatelnost pokyny najdete v článku [kontrolní seznam výkonu](../storage-performance-checklist.md).
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
 <a id="howtochange"></a>
-#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Jak můžete změnit typ geografické replikace pro svůj účet úložiště?
+#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Jak můžete změnit typ geografická replikace svůj účet úložiště?
 
-   Můžete změnit typ geografická replikace účtu úložiště mezi LRS, GRS a RA-GRS pomocí [portál Azure](https://portal.azure.com/), [prostředí Azure Powershell](storage-powershell-guide-full.md) nebo programově pomocí jednoho z našich mnoho knihovny klienta úložiště .
-Upozorňujeme, že účty ZRS nemůže být převedená LRS nebo GRS. Podobně existující účet LRS nebo GRS nelze převést na účet ZRS.
+   Geografická replikace typ účtu úložiště můžete změnit pomocí [portál Azure](https://portal.azure.com/), [prostředí Azure Powershell](storage-powershell-guide-full.md), nebo jeden z knihovny klienta Azure Storage.
 
+   > [!NOTE]
+   > ZRS účty nemůže být převedená LRS nebo GRS. Podobně existující účet LRS nebo GRS nelze převést na účet ZRS.
+    
 <a id="changedowntime"></a>
-#### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. Bude k dispozici žádný výpadek když změníte typ replikace pro svůj účet úložiště?
+#### <a name="2-does-changing-the-replication-type-of-my-storage-account-result-in-down-time"></a>2. Podporuje Změna typu replikace výsledku Moje úložiště účet v výpadek?
 
-   Ne, nebude dostupný žádný výpadek.
+   Ne, změna typu replikace účtu úložiště nevede výpadek.
 
 <a id="changecost"></a>
-#### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. Bude k dispozici žádné další náklady když změníte typ replikace pro svůj účet úložiště?
+#### <a name="3-are-there-additional-costs-to-changing-the-replication-type-of-my-storage-account"></a>3. Existují další poplatky za změnu typ replikace pro svůj účet úložiště?
 
-   Ano. Pokud změníte z LRS GRS (nebo RA-GRS) pro účet úložiště, by to být účtovány dalších poplatků odchozí účastnící se kopírování existujících dat z primárního umístění do sekundárního umístění. Po počáteční data se zkopírují je bezplatná další další odchozí pro geografickou replikaci dat z primárního na sekundární umístění. Podrobnosti o poplatky šířky pásma můžete najít na [Azure Storage – ceny stránky](https://azure.microsoft.com/pricing/details/storage/blobs/).
-Pokud změníte na LRS GRS, je bez dalších nákladů, ale data se odstraní ze sekundárního umístění.
+   Ano. Pokud změníte na GRS (nebo RA-GRS) pro účet úložiště LRS, platit dalších poplatků odchozí účastnící se kopírování existujících dat z primárního umístění do sekundárního umístění. Po počáteční data se zkopíruje, neexistují žádné další další odchozí poplatky za geografickou replikaci z primárního na sekundární umístění. Podrobnosti o šířku pásma poplatky, najdete v části [Azure Storage – ceny stránky](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+   Pokud změníte na LRS GRS, je bez dalších nákladů, ale data se odstraní ze sekundárního umístění.
 
 <a id="ragrsbenefits"></a>
 #### <a name="4-how-can-ra-grs-help-me"></a>4. Jak RA-GRS mi může pomoci?
 
-   GRS úložiště poskytuje replikaci vašich dat z primárního na sekundární oblasti, která je stovky miles od primární oblasti. V takovém případě vaše data byla odolná i v případě výpadku dokončení místní nebo havárii, ve kterém není použitelná pro obnovení primární oblasti. RA-GRS úložiště zahrnuje to a přidá možnost číst data ze sekundárního umístění. Některé měli představu o tom, jak využít tuto možnost, naleznete v [navrhování vysoce dostupné aplikace pomocí úložiště RA-GRS](../storage-designing-ha-apps-with-ragrs.md).
+   GRS úložiště poskytuje replikaci vašich dat z primárního na sekundární oblasti, která je stovky miles od primární oblasti. S GRS vaše data byla odolná i v případě výpadku dokončení místní nebo havárii, ve kterém není použitelná pro obnovení primární oblasti. RA-GRS úložiště nabízí replikace GRS a přidává možnost číst data ze sekundárního umístění. Doporučení týkající se návrhu pro zajištění vysoké dostupnosti, najdete v části [navrhování vysoce dostupné aplikace pomocí úložiště RA-GRS](../storage-designing-ha-apps-with-ragrs.md).
 
 <a id="lastsynctime"></a>
-#### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Existuje způsob, jak mi zjistěte, jak dlouho trvá replikaci Moje dat z primárního na sekundární oblast?
+#### <a name="5-is-there-a-way-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Existuje způsob, jak zjistit, jak dlouho trvá replikaci Moje dat z primárního na sekundární oblast?
 
-   Pokud používáte RA-GRS úložiště, můžete zkontrolovat, čas poslední synchronizace účtu úložiště. Čas poslední synchronizace je hodnota, datum a čas GMT; všechny primární zápisy před čas poslední synchronizace byla úspěšně zapsána do sekundárního umístění, což znamená, že jsou k dispozici čtení ze sekundárního umístění. Primární zapíše po čas poslední synchronizace může nebo nemusí být k dispozici pro čtení ještě. Tato hodnota pomocí se můžete dotazovat [portál Azure](https://portal.azure.com/), [prostředí Azure PowerShell](storage-powershell-guide-full.md), nebo programově pomocí rozhraní REST API nebo jeden z knihovny klienta úložiště.
+   Pokud používáte RA-GRS úložiště, můžete zkontrolovat, čas poslední synchronizace účtu úložiště. Čas poslední synchronizace je hodnota, datum a čas GMT. Všechny primární zápisy před čas poslední synchronizace byla úspěšně zapsána do sekundárního umístění, což znamená, že jsou k dispozici čtení ze sekundárního umístění. Primární zapíše po čas poslední synchronizace může nebo nemusí být k dispozici pro čtení ještě. Můžete dotazovat pomocí této hodnoty [portál Azure](https://portal.azure.com/), [prostředí Azure PowerShell](storage-powershell-guide-full.md), nebo z jednoho z knihovny klienta Azure Storage.
 
 <a id="outage"></a>
-#### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. Jak lze přepnout sekundární oblast, pokud dojde k výpadku v primární oblasti?
+#### <a name="6-if-there-is-an-outage-in-the-primary-region-how-do-i-switch-to-the-secondary-region"></a>6. Pokud dojde k výpadku v primární oblasti, jak lze přepnout do sekundární oblasti?
 
-   Podrobnosti najdete v článku na [co dělat, když dojde k výpadku Azure Storage](../storage-disaster-recovery-guidance.md) další podrobnosti.
+   Další informace najdete v tématu [co dělat, když dojde k výpadku Azure Storage](../storage-disaster-recovery-guidance.md).
 
 <a id="rpo-rto"></a>
 #### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. Co je plánovaný bod obnovení a RTO s GRS?
 
-   Cíl bodu obnovení (RPO): V GRS a RA-GRS, úložiště služby asynchronně geo replikují data z primární na sekundární umístění. Pokud dojde k havárii hlavní místní a převzetí služeb při selhání musí být provedena, může dojít ke ztrátě poslední rozdílové změny, které nebyly geograficky replikované. Počet minut potenciální – ztráta dat se označuje jako plánovaný bod obnovení (což znamená bod v čase, do kterých můžete obnovit data). Jsme obvykle mají RPO méně než 15 minut, i když je aktuálně trvá žádné SLA na jak dlouho se geografická replikace.
+   **Cíl bodu obnovení (RPO):** v GRS a RA-GRS, úložiště služby asynchronně geo replikují data z primární na sekundární umístění. V případě významnější havárie regionální v primární oblasti provede Microsoft převzetí služeb při selhání pro sekundární oblast. Pokud dojde převzetí služeb při selhání, nedávné změny, které dosud nebyly geograficky replikované mohou být ztraceny. Počet minut potenciální – ztráta dat se označuje jako plánovaný bod obnovení a znamená bod v čase, do kterých můžete obnovit data. Úložiště Azure obvykle má RPO méně než 15 minut, i když na jak dlouho se geografická replikace je aktuálně žádné SLA trvá.
 
-   Cíli času obnovení (RTO): Toto je míra o tom, jak dlouho trvalo nám dělat převzetí služeb při selhání a získat zpět do režimu online účet úložiště, pokud bychom měli udělat převzetí služeb při selhání. Čas převzetí služeb při selhání zahrnují následující:
-    * Čas, kdy trvá nám prozkoumat a určete, jestli jsme můžete obnovit data v primární lokalitě nebo pokud je potřeba udělat převzetí služeb při selhání.
-    * Převzetí služeb při selhání účet změnou primární záznamy DNS tak, aby odkazovaly do sekundárního umístění.
+   **Cíli času obnovení (RTO):** RTO se rozumí míra doba potřebná k provedení převzetí a získat zpět do režimu online účet úložiště. Čas k provedení převzetí zahrnuje následující akce:
 
-   Jsme převzít odpovědnost velmi vážně uchování dat tak, aby pokud je pravděpodobné, že obnovení dat, jsme zdržovat provádění převzetí služeb při selhání a zaměřit se na obnovení dat v primárním umístění. V budoucnu plánujeme zajistit rozhraní API, která umožňuje spustit převzetí služeb při selhání na úrovni účtu, který by pak umožňuje kontrolovat RTO sami, ale to ještě není k dispozici.
+   * Čas Microsoft vyžaduje k určení, zda lze obnovit data v primární lokalitě nebo pokud převzetí služeb při selhání je nutné.
+   * Čas k provedení převzetí služeb při selhání účtu úložiště tak, že změníte primární záznamy DNS tak, aby odkazovaly do sekundárního umístění.
 
-## <a name="next-steps"></a>Další kroky
+   Společnost Microsoft má je zodpovědností vážně zachování vaše data. Pokud je pravděpodobné, že obnovení dat v primární oblasti, bude společnost Microsoft zpoždění převzetí služeb při selhání a zaměřit se na obnovení dat. Budoucí verze služby vám umožní spustit převzetí služeb při selhání na úrovni účtu, abyste mohli řídit RTO, sami.
+
+#### <a name="8-what-azure-storage-objects-does-zrs-support"></a>8. Které objekty Azure Storage podporuje ZRS? 
+Objekty BLOB bloku, objekty BLOB stránky (s výjimkou těchto disků zálohování virtuálních počítačů), tabulky, soubory a fronty. 
+
+#### <a name="9-does-zrs-also-include-geo-replication"></a>9. ZRS také zahrnuje geografická replikace? 
+ZRS aktuálně geografická replikace nepodporuje. Pokud váš scénář vyžaduje replikace mezi oblastmi za účelem zotavení po havárii, použijte účet úložiště GRS nebo RA-GRS.   
+
+#### <a name="10-what-happens-when-one-or-more-zrs-zones-go-down"></a>10. Co se stane, když jeden nebo více zón ZRS přejděte? 
+Při první zónu přestane fungovat, i nadále ZRS zápisu repliky data mezi dvěma zbývající zón v oblasti. Pokud zónu druhý přestane fungovat, bude oprávnění ke čtení a zápisu nedostupné, dokud alespoň dvě zóny jsou k dispozici znovu. 
+
+## <a name="next-steps"></a>Další postup
 * [Návrh aplikace s vysokou dostupností pomocí RA-GRS úložiště](../storage-designing-ha-apps-with-ragrs.md)
 * [Ceny za Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [Informace o účtech úložiště Azure](../storage-create-storage-account.md)

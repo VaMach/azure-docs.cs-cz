@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Zabránit neočekávané poplatky s Azure fakturace a náklady na správu
 
@@ -143,7 +143,7 @@ Pomocí našich fakturace rozhraní API prostřednictvím kódu programu získat
 ### <a name="ea-csp-and-sponsorship-customers"></a>EA, CSP a sponzorství zákazníků
 Obraťte se na vašeho account manažera nebo partnera Azure, abyste mohli začít.
 
-| Nabídka | Zdroje |
+| Nabídka | Zdroje a prostředky |
 |-------------------------------|-----------------------------------------------------------------------------------|
 | Smlouva Enterprise Agreement (EA) | [Portál EA](https://ea.azure.com/), [pomoci dokumentace](https://ea.azure.com/helpdocs), a [sestavy Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Cloud Solution Provider (CSP) | Obraťte se na svého poskytovatele |
@@ -157,6 +157,7 @@ Zobrazení náklady Enterprise jsou aktuálně ve verzi Public Preview. Všimně
 - Předplatné náklady jsou založená na využití a nespadá zálohách, poplatky za použití, zahrnuté množství, úpravy a daně. Skutečné poplatky se vypočítávají na úrovni registrace. 
 - Objemy zobrazit v rámci portálu Azure může být zpoždění porovnání hodnoty v podnikovém portálu.  
 - Pokud nevidíte náklady, může to být kvůli jednomu z následujících důvodů:
+    - Nemáte dostatečná oprávnění na úrovni předplatného. Zobrazení náklady enterprise najdete musí být čtečky fakturace, čtečky, Přispěvatel nebo vlastníka na úrovni předplatného.
     - Jsou vlastníka účtu a správce registrace zakázal "AO zobrazení poplatků" nastavení.  Obraťte se na správce registrace získat přístup k náklady. 
     - Oddělení správce a správce registrace zakázal "DA zobrazení poplatků" nastavení.  Obraťte se na správce registrace k získání přístupu. 
     - Jste koupili prostřednictvím kanálu partnera Azure a partnerský nevydala informace o cenách.  

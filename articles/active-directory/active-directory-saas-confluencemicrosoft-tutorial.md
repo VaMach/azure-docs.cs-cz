@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 0409d4576b0671f60c5e3bd7e82a2a1102d3d28c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Kurz: Integrace Azure Active Directory pomocí jednotného přihlašování SAML soutoku společností Microsoft
 
@@ -31,6 +31,10 @@ Integrace jednotné přihlašování SAML soutoku společností Microsoft s Azur
 - Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure
 
 Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
+
+## <a name="description"></a>Popis:
+
+Pomocí účtu Microsoft Azure Active Directory se serverem Atlassian soutoku umožňující jednotného přihlašování. Tímto způsobem všichni uživatelé vaší organizace slouží k přihlášení do aplikace soutoku přihlašovací údaje Azure AD. Tento modul plug-in používá SAML 2.0 pro federaci.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -94,8 +98,6 @@ Při konfiguraci integrace přihlašování SAML soutoku společností Microsoft
 V této části konfiguraci a testování Azure AD jednotné přihlašování pomocí jednotného přihlašování SAML soutoku společnosti Microsoft podle testovacího uživatele názvem "Britta Simon".
 
 Azure AD pro jednotné přihlašování pro práci, musí vědět, co příslušného uživatele v jednotné přihlašování SAML soutoku společností Microsoft je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské soutoku SAML SSO společností Microsoft musí navázat.
-
-V soutoku jednotné přihlašování SAML společností Microsoft, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
 
 Nakonfigurovat a otestovat Azure AD jednotné přihlašování pomocí jednotného přihlašování SAML soutoku společností Microsoft, budete muset provést následující stavební bloky:
 
@@ -163,7 +165,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Stáhnout modul plug-in z [Microsoft Download Center](). Ručně odeslat modulu plug-in poskytnout pomocí Microsoft **nahrát rozšíření** nabídky
+8. Stáhnout modul plug-in z [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Ručně odeslat modulu plug-in poskytnout pomocí Microsoft **nahrát rozšíření** nabídky
     
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

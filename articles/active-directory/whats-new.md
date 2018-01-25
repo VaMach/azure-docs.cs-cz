@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/23/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c7aab313e6c848c97447cde22752cfed945442df
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co je nového ve službě Azure Active Directory?
 
@@ -40,6 +40,126 @@ Azure AD obdrží vylepšení průběžně. Zůstane aktuální pomocí nejnově
 -   Plány pro změny
 
 Tato stránka se aktualizuje každý měsíc, takže pokroku pravidelně.
+
+
+## <a name="january-2018"></a>2018 leden
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nové federované aplikace k dispozici v galerii aplikací Azure AD 
+
+**Typ:** nová funkce  
+**Kategorie služby:** podnikové aplikace  
+**Schopnosti produktu:** 3. stran integrace
+ 
+
+V lednu 2018 byly přidány následující nové aplikace s podporou federace v galerii aplikací:
+
+[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [Software pro správu ochrany osobních údajů OneTrust](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk federovaný Directory](https://go.microsoft.com/fwlink/?linkid=864699) a [přesnost NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+
+Úplný přehled všechny kurzy k dispozici, najdete v části [integraci aplikací SaaS s Azure Active Directory](https://aka.ms/appstutorial).
+ 
+
+---
+ 
+
+
+### <a name="sign-in-with-additional-risk-detected"></a>Zjistilo se přihlášení s dalšími riziky.
+
+**Typ:** nová funkce  
+**Kategorie služby:** Identity Protection  
+**Schopnosti produktu:** Identity zabezpečení a ochrany
+ 
+
+Přehledy, které máte pro událost zjištěnou riziko je vázaný na vaše předplatné Azure AD. S Azure AD Premium P2 edition získáte nejvíce podrobné informace o všech základní detekce.
+
+S edice Azure AD Premium P1 detekce, které nejsou předmětem licence zobrazí jako riziko událost přihlášení s další riziko zjištěna.
+
+Další informace najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-reporting-risk-events.md).
+ 
+
+---
+
+### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Skrýt aplikací Office 365 z panelů přístup koncového uživatele
+
+**Typ:** nová funkce  
+**Kategorie služby:** Moje aplikace  
+**Schopnosti produktu:** jednotného přihlašování
+ 
+
+Teď můžete lépe spravovat jak aplikace Office 365 zobrazovat ve panelů přístup uživatelů prostřednictvím nové nastavení uživatele. Tato možnost je užitečná pro snižuje množství aplikací v panelů přístupu uživatele, pokud chcete zobrazit pouze aplikace Office na portálu Office. Toto nastavení se nachází v **uživatelská nastavení** a je popsán **uživatelé vidí pouze aplikace Office 365 na portálu Office 365**.
+ 
+
+Další informace najdete v tématu [skrýt aplikace z možnosti pro uživatele v Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+
+---
+ 
+
+
+### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Bezproblémové přihlašování v aplikacích, které jsou povolené pro jednotné přihlašování heslo přímo z adresy URL aplikace 
+
+**Typ:** nová funkce  
+**Kategorie služby:** Moje aplikace  
+**Schopnosti produktu:** jednotného přihlašování
+ 
+
+Rozšíření prohlížeče Moje aplikace je nyní k dispozici prostřednictvím pohodlný nástroj, který poskytuje jednotné přihlašování v Moje aplikace na funkce jako zástupce v prohlížeči. Po instalaci uživatele se zobrazí ikona waffle v prohlížeči, který poskytuje je rychlý přístup k aplikacím. Uživatelé nyní mohou využít výhod:
+
+- Umožňuje přímo se přihlásit k aplikacím na základě hesla-jednotného přihlašování z přihlašovací stránky aplikace
+- Spuštění všech aplikací pomocí funkce rychlého vyhledávání
+- Zástupce nedávno použité aplikací z rozšíření
+- Rozšíření není k dispozici pro okraj a Chrome, Firefox.
+ 
+Další informace najdete v tématu [Moje aplikace zabezpečené přihlašování rozšíření](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Správa služby Azure AD byl vyřazen prostředí na portálu Azure classic
+
+**Typ:** zastaralé   
+**Kategorie služby:** Azure AD  
+**Schopnosti produktu:** adresáře
+ 
+
+Od verze 8 leden 2018, Správa Azure AD byl vyřazen prostředí na portálu Azure classic. To došlo ve spojení s vyřazení z portálu Azure classic, sám sebe. Do budoucna, měli byste použít [centra pro správu Azure AD](https://aad.portal.azure.com) pro všechny vaše založené na portálu správy Azure AD.
+ 
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Správa služby Azure AD byl vyřazen prostředí na portálu Azure classic
+
+**Typ:** zastaralé  
+**Kategorie služby:** Azure AD  
+**Schopnosti produktu:** adresáře
+ 
+
+Od verze 8 leden 2018 byl vyřazen PhoneFactor webový portál. Tento portál byl použit pro správu MFA serveru, ale tyto funkce byly přesunuty do portálu Azure na stránce portal.azure.com. 
+
+Konfigurace vícefaktorového ověřování se nachází v: **Azure Active Directory \> MFA serveru**
+ 
+---
+ 
+### <a name="deprecate-azure-ad-reports"></a>Přestat používat sestav Azure AD
+
+
+**Typ:** zastaralé  
+**Kategorie služby:** vytváření sestav  
+**Schopnosti produktu:** Identity – Správa životního cyklu  
+
+
+S obecné dostupnosti novou konzolu pro správu služby Azure Active Directory a nová rozhraní API pro aktivity a zabezpečení sestavy, sestava rozhraní API je teď dostupná v části "/ sestavy" koncový bod byl vyřazen od konce 31. prosince 2017.
+
+
+**Co je k dispozici?**
+
+V rámci přechodu na novou konzolu pro správu byla provedena 2 nových rozhraní API k dispozici pro načtení protokoly aktivity Azure AD. Novou sadu rozhraní API zadejte bohatší filtrování a řazení funkce kromě bohatší auditu a přihlašovací aktivity. Dříve k dispozici prostřednictvím sestavy zabezpečení dat je nyní přístupná prostřednictvím Identity Protection rizikových událostech rozhraní API v aplikaci Microsoft Graph.
+
+Další informace naleznete v tématu:
+
+- [Začínáme s Azure Active Directory, vytváření sestav rozhraní API](active-directory-reporting-api-getting-started-azure-portal.md)
+
+- [Začínáme s Azure Active Directory Identity Protection a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+
+
+---
 
 
 ## <a name="december-2017"></a>2017 prosinec
@@ -130,25 +250,11 @@ Další informace najdete v tématu [co je Azure AD Privileged Identity Manageme
 **Kategorie služby:** podnikové aplikace  
 **Schopnosti produktu:** integrace třetích stran
  
-V prosinec 2017 byly přidány následující nové aplikace s podporou federace v galerii aplikací.
+V prosinec 2017 byly přidány následující nové aplikace s podporou federace v galerii aplikací:
 
-|Název|Typ integrace|Popis|
-|:-- |----------------|:----------|
-|Digitální výkladní skříň EFI|SAML 2.0|[Tisk webové 2](https://go.microsoft.com/fwlink/?linkid=861685) aplikace.|
-|Vodeclic|SAML 2.0|Pomocí Azure AD můžete spravovat přístup uživatelů a povolit jednotné přihlašování s [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522). Vyžaduje existující účet Vodeclic.|
-|Accredible|SAML 2.0|Použití [Accredible](https://go.microsoft.com/fwlink/?linkid=863523) k vytvoření, správě a poskytování certifikáty, odznaky a blockchain pověření.|
-|FactSet|SAML 2.0|Jednotné přihlašování k [FactSet FDSWeb aplikace](https://go.microsoft.com/fwlink/?linkid=863525).|
-|Integrace se službou AD MobileIron Azure|SAML 2.0|Můžete použít moderní podniky [MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) k zabezpečení a spravovat informace o při jejich přesunu do mobilní aplikace a cloudu při jejich zachování ochrany osobních údajů a vztah důvěryhodnosti.|
-|OBRÁZEK FUNGUJE|SAML 2.0|Pomocí Azure AD můžete spravovat přístup uživatelů, zřízení uživatelských účtů a povolit jednotné přihlašování s [IMAGE FUNGUJE](https://go.microsoft.com/fwlink/?linkid=863517). Vyžaduje předplatné existující FUNGUJE bitové kopie.|
-|Jednotné přihlašování SAML pro Bitbucket podle řešení GmbH|SAML 2.0|[Jednotné přihlašování Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) delegáti ověřování do služby Azure AD. Bitbucket mít přístup uživatelé už přihlásili k Azure AD přímo. Uživatele můžete vytvořit a aktualizovat za chodu s daty z SAML atributy.|
-|Jednotné přihlašování SAML pro bambus podle řešení GmbH|SAML 2.0|[Jednotné přihlašování bambus](https://go.microsoft.com/fwlink/?linkid=863520) delegáti ověřování do služby Azure AD. Bambus mít přístup uživatelé už přihlásili k Azure AD přímo.|
-|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) je plně funkční, moderní sociálních intranetu software, který podporuje zaměstnanci a business.|
-|MOBI|SAML 2.0|Použití [MOBI](https://go.microsoft.com/fwlink/?linkid=863521) a centralizovat, pochopit a řídit ekosystém vaše zařízení.|
-|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) je moderní platforma pro správu výkonu, v reálném čase zpětnou vazbu a nastavení cílů. |
-|CybSafe|OpenID Connect & OAuth|Této platformě, certifikovaným GCHQ internetový zvyšování povědomí o používá pokročilou analýzu technologie a data ke snížení lidského aspekt kybernetického zabezpečení a data protection rizika.|
-|WebHR|OpenID Connect & OAuth|Tento software sociálních lidských zdrojů je důvěryhodný více než 20 000 společnosti 197 zemí.|
- |Integrace se službou AD Zenegy Azure|OpenID Connect & OAuth|K této aplikaci můžete se přihlásit k Zenegy přihlašovací údaje Azure AD vaší společnosti.|
-|Adobe činnost správce|SAML 2.0|Toto řešení platformy komplexní správy obsahu můžete použít k vytvoření webů, mobilní aplikace a forms ke správě marketing obsah a prostředky.|
+[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), správci prostředí Adobe [digitální výkladní skříň EFI](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [IMAGE FUNGUJE](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD integrace](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [jednotné přihlašování SAML pro bambus podle řešení GmbH](https://go.microsoft.com/fwlink/?linkid=863520), [Jednotné přihlašování SAML pro Bitbucket podle řešení GmbH](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, integrace Zenegy Azure AD.
+
+Úplný přehled všechny kurzy k dispozici, najdete v části [integraci aplikací SaaS s Azure Active Directory](https://aka.ms/appstutorial).
 
  
 ---

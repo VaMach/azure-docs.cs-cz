@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Postup nasazení Windows 10 v Azure s oprávnění víceklientské hostování 
 Víceklientská hostování práva pro Windows 10 pro zákazníky s Windows 10 Enterprise E3/E5 za Windows virtuální plochy přístup uživatele nebo na uživatele (licence předplatného uživatele nebo licence předplatného rozšíření uživatele), umožňuje uvést vaše licence Windows 10 do cloudu a spouštět virtuální počítače s Windows 10 v Azure bez placení pro jiné licence. Další informace najdete v tématu [víceklientské hostování pro Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> Tento článek ukazuje implementaci licencování výhody pro bitové kopie systému Windows 10 Desktop. Můžete se podívat do následující [hybridní Azure používat výhody pro bitové kopie systému Windows Server](hybrid-use-benefit-licensing.md).
+> Tento článek ukazuje implementaci licencování benefit pro Windows 10 Pro Desktop obrázky v Azure Marketplace.
+> - Windows 7, 8.1, 10 Enterprise (x64) imagí v Azure Marketplace pro předplatné MSDN, naleznete v [klienta systému Windows v Azure pro scénáře vývoje/testování](client-images.md)
+> - Licencování výhody serveru Windows, naleznete v [hybridní Azure používat výhody pro bitové kopie systému Windows Server](hybrid-use-benefit-licensing.md).
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Nasazení bitové kopie systému Windows 10 z Azure Marketplace 
@@ -32,8 +34,10 @@ Pro prostředí Powershell, rozhraní příkazového řádku a Azure Resource Ma
 
 | Operační systém  |      Název vydavatele      |  Nabídka | Skladová jednotka (SKU) |
 |:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows 10  | RS2 Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows 10  | RS2 ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2 ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Odesílání Windows 10 virtuálního pevného disku do Azure
 Pokud nahráváte virtuální pevný disk zobecněný Windows 10, uvědomte si, že Windows 10 nemá předdefinovaný účet správce ve výchozím nastavení povolené. Pokud chcete povolit předdefinovaný účet správce, zahrnují následující příkaz jako součást rozšíření vlastních skriptů.
@@ -51,7 +55,7 @@ if($adminAccount.Disabled)
     $adminAccount.Put()
 }
 ```
-Další informace: 
+Další informace najdete tady: 
 * [Postup nahrání virtuálního pevného disku do Azure](upload-generalized-managed.md)
 * [Tom, jak připravit virtuální pevný disk Windows nahrát do Azure](prepare-for-upload-vhd-image.md)
 

@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4344a450d218a7424cd055cf086c1e4865c9af10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: db86a08a19e97f8f415849aa060fe87d77cccf68
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Pomocí Visual Studio Code funkce Azure s Azure IoT hranou ladění
 
@@ -33,17 +33,36 @@ Po dokončení předchozí kurz, byste měli mít připravený, následující p
 
 ## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>Sestavení modulu IoT Edge pro účely ladění
 1. Spustit ladění, budete muset použít **dockerfile.debug** znovu sestavte docker image a znovu nasaďte řešení okraj. V Průzkumníku VS Code klikněte na složku Docker ho otevřete. Klikněte `linux-x64` složku, klikněte pravým tlačítkem myši **Dockerfile.debug**a klikněte na tlačítko **sestavení IoT Edge modulu Docker image**.
-3. V **vyberte složku** okno, přejděte na **FilterFunction** projektu a klikněte na tlačítko **vyberte složku jako EXE_DIR**.
-4. Automaticky otevírané okno textového pole v horní části okna VS Code zadejte název bitové kopie. Například: `<your container registry address>/filterfunction:latest`. Když nasazujete do místního registru, měla by být `localhost:5000/filterfunction:latest`.
-5. Do úložiště Docker push bitovou kopii. Použití **Edge: Push IoT Edge modulu Docker image** příkaz a zadejte adresu URL bitové kopie do místní textového pole v horní části okna VS Code. Použijte stejnou adresu URL obrázku jste použili v výše krok.
-6. Můžete opakovaně použít `deployment.json` znovu nasadit. V příkazu palety, typ a vyberte **Edge: restartujte Edge** získat funkce filtru s ladicí verzi.
+
+    ![Sestavení bitové kopie pro ladění](./media/how-to-debug-csharp-function/build-debug-image.png)
+
+2. V **vyberte složku** okno, přejděte na **FilterFunction** projektu a klikněte na tlačítko **vyberte složku jako EXE_DIR**.
+3. Automaticky otevírané okno textového pole v horní části okna VS Code zadejte název bitové kopie. Například: `<your container registry address>/filterfunction:latest`. Když nasazujete do místního registru, měla by být `localhost:5000/filterfunction:latest`.
+
+    ![Push bitové kopie](./media/how-to-debug-csharp-function/push-image.png)
+
+4. Do úložiště Docker push bitovou kopii. Použití **Edge: Push IoT Edge modulu Docker image** příkaz a zadejte adresu URL bitové kopie do místní textového pole v horní části okna VS Code. Použijte stejnou adresu URL obrázku jste použili v výše krok.
+5. Můžete opakovaně použít `deployment.json` znovu nasadit. V příkazu palety, typ a vyberte **Edge: restartujte Edge** získat funkce filtru s ladicí verzi.
 
 ## <a name="start-debugging-in-vs-code"></a>Spuštění ladění v produktu VS Code
 1. Přejděte do okna ladění VS Code. Stiskněte klávesu **F5** a vyberte **IoT Edge(.Net Core)**
+
+    ![Stisknutím klávesy F5](./media/how-to-debug-csharp-function/f5-debug-option.png)
+
 2. V `launch.json`, přejděte na **ladění funkce Edge IoT (.NET Core)** části a vyplňte `<container_name>`pod `pipeArgs`. Měla by být `filterfunction` v tomto kurzu.
+
+    ![Update launch.json](./media/how-to-debug-csharp-function/update-launch-json.png)
+
 3. Přejděte do run.csx. Přidáte zarážky ve funkci.
-4. Stiskněte klávesu **F5** znovu. A vyberte možnost připojit k procesu.
-5. V okně VS ladit kód se zobrazí proměnné v levém panelu. 
+4. Přejděte do okna ladění (Ctrl + Shift + D), zvolte **ladění funkce Edge IoT (.NET Core)** z rozevíracího seznamu. 
+
+    ![Vyberte režim ladění](./media/how-to-debug-csharp-function/choose-debug-mode.png)
+
+5. Klikněte na tlačítko Spustit ladění nebo klikněte na tlačítko **F5**a vyberte možnost připojit k procesu.
+
+    ![Připojit proces – funkce](./media/how-to-debug-csharp-function/attach-function-process.png)
+
+6. V okně VS ladit kód se zobrazí proměnné v levém panelu. 
 
 > [!NOTE]
 > Výše příklad ukazuje, jak ladění rozhraní .net Core IoT Edge funkce kontejnerům. Je založen na verzi ladění `Dockerfile.debug`, což zahrnuje VSDBG (.NET Core příkazového řádku ladicího programu) v bitové kopii kontejneru při jeho vytváření. Doporučujeme, abyste přímo použít nebo si přizpůsobit `Dockerfile` bez VSDBG pro produkční prostředí IoT Edge funkci po dokončení ladění funkce jazyka C#.

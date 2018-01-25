@@ -1,6 +1,6 @@
 ---
-title: "Přizpůsobení operačního systému konfigurace zabezpečení v Azure Security Center [Preview] | Microsoft Docs"
-description: "V tomto článku se naučíte, jak přizpůsobit hodnocení security center"
+title: "Přizpůsobení operačního systému konfigurace zabezpečení v Azure Security Center (Preview) | Microsoft Docs"
+description: "Tento článek ukazuje, jak přizpůsobit hodnocení security center"
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,117 +14,118 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: terrylan
-ms.openlocfilehash: 3af59e1b38e70494dd9dc17e2682d31cf7b7d361
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="customizing-os-security-configurations-in-azure-security-center-preview"></a>Přizpůsobení operačního systému konfigurace zabezpečení v Azure Security Center [Preview]
+# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Přizpůsobení operačního systému konfigurace zabezpečení v Azure Security Center (Preview)
 
-Zjistěte, jak přizpůsobit hodnocení konfigurace zabezpečení operačního systému v Azure Security Center pomocí tohoto průvodce.
+Tento návod ukazuje, jak přizpůsobit hodnocení konfigurace zabezpečení operačního systému v Azure Security Center.
 
 ## <a name="what-are-os-security-configurations"></a>Jaké jsou konfigurace zabezpečení operačního systému?
 
-Konfigurace zabezpečení monitorování Azure Security Center pomocí sady více než 150 doporučená pravidla pro posílení zabezpečení operačního systému, včetně pravidel souvisejících s brány firewall, auditování, zásady pro hesla a další. Pokud je počítač je zjištěn ohrožené konfigurace, vygeneruje se doporučení zabezpečení.
+Konfigurace zabezpečení Azure Security Center monitorování pomocí sady pravidel více než 150 doporučené pro posílení zabezpečení operačního systému, včetně pravidla týkající se brány firewall, auditování, zásady pro hesla a další. Pokud je počítač je zjištěn ohrožené konfigurace, Security Center generuje doporučení zabezpečení.
 
-Přizpůsobení pravidel pomáhá organizacím určovat, které možnosti konfigurace mají pro jejich prostředí vhodnější. Tato funkce umožňuje uživatelům nastavit vlastní hodnocení zásady a použít na všech příslušných počítačích v rámci předplatného.
+Přizpůsobením pravidla můžete řídit organizace, které možnosti konfigurace jsou pro jejich prostředí vhodnější. Můžete nastavit zásady, přizpůsobené hodnocení a následně použít na všech příslušných počítačích v rámci předplatného.
 
 > [!NOTE]
-> - Aktuálně přizpůsobení konfigurace zabezpečení operačního systému je k dispozici pro Windows Server 2008, 2008 R2, 2012, jenom 2012R2 operační systémy.
-- Konfigurace platí pro všechny virtuální počítače a počítače připojeny k všechny pracovní prostory v části vybraného předplatného.
-- Přizpůsobení konfigurace zabezpečení operačního systému je k dispozici pouze na úrovni Standard Security Center.
+> - V současné době je k dispozici pro Windows Server 2008, 2008 R2, 2012 a 2012 R2 verze operační systémy pouze přizpůsobení konfigurace zabezpečení operačního systému.
+> - Konfigurace platí pro všechny virtuální počítače a počítače, které jsou připojené k všechny pracovní prostory v části vybraného předplatného.
+> - Přizpůsobení konfigurace zabezpečení operačního systému je k dispozici pouze na úrovni standard Security Center.
 >
 >
 
-Tom, jak přizpůsobit pravidla konfigurace zabezpečení operačního systému?
-
-Pravidla konfigurace zabezpečení operačního systému můžete přizpůsobit tak, že povolení a zakázání konkrétní pravidlo, změna požadované nastavení pro existující pravidlo a přidat nové pravidlo založené na typech podporovaných pravidlo (registr, zásady auditu a zásady zabezpečení). V současné době požadované nastavení musí být přesná hodnota.
+Pravidla konfigurace zabezpečení operačního systému můžete přizpůsobit povolení a zakázání konkrétní pravidlo, změna požadované nastavení pro existující pravidlo nebo přidáním nové pravidlo, které je založené na typech podporovaných pravidlo (registr, zásady auditu a zásady zabezpečení). V současné době požadované nastavení musí být přesná hodnota.
 
 Nová pravidla musí být ve stejné formátu a struktura jako ostatní existující pravidla stejného typu.
 
 > [!NOTE]
-> K přizpůsobení konfigurace zabezpečení operačního systému, musí být přiřazenou roli vlastník předplatného, Přispěvatel předplatné nebo správce zabezpečení.
+> Chcete-li přizpůsobit konfigurace zabezpečení operačního systému, musí být přiřazena role z *vlastník předplatného*, *předplatné Přispěvatel*, nebo *správce zabezpečení*.
 >
 >
 
-## <a name="customize-security-configuration"></a>Přizpůsobení konfigurace zabezpečení
+## <a name="customize-the-default-os-security-configuration"></a>Přizpůsobit výchozí konfigurace zabezpečení operačního systému
 
-Chcete-li přizpůsobit výchozí konfigurace zabezpečení operačního systému ve službě Security Center:
+Chcete-li přizpůsobit výchozí konfigurace zabezpečení operačního systému ve službě Security Center, postupujte takto:
 
 1.  Otevřete řídicí panel **Security Center**.
 
-2.  V části v hlavní nabídce Security Center, vyberte **zásady zabezpečení**.  **Security Center – zásady zabezpečení** otevře.
+2.  V levém podokně vyberte **zásady zabezpečení**.  
+    **Security Center – zásady zabezpečení** otevře se okno.
+
+    ![Seznam zásad zabezpečení](media/security-center-customize-os-security-config/open-security-policy.png)
 
 3.  Vyberte předplatné, se kterou chcete provést vlastní nastavení pro.
 
-    ![](media/security-center-customize-os-security-config/open-security-policy.png)
+4. V části **součásti zásad**, vyberte **upravit konfigurace zabezpečení**.  
+    **Upravit konfigurace zabezpečení** otevře se okno. 
+    
+    ![Okna "Upravit konfigurace zabezpečení"](media/security-center-customize-os-security-config/blade.png)
 
-4. V části **součásti zásad**, vyberte **upravit konfigurace zabezpečení**.
+5. V pravém podokně postupujte podle kroků pro stahování, úpravy a nahráváte upravený soubor.
 
-6.  **Úprava konfigurací zabezpečení** otevře. Postupujte podle kroků vyznačené na obrazovce stáhnout, upravit a odeslat změněný soubor.
+   > [!NOTE]
+   > Ve výchozím nastavení, je konfigurační soubor, který stáhnete v *json* formátu. Pokyny týkající se tento soubor upravovali, přejděte na [přizpůsobení konfiguračního souboru](#customize-the-configuration-file).
+   >
 
-    ![](media/security-center-customize-os-security-config/blade.png)
+   Po uložení souboru úspěšně, konfigurace platí pro všechny virtuální počítače a počítače, které jsou připojené k všechny pracovní prostory v rámci předplatného. Proces obvykle trvá několik minut, ale může trvat déle, v závislosti na velikosti infrastruktury. 
 
-  > [!NOTE]
-  > Ve výchozím nastavení, je konfigurační soubor, který stáhnete v *json* formátu. Pokyny pro úpravu tohoto souboru, přejděte na [přizpůsobení konfiguračního souboru](#customize-the-configuration-file).
-  >
+6. Potvrzení změn, vyberte **Uložit**. Zásady, jinak se neuloží.
 
-7. Po úspěšném uložení souboru, konfigurace platí pro všechny virtuální počítače a počítače připojeny k všech pracovních prostorů v rámci vybraného předplatného. Tento proces může trvat delší dobu, obvykle na několik minut, ale můžete může trvat déle, protože závisí na velikosti infrastruktury. Vyberte **Uložit** potvrzení změn, jinak zásady se neukládá.
+    ![Tlačítko Uložit](media/security-center-customize-os-security-config/save-successfully.png)
 
-    ![](media/security-center-customize-os-security-config/save-successfully.png)
+V libovolném bodě můžete resetovat aktuální konfiguraci zásad do výchozího stavu. Uděláte to tak, v **pravidla konfigurace zabezpečení upravit OS** vyberte **resetovat**. Potvrďte výběrem této možnosti **Ano** v místním okně potvrzení.
 
-V libovolném bodě můžete aktuální konfiguraci zásad resetovat do výchozího stavu pro zásadu výběrem **resetovat** možnost **pravidla upravit konfiguraci zabezpečení operačního systému**. Pokud zvolíte tuto možnost, zobrazí se následující automaticky otevírané okno Výstraha. Vyberte **Ano** k potvrzení.
-
-![](media/security-center-customize-os-security-config/edit-alert.png)
+![Okno pro potvrzení resetování](media/security-center-customize-os-security-config/edit-alert.png)
 
 ## <a name="customize-the-configuration-file"></a>Přizpůsobení konfiguračního souboru
 
-V souboru přizpůsobení všechny podporované verze operačního systému je sada pravidel (ruleset). Každá sada pravidel má svou vlastní název a jedinečné ID, jak je znázorněno v následujícím příkladu:
+V souboru přizpůsobení všechny podporované verze operačního systému obsahuje sadu pravidel nebo ruleset. Každý ruleset má svou vlastní název a jedinečné ID, jak je znázorněno v následujícím příkladu:
 
-![](media/security-center-customize-os-security-config/custom-file.png)
+![Sada pravidel pro název a ID](media/security-center-customize-os-security-config/custom-file.png)
 
 > [!NOTE]
-> Tento soubor byl upraven pomocí sady Visual Studio, ale můžete také použít Poznámkový blok, dokud máte modulu plug-in prohlížeče JSON, nainstalovány.
+> Tento příklad souboru bylo upraveno v sadě Visual Studio, ale také můžete použít Poznámkový blok Pokud máte modul plug-in JSON prohlížeč nainstalován.
 >
 >
 
-Při úpravě tohoto souboru, můžete upravit jedno pravidlo nebo všechny z nich. Každý ruleset zahrnuje *pravidla* oddíl, který obsahuje pravidla, rozdělit do 3 kategorií pravidel: registr, zásady auditu a zásady zabezpečení, jak je vidět níže:
+Při úpravách souboru úprav, můžete upravit jedno pravidlo nebo všechny z nich. Každý ruleset zahrnuje *pravidla* oddíl, který je rozdělené do tří kategorií: registr, zásady auditu a zásady zabezpečení, jak je vidět tady:
 
-![](media/security-center-customize-os-security-config/rules-section.png)
+![Tři kategorie ruleset](media/security-center-customize-os-security-config/rules-section.png)
 
-Každá kategorie obsahuje vlastní sadu atributů. Pro existující pravidla můžete provést změny v těm, které jsou následující:
+Každá kategorie obsahuje vlastní sadu atributů. Můžete změnit následující atributy:
 
-- expectedValue: datového typu pole tohoto atributu musí odpovídat podporované hodnoty podle jednotlivých typů pravidel, například:
+- **expectedValue**: datového typu pole tento atribut musí odpovídat podporované hodnoty za *typ pravidla*, například:
 
-  - baselineRegistryRules: hodnota by měla odpovídat [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) definované v tomto pravidle.
+  - **baselineRegistryRules**: hodnota by měla odpovídat [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) který je definován v tomto pravidle.
 
-  - baselineAuditPolicyRules: hodnota musí být řetězcovou hodnotu, jednu z následujících:
+  - **baselineAuditPolicyRules**: použijte jednu z následujících hodnot řetězec:
 
-    - Úspěchy a chyby
+    - *Úspěchy a chyby*
 
-    - Úspěch
+    - *Úspěch*
 
-  - baselineSecurityPolicyRules: hodnota musí být řetězcovou hodnotu, jednu z následujících:
+  - **baselineSecurityPolicyRules**: použijte jednu z následujících hodnot řetězec:
 
-    - "Nikdo"
+    - *Žádná*
 
-    - Seznam povolených skupin uživatelů, například: "Správci, Backup Operators"
+    - Seznam povolených skupin uživatelů, například: *správci*, *Backup Operators*
 
--   Stav: řetězec, který může obsahovat možnosti "Povoleno" nebo "Zakázáno". Pro tuto verzi privátní Preview verzi řetězec je malá a velká písmena.
+-   **Stav**: řetězec může obsahovat možnosti *zakázané* nebo *povoleno*. Pro tuto verzi privátní Preview verzi řetězec je malá a velká písmena.
 
 Jedná se o pouze pole, které lze konfigurovat. Pokud jste porušují formát souboru nebo velikost, nebudete moci uložit změny. K této chybě dojde, pokud soubor nelze zpracovat:
 
-![](media/security-center-customize-os-security-config/invalid-json.png)
+![Chybová zpráva Konfigurace zabezpečení](media/security-center-customize-os-security-config/invalid-json.png)
 
-V tématu [kódy chyb](#error-codes) seznam potenciální chyby.
+Seznam dalších potenciální chyby najdete v tématu [kódy chyb](#error-codes).
 
-Zde máte mezi některé příklady těchto pravidel. Atributy 'expectedValue' a 'stav' lze změnit:
+Následující tři části obsahují příklady předchozích pravidel. *ExpectedValue* a *stavu* atributy lze změnit.
 
-**Část pravidla:** baselineRegistryRules
+**baselineRegistryRules**
 ```
-{
-
+    {
     "hive": "LocalMachine",
     "regValueType": "Int",
     "keyPath":
@@ -142,49 +143,49 @@ Zde máte mezi některé příklady těchto pravidel. Atributy 'expectedValue' a
     "source": "Microsoft",
     "state": "Disabled"
 
-}
+    }
 ```
 
-**Část pravidla:** baselineAuditPolicyRules
+**baselineAuditPolicyRules**
 ```
-{
-"auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
-"ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
-"originalId": "2ea0de1a-c71d-46c8-8350-a7dd4d447895",
-"cceId": "CCE-11001-5",
-"ruleName": "Audit Policy: Account Management: Other Account Management Events",
-"ruleType": "AuditPolicy",
-"expectedValue": "Success and Failure",
-"severity": "Critical",
-"analyzeOperation": "Equals",
-"source": "Microsoft",
-"state": "Enabled"
-},
-```
-
-**Pravidla částech:** baselineSecurityPolicyRules
-```
-{
-"sectionName": "Privilege Rights",
-"settingName": "SeIncreaseWorkingSetPrivilege",
-"ruleId": "b0ec9d5e-916f-4356-83aa-c23522102b33",
-"originalId": "b61bd492-74b0-40f3-909d-36b9bf54e94c",
-"cceId": "CCE-10548-6",
-"ruleName": "Increase a process working set",
-"ruleType": "SecurityPolicy",
-"expectedValue": "Administrators, Local Service",
-"severity": "Warning",
-"analyzeOperation": "Equals",
-"source": "Microsoft",
-"state": "Enabled"
-},
+    {
+    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
+    "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
+    "originalId": "2ea0de1a-c71d-46c8-8350-a7dd4d447895",
+    "cceId": "CCE-11001-5",
+    "ruleName": "Audit Policy: Account Management: Other Account Management Events",
+    "ruleType": "AuditPolicy",
+    "expectedValue": "Success and Failure",
+    "severity": "Critical",
+    "analyzeOperation": "Equals",
+    "source": "Microsoft",
+    "state": "Enabled"
+    }
 ```
 
-Existují některá pravidla, které jsou duplikované pro různé typy operačního systému. Duplicitní pravidla mají stejné originalId.
+**baselineSecurityPolicyRules**
+```
+    {
+    "sectionName": "Privilege Rights",
+    "settingName": "SeIncreaseWorkingSetPrivilege",
+    "ruleId": "b0ec9d5e-916f-4356-83aa-c23522102b33",
+    "originalId": "b61bd492-74b0-40f3-909d-36b9bf54e94c",
+    "cceId": "CCE-10548-6",
+    "ruleName": "Increase a process working set",
+    "ruleType": "SecurityPolicy",
+    "expectedValue": "Administrators, Local Service",
+    "severity": "Warning",
+    "analyzeOperation": "Equals",
+    "source": "Microsoft",
+    "state": "Enabled"
+    }
+```
 
-## <a name="adding-a-new-custom-rule"></a>Přidání nové vlastní pravidlo
+Některá pravidla jsou duplicitní pro různé typy operačního systému. Duplicitní pravidla mají stejné *originalId* atribut.
 
-Můžete také vytvořit nové pravidlo. Před vytvořením nové pravidlo, mějte na paměti následující omezení:
+## <a name="create-custom-rules"></a>Vytvořit vlastní pravidla
+
+Můžete také vytvořit nová pravidla. Než vytvoříte nové pravidlo, mějte na paměti následující omezení:
 
 -   Verze schématu *baselineId* a *baselineName* nelze změnit.
 
@@ -192,23 +193,23 @@ Můžete také vytvořit nové pravidlo. Před vytvořením nové pravidlo, měj
 
 -   Nelze přidat RuleSet.
 
--   Maximální počet pravidel povolené (i výchozí pravidla), která je 1 000 pravidel.
+-   Maximální počet pravidel povolené (i výchozí pravidla), která je 1 000.
 
-Nová vlastní pravidla jsou označené jako nový vlastní zdroj (! = "Microsoft"). *RuleId* pole může být null nebo prázdný. Pokud je prázdná, Microsoft generuje jeden. Pokud není prázdná, musí mít platný identifikátor GUID jedinečný mezi všechna pravidla (výchozí a vlastní). Přečtěte si omezení týkající se základní pole níže:
+Nová vlastní pravidla jsou označené jako nový vlastní zdroj (! = "Microsoft"). *RuleId* pole může být null nebo prázdný. Pokud je prázdná, Microsoft generuje jeden. Pokud není prázdná, musí mít platný identifikátor GUID, který je jedinečný v rámci všech pravidel (výchozí a vlastní). Projděte si následující omezení pro základní pole:
 
--   *originalId* -může být null nebo prázdný. Pokud *originalId* je prázdná, by mělo být platný identifikátor GUID.
+-   **originalId**: může být null nebo prázdný. Pokud *originalId* je prázdná, by mělo být platný identifikátor GUID.
 
--   *cceId* -může být null nebo prázdný. Pokud *cceId* je prázdná, musí být jedinečný.
+-   **cceId**: může být null nebo prázdný. Pokud *cceId* je prázdná, musí být jedinečný.
 
--   *Typ pravidla* – jeden z: registru, AuditPolicy nebo SecurityPolicy.
+-   **Typ pravidla**: (vyberte jednu) registru, AuditPolicy nebo SecurityPolicy.
 
--   *Závažnost* – jeden z: Neznámý kritická, upozornění nebo informativní.
+-   **Závažnost**: (vyberte jednu) Neznámý kritická, upozornění nebo informativní.
 
--   *analyzeOperation* -musí mít hodnotu.
+-   **analyzeOperation**: musí být *rovná*.
 
--   *auditPolicyId* – musí být platný identifikátor GUID.
+-   **auditPolicyId**: musí být platný identifikátor GUID.
 
--   *regValueType* -musí mít jednu z: Int, Long, řetězec nebo MultipleString.
+-   **regValueType**: (vyberte jednu) Int, Long, řetězec nebo MultipleString.
 
 > [!NOTE]
 > Musí být Hive *LocalMachine*.
@@ -232,12 +233,11 @@ Příklad nové vlastní pravidlo:
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
     "state": "Enabled"
-   }
+    }
 ```
 **Zásady zabezpečení**:
 ```
-{
-
+   {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
    "originalId": "",
@@ -250,7 +250,7 @@ Příklad nové vlastní pravidlo:
    "state": "Enabled"
    }
 ```
-**Zásady auditu:**
+**Zásady auditu**:
 ```
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
@@ -266,59 +266,59 @@ Příklad nové vlastní pravidlo:
 
 ## <a name="file-upload-failures"></a>Selhání nahrávání souborů
 
-Pokud odeslaná konfigurační soubor je neplatný z důvodu chyby ve formátování nebo hodnoty, zobrazí se chyba selhání. Můžete si stáhnout opravit a opravte chyby před opětovným odesláním opravené konfiguračního souboru csv zprávu podrobné chyby.
+Pokud odeslaná konfiguračního souboru není platná z důvodu chyby ve formátování nebo hodnoty, zobrazí se chyba selhání. Můžete si stáhnout opravit a opravte chyby, než znovu odešlete opravené konfigurační soubor .csv zprávu podrobné chyby.
 
-![](media/security-center-customize-os-security-config/invalid-configuration.png)
+!["Uložit akce se nezdařilo" chybová zpráva](media/security-center-customize-os-security-config/invalid-configuration.png)
 
-Příklad souboru chyby:
+Příklad souboru chyba:
 
-![](media/security-center-customize-os-security-config/errors-file.png)
+![Příklad souboru chyby](media/security-center-customize-os-security-config/errors-file.png)
 
 ## <a name="error-codes"></a>Kódy chyb
 
-Níže uvedeného seznamu obsahuje všechny potenciální chyby:
+Všechny potenciální chyby jsou uvedené v následující tabulce:
 
 | **Chyba**                                | **Popis**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | Vlastnost 'schemaVersion' byl nalezen neplatný nebo prázdný. Hodnota musí nastavit na {0}.                                                         |
-| BaselineInvalidStringError               | Vlastnost '{0}' nemůže obsahovat '\\n ".                                                                                                         |
-| BaselineNullRuleError                    | Seznam standardních hodnot konfigurace pravidel obsahuje pravidla s hodnotou "null".                                                                         |
-| BaselineRuleCceIdNotUniqueError          | CCE-ID: {0} není jedinečný.                                                                                                                  |
-| BaselineRuleEmptyProperty                | Vlastnost: {0}' je chybí nebo je neplatný.                                                                                                       |
-| BaselineRuleIdNotInDefault               | Toto pravidlo má zdrojová vlastnost "Microsoft", ale nebyl nalezen v ruleset výchozí Microsoft.                                                   |
+| BaselineConfiguratiohSchemaVersionError  | Vlastnost *schemaVersion* byl nalezen neplatný nebo prázdný. Hodnota musí být nastavena na *{0}*.                                                         |
+| BaselineInvalidStringError               | Vlastnost *{0}* nemůže obsahovat  *\\ n* .                                                                                                         |
+| BaselineNullRuleError                    | V seznamu standardních hodnot konfigurace pravidel obsahuje pravidla s hodnotou *null*.                                                                         |
+| BaselineRuleCceIdNotUniqueError          | Identifikátor CCE *{0}* není jedinečný.                                                                                                                  |
+| BaselineRuleEmptyProperty                | Vlastnost *{0}* chybí nebo není platný.                                                                                                       |
+| BaselineRuleIdNotInDefault               | Toto pravidlo má zdrojová vlastnost *Microsoft* , ale nebyl nalezen v ruleset výchozí společnosti Microsoft.                                                   |
 | BaselineRuleIdNotUniqueError             | Pravidlo Id není jedinečné.                                                                                                                       |
-| BaselineRuleInvalidGuid                  | Byla nalezena neplatná vlastnost: {0}. Hodnota není platný identifikátor Guid.                                                                             |
-| BaselineRuleInvalidHive                  | Hive musí být LocalMachine.                                                                                                                   |
+| BaselineRuleInvalidGuid                  | Vlastnost *{0}* byl nalezen neplatný. Hodnota není platný identifikátor GUID.                                                                             |
+| BaselineRuleInvalidHive                  | Podregistr musí být LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | Název pravidla není jedinečný.                                                                                                                 |
 | BaselineRuleNotExistInConfigError        | Pravidlo nebylo nalezeno v novou konfiguraci. Pravidlo nelze odstranit.                                                                     |
-| BaselineRuleNotFoundError                | Pravidlo nebylo nalezeno ve výchozí sada pravidla standardních hodnot.                                                                                        |
+| BaselineRuleNotFoundError                | Pravidlo nebylo nalezeno ve výchozích ruleset směrného plánu.                                                                                        |
 | BaselineRuleNotInPlace                   | Pravidlo odpovídá výchozí pravidlo s typu {0} a je uveden v seznamu {1}.                                                                       |
-| BaselineRulePropertyTooLong              | Vlastnost: {0}' je příliš dlouhý. Maximální povolená délka: {1}.                                                                                        |
-| BaselineRuleRegTypeInvalidError          | Očekávaná hodnota: {0} se neshoduje typ hodnoty registru, který je definován.                                                              |
-| BaselineRulesetAdded                     | Sada pravidla s id: {0} nebyl nalezen ve výchozí konfiguraci. Nelze přidat sadu pravidel.                                               |
-| BaselineRulesetIdMustBeUnique            | Sada pravidel daného směrného plánu {0}' musí být jedinečný.                                                                                           |
-| BaselineRulesetNotFound                  | Nastavit pravidla s id: {0} a názvem objekt {1}' nebyl nalezen v dané konfiguraci. Sada pravidla nelze odstranit.                                |
-| BaselineRuleSourceNotMatch               | Pravidlo s id: {0} je již definován.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | Výchozí pravidlo typ je: {0}.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | Skutečný typ pravidla je: {0}, ale typ pravidla vlastnost je: {1}.                                                                          |
-| BaselineRuleUnpermittedChangesError      | Povoleny jsou pouze vlastnosti 'expectedValue' a 'stav' se musí změnit.                                                                       |
-| BaselineTooManyRules                     | Maximální povolený počet vlastní pravidla je pravidla {0}. Danou konfiguraci obsahuje pravidla {1}. (výchozí pravidla {2} + {3} vlastní pravidla. |
-| ErrorNoConfigurationStatus               | Nenašel se žádný stav konfigurace. Uveďte prosím stav požadované konfigurace - "Výchozí" nebo "Vlastní".                                    |
-| ErrorNonEmptyRulesetOnDefault            | Stav konfigurace je nastaven výchozí. Seznam BaselineRulesets musí být null nebo prázdný.                                                          |
-| ErrorNullRulesetsPropertyOnCustom        | Stav daného konfigurace je "Vlastní", ale vlastnost 'baselineRulesets' má hodnotu null nebo prázdný.                                             |
-| ErrorParsingBaselineConfig               | Danou konfiguraci je neplatná. Minimálně jeden z hodnot fronty definovaných má hodnotu null nebo neplatného typu.                                  |
-| ErrorParsingIsDefaultProperty            | Daný 'configurationStatus' Hodnota '{0}' je neplatná. Hodnota může být pouze "Výchozí" nebo "Vlastní".                                         |
-| InCompatibleViewVersion                  | Zobrazení verze: {0} není k dispozici pro tento typ pracovního prostoru.                                                                                   |
+| BaselineRulePropertyTooLong              | Vlastnost *{0}* je příliš dlouhý. Maximální povolená délka: {1}.                                                                                        |
+| BaselineRuleRegTypeInvalidError          | Očekávaná hodnota *{0}* se neshoduje typ hodnoty registru, který je definován.                                                              |
+| BaselineRulesetAdded                     | Sada pravidel pro s ID *{0}* nebyl nalezen ve výchozí konfiguraci. Nelze přidat, sada pravidel pro.                                               |
+| BaselineRulesetIdMustBeUnique            | Sada pravidel pro daného směrného plánu *{0}* musí být jedinečný.                                                                                           |
+| BaselineRulesetNotFound                  | Sada pravidel pro s id *{0}* a název *{1}* nebyl nalezen v dané konfiguraci. Nelze odstranit, sada pravidel pro.                                |
+| BaselineRuleSourceNotMatch               | Pravidlo s ID *{0}* je již definován.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | Je výchozím typem pravidlo *{0}*.                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | Skutečný typ pravidla je *{0}*, ale *typ pravidla* vlastnost je *{1}*.                                                                          |
+| BaselineRuleUnpermittedChangesError      | Pouze *expectedValue* a *stavu* jsou povoleny vlastnosti chcete změnit.                                                                       |
+| BaselineTooManyRules                     | Maximální počet povolených vlastní pravidla je pravidla {0}. Danou konfiguraci obsahuje pravidla {1}, {2} výchozí pravidla a pravidla {3} přizpůsobit. |
+| ErrorNoConfigurationStatus               | Nenašel se žádný stav konfigurace. Stav konfigurace požadovaného stavu: *výchozí* nebo *vlastní*.                                    |
+| ErrorNonEmptyRulesetOnDefault            | Stav konfigurace je nastaven výchozí. *BaselineRulesets* seznamu musí být null nebo prázdný.                                                          |
+| ErrorNullRulesetsPropertyOnCustom        | Stav daného konfigurace *vlastní* ale *baselineRulesets* vlastnost má hodnotu null nebo prázdný.                                             |
+| ErrorParsingBaselineConfig               | Danou konfiguraci je neplatná. Jeden nebo více definovaných hodnot mít hodnotu null nebo neplatného typu.                                  |
+| ErrorParsingIsDefaultProperty            | V dané *configurationStatus* hodnotu *{0}* je neplatný. Hodnota může být pouze *výchozí* nebo *vlastní*.                                         |
+| InCompatibleViewVersion                  | Zobrazit verzi *{0}* je *není* podporována u tohoto typu pracovního prostoru.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | S jedné nebo více chybám ověření typ byl nalezen daného směrného plánu konfigurace.                                                          |
-| ViewConversionError                      | Zobrazení je starší verze tohoto pracovního prostoru podporována. Zobrazit Chyba převodu: {0}                                                                 |
+| ViewConversionError                      | Zobrazení je starší verze než podporuje pracovním prostoru. Zobrazit Chyba převodu: {0}.                                                                 |
 
-Pokud nemáte dostatečná oprávnění, může dojít k chybě došlo k obecné chybě:
+Pokud nemáte dostatečná oprávnění, může získat k chybě došlo k obecné chybě, jak je vidět tady:
 
-![](media/security-center-customize-os-security-config/general-failure-error.png)
+!["Uložit akce se nezdařilo" chybová zpráva](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## <a name="next-steps"></a>Další postup
-Tento článek ukázal, jak přizpůsobit hodnocení konfigurace zabezpečení operačního systému ve službě Security Center. Další informace o konfiguraci pravidla a nápravě najdete v tématu:
+Tento článek popsané postup přizpůsobení vyhodnocování konfigurace zabezpečení operačního systému ve službě Security Center. Další informace o konfiguraci pravidla a nápravě najdete v tématu:
 
 - [Security Center běžné identifikátorů konfigurace a standardních pravidel](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
-- Security Center používá CCE (Common Configuration výčtu) k přiřazení jedinečné identifikátory pro konfigurační pravidla. Přejděte [CCE](https://nvd.nist.gov/config/cce/index) lokality pro další informace.
-- [Opravit konfigurace zabezpečení](security-center-remediate-os-vulnerabilities.md) ukazuje, jak vyřešit chyby zabezpečení, když vaše konfigurace operačního systému neodpovídá pravidla zabezpečení doporučené konfigurace.
+- Security Center používá společné konfigurace – výčet (CCE) k přiřazení jedinečné identifikátory konfigurační pravidla. Další informace najdete v tématu [CCE](https://nvd.nist.gov/config/cce/index).
+- Při konfiguraci operačního systému neodpovídá pravidla konfigurace doporučené zabezpečení řeší chyby zabezpečení, najdete v tématu [napravit konfigurace zabezpečení](security-center-remediate-os-vulnerabilities.md).

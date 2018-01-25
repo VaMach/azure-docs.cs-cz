@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: b680d4b828910207367035a8b03bd75f84c79271
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f75fcec3b722563949b6553f17c4f3db3e223675
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="sprint-3---january-2018"></a>Sprint 3 – leden 2018 
 
@@ -34,6 +34,7 @@ Následuje seznam podrobné aktualizací v oblasti Azure Machine Learning v tét
 - Možnost instalace nebo odinstalace aplikace z panelu Přidat nebo odebrat programy
 - Aktualizace zásobníku ověřování vynutí přihlášení a účet výběr na spuštění
 - Vylepšené prostředí pro jednotné přihlašování na (SSO) v systému Windows
+- Uživatelé, kteří patří do více klientů s odlišnými pověřeními teď bude moci přihlásit do Workbench
 
 #### <a name="ui"></a>UI
 - Obecná vylepšení a opravy chyb
@@ -46,6 +47,7 @@ Následuje seznam podrobné aktualizací v oblasti Azure Machine Learning v tét
 - Vylepšený algoritmus pro vzor frekvence inspector
 - Schopnost posílání ukázkových dat a zpětnou vazbu při provádění transformací podle příkladu ![odvozena obrázek odeslat zpětnou vazbu odkaz na sloupec transformace](media/release-notes-sprint-3/SendFeedbackFromDeriveColumn.png)
 - Vylepšení Spark modulu Runtime
+- Scala nahradili Pyspark
 - Opravené neschopnost zavřete dat nelze použít pro nástroj Inspector řady čas 
 - Pevné zablokování dobu provádění Data Prep pro HDI
 

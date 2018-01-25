@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connectors-list"></a>Seznam konektorů
 Triggery a akce definované v popisu Swaggeru každého konektoru a všechna omezení konektoru najdete v [podrobnostech o konektoru](/connectors/).
@@ -93,7 +93,7 @@ Připojte s podnikovým aplikacím v rámci vašich aplikací logiky.
 |[![Ikona rozhraní API][MQicon]<br/>**MQ**][mqdoc]|[![Ikona rozhraní API][SAPicon]<br/>**SAP**][sapconnector]|
 
 > [!TIP]
-> Pokud chcete začít s Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si Logic Apps](https://tryappservice.azure.com/?appservice=logic). Ihned si můžete vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít s Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si Logic Apps](https://tryappservice.azure.com/?appservice=logic). Ihned si můžete vytvořit krátkodobou úvodní aplikaci logiky. Není vyžadována platební karta a nevzniká žádný závazek.
 
 ## <a name="connectors-as-triggers-and-actions"></a>Konektory jako triggery a akce
 
@@ -143,7 +143,7 @@ Pokud chcete pomoci při vylepšování Azure Logic Apps a konektorů, hlasujte 
 Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považuje za důležité? Pokud ano, rozšiřte naše stávající témata nebo přidejte nové a pomozte nám. Naše dokumentace je typu open source a je hostovaná v GitHubu. Začněte v našem [úložišti GitHub](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Další kroky
-* [Vytvoření první aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Vytvoření první aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Vytvoření vlastních rozhraní API pro aplikace logiky](../logic-apps/logic-apps-create-api-app.md)
 * [Monitorování aplikací logiky](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 

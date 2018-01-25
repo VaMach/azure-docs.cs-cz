@@ -92,6 +92,8 @@
           href: deployment-setup-configuration.md
         - name: Škálování clusterů a služeb
           href: how-to-scale-clusters.md
+        - name: Nastavení protokolu SSL v clusteru MLC
+          href: how-to-setup-ssl-on-mlc.md
         - name: Nasazení webové služby
           href: model-management-service-deploy.md
         - name: Nasazení do zařízení IoT Edge

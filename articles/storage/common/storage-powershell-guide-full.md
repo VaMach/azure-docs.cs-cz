@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Použití Azure Powershell s Azure Storage
 
@@ -44,7 +44,7 @@ Pro toto cvičení, můžete zadat příkazy do regulární okno Powershellu, ne
 
 Další informace o účtech úložiště najdete v tématu [Úvod do Storage](storage-introduction.md) a [účty Azure storage](storage-create-storage-account.md).
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k předplatnému Azure pomocí příkazu `Login-AzureRmAccount` a postupujte podle pokynů na obrazovce.
 
@@ -133,7 +133,7 @@ Chcete-li změnit nastavení pro účet úložiště, použijte [Set AzureRmStor
 
 * **Značky** přiřazená k účtu úložiště. Značky se často používají k kategorizovat prostředky pro účely fakturace.
 
-* **SKU** je nastavení replikace pro účet úložiště, jako je například LRS pro místně redundantní úložiště. Například můžete změnit z Standard\_LRS standardního\_GRS nebo Standard\_RAGRS. Všimněte si, že nelze změnit Standard ZRS nebo Premium LRS jiných SKU, ani změnit ostatní SKU tyto. 
+* **SKU** je nastavení replikace pro účet úložiště, jako je například LRS pro místně redundantní úložiště. Například můžete změnit z Standard\_LRS standardního\_GRS nebo Standard\_RAGRS. Všimněte si, že nemůžete změnit Standard\_ZRS nebo Premium\_LRS do jiných SKU, nebo změňte tyto další jednotky SKU.
 
 * **Úroveň přístupu** pro účty úložiště Blob. Hodnota pro úroveň přístupu je nastavena na **aktivní** nebo **nástrojů**, a umožňuje vaše náklady minimalizovat tak, že vyberete úroveň přístupu, která zarovnaná s jak používat účet úložiště. Další informace najdete v tématu [za provozu, ochladí a archivaci vrstvy úložiště](../blobs/storage-blob-storage-tiers.md).
 
@@ -185,9 +185,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Ve výchozím nastavení všechny účty úložiště jsou dostupné všechny sítě, který má přístup k Internetu. Ale můžete nakonfigurovat pravidla pro sítě a Povolit jenom aplikace z konkrétní virtuální sítě pro přístup k účtu úložiště. Další informace najdete v tématu [brány firewall nakonfigurovat úložiště Azure a virtuální sítě](storage-network-security.md). 
 
 Článek ukazuje, jak spravovat tyto nastavení pomocí následující rutiny prostředí PowerShell:
-* [Přidat AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Aktualizace AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Odebrat AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
+* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
+* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
 ## <a name="use-storage-analytics"></a>Použít analytika úložiště  
 
@@ -223,24 +223,24 @@ Rozhraní API tabulky DB Cosmos Azure poskytuje prémiových funkcí pro úloži
 * Další informace najdete v tématu [rozhraní API služby Azure Cosmos DB tabulky](../../cosmos-db/table-introduction.md). 
 * Informace o tom, jak pomocí prostředí PowerShell k provádění operací rozhraní API služby Azure Cosmos DB tabulky, najdete v části [provést Azure Cosmos DB tabulky operace rozhraní API pomocí prostředí PowerShell](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Cloudy nezávisle nasazení Azure
+## <a name="independent-cloud-deployments-of-azure"></a>Nezávislé cloudové nasazení Azure
 
 Většina lidí používá veřejném cloudu Azure pro jejich globální nasazení Azure. Existují také některé nezávislé nasazení Microsoft Azure z důvodů suverenity a tak dále. Tato nezávislé nasazení jsou označovány jako "prostředí." Toto jsou k dispozici prostředí:
 
-* [Cloud vlády Azure](https://azure.microsoft.com/features/gov/)
+* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Čína cloudu Azure provozované v Číně společností 21Vianet](http://www.windowsazure.cn/)
-* [Němčině cloudu Azure](../../germany/germany-welcome.md)
+* [Azure German Cloud](../../germany/germany-welcome.md)
 
 Informace o tom, jak získat přístup k tyto cloudy a jejich úložiště pomocí prostředí PowerShell najdete v tématu [správu úložiště v Azure nezávislé cloudy pomocí prostředí PowerShell](storage-powershell-independent-clouds.md).
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud jste vytvořili novou skupinu prostředků a účet úložiště pro toto cvičení, můžete odebrat yous všech prostředků, které jste vytvořili odebráním skupině prostředků. To také odstraní všechny prostředky obsažené v rámci skupiny. V takovém případě odebere účtu úložiště vytvořeném a skupině prostředků, sám sebe.
+Pokud jste vytvořili novou skupinu prostředků a účet úložiště pro toto cvičení, můžete odebrat yous všech prostředků, které jste vytvořili odebráním skupině prostředků. Tím se odstraní také všechny prostředky, které skupina obsahuje. V takovém případě odebere účtu úložiště vytvořeném a skupině prostředků, sám sebe.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Tento článek popisuje běžné operace pomocí rutiny roviny správy ke správě účtů úložiště. Naučili jste se tyto postupy: 
 

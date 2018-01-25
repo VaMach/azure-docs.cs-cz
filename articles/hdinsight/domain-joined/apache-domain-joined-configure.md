@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurace prostředí izolovaného prostoru HDInsight připojený k doméně
 
@@ -29,7 +29,6 @@ Bez clusteru HDInsight připojený k doméně, každý cluster může mít pouze
 
 -   Samostatné služby Active Directory spuštěné v Azure IaaS.
 -   Azure Active Directory.
--   Active Directory spuštěné v místním prostředí zákazníků.
 
 Pomocí samostatné služby Active Directory spuštěné v Azure IaaS je popsaná v tomto článku. Je nejjednodušší architekturu, kterou můžete získat podporu pro více uživatelů v HDInsight podle zákazníka. Tento článek popisuje dva přístupy pro tuto konfiguraci:
 
@@ -71,9 +70,10 @@ V této části otevřete šablonu správu prostředků Azure z portálu Azure. 
     - **Uživatelské jméno správce**: Zadejte uživatelské jméno správce domény.
     - **Heslo správce**: Zadejte heslo správce domény.
     - **Název domény**: výchozí název je *contoso.com*.  Pokud změníte název domény, je nutné také aktualizovat **zabezpečení certifikátu LDAP** pole a **rozlišující název organizační jednotky** pole.
+    - **Předpona DNS**: Zadejte předponu DNS pro veřejnou IP adresu použitou nástrojem pro vyrovnávání zatížení.
     - **Název clusteru**: Zadejte název clusteru HDInsight.
     - **Typ clusteru**: Tato hodnota se nezmění. Pokud chcete změnit typ clusteru, použijte konkrétní šablonu v posledním kroku.
-
+    - **Zabezpečené heslo certifikátu Ldap**: použijte výchozí hodnotu, pokud nezměníte pole certifikátu zabezpečení protokolu LDAP.
     Některé hodnoty jsou pevně zakódovaná v šabloně, například počet instancí pracovního procesu uzlu je dva.  Chcete-li změnit hodnoty, pevně, klikněte na tlačítko **úpravy šablony**.
 
     ![Šablona upravit připojený k doméně clusteru HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

@@ -1,6 +1,6 @@
 ---
-title: "Vlastní pole v Log Analytics | Microsoft Docs"
-description: "Vlastní pole funkci analýzy protokolů můžete vytvořit vlastní prohledávatelné pole z OMS data, která přidat do vlastností shromážděných záznam.  Tento článek popisuje postup, jak vytvořit vlastní pole a poskytuje podrobný návod s událost vzorku."
+title: "Vlastní pole v Azure Log Analytics | Microsoft Docs"
+description: "Vlastní pole funkci analýzy protokolů můžete vytvořit vlastní prohledávatelné pole ze záznamů analýzy protokolů, které přidávají do vlastností shromážděných záznamu.  Tento článek popisuje postup, jak vytvořit vlastní pole a poskytuje podrobný návod s událost vzorku."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Vlastní pole v analýzy protokolů
-**Vlastní pole** funkce analýzy protokolů můžete rozšířit existující záznamy v úložišti OMS přidat vlastní prohledávatelné pole.  Vlastní pole se vyplní automaticky ze dat extrahovaných z dalších vlastností ve stejném záznamu.
+**Vlastní pole** funkce analýzy protokolů můžete rozšířit existující záznamy v analýzy protokolů přidat vlastní prohledávatelné pole.  Vlastní pole se vyplní automaticky ze dat extrahovaných z dalších vlastností ve stejném záznamu.
 
 ![Vlastní pole – přehled](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ Když vytvoříte vlastní pole, analýzy protokolů musíte pochopit datových 
 Postup pro vytváření vlastních polí v následujících částech.  V dolní části tohoto článku je návod, ukázka extrakce.
 
 > [!NOTE]
-> Vlastní pole se vyplní jako záznamy odpovídající zadaným kritériím jsou přidány do úložiště dat OMS, takže se zobrazí pouze na záznamy shromážděných po vytvoření vlastních polí.  Vlastní pole nepřidají záznamy, které jsou již v úložišti dat při jeho vytvoření.
-> 
+> Při přidávání záznamů odpovídající zadaným kritériím k analýze protokolů, takže se zobrazí pouze na záznamy shromážděných po vytvoření vlastních polí, zadá vlastní pole.  Vlastní pole nepřidají záznamy, které jsou již v úložišti dat při jeho vytvoření.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Krok 1 – určete, které bude mít vlastní pole
@@ -72,7 +71,7 @@ Po provedení počáteční extrakce, analýzy protokolů se zobrazí její výs
 7. Vlastní pole jako ostatní záznamů vlastnost použijte.  Můžete ji použít k data agregační a skupiny a používat i k vytvoření nové statistiky.
 
 ## <a name="viewing-custom-fields"></a>Zobrazení vlastních polí
-Můžete zobrazit seznam všech vlastních polí ve vaší skupině pro správu z **nastavení** dlaždici řídicího panelu OMS.  Vyberte **Data** a potom **vlastní pole** seznam všech vlastních polí v pracovním prostoru.  
+Můžete zobrazit seznam všech vlastních polí ve vaší skupině pro správu z **Upřesnit nastavení** nabídce pracovního prostoru analýzy protokolů na portálu Azure.  Vyberte **Data** a potom **vlastní pole** seznam všech vlastních polí v pracovním prostoru.  
 
 ![Vlastní pole](media/log-analytics-custom-fields/list.png)
 
@@ -138,7 +137,7 @@ Jsme teď můžete použít vlastní pole jako libovolné jiné vlastnosti zázn
 
 ![Seskupit podle dotazu](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) k vytvoření dotazů pomocí vlastních polí pro kritéria.
 * Monitorování [vlastní protokol soubory](log-analytics-data-sources-custom-logs.md) , analyzovat pomocí vlastních polí.
 

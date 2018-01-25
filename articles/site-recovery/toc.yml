@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Spravovat
       items:
-        - name: Upgrade na trezor služby Recovery Services
-          href: upgrade-site-recovery-vaults.md
         - name: Správa procesových serverů v Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Správa konfiguračního serveru

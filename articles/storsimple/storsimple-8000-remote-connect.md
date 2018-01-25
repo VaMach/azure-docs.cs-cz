@@ -4,7 +4,7 @@ description: "Vysvětluje, jak nakonfigurovat zařízení pro vzdálenou správu
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Vzdálené připojení k zařízení řady StorSimple 8000
 
@@ -84,7 +84,10 @@ Proveďte následující kroky na konzole sériového portu zařízení povolen�
 Proveďte následující kroky na klientovi se povolení vzdálené správy.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Příprava klienta pro připojení ke vzdálené
-1. Spusťte relaci prostředí Windows PowerShell jako správce.
+1. Spusťte relaci prostředí Windows PowerShell jako správce. Pokud používáte klienta Windows 10, ve výchozím nastavení, službu Vzdálená správa systému Windows nastavený na ruční. Budete muset spustit službu zadáním:
+
+    `Start-Service WinRM`
+    
 2. Zadejte následující příkaz Přidat IP adresu zařízení StorSimple do seznamu důvěryhodných hostitelů klienta:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ Zadejte relaci SSAdmin na zařízení ze vzdáleného hostitele nebo klienta pom
 Následující postup proveďte v počítači, ze kterého chcete pro vzdálené připojení prostředí Windows PowerShell.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>K zadání relaci SSAdmin na zařízení pomocí prostředí Windows PowerShell a SSL
-1. Spusťte relaci prostředí Windows PowerShell jako správce.
+1. Spusťte relaci prostředí Windows PowerShell jako správce. Pokud používáte klienta Windows 10, ve výchozím nastavení, službu Vzdálená správa systému Windows nastavený na ruční. Budete muset spustit službu zadáním:
+
+    `Start-Service WinRM`
+
 2. Přidejte IP adresu zařízení do důvěryhodných hostitelů klienta zadáním:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -237,7 +243,7 @@ Následující postup proveďte v počítači, ze kterého chcete pro vzdálené
    
     ![Vzdálená komunikace prostředí PowerShell pomocí protokolu HTTPS a SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Další informace o [pomocí prostředí Windows PowerShell ke správě zařízení StorSimple](storsimple-8000-windows-powershell-administration.md).
 * Další informace o [pomocí služby StorSimple Manager zařízení ke správě zařízení StorSimple](storsimple-8000-manager-service-administration.md).

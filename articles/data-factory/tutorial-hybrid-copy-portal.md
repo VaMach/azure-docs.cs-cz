@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kurz: Kopírování dat z místní databáze SQL Serveru do úložiště objektů blob v Azure
 V tomto kurzu pomocí uživatelského rozhraní služby Azure Data Factory vytvoříte kanál datové továrny, který kopíruje data z místní databáze SQL Serveru do úložiště objektů blob v Azure. Vytvoříte a použijete místní prostředí Integration Runtime, které přesouvá data mezi místním a cloudovým úložištěm dat. 
@@ -191,7 +191,7 @@ V tomto kroku vytvoříte datovou továrnu a spustíte uživatelské rozhraní s
 11. V okně **Expresní instalace Integration Runtime (v místním prostředí)** klikněte na **Zavřít**. 
 
    ![Instalace prostředí Integration Runtime – úspěch](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. V okně **Instalace prostředí Integration Runtime** ve webovém prohlížeči klikněte na **Dokončit**. Měli byste se vrátit do okna **Nová propojená služba**.
+12. V okně **Instalace prostředí Integration Runtime** ve webovém prohlížeči klikněte na **Dokončit**. 
 
    ![Instalace prostředí Integration Runtime – dokončení](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. V okně **Nová propojená služba** proveďte následující kroky:

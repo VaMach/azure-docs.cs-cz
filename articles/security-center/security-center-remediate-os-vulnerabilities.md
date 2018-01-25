@@ -1,6 +1,6 @@
 ---
 title: "Opravit konfigurace zabezpečení v Azure Security Center | Microsoft Docs"
-description: "Tento dokument se dozvíte, jak provést doporučení Azure Security Center **napravit konfigurace zabezpečení**."
+description: "Tento dokument ukazuje, jak implementovat Azure Security Center doporučení, \"Konfigurace zabezpečení napravit.\""
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,93 +14,99 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Opravit konfigurace zabezpečení v Azure Security Center
-Azure Security Center analyzuje denně operační systém (OS) virtuálních počítačů (VM) a počítačů pro konfiguraci, které by mohly znamenat virtuálních počítačů a počítačů zranitelnější vůči útokům. Security Center doporučuje, když vaše konfigurace operačního systému neodpovídá pravidla zabezpečení doporučené konfigurace a doporučuje změny konfigurace, které tyto nedostatky řeší chyby zabezpečení.
+Azure Security Center analyzuje denně operační systém (OS) virtuálních počítačů (VM) a počítačů pro konfiguraci, které by mohly znamenat virtuálních počítačů a počítačů zranitelnější vůči útokům. Security Center doporučuje, když vaše konfigurace operačního systému neodpovídá pravidla konfigurace doporučené zabezpečení a doporučí změny konfigurace, které tyto nedostatky řeší chyby zabezpečení.
 
-Další informace o konkrétní konfigurace se sledují, najdete v článku [seznam doporučenou konfiguraci pravidel](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). V tématu [přizpůsobení konfigurace zabezpečení operačního systému](security-center-customize-os-security-config.md) se dozvíte, jak přizpůsobit hodnocení konfigurace zabezpečení v Centru zabezpečení.
+Další informace o konkrétní konfigurace, které jsou monitorovány, najdete v článku [seznam doporučenou konfiguraci pravidel](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Naučte se přizpůsobovat vyhodnocování konfigurace zabezpečení, najdete v tématu [přizpůsobení operačního systému konfigurace zabezpečení v Azure Security Center (Preview)](security-center-customize-os-security-config.md).
 
 ## <a name="implement-the-recommendation"></a>Implementace doporučení
-Opravte zabezpečení, které neshoda konfigurace se zobrazí jako doporučení ve službě Security Center. Toto doporučení se zobrazí v části **doporučení** a v části **výpočetní**.
+"Opravit konfigurace zabezpečení" je zobrazen jako doporučení ve službě Security Center. Doporučení se zobrazí v části **doporučení** > **výpočetní**.
 
-V tomto příkladu se podíváme **napravit konfigurace zabezpečení** doporučení v části **výpočetní**.
-1. Vyberte **výpočetní** v hlavní nabídce Security Center.
+Tento příklad obsahuje doporučení "Opravit konfigurace zabezpečení" v části **výpočetní**.
+1. V Centru zabezpečení, v levém podokně vyberte **výpočetní**.  
+  **Výpočetní** otevře se okno.
 
-   ![Opravit konfigurace zabezpečení][1]
+   ![Náprava konfigurací zabezpečení][1]
 
-2. V části **výpočetní**, vyberte **napravit konfigurace zabezpečení**. **Konfigurace zabezpečení** otevře.
+2. Vyberte **napravit konfigurace zabezpečení**.  
+  **Konfigurace zabezpečení** otevře se okno.
 
-   ![Konfigurace zabezpečení][2]
+   ![Okno "Konfigurace zabezpečení"][2]
 
-  Horní části řídicí panel poskytuje:
+  V horní části řídicího panelu zobrazí:
 
-  - Celkový počet pravidel podle závažnosti, která konfigurace operačního systému se nezdařilo napříč Virtuálního počítače a počítače.
-  - Celkový počet pravidel pomocí typu, který konfigurace operačního systému se nezdařilo napříč Virtuálního počítače a počítače.
-  - Celkový počet pravidel se nezdařilo, podle konfigurace vašeho operačního systému Windows a vaše konfigurace operačního systému Linux.
+  - **Pravidla se nezdařila v důsledku závažnost**: Celkový počet pravidel, že konfigurace operačního systému se nezdařilo napříč virtuálních počítačů a počítačů, které jsou rozdělená podle závažnosti.
+  - **Se nezdařilo pravidla podle typu**: Celkový počet pravidel, že konfigurace operačního systému se nezdařilo napříč virtuálních počítačů a počítačů, které jsou rozdělená podle typu.
+  - **Pravidla Windows se nezdařilo**: Celkový počet pravidel podle konfigurace vašeho operačního systému Windows se nezdařilo.
+  - **Se nezdařilo Linux pravidla**: Celkový počet pravidel se nezdařila v důsledku vaše konfigurace operačního systému Linux.
 
-  Dolní části řídicí panel obsahuje seznam všech neúspěšných pravidel rámci virtuálních počítačů a počítačů a závažnost chybějící aktualizace. Seznam obsahuje:
+  V dolní části řídicího panelu obsahuje seznam všech neúspěšných pravidel pro virtuální počítače a počítače a závažnost chybějící aktualizace. Seznam obsahuje následující prvky:
 
-  - **CCEID**: CCE jedinečný identifikátor pro pravidlo. Security Center používá společné konfigurace – výčet (CCE) k přiřazení jedinečné identifikátory pro konfigurační pravidla.
-  - **NÁZEV**: název pravidla se nezdařila
-  - **Typ pravidla**: klíč registru, zásady zabezpečení nebo zásady auditu
-  - **POČET Virtuální počítače a počítače**: Celkový počet virtuálních počítačů a počítačů, které služby při selhání rozhodl, platí pro
-  - **PRAVIDLO ZÁVAŽNOST**: hodnota závažnosti CCE kritické, důležité nebo upozornění
-  - **STAV**: Aktuální stav doporučení:
+  - **CCEID**: The CCE jedinečný identifikátor pro pravidlo. Security Center používá společné konfigurace – výčet (CCE) k přiřazení jedinečné identifikátory konfigurační pravidla.
+  - **Název**: název pravidla se nezdařila.
+  - **Typ pravidla**: *klíč registru*, *zásady zabezpečení*, nebo *zásady auditu* typ pravidla.
+  - **Ne. virtuální počítače a počítače**: Celkový počet virtuálních počítačů a počítačů, které se nezdařilo pravidlo vztahuje.
+  - **Pravidlo závažnost**: hodnota CCE *kritický*, *důležité*, nebo *upozornění*.
+  - **Stav**: aktuální stav doporučení:
 
-    - **Open** (Otevřené): Doporučení dosud nebylo řešeno.
-    - **V průběhu**: doporučení se aktuálně na tyto prostředky a není třeba žádné akce
-    - **Vyřešeno**: Doporučení už je dokončené. (Při byl problém vyřešen, položka je zobrazena šedě)
+    - **Otevřené**: Doporučení dosud nebylo řešeno.
+    - **V průběhu**: doporučení se aktuálně na prostředky a není třeba žádné akce.
+    - **Vyřešit**: byl použit doporučení. Pokud je problém vyřešen, položka je neaktivní.
 
-3. Vyberte v seznamu zobrazíte podrobnosti neúspěšné pravidlo.
+3. Chcete-li zobrazit podrobnosti o selhání pravidla, vyberte ho v seznamu.
 
-   ![Pravidla konfigurace, které selhaly][3]
+   ![Podrobné zobrazení pravidla konfigurace se nezdařila][3]
 
-  V tomto okně se poskytuje následující informace:
+   V podrobném zobrazení zobrazí následující informace:
 
-  - NÁZEV – Název pravidla
-  - CCIED – CCE jedinečný identifikátor pro pravidlo
-  - Verze operačního systému – verze operačního systému virtuálního počítače nebo počítače
-  - PRAVIDLO ZÁVAŽNOST – Hodnota závažnosti CCE kritická, důležité nebo upozornění
-  - Úplný popis – Popis pravidla
-  - Ohrožení zabezpečení – Vysvětlení ohrožení zabezpečení nebo riziko, pokud není použita pravidla
-  - POTENCIÁLNÍ dopad – Dopad na chod firmy při použití pravidla
-  - PROTIOPATŘENÍM – postup nápravy
-  - OČEKÁVANÁ hodnota – Hodnota očekávané při Security Center analyzuje konfiguraci operačního systému virtuálního počítače podle pravidla
-  - Skutečná hodnota – Hodnota vrácena po dokončení analýzy konfigurace operačního systému virtuálního počítače podle pravidla
-  - – PRAVIDLO pravidlo operace použije pomocí služby Security Center při analýze konfigurace operačního systému virtuálního počítače podle pravidla
+   - **Název**: název pravidla.
+   - **CCIED**: The CCE jedinečný identifikátor pro pravidlo.
+   - **Verze operačního systému**: verze operačního systému virtuálního počítače nebo počítače.
+   - **Pravidlo závažnost**: hodnota CCE *kritický*, *důležité*, nebo *upozornění*.
+   - **Úplný popis**: popis pravidla.
+   - **Ohrožení zabezpečení**: vysvětlení ohrožení zabezpečení nebo riziko, pokud není použita pravidlo.
+   - **Potenciální dopad**: obchodní dopad při použití pravidla.
+   - **Protiopatřením**: nápravy kroky.
+   - **Očekávaná hodnota**: hodnota, která očekává se, když Security Center analyzuje konfiguraci operačního systému virtuálního počítače podle pravidla.
+   - **Skutečná hodnota**: hodnota, která je vrácena po analýzu konfiguraci operačního systému virtuálního počítače podle pravidla.
+   - **Pravidlo operaci**: operace pravidla, která se použije pomocí služby Security Center při analýze konfigurace operačního systému virtuálního počítače podle pravidla.
 
-4. Vyberte **vyhledávání** ikona na pásu karet nejvyšší. Hledání otevře výpis pracovní prostory, které mají virtuální počítače a počítače s neshoda konfigurace vybrané zabezpečení. Toto okno Výběr pracovního prostoru se zobrazí pouze pokud vybrané pravidlo platí pro víc virtuálních počítačů, které jsou připojené k jiné pracovní prostory.
+4. V horní části okna podrobné zobrazení, vyberte **vyhledávání**.  
+  Hledání otevře se seznam pracovní prostory, které mají virtuální počítače a počítače s neshoda konfigurace vybrané zabezpečení. Výběr pracovního prostoru se zobrazí, jenom Pokud vybrané pravidlo platí pro víc virtuálních počítačů, které jsou připojené k jiné pracovní prostory.
 
-  ![Uvedené pracovních prostorů][4]
+   ![Uvedené pracovních prostorů][4]
 
-5. Vyberte pracovní prostor. Vyhledávací dotaz analýzy protokolů otevře filtrované do pracovního prostoru s neshoda konfigurace zabezpečení.
+5. Vyberte pracovní prostor.  
+  Vyhledávací dotaz analýzy protokolů otevře filtrované do pracovního prostoru s neshoda konfigurace zabezpečení.
 
-  ![Pracovní prostor se ohrožení zabezpečení operačního systému][5]
+   ![Pracovní prostor se ohrožení zabezpečení operačního systému][5]
 
-6. Vyberte počítač ze seznamu pro další informace. Další výsledek hledání otevře s informacemi, které jsou filtrovány pouze pro tento počítač.
+6. V seznamu vyberte počítač.  
+  Nové výsledek hledání otevře s informacemi, které jsou filtrovány pouze pro tento počítač.
 
-  ![Filtrovaný pro tento počítač][6]
+   ![Podrobné informace o vybraném počítači][6]
 
 ## <a name="next-steps"></a>Další postup
-Tento článek vám ukázal, jak provést doporučení Security Center "Konfigurace zabezpečení napravit." V tématu [přizpůsobení konfigurace zabezpečení operačního systému](security-center-customize-os-security-config.md) se dozvíte, jak přizpůsobit hodnocení konfigurace zabezpečení v Centru zabezpečení.
+Tento článek vám ukázal, jak provést doporučení Security Center "Konfigurace zabezpečení napravit." Naučte se přizpůsobovat vyhodnocování konfigurace zabezpečení, najdete v tématu [přizpůsobení operačního systému konfigurace zabezpečení v Azure Security Center (Preview)](security-center-customize-os-security-config.md).
 
-Můžete zkontrolovat sadu pravidel, konfigurace [zde](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center používá CCE (Common Configuration výčtu) k přiřazení jedinečné identifikátory pro konfigurační pravidla. Přejděte [CCE](https://nvd.nist.gov/cce/index.cfm) lokality pro další informace.
+Konkrétní konfigurace, které jsou monitorovány najdete v tématu [seznam doporučenou konfiguraci pravidel](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center používá společné konfigurace – výčet (CCE) k přiřazení jedinečné identifikátory konfigurační pravidla. Další informace najdete na [CCE](https://nvd.nist.gov/cce/index.cfm) lokality.
 
 Další informace o službě Security Center, najdete v následujících zdrojích informací:
 
-* [Podporované platformy v Azure Security Center](security-center-os-coverage.md) -obsahuje seznam podporovaných Windows a virtuální počítače s Linuxem.
-* [Nastavení zásad zabezpečení v Azure Security Center](security-center-policies.md) – zjistěte, jak nakonfigurovat zásady zabezpečení pro skupiny prostředků a předplatná Azure.
-* [Správa doporučení zabezpečení v Azure Security Center](security-center-recommendations.md) – zjistěte, jak vám doporučení pomáhají chránit prostředky v Azure.
-* [Sledování stavu zabezpečení v Azure Security Center](security-center-monitoring.md) – Naučte se monitorovat stav svých prostředků Azure.
-* [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – zjistěte, jak spravovat a reakce na výstrahy zabezpečení.
-* [Sledování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md) – zjistěte, jak sledovat stav vašich partnerských řešení.
-* [Nejčastější dotazy k Azure Security Center](security-center-faq.md) – přečtěte si nejčastější dotazy o použití této služby.
-* [Blog o bezpečnosti Azure](http://blogs.msdn.com/b/azuresecurity/) – přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
+* Seznam podporovaných Windows a virtuální počítače s Linuxem najdete v tématu [podporovaných platforem v Azure Security Center](security-center-os-coverage.md). 
+* Zjistěte, jak nakonfigurovat zásady zabezpečení pro skupiny prostředků a předplatná Azure, najdete v tématu [nastavení zásad zabezpečení v Azure Security Center](security-center-policies.md). 
+* Další informace, jak vám doporučení pomáhají chránit prostředky v Azure najdete v tématu [Správa doporučení zabezpečení v Azure Security Center](security-center-recommendations.md). 
+* Naučte se monitorovat stav svých prostředků Azure, najdete v tématu [sledování stavu zabezpečení v Azure Security Center](security-center-monitoring.md). 
+* Další informace o správě a reakce na výstrahy zabezpečení naleznete v tématu [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md).
+* Zjistěte, jak sledovat stav vašich partnerských řešení, najdete v tématu [sledování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md).
+* Odpovědi na nejčastější dotazy o použití této služby, naleznete v části [Azure Security Center – nejčastější dotazy](security-center-faq.md).
+* Příspěvky o zabezpečení Azure a dodržování předpisů, najdete v části [blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Vývoj a nasazení modul IoT Edge C# na simulovaného zařízení – náhled
 
@@ -31,7 +31,7 @@ Modul IoT okraj, který vytvoříte v tomto kurzu filtruje data teploty generov�
 ## <a name="prerequisites"></a>Požadavky
 
 * Azure IoT hraniční zařízení, který jste vytvořili v prvním kurzu nebo rychlý start.
-* Primární klíče připojovací řetězec pro IoT hraniční zařízení.  
+* Primární připojovací řetězec klíče pro zařízení IoT Edge.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge rozšíření pro Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [C# pro rozšíření Visual Studio Code (používá technologii OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
@@ -69,7 +69,15 @@ Následující kroky zobrazení můžete jak vytvořit modul IoT Edge založené
 4. Vyhledejte **FilterModule** složky a klikněte na tlačítko **vyberte složku** otevřete projekt v produktu VS Code.
 5. V Průzkumníku VS Code, klikněte na tlačítko **Program.cs** ho otevřete.
 
-   ![Otevření souboru Program.cs][1]
+   ![Open Program.cs][1]
+
+6. V horní části **FilterModule** obor názvů, přidejte tři `using` příkazy pro typy používané později na:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. Přidat `temperatureThreshold` proměnnou **Program** třídy. Tato proměnná nastaví hodnotu, která nesmí být větší než teplota měřená v pořadí pro data k odeslání do služby IoT Hub. 
 
@@ -247,7 +255,7 @@ Přidáte přihlašovací údaje pro vaše registru do hraniční runtime v poč
 ## <a name="run-the-solution"></a>Spuštění řešení
 
 1. V [portál Azure](https://portal.azure.com), přejděte do služby IoT hub.
-2. Přejděte na **IoT okraj (preview)** a vyberte zařízení IoT okraj.
+2. Přejděte na **IoT Edge (preview)** a vyberte zařízení IoT Edge.
 3. Vyberte **nastavit moduly**. 
 2. Zkontrolujte, zda **tempSensor** modul se automaticky vyplní. Pokud není, přidejte ho pomocí následující kroky:
     1. Vyberte **přidání okraj IoT modulu**.

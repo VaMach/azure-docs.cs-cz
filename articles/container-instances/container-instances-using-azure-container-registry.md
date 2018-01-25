@@ -1,21 +1,21 @@
 ---
-title: "Nasazení do Azure kontejner instancí z registru kontejner Azure"
-description: "Nasazení Azure kontejner instancí z registru kontejner Azure"
+title: "Nasadit do Azure kontejner instancí z registru kontejner Azure"
+description: "Informace o nasazení kontejnerů v Azure kontejner instancí pomocí bitové kopie kontejneru v registru kontejneru služby Azure."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c69b95f66bf2eaf4975961da5b25f5ac6172798c
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Nasazení do Azure kontejner instancí z registru kontejner Azure
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Nasadit do Azure kontejner instancí z registru kontejner Azure
 
 Registr kontejner Azure je založené na Azure, privátní registru, pro kontejner Docker bitové kopie. Tento článek vysvětluje postup nasazení bitových kopií kontejneru uložené v registru kontejner Azure do Azure kontejner instancí.
 
@@ -51,17 +51,23 @@ Pokud chcete zachovat kontejneru bitové kopie v registru kontejner Azure, můž
 
 1. Na portálu Azure přejděte do kontejneru registr.
 
-2. Vyberte **úložiště**, pak vyberte úložiště, který chcete nasadit, klikněte pravým tlačítkem na značce pro kontejner bitovou kopii, kterou chcete nasadit a vyberte **spustí instanci**.
+1. Vyberte **úložiště**, pak vyberte úložiště, který chcete nasadit, klikněte pravým tlačítkem na značce pro kontejner bitovou kopii, kterou chcete nasadit a vyberte **spustí instanci**.
 
     !["Spustit instance" v registru kontejner Azure na portálu Azure][acr-runinstance-contextmenu]
 
-3. Zadejte název kontejneru a název skupiny prostředků. Pokud chcete můžete taky změnit výchozí hodnoty.
+1. Zadejte název kontejneru a název skupiny prostředků. Pokud chcete můžete taky změnit výchozí hodnoty.
 
     ![Vytvořit nabídku pro instance kontejner Azure][acr-create-deeplink]
 
-4. Po dokončení nasazení můžete přejít do kontejneru skupiny z podokna oznámení najít IP adresu a další vlastnosti.
+1. Po dokončení nasazení můžete přejít do kontejneru skupiny z podokna oznámení najít IP adresu a další vlastnosti.
 
     ![Zobrazení podrobností pro skupinu kontejner instancí kontejnerů Azure][aci-detailsview]
+
+## <a name="service-principal-authentication"></a>Ověřování instančních objektů
+
+Pokud správce pro kontejner Azure registru je zakázaná, můžete použít Azure Active Directory [instanční objekt](../container-registry/container-registry-auth-service-principal.md) k ověření registru při vytváření instance kontejneru. Ověřování pomocí hlavní název služby je také vhodné v bezobslužných scénáře, jako je skript nebo aplikaci, která vytvoří kontejner instancí v bezobslužném.
+
+Další informace najdete v tématu [ověřit pomocí registru kontejner Azure z instancí kontejneru Azure](../container-registry/container-registry-auth-aci.md).
 
 ## <a name="next-steps"></a>Další postup
 

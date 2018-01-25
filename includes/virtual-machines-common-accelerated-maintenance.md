@@ -45,7 +45,7 @@ Služby platformy Azure včetně webové a mobilní, data služeb IoT, bez serve
 
 ## <a name="intel-released-additional-guidance-on-january-22-2018-related-to-the-security-vulnerabilities--will-this-guidance-cause-any-additional-maintenance-activities-by-azure"></a>Intel vydala další pokyny v 22 lednu 2018 související s chybami zabezpečení.  V tomto návodu způsobí, že žádné další údržby aktivity Azure?  
 
-Azure jejich zmírnění dříve oznámeny na 3 ledna 2018 jsou nemá vliv [aktualizované pokyny](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Na virtuální počítače zákazníka v důsledku této nové informace společností Intel, nebude žádná aktivita další údržby.
+Azure jejich zmírnění dříve oznámeny na 3 ledna 2018 jsou nemá vliv [aktualizované pokyny](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Na virtuální počítače zákazníka v důsledku této nové informace nebude žádná aktivita další údržby.
  
 
 ## <a name="next-steps"></a>Další postup

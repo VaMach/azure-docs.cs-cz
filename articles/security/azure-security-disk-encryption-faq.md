@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/24/2018
@@ -129,7 +129,7 @@ Pokud tento pracovní postup není možné, spoléhat na [šifrování služby �
 
 **Otázka:** kde můžete přejít k nim máte nějaké otázky nebo poskytnout zpětnou vazbu?
 
-**Odpověď:** můžete klást otázky nebo poskytnout zpětnou vazbu na [fórum pro Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**Odpověď:** můžete klást otázky nebo poskytnout zpětnou vazbu na [fórum pro Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Další postup
 V tomto dokumentu jste zjistili, informace o nejčastější dotazy týkající se Azure Disk Encryption. Další informace o této služby a jeho funkce najdete v následujících článcích:

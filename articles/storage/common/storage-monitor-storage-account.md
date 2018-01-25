@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorování účtu úložiště na portálu Azure
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 > Soubory Azure aktuálně podporuje metriky analytika úložiště, ale zatím nepodporuje protokolování.
 >
-> Účty úložiště s typu replikaci z Zónově redundantní úložiště (ZRS) aktuálně nemají metriky nebo možnosti protokolování povoleny.
+> Účty úložiště s typem replikace Zónově redundantní úložiště (ZRS) podporují metrik a protokolování. Předchozí ZRS účty, které byly přejmenovány ZRS Classic, proveďte není metriky podporu protokolování. Další informace o ZRS, najdete v části [Zónově redundantní úložiště](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Podrobné informace týkající se použití analytika úložiště a dalších nástrojů pro identifikovat, diagnostikovat a řešit problémy související s Azure Storage najdete v tématu [monitorování, Diagnostika a řešení Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -154,7 +154,7 @@ Diagnostické protokoly jsou ukládány v kontejneru objektů blob s názvem $lo
 
 Informace o Přistupování do kontejneru $logs najdete v tématu [povolení protokolování úložiště a přístup k datům protokolu](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Najít další podrobnosti o [metriky, protokolování a fakturace](../storage-analytics.md) pro analytika úložiště.
 * [Povolit daty metrik Azure Storage metriky a zobrazení](../storage-enable-and-view-metrics.md) pomocí prostředí PowerShell a programově pomocí C#.

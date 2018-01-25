@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Odesílání dat k analýze protokolů s rozhraním API týkající se kolekce dat protokolu HTTP (verze public preview)
 Tento článek ukazuje, jak používat rozhraní API sady kolekcí dat protokolu HTTP k odesílání dat k analýze protokolů z klienta pro REST API.  Popisuje, jak formátu data shromažďovaná společností skriptu nebo aplikaci, její zahrnutí do žádost a mít této žádosti autorizovat analýzy protokolů.  Příklady jsou uvedené pro prostředí PowerShell, C# a Python.
@@ -39,11 +39,11 @@ Všechna data v úložišti analýzy protokolů uloženo jako záznam s konkrét
 ## <a name="create-a-request"></a>Vytvořit žádost o
 Chcete-li použít rozhraní API sady kolekcí dat protokolu HTTP, vytvořte požadavek POST, která obsahuje data k odeslání v JavaScript Object Notation (JSON).  Následující tři tabulky obsahují atributy, které jsou požadovány pro každý požadavek. Jsme popisují každý atribut podrobněji později v článku.
 
-### <a name="request-uri"></a>Identifikátor URI požadavku
+### <a name="request-uri"></a>Identifikátor URI žádosti
 | Atribut | Vlastnost |
 |:--- |:--- |
 | Metoda |POST |
-| IDENTIFIKÁTOR URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Typ obsahu |application/json |
 
 ### <a name="request-uri-parameters"></a>Parametry identifikátoru URI požadavku
@@ -57,8 +57,8 @@ Chcete-li použít rozhraní API sady kolekcí dat protokolu HTTP, vytvořte po�
 | Záhlaví | Popis |
 |:--- |:--- |
 | Autorizace |Podpis autorizace. Dále v tomto článku si můžete přečíst o tom, jak vytvořit hlavičku HMAC SHA256. |
-| Typ protokolu |Zadejte typ záznamu dat, která je odesílána. Typ protokolu v současné době podporuje pouze alfanumerické znaky. Nepodporuje se číslice nebo speciální znaky. |
-| x-ms datum |Datum, kdy byl požadavek zpracovat, v dokumentu RFC 1123 formátu. |
+| Log-Type |Zadejte typ záznamu dat, která je odesílána. Typ protokolu v současné době podporuje pouze alfanumerické znaky. Nepodporuje se číslice nebo speciální znaky. |
+| x-ms-date |Datum, kdy byl požadavek zpracovat, v dokumentu RFC 1123 formátu. |
 | čas generované pole |Název pole v datech, která obsahuje časové razítko datová položka. Pokud určíte pole a její obsah se používají pro **TimeGenerated**. Pokud toto pole není určena, výchozí hodnota pro **TimeGenerated** je čas, který je konzumována zprávy. Obsah zprávy pole by mělo vyhovovat formátu ISO 8601 rrrr-MM-ddTHH. |
 
 ## <a name="authorization"></a>Autorizace
@@ -96,7 +96,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 Ukázky v dalších částech mít ukázkový kód vám pomůže vytvořit autorizační hlavičky.
 
-## <a name="request-body"></a>Text žádosti
+## <a name="request-body"></a>Tělo požadavku
 Tělo zprávy musí být ve formátu JSON. Musí obsahovat jeden nebo více záznamů s dvojice názvů a hodnot vlastností v tomto formátu:
 
 ```
@@ -134,10 +134,10 @@ Pokud chcete identifikovat datový typ vlastnost, analýzy protokolů přidá p�
 
 | Datový typ vlastnosti | Přípona |
 |:--- |:--- |
-| Řetězec |_M |
-| Logická hodnota |_B |
-| Double |_d |
-| Datum a čas |_T – |
+| Řetězec |_s |
+| Logická hodnota |_b |
+| Dvojitý |_d |
+| Datum a čas |_t |
 | IDENTIFIKÁTOR GUID |_g |
 
 Datový typ, který používá analýzy protokolů pro každou vlastnost závisí na tom, jestli typ záznamu pro nový záznam již existuje.
@@ -176,20 +176,20 @@ Tato tabulka uvádí kompletní sadu stavové kódy, které může vrátit služ
 | Kód | Status | Kód chyby | Popis |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |Žádost byla přijata úspěšně. |
-| 400 |Chybný požadavek |InactiveCustomer |Pracovní prostor byl uzavřen. |
-| 400 |Chybný požadavek |InvalidApiVersion |Služba nebyla rozpoznána verze rozhraní API, který jste zadali. |
-| 400 |Chybný požadavek |InvalidCustomerId |Zadané ID pracovního prostoru je neplatný. |
-| 400 |Chybný požadavek |InvalidDataFormat |Byla odeslána neplatná JSON. Text odpovědi může obsahovat další informace o tom, jak vyřešit chyby. |
-| 400 |Chybný požadavek |InvalidLogType |Typ protokolu zadat obsahují zvláštní znaky nebo číslice. |
-| 400 |Chybný požadavek |MissingApiVersion |Verze rozhraní API není zadaný. |
-| 400 |Chybný požadavek |MissingContentType |Typ obsahu, který nebyl zadán. |
-| 400 |Chybný požadavek |MissingLogType |Typ protokolu požadovaná hodnota nebyl zadán. |
-| 400 |Chybný požadavek |UnsupportedContentType |Typ obsahu, který nebyl nastaven na **application/json**. |
-| 403 |Je zakázané |InvalidAuthorization |Službě se nepodařilo ověřit žádost. Ověření platnosti připojení ID a klíč pracovního prostoru. |
-| 404 |Nebyl nalezen | | Buď je zadaná adresa URL nesprávná nebo požadavku je příliš velký. |
-| 429 |Příliš mnoho požadavků | | Služba dochází k velkému počtu data z účtu. Opakujte požadavek později. |
+| 400 |Nesprávná žádost |InactiveCustomer |Pracovní prostor byl uzavřen. |
+| 400 |Nesprávná žádost |InvalidApiVersion |Služba nebyla rozpoznána verze rozhraní API, který jste zadali. |
+| 400 |Nesprávná žádost |InvalidCustomerId |Zadané ID pracovního prostoru je neplatný. |
+| 400 |Nesprávná žádost |InvalidDataFormat |Byla odeslána neplatná JSON. Text odpovědi může obsahovat další informace o tom, jak vyřešit chyby. |
+| 400 |Nesprávná žádost |InvalidLogType |Typ protokolu zadat obsahují zvláštní znaky nebo číslice. |
+| 400 |Nesprávná žádost |MissingApiVersion |Verze rozhraní API není zadaný. |
+| 400 |Nesprávná žádost |MissingContentType |Typ obsahu, který nebyl zadán. |
+| 400 |Nesprávná žádost |MissingLogType |Typ protokolu požadovaná hodnota nebyl zadán. |
+| 400 |Nesprávná žádost |UnsupportedContentType |Typ obsahu, který nebyl nastaven na **application/json**. |
+| 403 |Zakázáno |InvalidAuthorization |Službě se nepodařilo ověřit žádost. Ověření platnosti připojení ID a klíč pracovního prostoru. |
+| 404 |Nenalezené | | Buď je zadaná adresa URL nesprávná nebo požadavku je příliš velký. |
+| 429 |Příliš mnoho žádostí | | Služba dochází k velkému počtu data z účtu. Opakujte požadavek později. |
 | 500 |Vnitřní chyba serveru |UnspecifiedError |Služba zjistila vnitřní chybu. Opakujte žádost. |
-| 503 |Služba není k dispozici |ServiceUnavailable |Služba je momentálně nedostupný a nepřijímá požadavky. Opakujte žádost. |
+| 503 |Služba není dostupná |ServiceUnavailable |Služba je momentálně nedostupný a nepřijímá požadavky. Opakujte žádost. |
 
 ## <a name="query-data"></a>Dotazování dat
 K dotazování na data odeslaná vyhledejte záznamy s aktualizace Log Analytics HTTP dat kolekce API **typ** který se rovná **LogType** hodnotu, která jste zadali, spolu s **_CL**. Pokud jste použili například **MyCustomLog**, pak by vrátit všechny záznamy s **typ = MyCustomLog_CL**.
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>Ukázka v jazyce C#
@@ -463,5 +463,5 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Použití [rozhraní API pro vyhledávání protokolu](log-analytics-log-search-api.md) k načtení dat z úložiště analýzy protokolů.

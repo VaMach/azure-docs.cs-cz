@@ -1,5 +1,5 @@
 ---
-title: "Větvení v kanálu Azure Data Factory | Microsoft Docs"
+title: "Větvení v kanálu Azure Data Factory | Dokumentace Microsoftu"
 description: "Zjistěte, jak řídit tok dat v Azure Data Factory prostřednictvím větvení a řetězení aktivit."
 services: data-factory
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Větvení a řetězení aktivit v kanálech Data Factory
 V tomto kurzu vytvoříte kanál služby Data Factory, který prezentuje některé funkce řízení toku. Tento kanál provádí jednoduché kopírování z kontejneru ve službě Azure Blob Storage do jiného kontejneru ve stejném účtu úložiště. Pokud aktivita kopírování proběhne úspěšně, chcete podrobnosti o úspěšném kopírování (jako je například množství zapsaných dat) poslat v e-mailu informujícím o úspěchu. Pokud aktivita kopírování selže, chcete podrobnosti o neúspěšném kopírování (jako je například chybová zpráva) poslat v e-mailu informujícím o selhání. V rámci tohoto kurzu se dozvíte, jak předávat parametry.
@@ -69,7 +69,7 @@ Pomocí sady Visual Studio 2015/2017 vytvořte konzolovou aplikaci C# .NET.
 2. Klikněte na **Soubor**, přejděte na **Nový** a klikněte na **Projekt**. Vyžaduje se .NET verze 4.5.2 nebo novější.
 3. V seznamu typů projektů napravo vyberte **Visual C#** -> **Aplikace konzoly (.NET Framework)**.
 4. Jako název zadejte **ADFv2BranchTutorial**.
-5. Kliknutím na tlačítko **OK** vytvořte projekt.
+5. Projekt vytvoříte kliknutím na **OK**.
 
 ## <a name="install-nuget-packages"></a>Instalace balíčků NuGet
 
@@ -292,7 +292,7 @@ V projektu C# vytvořte třídu s názvem **EmailRequest**. Definuje, které vla
     }
 ```
 ## <a name="create-email-workflow-endpoints"></a>Vytvoření koncových bodů pracovního postupu pro e-maily
-K aktivaci odesílání e-mailů použijete [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) pro definování pracovního postupu. Podrobnosti o vytvoření pracovního postupu Logic Apps najdete v tématu věnovaném [postupu vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). 
+K aktivaci odesílání e-mailů použijete [Logic Apps](../logic-apps/logic-apps-overview.md) pro definování pracovního postupu. Podrobnosti o vytvoření pracovního postupu Logic Apps najdete v tématu věnovaném [postupu vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Pracovní postup pro e-maily s informací o úspěchu 
 Vytvořte pracovní postup aplikace logiky s názvem `CopySuccessEmail`. Jako trigger tohoto pracovního postupu definujte `When an HTTP request is received` a potom přidejte akci `Office 365 Outlook – Send an email`.

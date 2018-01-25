@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 11/13/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Použít koncové body služby virtuální sítě a pravidla pro databázi SQL Azure
 
@@ -184,6 +184,15 @@ PolyBase se běžně používá k načtení dat do Azure SQLDW z úložiště ú
 
 #### <a name="azure-sqldb-blob-auditing"></a>Objekt Blob Azure SQLDB auditování
 Auditování objektů BLOB doručí protokolů auditu na účtu úložiště. Pokud tento účet úložiště používá funkce koncové body služby ECYKLACI dojde k přerušení připojení z Azure SQLDB k účtu úložiště.
+
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Přidání pravidla brány Firewall virtuální sítě na server bez vypnutí na koncové body služby virtuální sítě
+
+Dávno před tato funkce byla vylepšené, nebyly potřeba vám virtuální sítě služby koncových bodů na před za provozu pravidlo virtuální sítě může implementovat v bráně Firewall. Koncové body související s danou podsíť virtuální sítě do Azure SQL Database. Ale od ledna 2018, můžete nyní obejít tento požadavek, a to nastavením **IgnoreMissingServiceEndpoint** příznak.
+
+Jenom nastavení pravidla brány Firewall nepomůže zabezpečení serveru. Musíte také zapnout koncové body služby virtuální sítě pro zabezpečení vstoupily v platnost. Když zapnete koncové body služby, vyskytne VNet subnet až do dokončení přechod z vypnout na výpadek. To platí hlavně v kontextu velké virtuální sítě. Můžete použít **IgnoreMissingServiceEndpoint** příznak, který omezit nebo odstranit výpadek během přechodu.
+
+Můžete nastavit **IgnoreMissingServiceEndpoint** příznak pomocí prostředí PowerShell. Podrobnosti najdete v tématu [prostředí PowerShell vytvořit koncový bod služby virtuální sítě a pravidla pro databázi SQL Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 
 ## <a name="errors-40914-and-40615"></a>Chyby 40914 a 40615

@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 247c422d7ea3feeec1342bb20f99390a07eb4f7a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Aktualizace zařízení StorSimple řady 8000
 > [!NOTE]
-> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+> Portál Classic pro StorSimple je zastaralý. Vaši Správci zařízení StorSimple se automaticky přesunou na nový Azure Portal podle plánu ukončování používání. O tomto přesunu vás budeme informovat prostřednictvím e-mailu a oznámení na portálu. Tento dokument zanedlouho také nebude k dispozici. Pokud máte jakékoli dotazy k tomuto přesunu, přečtěte si [Nejčastější dotazy: Přesun na Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Přehled
 Funkce aktualizace zařízení StorSimple umožňují snadno zachovat aktuální zařízení StorSimple. V závislosti na daný typ aktualizace můžete použít aktualizace na zařízení prostřednictvím portálu Azure classic nebo prostřednictvím rozhraní Windows PowerShell. Tento kurz popisuje typy aktualizace a postup instalace, každý z nich.
@@ -116,9 +116,9 @@ Následující postupy popisují, jak pomocí prostředí Windows PowerShell pro
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Co se stane aktualizace, pokud provádíte obnovení továrního nastavení zařízení?
-Pokud je zařízení obnovit tovární nastavení, všechny aktualizace budou ztraceny. Po obnovení továrního nastavení zařízení je registrované a konfiguraci, musíte ručně nainstalovat aktualizace prostřednictvím portálu Azure classic nebo prostředí Windows PowerShell pro StorSimple. Další informace o obnovení továrního nastavení najdete v tématu [zařízení resetovat výchozí tovární nastavení](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+Pokud je zařízení obnovit tovární nastavení, všechny aktualizace budou ztraceny. Po obnovení továrního nastavení zařízení je registrované a konfiguraci, musíte ručně nainstalovat aktualizace prostřednictvím portálu Azure classic nebo prostředí Windows PowerShell pro StorSimple. Další informace o obnovení továrního nastavení najdete v tématu [zařízení resetovat výchozí tovární nastavení](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [pomocí Windows Powershellu pro StorSimple ke správě zařízení StorSimple](storsimple-windows-powershell-administration.md).
 * Další informace o [pomocí služby StorSimple Manager ke správě zařízení StorSimple](storsimple-manager-service-administration.md).
 

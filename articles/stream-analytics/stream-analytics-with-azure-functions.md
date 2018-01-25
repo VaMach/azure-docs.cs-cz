@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Spusťte Azure Functions s úlohy Azure Stream Analytics 
- 
-> [!IMPORTANT]
-> Tato funkce je ve verzi preview.
 
 Funkce Azure s Azure Stream Analytics můžete spustit tak, že nakonfigurujete funkce jako jeden z jímky výstup do úlohy Stream Analytics. Functions je prostředí událostmi, výpočetní na vyžádání, které umožňuje implementovat kód, který je aktivovaného událostmi, ke kterým dochází v Azure nebo služby třetích stran. Tato schopnost funkce reagovat na aktivační události je přirozené výstup do úlohy Stream Analytics.
 

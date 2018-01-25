@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importovat Azure Log Analytics data do Power BI
 
@@ -86,12 +86,12 @@ Když konfigurujete Power BI s [starší verze pracovní prostor analýzy protok
 ![Analýzy protokolů k Power BI.](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Plány Power BI
-A *Power BI plán* zahrnuje hledání protokolů, který exportuje sady dat z úložiště OMS na odpovídající datovou sadu v Power BI a plán, který definuje, jak často se spustí tohoto hledání zachovat aktuální datovou sadu.
+A *Power BI plán* zahrnuje vyhledávání protokolu, který vyexportuje sadu dat z analýzy protokolů pro odpovídající datovou sadu v Power BI a plán, který definuje, jak často se spustí tohoto hledání zachovat aktuální datovou sadu.
 
 Pole v sadě dat bude odpovídat vlastnosti záznamů protokolu nalezené.  Pokud hledání vrátí záznamy různých typů, bude obsahovat datovou sadu všechny vlastnosti z jednotlivých typů součástí záznamu.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Pracovní prostor OMS připojuje k Power BI
-Před exportem z analýzy protokolů pro Power BI, je nutné připojit ke svému účtu Power BI pomocí následujícího postupu vaším pracovním prostorem OMS.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Pracovní prostor analýzy protokolů připojuje k Power BI
+Před exportem z analýzy protokolů pro Power BI, je nutné připojit ke svému účtu Power BI pomocí následujícího postupu pracovního prostoru.  
 
 1. V konzole OMS klikněte na **nastavení** dlaždici.
 2. Vyberte **účty**.
@@ -108,7 +108,7 @@ Vytvoření plánu Power BI pro každé datové sady, pomocí následujícího p
 
 | Vlastnost | Popis |
 |:--- |:--- |
-| Name (Název) |Název pro identifikaci podle plánu, při zobrazení seznamu plány Power BI. |
+| Název |Název pro identifikaci podle plánu, při zobrazení seznamu plány Power BI. |
 | Uložené hledání |Vyhledávání protokolu ke spuštění.  Můžete vybrat aktuální dotaz nebo rozevíracího seznamu vyberte položku existujícího uloženého hledání. |
 | Plán |Jak často ke spuštění uložené hledání a exportovat do datové sady Power BI.  Hodnota musí být mezi 15 minutami a 24 hodin. |
 | Název datové sady |Název datové sady ve službě Power BI.  Bude vytvořen, pokud neexistuje a aktualizovat, pokud neexistuje. |
@@ -169,6 +169,6 @@ Jsme sestavu uložte kliknutím na tlačítko Uložit v horní části obrazovky
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) vytvářet dotazy, které je možné exportovat do Power BI.
 * Další informace o [Power BI](http://powerbi.microsoft.com) vytvářet vizualizace podle exportuje analýzy protokolů.

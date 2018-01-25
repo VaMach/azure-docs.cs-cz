@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c57ceb83951341d4a7bf368e209ba0f88825672c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Vytvoření a čtení zpráv služby IoT Hub
 
@@ -28,7 +28,7 @@ Pro podporu bezproblémové vzájemná funkční spolupráce mezi protokoly, def
 * Sadu *vlastnosti aplikace*. Slovník vlastnosti řetězce, které aplikace můžete definovat a přístup, aniž by museli deserializaci textu zprávy. IoT Hub nikdy upravuje tyto vlastnosti.
 * Neprůhledné binární text.
 
-Názvy a hodnoty vlastností mohou obsahovat pouze alfanumerické znaky ASCII, plus ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` při můžete:  
+Názvy a hodnoty vlastností mohou obsahovat pouze alfanumerické znaky ASCII, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` při můžete:  
 
 * Odesílání zpráv typu zařízení cloud pomocí protokolu HTTPS.
 * Odesílání zpráv typu cloud zařízení.
@@ -45,7 +45,7 @@ Následující tabulka uvádí sadu vlastností systému ve zprávách služby I
 | ExpiryTimeUtc |Datum a čas vypršení platnosti zprávy. |
 | EnqueuedTime |Datum a čas [Cloud-zařízení] [ lnk-c2d] zpráva byla přijata službou IoT Hub. |
 | CorrelationId |Vlastnosti řetězce v zprávu odpovědi, která obvykle obsahuje MessageId žádosti v vzory požadavku a odpovědi. |
-| ID uživatele |ID používané k určení původu zprávy. Zprávy generované IoT Hub, je nastavený na `{iot hub name}`. |
+| UserId |ID používané k určení původu zprávy. Zprávy generované IoT Hub, je nastavený na `{iot hub name}`. |
 | Potvrzení |Generátor zpráva zpětnou vazbu. Tato vlastnost je v zprávy typu cloud zařízení slouží k vyžádání IoT Hub, která generují zprávy zpětné vazby v důsledku spotřeby zprávy zařízení. Možné hodnoty: **žádné** (výchozí): je vygenerována žádná zpráva zpětnou vazbu, **kladné**: zobrazí zpráva zpětné vazby, pokud zpráva byla dokončena, **záporné**: přijímat zpráva zpětné vazby, pokud platnost zprávy (nebo bylo dosaženo maximální doručení počet) bez jeho dokončení zařízení, nebo **úplné**: kladné a záporné. Další informace najdete v tématu [zprávy zpětné vazby][lnk-feedback]. |
 | ConnectionDeviceId |ID nastavit službou IoT Hub na zpráv typu zařízení cloud. Obsahuje **deviceId** zařízení, která zprávu odeslala. |
 | ConnectionDeviceGenerationId |ID nastavit službou IoT Hub na zpráv typu zařízení cloud. Obsahuje **generationId** (dle [vlastnosti identity zařízení][lnk-device-properties]) zařízení, která zprávu odeslala. |
@@ -61,7 +61,7 @@ IoT Hub měří velikost zprávy způsobem, bez ohledu na protokol, vzhledem k t
 
 Názvy a hodnoty vlastností jsou omezeny na znaky ASCII, takže délka řetězce rovná velikost v bajtech.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Informace o omezení velikosti zpráv v centru IoT najdete v tématu [IoT Hub kvót a omezování][lnk-quotas].
 

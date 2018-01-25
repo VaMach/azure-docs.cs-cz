@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: e68f02484c0b8de8319a2d9a6d7e3a01ee06c69a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Rozhodování o použití objektů BLOB služby Azure, Azure soubory nebo disky Azure
 
@@ -41,7 +41,7 @@ Následující tabulka porovnává soubory Azure s Azure BLOB.
 ||||  
 |-|-|-|  
 |**Atribut**|**Azure Blobs**|**Soubory Azure**|  
-|Možnosti odolnost|LRS, ZRS (GRS a RA-GRS vyšší dostupnost)|LRS, GRS|  
+|Možnosti odolnost|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Usnadnění přístupu|Rozhraní REST API|Rozhraní REST API<br /><br /> SMB 2.1 a SMB 3.0 (systém souborů standardní rozhraní API)|  
 |Připojení|Rozhraní REST API – po celém světě|Rozhraní REST API – po celém světě<br /><br /> Protokol SMB 2.1--v rámci oblasti<br /><br /> Protokol SMB 3.0 – po celém světě|  
 |Koncové body|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
