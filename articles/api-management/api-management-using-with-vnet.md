@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak používat Azure API Management s virtuálními sítěmi
 Virtuální sítě Azure (virtuální sítě) umožňují některé z vašich prostředků Azure umístění v síti routeable Internetu jiných výrobců, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií sítě VPN. Další informace o virtuálních sítí Azure začínat zde uvedené informace: [Přehled virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).
@@ -79,7 +79,7 @@ K provedení kroků popsaných v tomto článku, musíte mít:
 >
 
 > [!IMPORTANT]
-> Když odeberete API Management z virtuální sítě nebo změnit, které je nasazena v, může zůstat použitých VNET uzamčeném až 4 hodiny. Během této doby nebude možné odstranit virtuální sítě nebo nasazení nového prostředku do ní.
+> Když odeberete API Management z virtuální sítě nebo změnit, které je nasazena v, může zůstat použitých virtuální síť uzamčení po dobu až dvou hodin. Během této doby nebude možné odstranit virtuální sítě nebo nasazení nového prostředku do ní.
 
 ## <a name="enable-vnet-powershell"></a>Připojení VNET povolit pomocí rutin prostředí PowerShell
 Můžete také povolit připojení virtuální sítě pomocí rutin prostředí PowerShell
@@ -99,7 +99,7 @@ Následuje seznam běžných problémů chybné konfigurace, které se mohou vys
 * **Vlastní instalace serveru DNS**: rozhraní API správy služby závisí na několik služeb Azure. Při API Management je umístěn ve virtuální síti s vlastního serveru DNS, je nutné přeložit názvy hostitelů těchto služeb Azure. Postupujte podle [to](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) pokyny na vlastní instalační program DNS. Zobrazit následující porty tabulce a další požadavky sítě pro referenci.
 
 > [!IMPORTANT]
-> Doporučuje se, že pokud používáte vlastní servery DNS pro virtuální sítě, můžete nastavit, **před** nasazení služby API Management do ní. V opačném případě je potřeba aktualizovat služba API Management pokaždé, když změníte servery DNS (s) spuštěním [použít operace konfigurace sítě](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Pokud máte v plánu používat servery DNS vlastní sítě vnet, měli byste nastavit ho **před** nasazení služby API Management do ní. V opačném případě je potřeba aktualizovat služba API Management pokaždé, když změníte servery DNS tak, že spustíte [použít operace konfigurace sítě](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Porty vyžadované pro API Management**: příchozí a odchozí přenosy do podsítě, ve kterém je nasazený API Management se dá řídit pomocí [skupinu zabezpečení sítě][Network Security Group]. Pokud některá z těchto portů není k dispozici, API Management nemusí pracovat správně a může být nedostupný. Nejméně jeden z těchto portů blokované je jiné běžné chybné konfigurace problém při použití služby API Management s virtuální sítě.
 
@@ -124,7 +124,7 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
 
 * **DNS přístup**: odchozí přístup na port 53 se vyžaduje pro komunikaci se servery DNS. Pokud existuje vlastního serveru DNS na druhém konci brána sítě VPN, musí být dostupný z podsítě hostování API Management DNS server.
 
-* **Monitorování stavu a metrik**: odchozí síťové připojení k Azure Monitoring koncových bodů, které řešení pod následující domény: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
+* **Monitorování stavu a metrik**: odchozí síťové připojení k Azure Monitoring koncových bodů, které řešení pod následující domény: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com.
 
 * **Expresní instalace trasy**: obvyklé konfigurace zákazníka je definovat vlastní výchozí trasa (0.0.0.0/0), který vynutí odchozí přenosy z Internetu do místo toku místní. Tento tok provozu vždy dělí připojení ke službě Azure API Management, protože odchozí provoz je blokované místně nebo NAT by nerozpoznatelný sadu adresy, které přestane fungovat v různých koncové body Azure. Řešení je definovat jeden (nebo více) trasy definované uživatelem ([udr][UDRs]) v podsíti, který obsahuje Azure API Management. UDR definuje tras konkrétní podsítě, které bude dodržení místo výchozí trasu.
   Pokud je to možné doporučujeme použít následující konfigurace:
@@ -150,6 +150,13 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
 
 * **Odkazy na zdroje navigace**: Při nasazování do podsítě virtuální sítě Resource Manager styl, API Management rezerv podsíť, vytvořením prostředku navigační odkaz. Pokud podsíť již obsahuje prostředek od jiného výrobce, nasazení se **nezdaří**. Podobně když přesunout do jiné podsítě služby API Management nebo odstranit, jsme odebere tento prostředek navigačního odkazu. 
 
+## <a name="subnet-size"></a> Požadavek na velikost podsítě
+Azure si vyhrazuje některé IP adresy v rámci každé podsítě a tyto adresy nelze použít. První a poslední IP adresy podsítě jsou vyhrazené pro protokol shoda, společně s tři další adresy používané pro služby Azure. Další informace najdete v tématu [existují nějaká omezení na pomocí IP adresy v rámci těchto podsítí?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
+Kromě IP adresy používané při infrastruktury virtuální sítě Azure každá instance Api Management v podsíti používá dvě IP adresy na jednotku skladová položka Premium nebo jeden 1 IP adres pro vývojáře SKU. Každá instance si vyhrazuje 1 IP adresu pro externím vyrovnáváním zatížení. Při nasazování do interní sítě vnet, vyžaduje další IP adresu pro nástroj pro vyrovnávání zatížení interní.
+
+Zadaný výpočet vyšší než minimální velikost podsítě, ve kterém se dá nasadit API Management je /29, která umožňuje 3 IP adresy.
+
 ## <a name="routing"></a> Směrování
 + Skupinu s vyrovnáváním zatížení veřejnou IP adresu (VIP) budou rezervovány pro poskytování přístupu k všechny koncové body služby.
 + IP adresu z rozsahu podsítě IP (DIP) se použije pro přístup k prostředkům v rámci virtuální sítě a veřejnou IP adresu (VIP) se použije pro přístup k prostředkům mimo síť vnet.
@@ -166,13 +173,14 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
 * [Propojení virtuální sítě s back-end pomocí brány sítě Vpn](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Propojení virtuální sítě z různé modely nasazení](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Jak používat nástroj Inspector rozhraní API pro trasování volání v Azure API Management](api-management-howto-api-inspector.md)
+* [Nejčastější dotazy k virtuální síti](../virtual-network/virtual-networks-faq.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
-[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-private.png
-[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-public.png
+[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png
+[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-external.png
 
 [Enable VPN connections]: #enable-vpn
 [Connect to a web service behind VPN]: #connect-vpn

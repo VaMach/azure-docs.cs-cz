@@ -1,5 +1,5 @@
 ---
-title: 'Kurz: Azure Active Directory integrace s Dropbox pro firmy | Microsoft Docs'
+title: "Kurz: Konfigurace Dropbox pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a Dropbox pro firmy."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>Kurz: Konfigurace Dropbox pro firmy pro zřizování automatické uživatelů
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Kurz: Konfigurace Dropbox pro firmy pro zřizování automatické uživatelů
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v Dropbox pro firmy s Azure AD a automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD do Dropboxu pro firmy.
 
@@ -62,7 +62,7 @@ Tato část vás provede připojení služby Azure AD k Dropboxu pro firmy na u�
 
 4. Nastavte **režimu zřizování** k **automatické**. 
 
-    ![Zřizování](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
 
 5. V části **přihlašovací údaje správce** klikněte na tlačítko **Authorize**. Dropbox pro obchodní přihlašovací dialogové okno otevře v novém okně prohlížeče.
 
@@ -97,7 +97,7 @@ Související stav je indikován úspěšně dokončila uživatele zřizování 
 ![Přiřazení uživatelů](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/IC769523.png "přiřazení uživatelů")
 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

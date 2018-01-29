@@ -1,6 +1,6 @@
 ---
-title: "Jak používat Linux virtuálního počítače spravované služby Identity (MSI) pro přístup k Azure Data Lake Store"
-description: "Kurz ukazuje, jak používat pro přístup k Azure Data Lake Store Linux virtuálního počítače spravované služby Identity (MSI)."
+title: "Identita spravované služby, pro virtuální počítač s Linuxem používat pro přístup k Azure Data Lake Store"
+description: "Kurz ukazuje, jak spravovat službu Identity (MSI) pro virtuální počítač s Linuxem používat pro přístup k Azure Data Lake Store."
 services: active-directory
 documentationcenter: 
 author: skwan
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 98ff833fe541e1207a87421d54a8ce2dfc17cda1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6bc3f893697ba39c3608f0bc866be89da25596ef
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Používat pro přístup k Azure Data Lake Store Linux virtuálního počítače spravované služby Identity (MSI)
+# <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Identita spravované služby, pro virtuální počítač s Linuxem používat pro přístup k Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-V tomto kurzu se dozvíte, jak používat a spravovat službu Identity (MSI) pro systém Linux virtuálního počítače (VM) pro přístup k Azure Data Lake Store. Identita spravované služby je automaticky prováděna nástrojem Azure a umožňují ověření pro služby, které podporují ověřování Azure AD, aniž by museli přihlašovací údaje vložit do vašeho kódu. Získáte informace o těchto tématech:
+V tomto kurzu se dozvíte, jak používat identita spravované služby pro systém Linux virtuálního počítače (VM) pro přístup k Azure Data Lake Store. Azure automaticky spravuje identity, které vytvoříte pomocí Instalační služby MSI. MSI můžete použít k ověření služby, které podporují ověřování Azure Active Directory (Azure AD), aniž by museli přihlašovací údaje vložit do vašeho kódu. 
+
+V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Povolit MSI na virtuální počítač s Linuxem 
-> * Udělit přístup virtuálních počítačů Azure Data Lake Store
-> * Získání přístupového tokenu pomocí identity virtuálního počítače a použít ho pro přístup k Azure Data Lake Store
+> * Povolte MSI na virtuální počítač s Linuxem. 
+> * Udělte přístup virtuálních počítačů do Azure Data Lake Store.
+> * Získání tokenu přístupu pomocí identita virtuálního počítače a použít ho pro přístup k Azure Data Lake Store.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -38,77 +40,75 @@ V tomto kurzu se dozvíte, jak používat a spravovat službu Identity (MSI) pro
 
 ## <a name="sign-in-to-azure"></a>Přihlášení k Azure
 
-Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com).
+Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Vytvořit virtuální počítač s Linuxem do nové skupiny prostředků
 
 V tomto kurzu vytvoříme nový virtuální počítač s Linuxem. Můžete také povolit MSI na existující virtuální počítač.
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Vyberte **nový** tlačítko v levém horním rohu portálu Azure.
 2. Vyberte **Compute** a potom vyberte **Ubuntu Server 16.04 LTS**.
 3. Zadejte informace o virtuálním počítači. Pro **typ ověřování**, vyberte **veřejný klíč SSH** nebo **heslo**. Vytvořené pověření umožňují přihlášení k virtuálnímu počítači.
 
-   ![Obrázek alternativní text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Podokno "Základy" k vytvoření virtuálního počítače](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. Vyberte **předplatné** pro virtuální počítač v rozevírací nabídce.
-5. Chcete-li vybrat nový **skupiny prostředků** chcete virtuální počítač lze vytvořit v, zvolte **vytvořit nový**. Jakmile budete hotovi, klikněte na **OK**.
-6. Vyberte velikost virtuálního počítače. Pokud chcete zobrazit další velikosti, vyberte **zobrazit všechny** nebo změňte typ filtru disku podporované. V okně Nastavení ponechte výchozí nastavení a klikněte na **OK**.
+4. V **předplatné** seznamu, vyberte předplatné, pro virtuální počítač.
+5. Chcete-li vybrat novou skupinu prostředků, které chcete virtuální počítač, který má být vytvořen v, vyberte **skupiny prostředků** > **vytvořit nový**. Po dokončení, vyberte **OK**.
+6. Vyberte velikost virtuálního počítače. Pokud chcete zobrazit další velikosti, vyberte **Zobrazit všechny** nebo změňte filtr **Podporovaný typ disku**. V podokně nastavení ponechat výchozí nastavení a vyberte **OK**.
 
 ## <a name="enable-msi-on-your-vm"></a>Povolit MSI na vašem virtuálním počítači
 
-Virtuální počítač MSI umožňuje získat přístupové tokeny z Azure AD, aniž by bylo třeba uvést přihlašovací údaje do vašeho kódu. V pozadí, povolení MSI provádí dvě věci: nainstaluje rozšíření virtuálního počítače MSI na vašem virtuálním počítači a umožňuje MSI ve službě Správce prostředků Azure.  
+MSI pro virtuální počítač můžete získat přístupové tokeny z Azure AD bez nutnosti uvést přihlašovací údaje do vašeho kódu. Povolení MSI nainstaluje rozšíření virtuálního počítače MSI na vašem virtuálním počítači, a umožňuje MSI ve službě Správce prostředků Azure.  
 
-1. Vyberte **virtuálního počítače** , které chcete povolit MSI v.
-2. V levém navigačním panelu klikněte na tlačítko **konfigurace**.
-3. Zobrazí **identita spravované služby**. Registrovat a povolit soubor MSI, vyberte **Ano**, pokud chcete zakázat, vyberte Ne.
-4. Ujistěte se, kliknete na tlačítko **Uložit** konfiguraci uložíte.
+1. Pro **virtuálního počítače**, vyberte virtuální počítač, který chcete povolit MSI v.
+2. V levém podokně vyberte **konfigurace**.
+3. Zobrazí **identita spravované služby**. Registrovat a povolit MSI, vyberte **Ano**. Pokud chcete zakázat, vyberte **ne**.
+   ![Výběr "Registrovat s Azure Active Directory"](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+4. Vyberte **Uložit**.
+5. Pokud chcete zkontrolovat, jaká rozšíření se na tento virtuální počítač Linux, vyberte **rozšíření**. Pokud je povoleno MSI, **ManagedIdentityExtensionforLinux** se zobrazí v seznamu.
 
-   ![Obrázek alternativní text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Pokud chcete zkontrolovat, jaká rozšíření jsou v tomto **virtuálního počítače s Linuxem**, klikněte na tlačítko **rozšíření**. Pokud je povoleno MSI, **ManagedIdentityExtensionforLinux** se zobrazí v seznamu.
-
-   ![Obrázek alternativní text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+   ![Seznam přípon](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Udělit přístup virtuálních počítačů do Azure Data Lake Store
 
-Nyní můžete udělit váš virtuální počítač přístup k souborům a složkám v Azure Data Lake Store.  Pro tento krok můžete použít existující Data Lake Store nebo vytvořte novou.  Chcete-li vytvořit nové Data Lake Store pomocí portálu Azure, postupujte podle to [rychlý start Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Existují také – elementy QuickStart, použít rozhraní příkazového řádku Azure a prostředí Azure PowerShell v [dokumentace Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+Nyní můžete udělit váš virtuální počítač přístup k souborům a složkám v Azure Data Lake Store. Pro tento krok můžete použít existující instanci Data Lake Store nebo vytvořte novou. Chcete-li vytvořit instanci Data Lake Store pomocí portálu Azure, postupujte [rychlý start Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Existují také – elementy QuickStart, použít rozhraní příkazového řádku Azure a prostředí Azure PowerShell v [dokumentace Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-V Data Lake Store vytvořte novou složku a udělte oprávnění MSI virtuálních počítačů pro čtení, zápisu a spouštět soubory v této složce:
+V Data Lake Store vytvořte novou složku a udělení MSI oprávnění ke čtení, zápisu a spouštět soubory v této složce:
 
-1. Na portálu Azure klikněte na tlačítko **Data Lake Store** v levém navigačním panelu.
-2. Klikněte na tlačítko Data Lake Store, kterou chcete použít pro tento kurz.
-3. Klikněte na tlačítko **Průzkumníku dat** na panelu příkazů.
-4. Je vybrána složka kořenové Data Lake Store.  Klikněte na tlačítko **přístup** na panelu příkazů.
-5. Klikněte na tlačítko **Přidat**.  V **vyberte** pole, zadejte název vašeho virtuálního počítače, například **DevTestVM**.  Kliknutím vyberte virtuální počítač ve výsledcích hledání a pak klikněte na **vyberte**.
-6. Klikněte na tlačítko **vyberte oprávnění**.  Vyberte **čtení** a **Execute**, přidejte do **tato složka**a přidat jako **oprávnění přístupu jenom**.  Klikněte na tlačítko **OK**.  Oprávnění by měla být úspěšně přidají.
-7. Zavřít **přístup** okno.
-8. V tomto kurzu vytvořte novou složku.  Klikněte na tlačítko **novou složku** v řádku nabídek a udělte do nové složky název, například **TestFolder**.  Klikněte na tlačítko **OK**.
-9. Klikněte na složku, které jste vytvořili a pak klikněte na **přístup** na panelu příkazů.
-10. Podobně jako v kroku 5, klikněte na tlačítko **přidat**v **vyberte** pole zadejte název vašeho virtuálního počítače, vyberte ho a klikněte na tlačítko **vyberte**.
-11. Podobná krok 6, klikněte na tlačítko **vyberte oprávnění**, vyberte **čtení**, **zápisu**, a **Execute**, přidejte do **tato složka**a přidejte jako **položka oprávnění k přístupu a výchozí položku oprávnění**.  Klikněte na tlačítko **OK**.  Oprávnění by měla být úspěšně přidají.
+1. Na portálu Azure vyberte **Data Lake Store** v levém podokně.
+2. Vyberte instanci Data Lake Store, který chcete použít.
+3. Vyberte **Průzkumníku dat** na panelu příkazů.
+4. Je vybrána složka kořenové instance Data Lake Store. Vyberte **přístup** na panelu příkazů.
+5. Vyberte **Přidat**.  V **vyberte** pole, zadejte název vašeho virtuálního počítače – například **DevTestVM**. Ve výsledcích hledání vyberte virtuální počítač a potom klikněte na **vyberte**.
+6. Klikněte na tlačítko **vyberte oprávnění**.  Vyberte **čtení** a **Execute**, přidejte do **tato složka**a přidat jako **oprávnění přístupu jenom**. Vyberte **Ok**.  Oprávnění by měla být úspěšně přidají.
+7. Zavřít **přístup** podokně.
+8. V tomto kurzu vytvořte novou složku. Vyberte **novou složku** na panelu příkazů a udělte do nové složky název – například **TestFolder**.  Vyberte **Ok**.
+9. Vyberte složku, kterou jste vytvořili a potom vyberte **přístup** na panelu příkazů.
+10. Podobně jako ke kroku 5, vyberte **přidat**. V **vyberte** zadejte název vašeho virtuálního počítače. Ve výsledcích hledání vyberte virtuální počítač a potom klikněte na **vyberte**.
+11. Podobně jako krok 6, vyberte **vyberte oprávnění**. Vyberte **čtení**, **zápisu**, a **Execute**, přidejte do **tato složka**a přidejte jako **položka oprávnění k přístupu a výchozí Položka oprávnění**. Vyberte **Ok**.  Oprávnění by měla být úspěšně přidají.
 
-Vaše MSI virtuálního počítače teď může provádět všechny operace na soubory ve složce, kterou jste vytvořili.  Pro další informace o správě přístupu k Data Lake Store, přečtěte si tento článek na [řízení přístupu v Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+MSI teď můžete provádět všechny operace se soubory ve složce, kterou jste vytvořili. Další informace o správě přístupu k Data Lake Store najdete v tématu [řízení přístupu v Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Získání přístupového tokenu pomocí Instalační služby MSI virtuálního počítače a použít jej k vyvolání systém souborů Azure Data Lake Store
+## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Získání přístupového tokenu a volání systému souborů Data Lake Store
 
-Azure Data Lake Store nativně podporuje Azure AD ověřování, mohl přímo přijímat tokeny přístupu získat pomocí Instalační služby MSI.  K ověření na systém souborů Data Lake Store odeslat přístupový token vydán Azure AD pro svůj koncový bod Data Lake Store systému souborů, v hlavičce autorizace ve formátu "nosiče \<ACCESS_TOKEN_VALUE\>".  Další informace o Data Lake Store podporu pro ověřování Azure AD, přečtěte si [ověřování s Data Lake Store pomocí Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store nativně podporuje Azure AD ověřování, mohl přímo přijímat tokeny přístupu získat prostřednictvím MSI. K ověření do systému souborů Data Lake Store, můžete odeslat přístupový token vydán Azure AD pro koncový bod služby Data Lake Store soubor systému. Přístupový token je v hlavičce autorizace ve formátu "nosiče \<ACCESS_TOKEN_VALUE\>".  Další informace o podpoře Data Lake Store pro ověřování Azure AD najdete v tématu [ověřování s Data Lake Store pomocí Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
-V tomto kurzu ověřovat Data Lake Store systém souborů, které požadavky REST API pomocí CURL REST.
+V tomto kurzu ověřování rozhraní REST API pro systém souborů Data Lake Store pomocí cURL provádět požadavky na REST.
 
 > [!NOTE]
-> Klient systému souborů pro Data Lake Store SDK zatím nepodporují identita spravované služby.  V tomto kurzu se aktualizují, když dojde k přidání podpory k sadě SDK.
+> Klientské sady SDK pro systém souborů Data Lake Store zatím nepodporují identita spravované služby.
 
-K dokončení těchto kroků, potřebujete klientem SSH. Pokud používáte systém Windows, můžete použít klienta SSH v [subsystému Windows pro Linux](https://msdn.microsoft.com/commandline/wsl/about). Pokud potřebujete pomoc konfigurace klíče klient SSH, přečtěte si téma [jak klíče použití SSH se systémem Windows v Azure](../virtual-machines/linux/ssh-from-windows.md), nebo [jak vytvořit a používat SSH pár veřejného a privátního klíče pro virtuální počítače s Linuxem v Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+K dokončení těchto kroků, potřebujete klientem SSH. Pokud používáte systém Windows, můžete použít klienta SSH v [subsystému Windows pro Linux](https://msdn.microsoft.com/commandline/wsl/about). Pokud potřebujete pomoc konfigurace klíče klient SSH, přečtěte si téma [klíče použití SSH se systémem Windows v Azure](../virtual-machines/linux/ssh-from-windows.md) nebo [jak vytvořit a používat SSH pár veřejného a privátního klíče pro virtuální počítače s Linuxem v Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Na portálu, přejděte k virtuálním počítačům s Linuxem a v **přehled**, klikněte na tlačítko **Connect**.  
-2. **Připojit** na virtuální počítač s klientem SSH podle svého výběru. 
-3. V okně terminálu pomocí CURL, vytvořte žádost na místní koncový bod MSI k získání tokenu přístupu pro systém souborů Data Lake Store.  Identifikátor prostředku pro Data Lake Store je "https://datalake.azure.net/."  Je důležité zahrnout do adresy koncové lomítko identifikátor prostředku.
+1. Na portálu přejděte k virtuálním počítačům s Linuxem. V **přehled**, vyberte **Connect**.  
+2. Připojte k virtuálnímu počítači pomocí SSH klienta podle vašeho výběru. 
+3. V okně terminálu pomocí cURL, vytvořte žádost na místní koncový bod MSI získat přístupový token pro systém souborů Data Lake Store. Identifikátor prostředku pro Data Lake Store je "https://datalake.azure.net/".  Je důležité zahrnout do adresy koncové lomítko identifikátor prostředku.
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
    ```
     
-   Úspěšná odpověď vrátí přístupový token, který používáte k ověřování pro Data Lake Store:
+   Úspěšná odpověď vrátí přístupový token, který použijete k ověření do Data Lake Store:
 
    ```bash
    {"access_token":"eyJ0eXAiOiJ...",
@@ -120,31 +120,31 @@ K dokončení těchto kroků, potřebujete klientem SSH. Pokud používáte syst
     "token_type":"Bearer"}
    ```
 
-4. Pomocí CURL, vytvořte žádost na vaše Data Lake Store filesystem koncový bod REST seznam složky v kořenové složce.  Toto je jednoduchý způsob, jak zkontrolovat, že je všechno správně nastavené.  Zkopírujte hodnotu tokenu přístupu z předchozího kroku.  Je důležité, že řetězec "Nosiče" v hlavičce autorizace obsahuje velké "B".  Můžete najít název Data Lake Store v **přehled** části okně Data Lake Store na portálu Azure.
+4. Pomocí cURL vytvořte žádost na koncový bod REST systému souborů Data Lake Store k zobrazení seznamu složek v kořenové složce. Toto je jednoduchý způsob, jak zkontrolujte, jestli všechno, co je nakonfigurované správně. Zkopírujte hodnotu tokenu přístupu z předchozího kroku. Je důležité, aby řetězec "Nosiče" v hlavičce autorizace obsahuje velké "B." Můžete najít název instance Data Lake Store v **přehled** části **Data Lake Store** podokně na portálu Azure.
 
    ```bash
    curl https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -H "Authorization: Bearer <ACCESS_TOKEN>"
    ```
     
-   Úspěšná odpověď bude vypadat takto:
+   Úspěšná odpověď vypadá takto:
 
    ```bash
    {"FileStatuses":{"FileStatus":[{"length":0,"pathSuffix":"TestFolder","type":"DIRECTORY","blockSize":0,"accessTime":1507934941392,"modificationTime":1508105430590,"replication":0,"permission":"770","owner":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071","group":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071"}]}}
    ```
 
-5. Nyní můžete zkusit nahrání souboru do Data Lake Store.  Nejprve vytvořte soubor k odeslání.
+5. Nyní můžete zkusit nahrání souboru do Data Lake Store instanci. Nejprve vytvořte soubor k odeslání.
 
    ```bash
    echo "Test file." > Test1.txt
    ```
 
-6. Pomocí CURL, vytvořte žádost na koncový bod systému souborů REST Data Lake Store nahrát soubor do složky, kterou jste vytvořili dříve.  Nahrávání zahrnuje přesměrování a CURL sleduje přesměrování automaticky. 
+6. Pomocí cURL vytvořte žádost na koncový bod REST systému souborů Data Lake Store nahrát soubor do složky, kterou jste vytvořili dříve. Nahrávání zahrnuje přesměrování a cURL sleduje přesměrování automaticky. 
 
    ```bash
    curl -i -X PUT -L -T Test1.txt -H "Authorization: Bearer <ACCESS_TOKEN>" 'https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/<FOLDER_NAME>/Test1.txt?op=CREATE' 
    ```
 
-    Úspěšná odpověď bude vypadat takto:
+    Úspěšná odpověď vypadá takto:
 
    ```bash
    HTTP/1.1 100 Continue
@@ -179,16 +179,16 @@ K dokončení těchto kroků, potřebujete klientem SSH. Pokud používáte syst
    Content-Length: 0
    ```
 
-Filesystem další Data Lake Store pomocí rozhraní API můžete připojit k souborům, stahovat soubory a další.
+Pomocí jiných rozhraní API pro systém souborů Data Lake Store přidáte-li soubory, soubory ke stažení a další.
 
-Blahopřejeme!  Jste ověřeni pro systém souborů Data Lake Store pomocí MSI virtuálních počítačů.
+Blahopřejeme! Došlo k ověření do systému souborů Data Lake Store pomocí Instalační služby MSI pro virtuální počítač s Linuxem.
 
 ## <a name="related-content"></a>Související obsah
 
 - Přehled MSI najdete v tématu [identita spravované služby přehled](../active-directory/msi-overview.md).
-- Pro správu operations Data Lake Store využívá Azure Resource Manager.  Další informace o používání virtuálních počítačů MSI k ověření do Resource Manager, najdete v tématu [používat Linux virtuálního počítače spravované služby Identity (MSI) pro přístup k Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
+- Data Lake Store pro operace správy, používá Azure Resource Manager.  Další informace o použití Instalační služby MSI k ověření pro správce prostředků najdete v tématu [používat Linux virtuálního počítače spravované služby Identity (MSI) pro přístup k Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
 - Další informace o [ověřování s Data Lake Store pomocí Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Další informace o [operací systému souborů v Azure Data Lake Store pomocí rozhraní REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) nebo [rozhraní API webhdfs, které FileSystem](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
+- Další informace o [souboru operace systému v Azure Data Lake Store pomocí rozhraní REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) nebo [rozhraní API webhdfs, které FileSystem](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Další informace o [řízení přístupu v Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
 Použijte následující sekci komentáře k poskytnutí zpětné vazby a Pomozte nám vylepšit a utvářejí náš obsah.

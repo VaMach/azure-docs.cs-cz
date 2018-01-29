@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f5d2aa551bbe77a66459907cf5cd1313bb907981
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6524fe056ee2a1d81c9cccf257008b2369352b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-counters"></a>Čítače zpráv
 
@@ -31,7 +31,7 @@ Pomocí prostředí PowerShell můžete získat počet následujícím způsobem
 
 ## <a name="message-count-details"></a>Podrobnosti o počtu zpráv
 
-Znalost počet active zpráv je užitečné k určení, zda vytvoří frontu nevyřízených položek, který vyžaduje více prostředků pro zpracování, než co aktuálně nasazená. Následující podrobnosti čítače jsou k dispozici v [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) třídy:
+Znalost počet active zpráv je užitečný při určování, zda vytvoří frontu nevyřízených položek, který vyžaduje více prostředků pro zpracování, než co aktuálně nasazená. Následující podrobnosti čítače jsou k dispozici v [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) třídy:
 
 -   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): zpráv ve frontě nebo předplatné, které jsou v aktivním stavu a připravena k doručení.
 -   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): zprávy do fronty nedoručených zpráv.
@@ -41,7 +41,7 @@ Znalost počet active zpráv je užitečné k určení, zda vytvoří frontu nev
 
 Pokud aplikace chce škálovat prostředky na základě délky fronty, ho měli tak učinit s velmi měřená rychle. Získání čítače zpráv je náročná operace uvnitř zprostředkovatele zpráv a její provedení často přímo a nepříznivě ovlivňuje výkon entity.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o zasílání zpráv Service Bus, najdete v následujících tématech:
 

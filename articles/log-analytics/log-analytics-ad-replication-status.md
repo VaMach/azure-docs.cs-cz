@@ -1,6 +1,6 @@
 ---
 title: "Monitorování stavu replikace služby Active Directory s Azure Log Analytics | Microsoft Docs"
-description: "Sada pro stav replikace Active Directory řešení pravidelně monitoruje prostředí služby Active Directory k jeho selhání replikace a hlásí výsledky na řídicím panelu OMS."
+description: "Sada pro stav replikace Active Directory řešení pravidelně monitoruje prostředí služby Active Directory k jeho selhání replikace."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/24/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7ca3b87ea14589aa2c45c8fe49b01d3b10a75aa1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorování stavu replikace služby Active Directory s analýzy protokolů
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 12/13/2017
 
 Služba Active Directory je klíčovou součástí organizace IT prostředí. Zajistit vysokou dostupnost a vysoký výkon, každý řadič domény má svou vlastní kopii databáze služby Active Directory. Řadiče domény replikaci mezi sebou, aby bylo možné rozšířit změny celém podniku. Selhání v tomto procesu replikace může způsobit různé problémy celém podniku.
 
-Sada pro stav replikace AD řešení pravidelně monitoruje prostředí služby Active Directory k jeho selhání replikace a hlásí výsledky na řídicím panelu OMS.
+Sada pro stav replikace AD řešení pravidelně monitoruje prostředí služby Active Directory k jeho selhání replikace.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalace a konfigurace řešení
 Použijte následující informace k instalaci a konfiguraci řešení.
 
-* Je nutné nainstalovat agenty na řadičích domény, které jsou členy domény, který se má vyhodnotit. Nebo, je nutné nainstalovat agenty na členských serverech a konfigurace agentů k odesílání dat replikace AD do OMS. Chcete-li pochopit, jak se připojit k OMS počítače se systémem Windows, přečtěte si téma [počítače se systémem Windows se připojit k analýze protokolů](log-analytics-windows-agent.md). Pokud řadič domény už je součástí stávajícího prostředí System Center Operations Manager, kterou chcete připojit k OMS najdete v tématu [připojení nástroje Operations Manager k analýze protokolů](log-analytics-om-agents.md).
-* Přidat řešení stav replikace Active Directory do pracovního prostoru OMS pomocí procesu popsaného v tématu [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md).  Není nutná žádná další konfigurace.
+* Je nutné nainstalovat agenty na řadičích domény, které jsou členy domény, který se má vyhodnotit. Nebo, je nutné nainstalovat agenty na členských serverech a konfigurace agentů k odesílání dat replikace AD k analýze protokolů. Chcete-li pochopit, jak se připojit k analýze protokolů počítače se systémem Windows, přečtěte si téma [počítače se systémem Windows se připojit k analýze protokolů](log-analytics-windows-agent.md). Pokud řadič domény už je součástí stávajícího prostředí System Center Operations Manager, kterou chcete připojit k analýze protokolů najdete v tématu [připojení nástroje Operations Manager k analýze protokolů](log-analytics-om-agents.md).
+* Přidat řešení stav replikace Active Directory do pracovního prostoru analýzy protokolů pomocí procesu popsaného v tématu [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md).  Není nutná žádná další konfigurace.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Podrobnosti služby AD stav replikace dat kolekce
 Následující tabulka uvádí metody shromažďování dat a další podrobnosti o tom, jak se údaje pro stav replikace AD.
@@ -42,15 +42,15 @@ Následující tabulka uvádí metody shromažďování dat a další podrobnost
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |každých pět dní |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Volitelně můžete povolte řadiči domény k odesílání dat AD do OMS
-Pokud nechcete, aby všechny řadiče domény připojit přímo k OMS, budete moct použít další OMS připojený počítač ve vaší doméně pro shromažďování dat pro sady řešení stav replikace AD a mějte ho posílat data.
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Volitelně můžete povolte řadiči domény pro odesílání dat AD k analýze protokolů
+Pokud nechcete, aby všechny řadiče domény připojit přímo k Log Analytics, můžete použít jakéhokoli jiného počítače ve vaší doméně připojené k analýze protokolů pro shromažďování dat pro sady řešení stav replikace AD a mějte ho odeslat data.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Chcete-li povolit řadiči domény k odesílání dat AD do OMS
+### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Chcete-li povolit řadiči domény pro odesílání dat AD k analýze protokolů
 1. Ověřte, že je počítač členem domény, který chcete monitorovat pomocí řešení stav replikace AD.
-2. [Počítač se systémem Windows se připojit k OMS](log-analytics-windows-agent.md) nebo [připojit pomocí svého stávajícího prostředí Operations Manager k OMS](log-analytics-om-agents.md), pokud již není připojen.
+2. [Připojení počítače se systémem Windows k analýze protokolů](log-analytics-windows-agent.md) nebo [připojit pomocí svého stávajícího prostředí Operations Manager k analýze protokolů](log-analytics-om-agents.md), pokud již není připojen.
 3. Na tomto počítači nastavte následující klíč registru:
 
-   * Klíč: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management skupiny\<ManagementGroupName > \Solutions\ADReplication**
+   * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
    * Hodnota: **IsTarget**
    * Údaj hodnoty: **true**
 
@@ -60,7 +60,7 @@ Pokud nechcete, aby všechny řadiče domény připojit přímo k OMS, budete mo
    >
 
 ## <a name="understanding-replication-errors"></a>Principy chyby replikace
-Až budete mít data stavu replikace AD posílá OMS, zobrazí se na řídicím panelu OMS, která určuje, kolik chyby replikace, které máte aktuálně dlaždice podobně jako na následujícím obrázku.  
+Až budete mít data stavu replikace AD posílaná k analýze protokolů, zobrazí se podobně jako na následujícím obrázku v analýzy protokolů, která určuje, kolik chyby replikace, které máte aktuálně dlaždice.  
 ![Stav replikace AD dlaždici](./media/log-analytics-ad-replication-status/oms-ad-replication-tile.png)
 
 **Kritické chyby replikace** chyby, které jsou nebo vyšší 75 % [životnosti objektů označených jako neplatné](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) pro doménovou strukturu Active Directory.
@@ -124,14 +124,14 @@ Odpověď: informace se aktualizuje každých pět dní.
 **Otázka: je způsob, jak nakonfigurovat, jak často tato data se aktualizují?**
 Odpověď: není v tuto chvíli.
 
-**Otázka: potřebuji přidat všechny moje řadičů domény do pracovní prostor OMS, chcete-li zobrazit stav replikace?**
-Odpověď: Ne, je nutné přidat jenom jeden řadič domény. Pokud máte víc řadičů domény v pracovním prostoru OMS, data ze všech z nich se odešlou do OMS.
+**Otázka: potřebuji přidat všechny moje řadičů domény do pracovní prostor analýzy protokolů, chcete-li zobrazit stav replikace?**
+Odpověď: Ne, je nutné přidat jenom jeden řadič domény. Pokud máte víc řadičů domény v pracovním prostoru analýzy protokolů, se budou odesílat data ze všech z nich k analýze protokolů.
 
-**Otázka: nechcete přidat všechny řadiče domény, do pracovního prostoru OMS. Pomocí řešení stav replikace AD**
-Odpověď: Ano. Můžete nastavit hodnotu klíče registru povolit. V tématu [povolit řadiči domény k odesílání dat AD do OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+**Otázka: nechcete přidat všechny řadiče domény, do pracovního prostoru analýzy protokolů. Pomocí řešení stav replikace AD**
+Odpověď: Ano. Můžete nastavit hodnotu klíče registru povolit. V tématu [povolit řadiči domény pro odesílání dat AD k analýze protokolů](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **Otázka: co je název procesu, který nemá shromažďování dat?**
-Odpověď: AdvisorAssessment.exe
+A: AdvisorAssessment.exe
 
 **Otázka: jak dlouho trvá na shromáždění dat?**
 A: doba shromažďování dat závisí na velikosti prostředí služby Active Directory, ale obvykle trvá méně než 15 minut.
@@ -146,11 +146,11 @@ Odpověď: není v tuto chvíli.
 Odpověď: normální uživatelské oprávnění ke službě Active Directory je dostatečné.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Poradce při potížích kolekce dat
-Chcete-li shromažďovat data, sady řešení stav replikace AD vyžaduje aspoň jeden řadič domény k připojení k pracovní prostor OMS. Až se připojíte řadič domény, zobrazí se zpráva označující, že **stále nejsou shromažďována data**.
+Chcete-li shromažďovat data, sady řešení stav replikace AD vyžaduje aspoň jeden řadič domény k připojení k pracovní prostor analýzy protokolů. Až se připojíte řadič domény, zobrazí se zpráva označující, že **stále nejsou shromažďována data**.
 
 Pokud potřebujete pomoc připojení jedním z řadičů domény, můžete zobrazit dokumentaci v [počítače se systémem Windows se připojit k analýze protokolů](log-analytics-windows-agent.md). Případně, pokud řadič domény je již připojen do existujícího prostředí System Center Operations Manager, můžete zobrazit dokumentaci v [připojit System Center Operations Manager k analýze protokolů](log-analytics-om-agents.md).
 
-Pokud nechcete, aby všechny řadiče domény připojit se přímo k OMS nebo do SCOM, najdete v části [povolit řadiči domény k odesílání dat AD do OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Pokud nechcete, aby všechny řadiče domény připojit se přímo k Log Analytics nebo System Center Operations Manager, najdete v části [povolit řadiči domény pro odesílání dat AD k analýze protokolů](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Použití [přihlásit analýzy protokolů hledání](log-analytics-log-searches.md) zobrazíte podrobné údaje o stavu replikace služby Active Directory.

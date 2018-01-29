@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Přehled diagnostiky Azure App Service 
 
 Pokud používáte webovou aplikaci, kterou chcete připravit pro všechny problémy, které mohou vzniknout, a to z 500 chyb uživatelům informací, které váš webový server je mimo provoz. Diagnostika služby App Service je inteligentní a interaktivní prostředí týkající se řešení webové aplikace s nutná žádná konfigurace. Když spustíte problémy s vaší webové aplikace, služby App Service diagnostics bude odkazovat, co je špatně navést na náležité informace, které chcete rychle a snadno potíže vyřešit problém. 
  
 I když toto prostředí je užitečný zejména, pokud máte problémy s s vaší webové aplikace za posledních 24 hodin, bude k dispozici pro vás k analýze za všech okolností diagnostiky grafy. Další nástroje pro odstraňování potíží a odkazy na dokumentaci užitečné a fóra nacházejí v pravém sloupci.
+
+## <a name="open-app-service-diagnostics"></a>Otevřete App Service diagnostics
+
+Chcete-li získat přístup k službě App Service diagnostics, přejděte na webové aplikace služby App Service v [portál Azure](https://portal.azure.com). 
+
+V levém navigačním panelu, klikněte na **Diagnostikujte a řešení problémů**.
 
 ![Domovská stránka](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ Jestli chcete získat další informace po spuštění [stavu checkup](#health-c
 
 ![Diagnostická zpráva](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>Otevřete App Service diagnostics
-
-Chcete-li získat přístup k službě App Service diagnostics, přejděte na webové aplikace služby App Service v [portál Azure](https://portal.azure.com). 
-
-V levém navigačním panelu, klikněte na **Diagnostikujte a řešení problémů**.

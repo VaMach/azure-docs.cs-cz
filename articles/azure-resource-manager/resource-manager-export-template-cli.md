@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Export šablony Azure Resource Manager pomocí rozhraní příkazového řádku Azure
 
@@ -44,7 +44,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Uložit šablonu z historie nasazení
 
-Šablonu z historie nasazení můžete načíst pomocí [export nasazení skupiny az](/cli/azure/group/deployment#export) příkaz. Následující příklad uloží šablony, která dříve nasazení:
+Šablonu z historie nasazení můžete načíst pomocí [export nasazení skupiny az](/cli/azure/group/deployment#az_group_deployment_export) příkaz. Následující příklad uloží šablony, která dříve nasazení:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -55,7 +55,7 @@ Vrátí šablony. Zkopírujte JSON a uložte jako soubor. Všimněte si, že je 
 
 ## <a name="export-resource-group-as-template"></a>Export skupiny prostředků jako šablony.
 
-Místo načítání šablonu z historie nasazení, můžete načíst šablonu, která představuje aktuální stav skupiny prostředků pomocí [export skupiny az](/cli/azure/group#export) příkaz. Tento příkaz používají, když jste provedli mnoho změn vaší skupiny prostředků a žádné existující šablona představuje všechny změny.
+Místo načítání šablonu z historie nasazení, můžete načíst šablonu, která představuje aktuální stav skupiny prostředků pomocí [export skupiny az](/cli/azure/group#az_group_export) příkaz. Tento příkaz používají, když jste provedli mnoho změn vaší skupiny prostředků a žádné existující šablona představuje všechny změny.
 
 ```azurecli
 az group export --name ExampleGroup
@@ -203,7 +203,7 @@ Vaše šablona teď vypadá nějak takto:
 
 Znovu nasaďte změněné šablony.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Informace o používání portálu Export šablony najdete v tématu [Export šablony Azure Resource Manageru ze stávajících prostředků](resource-manager-export-template.md).
 * Chcete-li definovat parametry v šabloně, přečtěte si téma [vytváření šablon](resource-group-authoring-templates.md#parameters).
 * Tipy k řešení běžných chyb při nasazení, naleznete v části [odstraňování běžných chyb nasazení Azure pomocí Azure Resource Manageru](resource-manager-common-deployment-errors.md).

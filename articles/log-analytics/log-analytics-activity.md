@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Shromažďovat a analyzovat protokoly aktivita Azure v analýzy protokolů
 
@@ -90,10 +90,10 @@ Data protokolu aktivity se zobrazí pouze *po* protokolů aktivity k přejít na
 
 | Okno | Popis |
 | --- | --- |
-| Aktivita Azure položky protokolu | Ukazuje pruhový graf prvních položka protokolu aktivita Azure záznamů součty pro rozsah dat, které jste vybrali a seznam top 10 aktivity volající. Klikněte na tlačítko pruhový graf ke spuštění protokolu vyhledejte <code>Type=AzureActivity</code>. Klikněte na položku volající ke spuštění vyhledávání protokolu vrácení všech položek protokolů aktivity pro tuto položku. |
-| Protokoly aktivity podle stavu | Zobrazí prstencový graf pro stav protokolu Azure aktivity pro rozsah, kterou jste vybrali. Také ukazuje seznam seznam top deset stav záznamů. Klikněte na graf ke spuštění protokolu vyhledejte <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Klikněte na položku Stav spuštění vyhledávání protokolu vrácení všech položek protokolů aktivity pro tento stav záznamu. |
-| Protokoly aktivity podle zdroje | Zobrazuje celkový počet prostředků s protokoly aktivity a uvádí top deset prostředky pomocí záznamu počty každého prostředku. Klikněte na tlačítko Spustit hledání protokolů pro oblasti celkový <code>Type=AzureActivity &#124; measure count() by Resource</code>, který zobrazuje všechny prostředky Azure k dispozici pro řešení. Klikněte na tlačítko prostředků ke spuštění vyhledávání protokolu vrátit všechny záznamy aktivity pro tento prostředek. |
-| Protokoly aktivity poskytovatelem prostředků | Zobrazuje celkový počet poskytovatelů prostředků, které produkují aktivity protokoly a uvádí deset. Klikněte na tlačítko Spustit hledání protokolů pro oblasti celkový <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, který zobrazuje všechny poskytovatele prostředků Azure. Klikněte na zprostředkovatele prostředků ke spuštění vyhledávání protokolu vrátit všechny záznamy aktivity pro zprostředkovatele. |
+| Aktivita Azure položky protokolu | Ukazuje pruhový graf prvních položka protokolu aktivita Azure záznamů součty pro rozsah dat, které jste vybrali a seznam top 10 aktivity volající. Klikněte na tlačítko pruhový graf ke spuštění protokolu vyhledejte <code>AzureActivity</code>. Klikněte na položku volající ke spuštění vyhledávání protokolu vrácení všech položek protokolů aktivity pro tuto položku. |
+| Protokoly aktivity podle stavu | Zobrazí prstencový graf pro stav protokolu Azure aktivity pro rozsah, kterou jste vybrali. Také ukazuje seznam seznam top deset stav záznamů. Klikněte na graf ke spuštění protokolu vyhledejte <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Klikněte na položku Stav spuštění vyhledávání protokolu vrácení všech položek protokolů aktivity pro tento stav záznamu. |
+| Protokoly aktivity podle zdroje | Zobrazuje celkový počet prostředků s protokoly aktivity a uvádí top deset prostředky pomocí záznamu počty každého prostředku. Klikněte na tlačítko Spustit hledání protokolů pro oblasti celkový <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, který zobrazuje všechny prostředky Azure k dispozici pro řešení. Klikněte na tlačítko prostředků ke spuštění vyhledávání protokolu vrátit všechny záznamy aktivity pro tento prostředek. |
+| Protokoly aktivity poskytovatelem prostředků | Zobrazuje celkový počet poskytovatelů prostředků, které produkují aktivity protokoly a uvádí deset. Klikněte na tlačítko Spustit hledání protokolů pro oblasti celkový <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, který zobrazuje všechny poskytovatele prostředků Azure. Klikněte na zprostředkovatele prostředků ke spuštění vyhledávání protokolu vrátit všechny záznamy aktivity pro zprostředkovatele. |
 
 ![Řídicí panel Azure protokoly aktivity](./media/log-analytics-activity/activity-log-dash.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Co je služba Azure SQL Database? | Dokumentace Microsoftu"
+title: "Co je služba Azure SQL Database? | Dokumenty Microsoft"
 description: "Přečtěte si základní informace o službě SQL Database – technické podrobnosti a možností cloudového systému pro správu relačních databází (RDBMS) společnosti Microsoft."
 keywords: "představení sql,úvod do sql,co je sql database"
 services: sql-database
@@ -17,11 +17,11 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co je služba Azure SQL Database? 
 
@@ -156,7 +156,7 @@ SQL Database podporuje vytváření aplikací pomocí Pythonu, Javy, Node.js, PH
 - [DBA na webu Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Pokládání dotazů týkajících se správy databází
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Pokládání dotazů týkajících se vývoje
 - [Fóra na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Pokládání technických dotazů
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): Hlášení chyb a žádosti o funkce
+- [Feedback](http://aka.ms/sqlfeedback): Hlášení chyb a žádosti o funkce
 - [Reddit](https://www.reddit.com/r/SQLServer/): Diskuze o SQL Serveru
 
 ## <a name="next-steps"></a>Další kroky

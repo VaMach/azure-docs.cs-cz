@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Podporované služby, schémat a kategorie pro diagnostických protokolů Azure.
 
@@ -34,7 +34,7 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 | Brány Application Gateway |[Protokolování diagnostiky pro službu Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Analýzy protokolů pro Azure Automation.](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Protokolování diagnostiky Azure Batch](../batch/batch-diagnostics.md) |
-| Statistika zákazníka | Schéma není k dispozici. |
+| Customer Insights | Schéma není k dispozici. |
 | Content Delivery Network | Schéma není k dispozici. |
 | CosmosDB | [Protokolování Azure Cosmos DB](../cosmos-db/logging.md) |
 | Data Lake Analytics |[Přístup k protokolům diagnostiky pro Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
@@ -50,22 +50,21 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 | Search |[Povolení a používání Analýza provozu vyhledávání](../search/search-traffic-analytics.md) |
 | Správa serveru | Schéma není k dispozici. |
 | Service Bus |[Diagnostické protokoly služby Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Protokolování diagnostiky Azure SQL Database](../sql-database/sql-database-metrics-diag-logging.md) |
+| Databáze SQL | [Protokolování diagnostiky Azure SQL Database](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Diagnostické protokoly úlohy](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Virtuální sítě | Schéma není k dispozici. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Podporované kategorií protokolu na typ prostředku
 |Typ prostředku|Kategorie|Zobrazovaný název kategorie|
 |---|---|---|
-|Microsoft.aadiam/tenants|přihlášení|přihlášení|
 |Microsoft.AnalysisServices/servers|Modul|Modul|
 |Microsoft.AnalysisServices/servers|Služba|Služba|
 |Microsoft.ApiManagement/service|GatewayLogs|Protokoly související s ApiManagement brány|
 |Microsoft.Automation/automationAccounts|JobLogs|V protokolech úloh|
-|Microsoft.Automation/automationAccounts|JobStreams|Datové proudy úlohy|
+|Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stav uzlu DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Protokoly služby|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Získá metriky koncového bodu, například šířky pásma, odchozí, atd.|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Získá metriky koncového bodu, třeba šířku pásma, výchozí přenos atd.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Kanál protokolu spuštění aktivit|
 |Microsoft.DataFactory/factories|PipelineRuns|Kanál spustí protokolu|
@@ -93,8 +92,8 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 |Microsoft.EventHub/namespaces|OperationalLogs|Operační protokoly|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Automatické škálování protokoly|
 |Microsoft.KeyVault/vaults|AuditEvent|Protokoly auditu|
-|Microsoft.Logic/workflows|Modul runtime pracovního postupu|Diagnostických událostí modulu runtime pracovního postupu|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integrace účet sledovat události|
+|Microsoft.Logic/workflows|Modul runtime pracovního postupu|Diagnostické události modulu runtime pracovního postupu|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Sledovat události u účtu pro integraci|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Událost skupiny zabezpečení sítě|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Čítač pravidel skupiny zabezpečení sítě|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Skupina zabezpečení sítě pravidla toku událostí|
@@ -116,6 +115,8 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery replikované položky|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery replikaci statistiky|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Body obnovení pro obnovení lokality Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Rychlost odesílání Azure Site obnovení replikace dat|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Mísení dat Disk chráněný Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Protokoly operací|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operační protokoly|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Úložiště dotazů statistiku modulu Runtime|
@@ -124,8 +125,9 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Databáze statistiky čekání|
 |Microsoft.Sql/servers/databases|Časové limity|Časové limity|
 |Microsoft.Sql/servers/databases|Bloky|Bloky|
-|Microsoft.Sql/servers/databases|SQLInsights|Statistika SQL|
-|Microsoft.StreamAnalytics/streamingjobs|Provádění|Provádění|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Auditování|Protokoly auditu|
+|Microsoft.StreamAnalytics/streamingjobs|Provedení|Provedení|
 |Microsoft.StreamAnalytics/streamingjobs|Vytváření obsahu|Vytváření obsahu|
 
 ## <a name="next-steps"></a>Další kroky

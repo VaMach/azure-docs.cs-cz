@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 01/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 838065287279f1c17e7f294bc919c4a0421e2a58
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Vytvoření a instalace souborů konfigurace klienta VPN pro ověřování pomocí protokolu RADIUS P2S
 
@@ -56,7 +56,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 Spuštěním příkazu vrátí odkaz. Zkopírujte a vložte odkaz do webového prohlížeče ke stažení, VpnClientConfiguration.zip'. Rozbalte soubor zobrazíte následující složky: 
  
 * **WindowsAmd64** a **WindowsX86** -tyto složky obsahují balíčky Instalační služby systému Windows 64bitové a 32bitové v uvedeném pořadí. 
-* **GenericDevice** – tato složka obsahuje obecné informace použít k vytvoření vlastní konfigurace klienta VPN. Tato složka není vyžadován pro ověření konfigurace uživatelského jména a hesla.
+* **Obecné** – tato složka obsahuje obecné informace použít k vytvoření vlastní konfigurace klienta VPN. Tato složka není vyžadován pro ověření konfigurace uživatelského jména a hesla.
 * **Mac** -IKEv2 Pokud byla nakonfigurována, když vytvoříte bránu virtuální sítě, najdete v části složku s názvem "Mac, který obsahuje **mobileconfig** souboru. Tento soubor se používá ke konfiguraci klienti se systémem Mac.
 
 Pokud jste již vytvořili klienta konfigurační soubory, můžete je načíst pomocí rutiny 'Get-AzureRmVpnClientConfiguration'. Ale pokud provedete změny konfiguraci P2S VPN, jako je například protokol VPN typ nebo typ ověřování, konfigurace nebude aktualizovat automaticky. Musíte spustit rutinu, New-AzureRmVpnClientConfiguration' Chcete-li vytvořit nové konfigurace stahování.
@@ -125,7 +125,7 @@ Klient VPN můžete vytvořit konfigurační soubory pro ověřování protokolu
 Generování souborů konfigurace klienta VPN pro použití s ověřováním pomocí certifikátu. Můžete vygenerovat soubory konfigurace klienta VPN pomocí následujícího příkazu:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 Spuštěním příkazu vrátí odkaz. Zkopírujte a vložte odkaz do webového prohlížeče ke stažení, VpnClientConfiguration.zip'. Rozbalte soubor zobrazíte následující složky:
@@ -138,7 +138,7 @@ Pokud jste již vytvořili klienta konfigurační soubory, můžete je načíst 
 Pokud chcete načíst dříve generovaného klienta konfigurační soubory, použijte následující příkaz:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ## <a name="setupusername"></a> 2. Konfigurace klientů Windows a Mac VPN

@@ -5,8 +5,7 @@ keywords: "šifrování dat, šifrovací klíč, šifrování cloudu"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Funkce Always Encrypted: Chrání citlivá data v databázi SQL a ukládat šifrovací klíče v Azure Key Vault
 
@@ -48,30 +47,18 @@ V tomto kurzu budete potřebovat:
 * [Prostředí Azure PowerShell](/powershell/azure/overview), verze 1.0 nebo novější. Typ **(Get-Module azure - ListAvailable). Verze** zobrazíte, jaká verze prostředí PowerShell, kterou používáte.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Povolit klientské aplikaci přístup ke službě SQL Database
-Je nutné povolit klientské aplikaci přístup ke službě SQL Database nastavením potřebného ověřování a získání *ClientId* a *tajný klíč* kterou budete potřebovat k ověření vaší aplikace v následujícím kódu.
+Je nutné povolit klientské aplikaci přístup ke službě SQL Database nastavením aplikace Azure Active Directory (AAD) a kopírování *ID aplikace* a *klíč* , budete muset ověření vaší aplikace.
 
-1. Otevřete [portál Azure classic](http://manage.windowsazure.com).
-2. Vyberte **služby Active Directory** a klikněte na instanci služby Active Directory, která vaše aplikace bude používat.
-3. Klikněte na tlačítko **aplikace**a potom klikněte na **přidat**.
-4. Zadejte název pro vaši aplikaci (například: *myClientApp*), vyberte **webové aplikace**a klikněte na šipku pokračujte.
-5. Pro **adresa URL přihlašování** a **identifikátor ID URI aplikace** můžete zadat platnou adresu URL (například *http://myClientApp*) a pokračovat.
-6. Klikněte na tlačítko **konfigurace**.
-7. Kopie vašeho **ID klienta**. (Budete potřebovat tuto hodnotu v kódu později.)
-8. V **klíče** vyberte **1 rok** z **vyberte dobu trvání** rozevíracího seznamu. (Klíč bude zkopírujte po uložení v kroku 13.)
-9. Posuňte se dolů a klikněte na tlačítko **přidat aplikaci**.
-10. Nechte **zobrazit** nastavena na **Microsoft Apps** a vyberte **Microsoft Azure Service Management API**. Kliknutím na značku zaškrtnutí pokračujte.
-11. Vyberte **přístup k Azure Service Management...**  z **delegovaná oprávnění** rozevíracího seznamu.
-12. Klikněte na **ULOŽIT**.
-13. Po uložení dokončí, zkopírujte hodnotu klíče v **klíče** části. (Budete potřebovat tuto hodnotu v kódu později.)
+Chcete-li získat *ID aplikace* a *klíč*, postupujte podle kroků v [vytvořit Azure Active Directory objekt aplikací a služeb, které mají přístup k prostředkům](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Vytvoření trezoru klíčů k ukládání svých klíčů
-Teď, když je nastavené vaší klientské aplikace a máte vaše ID klienta, je čas na vytvoření trezoru klíčů a nakonfigurujte jeho zásady přístupu tak, aby vám a vaší aplikace mohou přistupovat k trezoru tajné klíče (Always Encrypted klíče). *Vytvořit*, *získat*, *seznamu*, *přihlašovací*, *ověřte*, *wrapKey*, a *unwrapKey* oprávnění jsou nutné pro vytvoření nové k hlavnímu klíči sloupce a nastavení šifrování s SQL Server Management Studio.
+Teď, když je nastavené vaší klientské aplikace a máte vaše ID aplikace, je čas na vytvoření trezoru klíčů a nakonfigurujte jeho zásady přístupu tak, aby vám a vaší aplikace mohou přistupovat k trezoru tajné klíče (Always Encrypted klíče). *Vytvořit*, *získat*, *seznamu*, *přihlašovací*, *ověřte*, *wrapKey*, a *unwrapKey* oprávnění jsou nutné pro vytvoření nové k hlavnímu klíči sloupce a nastavení šifrování s SQL Server Management Studio.
 
 Spuštěním následujícího skriptu můžete rychle vytvořit trezoru klíčů. Podrobné vysvětlení těchto rutin a další informace o vytváření a konfiguraci trezoru klíčů najdete v tématu [Začínáme s Azure Key Vault](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,7 +72,7 @@ Spuštěním následujícího skriptu můžete rychle vytvořit trezoru klíčů
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
@@ -233,7 +220,7 @@ Následující kód ukazuje, jak zaregistrovat zprostředkovatele Azure Key Vaul
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ Spusťte aplikaci v akci zobrazovat vždy šifrována.
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ Spusťte aplikaci v akci zobrazovat vždy šifrována.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -628,7 +615,7 @@ Pomocí aplikace SSMS přístup k datům ve formátu prostého textu, můžete p
     ![Novou konzolovou aplikaci](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po vytvoření databáze, která používá vždycky šifrovaná, můžete provést následující akce:
 
 * [Otočit a vyčištění klíče](https://msdn.microsoft.com/library/mt607048.aspx).

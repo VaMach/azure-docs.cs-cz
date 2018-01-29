@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 510e578f3ebeb6ad7a4d81249cdfd7ce1d3684ad
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Události zabezpečení mřížky a ověřování 
 
@@ -24,7 +24,7 @@ Azure mřížky událostí má tři typy ověřování:
 
 ## <a name="webhook-event-delivery"></a>Události Webhooku doručení
 
-Webhook má jedna řada způsobů pro příjem událostí v reálném čase z Azure událostí mřížky. Pokaždé, když je připraven k dodání novou událost, události Webhooku mřížky doplňuje do nakonfigurovaný koncový bod HTTP s událostí v textu požadavku HTTP.
+Webhook má jedna řada způsobů pro příjem událostí v reálném čase z Azure událostí mřížky. Pokaždé, když je připraven k dodání novou událost, odešle Webhooku mřížky událostí nakonfigurovaný koncový bod HTTP s událostí v textu požadavku HTTP.
 
 Při registraci svůj vlastní koncový bod Webhooku s událostí mřížky, odešle požadavek POST s kódem jednoduché ověření aby bylo možné prokázat vlastnictví koncový bod. Vaše aplikace musí odpovídat tak, že odezva zpět ověřovacího kódu. Událost mřížky nejsou poskytovány události Webhooku koncových bodů, které nebyly předány ověření.
 
@@ -234,6 +234,6 @@ Pokud chcete přiřadit role pro uživatele, použijte:
 az role assignment create --assignee <user name> --role "<name of role>"
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Úvod k mřížce událostí, naleznete v části [o mřížky událostí](overview.md)

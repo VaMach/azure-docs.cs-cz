@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrace na storage úrovně premium datového skladu
 Azure SQL Data Warehouse nedávno zaveden [storage úrovně premium pro vyšší výkon, předvídatelnost][premium storage for greater performance predictability]. Existující datových skladů aktuálně na standardní úložiště lze nyní přenést do úložiště úrovně premium. Můžete využít výhod Automatická migrace, nebo pokud chcete řídit, kdy k migraci (které zahrnují výpadky), můžete provést migraci sami.
@@ -110,7 +110,7 @@ V tomto příkladu Představte si, že vaše existující datový sklad na stand
 4. Odstranit "MyDW_BeforeMigration." **Pokud tento krok, vám bude účtována pro obě datových skladů.**
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Změny do úložiště úrovně premium máte také zvýšením počtu objektů blob soubory databáze v základní Architektura datového skladu. Pokud chcete maximalizovat výkon výhody této změny, znovu sestavte vaše Clusterované indexy columnstore pomocí následujícího skriptu. Skript funguje tak, že některé z vašich existujících dat vynucení na další objekty BLOB. Pokud nepodniknete žádnou akci, data se přirozeně znovu distribuovat časem jako načtení více dat do tabulek.
 
 **Požadavky:**
@@ -170,7 +170,7 @@ Pokud narazíte na potíže s datovým skladem, [vytvořit lístek podpory] [ cr
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
-[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power

@@ -7,19 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
-ms.author: sasubram
-ms.openlocfilehash: 6a75fdd6c6f8fc03945be4b7d843777286cc70a7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: b2562f807ac970552db0ac385e2992580a312b97
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Kód spolupráce Azure Active Directory s B2B a ukázky prostředí PowerShell
 
@@ -28,7 +28,7 @@ Vám může hromadné pozvání externí uživatele organizaci z e-mailové adre
 
 1. Příprava. CSV soubor vytvořte nový soubor CSV a pojmenujte ji invitations.csv. V tomto příkladu soubor je uložen v C:\data a obsahuje následující informace:
   
-  Name (Název)                  |  InvitedUserEmailAddress
+  Název                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
   Pozvané Gmail B2B     | b2binvitee@gmail.com
   Pozvané B2B aplikace Outlook   | b2binvitee@outlook.com
@@ -231,7 +231,7 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

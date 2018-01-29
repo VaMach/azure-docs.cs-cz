@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Pochopit nastavení automatického škálování
 Nastavení automatického škálování umožňují Ujistěte se, že máte správného množství prostředků pro zpracování kolísání zátěže vaší aplikace spuštěna. Můžete nakonfigurovat nastavení automatického škálování, aby se spouštěly podle metriky, které znamenat výkon nebo zatížení nebo aktivovat v naplánované datum a čas. V tomto článku se podíváme podrobné na anatomy nastavení automatického škálování. Článek začne pochopení schématu a vlastnosti nastavení a potom provede jiný profil typy, které lze konfigurovat a nakonec popisuje, jak škálování vyhodnotí který profil provést v daném okamžiku.
@@ -107,14 +107,14 @@ Pro ilustraci schéma nastavení automatického škálování, je použít násl
 | Profil | Capacity.minimum | Minimální kapacita povoleny. Zajišťuje, že škálování při provádění tohoto profilu, není škálování prostředku pod tuto hodnotu. |
 | Profil | Capacity.default | Pokud dojde k problému čtení metrika prostředků (v tomto případě procesoru "vmss1") a aktuální kapacita je nižší než výchozí kapacitu, potom k zajištění dostupnosti prostředku, automatické škálování měřítka se na více systémů na výchozí hodnoty. Pokud je aktuální kapacita již vyšší než výchozí kapacita, automatické škálování nebude škálování v. |
 | Profil | pravidla | Škálování automaticky přizpůsobí mezi maximální a minimální kapacitou, pomocí pravidel v profilu. Můžete mít více pravidel v profilu. Základní scénáře je mít dvě pravidla, jeden k určení, kdy Škálováním na více systémů a druhý k určení, kdy se mají škálování v. |
-| Pravidlo | metricTrigger | Definuje metriky podmínku pravidla. |
+| pravidlo | metricTrigger | Definuje metriky podmínku pravidla. |
 | metricTrigger | metricName | Název metriky. |
 | metricTrigger |  metricResourceUri | ID prostředku prostředek, který vysílá metriku. Ve většině případů je stejný jako prostředek se škálovat. V některých případech mohou být různé, například je možné škálovat škálovací sadu virtuálních počítačů, na základě počtu zpráv ve frontě úložiště. |
 | metricTrigger | Časovými úseky | Doba trvání metriky vzorkování. Například časovými úseky = "PT1M" znamená, že by měl být metriky agregují každých 1 minuta agregace metody popsané v "statistiky." |
 | metricTrigger | statistiky | Metoda agregace v období časovými úseky. Například statistiky = "Průměrná" a časovými úseky = "PT1M" znamená, že by měl být metriky agregovat použitím průměru každou 1 minutu. Tato vlastnost určuje, jak je metrika vzorků. |
-| metricTrigger | Hodnota timeWindow | Množství času do minulosti metrik. Například hodnota timeWindow = "PT10M" znamená, že pokaždé, když spustí škálování, dotazuje metriky pro za posledních 10 minut. Časový interval umožňuje vaše metriky budou normalizovány a zabraňuje reagovat na přechodný špičky. |
+| metricTrigger | timeWindow | Množství času do minulosti metrik. Například hodnota timeWindow = "PT10M" znamená, že pokaždé, když spustí škálování, dotazuje metriky pro za posledních 10 minut. Časový interval umožňuje vaše metriky budou normalizovány a zabraňuje reagovat na přechodný špičky. |
 | metricTrigger | Agregace času | Metoda agregace použitá k agregaci jen Vzorkovaná metriky. Například agregace času = "Průměrná" by měl agregovat jen Vzorkovaná metriky provedením průměr. V případě, že výše vzorky deseti 1 minutu a průměrné je. |
-| Pravidlo | scaleAction | Akce, který se má provést, když se aktivuje metricTrigger pravidla. |
+| pravidlo | scaleAction | Akce, který se má provést, když se aktivuje metricTrigger pravidla. |
 | scaleAction | směr | "Zvýšit" na Škálováním na více systémů, "Snížit" pro škálování v|
 | scaleAction | hodnota | Kolik můžete zvýšit nebo snížit kapacitu prostředku |
 | scaleAction | cooldown | Množství času čekání po operaci škálování před škálování znovu. Například pokud cooldown = "PT10M", pak po dokončení operace škálování škálování se nepokusí škálování znovu pro jiné 10 minut. Cooldown je umožnit metriky stabilizovat po přidání nebo odebrání instance. |
@@ -125,7 +125,7 @@ Existují tři typy profilů automatického škálování:
 
 1. **Regulární profilu:** nejběžnější profilu. Pokud nepotřebujete škálování prostředku různě v závislosti na den v týdnu, nebo v určitý den, pak stačí nastavit profil regulární v vašeho nastavení automatického škálování. Tento profil můžete pak nakonfigurovat metriky pravidla, která určují, kdy Škálováním na více systémů a kdy škálování v. Měli byste mít jenom jeden profil regulární definované.
 
-    Příklad profilu použít dříve v tomto článku je příklad regulární profilu. Proveďte, není je také možné nastavit profil škálovat na počet statická instance prostředku.
+    Příklad profilu použít dříve v tomto článku je příklad regulární profilu. Všimněte si, že je také možné nastavit profil škálovat na počet statická instance prostředku.
 
 2. **Pevné datum profilu:** s profilem regulární definované, Řekněme, že máte důležité události objevuje na 26 prosinec 2017 (PST) a má minimální a maximální kapacitou prostředku lišit v daný den, ale stále škálovat na stejné metriky . V takovém případě by měl přidat profil pevné datum na seznam profilů vaše nastavení. Profil je nakonfigurována pro spuštění pouze dne události. Pro druhý den se spustí regulární profilu.
 

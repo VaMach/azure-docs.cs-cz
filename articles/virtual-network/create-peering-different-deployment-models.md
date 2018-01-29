@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: ebe489b6e0993dad42950acdafac48e662da7f77
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 033d696f0d219fef66b4acd523f28a35afcf9929
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Vytvořit virtuální síť partnerský vztah - různé modely nasazení, stejného předplatného. 
 
@@ -30,8 +30,8 @@ Postup vytvoření virtuální sítě partnerského vztahu se liší v závislos
 |Model nasazení Azure  | Předplatné Azure  |
 |--------- |---------|
 |[I Resource Manager](virtual-network-create-peering.md) |stejné|
-|[I Resource Manager](create-peering-different-subscriptions.md) |Různé|
-|[Jeden Resource Manager, jeden classic](create-peering-different-deployment-models-subscriptions.md) |Různé|
+|[I Resource Manager](create-peering-different-subscriptions.md) |Odlišné|
+|[Jeden Resource Manager, jeden classic](create-peering-different-deployment-models-subscriptions.md) |Odlišné|
 
 Virtuální síť partnerský vztah nelze vytvořit mezi dvěma virtuálními sítěmi nasazené prostřednictvím modelu nasazení classic. Pokud potřebujete připojení virtuální sítě, které byly obě vytvořené pomocí modelu nasazení classic, můžete použít Azure [brány VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) připojení virtuální sítě. 
 
@@ -51,7 +51,7 @@ Můžete použít [portál Azure](#portal), Azure [rozhraní příkazového řá
     - **Předplatné**: Vyberte předplatné
     - **Skupina prostředků**: vyberte **vytvořit nový** a zadejte *myResourceGroup*
     - **Umístění**: *východní USA*
-4. Klikněte na tlačítko **+ nový**. V **vyhledávání na webu Marketplace** zadejte *virtuální síť*. Klikněte na tlačítko **virtuální síť** při zobrazí ve výsledcích hledání. 
+4. Klikněte na **+ Nový**. V **vyhledávání na webu Marketplace** zadejte *virtuální síť*. Klikněte na tlačítko **virtuální síť** při zobrazí ve výsledcích hledání. 
 5. V **virtuální síť** vyberte **Classic** v **vybrat model nasazení** pole a pak klikněte na **vytvořit**.
 6. V **vytvořit virtuální síť** okno, zadejte, nebo vyberte hodnoty pro následující nastavení a potom klikněte na tlačítko **vytvořit**:
     - **Název**: *myVnet2*
@@ -209,7 +209,7 @@ Můžete použít [portál Azure](#portal), Azure [rozhraní příkazového řá
 |Virtuální síť|Model nasazení|Role|Oprávnění|
 |---|---|---|---|
 |myVnet1|Resource Manager|[Přispěvatel sítě](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classic|[Přispěvatel klasických sítí](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Není k dispozici|
+| |Classic|[Přispěvatel klasických sítí](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|neuvedeno|
 |myVnet2|Resource Manager|[Přispěvatel sítě](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classic|[Přispěvatel klasických sítí](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
@@ -224,7 +224,7 @@ Po dokončení tohoto kurzu, můžete chtít odstranit z prostředků, které js
 2. Na **myResourceGroup** okně klikněte **odstranit** ikonu.
 3. Potvrďte odstranění, v **název skupiny prostředků typu** zadejte **myResourceGroup**a potom klikněte na **odstranit**.
 
-### <a name="delete-cli"></a>Rozhraní příkazového řádku Azure
+### <a name="delete-cli"></a>Azure CLI
 
 1. Pomocí Azure CLI 2.0 odstranit virtuální síť (Resource Manager) pomocí následujícího příkazu:
 
@@ -240,7 +240,7 @@ Po dokončení tohoto kurzu, můžete chtít odstranit z prostředků, které js
     azure network vnet delete --vnet myVnet2 --quiet
     ```
 
-### <a name="delete-powershell"></a>Prostředí PowerShell
+### <a name="delete-powershell"></a>PowerShell
 
 1. Zadejte následující příkaz k odstranění virtuální sítě (Resource Manager):
 
@@ -268,9 +268,7 @@ Po dokončení tohoto kurzu, můžete chtít odstranit z prostředků, které js
 
 ## <a name="register"></a>Registrace pro partnerského vztahu preview globální virtuální sítě
 
-Schopnost peer virtuální sítě v různých oblastech je aktuálně ve verzi preview. Možnost je dostupná omezená sada oblastí (na začátku USA – Západ střední, Střední Kanada a USA – západ 2). Virtuální síť partnerských vztahů vytvořit mezi virtuálními sítěmi v různých oblastech nemusí mít stejnou úroveň dostupnost a spolehlivost jako partnerský vztah mezi virtuálními sítěmi ve stejné oblasti. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
-
-Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné zaregistrovat verzi Preview, pomocí následujících kroků (v rámci předplatného je každá virtuální síť chcete rovnocenných počítačů v) pomocí prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure:
+Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Partnerský vztah virtuální sítě v různých oblastech je aktuálně ve verzi preview. V tématu [aktualizace virtuální sítě](https://azure.microsoft.com/en-us/updates/?product=virtual-network) pro dostupné oblasti. Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné zaregistrovat verzi Preview, pomocí následujících kroků (v rámci předplatného je každá virtuální síť chcete rovnocenných počítačů v) pomocí prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -316,7 +314,7 @@ Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné z
 
     Neprovádějte kroky v části šablony portálu, rozhraní příkazového řádku Azure, PowerShell nebo správce prostředků tohoto článku, dokud **RegistrationState** výstupu se zobrazí po zadání příkazu předchozí je **registrovaná**  pro oba odběry.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Důkladně Seznamte se s důležité [partnerského vztahu omezení virtuální sítě a chování](virtual-network-manage-peering.md#requirements-and-constraints) před vytvořením virtuální sítě partnerský vztah pro produkční použití.
 - Další informace o všech [partnerského vztahu nastavení virtuální sítě](virtual-network-manage-peering.md#create-a-peering).

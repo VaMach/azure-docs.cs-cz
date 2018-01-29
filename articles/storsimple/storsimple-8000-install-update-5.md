@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalace aktualizací 5 zařízení StorSimple
 
@@ -77,28 +77,28 @@ Musíte stáhnout a nainstalovat následující opravy hotfix v předepsaných p
 
 | Pořadí | kB | Popis | Typ aktualizace | Čas instalace |Instalace ve složce|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Aktualizace softwaru<br> Stáhněte si oba _HcsSfotwareUpdate.exe_ a _CisMSDAgent.exe_ |Regulární <br></br>Bez přerušení |~ 25 minut |FirstOrderUpdate|
+| 1. |KB4037264 |Aktualizace softwaru<br> Stáhněte si oba _HcsSoftwareUpdate.exe_ a _CisMSDAgent.exe_ |Regulární <br></br>Non-disruptive |~ 25 minut |FirstOrderUpdate|
 
 Pokud aktualizace ze zařízení se systémem aktualizace 4, stačí nainstalovat kumulativní aktualizace operačního systému jako druhý pořadí aktualizací.
 
 | Pořadí | kB | Popis | Typ aktualizace | Čas instalace |Instalace ve složce|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |Balíčku kumulativní aktualizace operačního systému <br> Stáhnout verzi Windows Server 2012 R2 |Regulární <br></br>Bez přerušení |- |SecondOrderUpdate|
+| 2A. |KB4025336 |Balíčku kumulativní aktualizace operačního systému <br> Stáhnout verzi Windows Server 2012 R2 |Regulární <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 Pokud instalaci ze zařízení se systémem Update 3 nebo starší, nainstalujte následující kromě kumulativní aktualizace.
 
 | Pořadí | kB | Popis | Typ aktualizace | Čas instalace |Instalace ve složce|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI ovladače a firmware aktualizace <br> Aktualizace firmwaru Seznam USM (verze 3.38) |Regulární <br></br>Bez přerušení |~ 3 hodiny <br> (včetně 2A. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Balíček aktualizace zabezpečení operačního systému <br> Stáhnout verzi Windows Server 2012 R2 |Regulární <br></br>Bez přerušení |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Balíček aktualizace operačního systému <br> Stáhnout verzi Windows Server 2012 R2 |Regulární <br></br>Bez přerušení |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI ovladače a firmware aktualizace <br> Aktualizace firmwaru Seznam USM (verze 3.38) |Regulární <br></br>Non-disruptive |~ 3 hodiny <br> (včetně 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Balíček aktualizace zabezpečení operačního systému <br> Stáhnout verzi Windows Server 2012 R2 |Regulární <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Balíček aktualizace operačního systému <br> Stáhnout verzi Windows Server 2012 R2 |Regulární <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 
 Můžete také nainstalovat aktualizace firmwaru disku nad všechny aktualizace, které jsou uvedené v předchozí tabulky. Můžete ověřit, zda je nutné aktualizace firmwaru disku spuštěním `Get-HcsFirmwareVersion` rutiny. Pokud používáte tyto verze firmwaru: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, pak nemusíte tyto aktualizace nainstalujete.
 
 | Pořadí | kB | Popis | Typ aktualizace | Čas instalace | Instalace ve složce|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB4037263 |Firmware disku |Údržby <br></br>Rušivý |~ 30 minut | ThirdOrderUpdate |
+| 3. |KB4037263 |Firmware disku |Údržba <br></br>Rušivý |~ 30 mins | ThirdOrderUpdate |
 
 <br></br>
 
@@ -112,6 +112,6 @@ Proveďte následující kroky ke stažení a instalaci opravy hotfix.
 
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [verze aktualizací 5](storsimple-update5-release-notes.md).
 

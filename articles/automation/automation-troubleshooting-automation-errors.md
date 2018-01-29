@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Odstraňování běžných problémů ve službě Azure Automation 
 Tento článek obsahuje nápovědu k odstraňování běžných chyb, může docházet v Azure Automation a navrhne možná řešení jejich řešení potíží.
@@ -195,11 +195,19 @@ Dotaz pro toto řešení a reonboard řešení, které vytvoří dotaz, můžete
 
 **Důvod chyby:**
 
-Tento kód chyby znamená, že nasazení se nezdařilo kvůli porušení zásady.
+Tento kód chyby znamená, že nasazení se nezdařilo z důvodu narušení jedné nebo více zásad.
 
 **Tipy k řešení potíží:**
 
-Zkontrolujte oznámení v pravém horním rohu portálu Azure nebo přejděte do skupiny prostředků, která obsahuje váš účet automation a vyberte **nasazení** pod **nastavení** zobrazíte neúspěšný nasazení. Pro další informace o návštěvě zásad Azure: [zásad Azure – přehled](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+Chcete-li úspěšně nasadit řešení, je potřeba zvážit, změna zásad uvedené. Jsou mnoho různých typů zásad, které lze definovat určité změny požadované závisí na zásadu, která je došlo k porušení. Například pokud zásady definované ve skupinu prostředků, který má odepřena oprávnění pro změnu obsahu určitých typů prostředků v rámci dané skupiny prostředků, můžete to, například udělat některé z následujících:
+
+*   Úplně odeberte zásady.
+* Pokuste se připojit k jiné skupině prostředků.
+* Zkontrolovat, jestli zásady, tím, například:
+   * Znovu cílení zásad konkrétní prostředek (například za účelem určitého účtu Automation).
+   * Úprava sady prostředků zásad byl konfigurován k odepření.
+
+Zkontrolujte oznámení v pravém horním rohu portálu Azure nebo přejděte do skupiny prostředků, která obsahuje váš účet automation a vyberte **nasazení** pod **nastavení** zobrazíte neúspěšný nasazení. Další informace o návštěvě zásad Azure: [přehled zásad Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>Další postup
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 79cd3e2f91f4eb7cecdf2efcd195b409c947d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Kurz: Konfigurace Slack pro zřizování automatické uživatelů
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Kurz: Konfigurace Slack pro zřizování automatické uživatelů
 
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky je potřeba provést v systému Slack a Azure AD automaticky zřizovat a deaktivace zřízení uživatelských účtů ze služby Azure AD k systému Slack. 
@@ -110,7 +110,7 @@ Volitelně můžete povolit zajišťování objektů skupiny z Azure AD k systé
 Tento výsledek v žádné objekty skupiny přiřazené k systému Slack v **uživatelů a skupin** část plně synchronizovaných z Azure AD k systému Slack. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce, které provádí službu zřizování na Slack aplikace.
 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-enterprise-apps-manage-provisioning.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

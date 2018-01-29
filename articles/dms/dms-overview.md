@@ -10,11 +10,11 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/13/2017
-ms.openlocfilehash: 80ec9e177e5c1408eb28338c0c0acae9c672eeb1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2aae105b7454209131db79c60d74740ce97c21ce
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>Co je Azure databáze migrace služby Preview?
 Služba Azure databáze migrace je plně spravovaná služba navržených k povolení bezproblémové migrace z více zdrojů databáze do platformy Azure dat s minimálními výpadky. Služba je ve verzi Public Preview, se zaměřuje na úsilí vývoj aktuálně:
@@ -34,6 +34,11 @@ Verze Public Preview služby Azure migrace databáze je aktuálně k dispozici v
 - Brazílie – jih
 - Západní Evropa
 - Severní Evropa
+- Jihovýchodní Asie
+- Indie – západ
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Vytvoření instance služby migrace databáze Azure pomocí portálu Azure](quickstart-create-data-migration-service-portal.md).
+- [Migrace systému SQL Server do Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
+- [Přehled požadavků na používání služby Azure databáze migrace](pre-reqs.md).
+- [Nejčastější dotazy o použití služby Azure databáze migrace](faq.md).

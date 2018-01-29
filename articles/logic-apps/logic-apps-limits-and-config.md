@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Omezení aplikace logiky a konfigurace
 
@@ -85,12 +85,12 @@ Tyto limity platí do jednoho logiku aplikace spustit.
 Tyto limity platí do instance jednoho logiku aplikace.
 
 | Název | Omezení | Poznámky | 
-| ---- | ----- | ----- | 
-| Akce spuštěních za 5 minut | 100,000 | Můžete rozdělit zatížení mezi více aplikacemi podle potřeby. | 
+| ----- | ----- | ----- | 
+| Akce spuštěních za 5 minut | 100,000 |<p>Tento limit, může být zvýšeno až 300 000 spuštěním aplikace logiky v `High Througput` režimu a to můžete provést nastavením `operationOptions` vlastnost pod`runtimeConfiguration` prostředku pracovního postupu k `OptimizedForHighThroughput`. <p>Upozorňujeme, že tento režim vysoké propustnosti je ve verzi preview. Zatížení můžete také distribuována mezi více aplikacemi, podle potřeby. | 
 | Souběžných volání odchozí akce | ~2,500 | Snižte počet souběžných požadavků nebo zkrátit dobu trvání podle potřeby. | 
-| Koncový bod modulu runtime: souběžných příchozí volání | ~1,000 | Snižte počet souběžných požadavků nebo zkrátit dobu trvání podle potřeby. | 
-| Modul runtime koncový bod: počet volání za 5 minut pro čtení | 60,000 | Můžete rozdělit zatížení mezi více aplikacemi podle potřeby. | 
-| Koncový bod modulu runtime: vyvolat volání za 5 minut | 45,000 | Můžete rozdělit zatížení mezi více aplikacemi podle potřeby. | 
+| Koncový bod modulu runtime: souběžných příchozí volání |~1,000 | Snižte počet souběžných požadavků nebo zkrátit dobu trvání podle potřeby. | 
+| Modul runtime koncový bod: počet volání za 5 minut pro čtení  | 60,000 | Můžete rozdělit zatížení mezi více aplikacemi podle potřeby. | 
+| Koncový bod modulu runtime: vyvolat volání za 5 minut| 45,000 |Můžete rozdělit zatížení mezi více aplikacemi podle potřeby. | 
 |||| 
 
 Překročení těchto mezních hodnot v normálním zpracování nebo spuštění zátěžové testování, které může tato omezení překročí [kontaktujte nás](mailto://logicappsemail@microsoft.com) tak, aby bylo možné pomoci vašim požadavkům.

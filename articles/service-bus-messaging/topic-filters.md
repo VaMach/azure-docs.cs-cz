@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: b3fe467b7d6ae9b207956ece4980bf558a69761f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topic-filters-and-actions"></a>Téma filtry a akce
 
-Odběratelé můžete definovat zprávy, které chtějí dostávat téma. Tyto zprávy jsou určené v podobě jednoho nebo více pravidel s názvem odběru. Každé pravidlo obsahuje podmínku, která vybere konkrétní zprávy a akce, která označí vybrané zprávy. Pro každý odpovídající pravidlo podmínku vytvoří odběr kopie zprávy, která může být jinak poznámky. pro každý odpovídající pravidlo.
+Odběratelé můžete definovat zprávy, které chtějí dostávat téma. Tyto zprávy jsou uvedeny ve formě jednoho nebo více pravidel s názvem odběru. Každé pravidlo obsahuje podmínku, která vybere konkrétní zprávy a akce, která označí vybrané zprávy. Pro každý odpovídající pravidlo podmínku vytvoří odběr kopie zprávy, která může být jinak poznámky. pro každý odpovídající pravidlo.
 
 Každé předplatné nově vytvořené téma má pravidlo počáteční výchozí předplatné. Pokud nezadáte explicitně podmínku filtrování pro pravidlo, je použitý filtr **true** filtr, který umožňuje všechny zprávy, aby byl vybrán do předplatného. Výchozí pravidlo nemá žádnou akci přidružené poznámky.
 
@@ -39,7 +39,7 @@ Pravidla složitějších filtrů vyžadují kapacity zpracování. Použití pr
 
 ## <a name="actions"></a>Akce
 
-S podmínkami filtru SQL a pouze s těmi můžete definovat akci, která může opatřit poznámkami zprávu pomocí přidání, odebrání nebo výměna vlastností a jejich hodnot. Akce [používá výraz SQL jako](service-bus-messaging-sql-filter.md) , volně leans na syntaxe příkazu aktualizace SQL. Akce se provádí na zprávu po je byly porovnány a předtím, než je vybrané zprávy do tématu. Změny vlastnosti zprávy jsou privátní na zprávu zkopírují do předplatného.
+S podmínkami filtru SQL a pouze s těmi můžete definovat akci, která může opatřit poznámkami zprávu pomocí přidání, odebrání nebo výměna vlastností a jejich hodnot. Akce [používá výraz SQL jako](service-bus-messaging-sql-filter.md) , volně leans na syntaxe příkazu aktualizace SQL. Akce se provádí na zprávu po mu odpovídala a předtím, než je vybrané zprávy do tématu. Změny vlastnosti zprávy jsou privátní na zprávu zkopírují do předplatného.
 
 ## <a name="usage-patterns"></a>Vzorce používání
 
@@ -51,7 +51,7 @@ Vytváření oddílů používá filtry distribuci zprávy přes několik existu
 
 Směrování používá filtry distribuci zprávy přes odběry témat předvídatelný způsobem, ale nemusí být výhradní. Ve spojení s [automatické přesměrování](service-bus-auto-forwarding.md) funkce, grafech tématu filtry lze použít k vytvoření komplexní směrování v rámci oboru názvů Service Bus pro distribuci zprávy v oblasti Azure. Pomocí funkce Azure nebo Azure Logic Apps, který funguje jako most mezi Azure Service Bus obory názvů můžete vytvářet složité globální topologie s přímá integrace do obchodních aplikací.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o zasílání zpráv Service Bus, najdete v následujících tématech:
 

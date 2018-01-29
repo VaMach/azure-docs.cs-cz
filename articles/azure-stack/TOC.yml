@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: Koncepty
   items:
+    - name: Integrace datových center
+      items:
+        - name: Důležité informace o integraci obecné Azure zásobníku
+          href: azure-stack-datacenter-integration.md
+        - name: Azure modelů připojení nasazení zásobníku
+          href: azure-stack-connection-models.md
+        - name: Aspekty připojené nasazení
+          href: azure-stack-connected-deployment.md
+        - name: Aspekty odpojené nasazení
+          href: azure-stack-disconnected-deployment.md
+        - name: Integrace sítě datového centra
+          items:
+            - name: Integrace sítě
+              href: azure-stack-network.md
+            - name: Připojení ohraničení
+              href: azure-stack-border-connectivity.md
+            - name: Integrace služby DNS
+              href: azure-stack-integrate-dns.md
+            - name: Integrace brány firewall
+              href: azure-stack-firewall.md
+              items:
+                - name: Publikování koncových bodů
+                  href: azure-stack-integrate-endpoints.md
+        - name: Požadavky nasazení infrastruktury veřejných KLÍČŮ pro Azure zásobníku
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Získat certifikáty PKI pro nasazení Azure zásobníku
+              href: azure-stack-get-pki-certs.md
+        - name: Integrace identit
+          href: azure-stack-integrate-identity.md
+        - name: Zaregistrovat Azure zásobníku
+          href: azure-stack-registration.md
+        - name: Externí monitorování
+          href: azure-stack-integrate-monitor.md
+        - name: Integrace zabezpečení
+          href: azure-stack-integrate-security.md
     - name: Zásady obsluhy
       href: azure-stack-servicing-policy.md
     - name: Klíčové funkce a koncepty
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: Vytvoření testovacího virtuálního počítače
           href: azure-stack-provision-vm.md
-    - name: Nasazení systémů integrované zásobník Azure
-      items:
-        - name: Informace o plánování nasazení
-          href: azure-stack-deployment-planning.md
-        - name: Rozhodnutí pro plánování nasazení
-          href: azure-stack-deployment-decisions.md
-        - name: Nasazení připojení k Azure
-          href: azure-stack-connected-deployment.md
-        - name: Nasazení odpojen od Azure
-          href: azure-stack-disconnected-deployment.md
-        - name: Požadavky nasazení infrastruktury veřejných KLÍČŮ pro Azure zásobníku
-          href: azure-stack-pki-certs.md
-          items:
-            - name: Získat certifikáty PKI pro nasazení Azure zásobníku
-              href: azure-stack-get-pki-certs.md
-        - name: Zaregistrovat Azure zásobníku
-          href: azure-stack-registration.md
-    - name: Integrace datových center
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: Identita
-          href: azure-stack-integrate-identity.md
-        - name: Publikování koncových bodů
-          href: azure-stack-integrate-endpoints.md
-        - name: Externí monitorování
-          href: azure-stack-integrate-monitor.md
-        - name: Zabezpečení
-          href: azure-stack-integrate-security.md
     - name: Spravovat
       items:
         - name: Správa oblastí
@@ -269,7 +276,7 @@
           href: azure-stack-diagnostics.md
         - name: Ověření Azure zásobníku
           href: azure-stack-diagnostic-test.md
-        - name: Znovunasazení vývojové sady pro Azure Stack
+        - name: Znovunasazení sady Azure Stack Development Kit
           href: azure-stack-redeploy.md
 - name: Referenční informace
   items:

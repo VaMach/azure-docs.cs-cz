@@ -1,91 +1,181 @@
 ---
-title: "Konfigurovat přesměrování zpracování SSL - Azure Application Gateway - portálu Azure | Microsoft Docs"
-description: "Tento článek poskytuje pokyny pro vytvoření služby application gateway pomocí protokolu SSL, přesměrování zpracování úloh pomocí portálu Azure"
-documentationcenter: na
+title: "Vytvoření služby application gateway s ukončení protokolu SSL - portálu Azure | Microsoft Docs"
+description: "Zjistěte, jak přidat certifikát pro ukončení protokolu SSL pomocí portálu Azure a vytvoření služby application gateway."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Konfigurace aplikační brány pro přesměrování zpracování SSL pomocí portálu Azure
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Vytvoření služby application gateway s ukončení protokolu SSL pomocí portálu Azure
 
-> [!div class="op_single_selector"]
-> * [portál Azure Portal](application-gateway-ssl-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
-> * [Azure classic PowerShell](application-gateway-ssl.md)
-> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
+Na portálu Azure můžete použít k vytvoření [Aplikační brána](application-gateway-introduction.md) s certifikát pro ukončení protokolu SSL používaný virtuálních počítačů pro back-end serverů.
 
-Služba Azure Application Gateway se dá nakonfigurovat k ukončení relace Secure Sockets Layer (SSL) v bráně, vyhnete se tak nákladným úlohám dešifrování SSL na webové serverové farmě. Přesměrování zpracování SSL zjednodušuje i nastavení a správu front-end serverů webových aplikací.
+V tomto článku se dozvíte, jak:
 
-## <a name="scenario"></a>Scénář
+> [!div class="checklist"]
+> * Vytvořit certifikát podepsaný svým držitelem
+> * Vytvoření služby application gateway s certifikátem
+> * Vytvoření virtuálních počítačů, které slouží jako back-end serverů
 
-Následující scénář vás provede konfigurací přesměrování zpracování SSL na existující aplikační brány. Tento scénář předpokládá, že jste již provedli postup [vytvoření služby application gateway](application-gateway-create-gateway-portal.md).
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-## <a name="before-you-begin"></a>Než začnete
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
-Pokud chcete konfigurovat přesměrování zpracování SSL pomocí služby application gateway, je vyžadován certifikát. Tento certifikát je načteno ve službě application gateway a slouží k šifrování a dešifrování přenosů odeslána prostřednictvím protokolu SSL. Certifikát musí být ve formátu Personal Information Exchange (.pfx). Tento formát souboru umožňuje exportovat privátní klíč, který vyžaduje službu application gateway slouží k šifrování a dešifrování přenosů.
+Přihlaste se k portálu Azure v [http://portal.azure.com](http://portal.azure.com)
 
-## <a name="add-an-https-listener"></a>Přidejte naslouchací proces HTTPS
+## <a name="create-a-self-signed-certificate"></a>Vytvořit certifikát podepsaný svým držitelem
 
-Naslouchací proces HTTPS hledá provozu na základě jeho konfigurace a pomáhá směrovat přenosy back endové fondy. Pokud chcete přidat naslouchací proces protokolu HTTPS, postupujte takto:
+V této části můžete použít [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) vytvořit certifikát podepsaný svým držitelem, který nahrajete do portálu Azure při vytváření naslouchací proces pro službu application gateway.
 
-   1. Přejděte na portál Azure a vyberte existující aplikační brány.
+V místním počítači otevřete okno prostředí Windows PowerShell jako správce. Spusťte následující příkaz k vytvoření certifikátu:
 
-   2. Vyberte **naslouchací procesy**a pak vyberte **přidat** tlačítko přidejte naslouchací proces.
+```powershell
+New-SelfSignedCertificate \
+  -certstorelocation cert:\localmachine\my \
+  -dnsname www.contoso.com
+```
 
-   ![Přehled brány podokno aplikace][1]
+Měli byste vidět něco podobného jako této odpovědi:
 
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 
-   3. Vyplňte následující požadované informace pro naslouchací proces a nahrání certifikátu .pfx:
-      - **Název**: popisný název naslouchacího procesu.
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 
-      - **Konfigurace IP front-endu**: konfiguraci front-end IP adresy, který se používá pro naslouchací proces.
+Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
+```
 
-      - **Front-endový port (název/Port)**: popisný název portu, který používá front-endu služby application gateway a skutečný port, který se používá.
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+Export-PfxCertificate \
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 \
+  -FilePath c:\appgwcert.pfx \
+  -Password $pwd
+```
 
-      - **Protokol**: přepínač k určení, pokud se používá protokol HTTPS nebo HTTP pro front-endu.
+## <a name="create-an-application-gateway"></a>Vytvoření služby Application Gateway
 
-      - **Certifikát (jméno a heslo)**: přesměrování zpracování SSL Pokud se používá, je vyžadován pro toto nastavení certifikát .pfx. Vyžadují se i popisný název a heslo.
+Virtuální síť je požadován pro komunikaci mezi prostředky, které vytvoříte. V tomto příkladu jsou vytvořeny dvě podsítě: jednu pro aplikační bránu a druhou pro back-end serverů. Můžete vytvořit virtuální síť ve stejnou dobu, kterou vytvoříte službu application gateway.
 
-   4. Vyberte **OK**.
+1. Klikněte na tlačítko **nový** najít v levém horním rohu portálu Azure.
+2. Vyberte **sítě** a pak vyberte **Application Gateway** v seznamu doporučený.
+3. Zadejte *myAppGateway* pro název brány, aplikace a *myResourceGroupAG* pro novou skupinu prostředků.
+4. Přijměte výchozí hodnoty u ostatních nastavení a potom klikněte na **OK**.
+5. Klikněte na tlačítko **vyberte virtuální síť**, klikněte na tlačítko **vytvořit nový**a potom zadejte tyto hodnoty pro virtuální síť:
 
-![Přidání podokna naslouchací proces][2]
+    - *myVNet* – pro název virtuální sítě.
+    - *10.0.0.0/16* – pro adresní prostor virtuální sítě.
+    - *myAGSubnet* – název podsítě.
+    - *10.0.0.0/24* – adresního prostoru podsítě.
 
-## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Vytvoření pravidla a přidružit ho k naslouchacímu procesu
+    ![Vytvoření virtuální sítě](./media/application-gateway-ssl-portal/application-gateway-vnet.png)
 
-Byla vytvořena naslouchací proces. Dále vytvořte pravidlo pro zpracování provozu z naslouchací proces. Pravidla určují, jak se provoz se směruje na back endové fondy, na základě více nastavení konfigurace. Tato nastavení zahrnují protokol, port a sondy stavu, a jestli spřažení na základě souboru cookie relace je použití. Pokud chcete vytvořit a přidružit pravidlo pro naslouchací proces, postupujte takto:
+6. Klikněte na tlačítko **OK** k vytvoření virtuální sítě a podsítě.
+7. Klikněte na tlačítko **zvolte veřejnou IP adresu**, klikněte na tlačítko **vytvořit nový**a potom zadejte název veřejné IP adresy. V tomto příkladu je název veřejné IP adresy *myAGPublicIPAddress*. Přijměte výchozí hodnoty u ostatních nastavení a potom klikněte na **OK**.
+8. Klikněte na tlačítko **HTTPS** pro protokol naslouchacího procesu a ujistěte se, že port je definován jako **443**.
+9. Klikněte na ikonu složky a vyhledejte *appgwcert.pfx* certifikát, který jste předtím vytvořili pro nahrajte ho.
+10. Zadejte *mycert1* pro název certifikátu a *Azure123456!* pro heslo a pak klikněte na tlačítko **OK**.
 
+    ![Vytvořte novou aplikační bránu](./media/application-gateway-ssl-portal/application-gateway-create.png)
 
-   1. Vyberte **pravidla** aplikační bránu, a potom vyberte **přidat**.
+11. Zkontrolujte nastavení na stránce Souhrn a pak klikněte na tlačítko **OK** vytvoření síťové prostředky a aplikační brány. Ho může trvat několik minut, než aplikační brány, aby lze vytvořit, počkejte na dokončení nasazení přejde k další části úspěšně.
 
-   ![Podokno pravidel brány aplikace][3]
+### <a name="add-a-subnet"></a>Přidat podsíť
 
+1. Klikněte na tlačítko **všechny prostředky** v levé nabídce a pak klikněte na tlačítko **myVNet** ze seznamu prostředků.
+2. Klikněte na tlačítko **podsítě**a potom klikněte na **podsítě**.
 
-   2. V části **přidat základní pravidlo**, zadejte popisný název pro pravidlo v **název** pole a pak vyberte **naslouchací proces** vytvořili v předchozím kroku. Vyberte odpovídající **fond back-end** a **nastavení HTTP**a potom vyberte **OK**.
+    ![Vytvoření podsítě](./media/application-gateway-ssl-portal/application-gateway-subnet.png)
 
-   ![Okno nastavení protokolu HTTPS][4]
+3. Zadejte *myBackendSubnet* pro název podsítě a pak klikněte na tlačítko **OK**.
 
-Nastavení jsou nyní uloženy do služby application gateway. Proces ukládání pro toto nastavení může chvíli trvat, než jsou k dispozici k zobrazení prostřednictvím portálu nebo pomocí prostředí PowerShell. Po uložení, služby application gateway zpracovává šifrování a dešifrování přenosů. Prostřednictvím protokolu HTTP se budou zpracovávat všechny přenosy mezi aplikační bránu a webovými back-end servery. Veškeré komunikace zpět do klienta, pokud iniciované přes protokol HTTPS, bude vrácen do klienta zašifrovaná.
+## <a name="create-backend-servers"></a>Vytvoření back-end serverů
 
-## <a name="next-steps"></a>Další kroky
+V tomto příkladu vytvoříte dva virtuální počítače, který se má použít jako back-end serverů pro službu application gateway. Je také nainstalovat službu IIS na virtuálních počítačích, chcete-li ověřit, že aplikační brány byl úspěšně vytvořen.
 
-Pokud chcete dozvědět, jak nakonfigurovat vlastní stav testu s Azure Application Gateway, přečtěte si téma [vytvořit sondu vlastní stavu](application-gateway-create-gateway-portal.md).
+### <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 
-[1]: ./media/application-gateway-ssl-portal/figure1.png
-[2]: ./media/application-gateway-ssl-portal/figure2.png
-[3]: ./media/application-gateway-ssl-portal/figure3.png
-[4]: ./media/application-gateway-ssl-portal/figure4.png
+1. Klikněte na možnost **Nové**.
+2. Klikněte na tlačítko **výpočetní** a pak vyberte **Windows Server 2016 Datacenter** v seznamu doporučený.
+3. Pro virtuální počítač, zadejte tyto hodnoty:
 
+    - *Můjvp* – pro název virtuálního počítače.
+    - *azureuser* – pro uživatelské jméno správce.
+    - *Azure123456!* pro heslo.
+    - Vyberte **použít existující**a potom vyberte *myResourceGroupAG*.
+
+4. Klikněte na **OK**.
+5. Vyberte **DS1_V2** pro velikost virtuálního počítače, a klikněte na tlačítko **vyberte**.
+6. Ujistěte se, že **myVNet** je vybraná pro virtuální síť a podsíť je **myBackendSubnet**. 
+7. Klikněte na tlačítko **zakázané** zakázat Diagnostika spouštění.
+8. Klikněte na tlačítko **OK**, zkontrolujte nastavení na stránce Souhrn a pak klikněte na tlačítko **vytvořit**.
+
+### <a name="install-iis"></a>Instalace služby IIS
+
+1. Otevřete prostředí pro interaktivní a ujistěte se, že je nastavena na **prostředí PowerShell**.
+
+    ![Instalace vlastní rozšíření](./media/application-gateway-ssl-portal/application-gateway-extension.png)
+
+2. Spusťte následující příkaz pro instalaci služby IIS na virtuálním počítači: 
+
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
+
+3. Vytvořit druhý virtuální počítač a nainstalujte IIS pomocí kroky, které právě dokončila. Zadejte *Můjvp2* pro její název a VMName v AzureRmVMExtension sady.
+
+### <a name="add-backend-servers"></a>Přidat back-end serverů
+
+3. Klikněte na tlačítko **všechny prostředky**a potom klikněte na **myAppGateway**.
+4. Klikněte na tlačítko **back-endové fondy**. Výchozí fond byl automaticky vytvořen s aplikační brány. Klikněte na tlačítko **appGateayBackendPool**.
+5. Klikněte na tlačítko **přidat cíl** pro přidání do fondu back-end každý virtuální počítač, který jste vytvořili.
+
+    ![Přidat back-end serverů](./media/application-gateway-ssl-portal/application-gateway-backend.png)
+
+6. Klikněte na **Uložit**.
+
+## <a name="test-the-application-gateway"></a>Testování služby application gateway
+
+1. Klikněte na tlačítko **všechny prostředky**a potom klikněte na **myAGPublicIPAddress**.
+
+    ![Zaznamenejte veřejná IP adresa brány aplikace](./media/application-gateway-ssl-portal/application-gateway-ag-address.png)
+
+2. Zkopírujte veřejnou IP adresu a pak ji vložit do panelu Adresa prohlížeče. Přijmout upozornění zabezpečení, pokud se používá certifikát podepsaný svým držitelem, vyberte podrobnosti a potom přejděte na webovou stránku:
+
+    ![Upozornění zabezpečení](./media/application-gateway-ssl-portal/application-gateway-secure.png)
+
+    Zabezpečené webu služby IIS se následně zobrazí jako v následujícím příkladu:
+
+    ![Otestovat základní adresu URL v aplikační brány](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
+
+## <a name="next-steps"></a>Další postup
+
+V tomto kurzu jste se naučili:
+
+> [!div class="checklist"]
+> * Vytvořit certifikát podepsaný svým držitelem
+> * Vytvoření služby application gateway s certifikátem
+> * Vytvoření virtuálních počítačů, které slouží jako back-end serverů
+
+Další informace o aplikačních bran a jejich přidružené prostředky, i nadále články s návody.

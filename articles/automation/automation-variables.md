@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Proměnné prostředky ve službě Azure Automation
 
@@ -51,20 +51,20 @@ Následuje seznam proměnných typy, které jsou dostupné ve službě Automatio
 * Logická hodnota
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>Vytváření a správu proměnných skriptování
+## <a name="azurerm-powershell-cmdlets"></a>Rutiny prostředí AzureRM PowerShell
+Pro AzureRM rutiny v následující tabulce se používají k vytváření a správě prostředků přihlašovacích údajů automatizace v prostředí Windows PowerShell.  Se dodávají jako součást [AzureRM.Automation modulu](/powershell/azure/overview) která je k dispozici pro použití v runbooků služeb automatizace a konfigurace DSC.
 
-Rutiny v následující tabulce se používají k vytváření a správě proměnných Automation pomocí prostředí Windows PowerShell. Se dodávají jako součást [modul Azure PowerShell](../powershell-install-configure.md) která je k dispozici pro použití v runbooků služeb automatizace a konfigurace DSC.
-
-|Rutiny|Popis|
+| Rutiny | Popis |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Načte hodnotu existující proměnné.|
-|[Nové AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Vytvoří novou proměnnou a nastaví její hodnotu.|
-|[Odebrat AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Odebere existující proměnnou.|
+|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Vytvoří novou proměnnou a nastaví její hodnotu.|
+|[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Odebere existující proměnnou.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Nastaví hodnotu existující proměnné.|
 
-Aktivity pracovního postupu v následující tabulce se používají pro přístup k proměnným automatizace v sadě runbook. Jsou dostupné pouze pro použití v runbooku nebo konfigurace DSC a se nedodává jako součást modulu Azure PowerShell.
+## <a name="activities"></a>Aktivity
+Aktivity v následující tabulce se používají pro přístup k přihlašovací údaje v runbooku a konfigurace DSC.
 
-|Aktivity pracovního postupu|Popis|
+| Aktivity | Popis |
 |:---|:---|
 |Get-AutomationVariable|Načte hodnotu existující proměnné.|
 |Set-AutomationVariable|Nastaví hodnotu existující proměnné.|
@@ -205,4 +205,3 @@ Následující obrázek znázorňuje ukázkové aktivity se aktualizovat proměn
 
 * Další informace o připojení aktivity společně v vytváření grafického obsahu najdete v tématu [odkazy v vytváření grafického obsahu](automation-graphical-authoring-intro.md#links-and-workflow)
 * První kroky s grafickými runbooky najdete v článku [Můj první grafický runbook](automation-first-runbook-graphical.md). 
-

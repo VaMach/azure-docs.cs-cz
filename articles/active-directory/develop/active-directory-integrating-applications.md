@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrace aplikací s Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -309,7 +309,7 @@ Zobrazit aplikace, které má vaše organizace registrované v části "Aplikac�
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Odebráním víceklientské aplikace, autorizovat jiné organizaci
 Část aplikace, které se zobrazí v části "Všechny aplikace" filtru (s výjimkou registrace "Aplikací") na hlavní stránce "Registrace aplikace" vašeho klienta jsou víceklientským aplikacím. V technické podmínky tyto víceklientské aplikace z jiného klienta a registraci do vašeho klienta během procesu souhlasu. Přesněji řečeno jsou zobrazeny v pouze službu objektu zabezpečení ve vašem klientovi bez odpovídající objektu aplikace. Další informace o rozdílech mezi aplikací a hlavní objekty služby najdete v tématu [aplikace a služby hlavní objekty ve službě Azure AD](active-directory-application-objects.md).
 
-Chcete-li odebrat přístup k aplikaci víceklientské do vašeho adresáře (po s udělen souhlas), musíte odebrat správce společnosti jeho instanční objekt. Správce musí mít přístup globálního správce a můžete odebrat prostřednictvím portálu Azure [rutin prostředí Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) k odebrání přístupu.
+Chcete-li odebrat přístup k aplikaci víceklientské do vašeho adresáře (po s udělen souhlas), musíte odebrat správce společnosti jeho instanční objekt. Správce musí mít přístup globální správce a můžete odebrat prostřednictvím portálu Azure nebo použít [rutin prostředí Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) k odebrání přístupu.
 
 ## <a name="next-steps"></a>Další postup
 - Další informace o tom, jak funguje ověřování ve službě Azure AD najdete v tématu [scénáře ověřování pro Azure AD](active-directory-authentication-scenarios.md).

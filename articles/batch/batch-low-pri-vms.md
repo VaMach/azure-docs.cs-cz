@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Pomocí služby Batch použijte virtuální počítače s nízkou prioritou
 
@@ -71,9 +71,12 @@ Azure Batch poskytuje několik možností, které usnadňují spotřebovávají 
 
 -   Když úlohy jsou přerušení, Batch zjistí a automaticky requeues úlohy spustit znovu.
 
--   Virtuální počítače s nízkou prioritou kvóty samostatné virtuální procesory, se liší od pro vyhrazených virtuálních počítačích. 
+-   Virtuální počítače s nízkou prioritou mají kvóty samostatné virtuální procesor, který se liší od pro vyhrazených virtuálních počítačích. 
     Kvótu pro virtuální počítače s nízkou prioritou je vyšší, než se kvóty pro vyhrazených virtuálních počítačích, protože virtuální počítače s nízkou prioritou nižší náklady. Další informace najdete v tématu [Batch, kvóty a omezení služby](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Virtuální počítače s nízkou prioritou nejsou aktuálně podporovány pro účty Batch vytvořené v [režim předplatné uživatele](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Vytváření a aktualizaci fondy
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
@@ -181,7 +184,7 @@ Chcete-li zobrazit metriky na portálu Azure:
 
 ![Metriky pro uzly s nízkou prioritou](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Přečtěte si téma [Přehled funkcí Batch pro vývojáře](batch-api-basics.md), kde jsou základní informace pro každého, kdo se připravuje použít Batch. Článek obsahuje podrobné informace o prostředcích služby Batch, jako jsou fondy, uzly a úlohy, a mnoha funkcích rozhraní API, které můžete použít při vytváření aplikace Batch.
 * Další informace o dostupných [rozhraních API a nástrojích služby Batch](batch-apis-tools.md) pro sestavování řešení Batch.

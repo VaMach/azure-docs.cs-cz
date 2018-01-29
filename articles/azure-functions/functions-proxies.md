@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Práce s Azure Functions proxy
 
@@ -62,6 +62,11 @@ V současné době není k dispozici žádné portálu prostředí pro úpravy o
 
 Konfigurace proxy serveru nemusí být statická. Podmínka vyhodnocena ho na použití proměnné z původního požadavku klienta, back-end odpovědi nebo nastavení aplikace.
 
+### <a name="reference-localhost"></a>Odkaz na lokální funkce
+Můžete použít `localhost` odkazu na funkci uvnitř stejné funkce aplikaci přímo, bez žádost proxy zvyšuje výkon.
+
+`"backendurl": "localhost/api/httptriggerC#1"`bude odkazovat na místní funkce protokolu HTTP aktivované na trasu`/api/httptriggerC#1`
+
 ### <a name="request-parameters"></a>Parametry žádosti referenční dokumentace
 
 Parametry žádosti můžete použít jako vstupy pro vlastnost adresa URL back-end nebo jako součást úprava požadavky a odpovědi. Některé parametry mohou být vázány z šablony trasy, která je určená v konfiguraci proxy serveru základní a jiné mohou pocházet z vlastnosti příchozího požadavku.
@@ -94,6 +99,18 @@ Například adresu URL back-end z *https://%ORDER_PROCESSING_HOST%/api/orders* b
 
 > [!TIP] 
 > Použít nastavení aplikace pro hostitele back-end, když máte více nasazení nebo testovací prostředí. Tímto způsobem můžete zajistit, aby vždy mluvení do správné back-end pro prostředí.
+
+## <a name="debugProxies"></a>Řešení potíží s proxy
+
+Přidáním příznak `"debug":true` na jakýkoli proxy server v vaší `proxy.json` se povolit protokolování ladění. Protokoly se ukládají do `D:\home\LogFiles\Application\Proxies\DetailedTrace` a přístupné prostřednictvím nástroje pokročilé (kudu). Všechny odpovědi protokolu HTTP bude také obsahovat `Proxy-Trace-Location` záhlaví s adresou URL pro přístup k souboru protokolu.
+
+Proxy server ze strany klienta můžete ladit přidáním `Proxy-Trace-Enabled` záhlaví nastavit na `true`. Také se protokolu trasování do systému souborů a vrátí adresu URL trasování jako hlavičku v odpovědi.
+
+### <a name="block-proxy-traces"></a>Trasování proxy bloku
+
+Z bezpečnostních důvodů nemusíte chtít kdokoli volání služby ke generování trasování. Nebudou mít přístup k obsahu trasování bez své přihlašovací údaje, ale generování trasování spotřebovává prostředky a udává, že používáte funkce proxy.
+
+Zcela zakázat trasování přidáním `"debug":false` žádné konkrétní server proxy v vaší `proxy.json`.
 
 ## <a name="advanced-configuration"></a>Pokročilá konfigurace
 
@@ -130,6 +147,24 @@ Každý proxy má popisný název, například *proxy1* v předchozím příklad
 
 > [!NOTE] 
 > *Trasy* vlastnost v Azure funkce proxy nectí *routePrefix* vlastnost konfigurace hostitele aplikaci funkce. Pokud chcete zahrnout, jako předponu `/api`, musí být zahrnut v *trasy* vlastnost.
+
+### <a name="disableProxies"></a>Zakázat jednotlivé servery proxy
+
+Můžete zakázat jednotlivé proxy přidáním `"disabled": true` k proxy serveru v `proxies.json` souboru. To způsobí, že všechny žádosti, které splňuje matchCondidtion vrátit 404.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Definování objekt requestOverrides
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Plánování nasazení služby Soubory Azure
 [Soubory Azure](storage-files-introduction.md) nabízí plně spravované sdílené složky v cloudu, které jsou přístupné přes průmyslový standard protokolu SMB. Protože soubory Azure je plně spravovaná, nasazení se v produkčních scénářích je mnohem jednodušší než v nasazení a Správa souborového serveru nebo zařízení NAS. Tento článek se zaměřuje na témata, které je třeba zvážit při nasazení služby Azure sdílenou složku pro použití v provozním prostředí v rámci vaší organizace.
@@ -50,7 +50,7 @@ Azure nabízí soubory dvě předdefinované a pohodlný přístup k datům při
 
 Následující tabulka vysvětluje, jak můžete Azure sdílené složce přístup uživatelů a aplikací:
 
-| | Cloud přímý přístup | Synchronizace Azure File |
+| | Cloud přímý přístup | Azure File Sync |
 |------------------------|------------|-----------------|
 | Jaké protokoly budete muset použít? | Soubory Azure podporuje SMB 2.1, protokolu SMB 3.0 a rozhraní API REST souboru. | Přístup k vaší Azure sdílenou složku přes libovolný podporovaný protokol na Windows serveru (SMB, systém souborů NFS, FTPS atd.) |  
 | Kde jsou spuštěná vaše úloha? | **V Azure**: soubory Azure nabízí přímý přístup k datům. | **Místně s pomalým síťovým**: klienty systému Windows, Linux a systému macOS můžete připojit místní Windows sdílenou jako rychlé mezipaměti sdílené složky Azure File. |
@@ -64,7 +64,7 @@ Soubory Azure nabízí několik předdefinovaných možností pro zajištění z
     * Klienti, které nepodporují protokolu SMB 3.0, komunikovat intra-datacenter přes SMB 2.1 nebo SMB 3.0 bez šifrování. Všimněte si, že klienti nejsou povoleny pro komunikaci mezi datacenter pomocí protokolu SMB 2.1 nebo SMB 3.0 bez šifrování.
     * Klienti mohou komunikovat přes REST souborů pomocí protokolu HTTP nebo HTTPS.
 * Šifrování na rest ([šifrování služby úložiště Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Probíhá povolení šifrování služby úložiště (SSE) na základní platformě Azure Storage. To znamená, že šifrování bude povoleno ve výchozím nastavení pro všechny účty úložiště. Pokud vytváříte nový účet úložiště v oblasti s šifrování klidové na výchozí, nemusíte dělat nic povolit. Data na rest je šifrován plně spravovaná klíče. Šifrování na rest nemá zvýšit náklady na úložiště nebo snížit výkon. 
-* Volitelné požadavek šifrovaná data na cestě: při výběru souborů Azure nebude povolovat přístup k datům přes nezašifrované kanály. Konkrétně budou mít povolený jen protokol HTTPS a protokolu SMB 3.0 s šifrování připojení. 
+* Volitelné požadavek šifrovaná data na cestě: při výběru Azure Files odmítne přístup data přes nezašifrované kanály. Konkrétně jsou povoleny pouze HTTPS a protokolu SMB 3.0 s šifrování připojení. 
 
     > [!Important]  
     > Vyžadování bezpečnému přenosu dat způsobí, že starší klienty SMB není schopné komunikovat s protokolem SMB 3.0 se šifrováním selhání. V tématu [připojení v systému Windows](storage-how-to-use-files-windows.md), [připojení v systému Linux](storage-how-to-use-files-linux.md), [připojení v systému macOS](storage-how-to-use-files-mac.md) Další informace.
@@ -73,11 +73,14 @@ Pro maximální zabezpečení důrazně doporučujeme vždy povolení i šifrov�
 
 Pokud používáte pro přístup k Azure sdílené složky synchronizace souboru Azure, vždy použijeme HTTPS a protokolu SMB 3.0 se šifrováním k synchronizaci dat, aby se vaše servery Windows, bez ohledu na to, jestli vyžadovaly šifrování dat na rest.
 
-## <a name="data-redundancy"></a>Redundance dat
-Soubory Azure podporuje dvě možnosti redundanci dat: místně redundantní úložiště (LRS) a geograficky redundantní úložiště (GRS). Následující části popisují rozdíly mezi místně redundantní úložiště a geograficky redundantní úložiště:
+## <a name="data-redundancy"></a>Data redundancy
+Soubory Azure podporuje tři možnosti redundanci dat: místně redundantní úložiště (LRS), zóny redundantní úložiště (ZRS) a geograficky redundantní úložiště (GRS). Následující části popisují rozdíly mezi možnostmi různých redundance:
 
-### <a name="locally-redundant-storage"></a>Místně redundantní úložiště
+### <a name="locally-redundant-storage"></a>(Locally redundant storage) Místně redundantní úložiště
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Redundantní úložiště zóny
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Geograficky redundantní úložiště
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
@@ -95,7 +98,7 @@ Chcete-li hromadně přenos dat z existujícího souboru sdílet, například m�
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy je dobře známé kopie nástroj, který se dodává s Windows a Windows Server. Robocopy může sloužit k přenosu dat do Azure souborů připojení sdílené složky místně a následným použitím připojené umístění jako cíl v příkazu Robocopy.
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy je nástroj příkazového řádku pro kopírování dat do a z Azure Files, jakož i úložiště objektů Blob v Azure pomocí jednoduchých příkazů optimální výkon. AzCopy je k dispozici pro systém Windows a Linux.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Plánování nasazení Azure File synchronizace](storage-sync-files-planning.md)
 * [Soubory nasazení Azure](storage-files-deployment-guide.md)
 * [Nasazení Azure File synchronizace](storage-sync-files-deployment-guide.md)

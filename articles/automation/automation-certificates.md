@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certifikát prostředky ve službě Azure Automation
 
@@ -28,18 +28,26 @@ Certifikáty můžete bezpečně uloženy ve službě Azure Automation, přístu
 > Zabezpečené prostředky ve službě Azure Automation zahrnovat přihlašovací údaje, připojení, certifikátů a zašifrované proměnné. Tyto prostředky jsou zašifrovány a uložené ve službě Azure Automation pomocí jedinečný klíč, který se vygeneruje pro každý účet automation. Tento klíč se šifruje pomocí hlavního certifikátu a uloží ve službě Azure Automation. Před ukládání o zabezpečený prostředek, klíč pro účet služby automation jsou dešifrována pomocí hlavního certifikátu a pak se použije k zašifrování asset.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Rutiny prostředí Windows PowerShell
-
-Rutiny v následující tabulce se používají k vytváření a správě certifikátu prostředky automation pomocí prostředí Windows PowerShell. Se dodávají jako součást [modul Azure PowerShell](../powershell-install-configure.md) která je k dispozici pro použití v runbooků služeb automatizace a konfigurace DSC.
+## <a name="azurerm-powershell-cmdlets"></a>Rutiny prostředí AzureRM PowerShell
+Pro AzureRM rutiny v následující tabulce se používají k vytváření a správě prostředků přihlašovacích údajů automatizace v prostředí Windows PowerShell.  Se dodávají jako součást [AzureRM.Automation modulu](/powershell/azure/overview) která je k dispozici pro použití v runbooků služeb automatizace a konfigurace DSC.
 
 |Rutiny|Popis|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Načte informace o certifikátu pro použití v runbooku nebo konfigurace DSC. Samotný certifikát můžete načíst jenom z Get-AutomationCertificate aktivity.|
-|[Nové AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Vytvoří nový certifikát do Azure Automation.|
-[Odebrat AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Odebere certifikát Azure Automation.|Vytvoří nový certifikát do Azure Automation.
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Vytvoří nový certifikát do Azure Automation.|
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Odebere certifikát Azure Automation.|Vytvoří nový certifikát do Azure Automation.
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Nastaví vlastnosti existujícího certifikátu včetně nahrání souboru certifikátu a nastavení hesla pro .pfx.|
-|[Přidat AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Odešle certifikát služby pro zadané cloudové služby.|
+|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Odešle certifikát služby pro zadané cloudové služby.|
 
+## <a name="activities"></a>Aktivity
+Aktivity v následující tabulce se používají pro přístup k certifikáty v sadě runbook a konfigurace DSC.
+
+| Aktivity | Popis |
+|:---|:---|
+|Get-AutomationCertificate|Získá certifikát pro použití v runbooku nebo konfigurace DSC. Vrátí [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) objektu.|
+
+> [!NOTE] 
+> Byste neměli používat proměnné v parametru – Name **Get-AutomationCertificate** v sady runbook nebo konfigurace DSC, protože to může zkomplikovat zjišťování závislostí mezi runbooky nebo konfigurace DSC a automatizace proměnné v době návrhu.
 
 ## <a name="python2-functions"></a>Funkce Python2
 
@@ -112,6 +120,6 @@ Následující příklad ukazuje, jak pro přístup k certifikáty v sadách run
     # returns the binary cert content  
     print cert 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o práci s odkazy na řízení logický tok vaše sada runbook je navržen pro provádění aktivit najdete v tématu [odkazy v vytváření grafického obsahu](automation-graphical-authoring-intro.md#links-and-workflow). 

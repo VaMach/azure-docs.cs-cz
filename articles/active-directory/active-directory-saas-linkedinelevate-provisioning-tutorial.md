@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 6c2f26e6df435b522346f22ce697468d094de23e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7694c28dd41b75438bfa4ffc8d032f439173122b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>Kurz: Konfigurace LinkedIn zvýšení oprávnění pro uživatele automatické zřizování
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Kurz: Konfigurace LinkedIn zvýšení oprávnění pro uživatele automatické zřizování
 
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v LinkedIn zvýšení oprávnění a Azure AD a automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD LinkedIn zvýšení oprávnění. 
@@ -119,7 +119,7 @@ Prvním krokem je načíst LinkedIn přístupový token. Pokud jste správce pod
 Tato akce spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené LinkedIn zvýšení oprávnění v části Uživatelé a skupiny. Všimněte si, že počáteční synchronizace bude trvat déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud je služba spuštěná. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci LinkedIn zvýšení oprávnění.
 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-enterprise-apps-manage-provisioning.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

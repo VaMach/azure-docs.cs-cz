@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 36930cc38b6c1933b58651f6c63e7d5d453c447d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Vytvoření virtuálního počítače s Windows v zásobníku Azure pomocí rozhraní příkazového řádku Azure
 
@@ -33,7 +33,7 @@ Rozhraní příkazového řádku Azure slouží k vytváření a správě prost�
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Skupina prostředků je logický kontejner, do které zásobník Azure jsou nasadit a spravovat prostředky. Z vaší development kit nebo zásobník Azure integrovaný systém, [vytvořit skupinu az](/cli/azure/group#create) příkazu vytvořte skupinu prostředků. Přiřadili jsme hodnoty pro všechny proměnné v tomto dokumentu, můžete použít jejich nebo přiřadit jinou hodnotu. Následující příklad vytvoří skupinu prostředků s názvem myResourceGroup do místního umístění.
+Skupina prostředků je logický kontejner, do které zásobník Azure jsou nasadit a spravovat prostředky. Z vaší development kit nebo zásobník Azure integrovaný systém, [vytvořit skupinu az](/cli/azure/group#az_group_create) příkazu vytvořte skupinu prostředků. Přiřadili jsme hodnoty pro všechny proměnné v tomto dokumentu, můžete použít jejich nebo přiřadit jinou hodnotu. Následující příklad vytvoří skupinu prostředků s názvem myResourceGroup do místního umístění.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 
-Vytvoření virtuálního počítače pomocí [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz. Následující příklad vytvoří virtuální počítač s názvem můjvp přesměrovat. Tento příklad používá Demouser pro název správce a Demouser@123 jako heslo. Aktualizujte tyto hodnoty na nějaké vhodné pro vaše prostředí. Tyto hodnoty je třeba při připojení k virtuálnímu počítači.
+Vytvoření virtuálního počítače pomocí [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) příkaz. Následující příklad vytvoří virtuální počítač s názvem můjvp přesměrovat. Tento příklad používá Demouser pro název správce a Demouser@123 jako heslo. Aktualizujte tyto hodnoty na nějaké vhodné pro vaše prostředí. Tyto hodnoty je třeba při připojení k virtuálnímu počítači.
 
 ```cli
 az vm create \
@@ -88,12 +88,12 @@ S nainstalovanou službou IIS na virtuálním počítači a nyní otevřeným po
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, virtuálního počítače a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete).
+Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, virtuálního počítače a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#az_group_delete).
 
 ```cli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tento rychlý start jste nasadili jednoduchého virtuálního počítače Windows. Další informace o virtuálních počítačích Azure zásobníku, nadále [důležité informace pro virtuální počítače v Azure zásobníku](azure-stack-vm-considerations.md).

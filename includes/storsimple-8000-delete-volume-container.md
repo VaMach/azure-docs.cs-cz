@@ -1,6 +1,6 @@
-<!--author=alkohli last changed: 01/13/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
-Pokud kontejner svazků má přidružené svazky, offline režimu tyto svazky nejdřív. Postupujte podle kroků v [do offline režimu svazku](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Jakmile jsou tyto svazky v režimu offline, můžete je odstranit. Po kontejner svazků má žádné přidružené svazky, odstraňte kontejner svazků. Proveďte následující postup se odstranit kontejner svazků.
+Pokud kontejner svazků má přidružené svazky, offline režimu tyto svazky nejdřív. Postupujte podle kroků v [do offline režimu svazku](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Jakmile jsou tyto svazky v režimu offline, můžete je odstranit. Po kontejner svazků má žádné přidružené svazky, odstraňte kontejner svazků. Proveďte následující postup se odstranit kontejner svazků.
 
 #### <a name="to-delete-a-volume-container"></a>Chcete-li odstranit kontejner svazků
 1. Přejděte do služby Správce zařízení StorSimple a klikněte na **Zařízení**. Vyberte a klikněte na zařízení a potom přejděte na **Nastavení > Správa > kontejnery svazků**.

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f7e6d4275940174074c1758a5b73030e0b3f107c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe24db4e573ef9c9daf34bb8069c7a1e57616ffb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Kurz: Konfigurace pro zřizování uživatelů automatické Cerner – střed
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Kurz: Konfigurace pro zřizování uživatelů automatické Cerner – střed
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v Cerner střed a Azure AD a automaticky zřizovat a zrušte zřídit uživatelské účty ze služby Azure AD pro uživatele soupisky in – střed Cerner. 
 
@@ -67,7 +67,7 @@ Chcete-li zřídit uživatelských účtů do centrální Cerner, budete muset p
 
 1.  V prvním kroku je zajistit osoby Správa Cerner a integrace Azure AD mají CernerCare účet, který je nutné pro přístup k potřebné k dokončení podle pokynů v dokumentaci. V případě potřeby použijte níže uvedené adresy URL můžete vytvořit účty CernerCare v každé příslušné prostředí.
 
-   * Izolovaný prostor: https://sandboxcernercare.com/accounts/create
+   * Sandbox:  https://sandboxcernercare.com/accounts/create
 
    * Produkční: https://cernercare.com/accounts/create  
 
@@ -75,17 +75,17 @@ Chcete-li zřídit uživatelských účtů do centrální Cerner, budete muset p
 
    * Pokyny: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * Izolovaný prostor: https://sandboxcernercentral.com/system-accounts/
+   * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Produkční: https://cernercentral.com/system-accounts/
+   * Production:  https://cernercentral.com/system-accounts/
 
 3.  V dalším kroku generovat tokenu nosiče OAuth pro všechny systémové účty. Chcete-li to provést, postupujte podle pokynů níže.
 
-   * Pokyny: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Instructions:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * Izolovaný prostor: https://sandboxcernercentral.com/system-accounts/
+   * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Produkční: https://cernercentral.com/system-accounts/
+   * Production:  https://cernercentral.com/system-accounts/
 
 4. Nakonec budete muset získat ID sféry soupisky uživatelů pro izolovaný prostor i produkčním prostředí v Cerner k dokončení konfigurace. Informace o tom, jak získat to najdete v tématu: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
@@ -103,9 +103,9 @@ Chcete-li zřídit uživatelských účtů do centrální Cerner, budete muset p
 
    * V **URL klienta** pole, zadejte adresu URL ve formátu níže nahraďte "User-soupisky-sféry-ID" s ID sféry jste získali v kroku #4.
 
-> Izolovaný prostor: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Produkční: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * V **tajný klíč tokenu** pole, zadejte tokenu nosiče OAuth, který jste vygenerovali v kroku #3 a klikněte na **Test připojení**.
 
@@ -125,12 +125,12 @@ Tím se spustí počáteční synchronizaci všech uživatelů a skupiny přiřa
 
 Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Střed Cerner: Publikování dat identity pomocí služby Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Kurz: Konfigurace Cerner střed pro jednotné přihlašování s Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-enterprise-apps-manage-provisioning.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Zjistěte, jak získat sestavy o zřizování aktivity a zkontrolujte protokoly](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

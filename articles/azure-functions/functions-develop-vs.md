@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 4681138dfc7ed67c8c9da0c55abfc27351736be4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pro Visual Studio  
 
@@ -141,7 +141,7 @@ Můžete také spravovat nastavení aplikace v jednom z těchto dalších způso
 
 * [Pomocí portálu Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Pomocí `--publish-local-settings` možnost publikování v nástrojích pro základní funkce Azure](functions-run-local.md#publish).
-* [Použití Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+* [Použití Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
 
 ## <a name="next-steps"></a>Další postup
 

@@ -8,16 +8,16 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/10/2017
-ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.date: 01/25/2018
+ms.openlocfilehash: 59eeed42356a276c259bd8da55890b7ada67d729
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Postup konfigurace serveru parametry v Azure Database pro databázi MySQL pomocí portálu Azure
 
-Azure databáze pro databázi MySQL podporuje konfiguraci některé parametry serveru. Toto téma popisuje, jak nakonfigurovat tyto parametry pomocí portálu Azure. Ne všechny parametry serveru můžete upravit. 
+Azure databáze pro databázi MySQL podporuje konfiguraci některé parametry serveru. Tento článek popisuje, jak nakonfigurovat tyto parametry pomocí portálu Azure. Ne všechny parametry serveru můžete upravit. 
 
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>Přejděte na parametry serveru, na portálu Azure
 1. Přihlaste se k portálu Azure a potom vyhledejte vaší databázi Azure pro server databáze MySQL.
@@ -25,7 +25,7 @@ Azure databáze pro databázi MySQL podporuje konfiguraci některé parametry se
 3. Najděte všechna nastavení, které je potřeba upravit. Zkontrolujte **popis** sloupec pochopit účel a povolené hodnoty. 
 4. Klikněte na tlačítko **Uložit** uložte provedené změny.
 
-![Okno Parametry server portálu Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+![Stránka parametry server portálu Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
 
 ## <a name="list-of-configurable-server-parameters"></a>Seznam parametrů konfigurovat server
 
@@ -36,19 +36,22 @@ InnoDB fondu vyrovnávací paměti a maximální počet připojení nejsou konfi
 
 | **Cenová úroveň** | **Fond InnoDB vyrovnávací paměti (MB)** | **Maximální počet připojení** |
 | :------------------------ | :-------- | :----------- |
-| Základní 50 | 1024 | 50 | 
-| Základní 100  | 2560 | 100 | 
+| Basic 50 | 1024 | 50 | 
+| Basic 100  | 2560 | 100 | 
 | Standardní 100 | 2560 | 200 | 
-| Standardní 200 | 5120 | 400 | 
+| Standard 200 | 5120 | 400 | 
 | Standardní 400 | 10240 | 800 | 
-| Standardní 800 | 20480 | 1600 |
+| Standard 800 | 20480 | 1600 |
 
-Tyto další server parametry jsou nonconfigurable v systému <br>
- Innodb_file_per_table v základní vrstvě: vypnuto<br>
- innodb_flush_log_at_trx_commit = 1<br>
- sync_binlog = 1<br>
- innodb_log_file_size = 512MB<br>
- 
+Tyto další server parametry nejsou konfigurovatelné v systému:
+
+|**Parameter**|**Pevná hodnota**|
+| :------------------------ | :-------- |
+|innodb_file_per_table v základní vrstvě|OFF|
+|innodb_flush_log_at_trx_commit|1|
+|sync_binlog|1|
+|innodb_log_file_size|512MB|
+
 Další parametry serveru, které zde nejsou uvedeny jsou nastaveny na MySQL out-of-box výchozí hodnoty pro verze [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) a [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Další postup

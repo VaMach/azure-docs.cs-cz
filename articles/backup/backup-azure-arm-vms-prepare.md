@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Příprava prostředí pro zálohování virtuálních počítačů s nasazením Resource Manageru
 
@@ -63,7 +63,7 @@ Než se připravíte prostředí, ujistěte se, že jste pochopili tato omezení
 * Zálohovaná data neobsahuje sítě připojené jednotky připojené k virtuálnímu počítači.
 * Nahrazení existujícího virtuálního počítače během obnovení se nepodporuje. Pokud se pokusíte obnovit virtuální počítač, když virtuální počítač existuje, operaci obnovení se nezdaří.
 * Mezi oblastmi zálohování a obnovení nejsou podporovány.
-* Od teď se nepodporuje zálohování a obnovení ACLed virtuální počítače služby storage. Zálohování virtuálních počítačů není podporováno, pokud jste povolili úložiště na funkci virtuální síť, která umožňuje účtům úložiště přistupovat pouze z určitých virtuální sítě nebo podsítě nebo IP adresy.
+* Zálohování a obnovení virtuálních počítačů pomocí nespravované disků v účtech úložiště s pravidly sítě, použije se aktuálně nepodporuje. Při konfiguraci zálohování, ujistěte se, že "Brány firewall a virtuální sítě" nastavení pro účet úložiště umožňuje přístup z "Všechny sítě."
 * Můžete zálohovat virtuální počítače ve všech veřejných oblastech Azure. (Viz [kontrolní seznam](https://azure.microsoft.com/regions/#services) z podporovaných oblastí.) Pokud oblast, kterou hledáte, není podporován dnes, nezobrazí se v rozevíracím seznamu při vytváření trezoru.
 * Obnovení řadiče domény (DC) virtuálního počítače, který je součástí konfigurace více – řadič domény je možné pouze pomocí prostředí PowerShell. Další informace najdete v tématu [obnovení řadiče domény, řadiče domény služby více](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Obnovení virtuálních počítačů, které mají následující zvláštní síťové konfigurace je podporována pouze pomocí prostředí PowerShell. Po dokončení operace obnovení, nebude mít virtuální počítače vytvořené pomocí obnovení pracovního postupu v uživatelském rozhraní tyto konfigurace sítě. Další informace najdete v tématu [obnovení virtuálních počítačů s konfigurací speciální síťových](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Nejčastější dotazy a známé problémy s spravované služby Identity (MSI) pro Azure Active Directory
 
@@ -57,6 +57,20 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Kde: 
 - Název rozšíření pro Windows je zadání: ManagedIdentityExtensionForWindows
 - Název rozšíření a typ pro Linux: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Existují role RBAC pro přiřazené identit uživatelů?
+Ano:
+1. Přispěvatel MSI: 
+- Můžete: CRUD uživatel s přiřazenou identity. 
+- Nelze: Přiřadit uživatele k prostředku přiřazena identity. (tj. přiřaďte identitu virtuálního počítače)
+2. MSI Operator: 
+- Může: Přiřaďte identitu uživatele přiřazené k prostředku. (tj. přiřaďte identitu virtuálního počítače)
+- Nelze: CRUD uživatel s přiřazenou identity.
+
+Poznámka: Může přispěvatel předdefinované role provádět všechny akce popsané výše: 
+- Identity uživatelů, které jsou přiřazené CRUD
+- Přiřazení uživatele k prostředku přiřazena identity. (tj. přiřaďte identitu virtuálního počítače)
+
 
 ## <a name="known-issues"></a>Známé problémy
 

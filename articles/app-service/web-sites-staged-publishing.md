@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b69f6b2190362b970420ba81450978ac9faecd86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Nastavení přípravných prostředí v Azure App Service
 <a name="Overview"></a>
@@ -107,7 +107,7 @@ Můžete Prohodit sloty nasazení v **přehled** nebo **nasazovací sloty** zobr
 
 2. Ujistěte se, že jsou správně nastaveny swap zdrojové a cílové odkládacího souboru. Cíl odkládacího souboru je obvykle produkční slot. Klikněte na tlačítko **OK** k dokončení operace. Po dokončení operace mít byla vzájemně zaměněny nasazovací sloty.
 
-    ![Dokončit](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Dokončit prohození](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     Pro **prohození s náhledem** Prohodit typu, najdete v části [prohození s náhledem (více fáze prohození)](#Multi-Phase).  
 
@@ -244,7 +244,7 @@ Rozhraní příkazového řádku Azure poskytuje příkazy a platformy pro prác
 * Chcete-li seznam příkazů, které jsou k dispozici pro službu Azure App Service v Azure CLI, volejte `azure site -h`.
 
 > [!NOTE] 
-> Pro [Azure CLI 2.0](https://github.com/Azure/azure-cli) příkazy pro nasazovací sloty, najdete v části [slot nasazení webové služby App Service az](/cli/azure/appservice/web/deployment/slot).
+> Pro [Azure CLI 2.0](https://github.com/Azure/azure-cli) příkazy pro nasazovací sloty, najdete v části [az webapp nasazovací slot](/cli/azure/webapp/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>seznam webů Azure

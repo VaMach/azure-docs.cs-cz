@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a5e803cadfd08c42e12e6e34feee1c2d0d091d70
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalizace prostředí služby Active Directory s řešením pro kontrolu stavu v Active Directory v analýzy protokolů
 
@@ -62,9 +62,9 @@ Agent na řadiči domény, které sestavy ke skupině pro správu nástroje Oper
 
 Zkontrolujte stav, Active Directory shromažďuje data z následujících zdrojů pomocí agenta, který jste povolili:
 
-- Registru 
+- Registr 
 - LDAP 
-- Rozhraní .NET framework
+- .NET Framework
 - V protokolu událostí 
 - Služba Active Directory rozhraní (ADSI)
 - Windows PowerShell
@@ -108,10 +108,8 @@ Po instalaci, zobrazí se souhrn doporučení pomocí dlaždice stavu zkontroluj
 Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a potom přejít k podrobnostem doporučení.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Proveďte opravné akce a zobrazit doporučení pro oblastí zájmu
-1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
-2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
-3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **portálu OMS** dlaždici.  
-4. Na **přehled** klikněte na tlačítko **AD Health zkontrolujte** dlaždici. 
+3. Klikněte **přehled** dlaždici pro váš pracovní prostor analýzy protokolů na portálu Azure.
+4. Na **přehled** klikněte na tlačítko **Active Directory stavu zkontrolujte** dlaždici. 
 5. Na **kontroly stavu** zkontrolujte souhrnné informace v jednom z okna oblasti fokus a pak klikněte na jednu zobrazíte doporučení pro tuto oblast fokus.
 6. Na všech stránkách oblasti fokus můžete zobrazit seřazený podle priority doporučení, která se pro vaše prostředí. Klikněte na tlačítko doporučení v části **vliv na objekty** Chcete-li zobrazit podrobnosti, proč se provádí doporučení.<br><br> ![Obrázek stavu zkontrolujte doporučení](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Můžete provést nápravné akce navržený v **doporučované akce**. Když položka byla řešit, novější vyhodnocování záznamy, které doporučené akce provedené a zvýší vaše skóre dodržování předpisů. Opravené položky se zobrazí jako **předán objekty**.
@@ -195,5 +193,5 @@ Po na další naplánované spuštění kontroly stavu, ve výchozím nastavení
 
 * Ano, najdete v části [ignorovat doporučení](#ignore-recommendations) část výše.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Použití [přihlásit analýzy protokolů hledání](log-analytics-log-searches.md) se dozvíte, jak analyzovat podrobné doporučení a údaje o kontrolu stavu AD.

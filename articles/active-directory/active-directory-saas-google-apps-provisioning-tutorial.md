@@ -1,5 +1,5 @@
 ---
-title: "Kurz: Konfigurace Google Apps pro zřizování automatické uživatelů v Azure | Microsoft Docs"
+title: "Kurz: Konfigurace Google Apps pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Naučte se automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD do Google Apps."
 services: active-directory
 documentationCenter: na
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a77b5b1fff670ed7698d0ef48fa63f8a8f9be819
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Kurz: Konfigurace Google Apps pro zřizování automatické uživatelů
 
@@ -75,7 +75,7 @@ Tato část vás provede procesem připojení služby Azure AD s uživatelským 
 
     b. Vyberte **název domény** na levém navigačním podokně a pak vyberte **přidat**.
      
-     ![Domény](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
+     ![Doména](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
 
      ![Přidání domény](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
@@ -87,7 +87,7 @@ Tato část vás provede procesem připojení služby Azure AD s uživatelským 
     
     Komplexní pokyny o tom, jak ověřit názvy domén s Azure AD najdete v tématu [přidat vlastní název domény do Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
-     ![Domény](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
+     ![Doména](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Opakujte předchozí kroky u všech domén, které chcete přidat do vašeho adresáře.
 
@@ -161,7 +161,7 @@ Tento proces se spustí počáteční synchronizaci všech uživatelů nebo skup
 
 Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivit. Tyto sestavy popisují všechny akce, které jsou provádí zřizování služby ve vaší aplikaci Google Apps.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

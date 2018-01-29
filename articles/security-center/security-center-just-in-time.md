@@ -1,6 +1,6 @@
 ---
 title: "Pouze ve virtuálním počítači čas přístup v Azure Security Center | Microsoft Docs"
-description: "Tento dokument nevystavíte slabé stránky zabezpečení prostřednictvím jak jenom na dobu virtuálních počítačů přístup v Azure Security Center pomáhá můžete řídit přístup k virtuální počítače Azure."
+description: "Tento dokument ukazuje jak jenom na dobu přístup virtuálních počítačů v Azure Security Center vám pomůže řízení přístupu k virtuální počítače Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Spravovat přístup k virtuálním počítačům pomocí jenom na dobu (Preview)
 
@@ -50,11 +50,13 @@ Když uživatel požaduje přístup k virtuálnímu počítači, Security Center
 
 ## <a name="using-just-in-time-access"></a>Použití pouze v přístup k časovému
 
-**Těsně v čas virtuálních počítačů přístup** dlaždici v části **Security Center** ukazuje počet virtuálních počítačů, které jsou nakonfigurované pro právě v čas přístupu a počet schválení žádosti o přístup provedených během posledního týdne.
+1. Otevřete řídicí panel **Security Center**.
+
+2. V levém podokně vyberte **těsně v čas virtuálních počítačů přístup**.
 
 ![Právě v čase virtuální počítač přístup k dlaždici][2]
 
-Vyberte **těsně v čas virtuálních počítačů přístup** dlaždici a **těsně v čas virtuálních počítačů přístup** otevře.
+**Těsně v čas virtuálních počítačů přístup** otevře se okno.
 
 ![Právě v čase virtuální počítač přístup k dlaždici][10]
 
@@ -127,7 +129,7 @@ Chcete-li upravit stávající jenom v zásadách čas virtuálního počítače
 1. V části **virtuální počítače**, vyberte virtuální počítač port na přidáte kliknutím na tři tečky v řádku tohoto virtuálního počítače. Tím otevřete nabídku.
 2. Vyberte **upravit** v nabídce. Tím se otevře **JIT konfiguraci přístupu**.
 
-  ![Upravit zásady][8]
+  ![Upravit zásadu][8]
 
 3. V části **JIT konfiguraci přístupu**, můžete buď upravit existující nastavení, již chráněné portu kliknutím na její port, nebo můžete vybrat **přidat**. Tím se otevře **konfiguraci portů přidat**.
 
@@ -170,7 +172,7 @@ Postupujte podle dokumentace rutiny Další informace.
 Pro přístup k konkrétní virtuální počítač, který je chráněný právě v doba řešení, budete muset spustit tento příkaz v relaci prostředí PowerShell: vyvolání ASCJITAccess.
 Postupujte podle dokumentace rutiny Další informace.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste se dozvěděli, jak jenom na dobu přístup virtuálních počítačů v Security Center pomáhá, že můžete řídit přístup k virtuální počítače Azure.
 
 Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:

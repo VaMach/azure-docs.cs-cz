@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b110fd4f9eb70644a6fcb66198113af2ec685142
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Nasazení prostředků pomocí šablon Resource Manageru a Azure CLI
 
@@ -119,7 +119,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>Testovací nasazení šablony
 
-K otestování šablony a parametr hodnoty bez ve skutečnosti nasazení všechny prostředky, použijte [ověření nasazení skupiny az](/cli/azure/group/deployment#validate). 
+K otestování šablony a parametr hodnoty bez ve skutečnosti nasazení všechny prostředky, použijte [ověření nasazení skupiny az](/cli/azure/group/deployment#az_group_deployment_validate). 
 
 ```azurecli
 az group deployment validate \
@@ -230,7 +230,7 @@ Příklady v tomto tématu slouží následující šablony. Zkopírujte a ulož
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * V příkladech v tomto článku nasadit do skupiny prostředků v rámci vašeho předplatného výchozí prostředky. Použijte jiný odběr, najdete v tématu [spravovat víc předplatných Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 * Pro dokončení ukázkový skript, který nasadí šablonu, najdete v části [skript nasazení šablony Resource Manageru](resource-manager-samples-cli-deploy.md).
 * Chcete-li pochopit, jak definovat parametry v šabloně, přečtěte si téma [pochopit strukturu a syntaxe šablon Azure Resource Manager](resource-group-authoring-templates.md).

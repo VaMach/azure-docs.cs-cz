@@ -1,10 +1,10 @@
 ---
-title: "Zkontrolujte připojení s sledovací proces sítě Azure - portálu Azure | Microsoft Docs"
-description: "Tato stránka vysvětluje, jak používat připojení zkontrolujte s sledovací proces sítě pomocí portálu Azure"
+title: "Řešení potíží s připojení s sledovací proces sítě Azure - portálu Azure | Microsoft Docs"
+description: "Naučte se používat připojení k řešení potíží s schopností sledovací proces sítě Azure pomocí portálu Azure."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: jdial
-ms.openlocfilehash: 1f19da71731039e1a39c4440f925b1369886a993
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8d3a537523cce3457c18c7563e885a3f7348326f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Zkontrolujte připojení s sledovací proces sítě Azure pomocí portálu Azure
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Poradce při potížích připojení s sledovací proces sítě Azure pomocí portálu Azure
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-connectivity-portal.md)
@@ -27,26 +27,25 @@ ms.lasthandoff: 12/21/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Rozhraní API Azure REST](network-watcher-connectivity-rest.md)
 
-Naučte se používat připojení k ověření, pokud lze navázat přímé připojení TCP z virtuálního počítače do daného koncového bodu.
+Další informace o použití připojení řešení Chcete-li ověřit, zda lze vytvořit přímé připojení TCP z virtuálního počítače do daného koncového bodu.
 
 ## <a name="before-you-begin"></a>Než začnete
 
 Tento článek předpokládá, že máte v následujících zdrojích informací:
 
-* Instance sledovací proces sítě v oblasti, které chcete zkontrolovat připojení.
-
-* Zkontrolujte připojení k virtuálním počítačům.
+* Instance sledovací proces sítě v oblasti, kterou chcete vyřešte potíže připojením.
+* Virtuální počítače potíží s připojením s.
 
 > [!IMPORTANT]
-> Kontrola připojení vyžaduje rozšíření virtuálního počítače `AzureNetworkWatcherExtension`. Instalaci rozšíření na virtuální počítač s Windows najdete v článku [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Windows](../virtual-machines/windows/extensions-nwa.md) a u virtuálního počítače s Linuxem, navštivte [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Linux](../virtual-machines/linux/extensions-nwa.md).
+> Řešení potíží s připojení vyžaduje rozšíření virtuálního počítače `AzureNetworkWatcherExtension`. Instalaci rozšíření na virtuální počítač s Windows najdete v článku [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Windows](../virtual-machines/windows/extensions-nwa.md) a u virtuálního počítače s Linuxem, navštivte [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Zkontrolujte připojení k virtuálnímu počítači
 
 Tento příklad zkontroluje připojení k cílovému virtuálnímu počítači přes port 80.
 
-Přejděte do vaší sledovací proces sítě a klikněte na tlačítko **Kontrola připojení (Preview)**. Vyberte virtuální počítač, zkontrolujte připojení z. V **cílové** vyberte **vyberte virtuální počítač** a vyberte správnou virtuálního počítače a port pro testování.
+Přejděte do vaší sledovací proces sítě a klikněte na tlačítko **řešení potíží s připojení**. Vyberte virtuální počítač, zkontrolujte připojení z. V **cílové** vyberte **vyberte virtuální počítač** a vyberte správnou virtuálního počítače a port pro testování.
 
-Po kliknutí na tlačítko **zkontrolujte**, se kontroluje připojení mezi virtuálními počítači na zadaný port. V příkladu se cílový počítač nedostupný, zobrazí se seznam všech segmentů směrování.
+Po kliknutí na tlačítko **zkontrolujte**, je zaškrtnuta možnost připojení mezi virtuálními počítači na zadaný port. V příkladu se cílový počítač nedostupný, zobrazí se seznam všech segmentů směrování.
 
 ![Výsledky kontroly připojení pro virtuální počítač][1]
 
@@ -56,7 +55,7 @@ Zkontrolujte připojení a latence pro vzdálený koncový bod, vyberte **ručn�
 
 ![Výsledky kontroly připojení pro webovou stránku][2]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Informace o automatizaci paketu zachytává se virtuální počítač výstrahy zobrazením [vytvořit zaznamenání výstrahy spouštěná paketu](network-watcher-alert-triggered-packet-capture.md)
 

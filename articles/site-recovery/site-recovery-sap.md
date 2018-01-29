@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Ochrana nasazení vícevrstvé SAP NetWeaver aplikace pomocí Azure Site Recovery
 
@@ -81,9 +81,9 @@ Pokud používáte statickou IP adresu, můžete zadat IP, který chcete virtuá
 Plán obnovení umožňuje pořadí převzetí služeb při selhání v různých vrstvách vícevrstvé aplikace, proto zachování konzistence aplikace. Postupujte podle kroků popsaných [sem](site-recovery-create-recovery-plans.md) při vytváření plánu obnovení vícevrstvých webových aplikací.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Probíhá přidávání skriptů do plánu obnovení
-Musíte udělat některé operace na virtuálních počítačích Azure post převzetí služeb při selhání a testovací převzetí služeb při selhání pro vaše aplikace fungovat správně. Je možné automatizovat převzetí služeb při selhání operaci post například aktualizaci položky DNS a změna vazby a připojení, přidáním příslušných skriptů v plánu obnovení, jak je popsáno v [v tomto článku](site-recovery-create-recovery-plans.md#add-scripts).
+Musíte udělat některé operace na virtuálních počítačích Azure post převzetí služeb při selhání a testovací převzetí služeb při selhání pro vaše aplikace fungovat správně. Je možné automatizovat převzetí služeb při selhání operaci post například aktualizaci položky DNS a změna vazby a připojení, přidáním příslušných skriptů v plánu obnovení, jak je popsáno v [v tomto článku](site-recovery-how-to-add-vmmscript.md).
 
-### <a name="dns-update"></a>Aktualizace DNS.
+### <a name="dns-update"></a>DNS update
 Pokud DNS je nakonfigurován pro dynamické aktualizace DNS, pak po spuštění virtuálních počítačů obvykle aktualizovat DNS s novou IP Adresou. Pokud chcete přidat explicitní kroku aktualizovat DNS s nové IP adresy virtuálních počítačů a pak přidejte tuto [skript pro aktualizaci IP ve službě DNS](https://aka.ms/asr-dns-update) jako akce post na skupiny plánu obnovení.  
 
 ## <a name="example-azure-to-azure-deployment"></a>Příklad nasazení Azure do Azure
@@ -114,7 +114,7 @@ Postupujte podle [v tomto návodu](site-recovery-failover.md) při dělají pře
 3.  Klikněte na 'Převzetí služeb při selhání'.
 4.  Vyberte bod obnovení se spustit proces převzetí služeb při selhání.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o vytváření řešení zotavení po havárii pro nasazení SAP NetWeaver pomocí Azure Site Recovery v [tento dokument White Paper](http://aka.ms/asr-sap). V dokumentu White Paper také popisuje doporučení pro různé architektury SAP, jsou uvedené podporované aplikací a typů virtuálních počítačů pro SAP v Azure a popisuje možné testování plány pro vaše řešení pro zotavení po havárii.
 
 Další informace o [replikace dalších zatížení](site-recovery-workload.md) pomocí Site Recovery.

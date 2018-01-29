@@ -60,8 +60,9 @@
 - name: Koncepty
   items:
     - name: Funkce služby
-      href: sql-database-servers-databases.md
       items:
+        - name: Servery a databáze
+          href: sql-database-servers-databases.md
         - name: Úrovně služby
           href: sql-database-service-tiers.md
         - name: Omezení prostředků
@@ -105,8 +106,9 @@
         - name: Běžné funkce SQL Serveru
           href: sql-database-features.md
     - name: Zabezpečení
-      href: sql-database-security-overview.md
       items:
+        - name: Přehled
+          href: sql-database-security-overview.md
         - name: Řízení přístupu
           href: sql-database-control-access.md
         - name: Azure AD
@@ -122,8 +124,9 @@
     - name: Vysoká dostupnost
       href: sql-database-high-availability.md
     - name: Kontinuita podnikových procesů
-      href: sql-database-business-continuity.md
       items:
+        - name: Přehled
+          href: sql-database-business-continuity.md
         - name: Obnovení databáze
           href: sql-database-recovery-using-backups.md
         - name: Konfigurace zabezpečení
@@ -139,8 +142,9 @@
         - name: Provedení postupu zotavení
           href: sql-database-disaster-recovery-drills.md
     - name: Migrace do služby SQL Database
-      href: sql-database-cloud-migrate.md
       items:
+        - name: Přehled
+          href: sql-database-cloud-migrate.md
         - name: Změny T-SQL
           href: sql-database-transact-sql-information.md
         - name: Správa databáze po migraci
@@ -156,8 +160,9 @@
         - name: Synchronizace dat
           href: sql-database-sync-data.md
     - name: Monitorování a ladění
-      href: sql-database-troubleshoot-performance.md
       items:
+        - name: Přehled
+          href: sql-database-troubleshoot-performance.md
         - name: Monitorování výkonu
           href: sql-database-single-database-monitor.md
         - name: Doporučení k výkonu
@@ -177,8 +182,9 @@
         - name: Monitorování v paměti
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Horizontální navýšení kapacity
-      href: sql-database-elastic-scale-introduction.md
       items:
+        - name: Přehled
+          href: sql-database-elastic-scale-introduction.md
         - name: Mapy horizontálních oddílů
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Směrování dotazů
@@ -205,6 +211,8 @@
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Vývoj databází
       items:
+        - name: Přehled
+          href: sql-database-develop-overview.md
         - name: Data JSON
           href: sql-database-json-features.md
         - name: V paměti
@@ -216,7 +224,6 @@
         - name: Konfigurace v paměti
           href: sql-database-in-memory-oltp-migration.md
     - name: Vývoj aplikací
-      href: sql-database-develop-overview.md
       items:
         - name: Připojení
           href: sql-database-libraries.md

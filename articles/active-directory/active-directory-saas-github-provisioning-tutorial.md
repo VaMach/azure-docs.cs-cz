@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 7e202899b697872227da4d7bea54406f99089000
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e06d04234f33633275d85732a321a264c777fc59
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-github-for-automatic-user-provisioning"></a>Kurz: Konfigurace GitHub pro zřizování automatické uživatelů
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Kurz: Konfigurace GitHub pro zřizování automatické uživatelů
 
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v Githubu a Azure AD a automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD na Githubu. 
@@ -99,11 +99,11 @@ Tato operace spustí počáteční synchronizaci všech uživatelů a skupiny p�
 Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-enterprise-apps-manage-provisioning.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Zjistěte, jak získat sestavy o zřizování aktivity a zkontrolujte protokoly](active-directory-saas-provisioning-reporting.md)

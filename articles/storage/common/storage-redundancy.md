@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-storage-replication"></a>Účet replikace Azure Storage
 
@@ -72,7 +72,7 @@ ZRS klasické účty nelze převést na nebo z LRS, GRS nebo RA-GRS. ZRS klasick
 Jakmile ZRS je všeobecně dostupná v oblasti, už nebudete moct vytvořit účet ZRS Classic z portálu v daném regionu, ale můžete vytvořit jeden jinými způsoby.  
 Proces automatické migrace z klasického ZRS ZRS bude poskytnuta v budoucnu.
 
-ZRS účty podporují, ručně přenesení ZRS účtu v daném regionu do nebo z účtu LRS, GRS a RAGRS. Můžete provést tento ruční migrace pomocí nástroje AzCopy, Azure Storage Explorer, prostředí Azure PowerShell, rozhraní příkazového řádku Azure nebo jeden z knihovny klienta Azure Storage.
+Můžete ručně migrovat data účtu ZRS do nebo z účtu LRS, ZRS Classic, GRS a RAGRS. Můžete provést tento ruční migrace pomocí nástroje AzCopy, Azure Storage Explorer, prostředí Azure PowerShell, rozhraní příkazového řádku Azure nebo jeden z knihovny klienta Azure Storage.
 
 > [!NOTE]
 > ZRS klasické účty jsou plánované pro vyřazení a požadované migrace na 31. března 2021. Společnost Microsoft bude posílat podrobnosti ZRS Classic zákazníkům před vyřazení.

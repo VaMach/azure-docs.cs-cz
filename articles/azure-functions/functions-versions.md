@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 3f816f661767d2e372b02b207d6fa7efd494e6ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak mít verze modulu runtime Azure Functions
 
@@ -105,7 +105,7 @@ Pokud budete potřebovat cílit na verzi než aktuální hlavní verze nebo verz
 
 ## <a name="target-a-version-using-azure-cli"></a>Cílová verze, pomocí rozhraní příkazového řádku Azure
 
- Můžete také nastavit `FUNCTIONS_EXTENSION_VERSION` z příkazového řádku Azure. Použití Azure CLI, aktualizovat nastavení aplikace v aplikaci funkce pomocí [az functionapp konfigurace appsettings sadu](/cli/azure/functionapp/config/appsettings#set) příkaz.
+ Můžete také nastavit `FUNCTIONS_EXTENSION_VERSION` z příkazového řádku Azure. Použití Azure CLI, aktualizovat nastavení aplikace v aplikaci funkce pomocí [az functionapp konfigurace appsettings sadu](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) příkaz.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
@@ -116,7 +116,7 @@ V tomto kódu nahraďte `<function_app>` s názvem aplikace funkce. Také nahra�
 
 Můžete spustit tento příkaz z [prostředí cloudu Azure](../cloud-shell/overview.md) výběrem **vyzkoušet** v předchozí ukázce kódu. Můžete také [rozhraní příkazového řádku Azure místně](/cli/azure/install-azure-cli) k provedení tohoto příkazu po provedení [az přihlášení](/cli/azure#az_login) k přihlášení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Cílový modul runtime 2.0 ve vašem místním vývojovém prostředí](functions-run-local.md)

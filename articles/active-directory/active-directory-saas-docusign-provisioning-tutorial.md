@@ -1,5 +1,5 @@
 ---
-title: 'Kurz: Azure Active Directory integrace s DocuSign | Microsoft Docs'
+title: "Kurz: Konfigurace DocuSign pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a DocuSign."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e8ba836a021a06c017defee2c5b7379d200ac642
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1de1b8e68648e4bac05eca4b306e741bcdb6868b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Kurz: Konfigurace DocuSign pro zřizování uživatelů
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Kurz: Konfigurace DocuSign pro zřizování automatické uživatelů
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v DocuSign a Azure AD a automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD do DocuSign.
 
@@ -67,7 +67,7 @@ Cílem této části se popisují postup povolení zřizování uživatelů z u�
 
 4. Nastavte **režimu zřizování** k **automatické**. 
 
-    ![Zřizování](./media/active-directory-saas-docusign-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-docusign-provisioning-tutorial/provisioning.png)
 
 5. V části **přihlašovací údaje správce** části, zadejte následující nastavení konfigurace:
    
@@ -93,7 +93,7 @@ Spustí počáteční synchronizaci všech uživatelů přidružených k DocuSig
 
 Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet byly synchronizovány DocuSign Počkejte až 20 minut.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

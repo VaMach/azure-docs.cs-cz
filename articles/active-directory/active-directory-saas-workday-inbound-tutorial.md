@@ -1,5 +1,5 @@
 ---
-title: "Kurz: Konfigurace Workday pro automatické zřizování uživatelů místní služby Active Directory a Azure Active Directory | Microsoft Docs"
+title: "Kurz: Konfigurace Workday pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Další informace o použití Workday jako zdroj dat identity pro Active Directory a Azure Active Directory."
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Kurz: Konfigurace Workday pro automatické zřizování uživatelů místní služby Active Directory a Azure Active Directory
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Kurz: Konfigurace Workday pro zřizování automatické uživatelů
+
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést import osoby z Workday do služby Active Directory a Azure Active Directory, s volitelné zpětný zápis některých atributů k Workday. 
 
 
@@ -93,9 +94,9 @@ Při práci s Workday a služby Active Directory, existuje však několik zdrojo
 
 | Zdrojového systému | Cílový systém | Poznámky |
 | ---------- | ---------- | ---------- |
-| WORKDAY | Doménové struktury služby Active Directory | Každé doménové struktuře je považován za odlišné cílový systém |
+| WORKDAY | Doménová struktura Active Directory | Každé doménové struktuře je považován za odlišné cílový systém |
 | WORKDAY | Klientovi služby Azure AD | Podle potřeby pro uživatele jenom pro cloud |
-| Doménové struktury služby Active Directory | Klientovi služby Azure AD | Tento tok se zpracovává souborem AAD Connect dnes |
+| Doménová struktura Active Directory | Klientovi služby Azure AD | Tento tok se zpracovává souborem AAD Connect dnes |
 | Klientovi služby Azure AD | WORKDAY | Pro zpětný zápis e-mailové adresy |
 
 Pro usnadnění těchto více pracovních postupů na několika zdrojové a cílové systémy, Azure AD poskytuje více zřizování konektor aplikace, které můžete přidat z galerii aplikací Azure AD:
@@ -254,7 +255,7 @@ Postupujte podle těchto pokynů ke konfiguraci zřizování z Workday pro každ
 
    * Klikněte **Test připojení** tlačítko. Pokud je test připojení úspěšný, klikněte na tlačítko **Uložit** tlačítka v horní části. Pokud se nezdaří, zkontrolujte, zda přihlašovací údaje do Workday jsou platné ve Workday. 
 
-![portál Azure](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
+![Azure Portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
 
 ### <a name="part-2-configure-attribute-mappings"></a>Část 2: Konfigurace mapování atributů 
 
@@ -311,7 +312,7 @@ V této části nakonfigurujete, jak jsou data uživatele z Workday do služby A
 
 6. Chcete-li uložit vaše mapování, klikněte na tlačítko **Uložit** v horní části mapování atributů.
 
-![portál Azure](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
+![Azure Portal](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
 
 **Tady jsou některé příklad mapování atributů mezi Workday a služby Active Directory s některé běžné výrazy**
 
@@ -328,26 +329,26 @@ V této části nakonfigurujete, jak jsou data uživatele z Workday do služby A
 |  **Okres**   |   l   |     | Vytvoření + aktualizace |
 |  **Společnosti**         | Společnosti   |     |  Vytvoření + aktualizace |
 |  **CountryReferenceTwoLetter**      |   co |     |   Vytvoření + aktualizace |
-| **CountryReferenceTwoLetter**    |  C  |     |         Vytvoření + aktualizace |
+| **CountryReferenceTwoLetter**    |  c  |     |         Vytvoření + aktualizace |
 | **SupervisoryOrganization**  | Oddělení  |     |  Vytvoření + aktualizace |
 |  **PreferredNameData**  |  displayName |     |   Vytvoření + aktualizace |
-| **Číslo zaměstnance**    |  CN    |   |   Zapisovat pouze na vytvoření |
+| **Číslo zaměstnance**    |  cn    |   |   Zapisovat pouze na vytvoření |
 | **Fax**      | facsimileTelephoneNumber     |     |    Vytvoření + aktualizace |
 | **FirstName**   | givenName       |     |    Vytvoření + aktualizace |
 | **Přepínače (\[Active\],, "0", "True", "1")** |  AccountDisabled      |     | Vytvoření + aktualizace |
 | **Mobile**  |    mobilní       |     |       Vytvoření + aktualizace |
-| **EmailAddress**    | E-mailu    |     |     Vytvoření + aktualizace |
+| **EmailAddress**    | mail    |     |     Vytvoření + aktualizace |
 | **ManagerReference**   | Správce  |     |  Vytvoření + aktualizace |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Vytvoření + aktualizace |
 | **PSČ**  |   PSČ  |     | Vytvoření + aktualizace |
 | **LocalReference** |  preferredLanguage  |     |  Vytvoření + aktualizace |
-| ** Nahradit (Mid (Nahraďte (\[EmployeeID\],, "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    Název účtu SAM            |     |         Zapisovat pouze na vytvoření |
-| **Příjmení**   |   sn   |     |  Vytvoření + aktualizace |
+| **Nahraďte (Mid (Nahraďte (\[EmployeeID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Zapisovat pouze na vytvoření |
+| **LastName**   |   sn   |     |  Vytvoření + aktualizace |
 | **CountryRegionReference** |  St     |     | Vytvoření + aktualizace |
 | **AddressLineData**    |  StreetAddress  |     |   Vytvoření + aktualizace |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Vytvoření + aktualizace |
-| **BusinessTitle**   |  Název     |     |  Vytvoření + aktualizace |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "d:",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([W])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | UserPrincipalName     |     | Vytvoření + aktualizace                                                   
+| **BusinessTitle**   |  název     |     |  Vytvoření + aktualizace |
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "d:",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([W])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Vytvoření + aktualizace                                                   
 | **Přepínače (\[okres\], "organizační jednotky standardní uživatelé, OU = Uživatelé, OU = výchozí, OU = umístění, DC = = contoso, DC = com", "Dallas", "organizační jednotky standardní uživatelé, OU = = Users, organizační jednotky Dallas, OU = umístění, DC = = contoso, DC = com", "Austinu", "organizační jednotky standardní uživatelé, OU = = oj uživatelé Austinu, OU = umístění, DC = = contoso, DC = com", "Seattle", "organizační jednotky standardní uživatelé, OU = = Users, organizační jednotky Seattle, OU = umístění, DC = = contoso, DC = com", "Praha", "organizační jednotky = standardní uživatelé Organizační jednotky Uživatelé, OU = Londýn, OU = = umístění, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Vytvoření + aktualizace |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Část 3: Konfigurace agenta synchronizace na místě
@@ -362,18 +363,18 @@ Po instalaci agenta, spusťte příkazy prostředí Powershell následující ko
 
 > CD C:\\soubory programu\\Agent synchronizace služby Active Directory Microsoft Azure\\moduly\\AADSyncAgent
 
-> Import-module AADSyncAgent.psd1
+> import-module AADSyncAgent.psd1
 
 **Příkaz #2**
 
-> Přidat ADSyncAgentActiveDirectoryConfiguration
+> Add-ADSyncAgentActiveDirectoryConfiguration
 
 * Vstup: "Název adresáře", zadejte název doménové struktury AD zadané v části \#2
 * Vstup: Jméno a heslo správce pro doménovou strukturu služby Active Directory
 
 **Příkaz #3**
 
-> Přidat ADSyncAgentAzureActiveDirectoryConfiguration
+> Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
 * Vstup: Globální jméno a heslo správce pro vašeho tenanta Azure AD
 
@@ -391,11 +392,11 @@ Po instalaci agenta, spusťte příkazy prostředí Powershell následující ko
 >
 > Povoleno: True
 >
-> DirectoryName: mydomain.contoso.com
+> DirectoryName : mydomain.contoso.com
 >
 > Credentialed: False
 >
-> Identifikátor: WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
+> Identifier    : WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
 
 **Příkaz #5**
 
@@ -430,7 +431,7 @@ Pokud klienta služby Azure Active Directory se nachází v jedné z datových c
 
 [Protokolu událostí systému Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) v systému Windows Server obsahuje počítače, který je hostitelem agenta události pro všechny operace prováděné tímto agentem. Pokud chcete zobrazit tyto události:
     
-1. Otevřete **Eventvwr.msc**.
+1. Open **Eventvwr.msc**.
 2. Vyberte **protokoly systému Windows > aplikace**.
 3. Zobrazit všechny události zaznamenané v části zdroj **AADSyncAgent**. 
 4. Zkontrolujte chyby a upozornění.
@@ -456,7 +457,7 @@ Jakmile částí 1 – 3 byly dokončeny, můžete spustit službu zřizování 
 
 6. Byla dokončena, bude zapisovat souhrnné zprávy o auditu **zřizování** kartě, jak je uvedeno níže.
 
-![portál Azure](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
+![Azure Portal](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
 
 ## <a name="configuring-user-provisioning-to-azure-active-directory"></a>Konfiguraci zřizování uživatelů do Azure Active Directory
@@ -643,11 +644,11 @@ Jakmile částí 1 – 2 byly dokončeny, můžete spustit službu zřizování.
 
 * Předchozí problém s protokoly auditu nejsou uvedena v klienty Azure AD, které jsou umístěné v Evropské unie byl vyřešen. Konfigurace dalších agenta je však nutná pro klienty Azure AD v EU. Podrobnosti najdete v tématu [část 3: Konfigurace agenta synchronizace na místě](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 * [Kurz: Konfigurace jednotného přihlašování mezi Workday a Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Zjistěte, jak získat sestavy o zřizování aktivity a zkontrolujte protokoly](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

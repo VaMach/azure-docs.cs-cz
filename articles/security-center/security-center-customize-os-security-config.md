@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Přizpůsobení operačního systému konfigurace zabezpečení v Azure Security Center (Preview)
 
@@ -26,7 +26,7 @@ Tento návod ukazuje, jak přizpůsobit hodnocení konfigurace zabezpečení ope
 
 ## <a name="what-are-os-security-configurations"></a>Jaké jsou konfigurace zabezpečení operačního systému?
 
-Konfigurace zabezpečení Azure Security Center monitorování pomocí sady pravidel více než 150 doporučené pro posílení zabezpečení operačního systému, včetně pravidla týkající se brány firewall, auditování, zásady pro hesla a další. Pokud je počítač je zjištěn ohrožené konfigurace, Security Center generuje doporučení zabezpečení.
+Azure Security Center sledovat konfigurace zabezpečení použitím sadu [více než 150 doporučená pravidla](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pro posílení zabezpečení operačního systému, včetně pravidel souvisejících s brány firewall, auditování, zásady pro hesla a další. Pokud je počítač je zjištěn ohrožené konfigurace, Security Center generuje doporučení zabezpečení.
 
 Přizpůsobením pravidla můžete řídit organizace, které možnosti konfigurace jsou pro jejich prostředí vhodnější. Můžete nastavit zásady, přizpůsobené hodnocení a následně použít na všech příslušných počítačích v rámci předplatného.
 
@@ -60,8 +60,8 @@ Chcete-li přizpůsobit výchozí konfigurace zabezpečení operačního systém
 3.  Vyberte předplatné, se kterou chcete provést vlastní nastavení pro.
 
 4. V části **součásti zásad**, vyberte **upravit konfigurace zabezpečení**.  
-    **Upravit konfigurace zabezpečení** otevře se okno. 
-    
+    **Upravit konfigurace zabezpečení** otevře se okno.
+
     ![Okna "Upravit konfigurace zabezpečení"](media/security-center-customize-os-security-config/blade.png)
 
 5. V pravém podokně postupujte podle kroků pro stahování, úpravy a nahráváte upravený soubor.
@@ -70,7 +70,7 @@ Chcete-li přizpůsobit výchozí konfigurace zabezpečení operačního systém
    > Ve výchozím nastavení, je konfigurační soubor, který stáhnete v *json* formátu. Pokyny týkající se tento soubor upravovali, přejděte na [přizpůsobení konfiguračního souboru](#customize-the-configuration-file).
    >
 
-   Po uložení souboru úspěšně, konfigurace platí pro všechny virtuální počítače a počítače, které jsou připojené k všechny pracovní prostory v rámci předplatného. Proces obvykle trvá několik minut, ale může trvat déle, v závislosti na velikosti infrastruktury. 
+   Po uložení souboru úspěšně, konfigurace platí pro všechny virtuální počítače a počítače, které jsou připojené k všechny pracovní prostory v rámci předplatného. Proces obvykle trvá několik minut, ale může trvat déle, v závislosti na velikosti infrastruktury.
 
 6. Potvrzení změn, vyberte **Uložit**. Zásady, jinak se neuloží.
 

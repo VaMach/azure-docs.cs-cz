@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: be3fe7199308606aaab002290319df9c82149433
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Přizpůsobení uživatelského rozhraní (UI) Azure AD B2C
 
@@ -38,7 +38,7 @@ Tento článek obsahuje následující témata:
 
 ## <a name="the-page-ui-customization-feature"></a>Přizpůsobení funkce uživatelského rozhraní stránky
 
-Můžete přizpůsobit vzhled a chování registrace a přihlášení se heslo zákazníka resetování a úpravy profilu stránky (nakonfigurováním [zásady](active-directory-b2c-reference-policies.md)). Vaši zákazníci získat integrované prostředí při přechodu mezi vaší aplikace a stránky obsluhuje Azure AD B2C.
+Můžete přizpůsobit vzhled a chování zákazníků registrace, přihlášení (viz výše Poznámka pro výjimky související s branding), resetování hesla a úpravy profilu stránky (nakonfigurováním [zásady](active-directory-b2c-reference-policies.md)). Vaši zákazníci získat integrované prostředí při přechodu mezi vaší aplikace a stránky obsluhuje Azure AD B2C.
 
 Na rozdíl od jiných služeb, kde možnosti uživatelského rozhraní, Azure AD B2C používá jednoduché a moderní přístupu k přizpůsobení uživatelského rozhraní.
 
