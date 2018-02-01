@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-new-storage-account"></a>Vytvoření nového účtu úložiště
+# <a name="create-a-storage-account"></a>vytvořit účet úložiště
 
 Účet úložiště Azure Storage poskytuje jedinečný obor názvů v cloudu pro ukládání datových objektů ve službě Azure Storage a přístup k nim. Účet úložiště obsahuje všechny objekty blob, soubory, fronty, tabulky a disky, které pod tímto účtem vytvoříte. 
 
@@ -120,7 +120,7 @@ $location = "westus"
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pokud chcete vytvořit novou skupinu prostředků pomocí rozhraní příkazového řádku Azure, použijte příkaz [az group create](/cli/azure/group#create). 
+Pokud chcete vytvořit novou skupinu prostředků pomocí rozhraní příkazového řádku Azure, použijte příkaz [az group create](/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive
 az group create \
@@ -128,7 +128,7 @@ az group create \
     --location westus
 ```
 
-Pokud si nejste jisti, jakou oblast máte zadat v parametru `--location`, můžete pomocí příkazu [az account list-locations](/cli/azure/account#list) načíst seznam podporovaných oblastí pro vaše předplatné.
+Pokud si nejste jisti, jakou oblast máte zadat v parametru `--location`, můžete pomocí příkazu [az account list-locations](/cli/azure/account#az_account_list) načíst seznam podporovaných oblastí pro vaše předplatné.
 
 ```azurecli-interactive
 az account list-locations \
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>Vytvoření účtu úložiště pro obecné účely
+## <a name="create-a-general-purpose-storage-account"></a>Vytvoření účtu úložiště pro obecné účely
 
-Účet úložiště pro obecné účely poskytuje přístup ke všem službám Azure Storage: objektům blob, souborům, frontám a tabulkám. Účet úložiště pro obecné účely je možné vytvořit s úrovní Standard nebo Premium. Příklady v tomto článku ukazují, jak vytvořit účet úložiště pro obecné účely v úrovni Standard (výchozí). Další informace o možnostech účtu úložiště najdete v tématu [Úvod do služby Microsoft Azure Storage](storage-introduction.md).
+Účet úložiště pro obecné účely poskytuje přístup ke všem službám Azure Storage: objektům blob, souborům, frontám a tabulkám. Účet úložiště pro obecné účely je možné vytvořit s úrovní Standard nebo Premium. Příklady v tomto článku ukazují, jak vytvořit účet úložiště pro obecné účely v úrovni Standard (výchozí).
+
+Úložiště Azure nabízí dva typy účtů úložiště pro obecné účely:
+
+- Účty úložiště pro obecné účely verze 2 
+- Účty úložiště pro obecné účely verze 1 
+
+> [!NOTE]
+> Doporučuje se vytvářet nové účty úložiště jako **účty pro obecné účely verze 2**, abyste mohli využívat novější funkce, které jsou pro tyto účty k dispozici.  
+
+Další informace o typech účtů úložiště najdete v článku [Možnosti účtu Azure Storage](storage-account-options.md).
 
 Při pojmenování účtu úložiště mějte na paměti tato pravidla:
 
@@ -149,43 +159,72 @@ Při pojmenování účtu úložiště mějte na paměti tato pravidla:
 
 # <a name="portaltabportal"></a>[Azure Portal](#tab/portal)
 
-Pokud chcete vytvořit účet úložiště pro obecné účely s využitím webu Azure Portal, postupujte takto:
+Pokud chcete vytvořit účet úložiště pro obecné účely verze 2 na webu Azure Portal, postupujte takto:
 
 1. Na webu Azure Portal rozbalením nabídky na levé straně otevřete nabídku služeb a zvolte **Další služby**. Potom přejděte dolů do části **Úložiště** a zvolte **Účty úložiště**. V okně **Účty úložiště**, které se zobrazí, zvolte **Přidat**.
 2. Zadejte název účtu úložiště.
-3. V následujících polích ponechte výchozí nastavení: **Model nasazení**, **Druh účtu**, **Výkon**, **Replikace** a **Vyžadovat zabezpečený přenos**.
-4. Vyberte předplatné, ve kterém chcete vytvořit účet úložiště.
-5. V části **Skupina prostředků** vyberte **Použít stávající** a potom zvolte skupinu prostředků, kterou jste vytvořili v předchozí části.
-6. Vyberte umístění pro váš nový účet úložiště.
-7. Vytvořte účet úložiště kliknutím na **Vytvořit**.      
+3. V poli **Druh účtu** nastavte hodnotu **StorageV2 (v2 pro obecné účely)**.
+4. V poli **Replikace** nechte nastavenou hodnotu **Místně redundantní úložiště (LRS)**. Alternativně můžete zvolit **Zónově redundantní úložiště (ZRS Preview)**, **Geograficky redundantní úložiště (GRS)** nebo **Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)**.
+5. V následujících polích ponechte výchozí nastavení: **Model nasazení**, **Výkon** a **Vyžadovat zabezpečený přenos**.
+6. Vyberte předplatné, ve kterém chcete vytvořit účet úložiště.
+7. V části **Skupina prostředků** vyberte **Použít stávající** a potom zvolte skupinu prostředků, kterou jste vytvořili v předchozí části.
+8. Vyberte umístění pro váš nový účet úložiště.
+9. Vytvořte účet úložiště kliknutím na **Vytvořit**.      
 
 ![Snímek obrazovky znázorňující vytvoření účtu úložiště na webu Azure Portal](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Pokud chcete vytvořit účet úložiště pro obecné účely s využitím PowerShellu, použijte příkaz [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Pokud chcete vytvořit účet úložiště pro obecné účely verze 2 pomocí PowerShellu s využitím místně redundantního úložiště (LRS), použijte příkaz [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+Pokud chcete vytvořit účet úložiště pro obecné účely verze 2 s využitím zónově redundantního úložiště (ZRS Preview), geograficky redundantního úložiště (GRS) nebo geograficky redundantního úložiště s přístupem pro čtení (RA-GRS), nahraďte v následující tabulce parametr **SkuName** požadovanou hodnotou. 
+
+|Možnost replikace  |Parametr SkuName  |
+|---------|---------|
+|Místně redundantní úložiště (LRS)     |Standard_LRS         |
+|Zónově redundantní úložiště (ZRS)     |Standard_ZRS         |
+|Geograficky redundantní úložiště (GRS)     |Standard_GRS         |
+|Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pokud chcete vytvořit účet úložiště pro obecné účely s využitím rozhraní příkazového řádku Azure, použijte příkaz [az storage account create](/cli/azure/storage/account#create).
+Pokud chcete vytvořit účet úložiště pro obecné účely verze 2 s využitím rozhraní příkazového řádku Azure a místně redundantního úložiště, použijte příkaz [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+Pokud chcete vytvořit účet úložiště pro obecné účely verze 2 s využitím zónově redundantního úložiště (ZRS Preview), geograficky redundantního úložiště (GRS) nebo geograficky redundantního úložiště s přístupem pro čtení (RA-GRS), nahraďte v následující tabulce parametr **sku** požadovanou hodnotou. 
+
+|Možnost replikace  |Parametr sku  |
+|---------|---------|
+|Místně redundantní úložiště (LRS)     |Standard_LRS         |
+|Zónově redundantní úložiště (ZRS)     |Standard_ZRS         |
+|Geograficky redundantní úložiště (GRS)     |Standard_GRS         |
+|Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> [Zónově redundantní úložiště](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) je aktuálně ve verzi preview a je k dispozici pouze v následujících umístěních:
+>    - USA – východ 2
+>    - USA – střed
+>    - Francie – střed (Tato oblast je aktuálně ve verzi preview. Pokud chcete požádat o přístup, najdete informace v článku o tom, že [ve Francii je nyní k dispozici Microsoft Azure ve verzi preview se zónami dostupnosti Azure](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france).)
+    
+Další informace o různých typech replikace, které jsou k dispozici, najdete v článku [Možnosti replikace úložiště](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
@@ -209,7 +248,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pokud chcete odebrat skupinu prostředků a její přidružené prostředky, včetně nového účtu úložiště, použijte příkaz [az group delete](/cli/azure/group#delete).
+Pokud chcete odebrat skupinu prostředků a její přidružené prostředky, včetně nového účtu úložiště, použijte příkaz [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

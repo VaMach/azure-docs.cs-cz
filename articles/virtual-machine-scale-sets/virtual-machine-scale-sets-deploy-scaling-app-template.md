@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 201b752c2a79362f2e049d2e0f0b953d77aaedfe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Vytvoření škálovací sady virtuálních počítačů pomocí Azure CLI 2.0
 Škálovací sada virtuálních počítačů umožňuje nasadit a spravovat sadu identických virtuálních počítačů s automatickým škálováním. Všechny virtuální počítače ve škálovací sadě můžete škálovat ručně nebo můžete definovat pravidla pro automatické škálování podle využití prostředků, například podle požadavků na CPU a paměť nebo podle provozu. V tomto úvodním článku vytvoříte škálovací sadu virtuálních počítačů pomocí šablony Azure Resource Manageru. Škálovací sadu můžete vytvořit také pomocí [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShellu](virtual-machine-scale-sets-create-powershell.md) nebo webu [Azure Portal](virtual-machine-scale-sets-create-portal.md).
@@ -175,7 +175,7 @@ az group deployment create \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-Pokud chcete vidět svou aplikaci v akci, získejte veřejnou IP adresu nástroje pro vyrovnávání zatížení pomocí příkazu [az network public-ip list](/cli/azure/network/public-ip#show), jak je znázorněno níže:
+Pokud chcete vidět svou aplikaci v akci, získejte veřejnou IP adresu nástroje pro vyrovnávání zatížení pomocí příkazu [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show), jak je znázorněno níže:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -213,7 +213,7 @@ Zadejte veřejnou IP adresu nástroje pro vyrovnávání zatížení do webovéh
 
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
-Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, škálovací sady a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete), jak je znázorněno níže:
+Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, škálovací sady a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#az_group_delete), jak je znázorněno níže:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

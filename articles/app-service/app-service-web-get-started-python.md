@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 34e26e9dfdf53536c21023b9519209c474253b25
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Vytvoření webové aplikace v Pythonu v Azure
 
@@ -29,14 +29,14 @@ ms.lasthandoff: 11/22/2017
 
 Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
 * <a href="https://git-scm.com/" target="_blank">Nainstalovat Git</a>.
 * <a href="https://www.python.org/downloads/" target="_blank">Nainstalovat Python</a>.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Stažení ukázky
 
@@ -148,7 +148,7 @@ http://<app_name>.azurewebsites.net
 
 Ukázkový kód Pythonu je spuštěný ve webové aplikaci služby Azure App Service.
 
-![Ukázková aplikace spuštěná v Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![Ukázková aplikace spuštěná ve službě Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 **Blahopřejeme!** Nasadili jste svoji první aplikaci v Pythonu do služby App Service.
 

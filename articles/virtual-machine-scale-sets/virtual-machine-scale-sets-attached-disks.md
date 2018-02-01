@@ -1,5 +1,5 @@
 ---
-title: "Škálovací sady virtuálních počítačů Azure – připojené datové disky | Microsoft Docs"
+title: "Škálovací sady virtuálních počítačů Azure – připojené datové disky | Dokumentace Microsoftu"
 description: "Naučte se používat připojené datové disky se škálovacími sadami virtuálních počítačů."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Škálovací sady virtuálních počítačů Azure a připojené datové disky
 [Škálovací sady virtuálních počítačů](/azure/virtual-machine-scale-sets/) Azure teď podporují virtuální počítače s připojenými datovými disky. Datové disky můžete definovat v profilu úložiště pro škálovací sady vytvořené pomocí služby Azure Managed Disks. Dříve byly u virtuálních počítačů ve škálovacích sadách jedinou dostupnou možností přímo připojeného úložiště jednotka operačního systému a dočasné jednotky.
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/20/2017
 >  Když vytvoříte škálovací sadu s definovanými připojenými datovými disky, před jejich použitím stále musíte disky připojit a naformátovat na virtuálním počítači (stejně jako u samostatných virtuálních počítačů Azure). Praktický způsob, jak to provést, je použít rozšíření v podobě vlastního skriptu, které volá standardní skript, který všechny datové disky virtuálního počítače rozdělí do oddílů a naformátuje je.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Vytvoření škálovací sady s připojenými datovými disky
-Jednoduchý způsob, jak vytvořit škálovací sadu s připojenými disky, je použít příkaz [az vmss create](/cli/azure/vmss#create). Následující příklad vytvoří skupinu prostředků Azure a škálovací sadu virtuálních počítačů s 10 virtuálními počítači s Ubuntu, z nichž každý bude mít 2 připojené datové disky o velikosti 50 a 100 GB.
+Jednoduchý způsob, jak vytvořit škálovací sadu s připojenými disky, je použít příkaz [az vmss create](/cli/azure/vmss#az_vmss_create). Následující příklad vytvoří skupinu prostředků Azure a škálovací sadu virtuálních počítačů s 10 virtuálními počítači s Ubuntu, z nichž každý bude mít 2 připojené datové disky o velikosti 50 a 100 GB.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Příkaz [az vmss create](/cli/azure/vmss#create) použije určité výchozí konfigurační hodnoty, pokud nezadáte jiné. Pokud chcete zobrazit dostupné možnosti, které můžete přepsat, vyzkoušejte:
+Příkaz [az vmss create](/cli/azure/vmss#az_vmss_create) použije určité výchozí konfigurační hodnoty, pokud nezadáte jiné. Pokud chcete zobrazit dostupné možnosti, které můžete přepsat, vyzkoušejte:
 
 ```bash
 az vmss create --help

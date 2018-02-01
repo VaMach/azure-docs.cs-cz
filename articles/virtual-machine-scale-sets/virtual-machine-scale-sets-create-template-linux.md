@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Vytvoření škálovací sady virtuálních počítačů s Linuxem pomocí šablony Azure
 Škálovací sada virtuálních počítačů umožňuje nasadit a spravovat sadu identických virtuálních počítačů s automatickým škálováním. Všechny virtuální počítače ve škálovací sadě můžete škálovat ručně nebo můžete definovat pravidla pro automatické škálování podle využití prostředků, například podle požadavků na CPU a paměť nebo podle provozu. V tomto článku Rychlý start vytvoříte škálovací sadu virtuálních počítačů s Linuxem pomocí šablony Azure Resource Manageru. Škálovací sadu můžete vytvořit také pomocí [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShellu](virtual-machine-scale-sets-create-powershell.md) nebo webu [Azure Portal](virtual-machine-scale-sets-create-portal.md).
@@ -135,7 +135,7 @@ Tyto dva skripty jsou definované ve vlastnosti **fileUris** - *installserver.sh
 
 [![Nasazení šablony do Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-K instalaci HTTP serveru s Pythonem v Linuxu můžete použít také Azure CLI 2.0 s příkazem [az group deployment create](/cli/azure/group/deployment#create), jak je znázorněno níže:
+K instalaci HTTP serveru s Pythonem v Linuxu můžete použít také Azure CLI 2.0 s příkazem [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create), jak je znázorněno níže:
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ Do zobrazených výzev zadejte název škálovací sady, počet instancí a při
 
 
 ## <a name="test-your-sample-application"></a>Otestování ukázkové aplikace
-Pokud chcete vidět svou aplikaci v akci, získejte veřejnou IP adresu nástroje pro vyrovnávání zatížení pomocí příkazu [az network public-ip list](/cli/azure/network/public-ip#show), jak je znázorněno níže:
+Pokud chcete vidět svou aplikaci v akci, získejte veřejnou IP adresu nástroje pro vyrovnávání zatížení pomocí příkazu [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show), jak je znázorněno níže:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ Zadejte veřejnou IP adresu nástroje pro vyrovnávání zatížení do webovéh
 
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
-Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, škálovací sady a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete), jak je znázorněno níže:
+Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, škálovací sady a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#az_group_delete), jak je znázorněno níže:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

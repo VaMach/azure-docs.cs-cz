@@ -36,8 +36,8 @@ Správce spolehlivé stavu má integrovanou serializátor pro následující typ
 - Guid
 - BOOL
 - byte
-- SByte –
-- Byte]
+- SByte
+- Byte
 - Char
 - řetězec
 - Decimal
@@ -46,9 +46,9 @@ Správce spolehlivé stavu má integrovanou serializátor pro následující typ
 - celá čísla
 - uint
 - dlouhá
-- ulong –
+- ulong
 - krátký
-- ushort –
+- ushort
 
 ## <a name="custom-serialization"></a>Vlastní serializace
 

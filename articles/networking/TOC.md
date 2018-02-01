@@ -24,7 +24,7 @@
 ### [Místní připojení k síti vyhrazené síti](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Začínáme
-## [Vytvoření první virtuální sítě](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Vytvoření první virtuální sítě](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Postup
 ## Připojení k internetu
@@ -63,7 +63,7 @@
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Tvorba šablon](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Komunitní šablony](https://azure.microsoft.com/resources/templates/)

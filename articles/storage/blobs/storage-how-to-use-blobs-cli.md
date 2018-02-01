@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Provádění operací s úložištěm objektů blob pomocí rozhraní příkazového řádku Azure
 
@@ -44,7 +44,7 @@ Tento kurz vyžaduje Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spu�
 
 Kontejnery jsou podobná adresářům ve vašem počítači. Skupiny objektů blob je v kontejneru možné uspořádat stejným způsobem jako soubory v adresáři. Účet úložiště může mít libovolný počet kontejnerů. V kontejneru můžete uložit až 500 TB dat objektů blob. To je maximální objem dat v účtu úložiště.
 
-K vytvoření kontejneru pro ukládání objektů blob použijte příkaz [az storage container create](/cli/azure/storage/container#create).
+K vytvoření kontejneru pro ukládání objektů blob použijte příkaz [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ Nově vytvořený kontejner je ve výchozím nastavení privátní. To znamená,
 
 Pokud pro `blob` nebo `container` nastavíte veřejný přístup, povolíte tak komukoli v internetu přístup jen pro čtení. Pokud například chcete zobrazit obrázky uložené jako objekty blob na vašem webu, musíte povolit veřejné oprávnění ke čtení. Pokud chcete povolit přístup pro čtení a zápis, musíte místo toho použít [sdílený přístupový podpis (SAS)](#create-a-shared-access-signature-sas).
 
-K povolení veřejného oprávnění ke čtení pro váš kontejner použijte příkaz [az storage container set-permission](/cli/azure/storage/container#create).
+K povolení veřejného oprávnění ke čtení pro váš kontejner použijte příkaz [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Úložiště objektů blob podporuje objekty blob bloku, doplňovací objekty blob a objekty blob stránky. Objekty blob bloku jsou nejběžnějším typem objektů blob uložených ve službě Azure Storage. Doplňovací objekty blob se používají, když je k existujícímu objektu blob potřeba přidat data a neměnit přitom jeho stávající obsah, například pro účely protokolování. Objekty blob stránky zálohují soubory virtuálního pevného disku virtuálních počítačů IaaS.
 
-V tomto příkladu jsme odeslali objekt blob do kontejneru, který jsme vytvořili v předchozím kroku, a to pomocí příkazu [az storage blob upload](/cli/azure/storage/blob#upload).
+V tomto příkladu jsme odeslali objekt blob do kontejneru, který jsme vytvořili v předchozím kroku, a to pomocí příkazu [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ Tato operace vytvoří objekt blob, pokud ještě neexistuje, a přepíše ho, p
 
 ## <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 
-Pomocí příkazu [az storage blob list](/cli/azure/storage/blob#list) zobrazte seznam objektů blob v kontejneru.
+Pomocí příkazu [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) zobrazte seznam objektů blob v kontejneru.
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Stažení objektu blob
 
-Ke stažení objektu blob, který jste odeslali v předchozím kroku, použijte příkaz [az storage blob download](/cli/azure/storage/blob#download).
+Ke stažení objektu blob, který jste odeslali v předchozím kroku, použijte příkaz [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download).
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Odstranění objektu blob
 
-K odstranění objektu blob z kontejneru použijte příkaz [az storage blob delete](/cli/azure/storage/blob#delete).
+K odstranění objektu blob z kontejneru použijte příkaz [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete).
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Zobrazení a úprava metadat a vlastností objektu blob
 
-Každý objekt blob má několik vlastností definovaných službami, které můžete zobrazit pomocí příkazu [az storage blob show](/cli/azure/storage/blob#show), včetně názvu, typu, délky a dalších nastavení. Objekt blob můžete také nakonfigurovat vlastními vlastnostmi a jejich hodnotami pomocí příkazu [az storage blob metadata update](/cli/azure/storage/blob/metadata#update).
+Každý objekt blob má několik vlastností definovaných službami, které můžete zobrazit pomocí příkazu [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show), včetně názvu, typu, délky a dalších nastavení. Objekt blob můžete také nakonfigurovat vlastními vlastnostmi a jejich hodnotami pomocí příkazu [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update).
 
-V tomto příkladu nejdřív zobrazíme vlastnosti objektu blob definované službami a potom budeme tento objekt blob aktualizovat pomocí dvou vlastních vlastností metadat. Nakonec zobrazíme vlastnosti metadat objektu blob a jejich hodnoty pomocí příkazu [az storage blob metadata show](/cli/azure/storage/blob/metadata#show).
+V tomto příkladu nejdřív zobrazíme vlastnosti objektu blob definované službami a potom budeme tento objekt blob aktualizovat pomocí dvou vlastních vlastností metadat. Nakonec zobrazíme vlastnosti metadat objektu blob a jejich hodnoty pomocí příkazu [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show).
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>Ověření privátního přístupu
 
-Pokud chcete ověřit, že pro objekty blob v tomto kontejneru neexistuje žádné veřejné oprávnění ke čtení, získejte adresu URL jednoho z objektů blob v tomto kontejneru pomocí příkazu [az storage blob url](/cli/azure/storage/blob#url).
+Pokud chcete ověřit, že pro objekty blob v tomto kontejneru neexistuje žádné veřejné oprávnění ke čtení, získejte adresu URL jednoho z objektů blob v tomto kontejneru pomocí příkazu [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url).
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ V privátním okně prohlížeče přejděte na adresu URL objektu blob. Zobraz�
 
 ### <a name="create-a-sas-uri"></a>Vytvoření URI SAS
 
-Nyní vytvoříme identifikátor URI SAS, který k tomuto objektu blob umožňuje přístup. V následujícím příkladu nejdřív naplníme proměnnou s adresou URL pro tento objekt blob pomocí příkazu [az storage blob url](/cli/azure/storage/blob#url) a potom další proměnnou naplníme tokenem SAS vygenerovaným pomocí příkazu [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas). Nakonec odešleme výstup v podobě úplného identifikátoru URI SAS pro objekt blob zřetězením těchto dvou proměnných, které oddělí oddělovač řetězce dotazu `?`.
+Nyní vytvoříme identifikátor URI SAS, který k tomuto objektu blob umožňuje přístup. V následujícím příkladu nejdřív naplníme proměnnou s adresou URL pro tento objekt blob pomocí příkazu [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url) a potom další proměnnou naplníme tokenem SAS vygenerovaným pomocí příkazu [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas). Nakonec odešleme výstup v podobě úplného identifikátoru URI SAS pro objekt blob zřetězením těchto dvou proměnných, které oddělí oddělovač řetězce dotazu `?`.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ Počkejte dostatečně dlouho, aby platnost adresy URL vypršela (v tomto přík
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud již ze skupiny prostředků nepotřebujete žádné prostředky, včetně účtu úložiště, který jste vytvořili, a všech objektů blob, které jste v tomto kurzu odeslali, odstraňte ji pomocí příkazu [az group delete](/cli/azure/group#delete) příkaz.
+Pokud již ze skupiny prostředků nepotřebujete žádné prostředky, včetně účtu úložiště, který jste vytvořili, a všech objektů blob, které jste v tomto kurzu odeslali, odstraňte ji pomocí příkazu [az group delete](/cli/azure/group#az_group_delete) příkaz.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

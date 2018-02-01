@@ -880,7 +880,7 @@ private async System.Threading.Tasks.Task Authenticate()
 
 Pokud používáte zprostředkovatele identity než Facebook, změňte hodnotu [MobileServiceAuthenticationProvider] na hodnotu pro poskytovatele.
 
-V toku server Azure App Service spravuje tok ověřování OAuth zobrazením přihlašovací stránky vybraného zprostředkovatele.  Jakmile se identity vrátí zprostředkovatele služby Azure App Service generuje ověřovací token služby App Service. [LoginAsync] metoda vrátí [MobileServiceUser], který poskytuje i [UserId] ověřeného uživatele a [MobileServiceAuthenticationToken], jako webového tokenu JSON (JWT). Tento token se může uložit do mezipaměti a znovu požívat do vypršení platnosti. Další informace najdete v tématu [ukládání do mezipaměti ověřovací token](#caching).
+V toku server Azure App Service spravuje tok ověřování OAuth zobrazením přihlašovací stránky vybraného zprostředkovatele.  Jakmile se identity vrátí zprostředkovatele služby Azure App Service generuje ověřovací token služby App Service. UserId[LoginAsync] metoda vrátí [MobileServiceUser], který poskytuje i [UserId] ověřeného uživatele a [MobileServiceAuthenticationToken], jako webového tokenu JSON (JWT). Tento token se může uložit do mezipaměti a znovu požívat do vypršení platnosti. Další informace najdete v tématu [ukládání do mezipaměti ověřovací token](#caching).
 
 ### <a name="caching"></a>Ukládání do mezipaměti ověřovací token
 V některých případech volání metody přihlášení můžete zabránit po prvním úspěšném ověření ukládání ověřovací token od zprostředkovatele.  Aplikace Windows Store a UWP můžete použít [PasswordVault] pro ukládání do mezipaměti aktuální ověřovací token po úspěšného přihlášení, následujícím způsobem:
@@ -1119,7 +1119,7 @@ public class MyHandler : DelegatingHandler
 [vyberte]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
 [přeskočit]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
 [metod UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
-[ID uživatele]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[UserId]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Kde]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [portál Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx

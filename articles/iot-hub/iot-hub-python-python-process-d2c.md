@@ -114,7 +114,7 @@ V této části upravíte zařízení aplikaci, kterou jste vytvořili v [Začí
 
 ## <a name="add-queues-to-your-iot-hub-and-route-messages-to-them"></a>Přidejte do IoT hub a směrování zpráv do těchto front
 
-V této části Vytvoření fronty Service Bus a účet úložiště, je připojení do služby IoT hub a konfigurace služby IoT hub odesílat zprávy do fronty na základě přítomnosti vlastnosti zprávy a všechny zprávy k účtu úložiště. Další informace o tom, jak zpracování zpráv z fronty služby Service Bus najdete v tématu [začít pracovat s fronty] [ lnk-sb-queues-node] a jak spravovat úložiště, najdete v článku [Začínáme s Azure Storage] [Úložiště azure].
+V této části Vytvoření fronty Service Bus a účet úložiště, je připojení do služby IoT hub a konfigurace služby IoT hub odesílat zprávy do fronty na základě přítomnosti vlastnosti zprávy a všechny zprávy k účtu úložiště. Další informace o tom, jak zpracování zpráv z fronty služby Service Bus najdete v tématu [začít pracovat s fronty] [ lnk-sb-queues-node] a jak spravovat úložiště, najdete v článku [Začínáme s Azure Storage][Azure Storage].
 
 1. Vytvoření fronty Service Bus, jak je popsáno v [začít pracovat s fronty][lnk-sb-queues-node]. Poznamenejte si název oboru názvů a fronty.
 

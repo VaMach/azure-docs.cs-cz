@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4114093802d7e56eaeb64c0998d3fc675d9baa87
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Nastavení instančního objektu služby Azure AD pro cluster Kubernetes ve službě Container Service
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/06/2017
 Cluster Kubernetes vyžaduje v Azure Container Service [instanční objekt služby Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) pro interakci s rozhraními API Azure. Instanční objekt je potřeba k dynamické správě prostředků, jako jsou například [uživatelem definované trasy](../../virtual-network/virtual-networks-udr-overview.md) a [vrstva 4 služby Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-Tento článek ukazuje různé možnosti nastavení instančního objektu pro cluster Kubernetes. Pokud jste například nainstalovali a nastavili [Azure CLI 2.0](/cli/azure/install-az-cli2), můžete spustit příkaz [`az acs create`](/cli/azure/acs#create) a vytvořit současně cluster Kubernetes i instanční objekt.
+Tento článek ukazuje různé možnosti nastavení instančního objektu pro cluster Kubernetes. Pokud jste například nainstalovali a nastavili [Azure CLI 2.0](/cli/azure/install-az-cli2), můžete spustit příkaz [`az acs create`](/cli/azure/acs#az_acs_create) a vytvořit současně cluster Kubernetes i instanční objekt.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Požadavky pro instanční objekt
@@ -95,7 +95,7 @@ Následující příklad ukazuje jeden ze způsobů předání parametrů pomoc�
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Možnost 2: Vygenerování instančního objektu při vytváření clusteru pomocí příkazu `az acs create`
 
-Pokud vytváříte cluster Kubernetes spuštěním příkazu [`az acs create`](/cli/azure/acs#create), máte možnost instanční objekt vygenerovat automaticky.
+Pokud vytváříte cluster Kubernetes spuštěním příkazu [`az acs create`](/cli/azure/acs#az_acs_create), máte možnost instanční objekt vygenerovat automaticky.
 
 Stejně jako u ostatních možností vytvoření clusteru Kubernetes můžete při spuštění příkazu `az acs create` určit parametry pro existující instanční objekt. Pokud však tyto parametry vynecháte, Azure CLI automaticky vytvoří instanční objekt pro použití se službou Container Service. Tato akce se provede transparentně během nasazení.
 

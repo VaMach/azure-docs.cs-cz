@@ -159,8 +159,6 @@
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Diagnostika reverzního proxy serveru
               href: service-fabric-reverse-proxy-diagnostics.md
-            - name: Jádro ASP.NET
-              href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: Životní cyklus aplikace
           href: service-fabric-application-lifecycle.md
           items:
@@ -388,8 +386,8 @@
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
         - name: Konfigurace reverzního proxy serveru pro zabezpečenou komunikaci
           href: service-fabric-reverseproxy-configure-secure-communication.md
-        - name: Sestavení služby ASP.NET Core
-          href: service-fabric-add-a-web-frontend.md
+        - name: Jádro ASP.NET
+          href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: Konfigurace zabezpečení
           items:
             - name: Správa tajných klíčů aplikací
