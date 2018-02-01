@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Účet replikace Azure Storage
 
@@ -46,20 +46,11 @@ V tématu [Azure Storage – ceny](https://azure.microsoft.com/pricing/details/s
 > Premium Storage podporuje pouze místně redundantní úložiště (LRS). Informace o Premium Storage najdete v tématu [úložiště Premium: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../../virtual-machines/windows/premium-storage.md).
 >
 
-## <a name="locally-redundant-storage"></a>Místně redundantní úložiště
+## <a name="locally-redundant-storage"></a>(Locally redundant storage) Místně redundantní úložiště
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
-## <a name="zone-redundant-storage"></a>Zónově redundantní úložiště
-
-Zónově redundantní úložiště (ZRS) (Preview) je navržená ke zjednodušení vývoj aplikace s vysokou dostupností. ZRS poskytuje odolnost pro úložiště objektů alespoň % 99.9999999999 (12 na 9) během daného roku. ZRS synchronně replikuje data napříč několika zón dostupnosti. Zvažte ZRS pro scénáře, jako je transakčních aplikací, kde výpadek není platný.
-
-ZRS umožňuje zákazníkům čtení a zápis dat i v případě jedné oblasti není k dispozici nebo neopravitelné. Vložení a aktualizace dat probíhají synchronně a důrazně konzistentní.   
-
-ZRS je aktuálně dostupné pro náhled v následujících oblastech, s další oblasti již brzy:
-
-- USA – východ 2 
-- USA – střed 
-- Francie centrální (této oblasti je aktuálně ve verzi preview. V tématu [Microsoft Azure preview s zón dostupnosti Azure nyní otevřít v Francie](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) chcete požádat o přístup.)
+## <a name="zone-redundant-storage"></a>Redundantní úložiště zóny
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>ZRS klasické účty
 

@@ -31,10 +31,10 @@ Instance NCv2 jsou nové generace počítačů NC-series, používá technologii
 
 | Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | GPU | Maximální počet datových disků |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6_v2 |6 |112 | 336 | 1 | 12 |
-| Standard_NC12_v2 |12 |224 | 672 | 2 | 24 |
-| Standard_NC24_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24r_v2 * |24 |1448 | 1344 | 4 | 32 |
+| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 |
+| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
+| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
+| Standard_NC24rs_v2* |24 |1448 | 1344 | 4 | 32 |
 
 Grafický procesor 1 = P100 karet.
 
@@ -50,10 +50,10 @@ Virtuální počítače a series jsou nové přidání do rodiny GPU určený pr
 
 | Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | GPU | Maximální počet datových disků |
 | --- | --- | --- | --- | --- | --- |
-| Standard_ND6 |6 |112 | 336 | 1 | 12 |
-| Standard_ND12 |12 |224 | 672 | 2 | 24 |
-| Standard_ND24 |24 |448 | 1344 | 4 | 32 |
-| Standard_ND24r * |24 |1448 | 1344 | 4 | 32 |
+| Standard_ND6s |6 |112 | 336 | 1 | 12 |
+| Standard_ND12s |12 |224 | 672 | 2 | 24 |
+| Standard_ND24s |24 |448 | 1344 | 4 | 32 |
+| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 |
 
 Grafický procesor 1 = P40 karet.
 

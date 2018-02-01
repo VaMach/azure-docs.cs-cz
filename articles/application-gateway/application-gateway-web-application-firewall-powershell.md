@@ -1,237 +1,267 @@
 ---
-title: "Konfigurace brány firewall webových aplikací: Azure Application Gateway | Microsoft Docs"
-description: "Tento článek obsahuje pokyny o tom, jak začít používat brány firewall webových aplikací na existující nebo nové aplikační brány."
-documentationcenter: na
+title: "Vytvoření služby application gateway s brány firewall webových aplikací – Azure PowerShell | Microsoft Docs"
+description: "Postup vytvoření služby application gateway pomocí brány firewall webových aplikací pomocí prostředí Azure PowerShell."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: e8106805d21b325e33fb3ab376db75cd783b9042
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 1489990f583d15f22fb3db26b45f1509850513ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Konfigurace brány firewall webových aplikací na bránu nový nebo existující aplikace
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-azure-powershell"></a>Vytvoření služby application gateway pomocí brány firewall webových aplikací pomocí Azure PowerShell
 
-> [!div class="op_single_selector"]
-> * [portál Azure Portal](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
+Prostředí Azure PowerShell můžete použít k vytvoření [Aplikační brána](application-gateway-introduction.md) s [brány firewall webových aplikací](application-gateway-web-application-firewall-overview.md) (firewall webových aplikací), který používá [škálovací sadu virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pro back-end serverů. Firewall webových aplikací používá [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) pravidla k ochraně vaší aplikace. Mezi tato pravidla patří ochranu před útoky, například typu Injektáž SQL a útoky skriptování mezi weby a hijacks relace. 
 
-Naučte se vytvářet brány firewall webových aplikací (firewall webových aplikací)-Povolit aplikační brány. Také zjistěte, jak přidat do existující aplikace bránu firewall webových aplikací.
+V tomto článku se dozvíte, jak:
 
-Firewall webových aplikací v Azure Application Gateway chrání webových aplikací z běžných útoky založenými na web jako Injektáž SQL, útoky skriptování mezi weby a hijacks relace.
+> [!div class="checklist"]
+> * Nastavení sítě
+> * Vytvoření služby application gateway s povolen firewall webových aplikací
+> * Vytvoření sady škálování virtuálního počítače
+> * Vytvoření účtu úložiště a konfiguraci diagnostiky
 
- Application Gateway je nástroj pro vyrovnávání zatížení vrstvy 7. Poskytuje převzetí služeb při selhání, směrování výkonu požadavků HTTP mezi různými servery, zda jsou v cloudu nebo místně. Application Gateway poskytuje mnoho řadiče (ADC) funkce doručování aplikací:
+![Příklad brány firewall webových aplikací](./media/application-gateway-web-application-firewall-powershell/scenario-waf.png)
 
- * Vyrovnávání zatížení HTTP
- * Spřažení na základě souboru cookie relace
- * Secure Sockets Layer (SSL) snižování zátěže
- * Testy vlastní stavu
- * Podpora pro funkce ve více lokalitách
- 
- Úplný seznam podporovaných funkcích naleznete v tématu [Přehled služby Application Gateway](application-gateway-introduction.md).
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-Tento článek ukazuje, jak [existující aplikační brány přidat firewall webových aplikací](#add-web-application-firewall-to-an-existing-application-gateway). Také ukazuje, jak [vytvoření služby application gateway, která používá firewall webových aplikací](#create-an-application-gateway-with-web-application-firewall).
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-![scénář image][scenario]
+Pokud se rozhodnete nainstalovat a používat PowerShell místně, musíte použít modul Azure PowerShell verze 3.6 nebo novější. Verzi zjistíte spuštěním příkazu ` Get-Module -ListAvailable AzureRM`. Pokud potřebujete upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps). Pokud používáte PowerShell místně, je také potřeba spustit příkaz `Login-AzureRmAccount` pro vytvoření připojení k Azure.
 
-## <a name="waf-configuration-differences"></a>Rozdíly konfigurace firewall webových aplikací
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Pokud jste si přečetli [vytvoření služby application gateway pomocí prostředí PowerShell](application-gateway-create-gateway-arm.md), pochopit SKU nastavení konfigurace při vytvoření služby application gateway. Firewall webových aplikací poskytuje další nastavení můžete definovat při konfiguraci SKU na aplikační brány. Neexistují žádné další změny, které provedete ve službě application gateway sám sebe.
+Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Vytvořit skupinu prostředků Azure pomocí [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
 
-| **Nastavení** | **Podrobnosti**
-|---|---|
-|**SKU** |Normální aplikační brána bez firewall webových aplikací podporuje **standardní\_malé**, **standardní\_střední**, a **standardní\_velké**velikosti. Se zavedením firewall webových aplikací, jsou dva další SKU, **firewall webových aplikací\_střední** a **firewall webových aplikací\_velké**. Firewall webových aplikací není podporována na malé application Gateway.|
-|**Vrstvy** | Dostupné hodnoty jsou **standardní** nebo **firewall webových aplikací**. Pokud používáte firewall webových aplikací, musíte vybrat **firewall webových aplikací**.|
-|**Režim** | Toto nastavení je režim firewall webových aplikací. Povolené hodnoty jsou **detekce** a **prevence**. Když je nastavený firewall webových aplikací **detekce** režimu, všechny hrozby jsou uložené v souboru protokolu. V **prevence** režim, jsou protokolovány události ale útočník obdrží 403 Neautorizováno odpověď ze služby application gateway.|
-
-## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>Přidání brány firewall webových aplikací do existující aplikační brány
-
-Ujistěte se, že používáte nejnovější verzi prostředí Azure PowerShell. Další informace najdete v tématu [použijte rozhraní Windows PowerShell s Resource Managerem](../powershell-azure-resource-manager.md).
-
-1. Přihlaste se k účtu Azure.
-
-    ```powershell
-    Login-AzureRmAccount
-    ```
-
-2. Vyberte předplatné, které chcete použít pro tento scénář.
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
-    ```
-
-3. Načtěte brány, ve které chcete přidat firewall webových aplikací.
-
-    ```powershell
-    $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
-    ```
-
-4. Nakonfigurujte SKU firewall webových aplikací. Dostupné velikosti jsou **firewall webových aplikací\_velké** a **firewall webových aplikací\_střední**. Pokud použijete firewall webových aplikací, musí být vrstvě **firewall webových aplikací**. Zkontrolujte kapacitu, při nastavení verze SKU.
-
-    ```powershell
-    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
-    ```
-
-5. Nakonfigurujte nastavení firewall webových aplikací, jak jsou definovány v následujícím příkladu. Pro **FirewallMode**, dostupné hodnoty jsou **prevence** a **detekce**.
-
-    ```powershell
-    $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
-    ```
-
-6. Aktualizujte aplikační bránu s nastavením, které jste zadali v předchozím kroku.
-
-    ```powershell
-    Set-AzureRmApplicationGateway -ApplicationGateway $gw
-    ```
-
-Tento příkaz aktualizuje aplikační bránu firewall webových aplikací. Chcete-li pochopit, jak zobrazit protokoly pro službu application gateway, přečtěte si téma [diagnostics Application Gateway](application-gateway-diagnostics.md). Vzhledem k zabezpečení povaze firewall webových aplikací zkontrolujte protokoly pravidelně zjistit postavení zabezpečení webových aplikací.
-
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Vytvoření služby application gateway pomocí brány firewall webových aplikací
-
-Následující postup vás provede celý proces vytvoření služby application gateway s firewall webových aplikací.
-
-Ujistěte se, že používáte nejnovější verzi prostředí Azure PowerShell. Další informace najdete v tématu [použijte rozhraní Windows PowerShell s Resource Managerem](../powershell-azure-resource-manager.md).
-
-1. Přihlaste se k Azure spuštěním `Login-AzureRmAccount`. Se zobrazí výzva k ověření pomocí svých přihlašovacích údajů.
-
-2. Zkontrolujte předplatná pro příslušný účet spuštěním `Get-AzureRmSubscription`.
-
-3. Vyberte, jaké předplatné použít.
-
-    ```powershell
-    Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
-    ```
-
-### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
-
-Vytvořte skupinu prostředků pro službu application gateway.
-
-```powershell
-New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. Toto umístění slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Ujistěte se, že všechny příkazy k vytvoření služby application gateway používají stejnou skupinu prostředků.
+## <a name="create-network-resources"></a>Vytvoření síťové prostředky 
 
-V předchozím příkladu jsme vytvořili skupinu prostředků s názvem "appgw-RG" umístěním "Západní USA".
+Vytvoření konfigurací podsítě s názvem *myBackendSubnet* a *myAGSubnet* pomocí [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Vytvořit virtuální síť s názvem *myVNet* pomocí [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) s konfigurací podsítě. A nakonec vytvořte veřejnou IP adresu s názvem *myAGPublicIPAddress* pomocí [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Tyto prostředky se používají k poskytování síťové připojení k službě application gateway a její přidružené prostředky.
 
-> [!NOTE]
-> Když potřebujete nakonfigurovat vlastní test paměti svojí aplikační brány, přečtěte si část [Vytvořit bránu s vlastními testy paměti pomocí prostředí PowerShell](application-gateway-create-probe-ps.md). Další informace najdete v tématu [vlastní testy paměti a sledování stavu](application-gateway-probe-overview.md).
-
-### <a name="configure-a-virtual-network"></a>Konfigurace virtuální sítě
-
-Služby application gateway vyžaduje vlastní podsíť. V tomto kroku vytvoříte virtuální síť s adresní prostor 10.0.0.0/16 a dvě podsítě, jeden pro službu application gateway a jeden pro členy fondu back-end.
-
-```powershell
-# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for application gateway instances. With a smaller subnet, you might not be able to add more instances of your application gateway in the future.
-$gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
-
-# Create a subnet configuration object for the back-end pool members subnet.
-$nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
-
-# Create the virtual network with the previously created subnets.
-$vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
 ```
 
-### <a name="configure-the-public-ip-address"></a>Nakonfigurujte veřejnou IP adresu
+## <a name="create-an-application-gateway"></a>Vytvoření služby Application Gateway
 
-Pro zpracování požadavků na externí, služby application gateway vyžaduje veřejnou IP adresu. Tato veřejná IP adresa nesmí mít `DomainNameLabel` definovaná používat službu application gateway.
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Vytvoření konfigurace protokolu IP a port front-endu
 
-```powershell
-# Create a public IP address for use with the application gateway. Defining the `DomainNameLabel` during creation is not supported for use with the application gateway.
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
+Přidružení *myAGSubnet* aplikace brány pomocí dříve vytvořeného [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Přiřadit *myAGPublicIPAddress* do aplikace pomocí brány [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$subnet=$vnet.Subnets[0]
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-### <a name="configure-the-application-gateway"></a>Nakonfigurujte aplikační bránu
+### <a name="create-the-backend-pool-and-settings"></a>Vytvoření fondu back-end a nastavení
 
-```powershell
-# Create an IP configuration to configure which subnet the application gateway uses. When the application gateway starts, it picks up an IP address from the configured subnet and routes network traffic to the IP addresses in the back-end IP pool.
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
+Vytvořit fond back-end s názvem *appGatewayBackendPool* pro aplikace pomocí brány [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Konfiguruje nastavení pro fondy adres back-end pomocí [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
-# Create a back-end pool to hold the addresses or NIC handles for the application that the application gateway is protecting.
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
-
-# Upload the authentication certificate to be used to communicate with the back-end servers.
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile <full path to .cer file>
-
-# Configure the back-end HTTP settings to be used to define how traffic is routed to the back-end pool. The authentication certificate used in the previous step is added to the back-end HTTP settings.
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
-
-# Create a front-end port to be used by the listener.
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
-
-# Create a front-end IP configuration to associate the public IP address with the application gateway.
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
-
-# Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
-
-# Create the HTTP listener for the application gateway. Assign the front-end IP configuration, port, and SSL certificate to use.
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
-
-# Create a load-balancer routing rule that configures the load balancer behavior. In this example, a basic round-robin rule is created.
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-
-# Configure the SKU of the application gateway.
-$sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
-
-# Define the SSL policy to use.
-$policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
-
-# Configure the WAF configuration settings.
-$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
-
-# Create the application gateway by using all the previously created configuration objects.
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
+```azurepowershell-interactive
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-> [!NOTE]
-> Application Gateway vytvoří s základní konfigurací firewall webových aplikací jsou nakonfigurovány s řádku 3.0 pro ochranu.
+### <a name="create-the-default-listener-and-rule"></a>Vytvořte naslouchací proces výchozí a pravidla
 
-## <a name="get-an-application-gateway-dns-name"></a>Získat název DNS brány aplikace
+Naslouchací proces je nutný pro povolení služby application gateway směrování provozu správně do back-endové fondy adres. V tomto příkladu vytvoříte základní naslouchací proces, který naslouchá pro přenosy na adresy URL kořenového adresáře. 
 
-Po vytvoření brány je dalším krokem je konfigurace front-endu pro komunikaci. Pokud použijete veřejnou IP adresu, služby application gateway vyžaduje dynamicky přiřazené název DNS, který není popisný. Aby se zajistilo, že uživatelé můžete dosáhl aplikační bránu, použijte záznam CNAME přejděte na veřejný koncový bod služby application gateway. Další informace najdete v tématu [nakonfigurovat vlastní název domény pro cloudové služby Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+Vytvořte naslouchací proces s názvem *mydefaultListener* pomocí [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) s front-endovou konfiguraci a front-endový port, který jste dříve vytvořili. Pravidlo je vyžadována pro naslouchací proces vědět, kterému fondu back-end pro příchozí provoz. Vytvořte základní pravidlo s názvem *rule1 New* pomocí [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
-Pokud chcete konfigurovat alias, načtěte podrobnosti o aplikační brány a její přidružené IP a DNS název pomocí prvku PublicIPAddress připojit k službě application gateway. Použijte službu application gateway název DNS vytvořit záznam CNAME, který ukazuje dva webové aplikace k tomuto názvu DNS. Nedoporučujeme použití záznamy A, protože VIP může změnit po restartování služby application gateway.
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name mydefaultListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 ```
 
+### <a name="create-the-application-gateway-with-the-waf"></a>Vytvoření aplikační brány s firewall webových aplikací
+
+Teď, když jste vytvořili nezbytné doprovodné materiály, zadejte parametry pro aplikace pomocí brány [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku). Zadejte konfigurace firewall webových aplikací pomocí [New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewaywebapplicationfirewallconfiguration). A pak vytvořte službu application gateway s názvem *myAppGateway* pomocí [New-Azureapplicationgateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
+
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name WAF_Medium `
+  -Tier WAF `
+  -Capacity 2
+$wafConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration `
+  -Enabled $true `
+  -FirewallMode "Detection"
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku `
+  -WebApplicationFirewallConfig $wafConfig
 ```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
+
+## <a name="create-a-virtual-machine-scale-set"></a>Vytvoření sady škálování virtuálního počítače
+
+V tomto příkladu vytvoříte škálování virtuálních počítačů, nastavit zajistit servery pro tento fond back-end v aplikační brány. Můžete přiřadit měřítka nastaven fond back-end při konfiguraci nastavení IP adresy.
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name myVmssIPConfig `
+  -SubnetId $vnet.Subnets[1].Id `
+  -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
+$vmssConfig = New-AzureRmVmssConfig `
+  -Location eastus `
+  -SkuCapacity 2 `
+  -SkuName Standard_DS2 `
+  -UpgradePolicyMode Automatic
+Set-AzureRmVmssStorageProfile $vmssConfig `
+  -ImageReferencePublisher MicrosoftWindowsServer `
+  -ImageReferenceOffer WindowsServer `
+  -ImageReferenceSku 2016-Datacenter `
+  -ImageReferenceVersion latest
+Set-AzureRmVmssOsProfile $vmssConfig `
+  -AdminUsername azureuser `
+  -AdminPassword "Azure123456!" `
+  -ComputerNamePrefix myvmss
+Add-AzureRmVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name myVmssNetConfig `
+  -Primary $true `
+  -IPConfiguration $ipConfig
+New-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmssConfig
 ```
 
-## <a name="next-steps"></a>Další kroky
+### <a name="install-iis"></a>Instalace služby IIS
 
-Další postup konfigurace protokolování diagnostiky do protokolu událostí, které jsou zjištěna nebo zabránit s firewall webových aplikací najdete v tématu [diagnostics Application Gateway](application-gateway-diagnostics.md).
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
+Update-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmss
+```
 
-[scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Vytvoření účtu úložiště a konfiguraci diagnostiky
+
+V tomto kurzu se Aplikační brána používá účet úložiště k ukládání dat za účelem odhalování a prevence. Analýzy protokolů nebo Centrum událostí můžete použít také k zaznamenání dat.
+
+### <a name="create-the-storage-account"></a>Vytvořit účet úložiště
+
+Vytvořit účet úložiště s názvem *myagstore1* pomocí [AzureRmStorageAccount nový](/powershell/module/azurerm.storage/new-azurermstorageaccount).
+
+```azurepowershell-interactive
+$storageAccount = New-AzureRmStorageAccount `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myagstore1 `
+  -Location eastus `
+  -SkuName "Standard_LRS"
+```
+
+### <a name="configure-diagnostics"></a>Konfigurace diagnostiky
+
+Konfigurace diagnostiky k záznamu dat do ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog a ApplicationGatewayFirewallLog protokoly. SUBSTITUTE `<subscriptionId>` s ID vašeho předplatného a pak nakonfigurujte pomocí diagnostiky [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting).
+
+```azurepowershell-interactive
+Set-AzureRmDiagnosticSetting `
+  -ResourceId '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Network/applicationGateways/myAppGateway' `
+  -StorageAccountId '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Storage/storageAccounts/myagstore1' `
+  -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
+  -Enabled $true `
+  -RetentionEnabled $true `
+  -RetentionInDays 30
+```
+
+## <a name="test-the-application-gateway"></a>Testování služby application gateway
+
+Můžete použít [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) získat veřejnou IP adresu aplikační brány. Zkopírujte veřejnou IP adresu a pak ji vložit do panelu Adresa prohlížeče.
+
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+```
+
+![Otestovat základní adresu URL v aplikační brány](./media/application-gateway-web-application-firewall-powershell/application-gateway-iistest.png)
+
+## <a name="next-steps"></a>Další postup
+
+V tomto kurzu jste se naučili:
+
+> [!div class="checklist"]
+> * Nastavení sítě
+> * Vytvoření služby application gateway s povolen firewall webových aplikací
+> * Vytvoření sady škálování virtuálního počítače
+> * Vytvoření účtu úložiště a konfiguraci diagnostiky
+
+Další informace o aplikačních bran a jejich přidružené prostředky, i nadále články s návody.

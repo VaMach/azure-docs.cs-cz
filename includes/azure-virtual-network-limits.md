@@ -31,7 +31,7 @@ Následující omezení platí pouze pro síťové prostředky spravované přes
 | Souběžné TCP nebo UDP toků na síťový adaptér virtuálního počítače nebo role instance |500 000 |500 000 |
 | Síťová rozhraní (NIC) |350 |20000 |
 | Skupiny zabezpečení sítě (NSG) |100 |5000 |
-| Počet pravidel NSG na skupinu NSG |200 |500 |
+| Počet pravidel NSG na skupinu NSG |200 |1000 |
 | IP adresy a rozsahy, zadaný pro zdrojové nebo cílové ve skupině zabezpečení |2000 |4000 |
 | Skupiny zabezpečení aplikací |200 |500 |
 | Skupiny zabezpečení aplikací na konfiguraci IP adresy, na síťový adaptér |10 |20 |

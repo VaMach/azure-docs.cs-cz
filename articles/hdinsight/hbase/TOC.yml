@@ -72,6 +72,21 @@
             - name: Publikování aplikací HDInsight na Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Instalace publikované aplikace – CDAP (Cask Data Application Platform)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Zabezpečení
       items:
         - name: Použití SSH s HDInsightem
@@ -165,6 +180,8 @@
         - name: Upgrade clusteru HDInsight na novější verzi
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: Migrace clusteru HBase na novější verzi
+          href: apache-hbase-migrate-new-version.md
         - name: Opravy operačního systému pro cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -227,11 +244,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Replikace clusteru HBase ve virtuální síti Azure
           href: apache-hbase-replication.md
+        - name: Nastavení zálohování a replikace pro HBase a Phoenix
+          href: apache-hbase-backup-replication.md
     - name: Monitorování pomocí OMS
       items:
         - name: Použití Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: Monitorování HBase pomocí OMS
+          href: apache-hbase-monitor-with-oms.md
         - name: Řídicí panely pro konkrétní clustery
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -241,6 +262,8 @@
         - name: Monitorování výkonu clusteru
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Osvědčené postupy pro Phoenix z hlediska výkonu
+          href: apache-hbase-phoenix-performance.md
 - name: Referenční informace
   items:
     - name: Ukázky kódů

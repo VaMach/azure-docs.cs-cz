@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Přidání runbooků Azure do plánů obnovení
           href: site-recovery-runbook-automation.md
+        - name: Přidání skriptů VMM do plánů obnovení
+          href: site-recovery-how-to-add-vmmscript.md
         - name: Převzetí služeb při selhání
           items:
             - name: Informace o převzetí služeb při selhání

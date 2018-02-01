@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření nástroje pro vyrovnávání zatížení připojeného k internetu – šablony Azure | Dokumentace Microsoftu"
-description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v Resource Manageru pomocí šablony"
+title: "Vytvoření veřejného nástroje pro vyrovnávání zatížení – šablona Azure | Dokumentace Microsoftu"
+description: "Zjistěte, jak vytvořit veřejný nástroj pro vyrovnávání zatížení v Resource Manageru pomocí šablony"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 10d96920d3aa3cae19750d7c2437b88bac1c8cda
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 21ff5a48d29117ba1d6195f308f00180b1f1edbf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>Vytvoření internetového nástroje pro vyrovnávání zatížení pomocí šablony
+# <a name="creating-a-public-load-balancer-using-a-template"></a>Vytvoření veřejného nástroje pro vyrovnávání zatížení pomocí šablony
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-internet-portal.md)

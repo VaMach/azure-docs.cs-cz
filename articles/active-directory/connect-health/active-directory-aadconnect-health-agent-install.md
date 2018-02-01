@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ad61870b49f7a8753e4dbd2e34847daf14b793a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalace agenta služby Azure AD Connect Health
 Tento dokument vás provede procesem instalace a konfigurace agentů služby Azure AD Connect Health. Agenty si můžete stáhnout [tady](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -103,32 +103,38 @@ Aby mohla funkce analýzy využití shromažďovat a analyzovat data, potřebuje
 2. Přejděte do složky **Security Settings\Local Policies\User Rights Management** a poklikejte na položku **Generovat audity zabezpečení**.
 3. Na kartě **Místní nastavení zabezpečení** zkontrolujte, jestli je tam uvedený účet služby AD FS 2.0. Pokud tam není, klikněte na **Přidat uživatele nebo skupinu** a přidejte ho do seznamu. Potom klikněte na **OK**.
 4. Pokud chcete povolit auditování, otevřete příkazový řádek se zvýšenými oprávněními a spusťte následující příkaz: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Zavřete **Místní zásady zabezpečení** a potom otevřete snap-in **Správa služby AD FS**. Pokud chcete otevřít snap-in Správa služby AD FS, klikněte na **Start**, najeďte myší na **Programy**, potom na **Nástroje pro správu** a potom klikněte na **Správa služby AD FS 2.0**.
-6. V podokně **Akce** klikněte na **Upravit vlastnosti služby FS (Federation Service)**.
-7. V dialogovém okně **Vlastnosti služby FS (Federation Service)** klikněte na kartu **Události**.
-8. Zaškrtněte políčka **Úspěšné audity** a **Neúspěšné audity**.
-9. Klikněte na tlačítko **OK**.
+5. Zavřete **místní zásady zabezpečení**.
+<br>   -- **Následující kroky se vyžadují pouze pro primární servery AD FS.** -- </br>
+6. Otevřete modul snap-in **Správa služby AD FS**. Pokud chcete otevřít snap-in Správa služby AD FS, klikněte na **Start**, najeďte myší na **Programy**, potom na **Nástroje pro správu** a potom klikněte na **Správa služby AD FS 2.0**.
+7. V podokně **Akce** klikněte na **Upravit vlastnosti služby FS (Federation Service)**.
+8. V dialogovém okně **Vlastnosti služby FS (Federation Service)** klikněte na kartu **Události**.
+9. Zaškrtněte políčka **Úspěšné audity** a **Neúspěšné audity**.
+10. Klikněte na **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Povolení auditování služby AD FS v systému Windows Server 2012 R2
 1. Otevřením **Správce serveru** na úvodní obrazovce nebo Správce serveru na hlavním panelu na ploše otevřete **Místní zásady zabezpečení** a klikněte na **Nástroje/Místní zásady zabezpečení**.
 2. Přejděte do složky **Security Settings\Local Policies\User Rights Management** a poklikejte na položku **Generovat audity zabezpečení**.
 3. Na kartě **Místní nastavení zabezpečení** zkontrolujte, jestli je tam uvedený účet služby AD FS. Pokud tam není, klikněte na **Přidat uživatele nebo skupinu** a přidejte ho do seznamu. Potom klikněte na **OK**.
 4. Pokud chcete povolit auditování, otevřete příkazový řádek se zvýšenými oprávněními a spusťte následující příkaz: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
-5. Zavřete **Místní zásady zabezpečení** a potom otevřete snap-in **Správa služby AD FS** (ve Správci serveru klikněte na Nástroje a potom vyberte správu služby AD FS).
-6. V podokně Akce klikněte na tlačítko **Upravit vlastnosti služby FS (Federation Service)**.
-7. V dialogovém okně Vlastnosti služby FS (Federation Service) klikněte na kartu **Události**.
-8. Zaškrtněte políčka **Úspěšné audity a Neúspěšné audity** a klikněte na tlačítko **OK**.
+5. Zavřete **místní zásady zabezpečení**.
+<br>   -- **Následující kroky se vyžadují pouze pro primární servery AD FS.** -- </br>
+6. Otevřete snap-in **Správa služby AD FS** (ve Správci serveru klikněte na Nástroje a potom vyberte správu služby AD FS).
+7. V podokně **Akce** klikněte na **Upravit vlastnosti služby FS (Federation Service)**.
+8. V dialogovém okně **Vlastnosti služby FS (Federation Service)** klikněte na kartu **Události**.
+9. Zaškrtněte políčka **Úspěšné audity a Neúspěšné audity** a klikněte na tlačítko **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Povolení auditování služby AD FS v systému Windows Server 2016
 1. Otevřením **Správce serveru** na úvodní obrazovce nebo Správce serveru na hlavním panelu na ploše otevřete **Místní zásady zabezpečení** a klikněte na **Nástroje/Místní zásady zabezpečení**.
 2. Přejděte do složky **Security Settings\Local Policies\User Rights Management** a poklikejte na položku **Generovat audity zabezpečení**.
 3. Na kartě **Místní nastavení zabezpečení** zkontrolujte, jestli je tam uvedený účet služby AD FS. Pokud tam není, klikněte na **Přidat uživatele nebo skupinu** a přidejte účet služby AD FS do seznamu. Potom klikněte na **OK**.
 4. Pokud chcete povolit auditování, otevřete příkazový řádek se zvýšenými oprávněními a spusťte následující příkaz: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. Zavřete **Místní zásady zabezpečení** a potom otevřete snap-in **Správa služby AD FS** (ve Správci serveru klikněte na Nástroje a potom vyberte správu služby AD FS).
-6. V podokně Akce klikněte na tlačítko **Upravit vlastnosti služby FS (Federation Service)**.
-7. V dialogovém okně Vlastnosti služby FS (Federation Service) klikněte na kartu **Události**.
-8. Zaškrtněte políčka **Úspěšné audity a Neúspěšné audity** a klikněte na tlačítko **OK**. Tyto možnosti by měly být povolené ve výchozím nastavení.
-9. Otevřete okno PowerShellu a spusťte následující příkaz: ```Set-AdfsProperties -AuditLevel Verbose```.
+5. Zavřete **místní zásady zabezpečení**.
+<br>   -- **Následující kroky se vyžadují pouze pro primární servery AD FS.** -- </br>
+6. Otevřete snap-in **Správa služby AD FS** (ve Správci serveru klikněte na Nástroje a potom vyberte správu služby AD FS).
+7. V podokně **Akce** klikněte na **Upravit vlastnosti služby FS (Federation Service)**.
+8. V dialogovém okně **Vlastnosti služby FS (Federation Service)** klikněte na kartu **Události**.
+9. Zaškrtněte políčka **Úspěšné audity a Neúspěšné audity** a klikněte na tlačítko **OK**. Tyto možnosti by měly být povolené ve výchozím nastavení.
+10. Otevřete okno PowerShellu a spusťte následující příkaz: ```Set-AdfsProperties -AuditLevel Verbose```.
 
 Poznámka: Ve výchozím nastavení je povolena úroveň Basic. Další informace najdete v tématu [Vylepšení auditu služby AD FS ve Windows Serveru 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016).
 
@@ -211,7 +217,7 @@ Pokud jste konfiguraci dokončili, tyto služby by již měly být spuštěny. V
 ![Ověření Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
-### <a name="agent-registration-using-powershell"></a>Registrace agenta pomocí PowerShellu
+## <a name="agent-registration-using-powershell"></a>Registrace agenta pomocí PowerShellu
 Po nainstalování odpovídajícího agenta můžete provést krok registrace agenta pomocí následujících příkazů PowerShellu, v závislosti na roli. Otevřete okno PowerShellu a spusťte příslušný příkaz:
 
 ```

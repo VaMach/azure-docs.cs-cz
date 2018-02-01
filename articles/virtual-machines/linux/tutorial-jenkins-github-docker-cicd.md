@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření kanálu vývoj v Azure pomocí volaných | Microsoft Docs"
-description: "Naučte se vytvořit virtuální počítač volaných v Azure, který vrátí z webu GitHub na každém potvrzení kódu a vytvoří nový kontejner Docker ke spouštění vaší aplikace"
+title: "Vytvoření vývojového kanálu v Azure pomocí Jenkinse | Dokumentace Microsoftu"
+description: "Naučte se vytvořit v Azure virtuální počítač Jenkinse, který při každém potvrzení kódu z GitHubu převezme data a sestaví nový kontejner Dockeru pro spuštění vaší aplikace."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,32 +16,32 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Postup vytvoření vývoj infrastruktury na virtuální počítač s Linuxem v Azure pomocí volaných Githubu a Docker
-K automatizaci fázi sestavení a testování pro vývoj aplikací, můžete použít průběžnou integraci a nasazení (CI/CD) kanálu. V tomto kurzu vytvoříte kanál CI/CD na virtuální počítač Azure včetně postup:
+# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Postup při vytváření vývojové infrastruktury ve virtuálním počítači s Linuxem v Azure pomocí Jenkinse, GitHubu a Dockeru
+K automatizaci fázi sestavení a testování v rámci vývoje aplikace můžete použít kanál průběžné integrace a nasazení (CI/CD). V tomto kurzu vytvoříte kanál CI/CD na virtuálním počítači Azure a také se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření virtuálního počítače volaných
-> * Instalace a konfigurace volaných
-> * Vytvoření webhooku integrace mezi Githubu a volaných
-> * Vytvořit a spustit úlohy sestavení volaných z Githubu potvrzení
-> * Vytvoření bitové kopie Docker pro vaši aplikaci.
-> * Ověřte, že potvrzení Githubu vytvářet novou bitovou kopii Docker a spuštěné aplikace
+> * Vytvořit virtuální počítač Jenkins
+> * Nainstalovat a konfigurovat Jenkinse
+> * Vytvořit integraci webhooku mezi GitHubem a Jenkinsem
+> * Vytvořit a aktivovat úlohy sestavení Jenkinse na základě potvrzení GitHubu
+> * Vytvořit pro svou aplikaci image Dockeru
+> * Ověřit, že po potvrzení GitHubu se sestaví nová image Dockeru a aktualizuje se spuštěná aplikace
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze 2.0.22 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít Azure CLI ve verzi 2.0.22 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="create-jenkins-instance"></a>Vytvoření instance volaných
-V předchozích kurz [postup přizpůsobení virtuální počítač s Linuxem na při prvním spuštění](tutorial-automate-vm-deployment.md), jste se dozvěděli, jak automatizovat přizpůsobení virtuálního počítače s inicializací cloudu. Tento kurz používá soubor cloudu init volaných a Docker nainstalujete na virtuální počítač. Volaných je server automatizace populární open source, který se bezproblémově integruje se Azure povolit průběžnou integraci (CI) a nastavené průběžné doručování (CD). Další kurzy o tom, jak používat volaných, najdete v článku [volaných v centru Azure](https://docs.microsoft.com/azure/jenkins/).
+## <a name="create-jenkins-instance"></a>Vytvoření instance Jenkinse
+V předchozím kurzu týkajícím se [postupu přizpůsobení virtuálního počítače s Linuxem při prvním spuštění](tutorial-automate-vm-deployment.md), jste se dozvěděli, jak automatizovat přizpůsobení virtuálního počítače s prostředím cloud-init. Tento kurz používá soubor cloud-init k instalaci Jenkinse a Dockeru na virtuální počítač. Jenkins je oblíbený opensourcový automatizační server, který se bez problémů integruje s Azure a umožňuje průběžnou integraci (CI) a průběžné doručování (CD). Další kurzy týkající se používání Jenkinse najdete v článku [Jenkins v centru Azure](https://docs.microsoft.com/azure/jenkins/).
 
-V aktuálním prostředí, vytvořte soubor s názvem *cloudu. init jenkins.txt* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Zadejte `sensible-editor cloud-init-jenkins.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
+V aktuálním shellu vytvořte soubor *cloud-init-jenkins.txt* a vložte do něj následující konfiguraci. Soubor vytvořte například v Cloud Shellu, pokud nepracujete na místním počítači. Zadáním příkazu `sensible-editor cloud-init-jenkins.txt` soubor vytvořte a zobrazte seznam editorů k dispozici. Ujistěte se, že se celý soubor cloud-init zkopíroval správně, zejména první řádek:
 
 ```yaml
 #cloud-config
@@ -64,16 +64,17 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
+  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
-Před vytvořením virtuálního počítače, vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroupJenkins* v *eastus* umístění:
+Než budete moct vytvořit virtuální počítač, vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků *myResourceGroupJenkins* v umístění *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create). Použití `--custom-data` parametr předávat do cloudu init konfiguračního souboru. Zadejte úplnou cestu k *cloudu. init jenkins.txt* Pokud jste uložili soubor mimo pracovní adresář existuje.
+Teď pomocí příkazu [az vm create](/cli/azure/vm#create) vytvořte virtuální počítač. Pomocí parametru `--custom-data` předejte svůj konfigurační soubor cloud-init. Zadejte úplnou cestu k souboru *cloud-init-jenkins.txt*, pokud jste ho uložili mimo aktuální pracovní adresář.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -84,9 +85,9 @@ az vm create --resource-group myResourceGroupJenkins \
     --custom-data cloud-init-jenkins.txt
 ```
 
-Trvá několik minut pro virtuální počítač pro vytvoření a konfiguraci.
+Vytvoření a konfigurace virtuálního počítače trvá několik minut.
 
-Povolit webový provoz připojit virtuální počítač, použijte [az virtuálních počítačů open-port](/cli/azure/vm#open-port) otevřít port *8080* volaných provozu a portů *1337* pro aplikaci Node.js, která se používá ke spuštění ukázkové aplikace:
+Pokud chcete ve virtuálním počítači povolit webový provoz, pomocí příkazu [az vm open-port](/cli/azure/vm#open-port) otevřete port *8080* pro provoz Jenkinse a port *1337* pro aplikaci Node.js používanou ke spouštění ukázkové aplikace:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -94,86 +95,86 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 
 ```
 
 
-## <a name="configure-jenkins"></a>Konfigurace volaných
-Chcete-li získat přístup k vaší instanci volaných, získejte veřejnou IP adresu vašeho virtuálního počítače:
+## <a name="configure-jenkins"></a>Konfigurace Jenkinse
+Pokud chcete získat přístup ke své instanci Jenkinse, zjistěte veřejnou IP adresu svého virtuálního počítače:
 
 ```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Z bezpečnostních důvodů musíte zadat heslo počáteční správce, které je uložený v textovém souboru na vašem virtuálním počítači spusťte instalaci volaných. Použijte veřejnou IP adresu získaných v předchozím kroku do SSH pro virtuální počítač:
+Z bezpečnostních důvodů musíte zadat počáteční heslo správce, které je uložené v textovém souboru na vašem virtuálním počítači, aby se instalace Jenkinse spustila. Veřejnou IP adresu získanou v předchozím kroku použijte pro připojení SSH k virtuálnímu počítači:
 
 ```bash
 ssh azureuser@<publicIps>
 ```
 
-Zobrazení `initialAdminPassword` pro vaše volaných nainstalovat a zkopírujte ho:
+Zobrazte soubor `initialAdminPassword` pro příslušnou instalaci Jenkinse a zkopírujte ho:
 
 ```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-Pokud se soubor ještě není k dispozici, počkejte několik minut cloudu init pro dokončení instalace volaných a Docker.
+Pokud soubor ještě není k dispozici, počkejte několik dalších minut, než prostředí cloud-init dokončí instalaci Jenkinse a Dockeru.
 
-Nyní otevřete webový prohlížeč a přejděte na `http://<publicIps>:8080`. Dokončete počáteční nastavení volaných následujícím způsobem:
+Pak otevřete webový prohlížeč a přejděte na adresu `http://<publicIps>:8080`. Dokončete počáteční nastavení Jenkinse následujícím způsobem:
 
-- Zadejte uživatelské jméno **správce**, zadejte *initialAdminPassword* získané z virtuálního počítače v předchozím kroku.
-- Vyberte **spravovat volaných**, pak **Správa modulů plug-in**.
-- Zvolte **dostupné**, vyhledejte *Githubu* do textového pole v horní části. Zaškrtněte políčko pro *modulu plug-in Githubu*, pak vyberte **stáhnout a nainstalovat po restartování**.
-- Zaškrtněte políčko pro **volaných restartovat po dokončení instalace a nebudou spuštěny žádné úlohy**, potom počkejte, až postup instalace modulu plug-in dokončení.
-
-
-## <a name="create-github-webhook"></a>Vytvoření webhook Githubu
-Chcete-li nakonfigurovat integraci s Githubu, otevřete [ukázkovou aplikaci Node.js Hello World](https://github.com/Azure-Samples/nodejs-docs-hello-world) z úložiště ukázek Azure. Chcete-li rozvětvit úložiště k účtu GitHub, vyberte **rozvětvení** tlačítko v horním pravém rohu.
-
-Vytvoření webhooku uvnitř rozvětvení, kterou jste vytvořili:
-
-- Vyberte **nastavení**, pak vyberte **integrace & služby** na levé straně.
-- Zvolte **přidat službu**, pak zadejte *volaných* pole filtru.
-- Vyberte *volaných (modul plug-in Githubu)*
-- Pro **volaných napojit URL**, zadejte `http://<publicIps>:8080/github-webhook/`. Zajistěte, aby zahrnout koncový znak /
-- Vyberte **přidat službu**
-
-![Přidat do vašeho úložiště forked webhook Githubu](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+- Zadejte uživatelské jméno **admin** a pak zadejte položku *initialAdminPassword* získanou z virtuálního počítače v předchozím kroku.
+- Vyberte **Manage Jenkins** (Správa Jenkinse) a pak **Manage plugins** (Správa modulů plug-in).
+- Zvolte **Available** (K dispozici) a pak v textovém poli nahoře vyhledejte *GitHub*. Zaškrtněte políčko *GitHub plugin* (Modul plug-in GitHubu) a pak vyberte **Download now and install after restart** (Stáhnout teď a nainstalovat po restartování).
+- Zaškrtněte políčko **Restart Jenkins when installation is complete and no jobs are running** (Restartovat Jenkinse po dokončení instalace, pokud nebudou spuštěné žádné úlohy) a počkejte na dokončení procesu instalace modulu plug-in.
 
 
-## <a name="create-jenkins-job"></a>Vytvořit úlohu volaných
-Pokud chcete, aby volaných reakce na události na Githubu, například potvrzením kódu, vytvořte úlohu volaných. 
+## <a name="create-github-webhook"></a>Vytvoření webhooku GitHubu
+Pokud chcete nakonfigurovat integraci s GitHubem, otevřete [ukázkovou aplikaci Hello World Node.js](https://github.com/Azure-Samples/nodejs-docs-hello-world) z úložiště ukázek Azure. Pokud chcete vytvořit fork úložiště do svého vlastního účtu GitHub, vyberte tlačítko **Fork** (Vytvořit fork) v pravém horním rohu.
 
-Ve vašem webu volaných vyberte **vytvoření nové úlohy** z domovské stránky:
+Ve forku, který jste vytvořili, vytvořte webhook:
 
-- Zadejte *HelloWorld* jako název úlohy. Zvolte **volný styl projektu**, pak vyberte **OK**.
-- V části **Obecné** vyberte **Githubu** projektu a zadejte URL forked úložiště, jako například *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- V části **zdrojového kódu správu** vyberte **Git**, zadejte vaše forked úložišti *.git* adresu URL, například *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
-- V části **sestavení aktivační události** vyberte **Githubu háku aktivační událost pro dotazování GITscm**.
-- V části **sestavení** zvolte **přidat krok sestavení**. Vyberte **spustit prostředí**, pak zadejte `echo "Testing"` v příkazovém okně.
-- Vyberte **Uložit** v dolní části okna úlohy.
+- Vyberte **Settings** (Nastavení) a pak vyberte **Integrations & services** (Integrace a služby) na levé straně.
+- Zvolte **Add service** (Přidat službu) a pak do pole filtru zadejte *Jenkins*.
+- Vyberte *Jenkins (GitHub plugin)* (Jenkins – modul plug-in GitHubu).
+- Do pole **Jenkins hook URL** (Adresa URL hooku Jenkinse) zadejte adresu `http://<publicIps>:8080/github-webhook/`. Nezapomeňte zadat i koncový znak /.
+- Vyberte **Add service** (Přidat službu).
+
+![Přidání webhooku GitHubu do vašeho rozvětveného úložiště](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
 
-## <a name="test-github-integration"></a>Testování integrace Githubu
-K testování Githubu integraci s volaných, potvrďte změnu ve vašem rozvětvení. 
+## <a name="create-jenkins-job"></a>Vytvoření úlohy Jenkinse
+Pokud chcete, aby Jenkins reagoval na událost v GitHubu, například na potvrzení kódu, vytvořte úlohu Jenkinse. 
 
-Zpět v Githubu webové uživatelské rozhraní, vyberte vaše forked úložiště a pak vyberte **index.js** souboru. Vyberte ikonu tužky k úpravám tohoto souboru, takže přečte řádek 6:
+Na domovské stránce na webu Jenkinse vyberte **Create new jobs** (Vytvořit nové úlohy):
+
+- Jako název úlohy zadejte *HelloWorld*. Zvolte **Freestyle project** (Volný projekt) a pak vyberte **OK**.
+- V části **General** (Obecné) vyberte projekt **GitHub** a zadejte URL rozvětveného úložiště. Příklad: *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- V části **Source code management** (Správa zdrojového kódu) vyberte **Git** a zadejte adresu URL rozvětveného úložiště *.git*. Příklad: *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- V části **Build Triggers** (Triggery sestavení) vyberte **GitHub hook trigger for GITscm polling** (Trigger webhooku GitHubu pro dotazování GITscm).
+- V části **Build** (Sestavení) zvolte **Add build step** (Přidat krok sestavení). Vyberte **Execute shell** (Spustit shell) a pak v příkazovém okně zadejte `echo "Testing"`.
+- V dolní části okna úloh vyberte **Save** (Uložit).
+
+
+## <a name="test-github-integration"></a>Testování integrace GitHubu
+Pokud chcete testovat integraci GitHubu s Jenkinsem, potvrďte změnu ve forku. 
+
+Po návratu do webového uživatelského rozhraní GitHubu vyberte příslušné rozvětvené úložiště a pak vyberte soubor **index.js**. Vyberte ikonu tužky a upravte tento soubor tak, aby řádek 6 vypadal takto:
 
 ```nodejs
 response.end("Hello World!");
 ```
 
-Chcete-li potvrdit změny, vyberte **potvrzení změn** tlačítko dole.
+Potvrďte změny výběrem tlačítka **Commit changes** (Potvrdit změny).
 
-Ve volaných, spustí nového sestavení v části **sestavení historie** části levém dolním rohu stránku úlohy. Zvolte odkaz pro číslo sestavení a vyberte **konzole výstup** na levé straně. Můžete si zobrazit kroky volaných přebírá jako kód pocházejí z Githubu a akce sestavení výstupy zprávu `Testing` ke konzole. Pokaždé, když je potvrzení změn provedených v Githubu, webhooku spojí do volaných a aktivuje nového sestavení tímto způsobem.
+V Jenkinsovi se spustí nové sestavení v části **Build history** (Historie sestavení) v levém dolním rohu stránky úlohy. Zvolte odkaz na číslo sestavení a vyberte **Console output** (Výstup na konzole) na levé straně. Můžete zobrazit kroky, které Jenkins provádí při přebírání kódu z GitHubu a vytváření výstupu akce sestavení v podobě zprávy `Testing` na konzole. Po každém potvrzení v Githubu webhook kontaktuje Jenkinse a aktivuje tímto způsobem nové sestavení.
 
 
-## <a name="define-docker-build-image"></a>Definujte image Docker sestavení
-Umožňuje zobrazit spuštěné na základě na vaše potvrzení Githubu aplikace Node.js sestavení Docker bitové kopie a spusťte aplikaci. Obrázek je sestaven z soubor Docker, která definuje konfiguraci kontejneru, který spouští aplikaci. 
+## <a name="define-docker-build-image"></a>Definování image sestavení Dockeru
+Pokud chcete zobrazit aplikaci Node.js spouštěnou na základě potvrzení GitHubu, vytvořte image Dockeru pro spouštění aplikace. Image se sestavuje ze souboru Dockerfile, který definuje způsob konfigurace kontejneru spouštějícího aplikaci. 
 
-Ze SSH připojení k virtuálnímu počítači přejděte do adresáře prostoru volaných s názvem po úkol, který jste vytvořili v předchozím kroku. V tomto příkladu, který byl název *HelloWorld*.
+V rámci připojení SSH k virtuálnímu počítači přejděte do adresáře pracovního prostoru Jenkinse s názvem podle úlohy, kterou jste vytvořili v předchozím kroku. V tomto příkladu byl použit název *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Vytvořte soubor v tomto adresáři prostoru s `sudo sensible-editor Dockerfile` a vložte následující obsah. Ujistěte se, jestli je správně, zkopírovali celý soubor Docker obzvláště první řádek:
+Pomocí příkazu `sudo sensible-editor Dockerfile` vytvořte v tomto adresáři pracovního prostoru soubor a vložte do něj následující obsah. Ujistěte se, že se celý soubor Dockerfile zkopíroval správně, zejména první řádek:
 
 ```yaml
 FROM node:alpine
@@ -186,17 +187,17 @@ RUN npm install
 COPY index.js /var/www/
 ```
 
-Tento soubor Docker používá základní Node.js bitové kopie pomocí Alpine Linux, port zpřístupňuje 1337, který běží aplikace Hello World, pak zkopíruje soubory aplikace a inicializaci.
+Tento soubor Dockerfile použije základní image Node.js v Alpine Linuxu, zpřístupní port 1337, na kterém běží aplikace Hello World, a pak zkopíruje soubory aplikace a inicializuje ji.
 
 
-## <a name="create-jenkins-build-rules"></a>Vytvoření pravidla volaných sestavení
-V předchozím kroku jste vytvořili základní pravidlo volaných sestavení, které na výstup zprávu do konzoly. Umožňuje vytvořit krok sestavení pomocí našich soubor Docker a spuštění aplikace.
+## <a name="create-jenkins-build-rules"></a>Vytváření pravidel sestavení Jenkinse
+V předchozím kroku jste vytvořili základní pravidlo sestavení Jenkinse, jehož výstupem je zpráva na konzole. Teď vytvoříme krok sestavení, který použije příslušný soubor Dockerfile a spustí aplikaci.
 
-Zpět v instanci volaných vyberte úlohu, kterou jste vytvořili v předchozím kroku. Vyberte **konfigurace** na levé straně a posuňte se dolů **sestavení** části:
+Vraťte se do instance Jenkinse a vyberte úlohu, kterou jste vytvořili v předchozím kroku. Vyberte **Configure** (Konfigurovat) na levé straně a přejděte dolů k části **Build** (Sestavení):
 
-- Odeberte stávající `echo "Test"` kroku sestavení. Vyberte červený křížek v pravém horním rohu pole pro stávající krok sestavení.
-- Zvolte **přidat krok sestavení**, pak vyberte **spustit prostředí**
-- V **příkaz** pole, zadejte následující příkazy Docker a potom vyberte **Uložit**:
+- Odeberte stávající krok sestavení `echo "Test"`. Vyberte červený křížek v pravém horním rohu pole stávajícího kroku sestavení.
+- Zvolte **Add build step** (Přidat krok sestavení) a pak vyberte **Execute shell** (Spustit shell).
+- Do pole **Command** (Příkaz) zadejte následující příkazy Dockeru a pak vyberte **Save** (Uložit):
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -204,39 +205,39 @@ Zpět v instanci volaných vyberte úlohu, kterou jste vytvořili v předchozím
   docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
   ```
 
-Kroky sestavení Docker vytvoření bitové kopie a značky její volaných číslo sestavení tak spravovat historii bitové kopie. Žádné existující kontejnery spuštění aplikace jsou zastavena a pak odebral. Nový kontejner je pak spuštěna pomocí image a spouští aplikace Node.js založené na nejnovější potvrzení v Githubu.
+Kroky sestavení Dockeru vytvoří image a označí ji číslem sestavení Jenkinse, aby bylo možné udržovat historii imagí. Všechny existující kontejnery se spuštěnou aplikací se zastaví a odeberou. Pak se pomocí image spustí nový kontejner, který spouští aplikaci Node.js podle nejnovějších potvrzení v GitHubu.
 
 
-## <a name="test-your-pipeline"></a>Testování vaší kanálu
-Chcete-li zobrazit celý kanálu v akci, upravte *index.js* souborů ve vaší forked úložiště GitHub znovu a vyberte **Potvrdit změnu**. Nová úloha se spustí v volaných podle webhooku pro GitHub. Jak dlouho trvá několik sekund pro vytvoření bitové kopie Docker a spusťte aplikaci v nový kontejner.
+## <a name="test-your-pipeline"></a>Test kanálu
+Pokud chcete zobrazit celý kanál v akci, znovu upravte soubor *index.js* ve svém rozvětveném úložišti GitHubu a vyberte **Commit change** (Potvrdit změnu). V Jenkinsovi se spustí nová úloha podle webhooku pro GitHub. Vytvoření image Dockeru a spuštění aplikace v novém kontejneru trvá několik sekund.
 
-V případě potřeby znovu získejte veřejnou IP adresu vašeho virtuálního počítače:
+V případě potřeby znovu zjistěte veřejnou IP adresu svého virtuálního počítače:
 
 ```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Otevřete webový prohlížeč a zadejte `http://<publicIps>:1337`. Aplikace Node.js se zobrazí a odráží nejnovější potvrzení v vaší Githubu rozvětvení následujícím způsobem:
+Otevřete webový prohlížeč a zadejte adresu `http://<publicIps>:1337`. Zobrazí se vaše aplikace Node.js a bude odpovídat nejnovějším potvrzením ve vašem forku GitHubu:
 
-![Spuštěné aplikace Node.js](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
+![Spuštěná aplikace Node.js](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
 
-Nyní provést jiný úprava *index.js* souborů na webu GitHub a potvrďte změny. Počkejte několik sekund pro úlohu dokončit v volaných a potom aktualizujte webový prohlížeč zobrazíte aktualizovanou verzi vaší aplikace spuštěné v nový kontejner následujícím způsobem:
+Teď v GitHubu proveďte další úpravu souboru *index.js* a potvrďte změnu. Počkejte několik sekund na dokončení úlohy v Jenkinsovi a pak aktualizujte obsah webového prohlížeče, aby se zobrazila aktualizovaná verze aplikace spuštěné v novém kontejneru:
 
-![Spuštění aplikace Node.js po další potvrzení Githubu](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
+![Spuštěná aplikace Node.js po dalším potvrzení GitHubu](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
-## <a name="next-steps"></a>Další postup
-V tomto kurzu jste nakonfigurovali Githubu spustit úlohu volaných sestavení v každém potvrzení kódu a pak nasadit kontejner Docker k testování aplikace. Naučili jste se tyto postupy:
+## <a name="next-steps"></a>Další kroky
+V tomto kurzu jste nakonfigurovali GitHub tak, aby se po každém potvrzení uzlu spustila úloha sestavení Jenkinse, a pak jste nasadili kontejner Dockeru, aby se aplikace otestovala. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
-> * Vytvoření virtuálního počítače volaných
-> * Instalace a konfigurace volaných
-> * Vytvoření webhooku integrace mezi Githubu a volaných
-> * Vytvořit a spustit úlohy sestavení volaných z Githubu potvrzení
-> * Vytvoření bitové kopie Docker pro vaši aplikaci.
-> * Ověřte, že potvrzení Githubu vytvářet novou bitovou kopii Docker a spuštěné aplikace
+> * Vytvořit virtuální počítač Jenkins
+> * Nainstalovat a konfigurovat Jenkinse
+> * Vytvořit integraci webhooku mezi GitHubem a Jenkinsem
+> * Vytvořit a aktivovat úlohy sestavení Jenkinse na základě potvrzení GitHubu
+> * Vytvořit pro svou aplikaci image Dockeru
+> * Ověřit, že po potvrzení GitHubu se sestaví nová image Dockeru a aktualizuje se spuštěná aplikace
 
-Přechodu na v dalším kurzu se dozvíte více o tom, jak integrovat volaných Visual Studio Team Services.
+V dalším kurzu se dozvíte víc o tom, jak integrovat Jenkinse se službami Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
-> [Nasazení aplikací s volaných a Team Services](tutorial-build-deploy-jenkins.md)
+> [Nasazování aplikací s Jenkinsem a službami Team Services](tutorial-build-deploy-jenkins.md)

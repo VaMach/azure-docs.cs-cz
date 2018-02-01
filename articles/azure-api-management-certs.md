@@ -1,6 +1,6 @@
 ---
-title: "Nahrát na server certifikát rozhraní API správy Azure | Microsoft Docs"
-description: "Naučte se nahrát na server certifikát správy rozhraní API pro Azure portal."
+title: "Nahrát na server certifikát služby Azure Service Management | Microsoft Docs"
+description: "Naučte se nahrát na server certifikát služby správy pro portál Azure."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="upload-an-azure-management-api-management-certificate"></a>Nahrajte certifikát pro správu Azure rozhraní API pro správu
+# <a name="upload-an-azure-service-management-certificate"></a>Nahrajte certifikát pro správu služby Azure
 Certifikáty pro správu umožňují ověření pomocí modelu nasazení classic poskytovaný platformou Azure. Mnoho programy a nástroje (například Visual Studio nebo sadu Azure SDK) použít tyto certifikáty k automatizaci konfigurace a nasazení různých služeb Azure. 
 
 > [!WARNING]
-> Dej si pozor! Tyto typy certifikátů, povolí všem uživatelům, kteří se mají spravovat předplatné, které jsou přidruženy ověřuje.
+> Buďte opatrní! Tyto typy certifikátů, povolí všem uživatelům, kteří se mají spravovat předplatné, které jsou přidruženy ověřuje.
 >
 >
 
@@ -54,5 +54,5 @@ Jakmile je certifikát správy vytvořený, (soubor .cer s pouze veřejný klí�
 
     ![Nastavení](./media/azure-api-management-certs/certificate_details.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď, když máte certifikát pro správu přidružené předplatné, můžete (po instalaci odpovídající certifikátu místně) prostřednictvím kódu programu připojit k [modelu nasazení classic REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx) a automatizovat různé prostředky Azure, které jsou také přidružené tomuto předplatnému.

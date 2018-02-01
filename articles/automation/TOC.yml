@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Vytváření a import runbooků
           href: automation-creating-importing-runbook.md
+        - name: Vytvoření grafického runbooku
+          href: automation-first-runbook-graphical.md
+        - name: Vytvoření runbooku v PowerShellu
+          href: automation-first-runbook-textual-powershell.md
+        - name: Vytvoření runbooku pracovního postupu v PowerShellu
+          href: automation-first-runbook-textual.md
+        - name: Vytvoření runbooku v Pythonu
+          href: automation-first-runbook-textual-python2.md
         - name: Úpravy textových runbooků
           href: automation-edit-textual-runbook.md
         - name: Úpravy grafických runbooků

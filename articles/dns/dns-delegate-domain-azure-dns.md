@@ -1,5 +1,5 @@
 ---
-title: "Delegování domény do Azure DNS | Microsoft Docs"
+title: "Delegování domény do Azure DNS | Dokumentace Microsoftu"
 description: "Zjistěte, jak změnit delegování domény a pomocí názvových serverů Azure DNS umožněte hosting domén."
 services: dns
 documentationcenter: na
@@ -13,50 +13,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 3cb1a70835b5fa2b615f4adac4b0d9ae31074bce
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: a13d9b360e2c43aa2a3d4f62215e4570ce42cd5b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegování domény do Azure DNS
 
-Azure DNS vám umožňuje hostovat zónu DNS a spravovat záznamy DNS pro doménu v Azure. Mají-li se dotazy DNS pro doménu dostat k Azure DNS, musí doména být delegovaná z nadřazené domény do Azure DNS. Pamatujte, že Azure DNS není doménový registrátor. Tento článek vysvětluje, jak delegovat doménu do Azure DNS.
+Azure DNS můžete použít k hostování zóny DNS a správě záznamů DNS pro doménu v Azure. Aby se dotazy DNS pro doménu dostaly až k Azure DNS, musí být doména delegovaná do Azure DNS z nadřazené domény. Pamatujte, že Azure DNS není doménový registrátor. Tento článek vysvětluje, jak delegovat doménu do Azure DNS.
 
-U domén zakoupených od doménového registrátora nabídne registrátor možnost nastavit tyto záznamy NS. Pro vytvoření zóny DNS s názvem domény v DNS Azure nemusíte tuto doménu vlastnit. Chcete-li však u registrátora nastavit delegování domény do Azure DNS, musíte tuto doménu vlastnit.
+U domén zakoupených od doménového registrátora nabídne registrátor možnost nastavit záznamy NS (názvových serverů). Pro vytvoření zóny DNS s daným názvem domény v Azure DNS nemusíte tuto doménu vlastnit. Chcete-li však u registrátora nastavit delegování domény do Azure DNS, musíte tuto doménu vlastnit.
 
-Předpokládejme například, že zakoupíte doménu contoso.net a v Azure DNS vytvoříte zónu s názvem contoso.net. Jako vlastníkovi domény vám registrátor nabídne možnost konfigurovat pro vaši doménu adresy názvových serverů (tj. záznamů NS). Doménový registrátor uloží tyto záznamy NS v nadřazené doméně, v tomto případě „.net“. Klienti po celém světě pak mohou být při pokusu o překlad záznamů DNS v contoso.net přesměrováni na vaši doménu v zóně Azure DNS.
+Předpokládejme například, že zakoupíte doménu contoso.net a v Azure DNS vytvoříte zónu s názvem contoso.net. Jako vlastníkovi domény vám registrátor nabídne možnost konfigurovat pro vaši doménu adresy názvových serverů (tj. záznamů NS). Doménový registrátor uloží tyto záznamy NS v nadřazené doméně, v tomto případě .net. Klienti po celém světě pak mohou být při pokusu o překlad adresy z domény contoso.net pomocí DNS přesměrováni na vaši doménu v zóně Azure DNS.
 
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
 1. Přihlaste se k portálu Azure.
-1. Klikněte v nabídce centra a pak klikněte na **Nový > Sítě >** a pak klikněte na **Zóna DNS**. Otevře se stránka **vytvoření zóny DNS**.
+1. V nabídce **Centrum** vyberte **Nový** > **Sítě** > **Zóna DNS**. Otevře se stránka **Vytvořit zónu DNS**.
 
-    ![Zóna DNS](./media/dns-domain-delegation/dns.png)
+   ![Zóna DNS](./media/dns-domain-delegation/dns.png)
 
-1. Na stránce **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
+1. Na stránce **Vytvořit zónu DNS** zadejte následující hodnoty a pak vyberte **Vytvořit**:
 
    | **Nastavení** | **Hodnota** | **Podrobnosti** |
    |---|---|---|
-   |**Název**|contoso.net|Název zóny DNS|
+   |**Název**|contoso.net|Zadejte název zóny DNS.|
    |**Předplatné**|[Vaše předplatné]|Vyberte předplatné, ve kterém se má služba Application Gateway vytvořit.|
-   |**Skupina prostředků**|**Vytvořit novou:** contosoRG|Vytvořte skupinu prostředků. Název skupiny prostředků musí být v rámci vybraného předplatného jedinečný. Další informace o skupinách prostředků najdete v článku s přehledem [Resource Manageru](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Skupina prostředků**|**Vytvořit novou:** contosoRG|Vytvořte skupinu prostředků. Název skupiny prostředků musí být v rámci vybraného předplatného jedinečný. Další informace o skupinách prostředků najdete v přehledovém článku [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Umístění**|Západní USA||
 
 > [!NOTE]
-> Skupina prostředků označuje umístění skupiny prostředků a nemá žádný vliv na zónu DNS. Umístění zóny DNS je vždy globální a není zobrazeno.
+> Umístění skupiny prostředků nemá žádný vliv na zónu DNS. Umístění zóny DNS je vždy globální a nezobrazuje se.
 
 ## <a name="retrieve-name-servers"></a>Načtení názvových serverů
 
-Předtím, než budete moci svoji zónu DNS delegovat do Azure DNS, musíte znát názvy názvových serverů pro vaši zónu. Azure DNS přiděluje názvové servery z fondu vždy, když je vytvořena zóna.
+Předtím, než budete moci svoji zónu DNS delegovat do Azure DNS, musíte znát názvové servery pro vaši zónu. Azure DNS přiděluje názvové servery z fondu vždy, když je vytvořena zóna.
 
-1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. Na stránce **Všechny prostředky** klikněte na zónu DNS **contoso.net**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contoso.net** do pole Filtrovat podle názvu... pro snadný přístup ke službě Application Gateway. 
+1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** vyberte **Všechny prostředky**. Na stránce **Všechny prostředky** vyberte zónu DNS **contoso.net**. Pokud předplatné, které jste vybrali, už obsahovalo nějaké prostředky, můžete zadat **contoso.net** do pole **Filtrovat podle názvu** a snadno se tak dostat k bráně aplikace. 
 
-1. Načtěte názvové servery ze stránky zóny DNS. V tomto případě byly pro zónu contoso.net přiřazené názvové servery ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org a ns4-01.azure-dns.info:
+1. Načtěte názvové servery ze stránky zóny DNS. V tomto příkladu byly pro zónu contoso.net přiřazené názvové servery ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org a ns4-01.azure-dns.info:
 
- ![Názvový server DNS](./media/dns-domain-delegation/viewzonens500.png)
+   ![Seznam názvových serverů](./media/dns-domain-delegation/viewzonens500.png)
 
-Azure DNS automaticky vytvoří ve vaší zóně záznamy autoritativních NS, které obsahují přiřazené názvové servery.  Chcete-li zobrazit názvy názvových serverů prostřednictvím Azure PowerShellu nebo rozhraní příkazového řádku Azure, stačí jednoduše načíst tyto záznamy.
+Azure DNS automaticky vytvoří ve vaší zóně autoritativní záznamy NS, které obsahují přiřazené názvové servery. Chcete-li zobrazit názvové servery prostřednictvím Azure PowerShellu nebo Azure CLI, stačí jednoduše načíst tyto záznamy.
 
 Následující příklady popisují také postup načtení názvových serverů pro zónu v Azure DNS pomocí PowerShellu a Azure CLI.
 
@@ -68,7 +68,7 @@ $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
 ```
 
-Dalším příkladem je tato odpověď.
+Dalším příkladem je tato odpověď:
 
 ```
 Name              : @
@@ -88,7 +88,7 @@ Metadata          :
 az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
-Dalším příkladem je tato odpověď.
+Dalším příkladem je tato odpověď:
 
 ```json
 {
@@ -118,17 +118,17 @@ Dalším příkladem je tato odpověď.
 
 ## <a name="delegate-the-domain"></a>Delegování domény
 
-Teď, když je vytvořena zóna DNS a máte názvové servery, je potřeba aktualizovat nadřazenou doménu o názvové servery Azure DNS. Každý registrátor má vlastní nástroje pro správu DNS, které umožňují měnit záznamy názvových serverů pro doménu. Na stránce správy DNS vašeho registrátora upravte záznamy NS a nahraďte je záznamy NS, které vytvořil Azure DNS.
+Teď, když je vytvořena zóna DNS a máte názvové servery, je potřeba aktualizovat nadřazenou doménu s názvovými servery Azure DNS. Každý registrátor má vlastní nástroje pro správu DNS, které umožňují měnit záznamy názvových serverů pro doménu. Na stránce správy DNS vašeho registrátora upravte záznamy NS a nahraďte je záznamy NS vytvořenými v Azure DNS.
 
-Při delegování domény do Azure DNS musíte použít názvy názvových serverů, které poskytuje Azure DNS. Doporučuje se vždycky použít všechny čtyři názvy názvových serverů bez ohledu na název domény. Delegování domény nevyžaduje, aby název názvového serveru používal jako vaši doménu stejnou doménu nejvyšší úrovně.
+Při delegování domény do Azure DNS musíte použít názvové servery, které poskytuje Azure DNS. Doporučuje se vždycky použít všechny čtyři názvové servery bez ohledu na název domény. Delegování domény nevyžaduje, aby názvový server měl stejnou doménu nejvyšší úrovně jako vaše doména.
 
-Pro ukazování na IP adresy názvových serverů Azure DNS nepoužívejte „spojovací záznamy“, protože se tyto IP adresy mohou v budoucnu měnit. Delegování pomocí názvů názvových serverů ve vaší vlastní zóně, někdy označovaných jako „jednoduché názvové servery“, v současné době není v Azure DNS podporované.
+Pro odkazování na IP adresy názvových serverů Azure DNS nepoužívejte *spojovací záznamy* (glue records), protože se tyto IP adresy mohou v budoucnu měnit. Delegování pomocí názvových serverů ve vaší vlastní zóně, někdy označovaných jako *jednoduché názvové servery*, v současné době není v Azure DNS podporované.
 
-## <a name="verify-name-resolution-is-working"></a>Ověření, že překlad názvů funguje
+## <a name="verify-that-name-resolution-is-working"></a>Ověření, že překlad názvů funguje
 
-Po dokončení delegování můžete ověřit, že překlad názvů funguje, pomocí nástroje, jako je například nslookup, který se dotáže na záznam SOA pro vaši zónu (ten je také automaticky vytvořený při vytváření zóny).
+Po dokončení delegování můžete ověřit, že překlad názvů funguje, pomocí nástroje, jako je například nslookup, který se dotáže na záznam SOA pro vaši zónu. (Záznam SOA se automaticky vytvoří při vytváření zóny.)
 
-Nemusíte určit názvové servery Azure DNS, protože pokud bylo delegování správně nastaveno, normální proces překladu DNS najde názvové servery automaticky.
+Nemusíte určit názvové servery Azure DNS. Pokud bylo delegování správně nastaveno, normální proces překladu DNS najde názvové servery automaticky.
 
 ```
 nslookup -type=SOA contoso.com
@@ -150,77 +150,77 @@ expire = 604800 (7 days)
 default TTL = 300 (5 mins)
 ```
 
-## <a name="delegate-sub-domains-in-azure-dns"></a>Delegování subdomén v Azure DNS
+## <a name="delegate-subdomains-in-azure-dns"></a>Delegování subdomén v Azure DNS
 
-Chcete-li nastavit samostatnou podřízenou zónu, můžete subdoménu delegovat v Azure DNS. Předpokládejme například, že jste již v Azure DNS nastavili a delegovali contoso.net, a chtěli byste nastavit samostatnou podřízenou zónu partners.contoso.net.
+Chcete-li nastavit samostatnou podřízenou zónu, můžete subdoménu delegovat v Azure DNS. Předpokládejme například, že v Azure DNS vytvoříte delegovanou doménu contoso.net. Teď chcete vytvořit samostatnou podřízenou zónu, partners.contoso.net.
 
-1. V Azure DNS vytvořte podřízenou zónu partners.contoso.net.
-2. Vyhledejte záznamy autoritativních NS v podřízené zóně a získejte tak názvové servery hostující podřízenou zónu v Azure DNS.
+1. Vytvořte podřízenou zónu partners.contoso.net v Azure DNS.
+2. Vyhledejte autoritativní NS záznamy v podřízené zóně, získáte tak názvové servery hostující podřízenou zónu v Azure DNS.
 3. Delegujte podřízenou zónu pomocí konfigurace záznamů NS v nadřazené zóně tak, aby ukazovaly na podřízenou zónu.
 
 ### <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
-1. Přihlášení k webu Azure Portal
-1. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete stránku Vytvořit zónu DNS.
+1. Přihlaste se k portálu Azure.
+1. V nabídce **Centrum** vyberte **Nový** > **Sítě** > **Zóna DNS**. Otevře se stránka **Vytvořit zónu DNS**.
 
-    ![Zóna DNS](./media/dns-domain-delegation/dns.png)
+   ![Zóna DNS](./media/dns-domain-delegation/dns.png)
 
-1. Na stránce **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
+1. Na stránce **Vytvořit zónu DNS** zadejte následující hodnoty a pak vyberte **Vytvořit**:
 
    | **Nastavení** | **Hodnota** | **Podrobnosti** |
    |---|---|---|
-   |**Název**|partners.contoso.net|Název zóny DNS|
+   |**Název**|partners.contoso.net|Zadejte název zóny DNS.|
    |**Předplatné**|[Vaše předplatné]|Vyberte předplatné, ve kterém se má služba Application Gateway vytvořit.|
    |**Skupina prostředků**|**Použít existující:** contosoRG|Vytvořte skupinu prostředků. Název skupiny prostředků musí být v rámci vybraného předplatného jedinečný. Další informace o skupinách prostředků najdete v článku s přehledem [Resource Manageru](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Umístění**|Západní USA||
 
 > [!NOTE]
-> Skupina prostředků označuje umístění skupiny prostředků a nemá žádný vliv na zónu DNS. Umístění zóny DNS je vždy globální a není zobrazeno.
+> Umístění skupiny prostředků nemá žádný vliv na zónu DNS. Umístění zóny DNS je vždy globální a nezobrazuje se.
 
 ### <a name="retrieve-name-servers"></a>Načtení názvových serverů
 
-1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. Na stránce **Všechny prostředky** klikněte na zónu DNS **partners.contoso.net**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **partners.contoso.net** do pole Filtrovat podle názvu... pro snadný přístup k zóně DNS.
+1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** vyberte **Všechny prostředky**. Na stránce **Všechny prostředky** vyberte zónu DNS **partners.contoso.net**. Pokud předplatné, které jste vybrali, už obsahovalo nějaké prostředky, můžete zadat **contoso.net** do pole **Filtrovat podle názvu** a snadno se tak dostat k zóně DNS.
 
-1. Načtěte názvové servery ze stránky zóny DNS. V tomto případě byly pro zónu contoso.net přiřazené názvové servery ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org a ns4-01.azure-dns.info:
+1. Načtěte názvové servery ze stránky zóny DNS. V tomto příkladu byly pro zónu contoso.net přiřazené názvové servery ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org a ns4-01.azure-dns.info:
 
- ![Názvový server DNS](./media/dns-domain-delegation/viewzonens500.png)
+   ![Seznam názvových serverů](./media/dns-domain-delegation/viewzonens500.png)
 
-Azure DNS automaticky vytvoří ve vaší zóně záznamy autoritativních NS, které obsahují přiřazené názvové servery.  Chcete-li zobrazit názvy názvových serverů prostřednictvím Azure PowerShellu nebo rozhraní příkazového řádku Azure, stačí jednoduše načíst tyto záznamy.
+Azure DNS automaticky vytvoří ve vaší zóně autoritativní záznamy NS, které obsahují přiřazené názvové servery.  Chcete-li zobrazit názvové servery prostřednictvím Azure PowerShellu nebo Azure CLI, stačí jednoduše načíst tyto záznamy.
 
-### <a name="create-name-server-record-in-parent-zone"></a>Vytvoření záznamu názvového serveru v nadřazené zóně
+### <a name="create-a-name-server-record-in-the-parent-zone"></a>Vytvoření záznamu názvového serveru v nadřazené zóně
 
 1. Na webu Azure Portal přejděte k zóně DNS **contoso.net**.
-1. Klikněte na **+ Sada záznamů**.
-1. Na stránce **Přidat sadu záznamů** zadejte následující hodnoty a klikněte na **OK**:
+1. Vyberte **+ Sada záznamů**.
+1. Na stránce **Přidat sadu záznamů** zadejte následující hodnoty a vyberte **OK**:
 
    | **Nastavení** | **Hodnota** | **Podrobnosti** |
    |---|---|---|
-   |**Název**|partners|Název podřízené zóny DNS|
+   |**Název**|partners|Zadejte název podřízené zóny DNS.|
    |**Typ**|NS|Pro záznamy názvového serveru použijte NS.|
-   |**Hodnota TTL**|1|Hodnota TTL (Time to Live).|
-   |**Jednotka hodnoty TTL**|Hodiny|Nastaví jednotku hodnoty TTL (Time to Live) na hodiny.|
-   |**NÁZVOVÝ SERVER**|{názvové servery ze zóny partners.contoso.net}|Zadejte všechny 4 názvové servery ze zóny partners.contoso.net. |
+   |**Hodnota TTL**|1|Zadejte hodnotu TTL (Time to Live).|
+   |**Jednotka hodnoty TTL**|Hodiny|Nastavte jednotku hodnoty TTL (Time to Live) na hodiny.|
+   |**NÁZVOVÝ SERVER**|{názvové servery ze zóny partners.contoso.net}|Zadejte všechny čtyři názvové servery ze zóny partners.contoso.net. |
 
-   ![Názvový server DNS](./media/dns-domain-delegation/partnerzone.png)
+   ![Hodnoty pro záznam názvového serveru](./media/dns-domain-delegation/partnerzone.png)
 
 
-### <a name="delegating-sub-domains-in-azure-dns-with-other-tools"></a>Delegování subdomén v Azure DNS pomocí jiných nástrojů
+### <a name="delegate-subdomains-in-azure-dns-by-using-other-tools"></a>Delegování subdomén v Azure DNS pomocí jiných nástrojů
 
-Následující příklady popisují postup delegování subdomén v Azure DNS pomocí PowerShellu a rozhraní příkazového řádku:
+Následující příklady popisují postup delegování subdomén v Azure DNS pomocí PowerShellu a Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
-Následující příklad PowerShell ukazuje, jak to funguje. Stejný postup lze provést prostřednictvím webu Azure Portal nebo víceplatformového rozhraní příkazového řádku Azure CLI.
+Následující příklad PowerShell ukazuje, jak to funguje. Stejný postup lze provést prostřednictvím webu Azure Portal nebo víceplatformového nástroje v Azure CLI.
 
 ```powershell
-# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
 $parent = New-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 $child = New-AzureRmDnsZone -Name partners.contoso.net -ResourceGroupName contosoRG
 
-# Retrieve the authoritative NS records from the child zone as shown in the next example. This contains the name servers assigned to the child zone.
+# Retrieve the authoritative NS records from the child zone as shown in the next example. This information contains the name servers assigned to the child zone.
 $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name, in this case "partners".
+# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name (in this case, "partners").
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 $parent_ns_recordset.Records = $child_ns_recordset.Records
 Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
@@ -251,7 +251,7 @@ partners.contoso.com
 ```azurecli
 #!/bin/bash
 
-# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
 az network dns zone create -g contosoRG -n contoso.net
 az network dns zone create -g contosoRG -n partners.contoso.net
 ```
@@ -286,7 +286,7 @@ Vytvořte pro každý názvový server sadu záznamů a záznamy NS.
 # Create the record set
 az network dns record-set ns create --resource-group contosorg --zone-name contoso.net --name partners
 
-# Create a ns record for each name server.
+# Create an NS record for each name server.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns1-09.azure-dns.com.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns2-09.azure-dns.net.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns3-09.azure-dns.org.
@@ -297,9 +297,11 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující kroky:
 
-1. Na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. Na stránce Všechny prostředky klikněte na skupinu prostředků **contosorg**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contosorg** do pole **Filtrovat podle názvu...** pro snadný přístup ke skupině prostředků.
-1. Na stránce **contosorg** klikněte na tlačítko **Odstranit**.
-1. Portál požaduje, abyste zadali název skupiny prostředků pro potvrzení, že ji skutečně chcete odstranit. Jako název skupiny prostředků zadejte *contosorg* a pak klikněte na **Odstranit**. Odstraněním skupiny prostředků se odstraní všechny prostředky v rámci dané skupiny prostředků. Proto nikdy nezapomeňte před odstraněním skupiny prostředků zkontrolovat její obsah. Portál odstraní všechny prostředky v rámci skupiny prostředků a potom odstraní samotnou skupinu prostředků. Tento proces trvá několik minut.
+1. Na webu Azure Portal v podokně **Oblíbené** vyberte **Všechny prostředky**. Na stránce **Všechny prostředky** vyberte skupinu prostředků **contosorg**. Pokud předplatné, které jste vybrali, už obsahovalo nějaké prostředky, můžete zadat **contoso.net** do pole **Filtrovat podle názvu** a snadno se tak dostat ke skupině prostředků.
+1. Na stránce **contosorg** vyberte **Odstranit**.
+1. Portál požaduje, abyste zadali název skupiny prostředků pro potvrzení, že ji skutečně chcete odstranit. Jako název skupiny prostředků zadejte **contosorg** a pak vyberte **Odstranit**. 
+
+Odstranění skupiny prostředků odstraní všechny prostředky, které v ní jsou. Před odstraněním vždy zkontrolujte obsah skupiny prostředků. Portál odstraní všechny prostředky v rámci skupiny prostředků a potom odstraní samotnou skupinu prostředků. Tento proces trvá několik minut.
 
 ## <a name="next-steps"></a>Další kroky
 

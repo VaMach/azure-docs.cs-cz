@@ -140,6 +140,8 @@
           href: data-prep-python-extensibility-overview.md
         - name: Podporované zdroje dat
           href: data-prep-appendix2-supported-data-sources.md
+        - name: Načtení Azure Cosmos DB jako zdroje dat
+          href: data-prep-load-azure-cosmos-db.md
         - name: Podporované kontroly
           href: data-prep-appendix4-supported-inspectors.md
         - name: Podporované datové cíle

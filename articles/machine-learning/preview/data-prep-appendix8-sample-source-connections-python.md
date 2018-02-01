@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 3ffe0e385f9dd71d8341305f42ceb10e0ea49af4
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 125911a47192a6bb37582a3ecf7cf14c8e2cc96f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Ukázka připojení vlastní zdroje (Python) 
 Před čtením této příloha, přečtěte si [Python rozšiřitelnost přehled](data-prep-python-extensibility-overview.md).
@@ -59,34 +59,5 @@ lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 df = lds.dataframes['simpsons_episodes']
 
 ```
-
-## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Načtení dat Azure Cosmos DB do Příprava dat
-
-Vytvořit nový tok dat založených na skriptech a pak použít následující skript k načítání dat z Azure Cosmos DB. (Knihovny musí být napřed nainstalované. Další informace najdete v předchozí odkaz na dokument, který jsme propojit.)
-
-```python
-import pydocumentdb
-import pydocumentdb.document_client as document_client
-
-import pandas as pd
-
-config = { 
-    'ENDPOINT': '<Endpoint>',
-    'MASTERKEY': '<Key>',
-    'DOCUMENTDB_DATABASE': '<DBName>',
-    'DOCUMENTDB_COLLECTION': '<collectionname>'
-};
-
-# Initialize the Python DocumentDB client.
-client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
-
-# Read databases and take first since id should not be duplicated.
-db = next((data for data in client.ReadDatabases() if data['id'] == config['DOCUMENTDB_DATABASE']))
-
-# Read collections and take first since id should not be duplicated.
-coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config['DOCUMENTDB_COLLECTION']))
-
-docs = client.ReadDocuments(coll['_self'])
-
-df = pd.DataFrame(list(docs))
-```
+## <a name="azure-cosmos-db-as-a-data-source-connection"></a>Azure DB Cosmos jako připojení ke zdroji dat
+Příklad Azure DB Cosmos jako datové připojení, najdete v tématu [zatížení Azure DB Cosmos jako připojení zdroje dat](data-prep-load-azure-cosmos-db.md)

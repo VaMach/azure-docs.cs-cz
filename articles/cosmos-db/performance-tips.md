@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -120,6 +120,13 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
 6. **Implementace omezení rychlosti v intervalech RetryAfter**
 
     Během testování výkonu měli zvýšit zatížení, dokud malý počet žádostí o získání omezeny. Pokud omezené, klientská aplikace měli omezení rychlosti na omezení pro interval opakování zadaný server. Bere ohledy omezení rychlosti zajišťuje strávený minimální množství času čekat mezi opakovanými pokusy. Podpora zásad opakování je součástí verze 1.8.0 a výše SQL [rozhraní .NET](sql-api-sdk-dotnet.md) a [Java](sql-api-sdk-java.md), verze 1.9.0 a vyšší z [Node.js](sql-api-sdk-node.md) a [Python](sql-api-sdk-python.md), a všechny podporované verze [.NET Core](sql-api-sdk-dotnet-core.md) sady SDK. Další informace najdete v tématu [Exceeding vyhrazené omezení propustnosti](request-units.md#RequestRateTooLarge) a [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    
+    S verzí 1.19 a novější sady .NET SDK je mechanismus protokolu jiné diagnostické informace a řešení potíží s problémy s latencí jak znázorňuje následující ukázka. Přihlaste se na diagnostiky řetězec pro požadavky, které mají vyšší latence pro čtení. Zaznamenané diagnostiky řetězec vám pomůže porozumět počet, kolikrát zjištěnými 429s pro daný požadavek.
+    ```csharp
+    ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
+    readDocument.RequestDiagnosticsString 
+    ```
+    
 7. **Horizontální navýšení kapacity vaše úlohy klienta**
 
     Pokud testujete na úrovních vysoké propustnosti (> 50 000 RU/s), klientská aplikace se může stát úzkým místem kvůli počítač omezení se na využití procesoru nebo sítě. Pokud dostanete tento bod, můžete dál tak, aby nabízel další účet Azure Cosmos DB podle škálování klientských aplikací na více serverech.

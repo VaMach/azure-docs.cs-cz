@@ -6,6 +6,10 @@
 # Šablony Rychlý start
 
 ## [Vytvoření a připojení – portál](create-data-warehouse-portal.md)
+## Pozastavení a obnovení výpočtů
+### [Azure Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Kurzy
 ## [1. Načtení dat z objektu blob](load-data-from-azure-blob-storage-using-polybase.md)

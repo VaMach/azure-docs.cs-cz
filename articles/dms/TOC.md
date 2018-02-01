@@ -1,6 +1,5 @@
 # Přehled
 ## [Informace o službě Database Migration Service](dms-overview.md)
-## [Přehled požadavků](pre-reqs.md)
 
 # Šablony Rychlý start
 ## [Vytvoření služby – Portál](quickstart-create-data-migration-service-portal.md)
@@ -17,4 +16,6 @@
 ## [Průvodce migrací databáze](https://aka.ms/datamigration)
 ## [Pomocník s migrací dat](https://aka.ms/dma)
 ## [Ceny](https://aka.ms/dms-pricing)
+## [Přehled požadavků](pre-reqs.md)
 ## [Nejčastější dotazy](faq.md)
+

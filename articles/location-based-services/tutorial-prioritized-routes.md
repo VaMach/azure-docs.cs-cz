@@ -1,6 +1,6 @@
 ---
-title: "Více než jedna služeb na základě umístění Azure | Microsoft Docs"
-description: "Najít trasy pro různé režimy cesta pomocí služeb na základě umístění Azure"
+title: "Více tras v případě použití Azure Location Based Services | Dokumentace Microsoftu"
+description: "S použitím Azure Location Based Services můžete hledat trasy pro různé režimy dopravy."
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,33 +12,33 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Najít trasy pro různé režimy cesta pomocí služeb na základě umístění Azure
+# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>S použitím Azure Location Based Services můžete hledat trasy pro různé režimy dopravy.
 
-Tento kurz ukazuje, jak najít trasy, která má body, nastavovat ve vašem režimu cesta pomocí vašeho účtu služeb na základě umístění Azure a sadu SDK služby směrování. V tomto kurzu se naučíte:
+Tento kurz demonstruje způsob použití účtu Azure Location Based Services a sady SDK Route Service k vyhledání trasy k bodu zájmu s určením priority podle režimu dopravy. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Konfigurace služby postupu dotazu
-> * Vykreslení trasy nastavovat pomocí režimu cesta
+> * Konfigurovat dotaz na rozhraní API Route Service
+> * Vykreslovat trasy s určenou prioritou podle režimu dopravy
 
 ## <a name="prerequisites"></a>Požadavky
 
-Než budete pokračovat, nezapomeňte [vytvoření účtu Azure zjišťování na základě polohy](./tutorial-search-location.md#createaccount), a [získat klíč předplatného pro váš účet](./tutorial-search-location.md#getkey). Může také sledovat, jak používat mapový ovládací prvek a rozhraní API pro vyhledávání služby, jak je popsáno v tomto kurzu [vyhledávání nedaleko bodu zájmu pomocí služeb na základě umístění Azure](./tutorial-search-location.md), stejně jako další základní použití rozhraní API služby trasy jako popsané v tomto kurzu [trasy, která má bod týkající se použití služeb na základě umístění Azure](./tutorial-route-location.md).
+Než budete pokračovat, nezapomeňte [vytvořit účet Azure Location Based Services](./tutorial-search-location.md#createaccount) a [získat z účtu klíč](./tutorial-search-location.md#getkey). Můžete také sledovat způsob použití rozhraní API pro mapové ovládací prvky a službu Search Service popsaný v kurzu [Hledání okolních bodů zájmu s použitím Azure Location Based Services](./tutorial-search-location.md) a seznámit se se základním používáním rozhraní API Route Service popsaným v kurzu [Trasa k bodu zájmu s použitím Azure Location Based Services](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
 
-## <a name="configure-your-route-service-query"></a>Konfigurace služby postupu dotazu
+## <a name="configure-your-route-service-query"></a>Konfigurování dotazu na rozhraní API Route Service
 
-Pomocí následujících kroků můžete vytvořit statické stránky HTML vložených s rozhraním API řízení na základě polohy mapy. 
+Provedením následujících kroků vytvořte statickou stránku HTML s vloženým rozhraním API pro mapové ovládací prvky služeb Location Based Services. 
 
-1. Na místním počítači, vytvořte nový soubor s názvem **MapTruckRoute.html**. 
-2. Přidejte následující součásti HTML k souboru:
+1. Na místním počítači vytvořte nový soubor s názvem **MapTruckRoute.html**. 
+2. Přidejte do souboru následující součásti HTML:
 
     ```HTML
     <!DOCTYPE html>
@@ -75,19 +75,19 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
 
     </html>
     ```
-    Všimněte si, že hlavičku HTML vloží umístění prostředků pro souborů CSS a JavaScript pro knihovnu služeb na základě umístění Azure. Všimněte si také *skriptu* segmentu přidat k tělu HTML, tak, aby obsahovala vloženého kódu jazyka JavaScript pro přístup k rozhraní API služby Azure mapy ovládacího prvku.
-3. Přidejte následující kód JavaScript, který *skriptu* bloku souboru HTML. Nahraďte zástupný symbol *< klávesy insert >* s primární klíč účtu na základě polohy.
+    Všimněte si, že jsou v hlavičce HTML vložena umístění prostředků pro soubory CSS a JavaScript pro knihovnu Azure Location Based Services. Všimněte si také bloku *script* přidaného do těla souboru HTML. Tento blok bude obsahovat vložený kód jazyka JavaScript pro přístup k rozhraní API pro mapové ovládací prvky v Azure.
+3. Do bloku *script* v souboru HTML přidejte následující kód jazyka JavaScript. Nahraďte zástupný symbol *<insert-key>* primárním klíčem účtu Location Based Services.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    **Atlas. Mapa** poskytuje ovládací prvek pro mapu visual a interaktivní webové, a je součástí rozhraní API služby Azure mapy ovládacího prvku.
+    Objekt **atlas.Map** umožňuje ovládání vizuální a interaktivní webové mapy a je součástí rozhraní API pro mapové ovládací prvky prostředí Azure.
 
-4. Přidejte následující kód JavaScript, který *skriptu* bloku, přidat zobrazení tok přenosů do mapy:
+4. Přidáním následujícího kódu jazyka JavaScript do bloku *script* přidejte do mapy zobrazení toku provozu:
 
     ```JavaScript
     // Add Traffic Flow to the Map
@@ -95,9 +95,9 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
         flow: "relative"
     });
     ```
-    Tento kód nastaví tok přenosů na `relative`, což je rychlosti silniční relativně k bezplatným toku. Můžete ho také nastavit na `absolute` rychlosti silniční, nebo `relative-delay` zobrazuje relativní rychlosti Pokud se liší od volného toku. 
+    Tento kód nastaví tok provozu na hodnotu `relative`, která odpovídá relativní rychlosti silniční dopravy vzhledem k volnému toku. Můžete také nastavit hodnotu rychlosti silniční dopravy `absolute` nebo `relative-delay`, která zobrazuje relativní rychlost, pokud se liší od volného toku. 
 
-5. Přidejte následující kód JavaScript, k vytvoření kódů PIN pro počáteční a koncový bod trasy:
+5. Přidáním následujícího kódu jazyka JavaScript vytvořte špendlíky pro počáteční a koncový bod trasy:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -113,9 +113,9 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
         icon: "pin-blue"
     });
     ```
-    Tento kód vytvoří dvě [GeoJSON objekty](https://en.wikipedia.org/wiki/GeoJSON) představují počáteční a koncový bod trasy. 
+    Tento kód vytvoří dva [objekty GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) představující počáteční a koncový bod trasy. 
 
-6. Přidejte následující kód v JavaScriptu přidat vrstev *linestrings* pro mapový ovládací prvek zobrazíte tras na základě režimu přenosu, například _car_ a _vůz_.
+6. Přidáním následujícího kódu jazyka JavaScript přidejte do mapového ovládacího prvku vrstvy *linestrings*, aby se zobrazovaly trasy podle režimu dopravy, například _car_ (osobní auto) nebo _truck_ (nákladní auto).
 
     ```JavaScript
     // Place route layers on the map
@@ -140,7 +140,7 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
     });
     ```
 
-7. Přidejte následující kód v JavaScriptu přidat k mapy počáteční a koncové body:
+7. Přidáním následujícího kódu jazyka JavaScript přidejte na mapu počáteční a koncový bod:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -160,17 +160,17 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
         textOffset: [0, -20]
     });
     ``` 
-    Rozhraní API **map.setCameraBounds** upraví okna mapa podle souřadnice počátečního a koncového bodu. Rozhraní API **map.addPins** přidá body mapový ovládací prvek jako vizuální součásti.
+    Rozhraní API **map.setCameraBounds** upraví okno mapy podle souřadnic počátečního a koncového bodu. Rozhraní API **map.addPins** přidá do mapového ovládacího prvku body jako vizuální součásti.
 
-8. Uložit **MapTruckRoute.html** soubor na vašem počítači. 
+8. Uložte si soubor **MapTruckRoute.html** do počítače. 
 
 <a id="multipleroutes"></a>
 
-## <a name="render-routes-prioritized-by-mode-of-travel"></a>Vykreslení trasy nastavovat pomocí režimu cesta
+## <a name="render-routes-prioritized-by-mode-of-travel"></a>Vykreslovat trasy s určenou prioritou podle režimu dopravy
 
-Tato část ukazuje způsob použití rozhraní API služby trasy Azure na základě polohy najít víc tras z dané počáteční přejděte na cíl, v závislosti na vašem režimu přenosu. Služba směrování poskytuje rozhraní API pro plánování nejrychlejších, nejkratší nebo úsporném trasy mezi dvěma umístěními, vzhledem k tomu, podmínky přenos v reálném čase. Umožňuje také uživatelům plánování trasy v budoucnu pomocí databáze rozsáhlé historické provozu Azure a odhad doby trvání trasy pro žádné datum a čas. 
+Tato část ilustruje způsob použití rozhraní API Route Service služeb Azure Location Based Services k vyhledání více tras z daného počátečního bodu na cílové místo pro příslušný režim dopravy. Rozhraní API Route Service poskytuje rozhraní API pro plánování nejrychlejší, nejkratší nebo úsporné trasy mezi dvěma místy s přihlédnutím k okamžité dopravní situaci. Umožňuje uživatelům také plánovat trasy v budoucnu s použitím rozsáhlé databáze Azure s historickými dopravními informacemi a předvídat dobu trvání trasy pro kterýkoli den a čas. 
 
-1. Otevřete **MapTruckRoute.html** soubor vytvořili v předchozí části a přidejte následující kód JavaScript, který *skriptu* bloku, získejte trasy pro vůz, pomocí služby postupu.
+1. Otevřete soubor **MapTruckRoute.html**, který jste vytvořili v předchozí části, a přidejte do bloku *script* následující kód jazyka JavaScript, který s použitím rozhraní API Route Service zjistí trasu pro nákladní vozidlo.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting truck route on the map
@@ -195,7 +195,7 @@ Tato část ukazuje způsob použití rozhraní API služby trasy Azure na zákl
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -207,13 +207,13 @@ Tato část ukazuje způsob použití rozhraní API služby trasy Azure na zákl
     xhttpTruck.open("GET", truckRouteUrl, true);
     xhttpTruck.send();
     ```
-    Vytvoří tento fragment kódu [XMLHttpRequest](https://xhr.spec.whatwg.org/), a přidá obslužnou rutinu události analyzovat příchozí odpověď. Pro úspěšné odpovědi, vytvoří pole souřadnice trasy, která vrátí a přidá ho mapu `truckRouteLayerName` vrstvy. 
+    Tento fragment kódu vytvoří požadavek [XMLHttpRequest](https://xhr.spec.whatwg.org/) a přidá obslužnou rutinu události pro parsování příchozí odpovědi. V případě úspěšné odpovědi vytvoří pole souřadnic pro vrácenou trasu a přidá ji do vrstvy `truckRouteLayerName` na mapě. 
     
-    Tento fragment kódu rovněž odesílá dotaz službě trasy, k získání trasy pro zadaný počáteční a koncový bod pro váš účet klíč předplatného. Následující volitelné parametry, které se používají k označení trasy pro velkou vůz:-Parametr `travelMode=truck` Určuje režim cesta jako *vůz*. Další režimy cesta podporována jsou *taxíkem*, *sběrnice*, *van*, *motorky*a ve výchozím nastavení *car* .  
-        -Parametry `vehicleWidth`, `vehicleHeight`, a `vehicleLength` zadejte dimenze nástroj v měřidla a jsou považovány za pouze pokud je režim cesta *vůz*.  
-        -Na `vehicleLoadType` klasifikuje nákladní jako nebezpečných a na některých cestách s omezeným přístupem. Je také aktuálně to jenom pro *vůz* režimu.  
+    Tento fragment kódu rovněž odešle dotaz na rozhraní API Route Service s cílem zjistit trasu pro zadaný počáteční a koncový bod pro příslušný klíč účtu. Jako indikace trasy pro těžké nákladní vozidlo jsou použité následující volitelné parametry: – Parametr `travelMode=truck` určuje režim dopravy *truck* (nákladní vozidlo). Další podporované režimy dopravy jsou *taxi*, *bus* (autobus), *van* (dodávka), *motorcycle* (motorka) a výchozí *car* (osobní auto).  
+        – Parametry `vehicleWidth`, `vehicleHeight` a `vehicleLength` určují rozměry vozidla v metrech a přihlíží se k nim jen v případě, že je nastaven režim dopravy *truck*.  
+        – Parametr `vehicleLoadType` určuje, že se jedná o nebezpečný náklad, jehož doprava je na některých silnicích zakázána. Aktuálně se k němu přihlíží jen v případě režimu *truck*.  
 
-2. Přidejte následující kód v JavaScriptu získat trasy pro automobilu pomocí služby trasy:
+2. Přidáním následujícího kódu jazyka JavaScript zjistěte trasu pro osobní auto s použitím rozhraní API Route Service:
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting car route on the map
@@ -238,28 +238,28 @@ Tato část ukazuje způsob použití rozhraní API služby trasy Azure na zákl
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttpCar.open("GET", carRouteUrl, true);
     xhttpCar.send();
     ```
-    Tento fragment kódu vytvoří jiné [XMLHttpRequest](https://xhr.spec.whatwg.org/), a přidá obslužnou rutinu události analyzovat příchozí odpověď. Pro úspěšné odpovědi, vytvoří pole souřadnice trasy, která vrátí a přidá ho mapu `carRouteLayerName` vrstvy. 
+    Tento fragment kódu vytvoří další požadavek [XMLHttpRequest](https://xhr.spec.whatwg.org/) a přidá obslužnou rutinu události pro parsování příchozí odpovědi. V případě úspěšné odpovědi vytvoří pole souřadnic pro vrácenou trasu a přidá ji do vrstvy `carRouteLayerName` na mapě. 
     
-    Tento fragment kódu rovněž odesílá dotaz službě trasy, k získání trasy pro zadaný počáteční a koncový bod pro váš účet klíč předplatného. Vzhledem k tomu, že nejsou použity žádné další parametry, trasu pro výchozí režim cesta *car* je vrácen. 
+    Tento fragment kódu rovněž odešle dotaz na rozhraní API Route Service s cílem zjistit trasu pro zadaný počáteční a koncový bod pro příslušný klíč účtu. Vzhledem k tomu, že nejsou použity žádné další parametry, je vrácena trasa pro výchozí režim dopravy *car*. 
 
-3. Uložit **MapTruckRoute.html** soubor místně, potom otevřete ve webovém prohlížeči podle svého výběru a sledovat výsledek. Pro úspěšné připojení na základě polohy rozhraní API měli byste vidět mapu podobný následujícímu. 
+3. Uložte soubor **MapTruckRoute.html** na místní počítač, potom ho otevřete ve webovém prohlížeči podle svého výběru a podívejte se na výsledek. V případě úspěšného připojení s použitím rozhraní API služeb Location Based Services by se měla zobrazit mapa podobná následující. 
 
-    ![Seřazený podle priority trasy trasy službou Azure](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
+    ![Trasy s určenou prioritou s použitím rozhraní API Route Service v prostředí Azure](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
 
-    Všimněte si, že vůz trasy, která je v modrou barvu, zatímco trasy car je fialové.
+    Všimněte si, že trasa pro nákladní auto je modrá, zatímco trasa pro osobní auto je fialová.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Konfigurace služby postupu dotazu
-> * Vykreslení trasy nastavovat pomocí režimu cesta
+> * Konfigurovat dotaz na rozhraní API Route Service
+> * Vykreslovat trasy s určenou prioritou podle režimu dopravy
 
-Pokračujte **koncepty** a **postupy** články další SDK služby Azure umístění na základě služby podrobněji. 
+Pokud se chcete podrobněji seznámit se sadou SDK Azure Location Based Services, pokračujte články **Koncepty** a **Postupy**. 
