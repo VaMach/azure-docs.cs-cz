@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 381dacd14afe8a2cb20be8d5e5d8065034db22c8
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Vytvoření, jejich změny nebo odstranění virtuální sítě partnerského vztahu
 
 Zjistěte, jak vytvářet, měnit nebo odstranit partnerský vztah virtuální sítě. Partnerský vztah virtuální sítě umožňuje připojení virtuální sítě přes Azure páteřní síti. Jakmile peered, virtuální sítě se pořád spravují jako samostatné prostředky. Pokud si nejste obeznámeni s partnerský vztah virtuální sítě, doporučujeme, abyste čtení [partnerského vztahu Přehled virtuálních sítí](virtual-network-peering-overview.md) a dokončení [vytvoření partnerského vztahu kurzu virtuální sítě](virtual-network-create-peering.md), před dokončením úlohy v tomto článku.
 
-Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Vytváření partnerských vztahů virtuálních sítí v různých oblastech je aktuálně ve verzi Preview v oblastech USA – středozápad, Střední Kanada a USA – západ 2. Můžete [zaregistrovat své předplatné pro verzi Preview](virtual-network-create-peering.md).
+Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Partnerský vztah virtuální sítě v různých oblastech je aktuálně ve verzi preview. V tématu [aktualizace virtuální sítě](https://azure.microsoft.com/en-us/updates/?product=virtual-network) pro dostupné oblasti. Je nutné [registrace předplatného pro verze preview](virtual-network-create-peering.md).
 
 > [!WARNING]
 > Partnerské vztahy virtuálních sítí vytvořené v tomto scénáři nemusí dosahovat stejné úrovně dostupnosti a spolehlivosti jako scénáře ve verzi všeobecné dostupnosti. Partnerské vztahy virtuálních sítí můžou mít omezené možnosti a nemusí být dostupné ve všech oblastech Azure. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).

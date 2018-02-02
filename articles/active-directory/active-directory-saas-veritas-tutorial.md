@@ -4,20 +4,20 @@ description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Kurz: Integrace Azure Active Directory pomocí této společnosti Enterprise Vault.cloud jednotného přihlašování
 
@@ -110,7 +110,23 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. V **identifikátor** textovému poli, použijte adresu URL podle datového centra
+
+    | Datové centrum| Adresa URL |
+    |----------|----|
+    | Severní Amerika| `https://auth.lax.archivecloud.net` |
+    | Evropa | `https://auth.ams.archivecloud.net` |
+    | Asie a Tichomoří| `https://auth.syd.archivecloud.net`|
+
+    c. V **adresa URL odpovědi** textovému poli, použijte adresu URL podle datového centra
+
+    | Datové centrum| Adresa URL |
+    |----------|----|
+    | Severní Amerika| `https://auth.lax.archivecloud.net` |
+    | Evropa | `https://auth.ams.archivecloud.net` |
+    | Asie a Tichomoří| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
     > Tato hodnota není skutečné. Aktualizujte tuto hodnotu s skutečná adresa URL přihlašování. Obraťte se na [tým podpory této společnosti Enterprise Vault.cloud jednotné přihlašování klienta](https://www.veritas.com/support/.html) získat tuto hodnotu. 
@@ -204,7 +220,7 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 
 Když kliknete na dlaždici této společnosti Enterprise Vault.cloud jednotného přihlašování na přístupovém panelu, můžete by měl získat automaticky přihlášení k aplikaci této společnosti Enterprise Vault.cloud jednotné přihlašování.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

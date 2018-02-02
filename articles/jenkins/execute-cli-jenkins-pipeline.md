@@ -15,18 +15,18 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Nasazení do Azure App Service pomocí volaných a rozhraní příkazového řádku Azure CLI
-Chcete-li nasadit webovou aplikaci Java do Azure, můžete použít rozhraní příkazového řádku Azure v [volaných kanálu](https://jenkins.io/doc/book/pipeline/). V tomto kurzu vytvoříte kanál CI/CD na virtuální počítač Azure včetně postup:
+Chcete-li nasadit webovou aplikaci Java do Azure, můžete použít rozhraní příkazového řádku Azure v [volaných kanálu](https://jenkins.io/doc/book/pipeline/). V tomto kurzu vytvoříte kanál CI/CD na virtuálním počítači Azure a také se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření virtuálního počítače volaných
-> * Konfigurace volaných
+> * Vytvořit virtuální počítač Jenkins
+> * Konfigurace Jenkinse
 > * Vytvoření webové aplikace v Azure
 > * Příprava úložiště GitHub
 > * Vytvoření kanálu volaných
@@ -62,7 +62,7 @@ Azure přihlašovacích údajů je potřeba provést rozhraní příkazového ř
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Vytvoření Azure App Service pro nasazení webové aplikace Java
 
-Vytvořit plán aplikační služby Azure s **volné** cenová úroveň pomocí [vytvořit plán aplikační služby az](/cli/azure/appservice/plan#create) rozhraní příkazového řádku příkaz. Plán aplikační služby definuje fyzické prostředky, které jsou použity k hostování vaší aplikace. Všechny aplikace, které jsou přiřazené plán služby App Service sdílení těchto prostředků, což umožňuje uložit nákladů při hostování více aplikací. 
+Vytvořit plán aplikační služby Azure s **volné** cenová úroveň pomocí [vytvořit plán aplikační služby az](/cli/azure/appservice/plan#az_appservice_plan_create) rozhraní příkazového řádku příkaz. Plán aplikační služby definuje fyzické prostředky, které jsou použity k hostování vaší aplikace. Všechny aplikace, které jsou přiřazené plán služby App Service sdílení těchto prostředků, což umožňuje uložit nákladů při hostování více aplikací. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -121,7 +121,7 @@ Při definici webové aplikace je připraven, rozhraní příkazového řádku A
 
 ### <a name="configure-java"></a>Konfigurace Java 
 
-Nastavení konfigurace modulu runtime Java, která vaše aplikace, musí se [aktualizace konfigurace webové služby App Service az](/cli/azure/appservice/web/config#update) příkaz.
+Nastavení konfigurace modulu runtime Java, která vaše aplikace, musí se [aktualizace konfigurace webové služby App Service az](/cli/azure/appservice/web/config#az_appservice_web_config_update) příkaz.
 
 Následující příkaz nakonfiguruje webové aplikace ke spuštění na poslední JDK 8 Java a [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -160,7 +160,7 @@ Otevřete volaných ve webovém prohlížeči, klikněte na **novou položku**.
 * Zadejte adresu URL webu GitHub pro vaše forked úložišti: https:\<vaše forked úložišti\>.git
 * Klikněte na tlačítko **uložit**
 
-## <a name="test-your-pipeline"></a>Testování vaší kanálu
+## <a name="test-your-pipeline"></a>Test kanálu
 * Přejděte do kanálu, který jste vytvořili, klikněte na tlačítko **nyní sestavení**
 * Sestavení uspěli za několik sekund, a můžete přejít do sestavení a klikněte na tlačítko **výstup konzoly** a zobrazit podrobnosti
 
@@ -221,12 +221,12 @@ Webové aplikace v systému Linux podporuje jiný způsob, jak provést nasazen�
 
     Přejděte na http://&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (Nahraďte &lt;x > a &lt;y > s všechna čísla) Chcete-li získat součet hodnot x a y
     
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste nakonfigurovali volaných kanál, který rezervuje zdrojový kód v úložišti GitHub. Spustí Maven k sestavení souboru war a potom pomocí rozhraní příkazového řádku Azure k nasazení do Azure App Service. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
-> * Vytvoření virtuálního počítače volaných
-> * Konfigurace volaných
+> * Vytvořit virtuální počítač Jenkins
+> * Konfigurace Jenkinse
 > * Vytvoření webové aplikace v Azure
 > * Příprava úložiště GitHub
 > * Vytvoření kanálu volaných

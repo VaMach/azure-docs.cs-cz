@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: MT
+ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Pomocí Docker svazku zásuvné moduly a protokolování ovladače v vašeho kontejneru
 Azure Service Fabric podporuje určení [Docker svazku zásuvné moduly](https://docs.docker.com/engine/extend/plugins_volume/) a [Docker protokolování ovladače](https://docs.docker.com/engine/admin/logging/overview/) pro vaši službu kontejneru. Může uchovávat vaše data v [Azure Files](https://azure.microsoft.com/services/storage/files/) při vašeho kontejneru je přesunout nebo restartováním jiného hostitele.
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter na hostiteli nepodporuje připojení SMB ([podporována pouze v systému Windows Server verze. 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Tím se zabrání použití určitých svazku ovladače třeba ovladače svazku Azure Files. Místo toho jeden můžou připojit sdílené složky přímo v kontejneru pomocí **net použití**. 
+> Windows Server 2016 Datacenter nepodporuje mapování SMB připojení zařízení k kontejnery ([, je podporována pouze v systému Windows Server verze. 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). To zabrání mapování sítě svazku a Azure Files svazku ovladačů ve verzích, které jsou starší než. 1709. 
 >   
 
 

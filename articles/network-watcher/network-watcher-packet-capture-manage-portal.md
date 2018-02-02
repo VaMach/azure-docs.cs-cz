@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Spravovat zachycení paketů s sledovací proces sítě Azure pomocí portálu
 
@@ -80,6 +80,7 @@ Vlastnosti, které lze definovat na zachytáváním paketů jsou:
 
 **Zachycení konfigurace**
 
+- **Místní cesta** – místní cesta na virtuálním počítači, kde je uložena zachytáváním paketů (platná pouze tehdy, když **[soubor]** je vybraný). Je nutné zadat platnou cestu. Pokud používáte virtuální počítač s Linuxem, cesta musí začínat znakem / var / zaznamená.
 - **Účet úložiště** -Určuje, pokud se zachytáváním paketů je uložen v účtu úložiště.
 - **Soubor** -Určuje, pokud se zachytáváním paketů se místně uloží na virtuálním počítači.
 - **Účty úložiště** – vybraný účet úložiště se zachytáváním paketů v uložit. Výchozí umístění je id name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription účtu https://{storage} /resourcegroups/ {název počítače name}/providers/microsoft.compute/virtualmachines/{virtual skupiny prostředků} / {RR} / {MM} / {DD} / {HH} packetcapture__{MM}_CAP _ {XXX} {SS}. (Aktivní, pouze pokud **úložiště** je vybraná)
@@ -134,7 +135,7 @@ Pokud je zadaný účet úložiště, soubory zachytávání paketů ukládají 
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Informace o automatizaci paketu zachytává se virtuální počítač výstrahy zobrazením [vytvořit zaznamenání výstrahy spouštěná paketu](network-watcher-alert-triggered-packet-capture.md)
 

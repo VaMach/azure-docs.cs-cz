@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/27/2018
 ms.author: JeffGoldner
-ms.openlocfilehash: d6a0cbf696d59cec5b70e147de2879a311d88687
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure k dispozici pro Azure zásobníku položky Marketplace.
 
@@ -38,8 +38,6 @@ Je třeba stáhnout tyto vždy, když nejsou k dispozici aktualizace pro rozší
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [Virtuální počítač přístup pro Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Tuto aktualizaci můžete stáhněte na ve verzi VMAccess pro Linux rozšíření. To je důležité, pokud máte v plánu používat Debian virtuální počítače s Linuxem.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozšíření zálohování Acronis pro Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozšíření Acronis zálohování pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Acronis International GmbH. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Hloubkové zabezpečení agenta pro Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Trend Micro hluboké Security rozšíření pro Linux. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agent hloubkové zabezpečení pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro hluboké Security rozšíření pro Windows. | Trend Micro | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Bitové kopie virtuálních počítačů společnosti Microsoft a řešení šablony
 
@@ -47,7 +45,7 @@ Zásobník Microsoft Azure podporuje následující virtuální počítače Azur
 
 |  | Název položky | Popis | Vydavatel |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Podnikové řešení, které jsou jednoduché nasadit nákladově efektivní, zaměřené na aplikace a zaměřenou na uživatele. Tyto Image se pravidelně aktualizují pomocí nejnovějších oprav. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Podnikové řešení, které jsou jednoduché nasadit nákladově efektivní, zaměřené na aplikace a zaměřenou na uživatele. Tyto Image se pravidelně aktualizují pomocí nejnovějších oprav. <b>Důležité informace: obrázky stažen před 18 leden 2018 musí být odstraněn a nahrazena nejnovější verze.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Nasazení služby Vzdálená plocha (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Vytvořte základní nasazení služby Vzdálená plocha (RDS). | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 zkušební verze na Windows Server 2012 Datacenter a Visual Studio 2017 edice community. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 zkušební verze na Windows Server 2016 Datacenter. | Microsoft |

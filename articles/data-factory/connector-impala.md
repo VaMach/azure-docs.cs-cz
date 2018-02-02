@@ -1,6 +1,6 @@
 ---
-title: "Kopírování dat z Impala pomocí Azure Data Factory (Beta) | Microsoft Docs"
-description: "Postup kopírování dat z Impala do úložiště dat podporovaných podřízený pomocí aktivity kopírování v kanál služby Azure Data Factory."
+title: "Kopírování dat z Impala pomocí Azure Data Factory (beta) | Microsoft Docs"
+description: "Postup kopírování dat z Impala do úložiště dat podporovaných podřízený pomocí aktivity kopírování v kanálu data factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,52 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: e87117731a8af59fedc1bba903ef81b67d91c9f3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-impala-using-azure-data-factory-beta"></a>Kopírování dat z Impala pomocí Azure Data Factory (Beta)
+# <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Kopírování dat z Impala pomocí Azure Data Factory (beta)
 
-Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z Impala. Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
+Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z Impala. Vychází [aktivity kopírování přehled](copy-activity-overview.md) článek, který představuje obecný přehled o aktivitě kopírování.
 
 > [!NOTE]
-> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [aktivitu kopírování v V1](v1/data-factory-data-movement-activities.md).
+> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 objektu pro vytváření dat, která je obecně k dispozici, najdete v části [aktivity kopírování v verze 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Tento konektor je aktuálně ve verzi Beta. Můžete si vyzkoušet a poskytnout zpětnou vazbu. Nepoužívejte ji v produkčním prostředí.
+> Tento konektor je aktuálně ve verzi beta. Můžete si vyzkoušet a poskytnout zpětnou vazbu. Nepoužívejte ji v produkčním prostředí.
 
 ## <a name="supported-capabilities"></a>Podporované možnosti
 
 Data můžete zkopírovat z Impala do úložiště dat žádné podporované jímky. Seznam úložišť dat, které jsou podporovány jako zdroje nebo jímky aktivitě kopírování najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats) tabulky.
 
-Azure Data Factory poskytuje integrované ovladače pro umožnění připojení, proto nemusíte ručně nainstalovat všechny ovladače, používání tohoto konektoru.
+ Data Factory poskytuje integrované ovladače pro umožnění připojení. Proto nemusíte ručně nainstalovat ovladač, který chcete použít tento konektor.
 
-## <a name="getting-started"></a>Začínáme
+## <a name="get-started"></a>Začínáme
 
 [!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
-Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke Impala konektoru.
+Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru Impala.
 
 ## <a name="linked-service-properties"></a>Vlastnosti propojené služby
 
-Následující vlastnosti jsou podporovány pro Impala propojené služby:
+Následující vlastnosti jsou podporovány pro Impala propojené služby.
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| type | Vlastnost typu musí být nastavena na: **Impala** | Ano |
-| hostitel | IP adresu nebo název hostitele serveru Impala. (která je 192.168.222.160)  | Ano |
+| type | Vlastnost typu musí být nastavená na **Impala**. | Ano |
+| hostitel | IP adresu nebo název hostitele serveru Impala (192.168.222.160).  | Ano |
 | port | Port TCP, který používá Impala server naslouchat pro připojení klientů. Výchozí hodnota je 21050.  | Ne |
-| authenticationType. | Typ ověřování používat. <br/>Povolené hodnoty jsou: **anonymní**, **SASLUsername**, **UsernameAndPassword** | Ano |
+| authenticationType. | Typ ověřování používat. <br/>Povolené hodnoty jsou **anonymní**, **SASLUsername**, a **UsernameAndPassword**. | Ano |
 | uživatelské jméno | Uživatelské jméno pro přístup k serveru Impala. Výchozí hodnota je anonymní, při použití SASLUsername.  | Ne |
-| heslo | Heslo při použití UsernameAndPassword odpovídající uživatelské jméno. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
-| enableSsl | Určuje, zda jsou šifrované připojení k serveru pomocí protokolu SSL. Výchozí hodnota je false.  | Ne |
-| trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority pro ověření serveru při připojení přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na vlastním hostováním infračerveného signálu. Výchozí hodnota je soubor cacerts.pem nainstalované s infračerveného signálu.  | Ne |
-| useSystemTrustStore | Určuje, jestli se má použít certifikát Certifikační autority z úložiště důvěryhodnosti systému nebo z určeného souboru PEM. Výchozí hodnota je false.  | Ne |
-| allowHostNameCNMismatch | Určuje, jestli chcete vyžadovat protokol SSL vydaný certifikační Autoritou název certifikátu shodovat s názvem hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je false.  | Ne |
-| allowSelfSignedServerCert | Určuje, jestli se má povolit certifikáty podepsané svým držitelem ze serveru. Výchozí hodnota je false.  | Ne |
-| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
+| heslo | Heslo, které odpovídá uživatelskému jménu, při použití UsernameAndPassword. Toto pole můžete označit jako SecureString bezpečně uložit ve službě Data Factory. Také můžete uložit heslo v Azure Key Vault a nechat vyžádání aktivity kopírování odtud provádíte kopírování dat. Další informace najdete v tématu [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
+| enableSsl | Určuje, zda připojení k serveru jsou šifrována pomocí protokolu SSL. Výchozí hodnota je **false**.  | Ne |
+| trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority používají k ověření serveru, jakmile se připojíte přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na Self-hosted integrace Runtime. Výchozí hodnota je soubor cacerts.pem nainstalovaný s modulem runtime integrace.  | Ne |
+| useSystemTrustStore | Určuje, jestli se má použít certifikát Certifikační autority z úložiště důvěryhodnosti systému nebo z určeného souboru PEM. Výchozí hodnota je **false**.  | Ne |
+| allowHostNameCNMismatch | Určuje, jestli chcete vyžadovat protokol SSL vydaný certifikační Autoritou název certifikátu shodovat s názvem hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je **false**.  | Ne |
+| allowSelfSignedServerCert | Určuje, jestli se má povolit certifikáty podepsané svým držitelem ze serveru. Výchozí hodnota je **false**.  | Ne |
+| connectVia | [Integrace runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
 
@@ -106,18 +106,18 @@ Ke zkopírování dat z Impala, nastavte vlastnost typu datové sady, která **I
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
-Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Impala zdroje.
+Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje typ Impala zdroje.
 
-### <a name="impala-as-source"></a>Impala jako zdroj
+### <a name="impala-as-a-source-type"></a>Impala jako typ zdroje
 
-Ke zkopírování dat z Impala, nastavte typ zdroje v aktivitě kopírování do **ImpalaSource**. Následující vlastnosti jsou podporovány v aktivitě kopírování **zdroj** části:
+Ke zkopírování dat z Impala, nastavte typ zdroje v aktivitě kopírování do **ImpalaSource**. Následující vlastnosti jsou podporovány v aktivitě kopírování **zdroj** části.
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| type | Vlastnost typ zdroje kopie aktivity musí být nastavena na: **ImpalaSource** | Ano |
-| query | Čtení dat pomocí vlastního dotazu SQL. Například: `"SELECT * FROM MyTable"`. | Ano |
+| type | Vlastnost typ zdroje kopie aktivity musí být nastavena na **ImpalaSource**. | Ano |
+| query | Čtení dat pomocí vlastního dotazu SQL. Příklad: `"SELECT * FROM MyTable"`. | Ano |
 
 **Příklad:**
 
@@ -152,4 +152,4 @@ Ke zkopírování dat z Impala, nastavte typ zdroje v aktivitě kopírování do
 ```
 
 ## <a name="next-steps"></a>Další postup
-Seznam dat úložiště podporované datové úložiště v Azure Data Factory, najdete v části [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).
+Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v objektu pro vytváření dat najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

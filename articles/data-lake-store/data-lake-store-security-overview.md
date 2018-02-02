@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 52e176711f512e8a3788309a58011c8484821a1e
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Zabezpečení v Azure Data Lake Store
 Mnoho podniků jsou využívat výhod analýzy velkých objemů dat podnikových statistik pomáhá jim inteligentní rozhodnutí. Organizace může mít složitý a regulovaná prostředí s roste počet různých uživatelů. Je důležité pro organizace a ujistěte se, bezpečněji, uložení kritickými podnikovými daty s správné úrovně udělení přístupu k jednotlivým uživatelům. Azure Data Lake Store je navržená tak, abyste splňovat tyto požadavky na zabezpečení. V tomto článku se dozvíte o funkcích zabezpečení Data Lake Store, včetně:
@@ -35,7 +35,7 @@ Ověřování je proces, podle kterého je ověřit identitu uživatele, když u
 Každé předplatné Azure může být přidružen k instanci služby Azure Active Directory. Pouze uživatele a identity služby, které jsou definované ve službě Azure Active Directory přístup účtu Data Lake Store pomocí portálu Azure, nástroje příkazového řádku, nebo prostřednictvím klientské aplikace sestavení vaší organizace pomocí Azure Data Lake Sada SDK úložiště. Klíčové výhody použití služby Azure Active Directory jako mechanismus řízení centralizované přístupu jsou:
 
 * Zjednodušená správa životního cyklu identity. Identity uživatele nebo služby (hlavní identity služby) můžete rychle vytvořit a rychle odvolán jednoduše odstranit nebo zakázat účet v adresáři.
-* Služba Multi-Factor authentication. [Služba Multi-Factor authentication](../multi-factor-authentication/multi-factor-authentication.md) poskytuje další úroveň zabezpečení pro uživatelská přihlášení a transakce.
+* Multi-Factor Authentication [Služba Multi-Factor authentication](../multi-factor-authentication/multi-factor-authentication.md) poskytuje další úroveň zabezpečení pro uživatelská přihlášení a transakce.
 * Ověřování z libovolného klienta přes standardní otevřete protokol, jako je například účtu OAuth nebo OpenID.
 * Federaci se enterprise adresářových služeb a zprostředkovatelů identity cloudu.
 
@@ -54,16 +54,16 @@ Všimněte si, že i když role přiřazené pro správu účtu, některé role 
 
 | Role | Práva pro správu | Data přístupová práva | Vysvětlení |
 | --- | --- | --- | --- |
-| Žádné přiřazenou roli |Žádný |Řídí seznamu ACL |Uživatel nemůže použít portál Azure nebo rutin prostředí Azure PowerShell procházet Data Lake Store. Uživatel může použít jenom nástroje příkazového řádku. |
-| Vlastník |Všechny |Všechny |Role vlastníka je superuživatele. Tato role můžou spravovat všechno a má úplný přístup k datům. |
-| Čtenář |jen pro čtení |Řídí seznamu ACL |Role čtenáře můžou zobrazit všechno týkající se správy účtů, například která je přiřazena uživatele které role. Role čtenáře nelze provést žádné změny. |
+| Žádné přiřazenou roli |Žádné |Řídí seznamu ACL |Uživatel nemůže použít portál Azure nebo rutin prostředí Azure PowerShell procházet Data Lake Store. Uživatel může použít jenom nástroje příkazového řádku. |
+| Vlastník |Vše |Vše |Role vlastníka je superuživatele. Tato role můžou spravovat všechno a má úplný přístup k datům. |
+| Čtenář |Jen pro čtení |Řídí seznamu ACL |Role čtenáře můžou zobrazit všechno týkající se správy účtů, například která je přiřazena uživatele které role. Role čtenáře nelze provést žádné změny. |
 | Přispěvatel |Všechny kromě přidání a odebrání rolí |Řídí seznamu ACL |Role Přispěvatel můžete spravovat některé aspekty účtu, jako je například nasazení a vytváření a Správa výstrah. Role Přispěvatel nelze přidat nebo odebrat role. |
 | Správce přístupu uživatelů |Přidání a odebrání rolí |Řídí seznamu ACL |Role správce přístupu uživatelů můžete spravovat přístup uživatelů k účtům. |
 
 Pokyny najdete v tématu [přiřadit uživatele nebo skupiny zabezpečení účtů Data Lake Store](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
 
 ### <a name="using-acls-for-operations-on-file-systems"></a>Pomocí seznamů řízení přístupu pro operace v systémech souborů.
-Data Lake Store je systém souborů hierarchické jako Hadoop Distributed File System (HDFS) a podporuje [seznamy ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Ovládá pro čtení (r), zápis (w) a spouštět (oprávnění k prostředkům pro roli vlastníka pro vlastníky skupiny a pro ostatní uživatele a skupiny x). V Data Lake Store Public Preview (aktuální verze) jde seznamy řízení přístupu zapnout u kořenové složky, podsložek a jednotlivých souborů. Další informace o fungování seznamů řízení přístupu v souvislosti s Data Lake Storem najdete v tématu [Řízení přístupu v Data Lake Storu](data-lake-store-access-control.md).
+Data Lake Store je systém souborů hierarchické jako Hadoop Distributed File System (HDFS) a podporuje [seznamy ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Ovládá pro čtení (r), zápis (w) a spouštět (oprávnění k prostředkům pro roli vlastníka pro vlastníky skupiny a pro ostatní uživatele a skupiny x). V Data Lake Store seznamy ACL se dá zapnout u kořenové složky, podsložky a jednotlivé soubory. Další informace o fungování seznamů řízení přístupu v souvislosti s Data Lake Storem najdete v tématu [Řízení přístupu v Data Lake Storu](data-lake-store-access-control.md).
 
 Doporučujeme, abyste definovat seznamy ACL pro více uživatelů pomocí [skupiny zabezpečení](../active-directory/active-directory-groups-create-azure-portal.md). Přidat uživatele do skupiny zabezpečení a pak mu přiřaďte seznamy ACL pro soubor nebo složku do této skupiny zabezpečení. To je užitečné, pokud chcete zadat vlastní přístup, protože jste omezeni na přidání maximálně devět položek pro vlastní přístup. Další informace o tom, jak lépe zabezpečit data uložená v Data Lake Store pomocí skupin zabezpečení služby Azure Active Directory najdete v tématu [přiřadit uživatele nebo skupiny zabezpečení jako seznamy řízení přístupu k systému souborů Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
@@ -110,7 +110,7 @@ Podnikoví zákazníci potřebují cloudové platformy analýzy dat, která jsou
 
 Pokud chcete zobrazit nové funkce v Data Lake Store, pošlete nám svůj názor [Data Lake Store UserVoice fórum](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Přehled Azure Data Lake Store](data-lake-store-overview.md)
 * [Začínáme s Data Lake Store](data-lake-store-get-started-portal.md)
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)

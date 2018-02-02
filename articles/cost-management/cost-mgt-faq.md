@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Nejčastější dotazy pro Azure náklady na správu
 
@@ -89,7 +89,7 @@ Pokud změníte e-mailovou adresu v Cloudyn z výchozí adresu v Azure, můžete
 
 Doporučujeme vytvořit aspoň dva účty správců Cloudyn, v případě, že jeden z účtů získá uzamčen.
 
-Pokud nemůžete se přihlásit k portálu Cloudyn, ujistěte se, že používáte správnou adresu URL Azure náklady na správu pro přihlášení k Cloudyn. Použití [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Pokud nemůžete se přihlásit k portálu Cloudyn, ujistěte se, že používáte správnou adresu URL Azure náklady na správu pro přihlášení k Cloudyn. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Adresa URL https://app.cloudyn.com přímé Cloudyn nepoužívejte.
 

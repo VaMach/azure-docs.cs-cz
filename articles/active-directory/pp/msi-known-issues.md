@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8194e6bab35fe7a486fcc3bf0cdf5b00fcd9000c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Nejčastější dotazy a známé problémy s spravované služby Identity (MSI) pro Azure Active Directory
 
@@ -61,9 +61,12 @@ Kde:
 ### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Existují role RBAC pro přiřazené identit uživatelů?
 Ano:
 1. Přispěvatel MSI: 
+
 - Můžete: CRUD uživatel s přiřazenou identity. 
 - Nelze: Přiřadit uživatele k prostředku přiřazena identity. (tj. přiřaďte identitu virtuálního počítače)
+
 2. MSI Operator: 
+
 - Může: Přiřaďte identitu uživatele přiřazené k prostředku. (tj. přiřaďte identitu virtuálního počítače)
 - Nelze: CRUD uživatel s přiřazenou identity.
 
@@ -118,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - Povolením systému je jediný způsob, jak odebrat všechny uživatele přiřazené souborů MSI přiřadit MSI. 
 - Zřizování rozšíření virtuálního počítače pro virtuální počítač mohou selhat z důvodu selhání vyhledávání DNS. Restartujte virtuální počítač a zkuste to znovu. 
-- Azure CLI: `Az resource show` a `Az resource list` selže na virtuálním počítači s uživatel přiřazený MSI. Jako alternativní řešení použijte`az vm/vmss show`
+- Přidání MSI 'neexistující' způsobí selhání virtuálního počítače. *Poznámka: Oprava selhání přiřazení identity, pokud neexistuje MSI, se vrátit na více systémů*
 - Kurz pro Azure Storage je dostupná v centrální nám EUAP jenom v tuto chvíli. 
-- Pokud uživatele přiřazené MSI je udělen přístup k prostředku, se zobrazí okno IAM pro tento prostředek "Nelze pro přístup k datům". Jako alternativní řešení pomocí rozhraní příkazového řádku umožňuje zobrazit či upravit přiřazení rolí pro tento prostředek.
-- Vytvoření uživatele přiřazené MSI v názvu podtržítko, není podporováno.
+- Vytvoření uživatele přiřazeny MSI speciální znaky (tj. podtržítko) v názvu, není podporováno.
 - Při přidání druhého uživatele přiřazené identity, clientID nemusí být dostupné pro žádosti o tokeny pro ni. Jako omezení rizik restartujte rozšíření virtuálního počítače MSI následující dvě bash příkazy:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

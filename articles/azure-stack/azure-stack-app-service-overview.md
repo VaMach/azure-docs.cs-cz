@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Přehled App Service v Azure Stacku
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
 Azure App Service v zásobníku Azure je nabídku platformy jako služba (PaaS) Microsoft Azure k dispozici pro Azure zásobníku. Služba umožní vašim zákazníkům - interních nebo externích – vytvoření webové rozhraní API a funkce Azure aplikací pro všechny platformy a zařízení. Mohou své aplikace můžete integrovat s místními aplikacemi a automatizovat podnikové procesy. Operátoři cloudu Azure zásobníku můžou spouštět aplikace pro zákazníka na plně spravovaných virtuálních počítačích (VM) s jejich výběr sdílené prostředky virtuálních počítačů nebo vyhrazených virtuálních počítačích.
 
@@ -59,7 +60,7 @@ V Azure jsou sdílené a vyhrazených pracovních procesů. Sdílených pracovn�
 
 V zásobníku Azure App Service používá stejné uživatelské rozhraní používá tento Azure App Service, jak platí s back-end. Některé funkce jsou zakázány a nejsou funkční v zásobníku Azure. Očekávání specifické pro Azure nebo služby, které vyžadují tyto funkce ještě nejsou k dispozici v zásobníku Azure.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 
 - [Před zahájením práce s App Service v Azure zásobníku](azure-stack-app-service-before-you-get-started.md)

@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 92bb4f2a6458057613bdbcb749026781111a778d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-cost-management-reports"></a>Použití sestav náklady na správu
+# <a name="use-cost-management-reports"></a>Použití sestav Cost Managementu
 
 Tento článek popisuje použití různých náklady na správu sestav na portálu Cloudyn. Většina Cloudyn sestavy jsou intuitivní a mít jednotný vzhled a chování. Přehled o Cloudyn sestavách najdete v tématu [Principy náklady sestavy](understading-cost-reports.md). Článek také popisuje různé možnosti a pole použít ve většině sestavy.
 
@@ -135,7 +135,7 @@ Tady je příklad těchto informací v tabulkovém zobrazení.
 
 
 
-### <a name="cost-over-time-report"></a>Sestava náklady v čase
+### <a name="cost-over-time-report"></a>Sestava nákladů v průběhu času
 
 Sestava náklady v čase zobrazí výdaje v čase, takže můžete sledovat trendy a zjistit nesrovnalosti ve vašem nasazení. V podstatě zobrazuje náklady v průběhu za definované období. Sestava obsahuje vaše náklady na hlavní přispěvatele, včetně průběžných nákladů a poplatků jednorázové vyhrazená instance, které jsou stráveno během vybraný časový rámec. Zásady nastavené ve Správci náklady 360° lze v této sestavě.
 
@@ -160,6 +160,6 @@ Tady je příklad sestavy.
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Pokud jste ještě nedokončili první kurz pro náklady na správu, přečtěte si ho na [zkontrolujte využití a náklady na](tutorial-review-usage.md).

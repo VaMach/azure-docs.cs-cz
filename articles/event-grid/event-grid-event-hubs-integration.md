@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Datový proud velkých objemů dat do datového skladu
 
@@ -74,7 +74,7 @@ K dokončení tohoto kurzu potřebujete:
 
 ## <a name="deploy-the-infrastructure"></a>Nasazení infrastruktury
 
-Ke zjednodušení tohoto článku, nasadíte požadované infrastrukturu pomocí šablony Resource Manageru. Pokud chcete zobrazit prostředky, které jsou nasazeny, zobrazit [šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Ve verzi preview podporuje událostí mřížky **westus2** a **westcentralus** oblasti. Použijte jednu z těchto oblastí pro umístění skupiny prostředků.
+Ke zjednodušení tohoto článku, nasadíte požadované infrastrukturu pomocí šablony Resource Manageru. Pokud chcete zobrazit prostředky, které jsou nasazeny, zobrazit [šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Použijte jednu z [podporované oblasti](overview.md) pro umístění skupiny prostředků.
 
 Pokud používáte Azure CLI, použijte:
 

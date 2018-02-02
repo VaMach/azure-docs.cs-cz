@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Ověření pomocí privátní registru kontejner Docker
 
@@ -45,7 +45,7 @@ Dostupné role jsou:
 
 Objekty služby povolit bezobslužných připojení k registru ve scénářích nabízení a vyžadování takto:
 
-  * *Čtečka*: nasazení kontejnerů z registru pro systémy orchestration včetně Kubernetes, DC/OS a Docker Swarm. Vám může také načítat z kontejneru registrech k související služby Azure, jako [AKS](../aks/index.yml), [služby App Service](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), a ostatní.
+  * *Čtečka*: nasazení kontejnerů z registru pro systémy orchestration včetně Kubernetes, DC/OS a Docker Swarm. Vám může také načítat z kontejneru registrech k související služby Azure, jako [AKS](../aks/index.yml), [služby App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), a ostatní.
 
   * *Přispěvatel*: průběžnou integraci a nasazení řešení jako Visual Studio Team Services (VSTS) nebo volaných, který vytvářet bitové kopie kontejneru a vložit je registru.
 

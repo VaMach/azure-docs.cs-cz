@@ -1,5 +1,5 @@
 ---
-title: "Pozastavení a obnovení výpočetní v Azure SQL Data Warehouse - portálu Azure | Microsoft Docs"
+title: "Rychlý úvod: Pozastavení a obnovení výpočetní v Azure SQL Data Warehouse - portálu Azure | Microsoft Docs"
 description: "Azure portálu úlohy, které pozastavit výpočetní pro Azure SQL Data Warehouse abyste ušetřili náklady. Když budete chtít použít datový sklad, obnovit výpočty."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/23/2018
 ms.author: barbkess
-ms.openlocfilehash: d5200cc2e07dea9e34d23b0f3fb89e76a65515d9
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: f8b4e29595c6a71696cf2c4939ad4c6c096a28b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Pozastavení a obnovení výpočetní pro Azure SQL Data Warehouse na portálu Azure
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Rychlý úvod: Pozastavení a obnovení výpočetní pro Azure SQL Data Warehouse na portálu Azure
 Pozastavit výpočetní pro Azure SQL Data Warehouse abyste ušetřili náklady. Když budete chtít použít datový sklad, obnovit výpočty.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.

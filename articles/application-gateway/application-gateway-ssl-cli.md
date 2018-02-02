@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
 ms.author: davidmu
-ms.openlocfilehash: f0a18f940cf3b4bbedd4b8e5c89cbbeb1bafef77
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Vytvoření služby application gateway s ukončení protokolu SSL pomocí Azure CLI
 
@@ -137,17 +137,6 @@ az vmss create \
 
 ### <a name="install-nginx"></a>Instalace serveru NGINX
 
-Můžete použít libovolný editor, který chcete vytvořit soubor v prostředí cloudu. Zadejte `sensible-editor cloudConfig.json` zobrazíte seznam dostupných editory k vytvoření souboru. V aktuálním prostředí vytvořte soubor s názvem customConfig.json a vložte následující konfiguraci:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Spusťte tento příkaz v okně prostředí:
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -155,7 +144,8 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Testování služby application gateway
@@ -172,7 +162,7 @@ az network public-ip show \
 
 ![Upozornění zabezpečení](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Chcete-li přijímat upozornění, pokud použijete certifikát podepsaný svým držitelem zabezpečení, vyberte **podrobnosti** a potom **přejděte na webovou stránku**. Zabezpečené NGINX webu se následně zobrazí jako v následujícím příkladu:
+Chcete-li přijímat upozornění, pokud použijete certifikát podepsaný svým držitelem zabezpečení, vyberte **podrobnosti** a potom **přejděte na webovou stránku**. Následně se zobrazí váš zabezpečený web NGINX, jak je znázorněno v následujícím příkladu:
 
 ![Otestovat základní adresu URL v aplikační brány](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 

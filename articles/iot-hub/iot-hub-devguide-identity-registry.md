@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Pochopení registru identit ve službě IoT hub.
 
@@ -74,11 +74,11 @@ Zařízení můžete zakázat aktualizací **stav** vlastnost identity v registr
 
 ## <a name="import-and-export-device-identities"></a>Import a export identit zařízení
 
-Identit zařízení hromadné z registru identit služby IoT hub můžete exportovat pomocí asynchronních operací [koncový bod zprostředkovatele prostředků služby IoT Hub][lnk-endpoints]. Exportuje jsou dlouho běžící úlohy, které používají kontejner objektů blob zadané zákazníka k uložení dat identity zařízení přečíst z registru identit.
+Použití asynchronních operací na [koncový bod zprostředkovatele prostředků služby IoT Hub] [ lnk-endpoints] export identit zařízení hromadné z registru identit služby IoT hub. Exportuje jsou dlouho běžící úlohy, které používají kontejner objektů blob zadané zákazníka k uložení dat identity zařízení přečíst z registru identit.
 
-Identit zařízení hromadné můžete importovat do registru identit služby IoT hub pomocí asynchronních operací [koncový bod zprostředkovatele prostředků služby IoT Hub][lnk-endpoints]. Importy jsou dlouho běžící úlohy, které používají data v kontejneru objektů blob zadané zákazníka k zápisu dat identity zařízení do registru identit.
+Použití asynchronních operací na [koncový bod zprostředkovatele prostředků služby IoT Hub] [ lnk-endpoints] import identit zařízení hromadné do registru identit služby IoT hub. Importy jsou dlouho běžící úlohy, které používají data v kontejneru objektů blob zadané zákazníka k zápisu dat identity zařízení do registru identit.
 
-Podrobné informace o importu a exportu rozhraní API najdete v tématu [zprostředkovatele prostředků služby IoT Hub rozhraní REST API][lnk-resource-provider-apis]. Další informace o spouštění import a export úloh najdete v tématu [hromadné správu identit zařízení IoT Hub][lnk-bulk-identity].
+Další informace o importu a exportu rozhraní API najdete v tématu [zprostředkovatele prostředků služby IoT Hub rozhraní REST API][lnk-resource-provider-apis]. Další informace o spouštění import a export úloh najdete v tématu [hromadné správu identit zařízení IoT Hub][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Zřizování zařízení
 
@@ -110,12 +110,12 @@ Vlastnosti: Vlastnosti zprávu systému mají předponu `'$'` symbol.
 $content – typ | application/json |
 $iothub-enqueuedtime |  Čas odeslání oznámení. |
 $iothub – zpráva – zdroj | deviceLifecycleEvents |
-$content – kódování | znakové sady UTF-8 |
+$content – kódování | utf-8 |
 opType | **createDeviceIdentity** nebo **deleteDeviceIdentity** |
 hubName | Název centra IoT |
 deviceId | ID zařízení |
 operationTimestamp | Časové razítko ISO8601 operace |
-schéma zprávy iothub | deviceLifecycleNotification |
+iothub-message-schema | deviceLifecycleNotification |
 
 Text: V této části je ve formátu JSON a představuje twin identity vytvořený zařízení. Například:
 
@@ -180,7 +180,7 @@ Teď, když jste se naučili použití registru identit služby IoT Hub, možná
 * [Volání metody přímé na zařízení][lnk-devguide-directmethods]
 * [Plánování úloh na několika zařízeních][lnk-devguide-jobs]
 
-Pokud chcete vyzkoušet některé konceptů popsaných v tomto článku, může zajímat v následujícím kurzu IoT Hub:
+Můžete vyzkoušet na některé z konceptů popsaných v tomto článku, najdete v následujícím kurzu IoT Hub:
 
 * [Začínáme s Azure IoT Hub][lnk-getstarted-tutorial]
 

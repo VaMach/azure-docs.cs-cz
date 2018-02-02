@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7a980a9a4f0a4fa22e72aa9d6eec83865250a084
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-publisher-guide"></a>Průvodce vydavatele Azure Marketplace
 
@@ -225,7 +225,7 @@ Každý zákazník se smlouvou Enterprise může přidat Azure do své smlouvy p
 
 |**Požadavek**  |**Podrobnosti**  |**Možnost publikování**  |
 |---------|---------|---------|
-|**Zásady zapojení**    |  Přečtěte si smlouvu vydavatele Azure Marketplace [here](file:///C:/Users/ellacroi/Downloads/Microsoft%20Marketplace%20Publisher%20Agreement.pdf). Zkontrolujte Azure Marketplace zapojení zásady [sem] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Seznam, zkušební verze, Transact        |
+|**Zásady zapojení**    | Zkontrolujte Azure Marketplace zapojení zásady [sem] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Seznam, zkušební verze, Transact        |
 |**Integrace s Microsoft**    | Azure Marketplace nabízí by měl využít nebo rozšíření služby Microsoft Azure, jako jsou výpočty, sítě nebo úložiště a zarovnat do existující kategorie Azure Marketplace například databáze, zabezpečení, sítě, atd. Úplný seznam [zde](https://azuremarketplace.microsoft.com/marketplace/apps).        | Seznam, zkušební verze, Transact        |
 |**Cílová skupina**    | Azure Marketplace nabízí musí být pro IT profesionály, vývojáři cloudu nebo jiné role technické zákazníka.       |  Seznam, zkušební verze, Transact 
 |**Vést správy**    | Přijímat zájemců z Marketplace, je nutné povolit aplikaci CRM (Marketo, Microsoft Dynamics nebo Salesforce) tak, aby přijímal realizace data.        |   Seznam, zkušební verze, Transact      |

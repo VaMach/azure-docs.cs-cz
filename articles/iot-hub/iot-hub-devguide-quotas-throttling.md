@@ -12,25 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referenční dokumentace - IoT Hub kvóty a omezení
 
 ## <a name="quotas-and-throttling"></a>Kvóty a omezování
 Každé předplatné Azure může mít maximálně 10 centra IoT a nejvýše 1 volné rozbočovače.
 
-Každé centrum IoT je opatřen počet jednotek v konkrétní SKU (Další informace najdete v tématu [ceník služby Azure IoT Hub][lnk-pricing]). SKU a počet jednotek určit maximální denní kvóta zpráv, které můžete odeslat.
+Každé centrum IoT je opatřen počet jednotek v konkrétní SKU. Další informace najdete v tématu [ceník služby Azure IoT Hub][lnk-pricing]. SKU a počet jednotek určit maximální denní kvóta zpráv, které můžete odeslat.
 
 Verze SKU také určuje omezení limity, které vynucuje IoT Hub na všechny operace.
 
 ## <a name="operation-throttles"></a>Omezení operace
-Omezení operace jsou omezení míry, které se použijí v minutu rozsahy a jsou určeny, aby se zabránilo zneužití. Centrum IoT pokusí vyhnout vrací chyby, pokud je to možné, ale začne vrácení výjimky, pokud omezení porušení příliš dlouho.
+Omezení operace jsou omezení míry, které se použijí v minutu rozsahy a jsou určeny, aby se zabránilo zneužití. Centrum IoT pokusí vyhnout vrací chyby, pokud je to možné, ale spustí vrácení výjimky, pokud omezení porušení příliš dlouho.
 
 Následující tabulka obsahuje vynucené omezení. Hodnoty se vztahují k rozbočovači jednotlivých.
 
@@ -50,15 +50,16 @@ Následující tabulka obsahuje vynucené omezení. Hodnoty se vztahují k rozbo
 
 <sup>1</sup>omezení velikosti měření je 8 KB
 
-Je důležité o vysvětlení, že *připojení zařízení* omezení řídí rychlost, jakou by bylo možné navázat nová připojení zařízení pomocí služby IoT hub. *Připojení zařízení* omezení neřídí maximální počet současně připojených zařízení. Omezení závisí na počtu jednotek, které jsou zřízené pro službu IoT hub.
+> [!IMPORTANT]
+> *Připojení zařízení* omezení řídí rychlost, jakou by bylo možné navázat nová připojení zařízení pomocí služby IoT hub. *Připojení zařízení* omezení neřídí maximální počet současně připojených zařízení. Omezení závisí na počtu jednotek, které jsou zřízené pro službu IoT hub.
 
 Pokud si zakoupíte jedné jednotky S1, například zobrazí omezení připojení 100 za sekundu. Proto se pokud chcete připojit 100 000 zařízení, trvá nejméně 1 000 sekund (přibližně 16 minut). Ale může mít libovolný počet současně připojených zařízení, máte zařízení zaregistrované v registru identit.
 
 Podrobné informace o IoT Hub omezení chování, naleznete v příspěvku blogu [IoT Hub, omezení a][lnk-throttle-blog].
 
 > [!NOTE]
-> V každém okamžiku je možné zvýšit kvóty nebo omezení limity zvýšit počet zřízené jednotky v služby IoT hub.
-> 
+> V každém okamžiku může zvýšit kvóty nebo omezení omezení zvýšením počtu jednotek zřízené v služby IoT hub.
+
 > [!IMPORTANT]
 > Operace s registrem identit jsou určeny k použití v správu zařízení a zřizování scénáře. Čtení nebo aktualizaci velký počet identit zařízení je podporována prostřednictvím [import a export úloh][lnk-importexport].
 > 
@@ -77,7 +78,7 @@ IoT Hub vynucuje jiné provozní omezení:
 | Zasílání zpráv typu zařízení cloud | Maximální velikost 256 KB |
 | Zasílání zpráv typu cloud zařízení | Maximální velikost 64 KB |
 | Zasílání zpráv typu cloud zařízení | Maximální počet čekajících zpráv pro doručení je 50 |
-| Přímá metoda | Přímá metoda maximální velikost datové části je 128KB |
+| Přímá metoda | Přímá metoda maximální velikost datové části je 128 KB |
 
 > [!NOTE]
 > Maximální počet zařízení, které se můžete připojit k jedné IoT hub je v současné době 500 000. Pokud chcete tento limit zvýšit, obraťte se na [Microsoft Support](https://azure.microsoft.com/support/options/).

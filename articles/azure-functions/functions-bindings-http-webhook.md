@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 5fe981b96725917b9cf567ded9ff38a8055fdb4d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure funkce protokolu HTTP a webhooku vazby
 
@@ -528,6 +528,8 @@ Autorizace Webhooku se zpracovává souborem komponentu příjemce webhooku sou�
 ## <a name="trigger---limits"></a>Aktivační událost – omezení
 
 Délka požadavku HTTP je omezená na 100 kB (102,400) a délky adres URL je omezena na 4 kB (4 096) bajtů. Tato omezení jsou určené `httpRuntime` element modulu runtime [souboru Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
+Pokud funkci, která používá triggeru protokolu HTTP není dokončena v rámci přibližně 2,5 minut, bude časový limit brány a vrátí chybu HTTP 502. Funkce bude nadále používat, ale nebude možné vrátit odpovědi HTTP. Pro dlouhodobé funkce doporučujeme dodržovat asynchronní vzory a vrátí se umístění, kde může odeslat příkaz ping stav žádosti. Informace o jak dlouho může spustit funkci najdete v tématu [škálování a hostování - spotřeba plánování](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Aktivační událost - host.json vlastnosti
 

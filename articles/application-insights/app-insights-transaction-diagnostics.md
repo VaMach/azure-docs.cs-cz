@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Jednotná transakce mezi komponenty diagnostiky
 
@@ -26,7 +26,7 @@ Ve verzi preview zavádí nové prostředí jednotná diagnostiky, které automa
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Co znamená součásti v rámci Application Insights?
 
-Součásti jsou nezávisle nasadit částí aplikace distribuované nebo mikroslužeb. Operace a vývojáři týmy mají viditelnost na úrovni kódu nebo o přístup k telemetrii vygenerovanou tyto součásti aplikace. 
+Součásti jsou nezávisle nasadit částí aplikace distribuované nebo mikroslužeb. Operace a vývojáři týmy mají viditelnost na úrovni kódu nebo o přístup k telemetrii vygenerovanou tyto součásti aplikace.
 
 * Komponenty se liší od "zjištěnou" externí závislosti, jako je například SQL, EventHub atd, které váš tým nebo organizace nemusí mít přístup k (kód nebo telemetrie).
 * Součásti spustit na libovolný počet instancí serveru, role nebo kontejnerů.
@@ -40,11 +40,11 @@ Povolit "Unified podrobnosti: E2E transakce diagnostiky" z [seznamu verze Previe
 
 ![Povolit náhled](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-Tato předběžná verze je aktuálně dostupné pro žádosti na straně serveru, závislosti a výjimek. Dostanete na nové prostředí z **výsledky hledání**, **výkonu**, nebo **selhání** rychlou kontrolu prostředí. Ve verzi preview nahrazuje odpovídající okna classic podrobnosti. 
+Tato předběžná verze je aktuálně dostupné pro žádosti na straně serveru, závislosti a výjimek. Dostanete na nové prostředí z **výsledky hledání**, **výkonu**, nebo **selhání** rychlou kontrolu prostředí. Ve verzi preview nahrazuje odpovídající okna classic podrobnosti.
 
 ![Vzorků výkonu](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>Transakce diagnostiky prostředí 
+## <a name="transaction-diagnostics-experience"></a>Transakce diagnostiky prostředí
 Toto zobrazení má tři částí klíče: transakce mezi komponenty graf, čas pořadí seznam všech telemetrie z určité součásti operaci a v podokně podrobností pro libovolnou položku vybrané telemetrii na levé straně.
 
 ![Klíčovými částmi](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ V tomto podokně zobrazí podrobnosti vybraných položek ze dvou oddílech na l
 ## <a name="profiler-and-snapshot-debugger"></a>Ladicí program profileru a snímků
 
 [Application Insights profileru](app-insights-profiler.md) nebo [ladicí program snímku](app-insights-snapshot-debugger.md) pomohou s diagnostikou kód úroveň výkonu a selhání problémy. Pomocí této možnosti můžete zobrazit profileru trasování nebo klikněte na tlačítko snímky z libovolné součásti se jeden.
+
+Pokud nelze získat profileru práce, kontaktujte prosím**serviceprofilerhelp@microsoft.com**
+
+Pokud nelze získat ladicí program snímku práce, kontaktujte prosím**snapshothelp@microsoft.com**
 
 ![Integrace ladicí program](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

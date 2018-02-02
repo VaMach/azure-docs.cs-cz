@@ -1,5 +1,5 @@
 ---
-title: "Synchronizace Azure AD Connect: konfigurujte upřednostňovaný data umístění pro uživatele služeb Office 365 | Microsoft Docs"
+title: "Synchronizace Azure AD Connect: konfigurujte upřednostňovaný data umístění pro geograficky více možností v Office 365 | Microsoft Docs"
 description: "Popisuje, jak uvést vaše prostředky uživatele služeb Office 365 blízko uživatele s synchronizace Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 01/30/2018
 ms.author: billmath
-ms.openlocfilehash: 73b9b8d208b5eac2e62f62ab786efafa056e3cb4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronizace Azure AD Connect: konfigurujte upřednostňovaný data umístění pro prostředky Office 365
-Účel, pokud je toto téma vás provede procesem konfigurace preferredDataLocation v synchronizaci Azure AD Connect. Tento atribut slouží k označení k Office 365, kde se uživatel nachází tak prostředky můžou být přepnuté blízko uživatele. Tato funkce je určená pro zákazníky, větší.
+Účelem tohoto tématu je pro vás provede procesem konfigurace PreferredDataLocation v Azure AD Connect Sync. Pokud zákazník používá více geograficky možnosti v Office 365, tento atribut slouží k určení geografického umístění dat uživatele v Office 365.
 
 > [!IMPORTANT]
-> Tato funkce je aktuálně ve verzi preview a vypnutí ve výchozím nastavení v cloudu. Pokud se chcete zapojit do programu preview, obraťte se na zástupce společnosti Microsoft.
+> Více geograficky je aktuálně ve verzi preview. Pokud chcete zapojit do programu preview, kontaktujte prosím zástupce společnosti Microsoft.
 >
 >
 
@@ -34,11 +34,11 @@ Ve výchozím nastavení jsou Office 365 prostředky pro vaše uživatele nachá
 Nastavením tohoto atributu můžete mít prostředky Office 365 uživatele, například poštovní schránky a OneDrive, ve stejné oblasti jako uživatel a stále máte jednoho klienta pro celou organizaci.
 
 > [!IMPORTANT]
-> Způsobilé pro tuto funkci musí mít alespoň 5000 licencí v rámci vašeho předplatného Office 365.
+> Způsobilé k více geograficky, musí mít alespoň 5000 licencí v rámci vašeho předplatného Office 365
 >
 >
 
-Oblasti v Office 365 jsou:
+Oblasti v Office 365, které jsou k dispozici pro více geograficky jsou:
 
 | Oblast | Popis |
 | --- | --- |
@@ -56,7 +56,6 @@ Ne všechny úlohami Office 365 podporuje použití nastavení oblasti uživatel
 Azure AD Connect podporuje synchronizaci **PreferredDataLocation** atribut pro **uživatele** objekty ve verzi 1.1.524.0 a po. Přesněji řečeno byly zavedeny následující změny:
 
 * Schéma typu objektu **uživatele** v konektor služby Azure AD je rozšířen o PreferredDataLocation atribut, který je typu řetězec jednou hodnotou.
-
 * Schéma typu objektu **osoba** v úložišti Metaverse je rozšířen o PreferredDataLocation atribut, který je typu řetězec a je jedinou hodnotu.
 
 Ve výchozím nastavení není povoleno atribut PreferredDataLocation pro synchronizaci. Tato funkce je určena pro velké organizace a každý by těžit z něj. Musíte také určit atribut pro uložení oblasti Office 365 pro vaše uživatele vzhledem k tomu, že neexistuje žádný atribut PreferredDataLocation v místní službě Active Directory. To se bude lišit pro každou organizaci.
@@ -69,14 +68,13 @@ Ve výchozím nastavení není povoleno atribut PreferredDataLocation pro synchr
 
 Než povolíte synchronizaci atribut PreferredDataLocation, musíte:
 
- * Nejdřív se rozhodněte, které místní služby Active Directory atribut má být použit jako zdrojový atribut. Musí být typu **jednohodnotové řetězec**. V těchto kroků mezi extensionAttributes se používá.
-
- * Pokud jste dříve nakonfigurovali atribut PreferredDataLocation na existující synchronizované uživatelské objekty ve službě Azure AD pomocí Azure AD PowerShell, je nutné **backport** hodnoty atributů, které mají odpovídající uživatelské objekty v místní služby Active Directory.
+* Nejdřív se rozhodněte, které místní služby Active Directory atribut má být použit jako zdrojový atribut. Musí být typu **jednohodnotové řetězec**. V těchto kroků mezi extensionAttributes se používá.
+* Pokud jste dříve nakonfigurovali atribut PreferredDataLocation na existující synchronizované uživatelské objekty ve službě Azure AD pomocí Azure AD PowerShell, je nutné **backport** hodnoty atributů, které mají odpovídající uživatelské objekty v místní služby Active Directory.
 
     > [!IMPORTANT]
     > V takovém případě není backport hodnoty atributů, které mají odpovídající uživatelské objekty ve službě Active Directory v místě Azure AD Connect Odebere existující hodnoty atributu ve službě Azure AD, pokud je povolená synchronizace pro atribut PreferredDataLocation.
 
- * Je doporučeno, nakonfigurujete zdrojový atribut na alespoň několik místní uživatele AD objekty nyní, který může být použit pro ověření později.
+* Je doporučeno, nakonfigurujete zdrojový atribut na alespoň několik místní uživatele AD objekty nyní, který může být použit pro ověření později.
 
 Postup povolení synchronizace atributu PreferredDataLocation jde vyhodnotit jako:
 
@@ -102,7 +100,7 @@ Zajistěte, aby že žádná synchronizace bude probíhat, když jste právě ak
 
 ![Zkontrolujte Synchronization Service Manager - žádné operace v průběhu](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Krok 2: Přidání zdrojového atributu schématu místní přidá konektoru
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Krok 2: Přidání zdrojového atributu schématu místní přidá konektoru
 Všechny atributy AD importují do místní AD prostoru konektoru. Pokud jste vybrali do atribut nejsou synchronizovány ve výchozím nastavení použít, budete muset importovat. Zdrojový atribut přidat do seznamu importované atributy:
 
 1. Přejděte na **konektory** kartě Synchronization Service Manager.
@@ -124,7 +122,7 @@ Ve výchozím nastavení není atribut PreferredDataLocation importován do pros
 
 ![Přidejte zdrojový atribut do schématu Azure AD Connector.](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Krok 4: Vytvoření pravidla synchronizace příchozích dat tok hodnota atributu z místní služby Active Directory
+## <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Krok 4: Vytvoření pravidla synchronizace příchozích dat tok hodnota atributu z místní služby Active Directory
 Pravidla synchronizace příchozích dat umožňuje hodnota atributu, které jsou předávány z atributu zdroje z místní služby Active Directory do úložiště Metaverse:
 
 1. Spuštění **editoru pravidel synchronizace** přechodem na **spustit** > **editoru pravidel synchronizace**.
@@ -256,6 +254,15 @@ Za předpokladu, že váš klient je označená mohli tuto funkci používat, je
 4. Pokud chcete ověřit, že toto nastavení bylo efektivní přes kolik poštovních schránek, použijte skript v [galerii Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Tento skript také obsahuje seznam všech předpon serveru datových centrech Office 365 a který je umístěný v oblasti. Můžete použít jako referenci v předchozím kroku ověření umístění poštovní schránku.
 
 ## <a name="next-steps"></a>Další postup
+
+**Další informace o více geograficky v Office 365:**
+
+* Geograficky více relací na Ignite: https://aka.ms/MultiGeoIgnite
+* Více geograficky ve Onedrivu: https://aka.ms/OneDriveMultiGeo
+* Více geograficky ve službě SharePoint Online: https://aka.ms/SharePointMultiGeo
+
+**Další informace o konfiguraci modelu v synchronizační modul:**
+
 * Další informace o konfiguraci modelu v [Principy deklarativní zřizování](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Další informace o jazyk výrazů v [Principy deklarativní zřizování výrazy](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 

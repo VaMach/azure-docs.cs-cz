@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: caa709fdc2a59472ee812bde91f7300396aa5755
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure schématu události událostí mřížky
 
 Tento článek popisuje vlastnosti a schéma, které jsou k dispozici pro všechny události. Události obsahují sadu pěti řetězec požadované vlastnosti a objekt požadovaná data. Vlastnosti jsou společné pro všechny události z libovolného vydavatele. Datový objekt obsahuje vlastnosti, které jsou specifické pro každý vydavatele. Témata systému tyto vlastnosti jsou specifické pro poskytovatele prostředků, jako je například Azure Storage nebo Azure Event Hubs.
 
 Události se posílají do Azure událostí mřížky ve pole, která může obsahovat více objektů událostí. Pokud existuje jenom jedna událost, má pole o délce 1. Pole může mít celková velikost až 1 MB. Každá událost v poli je omezená na 64 KB.
+
+Můžete najít schéma JSON pro událost událostí mřížky a každý Azure vydavatele datová část [úložiště schématu události](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Schéma událostí
 
@@ -34,7 +36,9 @@ Následující příklad ukazuje vlastnosti, které jsou používány všechny z
     "eventTime": string,
     "data":{
       object-unique-to-each-publisher
-    }
+    },
+    "dataVersion": string,
+    "metadataVersion": string
   }
 ]
 ```
@@ -62,7 +66,9 @@ Schéma publikována pro událost úložiště objektů Blob v Azure je napřík
       "storageDiagnostics": {
         "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
       }
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -73,12 +79,14 @@ Všechny události obsahovat stejné nejvyšší úrovně následující data:
 
 | Vlastnost | Typ | Popis |
 | -------- | ---- | ----------- |
-| Téma | Řetězec | Úplné prostředků cesta ke zdroji událostí. Toto pole není možné zapisovat. |
-| Předmět | Řetězec | Cesta definované vydavatele události předmět. |
-| Typ události | Řetězec | Jeden z typů událostí registrovaných pro tento zdroj událostí. |
-| eventTime | Řetězec | Čas, který se vygeneruje událost založené na čas UTC poskytovatele. |
-| id | Řetězec | Jedinečný identifikátor pro událost. |
+| Téma | řetězec | Úplné prostředků cesta ke zdroji událostí. Toto pole není možné zapisovat. Událost mřížky poskytuje tuto hodnotu. |
+| Předmět | řetězec | Cesta definované vydavatele události předmět. |
+| eventType | řetězec | Jeden z typů událostí registrovaných pro tento zdroj událostí. |
+| eventTime | řetězec | Čas, který se vygeneruje událost založené na čas UTC poskytovatele. |
+| id | řetězec | Jedinečný identifikátor pro událost. |
 | data | Objekt | Data události specifické pro poskytovatele prostředků. |
+| dataVersion | řetězec | Verze schématu datového objektu. Vydavatel definuje verze schématu. |
+| metadataVersion | řetězec | Verze schématu metadat událostí. Událost mřížky definuje schéma vlastnosti nejvyšší úrovně. Událost mřížky poskytuje tuto hodnotu. |
 
 Další informace o vlastnosti v objektu data, najdete v části Zdroj události:
 
@@ -89,7 +97,7 @@ Další informace o vlastnosti v objektu data, najdete v části Zdroj události
 
 Pro vlastní témata určuje vydavatel události datový objekt. Nejvyšší úrovně data by měla obsahovat stejná pole jako standardní událostí definovaných prostředků. Při publikování událostí do vlastní témata, měli byste zvážit modelování předmět události pro usnadnění směrování a filtrování.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Úvod do Azure událostí mřížky, najdete v části [co je mřížky událostí?](overview.md)
 * Další informace o vytváření předplatného služby Azure událostí mřížky, najdete v části [schématu odběru událostí mřížky](subscription-creation-schema.md).

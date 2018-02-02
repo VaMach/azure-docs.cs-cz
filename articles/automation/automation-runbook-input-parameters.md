@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2934257e6feb6836492a4957e976abd02df12cfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-input-parameters"></a>Vstupní parametry runbooku
 
-Vstupní parametry Runbooku zvýšíte flexibilitu sad runbook tím, že se můžete k předávání dat do ní při jeho spuštění. Parametry umožňují akce runbook jako cíle pro konkrétní scénáře a různá prostředí. V tomto článku jsme vás provede různé scénáře použití vstupních parametrů v sadách runbook.
+Vstupní parametry Runbooku zvýšíte flexibilitu sad runbook tím, že se můžete k předávání dat do ní při jeho spuštění. Parametry umožňují akce runbook jako cíle pro konkrétní scénáře a různá prostředí. V tomto článku jste provede různé scénáře použití vstupních parametrů v sadách runbook.
 
 ## <a name="configure-input-parameters"></a>Konfigurace vstupní parametry
 
@@ -30,16 +30,16 @@ Vstupní parametry se dá nakonfigurovat v prostředí PowerShell, pracovní pos
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Konfigurace vstupních parametrů v sadách runbook Powershellu a pracovní postup prostředí PowerShell
 
-Prostředí PowerShell a [runbooky pracovních postupů Powershellu](automation-first-runbook-textual.md) ve službě Azure Automation podporují vstupní parametry, které jsou definovány pomocí následující atributy.  
+Prostředí PowerShell a [runbooky pracovních postupů Powershellu](automation-first-runbook-textual.md) ve službě Azure Automation podporují vstupní parametry, které jsou definovány pomocí následující atributy:  
 
 | **Vlastnost** | **Popis** |
 |:--- |:--- |
 | Typ |Povinná hodnota. Datový typ pro hodnotu parametru. Libovolného typu .NET je platný. |
-| Name (Název) |Povinná hodnota. Název parametru. Toto musí být jedinečný v rámci sady runbook a může obsahovat jenom písmena, číslice nebo znak podtržítka. Musí začínat písmenem. |
+| Název |Povinná hodnota. Název parametru. Toto musí být jedinečný v rámci sady runbook a může obsahovat jenom písmena, číslice nebo znak podtržítka. Musí začínat písmenem. |
 | Povinné |Volitelné. Určuje, zda musí být zadána hodnota pro parametr. Pokud nastavíte **$true**, potom při spuštění runbooku, je třeba zadat hodnotu. Pokud nastavíte **$false**, pak hodnota je volitelná. |
-| Výchozí hodnota |Volitelné.  Určuje hodnotu, která se použije pro parametr, pokud není hodnota předaná při spuštění runbooku. Výchozí hodnota se dá nastavit pro libovolný parametr a bude automaticky nastavit parametr volitelný bez ohledu na povinná nastavení. |
+| Výchozí hodnota |Volitelné. Určuje hodnotu, která se používá pro parametr, pokud není hodnota předaná při spuštění runbooku. Výchozí hodnota se dá nastavit pro libovolný parametr a bude automaticky nastavit parametr volitelný bez ohledu na povinná nastavení. |
 
-Prostředí Windows PowerShell podporuje další atributy vstupní parametry než těch, které zde uvedeny, například ověřování, aliasy, a nastaví parametr. Ale automatizace Azure aktuálně podporuje pouze vstupní parametry, které jsou uvedené výše.
+Prostředí Windows PowerShell podporuje další atributy vstupní parametry než těch, které zde uvedeny, například ověřování, aliasy, a nastaví parametr. Ale automatizace Azure aktuálně podporuje pouze předchozí vstupní parametry.
 
 Definici parametru v runboocích pracovního postupu Powershellu má následující obecné formulář, kde jsou několik parametrů oddělených čárkami.
 
@@ -55,7 +55,7 @@ Definici parametru v runboocích pracovního postupu Powershellu má následují
    ```
 
 > [!NOTE]
-> Když definujete parametry, pokud neurčíte **povinné** atribut, pak ve výchozím nastavení, považuje volitelný parametr. Navíc pokud nastavíte výchozí hodnotu pro parametr v runboocích pracovního postupu Powershellu, bude považována pomocí prostředí PowerShell jako volitelný parametr, bez ohledu na to **povinné** hodnota atributu.
+> Když definujete parametry, pokud neurčíte **povinné** atribut, pak ve výchozím nastavení, považuje volitelný parametr. Navíc pokud nastavíte výchozí hodnotu pro parametr v runboocích pracovního postupu Powershellu, bude zpracován pomocí prostředí PowerShell jako volitelný parametr, bez ohledu na to **povinné** hodnota atributu.
 > 
 > 
 
@@ -81,7 +81,7 @@ K [konfigurace grafický runbook](automation-first-runbook-graphical.md) s vstup
 
 [**Ověření Runbooků pomocí účtu spustit v Azure jako** ](automation-sec-configure-azure-runas-account.md) k ověření pomocí Azure.
 
-[**Get-AzureRmVm** ](https://msdn.microsoft.com/library/mt603718.aspx) získat vlastnosti virtuálního počítače.
+[**Get-AzureRmVm** ](https://msdn.microsoft.com/library/mt603718.aspx) se získat vlastnosti virtuálního počítače.
 
 Můžete použít [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.aspx) aktivity k vypsání názvy virtuálních počítačů. Aktivita **Get-AzureRmVm** dva parametry, **název virtuálního počítače** a **název skupiny prostředků**. Vzhledem k tomu, že tyto parametry může vyžadovat různé hodnoty, při každém spuštění sady runbook, můžete přidat vstupních parametrů do runbooku. Tady jsou kroky k přidání vstupních parametrů:
 
@@ -93,14 +93,14 @@ Můžete použít [ **Write-Output** ](https://technet.microsoft.com/library/hh8
    
    | **Vlastnost** | **Popis** |
    |:--- |:--- |
-   | Name (Název) |Povinná hodnota.  Název parametru. Toto musí být jedinečný v rámci sady runbook a může obsahovat jenom písmena, číslice nebo znak podtržítka. Musí začínat písmenem. |
+   | Název |Povinná hodnota. Název parametru. Toto musí být jedinečný v rámci sady runbook a může obsahovat jenom písmena, číslice nebo znak podtržítka. Musí začínat písmenem. |
    | Popis |Volitelné. Popis o účelu vstupní parametr. |
    | Typ |Volitelné. Datový typ, který je očekávaná hodnota parametru. Parametr podporované typy jsou **řetězec**, **Int32**, **Int64**, **Decimal**, **Boolean**, **data a času**, a **objekt**. Pokud datový typ není vybraná, je standardně **řetězec**. |
    | Povinné |Volitelné. Určuje, zda musí být zadána hodnota pro parametr. Pokud se rozhodnete **Ano**, potom při spuštění runbooku, je třeba zadat hodnotu. Pokud se rozhodnete **žádné**, pak hodnota není požadovaná při spuštění runbooku a může být nastaven výchozí hodnotu. |
-   | Výchozí hodnota |Volitelné. Určuje hodnotu, která se použije pro parametr, pokud není hodnota předaná při spuštění runbooku. Výchozí hodnotu lze nastavit pro parametr, který není povinné. Pokud chcete nastavit výchozí hodnotu, zvolte **vlastní**. Tato hodnota se používá, pokud je při spuštění runbooku zadat jinou hodnotu. Zvolte **žádné** Pokud nechcete zadat žádnou výchozí hodnotu. |
+   | Výchozí hodnota |Volitelné. Určuje hodnotu, která se používá pro parametr, pokud není hodnota předaná při spuštění runbooku. Výchozí hodnotu lze nastavit pro parametr, který není povinné. Pokud chcete nastavit výchozí hodnotu, zvolte **vlastní**. Tato hodnota se používá, pokud je při spuštění runbooku zadat jinou hodnotu. Zvolte **žádné** Pokud nechcete zadat žádnou výchozí hodnotu. |
    
     ![Přidat nové vstup](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
-4. Vytvořte dva parametry s následujícími vlastnostmi, které budou používat **Get-AzureRmVm** aktivity:
+4. Vytvořte dva parametry s následujícími vlastnostmi, které používá **Get-AzureRmVm** aktivity:
    
    * **Parametr1:**
      
@@ -114,7 +114,7 @@ Můžete použít [ **Write-Output** ](https://technet.microsoft.com/library/hh8
      * Povinné – ne
      * Výchozí hodnota - vlastní
      * Vlastní výchozí hodnota - \<název skupiny prostředků, která obsahuje virtuální počítače >
-5. Jakmile přidáte parametry, klikněte na tlačítko **OK**.  Teď si můžete zobrazit je do **vstup a výstup okna**. Klikněte na tlačítko **OK** znovu a potom klikněte na **Uložit** a **publikovat** runbooku.
+5. Jakmile přidáte parametry, klikněte na tlačítko **OK**. Teď si můžete zobrazit je do **vstup a výstup okna**. Klikněte na tlačítko **OK** znovu a potom klikněte na **Uložit** a **publikovat** runbooku.
 
 ## <a name="configure-input-parameters-in-python-runbooks"></a>Konfigurace vstupních parametrů v sadách runbook Python
 
@@ -127,7 +127,7 @@ Příklad použití vstupní parametry v sadě runbook Python, naleznete v čás
 
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Přiřazení hodnoty pro vstupní parametry v sadách runbook
 
-Můžete předat hodnoty pro vstupní parametry v sadách runbook v následujících scénářích.
+Můžete předat hodnoty pro vstupní parametry v sadách runbook v následujících scénářích:
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Spuštění sady runbook a přiřaďte parametry
 
@@ -135,16 +135,14 @@ Sady runbook lze spustit mnoho způsobů: prostřednictvím portálu Azure, s we
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Spusťte publikované sady runbook pomocí portálu Azure a přiřadit parametry
 
-Pokud jste [spuštění runbooku](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), **spuštění Runbooku** otevře se okno a můžete zadat hodnoty pro parametry, které jste právě vytvořili.
+Pokud jste [spuštění runbooku](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), **spuštění Runbooku** otevře se okno a můžete zadat hodnoty pro parametry, které jste vytvořili.
 
 ![Začít používat portál](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
 V popisku pod vstupní pole uvidíte atributy, které byly nastaveny pro parametr. Atributy zahrnují povinné nebo volitelné, typ a výchozí hodnota. V bublině nápovědy vedle názvu parametru se zobrazí všechny klíčové informace, které potřebujete učinit rozhodnutí o vstupní hodnoty parametrů. Tyto informace zahrnují, zda je parametr povinný nebo volitelné. Zahrnuje také typ a výchozí hodnota (pokud existuje) a další užitečné poznámky.
 
-![Bublině nápovědy](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
-
 > [!NOTE]
-> Podpora parametry typu String **prázdný** hodnoty řetězců.  Zadání **[EmptyString]** v vstupní parametr pole předá prázdný řetězec pro parametr. Také nepodporují parametry typu řetězec **Null** předáním hodnoty. Pokud předáte nemáte žádnou hodnotu pro parametr řetězce, pak prostředí PowerShell bude interpretovat jako hodnotu null.
+> Podpora parametry typu String **prázdný** hodnoty řetězců.  Zadání **[EmptyString]** v vstupní parametr pole předá parametr prázdný řetězec. Také nepodporují parametry typu řetězec **Null** předáním hodnoty. Pokud předáte nemáte žádnou hodnotu pro parametr řetězce, pak prostředí PowerShell ji interpretuje jako hodnotu null.
 > 
 > 
 
@@ -159,7 +157,7 @@ V popisku pod vstupní pole uvidíte atributy, které byly nastaveny pro paramet
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Rutiny Azure Service Management:** můžete spustit runbook služby automatizace, který byl vytvořen v do výchozí skupiny prostředků pomocí [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
+* **Rutiny modelu nasazení Azure classic:** můžete spustit runbook služby automatizace, který byl vytvořen v do výchozí skupiny prostředků pomocí [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
   
   **Příklad:**
   
@@ -195,7 +193,7 @@ V popisku pod vstupní pole uvidíte atributy, které byly nastaveny pro paramet
       return response.Job;
       }
   ```
-* **Azure Service Management metoda:** sady runbook můžete spustit pomocí sady SDK programovací jazyk. Níže je fragmentu kódu C# pro spuštění sady runbook ve vašem účtu Automation. Můžete zobrazit všechny kódu v našem [úložiště GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Metoda modelu nasazení Azure classic:** sady runbook můžete spustit pomocí sady SDK programovací jazyk. Níže je fragmentu kódu C# pro spuštění sady runbook ve vašem účtu Automation. Můžete zobrazit všechny kódu v našem [úložiště GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -229,7 +227,7 @@ V popisku pod vstupní pole uvidíte atributy, které byly nastaveny pro paramet
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Spuštění sady runbook pomocí rozhraní REST API a přiřaďte parametry
-Úlohy runbooku můžete vytvořit a začít s REST API služby Azure Automation pomocí **PUT** metoda s následující identifikátor URI požadavku.
+Úlohy runbooku můžete vytvořit a začít s REST API služby Azure Automation pomocí **PUT** metoda s následující URI žádosti:
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
@@ -259,15 +257,15 @@ Pokud chcete spustit **Get-AzureVMTextual** runbooku, který byl vytvořen již 
     }
    ```
 
-Stavový kód HTTP 201 je vrácena, pokud je úloha úspěšně vytvořen. Další informace o hlavičky odpovědi a text odpovědi, naleznete v článku o tom, jak [vytvořit úlohu runbooku pomocí rozhraní REST API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
+Stavový kód HTTP 201 je vrácena, pokud je úloha úspěšně vytvořen. Další informace o hlavičky odpovědi a text odpovědi, najdete v článku o tom, jak [vytvořit úlohu runbooku pomocí rozhraní REST API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
 
 ### <a name="test-a-runbook-and-assign-parameters"></a>Otestování sady runbook a přiřaďte parametry
-Při jste [otestovat verzi konceptu sady runbook](automation-testing-runbook.md) pomocí možnosti testu **testování** otevře se okno a můžete nastavit hodnoty pro parametry, které jste právě vytvořili.
+Při jste [otestovat verzi konceptu sady runbook](automation-testing-runbook.md) pomocí možnosti testu **testování** otevře se stránka a můžete nastavit hodnoty pro parametry, které jste vytvořili.
 
 ![Testování a přiřadit parametry](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
 ### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Propojit plán s sady runbook a přiřaďte parametry
-Můžete [propojit plán s](automation-schedules.md) do runbooku, aby sada runbook spuštěna v určitém čase. Když vytvoříte plán a sady runbook se používají tyto hodnoty, když se spustila podle plánu přiřadíte vstupní parametry. Plán nelze uložit, dokud nebudou k dispozici všechny hodnoty povinný parametr.
+Můžete [propojit plán s](automation-schedules.md) do runbooku, aby sada runbook spuštěna v určitém čase. Když vytvoříte plán a sada runbook používá tyto hodnoty, když se spustila podle plánu přiřadíte vstupní parametry. Plán nelze uložit, dokud nebudou k dispozici všechny hodnoty povinný parametr.
 
 ![Parametry plánu a přiřazení](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 
@@ -280,7 +278,7 @@ Při spuštění sady runbook pomocí webhooku, předdefinované vstupní parame
 
 ![Parametr WebhookData](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o runbook vstup a výstup, najdete v části [Azure Automation: runbook vnořených sad runbook, vstup a výstup](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/).
 * Podrobnosti o různých způsobech spouštění sady runbook najdete v tématu [spuštění sady runbook](automation-starting-a-runbook.md).
 * Chcete-li upravit textový, přečtěte [úpravy textovou runbooky](automation-edit-textual-runbook.md).

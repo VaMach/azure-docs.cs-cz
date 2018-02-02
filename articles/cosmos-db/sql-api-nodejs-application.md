@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 043de0e8a934a2fd92522eeb70261203afac180e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="_Toc395783175"></a>Sestavení webové aplikace Node.js využívající službu Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] verze 0.10.29 nebo vyšší
+* [Node.js][Node.js] verze 0.10.29 nebo vyšší Doporučujeme, abyste Node.js 6.10 se opakuje nebo vyšší.
 * [Generátor Express](http://www.expressjs.com/starter/generator.html) (lze nainstalovat prostřednictvím `npm install express-generator -g`)
 * [Git][Git]
 
@@ -80,7 +80,7 @@ Nyní se naučíme, jak vytvořit základní projekt Node.js Hello World pomocí
    
     ![Výuka Node.js – snímek obrazovky aplikace Hello World v okně prohlížeče](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    Potom aplikaci zastavte stisknutím kombinace kláves CTRL + C v okně terminálu a ukončete dávkovou úlohu kliknutím na **y**.
+    Potom zastavte aplikaci, stiskněte kombinaci kláves CTRL + C v okno terminálu a klikněte na počítačích Windows **y** ukončit dávkovou úlohu.
 
 ## <a name="_Toc395783179"></a>Krok 3: Instalace dalších modulů
 Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu. Tento soubor obsahuje seznam dalších modulů, které aplikace Node.js vyžaduje. Později při nasazení této aplikace na weby Azure, tento soubor se používá k určení, které moduly musí být nainstalovaný na Azure pro podporu vaší aplikace. Pro tento kurz je ještě nutné nainstalovat další dva balíčky.
@@ -91,29 +91,6 @@ Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu.
 2. Přes npm nainstalujte modul **documentdb**. To je modul, kde se stane všechny magic Azure Cosmos DB.
    
         npm install documentdb --save
-3. Rychlý pohled do souboru **package.json** aplikace by měl odhalit další moduly. Tento soubor informuje Azure, které balíčky stáhnout a nainstalovat při spuštění aplikace. Měl by vypadat přibližně takto:
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    To říká uzlu (a později Azure), že vaše aplikace závisí na těchto dalších modulech.
 
 ## <a name="_Toc395783180"></a>Krok 4: Využití služby Azure Cosmos DB v aplikaci Node.js
 Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se budeme zabývat tím, proč tu jsme, tedy psaním kódu s využitím služby Azure Cosmos DB.
@@ -384,13 +361,13 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. V souboru **config.js** aktualizujte hodnoty HOST a AUTH_KEY s použitím hodnot, které získáte v okně Klíče účtu služby Azure Cosmos DB na webu [Microsoft Azure Portal](https://portal.azure.com).
+3. V **config.js** souboru, aktualizujte hodnoty HOST a AUTH_KEY na hodnoty zjištěné v na stránce klíčů účtu Azure Cosmos DB [portálu Microsoft Azure](https://portal.azure.com).
 4. Uložte a zavřete soubor **config.js**.
 
 ### <a name="modify-appjs"></a>Úprava souboru app.js
@@ -513,7 +490,7 @@ To by mělo být vše, co potřebujeme ke zprovoznění aplikace.
 3. Stránka by se měla aktualizovat, aby se v seznamu úkolů zobrazila nově vytvořená položka.
    
     ![Snímek obrazovky aplikace s novou položkou v seznamu úkolů](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. Pokud chcete dokončit úkol, stačí zaškrtnout políčko ve sloupci Complete (Dokončeno) a kliknout na **Update tasks** (Aktualizovat úkoly). Takto se vámi vytvořený dokument aktualizuje.
+4. Pokud chcete dokončit úkol, stačí zaškrtnout políčko ve sloupci Complete (Dokončeno) a kliknout na **Update tasks** (Aktualizovat úkoly). Tím se aktualizuje dokumentu jste již vytvořili a odstraní ji ze zobrazení.
 
 5. Pokud chcete aplikaci zastavit, stiskněte kombinace kláves CTRL + C v okně terminálu a pak ukončete dávkovou úlohu kliknutím na **y**.
 

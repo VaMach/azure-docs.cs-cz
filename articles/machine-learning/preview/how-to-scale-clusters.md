@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Škálování clusteru spravovat propustnost webové služby
 
@@ -85,7 +85,7 @@ Například nastavení `autoscale-min-replicas` 5 vytvoří pět repliky. K dosa
 
 | Název parametru | Typ | Popis |
 |--------------------|--------------------|--------------------|
-| `autoscale-enabled` | Logická hodnota | Určuje, zda je povoleno automatické škálování. Výchozí: true |
+| `autoscale-enabled` | Boolean | Určuje, zda je povoleno automatické škálování. Výchozí: true |
 | `autoscale-min-replicas` | celé číslo | Určuje minimální počet pracovními stanicemi soustředěnými kolem. Musí být 0 nebo větší. Výchozí: 1 |
 | `autoscale-max-replicas` | celé číslo | Určuje maximální počet pracovními stanicemi soustředěnými kolem. Musí být 1 nebo vyšší. Je-li škálování. maximální počet replik je menší než škálování min repliky, automatické škálování. maximální počet replik budou ignorovány. Výchozí: 10 |
 | `autoscale-refresh-period-seconds` | celé číslo | Určuje dobu v sekundách mezi aktualizacemi škálování. Výchozí: 1 |
@@ -159,6 +159,6 @@ Jakmile jste spustili server řídicího panelu, otevřete prohlížeč a zadejt
 
 Z hlavní obrazovky řídicí panel, klikněte na tlačítko **nasazení** na levém navigačním panelu. Pokud se nezobrazí v navigačním podokně, vyberte ikonu ![nabídky skládající se z tři vodorovné čáry krátké](media/how-to-scale-clusters/icon-hamburger.png) v levé horní části.
 
-Najděte nasazení upravte a kliknutím na tuto ikonu ![ikonu nabídky skládající se z tři tečky vertikálně](media/how-to-scale-clusters/icon-kebab.png) na pravé straně a pak klikněte na **zobrazení/edi YAML**.
+Najděte nasazení upravte a kliknutím na tuto ikonu ![ikonu nabídky skládající se z tři tečky vertikálně](media/how-to-scale-clusters/icon-kebab.png) na pravé straně a pak klikněte na **umožňuje zobrazit či upravit YAML**.
 
 V dialogovém okně Upravit nasazení vyhledejte *specifikace* uzlu upravit *repliky* hodnoty a klikněte na **aktualizace**.

@@ -1,6 +1,6 @@
 ---
-title: "Automatizované skript pro vytvoření aplikace webového portálu Service Manager pro připojení s konektorem správy služeb IT v OMS | Microsoft Docs"
-description: "Vytvoření aplikace webového portálu Service Manager pomocí automatizované skriptu připojit s konektorem správy služeb IT v OMS a centrálně monitorovat a spravovat ITSM pracovní položky."
+title: "Automatizované skript pro vytvoření aplikace webového portálu Service Manager pro připojení s konektorem správy IT služby v Azure | Microsoft Docs"
+description: "Vytvoření aplikace webového portálu Service Manager pomocí automatizované skriptu připojit s konektorem správy IT služby ve službě Azure a centrálně monitorovat a spravovat ITSM pracovní položky."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Vytvoření aplikace webového portálu Service Manager pomocí automatizované skriptu (Preview)
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Vytvoření aplikace webového portálu Service Manager pomocí automatizované skriptu
 
 Pomocí následujícího skriptu k vytvoření webové aplikace pro instanci portálu Service Manager. Zde jsou další informace o připojení k portálu Service Manager: [portálu Service Manager webové aplikace](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -31,7 +31,7 @@ Spusťte skript tím, že poskytuje následující požadované podrobnosti:
 - Umístění
 - Podrobnosti o serveru portálu Service Manager (název serveru, domény, uživatelské jméno a heslo)
 - Předpona názvu lokality pro vaši webovou aplikaci
-- Namespace sběrnice.
+- ServiceBus Namespace.
 
 Skript se vytvoří webovou aplikaci pomocí názvu, který jste zadali (spolu s několika další řetězce, aby byla zajištěna jedinečnost). Vygeneruje **adresa URL webové aplikace**, **ID klienta** a **tajný klíč klienta**.
 
@@ -318,5 +318,5 @@ if(!$err)
 }
 
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Konfigurace hybridní připojení](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

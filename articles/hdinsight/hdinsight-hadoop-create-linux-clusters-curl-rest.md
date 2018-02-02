@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: f35c50a3b05bfeb06556f5eb9ba70e24b80de6e9
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4fcdde200fa9d54c7eb5b0ffe151aff3fbd0ed85
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Vytváření clusterů systému Hadoop pomocí REST API služby Azure
 
@@ -355,7 +355,7 @@ Tento příkaz vrátí dokumentu JSON obsahující informace o operaci nasazení
 
 Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste úspěšně vytvořili clusteru služby HDInsight, použijte následující informace o práci s vašeho clusteru.
 
@@ -367,7 +367,7 @@ Teď, když jste úspěšně vytvořili clusteru služby HDInsight, použijte n�
 
 ### <a name="hbase-clusters"></a>Clustery HBase
 
-* [Začínáme s HBase v HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Začínáme s HBase ve službě HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clustery Storm

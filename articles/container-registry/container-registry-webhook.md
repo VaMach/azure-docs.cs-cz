@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 915f90fd5d969d5544d56e5bec754b799f349015
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Pomocí webhooků registru kontejner Azure
 
@@ -35,9 +35,9 @@ Podrobnosti o žádostech webhooku najdete v tématu [registru kontejner Azure w
 
 | Hodnota | Popis |
 |---|---|
-| Name (Název) | Název, který chcete poskytnout k webhooku. Může obsahovat jenom malá písmena a čísla a musí být 5 – 50 znaků. |
-| URI služby | Identifikátor URI, kde má webhooku odeslat oznámení POST. |
-| Vlastní hlavičky | Hlavičky, kterou chcete předat společně s požadavek POST. Musí být v "klíč: hodnota" formátu. |
+| Název | Název, který chcete poskytnout k webhooku. Může obsahovat jenom malá písmena a čísla a musí být 5 – 50 znaků. |
+| Identifikátor URI služby | Identifikátor URI, kde má webhooku odeslat oznámení POST. |
+| Vlastní záhlaví | Hlavičky, kterou chcete předat společně s požadavek POST. Musí být v "klíč: hodnota" formátu. |
 | Akce aktivace | Akce, které aktivují webhooku. Webhooky mohou být aktivovány nabízené bitové kopie nebo odstranění akcí. |
 | Status | Stav webhooku po jejím vytvoření. Ve výchozím nastavení je povolená. |
 | Rozsah | Obor, ve kterém funguje webhooku. Ve výchozím nastavení rozsah je pro všechny události v registru. Můžete zadat pro úložiště nebo značku ve formátu "úložiště: značka". |
@@ -48,7 +48,7 @@ Příklad webhooku formuláře:
 
 ## <a name="create-webhook-azure-cli"></a>Vytvoření webhooku rozhraní příkazového řádku Azure
 
-Chcete-li vytvořit webhook, jehož pomocí rozhraní příkazového řádku Azure, použijte [vytvoření webhooku acr az](/cli/azure/acr/webhook#create) příkaz.
+Chcete-li vytvořit webhook, jehož pomocí rozhraní příkazového řádku Azure, použijte [vytvoření webhooku acr az](/cli/azure/acr/webhook#az_acr_webhook_create) příkaz.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -56,7 +56,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ## <a name="test-webhook"></a>Test webhooku
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Před použitím webhooku na kontejneru bitové kopie nabízené a odstranění akcí, můžete otestovat ji s **Ping** tlačítko. Příkaz ping odešle požadavek POST obecné zadaný koncový bod a protokoly odpovědi. Pomocí příkazu ping funkce můžete ověřit, zda že jste správně nakonfigurovali webhooku.
 
@@ -68,7 +68,7 @@ Před použitím webhooku na kontejneru bitové kopie nabízené a odstranění 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Chcete-li otestovat webhook ACR pomocí Azure CLI, použijte [az acr webhooku ping](/cli/azure/acr/webhook#ping) příkaz.
+Chcete-li otestovat webhook ACR pomocí Azure CLI, použijte [az acr webhooku ping](/cli/azure/acr/webhook#az_acr_webhook_ping) příkaz.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -82,7 +82,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 ## <a name="delete-webhook"></a>Odstranit webhook
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Každý webhooku odstraníte výběrem webhooku a potom **odstranit** tlačítka na portálu Azure.
 
@@ -92,6 +92,6 @@ Každý webhooku odstraníte výběrem webhooku a potom **odstranit** tlačítka
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Referenční dokumentace schématu webhooku registru kontejner Azure](container-registry-webhook-reference.md)

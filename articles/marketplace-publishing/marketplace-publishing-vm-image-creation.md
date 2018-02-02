@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Průvodce pro vytvoření bitové kopie virtuálního počítače pro Azure Marketplace
 Tento článek **kroku 2**, vás provede procesem přípravy virtuálních pevných disků (VHD), které nasadíte do Azure Marketplace. Virtuální pevné disky jsou základ pro vaše SKU. Proces se liší v závislosti na tom, jestli tím SKU systémem Linux nebo systému Windows. Tento článek se týká obou scénářů. Tento postup lze provést paralelně s [vytváření účtů a registrace][link-acct-creation].
@@ -118,6 +118,9 @@ Z portálu Microsoft Azure můžete vytvořit virtuální počítač na základ�
 Důrazně doporučujeme vývoji svůj disk VHD v cloudu pomocí protokolu RDP (Remote Desktop). Připojit k protokolu RDP s uživatelské jméno a heslo zadané při zřizování.
 
 > [!IMPORTANT]
+> **Nepoužívejte disky spravované.** Virtuální počítač použité k jejich vývoji virtuálního pevného disku do cloudu nesmí být založené na discích spravovaných jako aktuálně nepodporuje vytvoření bitové kopie z nich.
+> Vytvoření virtuálního počítače v volitelná funkce změn na výchozí hodnoty pro disky spravovat.
+
 > Pokud vyvíjíte svůj disk VHD najdete v části místní (což nedoporučujeme), [vytváření bitové kopie virtuálního počítače místní](marketplace-publishing-vm-image-creation-on-premise.md). Stahování svůj disk VHD není nutný, pokud vyvíjíte v cloudu.
 >
 >

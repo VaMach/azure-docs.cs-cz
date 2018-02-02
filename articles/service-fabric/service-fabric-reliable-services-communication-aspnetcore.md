@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Jádro ASP.NET v Service Fabric spolehlivé služby
 
@@ -26,7 +26,7 @@ ASP.NET Core je nové open source a napříč platformami architektura pro vytv�
 
 Tento článek představuje podrobný průvodce pro hostování služeb ASP.NET Core v Service Fabric spolehlivé služby pomocí **Microsoft.ServiceFabric.AspNetCore.** * sadu balíčků NuGet.
 
-Úvodní kurz ASP.NET Core v Service Fabric a pokyny pro nastavení vývojového prostředí najdete v tématu [vytváření webového front-endu vaší aplikace pomocí ASP.NET Core](service-fabric-add-a-web-frontend.md).
+Úvodní kurz ASP.NET Core v Service Fabric a pokyny pro nastavení vývojového prostředí najdete v tématu [vytvořit aplikaci .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 Zbývající část tohoto článku předpokládá, že jste již obeznámeni s ASP.NET Core. Pokud ne, doporučujeme čtení [ASP.NET Core Základy](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -104,7 +104,7 @@ HttpSys je založený na [rozhraní API systému Windows HTTP serveru](https://m
 
 Následující diagram znázorňuje, jak HttpSys používá *http.sys* ovladač jádra v systému Windows pro sdílení portů:
 
-![ovladač HTTP.sys][3]
+![http.sys][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>HttpSys v bezstavové služby
 Použít `HttpSys` v bezstavové služby přepsat `CreateServiceInstanceListeners` metoda a vraťte se `HttpSysCommunicationListener` instance:
@@ -308,9 +308,9 @@ Pokud přístup k Internetu, bezstavové služby by měl použít dobře známé
 
 |  |  | **Poznámky k** |
 | --- | --- | --- |
-| Webový server | kestrel | Kestrel je upřednostňovaný webového serveru, jako je podporovaná ve Windows a Linux. |
-| Konfigurace portu | Statické | Dobře známé statický port by měl být nakonfigurovaný v `Endpoints` konfigurace ServiceManifest.xml, jako třeba 80 pro protokol HTTP nebo 443 pro protokol HTTPS. |
-| ServiceFabricIntegrationOptions | Žádný | `ServiceFabricIntegrationOptions.None` By měl být použit při konfiguraci Service Fabric integrace middleware tak, aby služba nebude pokoušet o ověření příchozích požadavků na jedinečný identifikátor. Externí uživatele vaší aplikace nebude vědět jedinečné identifikační informace používané middleware. |
+| Webový server | Kestrel | Kestrel je upřednostňovaný webového serveru, jako je podporovaná ve Windows a Linux. |
+| Konfigurace portu | statická | Dobře známé statický port by měl být nakonfigurovaný v `Endpoints` konfigurace ServiceManifest.xml, jako třeba 80 pro protokol HTTP nebo 443 pro protokol HTTPS. |
+| ServiceFabricIntegrationOptions | Žádné | `ServiceFabricIntegrationOptions.None` By měl být použit při konfiguraci Service Fabric integrace middleware tak, aby služba nebude pokoušet o ověření příchozích požadavků na jedinečný identifikátor. Externí uživatele vaší aplikace nebude vědět jedinečné identifikační informace používané middleware. |
 | Počet instancí | -1 | V typické případy použití musí být počet instancí nastavení nastavena "-1", aby instance k dispozici na všech uzlech, jež přijímat přenosy z pro vyrovnávání zatížení. |
 
 Více externě zveřejněné služeb sdílet stejnou sadu uzlů, lze nastavit HttpSys s jedinečné, ale stabilní cestu adresy URL. To můžete udělat změnou adresy URL poskytnuté při konfiguraci IWebHost. Všimněte si, že platí pouze pro HttpSys.
@@ -333,21 +333,21 @@ Bezstavové služby, které jsou pouze volat v rámci clusteru musí používat 
 
 |  |  | **Poznámky k** |
 | --- | --- | --- |
-| Webový server | kestrel | I když HttpSys mohou být použity pro interní bezstavové služby, je Kestrel doporučené serveru tak, aby víc instancí služby pro sdílení hostitele.  |
+| Webový server | Kestrel | I když HttpSys mohou být použity pro interní bezstavové služby, je Kestrel doporučené serveru tak, aby víc instancí služby pro sdílení hostitele.  |
 | Konfigurace portu | dynamicky přiřadit | Víc replik stavové služby může sdílet proces hostitele nebo hostitelského operačního systému a proto bude nutné odlišné porty. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | S přiřazením dynamický port toto nastavení zabrání chybné identifikace problém popsané výše. |
-| InstanceCount | všechny | Počet instancí nastavení lze nastavit na jakoukoli hodnotu potřebné pro provoz služby. |
+| InstanceCount | libovolné | Počet instancí nastavení lze nastavit na jakoukoli hodnotu potřebné pro provoz služby. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Pouze interní stavová služba ASP.NET Core
 Stavové služby, které jsou pouze volat v rámci clusteru používejte porty dynamicky přiřazené k zajištění spolupráce mezi více služeb. Doporučuje se následující konfiguraci:
 
 |  |  | **Poznámky k** |
 | --- | --- | --- |
-| Webový server | kestrel | `HttpSysCommunicationListener` Není určen pro stavové služby, ve kterých repliky sdílet hostitelském procesu. |
+| Webový server | Kestrel | `HttpSysCommunicationListener` Není určen pro stavové služby, ve kterých repliky sdílet hostitelském procesu. |
 | Konfigurace portu | dynamicky přiřadit | Víc replik stavové služby může sdílet proces hostitele nebo hostitelského operačního systému a proto bude nutné odlišné porty. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | S přiřazením dynamický port toto nastavení zabrání chybné identifikace problém popsané výše. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Ladění aplikace Service Fabric pomocí sady Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->

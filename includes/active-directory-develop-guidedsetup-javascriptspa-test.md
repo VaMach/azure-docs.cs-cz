@@ -47,4 +47,4 @@ Pokud rozhraní API back-end nevyžaduje obor (nedoporučuje se), můžete použ
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

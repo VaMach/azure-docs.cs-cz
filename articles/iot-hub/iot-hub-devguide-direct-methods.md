@@ -12,22 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Rady pro pochopení a volat přímé metody ze služby IoT Hub
-Centrum IoT vám dává možnost vyvolat přímé metody na zařízení z cloudu. Přímé metody představuje požadavek odpověď interakci s zařízení podobné volání protokolu HTTP v, které budou úspěch nebo neúspěch okamžitě (po časový limit definované uživatelem). Tento přístup je užitečné v případech, kde se liší v závislosti na tom, jestli se zařízení schopné reagovat, například odeslání služby SMS funkce wake-up do zařízení, pokud je zařízení offline (Probíhá dražší než volání metody SMS) během okamžitý zásah.
+Centrum IoT vám dává možnost vyvolat přímé metody na zařízení z cloudu. Přímé metody představuje požadavek odpověď interakci s zařízení podobné volání protokolu HTTP v, které budou úspěch nebo neúspěch okamžitě (po časový limit definované uživatelem). Tento přístup je užitečné v případech, kde se liší v závislosti na tom, jestli je zařízení schopné reagovat během okamžitý zásah. Například odesílání služby SMS funkce wake-up do zařízení, pokud je offline (Probíhá dražší než volání metody SMS).
 Každá metoda zařízení cílí jedno zařízení. [Úlohy] [ lnk-devguide-jobs] poskytnout způsob, jak volat přímé metody na několika zařízeních a naplánovat volání metody pro odpojené zařízení.
 
 Každý, kdo má **služba připojit** oprávnění na IoT Hub může vyvolat metodu na zařízení.
 
-Přímé metody postupujte podle vzoru požadavků a odpovědí a jsou určené pro komunikaci, které vyžadují okamžitou potvrzení jejich výsledku, obvykle interaktivní kontrolu zařízení, např. Chcete-li zapnout ventilátoru.
+Přímé metody postupujte podle vzoru požadavků a odpovědí a jsou určené pro komunikaci, které vyžadují okamžitou potvrzení jejich výsledku. Například interaktivní kontrolu zařízení, například zapnutí ventilátoru.
 
 Odkazovat na [Cloud zařízení komunikace pokyny] [ lnk-c2d-guidance] v případě pochybností mezi použitím požadované vlastnosti přímé metody nebo zprávy typu cloud zařízení.
 
@@ -39,7 +39,7 @@ Přímé metody jsou implementované v zařízení a může vyžadovat nula nebo
 > 
 > 
 
-Přímé metody jsou synchronní a buď úspěšné nebo neúspěšné po uplynutí časového limitu (výchozí: 30 sekund, nastavit až na 3 600 sekund). Přímé metody jsou užitečné v interaktivní scénářích, kde chcete zařízení tak, aby fungoval pouze v případě zařízení je online a přijímající příkazy, například zapnutí light z telefonního čísla. V těchto scénářích chcete zobrazit okamžité úspěšné nebo neúspěšné, takže cloudové služby může fungovat na výsledek co nejdříve. Zařízení může vrátit některé tělo zprávy v důsledku metodu, ale není nutné u metodu Uděláte to tak. Neexistuje žádná záruka, řazení v nebo všechny souběžnosti sémantiky pro volání metody.
+Přímé metody jsou synchronní a buď úspěšné nebo neúspěšné po uplynutí časového limitu (výchozí: 30 sekund, nastavit až na 3 600 sekund). Přímé metody jsou užitečné v interaktivní scénářích, kde chcete zařízení tak, aby fungoval pouze v případě zařízení je online a přijímající příkazy. Například zapnutí light z telefonního čísla. V těchto scénářích chcete zobrazit okamžité úspěšné nebo neúspěšné, takže cloudové služby může fungovat na výsledek co nejdříve. Zařízení může vrátit některé tělo zprávy v důsledku metodu, ale není nutné u metodu Uděláte to tak. Neexistuje žádná záruka, řazení v nebo všechny souběžnosti sémantiky pro volání metody.
 
 Přímé metody jsou HTTPS jen z cloudu straně a MQTT nebo AMQP ze strany zařízení.
 
@@ -54,16 +54,16 @@ Přímá metoda volání na zařízení jsou volání protokolu HTTPS, které tv
 * *Hlavičky* , obsahovat autorizaci, žádat o ID, typu obsahu a kódování obsahu
 * Transparentní JSON *textu* v následujícím formátu:
 
-   ```
-   {
-       "methodName": "reboot",
-       "responseTimeoutInSeconds": 200,
-       "payload": {
-           "input1": "someInput",
-           "input2": "anotherInput"
-       }
-   }
-   ```
+    ```json
+    {
+        "methodName": "reboot",
+        "responseTimeoutInSeconds": 200,
+        "payload": {
+            "input1": "someInput",
+            "input2": "anotherInput"
+        }
+    }
+    ```
 
 Časový limit je počet sekund. Pokud není nastavený časový limit, bude výchozí 30 sekund.
 
@@ -74,13 +74,14 @@ Back-end aplikace obdrží odpověď, který zahrnuje:
 * *Hlavičky* , obsahovat značku ETag, žádat o ID, typu obsahu a kódování obsahu
 * JSON *textu* v následujícím formátu:
 
-   ```   {
-       "status" : 201,
-       "payload" : {...}
-   }
-   ```
+    ```json
+    {
+        "status" : 201,
+        "payload" : {...}
+    }
+    ```
 
-   Obě `status` a `body` je poskytovanému zařízením a používá odešle odpověď se stavovým kódem zařízení vlastní nebo popis.
+    Obě `status` a `body` je poskytovanému zařízením a používá odešle odpověď se stavovým kódem zařízení vlastní nebo popis.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Popisovač přímá metoda na zařízení
 ### <a name="mqtt"></a>MQTT
@@ -89,7 +90,7 @@ Zařízení obdrží přímá metoda žádosti k tématu MQTT:`$iothub/methods/P
 
 Text, který zařízení obdrží je v následujícím formátu:
 
-```
+```json
 {
     "input1": "someInput",
     "input2": "anotherInput"
@@ -127,7 +128,7 @@ Metoda odpověď se vrátí na odesílání odkaz a struktura je následující:
 Další témata referenční příručka vývojáře IoT Hub patří:
 
 * [Koncové body centra IoT] [ lnk-endpoints] popisuje různé koncových bodů, které každý IoT hub zpřístupní pro spuštění a management operace.
-* [Omezování a kvóty] [ lnk-quotas] popisuje kvóty, které platí pro službu IoT Hub a omezení chování se očekává při použití služby.
+* [Omezování a kvóty] [ lnk-quotas] popisuje kvóty, které se vztahují a omezení chování se očekává při použití služby IoT Hub.
 * [Azure IoT zařízení a služby sady SDK] [ lnk-sdks] uvádí různé jazykové sady SDK můžete použít při vývoji aplikace zařízení a služby, které interakci s centrem IoT.
 * [IoT Hub dotazovacího jazyka pro dvojčata zařízení, úlohy a směrování zpráv] [ lnk-query] popisuje dotazovací jazyk Centrum IoT, můžete použít k načtení informací ze služby IoT Hub o úlohách a dvojčata zařízení.
 * [Podpora IoT Hub MQTT] [ lnk-devguide-mqtt] poskytuje další informace o podpoře služby IoT Hub pro protokol MQTT.

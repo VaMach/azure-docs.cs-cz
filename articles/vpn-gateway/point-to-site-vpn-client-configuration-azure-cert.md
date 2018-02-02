@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 01/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7fe8d5e473e2c8281b1d6c8d7d5423294c428678
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Vytvoření a instalace souborů konfigurace klienta VPN pro nativní Azure certifikát ověřování P2S konfigurace
 
 Soubory konfigurace klienta VPN jsou obsaženy v souboru zip. Konfigurační soubory, zadejte požadované nastavení pro nativní klient systému Windows nebo Mac IKEv2 VPN pro připojení k virtuální síti přes připojení Point-to-Site, která používá ověřování certifikátem. nativní Azure.
-
->[!NOTE]
->IKEv2 pro P2S je aktuálně ve verzi Preview.
->
 
 ### <a name="workflow"></a>Pracovní postup P2S
 
@@ -113,7 +109,7 @@ Klikněte na tlačítko **přidat** k importu.
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 7. V **místní ID** pole, zadejte název certifikátu (z kroku 6). V tomto příkladu je "ikev2Client.com". Potom klikněte na **použít** tlačítko a uložte změny.
 
-  ![Použít](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+  ![použít](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 8. Na **sítě** dialogové okno, klikněte na tlačítko **použít** uložit všechny změny. Potom klikněte na **Connect** spustit připojení P2S do virtuální sítě Azure.
 
 ## <a name="next-steps"></a>Další kroky

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Správa řízení přístupu na základě rolí pomocí rozhraní příkazového řádku Azure
 > [!div class="op_single_selector"]
@@ -27,9 +27,14 @@ ms.lasthandoff: 12/21/2017
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-Řízení přístupu na základě Role (RBAC) na portálu Azure a rozhraní API služby Azure Resource Manager můžete použít ke správě přístupu k vaše předplatné a prostředky na velice přesné úrovni. Pomocí této funkce můžete udělit přístup pro uživatele, skupiny nebo objekty služby Active Directory přiřazením některé role je v určitém rozsahu.
+Řízení přístupu na základě Role (RBAC) na portálu Azure a rozhraní API služby Azure Resource Manager můžete použít ke správě přístupu k vaše předplatné a prostředky na velice přesné úrovni. Pomocí této funkce můžete udělit přístup pro uživatele, skupiny nebo objekty služby Active Directory přiřazením některé role je v určitém rozsahu. 
 
-Ke správě RBAC mohli používat rozhraní příkazového řádku Azure (CLI), musíte mít následující požadavky:
+> [!NOTE] 
+> Nejnovější dokumentace role je nyní k dispozici pro [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+
+
+ 
++ > Nejnovější dokumentace role pro [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) než rozhraní příkazového řádku Azure (CLI) můžete použít ke správě RBAC, musíte mít následující požadavky:
 
 * Azure CLI verze 0.8.8 nebo novější. Nainstalujte nejnovější verzi a přidružit ho ke svému předplatnému Azure, najdete v tématu [instalace a konfigurace rozhraní příkazového řádku Azure](../cli-install-nodejs.md).
 * Azure Resource Manager v rozhraní příkazového řádku Azure. Přejděte na [pomocí rozhraní příkazového řádku Azure s Resource Managerem](../xplat-cli-azure-resource-manager.md) další podrobnosti.
@@ -195,6 +200,6 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ![RBAC Azure příkazového řádku - azure role seznam pro vlastní role – snímek obrazovky](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 

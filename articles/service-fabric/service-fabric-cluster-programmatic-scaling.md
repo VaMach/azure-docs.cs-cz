@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Škálování clusteru Service Fabric prostřednictvím kódu programu 
 
@@ -93,7 +93,7 @@ Jako při přidávání uzlu ručně, musí být přidání nastavit instance š
 
 Změna velikosti v je podobná škálování. Skutečné škálovací sady virtuálních počítačů změny jsou téměř stejné. Ale, jak bylo popsáno dříve, Service Fabric pouze automaticky vyčistí odebrané uzly se stálostí zlatý nebo Silver. Ano, v bronzová odolnost škálování v případě, je nutné k interakci se cluster Service Fabric vypnutí uzlu, který má být odebrána a pak odeberte jeho stav.
 
-Příprava uzlu pro vypnutí zahrnuje hledání, že uzel, který má být odebrána (nedávno přidané uzel) a její deaktivace ho. Pro uzly – počáteční hodnoty novější uzlů najdete tak, že porovnáte `NodeInstanceId`. 
+Příprava uzlu pro vypnutí zahrnuje hledání uzlu, který má být odebrána (nedávno přidané instanci virtuálního počítače škálování sada) a její deaktivace ho. Instance sady škálování virtuálních počítačů jsou číslované v pořadí, ve kterém jsou přidány, takže novější uzlů najdete tak, že porovnáte číslem přípony v názvech uzlů (které shodu základní škálovací sady virtuálních počítačů názvy instancí). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-Uzly počáteční hodnoty se liší a není nutně podle konvence, že jsou větší ID instance nejdřív odstranit.
 
 Jakmile je nalezen uzel, který má být odebrána, můžete deaktivovat a odebrat pomocí stejné `FabricClient` instance a `IAzure` instance z dříve.
 

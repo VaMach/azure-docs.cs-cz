@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
-ms.translationtype: MT
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Přesunutím prostředků do nové skupiny prostředků nebo předplatného
 
@@ -53,7 +53,10 @@ Před přesunutím prostředku je nutné provést několik důležitých kroků.
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Pokud klient ID pro zdrojové a cílové předplatné nejsou stejné, obraťte se na [podporu](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) pro přesun prostředků do nového klienta.
+  Pokud klient ID pro zdrojové a cílové předplatné nejsou stejné, použijte následující metody sjednotit klienta ID: 
+
+  * [Přenos vlastnictví předplatného služby Azure na jiný účet](../billing/billing-subscription-transfer.md)
+  * [Postup přidružení nebo přidat předplatné Azure do Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. Služba musí umožňovat operaci přesouvání prostředků. V tomto článku jsou uvedené služby, které Povolit přesunutí prostředků a služby, které nepovolíte přesunutí prostředků.
 3. Cílové předplatné musí být registrováno pro poskytovatele přesouvaného prostředku. Pokud ne, se zobrazí chybová zpráva s informacemi, které **předplatné není zaregistrované pro typ prostředku**. K problému může dojít, pokud přesouváte prostředek do nového předplatného, ale toto předplatné nebylo pro příslušný typ prostředku nikdy použito.
@@ -93,7 +96,7 @@ Většina prostředkům prostřednictvím operace samoobslužné služby uveden�
 
 Obraťte se na [podporu](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) když potřebujete:
 
-* Přesuňte vašich prostředků na nový účet Azure (a klienta Azure Active Directory).
+* Přesuňte vašich prostředků na nový účet Azure (a klienta Azure Active Directory) a potřebujete pomoc s podle pokynů v předchozí části.
 * Přesunout klasické prostředky ale dochází k potížím s omezeními.
 
 ## <a name="services-that-enable-move"></a>Služby, které umožňují přesunout
@@ -319,7 +322,7 @@ Chcete-li přesunout virtuální počítač zaregistrovaný v **zálohování Az
  1. Dočasně zastavení zálohování a zachovat zálohovaná data
  2. Přesuňte virtuální počítač cílová skupina prostředků
  3. Znovu proveďte její ochranu pod stejnou nebo nové úložiště, které uživatelé mohou obnovit z bodů obnovení k dispozici vytvořil před operaci přesunutí.
-Pokud se uživatel přesune virtuální počítač zálohovaná ve předplatných, kroky 1 a 2 zůstávají stejné. V kroku 3 musí uživatel ochranu virtuálního počítače v části nový trezor přítomen / vytvořené v cílové předplatné. Podpora neobsahuje křížové předplatné zálohy trezoru služeb zotavení.
+Pokud se uživatel přesune virtuální počítač zálohovaná ve předplatných, kroky 1 a 2 zůstávají stejné. V kroku 3 musí uživatel ochranu virtuálního počítače v části nový trezor přítomen / vytvořené v cílové předplatné. Trezor služeb zotavení nepodporuje zálohování křížové předplatného.
 
 ## <a name="hdinsight-limitations"></a>Omezení HDInsight
 

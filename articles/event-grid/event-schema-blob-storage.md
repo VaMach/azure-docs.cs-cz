@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure schématu události událostí mřížky pro úložiště objektů Blob
 
@@ -51,7 +51,9 @@ Následující příklad ukazuje schématu objektu blob vytvořit událost:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ Schéma pro události odstranit objekt blob je podobný:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -84,29 +88,31 @@ Událost má následující dat nejvyšší úrovně:
 
 | Vlastnost | Typ | Popis |
 | -------- | ---- | ----------- |
-| Téma | Řetězec | Úplné prostředků cesta ke zdroji událostí. Toto pole není možné zapisovat. |
-| Předmět | Řetězec | Cesta definované vydavatele události předmět. |
-| Typ události | Řetězec | Jeden z typů událostí registrovaných pro tento zdroj událostí. |
-| eventTime | Řetězec | Čas, který se vygeneruje událost založené na čas UTC poskytovatele. |
-| id | Řetězec | Jedinečný identifikátor pro událost. |
+| Téma | řetězec | Úplné prostředků cesta ke zdroji událostí. Toto pole není možné zapisovat. Událost mřížky poskytuje tuto hodnotu. |
+| Předmět | řetězec | Cesta definované vydavatele události předmět. |
+| eventType | řetězec | Jeden z typů událostí registrovaných pro tento zdroj událostí. |
+| eventTime | řetězec | Čas, který se vygeneruje událost založené na čas UTC poskytovatele. |
+| id | řetězec | Jedinečný identifikátor pro událost. |
 | data | Objekt | Data události úložiště objektů BLOB. |
+| dataVersion | řetězec | Verze schématu datového objektu. Vydavatel definuje verze schématu. |
+| metadataVersion | řetězec | Verze schématu metadat událostí. Událost mřížky definuje schéma vlastnosti nejvyšší úrovně. Událost mřížky poskytuje tuto hodnotu. |
 
 Datový objekt má následující vlastnosti:
 
 | Vlastnost | Typ | Popis |
 | -------- | ---- | ----------- |
-| rozhraní api | Řetězec | Operace, která spustí událost. |
-| clientRequestId | Řetězec | Hodnota klientem generovaná, neprůhledné se omezena na 1 KB znaků. Pokud jste povolili protokolování analytika úložiště, zaznamenává se v protokolech analýzy. |
-| ID žádosti | Řetězec | Jedinečný identifikátor pro požadavek. Použijte pro řešení potíží s žádosti. |
-| Značka ETag | Řetězec | Hodnota, která můžete použít k provádění operací podmíněně. |
-| Typ obsahu | Řetězec | Typ obsahu zadaný pro tento objekt blob. |
+| rozhraní api | řetězec | Operace, která spustí událost. |
+| clientRequestId | řetězec | Hodnota klientem generovaná, neprůhledné se omezena na 1 KB znaků. Pokud jste povolili protokolování analytika úložiště, zaznamenává se v protokolech analýzy. |
+| ID žádosti | řetězec | Jedinečný identifikátor pro požadavek. Použijte pro řešení potíží s žádosti. |
+| eTag | řetězec | Hodnota, která můžete použít k provádění operací podmíněně. |
+| contentType | řetězec | Typ obsahu zadaný pro tento objekt blob. |
 | contentLength | celé číslo | Velikost objektu blob v bajtech. |
-| BlobType | Řetězec | Typ objektu blob. |
-| Adresa URL | Řetězec | Cesta k objektu blob. |
-| aplikace Sequencer | Řetězec | Hodnota uživatele řídí, která můžete použít ke sledování požadavků. |
+| blobType | řetězec | Typ objektu blob. Platné hodnoty jsou "BlockBlob" nebo "PageBlob". |
+| Adresa URL | řetězec | Cesta k objektu blob. |
+| aplikace Sequencer | řetězec | Hodnota uživatele řídí, která můžete použít ke sledování požadavků. |
 | storageDiagnostics | Objekt | Informace o diagnostiku storage. |
  
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Úvod do Azure událostí mřížky, najdete v části [co je mřížky událostí?](overview.md)
 * Další informace o vytváření předplatného služby Azure událostí mřížky, najdete v části [schématu odběru událostí mřížky](subscription-creation-schema.md).

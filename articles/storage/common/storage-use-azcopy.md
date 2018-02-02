@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Přenos dat pomocí AzCopy v systému Windows
 AzCopy je nástroj příkazového řádku pro kopírování dat z úložiště Microsoft Azure Blob, soubor a tabulky, jednoduché příkazy určené pro optimální výkon. Může kopírovat data mezi systém souborů a účet úložiště nebo mezi účty úložiště.  
@@ -690,7 +690,7 @@ Určuje, zda cílový objekt blob je objekt blob bloku, objektů blob stránky n
 
 **Platí pro:** objektů BLOB
 
-### <a name="checkmd5"></a>/ CheckMD5
+### <a name="checkmd5"></a>/CheckMD5
 
 Vypočítá hodnotu hash MD5 pro stažená data a ověří, zda hodnota hash MD5 uložené v objektu blob nebo vlastnost MD5 obsah souboru odpovídá vypočtený hash. Kontrola MD5 je vypnutý ve výchozím nastavení, proto musíte určit tuto možnost, při stahování dat provést kontrolu MD5.
 
@@ -700,7 +700,7 @@ AzCopy vždy nastaví vlastnost obsah MD5 pro objektů blob v Azure nebo soubor 
 
 **Platí pro:** objekty BLOB, soubory
 
-### <a name="snapshot"></a>/ Snímku
+### <a name="snapshot"></a>/Snapshot
 
 Označuje, zda přenos snímky. Tato možnost je platná, pouze pokud je zdroj objektu blob.
 
@@ -718,7 +718,7 @@ Ve výchozím nastavení, je soubor podrobného protokolování s názvem AzCopy
 
 **Platí pro:** objekty BLOB, soubory, tabulky
 
-### <a name="zjournal-file-folder"></a>/ Z: [deníku – soubor a složka]
+### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
 Určuje složku souboru deníku pro operace obnovení.
 
@@ -736,7 +736,7 @@ Všimněte si, že obnovení ze souboru deníku vytvořeného v předchozí verz
 
 **Platí pro:** objekty BLOB, soubory, tabulky
 
-### <a name="parameter-file"></a>/@:"Parameter-File"
+### <a name="parameter-file"></a>/@:"parameter-file"
 
 Určuje soubor, který obsahuje parametry. AzCopy zpracovává parametry v souboru stejně, jako kdyby kdyby byly zadány na příkazovém řádku.
 
@@ -750,11 +750,11 @@ Můžete zadat několik souborů odpovědi. Všimněte si však, že AzCopy nepo
 
 ### <a name="y"></a>/Y
 
-Potlačí všechny výzvy potvrzení AzCopy.
+Potlačí všechny výzvy potvrzení AzCopy. Tato možnost také umožňuje použití pouze pro zápis tokeny SAS pro scénáře nahrávání dat, pokud není zadána /XO a /XN.
 
 **Platí pro:** objekty BLOB, soubory, tabulky
 
-### <a name="l"></a>/ L
+### <a name="l"></a>/L
 
 Určuje operaci výpis pouze; žádná data budou zkopírována.
 
@@ -766,7 +766,7 @@ AzCopy vyžaduje oprávnění seznamu a přečtěte si toto umístění zdroje, 
 
 **Platí pro:** objekty BLOB, soubory
 
-### <a name="mt"></a>/ MT
+### <a name="mt"></a>/MT
 
 Nastaví čas poslední změny stažený soubor být stejný jako zdrojový objekt blob nebo souboru.
 
@@ -789,7 +789,7 @@ Ukládání pouze soubory, které mají atribut Archivovat nastaven.
 
 **Platí pro:** objekty BLOB, soubory
 
-### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
+### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
 Ukládání pouze soubory, které mají všechny zadané atributy sady.
 
@@ -808,7 +808,7 @@ Dostupné atributy patří:
 
 **Platí pro:** objekty BLOB, soubory
 
-### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
+### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
 Vyloučí soubory, které mají všechny zadané atributy sady.
 
@@ -905,7 +905,7 @@ Tato možnost je povinná během operace importu pro vyhledání datových soubo
 
 **Platí pro:** tabulky
 
-### <a name="synccopy"></a>/ SyncCopy
+### <a name="synccopy"></a>/SyncCopy
 
 Označuje, zda synchronně kopírování objektů BLOB nebo soubory mezi dva koncové body Azure Storage.
 
@@ -925,7 +925,7 @@ Pokud zadáte tuto možnost bez hodnoty, AzCopy nastaví jednotlivých objektů 
 
 **Platí pro:** objekty BLOB, soubory
 
-### <a name="payloadformatjson--csv"></a>/ PayloadFormat: "JSON" | "CSV"
+### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 
 Určuje formát souboru exportovaná data tabulky.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/19/2016
 ms.author: veljko-msft
-ms.openlocfilehash: bf8e0203112a42132a80e234964747c550fea284
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: b599273874a4b5a3bbcb78284d69b4c8d02b5f2c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="enable-automatic-tuning"></a>Povolení automatického ladění
 
@@ -28,7 +28,11 @@ Databáze SQL Azure je služba automaticky spravovaná data, která neustále mo
 ## <a name="enable-automatic-tuning-on-server"></a>Povolit automatické ladění na serveru
 Na úrovni serveru můžete nastavit dědění automatickou konfiguraci ladění z "Azure je výchozí" nebo zdědit konfiguraci. Azure výchozí hodnoty jsou povolené FORCE_LAST_GOOD_PLAN, CREATE_INDEX povolené a zakázané DROP_INDEX.
 
-### <a name="portal"></a>Portál
+## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Konfigurace automiatic ladění e-mailových oznámení
+
+V tématu [automatické ladění e-mailových oznámení](sql-database-automatic-tuning-email-notifications.md)
+
+### <a name="azure-portal"></a>Azure Portal
 Chcete-li povolit automatické ladění na serveru Azure SQL Database, přejděte na server na portálu Azure a pak vyberte **automatické ladění** v nabídce. Vyberte možnost Automatické ladění možnosti, které chcete povolit a vyberte **použít**:
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
@@ -38,7 +42,7 @@ Automatické možnosti ladění na serveru se použijí pro všechny databáze n
 ### <a name="rest-api"></a>REST API
 [Klikněte sem, chcete-li další informace o tom, jak povolit automatické ladění na úrovni serveru pomocí rozhraní REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
-## <a name="enable-automatic-tuning-on-database"></a>Povolit automatické ladění databáze
+## <a name="enable-automatic-tuning-on-an-individual-database"></a>Povolit automatické ladění na jednotlivé databáze
 
 Databáze SQL Azure umožňuje jednotlivě zadat automatickou konfiguraci ladění na každou databázi. Na úrovni databáze můžete nastavit dědění automatickou konfiguraci ladění z nadřízeného serveru, "Azure je výchozí" nebo zdědit konfiguraci. Azure výchozí hodnoty jsou povolené FORCE_LAST_GOOD_PLAN, CREATE_INDEX povolené a zakázané DROP_INDEX.
 
@@ -46,7 +50,7 @@ Databáze SQL Azure umožňuje jednotlivě zadat automatickou konfiguraci laděn
 > Obecné doporučení je spravovat konfiguraci automatické ladění na úrovni serveru, aby stejné nastavení konfigurace můžete použít na každou databázi automaticky. Konfigurujte automatické ladění na jednotlivé databáze Pokud databázi se liší jiné na stejném serveru.
 >
 
-### <a name="portal"></a>Portál
+### <a name="azure-portal"></a>Azure Portal
 
 Pokud chcete povolit automatické ladění na jedné databáze, přejděte do databáze na portálu Azure a pak vyberte **automatické ladění**. Můžete nakonfigurovat jednu databázi pro dědění nastavení ze serveru tak, že vyberete možnost nebo můžete zadat konfiguraci pro databázi jednotlivě.
 
@@ -78,7 +82,7 @@ Nastavení jednotlivých vyladění možnost na hodnotu ON, přepíše všechna 
 ## <a name="disabled-by-the-system"></a>Zakázáno v systému
 Automatické ladění monitoruje všechny akce, kterou trvá v databázi a v některých případech můžete určit, že automatické ladění nemůže pracovat správně v databázi. V takovém případě možnost vyladění bude zakázáno v systému. Ve většině případů k tomu dochází, protože úložiště dotazů není povolena nebo je ve stavu jen pro čtení určitou databázi.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Pro čtení [automatické ladění článku](sql-database-automatic-tuning.md) Další informace o automatické ladění a jak se vám může pomoct zlepšit výkon.
 * V tématu [výkonu doporučení](sql-database-advisor.md) přehled o výkonu doporučení Azure SQL Database.
 * V tématu [Query Performance Insight](sql-database-query-performance.md) Další informace o zobrazení dopad na výkon nejčastějších dotazů.

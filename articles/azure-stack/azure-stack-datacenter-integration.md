@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Aspekty Datacenter integrace pro Azure zásobníku integrované systémy
 Pokud byste chtěli v systému Azure zásobníku integrované, byste měli porozumět některé hlavní informace o plánování řešení nasazení a jak systému zapadá do vašeho datového centra. Tento článek obsahuje přehled těchto aspektů, který vám pomůže provádět rozhodnutí důležité infrastruktury pro systém Azure zásobníku více uzly. Pochopení těchto aspektů pomáhá při práci s dodavatele hardwaru, od výrobců OEM jako jejich nasazení do vašeho datového centra Azure zásobníku.  
@@ -27,9 +27,7 @@ Pokud byste chtěli v systému Azure zásobníku integrované, byste měli poroz
 > [!NOTE]
 > Azure systémech s více uzly zásobníku lze pouze zakoupit od dodavatelů povolený hardware. 
 
-K nasazení zásobník Azure existuje sada rozhodnutí, která budete muset udělat správně integrovat s vaším prostředím Azure zásobníku. Budete muset při plánování zadejte tyto informace do poskytovatele řešení a aby bylo připravené pro dodavatele hardwaru, před zahájením nasazení pomohou proces přejděte rychle a bez problémů.
-
-Informace požadované rozsahy napříč sítí, zabezpečení a informace o identitě s mnoha důležitých rozhodnutí, které mohou vyžadovat znalost z mnoha různých oblastech a vedoucím pracovníkům. Proto můžete chtít stáhnout osoby z více týmy ve vaší organizaci k zajištění, že máte všechny požadované informace, které jsou připravené před zahájením nasazení. Obraťte se na dodavatele hardwaru, při shromažďování těchto informací, protože mohou mít užitečné vaše rozhodování Rady, jak může pomoct.
+K nasazení Azure zásobníku, potřebujete poskytovat informace o plánování pro poskytovatele řešení, před zahájením nasazení pomohou proces přejděte rychle a bez problémů. Informace požadované rozsahy napříč sítí, zabezpečení a informace o identitě s mnoha důležitých rozhodnutí, které mohou vyžadovat znalost z mnoha různých oblastech a vedoucím pracovníkům. Proto můžete chtít stáhnout osoby z více týmy ve vaší organizaci k zajištění, že máte všechny požadované informace, které jsou připravené před zahájením nasazení. Obraťte se na dodavatele hardwaru, při shromažďování těchto informací, protože mohou mít užitečné vaše rozhodování Rady, jak může pomoct.
 
 Analýza a shromažďování požadované informace, možná budete muset udělat nějaké změny konfigurace před nasazením do prostředí vaší sítě. To může zahrnovat rezervování adresní prostory IP adres pro řešení Azure zásobníku, konfigurace směrovače, přepínače a brány firewall, aby příprava pro připojení k nové řešení přepínače zásobník Azure. Ujistěte se, že máte expert oblasti subjektu leží až, vám pomohou s plánování.
 
@@ -38,7 +36,7 @@ Azure zásobník je zapečetěné systému, kde infrastruktury je uzamčené z o
 
 Pro každodenní správu a operace neexistuje žádný správce neomezený přístup k infrastruktuře. Operátory Azure zásobníku musí spravovat systém prostřednictvím portálu správce nebo prostřednictvím Správce Azure Resource Manager (prostřednictvím prostředí PowerShell nebo rozhraní REST API). Není k dispozici přístup k systému pomocí jiné nástroje pro správu, například Správce technologie Hyper-V nebo Správce clusteru převzetí služeb při selhání. K ochraně systému, nelze nainstalovat software jiných výrobců (například agenty) uvnitř součástí infrastruktury Azure zásobníku. Vzájemná funkční spolupráce s externí správu a zabezpečení softwaru dojde k pomocí prostředí PowerShell nebo rozhraní REST API.
 
-Vyšší úroveň přístupu je potřeba pro řešení potíží, které nejsou přeložit prostřednictvím výstrahy zprostředkování kroky, musíte spolupracovat s podpory. Prostřednictvím podpory je metoda zajistit dočasný správce s úplnými oprávněními přístup k systému provádět pokročilejší operace. 
+Vyšší úroveň přístupu je potřeba pro řešení potíží, které nejsou přeložit prostřednictvím výstrahy zprostředkování kroky, musíte spolupracovat s Microsoft Support. Prostřednictvím podpory je metoda zajistit dočasný správce s úplnými oprávněními přístup k systému provádět pokročilejší operace. 
 
 ## <a name="identity-considerations"></a>Aspekty identity
 
@@ -179,7 +177,10 @@ Pokud chcete replikovat data do sekundárního umístění a orchestraci převze
 > [!IMPORTANT]
 > V původním vydáním integrované systémy podporujeme ochrany technologie, které fungují na úrovni hosta virtuálního počítače IaaS. Nelze instalovat agenty na základní servery infrastruktury.
 
-## <a name="next-steps"></a>Další postup
+## <a name="learn-more"></a>Další informace
 
 - Informace o případy použití, nákup, partneři a OEM výrobci hardwaru najdete v tématu [zásobník Azure](https://azure.microsoft.com/overview/azure-stack/) stránky produktu.
 - Informace o plán a geografická dostupnosti pro zásobník Azure integrované systémy, najdete v dokumentu white paper: [Azure zásobník: rozšíření Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## <a name="next-steps"></a>Další postup
+[Azure modelů připojení nasazení zásobníku](azure-stack-connection-models.md)

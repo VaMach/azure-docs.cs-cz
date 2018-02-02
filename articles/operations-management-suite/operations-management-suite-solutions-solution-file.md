@@ -1,6 +1,6 @@
 ---
-title: "Vytváření řešení pro správu v Operations Management Suite (OMS) | Microsoft Docs"
-description: "Řešení pro správu rozšířit funkce služby Operations Management Suite (OMS) tím, že poskytuje scénářů zabalené správy, které zákazníci mohou přidat do jejich pracovním prostorem OMS.  Tento článek poskytuje podrobné informace o tom, jak můžete vytvořit řešení správy, který se má použít ve svém vlastním prostředí nebo k dispozici pro vaše zákazníky."
+title: "Vytvoření souboru sady management řešení v Azure | Microsoft Docs"
+description: "Řešení pro správu poskytuje scénářů zabalené správy, které zákazníci mohou přidat do prostředí Azure.  Tento článek poskytuje podrobné informace o tom, jak můžete vytvořit řešení správy, který se má použít ve svém vlastním prostředí nebo k dispozici pro vaše zákazníky."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Vytvoření souboru řešení pro správu v Operations Management Suite (OMS) (Preview)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Vytvoření souboru sady management řešení v Azure (Preview)
 > [!NOTE]
-> Toto je předběžná dokumentace pro vytváření řešení pro správu v OMS, které jsou aktuálně ve verzi preview. Žádné schéma popsané níže se mohou změnit.  
+> Toto je předběžná dokumentace k vytvoření řešení pro správu v Azure, které jsou aktuálně ve verzi preview. Žádné schéma popsané níže se mohou změnit.  
 
-Řešení pro správu v Operations Management Suite (OMS) jsou implementované jako [šablony Resource Manageru](../azure-resource-manager/resource-manager-template-walkthrough.md).  Hlavní úloha naučit vytvářet řešení pro správu je učení postup [vytvořit šablonu](../azure-resource-manager/resource-group-authoring-templates.md).  Tento článek obsahuje jedinečné Podrobnosti šablony použité pro řešení a jak nakonfigurovat prostředky typické řešení.
+Řešení pro správu v Azure jsou implementované jako [šablony Resource Manageru](../azure-resource-manager/resource-manager-template-walkthrough.md).  Hlavní úloha naučit vytvářet řešení pro správu je učení postup [vytvořit šablonu](../azure-resource-manager/resource-group-authoring-templates.md).  Tento článek obsahuje jedinečné Podrobnosti šablony použité pro řešení a jak nakonfigurovat prostředky typické řešení.
 
 
 ## <a name="tools"></a>Nástroje
@@ -53,7 +53,8 @@ Základní struktura soubor řešení správy je stejná jako [šablony Resource
 ## <a name="parameters"></a>Parametry
 [Parametry](../azure-resource-manager/resource-group-authoring-templates.md#parameters) jsou hodnoty, které požadujete od uživatele při instalaci řešení pro správu.  Jsou standardní parametry, které budou mít všechna řešení a podle potřeby můžete přidat další parametry pro vaše konkrétní řešení.  Jak budou uživatelé zadali hodnoty parametrů při instalaci řešení bude záviset na konkrétní parametr a jak se instaluje řešení.
 
-Když uživatel nainstaluje řešení pro správu prostřednictvím [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) nebo [šablony Azure QuickStart](operations-management-suite-solutions.md#finding-and-installing-management-solutions) se výzva k výběru [pracovním prostorem OMS a automatizace účtu](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Ty se používají k naplnění hodnoty jednotlivých standardní parametry.  Uživatel nebude vyzván k přímo zadat hodnoty pro standardní parametry, ale bude vyzván k zadání hodnot pro žádné další parametry.
+Když uživatel nainstaluje řešení pro správu prostřednictvím [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) nebo [šablony Azure QuickStart](operations-management-suite-solutions.md#finding-and-installing-management-solutions) se výzva k výběru [pracovní prostor analýzy protokolů a automatizace účet](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Ty se používají k naplnění hodnoty jednotlivých standardní parametry.  Uživatel nebude vyzván k přímo zadat hodnoty pro standardní parametry, ale bude vyzván k zadání hodnot pro žádné další parametry.
+
 
 Když uživatel nainstaluje řešení [jinou metodu](operations-management-suite-solutions.md#finding-and-installing-management-solutions), musí zadat hodnotu pro všechny standardní parametry a všech dalších parametrů.
 
@@ -86,10 +87,10 @@ Následující tabulka uvádí standardní parametry pro všechna řešení pro 
 
 | Parametr | Typ | Popis |
 |:--- |:--- |:--- |
-| název účtu |řetězec |Název účtu Azure Automation. |
+| accountName |řetězec |Název účtu Azure Automation. |
 | pricingTier |řetězec |Cenová úroveň pracovní prostor analýzy protokolů a účet Azure Automation. |
 | regionId |řetězec |Oblast účet Azure Automation. |
-| Název řešení SolutionName |řetězec |Název řešení.  Pokud nasazujete řešení prostřednictvím šablony rychlý start, pak byste měli definovat název řešení solutionName jako parametr, můžete definovat místo nutnosti uživateli zadat jeden řetězec. |
+| solutionName |řetězec |Název řešení.  Pokud nasazujete řešení prostřednictvím šablony rychlý start, pak byste měli definovat název řešení solutionName jako parametr, můžete definovat místo nutnosti uživateli zadat jeden řetězec. |
 | workspaceName |řetězec |Název pracovního prostoru analýzy protokolů |
 | workspaceRegionId |řetězec |Oblast pracovního prostoru analýzy protokolů. |
 
@@ -168,8 +169,9 @@ V takovém případě je odkazovat na hodnoty proměnné prostřednictvím řeš
 ### <a name="dependencies"></a>Závislosti
 **DependsOn** určuje element [závislostí](../azure-resource-manager/resource-group-define-dependencies.md) na jiný prostředek.  Při instalaci řešení prostředku se nevytvoří, dokud všechny jeho závislé součásti byly vytvořeny.  Například může být vaše řešení [spuštění sady runbook](operations-management-suite-solutions-resources-automation.md#runbooks) při instalaci pomocí [úlohy prostředků](operations-management-suite-solutions-resources-automation.md#automation-jobs).  Prostředek úlohy by být závislý na prostředku sady runbook, abyste měli jistotu, že je sada runbook vytvořena předtím, než se vytvoří úloha.
 
-### <a name="oms-workspace-and-automation-account"></a>Pracovní prostor OMS a účet Automation.
-Vyžaduje řešení pro správu [pracovním prostorem OMS](../log-analytics/log-analytics-manage-access.md) tak, aby obsahovala zobrazení a [účet Automation](../automation/automation-security-overview.md#automation-account-overview) tak, aby obsahovala sady runbook a související prostředky.  Musí mít k dispozici před prostředky v řešení jsou vytvořeny a nesmí být definována v řešení sám sebe.  Uživatel bude [zadejte prostoru a účet](operations-management-suite-solutions.md#oms-workspace-and-automation-account) při jejich nasazování svého řešení, ale jako autor byste měli zvážit následující body.
+### <a name="log-analytics-workspace-and-automation-account"></a>Pracovní prostor analýzy protokolů a účet Automation.
+Vyžaduje řešení pro správu [pracovní prostor analýzy protokolů](../log-analytics/log-analytics-manage-access.md) tak, aby obsahovala zobrazení a [účet Automation](../automation/automation-security-overview.md#automation-account-overview) tak, aby obsahovala sady runbook a související prostředky.  Musí mít k dispozici před prostředky v řešení jsou vytvořeny a nesmí být definována v řešení sám sebe.  Uživatel bude [zadejte prostoru a účet](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) při jejich nasazování svého řešení, ale jako autor byste měli zvážit následující body.
+
 
 ## <a name="solution-resource"></a>Řešení prostředků
 Každé řešení vyžaduje záznam prostředků v **prostředky** element, který definuje řešení sám sebe.  To bude mít typ **Microsoft.OperationsManagement/solutions** a mít následující strukturu. To zahrnuje [standardní parametry](#parameters) a [proměnné](#variables) , jsou obvykle používány k definování vlastností řešení.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Víceklientské SaaS databáze klientů vzory
 
@@ -96,7 +96,7 @@ Databáze SQL Azure poskytuje nástroje, které jsou nezbytné ke konfiguraci, s
 
 Platforma Azure SQL Database má mnoho funkcí správy, které jsou navržené tak, aby správu velkého počtu databází ve velkém měřítku, jako jsou třeba i více než 100 000 databáze.  Tyto funkce usnadnění vyhovující vzoru databáze za klienta.
 
-Předpokládejme například, že systém má databáze 1000 klienta jako jeho pouze jednu databázi.  Databáze může mít 20 indexy.  Pokud systém převede na situaci, kdy 1000 jednoho klienta databáze, quatity indexů roste na 20 000.  V databázi SQL v rámci [automatické ladění][docu-sql-db-automatic-tuning-771a], ve výchozím nastavení jsou povoleny automatické indexování funkce.  Automatické indexování spravuje za vás všechny 20 000 indexy a probíhající vytvořit a vyřazení optimalizace.  Tyto automatizované akce se provedou v rámci jednotlivých databáze a nejsou koordinované nebo omezené na základě podobné akce v jiných databázích.  Automatické indexování zpracovává indexy odlišně v zaneprázdněn databázi než v databázi méně zaneprázdněn.  Tento typ přizpůsobení správy indexu by nepraktické škálované databáze za klienta, pokud tato úloha obrovské správu měli provést ručně.
+Předpokládejme například, že systém má databáze 1000 klienta jako jeho pouze jednu databázi.  Databáze může mít 20 indexy.  Pokud systém převede na situaci, kdy 1000 jednoho klienta databáze, roste množství indexy na 20 000.  V databázi SQL v rámci [automatické ladění][docu-sql-db-automatic-tuning-771a], ve výchozím nastavení jsou povoleny automatické indexování funkce.  Automatické indexování spravuje za vás všechny 20 000 indexy a probíhající vytvořit a vyřazení optimalizace.  Tyto automatizované akce se provedou v rámci jednotlivých databáze a nejsou koordinované nebo omezené na základě podobné akce v jiných databázích.  Automatické indexování zpracovává indexy odlišně v zaneprázdněn databázi než v databázi méně zaneprázdněn.  Tento typ přizpůsobení správy indexu by nepraktické škálované databáze za klienta, pokud tato úloha obrovské správu měli provést ručně.
 
 Další funkce správy, které škálovat zahrnují následující:
 
@@ -175,17 +175,17 @@ V tomto modelu hybridního databáze jednoho klienta pro klienty odběratele moh
 
 Následující tabulka shrnuje rozdíly mezi modely hlavní klientů.
 
-| Měření | Samostatná aplikace | Databáze za klienta | Horizontálně dělené více klientů |
+| Měření | Samostatná aplikace | Database-per-tenant | Horizontálně dělené více klientů |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Měřítko | Střednědobé používání<br />1-100s | Velmi vysoký<br />1-100,000s | Unlimited<br />1-1,000,000s |
-| Izolaci klientů | Velmi vysoký | Vysoký | Nízká; s výjimkou žádným singleton klientem (která je samostatně do databáze. MT). |
+| Měřítko | Střednědobé používání<br />1-100s | Velmi vysoké<br />1-100,000s | Unlimited<br />1-1,000,000s |
+| Izolaci klientů | Velmi vysoké | Vysoký | Nízká; s výjimkou žádným singleton klientem (která je samostatně do databáze. MT). |
 | Náklady na databázi každého klienta | Vysoká; je dimenzované pro vrcholů. | Nízká; fondy použít. | Nejnižší pro malé klienty ve MT Operations Manager. |
 | Sledování výkonu a správy | Za klienta pouze | Agregace + za klienta | Agregace; i když je každý klient jenom pro jednotlivé prvky. |
-| Vývoj pro složitost | Nízký | Nízký | Střední; z důvodu horizontálního dělení. |
+| Vývoj pro složitost | Nízká | Nízká | Střední; z důvodu horizontálního dělení. |
 | Provozní složitost | Nízká vysoká. Jednotlivě jednoduchý, komplexní ve velkém měřítku. | Nízká – střední. Vzory adres složitost ve velkém měřítku. | Nízká vysoká. Správa jednoho klienta je komplexní. |
 | &nbsp; ||||
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Nasazení a prozkoumejte aplikace Wingtip více klientů, která používá model SaaS databáze za klienta – Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 

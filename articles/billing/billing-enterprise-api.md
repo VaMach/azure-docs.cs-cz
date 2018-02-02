@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Přehled rozhraní API pro vytváření sestav pro podnikové zákazníky
 Rozhraní API pro vytváření sestav umožňují zákazníky, kteří Enterprise Azure prostřednictvím kódu programu vyžádání využívání a fakturační údaje do nástrojů pro analýzu dat upřednostňované. 
@@ -43,6 +43,9 @@ Koncový bod Swagger je k dispozici [sem](https://consumption.azure.com/swagger/
 
 * **Ceník** – [Price Sheet API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) umožňuje použít rychlost pro každé monitorování dané registraci a fakturační období. 
 
+## <a name="data-freshness"></a>Aktuálnost dat
+Značky etag binárním rozsáhlým, bude vrácen v odpovědi všechny výše uvedené rozhraní API. Ke změně v Etag označuje, že data byla aktualizována.  Při následných voláních stejné rozhraní API pomocí stejné parametry předejte zaznamenané Etag s klíčem "If-None-Match" v hlavičce požadavku protokolu http. Stavový kód odpovědi bude "NotModified", pokud data nebyla obnovena žádné další a nebudou vrácena žádná data. Rozhraní API vrátí úplné datové sadě pro požadované období vždy, když dojde změně značka etag.
+
 ## <a name="helper-apis"></a>Pomocná rozhraní API
  **Seznam fakturační období** – [fakturační období API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) vrátí seznam hodnot fakturační období, která mají data energie pro zadanou registraci v obráceném chronologickém pořadí. Každé období obsahuje vlastnost odkazuje na trasu rozhraní API pro čtyři sady dat – BalanceSummary, UsageDetails, Marketplace poplatky a ceníku.
 
@@ -50,10 +53,10 @@ Koncový bod Swagger je k dispozici [sem](https://consumption.azure.com/swagger/
 ## <a name="api-response-codes"></a>Kódy odpovědí rozhraní API  
 |Stavový kód odpovědi|Zpráva|Popis|
 |-|-|-|
-|200| OK|Žádná chyba|
+|200| OK|Bez chyby|
 |401| Neautorizováno| Klíč rozhraní API nebyl nalezen platný platnost atd.|
 |404| Není k dispozici| Koncový bod sestavy nebyl nalezen|
-|400| Chybný požadavek| Neplatné parametry – rozsahy dat, EA čísel atd.|
+|400| Chybná žádost| Neplatné parametry – rozsahy dat, EA čísel atd.|
 |500| Chyba serveru| Unexoected při zpracování žádosti| 
 
 

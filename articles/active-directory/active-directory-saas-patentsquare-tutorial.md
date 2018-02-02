@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 2738af56782dbe8c917afd942e3f6b1eada026b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 47ba146d18a20cf6c7e7480d74a02ba354486988
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Kurz: Azure Active Directory integrace s PatentSQUARE
 
@@ -118,7 +118,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-patentsquare-tutorial/tutorial_general_400.png)
 
-6. Konfigurace jednotného přihlašování na **PatentSQUARE** straně, budete muset odeslat stažené **soubor XML s metadaty** k [tým podpory PatentSQUARE](http://www.panasonic.com/jp/company/pstc.html). Nastavují toto nastavení tak, aby měl jednotné přihlašování SAML připojení správně nastavena na obou stranách.
+6. Konfigurace jednotného přihlašování na **PatentSQUARE** straně, budete muset odeslat stažené **soubor XML s metadaty** k [tým podpory PatentSQUARE](https://www.panasonic.com/jp/business/its/patentsquare.html). Nastavují toto nastavení tak, aby měl jednotné přihlašování SAML připojení správně nastavena na obou stranách.
 
 > [!TIP]
 > Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,7 +158,7 @@ Cílem této části je vytvoření zkušebního uživatele na portálu Azure, n
  
 ### <a name="create-a-patentsquare-test-user"></a>Vytvoření zkušebního uživatele PatentSQUARE
 
-V této části vytvoříte volal Britta Simon v PatentSQUARE uživatele. Práce s [tým podpory PatentSQUARE](http://www.panasonic.com/jp/company/pstc.html) přidat uživatele do PatentSQUARE platformy. Uživatelé musí být vytvořen a aktivovat dříve, než použijete jednotné přihlašování. 
+V této části vytvoříte volal Britta Simon v PatentSQUARE uživatele. Práce s [tým podpory PatentSQUARE](https://www.panasonic.com/jp/business/its/patentsquare.html) přidat uživatele do PatentSQUARE platformy. Uživatelé musí být vytvořen a aktivovat dříve, než použijete jednotné přihlašování. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 

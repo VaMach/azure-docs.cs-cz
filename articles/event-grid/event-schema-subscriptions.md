@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7dc10d0cc73960fac4759a0cebec8d294cf1b463
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure schématu události událostí mřížky pro předplatné
 
@@ -39,7 +39,7 @@ Následující příklad ukazuje schéma prostředku vytvořit událost:
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -57,7 +57,9 @@ Následující příklad ukazuje schéma prostředku vytvořit událost:
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
         },
-    }
+      "dataVersion": "",
+      "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ Schéma pro prostředek odstranit události je podobný:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -91,29 +95,31 @@ Událost má následující dat nejvyšší úrovně:
 
 | Vlastnost | Typ | Popis |
 | -------- | ---- | ----------- |
-| Téma | Řetězec | Úplné prostředků cesta ke zdroji událostí. Toto pole není možné zapisovat. |
-| Předmět | Řetězec | Cesta definované vydavatele události předmět. |
-| Typ události | Řetězec | Jeden z typů událostí registrovaných pro tento zdroj událostí. |
-| eventTime | Řetězec | Čas, který se vygeneruje událost založené na čas UTC poskytovatele. |
-| id | Řetězec | Jedinečný identifikátor pro událost. |
+| Téma | řetězec | Úplné prostředků cesta ke zdroji událostí. Toto pole není možné zapisovat. Událost mřížky poskytuje tuto hodnotu. |
+| Předmět | řetězec | Cesta definované vydavatele události předmět. |
+| eventType | řetězec | Jeden z typů událostí registrovaných pro tento zdroj událostí. |
+| eventTime | řetězec | Čas, který se vygeneruje událost založené na čas UTC poskytovatele. |
+| id | řetězec | Jedinečný identifikátor pro událost. |
 | data | Objekt | Data události odběru. |
+| dataVersion | řetězec | Verze schématu datového objektu. Vydavatel definuje verze schématu. |
+| metadataVersion | řetězec | Verze schématu metadat událostí. Událost mřížky definuje schéma vlastnosti nejvyšší úrovně. Událost mřížky poskytuje tuto hodnotu. |
 
 Datový objekt má následující vlastnosti:
 
 | Vlastnost | Typ | Popis |
 | -------- | ---- | ----------- |
-| Autorizace | Řetězec | Požadovaná oprávnění pro operaci. |
-| Deklarace identity | Řetězec | Vlastnosti deklarace identity. |
-| correlationId | Řetězec | ID operace odstraňování potíží. |
-| požadavku HTTP | Řetězec | Podrobnosti o operaci. |
-| resourceProvider | Řetězec | Zprostředkovatel prostředků provádění této operace. |
-| resourceUri | Řetězec | Identifikátor URI prostředku v operaci. |
-| operationName | Řetězec | Operace, která byla provedena. |
-| status | Řetězec | Stav operace. |
-| subscriptionId | Řetězec | ID předplatného prostředku. |
-| TenantId | Řetězec | ID klienta prostředku. |
+| Autorizace | řetězec | Požadovaná oprávnění pro operaci. |
+| Deklarace identity | řetězec | Vlastnosti deklarace identity. |
+| correlationId | řetězec | ID operace odstraňování potíží. |
+| httpRequest | řetězec | Podrobnosti o operaci. |
+| resourceProvider | řetězec | Zprostředkovatel prostředků provádění této operace. |
+| resourceUri | řetězec | Identifikátor URI prostředku v operaci. |
+| operationName | řetězec | Operace, která byla provedena. |
+| status | řetězec | Stav operace. |
+| subscriptionId | řetězec | ID předplatného prostředku. |
+| TenantId | řetězec | ID klienta prostředku. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Úvod do Azure událostí mřížky, najdete v části [co je událostí mřížky?](overview.md).
 * Další informace o vytváření předplatného služby Azure událostí mřížky, najdete v části [schématu odběru událostí mřížky](subscription-creation-schema.md).

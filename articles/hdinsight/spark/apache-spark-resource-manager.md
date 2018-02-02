@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Správa prostředků v clusteru Apache Spark v Azure HDInsight 
 
@@ -76,7 +76,7 @@ Tři klíčové parametry, které lze použít pro konfigurace Spark v závislos
 Tři konfigurační parametry lze nastavit na úrovni clusteru (pro všechny aplikace, které běží na clusteru) nebo lze zadat pro každou jednotlivých aplikací.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Změňte parametry, pomocí uživatelského rozhraní Ambari
-1. Z uživatelského rozhraní Ambari, klikněte na tlačítko **Spark**, klikněte na tlačítko **Contigs**a potom rozbalte **vlastní spark – výchozí**.
+1. Z uživatelského rozhraní Ambari, klikněte na tlačítko **Spark**, klikněte na tlačítko **konfigurací**a potom rozbalte **vlastní spark – výchozí**.
 
     ![Nastavení parametrů pomocí nástroje Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. Výchozí hodnoty jsou pustit do mají čtyři aplikací Spark v clusteru současně spustit. Tyto hodnoty můžete změnit z uživatelského rozhraní, jak je znázorněno na následujícím snímku obrazovky:

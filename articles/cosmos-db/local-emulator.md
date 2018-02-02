@@ -4,7 +4,7 @@ description: "Pomocí emulátoru DB Cosmos Azure, můžete vývoj a testování 
 services: cosmos-db
 documentationcenter: 
 keywords: "Emulátor Azure Cosmos DB"
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
-ms.author: arramac
-ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danoble
+ms.openlocfilehash: daaa628fae3e495a0c9c7a3c74e643caa56fb18b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Použití emulátoru DB Cosmos Azure pro místní vývoj a testování
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Úložiště docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Zdroj docker</strong></td>
@@ -39,6 +39,9 @@ ms.lasthandoff: 12/14/2017
 </table>
   
 Emulátor DB Cosmos Azure poskytuje místní prostředí, které emuluje služby Azure Cosmos DB pro účely vývoje. Pomocí emulátoru DB Cosmos Azure, můžete vyvíjet a testovat svou aplikaci lokálně, bez vytváření předplatného Azure nebo nákladům. Až budete spokojeni s jak funguje aplikaci v emulátoru DB Cosmos Azure, můžete přejít k používání účtu Azure Cosmos DB v cloudu.
+
+> [!NOTE]
+> V tuto chvíli Průzkumníku dat v emulátoru pouze plně podporuje rozhraní SQL API kolekcí a kolekcí MongoDB. Tabulka, graf a Cassandra kontejnerů nejsou plně podporovány. 
 
 Tento článek obsahuje následující úlohy: 
 
@@ -62,9 +65,6 @@ Doporučujeme začít následujícím videem, kde Kirill Gavrylyuk ukazuje, jak 
 Emulátor DB Cosmos Azure poskytuje zachováním emulace služby Azure Cosmos DB. Podporuje stejné funkce jako Azure Cosmos databáze, včetně podpory pro vytváření a dotazování dokumentů JSON, zřizování a škálování kolekce a provádění uložené procedury a triggery. Můžete vyvíjet a testovat aplikace pomocí emulátoru DB Cosmos Azure a jejich nasazení do Azure v globálním měřítku tím, že právě konfigurací jedné změňte koncového bodu připojení pro Azure Cosmos DB.
 
 Když jsme vytvořili místní emulace zachováním skutečné služby Azure Cosmos DB, se liší od služby implementace emulátoru Azure DB Cosmos. Například emulátoru DB Cosmos Azure používá standardní součásti operačního systému, například místního systému souborů pro trvalosti a zásobník protokolu HTTPS pro připojení k síti. To znamená, že některé funkce, které jsou závislé na infrastrukturu Azure jako globální replikace, jednociferné milisekundu latence pro čtení/zápisu a přizpůsobitelné úrovně konzistence nejsou k dispozici prostřednictvím emulátoru Azure DB Cosmos.
-
-> [!NOTE]
-> V tuto chvíli Průzkumníku dat v emulátoru podporuje pouze vytváření kolekcí rozhraní API pro SQL a kolekcí MongoDB. Průzkumníku dat v emulátoru v současné době nepodporuje vytvoření tabulky a grafy. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Rozdíly mezi emulátoru a služby 
 Protože emulátor DB Cosmos Azure poskytuje emulované prostředí spuštěna na vývojáře místní pracovní stanici, existují určité rozdíly ve funkcích mezi emulátoru a účet Azure Cosmos DB v cloudu:
@@ -116,7 +116,7 @@ Průzkumník dat určuje, zda je k dispozici ke stažení nové aktualizace.
 > Data vytvořená ve verzi emulátoru DB Cosmos Azure nemusí být dostupné při použití jiné verze. Pokud potřebujete zachovat data pro z dlouhodobého hlediska, doporučujeme uložit data v Azure Cosmos DB účet, nikoli v emulátoru Azure DB Cosmos. 
 
 ## <a name="authenticating-requests"></a>Ověřování požadavků
-Stejně jako s Azure DB Cosmos v cloudu, musí být ověřeny každého požadavku, které vytváříte emulátoru DB Cosmos Azure. Emulátor DB Cosmos Azure podporuje jeden pevný účet a dobře známé ověřovací klíč pro ověřování hlavního klíče. Tento účet a klíč jsou pouze povolené pro použití s emulátoru Azure Cosmos DB přihlašovací údaje. Jsou:
+Stejně jako s Azure DB Cosmos v cloudu, musí být ověřeny každého požadavku, které vytváříte emulátoru DB Cosmos Azure. Emulátor DB Cosmos Azure podporuje jeden pevný účet a dobře známé ověřovací klíč pro ověřování hlavního klíče. Tento účet a klíč jsou pouze povolené pro použití s emulátoru Azure Cosmos DB přihlašovací údaje. Jsou to tyto:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -195,27 +195,27 @@ Chcete-li zobrazit seznam možností, zadejte `CosmosDB.Emulator.exe /?` na př�
   <td></td>
 </tr>
 <tr>
-  <td>Vypnutí</td>
+  <td>Vypnout</td>
   <td>Vypne emulátoru Azure DB Cosmos.</td>
-  <td>/ CosmosDB.Emulator.exe Shutdown</td>
+  <td>CosmosDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>DataPath</td>
   <td>Určuje cestu, do kterého chcete uložit datové soubory. Výchozí hodnota je % LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath =&lt;datapath&gt;</td>
+  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
   <td>&lt;DataPath&gt;: přístupná cesta</td>
 </tr>
 <tr>
   <td>Port</td>
   <td>Určuje číslo portu pro použití pro emulátor.  Výchozí hodnota je 8081.</td>
-  <td>/ CosmosDB.Emulator.exe port =&lt;portu&gt;</td>
+  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
   <td>&lt;port&gt;: jedno číslo portu</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>Udává číslo portu, který chcete použít pro MongoDB kompatibility rozhraní API. Výchozí hodnota je 10255.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort =&lt;mongoport&gt;</td>
+  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: jedno číslo portu</td>
 </tr>
 <tr>
@@ -227,7 +227,7 @@ Chcete-li zobrazit seznam možností, zadejte `CosmosDB.Emulator.exe /?` na př�
 <tr>
   <td>Klíč</td>
   <td>Autorizační klíč pro emulátor. Klíč musí být kódování base-64 vektoru 64 bajtů.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;klíč&gt;</td>
+  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
   <td>&lt;klíč&gt;: klíč musí být kódování base-64 vektoru 64 bajtů</td>
 </tr>
 <tr>
@@ -245,7 +245,7 @@ Chcete-li zobrazit seznam možností, zadejte `CosmosDB.Emulator.exe /?` na př�
 <tr>
   <td>NoUI</td>
   <td>Nezobrazovat emulátoru uživatelské rozhraní.</td>
-  <td>/ Noui CosmosDB.Emulator.exe</td>
+  <td>CosmosDB.Emulator.exe /NoUI</td>
   <td></td>
 </tr>
 <tr>
@@ -257,19 +257,19 @@ Chcete-li zobrazit seznam možností, zadejte `CosmosDB.Emulator.exe /?` na př�
 <tr>
   <td>PartitionCount</td>
   <td>Určuje maximální počet dělené kolekce. V tématu [změnit počet kolekcí](#set-partitioncount) Další informace.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount =&lt;partitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: maximální počet povolených kolekce tvořené jedním oddílem. Výchozí hodnota je 25. Maximální povolený počet je 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
   <td>Určuje výchozí počet oddílů pro dělenou kolekci.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount =&lt;defaultpartitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
   <td>&lt;defaultpartitioncount&gt; výchozí hodnota je 25.</td>
 </tr>
 <tr>
   <td>AllowNetworkAccess</td>
   <td>Umožňuje přístup k emulátoru přes síť. Je třeba předat také /Key =&lt;key_string&gt; nebo/keyfile =&lt;název_souboru&gt; povolit přístup k síti.</td>
-  <td>CosmosDB.Emulator.exe AllowNetworkAccess /Key =&lt;key_string&gt;<br><br>nebo<br><br>/ Keyfile /AllowNetworkAccess CosmosDB.Emulator.exe =&lt;název_souboru&gt;</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>nebo<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
   <td></td>
 </tr>
 <tr>
@@ -287,7 +287,7 @@ Chcete-li zobrazit seznam možností, zadejte `CosmosDB.Emulator.exe /?` na př�
 <tr>
   <td>Konzistence</td>
   <td>Nastavte výchozí úroveň konzistence pro účet.</td>
-  <td>CosmosDB.Emulator.exe /Consistency =&lt;konzistence&gt;</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
   <td>&lt;konzistence&gt;: hodnota musí být jeden z následujících [úrovně konzistence](consistency-levels.md): relace silného, Eventual nebo BoundedStaleness.  Výchozí hodnota je relace.</td>
 </tr>
 <tr>
@@ -405,7 +405,15 @@ Chcete-li shromažďovat trasování ladění, spusťte následující příkazy
 3. V seznamu aplikací, posuňte **emulátoru DB Cosmos Azure**, vyberte ho, klikněte na **odinstalace**, potvrďte a klikněte na **odinstalovat** znovu.
 4. Při odinstalaci aplikace, přejděte na C:\Users\<uživatele > \AppData\Local\CosmosDBEmulator a odstranit složku. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="change-list"></a>Seznam změn
+
+Číslo verze můžete zkontrolovat tak, že kliknete pravým tlačítkem na ikonu emulátoru místního na hlavním panelu a klikněte na o položku nabídky.
+
+### <a name="120-released-on-january-26-2018"></a>1,20 vydala 26 leden 2018
+
+* Ve výchozím nastavení povolené kanálu agregace MongoDB.
+
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste provést následující:
 

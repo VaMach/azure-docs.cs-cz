@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Vytvoření, změnit nebo odstranit virtuální síť
 
@@ -36,7 +36,7 @@ Tento článek vysvětluje, jak vytvářet, měnit a odstranění virtuální s�
 
 Než začnete úlohy, které jsou popsané v tomto článku, splnit následující požadavky:
 
-- Pokud jste pro práci s virtuálními sítěmi nové, doporučujeme, abyste si prošli cvičení v [vytvoření vaší první virtuální síť Azure](virtual-network-get-started-vnet-subnet.md). Tento postup může pomoci při seznámení s virtuálními sítěmi.
+- Pokud jste pro práci s virtuálními sítěmi nové, doporučujeme, abyste si prošli cvičení v [vytvoření vaší první virtuální síť Azure](quick-create-portal.md). Tento postup může pomoci při seznámení s virtuálními sítěmi.
 - Další informace o omezeních pro virtuální sítě, zkontrolujte [Azure omezení](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Přihlaste se k portálu Azure, nástroje příkazového řádku Azure (Azure CLI) nebo Azure PowerShell pomocí účtu Azure. Pokud nemáte účet Azure, zaregistrujte si [Bezplatný zkušební účet](https://azure.microsoft.com/free).
 - Pokud budete chtít použít příkazy prostředí PowerShell k dokončení úlohy popsané v tomto článku, musíte nejdřív [instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ujistěte se, že máte nejnovější verzi rutin prostředí Azure PowerShell nainstalovaný. Chcete-li získat nápovědu pro příkazy prostředí PowerShell v příkladech, zadejte `get-help <command> -full`.
@@ -57,7 +57,7 @@ Vytvoření virtuální sítě:
         - 255.255.255.255/32 (vysílání)
         - 127.0.0.0/8 (zpětné smyčky)
         - 169.254.0.0/16 (Link-local)
-        - 168.63.129.16/32 (interní DNS)
+        - 168.63.129.16/32 (Internal DNS)
 
       I když můžete definovat jenom jeden adresní prostor, když vytvoříte virtuální síť, můžete přidat další adresní prostory, po vytvoření virtuální sítě. Informace o postupu přidání adresní prostor k existující virtuální síti, najdete v tématu [přidat nebo odebrat adresní prostor](#add-address-spaces) v tomto článku.
 
@@ -82,7 +82,7 @@ Vytvoření virtuální sítě:
 |Nástroj|Příkaz|
 |---|---|
 |Azure CLI|[Vytvoření sítě vnet az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nový AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>Zobrazit virtuální sítě a nastavení
 
@@ -127,7 +127,7 @@ Můžete přidávat a odebírat adresní prostory virtuální sítě. Adresní p
 - 255.255.255.255/32 (vysílání)
 - 127.0.0.0/8 (zpětné smyčky)
 - 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (interní DNS)
+- 168.63.129.16/32 (Internal DNS)
 
 Přidat nebo odebrat adresní prostor:
 
@@ -194,7 +194,7 @@ Virtuální síť můžete odstranit pouze v případě, že neexistují žádn�
 
 ## <a name="next-steps"></a>Další kroky
 
-- Vytvoření virtuálního počítače a připojte ho k virtuální síti najdete v tématu [vytvoření virtuální sítě a připojení virtuálních počítačů](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Vytvoření virtuálního počítače a připojte ho k virtuální síti najdete v tématu [vytvoření virtuální sítě a připojení virtuálních počítačů](quick-create-portal.md#create-virtual-machines).
 - Pro filtrování síťového provozu mezi podsítěmi v rámci virtuální sítě, najdete v části [vytvoření skupin zabezpečení sítě](virtual-networks-create-nsg-arm-pportal.md).
 - Chcete-li peer virtuální sítě s jinou virtuální sítí, přečtěte si téma [vytvoření virtuální sítě partnerského vztahu](virtual-network-create-peering.md#portal).
 - Další informace o možnosti připojení virtuální sítě k místní síti najdete v tématu [o službě VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

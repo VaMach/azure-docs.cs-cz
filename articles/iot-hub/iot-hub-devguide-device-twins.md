@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Rady pro pochopení a použít dvojčata zařízení IoT hub
 
@@ -58,47 +58,49 @@ Dvojče zařízení je dokument JSON, který zahrnuje:
 
 Následující příklad ukazuje dvojče zařízení dokumentu JSON:
 
-        {
-            "deviceId": "devA",
-            "etag": "AAAAAAAAAAc=", 
-            "status": "enabled",
-            "statusReason": "provisioned",
-            "statusUpdateTime": "0001-01-01T00:00:00",
-            "connectionState": "connected",
-            "lastActivityTime": "2015-02-30T16:24:48.789Z",
-            "cloudToDeviceMessageCount": 0, 
-            "authenticationType": "sas",
-            "x509Thumbprint": {     
-                "primaryThumbprint": null, 
-                "secondaryThumbprint": null 
-            }, 
-            "version": 2, 
-            "tags": {
-                "$etag": "123",
-                "deploymentLocation": {
-                    "building": "43",
-                    "floor": "1"
-                }
-            },
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata" : {...},
-                    "$version": 1
-                },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": 55,
-                    "$metadata" : {...},
-                    "$version": 4
-                }
-            }
+```json
+{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=", 
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0, 
+    "authenticationType": "sas",
+    "x509Thumbprint": {     
+        "primaryThumbprint": null, 
+        "secondaryThumbprint": null 
+    }, 
+    "version": 2, 
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": 55,
+            "$metadata" : {...},
+            "$version": 4
+        }
+    }
+}
+```
 
 V kořenový objekt jsou zařízení vlastnosti identity a kontejner objektů pro `tags` a obě `reported` a `desired` vlastnosti. `properties` Kontejner obsahuje některé prvky jen pro čtení (`$metadata`, `$etag`, a `$version`) popsané v [metadat zařízení twin] [ lnk-twin-metadata] a [ Optimistickou metodu souběžného] [ lnk-concurrency] oddíly.
 
@@ -112,26 +114,32 @@ V předchozím příkladu obsahuje dvojče zařízení `batteryLevel` vlastnosti
 V předchozím příkladu `telemetryConfig` potřeby dvojče zařízení a hlášené vlastnosti tak, že back-end řešení a aplikace zařízení slouží k synchronizaci telemetrická data konfigurace pro toto zařízení. Příklad:
 
 1. Back-end řešení Nastaví požadovanou vlastnost s hodnotou požadované konfigurace. Zde je část dokumentu sadou požadovanou vlastnost:
-   
-        ...
-        "desired": {
-            "telemetryConfig": {
-                "sendFrequency": "5m"
-            },
-            ...
+
+    ```json
+    ...
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
         },
         ...
+    },
+    ...
+    ```
+
 2. Aplikace zařízení obdrží oznámení změny okamžitě, pokud připojení nebo při prvním volání metody reconnect. Aplikace zařízení hlásí aktualizovanou konfiguraci (nebo podmínku chyby pomocí `status` vlastnost). Zde je část hlášené vlastnosti:
-   
-        ...
-        "reported": {
-            "telemetryConfig": {
-                "sendFrequency": "5m",
-                "status": "success"
-            }
-            ...
+
+    ```json
+    ...
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
         }
         ...
+    }
+    ...
+    ```
+
 3. Back-end řešení můžete výsledky operace konfigurace sledovat prostřednictvím zařízení, pomocí [dotazování] [ lnk-query] dvojčata zařízení.
 
 > [!NOTE]
@@ -144,23 +152,26 @@ Dvojčata slouží k synchronizaci dlouhotrvající operace, jako je aktualizace
 ## <a name="back-end-operations"></a>Operace back-end
 Back-end řešení funguje na dvojče zařízení pomocí následující atomické operací vystavenou přes HTTPS:
 
-* **Načíst dvojče zařízení tak, že id**. Tato operace vrátí dokument twin zařízení, včetně značky a vlastnosti požadované a oznámená systému.
+* **Načtení dvojče zařízení podle ID**. Tato operace vrátí dokument twin zařízení, včetně značky a vlastnosti požadované a oznámená systému.
 * **Částečné aktualizace dvojče zařízení**. Tato operace povolí back-end řešení částečně aktualizace značky nebo požadované vlastnosti v dvojče zařízení. Částečné aktualizace je vyjádřen jako dokument JSON, který přidá nebo aktualizuje libovolné vlastnosti. Vlastnosti nastavit na `null` se odeberou. Následující příklad vytvoří novou požadovanou vlastnost s hodnotou `{"newProperty": "newValue"}`, přepíše existující hodnotu `existingProperty` s `"otherNewValue"`a také odebere `otherOldProperty`. Existující požadované vlastnosti a značky jsou provedeny žádné další změny:
-   
-        {
-            "properties": {
-                "desired": {
-                    "newProperty": {
-                        "nestedProperty": "newValue"
-                    },
-                    "existingProperty": "otherNewValue",
-                    "otherOldProperty": null
-                }
+
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
             }
         }
+    }
+    ```
+
 * **Nahraďte požadované vlastnosti**. Tato operace povolí back-end řešení úplně přepsat všechny existující požadované vlastnosti a nahraďte nový dokument JSON pro `properties/desired`.
 * **Nahraďte značky**. Tato operace povolí back-end řešení úplně přepsat všechny existující značky a nahraďte nový dokument JSON pro `tags`.
-* **Přijímat oznámení twin**. Tato operace povoluje back-end řešení pro oznámení o změně twin. Uděláte to tak, musí vaše řešení IoT vytvořit trasu a nastavte zdroj dat na hodnotu *twinChangeEvents*. Ve výchozím nastavení žádné twin oznámení se odesílají, tedy předem neexistuje žádný takový trasy. Pokud je příliš vysoká rychlost změny, nebo z jiných důvodů, jako je například interní chyby, IoT Hub může odeslat pouze jedno oznámení, která obsahuje všechny změny. Proto, pokud aplikace potřebuje spolehlivé auditování a protokolování všechny zprostředkující stavy, pak je stále doporučujeme použít D2C zprávy. Oznámení twin zahrnuje vlastnosti a text.
+* **Přijímat oznámení twin**. Tato operace povoluje back-end řešení pro oznámení o změně twin. Uděláte to tak, musí vaše řešení IoT vytvořit trasu a nastavte zdroj dat na hodnotu *twinChangeEvents*. Ve výchozím nastavení žádné twin oznámení se odesílají, tedy předem neexistuje žádný takový trasy. Pokud je příliš vysoká rychlost změny, nebo z jiných důvodů, jako je například interní chyby, IoT Hub může odeslat pouze jedno oznámení, která obsahuje všechny změny. Pokud aplikace potřebuje spolehlivé auditování a protokolování všechny stavy přechodná, proto měli používat zpráv typu zařízení cloud. Oznámení twin zahrnuje vlastnosti a text.
 
     - Vlastnosti
 
@@ -169,11 +180,11 @@ Back-end řešení funguje na dvojče zařízení pomocí následující atomick
     $content – typ | application/json |
     $iothub-enqueuedtime |  Čas odeslání oznámení. |
     $iothub – zpráva – zdroj | twinChangeEvents |
-    $content – kódování | znakové sady UTF-8 |
+    $content – kódování | utf-8 |
     deviceId | ID zařízení |
     hubName | Název centra IoT |
     operationTimestamp | [ISO8601] časové razítko operace |
-    schéma zprávy iothub | deviceLifecycleNotification |
+    iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" nebo "updateTwin" |
 
     Vlastnosti zprávu systému mají předponu `'$'` symbol.
@@ -181,7 +192,8 @@ Back-end řešení funguje na dvojče zařízení pomocí následující atomick
     - Tělo
         
     Tato část obsahuje všechny změny twin ve formátu JSON. Používá stejný formát jako opravu, s tím rozdílem, které může obsahovat všechny části twin: značky, properties.reported, properties.desired a že obsahuje elementy "$metadata". Například:
-    ```
+
+    ```json
     {
         "properties": {
             "desired": {
@@ -198,10 +210,10 @@ Back-end řešení funguje na dvojče zařízení pomocí následující atomick
             }
         }
     }
-    ``` 
+    ```
 
 Podporují všechny předchozí operace [optimistickou metodu souběžného] [ lnk-concurrency] a vyžadovat **ServiceConnect** oprávnění, jak jsou definovány v [zabezpečení] [ lnk-security] článku.
- 
+
 Kromě těchto operací back-end řešení může:
 
 * Dotaz dvojčata zařízení pomocí SQL like [IoT Hub dotazovací jazyk][lnk-query].
@@ -225,23 +237,25 @@ Značky, požadované vlastnosti a vlastnosti hlášené jsou objekty JSON s ná
 * Všechny hodnoty v objektů JSON může mít následující typy JSON: logická hodnota, číslo, řetězec, objekt. Pole nejsou povoleny. Maximální hodnota celá čísla je 4503599627370495 a-4503599627370496 je minimální hodnota celých čísel.
 * Všechny objekty JSON ve značkách, požadovanou a oznámená vlastnosti může mít maximální hloubka začlenění na 5. Například následující objekt je neplatný:
 
-        {
-            ...
-            "tags": {
-                "one": {
-                    "two": {
-                        "three": {
-                            "four": {
-                                "five": {
-                                    "property": "value"
-                                }
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
                             }
                         }
                     }
                 }
-            },
-            ...
-        }
+            }
+        },
+        ...
+    }
+    ```
 
 * Všechny hodnoty řetězce může být maximálně 4 KB délku.
 
@@ -254,48 +268,50 @@ IoT Hub s chybou odmítne všechny operace, které by zvětšete velikost tyto d
 IoT Hub uchovává časové razítko poslední aktualizace pro každý objekt JSON v dvojče zařízení potřeby a který ohlásil vlastnosti. Časová razítka v UTC a v kódování [ISO8601] formátu `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Příklad:
 
-        {
-            ...
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": {
-                                "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
-                    "$version": 23
+                    "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": "55%",
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": "5m",
-                            "status": {
-                                "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        }
-                        "batteryLevel": {
-                            "$lastUpdated": "2016-04-01T16:35:48.789Z"
-                        },
-                        "$lastUpdated": "2016-04-01T16:24:48.789Z"
-                    },
-                    "$version": 123
-                }
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
+            },
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
             }
-            ...
+            "batteryLevel": "55%",
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": "5m",
+                    "status": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
+                },
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
+    }
+    ...
+}
+```
 
 Tyto informace jsou uchovávány v každé úrovni (ne jenom listy struktuře JSON) Chcete-li zachovat aktualizace, které se odebrat klíče objektu.
 
@@ -336,7 +352,7 @@ Nyní jste se naučili o dvojčata zařízení, může zajímat v následující
 * [Volání metody přímé na zařízení][lnk-methods]
 * [Plánování úloh na několika zařízeních][lnk-jobs]
 
-Pokud chcete vyzkoušet některé konceptů popsaných v tomto článku, může zajímat v následujících kurzech IoT Hub:
+Můžete vyzkoušet na některé z konceptů popsaných v tomto článku, najdete v následujících kurzech IoT Hub:
 
 * [Jak používat dvojče zařízení][lnk-twin-tutorial]
 * [Použití zařízení dvojici vlastností][lnk-twin-properties]

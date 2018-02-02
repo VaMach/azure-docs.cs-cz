@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ff56ced9f1d43780097cd65e58b492daaba9b61d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0151b64b39699e2a7a804cdc57e368fd786119a7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure zásobníku integrované systémy připojení modely
 Pokud byste chtěli v systému Azure zásobníku integrované, budete potřebovat zjistit [důležité informace o integraci několik datacenter](azure-stack-datacenter-integration.md) pro nasazení Azure zásobníku k určení, jak v systému se vejde do datového centra. Kromě toho budete muset rozhodnout, přesně jak bude integrace Azure zásobníku do prostředí hybridního cloudu. Tento článek obsahuje přehled těchto hlavní rozhodnutí, včetně připojení k Azure, úložiště identit a fakturace rozhodnutí týkající se modelu.
@@ -46,5 +46,7 @@ Můžete nasadit Azure zásobníku buď připojené k Internetu (a do Azure) neb
 Poté, co jste se rozhodli na modelu připojení Azure má být použit pro nasazení Azure zásobníku, musí být provedeny závislé na připojení, další rozhodnutí pro úložiště identit a fakturace metodu. 
 
 ## <a name="next-steps"></a>Další postup
-- Další informace o [Azure připojené rozhodnutí o nasazení Azure zásobníku](azure-stack-connected-deployment.md)
-- Další informace o [Azure odpojen rozhodnutí o nasazení Azure zásobníku](azure-stack-disconnected-deployment.md)
+
+[Azure rozhodnutí o nasazení Azure zásobníku připojené](azure-stack-connected-deployment.md)
+
+[Azure odpojen rozhodnutí o nasazení Azure zásobníku](azure-stack-disconnected-deployment.md)

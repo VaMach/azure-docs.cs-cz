@@ -25,11 +25,11 @@ Vytvoření služby IoT Hub pro aplikaci simulovaného zařízení, která se ke
 
 1. Klikněte na možnost **Vytvořit**. Vytvoření centra IoT může trvat několik minut. Průběh můžete sledovat v podokně **Oznámení**.
 
-1. Po úspěšném vytvoření centra IoT kliknutím na dlaždici nového centra IoT na webu Azure Portal otevřete okno vlastností nového centra IoT. Teď, když jste vytvořili centrum IoT, vyhledejte důležité informace, které používáte pro připojení zařízení a aplikací do služby IoT hub. Poznačte si **Název hostitele** a klikněte na **Zásady sdíleného přístupu**.
+1. Pokud vaše novou službu IoT hub je připraven, klikněte na jeho dlaždici v portálu Azure otevřete jeho vlastnosti – okno. Teď, když jste vytvořili centrum IoT, vyhledejte důležité informace, které používáte pro připojení zařízení a aplikací do služby IoT hub. Poznačte si **Název hostitele** a klikněte na **Zásady sdíleného přístupu**.
    
     ![Okno nového centra IoT][4]
 
-1. V části **Zásady sdíleného přístupu** klikněte na zásadu **iothubowner** a potom si z okna **iothubowner** zkopírujte a poznamenejte připojovací řetězec služby IoT Hub. Další informace najdete v tématu [Řízení přístupu][lnk-access-control] v Příručce pro vývojáře pro IoT Hub.
+1. V **zásady sdíleného přístupu**, klikněte na tlačítko **iothubowner** zásady a potom poznamenejte připojovací řetězec služby IoT Hub **iothubowner** okno. Další informace najdete v tématu [Řízení přístupu][lnk-access-control] v Příručce pro vývojáře pro IoT Hub.
    
     ![Zásady sdíleného přístupu][5]
 

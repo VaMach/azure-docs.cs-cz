@@ -35,4 +35,4 @@ Chcete-li získat přístup k kalendářům uživatele v rámci aplikace, přide
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

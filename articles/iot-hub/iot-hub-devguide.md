@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Příručka vývojáře pro službu Azure IoT Hub
 
@@ -42,10 +42,10 @@ Tato příručka vývojáře IoT Hub obsahuje v následujících článcích:
   * [Odesílání zpráv typu cloud zařízení ze služby IoT Hub][devguide-messages-c2d].
   * [Vytvoření a čtení zpráv služby IoT Hub][devguide-format].
 * [Odeslání souborů ze zařízení] [ devguide-upload] popisuje, jak mohou odesílat soubory ze zařízení. Článek obsahuje také informace o oblastech, jako je oznámení, že proces odesílání může odesílat.
-* [Správa identit zařízení IoT hub] [ devguide-identities] popisuje, jaké informace IoT hub úložiště registru identit a jak můžete používat a upravit ho.
+* [Správa identit zařízení IoT hub] [ devguide-identities] popisuje, jaké informace úložiště registru identit IoT hub. Článek také popisuje, jak můžete používat a upravit ho.
 * [Řízení přístupu ke službě IoT Hub] [ devguide-security] popisuje model zabezpečení, používá k udělení přístupu k funkci IoT Hub pro zařízení a cloudových součásti. Článek obsahuje informace o používání tokeny a certifikáty X.509 a podrobnosti, které můžete udělit oprávnění.
-* [Pomocí dvojčata zařízení synchronizovat stavu a konfigurace] [ devguide-device-twins] popisuje *dvojče zařízení* koncept a funkce zpřístupňuje například synchronizace zařízení s jeho dvojče zařízení. Článek obsahuje informace o data uložená v dvojče zařízení.
-* [Volání metody přímé na zařízení] [ devguide-directmethods] popisuje životní cyklus přímá metoda, informace o tom, jak volat metody na zařízení z back-end aplikace a zpracovat přímá metoda ve vašem zařízení.
+* [Pomocí dvojčata zařízení synchronizovat stavu a konfigurace] [ devguide-device-twins] popisuje *dvojče zařízení* koncept. Článek také popisuje dvojčata zařízení funkce vystavit, jako je například synchronizace zařízení s jeho dvojče zařízení. Článek obsahuje informace o data uložená v dvojče zařízení.
+* [Volání metody přímé na zařízení] [ devguide-directmethods] popisuje životní cyklus přímá metoda. Článek popisuje, jak volat metody na zařízení z back-end aplikace a zpracování přímá metoda ve vašem zařízení.
 * [Plánování úloh na několika zařízeních] [ devguide-jobs] popisuje, jak lze naplánovat úlohy na několika zařízeních. Článek popisuje, jak k odesílání úloh, které provádějí úlohy, jako provádění přímé metodu, aktualizace zařízení pomocí dvojče zařízení. Také popisuje, jak zjistit stav úlohy.
 * [Reference – volba komunikační protokol] [ devguide-protocol] popisuje komunikační protokoly, že podporuje pro komunikaci zařízení IoT Hub a seznam portů, kterým by se mělo otevřít.
 * [Odkaz – koncové body centra IoT] [ devguide-endpoints] popisuje různé koncových bodů, které každý IoT hub zpřístupní pro operace runtime a správy. Článek také popisuje, jak můžete vytvořit další koncové body ve službě IoT hub a jak používat brána pole pro umožnění připojení k vaší koncové body centra IoT v nestandardním scénáře.

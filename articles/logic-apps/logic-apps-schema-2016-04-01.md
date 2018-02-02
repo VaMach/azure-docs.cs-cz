@@ -15,23 +15,24 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aktualizace schématu pro Azure Logic Apps – 1. června 2016
 
-Toto nové schéma a rozhraní API verze pro Azure Logic Apps zahrnuje klíčových vylepšení, které aplikace logiky spolehlivější a jednodušší použít:
+[Aktualizovat schéma](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) a verze rozhraní API pro Azure Logic Apps zahrnuje klíčových vylepšení, které aplikace logiky spolehlivější a jednodušší použít:
 
 * [Obory](#scopes) umožňují seskupení nebo vnoření akce jako sadu akcí.
 * [Podmínky a smyčky](#conditions-loops) jsou nyní prvotřídní akce.
 * Přesnější řazení pro spouštění akcí, které se `runAfter` vlastnost nahrazení`dependsOn`
 
-K upgradu aplikace logiky na schéma 1. června 2016 schéma preview 1 srpen 2015 [podívejte se na část upgrade](##upgrade-your-schema).
+K upgradu aplikace logiky na schéma 1. června 2016 schéma preview 1 srpen 2015 [podívejte se na část upgrade](#upgrade-your-schema).
 
 <a name="scopes"></a>
+
 ## <a name="scopes"></a>Obory
 
 Toto schéma zahrnuje obory, které umožňují akce skupiny společně nebo akce vnoření uvnitř sebe navzájem. Podmínku může například obsahovat jiné podmínky. Další informace o [obor syntaxe](../logic-apps/logic-apps-loops-and-scopes.md), nebo zkontrolujte tento příklad základní obor:
@@ -57,6 +58,7 @@ Toto schéma zahrnuje obory, které umožňují akce skupiny společně nebo akc
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>Podmínky a smyčky změny
 
 Ve schématu předchozí verze, podmínky a smyčky byly parametry přidružené k jedné akce. Toto schéma zruší toto omezení, aby podmínky a smyčky se nyní zobrazí jako typy akcí. Další informace o [smyčky a oborů](../logic-apps/logic-apps-loops-and-scopes.md), nebo zkontrolujte tento základní příklad pro podmínku akce:
@@ -86,6 +88,7 @@ Ve schématu předchozí verze, podmínky a smyčky byly parametry přidružené
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>Vlastnost 'runAfter.
 
 `runAfter` Vlastnost nahradí `dependsOn`, poskytuje další přesnost, když zadáte pořadí spouštění pro akce na základě stavu předchozí akcí.
@@ -104,7 +107,7 @@ Ve schématu předchozí verze, podmínky a smyčky byly parametry přidružené
 
 ## <a name="upgrade-your-schema"></a>Upgradu vašeho schématu
 
-Upgrade na nové schéma trvá jenom pár kroků. Proces upgradu zahrnuje spuštěním skriptu upgradu, uložit jako novou aplikaci logiky a pokud chcete, které by mohly mít přepsal předchozí aplikaci logiky.
+K upgradu [nejnovější schématu](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), je nutné pouze provést pár kroků. Proces upgradu zahrnuje spuštěním skriptu upgradu, uložit jako novou aplikaci logiky a pokud chcete, které by mohly mít přepsal předchozí aplikaci logiky.
 
 1. Na portálu Azure otevřete aplikaci logiky.
 
@@ -156,7 +159,7 @@ Chcete-li filtrovat velké pole dolů menší sadu položek, nové `filter` typu
 
 ### <a name="new-trackedproperties-for-actions"></a>Nový 'trackedProperties' pro akce
 
-Akce nyní můžete mít další vlastnost s názvem `trackedProperties`, který je na stejné úrovni k `runAfter` a `type` vlastnosti. Tento objekt určuje určité akce vstupů nebo výstupů, které chcete zahrnout do Azure diagnostiky telemetrii, vygenerované jako součást pracovního postupu. Například:
+Akce nyní můžete mít další vlastnost s názvem `trackedProperties`, který je na stejné úrovni k `runAfter` a `type` vlastnosti. Tento objekt určuje určité akce vstupů nebo výstupů, které chcete zahrnout do Azure diagnostiky telemetrii, vygenerované jako součást pracovního postupu. Příklad:
 
 ```
 {                

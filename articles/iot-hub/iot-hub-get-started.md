@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT Hub Začínáme kurzy
 
 Azure IoT Hub a sady SDK zařízení Azure IoT můžete použít k vytvoření řešení Internetu věcí (IoT):
 
 * Azure IoT Hub je plně spravovaná služba v cloudu, které bezpečně připojit, monitoruje a spravuje zařízení IoT. Implementace zařízení IoT pomocí sady SDK zařízení IoT v Azure.
-* Používejte bránu IoT v složitější scénáře IoT. Například, kdy potřebujete vezměte v úvahu faktory, jako jsou zařízení se starší verzí, náklady na šířku pásma, zásady zabezpečení a ochrana osobních údajů nebo zpracování dat okraj. V těchto scénářích použijete k implementaci bránu, která se připojuje zařízení do služby IoT hub Azure IoT okraj.
+* Používejte bránu IoT v složitější scénáře IoT. Například, kdy potřebujete vezměte v úvahu faktory, jako jsou zařízení se starší verzí, náklady na šířku pásma, zásady zabezpečení a ochrana osobních údajů nebo zpracování dat okraj. V těchto scénářích použití [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) implementovat bránu, která se připojuje zařízení do služby IoT hub.
 
 ## <a name="what-the-tutorials-cover"></a>Co kurzy zahrnují
 
@@ -41,10 +41,10 @@ Připojte zařízení IoT nebo brány Azure IoT Hub. Můžete vybrat fyzické ne
 | Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
 | IoT DevKit                       | [Arduino v VSCode][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
-| Prolnutí Adafruit HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 věc vývojářů       | [Arduino][Th_Ard]              |
 | Prolnutí Adafruit M0              | [Arduino][M0_Ard]              |
-| Simulované zařízení na počítačích           | [Rozhraní .NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
+| Simulované zařízení na počítačích           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Simulátor online zařízení         | [Malinová platformy (Node.js)][Ol_Sim] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]

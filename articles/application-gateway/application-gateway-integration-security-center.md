@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Přehled integrace mezi aplikační brány a Azure Security Center
 
@@ -69,7 +69,7 @@ Security Center zjišťuje aplikace, které jsou přidány do služby applicatio
 
 ![okno Přidání brány firewall webových aplikací][5]
 
-## <a name="security-alerts"></a>Výstrahy zabezpečení
+## <a name="security-alerts"></a>Upozornění zabezpečení
 
 Přechod na v Security Center **detekce** > **výstrahy zabezpečení**.  Zde můžete najít výstrahy firewall webových aplikací pro application Gateway. Výstrahy jsou rozdělené podle pravidla firewall webových aplikací.
 
@@ -79,9 +79,9 @@ Kliknutím na pravidlo poskytne seznam výstrah pro tuto konkrétní pravidlo fi
  
 ![Podrobnosti výstrahy][9]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Informace o povolení brány firewall webových aplikací na existující aplikační brány, najdete [vytvoření nebo aktualizace služby Azure Application Gateway pomocí brány firewall webových aplikací](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+Informace o povolení brány firewall webových aplikací na existující aplikační brány, najdete [vytvoření nebo aktualizace služby Azure Application Gateway pomocí brány firewall webových aplikací](application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

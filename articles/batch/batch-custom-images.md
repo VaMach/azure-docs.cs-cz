@@ -2,17 +2,17 @@
 title: "Zřídit fondech Azure Batch z vlastních bitových kopií | Microsoft Docs"
 description: "Můžete vytvořit dávce fondu vlastní image zřídit výpočetní uzly, které obsahují software a data, která je nutné pro vaši aplikaci. Vlastní Image jsou účinný způsob, jak nakonfigurovat výpočetních uzlů k spouštět úlohy Batch."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Spravované vlastní image použít k vytvoření fondu virtuálních počítačů 
 
@@ -93,6 +93,6 @@ Pokud chcete zkontrolovat, zda existující fond je založena na vlastní image,
 
 Všechny vlastní Image, které jsou přidružené k fondu se zobrazí na fondu **vlastnosti** okno.
  
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Podrobnější přehled služby Batch, najdete v tématu [rozsáhlé paralelní vývoj výpočetní řešení pomocí služby Batch](batch-api-basics.md).

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Odkaz – koncové body centra IoT
 
@@ -81,7 +81,12 @@ Omezení pro počet koncových bodů můžete přidat, naleznete v části [kvó
 
 ### <a name="when-using-azure-storage-containers"></a>Při použití kontejnery Azure Storage
 
-IoT Hub podporuje pouze zápis dat do Azure Storage kontejnerů jako objekty BLOB v [Apache Avro](http://avro.apache.org/) formátu. IoT Hub dávek zprávy a zapisuje data do objektu blob při dosažení buď určité velikosti nebo po uplynutí určité množství času, podle toho, co nastane dřív. IoT Hub nezapíše prázdný objekt blob, pokud nejsou žádná data k zápisu.
+IoT Hub podporuje pouze zápis dat do Azure Storage kontejnerů jako objekty BLOB v [Apache Avro](http://avro.apache.org/) formátu. IoT Hub dávek zprávy a zapisuje data do objektu blob vždy, když:
+
+* Dávka dosáhne určité velikosti.
+* Nebo uplynutí časového intervalu.
+
+Centrum IoT se nepodporuje zápisu objektu blob prázdný, pokud nejsou žádná data k zápisu.
 
 IoT Hub výchozí nastavení této zásady vytváření názvů souborů:
 

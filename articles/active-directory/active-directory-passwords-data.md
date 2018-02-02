@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 504316a7d09595d24318d1f574b0f8927914d424
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Nasazení bez nutnosti registrace koncového uživatele pro vytvoření nového hesla
 
@@ -44,6 +44,11 @@ Pokud použijete výchozí nastavení v Azure AD Connect, budou vytvořeny násl
 | telephoneNumber | Telefon do kanceláře | Jiný telefon |
 | mobilní | Mobilní telefon | Telefon |
 
+Dokud uživatel potvrdí svá data ověřování se mohou objevit tato pole prázdná.
+
+Globální správce, můžete nastavit ručně kontaktní informace o ověřování pro uživatele, jak je zobrazen na následujícím snímku obrazovky.
+
+![Obraťte se na][Contact]
 
 ## <a name="security-questions-and-answers"></a>Bezpečnostní otázky a odpovědi
 
@@ -154,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
 * [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)
 * [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Globální správci můžete upravit kontaktní informace pro ověřování uživatele"

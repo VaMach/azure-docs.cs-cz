@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 73db1f05bacd3edd93394f346274727ca5735c87
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Vytvoření služby application gateway s pravidel adres URL na základě cestu směrování pomocí rozhraní příkazového řádku Azure
 
@@ -205,17 +205,6 @@ done
 
 ### <a name="install-nginx"></a>Instalace serveru NGINX
 
-V aktuálním prostředí vytvořte soubor s názvem customConfig.json a vložte následující konfigurace. Můžete použít libovolný editor, který chcete vytvořit soubor v prostředí cloudu.  Zadejte `sensible-editor cloudConfig.json` zobrazíte seznam dostupných editory k vytvoření souboru.
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Spusťte tento příkaz v okně prostředí:
-
 ```azurecli-interactive
 for i in `seq 1 3`; do
   az vmss extension set \
@@ -224,7 +213,7 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings @cloudConfig.json
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 

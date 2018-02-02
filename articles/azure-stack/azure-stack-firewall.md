@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 737df48a24d8e077f898d00526c7138db69dbb93
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrace brány firewall Azure zásobníku
 Doporučuje se použít zařízení brány firewall ke zvýšení zabezpečení Azure zásobníku. I když se třeba distribuované útokům (DDOS) odmítnutí služby, zjišťování neoprávněných vniknutí a prověřování obsahu vám může pomoci brány firewall, budou také k propustnost úzkým místem pro služby Azure storage jako objekty BLOB, tabulek a front.
@@ -59,7 +59,9 @@ V podnikovém intranetu nebo hraniční nasazení je nasadit Azure zásobníku n
 
 ![Azure zásobníku hraniční sítě příklad](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
+## <a name="learn-more"></a>Další informace
+Další informace o [porty a protokoly, které používají koncové body Azure zásobníku](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>Další postup
-Další informace o [porty a protokoly, které používají koncové body Azure zásobníku](azure-stack-integrate-endpoints.md)
+[Požadavky pro Azure zásobníku infrastruktury veřejných KLÍČŮ](azure-stack-pki-certs.md)
 

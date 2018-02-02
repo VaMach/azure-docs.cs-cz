@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c57ceb83951341d4a7bf368e209ba0f88825672c
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Vytvoření a čtení zpráv služby IoT Hub
 
@@ -45,7 +45,7 @@ Následující tabulka uvádí sadu vlastností systému ve zprávách služby I
 | ExpiryTimeUtc |Datum a čas vypršení platnosti zprávy. |
 | EnqueuedTime |Datum a čas [Cloud-zařízení] [ lnk-c2d] zpráva byla přijata službou IoT Hub. |
 | CorrelationId |Vlastnosti řetězce v zprávu odpovědi, která obvykle obsahuje MessageId žádosti v vzory požadavku a odpovědi. |
-| UserId |ID používané k určení původu zprávy. Zprávy generované IoT Hub, je nastavený na `{iot hub name}`. |
+| ID uživatele |ID používané k určení původu zprávy. Zprávy generované IoT Hub, je nastavený na `{iot hub name}`. |
 | Potvrzení |Generátor zpráva zpětnou vazbu. Tato vlastnost je v zprávy typu cloud zařízení slouží k vyžádání IoT Hub, která generují zprávy zpětné vazby v důsledku spotřeby zprávy zařízení. Možné hodnoty: **žádné** (výchozí): je vygenerována žádná zpráva zpětnou vazbu, **kladné**: zobrazí zpráva zpětné vazby, pokud zpráva byla dokončena, **záporné**: přijímat zpráva zpětné vazby, pokud platnost zprávy (nebo bylo dosaženo maximální doručení počet) bez jeho dokončení zařízení, nebo **úplné**: kladné a záporné. Další informace najdete v tématu [zprávy zpětné vazby][lnk-feedback]. |
 | ConnectionDeviceId |ID nastavit službou IoT Hub na zpráv typu zařízení cloud. Obsahuje **deviceId** zařízení, která zprávu odeslala. |
 | ConnectionDeviceGenerationId |ID nastavit službou IoT Hub na zpráv typu zařízení cloud. Obsahuje **generationId** (dle [vlastnosti identity zařízení][lnk-device-properties]) zařízení, která zprávu odeslala. |

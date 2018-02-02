@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: e7edbc1c4aa6e3cb1026d493886ef7ca704b9131
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generovat certifikáty PKI pro nasazení Azure zásobníku
 Nyní když znáte [požadavcích na certifikáty PKI](azure-stack-pki-certs.md) pro nasazení zásobník Azure, budete muset získat tyto certifikáty z certifikační autority (CA) podle svého výběru. 
@@ -74,3 +74,5 @@ Následující pracovní postup popisuje, jak můžete přizpůsobit a použijte
 4. **Import. CER**. Vrátí certifikační Autority. Soubor CER. Používáte stejný počítač systému Windows, ze kterého jste vygenerovali soubor žádosti, importujte. Soubor CER vrácen do počítače nebo osobním úložišti. 
 5. **Exportovat a kopírovat. Soubor PFX do složek pro nasazení**. Export certifikátu (včetně privátního klíče) jako. Soubor PFX soubor a zkopírujte. Soubor PFX do složek nasazení popsané v [požadavky na Azure zásobníku nasazení infrastruktury veřejných KLÍČŮ](azure-stack-pki-certs.md).
 
+## <a name="next-steps"></a>Další postup
+[Integrace identit](azure-stack-integrate-identity.md)

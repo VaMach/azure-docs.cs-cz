@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Zálohování a obnovení v SQL Data Warehouse
 Tento článek vysvětluje, jaké jsou specifikace záloh v SQL Data Warehouse. Použít zálohování datového skladu k obnovení databázi snímku primární oblasti nebo obnovit zálohu geograficky vaší spárovat geografické oblasti. 
@@ -39,10 +39,10 @@ order by run_id desc
 ;
 ```
 
-## <a name="geo-backups"></a>Geograficky zálohy
+## <a name="geo-backups"></a>Geo-backups
 SQL Data Warehouse provádí zálohu geograficky jednou denně za účelem [spárované datového centra](../best-practices-availability-paired-regions.md). Plánovaný bod obnovení pro geografické obnovení je 24 hodin. Geograficky zálohování můžete obnovit na server v spárovat geografické oblasti. geograficky zálohování zajistí, že datový sklad můžete obnovit v případě, že snímky nelze získat přístup v primární oblasti.
 
-Geograficky zálohy jsou ve výchozím. Pokud váš datový sklad je optimalizován pro pružnost, můžete [chodit](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) nechcete-li. Nelze vyjádření výslovného nesouhlasu geo zálohy s optimalizovaná pro výpočetní výkon vrstvě.
+Geograficky zálohy jsou ve výchozím. Pokud váš datový sklad je optimalizován pro pružnost, můžete [chodit](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) nechcete-li. Nelze vyjádření výslovného nesouhlasu geo zálohy s optimalizovaná pro výpočetní výkon vrstvě.
 
 ## <a name="backup-costs"></a>Zálohování náklady
 Si všimnete, že faktury Azure má položku řádku pro Storage úrovně Premium a položku řádku pro geograficky redundantní úložiště. Zřizování úložiště Premium je celková cena pro ukládání dat v primární oblasti, která zahrnuje snímky.  Geograficky redundantní poplatků popisuje jsou náklady na ukládání geo záloh.  
@@ -72,7 +72,7 @@ Při umístění datového skladu SQL Data Warehouse vytvoří poslední snímek
 > Pokud odstraníte logické instance systému SQL server, všechny databáze patřící k instanci budou také odstraněny a nelze jej obnovit. Nelze obnovit odstraněné serveru.
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Chcete-li obnovit SQL data warehouse, najdete v části [obnovení SQL data warehouse](sql-data-warehouse-restore-database-overview.md).
 
 Přehled kontinuity obchodních, najdete v části [obchodní kontinuity přehled](../sql-database/sql-database-business-continuity.md)

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 43d79a8c14751ee25eaca7a3b50649702d159d76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-## <a name="network-connectivity"></a>Připojení k síti
+# <a name="network-connectivity"></a>Připojení k síti
 Tento článek obsahuje informace o infrastruktuře síťový zásobník Azure vám pomohou rozhodnout, jak nejlépe zásobník Azure integrovat do stávajícího síťového prostředí. 
 
 > [!NOTE]
@@ -62,10 +62,10 @@ Tato /24 254 hostitele sítě (IP na) je privátní oblast Azure zásobníku (ne
 - **Interní virtuální síť IP**. A/25 síti vyhrazený pro interní jen VIP pro vyrovnávání zatížení softwaru.
 
 ### <a name="azure-stack-infrastructure-network"></a>Síť infrastruktury Azure zásobníku
-To/24 síť je vyhrazená pro interní součásti zásobníku Azure, aby se mohli komunikovat a výměnu dat mezi sebou. Tato podsíť vyžaduje směrovatelné IP adresy, ale se ukládají privátní do řešení pomocí seznamů řízení přístupu (ACL), není očekáván směrování nad rámec přepínače ohraničení s výjimkou velmi malé rozsah ekvivalentní velikost/27 sítě využívaných některé z těchto služby, při které vyžadují přístup k externím prostředkům nebo k Internetu. 
+To/24 síť je vyhrazená pro interní součásti zásobníku Azure, aby se mohli komunikovat a výměnu dat mezi sebou. Tato podsíť vyžaduje směrovatelné IP adresy, ale se ukládají privátní do řešení pomocí seznamů řízení přístupu (ACL). Neočekává směrování nad rámec přepínače ohraničení s výjimkou malé rozsah ekvivalentní velikost/27 sítě využít pomocí některé z těchto služeb v případě, které vyžadují přístup k externím prostředkům nebo k Internetu. 
 
 ### <a name="public-infrastructure-network"></a>Infrastruktura veřejných sítě
-To/27 síť je velmi malé rozsahu podsítě infrastruktury Azure zásobníku, již bylo zmíněno dříve, nevyžaduje veřejné IP adresy, ale vyžaduje přístup k Internetu prostřednictvím NAT nebo transparentní proxy server. Tato síť se přidělí pro nouzové obnovení konzoly System (ERCS), virtuální počítač ERCS během registrace do Azure vyžaduje přístup k Internetu a musí být směrovatelné vaší síti pro správu pro účely odstraňování potíží.
+To/27 síť je malý rozsahu podsítě infrastruktury Azure zásobníku, již bylo zmíněno dříve, nevyžaduje veřejné IP adresy, ale vyžaduje přístup k Internetu prostřednictvím NAT nebo transparentní proxy server. Tato síť se přidělí pro nouzové obnovení konzoly System (ERCS), virtuální počítač ERCS během registrace do Azure vyžaduje přístup k Internetu a musí být směrovatelné vaší síti pro správu pro účely odstraňování potíží.
 
 ### <a name="public-vip-network"></a>Veřejné síti VIP
 Veřejné síti VIP je přiřazen do síťového adaptéru v zásobníku Azure. Není logická síť na přepínači. SLB pomocí fondu adres a přiřadí/32 sítě pro úlohy klientů. V tabulce směrování přepínače jsou inzerovaný těchto 32 IP adres jako trasu k dispozici prostřednictvím protokolu BGP. Tato síť obsahuje externí dostupný nebo veřejné IP adresy. Infrastruktura Azure zásobníku používá aspoň 8 adres z této veřejné síti VIP, zatímco zbytek používá klientské virtuální počítače. Velikost sítě v této podsíti může být v rozsahu od minimálně /26 (64 hostitele) do maximálně /22 (1022 hostitele), doporučujeme, abyste naplánovali pro/24 sítě.
@@ -82,12 +82,7 @@ Budete muset zpřístupnění služby Azure zásobníku uživatelům z mimo Azur
 ### <a name="ports-and-urls"></a>Porty a adresy URL
 Aby služby Azure zásobníku (například portálů, Azure Resource Manager, DNS, atd.) k dispozici pro externí sítě, musíte povolit příchozí přenosy s těmito koncovými body pro konkrétní adresy URL, porty a protokoly.
  
-V nasazení, kde transparentní proxy odesílání tradiční proxy serveru, musíte povolit určité porty a adresy URL pro odchozí komunikaci. Mezi ně patří porty a adresy URL pro identitu, syndikace marketplace, opravy a aktualizace, registrace a data o využití.
-
-Další informace naleznete v tématu:
-- [Příchozí porty a protokoly](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [Odchozí porty a adresy URL](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+V nasazení, kde transparentní proxy odchozí připojení pro tradiční proxy server, musíte povolit určité porty a adresy URL pro obě [příchozí](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) a [odchozí](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) komunikace. Mezi ně patří porty a adresy URL pro identitu, syndikace marketplace, opravy a aktualizace, registrace a data o využití.
 
 ## <a name="next-steps"></a>Další postup
-[Azure připojení ohraničení zásobníku](azure-stack-border-connectivity.md)
+[Připojení ohraničení](azure-stack-border-connectivity.md)

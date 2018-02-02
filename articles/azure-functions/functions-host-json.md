@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON odkazu pro Azure Functions
 
@@ -49,6 +49,13 @@ Následující ukázka *host.json* soubor obsahuje všechny možné možností.
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -132,16 +139,16 @@ Ovládací prvky [vzorkování funkce ve službě Application Insights](function
 
 |Vlastnost  |Výchozí | Popis |
 |---------|---------|---------| 
-|Hodnotu IsEnabled|False|Povolí nebo zakáže vzorkování.| 
+|isEnabled|nepravda|Povolí nebo zakáže vzorkování.| 
 |maxTelemetryItemsPerSecond|5|Prahová hodnota, na které vzorkování začne.| 
 
-## <a name="eventhub"></a>Centrum EventHub
+## <a name="eventhub"></a>eventHub
 
 Nastavení konfigurace pro [centra událostí triggerů a vazeb](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>Funkce
+## <a name="functions"></a>functions
 
 Seznam funkcí, které budou spouštět úlohy hostitele.  Prázdné pole znamená spustit všechny funkce.  Určený k použití pouze tehdy, když [spuštěn místně](functions-run-local.md). V aplikacích pro funkce, použijte *function.json* `disabled` vlastnost spíše než tuto vlastnost v *host.json*.
 
@@ -160,6 +167,30 @@ Určuje dobu trvání časového limitu pro všechny funkce. V rámci plánů sp
     "functionTimeout": "00:05:00"
 }
 ```
+
+## <a name="healthmonitor"></a>healthMonitor
+
+Nastavení konfigurace pro [monitorování stavu hostitele](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Vlastnost  |Výchozí | Popis |
+|---------|---------|---------| 
+|povoleno|true (pravda)|Jestli je funkce zapnutá. | 
+|healthCheckInterval|10 sekund.|Kontroluje, časový interval mezi stavy pravidelných pozadí. | 
+|healthCheckWindow|2 minuty|Posuvné okno čas používá ve spojení s `healthCheckThreshold` nastavení.| 
+|healthCheckThreshold|6|Maximální počet kontrolou stavu může selhat, než je zahájeno recyklaci hostitele.| 
+|counterThreshold|0.80|Prahová hodnota, na které čítač výkonu, který se bude zvažovat není v pořádku.| 
 
 ## <a name="http"></a>http
 
@@ -226,7 +257,7 @@ Nastavení konfigurace pro [úložiště fronty triggerů a vazeb](functions-bin
 |maxDequeueCount|5|Počet pokusů, před přesunutím do fronty poškozených zpracování zprávy.| 
 |newBatchThreshold|batchSize/2|Prahová hodnota, na kterém jsou načtených novou dávku zpráv.| 
 
-## <a name="servicebus"></a>Sběrnice
+## <a name="servicebus"></a>serviceBus
 
 Nastavení konfigurace pro [Service Bus triggerů a vazeb](functions-bindings-service-bus.md).
 
@@ -298,7 +329,7 @@ Sadu [sdíleného adresáře kód](functions-reference-csharp.md#watched-directo
 Úloha rozbočovače názvy musí začínat písmenem a obsahovat jenom písmena a čísla. Pokud není zadáno, je výchozí název rozbočovače úlohy pro funkce aplikace **DurableFunctionsHub**. Další informace najdete v tématu [úloh centra](durable-functions-task-hubs.md).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Zjistěte, jak aktualizovat soubor host.json](functions-reference.md#fileupdate)

@@ -64,4 +64,4 @@ Můžete omezit přístup k přihlášení do pouze uživatelské účty, které
 #### <a name="use-a-custom-method-to-validate-issuers"></a>Použít vlastní metodu k ověření vystavitele
 Můžete implementovat vlastní metodu pro ověření vystavitelů pomocí **IssuerValidator** parametr. Další informace o tom, jak tento parametr použijte, přečtěte si informace o [parametry tokenvalidationparameters třída](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) na webu MSDN.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

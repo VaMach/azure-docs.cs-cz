@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Nejčastější dotazy k Azure Data Factory
 Tento článek se týká 2 verzi služby Azure Data Factory. Poskytuje odpovědi na nejčastější dotazy týkající se služby Data Factory.  
@@ -68,7 +68,7 @@ Nyní máte volného modelu všechny toku styl, který vyžaduje pro integraci d
 Další informace najdete v tématu [kurz: řízení toky](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Nasazení balíčků služby SSIS do Azure 
-Pokud chcete přesunout úlohy služby SSIS, můžete vytvořit objekt pro vytváření dat verze 2 a zřídit modulu runtime integrace Azure SSIS. Modul runtime integrace Azure SSIS je plně spravovaný cluster Azure virtuálních počítačů (uzlů), které jsou vyhrazené pro spouštění vlastních balíčků SSIS v cloudu. Podrobné pokyny najdete v tématu [balíčky SSIS nasadit do Azure](tutorial-deploy-ssis-packages-azure.md) kurzu. 
+Pokud chcete přesunout úlohy služby SSIS, můžete vytvořit objekt pro vytváření dat verze 2 a zřídit modulu runtime integrace Azure SSIS. Modul runtime integrace Azure SSIS je plně spravovaný cluster Azure virtuálních počítačů (uzlů), které jsou vyhrazené pro spouštění vlastních balíčků SSIS v cloudu. Podrobné pokyny najdete v tématu [balíčky SSIS nasadit do Azure](tutorial-create-azure-ssis-runtime-portal.md) kurzu. 
  
 
 ### <a name="sdks"></a>Sady SDK

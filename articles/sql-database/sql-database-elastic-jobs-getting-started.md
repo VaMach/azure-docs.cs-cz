@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Začínáme s úlohami elastické databáze
-Elastické databáze úlohy (preview) pro databázi SQL Azure umožňuje spolehlivost spuštění skriptů T-SQL, které jsou rozmístěny v několika databází při automaticky opakování a poskytování případné dokončení záruky. Další informace o funkci úlohy elastické databáze najdete v tématu [elastické úlohy](sql-database-elastic-jobs-overview.md).
+Elastické databáze úlohy (preview) pro databázi SQL Azure umožňuje spolehlivě spuštění skriptů T-SQL, které jsou rozmístěny v několika databází při automaticky opakování a poskytování případné dokončení záruky. Další informace o funkci úlohy elastické databáze najdete v tématu [elastické úlohy](sql-database-elastic-jobs-overview.md).
 
 Tento článek rozšiřuje najít v ukázce [Začínáme s nástroje elastické databáze](sql-database-elastic-scale-get-started.md). Po dokončení zjistíte, jak vytvářet a spravovat úlohy, které správu skupiny související databází. Není nutné používat nástroje elastické škálování, pokud chcete využít výhod elastické úlohy.
 
@@ -461,7 +461,7 @@ Odebrat aktivační události úlohy zastavení úlohy z se spouští podle plá
 
 Všechny řádky z **zákazníci** tabulky, uložené v různých horizontálních oddílů naplnit listu aplikace Excel.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď můžete použít funkce dat v aplikaci Excel. Použijte připojovací řetězec s názvem serveru, názvu databáze a pověření pro připojení k databázi elastické dotazu vaše integrace nástrojů BI a data. Ujistěte se, že systém SQL Server je podporovaný jako zdroj dat pro vaše nástroje. Viz elastické dotaz do databáze a externí tabulky stejně jako všechny ostatní databáze systému SQL Server a SQL Server tabulky, které by se připojit k vaší nástrojem.
 
 ### <a name="cost"></a>Náklady

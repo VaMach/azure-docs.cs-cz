@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e299de0953cefac925b0015a15983d25d456576f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96dad8917f4483c3d7c74ea0462b96d89286f549
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>Rady pro pochopení a použití sady SDK služby Azure IoT
 
@@ -54,7 +54,7 @@ Toto zařízení Azure IoT sady SDK jsou k dispozici ke stažení z webu GitHub:
 
 Další informace o kompatibilitě sady SDK s konkrétním hardwarovým zařízení najdete v tématu [Azure certifikované pro katalog zařízení IoT][lnk-certified].
 
-## <a name="azure-iot-service-sdks"></a>Služby sady SDK služby Azure IoT
+## <a name="azure-iot-service-sdks"></a>Azure IoT service SDKs
 
 Sady SDK služby Azure IoT obsahovat kód, který usnadňuje vytváření aplikace, které spolupracují přímo službou IoT Hub pro správu zařízení a zabezpečení.
 
@@ -88,7 +88,7 @@ Následující seznam obsahuje odkazy na online referenční dokumentace rozhran
 * [Centrum IoT REST][lnk-rest-ref]
 * [Azure IoT Edge][lnk-gateway-ref]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zahrnout další referenční témata v této příručce pro vývojáře IoT Hub:
 

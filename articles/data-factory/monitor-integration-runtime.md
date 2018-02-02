@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: spelluru
-ms.openlocfilehash: e1bfb7199ddf9f02297db9de529729ba3833cf8c
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorování modulu runtime integrace v Azure Data Factory  
 **Integrace runtime** je na výpočetní infrastruktuře používá k zajištění různé funkce integrace dat různých prostředích sítě Azure Data Factory. Existují tři typy integrační moduly runtime nabízené službou Data Factory:
@@ -45,11 +45,11 @@ Následující tabulka obsahuje popis vlastností vrácených pro modulu runtime
 
 | Vlastnost | Popis |
 -------- | ------------- | 
-| Name (Název) | Název modulu runtime integrace se službou Azure. |  
+| Název | Název modulu runtime integrace se službou Azure. |  
 | Stav | Stav modulu runtime integrace se službou Azure. | 
 | Umístění | Umístění modulu runtime integrace se službou Azure. Podrobnosti o umístění modulu runtime integrace se službou Azure najdete v tématu [Úvod do integrace runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Název objektu pro vytváření dat, který je součástí modulu runtime integrace se službou Azure. | 
-| Název skupiny prostředků | Název objektu pro vytváření dat patří do skupiny prostředků.  |
+| ResourceGroupName | Název objektu pro vytváření dat patří do skupiny prostředků.  |
 | Popis | Popis integrace modulu runtime.  |
 
 ### <a name="status"></a>Status
@@ -58,7 +58,7 @@ V následující tabulce jsou uvedené možné stavy modulu runtime integrace se
 | Status | Komentáře nebo scénáře | 
 | ------ | ------------------ |
 | Online | Modul runtime integrace se službou Azure je online a připravená k použití. | 
-| V režimu offline | Modul runtime integrace se službou Azure je offline z důvodu vnitřní chyby. |
+| Offline | Modul runtime integrace se službou Azure je offline z důvodu vnitřní chyby. |
 
 ## <a name="self-hosted-integration-runtime"></a>Prostředí Integration Runtime v místním prostředí
 Tato část obsahuje popis vlastností vrátila Rutina Get-AzureRmDataFactoryV2IntegrationRuntime. 
@@ -72,7 +72,7 @@ Následující tabulka obsahuje popis vlastností pro monitorování **každý u
 
 | Vlastnost | Popis | 
 | -------- | ----------- | 
-| Name (Název) | Název modulu runtime vlastním hostováním integrace a uzly s ním spojená. Uzel je místní počítač systému Windows, s vlastním hostováním integrační modul runtime na něm nainstalován. |  
+| Název | Název modulu runtime vlastním hostováním integrace a uzly s ním spojená. Uzel je místní počítač systému Windows, s vlastním hostováním integrační modul runtime na něm nainstalován. |  
 | Status | Stav modulu runtime celkovou vlastním hostováním integraci a každý uzel. Příklad: Online nebo Offline nebo Limited/atd. Informace o tyto stavy najdete v další části. | 
 | Verze | Verze runtime vlastním hostováním integrace a každý uzel. Verze runtime vlastním hostováním integrace je určen na základě verze Většina uzlů ve skupině. Pokud jsou uzly s různými verzemi v nastavení vlastním hostováním integrace modulu runtime, pouze uzly se číslo verze jako logické samoobslužné hostované funkce integrace modulu runtime správně. Ostatní jsou v režimu omezené a je nutné ručně aktualizovat (pouze v případě automatické aktualizace nezdaří). | 
 | Dostupná paměť | Dostupná paměť na uzlu vlastním hostováním integrace modulu runtime. Tato hodnota je snímku near v reálném čase. | 
@@ -89,7 +89,7 @@ Následující tabulka obsahuje možné stavy modulu runtime uzlu vlastním host
 | Status | Popis |
 | ------ | ------------------ | 
 | Online | Uzel je připojený ke službě Data Factory. |
-| V režimu offline | Uzel je offline. |
+| Offline | Uzel je offline. |
 | Upgrade | Uzel, která má být automaticky aktualizován. |
 | Omezená | Problém s připojením. Může být kvůli problému 8050 portu HTTP, problém s připojením service bus nebo problém s přihlašovacími údaji synchronizace. |
 | Neaktivní | Uzel je v konfiguraci se liší od konfigurace jiných Většina uzlů. |
@@ -103,7 +103,7 @@ Následující tabulka obsahuje možné stavy modulu runtime vlastním hostován
 | ------ | ----------- | 
 | Třeba registrace | Tento modul runtime vlastním hostováním integrace je zaregistrovaný žádný uzel ještě. |
 | Online | Všechny uzly jsou online. |
-| V režimu offline | Žádný uzel je online. |
+| Offline | Žádný uzel je online. |
 | Omezená | Ne všechny uzly v tento modul runtime vlastním hostováním integrace jsou v dobrém stavu. Tento stav se upozornění, že některé uzly mohou být mimo provoz. Tento stav může být způsobeno problémem synchronizace přihlašovacích údajů na dispečera nebo pracovního uzlu. |
 
 Použití **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** rutiny načíst datové části JSON obsahující v podrobné samoobslužně hostovaná integrace modulu runtime vlastnosti a hodnoty jejich snímku v době, provádění rutiny.
@@ -170,9 +170,9 @@ Modul runtime integrace Azure SSIS je plně spravovaný cluster Azure virtuáln�
 | Podsíť | Název podsítě pro vaše integrace Azure SSIS modulu runtime pro připojení. |
 | ID | ID prostředku vaší runtime integrace Azure SSIS. |
 | Typ | Typ (spravované nebo samoobslužných-Hosted) vaší runtime integrace Azure SSIS. |
-| Název skupiny prostředků | Název vaší skupiny prostředků Azure, ve kterém byly vytvořeny pro vytváření dat a integrace Azure SSIS modulu runtime. |
+| ResourceGroupName | Název vaší skupiny prostředků Azure, ve kterém byly vytvořeny pro vytváření dat a integrace Azure SSIS modulu runtime. |
 | DataFactoryName | Název vaší služby Azure data factory. |
-| Name (Název) | Název vašeho runtime integrace Azure SSIS. |
+| Název | Název vašeho runtime integrace Azure SSIS. |
 | Popis | Popis vaší runtime integrace Azure SSIS. |
 
   
@@ -191,19 +191,19 @@ Modul runtime integrace Azure SSIS je plně spravovaný cluster Azure virtuáln�
 | -------------- | ----------- | 
 | Počáteční | Uzly vaší runtime integrace Azure SSIS nebyly přidělené připravený. | 
 | Spouštění | Uzly vaší runtime integrace Azure SSIS probíhá přidělené připravené a fakturace bylo zahájeno. |
-| spuštění | Uzly vaší runtime integrace Azure SSIS byly přiděleny připravené a jsou připraveny k nasazení a spouštění balíčků SSIS. |
+| Spuštěno | Uzly vaší runtime integrace Azure SSIS byly přiděleny připravené a jsou připraveny k nasazení a spouštění balíčků SSIS. |
 | Zastavování  | Uzly vaší runtime integrace Azure SSIS vydávají. |
 | Zastaveno | Uzly vaší runtime integrace Azure SSIS byly vydány a fakturace byla zastavena. |
 
 Najdete další informace o běhu integrace Azure SSIS v následujících článcích:
 
 - [Modul Runtime integrace Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Tento článek obsahuje koncepční informace o integraci runtimes obecně včetně infračerveného signálu Azure SSIS. 
-- [Kurz: Nasazení balíčků SSIS do Azure](tutorial-deploy-ssis-packages-azure.md) Tento článek obsahuje podrobné pokyny pro vytvoření Azure-SSIS IR a využívá databázi Azure SQL k hostování katalogu SSIS. 
+- [Kurz: Nasazení balíčků SSIS do Azure](tutorial-create-azure-ssis-runtime-portal.md) Tento článek obsahuje podrobné pokyny pro vytvoření Azure-SSIS IR a využívá databázi Azure SQL k hostování katalogu SSIS. 
 - [Postup: Vytvoření prostředí Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md) Tento článek dál navazuje na tento kurz a obsahuje pokyny k použití spravované instance SQL Azure (privátní verze Preview) a připojení IR k virtuální síti. 
 - [Správa Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Tento článek ukazuje, jak zastavit, spustit nebo odebrat Azure-SSIS IR. Ukazuje také postup horizontálního navýšení kapacity Azure-SSIS IR přidáním více uzlů. 
 - [Připojení Azure-SSIS IR k virtuální síti](join-azure-ssis-integration-runtime-virtual-network.md) Tento článek obsahuje koncepční informace o připojení Azure-SSIS IR k virtuální síti Azure (VNet). Poskytuje také kroky pro využití webu Azure Portal ke konfiguraci virtuální sítě, aby se k ní prostředí Azure-SSIS IR mohlo připojit. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících článcích pro monitorování kanály různými způsoby: 
 
 - [Rychlý úvod: Vytvořte objekt pro vytváření dat](quickstart-create-data-factory-dot-net.md).

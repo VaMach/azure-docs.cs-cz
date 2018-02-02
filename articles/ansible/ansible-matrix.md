@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/19/2018
 ms.topic: article
-ms.openlocfilehash: da5d1a8277d87a771b080ef9cefb3b40448d1563
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matice Ansible modul a verze
 
@@ -33,6 +33,7 @@ V tomto článku jsou uvedené moduly Ansible pro Azure, který můžete zřizov
 | azure_rm_virtualmachine                     | Ano          | Ano                         | Ano                                 | 
 | azure_rm_virtualmachine_extension           | Ano          | Ano                         | Ano                                 | 
 | azure_rm_virtualmachine_scaleset            | Ano          | Ano                         | Ano                                 | 
+| azure_rm_image                              |              | Ano                         | Ano                                 | 
 | **Sítě**                    |           |                          |                                  | 
 | azure_rm_virtualnetwork                     | Ano          | Ano                         | Ano                                 | 
 | azure_rm_virtualnetwork_facts               | Ano          | Ano                         | Ano                                 | 
@@ -45,13 +46,16 @@ V tomto článku jsou uvedené moduly Ansible pro Azure, který můžete zřizov
 | azure_rm_dnsrecordset_facts                 | Ano          | Ano                         | Ano                                 | 
 | azure_rm_dnszone                            | Ano          | Ano                         | Ano                                 | 
 | azure_rm_dnszone_facts                      | Ano          | Ano                         | Ano                                 | 
-| **Úložiště**                    |           |                          |                                  | 
 | azure_rm_loadbalancer                       | Ano          | Ano                         | Ano                                 | 
 | azure_rm_loadbalancer_facts                 | Ano          | Ano                         | Ano                                 | 
-| azure_rm_applicationgateway                 | -            | Ano                         |                                     | 
-| azure_rm_applicationgateway_facts           | -            | -                           | Ano                                 | 
-| azure_rm_securitygroup                      | -            | -                           | Ano                                 | 
-| azure_rm_securitygroup_facts                | -            | -                           | Ano                                 | 
+| azure_rm_appgw                              | -            | -                           | Ano                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Ano                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Ano                                 |
+| azure_rm_appgwroute_facts                   | -            | -                           | Ano                                 |
+| azure_rm_appgwroutetable                    | -            | -                           | Ano                                 |
+| azure_rm_securitygroup                      | Ano          | Ano                         | Ano                                 | 
+| azure_rm_appgwroutetable_facts              | Ano          | Ano                         | Ano                                 | 
+| **Úložiště**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Ano          | Ano                         | Ano                                 | 
 | azure_rm_storageaccount_facts               | Ano          | Ano                         | Ano                                 | 
 | azure_rm_storageblob                        | Ano          | Ano                         | Ano                                 | 
@@ -59,7 +63,7 @@ V tomto článku jsou uvedené moduly Ansible pro Azure, který můžete zřizov
 | azure_rm_managed_disk_facts                 | Ano          | Ano                         | Ano                                 | 
 | **Kontejnery**                    |           |                          |                                  | 
 | azure_rm_acs                                | Ano          | Ano                         | Ano                                 | 
-| azure_rm_containerinstance                  | -            | Ano                        |                                     | 
+| azure_rm_containerinstance                  | -            | Ano                         | Ano                                 | 
 | azure_rm_containerinstance_facts            | -            | -                           | Ano                                 | 
 | azure_rm_containerregistry                  | -            | Ano                         | Ano                                 | 
 | azure_rm_containerregistry_facts            | -            | -                           | Ano                                 | 
@@ -73,7 +77,7 @@ V tomto článku jsou uvedené moduly Ansible pro Azure, který můžete zřizov
 | **Databáze**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Ano                         | Ano                                 | 
 | azure_rm_sqlserver_facts                    | -            | -                           | Ano                                 | 
-| azure_rm_sqldatabase                        | -            | -                           | Ano                                 | 
+| azure_rm_sqldatabase                        | -            | Ano                         | Ano                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Ano                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Ano                                 | 
 | azure_rm_sqlelasticpool_facts               | -            | -                           | Ano                                 | 
@@ -81,7 +85,7 @@ V tomto článku jsou uvedené moduly Ansible pro Azure, který můžete zřizov
 | azure_rm_sqlfirewallrule_facts              | -            | -                           | Ano                                 | 
 | azure_rm_mysqlserver                        | -            | Ano                         | Ano                                 | 
 | azure_rm_mysqlserver_facts                  | -            | -                           | Ano                                 | 
-| azure_rm_mysqldatabase                      | -            | -                           | Ano                                 | 
+| azure_rm_mysqldatabase                      | -            | Ano                         | Ano                                 | 
 | azure_rm_mysqldatabase_facts                | -            | -                           | Ano                                 | 
 | azure_rm_mysqlfirewallrule                  | -            | -                           | Ano                                 | 
 | azure_rm_mysqlfirewallrule_facts            | -            | -                           | Ano                                 | 
@@ -89,12 +93,17 @@ V tomto článku jsou uvedené moduly Ansible pro Azure, který můžete zřizov
 | azure_rm_mysqlconfiguration_facts           | -            | -                           | Ano                                 | 
 | azure_rm_postgresqlserver                   | -            | Ano                         | Ano                                 | 
 | azure_rm_postgresqlserver_facts             | -            | -                           | Ano                                 | 
-| azure_rm_postgresqldatabase                 | -            | -                           | Ano                                 | 
+| azure_rm_postgresqldatabase                 | -            | Ano                         | Ano                                 | 
 | azure_rm_postgresqldatabase_facts           | -            | -                           | Ano                                 | 
 | azure_rm_postgresqlfirewallrule             | -            | -                           | Ano                                 | 
 | azure_rm_postgresqlfirewallrule_facts       | -            | -                           | Ano                                 | 
 | azure_rm_postgresqlconfiguration            | -            | -                           | Ano                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Ano                                 | 
+| **Key Vault**                    |           |                          |                                  | 
+| azure_rm_keyvault                           | -            | -                           | Ano                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | Ano                                 |
+| azure_rm_keyvaultkey                        | -            | -                           | Ano                                 |
+| azure_rm_keyvaultsecret                     | -            | -                           | Ano                                 |
 
 ## <a name="introduction-to-azuremodule"></a>Úvod do azure_module
 [Azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) zahrnuje nejnovější změny a opravy chyb pro Azure moduly z [devel větev úložiště Ansible](https://github.com/ansible/ansible/tree/devel). Pokud nemůžete počkat Ansible na další vydání, instalace azure_module role je vhodné použít.

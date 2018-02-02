@@ -3,24 +3,23 @@ title: "Akce a NotActions – řízení přístupu Azure na základě rolí (RBA
 description: "Toto téma popisuje předdefinovaných do rolí pro řízení přístupu na základě role (RBAC). Role jsou neustále přidali, proto zkontrolujte aktuálnosti dokumentaci."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Předdefinované role pro řízení přístupu Azure na základě rolí
 Azure na základě rolí řízení přístupu (RBAC) obsahuje následující předdefinované role, které lze přiřadit uživatelům, skupinám a službám. Definice předdefinované role se nedá změnit. Můžete však vytvořit [vlastní role v Azure RBAC](role-based-access-control-custom-roles.md) podle konkrétních potřeb vaší organizace.
@@ -68,7 +67,9 @@ V tomto článku pouze adresy různé role, které existují ještě dnes. Když
 | [Přispěvatel mezipaměti redis](#redis-cache-contributor) |Můžete spravovat mezipaměti Redis |
 | [Přispěvatel kolekce úloh plánovače](#scheduler-job-collections-contributor) |Můžete spravovat kolekce úloh plánovače |
 | [Přispěvatel služby vyhledávání](#search-service-contributor) |Můžete spravovat služby vyhledávání |
-| [Správce zabezpečení](#security-manager) |Můžete spravovat součásti zabezpečení, zásady zabezpečení a virtuálních počítačů |
+| [Správce zabezpečení](#security-administrator) | V Centru zabezpečení pouze: můžete zobrazit zásady zabezpečení, zobrazit stavy zabezpečení, upravit zásady zabezpečení, zobrazení výstrah a doporučení, zavření výstrahy a doporučení |
+| [Správce zabezpečení](#security-manager) | Můžete spravovat součásti zabezpečení, zásady zabezpečení a virtuálních počítačů |
+| [Čtečka zabezpečení](#security-reader) | V Centru zabezpečení pouze: můžete zobrazit doporučení a výstrahy, zobrazení zásady zabezpečení, zobrazit stavy zabezpečení, ale nelze provádět změny |
 | [Přispěvatel obnovení lokality](#site-recovery-contributor) | Site Recovery můžete spravovat v trezoru služeb zotavení |
 | [Operátor obnovení lokality](#site-recovery-operator) | Můžete spravovat převzetí služeb při selhání a navrácení služeb po obnovení operace obnovení lokality v trezoru služeb zotavení |
 | [Čtečka obnovení lokality](#site-recovery-reader) | Můžete zobrazit všechny operace správy Site Recovery  |
@@ -506,21 +507,50 @@ Můžete spravovat služby vyhledávání
 | Microsoft.Search/searchServices/* |Vytvoření a Správa služby vyhledávání |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
+### <a name="security-administrator"></a>Správce zabezpečení
+V Centru zabezpečení pouze: můžete zobrazit zásady zabezpečení, zobrazit stavy zabezpečení, upravit zásady zabezpečení, zobrazení výstrah a doporučení, zavření výstrahy a doporučení
+
+| **Akce** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Čtení rolí a přiřazení rolí |
+| Microsoft.Authorization/policyAssignments/* | Vytvoření a správa přiřazení zásad. |
+| Microsoft.Authorization/policySetDefinitions/* | Vytvoření a Správa zásad skupiny |
+| Microsoft.Authorization/policyDefinitions/* | Vytvářet a spravovat definice zásady |
+| Microsoft.Insights/alertRules/* | Vytvářet a spravovat pravidla výstrah |
+| Microsoft.operationalInsights/workspaces/*/read | Zobrazit data analýzy protokolů |
+| Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
+| Microsoft.Security/*/read | Čtení bezpečnostních komponent a zásad |
+| Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
+
 ### <a name="security-manager"></a>Správce zabezpečení
 Můžete spravovat součásti zabezpečení, zásady zabezpečení a virtuálních počítačů
 
 | **Akce** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Čtení role a role přiřazení |
-| Microsoft.ClassicCompute/*/read |Přečtěte si informace o konfiguraci klasické výpočetní virtuální počítače |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Zapsat konfiguraci pro virtuální počítače |
+| Microsoft.Authorization/*/read |Čtení rolí a přiřazení rolí |
+| Microsoft.ClassicCompute/*/read |Přečtěte si informace o konfiguraci klasické virtuální počítače |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Zápis konfigurace pro klasické virtuální počítače |
 | Microsoft.ClassicNetwork/*/read |Přečtěte si informace o konfiguraci o classic sítě |
-| Microsoft.Insights/alertRules/* |Vytvářet a spravovat pravidla výstrah |
+| Microsoft.Insights/alertRules/* | Vytvářet a spravovat pravidla výstrah |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Načíst stav prostředků |
 | Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Security/* |Vytvořit a spravovat zabezpečení komponenty a zásady |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
+
+### <a name="security-reader"></a>Čtenář zabezpečení
+V Centru zabezpečení pouze: můžete zobrazit doporučení a výstrahy, zobrazení zásady zabezpečení, zobrazit stavy zabezpečení, ale nelze provádět změny
+
+| **Akce** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Čtení rolí a přiřazení rolí |
+| Microsoft.Insights/alertRules/* | Vytvářet a spravovat pravidla výstrah |
+| Microsoft.operationalInsights/workspaces/*/read | Zobrazit data analýzy protokolů |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
+| Microsoft.Security/*/read | Čtení bezpečnostních komponent a zásad |
+| Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
+| Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
 
 ### <a name="site-recovery-contributor"></a>Přispěvatel Site Recovery
 Můžete spravovat všechny akce správy Site Recovery, s výjimkou vytvoření trezoru služeb zotavení a přiřazení přístupová práva jiným uživatelům
@@ -872,3 +902,4 @@ Můžete spravovat weby, ale není webové plány, na které jsou připojeny
 * [Vlastní role v Azure RBAC](role-based-access-control-custom-roles.md): Naučte se vytvářet vlastní role podle vašich potřeb přístup.
 * [Vytvoření sestavy historie změn přístupu](role-based-access-control-access-change-history-report.md): udržování přehledu o změně přiřazení rolí v RBAC.
 * [Na základě rolí řešení potíží s řízení přístupu](role-based-access-control-troubleshooting.md): umožňuje získat návrhy pro řešení běžných problémů.
+* [Oprávnění v Azure Security Center](../security-center/security-center-permissions.md)

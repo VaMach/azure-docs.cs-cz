@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Osvědčené postupy pro izolační aplikace proti výpadkům Service Bus a havárií
 
@@ -31,12 +31,7 @@ Havárie je definován jako trvalé ztrátě jednotky škálování služby Serv
 ## <a name="current-architecture"></a>Aktuální architektura
 Service Bus používá několik úložišť pro přenos zpráv k uložení zpráv, které jsou odesílány do fronty nebo témata. Bez oddílů fronta nebo téma je přiřazený k jedné úložišti pro přenos zpráv. Pokud toto úložiště zasílání zpráv není k dispozici, všechny operace v tomto fronta nebo téma se nezdaří.
 
-Všechny služby Service Bus entit pro zasílání zpráv (fronty, témata, předávání) se nacházejí v oboru názvů služby, který je přidružen k datacentru. Service Bus neumožňuje automatické geografická replikace dat, k tomu ani obor názvů rozložit několik datových center.
-
-## <a name="protecting-against-acs-outages"></a>Ochrana proti výpadkům služby ACS
-Pokud používáte přihlašovací údaje služby ACS a služby ACS není k dispozici, klienti už můžou získat tokeny. Klienti, kteří mají token v době, kdy ACS ocitne mimo provoz můžete nadále používat Service Bus, dokud nevyprší platnost tokenů. Výchozí doba života tokenu je 3 hodiny.
-
-Chcete-li chránit proti výpadkům služby ACS, použijte tokeny sdíleného přístupového podpisu (SAS). V tomto případě klient se ověří přímo službou Service Bus podepsáním samoobslužné minted token s tajným klíčem. Volání služby ACS se už nevyžadují. Další informace o tokeny SAS najdete v tématu [ověření sběrnice][Service Bus authentication].
+Všechny služby Service Bus entit pro zasílání zpráv (fronty, témata, předávání) se nacházejí v oboru názvů služby, který je přidružen k datacentru. Service Bus nyní podporuje [ *geograficky havárii* a *geografická replikace* ](service-bus-geo-dr.md) na úrovni oboru názvů.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Ochrana fronty a témata proti selhání úložiště pro zasílání zpráv
 Bez oddílů fronta nebo téma je přiřazený k jedné úložišti pro přenos zpráv. Pokud toto úložiště zasílání zpráv není k dispozici, všechny operace v tomto fronta nebo téma se nezdaří. Oddílů fronty, na druhé straně, se skládá z více fragmentů. Každý fragment je uložen v jiném úložišti zasílání zpráv. Pro odeslání zprávy do oddílů fronta nebo téma sběrnice přiřadí zpráva jedním z fragmentů. Pokud odpovídající úložišti pro přenos zpráv není k dispozici, Service Bus zapíše zprávu do různých fragment, pokud je to možné. Další informace o dělené entity najdete v tématu [segmentované entity zasílání zpráv][Partitioned messaging entities].
@@ -82,9 +77,14 @@ Při použití pasivní replikace, v následujících scénářích zprávy mů�
 
 [Geografická replikace se Service Bus zprostředkované zprávy] [ Geo-replication with Service Bus Brokered Messages] příklad znázorňuje pasivní replikaci entity pro zasílání zpráv.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="geo-replication"></a>Geografická replikace
+
+Service Bus podporuje havárii geografické obnovení a geografická replikace, na úrovni oboru názvů. Další informace najdete v tématu [Azure Service Bus Geo-havárii](service-bus-geo-dr.md). Po havárii funkci obnovení, k dispozici pro [skladová položka Premium](service-bus-premium-messaging.md) pouze implementuje zotavení po havárii metadata a spoléhá na obory názvů pro zotavení po havárii primární a sekundární.
+
+## <a name="next-steps"></a>Další postup
 Další informace o zotavení po havárii, najdete v těchto článcích:
 
+* [Azure Service Bus Geo-havárii](service-bus-geo-dr.md)
 * [Kontinuita podnikových procesů Azure SQL Database][Azure SQL Database Business Continuity]
 * [Návrh odolný aplikací pro Azure.][Azure resiliency technical guidance]
 

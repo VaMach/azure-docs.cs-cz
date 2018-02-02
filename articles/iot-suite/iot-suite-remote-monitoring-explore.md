@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Prozkoumejte možnosti předkonfigurovaného řešení vzdáleného monitorování
 
@@ -31,6 +31,10 @@ V tomto kurzu se naučíte:
 > * Reakce na alarm
 > * Aktualizace firmwaru v zařízení
 > * Uspořádání vaše prostředky
+
+Následující video ukazuje návod řešení vzdáleného monitorování:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -73,12 +77,12 @@ Následující tabulka obsahuje souhrn typů zřízené zařízení:
 
 Operátory společnosti Contoso znát prahové hodnoty, které určují, jestli zařízení správně funguje. Například není chladič funguje správně, pokud je větší než 250 PSI přetížení, které oznámí. V následující tabulce jsou uvedeny na základě prahové hodnoty pravidla, která definuje společnosti Contoso pro každý typ zařízení:
 
-| Název pravidla | Popis | Prahová hodnota | Závažnost | Ovlivněné zařízení |
+| Název pravidla | Popis | Mezní hodnota | Závažnost | Ovlivněné zařízení |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Přetížení chladič příliš vysoká. | Výstrahy, pokud dochlazovače dosáhnout vyšší než normální přetížení úrovně   |P > 250 psi       | Kritické | Dochlazovače            |
-| Při vytváření prototypu zařízení temp příliš vysoká.  | Výstrahy, pokud při vytváření prototypu zařízení dosáhnout vyšší než normální teploty úrovně  |T > 80&deg; F |Kritické | Při vytváření prototypu zařízení |
+| Přetížení chladič příliš vysoká. | Výstrahy, pokud dochlazovače dosáhnout vyšší než normální přetížení úrovně   |P>250 psi       | Kritická | Dochlazovače            |
+| Při vytváření prototypu zařízení temp příliš vysoká.  | Výstrahy, pokud při vytváření prototypu zařízení dosáhnout vyšší než normální teploty úrovně  |T>80&deg; F |Kritická | Při vytváření prototypu zařízení |
 | Modul nádrž prázdný  | Výstrahy, pokud modul nádrž přejde prázdný                     | F < 5 galonech. | Informace     | Moduly             |
-| Vyšší než normální nákladní teploty | Výstrahy, pokud je vyšší než normální teploty nákladní vůz společnosti                 | T < 45&deg; F |Upozornění  | Dodávky              |
+| Vyšší než normální nákladní teploty | Výstrahy, pokud je vyšší než normální teploty nákladní vůz společnosti                 | T<45&deg; F |Upozornění  | Dodávky              |
 | Hodnocení vibrace zastavena      | Výstrahy, pokud hodnocení zcela zastaví (podle vibrace úroveň)                     | V < 0,1 mm |Upozornění  | Výtahy           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Provoz nasazení ukázkové společnosti Contoso
@@ -226,7 +230,7 @@ Hodnoty značky můžete použít pro vytvoření filtrů.
 
 Operátor Contoso teď můžete dotazovat zařízení podle operačního team aniž by bylo nutné změnit všechno na zařízeních.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se dozvěděli na:
 

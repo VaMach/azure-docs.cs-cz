@@ -3,8 +3,8 @@ title: "Služba kvóty a omezení pro Azure Batch | Microsoft Docs"
 description: "Další informace o výchozích Azure Batch kvót, omezení a omezení a zvyšuje jak požádat o kvótu"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvóty a omezení služby Batch
 
@@ -48,14 +48,14 @@ Pokud jste použili k vytvoření účtu Batch s režim přidělení fondu nasta
 | --- | --- |
 | [Souběžné úlohy](batch-parallel-node-tasks.md) na výpočetním uzlu |4 x počet jader na uzel |
 | [Aplikace](batch-application-packages.md) na účtu Batch |20 |
-| Balíčky aplikací na aplikaci. |40 |
-| Velikost balíčku aplikace, (všechny) |Poli 195GB<sup>1</sup> |
+| Balíčky aplikací na jednu aplikaci |40 |
+| Velikost balíčku aplikace, (všechny) |Approx. 195GB<sup>1</sup> |
 | Velikost maximální spuštění úloh | 32768 znaků<sup>2</sup> |
 | Úloha maximální doba platnosti | 7 dní<sup>3</sup> |
 
 <sup>1</sup> azure Storage limit pro velikost objektu blob maximální bloku<br />
 <sup>2</sup> zahrnuje soubory prostředků a proměnných prostředí<br />
-<sup>3</sup> maximální životnost úlohy, když je přidán do úlohy po dokončení, je 7 dní. Dokončené úlohy zachovat po neomezenou dobu; data pro úlohy, které nejsou dokončeny v rámci maximální doba života nejsou dostupná.
+<sup>3</sup> maximální životnost úlohy, když je přidán do úlohy po dokončení, je 7 dní. Dokončené úkoly se zachovávají po neomezenou dobu; data pro úkoly, které se nedokončí v rámci maximální doby života, nejsou dostupná.
 
 
 ## <a name="view-batch-quotas"></a>Zobrazení dávky kvóty

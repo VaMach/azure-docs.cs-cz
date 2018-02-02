@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f927aa7a33a650354abd090b6280795875ab693f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: efcfad2834c2d6775c6693f5c705a0531b2650d6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-bus-messaging-exceptions"></a>Výjimky zasílání zpráv Service Bus
 V tomto článku jsou uvedené některé výjimky generované zasílání zpráv na úrovni rozhraní API Microsoft Azure Service Bus. Tento odkaz se může změnit, tak to zkuste znovu aktualizací.
 
 ## <a name="exception-categories"></a>Výjimka kategorie
-Rozhraní API pro zasílání zpráv generování výjimek, které můžete spadají do následujících kategorií, společně s přidružené akce, které můžete provést a zkuste to opravit je. Všimněte si, že významy a způsobí výjimku se může lišit v závislosti na typu entity přenosu zpráv (fronty nebo témata nebo Event Hubs):
+Rozhraní API pro zasílání zpráv generování výjimek, které můžete spadají do následujících kategorií, společně s přidružené akce, které můžete provést a zkuste to opravit je. Všimněte si, že významy a způsobí výjimku se může lišit v závislosti na typu entity přenosu zpráv:
 
 1. Uživatel kódování chyby ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Obecné akce: pokusí opravit kód než budete pokračovat.
 2. Chyba instalace/konfigurace ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Obecné akce: Zkontrolujte konfiguraci a v případě potřeby změnit.
@@ -40,7 +40,7 @@ Následující tabulka uvádí typy výjimek zasílání zpráv a jejich příč
 | [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |Požadovaná uživatelská operace není povolena v rámci serveru nebo službě. Zobrazí se zpráva výjimky podrobnosti. Například [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) vygeneruje výjimku, pokud zpráva byla přijata v [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) režimu. |Zkontrolujte kód a dokumentace. Ujistěte se, že požadovaná operace je platná. |Opakování nepomůže. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |Je proveden pokus o vyvolání operace u objektu, který již byl uzavřen, byl zrušen nebo zlikvidován. Ve výjimečných případech je již zveřejněn vedlejším transakce. |Zkontrolujte kód a ujistěte se, že nevyvolá operací na objekt uvolněné. |Opakování nepomůže. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |[TokenProvider](/dotnet/api/microsoft.azure.servicebus.tokenprovider) objekt se nedá získat token, token je neplatný nebo token neobsahuje deklarace identity potřebná k provedení operace. |Ujistěte se, že se vytvoří zprostředkovatel tokenu s správné hodnoty. Zkontrolujte konfiguraci služby Řízení přístupu. |Opakování vám může pomoci v některých případech; Přidejte logiku opakovaných pokusů ke kódu. |
-| [ArgumentException –](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[Výjimka ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |Jeden nebo více argumenty metodě jsou neplatné.<br /> Zadaný identifikátor URI do [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nebo [vytvořit](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) obsahuje segment(s) cesta.<br /> Schéma identifikátoru URI zadané [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nebo [vytvořit](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) je neplatný. <br />Hodnota vlastnosti je větší než 32KB. |Volání kódu a ujistěte se, že jsou správné argumenty. |Opakování nepomůže. |
+| [ArgumentException –](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |Jeden nebo více argumenty metodě jsou neplatné.<br /> Zadaný identifikátor URI do [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nebo [vytvořit](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) obsahuje segment(s) cesta.<br /> Schéma identifikátoru URI zadané [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nebo [vytvořit](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) je neplatný. <br />Hodnota vlastnosti je větší než 32KB. |Volání kódu a ujistěte se, že jsou správné argumenty. |Opakování nepomůže. |
 | [MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |Entity přidružené operaci neexistuje nebo byla odstraněna. |Ujistěte se, že entita existuje. |Opakování nepomůže. |
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Pokuste se zobrazí zpráva s konkrétní pořadové číslo. Tato zpráva nebyla nalezena. |Zkontrolujte, zda že zpráva již nebyl přijat. Zkontrolujte fronty nedoručených zpráv, které chcete zobrazit, pokud zpráva byla deadlettered. |Opakování nepomůže. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Klient není schopen vytvořit připojení k Service Bus. |Ujistěte se, že je název hostitele zadaný správný a hostitel není dosažitelný. |Opakování mohou pomoci, pokud existují problémy s občasným připojením. |
@@ -58,7 +58,7 @@ Následující tabulka uvádí typy výjimek zasílání zpráv a jejich příč
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |Service Bus vrací výjimku, pokud odeslání zprávy do tématu, který má povolené předem filtrování a filtry neodpovídají. |Ujistěte se, že odpovídá alespoň jeden filtr. |Opakování nepomůže. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Datovou část zprávy překračuje limit 256 KB. Všimněte si, že limit 256 KB je celková velikost zpráv, které mohou zahrnovat vlastnosti systému a všechny režijní náklady na rozhraní .NET. |Zmenšete velikost datové části zprávy a potom operaci opakujte. |Opakování nepomůže. |
 | [TransactionException –](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) |Vedlejším transakce (*Transaction.Current*) je neplatný. Může být dokončit nebo přerušena. Další informace mohou poskytnout informacích o vnitřní výjimce. | |Opakování nepomůže. |
-| [Transactionindoubtexception –](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) |Pokus o operaci v transakci, která je nejistá, nebo je proveden pokus o potvrzení transakce a transakce se změní na nejistých. |Aplikace musí zpracovávat výjimku (jako ve speciálním případě), protože transakce byla pravděpodobně potvrdit. |- |
+| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) |Pokus o operaci v transakci, která je nejistá, nebo je proveden pokus o potvrzení transakce a transakce se změní na nejistých. |Aplikace musí zpracovávat výjimku (jako ve speciálním případě), protože transakce byla pravděpodobně potvrdit. |- |
 
 ## <a name="quotaexceededexception"></a>Quotaexceededexception –
 [Quotaexceededexception –](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) označuje, že byla překročena kvóta pro konkrétní entitu.
@@ -66,7 +66,7 @@ Následující tabulka uvádí typy výjimek zasílání zpráv a jejich příč
 ### <a name="queues-and-topics"></a>Fronty a témata
 Pro fronty a témata je to často velikost fronty. Vlastnost chybového zpráva obsahuje další podrobnosti, jako v následujícím příkladu:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
 Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
@@ -75,11 +75,11 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 
 Zpráva informuje, že tématu překročila limit velikosti v této případu 1 GB (výchozí limit velikosti). 
 
-### <a name="namespaces"></a>obory názvů
+### <a name="namespaces"></a>Názvové prostory
 
-Pro obory názvů [quotaexceededexception –](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) může naznačovat, že aplikace byla překročena maximální počet připojení k oboru názvů. Například:
+Pro obory názvů [quotaexceededexception –](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) může naznačovat, že aplikace byla překročena maximální počet připojení k oboru názvů. Příklad:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
 <tracking-id-guid>_G12 ---> 
 System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
@@ -94,9 +94,6 @@ Existují dvě běžné příčiny této chyby: frontu nedoručených zpráv a n
     K vyřešení problému, přečtěte si a dokončení zprávy z fronty nedoručených zpráv, jako byste z jiné fronty. Můžete použít [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) metoda pomohou formátu cesta frontu nedoručených zpráv.
 2. **Příjemce zastavena** příjemce byla zastavena, přijímání zpráv z fronty nebo předplatné. Způsob, jak můžete identifikovat toto je prohlédnout [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) vlastnosti, která ukazuje úplné rozdělení zpráv. Pokud [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) vlastnost je vysoká nebo rostoucí pak tak rychle, jak se zapisují nejsou při čtení zprávy.
 
-### <a name="event-hubs"></a>Event Hubs
-Centra událostí může obsahovat maximálně 20 skupiny příjemců za centra událostí. Při pokusu vytvořit další, obdržíte [quotaexceededexception –](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
-
 ## <a name="timeoutexception"></a>TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) označuje, že operace se uživatel spustil trvá déle, než je časový limit operace. 
 
@@ -107,7 +104,7 @@ Pro fronty a témata, časový limit zadaný v [MessagingFactorySettings.Operati
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Odkaz na dokončení rozhraní API .NET Service Bus, najdete v článku [referenční dokumentace rozhraní API .NET Azure](/dotnet/api/overview/azure/service-bus).
 

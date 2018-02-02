@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/30/2018
 ms.author: jingwang
-ms.openlocfilehash: 2847be0fec83e923126ba436f09f24d83d69bd9d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Kopírování dat z a do Dynamics 365 nebo Dynamics CRM pomocí Azure Data Factory
 
@@ -45,8 +45,7 @@ Dynamics 365 konkrétně následující typy aplikací jsou podporované:
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 pro Marketing
 
-> [!NOTE]
-> K používání konektoru Dynamics ukládat heslo v Azure Key Vault a nechat vyžádání aktivity kopírování odtud provádíte kopírování dat. Další informace o konfiguraci, najdete v článku [propojené vlastnosti služby](#linked-service-properties) části.
+Jiná aplikace typy, např. operace a Finance, talentu, nejsou podporována atd.
 
 ## <a name="get-started"></a>Začínáme
 
@@ -67,7 +66,7 @@ Následující vlastnosti jsou podporovány pro Dynamics propojené služby.
 | Název organizace | Název organizace Dynamics instance. | Ne, by měl určovat po více než jedna instance Dynamics přidružené k uživateli |
 | authenticationType. | Typ ověřování pro připojení k serveru Dynamics. Zadejte **"Office 365"** pro Dynamics online. | Ano |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k aplikaci Dynamics. | Ano |
-| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Je nutné uvést heslo v Key Vault a nakonfigurovat heslo jako **"AzureKeyVaultSecret"**. Další informace najdete v tématu [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
+| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Žádné zdroje, Ano pro sink Pokud zdroj propojené služby nemá modulu runtime integrace |
 
 >[!IMPORTANT]
@@ -87,12 +86,8 @@ Následující vlastnosti jsou podporovány pro Dynamics propojené služby.
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -116,7 +111,7 @@ Následující vlastnosti jsou podporovány pro Dynamics propojené služby.
 | Název organizace | Název organizace Dynamics instance. | Ano |
 | authenticationType. | Typ ověřování pro připojení k serveru Dynamics. Zadejte **"Ifd"** pro Dynamics místně s IFD. | Ano |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k aplikaci Dynamics. | Ano |
-| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Je nutné uvést heslo v Key Vault a nakonfigurovat heslo jako **"AzureKeyVaultSecret"**. Další informace najdete v tématu [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
+| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Ne Ano pro sink zdroje |
 
 >[!IMPORTANT]
@@ -138,12 +133,8 @@ Následující vlastnosti jsou podporovány pro Dynamics propojené služby.
             "authenticationType": "Ifd",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {

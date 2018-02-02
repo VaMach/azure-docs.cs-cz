@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Časté otázky k Azure Files
 [Soubory Azure](storage-files-introduction.md) nabízí plně spravované sdílené složky v cloudu, které jsou přístupné přes oborových standardů [zpráva bloku protokol Server (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (také označovaný jako systém souborů běžné Internet nebo CIFS). Sdílené složky Azure můžete ke cloudu nebo na místní nasazení systému Windows, Linux a systému macOS připojit současně. Také můžete mezipaměti Azure sdílené složky na počítačích systému Windows Server pomocí synchronizace souboru Azure (preview) pro rychlý přístup blízko kde data se používají.
@@ -90,7 +90,7 @@ Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubor
 
 * <a id="afs-region-availability"></a>
 **Jaké oblasti jsou podporované pro synchronizaci souborů Azure (preview)?**  
-    Synchronizace souboru Azure je v současné době dostupná ve východní USA, západ USA, západní Evropa, Austrálie – východ a jihovýchodní Asie. Podpora pro více oblastí se přidat, protože jsme postupujte k obecné dostupnosti. Další informace najdete v tématu [dostupnost v oblastech](storage-sync-files-planning.md#region-availability).
+    V současné době synchronizace souboru Azure je k dispozici v Austrálie – východ, Střední Kanada, východní USA, jihovýchodní Asie, Spojené království – Jih, západní Evropa a západní USA. Podpora pro více oblastí se přidat, protože jsme postupujte k obecné dostupnosti. Další informace najdete v tématu [dostupnost v oblastech](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Může mít servery připojené k doméně a domény nepřipojená ve stejné skupině synchronizace?**  

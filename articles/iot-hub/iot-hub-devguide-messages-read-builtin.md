@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Číst zprávy typu zařízení cloud z předdefinovaných koncového bodu
 
@@ -32,7 +32,7 @@ IoT Hub můžete také spravovat skupiny příjemců na integrované zařízení
 
 Ve výchozím nastavení jsou všechny zprávy, které neodpovídají explicitně pravidel směrování zpráv zapisují na předdefinovaný koncový bod. Pokud zakážete toto záložní směrování, jsou zprávy, které neodpovídají explicitně všechna pravidla pro směrování zpráv vyřadit.
 
-Můžete upravit dobu uchování buď programově pomocí [zprostředkovatele prostředků služby IoT Hub rozhraní REST API][lnk-resource-provider-apis], nebo pomocí [portál Azure][lnk-management-portal].
+Můžete upravit dobu uchování buď programově pomocí [zprostředkovatele prostředků služby IoT Hub rozhraní REST API][lnk-resource-provider-apis], nebo se [portál Azure] [ lnk-management-portal].
 
 IoT Hub zpřístupní **zprávy nebo události** předdefinovaný koncový bod pro váš back endové služby ke čtení zpráv typu zařízení cloud přijatých rozbočovače. Tento koncový bod je událost kompatibilní s centrem, což vám umožní použít některý z mechanismů služby Event Hubs podporuje pro čtení zpráv.
 
@@ -40,14 +40,14 @@ IoT Hub zpřístupní **zprávy nebo události** předdefinovaný koncový bod p
 
 Při použití [Azure Service Bus SDK pro .NET] [ lnk-servicebus-sdk] nebo [Event Hubs - Event Processor Host][lnk-eventprocessorhost], můžete použít libovolné púřipojovací řetězce IoT Hub se správnými oprávněními. Potom pomocí **zprávy nebo události** jako název centra událostí.
 
-Při použití sady SDK (nebo Integrace produktu), nebudou o IoT Hub, musíte koncový bod kompatibilní s centrem událostí a název kompatibilní s centrem událostí z nastavení centra IoT:
+Při použití sady SDK (nebo Integrace produktu), nebudou o IoT Hub, je nutné ji načíst koncový bod kompatibilní s centrem událostí a název kompatibilní s centrem událostí:
 
 1. Přihlaste se k [portál Azure] [ lnk-management-portal] a přejděte do služby IoT hub.
 1. Klikněte na **Koncové body**.
 1. V **předdefinované koncové body** klikněte na tlačítko **události**. 
 1. Otevře se stránka Vlastnosti, která obsahuje následující hodnoty: **koncový bod kompatibilní s centrem událostí**, **název kompatibilní s centrem událostí**, **oddíly**,  **Doba uchování**, a **skupiny příjemců**.
 
-    ![Nastavení zařízení cloud][img-eventhubcompatible]
+    ![Nastavení zařízení-cloud][img-eventhubcompatible]
 
 Sada SDK centra IoT vyžaduje název koncového bodu služby IoT Hub, což je **zprávy nebo události** jak je uvedeno v části **koncové body**.
 
@@ -65,7 +65,7 @@ Sady SDK a integrace, které můžete použít s koncovými body kompatibilní s
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Můžete zobrazit [spout zdroje](https://github.com/apache/storm/tree/master/external/storm-eventhubs) na Githubu.
 * [Apache Spark integrace](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o koncové body centra IoT najdete v tématu [koncové body centra IoT][lnk-endpoints].
 

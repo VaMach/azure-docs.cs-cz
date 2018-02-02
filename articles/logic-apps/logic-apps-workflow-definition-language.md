@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 36eee42b7b10dfb62e569d665f62a94fc94365be
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cee0619df4e2ed2e31becc764dd64dafef6e97d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Schema Definition Language pracovního postupu pro Azure Logic Apps
 
@@ -44,12 +44,12 @@ Tady je základní strukturu definice pracovního postupu:
   
 |Název elementu|Požaduje se|Popis|  
 |------------------|--------------|-----------------|  
-|$schema|Ne|Určuje umístění pro soubor schématu JSON, který popisuje verzi definice jazyka. Toto umístění je požadováno, když odkazujete definici externě. Tento dokument je umístění: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
+|$schema|Ne|Určuje umístění pro soubor schématu JSON, který popisuje verzi definice jazyka. Toto umístění je požadováno, když odkazujete definici externě. Tady je umístění na tomto dokumentu: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
 |contentVersion|Ne|Určuje verzi definice. Když nasadíte pomocí definice pracovního postupu, můžete tuto hodnotu a ujistěte se, že se používá definici správné.|  
 |parameters|Ne|Určuje parametry použité jako vstup dat na definici. Může být definováno maximálně 50 parametry.|  
 |Aktivační události|Ne|Určuje informace o aktivační události, které zahájí pracovního postupu. Může být definováno maximálně 10 aktivační události.|  
 |Akce|Ne|Určuje akce, které se provádějí jako provede toku. Maximálně 250 akce může být definováno.|  
-|Výstupy|Ne|Určuje informace o nasazené prostředku. Může být definováno maximálně 10 výstupy.|  
+|výstupy|Ne|Určuje informace o nasazené prostředku. Může být definováno maximálně 10 výstupy.|  
   
 ## <a name="parameters"></a>Parametry
 
@@ -111,7 +111,7 @@ Výstupy zadejte informace, které mohou být vráceny z pracovního postupu spu
   
 ## <a name="expressions"></a>Výrazy  
 
-Hodnoty JSON v definici mohou být literál nebo můžou být výrazů, které se vyhodnocují při definici. Například:  
+Hodnoty JSON v definici mohou být literál nebo můžou být výrazů, které se vyhodnocují při definici. Příklad:  
   
 ```json
 "name": "value"
@@ -128,18 +128,18 @@ Hodnoty JSON v definici mohou být literál nebo můžou být výrazů, které s
   
 Výrazy může vyskytovat kdekoli v hodnotu řetězce formátu JSON a vždy mít za následek jinou hodnotu JSON. Je-li být výraz byl vyhodnocen hodnotu formátu JSON, těle výrazu je extrahovat odebráním znaku @ (@). Pokud je potřeba řetězcový literál, který začíná @, že řetězec, je nutné uvést pomocí@. Následující příklady ukazují, jak se vyhodnocují výrazy.  
   
-|Hodnota JSON|výsledek|  
+|Hodnota JSON|Výsledek|  
 |----------------|------------|  
 |"parametry"|Znaky, parametry, jsou vráceny.|  
 |"parametry [1]"|Jsou vráceny znaky 'parametry [1]'.|  
 |"@@"|Řetězec 1 znak, který obsahuje ' @' je vrácen.|  
 |" @"|Řetězec 2 znak, který obsahuje ' @' je vrácen.|  
   
-S *řetězec interpolace*, výrazy se může zobrazit i uvnitř řetězců, kde jsou výrazy uzavřen do `@{ ... }`. Například: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
+S *řetězec interpolace*, výrazy se může zobrazit i uvnitř řetězců, kde jsou výrazy uzavřen do `@{ ... }`. Příklad: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 Výsledkem je vždy řetězec, takže tato funkce je podobná `concat` funkce. Předpokládejme, že jste definovali `myNumber` jako `42` a `myString` jako `sampleString`:  
   
-|Hodnota JSON|výsledek|  
+|Hodnota JSON|Výsledek|  
 |----------------|------------|  
 |"@parameters(myString)"|Vrátí `sampleString` jako řetězec.|  
 |"@{parameters('myString')}"|Vrátí `sampleString` jako řetězec.|  
@@ -164,7 +164,7 @@ Operátory jsou znaky, které můžete použít ve výrazech nebo funkce.
 
 Také můžete volat funkce v rámci výrazy. Následující tabulka uvádí funkce, které můžete použít ve výrazu.  
   
-|výraz|Vyhodnocení|  
+|Výraz|Vyhodnocení|  
 |----------------|----------------|  
 |"@function("Hello")"|Volání funkce členem definici pomocí řetězcového literálu Hello jako první parametr.|  
 |"@function(" Jej '' nástrojů s!') "|Volání funkce členem definici pomocí řetězcového literálu, je nástrojů!. jako první parametr|  
@@ -179,7 +179,7 @@ Tyto funkce slouží k odkazování výstupy z jiné akce v aplikaci logiky nebo
 |Název funkce|Popis|  
 |-------------------|-----------------|  
 |parameters|Vrátí hodnotu parametru, která je definována v definici. <p>`parameters('password')` <p> **Parametr číslo**: 1 <p> **Název**: parametr <p> **Popis**: vyžaduje. Název parametru, jejichž hodnoty se mají.|  
-|Akce|Umožňuje výrazu odvození svou hodnotu z jiných název JSON a páry hodnota nebo z výstupu aktuální akce. modul runtime. Vlastnost reprezentována propertyPath v následujícím příkladu je nepovinná. Pokud není zadán propertyPath, je odkaz na objekt celé akce. Tuto funkci lze použít pouze uvnitř proveďte – dokud podmínky akce. <p>`action().outputs.body.propertyPath`|  
+|akce|Umožňuje výrazu odvození svou hodnotu z jiných název JSON a páry hodnota nebo z výstupu aktuální akce. modul runtime. Vlastnost reprezentována propertyPath v následujícím příkladu je nepovinná. Pokud není zadán propertyPath, je odkaz na objekt celé akce. Tuto funkci lze použít pouze uvnitř proveďte – dokud podmínky akce. <p>`action().outputs.body.propertyPath`|  
 |Akce|Umožňuje výrazu odvození svou hodnotu z jiných název JSON a páry hodnota nebo z výstupu akce modulu runtime. Tyto výrazy explicitně deklarovat, že jedna akce závisí na jiné akce. Vlastnost reprezentována propertyPath v následujícím příkladu je nepovinná. Pokud není zadán propertyPath, je odkaz na objekt celé akce. Tento element nebo element podmínky můžete použít k určení závislostí, ale není potřeba použít pro stejné závislý prostředek. <p>`actions('myAction').outputs.body.propertyPath` <p> **Parametr číslo**: 1 <p> **Název**: název akce <p> **Popis**: vyžaduje. Název akce, jejichž hodnoty se mají. <p> Jsou k dispozici vlastnosti objektu akce: <ul><li>`name`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Najdete v článku [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850646) podrobnosti o tyto vlastnosti.|
 |Aktivační události|Umožňuje výrazu odvození svou hodnotu z jiných JSON název a hodnotu páry nebo z výstupu aktivační události modulu runtime. Vlastnost reprezentována propertyPath v následujícím příkladu je nepovinná. Pokud není zadán propertyPath, odkaz je celý aktivační události objektu. <p>`trigger().outputs.body.propertyPath` <p>Při použití uvnitř vstupy aktivační události, funkce vrátí výstupy předchozího spuštění. Nicméně, je-li použít uvnitř aktivační podmínku, `trigger` funkce vrátí výstupy aktuální spuštění. <p> Jsou k dispozici vlastnosti aktivační události objektu: <ul><li>`name`</li><li>`scheduledTime`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Najdete v článku [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850644) podrobnosti o tyto vlastnosti.|
 |actionOutputs|Tato funkce je sdružená vlastnost`actions('actionName').outputs` <p> **Parametr číslo**: 1 <p> **Název**: název akce <p> **Popis**: vyžaduje. Název akce, jejichž hodnoty se mají.|  
@@ -194,7 +194,7 @@ Tyto funkce pracovat s kolekcí a obecně platí pro pole řetězce a někdy slo
   
 |Název funkce|Popis|  
 |-------------------|-----------------|  
-|Obsahuje|Vrátí hodnotu PRAVDA, pokud slovník obsahuje seznam klíčů, obsahuje hodnotu nebo řetězec obsahuje dílčí řetězec. Například funkce vrátí hodnotu `true`: <p>`contains('abacaba','aca')` <p> **Parametr číslo**: 1 <p> **Název**: v rámci kolekce <p> **Popis**: vyžaduje. Kolekce se hledat v. <p> **Parametr číslo**: 2 <p> **Název**: najít objekt <p> **Popis**: vyžaduje. Objekt, který chcete najít uvnitř **v rámci kolekce**.|  
+|obsahuje|Vrátí hodnotu PRAVDA, pokud slovník obsahuje seznam klíčů, obsahuje hodnotu nebo řetězec obsahuje dílčí řetězec. Například funkce vrátí hodnotu `true`: <p>`contains('abacaba','aca')` <p> **Parametr číslo**: 1 <p> **Název**: v rámci kolekce <p> **Popis**: vyžaduje. Kolekce se hledat v. <p> **Parametr číslo**: 2 <p> **Název**: najít objekt <p> **Popis**: vyžaduje. Objekt, který chcete najít uvnitř **v rámci kolekce**.|  
 |Délka|Vrátí počet prvků v pole nebo řetězec. Například funkce vrátí hodnotu `3`:  <p>`length('abc')` <p> **Parametr číslo**: 1 <p> **Název**: kolekce <p> **Popis**: vyžaduje. Kolekce, pro které chcete získat délku.|  
 |prázdný|Vrátí hodnotu true Pokud objekt, pole nebo řetězec je prázdný. Například funkce vrátí hodnotu `true`: <p>`empty('')` <p> **Parametr číslo**: 1 <p> **Název**: kolekce <p> **Popis**: vyžaduje. Kolekce ke kontrole, jestli je prázdný.|  
 |průnik|Vrací jednu pole nebo objekt, který má společné prvky mezi pole nebo objekty předaná. Například funkce vrátí hodnotu `[1, 2]`: <p>`intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])` <p>Parametry pro funkci může být buď sadu objektů, nebo sadu pole (ne kombinaci těchto dvou možností). Existují dva objekty se stejným názvem, zobrazí se v poslední objekt poslední objekt se stejným názvem. <p> **Parametr číslo**: 1 ...*n* <p> **Název**: kolekce*n* <p> **Popis**: vyžaduje. Kolekce k vyhodnocení. Objekt musí být ve všech kolekcích předaná se objeví ve výsledku.|  
@@ -229,7 +229,7 @@ Tyto funkce jsou užitečné v podmínkách a slouží k vyhodnocení libovolné
   
 |Název funkce|Popis|  
 |-------------------|-----------------|  
-|Rovná se|Pokud vrátí hodnotu true jsou dvě hodnoty rovny. Například pokud parameter1 someValue, funkce vrátí hodnotu `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Parametr číslo**: 1 <p> **Název**: objektu 1 <p> **Popis**: vyžaduje. Objekt k porovnání s **objekt 2**. <p> **Parametr číslo**: 2 <p> **Název**: objekt 2 <p> **Popis**: vyžaduje. Objekt k porovnání s **objektu 1**.|  
+|rovná se|Pokud vrátí hodnotu true jsou dvě hodnoty rovny. Například pokud parameter1 someValue, funkce vrátí hodnotu `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Parametr číslo**: 1 <p> **Název**: objektu 1 <p> **Popis**: vyžaduje. Objekt k porovnání s **objekt 2**. <p> **Parametr číslo**: 2 <p> **Název**: objekt 2 <p> **Popis**: vyžaduje. Objekt k porovnání s **objektu 1**.|  
 |menší|Vrátí hodnotu PRAVDA, pokud první argument je menší než druhý. Všimněte si, může být pouze hodnoty typu integer, float nebo řetězec. Například funkce vrátí hodnotu `true`: <p>`less(10,100)` <p> **Parametr číslo**: 1 <p> **Název**: objektu 1 <p> **Popis**: vyžaduje. Objekt, který chcete zkontrolovat, zda je menší než **objekt 2**. <p> **Parametr číslo**: 2 <p> **Název**: objekt 2 <p> **Popis**: vyžaduje. Objekt, který chcete zkontrolovat, zda je větší než **objektu 1**.|  
 |lessOrEquals|Vrátí hodnotu true Pokud první argument je menší než nebo rovna hodnotě druhý. Všimněte si, může být pouze hodnoty typu integer, float nebo řetězec. Například funkce vrátí hodnotu `true`: <p>`lessOrEquals(10,10)` <p> **Parametr číslo**: 1 <p> **Název**: objektu 1 <p> **Popis**: vyžaduje. Objekt, který chcete zkontrolovat, zda je menší nebo rovno **objekt 2**. <p> **Parametr číslo**: 2 <p> **Název**: objekt 2 <p> **Popis**: vyžaduje. Objekt, který chcete zkontrolovat, zda je větší než nebo rovna hodnotě **objektu 1**.|  
 |větší|Vrátí hodnotu true Pokud první argument je větší než druhý. Všimněte si, může být pouze hodnoty typu integer, float nebo řetězec. Například funkce vrátí hodnotu `false`:  <p>`greater(10,10)` <p> **Parametr číslo**: 1 <p> **Název**: objektu 1 <p> **Popis**: vyžaduje. Objekt, který chcete zkontrolovat, zda je větší než **objekt 2**. <p> **Parametr číslo**: 2 <p> **Název**: objekt 2 <p> **Popis**: vyžaduje. Objekt, který chcete zkontrolovat, zda je menší než **objektu 1**.|  
@@ -237,19 +237,19 @@ Tyto funkce jsou užitečné v podmínkách a slouží k vyhodnocení libovolné
 |a|Vrátí hodnotu true, pokud oba parametry mají hodnotu true. Oba argumenty musí být logické hodnoty. Například funkce vrátí hodnotu `false`: <p>`and(greater(1,10),equals(0,0))` <p> **Parametr číslo**: 1 <p> **Název**: logická hodnota 1 <p> **Popis**: vyžaduje. První argument, který musí být `true`. <p> **Parametr číslo**: 2 <p> **Název**: logická hodnota 2 <p> **Popis**: vyžaduje. Musí být druhým argumentem `true`.|  
 |nebo|Hodnota true, pokud buď parametr vrátí hodnotu true. Oba argumenty musí být logické hodnoty. Například funkce vrátí hodnotu `true`: <p>`or(greater(1,10),equals(0,0))` <p> **Parametr číslo**: 1 <p> **Název**: logická hodnota 1 <p> **Popis**: vyžaduje. První argument, který může být `true`. <p> **Parametr číslo**: 2 <p> **Název**: logická hodnota 2 <p> **Popis**: vyžaduje. Může být druhým argumentem `true`.|  
 |není|Vrátí hodnotu PRAVDA, pokud jsou parametry `false`. Oba argumenty musí být logické hodnoty. Například funkce vrátí hodnotu `true`: <p>`not(contains('200 Success','Fail'))` <p> **Parametr číslo**: 1 <p> **Název**: logická hodnota <p> **Popis**: vrátí hodnotu true, pokud jsou parametry `false`. Oba argumenty musí být logické hodnoty. Funkce vrátí hodnotu `true`:`not(contains('200 Success','Fail'))`|  
-|Pokud|Vrátí hodnotu zadaného v závislosti na tom, zda výraz výsledkem `true` nebo `false`.  Například funkce vrátí hodnotu `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Parametr číslo**: 1 <p> **Název**: výraz <p> **Popis**: vyžaduje. Logická hodnota, která určuje hodnotu, která by měla vrátit výraz. <p> **Parametr číslo**: 2 <p> **Název**: True <p> **Popis**: vyžaduje. Hodnota, která má být vrácena, pokud je výraz `true`. <p> **Parametr číslo**: 3 <p> **Název**: False <p> **Popis**: vyžaduje. Hodnota, která má být vrácena, pokud je výraz `false`.|  
+|if|Vrátí hodnotu zadaného v závislosti na tom, zda výraz výsledkem `true` nebo `false`.  Například funkce vrátí hodnotu `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Parametr číslo**: 1 <p> **Název**: výraz <p> **Popis**: vyžaduje. Logická hodnota, která určuje hodnotu, která by měla vrátit výraz. <p> **Parametr číslo**: 2 <p> **Název**: True <p> **Popis**: vyžaduje. Hodnota, která má být vrácena, pokud je výraz `true`. <p> **Parametr číslo**: 3 <p> **Název**: False <p> **Popis**: vyžaduje. Hodnota, která má být vrácena, pokud je výraz `false`.|  
   
 ### <a name="conversion-functions"></a>Převodní funkce  
 
 Pro převod mezi jednotlivé nativní typy v jazyce, se používají tyto funkce:  
   
-- Řetězec  
+- řetězec  
   
 - celé číslo  
   
 - Plovoucí desetinná čárka  
   
-- Logická hodnota  
+- Boolean  
   
 - Pole  
   
@@ -260,14 +260,14 @@ Pro převod mezi jednotlivé nativní typy v jazyce, se používají tyto funkce
 |Název funkce|Popis|  
 |-------------------|-----------------|  
 |celá čísla|Parametr převeďte na celé číslo. Například funkce vrátí hodnotu 100 jako číslo, nikoli řetězec: <p>`int('100')` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převést na celé číslo.|  
-|Řetězec|Převeďte parametr na řetězec. Například funkce vrátí hodnotu `'10'`: <p>`string(10)` <p>Také můžete převést objekt na řetězec. Například pokud `myPar` parametr je objekt s jednu vlastnost `abc : xyz`, potom funkce vrátí hodnotu `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převedeno na řetězec.|  
+|řetězec|Převeďte parametr na řetězec. Například funkce vrátí hodnotu `'10'`: <p>`string(10)` <p>Také můžete převést objekt na řetězec. Například pokud `myPar` parametr je objekt s jednu vlastnost `abc : xyz`, potom funkce vrátí hodnotu `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převedeno na řetězec.|  
 |JSON|Převést parametr na hodnotu typu JSON a je opakem `string()`. Například funkce vrátí hodnotu `[1,2,3]` jako pole, nikoli řetězec: <p>`json('[1,2,3]')` <p>Podobně můžete převést řetězec na objekt. Například funkce vrátí hodnotu `{ "abc" : "xyz" }`: <p>`json('{"abc" : "xyz"}')` <p> **Parametr číslo**: 1 <p> **Název**: řetězec <p> **Popis**: vyžaduje. Řetězec, který je převést na hodnotu nativním typu. <p>`json()` Funkce podporuje příliš vstup XML. Například hodnota parametru: <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>je převést na tento formát JSON: <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |Plovoucí desetinná čárka|Argument parametr převeďte na číslo s plovoucí desetinnou čárkou. Například funkce vrátí hodnotu `10.333`: <p>`float('10.333')` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převedena na číslo s plovoucí desetinnou čárkou.|  
 |BOOL|Převeďte parametr na booleovskou hodnotu. Například funkce vrátí hodnotu `false`: <p>`bool(0)` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převést na logickou hodnotu.|  
 |formátu Base64.|Vrátí reprezentaci base64 vstupní řetězec. Například funkce vrátí hodnotu `c29tZSBzdHJpbmc=`: <p>`base64('some string')` <p> **Parametr číslo**: 1 <p> **Název**: řetězec 1 <p> **Popis**: vyžaduje. Řetězec určený ke kódování do reprezentace base64.|  
 |base64ToBinary|Vrátí binární reprezentace řetězec s kódováním base64. Například funkce vrátí hodnotu binární reprezentace `some string`: <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **Parametr číslo**: 1 <p> **Název**: řetězec <p> **Popis**: vyžaduje. Řetězec s kódováním base64.|  
 |base64ToString|Vrátí řetězcovou reprezentaci based64 kódovaný řetězec. Například funkce vrátí hodnotu `some string`: <p>`base64ToString('c29tZSBzdHJpbmc=')` <p> **Parametr číslo**: 1 <p> **Název**: řetězec <p> **Popis**: vyžaduje. Řetězec s kódováním base64.|  
-|Binární|Vrátí binární reprezentace hodnoty.  Například funkce vrátí hodnotu binární reprezentace `some string`: <p>`binary('some string')` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převést na binární formát.|  
+|Binární hodnota|Vrátí binární reprezentace hodnoty.  Například funkce vrátí hodnotu binární reprezentace `some string`: <p>`binary('some string')` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převést na binární formát.|  
 |dataUriToBinary|Vrátí binární reprezentace dat identifikátor URI. Například funkce vrátí hodnotu binární reprezentace `some string`: <p>`dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')` <p> **Parametr číslo**: 1 <p> **Název**: řetězec <p> **Popis**: vyžaduje. Data URI převést na binární reprezentace.|  
 |dataUriToString|Vrátí řetězcovou reprezentaci dat identifikátor URI. Například funkce vrátí hodnotu `some string`: <p>`dataUriToString('data:;base64,c29tZSBzdHJpbmc=')` <p> **Parametr číslo**: 1 <p> **Název**: řetězec<p> **Popis**: vyžaduje. Identifikátor URI převést řetězcovou reprezentaci dat.|  
 |dataUri|Vrací data URI hodnoty. Například funkce vrátí hodnotu tento identifikátor URI dat. `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=`: <p>`dataUri('some string')` <p> **Parametr číslo**: 1<p> **Název**: hodnota<p> **Popis**: vyžaduje. Hodnota převést na identifikátor URI dat.|  
@@ -279,7 +279,7 @@ Pro převod mezi jednotlivé nativní typy v jazyce, se používají tyto funkce
 |uriComponentToBinary|Vrátí že řetězec kódovaný binární reprezentace identifikátoru URI. Například funkce vrátí hodnotu binární reprezentace `You Are:Cool/Awesome`: <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **Parametr číslo**: 1 <p> **Název**: řetězec<p> **Popis**: vyžaduje. Řetězec kódovaný identifikátor URI.|  
 |uriComponentToString|Vrátí že řetězec kódovaný řetězcová reprezentace identifikátoru URI. Například funkce vrátí hodnotu `You Are:Cool/Awesome`: <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **Parametr číslo**: 1<p> **Název**: řetězec<p> **Popis**: vyžaduje. Řetězec kódovaný identifikátor URI.|  
 |xml|Vrátí reprezentaci XML hodnoty. Například funkce vrátí hodnotu XML obsahu reprezentována `'\<name>Alan\</name>'`: <p>`xml('\<name>Alan\</name>')` <p>`xml()` Funkce podporuje vstup příliš objekt JSON. Například parametr `{ "abc": "xyz" }` jsou převedeny na obsah XML:`\<abc>xyz\</abc>` <p> **Parametr číslo**: 1<p> **Název**: hodnota<p> **Popis**: vyžaduje. Hodnota pro převod do formátu XML.|  
-|Pole|Převeďte parametr na pole. Například funkce vrátí hodnotu `["abc"]`: <p>`array('abc')` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převedena na pole.|
+|pole|Převeďte parametr na pole. Například funkce vrátí hodnotu `["abc"]`: <p>`array('abc')` <p> **Parametr číslo**: 1 <p> **Název**: hodnota <p> **Popis**: vyžaduje. Hodnota, která je převedena na pole.|
 |createArray|Vytvoří pole parametrů. Například funkce vrátí hodnotu `["a", "c"]`: <p>`createArray('a', 'c')` <p> **Parametr číslo**: 1 ...*n* <p> **Název**: žádné*n* <p> **Popis**: vyžaduje. Hodnoty k zkombinovat do pole.|
 |triggerFormDataValue|Vrátí jednu hodnotu odpovídající název klíče z dat formuláře nebo výstupní formulářem kódované aktivační události.  Pokud máte více odpovídá se bude chyba.  Například následující vrátí `bar`:`triggerFormDataValue('foo')`<br /><br />**Parametr číslo**: 1<br /><br />**Název**: název klíče<br /><br />**Popis**: vyžaduje. Název klíče vrátit hodnotu dat formuláře.|
 |triggerFormDataMultiValues|Vrátí pole hodnot odpovídající název klíče z dat formuláře nebo výstupní formulářem kódované aktivační události.  Například následující vrátí `["bar"]`:`triggerFormDataValue('foo')`<br /><br />**Parametr číslo**: 1<br /><br />**Název**: název klíče<br /><br />**Popis**: vyžaduje. Název klíče datových hodnot formuláře vrátit.|
@@ -306,13 +306,13 @@ Tyto funkce lze použít pro buď typy čísel: **celá čísla** a **jako plovo
   
 |Název funkce|Popis|  
 |-------------------|-----------------|  
-|Přidat|Vrátí výsledek v přidávání dvou čísel. Například funkce vrátí hodnotu `20.333`: <p>`add(10,10.333)` <p> **Parametr číslo**: 1 <p> **Název**: Summand 1 <p> **Popis**: vyžaduje. Číslo, které má přidat do **Summand 2**. <p> **Parametr číslo**: 2 <p> **Název**: Summand 2 <p> **Popis**: vyžaduje. Číslo, které má přidat do **Summand 1**.|  
+|přidat|Vrátí výsledek v přidávání dvou čísel. Například funkce vrátí hodnotu `20.333`: <p>`add(10,10.333)` <p> **Parametr číslo**: 1 <p> **Název**: Summand 1 <p> **Popis**: vyžaduje. Číslo, které má přidat do **Summand 2**. <p> **Parametr číslo**: 2 <p> **Název**: Summand 2 <p> **Popis**: vyžaduje. Číslo, které má přidat do **Summand 1**.|  
 |Sub –|Vrací výsledek z odečtením dvou čísel. Například funkce vrátí hodnotu `-0.333`: <p>`sub(10,10.333)` <p> **Parametr číslo**: 1 <p> **Název**: Minuend <p> **Popis**: vyžaduje. Číslo, **Subtrahend** se odebere z. <p> **Parametr číslo**: 2 <p> **Název**: Subtrahend <p> **Popis**: vyžaduje. Číslo, které má odebrat z **Minuend**.|  
 |mul|Vrátí výsledek násobení dvou čísel. Například funkce vrátí hodnotu `103.33`: <p>`mul(10,10.333)` <p> **Parametr číslo**: 1 <p> **Název**: násobenec 1 <p> **Popis**: vyžaduje. Číslo, které má násobení **násobenec 2** s. <p> **Parametr číslo**: 2 <p> **Název**: násobenec 2 <p> **Popis**: vyžaduje. Číslo, které má násobení **násobenec 1** s.|  
 |div|Vrátí výsledek dělení dvou čísel. Například funkce vrátí hodnotu `1.0333`: <p>`div(10.333,10)` <p> **Parametr číslo**: 1 <p> **Název**: dělenec <p> **Popis**: vyžaduje. Číslo, které má dělit **dělitel**. <p> **Parametr číslo**: 2 <p> **Název**: dělitel <p> **Popis**: vyžaduje. Číslo, které má rozdělit **dělenec** podle.|  
 |MOD|Vrátí zbytek po dělení dvou čísel (modulo). Například funkce vrátí hodnotu `2`: <p>`mod(10,4)` <p> **Parametr číslo**: 1 <p> **Název**: dělenec <p> **Popis**: vyžaduje. Číslo, které má dělit **dělitel**. <p> **Parametr číslo**: 2 <p> **Název**: dělitel <p> **Popis**: vyžaduje. Číslo, které má rozdělit **dělenec** podle. Po rozdělení je zbývající zabraný.|  
 |min|Existují dva různé vzorce pro volání této funkce. <p>Zde `min` trvá na pole a funkce vrátí `0`: <p>`min([0,1,2])` <p>Alternativně může tuto funkci trvat seznamu hodnoty a také vrátí `0`: <p>`min(0,1,2)` <p> **Poznámka:**: všechny hodnoty musí být číslo, takže pokud je parametr pole, pole musí obsahovat pouze čísla. <p> **Parametr číslo**: 1 <p> **Název**: kolekce nebo hodnota <p> **Popis**: vyžaduje. Buď pole hodnot najít minimální hodnota nebo hodnota první sady. <p> **Parametr číslo**: 2 ...*n* <p> **Název**: hodnota*n* <p> **Popis**: volitelné. Pokud první parametr je hodnota, můžete předat další hodnoty a vrátí minimum všech předané hodnoty.|  
-|maximální počet|Existují dva různé vzorce pro volání této funkce. <p>Zde `max` trvá na pole a funkce vrátí `2`: <p>`max([0,1,2])` <p>Alternativně může tuto funkci trvat seznamu hodnoty a také vrátí `2`: <p>`max(0,1,2)` <p> **Poznámka:**: všechny hodnoty musí být číslo, takže pokud je parametr pole, pole musí obsahovat pouze čísla. <p> **Parametr číslo**: 1 <p> **Název**: kolekce nebo hodnota <p> **Popis**: vyžaduje. Buď pole hodnoty najít maximální hodnota, nebo první hodnotu sady. <p> **Parametr číslo**: 2 ...*n* <p> **Název**: hodnota*n* <p> **Popis**: volitelné. Pokud je první parametr je hodnota, můžete předat další hodnoty a vrací maximálně všechny předané hodnoty.|  
+|max|Existují dva různé vzorce pro volání této funkce. <p>Zde `max` trvá na pole a funkce vrátí `2`: <p>`max([0,1,2])` <p>Alternativně může tuto funkci trvat seznamu hodnoty a také vrátí `2`: <p>`max(0,1,2)` <p> **Poznámka:**: všechny hodnoty musí být číslo, takže pokud je parametr pole, pole musí obsahovat pouze čísla. <p> **Parametr číslo**: 1 <p> **Název**: kolekce nebo hodnota <p> **Popis**: vyžaduje. Buď pole hodnoty najít maximální hodnota, nebo první hodnotu sady. <p> **Parametr číslo**: 2 ...*n* <p> **Název**: hodnota*n* <p> **Popis**: volitelné. Pokud je první parametr je hodnota, můžete předat další hodnoty a vrací maximálně všechny předané hodnoty.|  
 |rozsah|Generuje pole celá čísla od určitého počtu. Délka pole vrácené definujete. <p>Například funkce vrátí hodnotu `[3,4,5,6]`: <p>`range(3,4)` <p> **Parametr číslo**: 1 <p> **Název**: počáteční index <p> **Popis**: vyžaduje. První celé číslo v poli. <p> **Parametr číslo**: 2 <p> **Název**: počet <p> **Popis**: vyžaduje. Tato hodnota je číslo celých čísel, která je v poli.|  
 |rand –|Generuje náhodné celé číslo v rámci zadaného rozsahu (včetně pouze na konci prvního). Tato funkce může vrátit například buď `0` nebo '1': <p>`rand(0,2)` <p> **Parametr číslo**: 1 <p> **Název**: minimální <p> **Popis**: vyžaduje. Nejnižší číslo, které mohou být vráceny. <p> **Parametr číslo**: 2 <p> **Název**: maximální <p> **Popis**: vyžaduje. Tato hodnota je celé číslo další po nejvyšší celé číslo, které může být vrácen.|  
  
@@ -343,6 +343,6 @@ Tyto funkce umožňují získat informace o pracovním postupu, sám za běhu.
 |listCallbackUrl|Vrátí řetězec tak, aby volání pro vyvolání aktivační události nebo akce. <p> **Poznámka:**: tuto funkci lze použít pouze v **httpWebhook** a **apiConnectionWebhook**není v **ruční**, **opakování**, **http**, nebo **apiConnection**. <p>Například `listCallbackUrl()` funkce vrátí: <p>`https://prod-01.westus.logic.azure.com:443/workflows/1235...ABCD/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxx...xxx` |  
 |pracovní postup|Tato funkce poskytuje všechny podrobnosti pro samotné pracovního postupu v modulu runtime. <p> Jsou k dispozici vlastnosti objektu pracovního postupu: <ul><li>`name`</li><li>`type`</li><li>`id`</li><li>`location`</li><li>`run`</li></ul> <p> Hodnota `run` vlastnost je objekt s následujícími vlastnostmi: <ul><li>`name`</li><li>`type`</li><li>`id`</li></ul> <p>Najdete v článku [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=525617) podrobnosti o tyto vlastnosti.<p> Například název aktuální spustit získáte pomocí `"@workflow().run.name"` výraz. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Triggery a akce pracovních postupů](logic-apps-workflow-actions-triggers.md)

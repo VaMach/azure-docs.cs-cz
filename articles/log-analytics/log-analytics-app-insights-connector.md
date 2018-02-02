@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Řešení konektor služby Statistika aplikace (Preview) v Operations Management Suite (OMS)
 
@@ -37,7 +37,7 @@ Pokud použijete řešení, můžete:
 
 Na rozdíl od většině ostatních řešení pro analýzu protokolu není data shromážděná pro konektor služby Statistika aplikace pomocí agentů. Všechna data, která používá řešení pochází přímo z Azure.
 
-| Připojený zdroj | Podporuje se | Popis |
+| Připojený zdroj | Podporováno | Popis |
 | --- | --- | --- |
 | [Agenti systému Windows](log-analytics-windows-agent.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Řešení neshromažďuje informace od agentů systému Linux. |
@@ -84,7 +84,7 @@ Klikněte **Application Insights** dlaždici otevřete **Application Insights** 
 
 Řídicí panel obsahuje okna uvedené v tabulce. Každý okno uvádí až 10 položky odpovídající kritériím tohoto okna pro zadaný obor a časový rozsah. Můžete spustit hledání protokolů, která vrací všechny záznamy, po kliknutí na tlačítko **zobrazit všechny** v dolní části okna, nebo když kliknete na záhlaví okna.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Sloupec** | **Popis** |
 | --- | --- |
@@ -164,7 +164,7 @@ Vzorkování ovlivňuje pouze celkový počet záznamů, které vaše aplikace g
 
 Data je přijatých OMS z Application Insights, jakmile je k dispozici.
 
-## <a name="output-data"></a>výstupní data
+## <a name="output-data"></a>Výstupní data
 
 Záznam s *typ* z *ApplicationInsights* se vytvoří pro každý typ vstupní data. ApplicationInsights záznamy mají vlastnosti zobrazené v následující části:
 
@@ -182,12 +182,12 @@ Záznam s *typ* z *ApplicationInsights* se vytvoří pro každý typ vstupní da
 | ScreenResolution |   |
 | Kontinent | Kontinentě, kde tato žádost pochází |
 | Země | Zemi, kde tato žádost pochází |
-| Provincie | Okres, stavu nebo národní prostředí, kde tato žádost pochází |
+| Kraj | Okres, stavu nebo národní prostředí, kde tato žádost pochází |
 | Město | Města nebo lokality, kde tato žádost pochází města |
 | isSynthetic | Určuje, zda požadavek nebyl vytvořen uživatelem nebo automatizované metodou. Hodnotu true = uživatelem generovaný nebo = false automatizované – metoda |
 | SamplingRate | Procento telemetrii vygenerovanou sadou SDK, která je odeslána na portál. V rozsahu 0,0 100.0. |
 | SampledCount | 100/(SamplingRate). Například, 4 =&gt; 25 % |
-| IsAuthenticated | hodnotu true nebo false |
+| IsAuthenticated | True nebo False |
 | OperationID | Položky, které mají stejné operace ID se zobrazují jako související položky v portálu. Obvykle ID požadavku |
 | ParentOperationID | ID nadřazené operace |
 | OperationName |   |
@@ -247,7 +247,7 @@ Záznam s *typ* z *ApplicationInsights* se vytvoří pro každý typ vstupní da
 | ID žádosti | ID k jednoznačné identifikaci požadavku |
 | RequestName | GET nebo POST + základní adresu URL |
 | RequestDuration | Čas v sekundách, doby požadavku |
-| ADRESA URL | Adresa URL požadavku není včetně hostitele |
+| Adresa URL | Adresa URL požadavku není včetně hostitele |
 | Hostitel | Webový server hostitel |
 | URLBase musí | Úplnou adresu URL požadavku |
 | ApplicationProtocol | Typ protokolu používaný aplikace |
@@ -261,6 +261,6 @@ Záznam s *typ* z *ApplicationInsights* se vytvoří pro každý typ vstupní da
 
 Toto řešení nemá sadu ukázkový protokol hledání zobrazený na řídicím panelu. Ale ukázkové dotazy vyhledávání protokolu s popisy jsou uvedeny v [informace o zobrazení Application Insights konektoru](#view-application-insights-connector-information) části.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Použití [hledání protokolů](log-analytics-log-searches.md) Chcete-li zobrazit podrobné informace pro vaše aplikace Application Insights.

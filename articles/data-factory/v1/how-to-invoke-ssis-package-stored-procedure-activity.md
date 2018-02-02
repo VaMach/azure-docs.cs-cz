@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 66b4f068189fd17f08a6a57ed44233c04c16fff7
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 99e3365a846f35262489fdccd753b4ce2e50fa49
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Vyvolání balíčku služby SSIS pomocí aktivity uložené procedury v Azure Data Factory
 Tento článek popisuje, jak má být vyvolán balíčku služby SSIS z kanál služby Azure Data Factory pomocí aktivity uložené procedury. 
@@ -31,7 +31,7 @@ Tento článek popisuje, jak má být vyvolán balíčku služby SSIS z kanál s
 Návod v tomto článku používá databázi Azure SQL, který je hostitelem služby SSIS katalogu. Můžete také použít Azure SQL spravované Instance (soukromém náhledu).
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Vytvoření prostředí Azure-SSIS Integration Runtime
-Vytvoření modulu runtime integrace Azure SSIS, pokud nemáte dodržením podrobných pokynů v [kurz: balíčky nasazení SSIS](../tutorial-deploy-ssis-packages-azure.md). Je nutné vytvořit objekt pro vytváření dat verze 2: vytvoření modulu runtime integrace Azure SSIS. 
+Vytvoření modulu runtime integrace Azure SSIS, pokud nemáte dodržením podrobných pokynů v [kurz: balíčky nasazení SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Je nutné vytvořit objekt pro vytváření dat verze 2: vytvoření modulu runtime integrace Azure SSIS. 
 
 ## <a name="azure-portal"></a>Azure Portal
 V této části použijte portál Azure k vytvoření objektu pro vytváření dat kanál s aktivitou uložené procedury, která volá balíčku služby SSIS.
@@ -43,11 +43,11 @@ Prvním krokem je pro vytváření dat pomocí portálu Azure.
 2. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. V **nový objekt pro vytváření dat** zadejte **ADFTutorialDataFactory** pro **název**. 
+2. Na stránce **Nová datová továrna** jako **název** zadejte **ADFTutorialDataFactory**. 
       
-     ![Nová stránka objektu pro vytváření dat](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     ![Stránka Nová datová továrna](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   Název objektu pro vytváření dat Azure musí být **globálně jedinečný**. Pokud se zobrazí chybová zpráva pro pole název, změňte název objektu pro vytváření dat (třeba na Váš_název_adftutorialdatafactory). V tématu [pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) článku pravidla pojmenování artefaktů služby Data Factory.
+   Název objektu pro vytváření dat Azure musí být **globálně jedinečný**. Pokud se zobrazí následující chyba pole názvu, změňte název datové továrny (například na vaše_jméno_ADFTutorialDataFactory). Pravidla pojmenování artefaktů služby Data Factory najdete v článku [Data Factory – pravidla pojmenování](data-factory-naming-rules.md).
 
     `Data factory name ADFTutorialDataFactory is not available`
 3. Vyberte své **předplatné** Azure, ve kterém chcete vytvořit datovou továrnu. 
@@ -58,13 +58,13 @@ Prvním krokem je pro vytváření dat pomocí portálu Azure.
          
     Informace o skupinách prostředků najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../../azure-resource-manager/resource-group-overview.md).  
 4. Vyberte **V1** pro **verze**.
-5. Vyberte **umístění** pro objekt pro vytváření dat. V rozevíracím seznamu jsou uvedeny pouze umístění, které jsou podporovány službou Data Factory. Ukládá data (Azure Storage, Azure SQL Database atd.) a výpočtů (HDInsight atd.) používané pro vytváření dat může být v jiných umístěních.
+5. Vyberte **umístění** pro objekt pro vytváření dat. V rozevíracím seznamu se zobrazí pouze umístění podporovaná službou Data Factory. Úložiště dat (Azure Storage, Azure SQL Database atd.) a výpočetní prostředí (HDInsight atd.) používané datovou továrnou můžou být v jiných umístěních.
 6. Zaškrtněte **Připnout na řídicí panel**.     
 7. Klikněte na možnost **Vytvořit**.
 8. Na řídicím panelu vidíte následující dlaždice se statusem: **Nasazování datové továrny**. 
 
     ![nasazování dlaždice datové továrny](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. Po dokončení vytvoření se zobrazí **Data Factory** stránky, jak je znázorněno na obrázku.
+9. Po vytvoření se zobrazí stránka **Datová továrna**, jak je znázorněno na obrázku.
    
     ![Domovská stránka objektu pro vytváření dat](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Klikněte na tlačítko **vytvořit a nasadit** dlaždici spustíte editoru služby Data Factory.

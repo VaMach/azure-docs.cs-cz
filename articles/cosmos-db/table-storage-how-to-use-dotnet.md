@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: 0019858e1142c1f7e7b6fedea5c2ec97518548c9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Začínáme s úložištěm Azure Table pomocí rozhraní .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -29,14 +29,18 @@ Azure Table Storage je služba, která ukládá strukturovaná data NoSQL do clo
 Table Storage můžete používat k ukládání flexibilních datových sad, například uživatelských dat pro webové aplikace, adresářů, informací o zařízení nebo dalších typů metadat, které vaše služba vyžaduje. V tabulce můžete uložit libovolný počet entit a účet úložiště může obsahovat libovolný počet tabulek, až do limitu kapacity účtu úložiště.
 
 ### <a name="about-this-tutorial"></a>O tomto kurzu
-V tomto kurzu se dozvíte, jak používat [klientskou knihovnu Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) v některých běžných scénářích Azure Table Storage. Tyto scénáře jsou ilustrovány pomocí příkladu v jazyce C#, ve kterých se vytvoří a odstraní tabulka a také vkládají, aktualizují a odstraňují data v tabulce nebo se na ně zadávají dotazy.
+V tomto kurzu se dozvíte, jak používat [Microsoft Azure CosmosDB tabulky Library pro .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) v běžné scénáře Azure Table storage. Název balíčku určuje je pro použití s Azure Cosmos DB, ale balíček funguje pro Azure Cosmos DB a úložiště tabulek Azure, každá služba právě má koncový bod jedinečný. Tyto scénáře jsou prozkoumali pomocí jazyka C# příklady, které ilustrují postup:
+* Vytváření a odstraňování tabulek
+* Vložit, aktualizovat a odstranit řádky
+* Dotazu na tabulky
 
 ## <a name="prerequisites"></a>Požadavky
 
 Pro úspěšné absolvování tohoto kurzu potřebujete následující položky:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Klientská knihovna Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Běžné knihovny pro úložiště Azure pro .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Toto je požadovaná preview balíček, který je podporován v produkčním prostředí. 
+* [Knihovna CosmosDB tabulky Microsoft Azure pro .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Účet služby Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -47,17 +51,120 @@ Další příklady použití Table Storage najdete v článku [Začínáme s Azu
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+## <a name="create-an-azure-service-account"></a>Vytvoření účtu služby Azure
 
-[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+Můžete pracovat s tabulkami pomocí Azure Table storage nebo Azure Cosmos DB. Další informace o rozdílech mezi službami načtením [tabulky nabídky](table-introduction.md#table-offerings). Budete muset vytvořit účet služby, že se chystáte použít. 
+
+### <a name="create-an-azure-storage-account"></a>Vytvoření účtu úložiště Azure
+Nejjednodušší způsob, jak vytvořit první účet úložiště Azure, je pomocí [webu Azure Portal](https://portal.azure.com). Další informace najdete v tématu [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
+Účet úložiště Azure můžete vytvořit také pomocí prostředí [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [rozhraní příkazového řádku Azure](../storage/common/storage-azure-cli.md) nebo pomocí [klientské knihovny pro poskytovatele prostředků úložiště pro rozhraní .NET](/dotnet/api/microsoft.azure.management.storage).
+
+Pokud teď nechcete vytvářet účet úložiště, můžete také pomocí emulátoru úložiště Azure spustit a otestovat kód v místním prostředí. Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](../storage/common/storage-use-emulator.md).
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Vytvoření účtu Azure Cosmos DB tabulky rozhraní API
+
+Pokyny k vytvoření účtu Azure Cosmos DB tabulky API najdete v tématu [vytvořit účet rozhraní API tabulky](create-table-dotnet.md#create-a-database-account).
+
+## <a name="set-up-your-development-environment"></a>Nastavení vývojového prostředí
+Potom si nastavte vývojové prostředí v sadě Visual Studio, abyste byli připraveni vyzkoušet příklady kódů z této příručky.
+
+### <a name="create-a-windows-console-application-project"></a>Vytvoření projektu konzolové aplikace pro Windows
+V sadě Visual Studio vytvořte novou konzolovou aplikaci pro Windows. Následující kroky ukazují, jak vytvořit konzolovou aplikaci v sadě Visual Studio 2017. Kroky u ostatních verzí sady Visual Studio jsou podobné.
+
+1. Vyberte **Soubor** > **Nový** > **Projekt**.
+2. Vyberte **nainstalován** > **Visual C#** > **Windows klasický desktopový**.
+3. Vyberte **Aplikace konzoly (.NET Framework)**.
+4. Do pole **Název** zadejte název vaší aplikace.
+5. Vyberte **OK**.
+
+Všechny příklady kódu v tomto kurzu můžete přidat do metody `Main()` v souboru `Program.cs` vaší konzolové aplikace.
+
+Můžete v knihovně Azure CosmosDB tabulky v libovolného typu aplikace .NET, včetně Azure cloud service nebo webovou aplikaci a stolní počítače a mobilní aplikace. V této příručce použijeme konzolovou aplikaci kvůli zjednodušení.
+
+### <a name="use-nuget-to-install-the-required-packages"></a>Použití balíčku NuGet k instalaci požadovaných balíčků
+Existují tři balíčky, které je třeba odkazovat ve vašem projektu k dokončení tohoto kurzu:
+
+* [Běžné knihovny pro úložiště Azure pro .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Knihovna CosmosDB tabulky Microsoft Azure pro .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Tento balíček zajišťuje programový přístup k datovým prostředkům na účtu úložiště Azure Table nebo účet rozhraní API služby Azure Cosmos DB tabulky.
+* [Microsoft Azure Configuration Manager library for .NET:](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) Tento balíček poskytuje třídu pro potřeby analýzy připojovacího řetězce v konfiguračním souboru bez ohledu na to, kde je aplikace spuštěná.
+
+K získání obou balíčků můžete použít balíček NuGet. Postupujte následovně:
+
+1. V **Průzkumníku řešení** klikněte pravým tlačítkem na projekt a vyberte **Spravovat balíčky NuGet**.
+2. Online hledání "Microsoft.Azure.Storage.Common" a vyberte **nainstalovat** instalace běžné knihovny pro úložiště Azure pro .NET (Preview) a jeho závislé součásti. Ujistěte se, **zahrnout předběžné verze** je zaškrtnuté políčko, protože tento balíček preview.
+3. Online hledání "Microsoft.Azure.CosmosDB.Table" a vyberte **nainstalovat** k instalaci knihovnu Microsoft Azure CosmosDB tabulky.
+4. Online hledání "WindowsAzure.ConfigurationManager" a vyberte **nainstalovat** k instalaci knihovnu Microsoft Azure Configuration Manager.
+
+> [!NOTE]
+> Závislosti ODataLib v knihovně běžné úložiště pro .NET jsou k dispozici na NuGet, nikoli z datových služeb WCF balíčky ODataLib vyřešit. Knihovny ODataLib můžete stáhnout přímo nebo z odkazu ve vašem kódovém projektu prostřednictvím balíčku NuGet. Konkrétní balíčky ODataLib používané knihovnou klienta služby Storage jsou [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), a [Spatial](http://nuget.org/packages/System.Spatial/). Když tyto knihovny používají třídy Azure Table storage, představují požadované závislosti pro programování s knihovnou běžné úložiště.
+> 
+> 
+
+### <a name="determine-your-target-environment"></a>Určení cílového prostředí
+Ke spuštění příkladů z této příručky máte dvě možnosti prostředí:
+
+* Svůj kód můžete spustit na účtu služby Azure Storage v cloudu. 
+* Svůj kód můžete spustit proti účet Azure Cosmos DB v cloudu.
+* Svůj kód můžete spustit v emulátoru úložiště Azure. Emulátor úložiště je místní prostředí, které emuluje účet služby Azure Storage v cloudu. Emulátor je bezplatnou možností pro testování a ladění kódu během vývoje aplikace. Emulátor používá známý účet a klíč. Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](../storage/common/storage-use-emulator.md).
+
+Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z webu Azure Portal primární přístupový klíč svého účtu úložiště. Další informace najdete v článku [Zobrazení a kopírování přístupového klíče k úložišti](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+
+> [!NOTE]
+> Pokud se chcete vyhnout nákladům spojeným se službou Azure Storage, můžete se zaměřit na emulátor úložiště. I když se zaměříte na účet úložiště Azure v cloudu, budou náklady na vyzkoušení postupů z tohoto kurzu zanedbatelné.
+> 
+> 
+
+Pokud cílíte na účet Azure Cosmos DB, zkopírujte primární přístupový klíč pro váš účet rozhraní API tabulky z portálu Azure. Další informace najdete v tématu [aktualizovat připojovací řetězec](create-table-dotnet.md#update-your-connection-string).
+
+### <a name="configure-your-storage-connection-string"></a>Konfigurace připojovacího řetězce úložiště
+Běžné knihovny pro úložiště Azure pro .NET podporuje použití připojovacího řetězce úložiště ke konfiguraci koncových bodů a pověření pro přístup ke službám úložiště. Připojovací řetězec úložiště se nejlépe uchovává v konfiguračním souboru. 
+
+Další informace o připojovacích řetězcích najdete v tématu věnovaném [konfiguraci připojovacího řetězce pro službu Azure Storage](../storage/common/storage-configure-connection-string.md).
+
+> [!NOTE]
+> Klíč účtu je podobný kořenovému heslu vašeho účtu úložiště. Vždy klíč účtu úložiště pečlivě chraňte. Nedávejte ho jiným uživatelům, nezakódovávejte ho ani ho neukládejte do souboru ve formátu prostého textu, který je přístupný ostatním uživatelům. Pokud se domníváte, že klíč je ohrožený, vygenerujte ho znovu pomocí webu Azure Portal.
+> 
+> 
+
+Pokud chcete konfigurovat připojovací řetězec, otevřete v sadě Visual Studio Průzkumníka řešení a v něm soubor `app.config`. Přidejte obsah níže uvedeného prvku `<appSettings>`. Nahraďte `account-name` s názvem vašeho účtu a `account-key` vaším přístupovým klíčem účet:
+
+```xml
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+    </appSettings>
+</configuration>
+```
+
+Například pokud používáte účet úložiště Azure, nastavení konfigurace se zobrazí podobná:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+```
+
+Pokud používáte účet Azure Cosmos DB, se podobně jako nastavení konfigurace:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+```
+
+Pokud se chcete zaměřit na emulátor úložiště, můžete vytvořit zástupce, který se namapuje na název a klíč známého účtu. V takovém případě bude nastavení připojovacího řetězce vypadat následovně:
+
+```xml
+<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+```
 
 ### <a name="add-using-directives"></a>Přidání direktiv using
 Na začátek souboru `Program.cs` přidejte následující direktivy **using**:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
+using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
+using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
 
 ### <a name="parse-the-connection-string"></a>Analýza připojovacího řetězce

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
 ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Pomocí analýzy ve službě Application Insights
 [Analýza](app-insights-analytics.md) je výkonný vyhledávání funkcí [Application Insights](app-insights-overview.md). Tyto stránek popisují dotazovací jazyk analýzy protokolů.
@@ -99,7 +99,7 @@ Pokud se domníváte, že nevidíte všechny výsledky, které jste očekávali,
 
     Můžete však změnit časový rozsah filtr pomocí rozevírací nabídky.
 
-    Nebo můžete přepsat automatického rozsahu včetně vlastní [ `where  ... timestamp ...` klauzule](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) do dotazu. Například:
+    Nebo můžete přepsat automatického rozsahu včetně vlastní [ `where  ... timestamp ...` klauzule](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) do dotazu. Příklad:
 
     `requests | where timestamp > ago('2d')`
 
@@ -109,7 +109,7 @@ Pokud se domníváte, že nevidíte všechny výsledky, které jste očekávali,
 
   * [prvních 100 pomocí časového razítka](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
   * [trvat 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
-  * [shrnutí](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [summarize ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
   * [kde časové razítko > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (Má více než 10 TIS řádků? Zvažte použití [průběžné exportovat](app-insights-export-telemetry.md) místo. Analýza je určená pro analýzy, nikoli načítání nezpracovaná data.)

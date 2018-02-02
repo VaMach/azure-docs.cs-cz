@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Pokyny pro návrh distribuovaných tabulek v Azure SQL Data Warehouse
 
@@ -121,7 +121,7 @@ Minimalizovat přesun dat, vyberte distribuční sloupec, který:
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Co dělat, pokud žádná ze sloupce jsou správné distribuční sloupce
 
-Pokud neexistují žádné sloupce vhodným kandidátem, můžete použít kruhové dotazování jako metodu distribuce.
+Pokud žádná z vaší sloupce mají dostatek jedinečných hodnot ve sloupci distribuční, můžete vytvořit nový sloupec jako složené z jedné nebo více hodnot. Abyste se vyhnuli přesun dat během provádění dotazu, používejte složené distribuční sloupec jako sloupec spojení v dotazech.
 
 Když navrhujete tabulku distribuovat algoritmu hash, dalším krokem je načíst data do tabulky.  Načítání pokyny, najdete v části [přehledem načítání](sql-data-warehouse-overview-load.md). 
 

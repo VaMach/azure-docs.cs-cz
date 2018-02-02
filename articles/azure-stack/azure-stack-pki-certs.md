@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 8f0bb2266cb3a8a869ad50c40a46eb82985d17ed
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikát Azure zásobníku infrastruktura veřejných klíčů
 Sada Azure má síť infrastruktury veřejných pomocí externě dostupný veřejné IP adresy přiřazené k malého služeb Azure zásobníku a které by mohly mít klientské virtuální počítače. Certifikáty PKI s odpovídající názvy DNS pro tyto koncové body Azure zásobníku infrastruktury veřejných jsou nezbytné při nasazení Azure zásobníku. Tento článek obsahuje informace o:
@@ -91,8 +91,9 @@ Následující tabulka popisuje koncové body a certifikáty potřebné pro adap
 
 <sup>2</sup> A &#42;. služby App Service.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >* zástupný certifikát nelze použít namísto tyto tři certifikáty (api.appservice. *&lt;oblast >. &lt;plně kvalifikovaný název domény >*, ftp.appservice. *&lt;oblast >. &lt;plně kvalifikovaný název domény >*a sso.appservice. *&lt;oblast >. &lt;plně kvalifikovaný název domény >*. Služby App Service explicitně vyžaduje použití samostatných certifikátů pro tyto koncové body. 
 
+## <a name="learn-more"></a>Další informace
+Zjistěte, jak [vygenerujete certifikáty infrastruktury veřejných KLÍČŮ pro nasazení Azure zásobníku](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>Další postup
-[Generovat certifikáty PKI pro nasazení Azure zásobníku](azure-stack-get-pki-certs.md) 
-
+[Integrace identit](azure-stack-integrate-identity.md)
 

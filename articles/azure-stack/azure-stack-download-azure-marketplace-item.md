@@ -3,8 +3,8 @@ title: "Stažení položky marketplace z Azure | Microsoft Docs"
 description: "Položky marketplace lze stáhnout z Azure do nasazení Moje zásobník Azure."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položky marketplace z Azure do Azure zásobníku
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
+
 Jak se rozhodnete, který obsah, který chcete zahrnout do vaší zásobník Azure marketplace, měli byste zvážit obsah dostupný v Azure Marketplace. Můžete stáhnout ze seznamu spravovaných položek Azure marketplace, které byly předem otestované ke spuštění v Azure zásobníku. Často přidání nových položek do tohoto seznamu, takže nezapomeňte zaškrtnout zpět pro nový obsah.
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Stažení položky marketplace ve scénáři připojené (s připojením k Internetu)
 
-1. Chcete-li stáhnout položky marketplace, je nutné nejprve [zaregistrovat zásobník Azure s Azure](azure-stack-register.md). 
+1. Chcete-li stáhnout položky marketplace, je nutné nejprve [zaregistrovat zásobník Azure s Azure](azure-stack-register.md).
 2. Přihlaste se k portálu správce Azure zásobníku (https://portal.local.azurestack.external).
 3. Některé položky marketplace. může být velký. Zkontrolujte a ujistěte se, zda máte dostatek místa v systému klepnutím na tlačítko **zprostředkovatelé prostředků** > **úložiště**.
 
@@ -51,7 +52,7 @@ Jak se rozhodnete, který obsah, který chcete zahrnout do vaší zásobník Azu
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Stáhnout položky marketplace v odpojený nebo částečně připojené scénář (s omezenou připojení k Internetu)
 
-Když nasadíte Azure zásobníku v odpojeném režimu (bez žádné připojení k Internetu), nelze stáhnout položky marketplace pomocí portálu Azure zásobníku. Můžete však použít nástroj syndikace marketplace ke stažení položky marketplace pro počítač, který má připojení k Internetu a potom přenést do prostředí Azure zásobníku. 
+Když nasadíte Azure zásobníku v odpojeném režimu (bez žádné připojení k Internetu), nelze stáhnout položky marketplace pomocí portálu Azure zásobníku. Můžete však použít nástroj syndikace marketplace ke stažení položky marketplace pro počítač, který má připojení k Internetu a potom přenést do prostředí Azure zásobníku.
 
 ### <a name="prerequisites"></a>Požadavky
 Před použitím nástroje syndikace marketplace, ujistěte se, že máte [zaregistrován zásobník Azure s předplatným Azure](azure-stack-register.md).  
@@ -132,12 +133,12 @@ Z počítače, který má připojení k Internetu použijte následující postu
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. Použití portálu k nahrání vaší položku Marketplace. (. Azpkg) do úložiště objektů Blob Azure zásobníku. Můžete nahrát do místního úložiště zásobník Azure nebo nahrát do Azure Storage. (Je dočasné umístění balíčku.) Ujistěte se, že objekt blob je veřejně přístupný a poznamenejte si identifikátor URI.  
 
-5. Publikovat položku marketplace. zásobník Azure pomocí **přidat AzureRMGalleryItem**. Například:
+5. Publikovat položku marketplace. zásobník Azure pomocí **přidat AzsGalleryItem**. Příklad:
 
    ```powershell
    Add-AzsGalleryItem `
@@ -149,6 +150,6 @@ Z počítače, který má připojení k Internetu použijte následující postu
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Vytvoření a publikování položku Marketplace.](azure-stack-create-and-publish-marketplace-item.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Spravovat škálování virtuálních počítačů, nastavit pomocí Azure CLI 2.0
 V průběhu cyklu škálovací sadu virtuálních počítačů můžete spustit jeden nebo více úloh správy. Kromě toho můžete vytvořit skripty, které automatizují různé úlohy životního cyklu. Tento článek podrobně popisuje některé běžné příkazy Azure CLI 2.0, které umožňují provádět tyto úlohy.
@@ -28,7 +28,7 @@ K dokončení těchto úloh správy, musíte na nejnovější verzi 2.0 rozhran�
 
 
 ## <a name="view-information-about-a-scale-set"></a>Zobrazit informace o sadě škálování
-Chcete-li zobrazit celkový informace o sadě škálování, použijte [az vmss zobrazit](/cli/azure/vmss#show). Následující příklad získá informace o škálování nastavení s názvem *myScaleSet* v *myResourceGroup* skupinu prostředků. Zadejte vlastní názvy následujícím způsobem:
+Chcete-li zobrazit celkový informace o sadě škálování, použijte [az vmss zobrazit](/cli/azure/vmss#az_vmss_show). Následující příklad získá informace o škálování nastavení s názvem *myScaleSet* v *myResourceGroup* skupinu prostředků. Zadejte vlastní názvy následujícím způsobem:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -68,7 +68,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Změna kapacity škálovací sadě
 Předchozí příkazy vám ukázal, informace o vaší sadě škálování a instancí virtuálních počítačů. Chcete-li zvýšit nebo snížit počet instancí v sadě škálování, můžete změnit kapacitu. Škálovací sadu vytvoří nebo odstraní požadovaný počet virtuálních počítačů a potom nakonfiguruje virtuální počítače přijímat provoz aplikace.
 
-Pokud chcete zobrazit počet instancí, které máte aktuálně v sadě škálování, použijte [az vmss zobrazit](/cli/azure/vmss#show) a dotazovat se na *sku.capacity*:
+Pokud chcete zobrazit počet instancí, které máte aktuálně v sadě škálování, použijte [az vmss zobrazit](/cli/azure/vmss#az_vmss_show) a dotazovat se na *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -78,7 +78,7 @@ az vmss show \
     --output table
 ```
 
-Potom můžete ručně zvýšení nebo snížení počtu virtuálních počítačů v sad s škálování [az vmss škálování](/cli/azure/vmss#scale). Následující příklad nastaví počet virtuálních počítačů ve vaší škálování nastavena na *5*:
+Potom můžete ručně zvýšení nebo snížení počtu virtuálních počítačů v sad s škálování [az vmss škálování](/cli/azure/vmss#az_vmss_scale). Následující příklad nastaví počet virtuálních počítačů ve vaší škálování nastavena na *5*:
 
 ```azurecli
 az vmss scale \
@@ -99,7 +99,7 @@ Následující příklad zastaví instance *0* v pojmenované sad škálování 
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Zastavený virtuální počítače zůstanou přidělené a nadále toho vám být účtovány poplatky za výpočty. Pokud místo toho chcete virtuální počítače k zrušení přiřazení a pouze toho vám být účtovány poplatky za úložiště, použijte [navrácení az vmss](/cli/azure/vmss#deallocate). Zrušit přidělení více virtuálních počítačů, každý ID instance oddělte mezerou. V následujícím příkladu se zastaví a zruší přidělení instance *0* v pojmenované sad škálování *myScaleSet* a *myResourceGroup* skupinu prostředků. Zadejte hodnoty takto:
+Zastavený virtuální počítače zůstanou přidělené a nadále toho vám být účtovány poplatky za výpočty. Pokud místo toho chcete virtuální počítače k zrušení přiřazení a pouze toho vám být účtovány poplatky za úložiště, použijte [navrácení az vmss](/cli/azure/vmss#az_vmss_deallocate). Zrušit přidělení více virtuálních počítačů, každý ID instance oddělte mezerou. V následujícím příkladu se zastaví a zruší přidělení instance *0* v pojmenované sad škálování *myScaleSet* a *myResourceGroup* skupinu prostředků. Zadejte hodnoty takto:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -107,7 +107,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Spustit virtuální počítače ve škálovací sadě
-Chcete-li spustit jeden nebo více virtuálních počítačů v sadě škálování, použijte [spustit az vmss](/cli/azure/vmss#start). `--instance-ids` Parametru můžete zadat jednu nebo více virtuálních počítačů spustit. Pokud nezadáte instance ID, jsou spuštěny všechny virtuální počítače v sadě škálování. Spustit více virtuálních počítačů, každý ID instance oddělte mezerou.
+Chcete-li spustit jeden nebo více virtuálních počítačů v sadě škálování, použijte [spustit az vmss](/cli/azure/vmss#az_vmss_start). `--instance-ids` Parametru můžete zadat jednu nebo více virtuálních počítačů spustit. Pokud nezadáte instance ID, jsou spuštěny všechny virtuální počítače v sadě škálování. Spustit více virtuálních počítačů, každý ID instance oddělte mezerou.
 
 Následující příklad spustí instanci *0* v pojmenované sad škálování *myScaleSet* a *myResourceGroup* skupinu prostředků. Zadejte hodnoty takto:
 
@@ -117,7 +117,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Restartujte virtuální počítače ve škálovací sadě
-Chcete-li restartovat jeden nebo více virtuálních počítačů v sadě škálování, použijte [restartujte az vmss](/cli/azure/vmss#restart). `--instance-ids` Parametru můžete zadat jednu nebo více virtuálních počítačů k restartování. Pokud nezadáte instance ID, všechny virtuální počítače v sadě škálování se restartuje. Pokud chcete restartovat víc virtuálních počítačů, oddělte mezerou každé ID instance.
+Chcete-li restartovat jeden nebo více virtuálních počítačů v sadě škálování, použijte [restartujte az vmss](/cli/azure/vmss#az_vmss_restart). `--instance-ids` Parametru můžete zadat jednu nebo více virtuálních počítačů k restartování. Pokud nezadáte instance ID, všechny virtuální počítače v sadě škálování se restartuje. Pokud chcete restartovat víc virtuálních počítačů, oddělte mezerou každé ID instance.
 
 Následující příklad restartuje instanci *0* v pojmenované sad škálování *myScaleSet* a *myResourceGroup* skupinu prostředků. Zadejte hodnoty takto:
 

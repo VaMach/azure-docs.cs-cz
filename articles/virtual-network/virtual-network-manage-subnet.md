@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Přidat, změnit nebo odstranit podsíť virtuální sítě
 
@@ -35,7 +35,7 @@ Tento článek vysvětluje, jak přidat, změnit a odstranit podsíť pro virtu�
 
 Než začnete úlohy, které jsou popsané v tomto článku, splnit následující požadavky:
 
-- Pokud jste pro práci s virtuálními sítěmi nové, doporučujeme, abyste si prošli cvičení v [vytvoření vaší první virtuální síť Azure](virtual-network-get-started-vnet-subnet.md). Tento postup může pomoci při seznámení s virtuálními sítěmi.
+- Pokud jste pro práci s virtuálními sítěmi nové, doporučujeme, abyste si prošli cvičení v [vytvoření vaší první virtuální síť Azure](quick-create-portal.md). Tento postup může pomoci při seznámení s virtuálními sítěmi.
 - Další informace o omezeních pro virtuální sítě, zkontrolujte [Azure omezení](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Přihlaste se k portálu Azure, nástroje příkazového řádku Azure (Azure CLI) nebo Azure PowerShell pomocí účtu Azure. Pokud nemáte účet Azure, zaregistrujte si [Bezplatný zkušební účet](https://azure.microsoft.com/free).
 - Pokud budete chtít použít příkazy prostředí PowerShell k dokončení úlohy popsané v tomto článku, musíte nejdřív [instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ujistěte se, že máte nejnovější verzi rutin prostředí Azure PowerShell nainstalovaný. Chcete-li získat nápovědu pro příkazy prostředí PowerShell v příkladech, zadejte `get-help <command> -full`.
@@ -67,7 +67,7 @@ Chcete-li přidat podsíť:
 |Nástroj|Příkaz|
 |---|---|
 |Azure CLI|[Vytvoření az podsíti virtuální sítě](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nové AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [přidat AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet"></a>Změňte nastavení podsítě
 
@@ -103,8 +103,8 @@ Podsíť může odstranit pouze v případě, že neexistují žádné prostřed
 |Nástroj|Příkaz|
 |---|---|
 |Azure CLI|[AZ síť vnet odstranit](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Odebrat AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Další kroky
 
-Vytvoření virtuálního počítače v podsíti, naleznete v části [vytvořit virtuální síť a nasazovat virtuální počítače v podsíti](virtual-network-get-started-vnet-subnet.md#create-vms).
+Vytvoření virtuálního počítače v podsíti, naleznete v části [vytvořit virtuální síť a nasazovat virtuální počítače v podsíti](quick-create-portal.md#create-virtual-machines).

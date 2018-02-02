@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Síť Azure
 
@@ -157,8 +157,8 @@ Můžete nasadit a nakonfigurovat Azure síťových prostředků s žádným z n
 
 Některé síťové služby Azure mají poplatků, zatímco jiné jsou volné. Zobrazení [virtuální síť](https://azure.microsoft.com/pricing/details/virtual-network), [brány VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), [Application Gateway](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [nástroj pro vyrovnávání zatížení](https://azure.microsoft.com/pricing/details/load-balancer), [sledovací proces sítě](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) a [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) ceny stránky pro další informace.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-- Vytvoření vaší první virtuální sítě a připojení několika virtuálními počítači, pomocí kroků v [vytvoření vaší první virtuální síť](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) článku.
+- Vytvoření vaší první virtuální sítě a připojení několika virtuálními počítači, pomocí kroků v [vytvoření vaší první virtuální síť](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) článku.
 - Připojení počítače k virtuální síti pomocí kroků v [konfigurace připojení typu point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) článku.
 - Internetové přenosy na veřejných serverech vyrovnávat zatížení pomocí kroků v [vytvořit nástroj pro vyrovnávání zatížení internetového](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) článku.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Úvodní příručka pro vývojáře v Azure
 
@@ -44,7 +44,7 @@ Nyní se podívejme se na některé z konkrétní služby, které doporučujeme 
 
 Azure poskytuje že několik cloudové výpočetní nabídky k aplikaci spustit, takže nemusíte starat o podrobnostech infrastruktury. Můžete snadno škálovat nahoru i horizontální navýšení kapacity vašich prostředků s růstem využití vaší aplikace.
 
-Azure nabízí služby, které podporují vaší aplikace vývoj a hostování potřebám. Azure poskytuje infrastrukturu jako služba (IaaS) tak, abyste získali plnou kontrolu nad hostování aplikací. Azure platforma jako služba (PaaS) nabídky poskytují plně spravované služby potřebné k výkonu aplikace. Existuje i true bez serveru hostování v Azure kde všechny, které musíte udělat je zápis kódu.
+Azure nabízí služby, které podporují vaší aplikace vývoj a hostování potřebám. Azure poskytuje infrastrukturu jako službu (IaaS) tak, abyste získali plnou kontrolu nad hostování aplikací. Azure platforma jako služba (PaaS) nabídky poskytují plně spravované služby potřebné k výkonu aplikace. Existuje i true bez serveru hostování v Azure kde všechny, které musíte udělat je zápis kódu.
 
 ![Hostování možnosti Azure aplikace](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -69,7 +69,7 @@ Můžete migrovat existující aplikace do služby App Service pomocí [nástroj
 
 #### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-Jako poskytovatel infrastruktury jako služby (IaaS) Azure umožňuje nasadit nebo migrovat aplikace systému Windows nebo virtuální počítače s Linuxem. Virtuální počítače Azure společně s Azure Virtual Network, podporuje nasazení systému Windows nebo virtuální počítače s Linuxem do Azure. S virtuálními počítači máte celkový kontrolu nad konfigurace počítače. Pokud používáte virtuální počítače, jste zodpovědná za serveru instalaci, konfiguraci, údržby a operační systém opravy softwaru.
+Jako infrastruktura jako služba (IaaS) zprostředkovatele Azure umožňuje nasadit nebo migrovat aplikace systému Windows nebo virtuální počítače s Linuxem. Virtuální počítače Azure společně s Azure Virtual Network, podporuje nasazení systému Windows nebo virtuální počítače s Linuxem do Azure. S virtuálními počítači máte celkový kontrolu nad konfigurace počítače. Pokud používáte virtuální počítače, jste zodpovědná za serveru instalaci, konfiguraci, údržby a operační systém opravy softwaru.
 
 Z důvodu úroveň kontroly, zda máte s virtuálními počítači můžete spustit širokou škálu úloh serveru v Azure, které se nehodí do modelu PaaS. Mezi tyto úlohy patří databázových serverů, Windows Server Active Directory a Microsoft SharePoint. Další informace najdete v dokumentaci virtuálních počítačů pro buď [Linux](/azure/virtual-machines/linux/) nebo [Windows](/azure/virtual-machines/windows/).
 
@@ -220,7 +220,7 @@ Azure nabízí dva způsoby, jak spravovat vašim aplikacím a službám z pří
 
 -   [Prostředí Azure PowerShell](../../powershell-install-configure.md): poskytuje sadu modulů s rutinami, které vám umožní spravovat prostředky Azure pomocí prostředí Windows PowerShell.
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Portál Azure je webové aplikace, která slouží k vytváření, správu a odebrat prostředky Azure a služby. Portál Azure se nachází v <https://portal.azure.com>. Zahrnuje přizpůsobitelný řídicího panelu, nástroje pro správu prostředků Azure a přístup k nastavení odběru a fakturační informace. Další informace najdete v tématu [přehled portálu Azure](../../azure-portal-overview.md).
 

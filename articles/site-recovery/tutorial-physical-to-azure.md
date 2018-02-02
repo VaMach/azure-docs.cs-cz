@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Nastavit zotavení po havárii do Azure pro místní fyzických serverů
 
@@ -64,7 +64,7 @@ Ujistěte se, že váš účet Azure má oprávnění pro replikaci virtuálníc
 
 ### <a name="set-up-an-azure-network"></a>Nastavení sítě Azure
 
-Nastavení [síť Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Nastavení [síť Azure](../virtual-network/quick-create-portal.md).
 
 - Virtuální počítače Azure jsou umístěny v této síti, když jste vytvořili po převzetí služeb při selhání.
 - Síť musí být ve stejné oblasti jako trezor služeb zotavení
@@ -142,7 +142,7 @@ Vyberte a ověřte cílové prostředky.
 2. Zadejte model nasazení cíl.
 3. Site Recovery zkontroluje, že máte minimálně jednu kompatibilní síť a účet úložiště Azure.
 
-   ![cíl](./media/tutorial-physical-to-azure/network-storage.png)
+   ![Cíl](./media/tutorial-physical-to-azure/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Vytvoření zásady replikace
@@ -181,6 +181,6 @@ Povolení replikace pro každý server.
 
 Ke sledování serverů, které přidáte, můžete zkontrolovat, čas poslední zjištěné u nich **konfigurační servery** > **poslední obraťte se na**. Chcete-li přidat počítače bez čekání naplánovaný čas zjišťování, zvýrazněte konfigurační server (nemáte klikněte na něj) a klikněte na tlačítko **aktualizovat**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Spuštění postupu zotavení po havárii](tutorial-dr-drill-azure.md)

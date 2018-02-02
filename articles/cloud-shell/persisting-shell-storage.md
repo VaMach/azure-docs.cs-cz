@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>Jak funguje Bash v prostředí cloudové úložiště 
 Bash v prostředí cloudu potrvají soubory pomocí obě z následujících metod: 
@@ -69,12 +69,12 @@ Sdílené složky budou nadále existovat, pokud chcete odstranit ručně. Cloud
 ![Spuštění ' clouddrive unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> I když se spustí tento příkaz nebude odstranit všechny prostředky, ručním odstranění skupiny prostředků, účet úložiště, nebo sdílené složky, který je namapovaný na cloudové prostředí vymaže vaší `$Home` image disku adresáře a soubory ve sdílené složce. Tuto akci nelze vrátit zpět.
+> I když se spustí tento příkaz nebude odstranit všechny prostředky, ručním odstranění skupiny prostředků, účet úložiště nebo sdílené složky, který je namapovaný na cloudové prostředí vymaže vaší `$Home` image disku adresáře a soubory ve sdílené složce. Tuto akci nelze vrátit zpět.
 
 ## <a name="list-clouddrive"></a>Seznam`clouddrive`
 Chcete-li zjistit, které sdílené složky je připojit jako `clouddrive`spusťte `df` příkaz. 
 
-Cestu k souboru na clouddrive se zobrazí, že váš název účtu úložiště a sdílených složek v adrese URL. Například `//storageaccountname.file.core.windows.net/filesharename`.
+Cestu k souboru na clouddrive ukazuje, že váš název účtu úložiště a sdílených složek v adrese URL. Například `//storageaccountname.file.core.windows.net/filesharename`.
 
 ```
 justin@Azure:~$ df
@@ -88,9 +88,9 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Bash v prostředí cloudu rychlý start](quickstart.md) <br>
 [Další informace o ukládání souborů aplikace Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Další informace o značkách úložiště](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
