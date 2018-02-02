@@ -84,10 +84,14 @@
       items:
         - name: Použití s Data Lake Store
           href: apache-spark-use-with-data-lake-store.md
+        - name: Připojení k Azure SQL Database
+          href: apache-spark-connect-to-sql-database.md
     - name: Streamování Sparku
       items:
         - name: Přehled
           href: apache-spark-streaming-overview.md
+        - name: Vytvoření vysoce dostupných streamovacích úloh Sparku v YARNu
+          href: apache-spark-streaming-high-availability.md
         - name: Zpracování streamovaných událostí
           href: apache-spark-eventhub-streaming.md
         - name: Strukturované streamování s využitím Event Hubs
@@ -101,6 +105,8 @@
         - name: Streamování Sparku (DStream) s využitím Kafky
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Vytvoření streamovacích úloh Sparku s přesně jedním zpracováním událostí
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark a Machine Learning
       items:
         - name: Předpověď výkonu HVAC
@@ -198,6 +204,8 @@
           maintainContext: true
     - name: Spravovat
       items:
+        - name: Konfigurace nastavení Sparku
+          href: apache-spark-settings.md
         - name: Optimalizace sparkových úloh
           href: apache-spark-perf.md
         - name: Plánování kapacity clusteru

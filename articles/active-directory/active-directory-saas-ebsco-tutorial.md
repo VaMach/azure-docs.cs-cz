@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 385d3aa356e6f4ec313790321b5b926810a06394
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Kurz: Azure Active Directory integrace s EBSCO
 
@@ -80,13 +80,11 @@ V této části nakonfigurovat a otestovat Azure AD jednotné přihlašování s
 
 Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v EBSCO je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské v EBSCO musí navázat.
 
-V EBSCO, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
-
 Nakonfigurovat a otestovat Azure AD jednotné přihlašování s EBSCO, je třeba dokončit následující stavební bloky:
 
 1. **[Konfigurovat Azure AD jednotné přihlašování](#configure-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
 2. **[Vytvořit testovací uživatele Azure AD](#create-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
-3. **[Vytvoření zkušebního uživatele EBSCO](#create-a-ebsco-test-user)**  – Pokud chcete mít protějšek Britta Simon v EBSCO propojeném s Azure AD reprezentace daného uživatele.
+3. **[Vytvořit testovací uživatele s EBSCO](#create-an-ebsco-test-user)**  – můžete automatizovat EBSCOhost zřizování nebo přizpůsobení uživatelem. EBSCO podporuje pouze za běhu zřizování uživatelů.
 4. **[Přiřadit testovacího uživatele Azure AD](#assign-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
 5. **[Test jednotného přihlašování](#test-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
 
@@ -128,6 +126,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 5. Aplikace EBSCO očekává SAML kontrolní výrazy ve specifickém formátu. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z "**uživatelské atributy**" části na stránce integrace aplikace. Následující snímek obrazovky ukazuje příklad pro tento.
     
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
+
+    > [!Note]
+    > **Název** atribut je povinný a je namapována na **uživatelský identifikátor** v EBSCO aplikaci. Ve výchozím nastavení to je přidáván, takže nemusíte to přidat ručně.
     
 6. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je znázorněno na obrázku výše a proveďte následující kroky:
     
@@ -196,22 +197,14 @@ Cílem této části je vytvoření zkušebního uživatele na portálu Azure, n
  
 ### <a name="create-an-ebsco-test-user"></a>Vytvořit uživatele s EBSCO testu
 
-Cílem této části je vytvoření uživatele v EBSCO nazývá Britta Simon.
-
-V případě EBSCO, zřizování uživatelů je automatická, ale je nutné postupovat níže uvedených pokynů při přihlášení k aplikaci poprvé.
+V případě EBSCO je automatické zřizování uživatelů.
 
 **K poskytnutí uživatelského účtu, proveďte následující kroky:**
 
-1. Jakmile se přihlásíte k aplikaci, klikněte na **"přihlášení"** tlačítko v pravém horním rohu.
+Azure AD předá EBSCO aplikaci požadovaná data. Zřizování uživatelů na EBSCO může být automatické nebo vyžadovat jednorázové formuláře. To závisí na tom, zda má klient spoustu existující účty EBSCOhost s osobní nastavení uložit. Stejné můžete popsané s [tým podpory EBSCO](mailto:sso@ebsco.com) během implementace. V obou případech klient nemá k vytváření účtů EBSCOhost před testování.
 
-    ![Přihlášení EBSCO v seznamu aplikací](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
- 
-2. Obdržíte jednorázové výzvu k spárujte institucionální/SAML přihlášení se **existujícího účtu MyEBSCOhost propojit účtu instituce, která teď** nebo **vytvořit nový účet MyEBSCOhost a propojovat je se vaše účet instituce**. Účet se používá pro přizpůsobení na EBSCOhost aplikaci. Vyberte možnost **vytvořit nový účet** a zobrazí se, že formulář pro přizpůsobení je předem byla dokončena s hodnoty z odpověď saml, jak je vidět na tomto snímku obrazovky. Klikněte na tlačítko **'Pokračovat'** uložte tento výběr.
-    
-     ![EBSCO uživatele v seznamu aplikací](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
-
-3. Po dokončení výše uvedených nastavení vymažte soubory cookie nebo mezipaměti a přihlaste se znovu. Nebudete muset ručně přihlášení znovu a uloží individuální nastavení 
-
+   >[!Note]
+   >Je možné automatizovat EBSCOhost zřizování nebo přizpůsobení uživatelem. Obraťte se na [tým podpory EBSCO](mailto:sso@ebsco.com) o těsně za běhu zřizování uživatelů. 
  
 ### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
@@ -247,8 +240,18 @@ V této části povolíte Britta Simon používat Azure jednotné přihlašován
 
 V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
 
-Když kliknete na dlaždici EBSCO na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci EBSCO.
-Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
+1. Když kliknete na dlaždici EBSCO na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci EBSCO.
+Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
+
+2. Jakmile se přihlásíte k aplikaci, klikněte na **přihlásit** tlačítko v pravém horním rohu.
+
+    ![Přihlášení EBSCO v seznamu aplikací](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
+ 
+3. Obdržíte jednorázové výzvu k spárujte institucionální/SAML přihlášení se **existujícího účtu MyEBSCOhost propojit účtu instituce, která teď** nebo **vytvořit nový účet MyEBSCOhost a propojovat je se vaše účet instituce**. Účet se používá pro přizpůsobení na EBSCOhost aplikaci. Vyberte možnost **vytvořit nový účet** a zobrazí se, že formulář pro přizpůsobení je předem byla dokončena s hodnoty z odpověď saml, jak je vidět na tomto snímku obrazovky. Klikněte na tlačítko **'Pokračovat'** uložte tento výběr.
+    
+     ![EBSCO uživatele v seznamu aplikací](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
+
+4. Po dokončení výše uvedených nastavení vymažte soubory cookie nebo mezipaměti a přihlaste se znovu. Nebudete muset ručně přihlášení znovu a uloží individuální nastavení
 
 ## <a name="additional-resources"></a>Další zdroje informací:
 

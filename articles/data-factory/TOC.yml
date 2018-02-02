@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Uživatelské rozhraní
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3. Kopírování místních dat do cloudu
       items:
@@ -90,7 +90,7 @@
       items:
         - name: Uživatelské rozhraní
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Ukázky
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Vyvolání balíčků SSIS pomocí aktivity uložených procedur
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Plánování prostředí Azure-SSIS Integration Runtime
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Vytvoření aktivačních událostí
       items:
         - name: Vytvoření aktivační události plánu

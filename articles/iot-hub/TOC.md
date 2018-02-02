@@ -40,10 +40,11 @@
 
 # Návody
 ## Plánování
-### [Porovnání IoT Hub a Event Hubs](iot-hub-compare-event-hubs.md)
+### [Porovnání služeb IoT Hub a Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Škálování vlastního řešení](iot-hub-scaling.md)
 ### [Vysoká dostupnost a zotavení po havárii](iot-hub-ha-dr.md)
 ### [Podpora dalších protokolů](iot-hub-protocol-gateway.md)
+### [Porovnání směrování událostí a zpráv](iot-hub-event-grid-routing-comparison.md)
 ## [Vývoj](iot-hub-how-to.md)
 ### [Příručka pro vývojáře](iot-hub-devguide.md)
 #### [Průvodce funkcemi ze zařízení do cloudu](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [Odesílání a příjem zpráv](iot-hub-devguide-messaging.md)
 ##### [Odeslání zpráv ze zařízení do cloudu do IoT Hubu](iot-hub-devguide-messages-d2c.md)
 ##### [Čtení zpráv ze zařízení do cloudu z integrovaného koncového bodu](iot-hub-devguide-messages-read-builtin.md)
+##### [Reakce na události služby IoT Hub](iot-hub-event-grid.md)
 ##### [Použití vlastních koncových bodů a pravidel směrování pro zprávy ze zařízení do cloudu](iot-hub-devguide-messages-read-custom.md)
 ##### [Odesílání zpráv z cloudu do zařízení z IoT Hubu](iot-hub-devguide-messages-c2d.md)
 ##### [Vytvoření a čtení zpráv IoT Hubu](iot-hub-devguide-messages-construct.md)

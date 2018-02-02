@@ -41,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java s MySQL
           href: app-service-web-tutorial-java-mysql.md
+        - name: Python s PostgreSQL
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1. Vytvoření rozhraní RESTful API
       href: app-service-web-tutorial-rest-api.md
     - name: 2. Mapování vlastní domény

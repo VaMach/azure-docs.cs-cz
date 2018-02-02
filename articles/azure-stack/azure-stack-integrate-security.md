@@ -2,17 +2,18 @@
 title: "Zásobník datacenter integrace se službou Azure - zabezpečení"
 description: "Zjistěte, jak integrovat Azure zásobníku zabezpečení zabezpečení vašeho datového centra"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Zásobník datacenter integrace se službou Azure - zabezpečení
 
@@ -59,7 +60,7 @@ Následující postup je příklad, které můžete použít ke konfiguraci Azur
 
    b. Vložte přístupový klíč účtu úložiště.
 
-   c. V části **úložiště koncové body domény**, vyberte **jiných**a zadejte koncový bod úložiště **[Oblast]. [DomainName]**.
+   c. V části **úložiště koncové body domény**, vyberte **jiných**a zadejte koncový bod úložiště **[Oblast]. [ DomainName]**.
 
    d. Vyberte **použít protokol HTTP** zaškrtávací políčko.
 
@@ -74,7 +75,7 @@ Následující postup je příklad, které můžete použít ke konfiguraci Azur
 
 Pro přístup k účtu úložiště můžete použít různé programovací jazyky. Použijte následující dokumentace a vyberte příklad, který odpovídá jazyku:
 
-[https://Azure.microsoft.com/resources/Samples/?term=Storage+Account](https://azure.microsoft.com/resources/samples/?term=storage+account)
+[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
 
 ## <a name="device-access-auditing"></a>Auditování přístupu k zařízení
 
@@ -91,6 +92,6 @@ Všechny fyzické zařízení v Azure zásobníku mohou zasílat zprávy Syslog.
 
 Cílová adresa Syslog je volitelný parametr shromážděných pro nasazení, ale také přidáním nasazení post.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-[Azure zásobníku datacenter integrace – Publikování koncové body](azure-stack-integrate-endpoints.md)
+[Zásady údržby](azure-stack-servicing-policy.md)

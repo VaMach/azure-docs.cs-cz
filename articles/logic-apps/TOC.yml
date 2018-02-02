@@ -62,25 +62,7 @@
         - name: Zabezpečení aplikací logiky
           href: logic-apps-securing-a-logic-app.md
         - name: Vývoj vlastních konektorů
-          items:
-            - name: Přehled vlastních konektorů
-              href: custom-connector-overview.md
-            - name: Vytvoření konektorů z webových rozhraní API
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Zabezpečení konektorů pomocí Azure AD
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: Popis rozhraní API pomocí nástroje Postman
-              href: custom-connector-api-postman-collection.md
-            - name: Rozšíření OpenAPI pro vlastní konektory
-              href: custom-connector-openapi-extensions.md
-            - name: Vytvoření a registrace konektoru OpenAPI
-              href: logic-apps-custom-connector-register.md
-            - name: Vytvoření a registrace konektoru SOAP
-              href: logic-apps-soap-connector-create-register.md
-            - name: Certifikace vašeho konektoru
-              href: custom-connector-submit-certification.md
-            - name: Nejčastější dotazy k vlastním konektorům
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: Vývoj vlastních rozhraní API
           items:
             - name: Vytvoření vlastních rozhraní API pro aplikace logiky
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: Přidání map pro transformaci XML
           href: logic-apps-enterprise-integration-maps.md
+        - name: Transformace JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Přidání certifikátů zabezpečení
           href: logic-apps-enterprise-integration-certificates.md
         - name: Řešení chyb B2B

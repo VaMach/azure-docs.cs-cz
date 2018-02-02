@@ -117,6 +117,7 @@
 ### [Konfigurace místních kodérů pro použití s cloudovým kodérem](media-services-live-encoders-overview.md)
 #### [Kodér Elemental Live](media-services-configure-elemental-live-encoder.md)
 #### [Kodér FMLE](media-services-configure-fmle-live-encoder.md)
+#### [Kodér Haivision KB](media-services-configure-kb-live-encoder.md)
 #### [Kodér NewTek TriCaster](media-services-configure-tricaster-live-encoder.md)
 #### [Kodér Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Zpracování dlouhotrvajících operací](media-services-dotnet-long-operations.md)

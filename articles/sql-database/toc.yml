@@ -4,6 +4,8 @@
   items:
     - name: Informace o databázi SQL
       href: sql-database-technical-overview.md
+    - name: PaaS nebo IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: Šablony Rychlý start
   expanded: true
   items:
@@ -59,7 +61,7 @@
       href: sql-database-powershell-samples.md
 - name: Koncepty
   items:
-    - name: Funkce služby
+    - name: Databázová služba
       items:
         - name: Servery a databáze
           href: sql-database-servers-databases.md
@@ -73,42 +75,22 @@
           href: sql-database-elastic-pool.md
         - name: Architektura připojení
           href: sql-database-connectivity-architecture.md
-        - name: Pravidla brány firewall
-          href: sql-database-firewall-configure.md
-        - name: Pravidla virtuální sítě brány firewall
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Jednotky DTU a eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Srovnávací test DTU
           href: sql-database-benchmark-overview.md
-        - name: PaaS nebo IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Auditování
-          href: sql-database-auditing.md
-        - name: Detekce hrozeb
-          href: sql-database-threat-detection.md
-        - name: Zálohování databáze
-          href: sql-database-automated-backups.md
-        - name: Uchování záloh
-          href: sql-database-long-term-retention.md
-        - name: Skupiny převzetí služeb při selhání
-          href: sql-database-geo-replication-overview.md
-        - name: Knihovna elastických klientů
-          href: sql-database-elastic-database-client-library.md
-        - name: Elastické dotazy
-          href: sql-database-elastic-query-overview.md
-        - name: Elastické transakce
-          href: sql-database-elastic-transactions-overview.md
-        - name: Elastické úlohy
-          href: sql-database-elastic-jobs-overview.md
-        - name: Posouzení ohrožení zabezpečení SQL
-          href: sql-vulnerability-assessment.md
         - name: Běžné funkce SQL Serveru
           href: sql-database-features.md
+    - name: Vysoká dostupnost
+      href: sql-database-high-availability.md
     - name: Zabezpečení
       items:
         - name: Přehled
           href: sql-database-security-overview.md
+        - name: Pravidla brány firewall
+          href: sql-database-firewall-configure.md
+        - name: Pravidla virtuální sítě brány firewall
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Řízení přístupu
           href: sql-database-control-access.md
         - name: Azure AD
@@ -117,16 +99,28 @@
           href: sql-database-manage-logins.md
         - name: Vícefaktorové ověřování
           href: sql-database-ssms-mfa-authentication.md
+        - name: Auditování
+          href: sql-database-auditing.md
+        - name: Detekce hrozeb
+          href: sql-database-threat-detection.md
         - name: TDS a auditování tabulek
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Maskování dat
+        - name: Dynamické maskování dat
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: Vysoká dostupnost
-      href: sql-database-high-availability.md
+        - name: Posouzení ohrožení zabezpečení
+          href: sql-vulnerability-assessment.md
+        - name: Zjišťování a klasifikace dat
+          href: sql-database-data-discovery-and-classification.md
     - name: Kontinuita podnikových procesů
       items:
         - name: Přehled
           href: sql-database-business-continuity.md
+        - name: Zálohování databáze
+          href: sql-database-automated-backups.md
+        - name: Uchování záloh
+          href: sql-database-long-term-retention.md
+        - name: Skupiny převzetí služeb při selhání
+          href: sql-database-geo-replication-overview.md
         - name: Obnovení databáze
           href: sql-database-recovery-using-backups.md
         - name: Konfigurace zabezpečení
@@ -185,6 +179,14 @@
       items:
         - name: Přehled
           href: sql-database-elastic-scale-introduction.md
+        - name: Knihovna elastických klientů
+          href: sql-database-elastic-database-client-library.md
+        - name: Elastické dotazy
+          href: sql-database-elastic-query-overview.md
+        - name: Elastické transakce
+          href: sql-database-elastic-transactions-overview.md
+        - name: Elastické úlohy
+          href: sql-database-elastic-jobs-overview.md
         - name: Mapy horizontálních oddílů
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Směrování dotazů
@@ -299,6 +301,8 @@
           href: sql-database-advisor-portal.md
         - name: Povolení automatického ladění
           href: sql-database-automatic-tuning-enable.md
+        - name: E-mailová oznámení pro automatické ladění
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: Řešení potíží s výkonem Intelligent Insights
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Monitorování výkonu pomocí zobrazení dynamické správy

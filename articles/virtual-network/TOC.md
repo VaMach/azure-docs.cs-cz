@@ -15,7 +15,9 @@
 ### [Seznamy řízení přístupu](virtual-networks-acl.md)
 
 # Začínáme
-## [Vytvoření první virtuální sítě](virtual-network-get-started-vnet-subnet.md)
+## [Vytvoření virtuální sítě – portál](quick-create-portal.md)
+## [Vytvoření virtuální sítě – PowerShell](quick-create-powershell.md)
+## [Vytvoření virtuální sítě – Azure CLI](quick-create-cli.md)
 
 # Postup
 ## Plánování a návrh
