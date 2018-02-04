@@ -3,21 +3,21 @@ title: "Používat Windows virtuální počítač MSI pro přístup k Azure Key 
 description: "Kurz vás provede procesem použití Windows virtuálního počítače spravované služby Identity (MSI) pro přístup k Azure Key Vault."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 074cfd9ab478c977eb8ae0f5b97aafc2767ee4e7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Použití Windows virtuálního počítače spravované služby Identity (MSI) pro přístup k Azure Key Vault 
 
@@ -47,7 +47,7 @@ Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://p
 
 V tomto kurzu vytvoříme nový virtuální počítač s Windows. Můžete také povolit MSI na existující virtuální počítač.
 
-1.  Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1.  Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
 2.  Vyberte **Compute** a potom vyberte **Windows Server 2016 Datacenter**. 
 3.  Zadejte informace o virtuálním počítači. **Uživatelské jméno** a **heslo** vytvořený, zde je přihlašovací údaje, které používáte k přihlášení k virtuálnímu počítači.
 4.  Vyberte správnou **předplatné** pro virtuální počítač v rozevírací nabídce.

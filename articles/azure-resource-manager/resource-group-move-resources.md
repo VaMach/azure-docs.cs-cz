@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 02/01/2018
 ---
@@ -190,43 +190,29 @@ Virtuální síť nemůžete přesunout do jiného předplatného, pokud virtuá
 
 ## <a name="app-service-limitations"></a>Omezení služby App Service
 
-Při práci s aplikacemi App Service, nemůžete přesunout pouze plán služby App Service. Chcete-li přesunout aplikací App Service, možnosti jsou:
+Omezení pro přesun prostředků služby App Service se liší v závislosti na tom, jestli jsou přesun prostředků v rámci předplatného nebo do nového předplatného.
 
-* Přesuňte plán služby App Service a všechny ostatní prostředky služby App Service v příslušné skupině prostředků do nové skupiny prostředků, který ještě nemá prostředky služby App Service. Tento požadavek znamená, že je nutné přesunout i prostředky služby App Service, které nejsou přidružené plán služby App Service.
-* Přesunutí aplikace do jiné skupině prostředků, ale ponechat všechny plány služby App Service v původní skupinu prostředků.
+### <a name="moving-within-the-same-subscription"></a>Přesunutí v rámci stejného předplatného.
 
-Plán služby App Service se nemusí být umístěné ve stejné skupině prostředků jako aplikace pro aplikaci správné fungování.
+Při přesunu webové aplikace _v rámci stejného předplatného_, nemůžete přesunout nahrané certifikáty SSL. Ale webové aplikace do nové skupiny prostředků můžete přesunout bez přesouvání jeho odeslaný certifikát SSL a funkce SSL vaší aplikace stále funguje. 
 
-Například, pokud obsahuje vaší skupiny prostředků:
+Pokud chcete přesunout certifikát SSL s webovou aplikaci, postupujte podle těchto kroků:
 
-* **webové a** který je přidružen **plánu a**
-* **Web-b** který je přidružen **plán b**
+1.  Odstraníte se nahraný certifikát z webové aplikace.
+2.  Přesuňte webové aplikace.
+3.  Nahrajte certifikát do přesunutý webové aplikace.
 
-Možnosti jsou:
+### <a name="moving-across-subscriptions"></a>Přesouvání mezi odběrů
 
-* Přesunout **webové a**, **plán a**, **web-b**, a **plán b**
-* Přesunout **webové a** a **web-b**
-* Přesunout **webové a**
-* Přesunout **web-b**
+Při přesunu webové aplikace _ve předplatných_, platí následující omezení:
 
-Všechny ostatní kombinace zahrnovat ponechat za typ prostředku, který nemůže být ponecháno za při přesunu plán služby App Service (libovolný typ prostředku služby App Service).
-
-Pokud vaše webová aplikace se nachází v jiné skupině prostředků než jeho plán služby App Service, ale chcete přesunout na novou skupinu prostředků, je nutné provést přesun ve dvou krocích. Příklad:
-
-* **webové a** se nachází v **skupinu webových**
-* **plán a** se nachází v **plán skupiny**
-* Chcete, aby **webové a** a **plán a** být umístěné ve **kombinaci skupiny**
-
-Aby bylo možné tento přesun, proveďte dvě samostatné přesunutí operace v tomto pořadí:
-
-1. Přesunout **webové a** k **plán skupiny**
-2. Přesunout **webové a** a **plán a** k **kombinaci skupiny**.
-
-Certifikát služby aplikace můžete přesunout do nové skupiny prostředků nebo předplatného bez problémů. Pokud vaše webová aplikace obsahuje certifikát SSL, který jste zakoupili externě a nahrané do aplikace, můžete před přesunutím webové aplikace musíte odstranit certifikát. Například můžete provést následující kroky:
-
-1. Odstranění se nahraný certifikát z webové aplikace
-2. Přesunout webové aplikace
-3. Nahrajte certifikát do webové aplikace
+- Cílové skupiny prostředků nesmí mít žádné existující prostředky služby App Service. Služby App Service prostředky zahrnují:
+    - Web Apps
+    - Plány služby App Service
+    - Nahrané nebo importované certifikáty SSL
+    - Prostředí App Service
+- Všechny prostředky služby App Service ve skupině prostředků je třeba přesunout společně.
+- Prostředky aplikace služby lze přesunout pouze ze skupiny prostředků, ve které byly původně vytvořili. Pokud prostředek služby App Service je již v jeho původní skupin prostředků, je nutné je přesunout zpět do této původní skupiny prostředků nejprve a pak ho lze přesunout mezi odběry. 
 
 ## <a name="classic-deployment-limitations"></a>Omezení nasazení Classic
 

@@ -3,7 +3,7 @@ title: "Postup konfigurace MSI ve virtuálním počítači Azure pomocí portál
 description: "Krok podle podrobné pokyny pro konfiguraci a spravovaná služba Identity (MSI) ve virtuálním počítači Azure, pomocí portálu Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: bryanla
-ms.openlocfilehash: 8decfcedec94b9d78eac73a3e8db1219fac02029
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: f2891874fc6f894cfa141bd28c7c9edd92d7968c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurace virtuálních počítačů spravovaných služba Identity (MSI) pomocí portálu Azure
 
@@ -68,7 +68,7 @@ Pokud máte virtuální počítač, který už nepotřebuje MSI:
 
 - Přehled MSI najdete v tématu [identita spravované služby přehled](msi-overview.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Pomocí portálu Azure, přidělte virtuálnímu počítači Azure MSI [přístup k jiným prostředkem Azure](msi-howto-assign-access-portal.md).
 

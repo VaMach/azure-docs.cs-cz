@@ -3,7 +3,7 @@ title: "Vytvoření smyčky a obory nebo debatch data v pracovních postupech - 
 description: "Vytvoření smyčky k iteraci v rámci dat, akce skupiny do oborů, nebo debatch data ke spuštění více pracovních postupů v Azure Logic Apps."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
+author: ecfan
 manager: anneta
 editor: 
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: LADocs; estfan
+ms.openlocfilehash: 64b8f414efe8cd886589084f05e04486c9a0d05c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Smyčky, obory a rozdělení dávek v Logic Apps
   

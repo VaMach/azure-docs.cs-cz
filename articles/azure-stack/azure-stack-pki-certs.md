@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikát Azure zásobníku infrastruktura veřejných klíčů
 Sada Azure má síť infrastruktury veřejných pomocí externě dostupný veřejné IP adresy přiřazené k malého služeb Azure zásobníku a které by mohly mít klientské virtuální počítače. Certifikáty PKI s odpovídající názvy DNS pro tyto koncové body Azure zásobníku infrastruktury veřejných jsou nezbytné při nasazení Azure zásobníku. Tento článek obsahuje informace o:
@@ -27,6 +27,8 @@ Sada Azure má síť infrastruktury veřejných pomocí externě dostupný veře
 - Jaké certifikáty se vyžadují k nasazení Azure zásobníku
 - Proces získání certifikátů odpovídající tyto specifikace
 - Jak připravit, ověření a použití těchto certifikátů během nasazování
+> [!NOTE]
+> Během nasazení je nutné zkopírovat certifikáty do složky nasazení, která odpovídá zprostředkovatele identity, které nasazujete proti (Azure AD ani AD FS). Pokud použijete jeden certifikát pro všechny koncové body, je nutné zkopírovat tento soubor certifikátu do každé složky pro nasazení, jak je uvedeno v následujících tabulkách. Struktura složek je předem součástí nasazení virtuálního počítače a naleznete na adrese: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Požadavky na certifikát
 Následující seznam popisuje požadavky na certifikát, které jsou nutné k nasazení Azure zásobníku: 

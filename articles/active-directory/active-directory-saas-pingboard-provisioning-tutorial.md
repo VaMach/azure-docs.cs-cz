@@ -15,86 +15,90 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: f74e890cf716cfd4bc7b41fcc4aa244969cafde5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 36fc33813595183856713f01b5a94f84e1f3db4e
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Kurz: Konfigurace Pingboard pro zřizování automatické uživatelů
 
-Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést, chcete-li povolit automatické zřizování a jeho rušení uživatelských účtů ze služby Azure Active Directory k Pingboard.
+Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést, chcete-li povolit automatické zřizování a jeho rušení uživatelských účtů ze služby Azure Active Directory (Azure AD) k Pingboard.
 
 ## <a name="prerequisites"></a>Požadavky
 
 Scénář uvedených v tomto kurzu se předpokládá, že už máte následující položky:
 
-*   Klient služby Azure Active Directory
+*   Klient služby Azure AD
 *   Klient Pingboard [Pro účet](https://pingboard.com/pricing) 
 *   Uživatelský účet v Pingboard s oprávněními správce 
 
 > [!NOTE] 
-> Zřizování integrace Azure Active Directory spoléhá na rozhraní API Pingboard (`https://your_domain.pingboard.com/scim/v2`) která je k dispozici ke svému účtu.
+> Azure AD zřizování integrace spoléhá na [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), která je k dispozici ke svému účtu.
 
-## <a name="assigning-users-to-pingboard"></a>Přiřazení uživatelů k Pingboard
+## <a name="assign-users-to-pingboard"></a>Přiřazení uživatelů k Pingboard
 
-Azure Active Directory používá koncept označované jako "úlohy" k určení uživatelů, kteří obdrželi přístup k vybrané aplikace. V kontextu uživatele automatické zřizování účtu jsou synchronizovány pouze uživatelé, kteří mají "přiřazený" k aplikaci v Azure Active Directory. 
+Azure AD používá koncept označované jako "úlohy" k určení uživatelů, kteří obdrželi přístup k vybrané aplikace. V kontextu uživatele automatické zřizování účtu jsou synchronizovány pouze uživatelé, které jsou přiřazené k aplikaci ve službě Azure AD. 
 
-Před konfigurací a povolení zřizování služby, je nutné rozhodnout, kterými se uživatelé v Azure Active Directory představují uživatele, kteří potřebují přístup k vaší aplikaci Pingboard. Jakmile se rozhodli, můžete přiřadit těmto uživatelům aplikace Pingboard podle pokynů tady:
+Než začnete konfigurovat a povolit zřizování služby, musíte se rozhodnout, které uživatelé ve službě Azure AD potřebovat přístup k vaší aplikaci Pingboard. Pak můžete přiřadit těmto uživatelům aplikace Pingboard podle pokynů tady:
 
 [Přiřazení uživatele k aplikaci enterprise](active-directory-coreapps-assign-user-azure-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Důležité tipy pro přiřazování uživatelů do Pingboard
 
-*   Doporučujeme přiřadit jenom jednoho konkrétního uživatele Azure Active Directory Pingboard otestovat konfiguraci zřizování. Další uživatelé mohou přiřadit později.
+Doporučujeme, abyste přiřadili jednoho uživatele Azure AD k Pingboard otestovat konfiguraci zřizování. Další uživatele lze přiřadit později.
 
-## <a name="configuring-user-provisioning-to-pingboard"></a>Konfiguraci zřizování uživatelů k Pingboard 
+## <a name="configure-user-provisioning-to-pingboard"></a>Konfigurace pro Pingboard zřizování uživatelů 
 
-Tato část vás provede připojení k Pingboard uživatelský účet zřizování rozhraní API služby Azure Active Directory a konfiguraci zřizování službu, kterou chcete vytvořit, aktualizovat a zakázat přiřazené uživatelské účty v Pingboard podle přiřazení uživatelů v Azure Chcete-li služby Active Directory.
+Tato část vás provede připojení k uživatelskému účtu Pingboard zřizování rozhraní API služby Azure AD. Můžete také nakonfigurovat službu zřizování vytvářet, aktualizovat a zakázat přiřazené uživatelské účty v Pingboard na základě uživatele přiřazení ve službě Azure AD.
 
 > [!TIP]
-> Můžete také pro Pingboard povoleno na základě SAML jednotné přihlašování, postupujte podle pokynů uvedených v [portál Azure](https://portal.azure.com). Jednotné přihlašování se dá nakonfigurovat nezávisle na automatické zřizování, i když tyto dvě funkce doplnění navzájem.
+> Povolit na základě SAML jednotné přihlašování pro Pingboard, postupujte podle pokynů uvedených v [portál Azure](https://portal.azure.com). Jednotné přihlašování se dá nakonfigurovat nezávisle na automatické zřizování, i když tyto dvě funkce vzájemně doplňují.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-active-directory"></a>Konfigurace automatického uživatele zřizování účtu k Pingboard v Azure Active Directory:
+### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Konfigurace automatického účet zřizování uživatelů k Pingboard ve službě Azure AD
 
-1)  V [portál Azure](https://portal.azure.com), vyhledejte **Azure Active Directory > podnikové aplikace > všechny aplikace** části.
+1. V [portál Azure](https://portal.azure.com), vyhledejte **Azure Active Directory** > **podnikové aplikace** > **všechny aplikace** části.
 
-2) Pokud jste již nakonfigurovali Pingboard pro jednotné přihlašování, vyhledejte instanci Pingboard pomocí pole hledání. Jinak vyberte možnost **přidat** a vyhledejte **Pingboard** v galerii aplikací. Vyberte **Pingboard** ve výsledcích hledání a přidejte ji do seznamu aplikací.
+2. Pokud jste již nakonfigurovali Pingboard pro jednotné přihlašování, vyhledejte instanci Pingboard pomocí pole hledání. Jinak vyberte možnost **přidat** a vyhledejte **Pingboard** v galerii aplikací. Vyberte **Pingboard** ve výsledcích hledání a přidejte ji do seznamu aplikací.
 
-3)  Vyberte instanci Pingboard a pak vyberte **zřizování** kartě.
+3. Vyberte instanci Pingboard a pak vyberte **zřizování** kartě.
 
-4)  Nastavte **režimu zřizování** k **automatické**.
+4. Nastavit **režimu zřizování** k **automatické**.
 
-![Zřizování Pingboard](./media/active-directory-saas-pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
+    ![Zřizování Pingboard](./media/active-directory-saas-pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-5) V části přihlašovací údaje správce proveďte následující kroky:
+5. V části **přihlašovací údaje správce** část, proveďte následující kroky:
 
-* V **URL klienta** textovému poli, zadejte `https://your_domain.pingboard.com/scim/v2` a nahraďte Vaše_Doména skutečné domény
-* Přihlaste se k [Pingboard](https://pingboard.com/) pomocí účtu správce.
-* Klikněte na doplňky > integrace > Azure Active Directory.
-* Klikněte na kartu Konfigurace a vyberte **povolit zřizování uživatelů z Azure**.
-* Kopírování **tokenu nosiče OAuth** pole a zadejte do **tajný klíč tokenu** textové pole.
+    a. V **URL klienta**, zadejte `https://your_domain.pingboard.com/scim/v2`a nahraďte "Vaše_Doména" skutečné domény.
 
-6) Na portálu Azure klikněte na tlačítko **Test připojení** zajistit Azure Active Directory se může připojit k aplikaci Pingboard. Pokud se nepovede připojit, ujistěte se, váš účet Pingboard má oprávnění správce a zkuste to **"Test připojení"** krok opakujte.
+    b. Přihlaste se k [Pingboard](https://pingboard.com/) pomocí účtu správce.
 
-7) Zadejte e-mailovou adresu uživatele nebo skupiny, který by měly dostávat oznámení zřizování Chyba v **e-mailové oznámení** pole a zaškrtnutím políčka následující.
+    c. Vyberte **doplňky** > **integrace** > **Azure Active Directory**.
 
-8) Klikněte na **Uložit**. 
+    d. Přejděte na **konfigurace** a vyberte **povolit zřizování uživatelů z Azure**.
 
-9) V části mapování vyberte **synchronizaci Azure Active Directory uživatelům Pingboard**.
+    e. Zkopírujte token v **tokenu nosiče OAuth**a zadejte ho v **tajný klíč tokenu**.
 
-10) V **mapování atributů** , projděte si uživatelské atributy, které mají být synchronizovány ze služby Azure Active Directory k Pingboard. Atributy vybrán jako **párování** vlastnosti se používají tak, aby odpovídaly uživatelské účty v Pingboard pro operace aktualizace. Vyberte **Uložit** tlačítko potvrzení změny. Další informace najdete v tématu [přizpůsobení atribut mapování uživatelů zřizování](active-directory-saas-customizing-attribute-mappings.md).
+6. Na portálu Azure vyberte **Test připojení** zajistit Azure AD může připojit k aplikaci Pingboard. Pokud připojení nezdaří, zkontrolujte, zda má váš účet Pingboard oprávnění správce a zkuste **Test připojení** krok opakujte.
 
-11) Povolit službě Azure Active Directory zřizování služby pro Pingboard, změňte **Stav zřizování** k **na** v **nastavení** části
+7. Zadejte e-mailovou adresu uživatele nebo skupinu, která chcete dostávat oznámení zřizování Chyba v **e-mailové oznámení**. Zaškrtněte políčko pod.
 
-12) Klikněte na tlačítko **Uložit** se spustit počáteční synchronizaci uživatelů se přiřadila Pingboard.
+8. Vyberte **Uložit**. 
 
-Počáteční trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci Pingboard.
+9. V části **mapování** vyberte **synchronizaci Azure Active Directory uživatelům Pingboard**.
 
-Další informace o tom, jak číst Azure Active Directory zřizování protokoly najdete v tématu [zprávy o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
+10. V **mapování atributů** , projděte si atributy uživatele k Pingboard synchronizaci z Azure AD. Atributy vybrán jako **párování** vlastnosti se používají tak, aby odpovídaly uživatelské účty v Pingboard pro operace aktualizace. Vyberte **Uložit** potvrzení změny. Další informace najdete v tématu [zřizování mapování atributů uživatelů přizpůsobit](active-directory-saas-customizing-attribute-mappings.md).
 
-## <a name="additional-resources"></a>Další prostředky
+11. Chcete-li povolit zřizování služby pro Pingboard, v Azure AD **nastavení** změňte **Stav zřizování** k **na**.
 
-* [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-enterprise-apps-manage-provisioning.md)
+12. Vyberte **Uložit** se spustit počáteční synchronizaci uživatelů se přiřadila Pingboard.
+
+Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Použití **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivit. Sestavy popisují všechny akce prováděné ve vaší aplikaci Pingboard zřizování službou.
+
+Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [sestav o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
+
+## <a name="additional-resources"></a>Další zdroje informací:
+
+* [Spravovat uživatele zřizování účtu pro podnikové aplikace](active-directory-enterprise-apps-manage-provisioning.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Konfigurovat jednotné přihlašování](active-directory-saas-pingboard-tutorial.md)

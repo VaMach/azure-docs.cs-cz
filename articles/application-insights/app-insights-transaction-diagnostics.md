@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Jednotná transakce mezi komponenty diagnostiky
 
-*Toto prostředí je aktuálně ve verzi preview a nahradí existující okna diagnostiky pro požadavky na straně serveru, závislosti a výjimky.*
+*Toto prostředí je aktuálně ve verzi preview a nahradí existující okna diagnostiky pro žádosti na straně serveru, závislosti a výjimek.*
 
-Ve verzi preview zavádí nové prostředí jednotná diagnostiky, které automaticky korelaci telemetrických dat na straně serveru z pro všechny součásti Application Insights monitorovat do jednoho zobrazení. Není důležité, pokud máte několik prostředků s klíčů instrumentace samostatné; Application Insights zjistí základní relace a umožňuje snadno diagnostikovat součást aplikace, závislostí nebo výjimka, která způsobila, že transakce zpomalení nebo selhání.
+Ve verzi preview zavádí nové prostředí jednotná diagnostiky, které automaticky korelaci telemetrických dat na straně serveru z pro všechny součásti Application Insights monitorovat do jednoho zobrazení. Pokud máte několik prostředků s klíčů instrumentace samostatné nezáleží. Application Insights zjistí základní relace a umožňuje snadno diagnostikovat součást aplikace, závislostí nebo výjimka, která způsobila, že transakce zpomalení nebo selhání.
 
-## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Co znamená součásti v rámci Application Insights?
+## <a name="what-is-a-component"></a>Co je součástí?
 
 Součásti jsou nezávisle nasadit částí aplikace distribuované nebo mikroslužeb. Operace a vývojáři týmy mají viditelnost na úrovni kódu nebo o přístup k telemetrii vygenerovanou tyto součásti aplikace.
 
@@ -32,10 +32,12 @@ Součásti jsou nezávisle nasadit částí aplikace distribuované nebo mikrosl
 * Součásti spustit na libovolný počet instancí serveru, role nebo kontejnerů.
 * Součástí může být samostatné klíčů instrumentace Application Insights (i v případě předplatných se liší) nebo různé role zprávy jeden klíč instrumentace Application Insights. Nové prostředí obsahuje podrobnosti pro všechny součásti, bez ohledu na to, jak se již byly vytvořeny.
 
-> [!Tip]
-> Nejlepších výsledků dosáhnete zajistěte, aby že všechny součásti jsou vybaveny s nejnovější stabilní sady SDK Application Insights. Pokud existují různé prostředky Application Insights, ujistěte se, že máte příslušná oprávnění k zobrazení jejich telemetrie.
+> [!NOTE]
+> * **Chybí odkazy související položku?** Všechny telemetrická data týkající se žádosti na straně serveru, závislosti a výjimky jsou [horní](#cross-component-transaction-chart) a [dolní](#all-telemetry-related-to-the-selected-component-operation) části na levé straně. 
+> * [Horní](#cross-component-transaction-chart) části korelaci transakce pro všechny součásti. Nejlepších výsledků dosáhnete zajistěte, aby že všechny součásti jsou vybaveny s nejnovější stabilní sady SDK Application Insights. Pokud existují různé prostředky Application Insights, ujistěte se, že máte příslušná oprávnění k zobrazení jejich telemetrie.
+> * [Dolní](#all-telemetry-related-to-the-selected-component-operation) části jsou zobrazeny na levé straně **všechny** včetně trasování a události související s telemetrií na žádost z vybrané součásti.
 
-## <a name="enable-and-access"></a>Povolení a přístup
+## <a name="enable-transaction-diagnostics-experience"></a>Povolení možnosti diagnostiky transakce
 Povolit "Unified podrobnosti: E2E transakce diagnostiky" z [seznamu verze Preview](app-insights-previews.md)
 
 ![Povolit náhled](media/app-insights-e2eTxn-diagnostics/previews.png)
@@ -49,7 +51,7 @@ Toto zobrazení má tři částí klíče: transakce mezi komponenty graf, čas 
 
 ![Klíčovými částmi](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="1-cross-component-transaction-chart"></a>[1] transakce Cross součást grafu
+## <a name="cross-component-transaction-chart"></a>Mezi součásti transakce grafu
 
 Tento graf poskytuje časovou osu s vodorovné pruhy po dobu trvání požadavky a závislosti v rámci komponenty. Jakékoli výjimky, které byly shromážděny jsou označeny také na časové ose.
 
@@ -57,20 +59,20 @@ Tento graf poskytuje časovou osu s vodorovné pruhy po dobu trvání požadavky
 * Volání externí závislosti jsou jednoduché-sbalitelné řádky s ikony představující typ závislosti.
 * Volání na jiné součásti jsou sbalitelné řádků. Každý řádek odpovídá konkrétní operaci volá na komponentu.
 * Ve výchozím nastavení požadavku, závislostí nebo výjimka, ke které jste zpočátku vybrali se zobrazí v grafu.
-* Vyberte libovolný řádek zobrazíte její podrobnosti na pravé straně. Kliknutím na "otevřete profileru trasování" nebo "otevřete ladění snímek" pro úrovně diagnostiky kódu v odpovídající podokna podrobností.
+* Vyberte libovolný řádek zobrazíte jeho [podrobnosti na pravé straně](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Volání na jiné součásti mají dva řádky: jeden řádek představuje odchozí volání (závislostí) z komponenty volajícího a druhý řádek odpovídá příchozí požadavek na komponentu názvem. Úvodní ikonu a odlišné stylů pruhů trvání vám pomůže rozlišit mezi nimi.
+Volání na jiné součásti mají dva řádky: jeden řádek představuje odchozí volání (závislostí) z komponenty volajícího a druhý řádek odpovídá příchozí požadavek na komponentu názvem. Úvodní ikonu a odlišné stylů pruhů trvání pomůže rozlišit mezi nimi.
 
-### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] čas sekvencování telemetrie operace vybrané součásti
+## <a name="all-telemetry-related-to-the-selected-component-operation"></a>Všechny telemetrická data související s vybranou operaci součásti
 
-Všechny vybraný řádek v grafu mezi komponenty transakce se týká operace vyvolané v jednotlivých součástí. Tato operace vybrané součásti se projeví v názvu v dolní části. Otevřete v této části zobrazíte ploché čas posloupnost všechny telemetrická data týkající se této konkrétní operaci. Můžete vybrat libovolnou položku telemetrie v tomto seznamu zobrazíte odpovídající podrobnosti na pravé straně.
+Všechny vybraný řádek v grafu mezi komponenty transakce se týká operace vyvolané v jednotlivých součástí. Tato operace vybrané součásti se projeví v názvu v dolní části. Otevřete v této části zobrazíte ploché čas posloupnost všechny telemetrická data týkající se této konkrétní operaci. Můžete vybrat libovolnou položku telemetrie v tomto seznamu zobrazíte odpovídající [podrobnosti na pravé straně](#details-of-the-selected-telemetry).
 
 ![Čas pořadí všechny telemetrie](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="3-details-pane"></a>[3] v podokně podrobností
+## <a name="details-of-the-selected-telemetry"></a>Podrobnosti vybrané telemetrie
 
-V tomto podokně zobrazí podrobnosti vybraných položek ze dvou oddílech na levé straně. "Zobrazit všechny" uvádí všechny standardní atributy, které byly shromážděny. Žádné vlastní atributy jsou uvedené samostatně pod standardní sady.
+V tomto podokně zobrazí podrobnosti vybraných položek ze dvou oddílech na levé straně. "Zobrazit všechny" uvádí všechny standardní atributy, které byly shromážděny. Žádné vlastní atributy jsou uvedené samostatně pod standardní sady. Kliknutím na "otevřete profileru trasování" nebo "otevřete ladění snímek" pro úrovně diagnostiky kódu v odpovídající podokna podrobností.
 
 ![Detail výjimky](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 
@@ -104,7 +106,7 @@ Ano. Nové prostředí kombinuje všechny související serverové telemetrie do
 
 *Zobrazuje, duplicitní řádky pro závislosti. Je to očekávané?*
 
-V tuto chvíli jsme zobrazují volání odchozí závislostí odděleně od příchozí žádosti. Obvykle dva volání vypadají stejně s pouze hodnota doby trvání probíhá jiný kvůli sítě odezvy. Úvodní ikonu a odlišné stylů pruhů trvání vám pomůže rozlišit mezi nimi. Tato prezentace dat je matoucí? Sdělte nám svůj názor!
+V tuto chvíli jsme zobrazují volání odchozí závislostí odděleně od příchozí žádosti. Obvykle dva volání vypadají stejně s pouze hodnota doby trvání probíhá jiný kvůli sítě odezvy. Úvodní ikonu a odlišné stylů pruhů trvání pomůže rozlišit mezi nimi. Tato prezentace dat je matoucí? Sdělte nám svůj názor!
 
 *Co se chystáte hodiny zkosí napříč instancemi různé součásti?*
 

@@ -1,7 +1,5 @@
 # Přehled
 ## [Příručka pro vývojáře](azure-developer-guide.md) 
-## [Přehled služeb Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Přehled portálu](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Sady SDK a nástroje](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Rychlý start
@@ -77,7 +75,7 @@
 ## Zabezpečení
 ### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-## Zálohování
+## Backup
 ### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Virtual Machines](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
@@ -106,7 +104,7 @@
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Fakturace](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Omezení a kvóty Azure](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Oblasti Azure](https://azure.microsoft.com/regions/)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

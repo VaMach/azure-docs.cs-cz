@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: rafats
-ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Práce se změnami kanálu podpory v Azure Cosmos DB
 
@@ -179,6 +179,7 @@ Levé klient byl spuštěn první a jeho spuštění, monitorování, které se 
 
 Poznámka: Pokud máte dva bez serveru Azure funkcí monitorování stejné kolekce a pomocí stejné zapůjčení, pak dvě funkce může dojít k různých dokumenty v závislosti na způsobu knihovně procesoru rozhodne zpracujte oddíly.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Principy knihovně změnu kanálu procesoru
 
 Existují čtyři hlavní součásti implementace změnu kanálu procesoru: monitorovaných kolekce, kolekce zapůjčení, procesoru hostitele a uživatelé. 

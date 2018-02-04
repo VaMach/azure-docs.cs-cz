@@ -3,7 +3,7 @@ title: "Jak používat pro přístup k Azure Data Lake Store Windows virtuální
 description: "Kurz ukazuje, jak používat pro přístup k Azure Data Lake Store Windows virtuálního počítače spravované služby Identity (MSI)."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: ad9b92f11571b013f371eb36c0676afb3e9e5213
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 367008c41aee6ee31811f7fa7ee4be69120b8851
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Používat pro přístup k Azure Data Lake Store Windows virtuálního počítače spravované služby Identity (MSI)
 
@@ -44,7 +44,7 @@ Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://p
 
 V tomto kurzu vytvoříme nový virtuální počítač s Windows.  Můžete také povolit MSI na existující virtuální počítač.
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
 2. Vyberte **Compute** a potom vyberte **Windows Server 2016 Datacenter**. 
 3. Zadejte informace o virtuálním počítači. **Uživatelské jméno** a **heslo** vytvořený, zde je přihlašovací údaje, které používáte k přihlášení k virtuálnímu počítači.
 4. Vyberte správnou **předplatné** pro virtuální počítač v rozevírací nabídce.
@@ -77,7 +77,7 @@ V Data Lake Store vytvořte novou složku a udělte oprávnění MSI virtuální
 2. Klikněte na tlačítko Data Lake Store, kterou chcete použít pro tento kurz.
 3. Klikněte na tlačítko **Průzkumníku dat** na panelu příkazů.
 4. Je vybrána složka kořenové Data Lake Store.  Klikněte na tlačítko **přístup** na panelu příkazů.
-5. Klikněte na tlačítko **Přidat**.  V **vyberte** pole, zadejte název vašeho virtuálního počítače, například **DevTestVM**.  Kliknutím vyberte virtuální počítač ve výsledcích hledání a pak klikněte na **vyberte**.
+5. Klikněte na tlačítko **Add** (Přidat).  V **vyberte** pole, zadejte název vašeho virtuálního počítače, například **DevTestVM**.  Kliknutím vyberte virtuální počítač ve výsledcích hledání a pak klikněte na **vyberte**.
 6. Klikněte na tlačítko **vyberte oprávnění**.  Vyberte **čtení** a **Execute**, přidejte do **tato složka**a přidat jako **oprávnění přístupu jenom**.  Klikněte na tlačítko **OK**.  Oprávnění by měla být úspěšně přidají.
 7. Zavřít **přístup** okno.
 8. V tomto kurzu vytvořte novou složku.  Klikněte na tlačítko **novou složku** v řádku nabídek a udělte do nové složky název, například **TestFolder**.  Klikněte na tlačítko **OK**.

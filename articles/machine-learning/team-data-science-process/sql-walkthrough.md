@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: fashah;bradsev
-ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces Team dat. vědecké účely v akci: pomocí SQL serveru
 V tomto kurzu vás provede procesem vytváření a nasazování modelu strojového učení pomocí systému SQL Server a veřejně dostupné datové sady – [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datovou sadu. Postup dodržovat standardní data vědecké účely pracovního postupu: ingestování a zkoumat data, pracovníka funkce pro usnadnění učení se pak sestavení a nasazení modelu.
@@ -68,7 +68,7 @@ V tomto kurzu si předvedeme paralelní hromadného importu dat do SQL Server, k
 
 Nastavení prostředí vědecké zpracování dat Azure:
 
-1. [Vytvoření účtu úložiště](../../storage/common/storage-create-storage-account.md)
+1. [vytvořit účet úložiště](../../storage/common/storage-create-storage-account.md)
 2. [Vytvořit pracovní prostor služby Azure Machine Learning](../studio/create-workspace.md)
 3. [Zřízení virtuálního počítače s datové vědy](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), který poskytuje systému SQL Server a server služby IPython Poznámkový blok.
    

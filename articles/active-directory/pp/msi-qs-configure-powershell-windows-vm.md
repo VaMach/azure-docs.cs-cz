@@ -3,8 +3,8 @@ title: "Postup konfigurace MSI ve virtuálním počítači Azure pomocí prostř
 description: "Krok podle podrobné pokyny pro konfiguraci a spravovaná služba Identity (MSI) ve virtuálním počítači Azure, pomocí prostředí PowerShell."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bdd797db4d5ed0676a9d4f55a0be6e779fd75105
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: cb87dd88c0425383243edcf12b946cb1821aabe5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Konfigurace virtuálních počítačů spravovaných služba Identity (MSI) pomocí prostředí PowerShell
 

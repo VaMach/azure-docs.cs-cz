@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure Log Analytics upgradovat na nové hledání protokolu
 
@@ -52,7 +52,7 @@ Pokud automaticky upgradován pracovního prostoru, se zobrazí banner indikují
 Při převodu se do pracovního prostoru provedeny následující změny:
 
 - Všechny uložená hledání, pravidla výstrah a zobrazení, které jste vytvořili pomocí návrháře zobrazení je automaticky převeden na nový jazyk.  Hledání součástí řešení se nepřevádějí automaticky, ale budou se místo toho převést za chodu při jejich otevření.  
-- [Můj řídicí panel](log-analytics-dashboards.md) je zastaralá pro [Návrhář zobrazení](log-analytics-view-designer.md) a [řídicí panely Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Dlaždice, které jste přidali do vlastní řídicí panel jsou stále k dispozici, ale budou se jen pro čtení.
+- [Můj řídicí panel](log-analytics-dashboards.md) je zastaralá pro [Návrhář zobrazení](log-analytics-view-designer.md) a [řídicí panely Azure](../azure-portal/azure-portal-dashboards.md).  Dlaždice, které jste přidali do vlastní řídicí panel jsou stále k dispozici, ale budou se jen pro čtení.
 - [Power BI integrace](log-analytics-powerbi.md) se nahradí nový proces.  Všechny existující plán Power BI, které jste vytvořili bude zakázáno a budete muset nahraďte nový proces.
 - Odpovědí z [výstrahy akce](log-analytics-alerts-actions.md) pomocí webhooků a sady runbook mají nový formát, a budete muset aktualizovat vaše pravidla výstrah odpovídajícím způsobem.
 - Podívejte se na [– nejčastější dotazy vyhledávání protokolu](log-analytics-log-search-faq.md) pro běžné dotazy týkající se upgradu.
@@ -95,7 +95,7 @@ Pokud jste již obeznámeni s starší verze dotazovacího jazyka pro analýzy p
 ![Převaděč jazyk](media/log-analytics-log-search-upgrade/language-converter.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Podívejte se [kurz na nový jazyk](https://go.microsoft.com/fwlink/?linkid=856078).
 - Provede [kurz na portálu hledání protokolů](log-analytics-log-search-log-search-portal.md) v požadovaném jazyce dotazu.
 - Získejte Úvod do nové [Advanced Analytics portál](https://go.microsoft.com/fwlink/?linkid=856587).

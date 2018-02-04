@@ -3,21 +3,21 @@ title: "Použití Windows virtuální počítač MSI pro přístup k úložišti
 description: "Kurz ukazuje, jak používat pro přístup k Azure Storage, pomocí pověření SAS místo přístupový klíč účtu úložiště Windows virtuálního počítače spravované služby Identity (MSI)."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: fbe46b952b72d3379ba3eb0ff8c84b9d036752e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 0986c4470c233a21a88624f0affedb5986d86589
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Použití virtuálních počítačů spravovaných identitu služby Windows pro přístup k úložišti Azure pomocí pověření SAS
 

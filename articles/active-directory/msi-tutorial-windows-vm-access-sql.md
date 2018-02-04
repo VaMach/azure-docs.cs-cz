@@ -3,7 +3,7 @@ title: "Používat Windows virtuální počítač MSI pro přístup k Azure SQL"
 description: "Kurz vás provede procesem použití Windows virtuálního počítače spravované služby Identity (MSI) pro přístup k Azure SQL."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: dfa5c75c803be0cda05b2906c3615300ad84bca6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e6645071da5353cbe12c7353d85f95eb8874c4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Použití Windows virtuálního počítače spravované služby Identity (MSI) pro přístup k Azure SQL
 
@@ -44,7 +44,7 @@ Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://p
 
 V tomto kurzu vytvoříme nový virtuální počítač s Windows.  Můžete také povolit MSI na existující virtuální počítač.
 
-1.  Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1.  Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
 2.  Vyberte **Compute** a potom vyberte **Windows Server 2016 Datacenter**. 
 3.  Zadejte informace o virtuálním počítači. **Uživatelské jméno** a **heslo** vytvořený, zde je přihlašovací údaje, které používáte k přihlášení k virtuálnímu počítači.
 4.  Vyberte správnou **předplatné** pro virtuální počítač v rozevírací nabídce.
@@ -152,7 +152,7 @@ Pro tento další krok, budete potřebovat [Microsoft SQL Server Management Stud
 - [Univerzální ověřování se službou SQL Database a SQL Data Warehouse (SSMS podporu vícefaktorového ověřování)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
 - [Konfigurovat a spravovat ověřování Azure Active Directory s SQL Database nebo SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure.md)
 
-1.  Spusťte SQL Server Management Studio.
+1.  Spusťte aplikaci SQL Server Management Studio.
 2.  V **připojit k serveru** dialogové okno, zadejte název serveru SQL server **název serveru** pole.
 3.  V **ověřování** pole, vyberte **Universal s podpora vícefaktorového ověřování služby Active Directory -**.
 4.  V **uživatelské jméno** pole, zadejte název účtu služby Azure AD, který nastavíte jako správce serveru, napříkladhelen@woodgroveonline.com

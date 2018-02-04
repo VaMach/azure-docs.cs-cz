@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Vyhledat a sdílet kolekce v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ K procházení kolekcí [v galerii](http://gallery.cortanaintelligence.com)v č�
 
 ![Vyberte kolekce na domovské stránce Galerie](./media/gallery-collections/select-collections-in-gallery.png)
 
- **[Kolekce](https://gallery.cortanaintelligence.com/collections)**  stránka zobrazuje seznam nedávno přidané a oblíbených kolekcí. Chcete-li zobrazit všechny kolekce, vyberte **zobrazit všechny**. Chcete-li vyhledat určité kolekci, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
+**[Kolekce](https://gallery.cortanaintelligence.com/collections)**  stránka zobrazuje seznam nedávno přidané a oblíbených kolekcí. Chcete-li zobrazit všechny kolekce, vyberte **zobrazit všechny**. Chcete-li vyhledat určité kolekci, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
 
 Můžete získat další informace o kolekci na stránce s podrobnostmi o kolekci. Chcete-li otevřít stránce s podrobnostmi o kolekci, vyberte kolekci. V kolekci podrobnosti stránky, v **komentáře** části, můžete komentář, poskytnout zpětnou vazbu nebo klást otázky týkající se kolekce. Kolekce můžete také sdílet s přátele nebo kolegy na Twitteru nebo LinkedIn. Také můžete e-mailem odkaz na stránku podrobností kolekce pozvaným jiní uživatelé při zobrazení stránky.
 

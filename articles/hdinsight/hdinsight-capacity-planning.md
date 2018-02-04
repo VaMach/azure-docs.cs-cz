@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Plánování kapacity pro clustery HDInsight
 
@@ -67,9 +67,7 @@ Pro cluster s podporou 48 uzlu doporučujeme 4 až 8 účty úložiště. I kdy�
 
 ## <a name="choose-a-cluster-type"></a>Vyberte typ clusteru
 
-Typ clusteru závisí na úlohy, jež clusteru HDInsight je nakonfigurovaná pro spuštění, například Hadoop, Storm, Kafka nebo Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Každý typ clusteru má topologii nasazení, která obsahuje požadavky na velikost a počet uzlů.
+Typ clusteru závisí na úlohy, jež clusteru HDInsight je nakonfigurovaná pro spuštění, například Hadoop, Storm, Kafka nebo Spark. Podrobný popis typy clusteru k dispozici, najdete v části [Úvod do Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Každý typ clusteru má topologii nasazení, která obsahuje požadavky na velikost a počet uzlů.
 
 ## <a name="choose-the-vm-size-and-type"></a>Zvolte velikost virtuálního počítače a typ
 
@@ -96,9 +94,7 @@ Je možné škálovat se splnily požadavky na zatížení ve špičce a pak šk
 
 ### <a name="cluster-lifecycle"></a>Životní cyklus clusteru
 
-Budou se vám účtovat dobu jeho existence clusteru. Pokud existují jenom určitých časech, které je třeba váš cluster nahoru a spuštěna, můžete vytvořit clustery na vyžádání pomocí Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-Můžete také vytvořit skripty prostředí PowerShell, které zřídit a odstranit cluster a pak tyto skripty pomocí naplánovat [Azure Automation](https://azure.microsoft.com/services/automation/).
+Budou se vám účtovat dobu jeho existence clusteru. Pokud jsou pouze konkrétní časy, je nutné, cluster nahoru a spuštěna, můžete [vytvářet clustery na vyžádání pomocí Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Můžete také vytvořit skripty prostředí PowerShell, které zřídit a odstranit cluster a pak tyto skripty pomocí naplánovat [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > Při odstranění clusteru je taky odstranit jeho výchozí metaúložiště Hive. Udržení metaúložiště pro další opakované vytvoření clusteru, použijte externí metadata úložiště jako databáze Azure nebo Oozie.
@@ -118,7 +114,7 @@ Po určení cílového clusteru velikost virtuálního počítače, měřítko a
 
 Ale existují některá omezení pevné kvótu, například v rámci jednoho předplatného Azure může mít maximálně 10 000 jader. Podrobnosti o těchto mezních hodnot, viz [předplatného Azure a omezení služby, kvóty a omezení](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Nastavit clusterů v HDInsight Hadoop, Spark, Kafka a dalšími](hdinsight-hadoop-provision-linux-clusters.md): Zjistěte, jak nastavit a konfigurovat clusterů v HDInsight Hadoop, Spark, Kafka, interaktivní Hive, HBase, R Server nebo Storm.
 * [Sledování výkonu clusteru](hdinsight-key-scenarios-to-monitor.md): Další informace o klíčových scénářů monitorování pro váš cluster HDInsight, které by mohly ovlivnit váš cluster kapacity.

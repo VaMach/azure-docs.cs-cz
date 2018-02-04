@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 242be346f975e013004c520a41bf14b95a3f27a4
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Lokality POP v Azure CDN
 V tomto článku jsou uvedené aktuální umístění point of presence (POP) pro **Azure CDN společnosti Verizon** a **Azure CDN společnosti Akamai**.
@@ -32,13 +32,14 @@ V tomto článku jsou uvedené aktuální umístění point of presence (POP) pr
 
 | Oblast | Verizon | Akamai |
 | --- | --- | --- |
-| Severní Amerika | Atlanta, GA<br />Boston, MA<br />Chicagu, IL<br />Dallas, TX<br />Ostravy, CO<br />Los Angeles, certifikační Autority<br />OPOLE, PL<br />New York, NY<br />Philadelphia, PA<br />Síť San Jose, certifikační Autority<br />Seattle, WA<br />Washington, řadič domény | Kanada<br />Mexiko<br />Spojené státy |
-| Jižní Amerika | Buenos Aires, Argentiny<br />Rio de Janeiro, Brazílie<br />Sao Paulo, Brazílie<br />Valparaíso, základě<br />Barranquilla, Kolumbie<br />Medellin, Kolumbie<br />Rights reserved<br />Limy, Peru | Brazílie<br />Peru |
-| Severní a východní Evropa | Kodaň, Dánsko<br />Helsinki, Finská<br />Varšava, Polsko<br />Stockholm, Švédsko | Dánsko<br />Polsko<br />Švédsko<br /> |
-| Západní Evropa | Vídeň, Rakousko<br />Paříž, Francie<br />Frankfurt, Německo<br />Amsterdam, Nizozemsko<br />Londýn, Spojené království | Rakousko<br />Francie<br />Německo<br />Irsko<br />Nizozemsko<br />Švýcarsko<br />Spojené království |
+| Severní Amerika | Atlanta, GA<br />Boston, MA<br />Chicagu, IL<br />Dallas, TX<br />Ostravy, CO<br />Los Angeles, certifikační Autority<br />Miami, FL<br />New York, NY<br />Philadelphia, PA<br />Síť San Jose, certifikační Autority<br />Seattle, WA<br />Washington, DC | Kanada<br />Mexiko<br />Spojené státy |
+| Jižní Amerika | Buenos Aires, Argentiny<br />Rio de Janeiro, Brazílie<br />Sao Paulo, Brazílie<br />Valparaíso, základě<br />Barranquilla, Kolumbie<br />Medellin, Kolumbie<br />Quito, Ecuador<br />Lima, Peru | Brazílie<br />Peru |
+| Severní a východní Evropa | Kodaň, Dánsko<br />Helsinki, Finsko<br />Varšava, Polsko<br />Stockholm, Švédsko | Dánsko<br />Polsko<br />Švédsko<br /> |
+| Západní Evropa | Vídeň, Rakousko<br />Paříž, Francie<br />Frankfurt, Německo<br />Amsterodam, Nizozemsko<br />Londýn, Spojené království | Rakousko<br />Francie<br />Německo<br />Irsko<br />Nizozemsko<br />Švýcarsko<br />Spojené království |
 | Jižní Evropa | Milán, Itálie<br />Madrid, Španělsko | Itálie<br />Španělsko |
-| Asie | Hongkong<br />Bangalore, Indie<br />Čennaj, Indie<br />Dillí, Indie<br />Bombaj, Indie<br />Nové Dillí, Indie<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Ósaka, Japonsko<br />Tokio, Japonsko<br />Singapur<br />Korejská Seoul, – jih<br />Kaohsiung, Tchaj-wan | Hongkong<br />Indie<br />Indonésie<br />Japonsko<br />Malajsie<br />Filipíny<br />Singapur<br />Tchaj-wan<br />Thajsko<br />Vietnam |
-| Blízký východ | Muskat, Omán<br />Fujirah, Spojené arabské emiráty | Katar |
+| Afrika | Johannesburg, Jihoafrická republika | |
+| Střední východ | Maskat, Omán<br />Fujirah, Spojené arabské emiráty | Katar |
+| Asie | Hongkong<br />Bangalore, Indie<br />Čennaj, Indie<br />Dillí, Indie<br />Bombaj, Indie<br />Nové Dillí, Indie<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Ósaka, Japonsko<br />Tokio, Japonsko<br />Singapur<br />Korejská Seoul, – jih<br />Kaohsiung, Taiwan | Hongkong<br />Indie<br />Indonésie<br />Japonsko<br />Malajsie<br />Filipíny<br />Singapur<br />Tchaj-wan<br />Thajsko<br />Vietnam |
 | Austrálie a Nový Zéland | Melbourne, Austrálie<br />Sydney, Austrálie<br />Auckland, Nový Zéland | Austrálie<br />Nový Zéland |
 
 ## <a name="see-also"></a>Viz také

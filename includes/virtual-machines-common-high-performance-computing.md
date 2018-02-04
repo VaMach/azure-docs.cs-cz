@@ -57,14 +57,14 @@ Spusťte vlastní nebo obchodní aplikace prostředí HPC v Azure. Několik př�
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB distribuovat výpočetní Server](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
 ### <a name="graphics-and-rendering"></a>Grafika a vykreslování
 
-* [Autodesk Maya, 3ds Max a Arnold](../articles/batch/batch-rendering-service.md) na Azure Batch (preview)
+* [Autodesk Maya, 3ds Max a Arnold](../articles/batch/batch-rendering-service.md) na Azure Batch 
 
 ### <a name="ai-and-deep-learning"></a>AI a hloubkové učení
 
@@ -103,11 +103,12 @@ Poskytovatelů SaaS a vývojářům umožňuje HPC aplikacím nebo úlohám kont
 
 Naučte se:
 
-* [Začít s vývojem pomocí služby Batch](../articles/batch/batch-dotnet-get-started.md)
+* [Začít s vývojem pomocí služby Batch](../articles/batch/quick-run-dotnet.md)
 * [Použít ukázky kódu Azure Batch](https://github.com/Azure/azure-batch-samples)
 * [Pomocí služby Batch použijte virtuální počítače s nízkou prioritou](../articles/batch/batch-low-pri-vms.md)
 * [Spusťte kontejnerizované úlohy HPC s loděnice Batch](https://github.com/Azure/batch-shipyard)
 * [Použití jazyka R pomocí služby Batch](https://github.com/Azure/doAzureParallel)
+* [Sada nástrojů Azure distribuované dat inženýrství spustili Batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Správce úloh
 
@@ -127,6 +128,7 @@ Ve velkém měřítku Batch a prostředí HPC zatížení mají požadavky pro �
 Další informace:
 
 * [Systémy souborů paralelní HPC úložiště v Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Vysoce výkonná řešení cloudové úložiště z [Avere](http://www.averesystems.com/about-us/about-avere) (teď [propojit s Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Související služby Azure
@@ -139,11 +141,14 @@ Virtuální počítače Azure, sady škálování virtuálního počítače, Bat
 * [Úložiště souborů](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Data a analýza
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) pro clustery Hadoop v Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>AI a kognitivní služby
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Sítě
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
@@ -160,7 +165,7 @@ Virtuální počítače Azure, sady škálování virtuálního počítače, Bat
 Zde jsou příklady zákazníky, kteří mají vyřešit obchodní problémy s řešeními Azure HPC:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
-* [AXA globální P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
+* [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
@@ -172,7 +177,7 @@ Zde jsou příklady zákazníky, kteří mají vyřešit obchodní problémy s �
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o řešeních pro Big Compute pro [technici simulace](https://simulation.azure.com/), [vykreslování](https://simulation.azure.com/), [bankovnictví a kapitálové trhů](https://finance.azure.com/), a [genomika](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Podívejte se na aktuální novinky na [blogu týmu pro Microsoft HPC a Batch](http://blogs.technet.com/b/windowshpc/) a [blogu Azure](https://azure.microsoft.com/blog/tag/hpc/).
 

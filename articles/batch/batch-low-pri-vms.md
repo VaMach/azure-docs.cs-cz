@@ -9,22 +9,22 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 02/01/2018
 ms.author: markscu
-ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Pomocí služby Batch použijte virtuální počítače s nízkou prioritou
 
-Azure Batch nabízí nízkou prioritu virtuální počítače (VM) k snížit náklady na úloh služby Batch. Virtuální počítače s nízkou prioritou umožňují nové typy úloh služby Batch, tím, že poskytuje velké množství výpočetního výkonu, která je také ekonomické.
-
-Virtuální počítače s nízkou prioritou využít výhod kapacitní v Azure. Když zadáte nízkou prioritu virtuálních počítačů ve fondech, Azure Batch mohou automaticky používat tento přebytek, pokud je k dispozici.
-
-Kompromis pro používání virtuálních počítačů s nízkou prioritou je, že tyto virtuální počítače může být zrušené při žádné kapacitní je k dispozici v Azure. Z toho důvodu jsou nejvhodnější pro některé typy úloh virtuálních počítačů s nízkou prioritou. Použijte virtuální počítače nízkou prioritu pro batch a asynchronní zpracování úloh, kde čas dokončení úlohy je flexibilní a práce je distribuován do mnoha virtuálních počítačů.
-
+Azure Batch nabízí nízkou prioritu virtuální počítače (VM) k snížit náklady na úloh služby Batch. Virtuální počítače s nízkou prioritou zkontrolujte nové typy dávky úlohy je možné povolením velké množství výpočetního výkonu, které má být použit pro velmi nízkou cenu.
+ 
+Virtuální počítače s nízkou prioritou využít výhod kapacitní v Azure. Když zadáte nízkou prioritu virtuálních počítačů ve fondech, Azure Batch můžete použít tento přebytek, pokud je k dispozici.
+ 
+Kompromis pro používání virtuálních počítačů s nízkou prioritou je, že tyto virtuální počítače nemusí být k dispozici přidělování, nebo může být zrušené kdykoli, v závislosti na dostupné kapacity. Z toho důvodu jsou nejvhodnější pro některé typy úloh virtuálních počítačů s nízkou prioritou. Použijte virtuální počítače nízkou prioritu pro batch a asynchronní zpracování úloh, kde čas dokončení úlohy je flexibilní a práce je distribuován do mnoha virtuálních počítačů.
+ 
 Virtuální počítače s nízkou prioritou jsou nabízena za výrazně sníženou cenu ve srovnání s vyhrazených virtuálních počítačích. Podrobnosti o cenách najdete v části [ceny služby Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 

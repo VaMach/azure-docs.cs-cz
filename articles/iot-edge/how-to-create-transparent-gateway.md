@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a35a6adae1eec88b314252ea0e3f2eb86f10c1d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Vytvoření IoT hraničním zařízením, která funguje jako brána transparentní – náhled
 
@@ -104,12 +104,12 @@ Chcete-li nakonfigurovat zařízení IoT okraj jako brána stačí nakonfigurova
 
 Předpokládáme následující názvy souborů z výše uvedené ukázkové skripty:
 
-| Výstup | Bash skriptu | PowerShell |
-| ------ | ----------- | ---------- |
-| Certifikát pro zařízení | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| Privátní klíč zařízení | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| Zařízení řetěz certifikátů | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| IoT hub vlastníka certifikační Autority | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| Výstup | Název souboru |
+| ------ | --------- |
+| Certifikát pro zařízení | `certs/new-edge-device.cert.pem` |
+| Privátní klíč zařízení | `private/new-edge-device.cert.pem` |
+| Zařízení řetěz certifikátů | `certs/new-edge-device-full-chain.cert.pem` |
+| IoT hub vlastníka certifikační Autority | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 Zadejte informace o zařízení a certifikátu do hraniční IoT runtime. 
  

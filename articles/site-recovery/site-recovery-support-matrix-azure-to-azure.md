@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6157ec92433830998c275b3b01b32f25c8d9f758
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z Azure do Azure
 
@@ -81,7 +81,7 @@ Níže podpora je dostupná pro jakoukoli úlohu spuštěnou na uvedených opera
 #### <a name="linux"></a>Linux
 
 - Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
-- CentOS verze 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 LTS Server [ (podporované verze jádra)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (podporované verze jádra)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
@@ -151,11 +151,11 @@ Virtuální počítače migrovat pomocí Site Recovery | Podporováno | Pokud je
 
 **Konfigurace** | **Podporované/nepodporované** | **Poznámky**
 --- | --- | ---
-Maximální velikost disku operačního systému | 2 048 GB | Odkazovat na [disky, které jsou používány virtuálními počítači.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximální velikost disku operačního systému | 2048 GB | Odkazovat na [disky, které jsou používány virtuálními počítači.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Velikost disku maximum dat. | 4095 GB | Odkazovat na [disky, které jsou používány virtuálními počítači.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Počet datových disků | Až 64 podporuje konkrétní velikost virtuálního počítače Azure | Odkazovat na [velikosti virtuálního počítače Azure](../virtual-machines/windows/sizes.md)
-Dočasné disku | Vždy z replikace vyloučit. | Dočasné disk je vyloučený z replikace vždy. Neměli vložit žádná trvalá data na dočasné disku podle Azure pokyny. Odkazovat na [dočasným diskovým na virtuálních počítačích Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) další podrobnosti.
-Míry změny dat na disku | Maximální počet 6 MB/s na disk | Pokud frekvence změny průměr dat na disku je nad rámec 6 MB/s nepřetržitě, nebudou aktualizovány replikace. Ale pokud je shluků příležitostně dat a míry změny dat je větší než 6 MB/s jistou dobu a dodává se, replikace budou aktualizovány. V takovém případě může se zobrazit body obnovení mírně zpožděné.
+Dočasné disku | Vždy z replikace vyloučit. | Dočasné disk je vyloučený z replikace vždy. Neměli vložit žádná trvalá data na dočasné disku podle Azure guida nce. Odkazovat na [dočasným diskovým na virtuálních počítačích Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) další podrobnosti.
+Míry změny dat na disku | Nesmí být delší než 10 MB/s na disk pro storage úrovně Premium až 2 MB/s na disk pro standardní úložiště | Pokud se o míru změn průměr dat na disku je nad rámec 10 MB/s (pro Premium) a 2 MB/s (pro Standard) nepřetržitě, nebudou aktualizovány replikace. Ale pokud je shluků příležitostně dat a míry změny dat je větší než 10 MB/s (pro Premium) až 2 MB/s (pro Standard) po určitou dobu a dodává se, replikace budou aktualizovány. V takovém případě může se zobrazit body obnovení mírně zpožděné.
 Disky na účty úložiště standard storage | Podporováno |
 Disky na prémiové účty úložiště | Podporováno | Pokud virtuální počítač obsahuje disky, které jsou rozloženy účty úložiště standard a premium, můžete vybrat jiný cílový účet úložiště pro každý z disků, zda že máte stejnou konfiguraci úložiště v cílová oblast
 Standardní disky spravované | Nepodporuje se |  
@@ -170,7 +170,7 @@ GRS | Podporováno |
 RA-GRS | Podporováno |
 ZRS | Nepodporuje se |  
 Aktivní a studeného úložiště | Nepodporuje se | Disky virtuálního počítače nejsou podporovány na studených a aktivní úložiště
-Virtuální síť koncové body služby (brány firewall úložiště Azure a virtuální sítě)  | Ne | Umožňuje přístup ke konkrétní virtuální sítě Azure na účty úložiště mezipaměti používá k ukládání replikovaných dat není podporována. 
+Virtuální síť koncové body služby (brány firewall úložiště Azure a virtuální sítě)  | Ne | Umožňuje přístup ke konkrétní virtuální sítě Azure na účty úložiště mezipaměti používá k ukládání replikovaných dat není podporována.
 Účty úložiště obecné účely V2 (jak horkého a studeného úložiště vrstva) | Ne | Nárůst nákladů transakce podstatně porovnává pro obecné účely účty úložiště V1
 
 >[!IMPORTANT]
@@ -187,7 +187,7 @@ Skupina NSG na síťovou kartu (Resource Manager)| Podporováno | Je nutné při
 Skupina NSG na podsítě (Resource Manager a klasický)| Podporováno | Je nutné přidružit NSG na síťový adaptér pomocí služby azure automation skriptu v plánu obnovení.
 Skupina NSG na virtuálním počítači (klasické)| Podporováno | Je nutné přidružit NSG na síťový adaptér pomocí služby azure automation skriptu v plánu obnovení.
 Vyhrazená IP adresa (statickou IP adresu) / zachovat zdrojové IP adresy | Podporováno | Pokud má síťový adaptér na zdrojový virtuální počítač konfiguraci statické IP adresy a cílové podsíti má stejnou IP adresu, k dispozici, je přiřazen k převzetí služeb při selhání virtuálního počítače. Pokud cílové podsíti nemá stejnou IP Adresou, k dispozici, jednu z dostupných IP adres v podsíti je vyhrazený pro tento virtuální počítač. Můžete zadat pevné IP zvoleného v ' replikované položky > Nastavení > výpočty a síť > síťových rozhraní se. Můžete vybrat síťový adaptér a zadejte podsíť a IP podle svého výběru.
-Dynamické IP| Podporováno | Pokud má síťový adaptér na zdrojový virtuální počítač konfigurace s dynamickými IP, síťový adaptér na převzetí služeb při selhání virtuálního počítače je také dynamické ve výchozím nastavení. Můžete zadat pevné IP zvoleného v ' replikované položky > Nastavení > výpočty a síť > síťových rozhraní se. Můžete vybrat síťový adaptér a zadejte podsíť a IP podle svého výběru.
+Dynamic IP| Podporováno | Pokud má síťový adaptér na zdrojový virtuální počítač konfigurace s dynamickými IP, síťový adaptér na převzetí služeb při selhání virtuálního počítače je také dynamické ve výchozím nastavení. Můžete zadat pevné IP zvoleného v ' replikované položky > Nastavení > výpočty a síť > síťových rozhraní se. Můžete vybrat síťový adaptér a zadejte podsíť a IP podle svého výběru.
 Integrace Traffic Manageru | Podporováno | Můžete předkonfigurovat váš správce provozu tak, že provoz se směruje na koncový bod ve zdrojové oblasti v pravidelných intervalech a ke koncovému bodu v cílové oblasti v případě převzetí služeb při selhání.
 Spravovat Azure DNS | Podporováno |
 Vlastní DNS  | Podporováno |    

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Kurz: Konfigurace Workday pro zřizování automatické uživatelů
 
@@ -164,13 +164,17 @@ Budete muset vytvořit skupinu zabezpečení systému integrace bez omezení a p
     ![Skupina zabezpečení systému](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "skupina zabezpečení systému")  
 
 ### <a name="configure-security-group-options"></a>Konfigurovat možnosti pro skupiny zabezpečení
-V tomto kroku můžete udělit nová oprávnění skupiny zabezpečení pro **získat** a **Put** operací na objekty zabezpečené následující zásady zabezpečení domény:
+V tomto kroku budete zabezpečení domény udělení oprávnění zásad pro dat pracovníků zabezpečeny následující zásady zabezpečení domény:
 
-* Zřizování externího účtu
-* Worker dat: Sestavy veřejné pracovního procesu
-* Dat pracovníků: Všechny pozice
-* Pracovní Data: Personální informace aktuální
-* Data pracovního procesu: Název firmy na profilu pracovní
+
+| Operace | Zásady zabezpečení domény |
+| ---------- | ---------- | 
+| Operace GET a Put |  Zřizování externího účtu |
+| Operace GET a Put | Worker dat: Sestavy veřejné pracovního procesu |
+| Operace GET a Put | Dat pracovníků: Všechny pozice |
+| Operace GET a Put | Pracovní Data: Personální informace aktuální |
+| Operace GET a Put | Data pracovního procesu: Název firmy na profilu pracovní |
+| Zobrazovat a upravovat | Dat pracovníků: Pracovní e-mailu |
 
 **Chcete-li nakonfigurovat možnosti pro skupiny zabezpečení:**
 
@@ -348,7 +352,7 @@ V této části nakonfigurujete, jak jsou data uživatele z Workday do služby A
 | **AddressLineData**    |  StreetAddress  |     |   Vytvoření + aktualizace |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Vytvoření + aktualizace |
 | **BusinessTitle**   |  název     |     |  Vytvoření + aktualizace |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "d:",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([W])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Vytvoření + aktualizace                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "d:",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([W])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Zapisovat pouze na vytvoření                                                   
 | **Přepínače (\[okres\], "organizační jednotky standardní uživatelé, OU = Uživatelé, OU = výchozí, OU = umístění, DC = = contoso, DC = com", "Dallas", "organizační jednotky standardní uživatelé, OU = = Users, organizační jednotky Dallas, OU = umístění, DC = = contoso, DC = com", "Austinu", "organizační jednotky standardní uživatelé, OU = = oj uživatelé Austinu, OU = umístění, DC = = contoso, DC = com", "Seattle", "organizační jednotky standardní uživatelé, OU = = Users, organizační jednotky Seattle, OU = umístění, DC = = contoso, DC = com", "Praha", "organizační jednotky = standardní uživatelé Organizační jednotky Uživatelé, OU = Londýn, OU = = umístění, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Vytvoření + aktualizace |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Část 3: Konfigurace agenta synchronizace na místě
@@ -638,11 +642,121 @@ Jakmile částí 1 – 2 byly dokončeny, můžete spustit službu zřizování.
 
 5. Byla dokončena, bude zapisovat souhrnné zprávy o auditu **zřizování** kartě, jak je uvedeno níže.
 
+
+## <a name="customizing-the-list-of-workday-user-attributes"></a>Přizpůsobení seznamu Workday uživatelské atributy
+Workday zřizování aplikací pro služby Active Directory a Azure AD oba obsahují výchozí seznam atributů uživatele Workday můžete vybrat z. Tyto seznamy však nejsou komplexní. WORKDAY podporuje mnoho stovky uživatelské atributy, které mohou být buď standardní nebo jedinečné pro vašeho klienta Workday. 
+
+Zřizování služby Azure AD podporuje přizpůsobit seznam nebo atribut Workday zahrnout všechny atributy v [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) operace rozhraní API lidských zdrojů.
+
+Chcete-li to provést, musíte použít [Workday Studio](https://community.workday.com/studio-download) k extrakci XPath výrazy, které představují atributy, které chcete použít a poté je přidejte do zřizování konfigurace pomocí editoru pokročilé atribut na portálu Azure.
+
+**Načtení výraz XPath pro atribut Workday uživatele:**
+
+1. Stáhněte a nainstalujte [Workday Studio](https://community.workday.com/studio-download). Budete potřebovat účet Workday komunity pro přístup k Instalační služby.
+
+2. Stáhněte soubor jazyce Workday Human_Resources WDSL z této adresy URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+
+3. Spusťte Workday Studio.
+
+4. Panelu příkazů vyberte **Workday > Test webové služby v Tester** možnost.
+
+5. Vyberte **externí**a vyberte soubor Human_Resources WSDL jste si stáhli v kroku 2.
+
+    ![WORKDAY Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. Nastavte **umístění** do `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, ale nahraďte skutečným "IMPL-CC" instance typu a "Klienta" s název vašeho skutečné klienta.
+
+7. Nastavit **operace** k **Get_Workers**
+
+8.  Klikněte na tlačítko malým **konfigurace** odkaz níže podokna požadavků a odpovědí a nastavte přihlašovací údaje Workday. Zkontrolujte **ověřování**a pak zadejte uživatelské jméno a heslo pro účet Workday integrace systému. Nezapomeňte formátu uživatelské jméno jako name@tenanta nechat **UsernameToken WS-Security** možnost.
+
+    ![WORKDAY Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. Vyberte **OK**.
+
+10. **Požadavku** podokně vložením XML níže a nastavte **Employee_ID** na ID zaměstnance reálného uživatele ve vašem klientovi Workday. Vyberte uživatele, který má atribut vyplněný, které chcete extrahovat.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. Klikněte **odeslat požadavek** (zelenou šipku) k provedení příkazu. Pokud úspěšné, odpověď by se měla objevit v **odpovědi** podokně. Zkontrolujte odpověď na Ujistěte se, že má datové jste zadali ID uživatele a není k chybě.
+
+12. Pokud bylo úspěšné, zkopírujte soubor XML z **odpovědi** podokně a uložte ho jako soubor XML.
+
+13. V nástroje příkazového řádku z Workday Studio, vyberte **soubor > Otevřít soubor...**  a otevřít soubor XML, který jste právě uložili. Otevře se v editoru Workday Studio XML.
+
+    ![WORKDAY Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. Ve stromu souboru Procházet **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** k nalezení dat uživatele. 
+
+15. V části **wd:Worker**, najít atribut, který chcete přidat a vyberte ho.
+
+16. Zkopírujte výraz XPath pro vaše vybraný atribut mimo **cesta k dokumentu** pole.
+
+17. Odeberte **/env:Envelope / env:Body / wd:Get_Workers_Response / wd:Response_Data nebo** předponu z zkopírovaný výraz. 
+
+18. Pokud je poslední položky v zkopírovaný výraz uzlem (Příklad: "/ wd:Birth_Date"), pak připojit **/text()** na konci výrazu. Toto není nutné v případě, že poslední položka je atributem (Příklad: "/@wd:type").
+
+19. Výsledek by měl být přibližně `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Toto je co zkopírujete do portálu Azure.
+
+
+**Přidání vaše vlastní atribut uživatele Workday do konfiguraci zřizování:**
+
+1. Spusťte [portál Azure](https://portal.azure.com)a přejděte do části zřizování konce pracovní doby zřizování aplikace, jak je popsáno výše v tomto kurzu.
+
+2. Nastavit **Stav zřizování** k **vypnout**a vyberte **Uložit**. To vám pomůže, ujistěte se, že vaše změny se projeví pouze v případě, že je vše připraveno.
+
+3. V části **mapování**, vyberte **synchronizovat pracovníkům OnPremises** (nebo **pracovníci synchronizovat do Azure AD**).
+
+4. Přejděte k dolnímu okraji na další obrazovce a vyberte **zobrazit rozšířené možnosti**.
+
+5. Vyberte **upravit seznam atributů pro Workday**.
+
+    ![WORKDAY Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. Přejděte do dolní části seznamu atributů a kde jsou vstupní pole.
+
+7. Pro **název**, zadejte zobrazovaný název pro vaše atribut.
+
+8. Pro **typ**, vyberte typ, který odpovídá správně k atributu (**řetězec** je nejběžnější).
+
+9. Pro **rozhraní API výraz**, zadejte výraz XPath, který jste zkopírovali z Workday Studio. Příklad:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. Vyberte **přidejte atribut**.
+
+    ![WORKDAY Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. Vyberte **Uložit** výše a potom **Ano** do dialogového okna. Na obrazovce mapování atributů zavřete, pokud je stále otevřen.
+
+12. Zpět na hlavní **zřizování** vyberte **synchronizovat pracovníkům OnPremises** (nebo **pracovníci synchronizovat do Azure AD**) znovu.
+
+13. Vyberte **přidat nové mapování**.
+
+14. Nový atribut by se měla zobrazit v **zdrojový atribut** seznamu.
+
+15. Podle potřeby přidáte mapování pro nový atribut.
+
+16. Po dokončení, nezapomeňte nastavit **Stav zřizování** zpět na **na** a uložte.
+
+
 ## <a name="known-issues"></a>Známé problémy
 
 * Při spuštění **přidat ADSyncAgentAzureActiveDirectoryConfiguration** příkaz prostředí Powershell, je v současné době známý problém s přihlašovacími údaji globální správce nefunguje, pokud používají vlastní domény (Příklad: admin@contoso.com) . Jako alternativní řešení, vytvořit a použít účet globálního správce ve službě Azure AD s doméně onmicrosoft.com (Příklad: admin@contoso.onmicrosoft.com).
 
 * Předchozí problém s protokoly auditu nejsou uvedena v klienty Azure AD, které jsou umístěné v Evropské unie byl vyřešen. Konfigurace dalších agenta je však nutná pro klienty Azure AD v EU. Podrobnosti najdete v tématu [část 3: Konfigurace agenta synchronizace na místě](#Part 3: Configure the on-premises synchronization agent)
+
 
 ## <a name="additional-resources"></a>Další zdroje informací:
 * [Kurz: Konfigurace jednotného přihlašování mezi Workday a Azure Active Directory](active-directory-saas-workday-tutorial.md)

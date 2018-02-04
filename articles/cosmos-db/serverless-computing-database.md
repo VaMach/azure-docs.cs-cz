@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Pomocí Azure Functions computing bez serveru databáze
 
@@ -35,7 +35,7 @@ Azure Cosmos DB a Azure Functions umožňují integraci vašich databází a apl
 * Vytvořit vazbu funkce kolekce Azure Cosmos DB pomocí **výstup vazby**. Po dokončení funkci vazby výstup zapsat data do kontejneru.
 
 > [!NOTE]
-> Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby pracovat v tuto chvíli pouze účty rozhraní SQL API a rozhraní Graph API.
+> V současnosti aktivační události Azure Cosmos DB a vstupní a výstupní vazby fungují jenom s účty SQL API a Graph API.
 
 Následující diagram znázorňuje každý z těchto tří integrace: 
 
@@ -101,7 +101,7 @@ V implementacích prodejní při přidání položky do nákupního košíku nyn
 
 **Implementace:** aktivační události více Azure DB Cosmos naslouchání jedna kolekce
 
-1. Víc funkcí Azure můžete vytvořit přidáním Azure Cosmos DB aktivačních událostí ke každému – všechny z nich naslouchat na stejnou změnit informační kanál data nákupního košíku. Všimněte si, že při naslouchání víc funkcí na stejné změnit informačního kanálu novou kolekci zapůjčení je vyžadována pro každou funkci.
+1. Víc funkcí Azure můžete vytvořit přidáním Azure Cosmos DB aktivačních událostí ke každému – všechny z nich naslouchat na stejnou změnit informační kanál data nákupního košíku. Všimněte si, že při naslouchání víc funkcí na stejné změnit informačního kanálu novou kolekci zapůjčení je vyžadována pro každou funkci. Další informace o zapůjčení kolekcí najdete v tématu [pochopení knihovně změnu kanálu procesoru](change-feed.md#understand-cf).
 2. Vždy, když uživatelům nákupní košík při přidání nové položky, jednotlivé funkce nezávisle vyvolané změnu kanálu z kontejneru nákupní košík.
     * Jednu funkci může obsah aktuální košík použijte ke změně zobrazení položek, které může uživatel zajímá.
     * Celkový počet položek inventáře může aktualizovat jinou funkci.
@@ -138,7 +138,7 @@ Pokud chcete integrovat Azure Functions k ukládání dat a nepotřebujete hloub
 
 Výhody Azure Functions: 
 
-* **Událostmi řízené**. Azure Functions jsou událostmi řízené a poslouchat na změnu datového kanálu z Azure Cosmos DB. To znamená, nemusíte vytvářet naslouchání logiku, je právě dohlížet změny, které jste naslouchání pro. 
+* **Event-driven**. Azure Functions jsou událostmi řízené a poslouchat na změnu datového kanálu z Azure Cosmos DB. To znamená, nemusíte vytvářet naslouchání logiku, je právě dohlížet změny, které jste naslouchání pro. 
 
 * **Žádná omezení**. Funkce provést v paralelní a službě monitoru je nestabilní až tolik, jako je třeba. Můžete nastavit parametry.
 

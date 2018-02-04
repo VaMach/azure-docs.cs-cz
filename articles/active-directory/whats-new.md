@@ -6,21 +6,22 @@ documentationcenter:
 author: MarkusVi
 manager: mtillman
 editor: 
-featureFlags: clicktale
+featureFlags:
+- clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co je nového ve službě Azure Active Directory?
 
@@ -74,7 +75,7 @@ Přehledy, které máte pro událost zjištěnou riziko je vázaný na vaše př
 
 S edice Azure AD Premium P1 detekce, které nejsou předmětem licence zobrazí jako riziko událost přihlášení s další riziko zjištěna.
 
-Další informace najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-reporting-risk-events.md).
+Další informace najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 
 ---
@@ -89,7 +90,7 @@ Další informace najdete v tématu věnovaném [rizikovým událostem služby A
 Teď můžete lépe spravovat jak aplikace Office 365 zobrazovat ve panelů přístup uživatelů prostřednictvím nové nastavení uživatele. Tato možnost je užitečná pro snižuje množství aplikací v panelů přístupu uživatele, pokud chcete zobrazit pouze aplikace Office na portálu Office. Toto nastavení se nachází v **uživatelská nastavení** a je popsán **uživatelé vidí pouze aplikace Office 365 na portálu Office 365**.
  
 
-Další informace najdete v tématu [skrýt aplikace z možnosti pro uživatele v Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+Další informace najdete v tématu [skrýt aplikace z možnosti pro uživatele v Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ---
  
@@ -109,7 +110,7 @@ Rozšíření prohlížeče Moje aplikace je nyní k dispozici prostřednictvím
 - Zástupce nedávno použité aplikací z rozšíření
 - Rozšíření není k dispozici pro okraj a Chrome, Firefox.
  
-Další informace najdete v tématu [Moje aplikace zabezpečené přihlašování rozšíření](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+Další informace najdete v tématu [Moje aplikace zabezpečené přihlašování rozšíření](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
 ---
 
@@ -154,9 +155,9 @@ V rámci přechodu na novou konzolu pro správu byla provedena 2 nových rozhran
 
 Další informace naleznete v tématu:
 
-- [Začínáme s Azure Active Directory, vytváření sestav rozhraní API](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Začínáme s Azure Active Directory, vytváření sestav rozhraní API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [Začínáme s Azure Active Directory Identity Protection a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+- [Začínáme s Azure Active Directory Identity Protection a Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -226,7 +227,7 @@ Možnost pro správce vyžaduje, aby jejich uživatelé rozbalte podmínky použ
 
 Vyberte buď **na** nebo **vypnout** budou muset uživatelé rozbalte podmínky použití. **Na** nastavení vyžaduje, aby uživatelé zobrazit podmínky použití před přijetím je.
 
-Další informace najdete v tématu [Azure AD podmínky použití funkce (preview)](active-directory-tou.md).
+Další informace najdete v tématu [Azure AD podmínky použití funkce (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
  
@@ -239,7 +240,7 @@ Další informace najdete v tématu [Azure AD podmínky použití funkce (previe
  
 Vymezená aktivace můžete použít k aktivaci přiřazení rolí oprávněné prostředků Azure s menší nezávislé než původní přiřazení výchozí hodnoty. Příkladem je-li, můžete jako vlastník předplatného přiřazena ve vašem klientovi. Při použití aktivace oboru můžete aktivovat roli vlastníka pro až pět prostředky obsažené v rámci předplatného (například skupiny prostředků a virtuálních počítačů). Obor aktivací může omezit možnost provádění nežádoucí změny k důležitým prostředkům Azure.
 
-Další informace najdete v tématu [co je Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+Další informace najdete v tématu [co je Azure AD Privileged Identity Management?](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure).
  
 ---
  
@@ -342,7 +343,7 @@ V současné době je blokován přístup při použití této podmínky. Pokud 
 
 Vyhledejte této schopnosti a další informace v poznámkách k nadcházející blogy a verzi. 
 
-Další informace najdete v tématu [podmíněný přístup, ve službě Azure AD](active-directory-conditional-access-azure-portal.md).
+Další informace najdete v tématu [podmíněný přístup, ve službě Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
  
 ---
@@ -357,7 +358,7 @@ Další informace najdete v tématu [podmíněný přístup, ve službě Azure A
 
 
 
-Následující aplikace plánujeme přidat do seznamu [schválení klientských aplikací](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+Následující aplikace plánujeme přidat do seznamu [schválení klientských aplikací](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -365,8 +366,8 @@ Následující aplikace plánujeme přidat do seznamu [schválení klientských 
 
 Další informace naleznete v tématu:
 
-- [Požadavek schválené klientské aplikace](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD, na základě aplikace podmíněného přístupu](active-directory-conditional-access-mam.md)
+- [Požadavek schválené klientské aplikace](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD, na základě aplikace podmíněného přístupu](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -408,7 +409,7 @@ Pokud jsou problémy s připojením k klientovi zpětného zápisu na místě, z
 - Odkaz na dokumentaci, který vám pomůže při řešení problému. 
 
 
-Další informace najdete v tématu [integrace v místním](active-directory-passwords-how-it-works.md#on-premises-integration).
+Další informace najdete v tématu [integrace v místním](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration).
 
  
 ---
@@ -427,9 +428,9 @@ Další informace najdete v tématu [integrace v místním](active-directory-pas
 
 
 
-Teď můžete omezit přístup k Office 365 a jiným aplikacím cloudu Azure AD připojené k [schválení klientských aplikací](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) podporující zásady ochrany aplikací služby Intune s použitím [podmíněného přístupu na základě aplikace Azure AD](active-directory-conditional-access-mam.md). Zásady ochrany aplikací Intune se používají ke konfiguraci a ochraně dat společnosti na tyto klientské aplikace.
+Teď můžete omezit přístup k Office 365 a jiným aplikacím cloudu Azure AD připojené k [schválení klientských aplikací](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) podporující zásady ochrany aplikací služby Intune s použitím [podmíněného přístupu na základě aplikace Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Zásady ochrany aplikací Intune se používají ke konfiguraci a ochraně dat společnosti na tyto klientské aplikace.
 
-Tím, že zkombinujete [na základě aplikace](active-directory-conditional-access-mam.md) s [na zařízení](active-directory-conditional-access-policy-connected-applications.md) zásady podmíněného přístupu, máte možnost k ochraně dat pro osobní a firemní zařízení.
+Tím, že zkombinujete [na základě aplikace](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) s [na zařízení](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) zásady podmíněného přístupu, máte možnost k ochraně dat pro osobní a firemní zařízení.
 
 Následující podmínky a ovládací prvky jsou nyní k dispozici pro použití s podmíněného přístupu na základě aplikace:
 
@@ -447,7 +448,7 @@ Následující podmínky a ovládací prvky jsou nyní k dispozici pro použití
 - Vyžaduje se klientem schválená aplikace.
 
 
-Další informace najdete v tématu [podmíněného přístupu na základě aplikace Azure AD](active-directory-conditional-access-mam.md).
+Další informace najdete v tématu [podmíněného přístupu na základě aplikace Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
  
 ---
@@ -471,7 +472,7 @@ Nyní můžete najít všechna vaše zařízení připojená k Azure AD a aktivi
 - Najít klíče nástroje BitLocker pro zařízení připojená k AD Azure, spravovat vaše zařízení s Intune a další.
 - Spravovat nastavení související s zařízení služby Azure AD.
 
-Další informace najdete v tématu [spravovat zařízení pomocí portálu Azure](device-management-azure-portal.md).
+Další informace najdete v tématu [spravovat zařízení pomocí portálu Azure](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
 
 
 
@@ -496,7 +497,7 @@ Nyní můžete zahrnout (nebo vyloučit) systému macOS jako podmínka platformy
 Další informace naleznete v tématu:
 
 - [Vytvořte zásady dodržování předpisů zařízení pro zařízení v systému macOS s Intune](https://aka.ms/macoscompliancepolicy)
-- [Podmíněný přístup v Azure AD](active-directory-conditional-access-azure-portal.md)
+- [Podmíněný přístup v Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -517,7 +518,7 @@ Cloudové služby Multi-Factor authentication možnosti k infrastruktuře ověř
 Toto rozšíření byla vytvořena pro organizace, které chcete chránit připojení virtuální privátní sítě bez nasazení serveru Azure Multi-Factor Authentication. Network Policy Server, který rozšíření funguje jako adaptér mezi RADIUS a cloudové ověřování Azure Multi-Factor Authentication pro poskytování druhý faktor ověřování pro federované nebo synchronizovaných uživatelů.
 
 
-Další informace najdete v tématu [integrovat stávající infrastruktury Network Policy Server Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md).
+Další informace najdete v tématu [integrovat stávající infrastruktury Network Policy Server Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension).
 
  
 ---
@@ -556,7 +557,7 @@ V Centru správy služby Azure AD můžete provádět následující akce:
 **Schopnosti produktu:** Identity zabezpečení a ochrana
 
 
-Následující aplikace byly přidány do seznamu [schválení klientských aplikací](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+Následující aplikace byly přidány do seznamu [schválení klientských aplikací](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - Microsoft Planner
 - Azure Information Protection 
@@ -564,8 +565,8 @@ Následující aplikace byly přidány do seznamu [schválení klientských apli
 
 Další informace naleznete v tématu:
 
-- [Požadavek schválené klientské aplikace](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD, na základě aplikace podmíněného přístupu](active-directory-conditional-access-mam.md)
+- [Požadavek schválené klientské aplikace](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD, na základě aplikace podmíněného přístupu](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -580,7 +581,7 @@ Další informace naleznete v tématu:
  
 Teď můžete použít "nebo" (vyžadují jeden z vybraných ovládacích prvků) pro řízení podmíněného přístupu. Tato funkce slouží k vytvoření zásady s "nebo" mezi řízení přístupu. Například můžete tuto funkci pro vytvoření zásady, které vyžadují uživatele k přihlášení pomocí služby Multi-Factor authentication "nebo" na vyhovující zařízení.
 
-Další informace najdete v tématu [ovládacích prvků v Azure AD podmíněného přístupu](active-directory-conditional-access-controls.md).
+Další informace najdete v tématu [ovládacích prvků v Azure AD podmíněného přístupu](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
 
  
 ---
@@ -634,7 +635,7 @@ Z důvodu tyto nové funkce byly sestavy rozhraní API v části endpoint/Report
 
 
 
-Azure AD podporuje zjišťování pole automatické přihlašování pro aplikace, které vykreslení uživatelské jméno a heslo pole HTML. Tyto kroky jsou dokumentovány v článku [automaticky zaznamenání pole přihlášení pro aplikaci](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). Této funkci můžete najít tak, že přidáte *Non-Galerie* aplikace na **podnikové aplikace, které** stránku [portál Azure](http://aad.portal.azure.com). Kromě toho můžete nakonfigurovat **jednotné přihlašování** režimu do této nové aplikace **založené na heslech jednotné přihlašování**, zadejte adresu URL webu a potom uložte stránky.
+Azure AD podporuje zjišťování pole automatické přihlašování pro aplikace, které vykreslení uživatelské jméno a heslo pole HTML. Tyto kroky jsou dokumentovány v článku [automaticky zaznamenání pole přihlášení pro aplikaci](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). Této funkci můžete najít tak, že přidáte *Non-Galerie* aplikace na **podnikové aplikace, které** stránku [portál Azure](http://aad.portal.azure.com). Kromě toho můžete nakonfigurovat **jednotné přihlašování** režimu do této nové aplikace **založené na heslech jednotné přihlašování**, zadejte adresu URL webu a potom uložte stránky.
  
 Z důvodu problém se službou byl dočasně zakázán tuto funkci. Tento problém byl vyřešen a detekce pole Automatické přihlášení opět k dispozici.
 
@@ -656,7 +657,7 @@ Vícefaktorové ověřování (MFA), je zásadní součástí ochrany vaší org
 
 Pomocí této verzi public preview správu MFA a vytváření sestav jsou integrovanou součástí prostředí základní konfigurace Azure AD. Teď můžete spravovat funkce portálu správy vícefaktorového ověřování v rámci prostředí Azure AD.
 
-Další informace najdete v tématu [referenční informace pro vytváření sestav v portálu Azure MFA](active-directory-reporting-activity-sign-ins-mfa.md). 
+Další informace najdete v tématu [referenční informace pro vytváření sestav v portálu Azure MFA](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa). 
 
 
 ---
@@ -679,7 +680,7 @@ Podmínky použití služby Azure AD můžete použít v následujících scén�
 - Konkrétní podmínky použití na základě atributů uživatele (například lékařů oproti sester) nebo domácí oproti mezinárodní zaměstnanci, provádí dynamických skupin
 - Konkrétní podmínky použití pro přístup k velkým dopadem obchodních aplikací, jako je Salesforce
 
-Další informace najdete v tématu [Azure AD podmínky použití](active-directory-tou.md).
+Další informace najdete v tématu [Azure AD podmínky použití](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
 
 
 ---
@@ -700,7 +701,7 @@ S Azure AD Privileged Identity Management můžete spravovat, řízení a monito
 
 Všechny prostředky v rámci portálu Azure, které používají funkci Azure RBAC můžete využít výhod všech zabezpečení a možnosti správy životního cyklu, které má Azure AD Privileged Identity Management na nabídku.
 
-Další informace najdete v tématu [Privileged Identity Management pro prostředky Azure](privileged-identity-management/azure-pim-resource-rbac.md).
+Další informace najdete v tématu [Privileged Identity Management pro prostředky Azure](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 
 ---
@@ -721,7 +722,7 @@ Organizace můžou efektivně spravovat přístup k podnikovým aplikacím a čl
 
 Kontroly přístupu lze shromažďovat v programech sledujících dodržování předpisů a přístup k citlivým aplikacím v rámci organizace.
 
-Další informace najdete v tématu [zkontroluje přístup k Azure AD](active-directory-azure-ad-controls-access-reviews-overview.md).
+Další informace najdete v tématu [zkontroluje přístup k Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview).
 
 
 ---
@@ -738,7 +739,7 @@ Další informace najdete v tématu [zkontroluje přístup k Azure AD](active-di
 
 Nyní můžete lépe spravovat aplikace, které se zobrazí na vaši uživatelé portálech prostřednictvím novou **skrýt aplikace** vlastnost. Můžete skrýt, aplikacemi a pomáhá v případech, kde dlaždice aplikace zobrazí pro back endové služby nebo duplicitní dlaždice a Spouštěč oken aplikace zbytečné soubory uživatelů. Přepínač se **vlastnosti** část aplikace třetích stran a je popsán **viditelný pro uživatele?** Také můžete skrýt aplikaci programově pomocí prostředí PowerShell. 
 
-Další informace najdete v tématu [skrýt aplikace jiných výrobců od koncových uživatelů ve službě Azure AD](active-directory-coreapps-hide-third-party-app.md). 
+Další informace najdete v tématu [skrýt aplikace jiných výrobců od koncových uživatelů ve službě Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app). 
 
 
 **Co je k dispozici?**

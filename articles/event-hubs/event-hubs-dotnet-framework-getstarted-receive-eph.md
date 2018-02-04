@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5d2f6f53af182a8ac0430de0ca3701a9a30e0bf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Příjem událostí z Azure Event Hubs pomocí rozhraní .NET Framework
 
@@ -49,11 +49,11 @@ Pokud chcete používat třídu [Event Processor Host][EventProcessorHost], mus�
 2. Klikněte na **Storage** a poté klikněte na **Účet úložiště**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. V okně **Vytvořit účet úložiště** zadejte název účtu úložiště. Zvolte předplatné Azure, skupinu prostředků a umístění, ve kterém se má prostředek vytvořit. Poté klikněte na **Vytvořit**.
+3. V **vytvořit účet úložiště** podokně, zadejte název pro účet úložiště. Zvolte předplatné Azure, skupinu prostředků a umístění, ve kterém se má prostředek vytvořit. Poté klikněte na **Vytvořit**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 4. V seznamu účtů úložiště klikněte na nově vytvořený účet úložiště.
-5. V okně účtu úložiště klikněte na **Přístupové klávesy**. Zkopírujte hodnotu **key1** pro pozdější použití v tomto kurzu.
+5. V podokně účet úložiště, klikněte na tlačítko **přístupové klíče**. Zkopírujte hodnotu **key1** pro pozdější použití v tomto kurzu.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -163,7 +163,7 @@ Blahopřejeme! Obdrželi jste nyní zprávy z centra událostí pomocí třídy 
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Sestavili jste funkční aplikaci, která vytvoří centrum událostí a odesílá i přijímá data. Nyní se můžete dozvědět víc návštěvou následujících odkazů:
 

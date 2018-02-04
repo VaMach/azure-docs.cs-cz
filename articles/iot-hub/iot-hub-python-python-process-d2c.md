@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Směrování zpráv službou IoT Hub (Python)
 
@@ -117,6 +117,9 @@ V této části upravíte zařízení aplikaci, kterou jste vytvořili v [Začí
 V této části Vytvoření fronty Service Bus a účet úložiště, je připojení do služby IoT hub a konfigurace služby IoT hub odesílat zprávy do fronty na základě přítomnosti vlastnosti zprávy a všechny zprávy k účtu úložiště. Další informace o tom, jak zpracování zpráv z fronty služby Service Bus najdete v tématu [začít pracovat s fronty] [ lnk-sb-queues-node] a jak spravovat úložiště, najdete v článku [Začínáme s Azure Storage][Azure Storage].
 
 1. Vytvoření fronty Service Bus, jak je popsáno v [začít pracovat s fronty][lnk-sb-queues-node]. Poznamenejte si název oboru názvů a fronty.
+
+    > [!NOTE]
+    > Fronty sběrnice a témata použít jako koncové body centra IoT nesmí mít **relací** nebo **duplicitní detekce** povolena. Pokud některá z těchto možností jsou povolené, koncový bod se zobrazí jako **Unreachable** na portálu Azure.
 
 1. Na portálu Azure otevřete své služby IoT hub a klikněte na tlačítko **koncové body**.
 

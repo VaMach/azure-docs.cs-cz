@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorování databáze Azure SQL pomocí analýzy SQL Azure (Preview) v analýzy protokolů
 
@@ -157,7 +157,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
-Tyto dotazy na základě výstrahy můžete výstrahy na specifické prahové hodnoty pro Azure SQL Database a elastické fondy. Konfigurace oznámení pro pracovní prostor OMS:
+Tyto dotazy na základě výstrahy můžete výstrahy na specifické prahové hodnoty pro Azure SQL Database a elastické fondy. Konfigurace oznámení pro pracovní prostor analýzy protokolů:
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Konfigurace oznámení pro pracovní prostor
 
@@ -170,7 +170,7 @@ Tyto dotazy na základě výstrahy můžete výstrahy na specifické prahové ho
 6. Na **přidat pravidlo výstrahy** nakonfigurujte příslušné vlastnosti a specifické prahové hodnoty, které chcete a pak klikněte na tlačítko **Uložit**.  
 ![Přidání pravidla výstrahy](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Použití [protokolu hledání](log-analytics-log-searches.md) v analýzy protokolů, chcete-li zobrazit podrobné dat Azure SQL.
 - [Vytvořit vlastní řídicí panely](log-analytics-dashboards.md) zobrazující dat Azure SQL.

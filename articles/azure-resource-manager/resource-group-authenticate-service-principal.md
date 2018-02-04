@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Vytvoření instančního objektu pro přístup k prostředkům pomocí prostředí Azure PowerShell
 
@@ -36,7 +36,7 @@ Nejjednodušším způsobem, jak zkontrolovat, jestli má váš účet dostateč
 
 Nyní přejděte k části k ověřování:
 
-* [heslo](#create-service-principal-with-password)
+* [password](#create-service-principal-with-password)
 * [certifikát podepsaný svým držitelem](#create-service-principal-with-self-signed-certificate)
 * [certifikát od certifikační autority](#create-service-principal-with-certificate-from-certificate-authority)
 
@@ -46,7 +46,7 @@ Chcete-li nastavit hlavní název služby, použijte:
 
 | Příkaz | Popis |
 | ------- | ----------- | 
-| [Nové AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Vytvoří objekt služby Azure Active Directory |
+| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Vytvoří objekt služby Azure Active Directory |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Zadaná role RBAC přiřadí objekt zadaný v zadaném oboru. |
 
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-V příkladu v režimu spánku 20 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí chybová zpráva: "PrincipalNotFound: Hlavní {ID} neexistuje v adresáři."
+V příkladu v režimu spánku 20 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí se chybová zpráva: "Hlavní {ID} neexistuje v adresáři {DIR-ID}."
 
 Následující skript umožňuje určit obor než výchozí předplatné a opakuje přiřazení role, pokud dojde k chybě:
 
@@ -128,7 +128,7 @@ Několik položek si uvědomit o skriptu:
 * K udělení přístupu identity k výchozí předplatné, není potřeba zadat parametry ResourceGroup nebo ID předplatného.
 * Zadejte parametr ResourceGroup pouze v případě, že chcete omezit rozsah přiřazení role do skupiny prostředků.
 *  V tomto příkladu přidáte objektu služby roli Přispěvatel. Jiné role, naleznete v části [RBAC: předdefinované role](../active-directory/role-based-access-built-in-roles.md).
-* Skript v režimu spánku 15 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí chybová zpráva: "PrincipalNotFound: Hlavní {ID} neexistuje v adresáři."
+* Skript v režimu spánku 15 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí se chybová zpráva: "Hlavní {ID} neexistuje v adresáři {DIR-ID}."
 * Pokud potřebujete udělit přístup k hlavní službě pro další skupiny prostředků nebo předplatných, spusťte `New-AzureRMRoleAssignment` rutinu znovu s různými obory.
 
 
@@ -160,7 +160,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-V příkladu v režimu spánku 20 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí chybová zpráva: "PrincipalNotFound: Hlavní {ID} neexistuje v adresáři."
+V příkladu v režimu spánku 20 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí se chybová zpráva: "Hlavní {ID} neexistuje v adresáři {DIR-ID}."
 
 Následující skript umožňuje určit obor než výchozí předplatné a opakuje přiřazení role, pokud dojde k chybě. Pokud nemáte Azure PowerShell 2.0 na Windows 10 nebo Windows Server 2016.
 
@@ -223,7 +223,7 @@ Několik položek si uvědomit o skriptu:
 * K udělení přístupu identity k výchozí předplatné, není potřeba zadat parametry ResourceGroup nebo ID předplatného.
 * Zadejte parametr ResourceGroup pouze v případě, že chcete omezit rozsah přiřazení role do skupiny prostředků.
 * V tomto příkladu přidáte objektu služby roli Přispěvatel. Jiné role, naleznete v části [RBAC: předdefinované role](../active-directory/role-based-access-built-in-roles.md).
-* Skript v režimu spánku 15 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí chybová zpráva: "PrincipalNotFound: Hlavní {ID} neexistuje v adresáři."
+* Skript v režimu spánku 15 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí se chybová zpráva: "Hlavní {ID} neexistuje v adresáři {DIR-ID}."
 * Pokud potřebujete udělit přístup k hlavní službě pro další skupiny prostředků nebo předplatných, spusťte `New-AzureRMRoleAssignment` rutinu znovu s různými obory.
 
 Pokud jste **nemají Windows 10 nebo Windows Server 2016 Technical Preview**, budete muset stáhnout [certifikát podepsaný svým držitelem generátor](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) z webu Microsoft Script Center. Rozbalte obsah a importovat rutiny, které potřebujete.
@@ -321,7 +321,7 @@ Několik položek si uvědomit o skriptu:
 
 * Přístup je vymezen k předplatnému.
 * V tomto příkladu přidáte objektu služby roli Přispěvatel. Jiné role, naleznete v části [RBAC: předdefinované role](../active-directory/role-based-access-built-in-roles.md).
-* Skript v režimu spánku 15 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí chybová zpráva: "PrincipalNotFound: Hlavní {ID} neexistuje v adresáři."
+* Skript v režimu spánku 15 sekund umožňující chvíli pro novou službu hlavní rozšíří v rámci Azure Active Directory. Pokud váš skript nečeká dost dlouho, zobrazí se chybová zpráva: "Hlavní {ID} neexistuje v adresáři {DIR-ID}."
 * Pokud potřebujete udělit přístup k hlavní službě pro další skupiny prostředků nebo předplatných, spusťte `New-AzureRMRoleAssignment` rutinu znovu s různými obory.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Zadejte certifikát pomocí automatizované skript prostředí PowerShell

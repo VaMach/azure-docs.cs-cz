@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Rychlý úvod: Pozastavení a obnovení výpočetní pro Azure SQL Data Warehouse v prostředí PowerShell
 Pomocí prostředí PowerShell můžete pozastavit výpočetní pro Azure SQL Data Warehouse abyste ušetřili náklady. Když budete chtít použít datový sklad, obnovit výpočty.
@@ -59,15 +59,16 @@ Postupujte podle těchto kroků se najít informace o umístění pro datový sk
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 2. Klikněte na tlačítko **databází SQL** v levé straně na portálu Azure.
-3. Vyberte **mySampleDataWarehouse** z **databází SQL** stránky. Otevře se datového skladu. 
+3. Vyberte **mySampleDataWarehouse** z **databází SQL** stránky. Otevře se datového skladu.
 
     ![Název a prostředek skupiny serverů](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Poznamenejte si název datového skladu, který se použije jako název databáze. Také poznamenejte si název serveru a skupině prostředků. Budete používat v pozastavit a obnovit příkazy.
-5. Pokud je server foo.database.windows.net, použijte pouze první část jako název serveru v rutin prostředí PowerShell. Na předchozím obrázku je úplný název serveru NovyServer 20171113.database.windows.net. Budeme používat **NovyServer 20171113** jako název serveru ve výsledcích rutiny Powershellu.
+4. Poznamenejte si název datového skladu, což je název databáze. Také poznamenejte si název serveru a skupině prostředků. Můžete 
+5.  Tyto v příkazech pozastavení a obnovení.
+6. Pokud je server foo.database.windows.net, použijte pouze první část jako název serveru v rutin prostředí PowerShell. Na předchozím obrázku je úplný název serveru NovyServer 20171113.database.windows.net. Vyřaďte přípona a použít **NovyServer 20171113** jako název serveru ve výsledcích rutiny Powershellu.
 
 ## <a name="pause-compute"></a>Pozastavit výpočetní
-Abyste ušetřili náklady, můžete pozastavit a obnovit výpočetní prostředky na vyžádání. Například pokud nebudete používat databázi v noci a o víkendech, můžete pozastavit tyto v době a obnovit během dne. Zatímco databáze byla pozastavena, se nezapočítávají za výpočetní prostředky. Můžete však bude účtovat poplatek za úložiště. 
+Abyste ušetřili náklady, můžete pozastavit a obnovit výpočetní prostředky na vyžádání. Například pokud nepoužíváte databáze v noci a o víkendech, můžete pozastavit tyto v době a obnovit během dne. Zatímco databáze byla pozastavena, je bezplatná za výpočetní prostředky. Nicméně můžete pokračovat účtovat poplatek za úložiště. 
 
 Chcete-li pozastavit databázi, použijte [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) rutiny. Následující příklad pozastaví datového skladu s názvem **mySampleDataWarehouse** hostovaná na serveru s názvem **NovyServer 20171113**. Server je ve skupině prostředků Azure s názvem **myResourceGroup**.
 

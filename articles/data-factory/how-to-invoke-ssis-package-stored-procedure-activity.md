@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Vyvolání balíčku služby SSIS pomocí aktivity uložené procedury v Azure Data Factory
 Tento článek popisuje, jak má být vyvolán balíčku služby SSIS z kanál služby Azure Data Factory pomocí aktivity uložené procedury. 
@@ -75,7 +75,7 @@ V tomto kroku použijete rozhraní Data Factory vytvořit kanál. Přidání akt
 1. Na stránku Začínáme, klikněte na **vytvořit kanál**: 
 
     ![Stránka Začínáme](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. V **aktivity** sada nástrojů, rozbalte položku **SQL Database**a přetáhněte jej **uloženou proceduru** aktivity na povrch desginer kanálu. 
+2. V **aktivity** sada nástrojů, rozbalte položku **SQL Database**a přetáhněte jej **uloženou proceduru** aktivity na plochu návrháře kanálu. 
 
     ![Aktivita uložené procedury a přetažení](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. V okně vlastnosti aktivity uložené procedury přepnout **účet SQL** a klikněte na **+ nový**. Vytvoříte připojení k databázi Azure SQL, který je hostitelem katalogu služby SSIS (SSIDB databáze). 
@@ -94,11 +94,11 @@ V tomto kroku použijete rozhraní Data Factory vytvořit kanál. Přidání akt
         ![Propojená služba Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. V okně vlastností přepnout **uloženou proceduru** kartě z **účet SQL** kartě a proveďte následující kroky: 
 
-    1. Pro **název uložené procedury** pole, zadejte `sp_executesql` . 
+    1. Pro **název uložené procedury** pole, zadejte `sp_executesql`. 
     2. Klikněte na tlačítko **+ nový** v **uložené procedury parametry** části. 
     3. Pro **název** parametru, zadejte **příkazu Insert**. 
-    4. Pro **typ** parametru, zadejte **řetězec** . 
-    5. Pro **hodnota** parametru, zadejte následující dotaz SQL.
+    4. Pro **typ** parametru, zadejte **řetězec**. 
+    5. Pro **hodnota** parametru, zadejte následujícího dotazu SQL:
 
         V příkazu jazyka SQL, zadejte správné hodnoty pro **název_složky**, **název_projektu**, a **název_balíčku** parametry. 
 
@@ -133,7 +133,9 @@ V této části se aktivuje spuštění kanálu a jeho sledování.
 
     ![Ověření spuštění balíčku](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-Můžete také vytvořit naplánované aktivační událost pro svůj kanál tak, aby kanál spouští podle plánu (houly, denní, atd.). Příklad, naleznete v části [vytvořit objekt pro vytváření dat – uživatelské rozhraní objektu pro vytváření dat](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+> [!NOTE]
+> Můžete také vytvořit naplánované aktivační událost pro svůj kanál tak, aby kanál spouští podle plánu (hodinový, denní, atd.). Příklad, naleznete v části [vytvořit objekt pro vytváření dat – uživatelské rozhraní objektu pro vytváření dat](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 V této části použijte prostředí Azure PowerShell k vytvoření objektu pro vytváření dat kanál s aktivitou uložené procedury, která volá balíčku služby SSIS. 
@@ -321,7 +323,7 @@ V předchozím kroku vyvolá kanál na vyžádání. Můžete také vytvořit ak
     }    
     ```
 2. V **prostředí Azure PowerShell**, přepnout **C:\ADF\RunSSISPackage** složky.
-3. Spustit **Set-AzureRmDataFactoryV2Trigger** rutiny vytvořit aktivační událost. 
+3. Spustit **Set-AzureRmDataFactoryV2Trigger** rutiny, které vytvoří aktivační událost. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"

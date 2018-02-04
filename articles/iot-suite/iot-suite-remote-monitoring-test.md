@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testování řešení pomocí simulovaných zařízení
 
@@ -131,24 +131,24 @@ Následující příkazy použijte `az` příkaz [Azure CLI 2.0](https://docs.mi
 1. Pokud chcete povolit přístup SSH virtuálního počítače, spusťte následující příkaz pomocí názvu skupiny zabezpečení sítě v předchozím kroku:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Chcete-li zobrazit seznam příchozích pravidel pro vaši síť, spusťte následující příkaz:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Chcete-li změnit heslo pro virtuální počítače na heslo, které znáte, spusťte následující příkaz. Použijte název virtuálního počítače, které jste si poznamenali dříve a heslo podle vašeho výběru:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Chcete-li najít IP adresu virtuálního počítače, použijte následující příkaz a poznamenejte si veřejnou IP adresu:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. SSH tu teď můžete použít pro připojení k virtuálnímu počítači. `ssh` Příkaz je předinstalován v prostředí cloudu. Použijte veřejnou IP adresu z předchozího kroku, a po zobrazení výzvy heslo, můžete nakonfigurovat pro virtuální počítač:

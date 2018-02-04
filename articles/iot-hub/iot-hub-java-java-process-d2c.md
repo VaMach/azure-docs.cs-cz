@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: c75624d8551adabbd993d22ac4901ca26ef40d51
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 92ab10e5b8487e03d92b69114a2e3c5302f95ed6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>Směrování zpráv službou IoT Hub (Java)
 
@@ -126,6 +126,9 @@ V této části upravíte zařízení aplikaci, kterou jste vytvořili v [Začí
 V této části Vytvoření fronty Service Bus, připojte ho do služby IoT hub a konfigurace služby IoT hub odesílat zprávy do fronty na základě přítomnosti vlastnosti na zprávu. Další informace o tom, jak zpracování zpráv z fronty služby Service Bus najdete v tématu [začít pracovat s fronty][lnk-sb-queues-java].
 
 1. Vytvoření fronty Service Bus, jak je popsáno v [začít pracovat s fronty][lnk-sb-queues-java]. Poznamenejte si název oboru názvů a fronty.
+
+    > [!NOTE]
+    > Fronty sběrnice a témata použít jako koncové body centra IoT nesmí mít **relací** nebo **duplicitní detekce** povolena. Pokud některá z těchto možností jsou povolené, koncový bod se zobrazí jako **Unreachable** na portálu Azure.
 
 2. Na portálu Azure otevřete své služby IoT hub a klikněte na tlačítko **koncové body**.
 

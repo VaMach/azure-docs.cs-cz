@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informace pro neschválené distribuce
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -75,7 +75,7 @@ Image virtuálního pevného disku na Azure musí mít virtuální velikost zaro
 Chcete-li opravit to můžete změnit velikost virtuálního počítače pomocí konzoly Správce technologie Hyper-V nebo [změny velikosti virtuálního pevného disku](http://technet.microsoft.com/library/hh848535.aspx) rutiny prostředí Powershell.  Pokud používáte v prostředí systému Windows, se doporučuje použít qemu img převést (v případě potřeby) a změnit velikost virtuálního pevného disku.
 
 > [!NOTE]
-> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 > 
 > 
 
@@ -143,6 +143,7 @@ V velmi minimální bylo zjištěno chybí následující opravy, způsobit prob
 * Azure Linux Agent vyžaduje Python v2.6 +.
 * Agent vyžaduje taky modul python pyasn1. Většina distribuce to zadejte jako samostatný balíček, který může být instalován.
 * V některých případech nemusí být kompatibilní s NetworkManager Azure Linux Agent. Mnoho balíčků RPM/bázi Deb poskytované distribuce nakonfigurujte NetworkManager konflikt balíčku příkaz waagent a proto odinstaluje NetworkManager při instalaci balíčku agenta systému Linux.
+* Azure Linux Agent musí být vyšší než minimální podporovaná verze, najdete v tomto článku [podrobnosti](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Požadavky na systém Linux obecné
 

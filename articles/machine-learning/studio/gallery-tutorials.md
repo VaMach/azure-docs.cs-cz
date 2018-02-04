@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 9a93a027ed5243496a86efff0d86de7092f44b43
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Vyhledat a sdílet kurzy v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Chcete-li procházet kurzy [v galerii](http://gallery.cortanaintelligence.com)v 
 
 ![Vyberte na domovské stránce Galerie kurzy](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
- **[Kurzy](https://gallery.cortanaintelligence.com/tutorials)**  stránka zobrazuje seznam kurzů nedávno přidané a Oblíbené. Pokud chcete zobrazit všechny kurzy, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní kurz, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
+**[Kurzy](https://gallery.cortanaintelligence.com/tutorials)**  stránka zobrazuje seznam kurzů nedávno přidané a Oblíbené. Pokud chcete zobrazit všechny kurzy, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní kurz, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
 
 Můžete získat další informace o kurz na stránce podrobností kurzu. Otevřete stránku kurz podrobnosti, vyberte tento kurz. V **komentáře** části na stránce kurz podrobnosti, můžete okomentovat, poskytnout zpětnou vazbu nebo klást otázky týkající se tohoto kurzu. Tento kurz můžete také sdílet s přátele nebo kolegy na Twitteru nebo LinkedIn. Také můžete e-mailem odkaz na stránku kurzu podrobností pozvaným jiní uživatelé při zobrazení stránky.
 

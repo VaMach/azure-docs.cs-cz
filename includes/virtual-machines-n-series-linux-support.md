@@ -4,7 +4,11 @@
 ### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>NC, NCv2 a ND instancí - NVIDIA CUDA ovladače
 | Distribuce | Ovladač |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> Distribuce založené na CentOS 7.3 | NVIDIA CUDA 9.1, ovladač větve R387 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 nebo 7.4<br/><br/> CentOS 7.3 nebo 7.4 | NVIDIA CUDA 9.1, ovladač větve R390 |
+
+> [!IMPORTANT]
+> Ujistěte se, že instalaci nebo upgrade na nejnovější ovladače CUDA pro distribuční. Ovladače, které jsou starší než verze R390 mohou mít problémy s aktualizované jádra systému Linux.
+>
 
 ### <a name="nv-instances---nvidia-grid-drivers"></a>Instance NV – ovladače NVIDIA GRID
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Použití MirrorMaker k replikaci Apache Kafka témata s Kafka v HDInsight
 
@@ -120,7 +120,7 @@ Když vytvoříte virtuální síť Azure a Kafka clusterů ručně, je jednodu�
     export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Nahraďte `$CLUSTERNAME` s názvem zdrojového clusteru. Po zobrazení výzvy zadejte heslo pro účet pro přihlášení (správce) clusteru.
+    Nahraďte `$CLUSTERNAME` s názvem zdrojového clusteru. Po zobrazení výzvy zadejte heslo pro účet přihlášení clusteru (admin).
 
 3. Chcete-li vytvořit téma s názvem `testtopic`, použijte následující příkaz:
 
@@ -187,7 +187,7 @@ Když vytvoříte virtuální síť Azure a Kafka clusterů ručně, je jednodu�
     echo $DEST_BROKERHOSTS
     ```
 
-    Nahraďte `$CLUSTERNAME` s názvem cílového clusteru. Po zobrazení výzvy zadejte heslo pro účet pro přihlášení (správce) clusteru.
+    Nahraďte `$CLUSTERNAME` s názvem cílového clusteru. Po zobrazení výzvy zadejte heslo pro účet přihlášení clusteru (admin).
 
     `echo` Příkaz vrátí informace podobná následující text:
 
@@ -209,6 +209,41 @@ Když vytvoříte virtuální síť Azure a Kafka clusterů ručně, je jednodu�
     Nahraďte **DEST_BROKERS** s informacemi o zprostředkovatele z předchozího kroku.
 
     Další informace o producent konfigurace, najdete v části [producent konfigurací](https://kafka.apache.org/documentation#producerconfigs) v kafka.apache.org.
+
+5. Pokud chcete najít hostitele Zookeeper pro cílový cluster, použijte následující příkazy:
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Nahraďte `$CLUSTERNAME` s názvem cílového clusteru. Po zobrazení výzvy zadejte heslo pro účet přihlášení clusteru (admin).
+
+7. Výchozí konfiguraci pro Kafka v HDInsight nepovoluje automatické vytváření témat. Před zahájením procesu zrcadlení musí používat jednu z následujících možností:
+
+    * **Vytvořte v tématech v cílovém clusteru**: tuto možnost můžete také nastavit počet oddílů a faktor replikace.
+
+        Témata týkající se předem, můžete vytvořit pomocí následujícího příkazu:
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Nahraďte `testtopic` s názvem tématu, které chcete vytvořit.
+
+    * **Konfigurace clusteru pro vytvoření automatických tématu**: Tato možnost umožňuje MirrorMaker pro automatické vytvoření témata, ale ji může vytvořit s jiný počet oddílů nebo replikace Multi-Factor než tématu zdroje.
+
+        Pokud chcete konfigurovat cílový cluster pro automatické vytvoření témata, proveďte tyto kroky:
+
+        1. Z [portál Azure](https://portal.azure.com), vyberte cíl Kafka clusteru.
+        2. Přehled cluster, vyberte __řídicí panel clusteru__. Potom vyberte __řídicí panel clusteru HDInsight__. Po zobrazení výzvy, proveďte ověření pomocí přihlašovacích (správce) pro cluster.
+        3. Vyberte __Kafka__ služby ze seznamu na levé straně stránky.
+        4. Vyberte __konfigurací__ uprostřed stránky.
+        5. V __filtru__ pole, zadejte hodnotu `auto.create`. Tím se odfiltrují seznam vlastností a zobrazí `auto.create.topics.enable` nastavení.
+        6. Změňte hodnotu `auto.create.topics.enable` na hodnotu true a potom vyberte __Uložit__. Přidat poznámku a potom vyberte __Uložit__ znovu.
+        7. Vyberte __Kafka__ služby, vyberte __restartujte__a potom vyberte __restartujte všechny zasažené__. Po zobrazení výzvy vyberte __potvrdit restartujte__.
 
 ## <a name="start-mirrormaker"></a>Spustit MirrorMaker
 
@@ -243,19 +278,17 @@ Když vytvoříte virtuální síť Azure a Kafka clusterů ručně, je jednodu�
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Nahraďte `$CLUSTERNAME` s názvem zdrojového clusteru. Po zobrazení výzvy zadejte heslo pro účet pro přihlášení (správce) clusteru.
+    Nahraďte `$CLUSTERNAME` s názvem zdrojového clusteru. Po zobrazení výzvy zadejte heslo pro účet přihlášení clusteru (admin).
 
      Až přijedete do prázdný řádek s kurzoru, zadejte několik textové zprávy. Zprávy jsou odeslány do tématu **zdroj** clusteru. Až budete hotoví, použijte **kombinaci kláves Ctrl + C** ukončit proces producent.
 
-3. Připojení SSH ke **cílové** clusteru, použijte **kombinaci kláves Ctrl + C** ukončit proces MirrorMaker. Pokud chcete ověřit, že tématu a zprávy replikovaly do cílového umístění, použijte následující příkazy:
+3. Připojení SSH ke **cílové** clusteru, použijte **kombinaci kláves Ctrl + C** ukončit proces MirrorMaker. Může trvat několik sekund ukončit proces. Pokud chcete ověřit, že zprávy replikovaly do cílového umístění, použijte následující příkaz:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Nahraďte `$CLUSTERNAME` s názvem cílového clusteru. Po zobrazení výzvy zadejte heslo pro účet pro přihlášení (správce) clusteru.
+    Nahraďte `$CLUSTERNAME` s názvem cílového clusteru. Po zobrazení výzvy zadejte heslo pro účet přihlášení clusteru (admin).
 
     Seznam témat nyní zahrnuje `testtopic`, který se vytvoří při MirrorMaster zrcadlí tématu ze zdrojového clusteru do cílového umístění. Zprávy přijaté z tématu jsou stejné, jako je zadaný ve zdrojovém clusteru.
 

@@ -16,20 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 85383cc32e67db1f7e6964dc0b55bf3977311d40
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 49277871026e79b871b0216c05e051a1c93336b3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="hadoop-architecture-in-hdinsight"></a>Architektura Hadoop v HDInsight
+# <a name="hadoop-architecture-in-hdinsight"></a>Architektura Hadoop ve službě HDInsight
 
 Hadoop zahrnuje dvě klíčové složky, vysokou hustotou File System (HDFS), který poskytuje úložiště a ještě jiný prostředek Vyjednavač (YARN) poskytující zpracování. Funkce úložiště a zpracování stane umožňuje spustit programy MapReduce k provedení požadované zpracování dat clusteru.
 
 > [!NOTE]
-> HDFS není obvykle nasazuje v rámci clusteru HDInsight k poskytování úložiště. Místo toho vrstva HDFS kompatibilního rozhraní používá komponent systému Hadoop. Funkce skutečného úložiště poskytuje Azure Storage nebo Azure Data Lake Store. Pro Hadoop MapReduce úloh spouštějících v clusteru HDInsight spustit jako by byly HDFS a proto vyžadovat žádné změny k podpoře jejich požadavky na úložiště. V Hadoop v HDInsight je zajištěný vnějším zdrojem úložiště, ale YARN zpracování zůstane základní součástí. 
-
-<!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
+> HDFS není obvykle nasazuje v rámci clusteru HDInsight k poskytování úložiště. Místo toho vrstva HDFS kompatibilního rozhraní používá komponent systému Hadoop. Funkce skutečného úložiště poskytuje Azure Storage nebo Azure Data Lake Store. Pro Hadoop MapReduce úloh spouštějících v clusteru HDInsight spustit jako by byly HDFS a proto vyžadovat žádné změny k podpoře jejich požadavky na úložiště. V Hadoop v HDInsight je zajištěný vnějším zdrojem úložiště, ale YARN zpracování zůstane základní součástí. Další informace najdete v tématu [Úvod do Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 Tento článek představuje YARN a jak ho koordinuje spuštění aplikace v HDInsight.
 
@@ -56,8 +54,7 @@ Všechny typy clusterů HDInsight nasadit YARN. ResourceManager nasazení pro za
 
 ![YARN v HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="see-also"></a>Další informace najdete v tématech
+## <a name="next-steps"></a>Další postup
 
 * [Používání nástroje MapReduce v Hadoop v HDInsight](hadoop/hdinsight-use-mapreduce.md)
-
-<!--  * [HDInsight Architecture](hdinsight-architecture.md)  -->
+* [Úvod do Azure HDInsight](hadoop/apache-hadoop-introduction.md)

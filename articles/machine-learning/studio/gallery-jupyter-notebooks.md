@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 59092514705d998fcf9ff835b3fde8a04f81aac5
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 53a600490f3e73c37e0434785198adee0be4b218
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Zjistit poznámkové bloky Jupyter v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -30,7 +30,7 @@ Poznámkových bloků v galerii nabízejí kurzy a podrobné vysvětlení pokro�
 ## <a name="discover"></a>Informace
   Chcete-li procházet poznámkových bloků v galerii, otevřete [Galerie](http://gallery.cortanaintelligence.com) a klikněte na tlačítko **poznámkových bloků** v horní části domovské stránce Galerie.
 
-  **[Poznámkové bloky Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  stránky zobrazí seznam nejčastěji používané poznámkových bloků.
+ **[Poznámkové bloky Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  stránky zobrazí seznam nejčastěji používané poznámkových bloků.
 Klikněte na tlačítko **zobrazit všechny** k zobrazení všech poznámkových bloků.
 Z této stránky můžete procházet všech poznámkových bloků v galerii. Také můžete hledat výběrem kritéria filtru na levé straně stránky a vstup hledaných termínů v horní části.
 

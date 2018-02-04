@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye;v-donglo
-ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: raymondl;garye
+ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Programové přeučení modelů Azure Machine Learning
 V tomto návodu se dozvíte, jak programově přeučit Azure Machine Learning webové služby pomocí jazyka C# a Služba Machine Learning Batch Execution.
@@ -167,7 +167,7 @@ Podívejte se na výsledky, abyste zjistili, jestli pro nově cvičný model pro
 
 Kopírování *BaseLocation*, *RelativeLocation*, a *SasBlobToken* z výstup výsledků, použijeme je během procesu retraining.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud jste nasadili prediktivní webovou službu kliknutím **nasazení webové služby [Classic]**, najdete v části [Přeučování webové služby Classic](retrain-a-classic-web-service.md).
 
 Pokud jste nasadili prediktivní webovou službu kliknutím **nasazení [nové] webové služby**, najdete v části [Přeučování novou webovou službu pomocí rutin Machine Learning Management](retrain-new-web-service-using-powershell.md).

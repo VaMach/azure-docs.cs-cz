@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/23/2018
+ms.date: 01/31/2018
 ms.author: genemi
-ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Použít koncové body služby virtuální sítě a pravidla pro databázi SQL Azure
 
@@ -28,9 +28,6 @@ ms.lasthandoff: 01/24/2018
 
 K vytvoření pravidla, virtuální sítě, nejprve musí být [koncový bod služby virtuální sítě] [ vm-virtual-network-service-endpoints-overview-649d] pravidlo odkazovat.
 
-
-> [!NOTE]
-> Pro databázi SQL Azure tato funkce je dostupná ve verzi Preview do všech oblastí ve veřejném cloudu Azure.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Jak vytvořit pravidlo pro virtuální sítě
 

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Řešení konektor služby Statistika aplikace (Preview) v Operations Management Suite (OMS)
+# <a name="application-insights-connector-management-solution-preview"></a>Řešení správy konektor služby Statistika aplikací (Preview) 
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-Konektor služby Statistika aplikací řešení umožňuje diagnostikovat problémy s výkonem a pochopit, co uživatelé dělají s vaší aplikací když je monitorovaný s [Application Insights](../application-insights/app-insights-overview.md). Zobrazení stejná telemetrická data aplikací, které vývojáři zobrazit ve službě Application Insights jsou k dispozici v OMS. Při integraci aplikace Application Insights s OMS, zda se aplikace zvýšit tak, že data operace a aplikace na jednom místě. Má stejné zobrazení umožňuje spolupracovat s vývojáři vaší aplikace. Obecná zobrazení může pomoci zkrátit čas a vyřešte aplikace a problém s platformou.
+Konektor služby Statistika aplikací řešení umožňuje diagnostikovat problémy s výkonem a pochopit, co uživatelé dělají s vaší aplikací když je monitorovaný s [Application Insights](../application-insights/app-insights-overview.md). Zobrazení stejná telemetrická data aplikací, které vývojáři zobrazit ve službě Application Insights jsou k dispozici v analýzy protokolů. Při integraci aplikace Application Insights s analýzy protokolů, zda se aplikace zvýšit tak, že data operace a aplikace na jednom místě. Má stejné zobrazení umožňuje spolupracovat s vývojáři vaší aplikace. Obecná zobrazení může pomoci zkrátit čas a vyřešte aplikace a problém s platformou.
 
 Pokud použijete řešení, můžete:
 
 - Zobrazit všechny aplikace služby Application Insights na jednom místě, i když se nachází v různých předplatných Azure
 - Korelaci dat infrastruktury se data aplikací
 - Vizualizovat data aplikací s perspektivami v hledání protokolů
-- Otáčení z analýzy protokolů dat do aplikace Application Insights v Azure portály a OMS
+- Otáčení z analýzy protokolů dat do aplikace Application Insights na portálu Azure
 
 ## <a name="connected-sources"></a>Připojené zdroje
 
@@ -63,8 +63,8 @@ V přibližně 30 minut bude k dispozici data a dlaždici Application Insights s
 
 Ostatní body mějte na paměti:
 
-- Aplikace služby Application Insights můžete propojit jenom jeden pracovní prostor OMS.
-- Můžete propojit pouze [Standard nebo Premium Application Insights prostředky](https://azure.microsoft.com/pricing/details/application-insights) k analýze protokolů OMS. Můžete však použít úroveň Free Log Analytics.
+- Aplikace služby Application Insights můžete propojit jenom jeden pracovní prostor analýzy protokolů.
+- Můžete propojit pouze [Standard nebo Premium Application Insights prostředky](https://azure.microsoft.com/pricing/details/application-insights) k analýze protokolů. Můžete však použít úroveň Free Log Analytics.
 
 ## <a name="management-packs"></a>Sady Management Pack
 
@@ -129,7 +129,7 @@ Perspektivy součásti jsou aktualizovány v závislosti na vyhledávací dotaz.
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Otáčení do aplikace v portálu Azure
 
-Konektor služby Statistika oken aplikace jsou navržené tak, abyste otáčení k vybrané aplikace služby Application Insights *při použití portálu OMS*. Řešení můžete použít jako základní monitorování platformu, která vám pomůže vyřešit aplikace. Když se na potenciální problém v některé z vašich připojených aplikací, můžete buď přejít k podrobnostem ho v OMS vyhledávání nebo můžete vytvořit kontingenční přímo do aplikace Application Insights.
+Konektor služby Statistika oken aplikace jsou navržené tak, abyste otáčení k vybrané aplikace služby Application Insights *při použití portálu OMS*. Řešení můžete použít jako základní monitorování platformu, která vám pomůže vyřešit aplikace. Když se na potenciální problém v některé z vašich připojených aplikací, můžete buď přejít k podrobnostem je v Log Analytics vyhledávání nebo můžete vytvořit kontingenční přímo do aplikace Application Insights.
 
 Chcete-li otáčení, klikněte na symbol tří teček (**...** ), zobrazí se na konci každého řádku a vyberte **otevřete ve službě Application Insights**.
 
@@ -140,7 +140,7 @@ Chcete-li otáčení, klikněte na symbol tří teček (**...** ), zobrazí se n
 
 ### <a name="sample-corrected-data"></a>Opravě ukázková data
 
-Poskytuje služby Application Insights  *[vzorkování oprava](../application-insights/app-insights-sampling.md)*  ke snížení telemetrie přenosů. Když povolíte vzorkování ve vaší aplikaci Application Insights, zobrazí menší počet položek, které jsou uložené ve službě Application Insights a v OMS. Při konzistenci dat se zachová, i v **konektor služby Statistika aplikace** stránky a perspektivy, je nutno ručně opravit jen Vzorkovaná data pro své vlastní dotazy.
+Poskytuje služby Application Insights  *[vzorkování oprava](../application-insights/app-insights-sampling.md)*  ke snížení telemetrie přenosů. Když povolíte vzorkování ve vaší aplikaci Application Insights, zobrazí menší počet položek, které jsou uložené ve službě Application Insights a v analýzy protokolů. Při konzistenci dat se zachová, i v **konektor služby Statistika aplikace** stránky a perspektivy, je nutno ručně opravit jen Vzorkovaná data pro své vlastní dotazy.
 
 Tady je příklad vzorkování oprava do protokolu vyhledávacího dotazu:
 
@@ -162,7 +162,7 @@ Vzorkování ovlivňuje pouze celkový počet záznamů, které vaše aplikace g
 - Stránka zobrazení – pro pracovní prostor pro příjem zobrazení stránky, je nutné nakonfigurovat aplikace ke shromažďování těchto informací. Další informace naleznete v tématu [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Vlastní události – vašeho pracovního prostoru pro příjem vlastních událostí, je nutné nakonfigurovat aplikace ke shromažďování těchto informací. Další informace naleznete v tématu [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Data je přijatých OMS z Application Insights, jakmile je k dispozici.
+Data je přijatých analýzy protokolů z Application Insights, jakmile je k dispozici.
 
 ## <a name="output-data"></a>Výstupní data
 

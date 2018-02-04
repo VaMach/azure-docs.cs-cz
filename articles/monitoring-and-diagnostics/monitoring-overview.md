@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitorování aplikací Azure a prostředky
 
 Sledování je v rámci shromažďování a analýzy dat o výkonu, stavu a dostupnosti obchodní aplikace a prostředky, které závisí na. Účinné strategie sledování vám pomůže porozumět podrobné operaci různé součásti aplikace a zvýšit vaši provozu proaktivně vás upozorní na zásadních problémů, aby předtím, než začnou způsobovat problémy, můžete je vyřešit.
 
-Azure obsahuje více služeb, které jednotlivě provádět určité role nebo úkolu v prostoru pro monitorování a současně poskytovat komplexní řešení pro shromažďování, analýze a funguje na telemetrie z vaší aplikace a základní prostředky Azure podpora.  Může spolupracovat taky monitorovat důležité místní prostředky s cílem poskytnout hybridním monitorování prostředí.   Pochopení nástroje a data, která jsou k dispozici je prvním krokem při vývoji dokončení strategie monitorování pro vaši aplikaci. 
+Azure obsahuje více služeb, které jednotlivě provádět určité role nebo úkolu v prostoru pro monitorování a současně poskytovat komplexní řešení pro shromažďování, analýze a funguje na telemetrie z vaší aplikace a základní prostředky Azure podpora.  Může spolupracovat taky monitorovat kritické místních prostředků s cílem poskytnout hybridním monitorování prostředí.   Pochopení nástroje a data, která jsou k dispozici je prvním krokem při vývoji dokončení strategie monitorování pro vaši aplikaci. 
 
 Následující diagram znázorňuje koncepční zobrazení různých komponent, které vzájemně spolupracují a poskytovat monitorování prostředků Azure.  Každá z těchto je popsána v následujících částech s odkazy na podrobné technické informace.
 
@@ -47,10 +47,10 @@ Stav aplikace spoléhá na služby Azure, které závisí na.  [Azure stavu slu�
 Následující služby Azure nabízí bohaté možnosti pro shromažďování a analýzy dat monitorování.  Tyto stavět na základní monitorování a využívání běžné funkce v Azure a výkonné analytics poskytnout shromážděná data a poskytuje vám jedinečný insights do vaší aplikace a infrastrukturu.  Jejich prezentují data v rámci konkrétní scénáře, které jsou cíleny na různé cílové skupiny.
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) umožňuje monitorování dostupnosti, výkonu a využití aplikace, zda je hostovaná v cloudu nebo místní.  Instrumentaci vaší aplikace pro práci s Application Insights, můžete dosáhnout hlubšímu porozumění, který vám umožní rychle identifikovat a diagnostikovat chyby bez čekání na uživatele a jejich sestavy. S informacemi, které shromáždíte můžete provést informované volby na údržbu a vylepšení vaší aplikace.  Application Insights kromě rozsáhlé nástroje pro interakci s daty, která shromažďuje, ukládá data do úložiště v běžné využít sdílené funkce, jako jsou výstrahy, řídicí panely a hloubkovou analýzu pomocí dotazovacího jazyka pro analýzy protokolů.
+[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) umožňuje monitorování dostupnosti, výkonu a využití aplikace, zda je hostovaná v cloudu nebo místně.  Instrumentaci vaší aplikace pro práci s Application Insights, můžete dosáhnout hlubšímu porozumění, který vám umožní rychle identifikovat a diagnostikovat chyby bez čekání na uživatele a jejich sestavy. S informacemi, které shromáždíte můžete provést informované volby na údržbu a vylepšení vaší aplikace.  Application Insights kromě rozsáhlé nástroje pro interakci s daty, která shromažďuje, ukládá data do úložiště v běžné využít sdílené funkce, jako jsou výstrahy, řídicí panely a hloubkovou analýzu pomocí dotazovacího jazyka pro analýzy protokolů.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Analýza protokolu](http://azure.microsoft.com/documentation/services/log-analytics) hraje centrální role v Azure monitorování tím, že shromažďování dat z různých zdrojů do jednoho úložiště, kde mohou být analyzovány s účinný dotazovací jazyk.  Application Insights a Azure Security Center ukládají data v analýzy protokolů data ukládat a využívat jeho analytics motoru.  To v kombinaci s daty shromážděnými z Azure monitorování, řešení pro správu a agentů nainstalovaných na virtuálních počítačů v cloudu nebo místní umožňují vytvořit úplný přehled o celé prostředí. 
+[Analýza protokolu](http://azure.microsoft.com/documentation/services/log-analytics) hraje centrální role v Azure monitorování tím, že shromažďování dat z různých zdrojů do jednoho úložiště, kde mohou být analyzovány s účinný dotazovací jazyk.  Application Insights a Azure Security Center ukládají data v analýzy protokolů data ukládat a využívat jeho analytics motoru.  To v kombinaci s daty shromážděnými z Azure monitorování, řešení pro správu a agentů nainstalovaných na virtuálních počítačů v cloudu nebo místně umožňují vytvořit úplný přehled o celé prostředí. 
 
 
 ### <a name="service-map"></a>Mapa služeb

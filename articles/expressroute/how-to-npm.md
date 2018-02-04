@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 02/01/2018
 ---
@@ -43,7 +43,8 @@ Můžete:
 
 Okruhy ExpressRoute na celém světě můžete monitorovat pomocí pracovního prostoru, který je hostován v jednom z následujících oblastí:
 
-* Západní Evropa 
+* Západní Evropa
+* Západní střed USA
 * Východ USA 
 * Jihovýchodní Asie 
 * Východ Jižní Austrálie
@@ -57,14 +58,13 @@ Monitorovací agenty jsou nainstalovány na více serverech, jak místně a v Az
     * Nainstalujte monitorování agenty na místní servery a virtuální počítače Azure.
     * Nakonfigurujte nastavení na serveru agenta monitorování umožňující monitorovací agenty ke komunikaci. (Otevřít porty brány firewall, atd.)
 3. Konfigurace skupiny (NSG) pravidla zabezpečení sítě umožňuje monitorování agent nainstalovaný na virtuálních počítačích Azure ke komunikaci s místní monitorování agentů.
-4. Požadavek na seznam povolených adres pracovního prostoru NPM.
-5. Nastavení monitorování: automaticky zjistit a spravovat, které sítě jsou viditelné v NPM.
+4. Nastavení monitorování: automaticky zjistit a spravovat, které sítě jsou viditelné v NPM.
 
 Pokud už používáte nástroj Sledování výkonu sítě k monitorování jiných objektů nebo služeb a už máte pracovní prostor v jednom z podporovaných oblastí, můžete přeskočit krok 1 a 2 krok a zahájit konfiguraci kroku 3.
 
-## <a name="configure"></a>Krok 1: Vytvoření pracovního prostoru
+## <a name="configure"></a>Krok 1: Vytvoření pracovního prostoru (v předplatné, které má virtuální sítě propojené s ExpressRoute Circuit(s))
 
-1. V [portál Azure](https://portal.azure.com), v seznamu služeb v Hledat **Marketplace** pro sledování výkonu sítě. V vrácení, klikněte na tlačítko Otevřít **sledování výkonu sítě** stránky.
+1. V [portál Azure](https://portal.azure.com), vyberte odběr, který má virtuální sítě peered pro váš okruh ExpressRoute. Potom v seznamu služeb v Hledat **Marketplace** pro sledování výkonu sítě. V vrácení, klikněte na tlačítko Otevřít **sledování výkonu sítě** stránky.
 
   ![portál](.\media\how-to-npm\3.png)<br><br>
 2. V dolní části hlavní **sledování výkonu sítě** klikněte na tlačítko **vytvořit** otevřete **sledování výkonu sítě - vytvořit nové řešení** stránky. Klikněte na tlačítko **pracovním prostorem OMS - vyberte pracovní prostor** chcete otevřít stránku pracovní prostory. Klikněte na tlačítko **+ vytvořit nový pracovní prostor** chcete otevřít stránku pracovní prostor.
@@ -105,7 +105,7 @@ Pokud už používáte nástroj Sledování výkonu sítě k monitorování jin�
 
   ![Skript PowerShellu](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: nainstalujte agenta monitorování na každém serveru monitorování
+### <a name="installagent"></a>2.2: nainstalujte agenta monitorování na každém serveru monitorování (na každý virtuální sítě, který chcete monitorovat)
 
 Doporučujeme nainstalovat aspoň dva agenty na každé straně připojení ExpressRoute (tj, místní, virtuálních sítí Azure) pro redundanci. Použijte následující postup k instalaci agentů:
 
@@ -127,6 +127,8 @@ Doporučujeme nainstalovat aspoň dva agenty na každé straně připojení Expr
 6. Na **připraveno k instalaci** stránka, zkontrolujte vybrané možnosti a pak klikněte na tlačítko **nainstalovat**.
 7. Na stránce **Konfigurace byla úspěšně dokončena** klikněte na **Dokončit**.
 8. Po dokončení se zobrazí v ovládacím panelu Microsoft Monitoring Agent. Můžete zkontrolovat konfiguraci existuje a ověřte, zda agent je připojena k provozní přehledy (OMS). Při připojení k OMS, agent zobrazí zpráva s oznámením: **Microsoft Monitoring Agent úspěšně připojil ke službě Microsoft Operations Management Suite**.
+
+9. Prosím tento postup opakujte pro každý virtuální síť, že je potřeba sledovat.
 
 ### <a name="proxy"></a>2.3: Konfigurace nastavení proxy serveru (volitelné)
 
@@ -165,7 +167,7 @@ Ve výchozím nastavení je otevřen port 8084. Poskytnutím parametru 'ČísloP
 >
 >
 
-Na serverech agenta otevřete okno prostředí PowerShell s oprávněními správce. Spustit [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) skript prostředí PowerShell (který jste předtím stáhli). Nepoužívejte žádné parametry.
+Na serverech agenta otevřete okno prostředí PowerShell s oprávněními správce. Spustit [EnableRules](https://aka.ms/npmpowershellscript) skript prostředí PowerShell (který jste předtím stáhli). Nepoužívejte žádné parametry.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ Další informace o NSG najdete v tématu [skupin zabezpečení sítě](../virtu
 
 ## <a name="setupmonitor"></a>Krok 4: Konfigurace NPM pro monitorování ExpressRoute
 
->[!WARNING]
->Nepokračujte, další dokud pracovní prostor byl seznam povolených adres a obdržíte e-mail s potvrzením.
->
->
-
-Po dokončení předchozích částech a ověřte, zda byly seznam povolených adres, můžete nastavit monitorování.
+Po dokončení předchozích sekcí, můžete nastavit monitorování.
 
 1. Přejděte na dlaždici s přehledem monitorování výkonu síťového přechodem na **všechny prostředky** stránky a kliknutím na seznam povolených adres NPM prostoru.
 

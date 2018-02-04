@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronizace Azure AD Connect: konfigurujte upřednostňovaný data umístění pro prostředky Office 365
-Účelem tohoto tématu je pro vás provede procesem konfigurace PreferredDataLocation v Azure AD Connect Sync. Pokud zákazník používá více geograficky možnosti v Office 365, tento atribut slouží k určení geografického umístění dat uživatele v Office 365.
+Účelem tohoto tématu je pro vás provede procesem konfigurace PreferredDataLocation v Azure AD Connect Sync. Pokud zákazník používá více geograficky možnosti v Office 365, tento atribut slouží k určení geografického umístění dat uživatele v Office 365. Podmínky **oblast** a **geograficky** používají zaměnitelné.
 
 > [!IMPORTANT]
 > Více geograficky je aktuálně ve verzi preview. Pokud chcete zapojit do programu preview, kontaktujte prosím zástupce společnosti Microsoft.
@@ -29,36 +29,41 @@ ms.lasthandoff: 02/01/2018
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>Povolit synchronizaci PreferredDataLocation
-Ve výchozím nastavení jsou Office 365 prostředky pro vaše uživatele nachází ve stejné oblasti jako váš klient Azure AD. Například pokud se váš klient nachází v Severní Americe pak poštovní schránky Exchange uživatele jsou taky umístěné v Severní Americe. Pro více national organizace nemusí být optimální. Nastavením preferredDataLocation atributu může být definováno oblast uživatele.
+Ve výchozím nastavení jsou Office 365 prostředky pro vaše uživatele nachází ve stejném geograficky redundantním jako klientovi Azure AD. Například pokud se váš klient nachází v Severní Americe pak poštovní schránky Exchange uživatele jsou taky umístěné v Severní Americe. Pro více national organizace nemusí být optimální. Nastavením preferredDataLocation atributu může být definováno geograficky uživatele.
 
-Nastavením tohoto atributu můžete mít prostředky Office 365 uživatele, například poštovní schránky a OneDrive, ve stejné oblasti jako uživatel a stále máte jednoho klienta pro celou organizaci.
+Nastavením tohoto atributu můžete mít uživatele služeb Office 365 prostředky, například poštovní schránky a OneDrive, ve stejném geograficky redundantním jako uživatel a stále máte jednoho klienta pro celou organizaci.
 
 > [!IMPORTANT]
 > Způsobilé k více geograficky, musí mít alespoň 5000 licencí v rámci vašeho předplatného Office 365
 >
 >
 
-Oblasti v Office 365, které jsou k dispozici pro více geograficky jsou:
+Seznam všech oblastech pro Office 365 najdete v [kde je umístěný data](https://aka.ms/datamaps).
 
-| Oblast | Popis |
+Oblastech v Office 365, které jsou k dispozici pro více geograficky jsou:
+
+| Zeměpisná oblast | Hodnota preferredDataLocation |
 | --- | --- |
-| OSOBY | Severní Amerika |
-| EUR | Evropa |
-| APC | Asie a Tichomoří |
-| JPN | Japonsko |
-| AUSTRÁLIE | Austrálie |
-| CAN | Kanada |
-| GBR | Velká Británie |
-| LÁM | Latinská Amerika |
+| Asie a Tichomoří | APC |
+| Austrálie | AUSTRÁLIE |
+| Kanada | CAN |
+| Evropské unie | EUR |
+| Indie | IND |
+| Japonsko | JPN |
+| Jižní Korea | KOR |
+| Spojené království | GBR |
+| Spojené státy | OSOBY |
 
-Ne všechny úlohami Office 365 podporuje použití nastavení oblasti uživatele.
+* Pokud geograficky není uvedený v této tabulce, například Jižní Ameriky, pak jej nelze použít pro více geograficky.
+* Indie a Jižní Korea oblastech jsou dostupné jenom pro zákazníky s fakturační adresy a zakoupených v těchto oblastech.
+* Ne všechny úlohami Office 365 podporuje použití nastavení geograficky uživatele.
 
 Azure AD Connect podporuje synchronizaci **PreferredDataLocation** atribut pro **uživatele** objekty ve verzi 1.1.524.0 a po. Přesněji řečeno byly zavedeny následující změny:
 
 * Schéma typu objektu **uživatele** v konektor služby Azure AD je rozšířen o PreferredDataLocation atribut, který je typu řetězec jednou hodnotou.
 * Schéma typu objektu **osoba** v úložišti Metaverse je rozšířen o PreferredDataLocation atribut, který je typu řetězec a je jedinou hodnotu.
 
-Ve výchozím nastavení není povoleno atribut PreferredDataLocation pro synchronizaci. Tato funkce je určena pro velké organizace a každý by těžit z něj. Musíte také určit atribut pro uložení oblasti Office 365 pro vaše uživatele vzhledem k tomu, že neexistuje žádný atribut PreferredDataLocation v místní službě Active Directory. To se bude lišit pro každou organizaci.
+Ve výchozím nastavení není povoleno atribut PreferredDataLocation pro synchronizaci. Tato funkce je určena pro velké organizace a každý by těžit z něj. Musíte také určit atribut pro uložení geograficky Office 365 pro vaše uživatele vzhledem k tomu, že neexistuje žádný atribut PreferredDataLocation v místní službě Active Directory. To se bude lišit pro každou organizaci.
 
 > [!IMPORTANT]
 > V současné době Azure AD umožňuje že atribut PreferredDataLocation na synchronizované objekty uživatele a cloud uživatele objekty být přímo konfigurovat pomocí Azure AD PowerShell. Jakmile povolíte synchronizaci PreferredDataLocation atributu, je nutné zastavit pomocí Azure AD PowerShell ke konfiguraci atribut na **synchronizované uživatelské objekty** jako Azure AD Connect se přepíše je na základě Zdroj hodnot atributů v místní službě Active Directory.
@@ -245,13 +250,13 @@ Znovu povolte plánovače předdefinované synchronizace:
 ## <a name="step-8-verify-the-result"></a>Krok 8: Ověřit výsledek
 Nyní je čas ověřte konfiguraci a povolení pro vaše uživatele.
 
-1. Oblast přidáte do vybraného atributu na uživatele. Seznam dostupných oblastí najdete v [tuto tabulku](#enable-synchronization-of-preferreddatalocation).  
+1. Geografické přidáte do vybraného atributu na uživatele. Seznam dostupných geograficky lze nalézt v [tuto tabulku](#enable-synchronization-of-preferreddatalocation).  
 ![Atribut AD přidat na uživatele](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Počkejte, než pro atribut synchronizovány se službou Azure AD.
 3. Pomocí Exchange Online Powershellu ověřte správně nastavené oblasti poštovní schránky.  
 ![Poštovní schránky oblast nastavit na uživatele v systému Exchange Online](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Za předpokladu, že váš klient je označená mohli tuto funkci používat, je poštovní schránka přesunuta do oblasti správné. To můžete ověřit pohledem na název serveru, kde se nachází poštovní schránku.
-4. Pokud chcete ověřit, že toto nastavení bylo efektivní přes kolik poštovních schránek, použijte skript v [galerii Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Tento skript také obsahuje seznam všech předpon serveru datových centrech Office 365 a který je umístěný v oblasti. Můžete použít jako referenci v předchozím kroku ověření umístění poštovní schránku.
+Za předpokladu, že váš klient je označená mohli tuto funkci používat, je poštovní schránka přesunuta do správné geograficky. To můžete ověřit pohledem na název serveru, kde se nachází poštovní schránku.
+4. Pokud chcete ověřit, že toto nastavení bylo efektivní přes kolik poštovních schránek, použijte skript v [galerii Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Tento skript také obsahuje seznam všech předpon serveru datových centrech Office 365 a který je umístěn v geograficky. Můžete použít jako referenci v předchozím kroku ověření umístění poštovní schránku.
 
 ## <a name="next-steps"></a>Další postup
 

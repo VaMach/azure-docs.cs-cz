@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 47c2d129cb296f6387142e03b14356bcd83ad698
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 8b55bafee83dd43d535f9ebb0488134b5c7b3446
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrakce, transformace a načítání (ETL) ve velkém měřítku
 
@@ -42,9 +42,7 @@ Orchestration je potřebné ke spuštění příslušné úlohy v příslušnou 
 
 Apache Oozie je systém koordinace pracovního postupu, který spravuje úloh Hadoop. Oozie běží v clusteru služby HDInsight a je integrována do zásobníku Hadoop. Oozie podporuje úlohy systému Hadoop pro Apache MapReduce, Apache Pig, Apache Hive a Apache Sqoop. Oozie lze také plánování úloh, které jsou specifické pro systém, jako jsou programy v jazyce Java nebo skripty prostředí.
 
-Další informace najdete v tématu [Oozie použití se systémem Hadoop k definování a spuštění workflowu v HDInsight](../hdinsight-use-oozie-linux-mac.md)
-
-<!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
+Další informace najdete v tématu [Oozie použití se systémem Hadoop k definování a spuštění workflowu v HDInsight](../hdinsight-use-oozie-linux-mac.md) podrobné informace znázorňující způsob použití Oozie k řízení kanál začátku do konce, najdete v části [zprovoznit datovém kanálu](../hdinsight-operationalize-data-pipeline.md). 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
@@ -145,4 +143,4 @@ Po dat existuje ve zvolené umístění, budete muset vyčistit ho, ho spojovat 
 ## <a name="next-steps"></a>Další postup
 
 * [Použijte Pig s Hadoop v HDInsight](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Používání Apache Hive jako nástroj ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

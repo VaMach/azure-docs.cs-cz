@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 9025982d2a350941ef82733292ebbf15ab48d7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Podporované matice pro tuto verzi 
 Pokud váš kód načte data pomocí Azure Machine Learning Data zdroje nebo Azure Machine Learning Data přípravy, získávání buď Pandas nebo dataframe Spark, následující kombinace experimentu výpočetní prostředí a data umístění jsou podporovány:
 
-|     |Místní soubory  |Azure Blob Storage  |Databáze systému SQL Server ***  |
+|     |Místní soubory  |Azure Blob Storage  |SQL Server database***  |
 |---------|---------|---------|---------|---------|
 |Místní Python    |     Podporováno    |Nepodporuje se         | Nepodporuje se        |         |
 |Python docker (virtuální počítač s Linuxem)     |Podporované v souborech projektu pouze *         | Nepodporuje se        |        Nepodporuje se |         |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: bec2860d1da5044ad6969e2b23142256aa90042e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Zjistit moduly vlastní machine learning v Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ Chcete-li procházet vlastní moduly [v galerii](http://gallery.cortanaintellige
 
 ![Vyberte vlastní moduly na domovské stránce Galerie](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
- **[Vlastní moduly](https://gallery.cortanaintelligence.com/customModules)**  stránky zobrazí seznam nedávno přidané a Oblíbené moduly. Chcete-li zobrazit všechny vlastní moduly, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní vlastní modul, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
+**[Vlastní moduly](https://gallery.cortanaintelligence.com/customModules)**  stránky zobrazí seznam nedávno přidané a Oblíbené moduly. Chcete-li zobrazit všechny vlastní moduly, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní vlastní modul, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
 
 ![Vyberte možnost "najdete všechny" procházet všechny vlastní moduly](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 

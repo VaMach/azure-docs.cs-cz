@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Přesun dat z databáze Sybase pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ Vyžaduje se brána, i když je databáze Sybase hostované ve virtuálním poč
 > V tématu [potíží brány](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) tipy k řešení potíží s připojení nebo brány související s problémy.
 
 ## <a name="supported-versions-and-installation"></a>Podporované verze a instalaci
-Pro bránu pro správu dat pro připojení k databázi Sybase, je potřeba nainstalovat [zprostředkovatele dat pro databázi Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 nebo vyšší ve stejném systému jako brána pro správu dat. Sybase verze 16 a vyšší je podporovaná.
+Pro bránu pro správu dat pro připojení k databázi Sybase, je potřeba nainstalovat [zprostředkovatele dat pro databázi Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 nebo vyšší ve stejném systému jako brána pro správu dat. 
+
+SAP Sybase SQL odkudkoli (ASA) verze 16 a vyšší je podporováno; IQ a App Service Environment nejsou podporovány.
 
 ## <a name="getting-started"></a>Začínáme
 Vytvoření kanálu s aktivitou kopírování, který přesouvá data z úložiště místní Cassandra data pomocí různých nástrojů nebo rozhraní API. 

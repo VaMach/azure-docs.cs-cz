@@ -3,7 +3,7 @@ title: "Jak získat přístupový token na virtuálním počítači používat I
 description: "Podrobné pokyny a příklady pro použití MSI přiřazený uživatelem z virtuálního počítače Azure OAuth získat přístup k tokenu."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,17 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5c9bf052ecb2e9c79e0eb627a0fd709d587125cd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Získání tokenu přístupu pro virtuální počítač přiřazený uživatelem identita spravované služby (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]Tento článek obsahuje příklady různých kód a skript pro získání tokenu, jakož i pokyny k důležité oblastech, jako je zpracování vypršení platnosti tokenu a chyb protokolu HTTP.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Tento článek obsahuje příklady různých kód a skript pro získání tokenu, jakož i pokyny k důležité oblastech, jako je zpracování vypršení platnosti tokenu a chyb protokolu HTTP.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -144,7 +145,7 @@ Tato část popisuje možné chybové odpovědi. A "200 OK" ve stavu úspěšné
 | 401 unauthorized | unknown_source | Neznámé zdroje  *\<identifikátor URI\>* | Ověřte, že žádost HTTP GET URI správně naformátován. `scheme:host/resource-path` Část musí být zadány jako `http://localhost:50342/oauth2/token`. V části "Ukázková žádost" v [získat token pomocí protokolu HTTP](#get-a-token-using-http) části příklad.|
 |           | invalid_request | Žádosti chybí povinný parametr, obsahuje neplatnou hodnotu parametru, parametr obsahuje více než jednou nebo je jinak poškozený. |  |
 |           | unauthorized_client | Klient nemá oprávnění k žádosti o token přístupu pomocí této metody. | Způsobené požadavek, který nepoužili místní smyčky volání rozšíření, nebo na virtuální počítač, který nemá MSI správně nakonfigurován. V tématu [konfigurace virtuálních počítačů spravovaných služba Identity (MSI) pomocí portálu Azure](msi-qs-configure-portal-windows-vm.md) Pokud potřebujete pomoc s konfigurací virtuálních počítačů. |
-|           | ACCESS_DENIED | Vlastník prostředku nebo autorizace server odepřel žádost. |  |
+|           | access_denied | Vlastník prostředku nebo autorizace server odepřel žádost. |  |
 |           | unsupported_response_type | Autorizace serveru nepodporuje získání tokenu přístupu pomocí této metody. |  |
 |           | invalid_scope | Požadovaný rozsah je neplatný, neznámý nebo je nesprávný. |  |
 | 500 vnitřní chybu serveru | Neznámé | Nepodařilo se získat token ze služby Active directory. Podrobnosti najdete v tématu protokoly v  *\<cesta k souboru\>* | Ověřte, že je povoleno MSI ve virtuálním počítači. V tématu [konfigurace virtuálních počítačů spravovaných služba Identity (MSI) pomocí portálu Azure](msi-qs-configure-portal-windows-vm.md) Pokud potřebujete pomoc s konfigurací virtuálních počítačů.<br><br>Také ověřte, že žádost HTTP GET URI správně naformátován, zejména prostředek, který je zadaný identifikátor URI v řetězci dotazu. Najdete v části "Ukázková žádost" v [získat token pomocí protokolu HTTP](#get-a-token-using-http) části příklad, nebo [služeb Azure, podpora Azure AD ověření](msi-overview.md#azure-services-that-support-azure-ad-authentication) seznam služeb a jejich odpovídající ID prostředku.

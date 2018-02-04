@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 02/01/2018
 ---
@@ -146,7 +146,7 @@ Identit zařízení jsou reprezentovány jako dokumenty JSON s následujícími 
 
 | Vlastnost | Možnosti | Popis |
 | --- | --- | --- |
-| deviceId |aktualizace požadované, jen pro čtení |Řetězec malá a velká písmena (až 128 znaků.) z alfanumerických znaků ASCII 7bitového plus některé speciální znaky: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceId |aktualizace požadované, jen pro čtení |Řetězec malá a velká písmena (až 128 znaků.) z alfanumerických znaků ASCII 7bitového plus některé speciální znaky: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |vyžaduje jen pro čtení |IoT hub generovaných, malá a velká písmena řetězec až 128 znaků. Tato hodnota se používá k rozlišení zařízení se stejným **deviceId**, pokud byla odstraněna a znovu vytvořena. |
 | Značka Etag |vyžaduje jen pro čtení |Řetězec představující na slabou značku ETag pro identitu zařízení dle [RFC7232][lnk-rfc7232]. |
 | ověřování |nepovinné |Složené objekt obsahující informace a zabezpečení materiály ověřování. |

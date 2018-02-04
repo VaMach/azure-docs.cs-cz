@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Podporované metriky s monitorováním Azure
 Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včetně grafů, je na portálu, k nim přistupovat pomocí rozhraní REST API nebo je dotazování pomocí prostředí PowerShell nebo rozhraní příkazového řádku. Níže je úplný seznam všech metriky aktuálně k dispozici s Azure monitorování metriky kanálu.
@@ -667,6 +667,14 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |ObservedCapacity|Zjištěná kapacita|Počet|Průměr|Kapacita ohlášená automatickému škálování při jeho spuštění|Žádné dimenze|
 |ScaleActionsInitiated|Zahájené akce škálování|Počet|Celkem|Směr operace škálování|ScaleDirection|
 
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+
+|Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
+|---|---|---|---|---|---|
+|ServiceApiHit|Celkem přístupů k rozhraní API služby|Počet|Počet, celkem|Celkový počet přístupů k rozhraní API služby|ActivityType, název aktivity ActivityName|
+|ServiceApiLatency|Celková latence rozhraní API služby|Milisekundy|Počet, průměr, Minimum, Maximum|Celková latence požadavků na rozhraní API služby|ActivityType, název aktivity ActivityName, StatusCode|
+|ServiceApiResult|Celkem výsledků rozhraní API služby|Počet|Počet, celkem|Celkový počet výsledků rozhraní API služby|ActivityType, název aktivity ActivityName, StatusCode|
+
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
@@ -853,7 +861,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|QueryDuration||Počet|Průměr||Žádné dimenze|
+|QueryDuration|Doba trvání dotazu|Počet|Průměr|Dotaz DAX doba trvání posledního intervalu|Žádné dimenze|
 |QueryPoolJobQueueLength|Vláken: Délka fronty úloh fondu dotazu|Počet|Průměr|Počet úloh ve frontě fondu vláken dotazu.|Žádné dimenze|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

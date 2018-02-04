@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: 4a716c1934258e687eb48ecb4077c6be7b269c1f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Ukázka vlastních dat toku transformací (Python) 
 Je název transformace v nabídce **transformace toku dat (skript)**. Před čtením této příloha, přečtěte si [Python rozšiřitelnost přehled](data-prep-python-extensibility-overview.md).
@@ -83,7 +83,7 @@ Data nyní vypadá takto:
 |              |Texas         |Houston    |
 
 
-### <a name="min-max-normalization"></a>Maximální počet normalizaci min.
+### <a name="min-max-normalization"></a>Min-max normalizaci
 ```python
     df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
 ```

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a5e803cadfd08c42e12e6e34feee1c2d0d091d70
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalizace prostředí služby Active Directory s řešením pro kontrolu stavu v Active Directory v analýzy protokolů
 
@@ -122,13 +122,8 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 2. Pro počítače ve vašem prostředí použijte následující dotaz, který seznam doporučení, které selhaly.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak výše uvedeném dotazu by změnit na následující.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
     Zde je snímek obrazovky zobrazující protokolu vyhledávací dotaz:<br><br> ![doporučení se nezdařilo](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 
 3. Zvolte doporučení, které chcete ignorovat. Hodnoty pro RecommendationId budete používat v dalším postupu.
@@ -147,12 +142,8 @@ Po na další naplánované spuštění kontroly stavu, ve výchozím nastavení
 1. Následující dotazy hledání protokolů můžete použít k zobrazení seznamu všech ignorováno doporučení.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak výše uvedeném dotazu by změnit na následující.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. Pokud se později rozhodnete, zda chcete zobrazit ignorováno doporučení, odeberte všechny soubory IgnoreRecommendations.txt nebo RecommendationIDs můžete odebrat z nich.
 

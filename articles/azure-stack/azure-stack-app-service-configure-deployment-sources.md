@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Konfigurace zdrojů nasazení
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
@@ -49,8 +49,7 @@ Musíte mít účet GitHub pro dokončení této úlohy. Můžete chtít použí
 2. Zadejte **název aplikace** například - App Service v Azure zásobníku.
 3. Zadejte **URL domovské stránky**. Adresa URL domovské stránky musí být adresa zásobníku portálu Azure. For example, https://portal.local.azurestack.external.
 4. Zadejte **popis aplikace**.
-5. Zadejte **URL zpětného volání autorizace**.  Ve výchozím zásobníku Azure nasazení adresa Url je ve formátu https://portal.local.azurestack.external/tokenauthorize, pokud používáte v jiné doméně nenahrazuje doménu pro azurestack.local.
-    ![Githubu – registrace novou aplikaci s hodnotami naplněno][4]
+5. Zadejte **URL zpětného volání autorizace**.  Ve výchozím zásobníku Azure nasazení, adresa Url je ve formátu https://portal.local.azurestack.external/tokenauthorize, pokud používáte v jiné doméně nenahrazuje doménu pro local.azurestack.external ![GitHub - zaregistrovat nový aplikace s hodnotami naplněno][4]
 6. Klikněte na tlačítko **registrace aplikace**.  Nyní, zobrazí se v seznamu stránky **ID klienta** a **tajný klíč klienta** pro aplikaci.
     ![Githubu – registrace hotová aplikace][5]
 7.  V novou kartu prohlížeče nebo okno přihlášení do zásobníku správce portálu Azure (https://adminportal.local.azurestack.external) jako správce služeb.
