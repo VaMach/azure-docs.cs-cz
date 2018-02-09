@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Plánování rozhodnutí pro Azure zásobník Azure odpojené nasazení integrované systémy
-Poté, co jste se rozhodli [jak bude zásobník Azure integrovat do cloudového prostředí hybridní](azure-stack-deployment-decisions.md), pak můžete dokončit svoje rozhodnutí o nasazení Azure zásobníku.
+Poté, co jste se rozhodli [jak bude zásobník Azure integrovat do cloudového prostředí hybridní](azure-stack-connection-models.md), pak můžete dokončit svoje rozhodnutí o nasazení Azure zásobníku.
 
 S odpojeném pomocí volby nasazení Azure, můžete nasadit a používat zásobník Azure bez připojení k Internetu. K odpojené nasazení jste však omezená na úložiště identity služby AD FS a model fakturace na základě kapacity. 
 
@@ -34,7 +34,7 @@ Tuto možnost zvolte, pokud je:
 > [!TIP]
 > V některých případech tohoto typu prostředí jsou také označovány jako "Podmořský scénář".
 
-Odpojené nasazení neznamená výhradně, nemůžete později vaší instanci Azure zásobníku do Azure připojit pro hybridní scénáře virtuálních počítačů klienta. Znamená to, že nemáte připojení do Azure během nasazení nebo nechcete použít jako úložiště identit Azure Active Directory. Ale pokud chcete mít připojení k Azure po nasazení, bez ohledu na to, co chcete použít jako úložiště identit, měli byste vybrat připojte se k nasazení Azure možnost. 
+Odpojené nasazení neznamená výhradně, nemůžete později vaší instanci Azure zásobníku do Azure připojit pro hybridní scénáře virtuálních počítačů klienta. Znamená to, že nemáte připojení do Azure během nasazení nebo nechcete použít jako úložiště identit Azure Active Directory.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funkce, které jsou zasažená nebo není k dispozici v odpojeném nasazení 
 Azure zásobníku byl navržený tak, aby fungují lépe, když je připojený k Azure, takže je důležité si uvědomit, že se některé funkce a funkce, které jsou narušena nebo zcela v odpojeném režimu k dispozici. 

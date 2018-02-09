@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Aspekty Datacenter integrace pro Azure zásobníku integrované systémy
 Pokud byste chtěli v systému Azure zásobníku integrované, byste měli porozumět některé hlavní informace o plánování řešení nasazení a jak systému zapadá do vašeho datového centra. Tento článek obsahuje přehled těchto aspektů, který vám pomůže provádět rozhodnutí důležité infrastruktury pro systém Azure zásobníku více uzly. Pochopení těchto aspektů pomáhá při práci s dodavatele hardwaru, od výrobců OEM jako jejich nasazení do vašeho datového centra Azure zásobníku.  
@@ -45,7 +45,7 @@ Musíte vzít v úvahu identity poskytovatele, kterého chcete použít pro nasa
 
 Svou volbu zprostředkovatele identity nemá žádný vliv na klientské virtuální počítače, identitu systému a účty, které používají, zda bylo možné připojit doméně služby Active Directory atd. Toto je samostatný.
 
-Další informace o výběru zprostředkovatele identity v [rozhodnutí o nasazení pro Azure zásobníku integrované systémy článek](.\azure-stack-deployment-decisions.md).
+Další informace o výběru zprostředkovatele identity v [zásobník Azure integrované systémy připojení modely článku](.\azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integrace služby AD FS a graf
 Pokud se rozhodnete nasadit zásobník Azure pomocí služby AD FS jako zprostředkovatele identity, musíte integrovat instanci služby AD FS v zásobníku Azure s existující instancí služby AD FS přes důvěryhodnost federace. To umožňuje identit v existující doménové struktury služby Active Directory k ověření s prostředky v Azure zásobníku.
@@ -53,18 +53,25 @@ Pokud se rozhodnete nasadit zásobník Azure pomocí služby AD FS jako zprostř
 Můžete také integrovat službu grafu v zásobníku Azure s existující služby Active Directory. To umožňuje spravovat na základě rolí řízení přístupu (RBAC) v Azure zásobníku. Když je delegovaný přístup k prostředku, vyhledá komponentu grafu uživatelský účet v existující doménové struktuře služby Active Directory pomocí protokolu LDAP.
 
 Následující diagram znázorňuje integrované služby AD FS a graf tok přenosů.
-![Diagram zobrazuje tok přenosů služby AD FS a graf](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagram zobrazuje tok přenosů služby AD FS a graf](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Model správy licencí
+Musíte rozhodnout, které licenčním modelu, který chcete použít. Dostupné možnosti závisí na, jestli nasazení Azure zásobníku připojení k Internetu:
+- Pro [připojené nasazení](azure-stack-connected-deployment.md), můžete zvolit platím jako--používání nebo na základě kapacity licencování. Platím jako--používání vyžaduje připojení k Azure sestavy využití, které se pak fakturuje prostřednictvím Azure commerce. 
+- Licencování pouze na základě kapacity jsou podporované, když jste [nasazení odpojení](azure-stack-disconnected-deployment.md) z Internetu. 
 
-Musíte rozhodnout, které licenčním modelu, který chcete použít. Pro připojené nasazení můžete platím jako--používání nebo na základě kapacity licencování. Platím jako--používání vyžaduje připojení k Azure sestavy využití, které se pak fakturuje prostřednictvím Azure commerce. Pouze na základě kapacity licencování je podporována, pokud nasazujete odpojený od Internetu. Další informace o licencování modelech najdete v tématu [Microsoft Azure zásobníku balení a ceny](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Další informace o licencování modelech najdete v tématu [Microsoft Azure zásobníku balení a ceny](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## <a name="naming-decisions"></a>Pojmenování rozhodnutí
 
-Budete muset myslíte o tom, jak chcete naplánujte zásobník Azure obor názvů, zejména název oblasti a název externí domény. Plně kvalifikovaný název domény (FQDN) nasazení Azure zásobníku pro veřejné koncové body se rozumí kombinace těchto dvou názvy &lt; *oblast*&gt;&lt;*external_FQDN*  &gt;, například *east.cloud.fabrikam.com*. V tomto příkladu bude k dispozici na následující adresy URL portálů zásobník Azure:
+Budete muset myslíte o tom, jak chcete naplánujte zásobník Azure obor názvů, zejména název oblast a název externí domény. Externí název plně kvalifikované domény (FQDN) nasazení Azure zásobníku pro veřejné koncové body se rozumí kombinace těchto dvou názvy: &lt; *oblast*&gt;.&lt; *plně kvalifikovaný název domény*&gt;. Například *east.cloud.fabrikam.com*. V tomto příkladu bude k dispozici na následující adresy URL portálů zásobník Azure:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> Název oblasti, které zvolíte pro vaše nasazení zásobník Azure musí být jedinečný a zobrazí se v portálu adresy. 
 
 Následující tabulka shrnuje tato rozhodnutí pojmenování domény.
 
@@ -128,14 +135,14 @@ Zásobník Azure můžete připojit k Azure přes [ExpressRoute](https://docs.mi
 
 Následující diagram znázorňuje ExpressRoute pro jednoho klienta scénář (kde "Zákazníka připojení" je okruh ExpressRoute).
 
-![Diagram znázorňující jednoho klienta ExpressRoute scénář](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Diagram znázorňující jednoho klienta ExpressRoute scénář](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 Následující diagram znázorňuje ExpressRoute pro scénář více klientů.
 
-![Diagram znázorňující víceklientské ExpressRoute scénář](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Diagram znázorňující víceklientské ExpressRoute scénář](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Externí monitorování
-Získat jediné zobrazení všech výstrah ze zařízení a nasazení Azure zásobníku a integrovat do existujících IT služby pracovních postupů správy pro zpracování lístků výstrahy, kterou můžete integrovat zásobník Azure se externí datacenter sledování řešení.
+Získat jediné zobrazení všech výstrah ze zařízení a nasazení Azure zásobníku a integrovat do existujících IT služby pracovních postupů správy pro zpracování lístků výstrahy, můžete [integrovat externí datacenter sledování řešeníAzurezásobníku](azure-stack-integrate-monitor.md).
 
 Je součástí řešení Azure zásobníku, hostitele životního cyklu hardwaru počítače mimo Azure zásobníku, který spouští nástroje pro správu poskytuje výrobce OEM pro hardware. Můžete použít tyto nástroje nebo jiná řešení, které přímo integrovat existující řešení monitorování ve vašem datovém centru.
 
@@ -143,15 +150,15 @@ Následující tabulka shrnuje seznam aktuálně dostupných možností.
 
 | Oblast | Externí řešení monitorování |
 | -- | -- |
-| Azure softwaru zásobníku | - [Azure zásobníku sady Management Pack pro nástroj Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Modul plug-in Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>-Založené na REST API – volání | 
-| Fyzické servery (přes rozhraní IPMI BMC) | -Sada management pack dodavatele operations Manager<br>-OEM řešení poskytuje dodavatel hardwaru<br>-Dodavatele hardwaru Nagios moduly plug-in | Výrobce OEM partnera podporováno monitorování řešení (součást) | 
-| Síťová zařízení (SNMP) | -Zjišťování síťových zařízení operations Manager<br>-OEM řešení poskytuje dodavatel hardwaru<br>– Modul plug-in Nagios přepínač |
-| Sledování stavu předplatného klienta | - [Sada System Center Management Pack pro systém Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure softwaru zásobníku | [Azure zásobníku sady Management Pack pro nástroj Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Modul plug-in Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Na základě REST API – volání | 
+| Fyzické servery (přes rozhraní IPMI BMC) | Hardware OEM – sada management pack Operations Manager dodavatele<br>Řešení poskytuje dodavatel hardwaru výrobce OEM<br>Dodavatele hardwaru Nagios moduly plug-in | Výrobce OEM partnera podporováno monitorování řešení (součást) | 
+| Síťová zařízení (SNMP) | Zjišťování síťových zařízení Operations Manager<br>Řešení poskytuje dodavatel hardwaru výrobce OEM<br>Přepínač Nagios modulu plug-in |
+| Sledování stavu předplatného klienta | [Sada System Center Management Pack pro systém Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Vezměte na vědomí následující požadavky:
 - Řešení, které používáte, musí být bez agenta. Nelze instalovat agenty třetích stran uvnitř součásti zásobníku Azure. 
-- Pokud chcete použít System Center Operations Manager, vyžaduje Operations Manager 2012 R2 nebo Operations Manager 2016.
+- Pokud chcete použít System Center Operations Manager, je třeba nástroje Operations Manager 2012 R2 nebo Operations Manager 2016.
 
 ## <a name="backup-and-disaster-recovery"></a>Zálohování a zotavení po havárii
 
@@ -159,7 +166,7 @@ Plánování zálohování a zotavení po havárii zahrnuje plánování pro ob�
 
 ### <a name="protect-infrastructure-components"></a>Chránit součásti infrastruktury
 
-Azure zásobníku zálohuje součásti infrastruktury do sdílené složky, který určíte.
+Můžete [zálohování Azure zásobníku](azure-stack-backup-back-up-azure-stack.md) sdílet součásti infrastruktury pro SMB, zadejte:
 
 - Budete potřebovat externí sdílené složce SMB na existující server systému Windows soubor nebo zařízení třetích stran.
 - Měli byste použít této stejné sdílené složce pro zálohování síťové přepínače a životního cyklu hostitele hardwaru. Dodavatele hardwaru, od výrobců OEM pomůže poskytnout pokyny pro zálohování a obnovení všechny tyto komponenty jsou tyto externí do protokolů Azure. Jste zodpovědná za spuštění zálohování pracovních postupů na základě doporučení výrobce OEM.

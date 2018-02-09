@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrace brány firewall Azure zásobníku
 Doporučuje se použít zařízení brány firewall ke zvýšení zabezpečení Azure zásobníku. I když se třeba distribuované útokům (DDOS) odmítnutí služby, zjišťování neoprávněných vniknutí a prověřování obsahu vám může pomoci brány firewall, budou také k propustnost úzkým místem pro služby Azure storage jako objekty BLOB, tabulek a front.
@@ -41,7 +41,7 @@ Některé z downsides použití NAT pro veřejný virtuální adresy IP jsou:
 - Pro hybridní scénáře cloudu s Azure zvažte, že Azure nepodporuje nastavení tunelového připojení sítě VPN pro koncový bod pomocí adres (NAT)
 
 ### <a name="ssl-decryption"></a>Dešifrování SSL
-Aktuálně je naše doporučení na dešifrování SSL zakázání na veškerý provoz zásobník Azure, v budoucnu poskytujeme pokyny o tom, jak povolit dešifrování SSL pro Azure zásobníku.
+Aktuálně doporučujeme zakázat dešifrování SSL na veškerý provoz Azure zásobníku. Pokud je podporován v budoucí aktualizace, bude poskytnuta pokyny o tom, jak povolit dešifrování SSL pro Azure zásobníku.
 
 ## <a name="edge-firewall-scenario"></a>Scénář hraniční brány firewall
 V nasazení okraj je zásobník Azure nasadit přímo za hraniční směrovač nebo bránu firewall. V těchto scénářích platí je podporováno pro bránu firewall, aby se výše ohraničení nebo funguje jako zařízení ohraničení, pokud ji podporuje stejné náklady více cesta (ECMP) pomocí protokolu BGP nebo statické směrování.

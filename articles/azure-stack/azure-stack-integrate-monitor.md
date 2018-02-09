@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Externí řešení monitorování integrovat Azure zásobníku
 
-*Platí pro: Azure zásobníku integrované systémy*
+Pro externí monitorování infrastruktury Azure zásobníku, budete muset monitorování softwaru zásobník Azure, fyzické počítače a fyzické síťové přepínače. Každá z těchto oblastí nabízí metody za účelem načtení informací o stavu a výstrahy:
 
-Pro externí monitorování infrastruktury Azure zásobníku, budete muset monitorování softwaru zásobník Azure, fyzické počítače a fyzické síťové přepínače. Každá z těchto oblastí nabízí metody za účelem načtení informací o stavu a výstrahy.
-
-- Azure zásobníku softwaru nabízí rozhraní API založené na REST pro načtení stavu a výstrahy. (S použitím technologie softwarově definované jako prostory úložiště – přímé, výstrahy a stav úložiště jsou součástí softwaru monitorování).
+- Azure zásobníku softwaru nabízí rozhraní API založené na REST pro načtení stavu a výstrahy. (S použitím technologie softwarově definované jako prostory úložiště – přímé, výstrahy a stav úložiště jsou součástí softwaru monitorování.).
 - Fyzické počítače můžete zpřístupnit stavu a informace o výstrahách pomocí řadiče pro správu základní desky (BMC).
 - Fyzická síťová zařízení můžete zpřístupnit stavu a informace o výstrahách prostřednictvím protokolu SNMP.
 
@@ -48,16 +46,16 @@ Nástroj Operations Manager můžete použít pro externí sledování zásobní
 
 Sada management pack pro zásobník Azure poskytuje následující možnosti:
 
-- Můžete spravovat více nasazení Azure zásobníku.
-- Není poskytována podpora pro Azure Active Directory (Azure AD) a služby Active Directory Federation Services (AD FS).
-- Můžete načíst a uzavřít výstrahy.
-- Není stavu a řídicí panel kapacity.
-- Zahrnuje režimu údržby automatické detekce při opravy a aktualizace (P & U) právě probíhá.
-- Obsahuje vynucené aktualizace úlohy pro nasazení a oblast.
-- Přidání vlastních informací do oblasti.
-- Podporuje oznámení a vytváření sestav.
+- Můžete spravovat více nasazení Azure zásobníku
+- Není poskytována podpora pro Azure Active Directory (Azure AD) a služby Active Directory Federation Services (AD FS)
+- Můžete načíst a uzavřít výstrahy
+- Je stavu a kapacity řídicí panel
+- Zahrnuje režimu údržby Automatická detekce při opravy a aktualizace (P & U) je v průběhu
+- Obsahuje vynucené aktualizace úlohy pro nasazení a oblasti
+- Můžete přidávat vlastní informace do oblasti
+- Podporuje oznámení a vytváření sestav
 
-System Center Management Pack si můžete stáhnout pro Microsoft Azure zásobníku a související uživatelské příručce [zde](https://www.microsoft.com/en-us/download/details.aspx?id=55184), nebo přímo z nástroje Operations Manager.
+System Center Management Pack si můžete stáhnout pro Microsoft Azure zásobníku a přidružené [uživatelská příručka](https://www.microsoft.com/en-us/download/details.aspx?id=55184), nebo přímo z nástroje Operations Manager.
 
 Pro tvorbu lístků řešení můžete integrovat nástroje Operations Manager pomocí nástroje System Center Service Manager. Konektor produktů integrované umožňuje obousměrnou komunikaci, která umožňuje zavřít výstrahu v zásobníku Azure a nástrojem Operations Manager po vyřešení žádost o službu na portálu Service Manager.
 

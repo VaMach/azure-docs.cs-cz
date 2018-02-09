@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Plánování rozhodnutí pro Azure zásobník Azure připojené nasazení integrované systémy
-Poté, co jste se rozhodli [jak bude zásobník Azure integrovat do cloudového prostředí hybridní](azure-stack-deployment-decisions.md), pak můžete dokončit svoje rozhodnutí o nasazení Azure zásobníku.
+Poté, co jste se rozhodli [jak bude zásobník Azure integrovat do cloudového prostředí hybridní](azure-stack-connection-models.md), pak můžete dokončit svoje rozhodnutí o nasazení Azure zásobníku.
 
 Nasazení Azure zásobníku připojení k Azure znamená, že pro vaše úložiště identit může mít Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS). Můžete také z buď fakturační model: platím jako--používání nebo na základě kapacity. Připojené nasazení je výchozí možnost, protože umožňuje zákazníkům získat nejvíce hodnotu mimo Azure zásobníku, zejména pro hybridní cloudové scénáře, které zahrnují Azure a Azure zásobníku. 
 
@@ -45,7 +45,7 @@ Pokud používáte Azure AD pro úložiště vaší identity vyžaduje dva účt
 Tuto možnost zvolte, pokud chcete použít vlastní identity úložiště, jako je vaše podnikové služby Active Directory, pro účty správce služby.  
 
 ## <a name="choose-a-billing-model"></a>Vyberte fakturační model
-Můžete buď **platím jako--používání** nebo **kapacity** model fakturace. Platím jako--používání fakturační model nasazení musí být schopen sestavy využití prostřednictvím připojení k Azure alespoň jednou za 30 dní, proto, pokud není k dispozici bude připojení, model fakturace kapacitu je jedinou možností. 
+Můžete buď **platím jako--používání** nebo **kapacity** model fakturace. Platím jako--používání fakturační model nasazení musí být schopen sestavy využití prostřednictvím připojení k Azure alespoň jednou za 30 dní. Proto fakturační model platím jako--používání je dostupná jenom pro připojené nasazení.  
 
 ### <a name="pay-as-you-use"></a>Platím jako jste – použití
 Využití je s fakturační model platím jako--používání účtovat k předplatnému Azure. Platíte jenom při použití služby Azure zásobníku. Pokud je model rozhodnete, budete potřebovat předplatné Azure a přidružené k tomuto předplatnému ID účtu (například serviceadmin@contoso.onmicrosoft.com). Jsou podporovány EA, CSP a CSL odběry. Využití sestav se konfiguruje během [registrace Azure zásobníku](azure-stack-registration.md).
