@@ -1,7 +1,7 @@
 ---
-title: "Použít vlastní image Docker pro webovou aplikaci pro kontejnery - Azure | Microsoft Docs"
-description: "Jak používat vlastní image Docker pro webovou aplikaci pro kontejnery."
-keywords: "služby Azure app service, webové aplikace, linux, docker, kontejneru"
+title: "Použití vlastní image Dockeru pro službu Web App for Containers – Azure | Microsoft Docs"
+description: "Zjistěte, jak použít vlastní image Dockeru pro službu Web App for Containers."
+keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -16,39 +16,48 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 5f60dde981465709c16a9813ca24335c67252585
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Použít vlastní image Docker pro webovou aplikaci pro kontejnery
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Použití vlastní image Dockeru pro službu Web App for Containers
 
-[Webová aplikace pro kontejnery](app-service-linux-intro.md) poskytuje integrované imagí Dockeru v systému Linux s podporou pro konkrétní verze, jako je například PHP 7.0 a Node.js 4.5. Webové aplikace pro kontejnery používá technologii kontejner Docker k hostování předdefinovaných obrázků a vlastních bitových kopií jako platforma jako služba. V tomto kurzu zjistěte, jak chcete vytvořit vlastní image Docker a nasaďte ho do webové aplikace pro kontejnery. Tento vzor je užitečné, když předdefinovaných obrázků neobsahují vámi zvolený jazyk, nebo pokud vaše aplikace vyžaduje určitou konfiguraci, která není k dispozici v rámci integrované bitové kopie.
+[Web App for Containers](app-service-linux-intro.md) poskytuje integrované image Dockeru v Linuxu s podporou konkrétních verzí, jako například PHP 7.0 a Node.js 4.5. Web App for Containers využívá technologii kontejnerů Dockeru k hostování integrovaných imagí i vlastních imagí v podobě platformy jako služby. V tomto kurzu se dozvíte, jak sestavit vlastní image Dockeru a nasadit ji do služby Web App for Containers. Tento přístup je užitečný v případě, že integrované image nezahrnují váš vybraný jazyk, nebo když vaše aplikace vyžaduje specifickou konfiguraci, kterou neposkytují integrované image.
+
+V tomto kurzu se naučíte:
+
+> [!div class="checklist"]
+> * Nasadit vlastní image Dockeru do Azure
+> * Nakonfigurovat proměnné prostředí pro spuštění kontejneru
+> * Aktualizovat image Dockeru a znovu ji nasadit
+> * Připojit se ke kontejneru pomocí SSH
+> * Nasadit privátní image Dockeru do Azure
+
+[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
 * [Git](https://git-scm.com/downloads)
-* Aktivní [předplatného Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+* Aktivní [předplatné Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
-* A [účet úložiště Docker Hub](https://docs.docker.com/docker-id/)
-
-[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+* [Účet Docker Hubu](https://docs.docker.com/docker-id/)
 
 ## <a name="download-the-sample"></a>Stažení ukázky
 
-V okně terminálu spusťte následující příkaz klonovat úložiště ukázkové aplikace do místního počítače a pak přejděte do adresáře, který obsahuje ukázkový kód.
+V okně terminálu naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače a pak přejděte do adresáře, který obsahuje vzorový kód.
 
 ```bash
 git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
 cd docker-django-webapp-linux
 ```
 
-## <a name="build-the-image-from-the-docker-file"></a>Sestavení bitové kopie ze souboru Docker
+## <a name="build-the-image-from-the-docker-file"></a>Sestavení image ze souboru Dockeru
 
-V úložišti Git, podívejte se na _soubor Docker_. Tento soubor popisuje prostředí Python, který je potřeba spustit svoji aplikaci. Kromě toho nastaví bitovou kopii [SSH](https://www.ssh.com/ssh/protocol/) server pro zabezpečenou komunikaci mezi hostiteli a kontejneru.
+V úložišti Git si prohlédněte soubor _Dockerfile_. Tento soubor popisuje prostředí Pythonu potřebné pro spuštění vaší aplikace. Kromě toho image nastaví server [SSH](https://www.ssh.com/ssh/protocol/) pro zabezpečení komunikace mezi kontejnerem a hostitelem.
 
 ```docker
 FROM python:3.4
@@ -76,13 +85,13 @@ EXPOSE 8000 2222
 ENTRYPOINT ["init.sh"]
 ```
 
-Chcete-li vytvořit bitovou kopii Docker, spusťte `docker build` příkaz a zadejte název, `mydockerimage`a značky, `v1.0.0`. Nahraďte `<docker-id>` s úložiště Docker Hub účet ID.
+Pokud chcete sestavit image Dockeru, spusťte příkaz `docker build` a zadejte název _mydockerimage_ a značku _v1.0.0_. Nahraďte _\<docker-id>_ za ID vašeho účtu Docker Hubu.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-Příkaz vytvoří výstup podobný následujícímu:
+Příkaz vygeneruje výstup podobný následujícímu:
 
 ```
 # The output from the commands in this article has been shortened for brevity.
@@ -107,46 +116,46 @@ Successfully built e7cf08275692
 Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Test, který sestavení funguje tak, že spustíte kontejner Docker. Problém [docker spustit](https://docs.docker.com/engine/reference/commandline/run/) příkazů a jí předat název a značka obrázku. Nezapomeňte zadat pomocí portu `-p` argument.
+Spuštěním kontejneru Dockeru otestujte, že sestavení funguje. Zadejte příkaz [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) a předejte mu název a značku image. Nezapomeňte zadat port pomocí argumentu `-p`.
 
 ```bash
 docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Ověření webové aplikace a kontejner fungují správně procházením `http://localhost:2222`.
+Přejděte na adresu `http://localhost:2222` a ověřte, že webová aplikace i kontejner fungují správně.
 
-![Test webové aplikace místně](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
+![Místní test webové aplikace](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
-## <a name="push-the-docker-image-to-docker-hub"></a>Odešlete do úložiště Docker Hub bitovou kopii Docker
+## <a name="push-the-docker-image-to-docker-hub"></a>Odeslání image Dockeru do Docker Hubu
 
-Registr je aplikace, která hostuje bitové kopie a poskytuje služby bitové kopie a kontejneru. Aby bylo možné sdílet bitové kopie, musí poslat ho přímo registru. 
+Registr je aplikace, která hostuje image a poskytuje image služeb a služby kontejneru. Pokud chcete sdílet svou image, musíte ji odeslat do registru. 
 
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). -->
 
 > [!NOTE]
-> Vkládání do registru privátní Docker? Volitelné pokynů v tématu [nabízená bitovou kopii Docker privátní registru](#push-a-docker-image-to-private-registry-optional).
+> Odesíláte do privátního registru Dockeru? Přečtěte si volitelné pokyny k [Použití image Dockeru z jakéhokoli privátního registru](#use-a-docker-image-from-any-private-registry-optional).
 
 <!--## [Docker Hub](#tab/docker-hub)-->
 
-Úložiště docker Hub je registr pro Docker bitové kopie, který umožňuje hostování vlastní úložiště, veřejné nebo soukromé. K replikaci vlastní image Docker na veřejné úložiště Docker Hub, použijte [docker nabízené](https://docs.docker.com/engine/reference/commandline/push/) příkaz a zadejte název úplnou bitovou kopii a značky. Název úplnou bitovou kopii a značky vypadá následující ukázka:
+Docker Hub je registr pro image Dockeru, který umožňuje hostovat vlastní veřejná nebo privátní úložiště. Pokud chcete odeslat vlastní image Dockeru do veřejného Docker Hubu, použijte příkaz [`docker push`](https://docs.docker.com/engine/reference/commandline/push/) a zadejte úplný název a značku image. Úplný název a značka image vypadají jako v následující ukázce:
 
 ```
 <docker-id>/image-name:tag
 ```
 
-Pokud není přihlášený do úložiště Docker Hub, to provést pomocí [docker přihlášení](https://docs.docker.com/engine/reference/commandline/login/) příkazu před pokusem o push bitovou kopii.
+Než budete moci odeslat image, musíte se přihlásit k Docker Hubu pomocí příkazu [`docker login`](https://docs.docker.com/engine/reference/commandline/login/). Nahraďte _\<docker-id>_ názvem vašeho účtu a po zobrazení výzvy zadejte do konzoly své heslo.
 
 ```bash
-docker login --username <docker-id> --password <docker-hub-password>
+docker login --username <docker-id>
 ```
 
-Zpráva "přihlášení bylo úspěšné" potvrdí, že jste přihlášeni. Po přihlášení, můžete posouvat bitovou kopii pomocí Docker Hub [docker nabízené](https://docs.docker.com/engine/reference/commandline/push/) příkaz.
+Zpráva „login succeeded“ (Přihlášení proběhlo úspěšně) potvrzuje, že jste přihlášeni. Po přihlášení můžete odeslat image do Docker Hubu pomocí příkazu [`docker push`](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
-Ověřte, že nabízené úspěšné prověřením příkaz výstupu.
+Prozkoumejte výstup příkazu a ověřte, že odeslání proběhlo úspěšně.
 
 ```
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
@@ -180,7 +189,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Nasazení aplikace do Azure
 
-Je možné hostovat nativní Linux aplikací v cloudu pomocí Azure Web Apps. K vytvoření webové aplikace pro kontejnery, je nutné spustit příkazy rozhraní příkazového řádku Azure, které vytvořit skupinu, potom plán služeb a nakonec webové aplikace. 
+Pomocí Azure Web Apps můžete v cloudu hostovat nativní aplikace pro Linux. Pokud chcete vytvořit službu Web App for Containers, musíte spustit příkazy Azure CLI, které vytvoří skupinu, pak plán služby a nakonec samotnou webovou aplikaci. 
 
 ### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
@@ -192,13 +201,13 @@ Je možné hostovat nativní Linux aplikací v cloudu pomocí Azure Web Apps. K 
 
 ### <a name="create-a-web-app"></a>Vytvoření webové aplikace
 
-Ve službě Cloud Shell pomocí příkazu [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) vytvořte [webovou aplikaci](app-service-linux-intro.md) v plánu služby App Service `myAppServicePlan`. Nezapomeňte nahradit `<app_name>` s jedinečným názvem aplikace a < docker-ID > s ID Docker.
+Ve službě Cloud Shell pomocí příkazu [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) vytvořte v plánu služby App Service `myAppServicePlan` [webovou aplikaci](app-service-linux-intro.md). Nezapomeňte nahradit _<appname>_ jedinečným názvem aplikace a _\<docker-ID>_ vaším ID Dockeru.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Po vytvoření webové aplikace Azure CLI ukazuje výstup podobně jako v následujícím příkladu:
+Po vytvoření webové aplikace Azure CLI zobrazí výstup podobný následujícímu příkladu:
 
 ```json
 {
@@ -215,11 +224,11 @@ Po vytvoření webové aplikace Azure CLI ukazuje výstup podobně jako v násle
 }
 ```
 
-### <a name="configure-environment-variables"></a>Nakonfigurujte proměnné prostředí
+### <a name="configure-environment-variables"></a>Konfigurace proměnných prostředí
 
-Většina imagí Dockeru mít proměnné prostředí, které musí být nakonfigurované. Pokud používáte stávající image Docker vytvořené někdo jiný, může použít bitovou kopii jiný port než 80. Informuje Azure o port, který používá image pomocí `WEBSITES_PORT` nastavení aplikace. Stránku Githubu [ukázka Pythonu v tomto kurzu](https://github.com/Azure-Samples/docker-django-webapp-linux) ukazuje, které je nutné nastavit `WEBSITES_PORT` k _8000_.
+Většina imagí Dockeru obsahuje proměnné prostředí, které je potřeba nakonfigurovat. Pokud používáte existující image Dockeru sestavenou někým jiným, tato image může používat jiný port než 80. Azure můžete sdělit port, který vaše image používá, pomocí nastavení aplikace `WEBSITES_PORT`. Stránka GitHubu pro [ukázku Pythonu v tomto kurzu](https://github.com/Azure-Samples/docker-django-webapp-linux) ukazuje, že je potřeba nastavit `WEBSITES_PORT` na _8000_.
 
-Chcete-li nastavení aplikace, použijte [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkazu v prostředí cloudu. Nastavení aplikací jsou velká a malá písmena a oddělených mezerami.
+Nastavit nastavení aplikace můžete pomocí příkazu [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) ve službě Cloud Shell. Nastavení aplikace rozlišují velká a malá písmena a jsou oddělená mezerami.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -228,7 +237,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
 > [!NOTE]
-> Nasazení z registru privátní Docker? Volitelné pokynů v tématu [nakonfigurovat webovou aplikaci k používání kontejner Docker z privátní registru](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
+> Nasazujete z privátního registru Dockeru? Přečtěte si volitelné pokyny ke [konfiguraci webové aplikace pro použití kontejneru Dockeru z privátního registru](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 
@@ -241,13 +250,13 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="test-the-web-app"></a>Test webové aplikace
 
-Ověřte, že webová aplikace funguje tak, že přejde k němu (`http://<app_name>azurewebsites.net`). 
+Ověřte fungování webové aplikace tím, že do ní přejdete (`http://<app_name>azurewebsites.net`). 
 
-![Konfiguraci portů test webové aplikace](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
+![Test konfigurace portů webové aplikace](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
-## <a name="change-web-app-and-redeploy"></a>Změny webové aplikace a znovu ho zaveďte
+## <a name="change-web-app-and-redeploy"></a>Změna a opětovné nasazení webové aplikace
 
-V místní úložiště Git otevřete app/templates/app/index.html. Najít první prvek HTML a změňte ji na.
+V místním úložišti Git otevřete soubor app/templates/app/index.html. Vyhledejte první prvek HTML a změňte ho na:
 
 ```python
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -259,13 +268,13 @@ V místní úložiště Git otevřete app/templates/app/index.html. Najít prvn�
   </nav> 
 ```
 
-Jakmile jste upravit soubor Python a uložíte ho, musíte znovu sestavit a push novou bitovou kopii Docker. Potom restartujte webovou aplikaci se změny projevily. Použijte stejné příkazy, které jste už dřív použili v tomto kurzu. Můžete se podívat do [sestavení bitové kopie ze souboru Docker](#build-the-image-from-the-docker-file) a [Push bitovou kopii Docker do úložiště Docker Hub](#push-the-docker-image-to-docker-hub). Test webové aplikace podle pokynů v [Test webové aplikace](#test-the-web-app).
+Jakmile upravíte a uložíte soubor Pythonu, musíte znovu sestavit a odeslat novou image Dockeru. Pak restartujte webovou aplikaci, aby se změny projevily. Použijte stejné příkazy jako v dřívějších částech tohoto kurzu. Jako reference můžete použít části [Sestavení image ze souboru Dockeru](#build-the-image-from-the-docker-file) a [Odeslání image Dockeru do Docker Hubu](#push-the-docker-image-to-docker-hub). Otestujte webovou aplikaci podle pokynů v části [Otestování webové aplikace](#test-the-web-app).
 
-## <a name="connect-to-web-app-for-containers-using-ssh"></a>Připojení k webové aplikace pro kontejnery pomocí protokolu SSH
+## <a name="connect-to-web-app-for-containers-using-ssh"></a>Připojení ke službě Web App for Containers pomocí SSH
 
-SSH umožňuje zabezpečenou komunikaci mezi kontejner a klienta. Aby pro vlastní image Docker pro podporu SSH musí být sestavení do soubor Docker. Povolíte SSH v samotném souboru Docker. Podle pokynů SSH již byly přidány do ukázkový soubor docker, tak můžete postupovat podle těchto pokynů s svoji vlastní image:
+SSH umožňuje zabezpečenou komunikaci mezi kontejnerem a klientem. Aby vlastní image Dockeru podporovala protokol SSH, musíte ho integrovat do souboru Dockerfile. SSH povolíte v samotném souboru Dockeru. Ukázkový soubor Dockerfile již obsahuje pokyny pro SSH, takže podle nich můžete postupovat i u vlastní image:
 
-* A [spustit](https://docs.docker.com/engine/reference/builder/#run) instrukce, která volá `apt-get`, pak nastaví heslo pro kořenový účet, který chcete `"Docker!"`.
+* Pokyn [RUN](https://docs.docker.com/engine/reference/builder/#run), který zavolá `apt-get` a pak nastaví heslo pro kořenový účet na `"Docker!"`.
 
     ```docker
     ENV SSH_PASSWD "root:Docker!"
@@ -277,47 +286,47 @@ SSH umožňuje zabezpečenou komunikaci mezi kontejner a klienta. Aby pro vlastn
     ```
 
     > [!NOTE]
-    > Tato konfigurace neumožňuje externí připojení ke kontejneru. SSH je k dispozici pouze prostřednictvím webu Kudu/SCM. Kudu/SCM lokality je ověření pomocí přihlašovací údaje pro publikování.
+    > Tato konfigurace nepovoluje externí připojení ke kontejneru. SSH je k dispozici pouze prostřednictvím webu Kudu/SCM. Web Kudu/SCM se ověřuje pomocí přihlašovacích údajů pro publikování.
 
-* A [kopie](https://docs.docker.com/engine/reference/builder/#copy) pokyn, dá pokyn modulu Docker zkopírovat [sshd_config](http://man.openbsd.org/sshd_config) do souboru */atd/ssh/* adresáře. Konfigurační soubor by měla být založena na [tento soubor sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
+* Pokyn [COPY](https://docs.docker.com/engine/reference/builder/#copy), který dává modulu Dockeru pokyn ke zkopírování souboru [sshd_config](http://man.openbsd.org/sshd_config) do adresáře */etc/ssh/*. Váš konfigurační soubor by měl být založený na [tomto souboru sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
     > [!NOTE]
-    > *Sshd_config* soubor musí zahrnovat následující položky: 
-    > * `Ciphers`musí obsahovat alespoň jednu položku v tomto seznamu: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs`musí obsahovat alespoň jednu položku v tomto seznamu: `hmac-sha1,hmac-sha1-96`.
+    > Soubor *sshd_config* musí obsahovat následující položky: 
+    > * `Ciphers` musí obsahovat alespoň jednu položku v tomto seznamu: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` musí obsahovat alespoň jednu položku v tomto seznamu: `hmac-sha1,hmac-sha1-96`.
 
-* [Vystavit](https://docs.docker.com/engine/reference/builder/#expose) pokyn, aby zpřístupňuje portu 2222 v kontejneru. I když se označuje kořenové heslo, port 2222 není přístupný z Internetu. Je k interní portu přístupné pouze pomocí kontejnery v rámci sítě most privátní virtuální sítě. Potom příkaz Kopírovat podrobnosti o konfiguraci SSH a spustí `ssh` služby.
+* Pokyn [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose), který v kontejneru zveřejní port 2222. I když je známé kořenové heslo, port 2222 není přístupný z internetu. Je to interní port přístupný pouze pro kontejnery v rámci síťového mostu privátní virtuální sítě. Potom příkazy zkopírují podrobnosti o konfiguraci SSH a spustí službu `ssh`.
 
     ```docker
     EXPOSE 8000 2222
     ```
 
-* Zajistěte, abyste [spustit služby ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) pomocí skriptu prostředí v adresáři/Bin.
+* Nezapomeňte [spustit službu ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) pomocí skriptu prostředí v adresáři /bin.
  
     ```bash
     #!/bin/bash
     service ssh start
     ```
      
-### <a name="open-ssh-connection-to-container"></a>Otevřete připojení SSH do kontejneru
+### <a name="open-ssh-connection-to-container"></a>Otevření připojení SSH ke kontejneru
 
-Webové aplikace pro kontejnery neumožňuje externí připojení ke kontejneru. SSH je k dispozici pouze prostřednictvím Kudu lokalitě, která je přístupná na `https://<app_name>.scm.azurewebsites.net`.
+Web App for Containers nepovoluje externí připojení ke kontejneru. SSH je k dispozici pouze prostřednictvím webu Kudu, který je dostupný na adrese `https://<app_name>.scm.azurewebsites.net`.
 
-Pokud chcete připojit, přejděte do `https://<app_name>.scm.azurewebsites.net/webssh/host` a přihlaste se pomocí účtu Azure.
+Pokud se chcete připojit, přejděte na adresu `https://<app_name>.scm.azurewebsites.net/webssh/host` a přihlaste se pomocí svého účtu Azure.
 
-Potom budete přesměrováni na stránku zobrazení interaktivní konzoly. 
+Pak budete přesměrováni na stránku s interaktivní konzolou. 
 
-Chcete ověřit, že některé aplikace spuštěné v kontejneru. Kontrolovat kontejneru a ověřte spuštěné procesy, vydání `top` příkazu příkazového řádku.
+Možná budete chtít ověřit, že se v kontejneru spouštějí určité aplikace. Pokud chcete zkontrolovat kontejner a ověřit spuštěné procesy, zadejte na příkazovém řádku příkaz `top`.
 
 ```bash
 top
 ```
 
-`top` Příkaz zpřístupní všechny spuštěné procesy v kontejneru.
+Příkaz `top` zveřejní všechny spuštěné procesy v kontejneru.
 
 ```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
@@ -334,19 +343,19 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Blahopřejeme! Vlastní image Docker jste nakonfigurovali pro webovou aplikaci pro kontejnery.
+Blahopřejeme! Nakonfigurovali jste vlastní image Dockeru pro službu Web App for Containers.
 
-## <a name="use-a-private-image-from-docker-hub-optional"></a>Použít privátní bitovou kopii z úložiště Docker Hub (volitelné)
+## <a name="use-a-private-image-from-docker-hub-optional"></a>Použití privátní image z Docker Hubu (volitelné)
 
-V [vytvořit webovou aplikaci](#create-a-web-app), jste zadali bitovou kopii na úložiště Docker Hub v `az webapp create` příkaz. Toto je dostatečně vhodné pro veřejnou bitové kopie. Chcete-li použít privátní bitovou kopii, musíte nakonfigurovat Docker ID účtu a heslo v Azure webové aplikace.
+V části [Vytvoření webové aplikace](#create-a-web-app) jste zadali image v Docker Hubu v příkazu `az webapp create`. To je dostatečné pro veřejnou image. Pokud chcete použít privátní image, je potřeba nakonfigurovat ID a heslo vašeho účtu Dockeru ve webové aplikaci Azure.
 
-V prostředí cloudu, postupujte podle `az webapp create` s [sadu kontejneru konfigurace webapp az](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Nahraďte  *\<app_name >*a také _< docker-id >_ a  _<password>_  pomocí Docker ID a hesla.
+Ve službě Cloud Shell za příkaz `az webapp create` zadejte [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Nahraďte *\<app_name>*, názvem vaší aplikace a _\<docker-id>_ a _\<password>_ za ID a heslo vašeho účtu Dockeru.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
 ```
 
-Příkaz zobrazí se výstup podobný následující řetězce formátu JSON, zobrazující, že změna konfigurace úspěšně:
+Příkaz zobrazí výstup podobný následujícímu řetězci JSON, který značí úspěšnou změnu konfigurace:
 
 ```json
 [
@@ -372,21 +381,21 @@ Příkaz zobrazí se výstup podobný následující řetězce formátu JSON, zo
 ]
 ```
 
-## <a name="use-a-docker-image-from-any-private-registry-optional"></a>Použít bitovou kopii Docker z jakékoli privátní registru (volitelné)
+## <a name="use-a-docker-image-from-any-private-registry-optional"></a>Použití image Dockeru z privátního registru (volitelné)
 
-V této části Další informace o použití bitovou kopii Docker z privátní registru ve webové aplikaci pro kontejnery a jako příklad používá registru kontejner Azure. Kroky pro používání jiné privátní registrech jsou podobné. 
+V této části se na příkladu služby Azure Container Registry dozvíte, jak ve službě Web App for Containers použít image Dockeru z privátního registru. Postup při použití jiných privátních registrů je podobný. 
 
-Azure registru kontejneru je spravovaná služba Docker z Azure pro hostování privátní bitové kopie. Nasazení může být jakéhokoli typu, včetně [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/)a webové aplikace pro kontejnery. 
+Azure Container Registry je spravovaná služba Dockeru od Azure pro hostování privátních imagí. Nasazení můžou být jakéhokoli typu, včetně [Dockeru Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/) a Web App for Containers. 
 
 ### <a name="create-an-azure-container-registry"></a>Vytvoření služby Azure Container Registry
 
-V prostředí cloudu, pomocí [az acr vytvořit](/cli/azure/acr?view=azure-cli-latest#az_acr_create) příkazu vytvořte kontejner registru Azure. Předat název skupiny prostředků a `Basic` pro verze SKU. Jsou dostupné edice `Classic`, `Basic`, `Standard`, a `Premium`.
+Ve službě Cloud Shell pomocí příkazu [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az_acr_create) vytvořte službu Azure Container Registry. Předejte název, skupinu prostředků a skladovou položku `Basic`. Dostupné skladové položky jsou `Classic`, `Basic`, `Standard` a `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
 ```
 
-Vytvoření kontejneru vytvoří následující výstup:
+Vytváření kontejneru vygeneruje následující výstup:
 
 ```
  - Finished ..
@@ -416,15 +425,15 @@ Use an existing service principal and assign access:
 }
 ```
 
-### <a name="log-in-to-azure-container-registry"></a>Přihlaste se k Azure kontejneru registru
+### <a name="log-in-to-azure-container-registry"></a>Přihlášení ke službě Azure Container Registry
 
-Pro vkládání obrázku do registru, budete muset zadat přihlašovací údaje, takže registru přijímá nabízeného oznámení. Tyto přihlašovací údaje můžete načíst pomocí [az acr zobrazit](/cli/azure/acr?view=azure-cli-latest#az_acr_show) příkazu v prostředí cloudu. 
+Abyste mohli do registru odeslat image, musíte zadat přihlašovací údaje, aby registr odeslání přijal. Tyto přihlašovací údaje můžete načíst pomocí příkazu [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az_acr_show) ve službě Cloud Shell. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
 ```
 
-Příkaz zobrazí dvě hesla, které lze použít s uživatelským jménem.
+Příkaz odhalí dvě hesla, která se dají použít s příslušným uživatelským jménem.
 
 ```json
 <
@@ -442,35 +451,35 @@ Příkaz zobrazí dvě hesla, které lze použít s uživatelským jménem.
 }
 ```
 
-Z vaší místní okno terminálu, přihlaste se k Azure kontejneru registru pomocí `docker login` příkaz. K přihlášení je vyžadován název serveru. Použijte formát `{azure-container-registry-name>.azurecr.io`.
+Z místního okna terminálu se pomocí příkazu `docker login` přihlaste ke službě Azure Container Registry. K přihlášení se vyžaduje název serveru. Použijte formát `{azure-container-registry-name>.azurecr.io`. Po zobrazení výzvy do konzoly zadejte své heslo.
 
 ```bash
-docker login <azure-container-registry-name>.azurecr.io --username <registry-username> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
 ```
 
-Potvrďte, že přihlášení bylo úspěšné. 
+Potvrďte, že přihlášení proběhlo úspěšně. 
 
-### <a name="push-an-image-to-azure-container-registry"></a>Push bitovou kopii do registru kontejner Azure
+### <a name="push-an-image-to-azure-container-registry"></a>Odeslání image do služby Azure Container Registry
 
 > [!NOTE]
-> Pokud používáte vlastní image, značka obrázku následujícím způsobem:
+> Pokud používáte vlastní image, označte ji následujícím způsobem:
 > ```bash
 > docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
 > ```
 
-Push bitovou kopii pomocí `docker push` příkaz. Značka obrázek s názvem registru, za nímž následuje název bitové kopie a značky.
+Odešlete image pomocí příkazu `docker push`. Přidejte k imagi značku s názvem registru následovaným názvem a značkou vaší image.
 
 ```bash
 docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
-Ověřte, že nabízeného oznámení úspěšně přidán do kontejneru registru tak, že uvedete ACR úložiště. 
+Výpisem seznamu úložišť ACR ověřte, že se odesláním úspěšně přidal kontejner do registru. 
 
 ```azurecli-interactive
 az acr repository list -n <azure-container-registry-name>
 ```
 
-Výpis bitové kopie v registru potvrdí, že `mydockerimage` je v registru.
+Výpis imagí v registru potvrdí, že je v registru image `mydockerimage`.
 
 ```json
 [
@@ -478,11 +487,11 @@ Výpis bitové kopie v registru potvrdí, že `mydockerimage` je v registru.
 ]
 ```
 
-### <a name="configure-web-app-to-use-the-image-from-azure-container-registry-or-any-private-registry"></a>Konfigurovat webovou aplikaci k používání bitovou kopii z registru kontejner Azure (nebo všechny privátní registru)
+### <a name="configure-web-app-to-use-the-image-from-azure-container-registry-or-any-private-registry"></a>Konfigurace webové aplikace pro použití image ze služby Azure Container Registry (nebo jakéhokoli privátního registru)
 
-Webovou aplikaci pro kontejnery můžete nakonfigurovat tak, aby běžel kontejner uložené v registru kontejner Azure. Pomocí klíče registru kontejner Azure je stejně jako pomocí všechny privátní klíče registru, takže pokud budete muset použít vlastní privátní registru, kroky pro dokončení této úlohy jsou podobné.
+Službu Web App for Containers můžete nakonfigurovat tak, aby spouštěla kontejner uložený ve službě Azure Container Registry. Použití služby Azure Container Registry je stejné jako použití jakéhokoli privátního registru, takže pokud potřebujete použít vlastní privátní registr, postup pro dokončení tohoto úkolu bude podobný.
 
-V prostředí cloudu, spusťte [az acr pověření zobrazit](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) zobrazíte uživatelské jméno a heslo pro registru kontejner Azure. Zkopírujte uživatelské jméno a jeden z hesla, ve kterém můžete konfigurovat webovou aplikaci v dalším kroku.
+Ve službě Cloud Shell spuštěním příkazu [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) zobrazte uživatelské jméno a heslo pro službu Azure Container Registry. Zkopírujte uživatelské jméno a jedno z hesel, abyste je mohli použít ke konfiguraci webové aplikace v dalším kroku.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -504,17 +513,17 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-V prostředí cloudu, spusťte [sadu kontejneru konfigurace webapp az](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) příkazu přiřaďte vlastní image Docker do webové aplikace. Nahraďte  *\<app_name >*,  *\<docker registru server-url >*,  _\<registru username >_a  _\<heslo >_. Pro kontejner registru Azure  *\<docker registru server-url >* je ve formátu `https://<azure-container-registry-name>.azurecr.io`. 
+Ve službě Cloud Shell spuštěním příkazu [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) přiřaďte vlastní image Dockeru k webové aplikaci. Nahraďte položky *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ a _\<password>_. Pro službu Azure Container Registry má *\<docker-registry-server-url>* (adresa URL serveru registru Dockeru) formát `https://<azure-container-registry-name>.azurecr.io`. Pokud používáte jakýkoli registr mimo Docker Hub, název image musí začínat plně kvalifikovaným názvem domény vašeho registru. Pro službu Azure Container Registry to bude vypadat přibližně takto: `<azure-container-registry>.azurecr.io/mydockerimage`. 
 
 ```azurecli-interactive
-az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
+az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
-> `https://`je nutné v  *\<docker registru server-url >*.
+> V hodnotě *\<docker-registry-server-url>* (adresa URL serveru registru Dockeru) se vyžaduje `https://`.
 >
 
-Příkaz zobrazí se výstup podobný následující řetězce formátu JSON, zobrazující, že změna konfigurace úspěšně:
+Příkaz zobrazí výstup podobný následujícímu řetězci JSON, který značí úspěšnou změnu konfigurace:
 
 ```json
 [
@@ -546,4 +555,4 @@ Příkaz zobrazí se výstup podobný následující řetězce formátu JSON, zo
 ## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
-> [Vytvoření webové aplikace Docker Python a PostgreSQL v Azure](tutorial-docker-python-postgresql-app.md)
+> [Vytvoření webové aplikace Docker Python využívající databázi PostgreSQL v Azure](tutorial-docker-python-postgresql-app.md)

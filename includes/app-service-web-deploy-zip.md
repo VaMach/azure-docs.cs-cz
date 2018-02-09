@@ -1,6 +1,6 @@
 ## <a name="deploy-uploaded-zip-file"></a>Nasazení nahraného souboru ZIP
 
-V prostředí Cloud Shell nasaďte nahraný soubor ZIP do vaší webové aplikace příkazem [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Nezapomeňte nahradit *\<app_name>* názvem vaší webové aplikace.
+V prostředí Cloud Shell nasaďte nahraný soubor ZIP do vaší webové aplikace příkazem [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Nezapomeňte nahradit *\<app_name>* názvem vaší webové aplikace.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip

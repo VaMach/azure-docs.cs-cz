@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: fe5717b6dece6c6d03586045fb5fa0ccadd5e262
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Nasazení a použití služby Azure Container Registry
 
@@ -85,10 +85,10 @@ Pokud chcete zjistit název loginServer, spusťte následující příkaz.
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Nyní označte image `azure-vote-front` názvem loginServer registru kontejneru. Na konec názvu image také přidejte řetězec `:redis-v1`. Tato značka označuje verzi image.
+Nyní označte image `azure-vote-front` názvem loginServer registru kontejneru. Na konec názvu image také přidejte řetězec `:v1`. Tato značka označuje verzi image.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
 Po označení operaci ověřte spuštěním příkazu [docker images][docker-images].
@@ -102,7 +102,7 @@ Výstup:
 ```
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry082.azurecr.io/azure-vote-front   redis-v1            eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
 redis                                                latest              a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
@@ -114,7 +114,7 @@ Nahrajte image `azure-vote-front` do registru.
 Podle následujícího příkladu nahraďte název loginServer služby ACR názvem loginServer ze svého prostředí.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v1
+docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
 Tato akce trvá několik minut.
@@ -146,7 +146,7 @@ Výstup:
 ```azurecli
 Result
 --------
-redis-v1
+v1
 ```
 
 Na konci kurzu byla image kontejneru uložena v privátní instanci služby Azure Container Registry. Tato image bude nasazena ze služby ACR do clusteru Kubernetes v následných kurzech.

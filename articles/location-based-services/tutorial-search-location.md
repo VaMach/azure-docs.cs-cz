@@ -1,6 +1,6 @@
 ---
-title: "Hledání se umístění Azure na základě služby | Microsoft Docs"
-description: "Hledání nedaleko bodu zájmu pomocí služeb na základě umístění Azure"
+title: "Hledání s použitím Azure Location Based Services | Dokumentace Microsoftu"
+description: "Hledání okolních bodů zájmu s použitím Azure Location Based Services"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,21 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Hledání nedaleko bodu zájmu pomocí služeb na základě umístění Azure
+# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Hledání okolních bodů zájmu s použitím Azure Location Based Services
 
-Tento kurz ukazuje, jak nastavit účet s služeb na základě umístění Azure, a pak použít zadaný rozhraní API pro vyhledávání bodů zájmu. V tomto kurzu se naučíte:
+Tento kurz ukazuje, jak nastavit účet s Azure Location Based Services a pak pomocí poskytnutých rozhraní API vyhledat bod zájmu. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvořte účet s služeb na základě umístění Azure
-> * Získat klíč předplatného pro váš účet
-> * Vytvořit novou webovou stránku pomocí rozhraní API mapy ovládacího prvku
-> * Použít službu vyhledávání k vyhledání blízkých bodu zájmu
+> * Vytvoření účtu s Azure Location Based Services
+> * Získání primárního klíče pro váš účet Azure Location Based Services
+> * Vytvoření nové webové stránky s použitím rozhraní API pro mapové ovládací prvky
+> * Vyhledání okolního bodu zájmu pomocí služby Search Service
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -35,44 +35,44 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
-## <a name="create-an-account-with-azure-location-based-services"></a>Vytvořte účet s služeb na základě umístění Azure
+## <a name="create-an-account-with-azure-location-based-services"></a>Vytvoření účtu s Azure Location Based Services
 
-Postupujte podle těchto kroků můžete vytvořit nový účet na základě polohy.
+Pomocí následujícího postupu vytvořte nový účet Location Based Services.
 
 1. V levém horním rohu webu [Azure Portal](https://portal.azure.com) klikněte na **Vytvořit prostředek**.
 2. Do pole *Hledat na Marketplace* zadejte **location based services**.
 3. Ve *výsledcích* klikněte na **Location Based Services (Preview)**. Klikněte na tlačítko **Vytvořit**, které se zobrazí pod mapou. 
-4. Na **vytvořit účet služby služby umístění na základě** stránky, zadejte následující hodnoty:
-    - *Název* svého nového účtu. 
-    - *Předplatné* , kterou chcete použít pro tento účet.
-    - *Skupiny prostředků* název pro tento účet. Můžete zvolit *vytvořit nový* nebo *použít existující* skupinu prostředků.
-    - Vyberte *umístění skupiny prostředků*.
-    - Pro čtení *podmínky* a zaškrtnutím políčka přijmout podmínky. 
-    - Nakonec klikněte na **vytvořit** tlačítko.
+4. Na stránce **Vytvořit účet Location Based Services** zadejte následující hodnoty:
+    - *Název* vašeho nového účtu. 
+    - *Předplatné*, které chcete pro tento účet použít.
+    - Název *skupiny prostředků* pro tento účet. Můžete zvolit možnost *Vytvořit novou* nebo *Použít existující* skupinu prostředků.
+    - Vyberte *Umístění skupiny prostředků*.
+    - Přečtěte si *Podmínky verze Preview* a zaškrtnutím zaškrtávacího políčka tyto podmínky přijměte. 
+    - Nakonec klikněte na tlačítko **Vytvořit**.
    
     ![Vytvoření účtu Location Based Services na portálu](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>Získat klíč předplatného pro váš účet
+## <a name="get-the-primary-key-for-your-account"></a>Získání primárního klíče pro váš účet
 
-Po úspěšném vytvoření účtu na základě polohy, postupujte podle kroků jej připojit k jeho vyhledávání map rozhraní API:
+Po úspěšném vytvoření účtu Location Based Services jej pomocí následujícího postupu propojte s rozhraními API pro hledání v mapách:
 
-1. Otevřete svůj účet služeb na základě umístění na portálu.
-2. Přejděte na svůj účet **nastavení**a potom vyberte **klíče**.
-3. Kopírování **primární klíč** do schránky. Uložte místně pro použití v krocích budete pokračovat. 
+1. Otevřete na portálu svůj účet Location Based Services.
+2. Přejděte do **NASTAVENÍ** vašeho účtu a vyberte **Klíče**.
+3. Zkopírujte do schránky **Primární klíč**. Místně ho uložte, abyste ho mohli použít v následujících krocích. 
 
-    ![Získání primární klíč v portálu](./media/tutorial-search-location/lbs-get-key.png)
+    ![Získání primárního klíče na portálu](./media/tutorial-search-location/lbs-get-key.png)
 
 
 <a id="createmap"></a>
 
-## <a name="create-new-web-page-using-azure-map-control-api"></a>Vytvořit novou webovou stránku pomocí rozhraní API Azure mapy ovládacího prvku
-Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, která umožňuje snadno integrovat služeb na základě umístění Azure do webové aplikace. Se skrývá složitosti úplné volání služby REST a zvyšuje produktivitu s styleable a přizpůsobitelných součásti. Následující kroky ukazují, jak vytvořit statické stránky HTML vložených s rozhraním API řízení na základě polohy mapy. 
+## <a name="create-new-web-page-using-azure-map-control-api"></a>Vytvoření nové webové stránky s použitím rozhraní API pro mapové ovládací prvky v Azure
+Rozhraní API pro mapové ovládací prvky v Azure je praktická klientská knihovna, která umožňuje snadnou integraci Azure Location Based Services do webové aplikace. Skrývá složitost prostých volání služby REST a zvyšuje produktivitu díky přizpůsobitelným komponentám, které umožňují změnu stylu. Následující kroky ukazují, jak vytvořit statickou stránku HTML s vloženým rozhraním API pro mapové ovládací prvky služeb Location Based Services. 
 
-1. Na místním počítači, vytvořte nový soubor s názvem **MapSearch.html**. 
-2. Přidejte následující součásti HTML k souboru:
+1. Na místním počítači vytvořte nový soubor s názvem **MapSearch.html**. 
+2. Přidejte do souboru následující komponenty HTML:
 
     ```HTML
     <!DOCTYPE html>
@@ -111,20 +111,20 @@ Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, kter
 
     </html>
     ``` 
-    Všimněte si, že hlavičku HTML obsahuje hostované Azure mapový ovládací prvek knihovna prostředků souborů CSS a JavaScript. Poznámka: *skriptu* přidat do segmentu *textu* souboru HTML. Vložený kód jazyka JavaScript pro přístup k rozhraní API Azure umístění na základě služby budou obsahovat tento segment.
+    Všimněte si, že hlavička HTML zahrnuje soubory prostředků šablon stylů CSS a JavaScriptu hostované knihovnou Ovládací prvek Mapa v Azure. Všimněte si segmentu *script* přidaného do části *body* souboru HTML. Tento segment bude obsahovat vložený kód JavaScriptu pro přístup k rozhraní API Azure Location Based Services.
  
-3.  Přidejte následující kód JavaScript, který *skriptu* bloku souboru HTML. Nahraďte zástupný symbol *< klávesy insert >* s primární klíč účtu na základě polohy. 
+3.  Do bloku *script* v souboru HTML přidejte následující kód JavaScriptu. Ve skriptu použijte primární klíč svého účtu Location Based Services. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Tento segment zahájí rozhraní API ovládacího prvku mapy pro svůj klíč předplatného. **Atlas** je obor názvů, který obsahuje rozhraní API služby Azure mapy ovládacího prvku a související vizuální součásti. **Atlas. Mapa** poskytuje ovládací prvek pro mapu visual a interaktivní web. Může sledovat, jak mapy vypadá tak, že otevřete stránku HTML v prohlížeči. 
+    Tento segment vyvolá rozhraní API pro mapové ovládací prvky pro váš klíč účtu Azure Location Based Services. **Atlas** je obor názvů, který obsahuje rozhraní API pro mapové ovládací prvky v Azure a související vizuální komponenty. **atlas.Map** zajišťuje ovládací prvek pro vizuální a interaktivní webovou mapu. Stránku HTML můžete otevřít v prohlížeči a podívat se, jak mapa vypadá. 
 
-4. Přidejte následující kód JavaScript, který *skriptu* bloku pro přidání vrstvy vyhledávání kódů PIN pro mapový ovládací prvek:
+4. Přidáním následujícího kódu JavaScriptu do bloku *script* přidejte do mapového ovládacího prvku vrstvu špendlíků vyhledávání:
 
     ```JavaScript
     // Initialize the pin layer for search results to the map
@@ -136,16 +136,16 @@ Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, kter
     });
     ```
 
-5. Uložte soubor na počítači. 
+5. Uložte soubor na svůj počítač. 
 
 
 <a id="usesearch"></a>
 
-## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Použít službu vyhledávání k vyhledání blízkých bodu zájmu
+## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Vyhledání okolního bodu zájmu pomocí služby Search Service
 
-Tato část ukazuje způsob použití rozhraní API služby Search Azure na základě polohy při hledání bodu zájmu na mapě. Je určený pro vývojáře k vyhledání adresy, vás zajímá a jiné zeměpisné údaje rozhraní RESTful API. Službu vyhledávání informací o zeměpisné šířky a délky přiřadí zadaná adresa. 
+Tato část ukazuje, jak pomocí rozhraní API služby Search Service v rámci Azure Location Based Services vyhledat na mapě bod zájmu. Jedná se o rozhraní RESTful API navržené pro vývojáře, kterým umožňuje hledat adresy, body zájmu a další geografické informace. Search Service přiřazuje k zadané adrese informace o zeměpisné délce a šířce. 
 
-1. Otevřete **MapSearch.html** soubor vytvořili v předchozí části a přidejte následující kód JavaScript, který *skriptu* bloku pro ilustraci službu vyhledávání. 
+1. Otevřete soubor **MapSearch.html**, který jste vytvořili v předchozí části, a přidejte do bloku *script* následující kód JavaScriptu, který ilustruje použití služby Search Service. 
     ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
@@ -185,15 +185,15 @@ Tato část ukazuje způsob použití rozhraní API služby Search Azure na zák
         }
     };
     ```
-    Vytvoří tento fragment kódu [XMLHttpRequest](https://xhr.spec.whatwg.org/), a přidá obslužnou rutinu události analyzovat příchozí odpověď. Pro úspěšné odpovědi, shromažďuje adresy, názvy, zeměpisnou šířku a logitude informace pro každé umístění, vrátila ve `searchPins` proměnné. Nakonec přidá umístění odkazuje na tato kolekce `map` ovládací prvek, kódy PIN. 
+    Tento fragment kódu vytvoří požadavek [XMLHttpRequest](https://xhr.spec.whatwg.org/) a přidá obslužnou rutinu události pro parsování příchozí odpovědi. V případě úspěšné odpovědi shromáždí do proměnné `searchPins` informace o adresách, názvech a zeměpisné šířce a délce pro každou vrácenou polohu. Nakonec přidá tuto kolekci bodů polohy do ovládacího prvku `map` jako špendlíky. 
 
-2. Přidejte následující kód, který *skriptu* blok, k odeslání XMLHttpRequest službě Search Azure na základě polohy.:
+2. Přidejte do bloku *script* následující kód, který odešle požadavek XMLHttpRequest do služby Search Service v rámci Azure Location Based Services:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,9 +201,9 @@ Tato část ukazuje způsob použití rozhraní API služby Search Azure na zák
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Tento fragment kódu používá základní hledání rozhraní API služby vyhledávání, volá se **přibližné vyhledávání**. Zpracovává nejvíce přibližné vstupy zpracování libovolnou kombinaci adresy nebo *bodů zájmu* tokeny. Vyhledá blízkou **benzinového stanice**, pro danou adresu v zeměpisné šířky a délky a v rámci zadaného protokolu radius. Používá klíč předplatného váš účet dříve součástí ukázkový soubor pro volání do služeb na základě umístění. Vrátí výsledky jako zeměpisnou šířku a délku páry pro umístění nalezena. Kódy PIN vyhledávání může sledovat tak, že otevřete stránku HTML v prohlížeči. 
+    Tento fragment kódu používá základní rozhraní API služby Search Service pro vyhledávání s názvem **Fuzzy Search**. Zpracovává většinu částečných shod vstupů a jakoukoli kombinaci adres nebo tokenů bodů zájmu (*POI*). Vyhledá nejbližší **čerpací stanici** pro zadanou adresu v příslušné zeměpisné šířce a délce a v zadaném okruhu. Pomocí primárního klíče vašeho účtu, který jste zadali dříve do ukázkového souboru, provede volání Location Based Services. Pro nalezené polohy vrátí výsledky jako páry zeměpisné šířky a délky. Stránku HTML můžete otevřít v prohlížeči a podívat se na špendlíky vyhledávání. 
 
-3. Přidejte následující řádky, které se *skriptu* bloku, vytvořit automaticky otevíraná okna pro body zájmu vrácený službu vyhledávání:
+3. Do bloku *script* přidejte následující řádky, které pro body zájmu vrácené službou Search Service vytvoří automaticky otevíraná okna:
 
     ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
@@ -232,20 +232,20 @@ Tato část ukazuje způsob použití rozhraní API služby Search Azure na zák
         popup.open(map);
     });
     ```
-    Rozhraní API **atlas. Místní nabídka** poskytuje informace okno ukotvené umístění na mapě. Tento fragment kódu nastaví obsah a pozici pro místní nabídce, a také přidá naslouchací proces událostí k `map` řízení, čeká _myši_ rozšíří automaticky otevřeném okně. 
+    **atlas.Popup** v rozhraní API poskytuje okno s informacemi ukotvené na požadované pozici na mapě. Tento fragment kódu nastaví obsah a pozici automaticky otevíraného okna a do ovládacího prvku `map` přidá naslouchací proces událostí, který čeká na přejetí _myši_ přes automaticky otevírané okno. 
 
-4. Uložte soubor a pak otevřete **MapSearch.html** souborů ve webovém prohlížeči podle svého výběru a sledovat výsledek. V tomto okamžiku mapy v prohlížeči zobrazí automaticky otevíraná okna informace po přesunutí ukazatele myši žádné PIN hledání ukazuje, podobný následujícímu. 
+4. Uložte soubor **MapSearch.html** a pak ho otevřete ve webovém prohlížeči podle svého výběru a podívejte se na výsledek. V tuto chvíli mapa v prohlížeči při najetí myší na některý ze zobrazených špendlíků vyhledávání ukazuje automaticky otevíraná okna s informacemi, podobně jako v následujícím příkladu. 
 
-    ![Azure mapový ovládací prvek a vyhledávací služba](./media/tutorial-search-location/lbs-map-search.png)
+    ![Ovládací prvek Mapa a Search Service v Azure](./media/tutorial-search-location/lbs-map-search.png)
 
 
 ## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Vytvořte účet s služeb na základě umístění Azure
-> * Získat klíč předplatného pro váš účet
-> * Vytvořit novou webovou stránku pomocí rozhraní API mapy ovládacího prvku
-> * Použít službu vyhledávání k vyhledání blízkých bodu zájmu
+> * Vytvoření účtu s Azure Location Based Services
+> * Získání primárního klíče pro váš účet
+> * Vytvoření nové webové stránky s použitím rozhraní API pro mapové ovládací prvky
+> * Vyhledání okolního bodu zájmu pomocí služby Search Service
 
-Pokračujte v kurzu [trasy, která má bod týkající se použití služeb na základě umístění Azure](./tutorial-route-location.md) se dozvíte, jak používat službu na základě umístění Azure směrovat na body. 
+Pokud chcete zjistit, jak pomocí Azure Location Based Services najít trasu k bodu zájmu, pokračujte ke kurzu [Trasa k bodu zájmu s použitím Azure Location Based Services](./tutorial-route-location.md). 

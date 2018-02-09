@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Začínáme se službou Azure Search v Node.js
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Po vytvoření služby se vraťte na portál a získejte adresu URL nebo `api-ke
 ## <a name="download-the-sample-files"></a>Stažení ukázkových souborů
 Stáhněte ukázku pomocí libovolného z následujících dvou přístupů.
 
-1. Přejděte na [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Přejděte na [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Klikněte na **Stáhnout ZIP**, uložte soubor .zip a potom z něj extrahujte všechny soubory.
 
 Všechny následné úpravy souborů a spouštěné příkazy se provádí na souborech v této složce.

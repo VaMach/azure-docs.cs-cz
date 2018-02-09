@@ -1,6 +1,6 @@
 ---
-title: "Nasazení aplikace Azure Service Fabric do clusteru s podporou strany | Microsoft Docs"
-description: "Zjistěte, jak nasadit aplikaci do clusteru s podporou strany."
+title: "Nasazení aplikace Azure Service Fabric do Party Clusteru | Microsoft Docs"
+description: "Zjistěte, jak nasadit aplikaci do Party Clusteru."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,100 +15,100 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Nasazení aplikace do clusteru s podporou strany v Azure
-V tomto kurzu je součástí dvě řady a ukazuje, jak nasadit aplikaci Azure Service Fabric do clusteru s podporou strany v Azure.
+# <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Nasazení aplikace do Party Clusteru v Azure
+Tento kurz představuje druhý díl série kurzů a ukáže vám, jak nasadit aplikaci Azure Service Fabric do Party Clusteru v Azure.
 
-V druhé části kurzu řady zjistíte, jak:
+Ve druhé části této série kurzů se naučíte:
 > [!div class="checklist"]
-> * Nasazení aplikace do vzdáleného clusteru pomocí sady Visual Studio
-> * Odebrání aplikace z clusteru pomocí Service Fabric Exploreru
+> * [Sestavit aplikaci .NET pro Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
+> * Nasadit aplikaci do vzdáleného clusteru
+> * [Nakonfigurovat CI/CD pomocí Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Nastavit monitorování a diagnostiku aplikace](service-fabric-tutorial-monitoring-aspnet.md)
 
-V této série kurzu zjistíte, jak:
+V této sérii kurzů se naučíte:
 > [!div class="checklist"]
-> * [Sestavení aplikace .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
-> * Nasazení aplikace na vzdálený cluster
-> * [Konfigurace CI/CD pomocí Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Nastavení monitorování a diagnostiky pro aplikaci](service-fabric-tutorial-monitoring-aspnet.md)
+> * Nasadit aplikaci do vzdáleného clusteru pomocí sady Visual Studio
+> * Odebrat aplikaci z clusteru pomocí rozhraní Service Fabric Explorer
 
 ## <a name="prerequisites"></a>Požadavky
-Před zahájením tohoto kurzu:
-- Pokud nemáte předplatné Azure, vytvořte [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Nainstalovat Visual Studio 2017](https://www.visualstudio.com/) a nainstalujte **Azure development** a **ASP.NET a webové vývoj** úlohy.
-- [Instalace Service Fabric SDK](service-fabric-get-started.md)
+Než začnete s tímto kurzem:
+- Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Nainstalujte sadu Visual Studio 2017](https://www.visualstudio.com/) se sadami funkcí **Vývoj pro Azure** a **Vývoj pro ASP.NET a web**.
+- [Nainstalujte sadu Service Fabric SDK](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>Stažení ukázkové aplikace Voting
-Pokud není sestavení Voting ukázkovou aplikaci [součástí jeden z této série kurz](service-fabric-tutorial-create-dotnet-app.md), můžete ho stáhnout. V příkazovém okně spusťte následující příkaz, který klonovat úložiště ukázkové aplikace do místního počítače.
+Pokud jste nesestavili ukázkovou aplikaci Voting v [první části této série kurzů](service-fabric-tutorial-create-dotnet-app.md), můžete si ji stáhnout. V příkazovém okně naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače.
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="set-up-a-party-cluster"></a>Nastavení clusteru strany
-Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. Zdarma!
+## <a name="set-up-a-party-cluster"></a>Vytvoření Party Clusteru
+Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. Zadarmo!
 
-Chcete-li získat přístup ke clusteru s podporou strany, přejděte do této lokality: http://aka.ms/tryservicefabric a postupujte podle pokynů a získat přístup ke clusteru. Potřebujete účet Facebook nebo Githubu a získat přístup ke clusteru s podporou strany.
+Pokud chcete získat přístup k Party Clusteru, přejděte na web http://aka.ms/tryservicefabric a postupujte podle pokynů pro přístup ke clusteru. K získání přístupu k Party Clusteru potřebujete účet na Facebooku nebo GitHubu.
 
-Pokud chcete, můžete použít vlastní cluster místo strany clusteru.  Jádro ASP.NET front-end web používá ke komunikaci s back-end stavové služby reverzní proxy server.  Strany clustery a místního vývojového clusteru mít ve výchozím nastavení povolená reverzní proxy server.  Pokud nasadíte Voting ukázkovou aplikaci pro vlastní cluster, musíte [povolit reverzní proxy server v clusteru](service-fabric-reverseproxy.md#setup-and-configuration).
+Pokud chcete, můžete místo Party Clusteru použít vlastní cluster.  Front-end jádra webu ASP.NET používá ke komunikaci s back-endem stavové služby reverzní proxy server.  Party Clustery a místní vývojový cluster mají ve výchozím nastavení reverzní proxy server povolený.  Pokud nasazujete ukázkovou aplikaci Voting do vlastního clusteru, je potřeba [povolit v clusteru reverzní proxy server](service-fabric-reverseproxy.md#setup-and-configuration).
 
 > [!NOTE]
-> Strany clustery není zabezpečená, aby vaše aplikace a všechna data, která jste uložili v nich může být vidět další uživatelé. Nenasazujte nic nechcete vidět. Nezapomeňte si přečíst přes naše podmínky použití pro všechny podrobnosti.
+> Party Clustery nejsou zabezpečené, takže vaše aplikace a všechna data, která do nich umístíte, můžou vidět jiní uživatelé. Nenasazujte nic, co nechcete ukazovat ostatním. Nezapomeňte si přečíst všechny podrobnosti v našich podmínkách použití.
 
-## <a name="deploy-the-app-to-the-azure"></a>Nasazení aplikace na Azure
-Teď, když je aplikace připravená, můžete ho nasadit do clusteru strany přímé ze sady Visual Studio.
+## <a name="deploy-the-app-to-the-azure"></a>Nasazení aplikace do Azure
+Aplikace je teď připravená a vy ji můžete přímo ze sady Visual Studio nasadit do Party Clusteru.
 
-1. Klikněte pravým tlačítkem na **Voting** v Průzkumníku řešení a zvolte **publikovat**.
+1. V Průzkumníku řešení klikněte pravým tlačítkem na **Voting** a zvolte **Publikovat**.
 
     ![Dialogové okno Publikovat](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-2. Typ v koncovém bodě připojení clusteru, strana **koncového bodu připojení** pole a klikněte na tlačítko **publikovat**.
+2. Do pole **Koncový bod připojení** zadejte koncový bod připojení Party Clusteru a klikněte na **Publikovat**.
 
-    Po dokončení publikování, byste měli mít k odeslání požadavku na aplikaci prostřednictvím prohlížeče.
+    Po dokončení publikování by mělo být možné odeslat do aplikace požadavek z prohlížeče.
 
-3. Otevřít vaše preferované prohlížeč a zadejte adresu clusteru (koncového bodu připojení bez informace o portu – například win1kw5649s.westus.cloudapp.azure.com).
+3. Otevřete svůj upřednostňovaný prohlížeč a zadejte adresu clusteru (koncový bod připojení bez informací o portu, třeba win1kw5649s.westus.cloudapp.azure.com).
 
-    Teď byste měli vidět stejného výsledku, jako jste viděli při spuštění aplikace místně.
+    Teď byste měli vidět stejný výsledek, jako když jste aplikaci spustili v místním prostředí.
 
-    ![Rozhraní API odpověď z clusteru](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
+    ![Odpověď rozhraní API z clusteru](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
-## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>Odebrání aplikace z clusteru pomocí Service Fabric Exploreru
-Service Fabric Explorer je grafické uživatelské rozhraní umožní zkoumat a správě aplikací v clusteru Service Fabric.
+## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>Odebrání aplikace z clusteru pomocí rozhraní Service Fabric Explorer
+Service Fabric Explorer je grafické uživatelské rozhraní, které umožňuje procházení a správu aplikací v clusteru Service Fabric.
 
-Lze aplikaci odebrat z clusteru strany:
+Odebrání aplikace z Party Clusteru:
 
-1. Přejděte do Service Fabric Explorer pomocí odkazu poskytované stránku pro přihlášení strany clusteru. Například http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Přejděte do rozhraní Service Fabric Explorer pomocí odkazu uvedeného na registrační stránce Party Clusteru. Příklad: http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. V Service Fabric Exploreru, přejděte na **fabric://Voting** uzlu ve stromovém zobrazení na levé straně.
+2. V rozhraní Service Fabric Explorer přejděte v zobrazení stromu na levé straně na uzel **fabric://Voting**.
 
-3. Klikněte **akce** tlačítko v pravém **Essentials** podokně a zvolte **odstranit aplikaci**. Potvrďte odstranění instanci aplikace, která odebere instanci naše aplikace běžící v clusteru.
+3. V pravém podokně **Essentials** klikněte na tlačítko **Akce** a vyberte **Odstranit aplikaci**. Potvrďte odstranění instance aplikace, při kterém dojde k odebrání instance naší aplikace spuštěné v clusteru.
 
-![Odstranění aplikace v Service Fabric Exploreru](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
+![Odstranění aplikace v rozhraní Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
 
-## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>Typ aplikace odebrat z clusteru pomocí Service Fabric Exploreru
-Aplikace jsou nasazeny jako typy aplikací v clusteru Service Fabric, která umožňuje mít víc instancí a verze aplikace běžící v rámci clusteru. Po odebrání spuštěnou instanci aplikace, jsme rovněž můžete odebrat typu, k dokončení vyčištění nasazení.
+## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>Odebrání typu aplikace z clusteru pomocí rozhraní Service Fabric Explorer
+Aplikace se v clusteru Service Fabric nasazují jako typy aplikací, takže můžete mít v clusteru spuštěných několik instancí a verzí aplikace. Po odebrání spuštěné instance aplikace můžete odebrat také daný typ, abyste nasazení úplně vyčistili.
 
-Další informace o modelu aplikace v Service Fabric najdete v tématu [Model aplikace v Service Fabric](service-fabric-application-model.md).
+Další informace o modelu aplikací ve službě Service Fabric najdete v tématu [Modelování aplikace v Service Fabric](service-fabric-application-model.md).
 
-1. Přejděte na **VotingType** uzlu ve stromovém zobrazení.
+1. V zobrazení stromu přejděte na uzel **VotingType**.
 
-2. Klikněte na tlačítko **akce** tlačítko v pravém **Essentials** podokně a zvolte **Unprovision typu**. Potvrďte rušení zajišťování typ aplikace.
+2. V pravém podokně **Essentials** klikněte na tlačítko **Akce** a vyberte **Unprovision Type** (Zrušit zřízení typu). Potvrďte zrušení zřízení typu aplikace.
 
-![Zrušit zřízení typu aplikace v Service Fabric Exploreru](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
+![Zrušení zřízení typu aplikace v rozhraní Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
 
-Tím je kurz ukončen.
+Tímto je kurz u konce.
 
 ## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Nasazení aplikace do vzdáleného clusteru pomocí sady Visual Studio
-> * Odebrání aplikace z clusteru pomocí Service Fabric Exploreru
+> * Nasadit aplikaci do vzdáleného clusteru pomocí sady Visual Studio
+> * Odebrat aplikaci z clusteru pomocí rozhraní Service Fabric Explorer
 
-Přechodu na další kurz:
+Přejděte k dalšímu kurzu:
 > [!div class="nextstepaction"]
-> [Nastavte průběžnou integraci pomocí Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Nastavení průběžné integrace s Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)

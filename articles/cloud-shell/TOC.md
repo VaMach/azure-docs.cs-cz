@@ -17,6 +17,8 @@
 # Příklady
 ## [Nasazení prostředků Azure pomocí Terraformu v prostředí Bash](example-terraform-bash.md)
 
+## [Spuštění Ansible v prostředí Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+
 # [Vložení služby Cloud Shell](embed-cloud-shell.md)
 
 # [Řešení potíží](troubleshooting.md)
@@ -25,6 +27,6 @@
 ## [Azure CLI](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

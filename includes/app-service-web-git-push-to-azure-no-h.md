@@ -1,4 +1,4 @@
-V okně místního terminálu přidejte vzdálené úložiště Azure do místního úložiště Gitu. Tato Azure vzdálené byl vytvořen pro vás v [vytvořit webovou aplikaci](#create-a-web-app).
+V okně místního terminálu přidejte vzdálené úložiště Azure do místního úložiště Gitu. Nahraďte _&lt;paste\_copied\_url\_here>_ adresou URL vzdáleného úložiště, kterou jste uložili při [Vytvoření webové aplikace](#create).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -10,4 +10,4 @@ Nasaďte aplikaci do vzdáleného úložiště Azure pomocí následujícího p�
 git push azure master
 ```
 
-Tento příkaz může trvat několik minut. Při spuštění, zobrazuje informace podobně jako v následujícím příkladu:
+Spuštění tohoto příkazu může trvat několik minut. Při spuštění příkaz zobrazí podobné informace jako v následujícím příkladu:

@@ -9,6 +9,10 @@
 ## Pozastavení a obnovení výpočtů
 ### [Azure Portal](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## Škálování výpočetního výkonu
+### [Azure Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Kurzy
@@ -113,8 +117,6 @@
 ### [Analýza úloh](analyze-your-workload.md)
 
 ## Horizontální navýšení kapacity
-### [Správa výpočetních služeb – portál](sql-data-warehouse-manage-compute-portal.md)
-### [Správa výpočetních služeb – PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Správa výpočetních služeb – REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Automatizace výpočetních úrovní](manage-compute-with-azure-functions.md)
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 70167322f1576b4a9cbd5f499edfc934b8a9a799
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0ba6cf4532e5bcd86c53a63349241509bfc941ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Vytvoření aplikace Service Fabric v .NET v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -123,9 +123,27 @@ Pokud chcete zastavit ladicí relaci, stiskněte **Shift + F5**.
 Pokud chcete nasadit aplikaci do Azure, potřebujete cluster Service Fabric, ve kterém bude aplikace spuštěná. 
 
 ### <a name="join-a-party-cluster"></a>Připojení k Party clusteru
-Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. 
+Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. Cluster používá jediný certifikát podepsaný svým držitelem (self-signed certificate) pro zabezpečení mezi uzly i mezi klientem a uzlem. 
 
-Přihlaste se a [připojte se ke clusteru Windows](http://aka.ms/tryservicefabric). Zapamatujte si hodnotu **Koncový bod připojení**, kterou použijete v následujících krocích.
+Přihlaste se a [připojte se ke clusteru Windows](http://aka.ms/tryservicefabric). Stáhněte si certifikát PFX do počítače kliknutím na odkaz **PFX**. Certifikát a hodnota **Koncový bod připojení** použijete v následujících krocích.
+
+![PFX a koncový bod připojení](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
+
+Na počítači s Windows nainstalujte PFX do úložiště certifikátů *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Zapamatujte si kryptografický otisk pro následující krok.
 
 > [!Note]
 > Webová front-end služba je ve výchozím nastavení nakonfigurovaná k naslouchání příchozímu provozu na portu 8080. Port 8080 je v Party clusteru otevřený.  Pokud potřebujete změnit port aplikace, změňte ho na některý z portů, které jsou v Party clusteru otevřené.
@@ -136,24 +154,29 @@ Aplikace je teď připravená a přímo ze sady Visual Studio ji můžete nasadi
 
 1. V Průzkumníku řešení klikněte pravým tlačítkem na **Voting** a zvolte **Publikovat**. Zobrazí se dialogové okno Publikovat.
 
-    ![Dialogové okno Publikovat](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Do pole **Koncový bod připojení** zkopírujte **Koncový bod připojení** ze stránky Party clusteru a klikněte na **Publikovat**. Například, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Do pole **Koncový bod připojení** zkopírujte **Koncový bod připojení** ze stránky Party clusteru. Například, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klikněte na **Rozšířené parametry připojení** a vyplňte následující informace.  Hodnoty *FindValue* and *ServerCertThumbprint* musí odpovídat kryptografickému otisku certifikátu nainstalovanému v předchozím kroku. 
+
+    ![Dialogové okno Publikovat](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
     Každá aplikace v clusteru musí mít jedinečný název.  Party clustery jsou však veřejné a sdílené prostředí a může dojít ke konfliktu s již existující aplikací.  Pokud dojde ke konfliktu názvů, přejmenujte projekt sady Visual Studio a opakujte nasazení.
 
-3. Otevřete prohlížeč a přejděte do aplikace v clusteru zadáním adresy clusteru následované :8080, například `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Nyní by se měla zobrazit aplikace spuštěná v clusteru v Azure.
+3. Klikněte na **Publikovat**.
+
+4. Otevřete prohlížeč a přejděte do aplikace v clusteru zadáním adresy clusteru následované :8080, například `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Nyní by se měla zobrazit aplikace spuštěná v clusteru v Azure.
 
 ![Front-end aplikace](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Škálování aplikací a služeb v clusteru
 Služby Service Fabric je možné snadno škálovat napříč clusterem a vyřešit tak změny jejich zatížení. Služby se škálují změnou počtu instancí spuštěných v clusteru. Služby můžete škálovat několika způsoby – můžete použít skripty nebo příkazy v PowerShellu nebo Service Fabric CLI (sfctl). V tomto příkladu používáme Service Fabric Explorer.
 
-Nástroj Service Fabric Explorer běží na všech clusterech Service Fabric a je přístupný z prohlížeče po přechodu na port HTTP pro správu clusteru (19080), například `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+Nástroj Service Fabric Explorer běží na všech clusterech Service Fabric a je přístupný z prohlížeče po přechodu na port HTTP pro správu clusteru (19080), například `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+
+Můžete obdržet upozornění prohlížeče, že umístění není důvěryhodné. To je způsobeno tím, že je certifikát podepsaný svým držitelem. Můžete se rozhodnout toto varování upozornění a pokračovat. Po výzvě prohlížeče vyberte nainstalovaný certifikát pro připojení. 
 
 Pokud chcete škálovat webovou front-end službu, proveďte následující kroky:
 
-1. Otevřete ve vašem clusteru Service Fabric Explorer – například `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Otevřete ve vašem clusteru Service Fabric Explorer – například `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 2. Ve stromovém zobrazení klikněte na tři tečky vedle uzlu **fabric:/Voting/VotingWeb** a zvolte **Škálovat službu**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -185,7 +208,7 @@ Pokud chcete upgradovat aplikaci, postupujte následovně:
 7. V dialogovém okně **Publikovat aplikaci Service Fabric** zaškrtněte políčko Upgradovat aplikaci a klikněte na **Publikovat**.
 
     ![Dialogové okno pro publikování – nastavení upgradu](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. Otevřete prohlížeč a přejděte na adresu clusteru na portu 19080, například `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+8. Otevřete prohlížeč a přejděte na adresu clusteru na portu 19080, například `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Ve stromovém zobrazení klikněte na uzel **Aplikace** a pak na **Probíhající upgrady** v pravém podokně. Zobrazí se postupné zavádění upgradu napříč upgradovacími doménami ve vašem clusteru. U každé domény se nejprve ověří, jestli je v pořádku, a pak se přejde k další. Po ověření stavu domény se upgradovací doména v indikátoru průběhu zobrazí zeleně.
     ![Zobrazení upgradu v Service Fabric Exploreru](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

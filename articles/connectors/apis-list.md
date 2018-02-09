@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Seznam konektorů
 Triggery a akce definované v popisu Swaggeru každého konektoru a všechna omezení konektoru najdete v [podrobnostech o konektoru](/connectors/).
@@ -82,7 +82,7 @@ Enterprise Integration Pack (EIP) obsahuje konektory, které jsou dobře známé
 | --- | --- | --- | --- |
 | [![Ikona rozhraní API][as2icon]<br/>**Dekódování</br>AS2**][as2decode] | [![Ikona rozhraní API][as2icon]<br/>**Kódování</br>AS2**][as2encode] | [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br>EDIFACT**][EDIFACTdecode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br>EDIFACT**][EDIFACTencode] |
 [![Ikona rozhraní API][flatfileicon]<br/>**Kódování</br>plochého souboru**][flatfiledoc] | [![Ikona rozhraní API][flatfiledecodeicon]<br/>**Dekódování</br>plochého souboru**][flatfiledecodedoc] | [![Ikona rozhraní API][integrationaccounticon]<br/>**Účet<br/>integrace**][integrationaccountdoc] | [![Ikona rozhraní API][xmltransformicon]<br/>**Transformace<br/>XML**][xmltransformdoc] |
-| [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br>X12**][x12decode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br>X12**][x12encode] | [![Ikona rozhraní API][xmlvalidateicon]<br/>**Ověření<br/>XML**][xmlvalidatedoc] | |
+| [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br>X12**][x12decode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br>X12**][x12encode] | [![Ikona rozhraní API][xmlvalidateicon]<br/>**Ověření<br/>XML**][xmlvalidatedoc] | [![Ikona rozhraní API][liquidicon]<br/>**Transformace <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Podnikové konektory
 
@@ -189,6 +189,7 @@ Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považu
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Přečtěte si víc o dekódování pro podnikovou integraci EDIFACT."
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Přečtěte si víc o kódování pro podnikovou integraci EDIFACT."
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Vyhledání schémat, map, partnerů a dalších v účtu pro integraci"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Další informace o transformacích JSON pomocí Liquidu"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Připojení ke službě Box. Nahrávání, získávání, odstraňování, vypisování souborů a provádění dalších akcí"
@@ -328,3 +329,4 @@ Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považu
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

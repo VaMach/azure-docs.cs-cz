@@ -1,6 +1,6 @@
 ---
-title: "Načítání dat Polybase - Azure Blob Storage do Azure SQL Data Warehouse | Microsoft Docs"
-description: "Kurz, který používá portál Azure a SQL Server Management Studio načtení New Yorku Taxicab dat z Azure blob storage do Azure SQL Data Warehouse."
+title: "Kurz: Načítání dat pomocí PolyBase – Z Azure Storage Blob do služby Azure SQL Data Warehouse | Microsoft Docs"
+description: "Kurz, který používá Azure Portal a aplikaci SQL Server Management Studio k načtení dat taxislužby města New York z úložiště objektů blob v Azure do služby Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: 
 author: ckarst
@@ -17,42 +17,42 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Načtení dat z Azure blob storage do Azure SQL Data Warehouse pomocí PolyBase
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Kurz: Použití PolyBase k načítání dat z úložiště objektů blob v Azure do služby Azure SQL Data Warehouse
 
-PolyBase je standard načítání technologie pro získávání dat do SQL Data Warehouse. V tomto kurzu použijete k načtení New Yorku Taxicab dat z Azure blob storage do Azure SQL Data Warehouse PolyBase. Tento kurz používá [portál Azure](https://portal.azure.com) a [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) na: 
+PolyBase je standardní technologie načítání pro přesun dat do služby SQL Data Warehouse. V tomto kurzu pomocí PolyBase načtete data taxislužby města New York z úložiště objektů blob v Azure do služby Azure SQL Data Warehouse. Tento kurz používá [Azure Portal](https://portal.azure.com) a aplikaci [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) k: 
 
 > [!div class="checklist"]
-> * Vytvoření data warehouse na portálu Azure
-> * Nastavit pravidlo brány firewall na úrovni serveru, na portálu Azure
-> * Připojení do datového skladu pomocí SSMS
-> * Vytvoření uživatele určené pro načítání dat
-> * Vytvoření externí tabulky pro data v Azure blob storage
-> * Použijte příkaz funkce CTAS T-SQL načítat data do datového skladu
-> * Zobrazit průběh data, jako je načítání
-> * Vytvoření statistiky pro nově načtená data
+> * Vytvoření datového skladu na webu Azure Portal
+> * Vytvořit pravidlo brány firewall na úrovni serveru na webu Azure Portal
+> * Připojení k datovému skladu pomocí SSMS
+> * Vytvoření vyhrazeného uživatele pro načítání dat
+> * Vytvoření externích tabulek pro data v úložišti objektů blob v Azure
+> * Načtení dat do datového skladu pomocí příkazu T-SQL CTAS
+> * Zobrazení průběhu nahrávání dat
+> * Vytvoření statistik pro nově načtená data
 
-Pokud nemáte předplatné Azure, [vytvořit bezplatný účet](https://azure.microsoft.com/free/) před zahájením.
+Pokud ještě nemáte předplatné Azure, [vytvořte si bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
 ## <a name="before-you-begin"></a>Než začnete
 
-Než začnete tento kurz, stáhněte a nainstalujte nejnovější verzi [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Než začnete s tímto kurzem, stáhněte a nainstalujte nejnovější verzi aplikace [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Vytvořit prázdný datový sklad SQL
+## <a name="create-a-blank-sql-data-warehouse"></a>Vytvoření prázdného datového skladu SQL
 
 Datový sklad SQL Azure se vytvoří s definovanou sadou [výpočetních prostředků](performance-tiers.md). Databáze se vytvoří v rámci [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md) a na [logickém serveru SQL Azure](../sql-database/sql-database-features.md). 
 
-Postupujte podle těchto kroků můžete vytvořit prázdnou SQL data warehouse. 
+Pomocí následujících kroků vytvořte prázdný datový sklad SQL. 
 
 1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
@@ -67,7 +67,7 @@ Postupujte podle těchto kroků můžete vytvořit prázdnou SQL data warehouse.
    | **Název databáze** | mySampleDataWarehouse | Platné názvy databází najdete v tématu [Identifikátory databází](/sql/relational-databases/databases/database-identifiers). | 
    | **Předplatné** | Vaše předplatné  | Podrobnosti o vašich předplatných najdete v tématu [Předplatná](https://account.windowsazure.com/Subscriptions). |
    | **Skupina prostředků** | myResourceGroup | Platné názvy skupin prostředků najdete v tématu [Pravidla a omezení pojmenování](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Výběr zdroje** | Prázdnou databázi | Určuje, že chcete vytvořit prázdnou databázi. Poznámka: datový sklad je jedním z typů databáze.|
+   | **Výběr zdroje** | Prázdná databáze | Určuje, že se má vytvořit prázdná databáze. Poznámka: datový sklad je jedním z typů databáze.|
 
     ![vytvoření datového skladu](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
@@ -84,14 +84,14 @@ Postupujte podle těchto kroků můžete vytvořit prázdnou SQL data warehouse.
 
 5. Klikněte na **Vybrat**.
 
-6. Klikněte na tlačítko **úroveň výkonu** k určení, zda datový sklad je optimalizován pro pružnost nebo výpočetní a počet datových skladů jednotky. 
+6. Klikněte na **Úroveň výkonu** a určete, jestli je datový sklad optimalizovaný pro elasticitu nebo výpočetní výkon, a počet jednotek datového skladu. 
 
-7. V tomto kurzu vyberte **optimalizované pro pružnost** vrstvy služeb. Posuvník je ve výchozím nastavení nastavený na hodnotu **DW400**.  Zkuste jeho posouváním hodnotu zvýšit a snížit a podívejte se, jak funguje. 
+7. Pro účely tohoto kurzu vyberte úroveň služby **Optimalizováno pro elasticitu**. Posuvník je ve výchozím nastavení nastavený na hodnotu **DW400**.  Zkuste jeho posouváním hodnotu zvýšit a snížit a podívejte se, jak funguje. 
 
     ![konfigurace výkonu](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Klikněte na tlačítko **Použít**.
-9. Na stránce SQL Data Warehouse, vyberte **kolace** pro prázdnou databázi. V tomto kurzu použijte výchozí hodnotu. Další informace o kolacích najdete v tématu [kolace](/sql/t-sql/statements/collations.md)
+9. Na stránce služby SQL Data Warehouse vyberte **kolaci** pro prázdnou databázi. Pro účely tohoto kurzu použijte výchozí hodnotu. Další informace o kolacích najdete v tématu [Kolace](/sql/t-sql/statements/collations.md).
 
 11. Po vyplnění formuláře pro SQL Database klikněte na **Vytvořit** a databázi zřiďte. Zřizování trvá několik minut. 
 
@@ -111,11 +111,11 @@ Služba SQL Data Warehouse vytvoří bránu firewall na úrovni serveru, aby zab
 
 1. Po dokončení nasazení klikněte na **Databáze SQL** z nabídky na levé straně a klikněte na **mySampleDatabase** na stránce **Databáze SQL**. Otevře se stránka s přehledem pro vaši databázi, na které se zobrazí plně kvalifikovaný název serveru (například **mynewserver-20171113.database.windows.net**) a možnosti pro další konfiguraci. 
 
-2. Zkopírujte tento plně kvalifikovaný název serveru, abyste ho mohli použít pro připojení k serveru a jeho databázím v následujících rychlých startech. Potom klikněte na název serveru a otevřete nastavení serveru.
+2. Zkopírujte tento plně kvalifikovaný název serveru, abyste ho mohli použít pro připojení k serveru a jeho databázím v následujících rychlých startech. Pak kliknutím na název serveru otevřete nastavení serveru.
 
     ![vyhledání názvu serveru](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
-3. Klikněte na název serveru a otevřete nastavení serveru.
+3. Kliknutím na název serveru otevřete nastavení serveru.
 
     ![nastavení serveru](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
@@ -136,7 +136,7 @@ Pomocí této IP adresy se teď můžete připojit k serveru SQL a jeho datovým
 
 ## <a name="get-the-fully-qualified-server-name"></a>Získání plně kvalifikovaného názvu serveru
 
-Na webu Azure Portal získejte plně kvalifikovaný název vašeho serveru SQL. Plně kvalifikovaný název budete později používat při připojování k serveru.
+Na webu Azure Portal získejte plně kvalifikovaný název vašeho serveru SQL. Tento plně kvalifikovaný název použijete později při připojování k serveru.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
@@ -155,7 +155,7 @@ V této části se pomocí aplikace [SQL Server Management Studio](/sql/ssms/dow
     | Nastavení      | Navrhovaná hodnota | Popis | 
     | ------------ | --------------- | ----------- | 
     | Typ serveru | Databázový stroj | Tato hodnota se vyžaduje. |
-    | Název serveru | Plně kvalifikovaný název serveru | Název musí být přibližně takto: **mynewserver 20171113.database.windows.net**. |
+    | Název serveru | Plně kvalifikovaný název serveru | Název by měl vypadat přibližně takto: **mynewserver-20171113.database.windows.net**. |
     | Authentication | Ověřování SQL Serveru | Ověřování SQL je jediný typ ověřování, který jsme v tomto kurzu nakonfigurovali. |
     | Přihlásit | Účet správce serveru | Jedná se o účet, který jste zadali při vytváření serveru. |
     | Heslo | Heslo pro účet správce serveru | Jedná se o heslo, které jste zadali při vytváření serveru. |
@@ -164,23 +164,23 @@ V této části se pomocí aplikace [SQL Server Management Studio](/sql/ssms/dow
 
 4. Klikněte na **Připojit**. V aplikaci SSMS se otevře okno Průzkumníka objektů. 
 
-5. V Průzkumníku objektů rozbalte **Databáze**. Potom rozbalte **systémové databáze** a **hlavní** zobrazit objekty v hlavní databázi.  Rozbalte položku **mySampleDatabase** zobrazit objekty v nové databáze.
+5. V Průzkumníku objektů rozbalte **Databáze**. Pak rozbalte **Systémové databáze** a uzel **master** a zobrazte objekty v hlavní databázi.  Rozbalte **mySampleDatabase** a zobrazte objekty v nové databázi.
 
     ![databázové objekty](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
 
-## <a name="create-a-user-for-loading-data"></a>Vytvořte uživatele pro načítání dat
+## <a name="create-a-user-for-loading-data"></a>Vytvoření uživatele pro načítání dat
 
-Účet správce serveru slouží k provádění operací správy a není vhodná pro spuštění dotazů na data uživatele. Načítání dat je operace náročné na paměť. [Maximální hodnoty paměti](performance-tiers.md#memory-maximums) jsou definovány podle [úroveň výkonu](performance-tiers.md), a [Třída prostředků](resource-classes-for-workload-management.md). 
+Účet správce serveru slouží k provádění operací správy a není vhodný pro spouštění dotazů na uživatelská data. Načítání dat je operace s vysokými nároky na paměť. [Maximální hodnoty paměti](performance-tiers.md#memory-maximums) se definují v závislosti na [úrovni výkonu](performance-tiers.md) a [třídě prostředků](resource-classes-for-workload-management.md). 
 
-Je nejvhodnější vytvořit přihlášení a uživatele, který je vyhrazen pro načítání dat. Pak přidejte uživatele načítání do [Třída prostředků](resource-classes-for-workload-management.md) umožňující přidělení odpovídající maximální velikost paměti.
+Doporučujeme vytvořit účet a uživatele vyhrazeného pro načítání dat. Pak přidejte uživatele načítání do [třídy prostředků](resource-classes-for-workload-management.md), která umožňuje odpovídající maximální přidělení paměti.
 
-Vzhledem k tomu, že jste aktuálně připojeni jako správce serveru, můžete vytvořit přihlášení a uživatele. Pomocí těchto kroků můžete vytvořit přihlášení a uživatele volat **LoaderRC20**. Pak přiřaďte uživatele do **staticrc20** Třída prostředků. 
+Vzhledem k tomu, že jste aktuálně připojeni jako správce serveru, můžete vytvářet účty a uživatele. Pomocí následujících kroků vytvořte účet a uživatele **LoaderRC20**. Pak uživatele přiřaďte k třídě prostředků **staticrc20**. 
 
-1.  V aplikaci SSMS, klikněte pravým tlačítkem na **hlavní** zobrazit rozevírací nabídce, a vyberte **nový dotaz**. Otevře se nové okno dotazu.
+1.  V SSMS kliknutím pravým tlačítkem na uzel **master** zobrazte rozevírací nabídku a zvolte **Nový dotaz**. Otevře se nové okno dotazu.
 
-    ![Nový dotaz v předloze](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
+    ![Nový dotaz v uzlu master](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
-2. V okně dotazu zadejte tyto příkazy T-SQL a vytvořte přihlášení a uživatele s názvem LoaderRC20, nahraďte vlastní heslo pro 'a123STRONGpassword!'. 
+2. V okně dotazu zadejte následující příkazy T-SQL, které vytvoří účet a uživatele LoaderRC20, a heslo a123STRONGpassword nahraďte vlastním heslem. 
 
     ```sql
     CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
@@ -189,11 +189,11 @@ Vzhledem k tomu, že jste aktuálně připojeni jako správce serveru, můžete 
 
 3. Klikněte na tlačítko **Spustit**.
 
-4. Klikněte pravým tlačítkem na **mySampleDataWarehouse**a zvolte **nový dotaz**. Otevře okno Nový dotaz.  
+4. Klikněte pravým tlačítkem na **mySampleDataWarehouse** a zvolte **Nový dotaz**. Otevře se nové okno dotazu.  
 
-    ![Nový dotaz na ukázkové datového skladu](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
+    ![Nový dotaz na ukázkový datový sklad](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
  
-5. Zadejte následující příkazy T-SQL vytvořte uživatele databáze s názvem LoaderRC20 pro LoaderRC20 přihlášení. Druhý řádek uděluje oprávnění pro řízení na nový datový sklad nového uživatele.  Tato oprávnění jsou podobná nastavit uživatele vlastník databáze. Ve třetím řádku přidá nový uživatel jako člen skupiny staticrc20 [Třída prostředků](resource-classes-for-workload-management.md).
+5. Zadejte následující příkazy T-SQL, které pro účet LoaderRC20 vytvoří uživatele databáze LoaderRC20. Na druhém řádku se novému uživateli přidělí oprávnění CONTROL k novému datovému skladu.  Tato oprávnění jsou podobná, jako kdybyste z uživatele udělali vlastníka databáze. Na třetím řádku se nový uživatel přidá jako člen [třídy prostředků](resource-classes-for-workload-management.md) staticrc20.
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -207,37 +207,37 @@ Vzhledem k tomu, že jste aktuálně připojeni jako správce serveru, můžete 
 
 Prvním krokem k načítání dat je přihlášení jako LoaderRC20.  
 
-1. V Průzkumníku objektů, klikněte **připojit** rozevírací nabídku a vyberte **databázový stroj**. **Připojit k serveru** zobrazí se dialogové okno.
+1. V Průzkumníku objektů klikněte na rozevírací nabídku **Připojit** a vyberte **Databázový stroj**. Zobrazí se dialogové okno **Připojení k serveru**.
 
-    ![Připojení k nové přihlašovací údaje](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
+    ![Přihlášení pomocí nového účtu](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Zadejte název plně kvalifikovaný serveru a zadejte **LoaderRC20** jako přihlášení.  Zadejte heslo pro LoaderRC20.
+2. Zadejte plně kvalifikovaný název serveru a jako Účet zadejte **LoaderRC20**.  Zadejte své heslo k účtu LoaderRC20.
 
 3. Klikněte na **Připojit**.
 
-4. Při připojení je připraven, zobrazí se dvě připojení serveru v Průzkumníku objektů. Jedno připojení jako správce serveru a jedno připojení jako MedRCLogin.
+4. Až bude vaše připojení připravené, v Průzkumníku objektů se zobrazí dvě připojení k serveru. Jedno připojení jako ServerAdmin a druhé jako MedRCLogin.
 
-    ![Připojení je úspěšné](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
+    ![Úspěšné připojení](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
-## <a name="create-external-tables-for-the-sample-data"></a>Vytvoření externí tabulky pro ukázková data
+## <a name="create-external-tables-for-the-sample-data"></a>Vytvoření externích tabulek pro ukázková data
 
-Jste připraveni k zahájení procesu načítání dat do nového datového skladu. V tomto kurzu se dozvíte, jak používat [Polybase](/sql/relational-databases/polybase/polybase-guide.md) načíst New Yorku taxíkem souboru cab data z objektu blob úložiště Azure. Informace o přesunu dat do Azure Blob Storage nebo jejich načtení přímo ze zdroje do služby SQL Data Warehouse najdete pro budoucí použití v části s [přehledem načítání](sql-data-warehouse-overview-load.md).
+Teď jste připraveni zahájit proces načítání dat do svého nového datového skladu. Tento kurz ukazuje, jak pomocí [PolyBase](/sql/relational-databases/polybase/polybase-guide.md) načíst data taxislužby města New York z úložiště objektů blob v Azure. Informace o přesunu dat do Azure Blob Storage nebo jejich načtení přímo ze zdroje do služby SQL Data Warehouse najdete pro budoucí použití v části s [přehledem načítání](sql-data-warehouse-overview-load.md).
 
-Spusťte následující příkaz SQL skriptů zadejte informace o datech, které chcete načíst. Tyto informace zahrnují, kde jsou data uložena, formát obsah data a definice tabulky pro data. 
+Spuštěním následujících skriptů SQL zadejte informace o datech, která chcete načíst. Tyto informace zahrnují umístění dat, formát obsahu dat a definici tabulky pro data. 
 
-1. V předchozí části jste přihlášení do datového skladu jako LoaderRC20. V aplikaci SSMS, klikněte pravým tlačítkem na připojení LoaderRC20 a vyberte **nový dotaz**.  Zobrazí se nové okno dotazu. 
+1. V předchozí části jste se do svého datového skladu přihlásili jako LoaderRC20. V SSMS klikněte pravým tlačítkem na připojení LoaderRC20 a vyberte **Nový dotaz**.  Zobrazí se nové okno dotazu. 
 
-    ![Načítání nové okno dotazu](media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
+    ![Nové okno dotazu načítání](media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
 
-2. Porovnejte vaše okno dotazu na předchozí obrázek.  Ověřte, používá jako LoaderRC20 a provádění dotazů na databázi MySampleDataWarehouse vaší nové okno dotazu. K provedení všech kroků načítání použijte toto okno dotazu.
+2. Porovnejte své okno dotazu s předchozím obrázkem.  Ověřte, že je vaše okno dotazu spuštěné pod účtem LoaderRC20 a provádí dotazy na vaši databázi MySampleDataWarehouse. Toto okno dotazu použijte k provedení všech kroků načítání.
 
-3. Vytvoření hlavního klíče pro databázi MySampleDataWarehouse. Pro každou databázi je nutné vytvořit hlavní klíč pouze jednou. 
+3. Vytvořte hlavní klíč pro databázi MySampleDataWarehouse. Pro každou databázi je nutné vytvořit hlavní klíč pouze jednou. 
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-4. Spusťte následující [vytvořit externí zdroj dat](/sql/t-sql/statements/create-external-data-source-transact-sql.md) příkaz určete umístění objektu Azure blob. Toto je umístění dat taxíkem externí soubor cab.  Chcete-li spustit příkaz, který jste připojí do okna dotazu, zvýrazněte příkazy, které chcete spustit a klikněte na tlačítko **Execute**.
+4. Spuštěním následujícího příkazu [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) definujte umístění objektu blob v Azure. Toto je umístění externích dat taxislužby.  Pokud chcete spustit příkaz, který jste připojili k oknu dotazu, zvýrazněte příkazy, které chcete spustit, a klikněte na **Provést**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ Spusťte následující příkaz SQL skriptů zadejte informace o datech, které
     );
     ```
 
-5. Spusťte následující [vytvořit EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) příkaz T-SQL určete formátování vlastnosti a možnosti pro externí datový soubor. Tento příkaz určuje externích dat je uloženo jako text a hodnoty jsou odděleny kanálu ('| ') znaků. Externí soubor je komprimován s Gzip. 
+5. Spuštěním následujícího příkazu T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) určete charakteristiky a možnosti formátování pro externí datový soubor. Tento příkaz určuje, že jsou externí data uložená jako text a hodnoty jsou oddělené znakem roury („|“). Externí soubor je komprimovaný pomocí Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,13 +273,13 @@ Spusťte následující příkaz SQL skriptů zadejte informace o datech, které
     );
     ```
 
-6.  Spusťte následující [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) příkaz Vytvořit schéma pro vaše formát externích souborů. Schéma poskytuje způsob, jak uspořádat externí tabulky, které se chystáte vytvořit.
+6.  Spuštěním následujícího příkazu [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) vytvořte schéma pro formát vašeho externího souboru. Schéma představuje způsob uspořádání externích tabulek, které se chystáte vytvořit.
 
     ```sql
     CREATE SCHEMA ext;
     ```
 
-7. Vytvořte externí tabulky. V tabulce, definice, které jsou uloženy v SQL Data Warehouse, ale v tabulkách referenční data, která je uložená v úložišti objektů blob Azure. Spuštěním následujících příkazů T-SQL vytvořte několik externích tabulek odkazujících na objekt blob Azure, který jsme dříve definovali v externím zdroji dat.
+7. Vytvořte externí tabulky. Definice tabulek se ukládají ve službě SQL Data Warehouse, ale tabulky odkazují na data uložená v úložišti objektů blob v Azure. Spuštěním následujících příkazů T-SQL vytvořte několik externích tabulek odkazujících na objekt blob Azure, který jsme dříve definovali v externím zdroji dat.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -444,21 +444,21 @@ Spusťte následující příkaz SQL skriptů zadejte informace o datech, které
     ;
     ```
 
-8. V Průzkumníku objektů rozbalte mySampleDataWarehouse zobrazíte seznam externí tabulky, který jste právě vytvořili.
+8. V Průzkumníku objektů rozbalte mySampleDataWarehouse a zobrazte seznam externích tabulek, které jste právě vytvořili.
 
-    ![Zobrazení externí tabulky](media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
+    ![Zobrazení externích tabulek](media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
 
-## <a name="load-the-data-into-your-data-warehouse"></a>Načíst data do datového skladu
+## <a name="load-the-data-into-your-data-warehouse"></a>Načtení dat do datového skladu
 
-Tato část používá externí tabulky vámi zadaný načíst ukázková data z Azure Storage Blob do SQL Data Warehouse.  
+V této části se použijí externí tabulky, které jste právě definovali, k načtení ukázkových dat z Azure Storage Blob do služby SQL Data Warehouse.  
 
 > [!NOTE]
-> V tomto kurzu načte data přímo do konečné tabulky. V produkčním prostředí obvykle použijete CREATE TABLE AS SELECT se načte do pracovní tabulky. Když data jsou v přípravné tabulce, můžete provést všechny potřebné transformace. Pokud chcete data v přípravné tabulce připojit k provozní tabulky, můžete použít úlohy INSERT... Příkaz SELECT. Další informace najdete v tématu [vložení dat do tabulky produkční](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> V tomto kurzu se data načítají přímo do konečné tabulky. V produkčním prostředí budete obvykle používat příkaz CREATE TABLE AS SELECT k načtení dat do pracovní tabulky. Zatímco jsou data v pracovní tabulce, můžete provést všechny potřebné transformace. K připojení dat v pracovní tabulce do provozní tabulky můžete použít příkaz INSERT...SELECT. Další informace najdete v tématu popisujícím [vkládání dat do provozní tabulky](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Tento skript využívá [vytvořit tabulku AS vyberte funkce CTAS ()](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) příkaz T-SQL k načítání dat z Azure Storage Blob do nové tabulky v datovém skladu. Funkce CTAS vytvoří novou tabulku na základě výsledků příkazu select. Nová tabulka obsahuje stejné sloupce a datové typy jako výsledky příkazu SELECT. Pokud příkaz select vybere z externí tabulku, SQL Data Warehouse naimportuje data do relační tabulky v datovém skladu. 
+Tento skript pomocí příkazu T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) načítá data z Azure Storage Blob do nových tabulek ve vašem datovém skladu. Příkaz CTAS vytvoří novou tabulku na základě výsledků příkazu SELECT. Nová tabulka obsahuje stejné sloupce a datové typy jako výsledky příkazu SELECT. Když příkaz SELECT provádí výběr z externí tabulky, SQL Data Warehouse importuje data do relační tabulky v datovém skladu. 
 
-1. Spusťte následující skript, který chcete načíst data do nové tabulky v datovém skladu.
+1. Spuštěním následujícího skriptu načtěte data do nových tabulek ve svém datovém skladu.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -563,15 +563,15 @@ Tento skript využívá [vytvořit tabulku AS vyberte funkce CTAS ()](/sql/t-sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Získejte zobrazuje data vhodně načíst do datového skladu.
+4. Užívejte si pohled na to, jak se data krásně načítají do vašeho datového skladu.
 
-    ![Zobrazit načíst tabulky](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
+    ![Zobrazení načtených tabulek](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="create-statistics-on-newly-loaded-data"></a>Vytvoření statistiky pro nově načtená data
+## <a name="create-statistics-on-newly-loaded-data"></a>Vytvoření statistik pro nově načtená data
 
 SQL Data Warehouse nevytváří ani neaktualizuje statistiku automaticky. Pro dosažení vysokého výkonu dotazu je proto důležité vytvořit statistiku pro každý sloupec každé tabulky po prvním načtení. Důležité je také aktualizovat statistiku po důležitých změnách v datech.
 
-Spusťte tyto příkazy k vytvoření statistiky pro sloupce, které se mohou být použity ve spojeních.
+Spuštěním následujících příkazů vytvořte statistiky pro sloupce, které se pravděpodobně budou používat v příkazech JOIN.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -580,40 +580,40 @@ Spusťte tyto příkazy k vytvoření statistiky pro sloupce, které se mohou b�
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Vám budou účtovány výpočetní prostředky a data, která načíst do datového skladu. Ty se účtují samostatně. 
+Účtují se vám výpočetní prostředky a data, která načtete do svého datového skladu. Ta se účtují zvlášť. 
 
-- Pokud chcete zachovat data v úložišti, můžete pozastavit výpočetní prostředky v době, kdy datový sklad nepoužíváte. Pomocí pozastavení výpočetní bude pouze zdarma pro úložiště dat a můžete obnovit výpočetní vždy, když budete chtít pracovat s daty.
+- Pokud chcete zachovat data v úložišti, můžete pozastavit výpočetní prostředky v době, kdy datový sklad nepoužíváte. Když pozastavíte výpočetní prostředky, bude se vám účtovat pouze úložiště dat, a kdykoli budete připraveni s daty pracovat, můžete výpočetní prostředky zase obnovit.
 - Pokud chcete zamezit budoucím poplatkům, můžete datový sklad odstranit. 
 
 Pomocí tohoto postupu podle potřeby vyčistěte prostředky.
 
-1. Přihlaste se k [portál Azure](https://portal.azure.com), klikněte na váš datový sklad.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) a klikněte na váš datový sklad.
 
     ![Vyčištění prostředků](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Pokud chcete pozastavit výpočetní prostředky, klikněte na tlačítko **Pozastavit**. Pokud datový sklad je pozastavena, zobrazí se **spustit** tlačítko.  Pokud chcete obnovit výpočetní prostředky, klikněte na **Spustit**.
+2. Pokud chcete pozastavit výpočetní prostředky, klikněte na tlačítko **Pozastavit**. Když je datový sklad pozastavený, zobrazí se tlačítko **Spustit**.  Pokud chcete obnovit výpočetní prostředky, klikněte na **Spustit**.
 
-3. Chcete-li odebrat datového skladu, takže vám nebude nic účtováno výpočtů nebo úložiště, klikněte na tlačítko **odstranit**.
+3. Pokud chcete odebrat datový sklad, aby se vám neúčtovaly výpočetní prostředky ani prostředky úložiště, klikněte na **Odstranit**.
 
-4. Pokud chcete odstranit server SQL, který jste vytvořili, klikněte na **mynewserver-20171113.database.windows.net**, jak je znázorněno na předchozím obrázku, a pak klikněte na **Odstranit**.  Buďte opatrní s jako odstranění serveru se odstraní všechny databáze, které jsou přiřazené k serveru.
+4. Pokud chcete odstranit server SQL, který jste vytvořili, klikněte na **mynewserver-20171113.database.windows.net**, jak je znázorněno na předchozím obrázku, a pak klikněte na **Odstranit**.  Buďte opatrní, protože odstraněním serveru se odstraní také všechny databáze k tomuto serveru přiřazené.
 
 5. Pokud chcete odebrat skupinu prostředků, klikněte na **myResourceGroup** a pak klikněte na **Odstranit skupinu prostředků**.
 
 ## <a name="next-steps"></a>Další kroky 
-V tomto kurzu jste zjistili, jak vytvořit datový sklad a vytvořte uživatele pro načítání dat. Vytvoří externí tabulky můžete definovat strukturu dat uložených v Azure Storage Blob a pak použít příkaz PolyBase CREATE TABLE AS SELECT k načtení dat do datového skladu. 
+V tomto kurzu jste se naučili vytvořit datový sklad a uživatele pro načítání dat. Vytvořili jste externí tabulky pro definici struktury dat uložených v Azure Storage Blob a pak jste pomocí příkazu PolyBase CREATE TABLE AS SELECT načetli data do svého datového skladu. 
 
-Jste to udělali tyto věci:
+Provedli jste tyto akce:
 > [!div class="checklist"]
-> * Vytvoření datového skladu na portálu Azure
-> * Nastavit pravidlo brány firewall na úrovni serveru, na portálu Azure
-> * Připojení do datového skladu pomocí SSMS
-> * Vytvořit uživatele určené pro načítání dat
-> * Vytvoření externí tabulky pro data v Azure Storage Blob
-> * Použít příkaz funkce CTAS T-SQL načítat data do datového skladu
-> * Zobrazit průběh data, jako je načítání
-> * Vytvoření statistiky pro nově načtená data
+> * Vytvoření datového skladu na webu Azure Portal
+> * Vytvořit pravidlo brány firewall na úrovni serveru na webu Azure Portal
+> * Připojení k datovému skladu pomocí SSMS
+> * Vytvoření vyhrazeného uživatele pro načítání dat
+> * Vytvoření externích tabulek pro data v Azure Storage Blob
+> * Načtení dat do datového skladu pomocí příkazu T-SQL CTAS
+> * Zobrazení průběhu nahrávání dat
+> * Vytvoření statistik pro nově načtená data
 
-Přechodu na Přehled migrace se dozvíte, jak migrovat existující databázi do SQL Data Warehouse.
+Pokračujte k přehledu migrace a zjistěte, jak do služby SQL Data Warehouse migrovat existující databázi.
 
 > [!div class="nextstepaction"]
->[Zjistěte, jak migrovat existující databázi do SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Zjistěte, jak do služby SQL Data Warehouse migrovat existující databázi](sql-data-warehouse-overview-migrate.md).

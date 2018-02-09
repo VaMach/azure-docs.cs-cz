@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c6ec4b6e468bf03b18c0f26d1c61a17309a83eb2
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 4cc5d849630114577709f8373d08f0ce659e7e65
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="about-site-recovery"></a>O službě Azure Site Recovery
 
@@ -55,7 +55,7 @@ Site Recovery může spravovat replikaci pro:
 
 **Podporuje se** | **Podrobnosti**
 --- | ---
-**Scénář replikace** | Replikace virtuálních počítačů Azure z jedné oblasti Azure do jiné<br/><br/>  Replikace místních virtuálních počítačů VMware a Hyper-V a fyzických serverů (s Windows nebo Linuxem) do Azure<br/><br/> Replikace místních virtuálních počítačů VMware, virtuálních počítačů Hyper-V, které spravuje System Center VMM, a fyzických serverů do sekundární lokality
+**Scénáře replikace** | Replikace virtuálních počítačů Azure z jedné oblasti Azure do jiné<br/><br/>  Replikace místních virtuálních počítačů VMware a Hyper-V a fyzických serverů (s Windows nebo Linuxem) do Azure<br/><br/> Replikace místních virtuálních počítačů VMware, virtuálních počítačů Hyper-V, které spravuje System Center VMM, a fyzických serverů do sekundární lokality
 **Oblasti** | Prohlédněte si [podporované oblasti](https://azure.microsoft.com/regions/services/) pro Site Recovery. |
 **Replikované počítače** | Zkontrolujte požadavky na replikaci pro [virtuální počítače Azure](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [místní virtuální počítače](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) a [fyzické servery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
 **Hostitelé/servery VMware** | Virtuální počítače VMware, které chcete replikovat, můžou být umístěné na [podporovaných hostitelích vSphere nebo serverech vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).

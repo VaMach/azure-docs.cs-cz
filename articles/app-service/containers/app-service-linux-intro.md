@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Seznámení se službou Azure App Service v Linuxu
 
@@ -73,7 +73,7 @@ Některé funkce, například integrace virtuálních sítí, ověřování pomo
 Služba App Service v Linuxu se podporuje pouze s plány služby úrovně [Basic a Standard](https://azure.microsoft.com/pricing/details/app-service/plans/), a neobsahuje úroveň [Free ani Shared](https://azure.microsoft.com/pricing/details/app-service/plans/). Toto jsou další důležitá omezení služby App Service v Linuxu:
 
 * Službu Web App for Containers nemůžete vytvořit v plánu služby App Service, který už je hostitelem služby Web Apps mimo Linux.
-* Při vytváření služby Web App for Containers ve skupině prostředků, která obsahuje službu Web Apps mimo Linux, musíte vytvořit plán služby App Service v jiné oblasti než stávající plán služby App Service.
+* Při vytváření služby Web App for Containers ve skupině prostředků, která obsahuje službu Web Apps mimo Linux, musíte vytvořit plán služby App Service v jiné skupině prostředků než stávající plán služby App Service.
 
 ## <a name="troubleshooting"></a>Řešení potíží
 

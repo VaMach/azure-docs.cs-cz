@@ -286,6 +286,9 @@
             - name: Použití rozhraní Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Škálování clusteru HDInsight
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: Správa protokolů pro cluster HDInsight
           href: ../hdinsight-log-management.md
           maintainContext: true

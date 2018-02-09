@@ -1,6 +1,6 @@
 ---
-title: Migrace serveru SQL DB do Azure SQL Database | Microsoft Docs
-description: "Naučte se migrovat databázi SQL serveru do Azure SQL Database."
+title: "Migrace databáze SQL Serveru do služby Azure SQL Database | Microsoft Docs"
+description: "Zjistěte, jak migrovat databázi SQL Serveru do služby Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 09/01/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 526222944974c08f92aec2a8418e9b42401bc4d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrovat databázi SQL serveru do Azure SQL Database
+# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrace databáze SQL Serveru do služby Azure SQL Database
 
-Přesunutí serveru SQL Server databáze k databázi SQL Azure je jednoduché, vytváření prázdnou databázi SQL v Azure a pak pomocí [Data migrace pomocníka](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) k importování databáze do Azure. V tomto kurzu jste postup:
+K přesunu databáze SQL Serveru do služby Azure SQL Database stačí vytvořit prázdnou databázi SQL v Azure a pak použít nástroj [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) k importu databáze do Azure. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvořit prázdnou databázi Azure SQL na portálu Azure (pomocí nového nebo existujícího serveru Azure SQL Database)
-> * Vytvoření brány firewall úrovni serveru na portálu Azure (pokud dříve vytvořili)
-> * Použití [Data migrace pomocníka](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) k importu databázi SQL serveru do prázdnou databázi Azure SQL 
-> * Použití [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) Chcete-li změnit vlastnosti databáze.
+> * Vytvořit na webu Azure Portal prázdnou databázi SQL Azure (s použitím nového nebo existujícího serveru Azure SQL Database)
+> * Vytvořit na webu Azure Portal pravidlo brány firewall na úrovni serveru (pokud ještě není vytvořené)
+> * Použít nástroj [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) k importu vaší databáze SQL Serveru do prázdné databáze SQL Azure 
+> * Použít aplikaci [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) ke změně vlastností databáze
 
-Pokud nemáte předplatné Azure, [vytvořit bezplatný účet](https://azure.microsoft.com/free/) před zahájením.
+Pokud ještě nemáte předplatné Azure, [vytvořte si bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
 ## <a name="prerequisites"></a>Požadavky
 
 Předpokladem dokončení tohoto kurzu je splnění následujících požadavků:
 
-- Nainstalovanou nejnovější verzi [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
-- Nainstalovanou nejnovější verzi [Data migrace pomocníka](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- Zjištění a mít přístup k databázi pro migraci. Tento kurz používá [SQL Server 2008 R2 databáze AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) v instanci systému SQL Server 2008 R2 nebo novější, ale můžete použít libovolnou databázi podle svého výběru. Chcete-li opravit problémy s kompatibilitou, použijte [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+- Instalace nejnovější verze aplikace [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
+- Instalace nejnovější verze nástroje [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
+- Určení a získání přístupu k databázi, kterou chcete migrovat. Tento kurz používá [databázi SQL Serveru 2008R2 AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) na instanci SQL Serveru 2008R2 nebo novější, ale můžete použít libovolnou databázi. Pokud chcete opravit problémy s kompatibilitou, použijte [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Vytvořit prázdnou databázi SQL
+## <a name="create-a-blank-sql-database"></a>Vytvoření prázdné databáze SQL
 
 Databáze SQL Azure se vytvoří s definovanou sadou [výpočetních prostředků a prostředků úložiště](sql-database-service-tiers.md). Databáze se vytvoří v rámci [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md) a na [logickém serveru Azure SQL Database](sql-database-features.md). 
 
-Postupujte podle těchto kroků můžete vytvořit prázdnou databázi SQL. 
+Pomocí následujících kroků vytvořte prázdnou databázi SQL. 
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
 
 2. Na stránce **Nový** vyberte **Databáze** a v části **Databáze SQL** na stránce **Nový** vyberte **Vytvořit**.
 
-   ![Vytvořit prázdná databáze](./media/sql-database-design-first-database/create-empty-database.png)
+   ![vytvoření prázdné databáze](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Vyplňte formulář databáze SQL pomocí následujících informací, jak je vidět na předchozím obrázku:   
 
@@ -65,24 +65,24 @@ Postupujte podle těchto kroků můžete vytvořit prázdnou databázi SQL.
    | **Název databáze** | mySampleDatabase | Platné názvy databází najdete v tématu [Identifikátory databází](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
    | **Předplatné** | Vaše předplatné  | Podrobnosti o vašich předplatných najdete v tématu [Předplatná](https://account.windowsazure.com/Subscriptions). |
    | **Skupina prostředků** | myResourceGroup | Platné názvy skupin prostředků najdete v tématu [Pravidla a omezení pojmenování](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Vyberte zdroj** | Prázdnou databázi | Určuje, že by měl být vytvořen prázdnou databázi. |
+   | **Výběr zdroje** | Prázdná databáze | Určuje, že se má vytvořit prázdná databáze. |
 
-4. Klikněte na **Server** a vytvořte a nakonfigurujte nový server pro novou databázi. Vyplňte **nového formuláře serveru** s následujícími informacemi: 
+4. Klikněte na **Server** a vytvořte a nakonfigurujte nový server pro novou databázi. Do **formuláře Nový server** zadejte následující informace: 
 
    | Nastavení       | Navrhovaná hodnota | Popis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Název serveru** | Libovolný globálně jedinečný název | Platné názvy serverů najdete v tématu [Pravidla a omezení pojmenování](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Přihlašovací jméno správce serveru** | Libovolné platné jméno | Platná přihlašovací jména najdete v tématu [Identifikátory databází](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Heslo** | Libovolné platné heslo | Heslo musí mít aspoň osm znaků a musí obsahovat znaky ze tří z následujících kategorií: velká písmena, malá písmena, číslice a jiné než alfanumerické znaky. |
+   | **Heslo** | Libovolné platné heslo | Heslo musí mít alespoň osm znaků a musí obsahovat znaky ze tří z následujících kategorií: velká písmena, malá písmena, číslice a jiné než alfanumerické znaky. |
    | **Umístění** | Libovolné platné umístění | Informace o oblastech najdete v tématu [Oblasti služeb Azure](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Klikněte na **Vybrat**.
 
-6. Klikněte na **Cenová úroveň** a zadejte úroveň služby, počet DTU a velikost úložiště. Prozkoumejte možnosti pro počet jednotek Dtu a úložiště, které je k dispozici pro jednotlivé úrovně služby. 
+6. Klikněte na **Cenová úroveň** a zadejte úroveň služby, počet DTU a velikost úložiště. Prozkoumejte možnosti pro počet DTU a velikost úložiště, které máte k dispozici na jednotlivých úrovních služby. 
 
-7. V tomto kurzu vyberte **standardní** úrovně služby a potom posuvníkem vyberte **100 Dtu (S3)** a **400** GB úložiště.
+7. Pro účely tohoto kurzu vyberte úroveň služby **Standard** a pak pomocí posuvníku vyberte **100 DTU (S3)** a **400** GB úložiště.
 
    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -91,12 +91,12 @@ Postupujte podle těchto kroků můžete vytvořit prázdnou databázi SQL.
    > [!IMPORTANT]
    > \* Velikosti úložiště větší než velikost zahrnutého úložiště jsou ve verzi Preview a účtují se za ně další poplatky. Podrobnosti najdete na stránce s [cenami služby SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: USA – východ 2, USA – západ, USA (Gov) – Virginia, Západní Evropa, Německo – střed, Jihovýchodní Asie, Japonsko – východ, Austrálie – východ, Kanada – střed a Kanada – východ. Viz [Aktuální omezení pro P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: Austrálie – východ, Austrálie – jihovýchod, Brazílie – jih, Kanada – střed, Kanada – východ, USA – střed, Francie – střed, Německo – střed, Japonsko – východ, Japonsko – západ, Korea – střed, Střed USA – sever, Severní Evropa, Střed USA – jih, Asie – jihovýchod, Velká Británie – jih, Velká Británie – západ, USA – východ 2, USA – západ, USA (Gov) – Virginia a Západní Evropa. Viz [Aktuální omezení pro P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Po výběru úrovně služby, počtu DTU a velikosti úložiště klikněte na **Použít**.  
 
-10. Vyberte **kolace** pro prázdnou databázi (v tomto kurzu použijte výchozí hodnotu). Další informace o kolacích najdete v tématu [kolace](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Vyberte **kolaci** pro prázdnou databázi (pro účely tohoto kurzu použijte výchozí hodnotu). Další informace o kolacích najdete v tématu [Kolace](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 11. Po vyplnění formuláře pro SQL Database klikněte na **Vytvořit** a databázi zřiďte. Zřizování trvá několik minut. 
 
@@ -118,7 +118,7 @@ Služba SQL Database vytvoří bránu firewall na úrovni serveru, aby zabránil
 
    ![název serveru](./media/sql-database-get-started-portal/server-name.png) 
 
-3. Klikněte na tlačítko **nastavení brány firewall serveru** na panelu nástrojů. Otevře se stránka **Nastavení brány firewall** pro server služby SQL Database. 
+3. Na panelu nástrojů klikněte na **Nastavit bránu firewall serveru**. Otevře se stránka **Nastavení brány firewall** pro server služby SQL Database. 
 
    ![pravidlo brány firewall serveru](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
@@ -128,14 +128,14 @@ Služba SQL Database vytvoří bránu firewall na úrovni serveru, aby zabránil
 
 6. Klikněte na **OK** a pak zavřete stránku **Nastavení brány firewall**.
 
-Nyní můžete připojit k serveru služby SQL Database a její databáze pomocí SQL Server Management Studio, Pomocník pro migraci dat nebo jiný nástroj podle svého výběru z tuto IP adresu pomocí účtu správce serveru, který je vytvořen v předchozím postupu.
+Teď se můžete z této IP adresy připojit k serveru SQL Database a jeho databázím pomocí aplikace SQL Server Management Studio, nástroje Data Migration Assistant nebo jiného nástroje podle vašeho výběru s použitím účtu správce serveru vytvořeného předchozím postupem.
 
 > [!IMPORTANT]
 > Standardně je přístup přes bránu firewall služby SQL Database povolený pro všechny služby Azure. Kliknutím na **OFF** na této stránce provedete zákaz pro všechny služby Azure.
 
 ## <a name="sql-server-connection-information"></a>Informace o připojení k SQL serveru
 
-Na webu Azure Portal získejte plně kvalifikovaný název serveru služby Azure SQL Database. Název plně kvalifikovaný serveru používáte pro připojení k serveru Azure SQL pomocí nástroje pro klienta, včetně pomoci při migraci dat a SQL Server Management Studio.
+Na webu Azure Portal získejte plně kvalifikovaný název serveru služby Azure SQL Database. Plně kvalifikovaný název serveru slouží k připojení k serveru SQL Azure pomocí klientských nástrojů, včetně nástroje Data Migration Assistant a aplikace SQL Server Management Studio.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
@@ -145,84 +145,84 @@ Na webu Azure Portal získejte plně kvalifikovaný název serveru služby Azure
 
 ## <a name="migrate-your-database"></a>Migrace databáze
 
-Použijte následující postup použijte  **[Data migrace pomocníka](https://www.microsoft.com/download/details.aspx?id=53595)**  k vyhodnocení připravenosti databáze pro migraci do Azure SQL Database a k dokončení migrace.
+Pomocí následujícího postupu použijte nástroj **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** k posouzení připravenosti vaší databáze na migraci do služby Azure SQL Database a k dokončení migrace.
 
-1. Otevřete **asistent migrace dat**. Přímý přístup do paměti můžete spustit na libovolném počítači se připojení k instanci systému SQL Server obsahující databáze, která chcete migrovat a připojení k Internetu. Nemusíte jej nainstalovat na počítač, který hostuje instanci systému SQL Server, které chcete migrovat. Pro počítač, na kterém je spuštěný Pomocníka pro migraci dat musí být pravidlo brány firewall, který jste vytvořili v předchozím postupu.
+1. Otevřete nátroj **Data Migration Assistant**. Pomocníka s migrací dat můžete spustit na jakémkoli počítači s připojením k instanci SQL Serveru obsahující databázi, kterou chcete migrovat, a s připojením k internetu. Nemusíte ho instalovat na počítač hostující instanci SQL Serveru, kterou migrujete. Pravidlo brány firewall, které jste vytvořili předchozím postupem, musí být určené pro počítač, na kterém spouštíte nástroj Data Migration Assistant.
 
-     ![Asistent migrace systému Open data](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
+     ![otevřený nástroj Data Migration Assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
-2. V levé nabídce klikněte na tlačítko **+ nový** vytvořit **Assessment** projektu. Zadejte požadované hodnoty a potom klikněte na **vytvořit**:
+2. V levé nabídce klikněte na **+ Nový** a vytvořte projekt **Posouzení**. Vyplňte požadované hodnoty a pak klikněte na **Vytvořit**.
 
    | Nastavení      | Navrhovaná hodnota | Popis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Typ projektu | Migrace | Zvolit buď vyhodnocení databáze pro migraci nebo k vyhodnocení a migrace v rámci stejného pracovního postupu |
-   |název projektu|Kurz migrace| Popisný název |
-   |Typ zdrojového serveru| SQL Server | Toto je jediný zdroj aktuálně podporované. |
-   |Typ cílového serveru| Azure SQL Database| Možnosti patří: Azure SQL Database, SQL Server, SQL Server na virtuálních počítačích Azure |
-   |Migrace oboru| Schéma a data| Vybrat možnost: pouze data schématu a data, pouze, schéma |
+   | Typ projektu | Migrace | Zvolte buď posouzení databáze pro migraci, nebo posouzení a migraci v rámci stejného pracovního postupu. |
+   |Název projektu|Kurz migrace| Popisný název |
+   |Typ zdrojového serveru| SQL Server | Toto je jediný aktuálně podporovaný zdroj. |
+   |Typ cílového serveru| Azure SQL Database| Možnosti jsou: Azure SQL Database, SQL Server a SQL Server na virtuálních počítačích Azure. |
+   |Rozsah migrace| Schéma a data| Možnosti jsou: Schéma a data, pouze schéma a pouze data. |
    
-   ![Nový projekt asistenta migrace dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
+   ![nový projekt nástroje Data Migration Assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
-3.  Na **zvolit zdroj** , zadejte požadované hodnoty a potom klikněte na tlačítko **Connect**:
-
-    | Nastavení      | Navrhovaná hodnota | Popis | 
-    | ------------ | ------------------ | ------------------------------------------------- | 
-    | Název serveru | Název serveru nebo IP adresa | Název serveru nebo IP adresa |
-    | Typ ověřování | Typ upřednostňované ověřování| Volby: Integrované ověřování, ověřování hesla Active Directory pro Windows ověřování, ověřování systému SQL Server, Active Directory |
-    | Uživatelské jméno | Vaše přihlašovací jméno | Přihlašovací jméno musí mít **ovládacího PRVKU serveru** oprávnění |
-    | Heslo| heslo | heslo |
-    | Vlastnosti připojení| Vyberte **připojení šifrováno** a **certifikátu serveru důvěryhodnosti** jako vhodné pro vaše prostředí. | Vyberte vlastnosti, které jsou vhodné pro připojení k serveru |
-
-    ![Nový vyberte zdroj dat migrace](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
-
-5. Vyberte jednu databázi ze zdrojového serveru migrovat do Azure SQL Database a potom klikněte na **Další**. V tomto kurzu je pouze jednu databázi.
-
-6. Na **vyberte cíl** , zadejte požadované hodnoty a potom klikněte na tlačítko **připojit**:
+3.  Na stránce **Výběr zdroje** vyplňte požadované hodnoty a pak klikněte na **Připojit**:
 
     | Nastavení      | Navrhovaná hodnota | Popis | 
     | ------------ | ------------------ | ------------------------------------------------- | 
-    | Název serveru | Plně kvalifikovaný název serveru databáze Azure | Plně kvalifikovaný název serveru databáze Azure z předchozího postupu |
-    | Typ ověřování | Ověřování SQL Serveru | Ověřování systému SQL Server je jedinou možností, jak tento kurz je napsán, ale integrované ověřování Active Directory a ověřování hesla Active Directory jsou podporovány také Azure SQL Database |
-    | Uživatelské jméno | Vaše přihlašovací jméno | Přihlašovací jméno musí mít **CONTROL DATABASE** oprávnění k databázi zdrojové |
-    | Heslo| heslo | heslo |
-    | Vlastnosti připojení| Vyberte **připojení šifrováno** a **certifikátu serveru důvěryhodnosti** jako vhodné pro vaše prostředí. | Vyberte vlastnosti, které jsou vhodné pro připojení k serveru |
+    | Název serveru | Název nebo IP adresa vašeho serveru | Název nebo IP adresa vašeho serveru |
+    | Typ ověřování | Upřednostňovaný typ ověřování| Možnosti: Ověřování systému Windows, Ověřování SQL Serveru, Integrované ověřování Active Directory a Ověřování hesla Active Directory |
+    | Uživatelské jméno | Vaše přihlašovací jméno | Váš účet musí mít oprávnění **CONTROL SERVER**. |
+    | Heslo| Vaše heslo | Vaše heslo |
+    | Vlastnosti připojení| Odpovídajícím způsobem pro vaše prostředí vyberte možnosti **Šifrovat připojení** a **Důvěřovat certifikátu serveru**. | Zvolte odpovídající vlastnosti pro připojení k vašemu serveru. |
 
-    ![Nový cíl vyberte možnost migrace dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
+    ![nová migrace dat – výběr zdroje](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
 
-7. Vyberte databázi z cílového serveru, který jste vytvořili v předchozím postupu a pak klikněte na tlačítko **Další** ke spuštění procesu assessment schéma zdrojové databáze. V tomto kurzu je pouze jednu databázi. Všimněte si, že úroveň kompatibility pro tuto databázi je nastavena na 140, což je výchozí úroveň kompatibility pro všechny nové databáze v Azure SQL Database.
+5. Vyberte ze svého zdrojového serveru jednu databázi, kterou chcete migrovat do služby Azure SQL Database, a pak klikněte na **Další**. Pro účely tohoto kurzu existuje pouze jedna databáze.
+
+6. Na stránce **Výběr cíle** vyplňte požadované hodnoty a pak klikněte na **Připojit**:
+
+    | Nastavení      | Navrhovaná hodnota | Popis | 
+    | ------------ | ------------------ | ------------------------------------------------- | 
+    | Název serveru | Plně kvalifikovaný název vašeho databázového serveru Azure | Plně kvalifikovaný název vašeho databázového serveru Azure z předchozího postupu |
+    | Typ ověřování | Ověřování SQL Serveru | V době psaní tohoto kurzu je jedinou možností ověřování SQL Serveru, ale služba Azure SQL Database podporuje také integrované ověřování Active Directory a ověřování hesla Active Directory. |
+    | Uživatelské jméno | Vaše přihlašovací jméno | Váš účet musí mít oprávnění **CONTROL DATABASE** ke zdrojové databázi. |
+    | Heslo| Vaše heslo | Vaše heslo |
+    | Vlastnosti připojení| Odpovídajícím způsobem pro vaše prostředí vyberte možnosti **Šifrovat připojení** a **Důvěřovat certifikátu serveru**. | Zvolte odpovídající vlastnosti pro připojení k vašemu serveru. |
+
+    ![nová migrace dat – výběr cíle](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
+
+7. Vyberte z cílového serveru databázi, kterou jste vytvořili předchozím postupem, a pak kliknutím na **Další** spusťte proces hodnocení schématu zdrojové databáze. Pro účely tohoto kurzu existuje pouze jedna databáze. Všimněte si, že úroveň kompatibility pro tuto databázi je nastavená na 140, což je výchozí úroveň kompatibility pro všechny nové databáze ve službě Azure SQL Database.
 
    > [!IMPORTANT] 
-   > Po dokončení migrace databáze do Azure SQL Database, můžete pracovat databázi na úroveň kompatibility zadaného pro účely zpětné kompatibility. Další informace o důsledky a možnosti pro operační databázi na úrovni konkrétní kompatibility najdete v tématu [změnit úroveň kompatibility databáze](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Viz také [ALTER DATABASE OBOR CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) informace o další úroveň databáze nastavení související s úrovní kompatibility.
+   > Po migraci databáze do služby Azure SQL Database se můžete z důvodu zajištění zpětné kompatibility rozhodnout databázi provozovat na zadané úrovni kompatibility. Další informace o důsledcích a možnostech provozu databáze na konkrétní úrovni kompatibility najdete v tématu [Úroveň kompatibility ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). V tématu věnovaném příkazu [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) najdete také informace o dalších nastaveních na úrovni databáze souvisejících s úrovněmi kompatibility.
    >
 
-8. Na **vybrat objekty** dokončení stránky, po zdrojové databáze proces hodnocení schématu zkontrolujte objektů vybrána pro migraci a zkontrolovat objekty, které obsahují problémy. Zkontrolujte třeba **dbo.uspSearchCandidateResumes** objekt pro **SERVERPROPERTY('LCID')** změny chování a **HumanResourcesJobCandidate** objekt pro Změny fulltextové vyhledávání. 
+8. Po dokončení procesu hodnocení schématu zdrojové databáze na stránce **Výběr objektů** zkontrolujte objekty vybrané k migraci a objekty, u kterých došlo k problémům. Zkontrolujte například změny chování **SERVERPROPERTY('LCID')** v objektu **dbo.uspSearchCandidateResumes** a změny fulltextového vyhledávání v objektu **HumanResourcesJobCandidate**. 
 
    > [!IMPORTANT] 
-   > V závislosti na návrh databáze a návrh vaší aplikace, při migraci zdrojové databáze, budete muset změnit buď nebo obě databáze nebo aplikace po migraci (a v některých případech, před migrací). Informace o rozdílech Transact-SQL, které může mít vliv na migraci najdete v tématu [rozdíly řešení Transact-SQL během migrace do SQL Database](sql-database-transact-sql-information.md).
+   > Když migrujete zdrojovou databázi, v závislosti na návrhu databáze a vaší aplikace možná budete muset po migraci (a v některých případech před migrací) upravit databázi, aplikaci nebo obojí. Informace o odlišnostech jazyka Transact-SQL, které můžou mít vliv na migraci, najdete v tématu [Řešení odlišností jazyka Transact-SQL během migrace do služby SQL Database](sql-database-transact-sql-information.md).
 
-     ![nové migrace hodnocení a objekt výběr dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
+     ![nová migrace dat – vyhodnocení a výběr objektů](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
 
-9. Klikněte na tlačítko **skript SQL generovat** skript schématu objekty ve zdrojové databázi. 
-10. Zkontrolujte generovaného skriptu a pak klikněte na tlačítko **další vydání** podle potřeby zkontrolovat assessment zjištěné problémy a doporučení. Pro fulltextové vyhledávání, například doporučuje při upgradu se k testování aplikace využívat funkce Full-Text. Můžete uložit nebo kopírovat skript, nechcete-li.
+9. Kliknutím na **Vygenerovat skript SQL** vytvořte skript pro objekty schématu ve zdrojové databázi. 
+10. Zkontrolujte vygenerovaný skript a pak podle potřeby klikněte na **Další problém** a zkontrolujte zjištěné problémy s vyhodnocením a doporučení. Například pro fulltextové vyhledávání se při upgradu doporučuje otestovat aplikaci s využitím fulltextových funkcí. Pokud chcete, skript si můžete uložit nebo zkopírovat.
 
-     ![nový skript generuje migrace dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
+     ![nová migrace dat – vygenerovaný skript](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
 
-11. Klikněte na tlačítko **nasazení schématu** a podívejte se na migraci schématu.
+11. Klikněte na **Nasadit schéma** a sledujte proces migrace schématu.
 
-     ![nové migrace schématu migrace dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
+     ![nová migrace dat – migrace schématu](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
 
-12. Po dokončení migrace schématu zkontrolujte výsledky pro chyby a pak za předpokladu, že neexistují žádné, klikněte na **migrovat data**.
-13. Na **vyberte tabulky** , zkontrolujte v tabulkách vybrána pro migraci a pak klikněte na tlačítko **spustit migraci dat**.
+12. Po dokončení migrace schématu zkontrolujte ve výsledcích chyby a pak, za předpokladu, že k žádným nedošlo, klikněte na **Migrovat data**.
+13. Na stránce **Výběr tabulek** zkontrolujte tabulky vybrané k migraci a pak klikněte na **Spustit migraci dat**.
 
-     ![nové migrace dat migrace dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration.png)
+     ![nová migrace dat – migrace dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration.png)
 
-14. Podívejte se na migraci.
+14. Sledujte proces migrace.
 
-     ![Nový proces migrace dat migrace dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
+     ![nová migrace dat – proces migrace dat](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Připojení k databázi pomocí SSMS
 
-Použití [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) k navázání připojení k serveru Azure SQL Database.
+Pomocí aplikace [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) navažte připojení k vašemu serveru Azure SQL Database.
 
 1. Otevřete SQL Server Management Studio.
 
@@ -230,8 +230,8 @@ Použití [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql
 
    | Nastavení       | Navrhovaná hodnota | Popis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Typ serveru | Databázový stroj | Tato hodnota je povinná. |
-   | Název serveru | Plně kvalifikovaný název serveru | Název musí být přibližně takto: **mynewserver20170824.database.windows.net**. |
+   | Typ serveru | Databázový stroj | Tato hodnota se vyžaduje. |
+   | Název serveru | Plně kvalifikovaný název serveru | Název by měl vypadat přibližně takto: **mynewserver20170824.database.windows.net**. |
    | Authentication | Ověřování SQL Serveru | Ověřování SQL je jediný typ ověřování, který jsme v tomto kurzu nakonfigurovali. |
    | Přihlásit | Účet správce serveru | Jedná se o účet, který jste zadali při vytváření serveru. |
    | Heslo | Heslo pro účet správce serveru | Jedná se o heslo, které jste zadali při vytváření serveru. |
@@ -246,15 +246,15 @@ Použití [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql
 
 5. V Průzkumníku objektů zobrazte objekty v ukázkové databázi rozbalením **Databáze** a potom **mySampleDatabase**.
 
-   ![Objekty databáze.](./media/sql-database-connect-query-ssms/connected.png)  
+   ![databázové objekty](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="change-database-properties"></a>Změnit vlastnosti databáze
+## <a name="change-database-properties"></a>Změna vlastností databáze
 
-Můžete změnit úroveň služby, úroveň výkonu a úroveň kompatibility pomocí SQL Server Management Studio. Během fáze importu doporučujeme je importovat do databáze vyšší úroveň výkonu pro nejlepší výkon, ale po dokončení importu jak ušetřit peníze, dokud nebudete připraveni aktivně používá databázi importované škálování směrem dolů. Změna úrovně kompatibility mohou vést k vyšší výkon a přístup k nejnovější funkcím služby Azure SQL Database. Když provádíte migraci starší databázi, její úroveň kompatibility databáze je udržován na úrovni nejnižší podporovaná úroveň, který je kompatibilní s databází importována. Další informace najdete v tématu [vylepšuje výkon dotazů 130 úroveň kompatibility v Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
+Pomocí aplikace SQL Server Management Studio můžete změnit úroveň služby, úroveň výkonu a úroveň kompatibility. Během fáze importu doporučujeme pro zajištění nejlepšího výkonu importovat do databáze na vyšší úrovni výkonu, ale po dokončení importu vertikálně snížit kapacitu, abyste ušetřili, dokud nebudete připraveni importovanou databázi aktivně používat. Změna úrovně kompatibility může přinést lepší výkon a přístup k nejnovějším možnostem služby Azure SQL Database. Při migraci starší databáze zůstane její úroveň kompatibility zachována na nejnižší podporované úrovni, která je kompatibilní s importovanou databází. Další informace najdete v tématu [Zvýšení výkonu dotazů s úrovní kompatibility 130 ve službě Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
 
-1. V Průzkumníku objektů, klikněte pravým tlačítkem na **mySampleDatabase** a pak klikněte na **nový dotaz**. Otevře se okno dotazu připojené k vaší databázi.
+1. V Průzkumníku objektů klikněte pravým tlačítkem na **mySampleDatabase** a pak klikněte na **Nový dotaz**. Otevře se okno dotazu připojené k vaší databázi.
 
-2. Spusťte následující příkaz pro danou vrstvu služeb **standardní** a na úroveň výkonu **S1**.
+2. Provedením následujícího příkazu nastavte úroveň služby na **Standard** a úroveň výkonu na **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 
@@ -267,16 +267,16 @@ Můžete změnit úroveň služby, úroveň výkonu a úroveň kompatibility pom
     ```
 
 ## <a name="next-steps"></a>Další kroky 
-V tomto kurzu jste se dozvěděli na:
+V tomto kurzu jste se naučili:
 
-> * Vytvořit prázdnou databázi Azure SQL na portálu Azure 
-> * Vytvoření brány firewall úrovni serveru na portálu Azure 
-> * Použití [Data migrace pomocníka](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) k importu databázi SQL serveru do prázdnou databázi Azure SQL 
-> * Použití [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) Chcete-li změnit vlastnosti databáze.
+> * Vytvořit na webu Azure Portal prázdnou databázi SQL Azure 
+> * Vytvořit na webu Azure Portal bránu firewall na úrovni serveru 
+> * Použít nástroj [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) k importu vaší databáze SQL Serveru do prázdné databáze SQL Azure 
+> * Použít aplikaci [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) ke změně vlastností databáze
 
-Přechodu na v dalším kurzu se dozvíte, jak zabezpečit vaši databázi.
+V dalším kurzu se dozvíte, jak svou databázi zabezpečit.
 
 > [!div class="nextstepaction"]
-> [Zabezpečení databáze Azure SQL](sql-database-security-tutorial.md).
+> [Zabezpečení služby Azure SQL Database](sql-database-security-tutorial.md)
 
 

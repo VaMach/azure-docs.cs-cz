@@ -55,6 +55,7 @@
 ### [Synchronizace hesel](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Účet služby Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Průvodce instalací](active-directory-aadconnectsync-installation-wizard.md)
+### [Postup naplnění UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
 ### [Změna výchozí konfigurace](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Konfigurace filtrování](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)

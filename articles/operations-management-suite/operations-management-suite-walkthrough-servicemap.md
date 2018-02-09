@@ -1,6 +1,6 @@
 ---
 title: "Ukázka řešení Service Map vlastním tempem | Dokumentace Microsoftu"
-description: "Řešení Service Map je součástí sady Operations Management Suite (OMS). Automaticky zjišťuje komponenty aplikací v systémech Windows a Linux a mapuje komunikace mezi těmito službami.  Tato ukázka vlastním tempem vás provede použitím řešení Service Map a umožní vám identifikovat a diagnostikovat simulovaný problém ve webové aplikaci."
+description: "Service Map je řešení v Azure, které automaticky zjišťuje komponenty aplikací v systémech Windows a Linux a mapuje komunikace mezi těmito službami.  Tato ukázka vlastním tempem vás provede použitím řešení Service Map a umožní vám identifikovat a diagnostikovat simulovaný problém ve webové aplikaci."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Ukázka sady Operations Management Suite (OMS) vlastním tempem – Service Map
-Tato ukázka vlastním tempem vás provede použitím [řešení Service Map](operations-management-suite-service-map.md) v sadě Operations Management Suite (OMS) a umožní vám identifikovat a diagnostikovat simulovaný problém ve webové aplikaci.  Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami.  Také konsoliduje data shromážděná ostatními službami OMS a pomáhá analyzovat výkon a identifikovat případné potíže.  Můžete také využít [prohledávání protokolu ve službě Log Analytics](../log-analytics/log-analytics-log-searches.md) a přejít k podrobnostem shromážděných dat s cílem identifikovat hlavní problém.
+# <a name="self-paced-demo---service-map"></a>Ukázka vlastním tempem – Service Map
+Tato ukázka vlastním tempem vás provede použitím [řešení Service Map](operations-management-suite-service-map.md)v Azure a umožní vám identifikovat a diagnostikovat simulovaný problém ve webové aplikaci.  Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami.  Také konsoliduje data shromážděná ostatními službami a řešeními a pomáhá analyzovat výkon a identifikovat případné potíže.  Můžete také využít [prohledávání protokolu ve službě Log Analytics](../log-analytics/log-analytics-log-searches.md) a přejít k podrobnostem shromážděných dat s cílem identifikovat hlavní problém.
 
 
 ## <a name="scenario-description"></a>Popis scénáře
@@ -35,7 +35,7 @@ Právě jste dostali oznámení, že aplikace ACME Customer Portal má potíže 
 ## <a name="walk-through"></a>Názorný postup
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Připojení k centru OMS Experience Center
-Tento názorný postup vás provede použitím centra [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), které poskytuje kompletní prostředí OMS s ukázkovými daty. Začněte tím, že použijete tento odkaz a zadáte informace, a potom vyberte scénář **Insight and Analytics**.
+Tento názorný postup vás provede použitím centra [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), které poskytuje kompletní prostředí Log Analytics s ukázkovými daty. Začněte tím, že použijete tento odkaz a zadáte informace, a potom vyberte scénář **Insight and Analytics**.
 
 
 ### <a name="2-start-service-map"></a>2. Spuštění řešení Service Map
@@ -80,7 +80,7 @@ Podívejme se na **acmetomcat** blíž.  Klikněte v pravém horním rohu závis
 
 
 ### <a name="7-view-change-tracking"></a>7. Zobrazení sledování změn
-Podívejme se, jestli můžeme zjistit příčinu tohoto vysokého využití.  Klikněte na kartu **Souhrn**.  Poskytuje informace, které sada OMS získala z tohoto počítače, jako jsou neúspěšná připojení, kritické výstrahy a změny softwaru.  Oddíly se zajímavými informacemi z nedávné doby by už měly být rozbalené. Můžete rozbalit i další sekce a prohlédnout si informace, které obsahují.
+Podívejme se, jestli můžeme zjistit příčinu tohoto vysokého využití.  Klikněte na kartu **Souhrn**.  Poskytuje informace, které služba Log Analytics získala z tohoto počítače, jako jsou neúspěšná připojení, kritické výstrahy a změny softwaru.  Oddíly se souvisejícími informacemi z nedávné doby by už měly být rozbalené. Můžete rozbalit i další sekce a prohlédnout si informace, které obsahují.
 
 
 Pokud ještě není otevřené **Sledování změn**, rozbalte ho.  Zobrazuje informace shromážděné [řešením Change Tracking](../log-analytics/log-analytics-change-tracking.md).  Vypadá to, že se během tohoto časového intervalu změnil software.  Podrobnosti zobrazíte kliknutím na **Software**.  Do počítače se právě kolem 4:00 ráno přidal proces zálohování a právě ten asi bude příčinou nadměrné spotřeby prostředků.
@@ -90,7 +90,7 @@ Pokud ještě není otevřené **Sledování změn**, rozbalte ho.  Zobrazuje in
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Zobrazení podrobností v prohledávání protokolu
-Můžeme to dál ověřit tak, že se podíváme na podrobné informace o výkonu, které jsou shromážděné v úložišti Log Analytics.  Klikněte znovu na kartu **Výstrahy** a potom klikněte na jednu z výstrah **Vysoké využití procesoru**.  Klikněte na **Zobrazení podrobností v prohledávání protokolu**.  Otevře se okno Prohledávání protokolu, kde můžete využít [prohledávání protokolu](../log-analytics/log-analytics-log-searches.md) pro libovolná data uložená v úložišti.  Řešení Service Map pro nás už vytvořilo dotaz pro načtení výstrahy, která nás zajímá.  
+Můžeme to dál ověřit tak, že se podíváme na podrobné informace o výkonu, které jsou shromážděné v pracovním prostoru Log Analytics.  Klikněte znovu na kartu **Výstrahy** a potom klikněte na jednu z výstrah **Vysoké využití procesoru**.  Klikněte na **Zobrazení podrobností v prohledávání protokolu**.  Otevře se okno Prohledávání protokolu, kde můžete využít [prohledávání protokolu](../log-analytics/log-analytics-log-searches.md) pro libovolná data uložená v pracovním prostoru.  Řešení Service Map pro nás už vytvořilo dotaz pro načtení výstrahy, která nás zajímá.  
 
 ![Prohledávání protokolů](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
@@ -108,8 +108,8 @@ V tomto případě vidíme, že proces zálohování konzistentně využívá p�
 
 ## <a name="summary-points"></a>Souhrn v bodech
 - [Mapa služeb](operations-management-suite-service-map.md) poskytuje přehled celé aplikace i v případě, že nevíte o všech serverech a závislostech.
-- Service Map poskytuje informace o datech, která shromáždila ostatní řešení OMS, a pomáhá odhalit potíže s aplikací a její podpůrnou infrastrukturou.
-- [Prohledávání protokolu](../log-analytics/log-analytics-log-searches.md) umožňuje přejít k podrobnostem specifických dat shromážděných v úložišti Log Analytics.    
+- Service Map poskytuje informace o datech, která shromáždila ostatní řešení pro správu, a pomáhá odhalit potíže s aplikací a její podpůrnou infrastrukturou.
+- [Prohledávání protokolu](../log-analytics/log-analytics-log-searches.md) umožňuje přejít k podrobnostem specifických dat shromážděných v pracovním prostoru Log Analytics.    
 
 ## <a name="next-steps"></a>Další kroky
 - Přečtěte si víc o řešení [Service Map](operations-management-suite-service-map.md).

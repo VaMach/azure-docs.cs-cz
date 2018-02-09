@@ -1,5 +1,5 @@
 ---
-title: "Sdílení vlastních zobrazení Azure Time Series Insights pomocí parametrizovaných adres URL | Microsoft Docs"
+title: "Sdílení vlastních zobrazení Azure Time Series Insights pomocí parametrizovaných adres URL | Dokumentace Microsoftu"
 description: "Tento článek popisuje vývoj parametrizovaných adres URL ve službě Azure Time Series Insights za účelem snadného sdílení zobrazení zákazníka."
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Sdílení vlastního zobrazení pomocí parametrizovaných adres URL
 
@@ -63,14 +63,16 @@ Přijatelné hodnoty odpovídají nabídce **quick time** (rychlý čas) průzku
 
 Parametr `timeSeriesDefinitions=<collection of term objects>` určuje podmínky zobrazení Time Series Insights, kde:
 
-- `name=<string>`
+- "name":"<string>"
   - Název *podmínky*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - Název sloupce, podle kterého se bude *rozdělovat*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - Název sloupce obsahujícího *míru*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - Klauzule *kde* pro filtrování na straně serveru.
+-  "useSum":"true"
+  - Volitelný parametr určující používání součtu pro vaši míru.  Pokud je jako míra vybraná hodnota Events, je standardně vybraný počet.  Pokud není vybrána hodnota Events, je standardně vybraný průměr.  
 
 Parametr 'multiChartStack=<true/false>' povoluje umístění grafu do zásobníku a parametr 'multiChartSameScale=<true/false>' umožňuje stejné měřítko osy Y v podmínkách volitelného parametru.  
 

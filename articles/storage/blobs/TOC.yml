@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Práce s objekty blob – Python
       href: storage-quickstart-blobs-python.md
+    - name: Práce s objekty blob – Go
+      href: storage-quickstart-blobs-go.md
     - name: Práce s objekty blob – Ruby
       href: storage-quickstart-blobs-ruby.md
     - name: Práce s objekty blob – Node.js

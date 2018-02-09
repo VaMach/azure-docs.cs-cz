@@ -42,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurace přesměrování
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Konfigurace externího přesměrování
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Azure CLI](tutorial-external-site-redirect-powershell.md)
 ## Konfigurace webových aplikací jako členů back-endového fondu
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurace sond stavu

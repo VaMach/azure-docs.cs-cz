@@ -14,60 +14,52 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e8a43febdb2958f58ecb8d82f9f42b39c591522d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Vytvoření první funkce pomocí sady Visual Studio
 
 Služba Azure Functions umožňuje spuštění kódu v prostředí [bez serveru](https://azure.microsoft.com/overview/serverless-computing/), aniž byste nejdřív museli vytvořit virtuální počítač nebo publikovat webovou aplikaci.
 
-V tomto tématu zjistíte, jak pomocí nástrojů sady Visual Studio 2017 pro Azure Functions místně vytvořit a otestovat funkci Hello World. Kód funkce potom budete publikovat do Azure. Tyto nástroje jsou dostupné jako součást sady funkcí Vývoj pro Azure v sadě Visual Studio 2017 verze 15.3 nebo novější.
+V tomto článku se dozvíte, jak pomocí nástrojů sady Visual Studio 2017 pro službu Azure Functions místně vytvořit a otestovat funkci Hello World. Kód funkce potom publikujete do Azure. Tyto nástroje jsou dostupné jako součást sady funkcí Azure – vývoj v sadě Visual Studio 2017.
 
 ![Kód služby Azure Functions v projektu sady Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-Pokud chcete, můžete se místo toho [podívat na video](#watch-the-video).
+Toto téma obsahuje [video](#watch-the-video), které ilustruje stejný základní postup.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Pro absolvování tohoto kurzu nainstalujte:
+Pro absolvování tohoto kurzu potřebujete:
 
-* [Visual Studio 2017 verze 15.4](https://www.visualstudio.com/vs/) nebo novější, včetně sady funkcí **Vývoj pro Azure**.
+* Nainstalujte [Visual Studio 2017 verze 15.4](https://www.visualstudio.com/vs/) nebo novější včetně sady funkcí **Azure – vývoj**.
 
     ![Instalace sady Visual Studio 2017 se sadou funkcí Vývoj pro Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+* Zkontrolujte, že proběhla aktualizace na nejnovější verzi služby Azure Functions a nástrojů webových úloh. Tuto operaci proveďte v sekci **Aktualizace** > **Visual Studio Marketplace** v části **Rozšíření a aktualizace**.
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## <a name="create-an-azure-functions-project-in-visual-studio"></a>Vytvoření projektu Azure Functions v sadě Visual Studio
+## <a name="create-a-function-app-project"></a>Vytvoření projektu aplikace funkcí
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Teď, když jste vytvořili projekt, můžete vytvořit svou první funkci.
+Visual Studio vytvoří projekt a v něm třídu, která obsahuje často používaný kód pro zvolený typ funkce. Atribut **FunctionName** metody nastavuje název funkce. Atribut **HttpTrigger** určuje, že je funkce aktivována požadavkem HTTP. Často používaný kód odešle odpověď HTTP obsahující hodnotu z textu žádosti nebo řetězce dotazu. Použitím příslušných atributů pro metodu můžete přidat vstupní a výstupní vazbu funkce. Další informace najdete v části [Triggery a vazby](functions-dotnet-class-library.md#triggers-and-bindings) v [referenčních informacích pro vývojáře v jazyce C# v Azure Functions](functions-dotnet-class-library.md).
 
-## <a name="create-the-function"></a>Vytvoření funkce
+![Soubor s kódem funkce](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-1. V **Průzkumníku řešení** klikněte pravým tlačítkem na uzel projektu a vyberte **Přidat** > **Nová položka**. Vyberte **Funkce Azure Functions**, jako **Název** zadejte `HttpTriggerCSharp.cs` a klikněte na **Přidat**.
-
-2. Vyberte **HttpTrigger**, jako **Přístupová práva** vyberte **Anonymní** a klikněte na **OK**. Vytvořená funkce je přístupná prostřednictvím požadavku HTTP z jakéhokoli klienta. 
-
-    ![Vytvoření nové funkce Azure Functions](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
-
-    Do vašeho projektu se přidá soubor s kódem, který obsahuje třídu implementující kód vaší funkce. Tento kód je založený na šabloně, která přijímá hodnotu názvu a vrací ji zpět. Atribut **FunctionName** nastavuje název vaší funkce. Atribut **HttpTrigger** určuje zprávu, která funkci aktivuje. 
-
-    ![Soubor s kódem funkce](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
-Teď máte vytvořenou funkci aktivovanou protokolem HTTP a můžete ji otestovat na místním počítači.
+Teď máte vytvořený projekt funkcí a funkci aktivovanou protokolem HTTP, takže ji můžete otestovat na místním počítači.
 
 ## <a name="test-the-function-locally"></a>Místní testování funkce
 
 Nástroje Azure Functions Core umožňují spouštět projekt Azure Functions na místním počítači pro vývoj. K instalaci těchto nástrojů budete vyzváni při prvním spuštění funkce ze sady Visual Studio.  
 
-1. Pokud chcete funkci otestovat, stiskněte F5. Po výzvě přijměte požadavek ze sady Visual Studio na stažení a instalaci nástrojů Azure Functions Core (CLI).  Může být také potřeba povolit výjimku brány firewall, aby nástroje mohly zpracovávat požadavky HTTP.
+1. Pokud chcete funkci otestovat, stiskněte F5. Po výzvě přijměte požadavek ze sady Visual Studio na stažení a instalaci nástrojů Azure Functions Core (CLI). Může být také potřeba povolit výjimku brány firewall, aby nástroje mohly zpracovávat požadavky HTTP.
 
 2. Zkopírujte adresu URL vaší funkce z výstupu modulu runtime služby Azure Functions.  
 
@@ -91,7 +83,7 @@ Před publikováním projektu musíte mít v předplatném Azure aplikaci funkc�
 
 1. Zkopírujte základní adresu URL aplikace funkcí ze stránky Publikovat profil. Nahraďte část adresy URL použité při místním testování funkce, která obsahuje `localhost:port`, novou základní adresou URL. Stejně jako dříve nezapomeňte k této adrese URL připojit řetězec dotazu `?name=<yourname>` a provést požadavek.
 
-    Adresa URL, která volá vaši funkci aktivovanou protokolem HTTP, vypadá nějak takto:
+    Adresa URL, která volá funkci aktivovanou protokolem HTTP, by měla být v následujícím formátu:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 

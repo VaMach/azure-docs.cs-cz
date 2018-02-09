@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 80e8e85f058a5cec2e3ae6a6cff5cb8a363370e1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Začínáme s Azure CDN
-Tento článek popisuje povolení Azure CDN prostřednictvím vytvoření nového profilu a koncového bodu CDN.
+Tento článek popisuje povolení Azure CDN (Content Delivery Network) prostřednictvím vytvoření nového profilu a koncového bodu CDN.
 
 > [!IMPORTANT]
 > Úvod do sítě CDN a seznam funkcí najdete v tématu [Přehled sítě CDN](cdn-overview.md).
@@ -29,7 +29,7 @@ Tento článek popisuje povolení Azure CDN prostřednictvím vytvoření novéh
 > 
 
 ## <a name="create-a-new-cdn-profile"></a>Vytvoření nového profilu CDN
-Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jeden nebo víc koncových bodů CDN.  Můžete použít více profilů a uspořádat koncové body CDN podle internetové domény, webové aplikace nebo jiných kritérií.
+Profil CDN je kolekcí koncových bodů CDN. Jednotlivé profily mohou obsahovat jeden nebo víc koncových bodů CDN. K uspořádání koncových bodů CDN podle internetové domény, webové aplikace nebo jiných kritérií můžete použít několik profilů.
 
 > [!NOTE]
 > Předplatné Azure má výchozí omezení pro následující prostředky:
@@ -39,7 +39,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 >
 > Informace o omezeních předplatného CDN najdete v tématu věnovaném [omezením CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
 >
-> Ceny CDN se uplatní na úrovni profilu CDN. Pokud chcete použít kombinaci cenových úrovní Azure CDN, budete potřebovat víc profilů CDN.
+> Ceny CDN se uplatní na úrovni profilu CDN. Proto pokud chcete použít kombinaci cenových úrovní Azure CDN, musíte vytvořit víc profilů CDN.
 > 
 > 
 
@@ -48,52 +48,58 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 ## <a name="create-a-new-cdn-endpoint"></a>Vytvoření nového koncového bodu CDN
 **Postup vytvoření nového koncového bodu CDN**
 
-1. Na webu [Azure Portal](https://portal.azure.com) přejděte na svůj profil CDN.  Je možné, že jste si ho v předchozím kroku připnuli k řídicímu panelu.  Pokud ne, najdete ho kliknutím na položku **Procházet**, poté položku **Profily CDN** a nakonec kliknutím na profil, ke kterému plánujete přidat koncový bod.
+1. Na webu [Azure Portal](https://portal.azure.com) přejděte na svůj profil CDN. Je možné, že jste si ho v předchozím kroku připnuli k řídicímu panelu. Pokud ne, najdete ho tak, že vyberete **Všechny služby** a potom vyberete **Profily CDN**. V podokně **Profily CDN** vyberte profil, ke kterému plánujete přidat koncový bod. 
    
-    Otevře se okno Profil CDN.
+    Otevře se podokno Profil CDN.
    
     ![Profil CDN][cdn-profile-settings]
-2. Klikněte na tlačítko **Přidat koncový bod**.
+
+2. Vyberte **Koncový bod**.
    
     ![Tlačítko Přidat koncový bod][cdn-new-endpoint-button]
    
-    Otevře se okno **Přidání koncového bodu**.
+    Otevře se podokno **Přidat koncový bod**.
    
-    ![Okno Přidání koncového bodu][cdn-add-endpoint]
-3. Zadejte **Název** tohoto koncového bodu CDN.  Tento název se používá pro přístup k prostředkům v mezipaměti v doméně `<endpointname>.azureedge.net`.
-4. V rozevíracím seznamu **Typ původu** vyberte typ původu.  V případě účtu Azure Storage vyberte položku **Storage**, v případě cloudové služby Azure vyberte položku **Cloudová služba**, v případě webové aplikace Azure vyberte položku **Webová aplikace** a v případě jakéhokoli jiného veřejně přístupného původu webového serveru (hostovaného v Azure nebo jinde) vyberte položku **Vlastní původ**.
+    ![Přidat koncový bod][cdn-add-endpoint]
+
+3. Do pole **Název** zadejte jedinečný název pro nový koncový bod CDN. Tento název se používá pro přístup k prostředkům v mezipaměti v doméně `<endpointname>.azureedge.net`.
+
+4. V poli **Typ zdroje** vyberte typ zdroje. V případě účtu Azure Storage vyberte položku **Storage**, v případě cloudové služby Azure vyberte položku **Cloudová služba**, v případě webové aplikace Azure vyberte položku **Webová aplikace** a v případě jakéhokoli jiného veřejně přístupného původu webového serveru (hostovaného v Azure nebo jinde) vyberte položku **Vlastní původ**.
    
     ![Typ původu CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. V rozevíracím seznamu **Název hostitele původu** vyberte nebo zadejte doménu původu.  Tento rozevírací seznam obsahuje všechny dostupné původy typu, který jste zadali v kroku 4.  Pokud jako **Typ zdroje** vyberete *Vlastní zdroj*, zadejte doménu vlastního zdroje.
-6. Do textového pole **Cesta původu** zadejte cestu k prostředkům, které chcete uložit do mezipaměti, nebo ponechte pole prázdné, čímž povolíte, aby byl do mezipaměti uložen libovolný prostředek v doméně zadané v kroku 5.
-7. Do pole **Hlavička hostitele původu** zadejte hlavičku hostitele, kterou má CDN odeslat spolu s každou žádostí, nebo ponechte výchozí nastavení.
+
+5. V poli **Název počátečního hostitele** vyberte nebo zadejte zdrojovou doménu. Tento rozevírací seznam obsahuje všechny dostupné zdroje typu, který jste zadali v kroku 4. Pokud jste jako typ zdroje vybrali **Vlastní zdroj**, zadejte doménu vlastního zdroje.
+    
+6. Do pole **Cesta ke zdroji** zadejte cestu k prostředkům, které chcete uložit do mezipaměti, nebo ponechte pole prázdné, čímž povolíte, aby se do mezipaměti uložil libovolný prostředek v doméně zadané v kroku 5.
+    
+7. Do pole **Hlavička počátečního hostitele** zadejte hlavičku hostitele, kterou má Azure CDN odeslat spolu s každou žádostí, nebo ponechte výchozí nastavení.
    
    > [!WARNING]
    > Některé typy původu (například Azure Storage a Web Apps) vyžadují, aby se hlavička hostitele shodovala s doménou původu. Pokud nemáte původ, který vyžaduje hlavičku hostitele odlišnou od své domény, je vhodné ponechat výchozí hodnotu.
    > 
-   > 
+    
 8. V polích **Protokol** a **Port původu** určete protokoly a porty sloužící k přístupu k prostředkům v původu. Je nutné vybrat alespoň jeden protokol (HTTP nebo HTTPS). Pro přístup k obsahu HTTPS použijte doménu poskytnutou sítí CDN (`<endpointname>.azureedge.net`). 
    
    > [!NOTE]
-   > **Port původu** má vliv pouze na port použitý koncovým bodem k načtení informací z původu.  Koncový bod jako takový je dostupný pouze koncovým klientům na výchozích portech HTTP a HTTPS (80 a 443), a to bez ohledu na **Port původu**.  
+   > Hodnota **Počáteční port** určuje jenom port použitý koncovým bodem k načtení informací ze zdroje. Koncový bod jako takový je dostupný jenom koncovým klientům na výchozích portech HTTP a HTTPS (80 a 443), a to bez ohledu na nastavení **Počáteční port**.  
    > 
-   > Koncové body **Azure CDN společnosti Akamai** neumožňují použít u původu plný rozsah portů.  Seznam nepovolených portů původu najdete v tématu [Povolené porty původu Azure CDN společnosti Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
+   > Koncové body v profilech **Azure CDN od Akamai** pro počáteční porty neumožňují použití plného rozsahu portů. Seznam nepovolených portů původu najdete v tématu [Povolené porty původu Azure CDN společnosti Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
    > 
-   > Přístup k obsahu CDN pomocí protokolu HTTPS má tato omezení:
+   > Pokud k obsahu CDN přistupujete s využitím HTTPS, platí tato omezení:
    > 
-   > * Je nutné použít certifikát SSL poskytnutý systémem CDN. Certifikáty třetích stran nejsou podporovány.
+   > * Použijte certifikát SSL poskytnutý službou CDN. Certifikáty třetích stran nejsou podporovány.
    > * Podpora protokolu HTTPS pro vlastní domény Azure CDN je dostupná pouze v produktech **Azure CDN od Verizonu** (Standard a Premium). V produktech **Azure CDN od Akamai** se nepodporuje. Další informace najdete v tématu [Konfigurace HTTPS pro vlastní doménu Azure CDN](cdn-custom-ssl.md).
-  
-9. Kliknutím na tlačítko **Přidat** vytvořte nový koncový bod.
+    
+9. Pokud chcete vytvořit nový koncový bod, vyberte **Přidat**.
    
    Koncový bod se po vytvoření zobrazí v seznamu koncových bodů daného profilu.
     
    ![Koncový bod CDN][cdn-endpoint-success]
     
    > [!IMPORTANT]
-   > Vzhledem k tomu, že rozšíření registrace nějakou dobu trvá, koncový bod nebude hned dostupný pro použití.  V případě profilů <b>Azure CDN od Akamai</b> je šíření obvykle hotové během jedné minuty. V případě profilů <b>Azure CDN od společnosti Verizon</b> je šíření obvykle hotové během 90 minut, ale někdy může trvat déle.
+   > Vzhledem k tomu, že rozšíření registrace nějakou dobu trvá, koncový bod není okamžitě dostupný pro použití. V případě profilů **Azure CDN od Akamai** je šíření obvykle hotové během jedné minuty. V případě profilů **Azure CDN od společnosti Verizon** je šíření obvykle hotové během 90 minut, ale někdy může trvat déle.
     > 
-    > Pokud se uživatel pokusí použít název domény CDN dříve, než se konfigurace koncového bodu rozšíří do bodů POP, obdrží kódy odpovědí protokolu HTTP 404.  Pokud jste vytvořili koncový bod před několika hodinami, a přesto obdržíte kód odpovědi 404, prostudujte téma [Řešení problémů s koncovými body CDN, které vracejí stav 404](cdn-troubleshoot-endpoint.md).
+    > Pokud se pokusíte použít název domény CDN dřív, než se konfigurace koncového bodu rozšíří do bodů POP, může se zobrazit stav odpovědi HTTP 404. Pokud jste koncový bod vytvořili před několika hodinami, a přesto se stále zobrazuje stav odpovědi 404, projděte si téma [Řešení problémů s koncovými body CDN, které vracejí stav 404](cdn-troubleshoot-endpoint.md).
     > 
     > 
 

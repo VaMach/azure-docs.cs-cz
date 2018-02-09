@@ -40,7 +40,7 @@ Pro absolvování tohoto kurzu potřebujete:
 + [Vytvoření instance Azure API Managementu](get-started-create-service-instance.md)
 + [Import a publikování rozhraní API](import-and-publish.md)
 
-## <a name="caching-policies">Přidání zásad ukládání do mezipaměti</a>
+## <a name="caching-policies"></a>Přidání zásad ukládání do mezipaměti
 
 S použitím zásad ukládání do mezipaměti zobrazených v tomto příkladu vrátí první požadavek na operaci **GetSpeakers** odpověď z back-endové služby. Tato odpověď se uloží do mezipaměti, kam bude zadaná podle určených hlaviček a parametrů řetězce dotazu. Následující volání operace (s odpovídající parametry) bude vracet odpověď uloženou v mezipaměti až do okamžiku vypršení doby uložení v mezipaměti.
 

@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>Co je služba API Management?
 
@@ -30,7 +30,7 @@ V následujícím videu se podívejte na přehled služby Azure API Management a
 > 
 > 
 
-Toto téma obsahuje přehled běžných scénářů, které zahrnují APIM.  Také poskytuje stručný přehled hlavních komponent systému APIM. Téma dále poskytuje podrobnější přehled jednotlivých komponent.
+Tento článek obsahuje přehled běžných scénářů, které zahrnují APIM.  Také poskytuje stručný přehled hlavních komponent systému APIM. Článek dále poskytuje podrobnější přehled jednotlivých komponent.
 
 ## <a name="overview"></a>Přehled
 
@@ -50,7 +50,7 @@ Systém se skládá z následujících součástí:
   * Transformuje rozhraní API za chodu beze změny kódu.
   * Ukládá odezvy back-endu do určené mezipaměti.
   * Protokoluje metadata volání pro účely analýzy.
-* **Portál vydavatele** je rozhraní pro správu, ve kterém můžete svůj program s rozhraním API nastavit. Použijte ho k následujícím akcím:
+* Web **Azure Portal** je administrativním rozhraní, ve kterém nastavujete program rozhraní API. Použijte ho k následujícím akcím:
   
   * definování nebo import schématu rozhraní API
   * balení rozhraní API do produktů
@@ -104,7 +104,7 @@ Když se vývojáři přihlásí k odběru produktu, získají primární a seku
 Další informace najdete v článcích o [vytváření a zvaní vývojářů][How to create or invite developers] a [přidružení skupin k vývojářům][How to associate groups with developers].
 
 ## <a name="policies"></a> Zásady
-Zásady jsou vynikající funkcí služby API Management, která vydavatelům umožňuje měnit chování rozhraní API prostřednictvím konfigurace. Zásady představují kolekci příkazů, které se postupně provádí na základě požadavku nebo odezvy z rozhraní API. Mezi oblíbené příkazy patří převod formátu XML do formátu JSON a omezení četnosti volání, kterým omezíte počet příchozích volání od vývojáře. K dispozici je i mnoho dalších zásad.
+Zásady jsou vynikající funkcí služby API Management, která webu Azure Portal umožňuje měnit chování rozhraní API prostřednictvím konfigurace. Zásady představují kolekci příkazů, které se postupně provádí na základě požadavku nebo odezvy z rozhraní API. Mezi oblíbené příkazy patří převod formátu XML do formátu JSON a omezení četnosti volání, kterým omezíte počet příchozích volání od vývojáře. K dispozici je i mnoho dalších zásad.
 
 Výrazy zásad můžete použít jako hodnoty atributů nebo textové hodnoty v libovolných zásadách API Management (pokud zásady neurčí jinak). Některé zásady, například [řízení toku](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) a [nastavená proměnná](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), jsou založené na výrazech zásad. Další informace najdete v článcích [Pokročilé zásady](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) a [Výrazy zásad](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

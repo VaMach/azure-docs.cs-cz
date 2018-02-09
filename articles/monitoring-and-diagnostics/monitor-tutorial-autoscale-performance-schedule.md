@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Vytvoření nastavení automatického škálování prostředků Azure na základě údajů o výkonu nebo časového plánu
 
@@ -35,11 +35,11 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Vytvoření webové aplikace a plánu služby App Service
-V levém navigačním podokně klikněte na **Nový**.
+1. V levém navigačním podokně klikněte na volbu **Nový**.
 
-Vyhledejte položku *Webová aplikace*, klikněte na ni a pak klikněte na **Vytvořit**.
+2. Vyhledejte položku *Webová aplikace*, klikněte na ni a pak klikněte na **Vytvořit**.
 
-Vyberte název aplikace, například *MyTestScaleWebApp*. Vytvořte novou skupinu prostředků *myResourceGroup* a umístěte ji do skupiny prostředků podle svého výběru.
+3. Vyberte název aplikace, například *MyTestScaleWebApp*. Vytvořte novou skupinu prostředků *myResourceGroup* a umístěte ji do skupiny prostředků podle svého výběru.
 
 Během několika minut by mělo proběhnout zřízení vašich prostředků. Ve zbývající části tohoto kurzu budete používat webovou aplikaci a odpovídající plán služby App Service.
 

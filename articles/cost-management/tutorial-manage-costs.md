@@ -1,115 +1,115 @@
 ---
-title: "Řízení nákladů pomocí Azure náklady na správu | Microsoft Docs"
-description: "Náklady na správu pomocí náklady přidělení a kompletní přehled nákladů a sestav vracení peněz."
+title: "Správa nákladů pomocí služby Azure Cost Management | Microsoft Docs"
+description: "Spravujte náklady s využitím přidělování nákladů a sestav metod showback a chargeback."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Řízení nákladů pomocí Azure náklady na správu
+# <a name="manage-costs-by-using-azure-cost-management"></a>Správa nákladů pomocí služby Azure Cost Management
 
-Řízení nákladů a vytváření sestav kompletní přehled nákladů v Azure náklady na správu Cloudyn přidělí poplatkům za značky. Proces přidělení nákladů přiřadí náklady pro vaše prostředky spotřebované cloudu. Náklady jsou plně přiřazený při všechny prostředky, které jsou klasifikovány pomocí značek. Po náklady jsou přiděleny, můžete poskytovat kompletní přehled nákladů nebo vrácení peněz uživatelům s řídicí panely a sestavy. Však množství prostředků můžou vyžadující nebo untaggable když začnete používat náklady na správu.
+Ve službě Azure Cost Management od Cloudyn spravujete náklady a vytváříte sestavy metody showback přidělováním nákladů na základě značek. Proces přidělování nákladů přiřazuje náklady ke spotřebovaným cloudovým prostředkům. K úplnému přidělení nákladů dojde, když jsou všechny prostředky uspořádané do kategorií pomocí značek. Po přidělení nákladů můžete svým uživatelům prostřednictvím řídicích panelů a sestav poskytnout metodu showback nebo chargeback. Když však začnete používat službu Cost Management, řada prostředků nemusí být označených nebo označení nemusí podporovat.
 
-Například můžete chtít získat vráceny pro engineering náklady. Musíte být schopni zobrazit technického týmu, které potřebujete určitou velikostí, na základě nákladů prostředků. Je možné zobrazit sestavy pro všechny prostředky spotřebované, které jsou označené *engineering*.
+Například si můžete chtít nechat uhradit náklady na vytváření. Musíte být schopni svému technickému týmu ukázat, že potřebujete konkrétní částku v závislosti na nákladech na prostředky. Můžete jim ukázat sestavu všech spotřebovaných prostředků označených značkou *engineering* (vytváření).
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Pomocí vlastních značek přidělit náklady.
-> * Vytvoření kompletní přehled nákladů a sestav vracení peněz.
+> * Používat vlastní značky k přidělování nákladů.
+> * Vytvářet sestavy metod showback a chargeback.
 
-## <a name="use-custom-tags-to-allocate-costs"></a>Pomocí vlastních značek přidělení náklady
+## <a name="use-custom-tags-to-allocate-costs"></a>Použití vlastních značek k přidělování nákladů
 
-Když spustíte přidělení nákladů, je první věcí, které můžete provést je definování oboru pomocí modelu náklady. Model náklady nemění náklady, distribuuje je. Když vytvoříte model náklady, segmentovat se vaše data entity náklady, účet nebo předplatné a více značek. Společné Příklad značky mohou zahrnovat kód pro účtování, nákladové středisko nebo název skupiny. Značky také můžete provádět kompletní přehled nákladů nebo vrácení peněz do dalších částí vaší organizace.
+Když začnete s přidělováním nákladů, první věc, kterou je potřeba udělat, je definovat rozsah s použitím modelu nákladů. Model nákladů náklady nemění, ale distribuuje je. Při vytváření modelu nákladů rozdělíte svá data podle entity nákladů, účtu nebo předplatného a několika značek. Mezi běžné příklady značek může patřit kód pro fakturaci, nákladové středisko nebo název skupiny. Značky pomáhají také provádět showback a chargeback do jiných částí organizace.
 
-Pro vytvoření modelu přidělení vlastní náklady, vyberte **náklady** &gt; **náklady na správu** &gt; **přidělení nákladů 360°** v nabídce sestavy.
+Pokud chcete vytvořit vlastní model přidělování nákladů, vyberte v nabídce sestavy **Cost** (Náklady) &gt; **Cost Management** (Správa nákladů) &gt; **Cost Allocation 360°** (360° přidělování nákladů).
 
-![Výběr náklady 360 přidělení](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Výběr možnosti Cost Allocation 360° (360° přidělování nákladů)](./media/tutorial-manage-costs/cost-allocation-360.png)
 
-Na **náklady přidělení 360** vyberte **přidat** a pak zadejte název a popis pro váš model náklady. Vyberte všechny účty nebo jednotlivé účty. Pokud chcete používat samostatné účty, můžete vybrat více účtů z více poskytovatelů cloudových služeb. Klikněte na tlačítko **kategorizaci** zvolit zjištěných značky, které kategorizace dat náklady. Zvolte značky (kategorie), které chcete zahrnout do modelu. V následujícím příkladu **jednotky** značky je vybrána.
+Na stránce **Cost Allocation 360°** (360° přidělování nákladů) vyberte **Add** (Přidat) a pak zadejte název a popis modelu nákladů. Vyberte všechny účty nebo jednotlivé účty. Pokud chcete použít jednotlivé účty, můžete vybrat několik účtů od několika poskytovatelů cloudových služeb. Dále klikněte na **Categorization** (Kategorizace) a ze zjištěných značek zvolte ty, které kategorizují vaše data nákladů. Zvolte značky (kategorie), které chcete zahrnout do svého modelu. V následujícím příkladu je vybraná značka **Unit** (Jednotka).
 
-![Příklad nákladů modelu kategorizaci](./media/tutorial-manage-costs/cost-model01.png)
-
-
-
-Příklad ukazuje, že je tento 14,444 $ Nezařazeno do kategorie (bez značek).
-
-Potom vyberte **nezařazené prostředky** a vyberte služby, které mají volné náklady. Poté definujte pravidla přidělit náklady.
-
-Můžete například provést náklady na úložiště Azure a distribuovat náklady na stejnou měrou na virtuálních počítačích Azure (VM). To pokud chcete udělat, vyberte **úložiště Azure** služby, vyberte **úměrná Categorized**a potom vyberte **virtuální počítač Azure nebo**. Pak vyberte **vytvořit**.
-
-![Příklad nákladů modelu přidělení pravidlo pro rovnoměrně](./media/tutorial-manage-costs/cost-model02.png)
+![Příklad kategorizace modelu nákladů](./media/tutorial-manage-costs/cost-model01.png)
 
 
 
-V různých třeba můžete přidělit všechny náklady na síť Azure konkrétní organizační jednotky ve vaší organizaci. Chcete-li to provést, vyberte **Azure a síťových** služby a potom vyberte **explicitní distribuční**. Poté nastavit pro rozdělování do 100 a vyberte organizační jednotku –**G&amp;A** na následujícím obrázku:
+Příklad ukazuje, že 14 444 USD není zařazeno do kategorií (nemá značku).
 
-![Příklad nákladů modelu přidělení pravidlo pro konkrétní organizační jednotky](./media/tutorial-manage-costs/cost-model03.png)
+Dále vyberte **Uncategorized Resources** (Prostředky nezařazené do kategorií) a vyberte služby s nepřidělenými náklady. Pak definujte pravidla pro přidělení prostředků.
+
+Můžete například vzít náklady na úložiště Azure a rovnoměrně je distribuovat na virtuální počítače Azure. Pokud to chcete provést, vyberte službu **Azure/Storage**, pak možnost **Proportional to Categorized** (Proporční na kategorizované) a pak vyberte **Azure/VM**. Potom vyberte **Create** (Vytvořit).
+
+![Příklad pravidla přidělování v modelu nákladů pro rovnoměrnou distribuci](./media/tutorial-manage-costs/cost-model02.png)
 
 
 
-Pro všechny zbývající nezařazené prostředky vytvořte další přidělení pravidla.
+V jiném příkladu můžete chtít přidělit veškeré náklady na síť Azure ke konkrétní obchodní jednotce v rámci organizace. Pokud to chcete provést, vyberte službu **Azure/Network** a pak vyberte možnost **Explicit Distribution** (Explicitní distribuce). Potom nastavte podíl distribuce v procentech na 100 a vyberte obchodní jednotku – na následujícím obrázku je to **G&amp;A**:
 
-Pokud máte všechny nepřidělené instance vyhrazené Amazon Web Services (AWS), můžete je přiřadit k s příznakem kategorie s **vyhrazenou instancí**.
+![Příklad pravidla přidělování v modelu nákladů pro konkrétní obchodní jednotku](./media/tutorial-manage-costs/cost-model03.png)
 
-Chcete-li zobrazit informace o volby, které jste provedli přidělit náklady, vyberte **Souhrn**. Chcete-li pokračovat v práci s další pravidla později a ukládat informace, vyberte **uložit jako koncept**. Nebo pokud chcete ukládat informace a mít Cloudyn zahájení zpracování modelu přidělení náklady, vyberte **uložit a aktivujte**.
 
-Zobrazuje seznam modelů náklady na nové náklady na modelu pomocí **zpracování stavu**. Může trvat nějakou dobu, než aktualizaci databáze Cloudyn modelu náklady. Po dokončení zpracování k aktualizaci stavu **dokončeno**. Potom můžete zobrazit data z modelu náklady na v sestavě analýza nákladů v **rozšířené filtry** &gt; **náklady modelu**.
 
-### <a name="category-manager"></a>Správce kategorie
+Pro všechny zbývající prostředky nezařazené do kategorií vytvořte další pravidla přidělování.
 
-Kategorie Manager je nástroj Vyčištění dat, který umožňuje sloučit více kategorií (značky) k vytvoření nové hodnoty. Je jednoduchý nástroj založený na pravidlech kde vyberte kategorii a vytvářet pravidla pro sloučení existující hodnoty. Například můžete mít existující kategorie pro **R&amp;D** a **dev** kde obě představují vývojářské skupině.
+Pokud máte nějaké nepřidělené rezervované instance Amazon Web Services (AWS), můžete je přiřadit k označeným kategoriím s **rezervovanými instancemi**.
 
-V portálu Cloudyn, klikněte na symbol ozubené kolečko v horním pravém rohu a vyberte **správce kategorie**. Chcete-li vytvořit novou kategorii, vyberte plus symbol (**+**). Zadejte název pro kategorii a pak v části **klíče**, zadejte kategorie klíčů, které chcete zahrnout do nové kategorie.
+Pokud chcete zobrazit informace o provedených volbách pro přidělování nákladů, vyberte **Summary** (Souhrn). Pokud chcete uložit informace a pokračovat v práci na dalších pravidlech později, vyberte **Save As Draft** (Uložit jako koncept). Případně pokud chcete uložit informace a nechat Cloudyn zahájit zpracování modelu přidělování nákladů, vyberte **Save and Activate** (Uložit a aktivovat).
 
-Když definujete pravidlo, můžete přidat více hodnot s podmínkou nebo. Můžete také provést některé základní operace s řetězci. V obou případech kliknutím na symbol tří teček (**...** ) napravo od **pravidlo**.
+V seznamu modelů nákladů se zobrazí váš nový model nákladů a jeho **Processing status** (Stav zpracování). Aktualizace databáze Cloudyn o váš model nákladů může nějakou dobu trvat. Po dokončení zpracování se stav aktualizuje na **Completed** (Dokončeno). Pak můžete zobrazit data ze svého modelu nákladů v sestavě analýzy nákladů v části **Extended Filters** (Rozšířené filtry) &gt; **Cost Model** (Model nákladů).
 
-Chcete-li definovat nové pravidlo v **pravidla** oblasti, vytvořit nové pravidlo. Zadejte například **dev** pod **pravidla** a pak zadejte **R&amp;D** pod **akce**. Když jste hotovi, uložte novou kategorii.
+### <a name="category-manager"></a>Category Manager (Správce kategorií)
 
-Následující obrázek ukazuje příklad pravidel vytvořených pro novou kategorii s názvem **pracovní zatížení**:
+Category Manager (Správce kategorií) je nástroj pro čištění dat, který pomáhá slučováním hodnot v několika kategoriích (značkách) vytvářet nové kategorie. Je to jednoduchý nástroj založený na pravidlech, ve kterém vyberete kategorii a vytvoříte pravidla pro sloučení stávajících hodnot. Například můžete mít existující kategorie **R&amp;D** a **dev**, které obě představují vývojovou skupinu.
+
+Na portálu Cloudyn klikněte na symbol ozubeného kolečka v pravém horním rohu a vyberte možnost **Category Manager** (Správce kategorií). Pokud chcete vytvořit novou kategorii, vyberte symbol plus (**+**). Zadejte název kategorie a pak v části **Keys** (Klíče) zadejte klíče kategorií, které chcete do nové kategorie zahrnout.
+
+Při definování pravidla můžete přidat více hodnot s použitím podmínky OR. Můžete také provádět několik základních operací s řetězci. V každém případě klikněte na symbol tří teček (**...**) napravo od položky **Rule** (Pravidlo).
+
+Pokud chcete definovat nové pravidlo, v oblasti **Rules** (Pravidla) vytvořte nové pravidlo. Zadejte například **dev** v části **Rules** (Pravidla) a pak zadejte **R&amp;D** v části **Actions** (Akce). Jakmile budete hotovi, uložte novou kategorii.
+
+Následující obrázek ukazuje příklad pravidel vytvořených pro novou kategorii **Work-Load**:
 
 ![Příklad kategorie](./media/tutorial-manage-costs/category01.png)
 
-### <a name="tag-sources-and-reports"></a>Značka zdroje a sestavy
+### <a name="tag-sources-and-reports"></a>Označování zdrojů a sestav
 
-Data značek, která se zobrazí v sestavách Cloudyn pochází na třech místech:
+Data značek, která se zobrazují v sestavách Cloudyn, pocházejí ze tří míst:
 
-- Cloudové prostředky poskytovatele rozhraní API
-- Fakturace rozhraní API poskytovatele cloudu
-- Ruční vytvoření značky, z následujících zdrojů:
-    - Značky entity Cloudyn - uživatelem definované datové meta u Cloudyn entity
-    - Kategorie Správce – dat čisticí nástroj, který vytvoří nové značky na základě pravidel, které se použijí pro existující značky
+- Rozhraní API poskytovatele cloudu pro práci s prostředky
+- Rozhraní API poskytovatele cloudu pro fakturaci
+- Ručně vytvořené značky z následujících zdrojů:
+    - Značky entit Cloudyn – uživatelsky definovaná metadata použitá na entity Cloudyn.
+    - Category Manager (Správce kategorií) – nástroj pro čištění dat, který vytváří nové značky na základě pravidel použitých na existující značky.
 
-Chcete-li zobrazit značky zprostředkovatele cloudu v sestavách Cloudyn náklady na musí vytvořit model přidělení vlastní náklady pomocí 360 přidělení náklady. Chcete-li to provést, přejděte na **náklady** > **náklady na správu** > **náklady přidělení 360**, vyberte požadované značky a pak definovat pravidla pro zpracování vyžadující náklady. Pak vytvořte nový model náklady. Potom můžete zobrazit sestavy v analýza nákladů na přidělení k zobrazení, filtrů a řazení na značek prostředků Azure.
+Pokud chcete v sestavách nákladů Cloudyn zobrazit značky poskytovatele cloudu, musíte vytvořit vlastní model přidělování nákladů pomocí možnosti Cost Allocation 360° (360° přidělování nákladů). Pokud to chcete provést, přejděte do **Cost** (Náklady) > **Cost Management** (Správa nákladů) > **Cost Allocation 360** (360° přidělování nákladů), vyberte požadované značky a pak definujte pravidla pro zpracování neoznačených nákladů. Pak vytvořte nový model nákladů. Následně můžete podle značek prostředků Azure zobrazit, filtrovat a řadit sestavy v části Cost Allocation Analysis (Analýza přidělování nákladů).
 
-Značky prostředku Azure jsou zobrazeny pouze ve **náklady přidělení Analysis** sestavy.
+Značky prostředků Azure se zobrazí pouze v sestavách **Cost Allocation Analysis** (Analýza přidělování nákladů).
 
-Cloud poskytovatele fakturace značky se zobrazí v všechny sestavy náklady.
+Značky fakturace poskytovatele cloudu se zobrazí ve všech sestavách nákladů.
 
-Značky entity Cloudyn a značky, které ručně vytvoříte zobrazí všechny sestavy náklady.
+Značky entit Cloudyn a ručně vytvořené značky se zobrazí ve všech sestavách nákladů.
 
 
-## <a name="create-showback-and-chargeback-reports"></a>Vytvoření sestavy kompletní přehled nákladů a vrácení peněz
+## <a name="create-showback-and-chargeback-reports"></a>Vytváření sestav metod showback a chargeback
 
-Metody, které organizace používat k provádění kompletní přehled nákladů a vrácení peněz se výrazně liší. Však můžete všechny řídicí panely a sestavy na portálu Cloudyn jako základ pro buď účel. Zajistíte uživatelský přístup všem uživatelům ve vaší organizaci tak, aby se může zobrazit řídicí panely a sestavy na vyžádání. Všechny náklady analýza sestavy podporují kompletní přehled nákladů, protože ukazují uživatelům prostředky, které budou využívat. A umožňují uživatelům přejít k podrobnostem náklady a využití, data, která je specifická pro jejich skupiny v rámci vaší organizace.
+Metody, pomocí kterých organizace provádějí showback a chargeback, se výrazně liší. Pro oba účely však můžete jako základ použít jakékoli řídicí panely a sestavy na portálu Cloudyn. Komukoli v rámci organizace můžete poskytnout uživatelský přístup, aby mohl řídicí panely a sestavy zobrazit na vyžádání. Všechny sestavy analýzy nákladů podporují showback, protože uživatelům ukazují prostředky, které spotřebovali. Navíc umožňují uživatelům zobrazit podrobné informace o nákladech nebo využití specifické pro jejich skupinu v rámci organizace.
 
-Chcete-li zobrazit výsledky přidělení nákladů, otevřete sestavu analýzy náklady a vyberte náklady na model, který jste vytvořili. Pak přidejte seskupení jednu nebo více značek vybrané v modelu náklady.
+Pokud chcete zobrazit výsledky přidělování nákladů, otevřete sestavu analýzy nákladů a vyberte model nákladů, který jste vytvořili. Pak přidejte seskupení podle jedné nebo několika značek vybraných v modelu nákladů.
 
-![Sestava analýzy náklady](./media/tutorial-manage-costs/cost-analysis.png)
+![Sestava analýzy nákladů](./media/tutorial-manage-costs/cost-analysis.png)
 
-Můžete snadno vytvořit a uložit sestav, které se zaměřují na konkrétní služby spotřebovávají konkrétních skupin. Například může mít oddělení, který hojně používá virtuální počítače Azure. Můžete vytvořit sestavu, která je filtrován na virtuálních počítačích Azure zobrazíte využívání a náklady.
+Můžete snadno vytvářet a ukládat sestavy zaměřené na konkrétní služby spotřebované konkrétními skupinami. Například můžete mít oddělení, které ve velké míře využívá virtuální počítače Azure. Můžete vytvořit sestavu s filtrem na virtuální počítače Azure, ve které se zobrazí spotřeba a náklady.
 
-Pokud potřebujete poskytovat data snímku do dalších týmů, můžete exportovat žádnou sestavu ve formátu PDF nebo CSV.
+Pokud potřebujete poskytnout data snímků jiným týmům, můžete jakoukoli sestavu exportovat ve formátu PDF nebo CSV.
 
 
 ## <a name="next-steps"></a>Další kroky
@@ -117,12 +117,12 @@ Pokud potřebujete poskytovat data snímku do dalších týmů, můžete exporto
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Pomocí vlastních značek přidělit náklady.
-> * Vytvoření kompletní přehled nákladů a sestav vracení peněz.
+> * Používat vlastní značky k přidělování nákladů.
+> * Vytvářet sestavy metod showback a chargeback.
 
 
 
-Další informace o začátcích se Cloudyn a její funkce pomocí přechodu na dokumentaci Cloudyn.
+Další informace o začátcích práce s Cloudyn a používání jeho funkcí najdete v dokumentaci pro Cloudyn.
 
 > [!div class="nextstepaction"]
-> [Cloudyn dokumentace](https://support.cloudyn.com/hc/)
+> [Dokumentace pro Cloudyn](https://support.cloudyn.com/hc/)

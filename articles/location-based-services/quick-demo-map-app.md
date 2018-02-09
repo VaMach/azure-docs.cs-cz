@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Spuštění ukázky interaktivního hledání v mapách pomocí Azure Location Based Services (Preview)
 
@@ -38,13 +38,13 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
     ![Vytvoření účtu Location Based Services na portálu](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Po úspěšném vytvoření účtu ho otevřete a přejděte do **NASTAVENÍ** účtu. Klikněte na **Klíče** a získejte primární a sekundární klíče předplatného pro váš účet. Zkopírujte do místní schránky hodnotu **primárního klíče** pro použití v následující části. 
+5. Po úspěšném vytvoření účtu ho otevřete a přejděte do **NASTAVENÍ** účtu. Kliknutím na **Klíče** získáte primární a sekundární klíče pro účet Azure Location Based Services. Zkopírujte do místní schránky hodnotu **primárního klíče** pro použití v následující části. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Stažení ukázkové aplikace pro mapy Azure
 
 1. Stáhněte nebo zkopírujte obsah souboru [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Uložte obsah tohoto souboru místně jako **AzureMapDemo.html** a otevřete ho v textovém editoru.
-3. Vyhledejte řetězec **&#60;insert-key&#62;** a nahraďte ho hodnotou **primárního klíče**, získanou v předchozí části. 
+3. Vyhledejte řetězec `<insert-key>` a nahraďte ho hodnotou **primárního klíče**, kterou jste získali v předchozí části. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Spuštění ukázkové aplikace pro mapy Azure

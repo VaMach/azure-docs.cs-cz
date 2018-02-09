@@ -1,6 +1,6 @@
 ---
 title: "Nasazení aplikace .NET v kontejneru do Azure Service Fabric | Microsoft Docs"
-description: "Se naučíte, jak zabalit aplikace .NET v sadě Visual Studio v kontejner Docker. Tuto novou aplikaci \"kontejner\" se pak nasadí do clusteru Service Fabric."
+description: "Naučíte se, jak v sadě Visual Studio zabalit aplikaci .NET do kontejneru Dockeru. Tato nová aplikace typu kontejner se pak nasadí do clusteru Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -9,67 +9,67 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: MT
+ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Nasazení aplikace .NET v kontejneru systému Windows do Azure Service Fabric
+# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Nasazení aplikace .NET v kontejneru Windows do Azure Service Fabric
 
-V tomto kurzu se dozvíte, jak nasadit stávající aplikaci ASP.NET v kontejneru systému Windows v Azure.
+V tomto kurzu se dozvíte, jak nasadit existující aplikaci ASP.NET v kontejneru Windows do Azure.
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření projektu Docker v sadě Visual Studio
-> * Containerize stávající aplikaci
-> * Instalační program průběžnou integraci s Visual Studio a služby VSTS
+> * Vytvořit projekt Dockeru v sadě Visual Studio
+> * Kontejnerizovat existující aplikaci
+> * Nastavit průběžnou integraci pomocí sady Visual Studio a VSTS
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Nainstalujte [CE Docker pro systém Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) tak, aby kontejnery můžete spustit na Windows 10.
-2. Seznamte se s [rychlý start pro Windows 10 kontejnery][link-container-quickstart].
-3. Stažení [Fabrikam Fiber CallCenter] [ link-fabrikam-github] ukázkové aplikace.
-4. Nainstalujte [prostředí Azure PowerShell][link-azure-powershell-install]
-5. Nainstalujte [rozšíření průběžné doručování nástrojů pro Visual Studio 2017][link-visualstudio-cd-extension]
-6. Vytvoření [předplatného Azure] [ link-azure-subscription] a [účet Visual Studio Team Services][link-vsts-account]. 
-7. [Vytvoření clusteru s podporou v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+1. Nainstalujte [Docker CE pro Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), abyste mohli spouštět kontejnery ve Windows 10.
+2. Seznamte se s [Rychlým startem pro kontejnery Windows 10][link-container-quickstart].
+3. Stáhněte si ukázkovou aplikaci [Fabrikam Fiber CallCenter][link-fabrikam-github].
+4. Nainstalujte [Azure PowerShell][link-azure-powershell-install].
+5. Nainstalujte [rozšíření Continuous Delivery Tools for Visual Studio 2017][link-visualstudio-cd-extension].
+6. Vytvořte si [předplatné Azure][link-azure-subscription] a [účet služby Visual Studio Team Services][link-vsts-account]. 
+7. [Vytvořte cluster v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 ## <a name="create-a-cluster-on-azure"></a>Vytvoření clusteru v Azure
-Aplikace Service Fabric spustit na cluster s podporou sadu virtuálních nebo fyzických počítačích připojených k síti. [Nastavení clusteru Service Fabric běžící v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) než vytvářet a nasazovat aplikace. Při vytváření clusteru, zvolte SKU, který podporuje spuštěné kontejnery (například Windows Server 2016 Datacenter s kontejnery).
+Aplikace Service Fabric se spouští v clusteru, což je síťově propojená sada virtuálních nebo fyzických počítačů. [Nastavte cluster Service Fabric běžící v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) před tím, než vytvoříte a nasadíte svou aplikaci. Při vytváření clusteru zvolte skladovou položku, která podporuje spouštění kontejnerů (například Windows Server 2016 Datacenter s kontejnery).
 
-## <a name="containerize-the-application"></a>Containerize aplikace
+## <a name="containerize-the-application"></a>Kontejnerizace aplikace
 
-Teď, když máte cluster Service Fabric běžící v Azure budete chtít vytvořit a nasadit kontejnerizované aplikaci. Spustit aplikaci v kontejneru, je potřeba přidat **Docker podporu** na projekt v sadě Visual Studio. Když přidáte **Docker podporu** do aplikace, dvě věci dojít. První, _soubor Docker_ se přidá do projektu. Tento nový soubor popisuje, jak bitovou kopii kontejneru má být sestaven. Potom druhé, nový _docker compose_ projekt je přidán do řešení. Nový projekt obsahuje několik docker compose soubory. Docker compose soubory můžete použít k popisu, jak spouštět kontejneru.
+Když teď máte v Azure spuštěný cluster Service Fabric, jste připraveni vytvořit a nasadit kontejnerizovanou aplikaci. Abychom naši aplikaci mohli začít spouštět v kontejneru, potřebujeme do projektu v sadě Visual Studio přidat **podporu Dockeru**. Po přidání **podpory Dockeru** do aplikace se stanou dvě věci. Zaprvé se do projektu přidá soubor _Dockerfile_. Tento nový soubor popisuje způsob sestavení image kontejneru. Zadruhé se pak do řešení přidá nový projekt _docker-compose_. Tento nový projekt obsahuje několik souborů docker-compose. Soubory docker-compose je možné použít k popisu způsobu spouštění kontejneru.
 
-Další informace o práci s [kontejner nástroje sady Visual Studio][link-visualstudio-container-tools].
+Další informace o práci s [kontejnerovými nástroji v sadě Visual Studio][link-visualstudio-container-tools].
 
 >[!NOTE]
->Pokud je prvním používáte bitových kopií kontejneru systému Windows v počítači, musí Docker CE stahují základní Image pro kontejnerů. Obrázků použitých v tomto kurzu jsou 14 GB. Pokračujte a spusťte následující příkaz terminálu vyžádat základní bitové kopie:
+>Pokud na svém počítači spouštíte image kontejnerů Windows poprvé, Docker CE musí stáhnout základní image pro vaše kontejnery. Image použité v tomto kurzu mají velikost 14 GB. Pokračujte a spuštěním následujícího příkazu terminálu stáhněte základní image:
 >```cmd
 >docker pull microsoft/mssql-server-windows-developer
 >docker pull microsoft/aspnet:4.6.2
 >```
 
-### <a name="add-docker-support"></a>Přidání podpory Docker
+### <a name="add-docker-support"></a>Přidání podpory Dockeru
 
-Otevřete [FabrikamFiber.CallCenter.sln] [ link-fabrikam-github] souborů v sadě Visual Studio.
+Otevřete v sadě Visual Studio soubor [FabrikamFiber.CallCenter.sln][link-fabrikam-github].
 
-Klikněte pravým tlačítkem myši **FabrikamFiber.Web** Projekt > **přidat** > **Docker podporu**.
+Klikněte pravým tlačítkem na projekt **FabrikamFiber.Web** > **Přidat** > **Podpora Dockeru**.
 
-### <a name="add-support-for-sql"></a>Přidání podpory pro SQL
+### <a name="add-support-for-sql"></a>Přidání podpory jazyka SQL
 
-Tato aplikace používá SQL jako poskytovatel dat, SQL server je vyžadován ke spuštění aplikace. Referenční bitovou kopii systému SQL Server kontejneru v našem docker compose.override.yml souboru.
+Tato aplikace používá jako poskytovatele dat SQL, proto se ke spuštění aplikace vyžaduje server SQL. Přidejte referenci na image kontejneru SQL Serveru do souboru docker-compose.override.yml.
 
-V sadě Visual Studio otevřete **Průzkumníku řešení**, Najít **docker compose**a otevřete soubor **docker compose.override.yml**.
+V sadě Visual Studio otevřete **Průzkumníka řešení**, vyhledejte **docker-compose** a otevřete soubor **docker-compose.override.yml**.
 
-Přejděte na `services:` uzlu přidat uzel s názvem `db:` položce SQL Server pro kontejner, který definuje.
+Přejděte do uzlu `services:` a přidejte uzel `db:`, který pro kontejner definuje položku SQL Serveru.
 
 ```yml
   db:
@@ -86,12 +86,12 @@ Přejděte na `services:` uzlu přidat uzel s názvem `db:` položce SQL Server 
 ```
 
 >[!NOTE]
->Jakýkoli Server SQL dáváte přednost pro místní ladění, můžete použít, dokud je dostupný z vašeho hostitele. Ale **localdb** nepodporuje `container -> host` komunikace.
+>Pro účely místního ladění můžete použít jakýkoli SQL Server, kterému dáváte přednost, pokud je dostupný z vašeho hostitele. Nicméně **localdb** nepodporuje komunikaci `container -> host`.
 
 >[!WARNING]
->Zachování dat není podporován systémem SQL Server v kontejneru. Když se zastaví kontejner, data budou vymazána. Nepoužívejte tuto konfiguraci pro produkční prostředí.
+>Spouštění SQL Serveru v kontejneru nepodporuje zachovávání dat. Když se kontejner zastaví, vaše data se vymažou. Nepoužívejte tuto konfiguraci pro produkční prostředí.
 
-Přejděte na `fabrikamfiber.web:` uzel a přidat podřízený uzel s názvem `depends_on:`. To zajistí, že `db` (kontejneru systému SQL Server) bude spuštěn před naše webové aplikace (fabrikamfiber.web).
+Přejděte do uzlu `fabrikamfiber.web:` a přidejte podřízený uzel `depends_on:`. Tím se zajistí spuštění služby `db` (kontejner SQL Serveru) před naší webovou aplikací (fabrikamfiber.web).
 
 ```yml
   fabrikamfiber.web:
@@ -101,7 +101,7 @@ Přejděte na `fabrikamfiber.web:` uzel a přidat podřízený uzel s názvem `d
 
 ### <a name="update-the-web-config"></a>Aktualizace webové konfigurace
 
-Zpět v **FabrikamFiber.Web** projektu, aktualizovat připojovací řetězec **web.config** souboru, do bodu k systému SQL Server v kontejneru.
+Vraťte se do projektu **FabrikamFiber.Web** a aktualizujte připojovací řetězec v souboru **web.config** tak, aby odkazoval na SQL Server v kontejneru.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
@@ -110,33 +110,33 @@ Zpět v **FabrikamFiber.Web** projektu, aktualizovat připojovací řetězec **w
 ```
 
 >[!NOTE]
->Pokud chcete použít jinou konzolu systému SQL Server při vytváření verze sestavení webové aplikace, přidejte další připojovací řetězec do souboru web.release.config.
+>Pokud při sestavování vaší webové aplikace pro vydání chcete použít jiný SQL Server, přidejte do souboru web.release.config další připojovací řetězec.
 
-### <a name="test-your-container"></a>Vaše kontejner testů
+### <a name="test-your-container"></a>Test kontejneru
 
-Stiskněte klávesu **F5** ke spuštění a ladění aplikace v vašeho kontejneru.
+Pokud chcete spustit a ladit aplikaci ve svém kontejneru, stiskněte **F5**.
 
-Hraniční otevře se stránka definované spuštění vaší aplikace pomocí IP adresy kontejneru v interní síti NAT (obvykle 172.x.x.x). Další informace o ladění aplikací v kontejnerech pomocí Visual Studio 2017 najdete v tématu [v tomto článku][link-debug-container].
+V aplikaci Edge se otevře definovaná úvodní stránka vaší aplikace s použitím IP adresy kontejneru na interní síti NAT (obvykle 172.x.x.x). Další informace o ladění aplikací v kontejnerech pomocí sady Visual Studio 2017 najdete v [tomto článku][link-debug-container].
 
-![třeba společnost fabrikam v kontejneru][image-web-preview]
+![příklad aplikace fabrikam v kontejneru][image-web-preview]
 
-Kontejner je nyní připraven k vytvořené a zabalené aplikace Service Fabric. Až budete mít bitovou kopii kontejneru založený na váš počítač, můžete poslat ho přímo žádné registru kontejneru a načítat na každém hostiteli spustit.
+Kontejner je teď připravený k sestavení a zabalení do aplikace Service Fabric. Jakmile na svém počítači budete mít sestavenou image kontejneru, můžete ji nasdílet do jakéhokoli registru kontejnerů a stáhnout a spustit na jakémkoli hostiteli.
 
 ## <a name="get-the-application-ready-for-the-cloud"></a>Příprava aplikace pro cloud
 
-Příprava aplikace pro spuštění v Service Fabric v Azure, je potřeba provést dva kroky:
+Abychom aplikaci připravili na spouštění v Service Fabric v Azure, musíme provést dva kroky:
 
-1. Vystavení portu, kde Chceme mít možnost připojení naše webové aplikace v clusteru Service Fabric.
-2. Zadejte databázi SQL připravené pro produkční pro naši aplikaci.
+1. Zveřejnit port, na kterém chceme mít přístup k naší webové aplikaci v clusteru Service Fabric.
+2. Zajistit pro naši aplikaci databázi SQL připravenou pro produkční prostředí.
 
-### <a name="expose-the-port-for-the-app"></a>Vystavení port pro aplikace
-Cluster Service Fabric jsme nakonfigurovali, má port *80* otevřete ve výchozím nastavení nástroje pro vyrovnávání zatížení Azure, který vyrovnává příchozí provoz do clusteru. Naše kontejneru na port jsme můžou zpřístupnit prostřednictvím našich soubor docker-compose.yml.
+### <a name="expose-the-port-for-the-app"></a>Zveřejnění portu pro aplikaci
+Cluster Service Fabric, který jsme nakonfigurovali, má ve výchozím nastavení ve službě Azure Load Balancer, která vyrovnává příchozí provoz do clusteru, otevřený port *80*. Náš kontejner můžeme na tomto portu zveřejnit prostřednictvím souboru docker-compose.yml.
 
-V sadě Visual Studio otevřete **Průzkumníku řešení**, Najít **docker compose**a otevřete soubor **docker-compose.yml**.
+V sadě Visual Studio otevřete **Průzkumníka řešení**, vyhledejte **docker-compose** a otevřete soubor **docker-compose.yml**.
 
-Změnit `fabrikamfiber.web:` uzlu přidat podřízený uzel s názvem `ports:`.
+Upravte uzel `fabrikamfiber.web:` a přidejte podřízený uzel `ports:`.
 
-Přidat položku řetězec `- "80:80"`. Toto je, jak by měla vypadat váš soubor docker-compose.yml:
+Přidejte položku řetězce `- "80:80"`. Váš soubor docker-compose.yml by měl vypadat přibližně takto:
 
 ```yml
   version: '3'
@@ -151,74 +151,74 @@ Přidat položku řetězec `- "80:80"`. Toto je, jak by měla vypadat váš soub
         - "80:80"
 ```
 
-### <a name="use-a-production-sql-database"></a>Použít provozní databáze SQL
-Při spuštění v produkčním prostředí, potřebujeme naše data v našem databáze. Aktuálně neexistuje žádný způsob, jak zajistit trvalou data v kontejneru, proto nelze uložit provozních dat v systému SQL Server v kontejneru.
+### <a name="use-a-production-sql-database"></a>Použití produkční databáze SQL
+Při spouštění v produkčním prostředí potřebujeme ukládat naše data v databázi. V současné době neexistuje způsob, jak zaručit trvalost dat v kontejneru, proto na SQL Server v kontejneru nemůžete ukládat produkční data.
 
-Doporučujeme, abyste že využívat Azure SQL Database. Chcete-li nastavit a spustit na spravovaný Server SQL v Azure, přejděte [Azure SQL Database – elementy QuickStart] [ link-azure-sql] článku.
+Doporučujeme využít službu Azure SQL Database. Pokud chcete nastavit a spustit spravovaný SQL Server v Azure, přejděte na článek s [rychlými starty pro službu Azure SQL Database][link-azure-sql].
 
 >[!NOTE]
->Mějte na paměti, chcete-li změnit připojovací řetězce k systému SQL server v **web.release.config** v soubor **FabrikamFiber.Web** projektu.
+>Nezapomeňte změnit připojovací řetězec k serveru SQL v souboru **web.release.config** v projektu **FabrikamFiber.Web**.
 >
->Tato aplikace se elegantně selže, pokud žádné databáze SQL je dostupný. Můžete pokračovat a nasadit aplikace s žádné systému SQL server.
+>Pokud není dostupná žádná databáze SQL, tato aplikace selže bez výpadku. Pokud se tak rozhodnete, můžete pokračovat a nasadit aplikaci bez serveru SQL.
 
-## <a name="deploy-with-visual-studio-team-services"></a>Nasazení s Visual Studio Team Services
+## <a name="deploy-with-visual-studio-team-services"></a>Nasazení pomocí Visual Studio Team Services
 
-Chcete-li nastavit nasazení pomocí sady Visual Studio Team Services, je potřeba nainstalovat [rozšíření průběžné doručování nástrojů pro Visual Studio 2017][link-visualstudio-cd-extension]. Toto rozšíření umožňuje snadno nasadit do Azure tak, že nakonfigurujete Visual Studio Team Services a získat aplikace nasazené do clusteru Service Fabric.
+Pokud chcete nastavit nasazení pomocí Visual Studio Team Services, je potřeba nainstalovat [rozšíření Continuous Delivery Tools for Visual Studio 2017][link-visualstudio-cd-extension]. Toto rozšíření usnadňuje nasazení do Azure tím, že nakonfiguruje Visual Studio Team Services a nasadí aplikaci do clusteru Service Fabric.
 
-Abyste mohli začít, musí být váš kód hostované ve správě zdrojového kódu. Zbývající část tohoto oddílu předpokládá **git** je používán.
+Abyste mohli začít, váš kód musí být hostovaný ve správě zdrojového kódu. Ve zbytku této části se předpokládá použití **gitu**.
 
-### <a name="set-up-a-vsts-repo"></a>Nastavení služby VSTS úložišti
-V pravém dolním rohu sady Visual Studio, klikněte na položku **přidat do správy zdrojového kódu** > **Git** (nebo obě tyto možnosti dáváte přednost).
+### <a name="set-up-a-vsts-repo"></a>Nastavení úložiště VSTS
+V pravém dolním rohu sady Visual Studio klikněte na **Přidat do správy zdrojového kódu** > **Git** (nebo jakákoli možnost, které dáváte přednost).
 
-![Klikněte na tlačítko Zdroj ovládacího prvku][image-source-control]
+![stisknutí tlačítka správy zdrojového kódu][image-source-control]
 
-V _Team Explorer_ podokně, stiskněte klávesu **publikování úložiště Git**.
+V podokně _Team Explorer_ stiskněte **Publikovat úložiště Git**.
 
-Vyberte název služby VSTS úložiště a stiskněte klávesu **úložiště**.
+Vyberte název vašeho úložiště VSTS a stiskněte **Úložiště**.
 
-![publikování do služby VSTS úložišti][image-publish-repo]
+![publikování úložiště do VSTS][image-publish-repo]
 
-Teď, když kód synchronizována s zdrojové úložiště služby VSTS, můžete nakonfigurovat průběžnou integraci a nastavené průběžné doručování.
+Když je teď váš kód synchronizovaný se zdrojovým úložištěm VSTS, můžete nakonfigurovat průběžnou integraci a průběžné doručování.
 
-### <a name="setup-continuous-delivery"></a>Instalační program nastavené průběžné doručování
+### <a name="setup-continuous-delivery"></a>Nastavení průběžného doručování
 
-V _Průzkumníku řešení_, klikněte pravým tlačítkem myši **řešení** > **konfigurace nastavené průběžné doručování**.
+V _Průzkumníku řešení_ klikněte pravým tlačítkem na **řešení** > **Konfigurovat průběžné doručování**.
 
 Vyberte předplatné Azure.
 
-Nastavit **hostitele typ** k **služby Fabric Cluster**.
+Nastavte **Typ hostitele** na **Cluster Service Fabric**.
 
-Nastavit **cílového hostitele** na cluster service fabric jste vytvořili v předchozí části.
+Natavte hodnotu **Cílový hostitel** na cluster Service Fabric, který jste vytvořili v předchozí části.
 
-Vyberte **kontejneru registru** publikovat kontejner tak, aby.
+Zvolte **Registr kontejnerů**, do kterého chcete kontejner publikovat.
 
 >[!TIP]
->Použití **upravit** tlačítko vytvořte kontejner registru.
+>Pomocí tlačítka **Upravit** vytvořte registr kontejnerů.
 
 Stiskněte **OK**.
 
-![instalace služby fabric průběžnou integraci][image-setup-ci]
+![nastavení průběžné integrace v Service Fabric][image-setup-ci]
    
-   Po dokončení konfigurace vašeho kontejneru se nasadí do Service Fabric. Vždy, když jste nabízené aktualizace do úložiště nového sestavení a verze je provedena.
+   Po dokončení konfigurace se váš kontejner nasadí do Service Fabric. Kdykoli do úložiště nasdílíte změny, provede se nové sestavení a vydání.
    
    >[!NOTE]
-   >Vytváření proveďte bitové kopie kontejneru přibližně 15 minut.
-   >První nasazení tak, aby cluster Service Fabric způsobí, že základní Image kontejneru jádro systému Windows Server ke stažení. Stahování bude dokončeno další 5 až 10 minut.
+   >Sestavení imagí kontejnerů trvá přibližně 15 minut.
+   >První nasazení do clusteru Service Fabric způsobí stažení základních imagí kontejnerů Windows Serveru Core. Dokončení stahování trvá dalších 5 až 10 minut.
 
-Přejděte do aplikace společnosti Fabrikam Call Center pomocí adresy url clusteru: například *http://mycluster.westeurope.cloudapp.azure.com*
+Přejděte do aplikace Fabrikam Call Center s použitím adresy URL vašeho clusteru, například *http://mycluster.westeurope.cloudapp.azure.com*.
 
-Teď, když máte kontejnerizované a nasadit řešení Fabrikam Call Center, můžete otevřít [portál Azure] [ link-azure-portal] a aplikace běžící v Service Fabric. Pokud chcete vyzkoušet aplikace, otevřete webový prohlížeč a přejděte na adresu URL clusteru Service Fabric.
+Teď, když jste kontejnerizovali a nasadili řešení Fabrikam Call Center, můžete otevřít [Azure Portal][link-azure-portal] a podívat se na spuštěnou aplikaci v Service Fabric. Pokud chcete aplikaci vyzkoušet, otevřete webový prohlížeč a přejděte na adresu URL vašeho clusteru Service Fabric.
 
 ## <a name="next-steps"></a>Další kroky
 
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Vytvoření projektu Docker v sadě Visual Studio
-> * Containerize stávající aplikaci
-> * Instalační program průběžnou integraci s Visual Studio a služby VSTS
+> * Vytvořit projekt Dockeru v sadě Visual Studio
+> * Kontejnerizovat existující aplikaci
+> * Nastavit průběžnou integraci pomocí sady Visual Studio a VSTS
 
-V další části kurzu, zjistěte, jak nastavit [monitorování pro váš kontejner](service-fabric-tutorial-monitoring-wincontainers.md).
+V další části kurzu se dozvíte, jak nastavit [monitorování vašeho kontejneru](service-fabric-tutorial-monitoring-wincontainers.md).
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 

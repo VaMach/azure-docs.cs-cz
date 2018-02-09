@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření oboru názvů Azure Event Hubs a povolení funkce Capture pomocí šablony | Microsoft Docs"
+title: "Vytvoření oboru názvů Azure Event Hubs a povolení funkce Capture pomocí šablony | Dokumentace Microsoftu"
 description: "Vytvoření oboru názvů Azure Event Hubs s jedním centrem událostí a povolení funkce Capture pomocí šablony Azure Resource Manageru"
 services: event-hubs
 documentationcenter: .net
@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Vytvoření oboru názvů v centru událostí a povolení funkce Capture pomocí šablony
 
-Tento článek ukazuje, jak použít šablonu Azure Resource Manageru, která vytvoří obor názvů Event Hubs s jednou instancí centra událostí, ve kterém také povolí [funkci Capture](event-hubs-capture-overview.md). Tento článek popisuje, jak definovat, které prostředky se nasadí, a jak definovat parametry zadávané při spuštění nasazení. Tuto šablonu můžete použít pro vlastní nasazení nebo ji upravit, aby splňovala vaše požadavky.
+Tento článek ukazuje, jak použít šablonu Azure Resource Manageru, která vytvoří obor názvů [Event Hubs](event-hubs-what-is-event-hubs.md) s jednou instancí centra událostí, ve kterém také povolí [funkci Capture](event-hubs-capture-overview.md). Tento článek popisuje, jak definovat, které prostředky se nasadí, a jak definovat parametry zadávané při spuštění nasazení. Tuto šablonu můžete použít pro vlastní nasazení nebo ji upravit, aby splňovala vaše požadavky.
 
 Tento článek také ukazuje, jak určit, že se události mají zachytávat do objektů Azure Storage Blob nebo do služby Azure Data Lake Store v závislosti na zvoleném cíli.
 
@@ -42,11 +42,7 @@ Hotové šablony můžete získat kliknutím na následující odkazy na web Git
 
 ## <a name="what-will-you-deploy"></a>Co budete nasazovat?
 
-Pomocí této šablony nasadíte obor názvů Event Hubs s centrem událostí a povolíte funkci [Event Hubs Capture](event-hubs-capture-overview.md).
-
-Služba [Event Hubs](event-hubs-what-is-event-hubs.md) zpracovává události a zajišťuje příjem příchozích dat událostí a telemetrie do Azure v masivním měřítku, s nízkou latencí a vysokou spolehlivostí. Funkce Event Hubs Capture umožňuje automatické doručování streamovaných dat ve službě Event Hubs do služby Azure Blob Storage nebo Azure Data Lake Store v rámci zvoleného časového nebo velikostního intervalu.
-
-Kliknutím na následující tlačítko povolíte zachytávání pomocí funkce Event Hubs Capture do služby Azure Storage:
+Pomocí této šablony nasadíte obor názvů Event Hubs s centrem událostí a povolíte funkci [Event Hubs Capture](event-hubs-capture-overview.md). Funkce Event Hubs Capture umožňuje automatické doručování streamovaných dat ve službě Event Hubs do služby Azure Blob Storage nebo Azure Data Lake Store v rámci zvoleného časového nebo velikostního intervalu. Kliknutím na následující tlačítko povolíte zachytávání pomocí funkce Event Hubs Capture do služby Azure Storage:
 
 [![Nasazení do Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -62,7 +58,7 @@ Pomocí Azure Resource Manageru definujete parametry pro hodnoty, které chcete 
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-Název [oboru názvů Event Hubs](event-hubs-create.md), který se má vytvořit.
+Název oboru názvů Event Hubs, který se má vytvořit.
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ Název [oboru názvů Event Hubs](event-hubs-create.md), který se má vytvořit
 
 ### <a name="eventhubname"></a>eventHubName
 
-Název centra událostí vytvořeného v [oboru názvů Event Hubs](event-hubs-create.md).
+Název centra událostí vytvořeného v oboru názvů Event Hubs.
 
 ```json
 "eventHubName":{  

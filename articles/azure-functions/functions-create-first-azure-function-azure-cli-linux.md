@@ -11,15 +11,15 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: d04e2000f2043e8bb11e15f6b9d7fd06ef5b9da3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Vytvoření první funkce spuštěné v Linuxu pomocí Azure CLI (Preview)
 
-Služba Azure Functions umožňuje hostovat funkce v Linuxu ve výchozím kontejneru Azure App Service. Tato funkce je aktuálně ve verzi Preview. Můžete také [použít vlastní kontejner](functions-create-function-linux-custom-image.md). 
+Služba Azure Functions umožňuje hostovat funkce v Linuxu ve výchozím kontejneru Azure App Service. Můžete také [použít vlastní kontejner](functions-create-function-linux-custom-image.md). Tato funkce je aktuálně ve verzi Preview a vyžaduje [modul runtime Functions 2.0](functions-versions.md), který je také ve verzi Preview.
 
 Toto téma Rychlý start vás provede použitím služby Azure Functions s Azure CLI k vytvoření první aplikace funkcí v Linuxu hostované ve výchozím kontejneru App Service. Samotný kód funkce se do image nasadí z ukázkového úložiště GitHubu.    
 
@@ -49,7 +49,7 @@ Hostování služby Functions v Linuxu se aktuálně podporuje pouze v rámci pl
 
 ## <a name="create-a-function-app-on-linux"></a>Vytvoření aplikace funkcí v Linuxu
 
-K hostování provádění funkcí v Linuxu musíte mít aplikaci funkcí. Aplikace funkcí poskytuje prostředí pro provádění kódu funkce. Umožňuje seskupit funkce jako logickou jednotku pro snadnější správu, nasazování a sdílení prostředků. Aplikaci funkcí vytvoříte pomocí příkazu [az functionapp create](/cli/azure/functionapp#create) s použitím plánu služby App Service pro Linux. 
+K hostování provádění funkcí v Linuxu musíte mít aplikaci funkcí. Aplikace funkcí poskytuje prostředí pro provádění kódu funkce. Umožňuje seskupit funkce jako logickou jednotku pro snadnější správu, nasazování a sdílení prostředků. Aplikaci funkcí vytvoříte pomocí příkazu [az functionapp create](/cli/azure/functionapp#az_functionapp_create) s použitím plánu služby App Service pro Linux. 
 
 V následujícím příkazu nahraďte zástupný symbol `<app_name>` jedinečným názvem vaší aplikace funkcí a `<storage_name>` názvem účtu úložiště. Jako výchozí doména DNS pro příslušnou aplikaci Function App se použije `<app_name>`, a proto musí být název mezi všemi aplikacemi v Azure jedinečný. Parametr _deployment-source-url_ představuje ukázkové úložiště na GitHubu, které obsahuje funkci Hello World aktivovanou protokolem HTTP.
 

@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření funkce v systému Linux pomocí vlastní image (preview) | Microsoft Docs"
-description: "Naučte se vytvářet Azure Functions systémem vlastní image Linux."
+title: "Vytvoření funkce v Linuxu pomocí vlastní image (verze Preview) | Microsoft Docs"
+description: "Naučte se vytvářet funkce služby Azure Functions běžící na vlastní imagi Linuxu."
 services: functions
 keywords: 
 author: ggailey777
@@ -11,55 +11,55 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 9ba5f45034561f8d897676e8cc4b1a59945403b8
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Vytvoření funkce v systému Linux pomocí vlastní image (preview)
+# <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Vytvoření funkce v Linuxu pomocí vlastní image (verze Preview)
 
-Azure Functions umožňuje hostovat funkcí v systému Linux v vlastní vlastní kontejneru. Tato funkce je aktuálně ve verzi preview. Můžete také [hostitele na výchozí kontejner Azure App Service](functions-create-first-azure-function-azure-cli-linux.md).  
+Služba Azure Functions umožňuje hostovat funkce v Linuxu ve vašem vlastním kontejneru. Můžete také [hostovat ve výchozím kontejneru služby Azure App Service](functions-create-first-azure-function-azure-cli-linux.md). Tato funkce je aktuálně ve verzi Preview a vyžaduje [modul runtime Functions 2.0](functions-versions.md), který je také ve verzi Preview.
 
-V tomto kurzu zjistěte, jak nasadit aplikaci funkce jako vlastní image Docker. Tento vzor je užitečné, když potřebujete Přizpůsobení předdefinované image kontejneru služby App Service. Můžete použít vlastní image při funkcí potřebovat konkrétní jazykové verze nebo vyžadovat konkrétní závislosti nebo konfigurace, která není k dispozici v rámci integrované bitové kopie.
+V tomto kurzu se dozvíte, jak nasadit aplikaci Function App jako vlastní image Dockeru. Tento vzor je užitečný v případě, že potřebujete přizpůsobit vestavěnou image kontejneru služby App Service. Když vaše funkce vyžadují určitou jazykovou verzi nebo konkrétní závislost nebo konfiguraci, kterou vestavěná image neposkytuje, můžete chtít použít vlastní image.
 
-Tento kurz vás provede procesem jak používat Azure Functions a vytvořit vlastní image odešlete do úložiště Docker Hub. Pak můžete použít tuto bitovou kopii jako zdroj nasazení pro funkce aplikace, která běží na systému Linux. Docker použijete k sestavení a push bitovou kopii. Použijete rozhraní příkazového řádku Azure k vytvoření funkce aplikace a nasazení bitové kopie z úložiště Docker Hub. 
+V tomto kurzu se dozvíte, jak pomocí služby Azure Functions vytvořit vlastní image a odeslat ji do Docker Hubu. Tuto image potom použijete jako zdroj nasazení aplikace Function App, která běží na systému Linux. Pomocí Dockeru tuto image sestavíte a odešlete. Pomocí rozhraní Azure CLI vytvoříte aplikaci Function App a nasadíte image z Docker Hubu. 
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvořte vlastní image pomocí Docker.
-> * Publikujte vlastní image do registru kontejneru. 
-> * Vytvoření účtu úložiště Azure. 
-> * Vytvoření plánu služby App Service pro Linux. 
-> * Nasaďte aplikaci funkce z úložiště Docker Hub.
-> * Přidáte nastavení aplikace do aplikaci funkce. 
+> * Sestavit vlastní image pomocí Dockeru
+> * Publikovat vlastní image do registru kontejneru 
+> * Vytvořit účet služby Azure Storage 
+> * Vytvořit plán služby App Service pro Linux 
+> * Nasadit aplikaci Function App z Docker Hubu
+> * Přidat do aplikace Function App nastavení aplikace 
 
-Na počítači Mac, Windows nebo Linux jsou podporovány následující kroky.  
+Následující kroky se podporují na počítačích se systémem Mac, Windows a Linux.  
 
 ## <a name="prerequisites"></a>Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
 * [Git](https://git-scm.com/downloads)
-* Aktivní [předplatného Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+* Aktivní [předplatné Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
-* A [účet úložiště Docker Hub](https://docs.docker.com/docker-id/)
+* [Účet Docker Hubu](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Stažení ukázky
 
-V okně terminálu spusťte následující příkaz klonovat úložiště ukázkové aplikace do místního počítače a pak přejděte do adresáře, který obsahuje ukázkový kód.
+V okně terminálu naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače a pak přejděte do adresáře, který obsahuje vzorový kód.
 
 ```bash
 git clone https://github.com/Azure-Samples/functions-linux-custom-image.git --config core.autocrlf=input
 cd functions-linux-custom-image
 ```
 
-## <a name="build-the-image-from-the-docker-file"></a>Sestavení bitové kopie ze souboru Docker
+## <a name="build-the-image-from-the-docker-file"></a>Sestavení image ze souboru Dockeru
 
-V tomto úložišti Git, podívejte se na _soubor Docker_. Tento soubor popisuje prostředí, které je potřeba spustit aplikaci funkce v systému Linux. 
+V úložišti Git si prohlédněte soubor _Dockerfile_. Tento soubor popisuje prostředí potřebné pro spuštění aplikace Function App v Linuxu. 
 
 ```docker
 # Base the image on the built-in Azure Functions Linux image.
@@ -70,16 +70,16 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 COPY . /home/site/wwwroot 
 ```
 >[!NOTE]
-> Při hostování bitovou kopii v registru kontejner privátní, měli byste přidat nastavení připojení k aplikaci funkce pomocí **ENV** proměnné v soubor Docker. Vzhledem k tomu, že v tomto kurzu nemůže zaručit, že používáte privátní registru, jsou nastavení připojení [přidat po nasazení pomocí rozhraní příkazového řádku Azure](#configure-the-function-app) jako osvědčený postup zabezpečení.   
+> Při hostování image v privátním registru kontejneru byste měli pomocí proměnných **ENV** v souboru Dockerfile přidat do aplikace Function App nastavení připojení. Jelikož tento kurz nemůže zaručit, že použijete privátní registr, nastavení připojení se v rámci osvědčeného postupu v oblasti zabezpečení [přidávají po nasazení pomocí rozhraní Azure CLI](#configure-the-function-app).   
 
-### <a name="run-the-build-command"></a>Spusťte příkaz sestavení
-Chcete-li vytvořit bitovou kopii Docker, spusťte `docker build` příkaz a zadejte název, `mydockerimage`a značky, `v1.0.0`. Nahraďte `<docker-id>` s úložiště Docker Hub účet ID.
+### <a name="run-the-build-command"></a>Spuštění příkazu k sestavení
+Pokud chcete sestavit image Dockeru, spusťte příkaz `docker build` a zadejte název `mydockerimage` a značku `v1.0.0`. Položku `<docker-id>` nahraďte ID vašeho účtu Docker Hubu.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-Příkaz vytvoří výstup podobný následujícímu:
+Příkaz vygeneruje výstup podobný následujícímu:
 
 ```bash
 Sending build context to Docker daemon  169.5kB
@@ -101,36 +101,36 @@ Successfully built 5bdac9878423
 Successfully tagged ggailey777/mydockerimage:v1.0.0
 ```
 
-### <a name="test-the-image-locally"></a>Obrázek místně testu
-Ověřte, že bitovou kopii integrovaný funguje tak, že spustíte bitovou kopii Docker v místní kontejneru. Problém [docker spustit](https://docs.docker.com/engine/reference/commandline/run/) příkazů a jí předat název a značka obrázku. Nezapomeňte zadat pomocí portu `-p` argument.
+### <a name="test-the-image-locally"></a>Testování image v místním prostředí
+Ověřte si funkčnost sestavené image tak, že image Dockeru spustíte v místní kontejneru. Zadejte příkaz [docker run](https://docs.docker.com/engine/reference/commandline/run/) a předejte mu název a značku image. Nezapomeňte zadat port pomocí argumentu `-p`.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Vlastní Image spuštěn v místním kontejner Docker, ověřte funkce aplikace a kontejner fungují správně procházením <adrese http://localhost: 8080>.
+Když už v místním kontejneru Dockeru běží vlastní image, ověřte správnou funkčnost aplikace Function App a kontejneru tak, že přejdete na adresu <http://localhost:8080>.
 
-![Testování funkce aplikace místně.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
+![Místní testování aplikace Function App](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Po ověření aplikaci funkce v kontejneru hav můžete zastavte provádění. Teď můžete posouvat vlastní image do účtu úložiště Docker Hub.
+Po ověření aplikace Function App v kontejneru můžete aplikaci zastavit. Teď můžete vlastní image odeslat do svého účtu Docker Hubu.
 
-## <a name="push-the-custom-image-to-docker-hub"></a>Vlastní image odešlete do úložiště Docker Hub
+## <a name="push-the-custom-image-to-docker-hub"></a>Odeslání vlastní image do Docker Hubu
 
-Registr je aplikace, která hostuje bitové kopie a poskytuje služby bitové kopie a kontejneru. Aby bylo možné sdílet bitové kopie, musí poslat ho přímo registru. Úložiště docker Hub je registr pro Docker bitové kopie, který umožňuje hostování vlastní úložiště, veřejné nebo soukromé. 
+Registr je aplikace, která hostuje image a poskytuje image služeb a služby kontejneru. Pokud chcete svou image sdílet, musíte ji odeslat do registru. Docker Hub je registr pro image Dockeru, který umožňuje hostovat vlastní veřejná nebo privátní úložiště. 
 
-Předtím, než můžete posouvat bitovou kopii, musíte se přihlásit pomocí Docker Hub [docker přihlášení](https://docs.docker.com/engine/reference/commandline/login/) příkaz. Nahraďte `<docker-id>` s názvem účtu a zadejte heslo do konzoly příkazového řádku. Další možnosti hesla úložiště Docker Hub, najdete v článku [docker přihlášení příkaz dokumentaci](https://docs.docker.com/engine/reference/commandline/login/).
+Než budete moct odeslat image, musíte se přihlásit k Docker Hubu pomocí příkazu [docker login](https://docs.docker.com/engine/reference/commandline/login/). Položku `<docker-id>` nahraďte názvem svého účtu a po zobrazení výzvy zadejte do konzoly své heslo. Další možnosti hesla do Docker Hubu najdete v [dokumentaci k příkazu docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 ```bash
 docker login --username <docker-id> 
 ```
 
-Zpráva "přihlášení bylo úspěšné" potvrdí, že jste přihlášeni. Po přihlášení, nabízené bitovou kopii do úložiště Docker Hub pomocí [docker nabízené](https://docs.docker.com/engine/reference/commandline/push/) příkaz.
+Zpráva „login succeeded“ (Přihlášení proběhlo úspěšně) potvrzuje, že jste přihlášení. Po přihlášení odešlete image do Docker Hubu pomocí příkazu [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-Ověřte, že nabízené úspěšné prověřením příkaz výstupu.
+Prozkoumejte výstup příkazu a ověřte si, jestli odeslání proběhlo úspěšně.
 
 ```bash
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
@@ -141,11 +141,11 @@ ae9a05b85848: Mounted from microsoft/azure-functions-runtime
 45c86e20670d: Mounted from microsoft/azure-functions-runtime
 v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
 ```
-Teď můžete použít tuto bitovou kopii jako zdroj nasazení pro novou aplikaci funkce v Azure. 
+Teď můžete image použít jako zdroj nasazení nové aplikace Function App v Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, v tomto tématu vyžaduje Azure CLI verze 2.0.21 nebo novější. Spustit `az --version` najít verzi máte. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít verzi Azure CLI 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -153,16 +153,16 @@ Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místn�
 
 ## <a name="create-a-linux-app-service-plan"></a>Vytvoření plánu služby App Service pro Linux
 
-Linux hostování pro funkce není aktuálně podporováno v plánech spotřeby. Je nutné spustit v plánu služby App Service pro Linux. Další informace o hostování najdete v tématu [hostování na Azure Functions plány porovnání](functions-scale.md). 
+Plány Consumption v současné době nepodporují hostování služby Functions v Linuxu. Je třeba použít plán služby App Service pro Linux. Další informace o hostování najdete v [porovnání plánů hostování služby Azure Functions](functions-scale.md). 
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 
-## <a name="create-and-deploy-the-custom-image"></a>Vytvořit a nasadit vlastní image
+## <a name="create-and-deploy-the-custom-image"></a>Vytvoření a nasazení vlastní image
 
-Funkce aplikace hostuje provádění funkcí. Vytvoření funkce aplikace z image úložiště Docker Hub pomocí [vytvořit az functionapp](/cli/azure/functionapp#create) příkaz. 
+Aplikace Function App hostuje provádění vašich funkcí. Aplikaci Function App vytvoříte z image z Docker Hubu pomocí příkazu [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
-V následujícím příkazu nahraďte název jedinečné funkce aplikace, kde uvidíte `<app_name>` zástupný symbol a účet úložiště název pro `<storage_name>`. Jako výchozí doména DNS pro příslušnou aplikaci Function App se použije `<app_name>`, a proto musí být název mezi všemi aplikacemi v Azure jedinečný. Jako předtím `<docker-id>` je název účtu Docker.
+V následujícím příkazu nahraďte zástupný symbol `<app_name>` jedinečným názvem vaší aplikace funkcí a `<storage_name>` názvem účtu úložiště. Jako výchozí doména DNS pro příslušnou aplikaci Function App se použije `<app_name>`, a proto musí být název mezi všemi aplikacemi v Azure jedinečný. Stejně jako předtím má váš účet Dockeru název `<docker-id>`.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -188,14 +188,14 @@ Po vytvoření aplikace Function App se v Azure CLI zobrazí podobné informace 
 }
 ```
 
-_Nasazení kontejneru image-name_ parametr označuje bitovou kopii hostované na úložiště Docker Hub sloužící k vytvoření aplikace funkce. 
+Parametr _deployment-container-image-name_ určuje image hostovanou v Docker Hubu, která se má použít k vytvoření aplikace Function App. 
 
 
-## <a name="configure-the-function-app"></a>Konfigurace aplikace – funkce
+## <a name="configure-the-function-app"></a>Konfigurace aplikace Function App
 
-Funkce musí připojovací řetězec pro připojení k výchozí účet úložiště. Při publikování vlastní bitovou kopii na účet kontejner privátní, místo toho musí nastavená tato nastavení aplikace jako proměnné prostředí v soubor Docker pomocí [ENV instrukce](https://docs.docker.com/engine/reference/builder/#env), nebo ekvivalentní. 
+Funkce potřebuje k připojení k výchozímu účtu úložiště připojovací řetězec. Při publikování vlastní image do účtu privátního kontejneru byste měli místo toho určit toto nastavení aplikace jako proměnné prostředí v souboru Dockerfile pomocí [instrukce ENV](https://docs.docker.com/engine/reference/builder/#env) nebo podobně. 
 
-V takovém případě `<storage_account>` je název účtu úložiště, který jste vytvořili. Získání připojovacího řetězce s [az úložiště účet zobrazit. připojovací řetězec](/cli/azure/storage/account#show-connection-string) příkaz. Přidání těchto nastavení aplikace v aplikaci funkce pomocí [az functionapp konfigurace appsettings sadu](/cli/azure/functionapp/config/appsettings#set) příkaz.
+V tomto případě je `<storage_account>` název účtu úložiště, který jste vytvořili. Připojovací řetězec zobrazíte pomocí příkazu [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Pomocí příkazu [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) přidejte tato nastavení aplikace do aplikace Function App.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -208,7 +208,7 @@ az functionapp config appsettings set --name <function_app> \
 AzureWebJobsStorage=$storageConnectionString
 ```
 
-Nyní můžete otestovat funkcí systémem Linux v Azure.
+Teď můžete svoje funkce běžící na Linuxu v Azure otestovat.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
@@ -219,14 +219,14 @@ Nyní můžete otestovat funkcí systémem Linux v Azure.
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Vytvořte vlastní image pomocí Docker.
-> * Publikujte vlastní image do registru kontejneru. 
-> * Vytvoření účtu úložiště Azure. 
-> * Vytvoření plánu služby App Service pro Linux. 
-> * Nasaďte aplikaci funkce z úložiště Docker Hub.
-> * Přidáte nastavení aplikace do aplikaci funkce.
+> * Sestavit vlastní image pomocí Dockeru
+> * Publikovat vlastní image do registru kontejneru 
+> * Vytvořit účet služby Azure Storage 
+> * Vytvořit plán služby App Service pro Linux 
+> * Nasadit aplikaci Function App z Docker Hubu
+> * Přidat do aplikace Function App nastavení aplikace
 
-Další informace o vývoji Azure Functions místně pomocí nástroje Azure funkce jádra.
+Přečtěte si další informace o místním vývoji funkcí Azure Functions pomocí nástrojů Azure Functions Core.
 
 > [!div class="nextstepaction"] 
-> [Kód a testovat místně na Azure Functions](functions-run-local.md)
+> [Místní psaní kódu a testování funkcí Azure Functions](functions-run-local.md)

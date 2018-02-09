@@ -1,29 +1,29 @@
 ---
-title: "Rychlý start - vytvořit privátní registru Docker v Azure pomocí prostředí PowerShell"
-description: "Rychle se Naučte se vytvořit privátní registru kontejner Docker pomocí prostředí PowerShell."
+title: "Rychlý start – Vytvoření privátního registru Dockeru v Azure pomocí PowerShellu"
+description: "Rychle se naučíte, jak vytvořit privátní registr Dockeru pomocí PowerShellu."
 services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fbf643ad342d712452d39c71b8706b6213198512
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Vytvoření registru kontejneru služby Azure pomocí prostředí PowerShell
+# <a name="create-an-azure-container-registry-using-powershell"></a>Vytvoření služby Azure Container Registry pomocí PowerShellu
 
-Azure Container Registry je spravovaná služba registru kontejnerů Dockeru sloužící k ukládání privátních imagí kontejnerů Dockeru. Tato příručka údaje vytvoření instance registru kontejner Azure pomocí prostředí PowerShell.
+Azure Container Registry je spravovaná služba registru kontejnerů Dockeru sloužící k ukládání privátních imagí kontejnerů Dockeru. Tato příručka podrobně popisuje vytvoření instance služby Azure Container Registry pomocí PowerShellu.
 
-Tento rychlý start vyžaduje prostředí Azure PowerShell verze modulu 3,6 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Tento rychlý start vyžaduje modul Azure PowerShell verze 3.6 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Je také nutné mít Docker nainstalovány místně. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli systému [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) nebo [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Je také nutné mít Docker nainstalovaný místně. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli systému [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) nebo [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k předplatnému Azure pomocí příkazu `Login-AzureRmAccount` a postupujte podle pokynů na obrazovce.
 
@@ -41,23 +41,23 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container-registry"></a>Vytvoření registru kontejnerů
 
-Vytvořte instanci ACR pomocí [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) příkaz.
+Vytvořte instanci ACR pomocí příkazu [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry).
 
-Název registru **musí být jedinečné**. V následujícím příkladu *myContainerRegistry007* se používá. Aktualizujte na jedinečnou hodnotu.
+Název registru musí být jedinečný v rámci Azure a musí obsahovat 5 až 50 alfanumerických znaků. V následujícím příkladu se používá *myContainerRegistry007*. Aktualizujte název na jedinečnou hodnotu.
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-## <a name="log-in-to-acr"></a>Přihlaste se k ACR
+## <a name="log-in-to-acr"></a>Přihlášení ke službě ACR
 
-Před odesíláním a vyžadováním imagí kontejnerů se musíte přihlásit k instanci služby ACR. Nejprve pomocí [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) získat přihlašovací údaje správce pro instanci ACR.
+Před odesíláním a vyžadováním imagí kontejnerů se musíte přihlásit k instanci služby ACR. Nejprve pomocí příkazu [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) získejte přihlašovací údaje správce pro instanci ACR.
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Pak pomocí [docker přihlášení](https://docs.docker.com/engine/reference/commandline/login/) příkaz k přihlášení do ACR instance.
+Potom se pomocí příkazu [docker login](https://docs.docker.com/engine/reference/commandline/login/) přihlaste k instanci ACR.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
@@ -65,27 +65,27 @@ docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 
 Příkaz po dokončení vrátí zprávu Login Succeeded (Přihlášení proběhlo úspěšně).
 
-## <a name="push-image-to-acr"></a>Nabízená ACR bitové kopie
+## <a name="push-image-to-acr"></a>Nasdílení image do služby ACR
 
-Tak, aby nabízel bitovou kopii registru kontejneru Azure, musíte nejprve mít bitovou kopii. V případě potřeby spusťte následující příkaz načítat z úložiště Docker Hub předem vytvořené bitové kopie.
+Pokud chcete nasdílet image do služby Azure Container Registry, musíte nejprve mít nějakou image. V případě potřeby si přetáhněte předem vytvořenou image z Docker Hubu spuštěním následujícího příkazu.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-Obrázek musí být označené pomocí názvu serveru ACR přihlášení. Spustit [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) příkaz vrátí název serveru přihlášení instance ACR.
+Image musí být označená pomocí názvu přihlašovacího serveru ACR. Spuštěním příkazu [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) získáte název přihlašovacího serveru instance ACR.
 
 ```powershell
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Značka pomocí bitové kopie [docker značky](https://docs.docker.com/engine/reference/commandline/tag/) příkaz. Nahraďte *acrLoginServer* s přihlašovacím jménem serveru vaší instance ACR.
+Označte image pomocí příkazu [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Nahraďte *acrLoginServer* názvem přihlašovacího serveru vaší instance ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Nakonec použijte [docker nabízené](https://docs.docker.com/engine/reference/commandline/push/) pro uložení bitové kopie do ACR instance. Nahraďte *acrLoginServer* s přihlašovacím jménem serveru vaší instance ACR.
+Nakonec pomocí příkazu [docker push](https://docs.docker.com/engine/reference/commandline/push/) nasdílejte image do instance ACR. Nahraďte *acrLoginServer* názvem přihlašovacího serveru vaší instance ACR.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -93,7 +93,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud již nepotřebujete, můžete použít [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) příkaz k odebrání skupiny prostředků, ACR instanci a všechny Image kontejneru.
+Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, instance ACR a všech imagí kontejneru použít příkaz [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -101,7 +101,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Další kroky
 
-V tento rychlý start vytvořili kontejner registru Azure pomocí Azure CLI. Pokud chcete používat registru kontejner Azure s Azure kontejner instancí, nadále kurzu instancí kontejnerů Azure.
+V tomto rychlém startu jste vytvořili službu Azure Container Registry pomocí Azure CLI. Pokud chcete používat službu Azure Container Registry se službou Azure Container Instances, přejděte na kurz služby Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Kurz pro Azure instancí kontejnerů](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Kurz služby Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

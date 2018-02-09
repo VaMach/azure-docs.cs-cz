@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Hromadné kopírování několika tabulek pomocí Azure Data Factory
 Tento kurz představuje **kopírování několika tabulek z Azure SQL Database do služby Azure SQL Data Warehouse**. Stejný vzor můžete využít i u dalších scénářů kopírování. Například při kopírování tabulek z SQL Serveru/Oraclu do služby Azure SQL Database/Data Warehouse/Azure Blob nebo při kopírování různých cest ze služby Blob do tabulek Azure SQL Database.
@@ -195,7 +195,7 @@ V tomto kurzu nejsou zdrojová a cílová tabulka SQL pevně zakódované v defi
 5. Přepněte na kartu **Parametry** a klikněte na **+ Nový**.
 
     ![Stránka Připojení ke zdrojové datové sadě](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Jako název parametru zadejte **DWTableName**. 
+6. Jako název parametru zadejte **DWTableName**. Pokud zkopírujete/vložíte tento název ze stránky, ujistěte se, že není **znak koncové mezery** na konci **DWTableName**. 
 7. V části **Parametrizované vlastnosti** zadejte `@{dataset().DWTableName}` jako hodnotu vlastnosti **tableName**. Vlastnost **tableName** datové sady je nastavená na hodnotu předávanou jako argument parametru **DWTableName**. Aktivita ForEach iteruje seznam tabulek a jednu po druhé je předává aktivitě kopírování. 
    
     ![Název parametru](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasifikace Iris – část 3: Nasazení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce. Datoví vědci pomocí nich můžou připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -146,6 +146,17 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
    
    Název clusteru nabízí způsob, jak identifikovat příslušné prostředí. Umístění by mělo být stejné jako umístění účtu služby Správa modelů vytvořeného na webu Azure Portal.
 
+   Pokud se chcete ujistit, že prostředí je úspěšně nastaveno, použijte následující příkaz ke kontrole stavu:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Před nastavení prostředí v kroku 5 se ujistěte, že Stav zřizování má hodnotu Úspěšně (jak je zobrazeno níže).
+
+   ![Stav zřizování](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. Vytvořte účet služby Správa modelů. (Jedná se o jednorázové nastavení.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -158,7 +169,7 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
 
 5. Nastavte prostředí.
 
-   Po dokončení nastavení nastavte pomocí následujícího příkazu proměnné prostředí nutné k zprovoznění prostředí. Použijte stejný název prostředí, který jste použili dříve v kroku 2. Použijte stejný název skupiny prostředků, který byl výstupem v příkazovém okně při dokončení procesu nastavení.
+   Po dokončení nastavení nastavte pomocí následujícího příkazu proměnné prostředí nutné k zprovoznění prostředí. Použijte stejný název prostředí, který jste použili v kroku 2. Použijte stejný název skupiny prostředků, který byl výstupem v příkazovém okně při dokončení procesu nastavení.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
@@ -258,8 +269,9 @@ Spuštěnou webovou službu **irisapp** můžete otestovat pomocí zakódovanéh
 
 2. Pokud chcete službu otestovat, spusťte vrácený příkaz ke spuštění služby:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    Výstup je **„2“**, což je předpokládaná třída. (Váš výsledek se může lišit.) 
 
@@ -309,7 +321,7 @@ Spuštěnou webovou službu **irisapp** můžete otestovat pomocí zakódovanéh
       ```
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 V této třetí části třídílné série kurzů jste se naučili, jak pomocí služeb Azure Machine Learning provádět tyto úlohy:
 > [!div class="checklist"]
 > * Vyhledání souboru modelu

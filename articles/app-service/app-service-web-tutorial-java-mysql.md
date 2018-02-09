@@ -1,6 +1,6 @@
 ---
-title: "Vytvořit webovou aplikaci Java a MySQL v Azure"
-description: "Zjistěte, jak získat aplikaci Java, která se připojuje ke službě databáze Azure MySQL práce v Azure App Service."
+title: "Vytvoření webové aplikace Java využívající databázi MySQL v Azure"
+description: "Zjistěte, jak získat aplikaci Java, která se připojuje k databázové službě Azure MySQL fungující ve službě Azure App Service."
 services: app-service\web
 documentationcenter: Java
 author: bbenz
@@ -15,66 +15,65 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Vytvořit webovou aplikaci Java a MySQL v Azure
+# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Vytvoření webové aplikace Java využívající databázi MySQL v Azure
 
 > [!NOTE]
-> Tento článek nasadí aplikaci do služby App Service v systému Windows. K nasazení do služby App Service na _Linux_, najdete v části [nasadit kontejnerizované pružiny spouštěcí aplikaci do Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+> Tento článek nasadí aplikaci do služby App Service ve Windows. Pokud chcete nasadit službu App Service v _Linuxu_, přečtěte si téma [Nasazení kontejnerizované aplikace Spring Boot do Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
 >
 
-Tento kurz ukazuje, jak vytvořit webovou aplikaci Java v Azure a připojte ho k databázi MySQL. Jakmile budete hotovi, budete mít [pružiny spouštěcí](https://projects.spring.io/spring-boot/) ukládání dat v aplikaci [Azure Database pro databázi MySQL](https://docs.microsoft.com/azure/mysql/overview) systémem [Azure App Service Web Apps](app-service-web-overview.md).
+Tento kurz předvádí postup při vytváření webové aplikace Java v Azure a jejím připojení k databázi MySQL. Až budete hotovi, budete mít aplikaci [Spring Boot](https://projects.spring.io/spring-boot/) ukládající data ve službě [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) spuštěné v [Azure App Service Web Apps](app-service-web-overview.md).
 
-![Java aplikace spuštěné v Azure App Service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+![Aplikace Java spuštěná ve službě Azure App Service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření databáze MySQL v Azure
-> * Ukázkovou aplikaci připojit k databázi
-> * Nasazení aplikace do Azure
+> * Vytvořit databázi MySQL v Azure
+> * Připojit k databázi ukázkovou aplikaci
+> * Nasadit aplikaci do Azure
 > * Aktualizace a opětovné nasazení aplikace
-> * Diagnostické protokoly datového proudu z Azure
-> * Sledování aplikace na portálu Azure
-
-
-## <a name="prerequisites"></a>Požadavky
-
-1. [Stáhněte a nainstalujte Git](https://git-scm.com/)
-1. [Stáhněte a nainstalujte sadu JDK Java 7 nebo novější](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-1. [Stáhnout, nainstalovat a spustit MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+> * Streamovat diagnostické protokoly z Azure
+> * Monitorovat aplikaci na webu Azure Portal
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>Požadavky
+
+1. [Stažení a instalace Gitu](https://git-scm.com/)
+1. [Stažení a instalace sady Java 7 JDK nebo novější](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [Stažení, instalace a spuštění MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+
 ## <a name="prepare-local-mysql"></a>Příprava místního MySQL 
 
-V tomto kroku vytvoříte databázi v místním serveru MySQL pro použití při testování aplikace místně na vašem počítači.
+V tomto kroku vytvoříte na místním serveru MySQL databázi pro použití při místním testování aplikace na vašem počítači.
 
-### <a name="connect-to-mysql-server"></a>Připojení k serveru databáze MySQL
+### <a name="connect-to-mysql-server"></a>Připojení k serveru MySQL
 
-Okno terminálu připojte k místní server MySQL. Chcete-li spustit všechny příkazy v tomto kurzu můžete toto okno terminálu.
+V okně terminálu se připojte k místnímu serveru MySQL. Toto okno terminálu můžete používat ke spuštění všech příkazů v tomto kurzu.
 
 ```bash
 mysql -u root -p
 ```
 
-Pokud se zobrazí výzva k zadání hesla, zadejte heslo pro `root` účtu. Pokud si nepamatujete heslo kořenového účtu, najdete v části [MySQL: jak resetovat hesla kořenového](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Pokud se zobrazí výzva k zadání hesla, zadejte heslo k účtu `root`. Pokud si heslo ke kořenovému účtu nepamatujete, projděte si článek [MySQL: Resetování kořenového hesla](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-Pokud váš příkaz úspěšně proběhne, serveru databáze MySQL již spuštěna. Pokud ne, ujistěte se, zda je místní server MySQL spuštěná pomocí následujících [kroky po instalaci MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Pokud se váš příkaz úspěšně provede, znamená to, že je váš server MySQL už spuštěný. Pokud ne, provedením [kroků po instalaci MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) zkontrolujte, jestli je místní server MySQL spuštěný.
 
 ### <a name="create-a-database"></a>Vytvoření databáze 
 
-V `mysql` výzvu, vytvořte databázi a tabulku položkami seznamu úkolů.
+Na příkazovém řádku `mysql` vytvořte databázi a tabulku pro položky úkolů.
 
 ```sql
 CREATE DATABASE tododb;
 ```
 
-Ukončení připojení k serveru zadáním `quit`.
+Ukončete připojení k serveru zadáním příkazu `quit`.
 
 ```sql
 quit
@@ -82,51 +81,51 @@ quit
 
 ## <a name="create-and-run-the-sample-app"></a>Vytvoření a spuštění ukázkové aplikace 
 
-V tomto kroku klonovat ukázkové pružiny spouštěcí aplikace, bude sloužit místní databázi MySQL a spustit ve vašem počítači. 
+V tomto kroku naklonujete ukázkovou aplikaci Spring Boot, nakonfigurujete ji tak, aby používala místní databázi MySQL, a spustíte ji na svém počítači. 
 
-### <a name="clone-the-sample"></a>Clone – ukázka
+### <a name="clone-the-sample"></a>Vytvoření klonu ukázky
 
-V okně terminálu přejděte do pracovního adresáře a klonovat úložiště v ukázkové. 
+V okně terminálu přejděte do pracovního adresáře a naklonujte ukázkové úložiště. 
 
 ```bash
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
 ```
 
-### <a name="configure-the-app-to-use-the-mysql-database"></a>Nakonfiguruje aplikaci, kterou chcete použít databázi MySQL
+### <a name="configure-the-app-to-use-the-mysql-database"></a>Konfigurace aplikace pro používání databáze MySQL
 
-Aktualizace `spring.datasource.password` a hodnota v *spring-boot-mysql-todo/src/main/resources/application.properties* pomocí stejného hesla kořenové použitý k otevření MySQL řádku:
+V souboru *spring-boot-mysql-todo/src/main/resources/application.properties* aktualizujte hodnotu `spring.datasource.password` na stejné kořenové heslo, jaké jste použili k otevření příkazového řádku MySQL:
 
 ```
 spring.datasource.password=mysqlpass
 ```
 
-### <a name="build-and-run-the-sample"></a>Sestavit a spustit ukázku
+### <a name="build-and-run-the-sample"></a>Sestavení a spuštění ukázky
 
-Sestavit a spustit ukázku pomocí obálku Maven zahrnuté v úložišti:
+Sestavte a spusťte ukázku pomocí obálky Maven, která je součástí úložiště:
 
 ```bash
 cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Otevřete prohlížeč, abyste `http://localhost:8080` zobrazíte v ukázce v akci. Při přidávání úkolů do seznamu, použijte následující příkazy SQL v řádku MySQL k zobrazení dat uložených v MySQL.
+Otevřete prohlížeč na adrese `http://localhost:8080` a podívejte se na ukázku v akci. S tím, jak budete přidávat úkoly do seznamu, můžete pomocí následujících příkazů na příkazovém řádku MySQL zobrazit data uložená v MySQL.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-Zastavte aplikaci zasažení `Ctrl` + `C` v terminálu. 
+Zastavte aplikaci stisknutím `Ctrl`+`C` v terminálu. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-azure-mysql-database"></a>Vytvoření databáze MySQL na Azure
+## <a name="create-an-azure-mysql-database"></a>Vytvoření databáze MySQL Azure
 
-V tomto kroku vytvoříte [Azure Database pro databázi MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Nakonfigurujete ukázkovou aplikaci pro tuto databázi použít později v tomto kurzu.
+V tomto kroku pomocí [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) vytvoříte instanci služby [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md). V pozdější části tohoto kurzu nakonfigurujete ukázkovou aplikaci tak, aby používala tuto databázi.
 
 ### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvoření [skupiny prostředků](../azure-resource-manager/resource-group-overview.md) s [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupinu prostředků Azure je logický kontejner, kde jsou související prostředky jako webové aplikace, databáze a účtů úložiště nasadit a spravovat. 
+Vytvořte [skupinu prostředků](../azure-resource-manager/resource-group-overview.md) pomocí příkazu [`az group create`](/cli/azure/group#az_group_create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují související prostředky, jako například webové aplikace, databáze a účty úložiště. 
 
 Následující příklad vytvoří skupinu prostředků v oblasti Severní Evropa:
 
@@ -134,18 +133,17 @@ Následující příklad vytvoří skupinu prostředků v oblasti Severní Evrop
 az group create --name myResourceGroup --location "North Europe"
 ```    
 
-Zobrazíte možné hodnoty, které můžete použít pro `--location`, použijte [míst seznamu služby App Service az](/cli/azure/appservice#list-locations) příkaz.
+K zobrazení možných hodnot, které se dají použít pro `--location`, použijte příkaz [`az appservice list-locations`](/cli/azure/appservice#list-locations).
 
-### <a name="create-a-mysql-server"></a>Vytvoření databáze MySQL serveru
+### <a name="create-a-mysql-server"></a>Vytvoření serveru MySQL
 
-V prostředí cloudu, vytvoření serveru ve službě Azure Database pro databázi MySQL (Preview) pomocí [az mysql server vytvořit](/cli/azure/mysql/server#create) příkaz.    
-Nahraďte vlastní jedinečný název serveru databáze MySQL, kde uvidíte `<mysql_server_name>` zástupný symbol. Tento název je součástí název hostitele serveru MySQL, `<mysql_server_name>.mysql.database.azure.com`, takže ho musí být globálně jedinečný. Také nahraďte `<admin_user>` a `<admin_password>` vlastními hodnotami.
+Ve službě Cloud Shell pomocí příkazu [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) vytvořte v Azure Database for MySQL (Preview) server. Zástupný text `<mysql_server_name>` nahraďte vlastním jedinečným názvem serveru MySQL. Tento název je součástí názvu hostitele serveru MySQL, `<mysql_server_name>.mysql.database.azure.com`, proto musí být globálně jedinečný. Nahraďte vlastními hodnotami také položky `<admin_user>` a `<admin_password>`.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
 ```
 
-Při vytvoření serveru MySQL rozhraní příkazového řádku Azure obsahuje informace o podobně jako v následujícím příkladu:
+Po vytvoření serveru MySQL se v Azure CLI zobrazí podobné informace jako v následujícím příkladu:
 
 ```json
 {
@@ -163,18 +161,18 @@ Při vytvoření serveru MySQL rozhraní příkazového řádku Azure obsahuje i
 
 ### <a name="configure-server-firewall"></a>Konfigurace brány firewall serveru
 
-V prostředí cloudu, vytvořte pravidlo brány firewall pro váš server MySQL a povolíte připojení klienta pomocí [az mysql pravidla brány firewall-vytvořit](/cli/azure/mysql/server/firewall-rule#create) příkaz. 
+Ve službě Cloud Shell pomocí příkazu [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) vytvořte pro svůj server MySQL pravidlo brány firewall umožňující klientská připojení. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
-> Azure databáze pro databázi MySQL (Preview) automaticky aktuálně neumožňuje připojení ze služby Azure. Jak budou dynamicky přiřazovat IP adresy v Azure, je lepší, pokud chcete povolit všechny IP adresy pro nyní. Služba se stále jeho verze preview, lepší metody pro zabezpečení databáze bude povolena.
+> Azure Database for MySQL (Preview) v současné době neumožňuje automaticky připojení ze služeb Azure. Jelikož se IP adresy v Azure přidělují dynamicky, je lepší prozatím povolit všechny IP adresy. V průběhu verze Preview služby budou zapnuté lepší metody pro zabezpečení databáze.
 
-## <a name="configure-the-azure-mysql-database"></a>Konfiguraci databáze MySQL na Azure
+## <a name="configure-the-azure-mysql-database"></a>Konfigurace databáze MySQL Azure
 
-V místní okno terminálu připojení k serveru databáze MySQL v Azure. Použít hodnotu zadanou dříve pro `<admin_user>` a `<mysql_server_name>`.
+V místním okně terminálu se připojte k serveru MySQL v Azure. U položek `<admin_user>` a `<mysql_server_name>` použijte hodnoty, které jste zadali předtím.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
@@ -182,36 +180,36 @@ mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.
 
 ### <a name="create-a-database"></a>Vytvoření databáze 
 
-V `mysql` výzvu, vytvořte databázi a tabulku položkami seznamu úkolů.
+Na příkazovém řádku `mysql` vytvořte databázi a tabulku pro položky úkolů.
 
 ```sql
 CREATE DATABASE tododb;
 ```
 
-### <a name="create-a-user-with-permissions"></a>Vytvořit uživatele s oprávněními
+### <a name="create-a-user-with-permissions"></a>Vytvoření uživatele s oprávněními
 
-Vytvoření uživatele databáze a pojmenujte ho všechna oprávnění `tododb` databáze. Nahraďte zástupné symboly `<Javaapp_user>` a `<Javaapp_password>` s vlastními jedinečným názvem aplikace.
+Vytvořte uživatele databáze a přidělte mu všechna oprávnění k databázi `tododb`. Zástupné texty `<Javaapp_user>` a `<Javaapp_password>` nahraďte vlastním jedinečným názvem aplikace.
 
 ```sql
 CREATE USER '<Javaapp_user>' IDENTIFIED BY '<Javaapp_password>'; 
 GRANT ALL PRIVILEGES ON tododb.* TO '<Javaapp_user>';
 ```
 
-Ukončení připojení k serveru zadáním `quit`.
+Ukončete připojení k serveru zadáním příkazu `quit`.
 
 ```sql
 quit
 ```
 
-## <a name="deploy-the-sample-to-azure-app-service"></a>Ukázka nasazení do Azure App Service
+## <a name="deploy-the-sample-to-azure-app-service"></a>Nasazení ukázky do služby Azure App Service
 
-Vytvořit plán aplikační služby Azure s **volné** cenová úroveň pomocí [vytvořit plán aplikační služby az](/cli/azure/appservice/plan#create) rozhraní příkazového řádku příkaz. Plán aplikační služby definuje fyzické prostředky, které jsou použity k hostování vaší aplikace. Všechny aplikace, které jsou přiřazené plán služby App Service sdílení těchto prostředků, což umožňuje uložit nákladů při hostování více aplikací. 
+Pomocí příkazu [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) rozhraní příkazového řádku vytvořte plán služby App Service s cenovou úrovní **FREE**. Plán služby App Service definuje fyzické prostředky používané k hostování vašich aplikací. Všechny aplikace přiřazené k plánu služby App Service sdílí tyto prostředky, a tím umožňují snížení nákladů při hostování více aplikací. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Až bude plán připravena, rozhraní příkazového řádku Azure ukazuje podobné výstupu v následujícím příkladu:
+Jakmile bude plán připravený, v Azure CLI se zobrazí podobný výstup jako v následujícím příkladu:
 
 ```json
 { 
@@ -231,15 +229,15 @@ Až bude plán připravena, rozhraní příkazového řádku Azure ukazuje podob
 
 ### <a name="create-an-azure-web-app"></a>Vytvoření webové aplikace Azure
 
- V prostředí cloudu, pomocí [az webapp vytvořit](/cli/azure/appservice/web#create) rozhraní příkazového řádku příkaz k vytvoření definice webové aplikace v `myAppServicePlan` plán služby App Service. Definice webové aplikace adresa URL pro přístup k vaší aplikace pomocí poskytuje a konfiguruje celou řadu možností pro nasazení kódu do Azure. 
+Ve službě Cloud Shell pomocí příkazu [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) rozhraní příkazového řádku vytvořte definici webové aplikace v plánu služby App Service `myAppServicePlan`. Definice webové aplikace poskytuje adresu URL pro přístup k aplikaci a konfiguruje několik možností pro nasazení kódu do Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Nahraďte `<app_name>` zástupný symbol vlastní jedinečným názvem aplikace. Tento jedinečný název je součástí výchozí název domény pro webovou aplikaci, tak název musí být jedinečný v rámci všech aplikací v Azure. Můžete namapovat zadání názvu vlastní domény do webové aplikace ještě před zveřejněním pro vaše uživatele.
+Zástupný text `<app_name>` nahraďte vlastním jedinečným názvem aplikace. Tento jedinečný název je součástí výchozího názvu domény pro příslušnou webovou aplikaci, proto musí být mezi všemi aplikacemi v Azure jedinečný. Na webovou aplikaci můžete namapovat vlastní název domény, než ji zpřístupníte uživatelům.
 
-Při definici webové aplikace je připraven, rozhraní příkazového řádku Azure uvádí informace podobně jako v následujícím příkladu: 
+Jakmile bude definice webové aplikace připravená, v Azure CLI se zobrazí podobné informace jako v následujícím příkladu: 
 
 ```json 
 {
@@ -256,21 +254,21 @@ Při definici webové aplikace je připraven, rozhraní příkazového řádku A
 }
 ```
 
-### <a name="configure-java"></a>Konfigurace Java 
+### <a name="configure-java"></a>Konfigurace Javy 
 
-V prostředí cloudu, nastavit konfiguraci Java runtime, která vaše aplikace, musí se [aktualizace konfigurace webové služby App Service az](/cli/azure/appservice/web/config#update) příkaz.
+Ve službě Cloud Shell pomocí příkazu [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set) nastavte konfiguraci modulu runtime Java podle potřeb vaší aplikace.
 
-Následující příkaz nakonfiguruje webové aplikace ke spuštění na poslední JDK 8 Java a [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+Následující příkaz nakonfiguruje spouštění webové aplikace na nejnovější sadě Java 8 JDK a [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0
 ```
 
-### <a name="configure-the-app-to-use-the-azure-sql-database"></a>Konfigurace aplikace, které chcete použít databázi Azure SQL
+### <a name="configure-the-app-to-use-the-azure-sql-database"></a>Konfigurace aplikace pro používání databáze SQL Azure
 
-Než spustíte ukázkovou aplikaci, nastavte nastavení aplikace na webovou aplikaci k používání databáze MySQL na Azure, kterou jste vytvořili v Azure. Tyto vlastnosti jsou umístěny do webové aplikace jako proměnné prostředí a přepsat s hodnotami nastavenými v application.properties uvnitř zabalené webové aplikace. 
+Před spuštěním ukázkové aplikace nastavte v nastavení webové aplikace používání databáze MySQL Azure, kterou jste vytvořili v Azure. Tyto vlastnosti se zpřístupňují webové aplikaci jako proměnné prostředí a přepisují hodnoty nastavené v souboru application.properties uvnitř zabalené webové aplikace. 
 
-V prostředí cloudu, nastavte nastavení aplikace pomocí [az webapp konfigurace appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) v rozhraní příkazového řádku:
+Ve službě Cloud Shell nastavte pomocí příkazu [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) v CLI nastavení aplikace:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -284,10 +282,10 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_USERNAME=Javaapp_u
 az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_password --resource-group myResourceGroup --name <app_name>
 ```
 
-### <a name="get-ftp-deployment-credentials"></a>Získat přihlašovací údaje pro nasazení serveru FTP 
-Můžete nasadit aplikace do služby Azure App Service různými způsoby, včetně FTP, místní Git, GitHub, Visual Studio Team Services a BitBucket. V tomto příkladu FTP k nasazení. Soubor WAR dříve vytvořené na místním počítači do služby Azure App Service.
+### <a name="get-ftp-deployment-credentials"></a>Získání přihlašovacích údajů pro nasazení přes protokol FTP 
+K nasazení aplikace do služby Azure App Service můžete použít různé způsoby, včetně protokolu FTP, místního Gitu, GitHubu, Visual Studio Team Services nebo BitBucketu. Pro účely tohoto příkladu pomocí protokolu FTP nasaďte do služby Azure App Service soubor .WAR, který jste sestavili dříve na svém místním počítači.
 
-Chcete-li zjistit, jaké přihlašovací údaje předávat podél příkaz ftp do webové aplikace, použijte [az služby App Service web nasazení seznamu publikování profily](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) příkazu v prostředí cloudu: 
+Pokud chcete určit, jaké přihlašovací údaje máte předat do webové aplikace v příkazu FTP, použijte ve službě Cloud Shell příkaz [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles): 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -305,7 +303,7 @@ az webapp deployment list-publishing-profiles --name <app_name> --resource-group
 
 ### <a name="upload-the-app-using-ftp"></a>Nahrání aplikace pomocí protokolu FTP
 
-Vaše oblíbené nástroje FTP použít k nasazení. Soubor WAR */site/wwwroot/webapps* složky na adresu serveru, který je převzat ze `URL` pole v předchozí příkaz. Odeberte existující adresář aplikace výchozí (uživatel ROOT) a nahraďte existující ROOT.war s. Soubor WAR součástí výše v tomto kurzu.
+Pomocí oblíbeného nástroje FTP nasaďte soubor .WAR do složky */site/wwwroot/webapps* na adrese serveru, kterou jste získali z pole `URL` v předchozím příkazu. Odeberte existující výchozí adresář aplikace (ROOT) a nahraďte existující soubor ROOT.war souborem .WAR sestaveným v dřívější části tohoto kurzu.
 
 ```bash
 ftp waws-prod-blu-069.ftp.azurewebsites.windows.net
@@ -322,24 +320,24 @@ put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
 
 ### <a name="test-the-web-app"></a>Test webové aplikace
 
-Přejděte do `http://<app_name>.azurewebsites.net/` a přidejte do seznamu několik úloh. 
+Přejděte na adresu `http://<app_name>.azurewebsites.net/` a přidejte do seznamu několik úkolů. 
 
-![Java aplikace spuštěné v Azure App Service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+![Aplikace Java spuštěná ve službě Azure App Service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
-**Blahopřejeme!** Používáte datové aplikace v jazyce Java v Azure App Service.
+**Blahopřejeme!** Teď máte ve službě Azure App Service spuštěnou aplikaci Java řízenou daty.
 
 ## <a name="update-the-app-and-redeploy"></a>Aktualizace a opětovné nasazení aplikace
 
-Aktualizujte aplikaci pro zahrnutí sloupec v seznamu úkolů určitý den, položka byla vytvořena. Spouštěcí pružiny zpracovává aktualizace schématu databáze pro vás jako změn datových modelů beze změny stávajících záznamů databáze.
+Aktualizujte aplikaci a vložte do seznamu úkolů další sloupec pro den vytvoření položky. Spring Boot se v případě změn datového modelu stará o aktualizaci schématu databáze za vás, a to beze změn existujících záznamů v databázi.
 
-1. V lokálním systému, otevře *src/main/java/com/example/fabrikam/TodoItem.java* a přidejte následující importy pro třídu:   
+1. V místním systému otevřete soubor *src/main/java/com/example/fabrikam/TodoItem.java* a přidejte do třídy následující příkazy import:   
 
     ```java
     import java.text.SimpleDateFormat;
     import java.util.Calendar;
     ```
 
-2. Přidat `String` vlastnost `timeCreated` k *src/main/java/com/example/fabrikam/TodoItem.java*, inicializace s časovým razítkem na vytvoření objektu. Přidání mechanismy získání nebo nastavení pro nové `timeCreated` vlastnost během úprav tohoto souboru.
+2. Přidejte do souboru *src/main/java/com/example/fabrikam/TodoItem.java* vlastnost `timeCreated` typu `String`, která se při vytvoření objektu inicializuje s časovým razítkem. Když upravujete tento soubor, přidejte pro novou vlastnost `timeCreated` metody getter a setter.
 
     ```java
     private String name;
@@ -363,7 +361,7 @@ Aktualizujte aplikaci pro zahrnutí sloupec v seznamu úkolů určitý den, polo
     }
     ```
 
-3. Aktualizace *src/main/java/com/example/fabrikam/TodoDemoController.java* řádek v `updateTodo` metodu a nastavit časové razítko:
+3. Aktualizujte soubor *src/main/java/com/example/fabrikam/TodoDemoController.java* a do metody `updateTodo` přidejte řádek nastavující časové razítko:
 
     ```java
     item.setComplete(requestItem.isComplete());
@@ -372,7 +370,7 @@ Aktualizujte aplikaci pro zahrnutí sloupec v seznamu úkolů určitý den, polo
     repository.save(item);
     ```
 
-4. Přidáte podporu pro nové pole v šabloně Thymeleaf. Aktualizace *src/main/resources/templates/index.html* s novou hlavičkou tabulky pro časové razítko a nové pole, které chcete zobrazit hodnotu časového razítka v každém řádku dat tabulky.
+4. Přidejte podporu nového pole do šablony `Thymeleaf`. Aktualizujte soubor *src/main/resources/templates/index.html* přidáním nového záhlaví tabulky pro časové razítko a nového pole pro zobrazení hodnoty časového razítka na každém řádku dat tabulky.
 
     ```html
     <th>Name</th>
@@ -391,37 +389,35 @@ Aktualizujte aplikaci pro zahrnutí sloupec v seznamu úkolů určitý den, polo
     mvnw clean package 
     ```
 
-6. FTP aktualizaci. WAR jako před, odebrání stávající *lokality/wwwroot/webapps/ROOT* adresáře a *ROOT.war*, pak odesílání aktualizovaný. Soubor WAR jako ROOT.war. 
+6. Stejným způsobem jako předtím nahrajte aktualizovaný soubor .WAR pomocí protokolu FTP – odeberte adresář *site/wwwroot/webapps/ROOT* a soubor *ROOT.war* a pak nahrajte aktualizovaný soubor .WAR jako soubor ROOT.war. 
 
-Při aktualizaci aplikace, **čas vytvoření** sloupec je nyní viditelné. Když přidáte novou úlohu, aplikace bude naplnit časové razítko. Stávající úlohy zůstat beze změny a pracovat s aplikací, i když základní datový model byl změněn. 
+Po aktualizaci aplikace se teď zobrazí sloupec **Time Created** (Čas vytvoření). Když přidáte nový úkol, aplikace vyplní časové razítko automaticky. Vaše stávající úkoly zůstanou beze změny a budou s aplikací fungovat i přesto, že se změnil základní datový model. 
 
-![Aplikace v jazyce Java aktualizovat pomocí nového sloupce](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
+![Aktualizovaná aplikace Java s novým sloupcem](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
       
-## <a name="stream-diagnostic-logs"></a>Diagnostické protokoly datového proudu 
+## <a name="stream-diagnostic-logs"></a>Streamování diagnostických protokolů 
 
-Při spuštění aplikace v jazyce Java v Azure App Service, můžete získat protokoly konzoly přesměruje přímo do terminálu. Tímto způsobem můžete získat stejné diagnostické zprávy pomoci při ladění chyb aplikace.
+Zatímco je vaše aplikace Java spuštěná ve službě Azure App Service, můžete směrovat protokoly konzoly přímo do svého terminálu. Tímto způsobem můžete získat stejné diagnostické zprávy, které vám pomůžou ladit chyby aplikace.
 
-Spusťte protokolu streamování pomocí [az webapp protokolu poškozené databáze za](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) příkazu v prostředí cloudu.
+Ke spuštění streamování protokolů použijte příkaz [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) ve službě Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 
 ``` 
 
-## <a name="manage-your-azure-web-app"></a>Správa Azure webové aplikace
+## <a name="manage-your-azure-web-app"></a>Správa webové aplikace Azure
 
-Přejděte na portálu Azure najdete v části webové aplikace, kterou jste vytvořili.
-
-Chcete-li to provést, přihlaste se na adrese [https://portal.azure.com](https://portal.azure.com).
+Přejděte na web [Azure Portal](https://portal.azure.com) k webové aplikaci, kterou jste vytvořili.
 
 V levé nabídce klikněte na **App Service** a pak klikněte na název vaší webové aplikace Azure.
 
 ![Navigace portálem k webové aplikaci Azure](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
-Ve výchozím nastavení bude okno vaší webové aplikace obsahovat stránku **Přehled**. Tato stránka poskytuje přehled, jak si vaše aplikace stojí. Zde můžete také provést úlohy správy, jako zastavení, spuštění, restartování a delete. Karty na levé straně okna obsahují další stránky konfigurace, které můžete otevřít.
+Ve výchozím nastavení se na stránce vaší webové aplikace zobrazí stránka **Přehled**. Tato stránka poskytuje přehled, jak si vaše aplikace stojí. Tady můžete také provádět úlohy správy, jako je zastavení, spuštění, restartování a odstranění. Karty na levé straně stránky obsahují různé stránky konfigurace, které můžete otevřít.
 
-![Okno App Service na webu Azure Portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![Stránka služby App Service na webu Azure Portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
-Tyto karty v okně zobrazují mnoho skvělých funkcí, které můžete do své webové aplikace přidat. Následující seznam obsahuje jen několik možností:
+Tyto karty na stránce zobrazují mnoho skvělých funkcí, které můžete do své webové aplikace přidat. Následující seznam obsahuje jen několik možností:
 * Mapování vlastního názvu DNS
 * Vazba vlastního certifikátu SSL
 * Konfigurace průběžného nasazování
@@ -430,7 +426,7 @@ Tyto karty v okně zobrazují mnoho skvělých funkcí, které můžete do své 
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud nepotřebujete tyto prostředky pro jiné kurzu (viz [další kroky](#next)), můžete je odstranit spuštěním následujícího příkazu v prostředí cloudu: 
+Pokud tyto prostředky nepotřebujete pro další kurz (viz [Další kroky](#next)), můžete je odstranit spuštěním následujícího příkazu ve službě Cloud Shell: 
   
 ```azurecli-interactive
 az group delete --name myResourceGroup 
@@ -441,14 +437,14 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Další kroky
 
 > [!div class="checklist"]
-> * Vytvoření databáze MySQL v Azure
-> * Připojení k MySQL ukázkovou aplikaci Java
-> * Nasazení aplikace do Azure
+> * Vytvořit databázi MySQL v Azure
+> * Připojit k MySQL ukázkovou aplikaci Java
+> * Nasadit aplikaci do Azure
 > * Aktualizace a opětovné nasazení aplikace
-> * Diagnostické protokoly datového proudu z Azure
-> * Spravovat aplikaci na portálu Azure
+> * Streamovat diagnostické protokoly z Azure
+> * Spravovat aplikaci na webu Azure Portal
 
-Přechodu na dalším kurzu se dozvíte, jak namapovat vlastní název DNS do aplikace.
+V dalším kurzu se dozvíte, jak namapovat na aplikaci vlastní název DNS.
 
 > [!div class="nextstepaction"] 
 > [Mapování existujícího vlastního názvu DNS na Azure Web Apps](app-service-web-tutorial-custom-domain.md)

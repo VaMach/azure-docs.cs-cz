@@ -7,12 +7,10 @@
 ## [Vytvoření centra událostí](event-hubs-create.md)
 ## Odesílání událostí
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Příjem událostí
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Zachycení událostí
@@ -30,6 +28,8 @@
 ### [Dostupnost a konzistence](event-hubs-availability-and-consistency.md)
 ### [Automatické škálování jednotek propustnosti](event-hubs-auto-inflate.md)
 ## Vývoj
+### [Odesílání událostí pomocí rozhraní .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Příjem událostí pomocí rozhraní .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Dostupná rozhraní API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

@@ -2,7 +2,7 @@
 title: "Úvod do rozhraní API tabulky Azure Cosmos DB | Dokumentace Microsoftu"
 description: "Zjistěte, jak můžete používat Azure Cosmos DB k ukládání a dotazování velkých objemů dat s klíčovými hodnotami s nízkou latencí pomocí oblíbených rozhraní API OSS MongoDB."
 services: cosmos-db
-author: mimig
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.openlocfilehash: 9321cf648e149408e68456d30e331e05720b60ab
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.author: mimig
+ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Úvod do rozhraní API tabulky Azure Cosmos DB
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/28/2017
 * Záruka vysoké dostupnosti.
 * [Automatické sekundární indexování](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Pomocí rozhraní API tabulky je možné migrovat aplikace napsané pro Azure Table Storage beze změn kódu na službu Azure Cosmos DB a využít tak prémiové funkce. Rozhraní API tabulky má k dispozici jednu klientskou sadu SDK pro .NET.
+Pomocí rozhraní API tabulky je možné migrovat aplikace napsané pro Azure Table Storage beze změn kódu na službu Azure Cosmos DB a využít tak prémiové funkce. Rozhraní API tabulky má klientské sady SDK dostupné pro .NET, Java, Python a Node.js.
 
 Doporučujeme vám zhlédnout následující video, ve kterém Aravind Ramachandran vysvětluje, jak začít s rozhraním API tabulky pro službu Azure Cosmos DB:
 

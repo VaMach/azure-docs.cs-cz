@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Informace o službě Azure Migrate
 
@@ -42,7 +42,7 @@ Azure Migrate vám pomůže s následujícími úlohami:
 
 ## <a name="what-do-i-need-to-pay-for"></a>Za co musím platit?
 
-Služba Azure Migrate je dostupná bez dalších poplatků. Během období Public Preview se však budou účtovat další poplatky za využití možností vizualizace závislostí. Pro zajištění podpory [vizualizace závislostí](concepts-dependency-visualization.md) vytvoří Azure Migrate ve výchozím nastavení pracovní prostor Log Analytics. Pokud využíváte vizualizaci závislostí nebo používáte pracovní prostor mimo službu Azure Migrate, budou se vám účtovat poplatky za využití pracovního prostoru. [Další informace](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) o poplatcích. Až tato služba bude obecně dostupná, za využití možností vizualizace závislostí se žádné poplatky účtovat nebudou.
+Další informace o cenách služby Azure Migrate najdete [zde](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## <a name="whats-in-an-assessment"></a>Co je součástí posouzení?
