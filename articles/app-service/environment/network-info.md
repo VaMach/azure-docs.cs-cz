@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Aspekty sítě služby App Service environment #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Aspekty sítě služby App Service Environment #
 
 ## <a name="overview"></a>Přehled ##
 
@@ -47,23 +47,30 @@ Pokud máte App Service Environment ILB, IP adresa ILB je koncový bod pro proto
 
 Normální aplikace přístupové porty jsou:
 
-| Použití | Z | Akce |
+| Použití | Od | Akce |
 |----------|---------|-------------|
-|  PROTOKOL HTTP NEBO HTTPS  | Konfigurovatelná uživatelem |  80, 443 |
+|  HTTP/HTTPS  | Konfigurovatelná uživatelem |  80, 443 |
 |  FTP/FTPS    | Konfigurovatelná uživatelem |  21, 990, 10001-10020 |
 |  Visual Studio vzdálené ladění  |  Konfigurovatelná uživatelem |  4016, 4018, 4020, 4022 |
 
 To platí, pokud jste na externí App Service Environment nebo ILB App Service Environment. Pokud jste na externí App Service Environment, stiskněte tlačítko tyto porty na veřejných virtuálních IP adres. Pokud jste v App Service Environment ILB, stiskněte tlačítko tyto porty na ILB. Pokud se uzamknout port 443, může být dopad na některé funkce umístěné na portálu. Další informace najdete v tématu [portál závislosti](#portaldep).
 
+## <a name="ase-subnet-size"></a>Velikost podsítě App Service Environment ##
+
+Velikost podsítě používané k hostování App Service Environment nelze změnit po nasazení App Service Environment.  App Service Environment používá adresu pro každou infrastruktury roli stejně jako u každé instance plán izolované aplikační služby.  Kromě toho jsou 5 adresy používané pro každou podsíť, která je vytvořena sítí Azure.  App Service Environment se žádné plány služby App Service na všech použije 12 adresy před vytvořením aplikace.  Pokud je App Service Environment ILB pak použije 13 adresy předtím, než vytvoříte aplikaci v této App Service Environment. Jako škálovat plánu aplikace služby bude vyžadovat další adresy pro každý front-end, který je přidán.  Ve výchozím nastavení jsou servery front-end přidány pro každých 15 celkový počet instancí plánu služby App Service. 
+
+   > [!NOTE]
+   > V podsíti, ale App Service Environment může být nic jiného. Je třeba zvolit adresní prostor, který umožňuje růstem do budoucna. Nelze změnit, tato nastavení později. Doporučujeme velikost `/25` adresy 128.
+
 ## <a name="ase-dependencies"></a>Závislosti App Service Environment ##
 
 App Service Environment příchozí přístup závislostí je:
 
-| Použití | Z | Akce |
+| Použití | Od | Akce |
 |-----|------|----|
 | Správa | Adresy pro správu služby aplikace | Podsíť App Service Environment: 454, 455 |
 |  Interní komunikaci App Service Environment | Podsíť App Service Environment: všechny porty | Podsíť App Service Environment: všechny porty
-|  Povolit pro vyrovnávání zatížení Azure příchozí | Nástroje pro vyrovnávání zatížení Azure | Podsíť App Service Environment: všechny porty
+|  Povolit pro vyrovnávání zatížení Azure příchozí | Nástroj pro vyrovnávání zatížení Azure | Podsíť App Service Environment: všechny porty
 |  Aplikace přiřazené IP adresy | Aplikace, které jsou přiřazeny adresy | Podsíť App Service Environment: všechny porty
 
 Příchozí provoz poskytuje příkazy a ovládání App Service Environment kromě sledování systému. Zdroj IP adres pro tyto přenosy dat jsou uvedené v [adresy App Service Environment správu] [ ASEManagement] dokumentu. Konfigurace zabezpečení sítě je potřeba povolit přístup ze všech IP adres na portech 454 a 455.
@@ -76,12 +83,12 @@ Pokud používáte aplikace přiřazené IP adresy, budete muset povolit přenos
 
 Pro odchozí přístup App Service Environment závisí na několika externími systémy. Tyto závislosti systému jsou definovány s názvy DNS a nejsou mapovány na sadu pevné IP adresy. Proto App Service Environment vyžaduje přístup z podsítě App Service Environment všechny externí IP adres napříč různými porty. App Service Environment obsahuje následující odchozí závislosti:
 
-| Použití | Z | Akce |
+| Použití | Od | Akce |
 |-----|------|----|
 | Azure Storage | Podsíť App Service Environment | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 je potřeba jenom pro ASEv1.) |
 | Azure SQL Database | Podsíť App Service Environment | Database.Windows.NET: 1433, 11000 11999, 14000 14999 (Další informace najdete v tématu [využití portu SQL Database verze 12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Správa Azure | Podsíť App Service Environment | Management.Core.Windows.NET, management.azure.com: 443 
-| Ověření certifikátu SSL |  Podsíť App Service Environment            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Správa Azure | Podsíť App Service Environment | management.core.windows.net, management.azure.com: 443 
+| Ověření certifikátu SSL |  Podsíť App Service Environment            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | Podsíť App Service Environment            |  Internet: 443
 | Správa služby App Service        | Podsíť App Service Environment            |  Internet: 443
 | Azure DNS                     | Podsíť App Service Environment            |  Internet: 53
@@ -103,7 +110,7 @@ Kromě funkční závislosti App Service Environment existuje několik další p
 
 -   Webové úlohy
 -   Funkce
--   Protokol streamování
+-   Streamování protokolů
 -   Kudu
 -   Rozšíření
 -   Průzkumník procesů
@@ -125,7 +132,7 @@ Funkce a webové úlohy závisí na webu SCM, ale jsou podporovány pro použit�
 
 ## <a name="ase-ip-addresses"></a>App Service Environment IP adresy ##
 
-App Service Environment má několik IP adres znát. Jsou:
+App Service Environment má několik IP adres znát. Jsou to tyto:
 
 - **Veřejná IP adresa příchozí**: použít pro provoz aplikace v externím App Service Environment a přenosy správy v App Service Environment ILB i externí App Service Environment.
 - **Odchozí veřejnou IP adresu**: používá jako IP adresa "od" pro odchozí připojení z App Service Environment která opouští virtuální sítě, které nejsou směrovány dolů sítě VPN.
@@ -150,7 +157,7 @@ V App Service Environment nemáte přístup k virtuálním počítačům použit
 
 Skupiny Nsg se dá nakonfigurovat pomocí portálu Azure nebo pomocí prostředí PowerShell. Zde uvedené informace zobrazí na portálu Azure. Vytvořit a spravovat skupiny Nsg na portálu jako prostředek nejvyšší úrovně v rámci **sítě**.
 
-Pokud jsou požadavky na příchozí a odchozí vzít v úvahu, by mělo vypadat jako skupiny Nsg uvedeno v tomto příkladu skupin Nsg. Rozsah adres virtuální sítě je _192.168.250.0/16_, a podsíť, který je App Service Environment ve _192.168.251.128/25_.
+Pokud jsou požadavky na příchozí a odchozí vzít v úvahu, by mělo vypadat jako skupiny Nsg uvedeno v tomto příkladu skupin Nsg. Rozsah adres virtuální sítě je _192.168.250.0/23_, a podsíť, který je App Service Environment ve _192.168.251.128/25_.
 
 První dva příchozí požadavky pro App Service Environment funkce se zobrazí v horní části seznamu v tomto příkladu. Jejich umožňuje správu App Service Environment a App Service Environment pro komunikaci se sám sebe. Jiné položky jsou všechny konfigurovatelné klienta a můžou řídit přístup k síti pro aplikace spouštěné v App Service Environment. 
 
@@ -168,13 +175,13 @@ Po skupin Nsg jsou definovány, přiřadíte k podsíti, který vaše App Servic
 
 ## <a name="routes"></a>Trasy ##
 
-Trasy stát nejčastěji problematické, pokud konfigurujete virtuální síť s Azure ExpressRoute. Existují tři typy tras ve virtuální síti:
+Zásadním aspektem vynuceného tunelového propojení a toho, jak s ním naložit, jsou trasy. Ve virtuální síti Azure se směrování provádí na základě nejdelší shody předpony (LPM). Pokud existuje víc tras se stejnou shodou LPM, trasa se vybere na základě původu v tomto pořadí:
 
--   Systémové trasy
--   Trasy protokolu BGP
--   Trasy definované uživatelem (udr)
+- Trasa definovaná uživatelem (UDR)
+- Trasa protokolu BGP (pokud se používá služba ExpressRoute)
+- Systémová trasa
 
-Trasy protokolu BGP přepsat systémové trasy. Udr přepsat trasy protokolu BGP. Další informace o trasách v Azure virtuální sítě najdete v tématu [trasy definované uživatelem přehled][UDRs].
+Další informace o směrování ve virtuální síti najdete v tématu [Trasy definované uživatelem a předávání IP][UDRs].
 
 Azure SQL database, která App Service Environment se používá ke správě systému má bránu firewall. To vyžaduje komunikaci z veřejné VIP App Service Environment. Připojení k databázi SQL z App Service Environment bude odepřen, pokud jsou odesílány mimo provoz připojení ExpressRoute a na jinou IP adresu.
 
@@ -182,15 +189,15 @@ Pokud jsou odpovědi na příchozí požadavky na správu odeslat dolů ExpressR
 
 Pro vaše App Service Environment, kterou práci, zatímco jsou vaše virtuální síť nakonfigurované ExpressRoute je nejjednodušší cesta:
 
--   Konfigurace ExpressRoute a nabídnout _0.0.0.0/0_. Ve výchozím nastavení, je vynutit tunely všechny odchozí přenosy na místě.
--   Vytvořte UDR. Platí pro podsíť, která obsahuje App Service Environment se předponu adresy z _0.0.0.0/0_ a dalšího směrování typ _Internet_.
+-   Konfigurace ExpressRoute a nabídnout _0.0.0.0/0_. Ve výchozím nastavení provede vynucené tunelové propojení veškerých odchozích přenosů do místní sítě.
+-   Vytvořte trasu UDR. Platí pro podsíť, která obsahuje App Service Environment se předponu adresy z _0.0.0.0/0_ a dalšího směrování typ _Internet_.
 
 Pokud provedete tyto dvě změny, určené internetové komunikaci z podsítě App Service Environment není vynutit dolů ExpressRoute a App Service Environment funguje. 
 
 > [!IMPORTANT]
-> Trasy definované v UDR musí být dost konkrétní, aby mají přednost před všechny trasy inzerované konfigurace ExpressRoute. V předchozím příkladu používá 0.0.0.0/0 široký rozsah adres. Se dá potenciálně omylem přepsat inzerování tras, které používají podrobnější rozsahy adres.
+> Trasy definované v trase UDR musí být dost konkrétní, aby měly přednost před všemi trasami inzerovanými konfigurací ExpressRoute. V předchozím příkladu se používá široký rozsah adres 0.0.0.0/0. Může nechtěně dojít k jeho potlačení z důvodu inzerování tras, které používají konkrétnější rozsahy adres.
 >
-> Konfigurace ExpressRoute, které mezi Inzerovat trasy z cesty partnerského vztahu veřejný partnerský vztah privátní cestu ASEs nepodporuje. Konfigurace ExpressRoute s veřejné partnerské vztahy nakonfigurované dostávat inzerování trasy od Microsoftu. Tato oznámení obsahují velké sady rozsahů adres Microsoft Azure IP. Pokud rozsahy adres ohlášené mezi v cestě k vytvoření soukromého partnerského vztahu, jsou všechny odchozí síťových paketů z podsítě App Service Environment force tunelovým propojením zákazníka místní síťové infrastruktuře. ASEs aktuálně nepodporuje tento tok sítě. Jedno řešení tohoto problému se trasy mezi – reklamu z cesty partnerského vztahu veřejné do cesty partnerského vztahu privátní ukončit.
+> Konfigurace ExpressRoute, které mezi Inzerovat trasy z cesty partnerského vztahu veřejný partnerský vztah privátní cestu ASEs nepodporuje. Konfigurace ExpressRoute s nakonfigurovanými veřejnými partnerskými uzly přijímají inzerci tras od Microsoftu. Tyto inzerce obsahují velkou sadu rozsahů IP adres Microsoft Azure. Pokud rozsahy adres ohlášené mezi v cestě k vytvoření soukromého partnerského vztahu, jsou všechny odchozí síťových paketů z podsítě App Service Environment force tunelovým propojením zákazníka místní síťové infrastruktuře. ASEs aktuálně nepodporuje tento tok sítě. Jedním řešením tohoto problému je ukončit křížovou inzerci tras z cesty s veřejnými partnerskými uzly do cesty se soukromými partnerskými uzly.
 
 Pokud chcete vytvořit UDR, postupujte takto:
 

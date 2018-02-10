@@ -3,7 +3,7 @@ title: "Vytvořit vlastní přístupu na základě rolí role řízení a přiř
 description: "Přiřadit vlastní role RBAC vytvořené pomocí prostředí PowerShell a rozhraní příkazového řádku pro interních a externích uživatelů"
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Úvod na řízení přístupu na základě rolí
 
 Řízení přístupu na základě role je Azure portálu pouze funkce povolení vlastníky předplatného přiřadit granulární role jiným uživatelům, kteří mohou spravovat konkrétní prostředek obory ve svém prostředí.
 
-RBAC umožňuje lepší zabezpečení správy pro velké organizace a pro SMB práce s externími spolupracovníky, dodavatele nebo freelancers, které potřebují přístup ke konkrétním prostředkům ve vašem prostředí, ale nemusí nutně prokázat celé infrastruktury nebo žádné související fakturace obory. RBAC umožňuje flexibilitu vlastnící jedno předplatné, které spravuje správce účtu (role Správce služby na úrovni předplatného) a pro práci v rámci stejného předplatného, ale bez jakékoli práva správce pro ni pozvali více uživatelů . Ze správy a fakturace perspektivy funkci RBAC prokáže, že se možnost efektivní čas a správy pro používání Azure v různých situacích.
+RBAC umožňuje lepší zabezpečení správy pro velké organizace a pro SMB práce s externími spolupracovníky, dodavatele nebo freelancers, kteří potřebují přístup ke konkrétním prostředkům ve vašem prostředí, ale nemusí nutně prokázat celé infrastruktury nebo žádné související fakturace obory. RBAC umožňuje flexibilitu vlastnící jedno předplatné, které spravuje správce účtu (role Správce služby na úrovni předplatného) a pro práci v rámci stejného předplatného, ale bez jakékoli práva správce pro ni pozvali více uživatelů . Ze správy a fakturace perspektivy funkci RBAC prokáže, že se možnost efektivní čas a správy pro používání Azure v různých situacích.
 
 ## <a name="prerequisites"></a>Požadavky
 Používání RBAC v prostředí Azure vyžaduje:
@@ -50,7 +50,7 @@ RBAC lze použít na tři různé rozsahy v Azure. Z oboru nejvyšší nejnižš
 Existují dvě běžných příkladů, když RBAC je použít (ale mimo jiné):
 
 * Že externí uživatelé organizací pozvat (není součástí uživatele správce klienta Azure Active Directory) ke správě určitých prostředků nebo celý předplatného
-* Práce s uživateli uvnitř organizace (jsou součástí klienta Azure Active Directory uživatele), ale součást různé týmy nebo skupin, které potřebují granulární přístup pro celé předplatné nebo pro určité skupiny prostředků nebo prostředek oborů v prostředí
+* Práce s uživateli uvnitř organizace (jsou součástí klienta Azure Active Directory uživatele), ale součást různé týmy nebo skupiny, které potřebují granulární přístup k celé předplatné nebo pro určité skupiny prostředků nebo prostředek oborů v prostředí
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Udělení přístupu na úrovni předplatného pro uživatele mimo Azure Active Directory
 Role RBAC lze udělit pouze systémem **vlastníky** předplatného proto uživatel s oprávněními správce musíte být přihlášeni pomocí uživatelského jména, která má tato role předběžně zařazená nebo vytvořil předplatné Azure.
@@ -59,7 +59,7 @@ Z portálu Azure po přihlášení jako správce, vyberte možnost "Odběry" a v
 ![okno odběru na portálu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) ve výchozím nastavení, pokud uživatel s oprávněními správce koupil předplatné Azure, uživateli se zobrazí jako **správce účtu**, tím se roli předplatného. Další informace o rolích předplatné Azure, najdete v části [přidání nebo změna role Správce služby Azure, které spravují předplatné nebo služby](/billing/billing-add-change-azure-subscription-administrator.md).
 
 V tomto příkladu uživatel "alflanigan@outlook.com" je **vlastníka** z "Bezplatnou zkušební verzi" předplatné v AAD klienta "Výchozí klienta Azure". Vzhledem k tomu, že je tento uživatel Tvůrce předplatného Azure se počáteční Account Microsoft "Outlook" (Account Microsoft = Outlook, Live atd.) bude výchozí název domény pro všechny uživatele přidán do tohoto klienta **"@alflaniganuoutlook.onmicrosoft.com"**. Návrh syntaxe nové domény je tvořen uvedení společně název uživatelské jméno a doménu uživatele, který vytvořil klienta a přidání rozšíření **". onmicrosoft.com"**.
-Kromě toho uživatelé můžou přihlásit pomocí vlastního názvu domény v klientovi po přidání a ověření pro nového klienta. Další podrobnosti o tom, jak ověřit vlastní název domény v klienta služby Azure Active Directory najdete v tématu [přidání vlastního názvu domény do adresáře](/active-directory/active-directory-add-domain).
+Kromě toho uživatelé mohou přihlásit pomocí vlastního názvu domény v klientovi po přidání a ověření pro nového klienta. Další informace o tom, jak ověřit vlastní název domény v klienta služby Azure Active Directory najdete v tématu [přidání vlastního názvu domény do adresáře](/active-directory/active-directory-add-domain).
 
 V tomto příkladu adresáři "Výchozí klient Azure" obsahuje pouze uživatele s názvem domény "@alflanigan.onmicrosoft.com".
 
@@ -77,9 +77,9 @@ Po výběru předplatného, musíte kliknout na uživatel s oprávněními sprá
 
 ![Přidání nového uživatele v IAM funkce řízení přístupu na portálu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-Dalším krokem je vybrat role, kterou chcete přiřadit a uživatel, kterému se přiřadí RBAC role. V **Role** rozevírací nabídce Uživatel s oprávněními správce vidí jenom integrovanou RBAC role, které jsou k dispozici v Azure. Podrobné vysvětlení jednotlivých rolí a jejich přiřaditelnými obory, najdete v části [předdefinované role pro řízení přístupu](role-based-access-built-in-roles.md).
+Dalším krokem je vybrat role, kterou chcete přiřadit a uživatel, kterému se přiřadí RBAC role. V **Role** rozevírací nabídce správce uživateli se zobrazí pouze integrované RBAC role, které jsou dostupné v Azure. Podrobné vysvětlení jednotlivých rolí a jejich přiřaditelnými obory, najdete v části [předdefinované role pro řízení přístupu](role-based-access-built-in-roles.md).
 
-Pak musí přidat e-mailovou adresu externího uživatele, uživatel s oprávněními správce. Očekávané chování je externí uživatel není zobrazena v existujícího klienta. Po pozval externí uživatel zadá budou viditelné v rámci **odběry > řízení přístupu (IAM)** s aktuální uživateli, které jsou přiřazeny role RBAC v obor předplatného.
+Pak musí přidat e-mailovou adresu externího uživatele, uživatel s oprávněními správce. Očekávané chování je externí uživatel není zobrazena v existujícího klienta. Po pozval externí uživatel zadá budou viditelné v rámci **odběry > řízení přístupu (IAM)** s aktuálního uživatele, kteří jsou přiřazeny role RBAC v obor předplatného.
 
 
 
@@ -96,7 +96,7 @@ Pak musí přidat e-mailovou adresu externího uživatele, uživatel s oprávně
 Uživatel "chessercarlton@gmail.com" pozval být **vlastníka** pro předplatné "Bezplatnou zkušební verzi". Po odeslání pozvánky, obdrží externího uživatele potvrzení e-mailu s odkazem k aktivaci.
 ![e-mailová pozvánka pro RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-Probíhá mimo organizaci, nový uživatel nemá žádné existující atributy v adresáři "Výchozí klient Azure". Budou vytvořeny po externího uživatele poskytl souhlas zaznamenávají v adresáři, který je přidružen k odběru, který byl přiřazen k roli.
+Probíhá mimo organizaci, nový uživatel nemá žádné existující atributy v adresáři "Výchozí klient Azure". Budou vytvořeny po externího uživatele poskytl souhlas zaznamenávají v adresáři, který je přidružený k předplatnému byl přiřazen k roli.
 
 
 
@@ -116,10 +116,10 @@ Zobrazuje externí uživatel v klientovi Azure Active Directory od této chvíle
 
 V **uživatelé** zobrazení, externí uživatele umožňuje rozpoznat typ vlastní ikonu na portálu Azure.
 
-Ale udělení **vlastníka** nebo **Přispěvatel** přístup k externím uživatelem v **předplatné** obor, neumožňuje přístup k adresáři uživatele správce, pokud **Globálního správce** to umožňuje. Ve vlastnosti uživatele **typ uživatele** jehož dvě společné parametry, **člen** a **hosta** lze identifikovat. Člen je uživatel, která je registrována v adresáři, zatímco hosta je uživatel vyzván k adresáři z externího zdroje. Další informace najdete v tématu [jak správci Azure Active Directory přidat uživatele spolupráce B2B](active-directory-b2b-admin-add-users.md).
+Ale udělení **vlastníka** nebo **Přispěvatel** přístup k externím uživatelem v **předplatné** obor, neumožňuje přístup k adresáři uživatele správce, pokud **Globálního správce** to umožňuje. Ve vlastnosti uživatele **typ uživatele**, který má dvě společné parametry, **člen** a **hosta** lze identifikovat. Člen je uživatel, který je zaregistrován v adresáři, zatímco hosta je uživatel vyzván k adresáři z externího zdroje. Další informace najdete v tématu [jak správci Azure Active Directory přidat uživatele spolupráce B2B](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
-> Ujistěte se, že po zadání přihlašovacích údajů na portálu, externí uživatel vybere správný adresář, který má přihlášení k. Stejný uživatel můžete mít přístup k více adresářů a můžete vybrat některý z nich kliknutím uživatelské jméno v vpravo nahoře na portálu Azure a potom z rozevíracího seznamu vyberte příslušného adresáře.
+> Ujistěte se, že po zadání přihlašovacích údajů na portálu, externí uživatel vybere správný adresář pro přihlášení k aplikaci. Stejný uživatel můžete mít přístup k více adresářů a můžete vybrat některý z nich kliknutím uživatelské jméno v vpravo nahoře na portálu Azure a potom z rozevíracího seznamu vyberte příslušného adresáře.
 
 Při se hostovaného v adresáři, externího uživatele můžete spravovat všechny prostředky pro předplatné Azure, ale nemůže získat přístup k adresáři.
 
@@ -129,7 +129,7 @@ Při se hostovaného v adresáři, externího uživatele můžete spravovat vše
 
 ![přístup omezen na portálu Azure azure active directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory a předplatné Azure, nemají vztah nadřazený podřízený jako ostatní prostředky služby Azure (například: virtuálních počítačů, virtuálních sítí, webové aplikace, úložiště atd.) s předplatné Azure. Všechny pozdější je vytvořen, spravovat a účtují pod předplatným Azure, zatímco předplatné služby Azure se používá ke správě přístupu ke službě Azure directory. Další podrobnosti najdete v tématu [předplatné jak Azure souvisí s Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory a předplatné Azure, nemají vztah nadřazený podřízený jako ostatní prostředky služby Azure (například: virtuálních počítačů, virtuálních sítí, webové aplikace, úložiště atd.) s předplatné Azure. Všechny pozdější vytvořit, spravovat a účtují pod předplatným Azure, zatímco předplatné služby Azure se používá ke správě přístupu ke službě Azure directory. Další informace najdete v tématu [předplatné jak Azure souvisí s Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
 Ze všech předdefinovaných rolí RBAC **vlastníka** a **Přispěvatel** nabízejí úplné správy přístup ke všem prostředkům v prostředí, rozdíl, že Přispěvatel nelze vytvářet a odstraňovat nové role RBAC . Mezi integrované role jako **Přispěvatel virtuálních počítačů** nabízejí úplné správy přístup jen k prostředkům uvádí název, bez ohledu na to **skupiny prostředků** během vytváření do.
 
@@ -158,12 +158,12 @@ Normální chování pro tento externí uživatele s tato předdefinovaná role 
 Tok procesu je stejný jako při přidávání externího uživatele, z pohledu správce udělení RBAC role, jakož i uživatele i udělení přístupu k roli. Rozdíl je, že pozvané uživatele neobdrží žádné pozvánek e-mailu jako všechny obory prostředků v rámci předplatného. bude k dispozici v řídicím panelu po přihlášení.
 
 ## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>Přiřazení role RBAC v oboru skupiny prostředků
-Přiřazení na role RBAC **skupiny prostředků** oboru má identické proces pro přiřazení role na úrovni předplatného, pro oba typy uživatelů - externí nebo interní (součást stejný adresář). Uživatelé, které jsou přiřazeny RBAC role je zobrazíte ve svém prostředí pouze skupinu prostředků mají přiřazený přístup z **skupiny prostředků** ikonu na portálu Azure.
+Přiřazení na role RBAC **skupiny prostředků** oboru má identické proces pro přiřazení role na úrovni předplatného, pro oba typy uživatelů - externí nebo interní (součást stejný adresář). Uživatelé, které jsou přiřazené RBAC role je zobrazíte ve svém prostředí pouze skupinu prostředků mají přiřazený přístup z **skupiny prostředků** ikonu na portálu Azure.
 
 ## <a name="assign-rbac-roles-at-the-resource-scope"></a>Přiřadit role RBAC v oboru prostředků
-Přiřazení role RBAC v oboru prostředků v Azure má identické proces pro přiřazení role na úrovni předplatného nebo na úrovni skupiny prostředků, následující témže pracovním postupu pro oba scénáře. Znovu, můžete uživatele, pro které jsou přiřazené RBAC role zobrazení pouze těch položek, které mají přiřazený přístup k, buď v **všechny prostředky** kartě nebo přímo v jejich řídicího panelu.
+Přiřazení role RBAC v oboru prostředků v Azure má identické proces pro přiřazení role na úrovni předplatného nebo na úrovni skupiny prostředků, následující témže pracovním postupu pro oba scénáře. Znovu, můžete uživatele, kteří jsou přiřazeny RBAC role zobrazení pouze těch položek, které mají přiřazený přístup k, buď v **všechny prostředky** kartě nebo přímo v jejich řídicího panelu.
 
-Pro uživatele k přihlášení k adresáři správné zajistit je důležitým aspektem pro RBAC jak v oboru skupiny prostředků nebo prostředek oboru.
+Důležitým aspektem pro RBAC jak v oboru skupiny prostředků nebo prostředek oboru je pro uživatele a ujistěte se, zda jste přihlášení k správném adresáři.
 
 
 
@@ -172,7 +172,7 @@ Pro uživatele k přihlášení k adresáři správné zajistit je důležitým 
 ![přihlášení Directory na portálu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Přiřazení role RBAC pro skupinu služby Azure Active Directory
-Všechny scénáře pomocí RBAC na tři různé rozsahy v Azure nabízí oprávnění k správě, nasazení a správa různé prostředky jako uživatel s přiřazenou bez nutnosti správy osobních předplatné. Bez ohledu na to je pro předplatné, skupinu prostředků nebo prostředek oboru, všechny prostředky přiřazené uživatelé vytvořili na další se fakturují v rámci jednoho předplatného Azure, kde mají uživatelé přístup k přiřadit RBAC role. Tímto způsobem, uživatelů, kteří mají oprávnění správce pro toto předplatné celý Azure fakturace má úplný přehled o spotřebě, bez ohledu na to kdo spravuje prostředky.
+Všechny scénáře pomocí RBAC na tři různé rozsahy v Azure nabízí oprávnění, nasazení a správě různé prostředky jako uživatel s přiřazenou bez nutnosti správy osobních předplatné. Bez ohledu na to je přiřazena RBAC role pro předplatné, skupinu prostředků nebo prostředek oboru, všechny prostředky, které jsou přiřazené uživatelé vytvořili na další se fakturují v rámci jednoho předplatného Azure, kde mají uživatelé přístup k. Tímto způsobem, uživatelů, kteří mají oprávnění správce pro toto předplatné celý Azure fakturace má úplný přehled o spotřebě, bez ohledu na to kdo spravuje prostředky.
 
 Stejným způsobem jako pro skupiny Azure Active Directory s perspektivy, že uživatel s oprávněními správce chce zajistit granulární přístup pro týmy nebo celý oddělení, není jednotlivě pro každého uživatele, takže vzhledem k tomu lze použít pro větší organizace role RBAC jej jako velmi čas a správu efektivní možnost. Pro ilustraci v tomto příkladu **Přispěvatel** role je přidaný do jedné ze skupin v klientovi na úrovni předplatného.
 
@@ -185,13 +185,13 @@ Stejným způsobem jako pro skupiny Azure Active Directory s perspektivy, že u�
 Tyto skupiny jsou skupiny zabezpečení, které jsou zřizovat a spravovat pouze v rámci Azure Active Directory.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Vytvořit vlastní role RBAC otevření žádosti o podporu pomocí prostředí PowerShell
-Předdefinované role RBAC, které jsou k dispozici v Azure zkontrolujte určité úrovně oprávnění na základě dostupných prostředků v prostředí. Pokud žádná z těchto rolí potřebám Správce uživatelů, existuje však možnost omezit přístup i další vytvořením vlastní role RBAC.
+Předdefinované role RBAC, které jsou dostupné v Azure zkontrolujte určité úrovně oprávnění na základě dostupných prostředků v prostředí. Pokud žádná z těchto rolí potřebám Správce uživatelů, existuje však možnost omezit přístup i další vytvořením vlastní role RBAC.
 
 Vytvoření vlastní role RBAC vyžaduje trvat jednu předdefinovaná role, upravovat a importujte ji zpět do prostředí. Stažení a nahrání role se spravují pomocí prostředí PowerShell nebo rozhraní příkazového řádku.
 
 Je důležité pochopit požadavky vytváření vlastní roli, které můžete udělit granulární přístup na úrovni předplatného a taky umožnit pozvané uživatele možnost otevření žádosti o podporu.
 
-V tomto příkladu předdefinovaná role **čtečky** který uživatelům umožňuje přístup k zobrazení všech oborů prostředků, ale nechcete je upravit nebo vytvořit nové byl přizpůsoben, aby uživatel povolit možnost otevření žádosti o podporu.
+Například předdefinovaná role **čtečky**, což umožňuje uživatelům přístup k zobrazení všech oborů prostředků, ale nechcete je upravit nebo vytvořit nové, byl přizpůsoben, aby uživatel povolit možnost otevření žádosti o podporu.
 
 Je první akcí exportu **čtečky** spustili role musí být dokončena v prostředí PowerShell se zvýšenými oprávněními jako správce.
 

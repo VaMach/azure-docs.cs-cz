@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak chránit, back-endu webového rozhraní API pomocí Azure Active Directory a API Management
 Následující video ukazuje, jak vytvářet back-end webového rozhraní API a chránit pomocí Azure Active Directory a rozhraní API správy protokolu OAuth 2.0.  Tento článek obsahuje přehled a další informace o kroky v videa. Následující 24 minutu video ukazuje, jak na:
@@ -33,7 +33,7 @@ Následující video ukazuje, jak vytvářet back-end webového rozhraní API a 
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Vytvořte adresář služby Azure AD
-K zabezpečení vašeho webového rozhraní API zálohovaný pomocí Azure Active Directory je nutné nejdříve vytvořit klienta služby AAD. V tomto videu klienta s názvem **APIMDemo** se používá. Vytvoření klienta služby AAD, přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com) a klikněte na tlačítko **nový**->**App Services**->**služby Active Directory**->**Directory**->**vytvořit vlastní**. 
+K zabezpečení vašeho webového rozhraní API back-end pomocí Azure Active Directory je nutné nejdříve vytvořit klienta služby AAD. V tomto videu klienta s názvem **APIMDemo** se používá. Vytvoření klienta služby AAD, přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com) a klikněte na tlačítko **nový**->**App Services**->**služby Active Directory**->**Directory**->**vytvořit vlastní**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -192,7 +192,7 @@ Rozhraní API se konfigurují na rozhraní API portálu vydavatele, který je p�
 
 Operace jde [ručně přidat do rozhraní API](api-management-howto-add-operations.md), nebo může být importován. V tomto videu se operace importují ve formátu Swagger od 6:40.
 
-Vytvořte soubor s názvem `calcapi.json` s následující obsah a uložte ho do počítače. Ujistěte se, že `host` atribut body back-end vašeho webového rozhraní API. V tomto příkladu `"host": "apimaaddemo.azurewebsites.net"` se používá.
+Vytvořte soubor s názvem `calcapi.json` s následující obsah a uložte ho do počítače. Ujistěte se, že `host` atribut body back-end vašeho webového rozhraní API. V tomto příkladu se používá `"host": "apimaaddemo.azurewebsites.net"`.
 
 ```json
 {
@@ -387,7 +387,7 @@ Zvolte **webové aplikace nebo webové rozhraní API**, zadejte název a klikně
 
 ![Nová aplikace][api-management-aad-new-application-devportal-1]
 
-Pro **přihlašovací adresa URL** zadejte adresu URL služby API Management a připojit `/signin`. V tomto příkladu `https://contoso5.portal.azure-api.net/signin` se používá.
+Pro **přihlašovací adresa URL** zadejte adresu URL služby API Management a připojit `/signin`. V tomto příkladu se používá `https://contoso5.portal.azure-api.net/signin`.
 
 Pro **URL Id aplikace** zadejte adresu URL služby API Management a připojit některé jedinečných znaků. To může být jakékoli požadované znaky a v tomto příkladu `https://contoso5.portal.azure-api.net/dp` se používá. Pokud požadovaný **vlastností aplikace** jsou nakonfigurovaná, klikněte na tlačítko zaškrtnutí pro vytvoření aplikace.
 

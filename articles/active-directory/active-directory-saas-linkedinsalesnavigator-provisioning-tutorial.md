@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 164f6bf83d7f0673e9ac7eb1107f90d311bca1c0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 563cb4e231aaa3abf6e70320df8cfa6b56cd354c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Kurz: Konfigurace LinkedIn prodej navigátor pro zřizování automatické uživatelů
 
@@ -117,7 +117,9 @@ Prvním krokem je načíst LinkedIn přístupový token. Pokud jste správce pod
 
 16) Klikněte na **Uložit**. 
 
-Tato akce spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené na LinkedIn prodej v tabulce v části Uživatelé a skupiny. Všimněte si, že počáteční synchronizace bude trvat déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud je služba spuštěná. Můžete použít **podrobnosti synchronizace** oddílu monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci Navigátor prodej LinkedIn.
+Tato akce spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené na LinkedIn prodej v tabulce v části Uživatelé a skupiny. Všimněte si, že počáteční synchronizace bude trvat déle než následné synchronizace, ke kterým dochází přibližně každých 40 minut, dokud je služba spuštěná. Můžete použít **podrobnosti synchronizace** oddílu monitorovat průběh a odkazech zřízení protokoly aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci Navigátor prodej LinkedIn.
+
+Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Další prostředky

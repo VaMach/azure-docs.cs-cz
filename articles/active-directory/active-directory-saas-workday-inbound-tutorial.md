@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Kurz: Konfigurace Workday pro zřizování automatické uživatelů
 
@@ -297,7 +297,7 @@ V této části nakonfigurujete, jak jsou data uživatele z Workday do služby A
 
          * **Výraz** – umožňuje psát vlastní hodnotu do atribut AD založené na jeden nebo více atributů Workday. [Další informace najdete v článku na výrazy](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Zdrojový atribut** -atribut uživatele z Workday.
+      * **Zdrojový atribut** -atribut uživatele z Workday. Pokud hledáte atribut neexistuje, přečtěte si téma [přizpůsobení v seznamu atributů uživatele Workday](#customizing-the-list-of-workday-user-attributes).
 
       * **Výchozí hodnota** – volitelné. Pokud zdrojový atribut má prázdnou hodnotu, mapování zapíše tuto hodnotu.
             Nejběžnější konfigurace je nechte pole prázdné.
@@ -549,7 +549,7 @@ V této části nakonfigurujete uživatelská data tok z Workday do Azure Active
 
       * **Výraz** – umožňuje psát vlastní hodnotu do atribut AD založené na jeden nebo více atributů Workday. [Další informace najdete v článku na výrazy](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Zdrojový atribut** -atribut uživatele z Workday.
+   * **Zdrojový atribut** -atribut uživatele z Workday. Pokud hledáte atribut neexistuje, přečtěte si téma [přizpůsobení v seznamu atributů uživatele Workday](#customizing-the-list-of-workday-user-attributes).
 
    * **Výchozí hodnota** – volitelné. Pokud zdrojový atribut má prázdnou hodnotu, mapování zapíše tuto hodnotu.
             Nejběžnější konfigurace je nechte pole prázdné.
@@ -646,7 +646,7 @@ Jakmile částí 1 – 2 byly dokončeny, můžete spustit službu zřizování.
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Přizpůsobení seznamu Workday uživatelské atributy
 Workday zřizování aplikací pro služby Active Directory a Azure AD oba obsahují výchozí seznam atributů uživatele Workday můžete vybrat z. Tyto seznamy však nejsou komplexní. WORKDAY podporuje mnoho stovky uživatelské atributy, které mohou být buď standardní nebo jedinečné pro vašeho klienta Workday. 
 
-Zřizování služby Azure AD podporuje přizpůsobit seznam nebo atribut Workday zahrnout všechny atributy v [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) operace rozhraní API lidských zdrojů.
+Zřizování služby Azure AD podporuje přizpůsobit seznam nebo atribut Workday zahrnout všechny atributy v [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) operace rozhraní API lidských zdrojů.
 
 Chcete-li to provést, musíte použít [Workday Studio](https://community.workday.com/studio-download) k extrakci XPath výrazy, které představují atributy, které chcete použít a poté je přidejte do zřizování konfigurace pomocí editoru pokročilé atribut na portálu Azure.
 
@@ -654,7 +654,7 @@ Chcete-li to provést, musíte použít [Workday Studio](https://community.workd
 
 1. Stáhněte a nainstalujte [Workday Studio](https://community.workday.com/studio-download). Budete potřebovat účet Workday komunity pro přístup k Instalační služby.
 
-2. Stáhněte soubor jazyce Workday Human_Resources WDSL z této adresy URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+2. Stáhněte soubor jazyce Workday Human_Resources WDSL z této adresy URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Spusťte Workday Studio.
 
@@ -680,12 +680,23 @@ Chcete-li to provést, musíte použít [Workday Studio](https://community.workd
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>

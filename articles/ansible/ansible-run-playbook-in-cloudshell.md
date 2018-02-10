@@ -1,22 +1,22 @@
 ---
-title: "Spustit Ansible v prostředí cloudu Azure"
-description: "Zjistěte, jak provádět různé úlohy Ansible v prostředí cloudu Azure"
+title: "Spusťte Ansible s Bash v prostředí cloudu Azure"
+description: "Zjistěte, jak provádět různé úlohy Ansible s Bash v prostředí cloudu Azure"
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: d5a818616d382954d0880bcae58bb13b632ad757
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-ansible-in-the-azure-cloud-shell"></a>Spustit Ansible v prostředí cloudu Azure
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Spusťte Ansible s Bash v prostředí cloudu Azure
 
-V tomto kurzu zjistěte, jak provádět různé úlohy Ansible v prostředí cloudu Azure. Tyto úlohy patří připojení k virtuálnímu počítači a vytvoření Ansible playbooks vytvářet a odstraňovat skupiny prostředků Azure.
+V tomto kurzu zjistěte, jak provádět různé úlohy Ansible z Bash v prostředí cloudu. Tyto úlohy patří připojení k virtuálnímu počítači a vytvoření Ansible playbooks vytvářet a odstraňovat skupiny prostředků Azure.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -24,12 +24,14 @@ V tomto kurzu zjistěte, jak provádět různé úlohy Ansible v prostředí clo
 
 - **Přihlašovací údaje Azure** - [Azure vytvořit přihlašovací údaje a nakonfigurujte Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Konfigurace prostředí Azure Cloud** – Pokud začínáte prostředí cloudu Azure a v článku [rychlý start pro Bash v prostředí cloudu Azure](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) znázorňuje, jak spustit a nakonfigurovat prostředí cloudu.
+- **Konfigurace prostředí Azure Cloud** – Pokud začínáte prostředí cloudu Azure a v článku [rychlý start pro Bash v prostředí cloudu Azure](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) znázorňuje, jak spustit a nakonfigurovat prostředí cloudu. Spusťte na vyhrazené webové stránce pro cloudové prostředí tady:
+
+[![Spusťte prostředí cloudu](https://shell.azure.com/images/launchcloudshell.png "spusťte cloudové prostředí Shell")](https://shell.azure.com)
 
 ## <a name="use-ansible-to-connect-to-a-vm"></a>Použít Ansible pro připojení k virtuálnímu počítači
 Ansible vytvořil skript v jazyce Python názvem [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) který generuje dynamické inventáře vašich prostředků Azure tak, že žádostí o rozhraní API pro Azure Resource Manager. Následující kroky vás provedou pomocí `azure_rm.py` skript pro připojení k virtuální počítač Azure:
 
-1. Otevřete prostředí cloudu Azure.
+1. Otevřete Bash v prostředí cloudu. Typ prostředí je označené na levé straně okna cloudové prostředí.
 
 1. Pokud jste virtuální počítač použít, zadejte následující příkazy do prostředí cloudu k vytvoření virtuálního počítače, ke které má být testování:
 
@@ -78,7 +80,7 @@ Ansible vytvořil skript v jazyce Python názvem [azure_rm.py](https://github.co
   az group delete -n <resourceGroup>
   ```
 
-## <a name="run-a-playbook-in-cloud-shell"></a>Spuštění playbook v prostředí cloudu
+## <a name="run-a-playbook-in-cloud-shell"></a>Spuštění playbooku v Cloud Shellu
 [Ansible playbook](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) příkaz provede Ansible playbooks, spuštění úlohy na cílovém hostiteli. Tato část vás provede pomocí prostředí cloudu vytvářet a spouštět dva playbooks – jednu pro vytvoření skupiny prostředků a druhý se odstranit skupinu prostředků. 
 
 1. Vytvořte soubor s názvem `rg.yml` následujícím způsobem:

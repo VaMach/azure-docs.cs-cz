@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Kurz: Konfigurace Asana pro zřizování automatické uživatelů
 
@@ -93,7 +93,7 @@ Tato část vás provede připojení k Asana uživatelský účet zřizování r
 
 12. Vyberte **Uložit**. 
 
-Teď spustí počáteční synchronizaci pro všechny uživatele přiřazené Asana v **uživatelé** části. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Použití **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivit. Sestavy popisují všechny akce prováděné ve vaší aplikaci Asana zřizování službou.
+Teď spustí počáteční synchronizaci pro všechny uživatele přiřazené Asana v **uživatelé** části. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 40 minut, dokud se službou provést. Použití **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení protokoly aktivity. Protokoly auditu popisují všechny akce prováděné ve vaší aplikaci Asana zřizování službou.
 
 Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [sestav o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
 

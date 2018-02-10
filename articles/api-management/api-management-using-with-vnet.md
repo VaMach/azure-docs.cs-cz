@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak používat Azure API Management s virtuálními sítěmi
 Virtuální sítě Azure (virtuální sítě) umožňují některé z vašich prostředků Azure umístění v síti routeable Internetu jiných výrobců, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií sítě VPN. Další informace o virtuálních sítí Azure začínat zde uvedené informace: [Přehled virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).
@@ -61,7 +61,7 @@ K provedení kroků popsaných v tomto článku, musíte mít:
     Zobrazí seznam všech oblastech, kde je zřízený služby API Management. Vyberte virtuální síť a podsíť pro každou oblast. Naplnění seznamu se classic i Resource Manager virtuální sítě k dispozici v rámci vašich předplatných Azure, které jsou nastavení v oblasti, který konfigurujete.
     
     > [!NOTE]
-    > **Koncový bod služby** v diagramu zahrnuje brány nebo Proxy, portál vydavatele, portál pro vývojáře, GIT a přímé koncový bod správy.
+    > **Koncový bod služby** v diagramu zahrnuje brány nebo proxy server, na portálu Azure, portál pro vývojáře, GIT a přímé koncový bod správy.
     > **Koncový bod správy** v diagramu je koncový bod hostované na službu, kterou chcete spravovat konfiguraci prostřednictvím portálu Azure a prostředí Powershell.
     > Mějte také na paměti, že přestože diagram znázorňuje IP adresy pro své různé koncové body služby API Management **pouze** odpoví na své nakonfigurované názvy hostitelů.
     

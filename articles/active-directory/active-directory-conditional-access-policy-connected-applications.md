@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Nakonfigurujte zásady podmíněného přístupu na základě zařízení služby Azure Active Directory
 
@@ -41,11 +41,11 @@ Podmíněný přístup využívající zařízení ties **podmíněného příst
 
 První mobilní, cloudové první světě Azure Active Directory umožňuje jednotné přihlašování k zařízení, aplikacím a službám odkudkoli. Pro některé prostředky ve vašem prostředí, udělení přístupu ti správní uživatelé nemusí být dostatečně funkční. Kromě ti správní uživatelé může také vyžadovat důvěryhodné zařízení, který se má použít pro přístup k prostředkům. Ve vašem prostředí, můžete definovat, co je důvěryhodné zařízení na základě následující součásti:
 
-- [Platformy zařízení](active-directory-conditional-access-azure-portal.md#device-platforms) na zařízení
+- [Platformy zařízení](active-directory-conditional-access-conditions.md#device-platforms) na zařízení
 - Jestli je zařízení kompatibilní
 - Jestli je zařízení připojené k doméně 
 
-[Platformy zařízení](active-directory-conditional-access-azure-portal.md#device-platforms) je charakterizovaná operačního systému, který běží na vašem zařízení. V zásadách podmíněného přístupu na základě zařízení můžete omezit přístup k určitým prostředkům specifické platformy zařízení.
+[Platformy zařízení](active-directory-conditional-access-conditions.md#device-platforms) je charakterizovaná operačního systému, který běží na vašem zařízení. V zásadách podmíněného přístupu na základě zařízení můžete omezit přístup k určitým prostředkům specifické platformy zařízení.
 
 
 
@@ -73,7 +73,7 @@ Pokud budete mít místní službě Active Directory (AD) nároky, můžete zvá
 ![Cloudové aplikace](./media/active-directory-conditional-access-policy-connected-applications/25.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Před konfigurací zásad podmíněného přístupu na základě zařízení ve vašem prostředí, měli byste podniknout podívejte se na [osvědčené postupy pro podmíněný přístup v Azure Active Directory](active-directory-conditional-access-best-practices.md).
 

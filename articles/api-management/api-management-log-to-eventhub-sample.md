@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Sledovat vaše rozhraní API s Azure API Management, Event Hubs a Runscope
-[Služba API Management](api-management-key-concepts.md) poskytuje mnoho možností pro zlepšení zpracování požadavky HTTP odeslané na rozhraní API HTTP. Je však přechodný existenci požadavky a odpovědi. Zadání požadavku a ven prochází přes službu API Management na váš back-end rozhraní API. Rozhraní API zpracuje požadavek a odpověď toků zpátky pomocí rozhraní API příjemci. Služba API Management udržuje některých důležitých statistik o rozhraní API pro zobrazení v řídicím panelu portálu vydavatele, ale i mimo, že podrobnosti jsou pryč.
+[Služba API Management](api-management-key-concepts.md) poskytuje mnoho možností pro zlepšení zpracování požadavky HTTP odeslané na rozhraní API HTTP. Je však přechodný existenci požadavky a odpovědi. Zadání požadavku a ven prochází přes službu API Management na váš back-end rozhraní API. Rozhraní API zpracuje požadavek a odpověď toků zpátky pomocí rozhraní API příjemci. Služba API Management zajišťuje některých důležitých statistik o rozhraní API pro zobrazení řídicí panel portálu Azure, ale i mimo, že podrobnosti jsou pryč.
 
 Pomocí zásad protokolu eventhub ve službě API Management můžete odesílat žádné informace z požadavku a odpovědi na [centra událostí Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Existuje mnoho různých důvodů, proč můžete chtít generovat události z protokolu HTTP zprávy odesílané do vašeho rozhraní API. Mezi příklady patří záznam pro audit aktualizací, analýzy využití, výstrahy výjimek a integrace v rámci jiného výrobce.   
 

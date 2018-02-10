@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 680ffc41ab96d69153ef7039698bf9285ed6ce16
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Povolit Azure Active Directory Domain Services pomocí portálu Azure
 
@@ -46,6 +46,9 @@ Další úlohou konfigurace je vytvoření virtuální sítě Azure a vyhrazené
 
     ![Vyberte virtuální síť](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
+  > [!WARNING]
+  > Je nutné vybrat adresní prostor, který je v rámci prostor privátní IP adresy. IP adresy, které nevlastníte, které jsou v veřejný adresní prostor způsobovat chyby v rámci Azure AD Domain Services.
+
 5. **Existující virtuální síť:** Pokud budete chtít vyberte stávající virtuální síť, [vytvořit vyhrazený podsíť pomocí virtuální sítě rozšíření](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)a pak vyberte této podsíti. Klikněte na tlačítko **virtuální sítě** vyberte stávající virtuální síť. Klikněte na tlačítko **podsíť** vybrat vyhrazené podsíť ve stávající virtuální síť, ve které chcete povolit vaší nové spravované domény. Klikněte na tlačítko **OK** po dokončení.
 
     ![Vyberte podsítí v rámci virtuální sítě](./media/getting-started/domain-services-blade-network-pick-subnet.png)
@@ -54,7 +57,7 @@ Další úlohou konfigurace je vytvoření virtuální sítě Azure a vyhrazené
   > **Pokyny pro výběr podsíť**
   > 1. Použijte vyhrazenou podsíť pro Azure AD Domain Services. Nenasazujte případných dalších virtuálních počítačů na této podsíti. Tato konfigurace umožňuje nakonfigurovat skupiny zabezpečení sítě (Nsg) pro zatížení nebo virtuální počítače bez nutnosti přerušení vaší spravované domény. Podrobnosti najdete v tématu [sítě důležité informace týkající se Azure Active Directory Domain Services](active-directory-ds-networking.md).
   2. Nevybírejte podsíť brány pro nasazení služby Azure AD Domain Services, protože se nejedná o podporovanou konfiguraci.
-  3. Zajistěte, aby podsíť, kterou jste vybrali dostatek prostoru k dispozici adres - aspoň 3 až 5 dostupných IP adres.
+  3. Zajistěte, aby podsíť, kterou jste vybrali dostatek místa na dostupnou adresu - aspoň 3 až 5 dostupných IP adres a existuje v prostor privátní IP adresy.
   >
 
 6. Až budete hotovi, klikněte na tlačítko **OK** Chcete-li pokračovat **skupiny správců** stránce průvodce.

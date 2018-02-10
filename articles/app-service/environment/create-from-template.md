@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Vytvořit App Service Environment pomocí šablony Azure Resource Manager
 
@@ -40,7 +40,7 @@ K automatizovanému vytvoření vaší App Service Environment:
 
 2. Po vytvoření vaší App Service Environment ILB je nahrát certifikát SSL, který odpovídá vaší domény ILB App Service Environment.
 
-3. Nahrané certifikát SSL přiřazený k App Service Environment ILB jako certifikát SSL jeho "Výchozí".  Tento certifikát se používá pro přenosy protokolu SSL pro aplikace v App Service Environment ILB, když používají běžné kořenové domény, která je přiřazena k App Service Environment (například https://someapp.mycustomrootcomain.com).
+3. Nahrané certifikát SSL přiřazený k App Service Environment ILB jako certifikát SSL jeho "Výchozí".  Tento certifikát se používá pro přenosy protokolu SSL pro aplikace v App Service Environment ILB, když používají běžné kořenové domény, která je přiřazena k App Service Environment (například https://someapp.mycustomrootdomain.com).
 
 
 ## <a name="create-the-ase"></a>Vytvořte App Service Environment
@@ -69,7 +69,7 @@ Získejte platný certifikát SSL pomocí interní certifikačních autorit, ná
 * **Předmět**: Tento atribut musí být nastaven na **.your kořenové domény here.com*.
 * **Alternativní název subjektu**: Tento atribut musí obsahovat i **.your kořenové domény here.com* a **.scm.your-kořenové-domain-here.com*. Připojení SSL k webu SCM/Kudu spojené s každou aplikaci použít adresu ve tvaru *your-app-name.scm.your-root-domain-here.com*.
 
-S platným certifikátem SSL v dolním je potřeba dva další přípravné kroky. Převést nebo uložení certifikátu SSL jako soubor .pfx. Nezapomeňte, že soubor .pfx musí zahrnovat všechny zprostředkující a kořenové certifikáty. Zabezpečte ji pomocí hesla.
+S platným certifikátem SSL v dolním je potřeba dva další přípravné kroky. Převeďte/uložte certifikát SSL jako soubor .pfx. Nezapomeňte, že soubor .pfx musí zahrnovat všechny zprostředkující a kořenové certifikáty. Zabezpečte ho pomocí hesla.
 
 Soubor PFX je potřeba převést na řetězec ve formátu base64, protože certifikát SSL je odeslán pomocí šablony Resource Manageru. Protože šablony Resource Manageru jsou textové soubory, soubor PFX je převést na řetězec ve formátu base64. Tímto způsobem může být zahrnuta jako parametr šablony.
 
@@ -146,11 +146,11 @@ Po dokončení šablony aplikace v App Service Environment ILB je přístupná p
 Stejně jako aplikace, které běží na veřejné víceklientské služby, ale vývojáři můžete nakonfigurovat vlastní hostitel názvy pro jednotlivé aplikace. Také mohou nakonfigurovat jedinečnou vazby certifikátů SNI SSL pro jednotlivé aplikace.
 
 ## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
-Služba App Service Environment má dvě verze: ASEv1 a ASEv2. Uvedené informace se podle ASEv2. V této části jsou uvedeny rozdíly mezi ASEv1 a ASEv2.
+Služba App Service Environment má dvě verze: ASEv1 a ASEv2. Předchozí informace se týkaly verze ASEv2. V této části jsou uvedené rozdíly mezi verzemi ASEv1 a ASEv2.
 
-V ASEv1 můžete spravovat všechny prostředky ručně. Který obsahuje front-end, pracovníků a adres IP použitých pro založená na protokolu IP. Předtím, než můžete škálovat plán služby App Service, musí horizontální navýšení kapacity fondu pracovního procesu, který chcete hostovat ho.
+V ASEv1 můžete spravovat všechny prostředky ručně. To se týká front-endů, pracovních procesů a IP adres používaných pro zabezpečení SSL na základě protokolu IP. Předtím, než můžete škálovat plán služby App Service, musí horizontální navýšení kapacity fondu pracovního procesu, který chcete hostovat ho.
 
-ASEv1 používá jiný model tvorby cen z ASEv2. V ASEv1 platí pro každý virtuální procesory přidělené. Vcpu, které se používají pro front-end nebo pracovních procesů, které nejsou hostování jakékoli úlohy, který zahrnuje. V ASEv1 je výchozí maximální měřítko velikostí App Service Environment 55 celkový počet hostitelů. Který zahrnuje pracovníků a front-end. Jedna z výhod ASEv1 je, že může být nasazena v klasické virtuální sítě a virtuální sítě Resource Manager. Další informace o ASEv1 najdete v tématu [App Service Environment v1 ÚVOD][ASEv1Intro].
+Verze ASEv1 používá jiný cenový model než verze ASEv2. Ve verzi ASEv1 se platí za každý přidělený virtuální procesor. Vcpu, které se používají pro front-end nebo pracovních procesů, které nejsou hostování jakékoli úlohy, který zahrnuje. Ve verzi ASEv1 je výchozí maximální velikost služby ASE celkem 55 hostitelů. To zahrnuje pracovní procesy i front-endy. Jedna z výhod verze ASEv1 spočívá v tom, že se dá nasadit do klasické virtuální sítě i do virtuální sítě Resource Manager. Další informace o verzi ASEv1 najdete v článku [Úvod do služby App Service Environment verze 1][ASEv1Intro].
 
 K vytvoření ASEv1 pomocí šablony Resource Manageru, najdete v části [vytvoření App Service Environment ILB v1 pomocí šablony Resource Manageru][ILBASEv1Template].
 

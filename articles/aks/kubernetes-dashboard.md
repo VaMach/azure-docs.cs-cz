@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f13ca506197ff8b9b86cf1f69300fd974b9ddd5a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Řídicí panel Kubernetes s Azure Container Service (AKS)
 
@@ -23,14 +23,14 @@ Rozhraní příkazového řádku Azure lze spustit Kubernetes řídicího panelu
 
 Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud budete potřebovat tyto položky zobrazit, [rychlý start AKS][aks-quickstart].
 
-Také musíte mít nainstalované a nakonfigurované rozhraní Azure CLI verze 2.0.21 nebo novější. Pokud chcete zjistit verzi, spusťte příkaz az --version. Pokud je potřeba nainstalovat nebo upgradovat najdete v tématu [nainstalovat rozhraní příkazového řádku Azure][install-azure-cli].
+Také musíte mít nainstalované a nakonfigurované rozhraní Azure CLI verze 2.0.21 nebo novější. Pokud chcete zjistit verzi, spusťte příkaz az --version. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Spustit Kubernetes řídicí panel
 
 Použití `az aks browse` příkaz ke spuštění Kubernetes řídicího panelu. Při spuštění tohoto příkazu, nahraďte název skupiny a cluster prostředků.
 
 ```azurecli
-az aks browse --resource-group myResourceGroup --name myK8SCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Tento příkaz vytvoří server proxy mezi váš vývojový systém a rozhraní API Kubernetes a otevře se webový prohlížeč na řídicím panelu Kubernetes.
@@ -63,15 +63,15 @@ Kromě vytváření a aplikace pro zobrazení, řídicí panel Kubernetes slouž
 
 Chcete-li upravit nasazení, klikněte na tlačítko **nasazení** v levé nabídce a potom vyberte **NGINX** nasazení. Nakonec vyberte **upravit** v pravém horním navigačním panelu.
 
-![Upravit Kubernetes](./media/container-service-kubernetes-ui/view-deployment.png)
+![Kubernetes Edit](./media/container-service-kubernetes-ui/view-deployment.png)
 
 Vyhledejte `spec.replica` tuto hodnotu změnit hodnotu, která by měla být 1, 3. Při tom repliky nasazení NGINX zvýší se od 1 do 3.
 
 Vyberte **aktualizace** Jakmile budete připraveni.
 
-![Upravit Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Kubernetes Edit](./media/container-service-kubernetes-ui/edit-deployment.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o řídicím panelu Kubernetes najdete v dokumentaci k Kubernetes.
 

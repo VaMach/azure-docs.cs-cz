@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Ovládací prvky v Azure Active Directory podmíněného přístupu 
 
-S [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), jak oprávněným uživatelům přístup můžete řídit cloudových aplikací. V zásadách podmíněného přístupu definujete odpovědi ("to") na určitý stav ("v takovém případě"). V kontextu podmíněného přístupu 
+S [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), jak oprávněným uživatelům přístup můžete řídit cloudových aplikací. V zásadách podmíněného přístupu které definujete odpovědi ("to") důvod aktivován vaší zásady ("v takovém případě"). 
 
-- "**v takovém případě**" se nazývá **podmínky – příkaz**
+![Řízení](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Udělejte to**" se nazývá **ovládací prvky**
 
-![Řízení](./media/active-directory-conditional-access-controls/11.png)
+V kontextu podmíněného přístupu 
+
+- "**v takovém případě**" se nazývá **podmínky**
+
+- "**Udělejte to**" se nazývá **přístup k ovládacím prvkům**
+
 
 Kombinace příkaz podmínky s ovládacími prvky představuje zásady podmíněného přístupu.
 
-![Řízení](./media/active-directory-conditional-access-controls/12.png)
+![Řízení](./media/active-directory-conditional-access-controls/61.png)
 
 Každý ovládací prvek je buď požadavek, který musí být splněny osoba nebo systému přihlášení nebo omezení na to, co uživatel provést po přihlášení. 
 

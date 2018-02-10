@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Odkaz nastavení podmíněného přístupu Azure Active Directory
 
@@ -39,7 +39,7 @@ Pokud to není informace, které hledáte, uveďte poznámky na konci tohoto čl
 
 ## <a name="cloud-apps-assignments"></a>Přiřazení cloudové aplikace
 
-Pomocí zásady podmíněného přístupu můžete řídit přístup uživatelům vaší [cloudových aplikací](active-directory-conditional-access-azure-portal.md#who). Pokud budete konfigurovat zásadu podmíněného přístupu, je nutné vybrat alespoň jeden cloudové aplikace. 
+Pomocí zásady podmíněného přístupu můžete řídit přístup uživatelům vaší [cloudových aplikací](active-directory-conditional-access-conditions.md#cloud-apps). Pokud budete konfigurovat zásadu podmíněného přístupu, je nutné vybrat alespoň jeden cloudové aplikace. 
 
 ![Vyberte zásady pro cloudové aplikace](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -54,9 +54,9 @@ Zásady podmíněného přístupu můžete přiřadit následující cloudových
 
 - Microsoft Dynamics 365
 
-- Aplikace Microsoft Office 365 Yammer
+- Microsoft Office 365 Yammer
 
-- Aplikace Microsoft Office 365 Exchange Online
+- Microsoft Office 365 Exchange Online
 
 - Aplikace Microsoft Office 365 SharePoint Online (zahrnuje OneDrive pro firmy a Projectu Online)
 
@@ -105,7 +105,7 @@ V zásadách podmíněného přístupu můžete nakonfigurovat podmínky platfor
 
 ## <a name="client-apps-condition"></a>Stav aplikace klienta 
 
-V zásadách podmíněného přístupu můžete nakonfigurovat [klientské aplikace](active-directory-conditional-access-azure-portal.md#client-apps) podmínku ke svázání zásady tak, aby klientskou aplikaci, která iniciovala pokus o přístup. Nastavení klienta aplikace podmínku, která má udělit nebo blokovat přístup, když je proveden pokus o přístup z následujících typů klientských aplikací:
+V zásadách podmíněného přístupu můžete nakonfigurovat [klientské aplikace](active-directory-conditional-access-conditions.md#client-apps) podmínku ke svázání zásady tak, aby klientskou aplikaci, která iniciovala pokus o přístup. Nastavení klienta aplikace podmínku, která má udělit nebo blokovat přístup, když je proveden pokus o přístup z následujících typů klientských aplikací:
 
 - Prohlížeč
 - Mobilní aplikace a aplikace klasické pracovní plochy
@@ -128,8 +128,8 @@ Toto nastavení funguje u všech prohlížečů. Splňovat zásady pro zařízen
 | Windows 7              | Internet Explorer, Chrome           | ![Zaškrtnout][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Zaškrtnout][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Zaškrtnout][1] |
-| telefon se systémem Windows          | Internet Explorer a okraje             | ![Zaškrtnout][1] |
-| Windows Server 2016    | Internet Explorer a okraje             | ![Zaškrtnout][1] |
+| telefon se systémem Windows          | Internet Explorer, Edge             | ![Zaškrtnout][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![Zaškrtnout][1] |
 | Windows Server 2016    | Chrome                              | Již brzy |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Zaškrtnout][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Zaškrtnout][1] |
@@ -157,7 +157,7 @@ Toto nastavení má vliv na pokusů o přístup provedených z následující mo
 |Klientské aplikace|Cílová služba|Platforma|
 |---|---|---|
 |Vzdálené aplikace Azure|Služba vzdálené aplikace Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android a Mac OS X|
-|Aplikaci Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS a Android|
+|Dynamics CRM app|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS a Android|
 |E-mailu, kalendáři nebo osoby aplikace Outlook 2016, aplikace Outlook 2013 (s moderní ověřování)|Office 365 Exchange Online|Windows 10|
 |MFA a umístění zásady pro aplikace. Zásady zařízení na základě nejsou podporovány. |Všechny služby app service pro Moje aplikace|Android a iOS|
 |Microsoft týmy služby – tato volba určuje všechny služby, které podporují Teams společnosti Microsoft a všechny jeho klientských aplikací – Windows Desktop, iOS, Android, webové části a webového klienta|Microsoft Teams|Windows 7, Windows 10, Windows 8.1, iOS, Android a systému macOS |
@@ -165,14 +165,13 @@ Toto nastavení má vliv na pokusů o přístup provedených z následující mo
 |Aplikace Office 2016, Office univerzální aplikace, Office 2013 (s moderní ověřování), OneDrive synchronizace klienta (v tématu [poznámky k](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), podporu skupiny Office je plánované v budoucnosti, podpora aplikací služby SharePoint je plánované v budoucnosti|Office 365 Sharepointu Online|Windows 10|
 |Office 2016 pro systému macOS (Word, Excel, PowerPoint, OneNote pouze). OneDrive pro firmy podporu plánované v budoucnosti|Office 365 Sharepointu Online|Mac OS X|
 |Mobilní aplikace Office|Office 365 Sharepointu Online|Android, iOS|
-|Aplikace Yammer Office|Yammer Office 365|Windows 10, iOS, Android|
+|Aplikace Yammer Office|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Office pro systému macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, aplikace Outlook 2013 (s moderní ověřování), Skype pro firmy (s moderní ověřování)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Mobilní aplikace Outlook|Office 365 Exchange Online|Android, iOS|
-|Aplikaci PowerBI. Power BI aplikace pro Android v současné době nepodporuje podmíněného přístupu podle zařízení.|Služba PowerBI|Windows 10, Windows 8.1, Windows 7 a iOS|
+|Aplikaci PowerBI|Služba PowerBI|Windows 10, Windows 8.1, Windows 7 a iOS|
 |Skype pro firmy|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services aplikace|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS a Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Požadavek schválené klientské aplikace 
@@ -186,16 +185,18 @@ Toto nastavení platí pro následující aplikace klienta:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
-- Aplikace Microsoft Outlook
-- Plánovač Microsoft
+- Microsoft Outlook
+- Microsoft Planner
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype pro firmy
+- Microsoft StaffHub
 - Microsoft Teams
-- Aplikace Microsoft Visio
-- Aplikace Microsoft Word
+- Microsoft Visio
+- Microsoft Word
 
 
 

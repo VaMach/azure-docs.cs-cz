@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Kurz: Azure Active Directory integrace s EBSCO
 
@@ -119,9 +119,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     o **jedinečný prvky:**  
 
-    **Custid** = zadejte jedinečné ID EBSCO zákazníka 
+    o **Custid** = zadejte jedinečné ID EBSCO zákazníka 
 
-    **profil** = klientů můžete přizpůsobit propojení, které uživatele nasměrují na konkrétní profilu (v závislosti na tom, co se zakoupit od EBSCO). Můžou zadat konkrétní profil ID. Hlavní ID jsou eds (služba zjišťování EBSCO) a ehost (EBSOCOhost databáze). Jsou uvedeny pokyny pro stejné [zde](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+    o **profil** = klientů můžete přizpůsobit propojení, které uživatele nasměrují na konkrétní profilu (v závislosti na tom, co se zakoupit od EBSCO). Můžou zadat konkrétní profil ID. Hlavní ID jsou eds (služba zjišťování EBSCO) a ehost (EBSOCOhost databáze). Jsou uvedeny pokyny pro stejné [zde](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
 5. Aplikace EBSCO očekává SAML kontrolní výrazy ve specifickém formátu. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z "**uživatelské atributy**" části na stránce integrace aplikace. Následující snímek obrazovky ukazuje příklad pro tento.
     

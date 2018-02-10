@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Kurz: Konfigurace Google Apps pro zřizování automatické uživatelů
 
@@ -157,9 +157,9 @@ Tato část vás provede procesem připojení služby Azure AD s uživatelským 
 
 20. Vyberte **Uložit**.
 
-Tento proces se spustí počáteční synchronizaci všech uživatelů nebo skupin, které jsou přiřazeny k Google Apps v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, když je služba spuštěná. 
+Tento proces se spustí počáteční synchronizaci všech uživatelů nebo skupin, které jsou přiřazeny k Google Apps v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 40 minutách, když je služba spuštěná. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení protokoly aktivity. Tyto protokoly popisují všechny akce, které se provádí pomocí služby zajišťování ve vaší aplikaci Google Apps.
 
-Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivit. Tyto sestavy popisují všechny akce, které jsou provádí zřizování služby ve vaší aplikaci Google Apps.
+Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Další zdroje informací:
 

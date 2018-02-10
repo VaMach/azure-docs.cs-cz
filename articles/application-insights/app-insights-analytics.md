@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Analýza ve službě Application Insights
 Analytics je výkonný nástroj vyhledávání a dotaz z [Application Insights](app-insights-overview.md). Analytics je nástroj pro webové, takže není zapotřebí žádné nastavení. Pokud jste již nakonfigurovali Application Insights pro některé z aplikací, pak můžete analyzovat data této aplikaci otevřením Analytics z vaší aplikace [okno Přehled](app-insights-dashboards.md).
@@ -47,15 +47,15 @@ Jsme pak určený počet záznamů za zemi (aby dat je nalezen ve sloupci *clien
 
 Jazyk obsahuje mnoho atraktivní funkcí:
 
-* [Filtr](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) telemetrie nezpracovaná aplikace podle všechna pole, včetně vlastní vlastnosti a metriky.
-* [Připojení k](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) více tabulek – korelace požadavky s zobrazení stránky, volání závislostí, výjimek a protokolu trasování.
-* Efektivní statistické [agregace](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
+* [Filtr](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) telemetrie nezpracovaná aplikace podle všechna pole, včetně vlastní vlastnosti a metriky.
+* [Připojení k](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) více tabulek – korelace požadavky s zobrazení stránky, volání závislostí, výjimek a protokolu trasování.
+* Efektivní statistické [agregace](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 * Okamžité a výkonné vizualizace.
 * [Rozhraní REST API](https://dev.applicationinsights.io/) používané ke spouštění dotazů prostřednictvím kódu programu, například z prostředí PowerShell.
 
 [Úplné referenční informace k jazyku](https://go.microsoft.com/fwlink/?linkid=856079) údaje každý příkaz podporován a pravidelně aktualizuje.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Začínáme s [portálu analýza](https://go.microsoft.com/fwlink/?linkid=856587)
 * Začínáme [zápis dotazů](https://go.microsoft.com/fwlink/?linkid=856078)
 * Zkontrolujte [SQL-uživatelů tahák](https://aka.ms/sql-analytics) pro překlady nejběžnější idioms.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory podmíněný přístup jak postupovat, pokud nástroj - preview
 
@@ -78,14 +78,14 @@ Výchozí hodnota pro toto nastavení je **všech cloudových aplikací**. Ve v�
 
 ### <a name="ip-address"></a>IP adresa
 
-IP adresa je jedna adresa IPv4 tak, aby napodoboval [umístění podmínku](active-directory-conditional-access-azure-portal.md#locations). Adresa představuje internetové adresa zařízení, které používá vaše uživatele k přihlášení. Můžete ověřit IP adresa zařízení, například přejdete na [co je adresa IP](https://whatismyipaddress.com).    
+IP adresa je jedna adresa IPv4 tak, aby napodoboval [umístění podmínku](active-directory-conditional-access-locations.md). Adresa představuje internetové adresa zařízení, které používá vaše uživatele k přihlášení. Můžete ověřit IP adresa zařízení, například přejdete na [co je adresa IP](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Platformy zařízení
 
-Napodobuje toto nastavení [podmínku platformy zařízení](active-directory-conditional-access-azure-portal.md#device-platforms) a představuje ekvivalent **všechny platformy (včetně nepodporovaný)**. 
+Napodobuje toto nastavení [podmínku platformy zařízení](active-directory-conditional-access-conditions.md#device-platforms) a představuje ekvivalent **všechny platformy (včetně nepodporovaný)**. 
 ### <a name="client-apps"></a>Klientské aplikace
 
-Napodobuje toto nastavení [klienta aplikace podmínku](active-directory-conditional-access-azure-portal.md#client-apps).
+Napodobuje toto nastavení [klienta aplikace podmínku](active-directory-conditional-access-conditions.md#client-apps).
 Ve výchozím nastavení, toto nastavení způsobí, že vyhodnocení všechny zásady s **prohlížeče** nebo **mobilní aplikace a klienti vzdálené plochy** buď jednotlivě nebo obojí vybrané. Navíc rozpozná zásady, které vynucují **Exchange ActiveSync (EAS)**. Toto nastavení můžete zúžit výběrem:
 
 - **Prohlížeč** vyhodnotit všechny zásady s nejméně **prohlížeče** vybrané. 
@@ -95,7 +95,7 @@ Ve výchozím nastavení, toto nastavení způsobí, že vyhodnocení všechny z
 
 ### <a name="sign-in-risk"></a>Riziko přihlášení
 
-Napodobuje toto nastavení [podmínka přihlášení riziko](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Napodobuje toto nastavení [podmínka přihlášení riziko](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Vyhodnocení 

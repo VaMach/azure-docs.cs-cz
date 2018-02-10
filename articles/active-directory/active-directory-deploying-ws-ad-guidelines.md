@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2a6ac8d9c2f3694cf08357d6ccec874f7e076514
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Pokyny pro nasazení systému Windows Server Active Directory na virtuálních počítačích Azure
 Tento článek vysvětluje rozdíly mezi nasazení systému Windows Server Active Directory Domain Services (AD DS) a služby Active Directory Federation Services (AD FS) místně a jejich nasazení na virtuálních počítačích Microsoft Azure.
@@ -166,7 +166,7 @@ Ale protože Azure nenabízí nativní, funkce plné brány firewall, další mo
 | Možnost | Výhody | Nevýhodou |
 | --- | --- | --- |
 | [Seznamy ACL síť Azure](../virtual-network/virtual-networks-acl.md) |Méně nákladná a jednodušší počáteční konfigurace |Konfigurace seznamu ACL další síťové vyžadována, když se do nasazení přidají nových virtuálních počítačů |
-| [Barracuda NG brány firewall](https://www.barracuda.com/products/ngfirewall) |Seznam povolených adres režimu operace a vyžaduje žádná konfigurace seznamu ACL sítě |Vyšší náklady a složitost pro počáteční nastavení |
+| [Barracuda NG firewall](https://www.barracuda.com/products/ngfirewall) |Seznam povolených adres režimu operace a vyžaduje žádná konfigurace seznamu ACL sítě |Vyšší náklady a složitost pro počáteční nastavení |
 
 Podrobný postup nasazení služby AD FS v tomto případě jsou následující:
 
@@ -433,7 +433,7 @@ Nepoužívejte nástroj SYSPREP k nasazení nebo klonování řadiče domény. M
 Určete, kam se najít databázi systému Windows Server AD DS, protokoly a adresáře SYSVOL. Musí být nasazený v Azure datových disků.
 
 > [!NOTE]
-> Azure datových disků jsou omezené na 1 TB.
+> Azure datových disků jsou omezené na 4 TB.
 > 
 > 
 
