@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Používání úložiště Blob z Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,7 +33,7 @@ Tento článek ukazuje, jak provádět běžné scénáře s využitím úloži�
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Vytvoření aplikace Node.js
-Pokyny o tom, jak vytvořit aplikaci Node.js najdete v tématu [vytvořit webové aplikace Node.js ve službě Azure App Service], [sestavení a nasazení aplikace Node.js ve službě Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) – pomocí prostředí Windows PowerShell nebo [sestavení a nasazení webové aplikace Node.js do Azure pomocí Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Pokyny o tom, jak vytvořit aplikaci Node.js najdete v tématu [vytvoření webové aplikace Node.js ve službě Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [sestavení a nasazení aplikace Node.js ve službě Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) – pomocí prostředí Windows PowerShell nebo [sestavení a nasazení webové aplikace Node.js do Azure pomocí Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurace aplikace pro přístup k úložišti
 Pokud chcete používat úložiště Azure, musíte sady SDK úložiště Azure pro platformu Node.js, která obsahuje sadu knihoven pohodlí, které komunikují s služby REST úložiště.
@@ -90,7 +90,7 @@ blobSvc.createContainerIfNotExists('mycontainer', function(error, result, respon
 
 Pokud je nově vytvořený kontejner, `result.created` hodnotu true. Pokud již existuje kontejner, `result.created` je false. `response`obsahuje informace o operaci, včetně informací o ETag pro příslušný kontejner.
 
-### <a name="container-security"></a>Kontejner zabezpečení
+### <a name="container-security"></a>Zabezpečení kontejneru
 Ve výchozím nastavení nové kontejnery jsou soukromá a nemohou být získat anonymní přístup. Chcete-li zveřejnit kontejner, aby ho může anonymně přístup, můžete nastavit kontejneru přístup na úrovni **blob** nebo **kontejneru**.
 
 * **objekt BLOB** -umožňuje anonymní přístup pro čtení obsahu objektu blob a metadat v tomto kontejneru, ale není metadata kontejneru například výpis všech objektů BLOB do kontejneru
@@ -282,7 +282,7 @@ Chcete-li podporovat souběžný přístup do objektu blob z více klientů nebo
 * **Značka Etag** -poskytuje způsob, jak zjistit, že objektu blob nebo kontejneru byl změněn jiným procesem
 * **Zapůjčení** -poskytuje způsob, jak získat exkluzivní, obnovitelné, zápisu nebo odstranit přístupu do objektu blob pro v časovém intervalu
 
-### <a name="etag"></a>Značka ETag
+### <a name="etag"></a>ETag
 Značky etag použití binárním rozsáhlým Pokud je potřeba povolit více klientů nebo instance k zápisu do bloku, objektů Blob nebo stránky Blob současně. Značky ETag umožňuje určit, pokud kontejner nebo objekt blob byla změněna od začátku čtení nebo vytvořili, která umožňuje zabránit přepsání změny potvrzeny jiný klienta nebo proces.
 
 Můžete nastavit podmínky, značka ETag pomocí volitelného `options.accessConditions` parametr. Následující kód například pouze nahrávání **test.txt** soubor, pokud objekt blob již existuje a má hodnotu ETag obsahoval podle `etagToMatch`.
@@ -409,7 +409,7 @@ Jakmile je nastavená seznamu ACL, potom můžete vytvořit sdílené přístupo
 blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace najdete v následujících zdrojích informací.
 
 * [Úložiště azure SDK pro uzel referenční dokumentace rozhraní API] [Úložiště azure SDK pro uzel referenční dokumentace rozhraní API]  
@@ -423,6 +423,6 @@ Další informace najdete v následujících zdrojích informací.
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
-[Sestavení a nasazení aplikace Node.js ve službě Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Vytvoření a nasazení aplikace Node.js do Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blog týmu azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/  
 [Úložiště azure SDK pro uzel referenční dokumentace rozhraní API]: http://dl.windowsazure.com/nodestoragedocs/index.html  
