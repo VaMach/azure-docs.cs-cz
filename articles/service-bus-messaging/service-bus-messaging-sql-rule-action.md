@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 83b4f76a171cd8a860e7ab43462c976bf4df941a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 9ac9a2968adfdd8e1fb229ad744bc99914cdcd08
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sqlruleaction-syntax"></a>Syntaxe SQLRuleAction
 
@@ -70,7 +70,7 @@ V tomto článku jsou uvedeny podrobnosti o gramatiku SQL pravidlo akce.
 
 Pokus o přístup k systému neexistující vlastnost je k chybě při pokusu o přístup k neexistující uživatele vlastnost není chyba. Místo toho vlastnost uživatele neexistující interně vyhodnotí jako neznámou hodnotou. Neznámá hodnota považuje speciálně během vyhodnocení operátor.  
   
-## <a name="propertyname"></a>%{Property_Name/  
+## <a name="propertyname"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -219,7 +219,7 @@ Logická hodnota konstanty jsou reprezentované pomocí klíčová slova `TRUE` 
 - Akce neselže, pokud byly na něj odkazovalo vlastnosti neexistující uživatele.
 - Vlastnost uživatele neexistující vyhodnotí jako "Neznámý" interně následující stejnou sémantiku jako [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) při vyhodnocování operátory.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [SQLRuleAction – třída](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [SQLFilter – třída](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

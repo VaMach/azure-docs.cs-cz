@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: fcc7e1cbacc7889c9525207b238162e6caa6b00b
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 20115897bb5ae2638588e79d80700fa8ece06104
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus metriky v nástroji Sledování Azure (preview)
 
@@ -28,7 +28,7 @@ Monitorování Azure poskytuje uživatelské rozhraní pro monitorování např�
 
 ## <a name="access-metrics"></a>Metriky přístup
 
-Azure monitorování poskytuje několik způsobů metriky přístup. Můžete buď metriky přístup prostřednictvím [portál Azure](https://portal.azure.com), nebo pomocí rozhraní API Správce Azure monitorování (REST a rozhraní .NET) a řešení pro analýzu například operace Management Suite a Event Hubs. Další informace najdete v tématu [metrik Azure monitorování](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure monitorování poskytuje několik způsobů metriky přístup. Můžete buď metriky přístup prostřednictvím [portál Azure](https://portal.azure.com), nebo pomocí rozhraní API Správce Azure monitorování (REST a rozhraní .NET) a řešení pro analýzu například sada Management operace (OMS) a Event Hubs. Další informace najdete v tématu [metrik Azure monitorování](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Ve výchozím nastavení jsou povolené metriky a dostanete nejnovější 30 dní od data. Pokud potřebujete zachování dat pro delší časové období, můžete archivovat metriky dat do účtu Azure Storage. Toto je nakonfigurováno v [nastavení pro diagnostiku](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) v Azure monitorování.
 
@@ -46,7 +46,7 @@ Pro podporu dimenze metriky musí filtrovat s hodnotou požadované dimenze.
 
 ## <a name="billing"></a>Fakturace
 
-Použití metriky v Azure monitorování není aktuálně volné při ve verzi preview. Ale pokud používáte další řešení, které ingestují data metriky, může být fakturuje podle těchto řešení. Například fakturuje se podle Azure Storage archivujete metriky dat do účtu Azure Storage. Také fakturuje se podle sady Management operace (OMS) Pokud stream metriky dat do OMS pro účely provádění pokročilých analýz.
+Použití metriky v Azure monitorování je zdarma při ve verzi preview. Ale pokud používáte další řešení, které ingestují data metriky, může být fakturuje podle těchto řešení. Například fakturuje se podle Azure Storage archivujete metriky dat do účtu Azure Storage. Také fakturuje se podle sady Management operace (OMS) Pokud stream metriky dat do OMS pro účely provádění pokročilých analýz.
 
 Následující metriky vám poskytl přehled o stavu služby. 
 
@@ -97,7 +97,7 @@ Azure Service Bus podporuje následující dimenze pro metriky v Azure monitorov
 | ------------------- | ----------------- |
 |entityName| Service Bus podporuje entit pro zasílání zpráv v rámci oboru názvů.|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Najdete v článku [Přehled monitorování Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

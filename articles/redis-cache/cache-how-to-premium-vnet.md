@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Postup konfigurace podpory služby Virtual Network pro mezipaměť Azure Redis Cache Premium
 Azure Redis Cache má jiný mezipaměti nabídky, které poskytují flexibilitu při výběru velikost mezipaměti a funkce, včetně funkce úrovně Premium, jako je clustering, trvalosti a podpory služby virtual network. Virtuální síť je privátní síť v cloudu. Pokud instanci služby Azure Redis Cache je konfigurován s virtuální síť, není veřejně adresovatelné a můžete přistupovat pouze z virtuálních počítačů a aplikací v rámci virtuální sítě. Tento článek popisuje postup konfigurace podpory služby virtual network pro instanci služby Azure Redis Cache premium.
@@ -117,6 +117,7 @@ Existuj sedm požadavků odchozí port.
 | 20226 |Odchozí |TCP |Interní komunikaci pro Redis | (Redis podsíť) |(Redis podsíť) |
 | 13000-13999 |Odchozí |TCP |Interní komunikaci pro Redis | (Redis podsíť) |(Redis podsíť) |
 | 15000-15999 |Odchozí |TCP |Interní komunikaci pro Redis | (Redis podsíť) |(Redis podsíť) |
+| 6379-6380 |Odchozí |TCP |Interní komunikaci pro Redis | (Redis podsíť) |(Redis podsíť) |
 
 
 ### <a name="inbound-port-requirements"></a>Požadavky na portu pro příchozí spojení
@@ -125,7 +126,7 @@ Nejsou osm požadavky rozsah portu pro příchozí spojení. Příchozí požada
 
 | Port(y) pro | Směr | Přenosový protokol | Účel | Místní IP | Vzdálené IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Příchozí |TCP |Komunikaci klientů Redis, Vyrovnávání zatížení Azure | (Redis podsíť) |Virtuální síť, nástroj pro vyrovnávání zatížení Azure |
+| 6379, 6380 |Příchozí |TCP |Komunikaci klientů Redis, Vyrovnávání zatížení Azure | (Redis podsíť) | (Redis podsíť), virtuální sítě, Vyrovnávání zatížení Azure |
 | 8443 |Příchozí |TCP |Interní komunikaci pro Redis | (Redis podsíť) |(Redis podsíť) |
 | 8500 |Příchozí |TCP/UDP |Vyrovnávání zatížení Azure | (Redis podsíť) |Nástroj pro vyrovnávání zatížení Azure |
 | 10221-10231 |Příchozí |TCP |Interní komunikaci pro Redis | (Redis podsíť) |(Redis podsíť), nástroj pro vyrovnávání zatížení Azure |
@@ -146,7 +147,7 @@ Existují požadavky na síťové připojení pro Azure Redis Cache, nemusí bý
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Jak můžete ověřit, že moje mezipaměti funguje ve virtuální síti?
 
 >[!IMPORTANT]
->Při připojování k instanci služby Azure Redis Cache, který je hostován ve virtuální síti, vaši klienti mezipaměti musí být ve stejné virtuální síti, včetně všech testovací aplikace a diagnostické nástroje příkaz ping.
+>Při připojování k instanci služby Azure Redis Cache, který je hostován ve virtuální síti, vaši klienti mezipaměti musí být ve stejné virtuální síti nebo ve virtuální síti s partnerský vztah virtuální síti, povolena. To zahrnuje všechny testovací aplikace nebo diagnostické nástroje příkaz ping. Skupiny zabezpečení sítě bez ohledu na to, kde je umístěn klientská aplikace, musí být nakonfigurované tak, aby síťový provoz klienta může připojit k instanci Redis.
 >
 >
 

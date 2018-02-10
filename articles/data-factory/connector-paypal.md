@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b0cc1bca6035104aba655bdb6fc63a1a66483f0c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ee15e92a6d6b7054b818a46fb5c207614f6d535f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-beta"></a>Kopírování dat z PayPal pomocí Azure Data Factory (Beta)
 
@@ -50,7 +50,7 @@ Pro služby PayPal propojené služby jsou podporovány následující vlastnost
 | type | Vlastnost typu musí být nastavena na: **PayPal** | Ano |
 | hostitel | Adresu URL instance služby PayPal. (to znamená, api.sandbox.paypal.com)  | Ano |
 | clientId | ID klienta přidružené k aplikaci služby PayPal.  | Ano |
-| clientSecret | Tajný klíč klienta přidružené k aplikaci služby PayPal. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
+| clientSecret | Tajný klíč klienta přidružené k aplikaci služby PayPal. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
 | useHostVerification | Určuje, jestli chcete vyžadovat názvu hostitele v certifikátu serveru, aby odpovídal názvu hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je true.  | Ne |
 | usePeerVerification | Určuje, jestli pro ověření totožnosti serveru při připojení přes protokol SSL. Výchozí hodnota je true.  | Ne |
@@ -95,7 +95,7 @@ Ke zkopírování dat z PayPal, nastavte vlastnost typu datové sady, která **P
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem PayPal.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e1f745fc70395f06d2eb3d98644d54c314a0ef26
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Kopírování dat z Impala pomocí Azure Data Factory (beta)
 
@@ -52,7 +52,7 @@ Následující vlastnosti jsou podporovány pro Impala propojené služby.
 | port | Port TCP, který používá Impala server naslouchat pro připojení klientů. Výchozí hodnota je 21050.  | Ne |
 | authenticationType. | Typ ověřování používat. <br/>Povolené hodnoty jsou **anonymní**, **SASLUsername**, a **UsernameAndPassword**. | Ano |
 | uživatelské jméno | Uživatelské jméno pro přístup k serveru Impala. Výchozí hodnota je anonymní, při použití SASLUsername.  | Ne |
-| heslo | Heslo, které odpovídá uživatelskému jménu, při použití UsernameAndPassword. Toto pole můžete označit jako SecureString bezpečně uložit ve službě Data Factory. Také můžete uložit heslo v Azure Key Vault a nechat vyžádání aktivity kopírování odtud provádíte kopírování dat. Další informace najdete v tématu [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
+| heslo | Heslo, které odpovídá uživatelskému jménu, při použití UsernameAndPassword. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 | enableSsl | Určuje, zda připojení k serveru jsou šifrována pomocí protokolu SSL. Výchozí hodnota je **false**.  | Ne |
 | trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority používají k ověření serveru, jakmile se připojíte přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na Self-hosted integrace Runtime. Výchozí hodnota je soubor cacerts.pem nainstalovaný s modulem runtime integrace.  | Ne |
 | useSystemTrustStore | Určuje, jestli se má použít certifikát Certifikační autority z úložiště důvěryhodnosti systému nebo z určeného souboru PEM. Výchozí hodnota je **false**.  | Ne |

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 908d81c363a556917d211e0bcc92188f849fb690
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Vytvořit virtuální počítač s Linuxem pomocí Accelerated sítě
 
@@ -68,9 +68,9 @@ Při použití této funkce, existují tato omezení:
 
 ## <a name="create-a-virtual-network"></a>Vytvoření virtuální sítě
 
-Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login). V následujících příkladech nahraďte názvy parametrů příklad vlastní hodnoty. Názvy parametrů příklad zahrnuté *myResourceGroup*, *myNic*, a *Můjvp*.
+Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#az_login). V následujících příkladech nahraďte názvy parametrů příklad vlastní hodnoty. Názvy parametrů příklad zahrnuté *myResourceGroup*, *myNic*, a *Můjvp*.
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *centralus* umístění:
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *centralus* umístění:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Musíte vybrat podporovanou oblast Linux uvedené v [Linux accelerated sítě](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Vytvoření virtuální sítě s [vytvoření sítě vnet az](/cli/azure/network/vnet#create). Následující příklad vytvoří virtuální síť s názvem *myVnet* s jednou podsítí:
+Vytvoření virtuální sítě s [vytvoření sítě vnet az](/cli/azure/network/vnet#az_network_vnet_create). Následující příklad vytvoří virtuální síť s názvem *myVnet* s jednou podsítí:
 
 ```azurecli
 az network vnet create \
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-a-network-security-group"></a>Vytvoření skupiny zabezpečení sítě
-Vytvořit skupinu zabezpečení sítě s [vytvořit az sítě nsg](/cli/azure/network/nsg#create). Následující příklad vytvoří skupinu zabezpečení sítě s názvem *myNetworkSecurityGroup*:
+Vytvořit skupinu zabezpečení sítě s [vytvořit az sítě nsg](/cli/azure/network/nsg#az_network_nsg_create). Následující příklad vytvoří skupinu zabezpečení sítě s názvem *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -125,7 +125,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Vytvoření síťové rozhraní s [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#create) s Zrychlený sítě povolené. Následující příklad vytvoří rozhraní sítě s názvem *myNic* v *mySubnet* podsíť *myVnet* virtuální sítě a známými  *myNetworkSecurityGroup* skupinu zabezpečení sítě pro síťové rozhraní:
+Vytvoření síťové rozhraní s [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#az_network_nic_create) s Zrychlený sítě povolené. Následující příklad vytvoří rozhraní sítě s názvem *myNic* v *mySubnet* podsíť *myVnet* virtuální sítě a známými  *myNetworkSecurityGroup* skupinu zabezpečení sítě pro síťové rozhraní:
 
 ```azurecli
 az network nic create \
@@ -141,7 +141,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nic"></a>Vytvoření virtuálního počítače a připojte síťový adaptér
 Při vytváření virtuálního počítače, zadejte na síťový adaptér jste vytvořili pomocí `--nics`. Je nutné vybrat velikost a distribuce uvedené v [Linux accelerated sítě](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#create). Následující příklad vytvoří virtuální počítač s názvem *Můjvp* s UbuntuLTS bitové kopie a velikost, která podporuje Accelerated sítě (*Standard_DS4_v2*):
+Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create). Následující příklad vytvoří virtuální počítač s názvem *Můjvp* s UbuntuLTS bitové kopie a velikost, která podporuje Accelerated sítě (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

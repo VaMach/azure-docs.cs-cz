@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0c41388623b82421bd09f31fbc4b3769de758e4c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e377459d205426b34c52336d9104400cf9d8030b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Vytvoření virtuální počítač s Linuxem v Azure s více síťových karet
 Virtuální počítač (VM) můžete vytvořit v Azure, který má více rozhraní virtuální sítě (NIC) je připojený. Obvyklým scénářem je mít různé podsítě pro připojení front-end a back-end nebo síť vyhrazený pro řešení monitorování nebo zálohování. Tento článek podrobně popisuje postup vytvoření virtuálního počítače s více síťovými kartami k němu připojen a postup přidání nebo odebrání síťové adaptéry ze stávajícího virtuálního počítače. Různé [velikosti virtuálních počítačů](sizes.md) podporu různých počet síťových adaptérů, takže odpovídajícím způsobem upravit velikost virtuálního počítače.
@@ -27,17 +27,17 @@ Tento článek podrobně popisuje postup vytvoření virtuálního počítače s
 
 
 ## <a name="create-supporting-resources"></a>Vytvoření doprovodné materiály
-Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login).
+Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#az_login).
 
 V následujících příkladech nahraďte názvy parametrů příklad vlastní hodnoty. Názvy parametrů příklad zahrnuté *myResourceGroup*, *můj_účet_úložiště*, a *Můjvp*.
 
-Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* umístění:
+Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Vytvoření virtuální sítě s [vytvoření sítě vnet az](/cli/azure/network/vnet#create). Následující příklad vytvoří virtuální síť s názvem *myVnet* a podsíť s názvem *mySubnetFrontEnd*:
+Vytvoření virtuální sítě s [vytvoření sítě vnet az](/cli/azure/network/vnet#az_network_vnet_create). Následující příklad vytvoří virtuální síť s názvem *myVnet* a podsíť s názvem *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Vytvořte podsíť pro provoz back-end s [az sítě vnet podsíť vytváření](/cli/azure/network/vnet/subnet#create). Následující příklad vytvoří podsíť s názvem *mySubnetBackEnd*:
+Vytvořte podsíť pro provoz back-end s [az sítě vnet podsíť vytváření](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Následující příklad vytvoří podsíť s názvem *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -58,7 +58,7 @@ az network vnet subnet create \
     --address-prefix 192.168.2.0/24
 ```
 
-Vytvořit skupinu zabezpečení sítě s [vytvořit az sítě nsg](/cli/azure/network/nsg#create). Následující příklad vytvoří skupinu zabezpečení sítě s názvem *myNetworkSecurityGroup*:
+Vytvořit skupinu zabezpečení sítě s [vytvořit az sítě nsg](/cli/azure/network/nsg#az_network_nsg_create). Následující příklad vytvoří skupinu zabezpečení sítě s názvem *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Vytvořit a nakonfigurovat několik síťových adaptérů
-Vytvořte dva síťové adaptéry se [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#create). Následující příklad vytvoří dva síťové adaptéry s názvem *myNic1* a *myNic2*, připojené skupinu zabezpečení sítě s jednou síťovou KARTOU připojení ke každé podsítě:
+Vytvořte dva síťové adaptéry se [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#az_network_nic_create). Následující příklad vytvoří dva síťové adaptéry s názvem *myNic1* a *myNic2*, připojené skupinu zabezpečení sítě s jednou síťovou KARTOU připojení ke každé podsítě:
 
 ```azurecli
 az network nic create \
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>Vytvoření virtuálního počítače a připojte síťové karty
 Při vytváření virtuálního počítače, zadejte tyto adaptéry jste vytvořili pomocí `--nics`. Musíte také ujistěte se, když vyberete velikost virtuálního počítače. Existují omezení pro celkový počet síťových adaptérů, které můžete přidat k virtuálnímu počítači. Další informace o [velikosti virtuálního počítače s Linuxem](sizes.md). 
 
-Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#create). Následující příklad vytvoří virtuální počítač s názvem *Můjvp*:
+Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create). Následující příklad vytvoří virtuální počítač s názvem *Můjvp*:
 
 ```azurecli
 az vm create \
@@ -103,7 +103,7 @@ az vm create \
 ## <a name="add-a-nic-to-a-vm"></a>Přidat síťovou kartu k virtuálnímu počítači
 V předchozím postupu vytvořili virtuální počítač s více síťovými kartami. Síťové adaptéry můžete také přidat na existující virtuální počítač s Azure CLI 2.0. Různé [velikosti virtuálních počítačů](sizes.md) podporu různých počet síťových adaptérů, takže odpovídajícím způsobem upravit velikost virtuálního počítače. V případě potřeby můžete [změnit velikost virtuálního počítače](change-vm-size.md).
 
-Vytvořte další síťová karta s [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#create). Následující příklad vytvoří síťový adaptér s názvem *myNic3* připojené k back-end podsíť a síť skupiny zabezpečení vytvořené v předchozích krocích:
+Vytvořte další síťová karta s [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#az_network_nic_create). Následující příklad vytvoří síťový adaptér s názvem *myNic3* připojené k back-end podsíť a síť skupiny zabezpečení vytvořené v předchozích krocích:
 
 ```azurecli
 az network nic create \
@@ -114,14 +114,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Chcete-li přidat síťový adaptér na existující virtuální počítač, nejprve zrušit přidělení virtuálního počítače s [az OM deallocate](/cli/azure/vm#deallocate). Následující příklad zruší přidělení virtuálního počítače s názvem *Můjvp*:
+Chcete-li přidat síťový adaptér na existující virtuální počítač, nejprve zrušit přidělení virtuálního počítače s [az OM deallocate](/cli/azure/vm#az_vm_deallocate). Následující příklad zruší přidělení virtuálního počítače s názvem *Můjvp*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Přidat síťovou kartu s [přidat síťový adaptér virtuálního počítače az](/cli/azure/vm/nic#add). Následující příklad přidá *myNic3* k *Můjvp*:
+Přidat síťovou kartu s [přidat síťový adaptér virtuálního počítače az](/cli/azure/vm/nic#az_vm_nic_add). Následující příklad přidá *myNic3* k *Můjvp*:
 
 ```azurecli
 az vm nic add \
@@ -130,20 +130,20 @@ az vm nic add \
     --nics myNic3
 ```
 
-Spusťte virtuální počítač s [spuštění virtuálního počítače az](/cli/azure/vm#start):
+Spusťte virtuální počítač s [spuštění virtuálního počítače az](/cli/azure/vm#az_vm_start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="remove-a-nic-from-a-vm"></a>Odeberte síťový adaptér z virtuálního počítače
-Odebrat síťový adaptér ze stávajícího virtuálního počítače, nejprve zrušit přidělení virtuálního počítače s [az OM deallocate](/cli/azure/vm#deallocate). Následující příklad zruší přidělení virtuálního počítače s názvem *Můjvp*:
+Odebrat síťový adaptér ze stávajícího virtuálního počítače, nejprve zrušit přidělení virtuálního počítače s [az OM deallocate](/cli/azure/vm#az_vm_deallocate). Následující příklad zruší přidělení virtuálního počítače s názvem *Můjvp*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Odeberte na síťový adaptér s [odebrat seskupování virtuálních počítačů az](/cli/azure/vm/nic#remove). Následující příklad odebere *myNic3* z *Můjvp*:
+Odeberte na síťový adaptér s [odebrat seskupování virtuálních počítačů az](/cli/azure/vm/nic#az_vm_nic_remove). Následující příklad odebere *myNic3* z *Můjvp*:
 
 ```azurecli
 az vm nic remove \
@@ -152,7 +152,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Spusťte virtuální počítač s [spuštění virtuálního počítače az](/cli/azure/vm#start):
+Spusťte virtuální počítač s [spuštění virtuálního počítače az](/cli/azure/vm#az_vm_start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -214,28 +214,28 @@ eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 
 By pak vytvořte následující soubory a přidejte směrování a příslušná pravidla pro každé:
 
-- */etc/sysconfig/Network-Scripts/rule-eth0*
+- */etc/sysconfig/network-scripts/rule-eth0*
 
     ```bash
     from 10.0.1.4/32 table eth0-rt
     to 10.0.1.4/32 table eth0-rt
     ```
 
-- */etc/sysconfig/Network-Scripts/Route-eth0*
+- */etc/sysconfig/network-scripts/route-eth0*
 
     ```bash
     10.0.1.0/24 dev eth0 table eth0-rt
     default via 10.0.1.1 dev eth0 table eth0-rt
     ```
 
-- */etc/sysconfig/Network-Scripts/rule-eth1*
+- */etc/sysconfig/network-scripts/rule-eth1*
 
     ```bash
     from 10.0.1.5/32 table eth1-rt
     to 10.0.1.5/32 table eth1-rt
     ```
 
-- */etc/sysconfig/Network-Scripts/Route-eth1*
+- */etc/sysconfig/network-scripts/route-eth1*
 
     ```bash
     10.0.1.0/24 dev eth1 table eth1-rt
@@ -251,5 +251,5 @@ systemctl restart network
 Pravidla směrování jsou nyní správně na místě a můžete připojit buď rozhraní podle potřeby.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Zkontrolujte [velikosti virtuálního počítače s Linuxem](sizes.md) při pokusu o vytvoření virtuálního počítače s více síťovými kartami. Věnujte pozornost maximální počet síťových adaptérů podporuje každý velikost virtuálního počítače. 

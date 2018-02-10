@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc4e8b8682e686abc77f43427615c7069585f327
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 58ae292514a1f5c98218d7a879beb9c15cb25f60
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Kopírování dat ze služby Marketo pomocí Azure Data Factory (Beta)
 
@@ -50,7 +50,7 @@ Pro Marketo propojené služby jsou podporovány následující vlastnosti:
 | type | Vlastnost typu musí být nastavena na: **Marketo** | Ano |
 | endpoint | Koncový bod Marketo serveru. (i.e. 123-ABC-321.mktorest.com)  | Ano |
 | clientId | Id služby Marketo klienta.  | Ano |
-| clientSecret | Tajný klíč klienta služby Marketo. Můžete označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat ADF kopírování vyžádání aktivitu z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
+| clientSecret | Tajný klíč klienta služby Marketo. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
 | useHostVerification | Určuje, jestli chcete vyžadovat názvu hostitele v certifikátu serveru, aby odpovídal názvu hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je true.  | Ne |
 | usePeerVerification | Určuje, jestli pro ověření totožnosti serveru při připojení přes protokol SSL. Výchozí hodnota je true.  | Ne |
@@ -95,7 +95,7 @@ Chcete-li kopírovat data ze služby Marketo, nastavte vlastnost typu datové sa
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Marketo zdroje.
 

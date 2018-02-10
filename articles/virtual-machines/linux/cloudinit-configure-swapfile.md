@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: a8ccec0dc8ff100c5d067cd50f2a6fa8cb4871fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7f9defc1f414819cf856fc92f5eb51eafdc67be9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Ke konfiguraci swapfile na virtuální počítač s Linuxem použít init cloudu
 V tomto článku se dozvíte, jak používat [cloudu init](https://cloudinit.readthedocs.io) ke konfiguraci swapfile na různých distribucí Linux. Swapfile tradičně byla nakonfigurována pomocí Linux agenta (WALA) podle které distribuce vyžaduje jeden.  Tento dokument se popisují proces tvorby swapfile na vyžádání při zřizování dobu používání cloudové init.  Další informace o cloudu init fungování nativně ve službě Azure a podporovaných distribucích systému Linux najdete v tématu [init cloudu – přehled](using-cloud-init.md)
@@ -28,7 +28,7 @@ Ve výchozím nastavení v Azure nevytvářejte Ubuntu Galerie obrázků stránk
 
 ## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>Vytvoření swapfile pro RedHat a CentOS na základě bitové kopie
 
-Vytvořte soubor ve své aktuální prostředí s názvem *cloud_init_swapfile.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadejte `sensible-editor cloud_init_swapfile.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Zvolte #1 používat **nano** editor. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek.  
+Vytvořte soubor ve své aktuální prostředí s názvem *cloud_init_swapfile.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadáním příkazu `sensible-editor cloud_init_swapfile.txt` soubor vytvořte a zobrazte seznam editorů k dispozici. Zvolte #1 používat **nano** editor. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek.  
 
 ```yaml
 #cloud-config
@@ -47,13 +47,13 @@ mounts:
 - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Než nasadíte tuto bitovou kopii, je nutné vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
+Než nasadíte tuto bitovou kopii, je nutné vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create) a určete soubor init cloudu s `--custom-data cloud_init_swapfile.txt` následujícím způsobem:
+Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) a určete soubor init cloudu s `--custom-data cloud_init_swapfile.txt` následujícím způsobem:
 
 ```azurecli-interactive 
 az vm create \
@@ -87,7 +87,7 @@ Filename                Type        Size    Used    Priority
 > [!NOTE] 
 > Pokud máte stávající image Azure, který má odkládací soubor nakonfigurovaný a chcete změnit konfiguraci odkládací soubor pro nové bitové kopie, byste měli odebrat existující odkládací soubor. Najdete v dokumentu 'Přizpůsobit Image zřídit podle cloudu init' Další podrobnosti.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Mezi další cloudu init změny konfigurace naleznete v následujících tématech:
  
 - [Přidání další uživatele Linux do virtuálního počítače](cloudinit-add-user.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2ce9491f7c16baa7805bdb35defc57645b73d18f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Řešení přenosu dat 2.0 (Preview) v analýzy protokolů
 
@@ -387,7 +387,7 @@ Na portálu OMS, klikněte **přenosu dat 2.0** dlaždici otevřete řídicí pa
 | Místní podsítě | Zobrazuje počet místní podsítě, které byly zjištěny agenty.  Klikněte na číslo ke spuštění protokolu vyhledejte <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> , obsahuje seznam všech podsítí s počet bajtů odeslaných přes každé z nich. Klikněte na podsíť v seznamu ke spuštění vyhledávání protokolu vrátí celkový počet bajtů odeslaných přes podsíť. |
 | Protokoly na úrovni aplikace | Zobrazuje počet protokoly na úrovni aplikace používána, při zjištění agenty. Klikněte na číslo ke spuštění protokolu vyhledejte <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Klikněte na protokol spuštění vyhledávání protokolu vrátí celkový počet bajtů odeslaných pomocí protokolu. |
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Řídicí panel přenosu dat](./media/log-analytics-wire-data/wire-data-dash.png)
 
@@ -413,7 +413,7 @@ Je také užitečné vědět, pokud je provozu protokolu zvýšením nebo sníž
 
 Data kabelové sítě shromažďuje metadata o síťovém provozu pomocí agentů, které jste povolili. Každý agent odesílá data o každých 15 sekund.
 
-## <a name="output-data"></a>výstupní data
+## <a name="output-data"></a>Výstupní data
 
 Záznam s typem _WireData_ se vytvoří pro každý typ vstupní data. WireData záznamy mají vlastnosti zobrazené v následující tabulce:
 

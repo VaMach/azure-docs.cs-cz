@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funkcí jazyka C# referenční informace pro vývojáře
 
@@ -40,6 +40,9 @@ V sadě Visual Studio **Azure Functions** vytvoří šablona projektu C# projekt
 
 * [Host.JSON](functions-host-json.md) – ukládá nastavení konfigurace, které ovlivní všechny funkce v projektu, když běží místně nebo v Azure.
 * [Local.Settings.JSON](functions-run-local.md#local-settings-file) – ukládá nastavení aplikace a připojovacích řetězců, které se používají při místním spuštění.
+
+> [!IMPORTANT]
+> Vytvoří procesu sestavení *function.json* soubor pro každou funkci. To *function.json* soubor není určen k upravovat přímo. Nelze změnit konfiguraci vazby nebo zakázat funkci úpravou tohoto souboru. Zakázat funkci, použijte [zakázat](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) atribut. Například přidat nastavení MY_TIMER_DISABLED logickou aplikaci a použít `[Disable("MY_TIMER_DISABLED")]` na funkce. Potom můžete povolit a zakázat tak, že změníte nastavení aplikace.
 
 ### <a name="functionname-and-trigger-attributes"></a>Atributy %{FunctionName/ a aktivační události
 
@@ -83,7 +86,7 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>Převod na function.json
 
-Vytvoří procesu sestavení *function.json* souboru ve složce funkce ve složce sestavení. Tento soubor není určen k upravovat přímo. Nelze změnit konfiguraci vazby nebo zakázat funkci úpravou tohoto souboru. 
+Vytvoří procesu sestavení *function.json* souboru ve složce funkce ve složce sestavení. Jak již bylo uvedeno dříve, tento soubor není určen k upravovat přímo. Nelze změnit konfiguraci vazby nebo zakázat funkci úpravou tohoto souboru. 
 
 Účelem tohoto souboru je poskytují informace, které řadič škálování pro [škálování rozhodnutí plánu spotřeby](functions-scale.md#how-the-consumption-plan-works). Z tohoto důvodu soubor má jenom informace o aktivační událost není vstupem nebo výstupem vazby.
 

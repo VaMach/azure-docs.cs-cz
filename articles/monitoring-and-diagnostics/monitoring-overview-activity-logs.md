@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Sledování aktivity předplatné s protokol činnosti Azure
 **Protokol činnosti Azure** je protokol odběru, který poskytuje přehled o události na úrovni předplatného, k nimž došlo v Azure. To zahrnuje celou řadu dat z provozních dat Azure Resource Manager aktualizací na události stavu služby. Protokol aktivit se dřív označovala jako "Protokoly auditu" nebo "Provozní protokoly," od události administrativní kategorie sestavy rovině řízení pro vaše předplatné. Pomocí protokolu činnosti, můžete určit ', kdo a kdy se pro všechny zápisu operace (PUT, POST, DELETE) na prostředky v rámci vašeho předplatného. Můžete také chápou stav operace a další relevantní vlastnosti. Protokol aktivit nezahrnuje operace čtení (GET) nebo operace pro prostředky, které používají Classic nebo model "RDFE".
@@ -29,18 +29,21 @@ Obrázek 1: Protokoly aktivity vs jiné typy protokolů
 
 Protokol aktivity se liší od [diagnostické protokoly](monitoring-overview-of-diagnostic-logs.md). Protokoly aktivity poskytují data týkající se operací na prostředku z vnějšku ("řízení rovinou"). Diagnostické protokoly jsou vygenerované prostředek a poskytnout informace o operaci prostředku ("data rovinou").
 
-Můžete načíst události z protokolu aktivit pomocí portálu Azure, rozhraní příkazového řádku, rutiny prostředí PowerShell a rozhraní REST API Azure monitorování.
-
-
 > [!WARNING]
 > Protokol činnosti Azure je určen pro činnosti, které ve službě Správce prostředků Azure. Sledovat prostředky pomocí modelu Classic nebo RDFE. Některé typy prostředků Classic mají proxy poskytovatele prostředků v Azure Resource Manageru (například Microsoft.Network). Při práci s typem prostředku Classic prostřednictvím Správce Azure Resource Manager pomocí těchto poskytovatelů prostředků proxy, operace se objeví v protokolu aktivit. Pokud budete používat typ prostředku Classic mimo proxy Azure Resource Manager, vaše akce pouze zaznamenávají v protokolu operací. V protokolu operaci můžete procházet na samostatné části portálu.
 >
 >
 
+Můžete načíst události z protokolu aktivit pomocí portálu Azure, rozhraní příkazového řádku, rutiny prostředí PowerShell a rozhraní REST API Azure monitorování.
+
+> [!NOTE]
+
+>  [Výstrahy (Preview)](monitoring-overview-unified-alerts.md) aktuálně nabízí vylepšené prostředí při vytváření a spravovat pravidla výstrah protokolu aktivit.  [Další informace](monitoring-activity-log-alerts-new-experience.md).
+
+
 Zobrazení v následujícím videu Představení protokolu aktivit.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## <a name="categories-in-the-activity-log"></a>Kategorie v protokolu aktivit
 Protokol aktivit obsahuje několik kategorií data. Úplné podrobnosti o schémat z těchto kategorií [najdete v článku](monitoring-activity-log-schema.md). Mezi ně patří:
@@ -138,7 +141,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Vlastnost | Požaduje se | Popis |
 | --- | --- | --- |
-| Name (Název) |Ano |Název vašeho profilu protokolu. |
+| Název |Ano |Název vašeho profilu protokolu. |
 | StorageAccountId |Ne |ID prostředku účtu úložiště, který má být uložen v protokolu aktivit. |
 | serviceBusRuleId |Ne |ID pravidla sběrnice služby pro chcete mít centra událostí, které jsou vytvořené v oboru názvů Service Bus. Je řetězec s Tento formát: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Umístění |Ano |Seznam oddělený čárkami oblastí, pro které chcete shromažďovat aktivity protokolu události. |

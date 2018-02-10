@@ -2,29 +2,23 @@
 title: "Převzetí služeb při selhání a selhání zálohování virtuálních počítačů Hyper-V replikovat do sekundárního datového centra pomocí Site Recovery | Microsoft Docs"
 description: "Zjistěte, jak převzetí služeb při selhání Hyper-V virtuální počítače na sekundární místní lokalitu a navrácení služeb po obnovení primární lokality, službou Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 44a662fa-2e7a-4996-86df-fdd6d6f5dedf
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb282a18efe2e3c7435377e02fa8c4d97a85ac63
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Převzetí služeb při selhání a selhání zálohování virtuálních počítačů Hyper-V replikovat na sekundární místní lokalitu
 
 [Azure Site Recovery](site-recovery-overview.md) služby spravuje a orchestruje replikaci, převzetí služeb při selhání a navrácení služeb po obnovení místního počítače a virtuální počítače Azure (VM).
 
-Tento kurz popisuje, jak k převzetí služeb virtuálního počítače technologie Hyper-V spravované v cloudu System Center Virtual Machine Manager (VMM), pro sekundární lokalita VMM. Poté, co jste při selhání, můžete zpět do místního serveru nezdaří případě, že je k dispozici. V tomto kurzu se naučíte:
+Tento článek popisuje, jak k převzetí služeb virtuálního počítače technologie Hyper-V spravované v cloudu System Center Virtual Machine Manager (VMM), pro sekundární lokalita VMM. Poté, co jste při selhání, můžete zpět do místního serveru nezdaří případě, že je k dispozici. V tomto článku se dozvíte, jak:
 
 > [!div class="checklist"]
 > * Selhání virtuálního počítače technologie Hyper-V z primárního cloudu VMM do sekundární cloudu VMM

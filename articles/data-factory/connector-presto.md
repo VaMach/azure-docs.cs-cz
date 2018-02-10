@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 440a644e0b43fd42a446ec3e1a6a8d32a0b247cd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 713826f890f6fb37a1e231d84e7e3c3b149dd58a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Kopírování dat z Presto pomocí Azure Data Factory (Beta)
 
@@ -54,7 +54,7 @@ Pro Presto propojené služby jsou podporovány následující vlastnosti:
 | port | Port TCP, který používá Presto server naslouchat pro připojení klientů. Výchozí hodnota je 8080.  | Ne |
 | authenticationType. | Mechanismus ověřování používaný pro připojení k serveru Presto. <br/>Povolené hodnoty jsou: **anonymní**, **LDAP** | Ano |
 | uživatelské jméno | Uživatelské jméno používané pro připojení k serveru Presto.  | Ne |
-| heslo | Heslo odpovídající uživatelské jméno. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
+| heslo | Heslo odpovídající uživatelské jméno. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 | enableSsl | Určuje, zda jsou šifrované připojení k serveru pomocí protokolu SSL. Výchozí hodnota je false.  | Ne |
 | trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority pro ověření serveru při připojení přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na vlastním hostováním infračerveného signálu. Výchozí hodnota je soubor cacerts.pem nainstalované s infračerveného signálu.  | Ne |
 | useSystemTrustStore | Určuje, jestli se má použít certifikát Certifikační autority z úložiště důvěryhodnosti systému nebo z určeného souboru PEM. Výchozí hodnota je false.  | Ne |
@@ -107,7 +107,7 @@ Ke zkopírování dat z Presto, nastavte vlastnost typu datové sady, která **P
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Presto zdroje.
 

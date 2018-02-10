@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics na platformě Media Services
 ## <a name="overview"></a>Přehled
@@ -50,6 +50,8 @@ Videosouhrn vám pomůžou vytvořit souhrnných informací o dlouho videa autom
 S Azure Media rozpoznávání znaků (optické rozpoznávání znaků) můžete upravovat, vyhledávat digitální text převést textového obsahu v video soubory. Pak můžete automatizovat extrakce smysluplný metadata z video signál média.
 ### <a name="scalable-face-redaction"></a>Škálovatelné vzhled redigování
 Azure Media Redactor je procesor Media Analytics médií, která nabízí redigování škálovatelné řez v cloudu. Pomocí redigování vzhled, můžete upravit videa na rozostření řezy vybrané jednotlivce. Můžete chtít používat službu redigování vzhled zprávy médiu nebo veřejné bezpečnosti je zahrnuta. Pár minut záznamů, která obsahuje více řezy může trvat hodiny redigovat ručně, ale s touto službou vzhled redigování trvá jenom pár jednoduchých kroků. Další informace najdete v tématu [redigovat řezy s Azure Media Analytics](media-services-face-redaction.md) článku.
+### <a name="content-moderation"></a>Moderování obsahu
+Azure obsahu moderátora umožňuje použít počítač s asistencí přerušování pro videa. Můžete například zjistit možné obsah pro dospělé a zájem v videa a zkontrolujte označení obsah týmy lidského přerušování. Ručně moderování videa pro nežádoucího obsahu je úloha je časově náročná a nákladná. Pomocí této služby a nástroje přidružené kontrolní kombinovat s asistencí počítač přerušování s možnostmi lidské v the smyčky nejlepších výsledků dosáhnete efektivní a cenově výhodnou. Další informace najdete v tématu [zpracujte videa s Azure obsahu moderátora](media-services-content-moderation.md) článku.
 
 ## <a name="common-scenarios"></a>Obvyklé scénáře
 Media Analytics může pomoci organizacím a podnikům glean nové přehledy z video a další efektivně spravovat velké objemy obsahu videa. Tady je několik scénářů:
@@ -69,6 +71,7 @@ V této části jsou uvedeny procesory médií z Media Analytics a ukazuje, jak 
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
+* Azure Media obsahu moderátora
 
 ### <a name="net"></a>.NET
 Následující funkce trvá některý zadaný název sady Management Pack a vrátí objekt sady Management Pack.
@@ -123,11 +126,6 @@ Odpověď:
 ## <a name="demos"></a>Ukázky
 V tématu [ukázek Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="next-steps"></a>Další kroky
-Prohlédněte si mapy kurzů k Media Services.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ V tématu [Media Services Analytics oznámení](https://azure.microsoft.com/blog
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>Další postup
+Prohlédněte si mapy kurzů k Media Services.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0107c0e02e7158ad73671ae8e4599e1e998f20fc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2682b6d149fc9a8b1a1a70351ea90fbd701dd4ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopírování dat z Spark pomocí Azure Data Factory 
 
@@ -52,7 +52,7 @@ Pro Spark propojené služby jsou podporovány následující vlastnosti:
 | thriftTransportProtocol | Přenosový protokol pro použití v Thrift vrstvy. <br/>Povolené hodnoty jsou: **binární**, **SASL**, ** HTTP ** | Ne |
 | authenticationType. | Metodu ověřování pro přístup k serveru Spark. <br/>Povolené hodnoty jsou: **anonymní**, **uživatelské jméno**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ano |
 | uživatelské jméno | Uživatelské jméno, který používáte pro přístup k serveru Spark.  | Ne |
-| heslo | Heslo odpovídající uživatelské jméno, které jste zadali do pole uživatelské jméno, je možné označit toto pole jako SecureString uložit bezpečně v ADF, nebo uložit heslo v Azure Key Vault a nechat vyžádání aktivity kopírování z ní při kopírování dat - lea Další z nout [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
+| heslo | Heslo odpovídající uživateli. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 | httpPath | Částečné adresa URL serveru Spark odpovídá.  | Ne |
 | enableSsl | Určuje, zda jsou šifrované připojení k serveru pomocí protokolu SSL. Výchozí hodnota je false.  | Ne |
 | trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority pro ověření serveru při připojení přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na vlastním hostováním infračerveného signálu. Výchozí hodnota je soubor cacerts.pem nainstalované s infračerveného signálu.  | Ne |
@@ -104,7 +104,7 @@ Ke zkopírování dat z Spark, nastavte vlastnost typu datové sady, která **Sp
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem Spark.
 

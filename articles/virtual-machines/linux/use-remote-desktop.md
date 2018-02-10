@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalace a konfigurace vzdálené plochy pro připojení k virtuální počítač s Linuxem v Azure
 Linux virtuálních počítačů (VM) v Azure jsou obvykle spravovat z příkazového řádku pomocí připojení zabezpečené shell (SSH). Při vydání nových do systému Linux, nebo pro rychlé řešení potíží scénáře, může být snazší pomocí vzdálené plochy. Tento článek podrobně popisují postup instalace a konfigurace prostředí plochy ([xfce](https://www.xfce.org)) a vzdálené plochy ([xrdp](http://www.xrdp.org)) pro váš virtuální počítač s Linuxem pomocí modelu nasazení Resource Manager.
@@ -27,7 +27,7 @@ Linux virtuálních počítačů (VM) v Azure jsou obvykle spravovat z příkazo
 ## <a name="prerequisites"></a>Požadavky
 Tento článek vyžaduje existující virtuální počítač s Linuxem v Azure. Pokud potřebujete k vytvoření virtuálního počítače, použijte jednu z následujících metod:
 
-- [Rozhraní příkazového řádku Azure 2.0](quick-create-cli.md)
+- The [Azure CLI 2.0](quick-create-cli.md)
 - [Portálu Azure](quick-create-portal.md)
 
 
@@ -85,7 +85,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Vytvoření pravidla skupiny zabezpečení sítě pro přenosy vzdálené plochy
 Pokud chcete povolit přenosy vzdálené plochy k dosažení virtuálním počítačům s Linuxem, zabezpečení sítě skupiny pravidlo musí být vytvořen, který umožňuje TCP na portu 3389 k dosažení virtuálního počítače. Další informace o pravidel skupiny zabezpečení sítě najdete v tématu [co je skupina zabezpečení sítě?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Můžete také [pomocí portálu Azure k vytvoření pravidla skupiny zabezpečení sítě](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Následující příklad vytvoří pravidlo skupiny zabezpečení sítě s [az virtuálních počítačů open-port](/cli/azure/vm#open-port) na portu *3389*.
+Následující příklad vytvoří pravidlo skupiny zabezpečení sítě s [az virtuálních počítačů open-port](/cli/azure/vm#az_vm_open_port) na portu *3389*.
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -133,7 +133,7 @@ Další Linuxových distribucích například Red Hat Enterprise Linux a SUSE m�
 Pokud neobdrží všechny odpovědi v klientovi vzdálené plochy a nejsou vidět všechny události v systémovém protokolu, toto chování Určuje, že vzdálené plochy provoz nemůže připojit virtuální počítač. Zkontrolujte vaše pravidel skupiny zabezpečení sítě k zajištění, že máte pravidlo pro povolení TCP na portu 3389. Další informace najdete v tématu [problémů s připojením aplikace](../windows/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o vytváření a používání klíčů SSH s virtuální počítače s Linuxem najdete v tématu [vytvořit SSH klíče pro virtuální počítače s Linuxem v Azure](mac-create-ssh-keys.md).
 
 Informace o používání SSH ze systému Windows najdete v tématu [klíče použití SSH se systémem Windows](ssh-from-windows.md).

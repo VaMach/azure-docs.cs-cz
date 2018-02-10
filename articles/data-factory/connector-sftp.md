@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 046172d8c4cff880c8e5d59834f5753927fb90c2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d90bafebcd942454b31d0f62b0daf3f01ad6926
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopírování dat ze serveru pomocí protokolu SFTP pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Chcete-li základní ověřování použijte, nastavte vlastnost "authentication
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | userName | Uživatel, který má přístup k serveru pomocí protokolu SFTP. |Ano |
-| heslo | Heslo pro uživatele (uživatelské jméno). Toto pole můžete označte jako SecureString. | Ano |
+| heslo | Heslo pro uživatele (uživatelské jméno). Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 
 **Příklad:**
 
@@ -104,8 +104,8 @@ Chcete-li použít ověření veřejného klíče SSH, nastavte vlastnost "authe
 |:--- |:--- |:--- |
 | userName | Uživatel, který má přístup k serveru pomocí protokolu SFTP |Ano |
 | privateKeyPath | Zadejte absolutní cestu k souboru privátního klíče, který přístup integrace modulu Runtime. Platí jenom v případě, že je zadán vlastním hostováním typ integrace Runtime v "connectVia". | Zadejte buď `privateKeyPath` nebo `privateKeyContent`.  |
-| privateKeyContent | Kódováním base64, pomocí SSH privátní klíče obsahu. Privátní klíč SSH musí být ve formátu OpenSSH. Toto pole můžete označte jako SecureString. | Zadejte buď `privateKeyPath` nebo `privateKeyContent`. |
-| passPhrase | Zadejte průchodu fráze nebo hesla k dešifrování privátního klíče, pokud soubor klíče je chráněn heslo. Toto pole můžete označte jako SecureString. | Ano, pokud heslo je chráněný soubor privátního klíče. |
+| privateKeyContent | Kódováním base64, pomocí SSH privátní klíče obsahu. Privátní klíč SSH musí být ve formátu OpenSSH. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Zadejte buď `privateKeyPath` nebo `privateKeyContent`. |
+| passPhrase | Zadejte průchodu fráze nebo hesla k dešifrování privátního klíče, pokud soubor klíče je chráněn heslo. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano, pokud heslo je chráněný soubor privátního klíče. |
 
 > [!NOTE]
 > Pomocí protokolu SFTP konektor podporuje pouze klíč OpenSSH. Ujistěte se, že je váš soubor klíče ve správném formátu. Nástroj pro Putty můžete převést na formát OpenSSH .ppk.

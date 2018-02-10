@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9b94d9c66f69fac7c73a70618f782b811d4c9e62
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Úvod do monitorování cloudové služby
 
@@ -39,9 +39,9 @@ Základní monitorování nevyžaduje žádný účet úložiště.
 
 ## <a name="advanced-monitoring"></a>Pokročilé sledování
 
-Pokročilé monitorování, která využívá **Azure Diagnostics** rozšíření (a volitelně Application Insights SDK) na roli, kterou chcete sledovat. Rozšíření diagnostiky používá soubor konfigurace (podle role) s názvem **diagnostics.wadcfgx** ke konfiguraci diagnostiky metriky monitorovány. Data diagnostiky Azure shromažďuje rozšíření je uložený v účtu Azure Storage, který je nakonfigurován v **.wadcfgx** a v [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) a [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) soubory. To znamená, že je navíc náklady spojené s pokročilé monitorování.
+Pokročilé monitorování, která využívá **Azure Diagnostics** rozšíření (a volitelně Application Insights SDK) na roli, kterou chcete sledovat. Rozšíření diagnostiky používá soubor konfigurace (podle role) s názvem **diagnostics.wadcfgx** ke konfiguraci diagnostiky metriky monitorovány. Rozšíření Azure diagnostiky shromažďuje a ukládá data do účtu Azure Storage. Tato nastavení jsou konfigurována na **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef), a [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) soubory. To znamená, že je navíc náklady spojené s pokročilé monitorování.
 
-Při vytváření každou roli, Visual Studio přidá rozšíření Azure Diagnostics. Toto rozšíření může shromažďovat následující typy informací:
+Při vytváření každou roli, Visual Studio přidá rozšíření Azure Diagnostics. Toto rozšíření diagnostiky může shromažďovat následující typy informací:
 
 * Vlastní čítače výkonu
 * Protokoly aplikací
@@ -55,19 +55,13 @@ Při vytváření každou roli, Visual Studio přidá rozšíření Azure Diagno
 > [!IMPORTANT]
 > Zatímco tato data je agregován do účtu úložiště, nemá portálu **není** umožňují nativní grafu data. Důrazně doporučujeme integraci jiné služby, jako je Application Insights do své aplikace.
 
-### <a name="use-application-insights"></a>Pomocí Application Insights
-
-Když publikujete službu cloudu v sadě Visual Studio, budete mít možnost posílat diagnostická data do služby Application Insights. Můžete vytvořit prostředek Application Insights Azure v daném čase nebo odeslat data do existující prostředek Azure. Cloudové služby můžete sledovat pomocí Application Insights pro dostupnosti, výkonu, chyb a využití. Vlastní grafy mohou být přidány do Application Insights, aby mohli zobrazit data, záleží na vás nejvíc. Pomocí Application Insights SDK v projekt cloudové služby se můžou shromažďovat role instance data. Další informace o tom, jak integrovat Application Insights najdete v tématu [Application Insights s cloudovými službami](../application-insights/app-insights-cloudservices.md).
-
-Všimněte si, že při Application Insights můžete použít k zobrazení čítače výkonu (a ostatních nastavení) jste zadali prostřednictvím rozšíření Windows Azure Diagnostics pouze obdržíte bohatší možnosti integrací Application Insights SDK do worker a webové role.
-
 ## <a name="setup-diagnostics-extension"></a>Instalace rozšíření diagnostiky
 
 První, pokud nemáte **classic** účet úložiště, [vytvořit](../storage/common/storage-create-storage-account.md#create-a-storage-account). Ujistěte se, že je vytvořen účet úložiště s **model nasazení Classic** zadaný.
 
 Potom přejděte na **účet úložiště (klasické)** prostředků. Vyberte **nastavení** > **přístupové klíče** a zkopírujte **primární připojovací řetězec** hodnotu. Tato hodnota je nutné pro cloudovou službu. 
 
-Existují dvě konfigurační soubory pro pokročilé diagnostiky možné povolit, musíte změnit **ServiceDefinition.csdef** a **souboru ServiceConfiguration.cscfg**.
+Existují dvě konfigurační soubory, které je nutné změnit pokročilé Diagnostics povolení, **ServiceDefinition.csdef** a **souboru ServiceConfiguration.cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
@@ -96,7 +90,15 @@ S největší pravděpodobností máte dva **.cscfg** souborům, jednu s názvem
       -->
 ```
 
+## <a name="use-application-insights"></a>Pomocí Application Insights
+
+Když publikujete službu cloudu v sadě Visual Studio, budete mít možnost posílat diagnostická data do služby Application Insights. Můžete vytvořit prostředek Application Insights Azure v daném čase nebo odeslat data do existující prostředek Azure. Cloudové služby můžete sledovat pomocí Application Insights pro dostupnosti, výkonu, chyb a využití. Vlastní grafy mohou být přidány do Application Insights, aby mohli zobrazit data, nejvíc záleží. Pomocí Application Insights SDK v projekt cloudové služby se můžou shromažďovat role instance data. Další informace o tom, jak integrovat Application Insights najdete v tématu [Application Insights s cloudovými službami](../application-insights/app-insights-cloudservices.md).
+
+Všimněte si, zda při Application Insights můžete použít k zobrazení čítače výkonu (a ostatních nastavení) jste zadali prostřednictvím rozšíření Windows Azure Diagnostics, můžete pouze získat bohatší možnosti integrací Application Insights SDK do vašeho Worker a webové role.
+
+
 ## <a name="next-steps"></a>Další postup
 
-- [Další informace o Application Insights s cloudovými službami.](../application-insights/app-insights-cloudservices.md)
+- [Další informace o Application Insights s cloudovými službami](../application-insights/app-insights-cloudservices.md)
+- [Nastavit čítače výkonu](diagnostics-performance-counters.md)
 

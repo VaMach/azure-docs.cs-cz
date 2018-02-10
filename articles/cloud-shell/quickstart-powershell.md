@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: b454720dd5bd2df036a400c8bfc1c383de5af542
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Rychlý start pro prostředí PowerShell v prostředí cloudu Azure (Preview)
 
@@ -41,7 +41,7 @@ Tento dokument podrobně popisuje, jak pomocí prostředí PowerShell v prostře
 
 Regulární příkazy prostředí PowerShell spusťte v prostředí cloudu, jako například:
 
-```Powershell
+```PowerShell
 PS Azure:\> Get-Date
 Monday, September 25, 2017 08:55:09 AM
 
@@ -58,13 +58,13 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
  1. Seznam odběrů
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> dir
     ```
 
  2. `cd`k předplatnému upřednostňované
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
@@ -184,20 +184,20 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Naleznete [řešení potíží s vzdálenou správu virtuálních počítačích Azure](troubleshooting.md#powershell-resolutions).
 
-  Za předpokladu, že máte virtuální počítač, MyVM1, použijeme `Invoke-AzureRmVMCommand` k vyvolání scriptblock prostředí PowerShell ve vzdáleném počítači.
+  Za předpokladu, že máte virtuální počítač, MyVM1, použijeme `Invoke-AzureRmVMCommand` k vyvolání blok skriptu prostředí PowerShell ve vzdáleném počítači.
 
   ``` Powershell
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
   Můžete také nejprve přejděte do adresáře virtuálních počítačů a spustit `Invoke-AzureRmVMCommand` následujícím způsobem.
 
-  ``` Powershell
+  ``` PowerShell
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
   ```
   Zobrazí výstup podobný následujícímu:
 
-  ``` Powershell
+  ``` PowerShell
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -215,13 +215,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 Můžete použít `Enter-AzureRmVM` pro interaktivní přihlášení na virtuální počítač běží v Azure.
 
-  ``` Powershell
+  ``` PowerShell
   Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-Můžete také přejít na `virtualMachines` directory první a spusťte `Enter-AzureRmVM` následujícím způsobem
+Můžete také přejít na `VirtualMachines` directory první a spusťte `Enter-AzureRmVM` následujícím způsobem
 
-  ``` Powershell
+  ``` PowerShell
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
@@ -266,20 +266,20 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32 – OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) je k dispozici v CloudShell prostředí PowerShell.
-K ověření na serverech nebo virtuálních počítačů pomocí protokolu SSH, vygenerovat pár klíčů veřejný soukromý v CloudShell a publikovat veřejný klíč k `authorized_keys` ve vzdáleném počítači, jako například `/home/user/.ssh/authorized_keys`.
+[Win32 – OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) je k dispozici v prostředí cloudu prostředí PowerShell.
+K ověření na serverech nebo virtuálních počítačů pomocí protokolu SSH, vygenerovat pár klíčů veřejný soukromý v prostředí cloudu a publikovat veřejný klíč k `authorized_keys` ve vzdáleném počítači, jako například `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]
-> Můžete vytvořit privátní veřejné klíče SSH pomocí `ssh-keygen` a publikovat je do `$env:USERPROFILE\.ssh` v CloudShell.
+> Můžete vytvořit privátní veřejné klíče SSH pomocí `ssh-keygen` a publikovat je do `$env:USERPROFILE\.ssh` v prostředí cloudu.
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Pomocí vlastního profilu pro stávající nastavení GIT a SSH
 
-Vzhledem k tomu, že relace nezůstanou zachována při odhlášení uložit vaše `$env:USERPROFILE\.ssh` složku pro `CloudDrive` nebo vytvořte symlink při CloudShell získá spuštění.
-Přidejte následující kód ve vaší profile.ps1 vytvořit symlink k CloudDrive uvádíme.
+Vzhledem k tomu, že relace nezůstanou zachována při odhlášení uložit vaše `$env:USERPROFILE\.ssh` složku pro `CloudDrive` nebo vytvořte symlink při získá spuštění prostředí cloudu.
+Přidejte následující fragment kódu ve vašem profile.ps1 vytvořit symlink k CloudDrive.
 
-``` Powershell
-# Check if the ssh folder exists
-if( -not (Test-Path $home\CloudDrive\.ssh){
+``` PowerShell
+# Check if the .ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
 
@@ -298,24 +298,24 @@ if(Test-Path $script:sshFolderPath){
 ### <a name="using-ssh"></a>Pomocí protokolu SSH
 
 Postupujte podle pokynů [sem](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) k vytvoření nové konfigurace virtuálního počítače pomocí rutin AzureRM.
-Před volání do `New-AzureRMVM` na zahajovací nasazení, přidejte veřejný klíč SSH ke konfiguraci virtuálních počítačů.
-Nově vytvořený virtuální počítač bude obsahovat veřejný klíč ve `~\.ssh\authorized_keys` umístění, a umožňuje bez pověření ssh relace k virtuálnímu počítači.
+Před volání do `New-AzureRmVM` na zahajovací nasazení, přidejte veřejný klíč SSH ke konfiguraci virtuálních počítačů.
+Nově vytvořený virtuální počítač bude obsahovat veřejný klíč ve `~\.ssh\authorized_keys` umístění, a umožňuje bez přihlašovacích údajů relace SSH do virtuálního počítače.
 
-``` Powershell
+``` PowerShell
 
 # Create VM config object - $vmConfig using instructions on linked page above
 
-# Generate SSH Keys in CloudShell
+# Generate SSH keys in Cloud Shell
 ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
 
-# Ensure VM config is updated with SSH Keys
+# Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
 New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
-# ssh to the VM
+# SSH to the VM
 ssh azureuser@MyVM.Domain.Com
 
 ```
@@ -335,13 +335,13 @@ Můžete spustit `Install-Module` instalace modulů z [Galerie prostředí Power
 
 Typ `Get-Help` se získat informace o prostředí PowerShell v prostředí cloudu Azure.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help
 ```
 
-Pro konkrétní příkaz je stále možné následuje rutiny Get-Help.
+Pro konkrétní příkaz, je stále možné `Get-Help` následuje rutiny.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
@@ -349,7 +349,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 Můžete vytvořit skript, například `helloworld.ps1`a uložte ho do vaší `CloudDrive` používat napříč relacemi prostředí.
 
-``` Powershell
+``` PowerShell
 cd C:\users\ContainerAdministrator\CloudDrive
 PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
@@ -367,7 +367,7 @@ Postup vytvoření profilu, použijte [o profily][profile].
 
 ## <a name="use-git"></a>Pomocí Git
 
-Chcete-li klonovat úložiště git v prostředí cloudu, je potřeba vytvořit [osobní přístupový token] [ githubtoken] a používejte ho jako uživatelské jméno. Jakmile je váš token, klonování úložiště následujícím způsobem:
+Chcete-li klonovat úložiště Git v prostředí cloudu, je potřeba vytvořit [osobní přístupový token] [ githubtoken] a používejte ho jako uživatelské jméno. Jakmile je váš token, klonování úložiště následujícím způsobem:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
@@ -383,7 +383,7 @@ $script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
 # Create a symlink to .gitconfig in user's $home
 if(Test-Path $script:gitconfigPath){
 
-    if(-not (Test-Path (Join-Path $Home .gitconfig ))){
+    if(-not (Test-Path (Join-Path $home .gitconfig ))){
          New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
     }
 }

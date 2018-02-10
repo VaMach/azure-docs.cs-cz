@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: bb63a3d882d50f509fff220d3eb2c1eb6bf0d70f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 86e624476b7869331720e58363ad14b22704b19b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Vytvoření modulu runtime integrace Azure SSIS v Azure Data Factory
 Tento článek popisuje kroky pro zřizování modulu runtime integrace Azure SSIS v Azure Data Factory. Následně můžete pomocí SQL Server Data Tools (SSDT) nebo aplikace SQL Server Management Studio (SSMS) do tohoto modulu runtime v Azure nasadit balíčky SSIS (SQL Server Integration Services).
@@ -61,8 +61,9 @@ V této části použijete portál Azure, konkrétně Data Factory uživatelské
 
 ### <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).    
-2. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
+1. Spusťte **Microsoft Edge** nebo **Google Chrome** webového prohlížeče. V současné době uživatelského rozhraní objektu pro vytváření dat je podporována pouze pro webové prohlížeče Microsoft Edge a Google Chrome.
+2. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).    
+3. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. Na stránce **Nová datová továrna** jako **název** zadejte **MyAzureSsisDataFactory**. 

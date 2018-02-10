@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 4538ad9c048a3e84bbe793572f569dd7126803da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e6b9b5e497258f37037e0dc3f8efe656d5206af3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Data v databázi Azure SQL zjišťování a klasifikace
-Data zjišťování a klasifikace (momentálně ve verzi preview) poskytuje pokročilé možnosti integrovaný do Azure SQL Database pro zjišťování, klasifikaci, označování a ochranu citlivá data v databázích máte.
+Data zjišťování a klasifikace (momentálně ve verzi preview) a poskytuje pokročilé možnosti integrovaný do databáze SQL Azure pro **zjišťování**, **klasifikace**, **označování**  &  **ochranu** citlivá data v databázích máte.
 Zjišťování a klasifikace co nejvíce citlivými daty (business, finanční, zdravotní péče, osobní údaje, atd.) můžete přehrát hrají roli v ochrany vzrůstem informace vaší organizace. Může sloužit jako infrastruktury pro:
 * Různé scénáře zabezpečení, jako jsou monitorování (auditování) a výstrah na neobvyklé přístup k citlivým datům.
 * Řízení přístupu k a posílení zabezpečení databáze, které obsahují vysoce důvěrné osobní údaje.
@@ -93,7 +93,7 @@ Klasifikace obsahuje dva atributy metadat:
 
 ## <a id="subheading-3"></a>Auditování přístupu k citlivým datům
 
-[Auditování databáze SQL Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) je vylepšená tak, aby zahrnout nové pole do protokolu auditování názvem *data_sensitivity_information*, které protokoly klasifikaci citlivosti (popisky) vlastní data, která vrátila dotaz.
+Důležitým aspektem zlepší ochrany informací je schopnost sledovat přístup k citlivým datům. [Auditování databáze SQL Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) je vylepšená tak, aby zahrnout nové pole do protokolu auditování názvem *data_sensitivity_information*, které protokoly klasifikaci citlivosti (popisky) vlastní data, která vrátila dotaz.
 
 ![Navigační podokno][11]
 

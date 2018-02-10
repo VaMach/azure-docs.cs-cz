@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 7e5b42e2244b52b06c55e7a6ca30ba1657b1a532
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Zpráva relací: první, nejprve out (FIFO) 
 
@@ -45,7 +45,7 @@ Relace zadejte souběžných zrušte multiplexní streamů prokládaná zpráva 
 
 ![][1]
 
-A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) příjemce je vytvoření klient přijetí relaci. Volání klienta [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) nebo [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) v jazyce C#. V modelu reaktivní zpětného volání Registruje obslužnou rutinu relace, jak je popsáno později.
+A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) příjemce je vytvoření klient přijetí relaci. Volání klienta [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) nebo [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) v jazyce C#. V modelu reaktivní zpětného volání zaregistruje ho obslužnou rutinu relace.
 
 Když [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objektu je přijímán a při udržované klientem, že klient má výhradní zámek na všechny zprávy s danou relaci [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) které existovat v fronta nebo předplatného, a také na všechny zprávy s třídou **SessionId** , stále dorazí během relace trvá.
 

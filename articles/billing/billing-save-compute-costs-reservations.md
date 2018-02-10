@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Ušetřit peníze u virtuálních počítačů s vyhrazenou instancí virtuálního počítače 
 Vyhrazená instance virtuálních počítačů umožňují předem platí za jeden rok nebo tři roky výpočetní kapacitu a získat tak slevu na virtuálních počítačích, které používáte. Významně snižuje náklady na virtuální počítač – až 72 procent na průběžnými platbami ceny – s odběru splácených jeden rok nebo tři roky. Vyhrazená instance virtuálních počítačů je fakturační slevu a nemá vliv na stav modulu runtime virtuálních počítačů.
@@ -58,7 +58,16 @@ Rezervace jsou k dispozici pro většinu velikosti virtuálních počítačů s 
 - Nedostatečné kvótu – A vyhrazenou instanci virtuálního počítače, jejímž oborem jsou v rámci jednoho předplatného musí mít virtuální procesory kvóty, které jsou k dispozici v rámci předplatného pro nové RI. Například pokud cílové předplatné má kvótu 10 Vcpu pro řadu D-Series, pak si nelze zakoupit vyhrazenou instanci virtuálního počítače pro 11 Standard_D1 instance. Kontrola kvóty pro rezervace zahrnuje virtuální počítače nasazené v rámci předplatného. Pokud například předplatné má kvótu 10 Vcpu pro řadu D-Series. Pokud toto předplatné má dvě instance standard_D1 nasadit, můžete koupit instanci vyhrazený počítač pro 10 standard_D1 instancí v tomto předplatném. 
 - Omezení kapacity – ve výjimečných případech Azure omezení zakoupení nové rezervace pro podmnožinu velikostí virtuálních počítačů z důvodu nedostatku kapacity v oblasti.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Spuštění ukládání na virtuálních počítačích prostřednictvím zakoupení [vyhrazenou instanci virtuálního počítače](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Další informace o vyhrazenou instancí virtuálního počítače, naleznete v následujících článcích.
+
+- [Předem pro virtuální počítače s instancí vyhrazené virtuálních počítačů](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Správa instancí vyhrazený virtuální počítač](billing-manage-reserved-vm-instance.md)
+- [Pochopit, jak se použije slevu vyhrazenou instanci virtuálního počítače](billing-understand-vm-reservation-charges.md)
+- [Pochopení vyhrazenou instanci využití pro vaše předplatné s průběžnými platbami](billing-understand-reserved-instance-usage.md)
+- [Pochopení vyhrazenou instanci využití pro podnikového zápisu](billing-understand-reserved-instance-usage-ea.md)
+- [Náklady na software Windows není součástí vyhrazené instance](billing-reserved-instance-windows-software-costs.md)
 
 Pokud potřebujete pomoc, [obraťte se na podporu](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) získat rychle vyřešit problém.

@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Zjišťovat a vyhodnocení velké prostředí VMware
 
@@ -38,7 +38,7 @@ Plánování zjišťování a vyhodnocování podle následující omezení:
 - Pokud máte počítače 1,001 na 1 500, je třeba jeden projekt se dvěma zjišťování v ní.
 - Pokud máte více než 1 500 počítače, budete muset vytvořit více projektů a provádět více zjišťování, podle svých požadavků. Příklad:
     - Pokud máte 3 000 počítačů, můžete nastavit dva projekty s zjišťování dvou nebo tří projektů pomocí jednoho zjišťování.
-    - Pokud máte 5 000 počítačů, můžete nastavit čtyři projekty: dva zjišťování 1 500 počítačů a s zjišťování 500 počítačů. Alternativně můžete nastavit pět projekty s jeden zjišťování v každé z nich. 
+    - Pokud máte 5 000 počítačů, můžete nastavit čtyři projekty: tři s 1 500 počítačů zjišťování a s zjišťování 500 počítačů. Alternativně můžete nastavit pět projekty s jeden zjišťování v každé z nich. 
 
 ## <a name="plan-multiple-discoveries"></a>Plánování více zjišťování
 
@@ -49,7 +49,7 @@ Stejné kolekce Azure migraci můžete udělat několik zjišťování na jeden 
 - Doporučujeme, aby pro účely hodnocení, byl počítače s vzájemné závislosti v rámci stejného projektu a hodnocení. V systému vCenter Server Ujistěte se, že závislé počítače jsou ve stejné složce, datacenter nebo clusteru pro hodnocení.
 
 
-## <a name="create-a-project"></a>Vytvořit projekt
+## <a name="create-a-project"></a>Vytvoření projektu
 
 Vytvoření projektu Azure migraci v souladu s vaší požadavky:
 
@@ -88,9 +88,9 @@ Zkontrolujte, jestli soubor vajíčka zabezpečené před nasazením:
 
     **Algoritmus** | **Hodnota hash**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     Verze vajíčka 1.0.8.40:
 
@@ -133,14 +133,14 @@ Následující tabulka uvádí také výsledky hodnocení, které bude mít vliv
 
 |Čítač                                  |Úroveň    |Úroveň za zařízení  |Dopad hodnocení                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.average                        | 1       |Není k dispozici                |Doporučená velikost virtuálního počítače a náklady                    |
-|mem.Usage.average                        | 1       |Není k dispozici                |Doporučená velikost virtuálního počítače a náklady                    |
+|cpu.usage.average                        | 1       |Není k dispozici                |Doporučená velikost virtuálního počítače a náklady                    |
+|mem.usage.average                        | 1       |Není k dispozici                |Doporučená velikost virtuálního počítače a náklady                    |
 |virtualDisk.read.average                 | 2       |2                 |Velikost disku, náklady na úložiště a velikost virtuálního počítače         |
 |virtualDisk.write.average                | 2       |2                 |Velikost disku, náklady na úložiště a velikost virtuálního počítače         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Velikost disku, náklady na úložiště a velikost virtuálního počítače         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Velikost disku, náklady na úložiště a velikost virtuálního počítače         |
-|NET.Received.average                     | 2       |3                 |Náklady na velikost a sítě virtuálních počítačů                        |
-|NET.Transmitted.average                  | 2       |3                 |Náklady na velikost a sítě virtuálních počítačů                        |
+|net.received.average                     | 2       |3                 |Náklady na velikost a sítě virtuálních počítačů                        |
+|net.transmitted.average                  | 2       |3                 |Náklady na velikost a sítě virtuálních počítačů                        |
 
 > [!WARNING]
 > Pokud jste právě nastavili na vyšší úrovni statistiky, bude trvat jeden den ke generování čítače výkonu. Ano doporučujeme spustit zjišťování po uplynutí jednoho dne.

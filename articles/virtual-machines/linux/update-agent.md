@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 455de7bc0bca86ad542b6606181b0daf146a5e6a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Postup aktualizace Azure Linux Agent na virtuálním počítači
 
@@ -29,6 +29,9 @@ Chcete-li aktualizovat vaše [Azure Linux Agent](https://github.com/Azure/WALinu
 - Připojení k této virtuální počítač s Linuxem pomocí protokolu SSH.
 
 Vždy zkontrolujte pro balíček v úložišti distro Linux nejdřív. Je možné, k dispozici balíček nemusí být, že na nejnovější verzi, ale povolení automatických aktualizací se ujistěte se, že Linux Agent bude vždy získat nejnovější aktualizace. Budete mít problémy instalace ze Správce balíčku, byste se měli obrátit dodavatele distro podpory.
+
+## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Podpora agenta minimální virtuálních počítačů v Azure
+Ověřte [minimální verzi podporu pro agenty virtuálního počítače v Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) než budete pokračovat.
 
 ## <a name="updating-the-azure-linux-agent"></a>Aktualizace Azure Linux Agent
 
@@ -160,7 +163,7 @@ sudo systemctl restart walinuxagent.service
 
 ## <a name="redhat--centos"></a>Red Hat nebo CentOS
 
-### <a name="rhelcentos-6"></a>RHEL nebo CentOS 6
+### <a name="rhelcentos-6"></a>RHEL/CentOS 6
 
 #### <a name="check-your-current-package-version"></a>Zkontrolujte aktuální verzi balíčku
 
@@ -207,7 +210,7 @@ sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo service waagent restart
 ```
 
-### <a name="rhelcentos-7"></a>RHEL nebo CentOS 7
+### <a name="rhelcentos-7"></a>RHEL/CentOS 7
 
 #### <a name="check-your-current-package-version"></a>Zkontrolujte aktuální verzi balíčku
 

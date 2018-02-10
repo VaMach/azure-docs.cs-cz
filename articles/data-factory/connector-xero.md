@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa81f9d163da8d9236470c0b797f5430163ed39d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1c2cd0cc648269c4e07d0f0fcd04a10cf7092432
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Kopírování dat z Xero pomocí Azure Data Factory (Beta)
 
@@ -32,6 +32,8 @@ Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory
 ## <a name="supported-capabilities"></a>Podporované možnosti
 
 Data můžete zkopírovat z Xero do úložiště dat žádné podporované jímky. Seznam úložišť dat, které jsou podporovány jako zdroje nebo jímky aktivitě kopírování najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats) tabulky.
+
+S výjimkou "Sestavy" jsou podporovány všechny tabulky Xero (koncové body rozhraní API). Tabulky s komplexní položky rozdělí k několika tabulkám. Například bankovní transakce má komplexní datová struktura "LineItems", takže data bankovní transakce je mapována na tabulky Bank_Transaction a Bank_Transaction_Line_Items s Bank_Transaction_ID jako cizí klíč je propojit dohromady.
 
 Azure Data Factory poskytuje integrované ovladače pro umožnění připojení, proto nemusíte ručně nainstalovat všechny ovladače, používání tohoto konektoru.
 
@@ -48,8 +50,8 @@ Pro Xero propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Xero** | Ano |
-| hostitel | Koncový bod serveru Xero. (to znamená, api.xero.com)  | Ano |
-| consumerKey | Uživatelský klíč přidružené k aplikaci Xero. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v objektu pro vytváření dat, nebo uložit heslo v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
+| hostitel | Koncový bod serveru Xero (`api.xero.com`).  | Ano |
+| consumerKey | Uživatelský klíč přidružené k aplikaci Xero. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | privateKey | Privátní klíč z soubor .pem, který byl vytvořen pro vaši aplikaci privátní Xero. Zahrnout všechny text z zvolte soubor .pem, včetně endings(\n) řádku Unix. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v objektu pro vytváření dat, nebo uložit heslo v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
 | useHostVerification | Určuje, zda název hostitele je požadováno v certifikátu serveru tak, aby odpovídaly název hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je true.  | Ne |
@@ -98,7 +100,7 @@ Ke zkopírování dat z Xero, nastavte vlastnost typu datové sady, která **Xer
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Xero zdroje.
 

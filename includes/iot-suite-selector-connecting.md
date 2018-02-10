@@ -7,7 +7,7 @@
 
 V tomto kurzu budete implementovat **chladič** zařízení, která odesílá následující telemetrii na vzdálené monitorování [předkonfigurované řešení](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
 
-* Teplotní
+* Teplota
 * přetížení
 * Vlhkost
 
@@ -36,13 +36,13 @@ Po skončení procesu zřizování řešení vzdáleného monitorování klikně
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Zřízení zařízení v řešení vzdáleného monitorování
 
 > [!NOTE]
-> Pokud jste už ve svém řešení zařízení zřídili, můžete tento krok přeskočit. Při vytváření aplikace klienta potřebujete přihlašovací údaje zařízení.
+> Pokud jste už ve svém řešení zařízení zřídili, můžete tento krok přeskočit. Budete potřebovat připojovací řetězec, který může načíst z portálu Azure při vytváření aplikace klienta zařízení.
 
-Aby se zařízení mohlo připojit k předkonfigurovanému řešení, musí se identifikovat ve službě IoT Hub pomocí platných přihlašovacích údajů. Přihlašovací údaje zařízení můžete načíst z řešení **zařízení** stránky. Přihlašovací údaje zařízení vložíte do klientské aplikace později v tomto kurzu.
+Aby se zařízení mohlo připojit k předkonfigurovanému řešení, musí se identifikovat ve službě IoT Hub pomocí platných přihlašovacích údajů. Máte možnost uložit zařízení připojovací řetězec, který obsahuje přihlašovací údaje, když přidáte zařízení řešení. Připojovací řetězec zařízení můžete zahrnout do klientské aplikace později v tomto kurzu.
 
 Chcete-li přidat zařízení do řešení vzdáleného monitorování, proveďte následující kroky na **zařízení** stránky v řešení:
 
-1. Zvolte **zřídit**a potom zvolte **fyzické** jako **typ zařízení**:
+1. Zvolte **+ nové zařízení**a potom zvolte **fyzické** jako **typ zařízení**:
 
     ![Zřídit fyzické zařízení](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ Chcete-li přidat zařízení do řešení vzdáleného monitorování, proveďt
 
     ![Vyberte možnosti zařízení](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Zvolte **použít**. Potom si poznamenejte **ID zařízení**, **primární klíč**, a **primární klíč pro řetězec připojení** hodnoty:
+
+    ![Načíst přihlašovací údaje](media/iot-suite-selector-connecting/credentials.png)
+
 Chcete-li vyhledat přihlašovacích údajů, které zařízení musí používat pro připojení k předkonfigurované řešení, přejděte na portálu Azure v prohlížeči. Přihlaste se k předplatnému.
-
-1. Najděte skupinu prostředků, která obsahuje služeb Azure, které používá vaše řešení vzdáleného monitorování. Skupina prostředků má stejný název jako řešení vzdáleného monitorování, kterou jste zřídili.
-
-1. Přejděte do služby IoT hub v této skupině prostředků. Zvolte **zařízení IoT**:
-
-    ![Průzkumník zařízení](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Vyberte **ID zařízení** jste vytvořili na **zařízení** stránky v řešení vzdáleného monitorování.
-
-1. Poznamenejte si **ID zařízení** a **primární klíč** hodnoty. Tyto hodnoty použít, když přidáte kód k připojení zařízení k řešení.
 
 Můžete mít teď zřídit fyzické zařízení ve vzdálené monitorování předkonfigurované řešení. V následujících částech můžete implementovat aplikace klienta, která používá přihlašovací údaje zařízení pro připojení k řešení.
 
@@ -68,4 +62,4 @@ Klientská aplikace implementuje integrované **chladič** model zařízení. Mo
 
 * Vlastnosti zařízení sestav řešení. Například **chladič** zařízení hlásí informace o jeho firmware a umístění.
 * Typy telemetrických dat, které zařízení odesílá do řešení. Například **chladič** zařízení odesílá přetížení hodnoty, vlhkosti a teploty.
-* Metody můžete naplánovat z řešení na zařízení spouštět. Například **chladič** zařízení musí implementovat **restartovat**, **FirmwareUpdate**, **EmergencyValveRelease**, a  **IncreasePressuree** metody.
+* Metody můžete naplánovat z řešení na zařízení spouštět. Například **chladič** zařízení musí implementovat **restartovat**, **FirmwareUpdate**, **EmergencyValveRelease**, a  **IncreasePressure** metody.

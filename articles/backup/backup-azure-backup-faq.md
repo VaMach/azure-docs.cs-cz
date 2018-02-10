@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Dotazy týkající se služby Azure Backup
 Tento článek obsahuje odpovědi na časté otázky týkající se součástí Azure Backup. Některé odpovědi zahrnují odkazy na články obsahující komplexní informace. Můžete klást otázky týkající se Azure Backup kliknutím na **Komentáře** (napravo). Komentáře se zobrazují v dolní části tohoto článku. Pro komentáře je potřeba účet Livefyre. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -132,7 +132,8 @@ Následující tabulka vysvětluje, jak je určená velikost jednotlivých zdroj
 | Microsoft Exchange |Součet všech databází systému Exchange na zálohovaném serveru Exchange. |
 | BMR/Stav systému |Každá jednotlivá kopie BMR nebo stavu systému zálohovaného počítače. |
 
-Pro zálohování virtuálních počítačů Azure může mít každý virtuální počítač až 16 datových disků, každý z nich do velikosti 1 023 GB. 
+Pro zálohování virtuálních počítačů Azure každý virtuální počítač může mít až 16 datových disků s každý datový disk o velikosti 1 024 GB nebo méně. <br>
+Máme [privátní Preview verzi](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) pro podporu disků až 4 TB. 
 
 ## <a name="retention-policy-and-recovery-points"></a>Zásady uchovávání informací a body obnovení
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Je nějaký rozdíl mezi zásadami uchovávání informací pro DPM a Windows Server nebo klienta (tj. pro Windows Server bez DPM)?<br/>

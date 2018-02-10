@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Parametry upgradu aplikace
 Tento článek popisuje různé parametry, které se vztahují během upgradu aplikace Azure Service Fabric. Parametry patří název a verzi aplikace. Jsou knoflíky, která řídí vypršení časových limitů a kontroly stavu, které se použijí během upgradu a určují zásady, které je nutné použít, když se upgrade nezdaří.
@@ -52,14 +52,14 @@ Kritéria hodnocení stavu jsou volitelné. Když kritérií hodnocení stavu ne
 | MaxPercentUnhealthyServices |Výchozí a doporučená hodnota je 0. Zadejte maximální počet služeb v instanci aplikace, která může být není v pořádku, než aplikace není v pořádku a upgradu se nezdaří. |
 | MaxPercentUnhealthyPartitionsPerService |Výchozí a doporučená hodnota je 0. Zadejte maximální počet oddílů ve službě, která může být není v pořádku, než služba není v pořádku. |
 | MaxPercentUnhealthyReplicasPerPartition |Výchozí a doporučená hodnota je 0. Zadejte maximální počet replik v oddílu, který může být není v pořádku, než oddílu není v pořádku. |
-| UpgradeReplicaSetCheckTimeout |**Bezstavové služby**– v jedné doméně upgradu, Service Fabric pokusí se ujistěte, že jsou k dispozici další instance služby. Pokud cílový počet instancí je víc než jedna, Service Fabric čeká víc než jedna instance k dispozici, až maximální hodnotu časového limitu. Tento časový limit je zadán pomocí vlastnosti UpgradeReplicaSetCheckTimeout. Pokud vyprší časový limit, Service Fabric pokračuje v upgradu, bez ohledu na počet instancí služby. Pokud cílový počet instancí, Service Fabric nečeká a okamžitě pokračuje v upgradu. **Stavové služby**– v jedné doméně upgradu, Service Fabric pokusí zajistěte, aby sady replik kvora. Service Fabric čeká kvora být k dispozici, až maximální hodnotu časového limitu (určeného vlastností UpgradeReplicaSetCheckTimeout). Pokud vyprší časový limit, Service Fabric pokračuje v upgradu, bez ohledu na to kvora. Toto nastavení je sada jako nikdy (nekonečné) při vracení dál a 900 sekund při vrácení zpět. |
+| UpgradeReplicaSetCheckTimeout |<p>**Bezstavové služby**– v jedné doméně upgradu, Service Fabric pokusí se ujistěte, že jsou k dispozici další instance služby. Pokud cílový počet instancí je víc než jedna, Service Fabric čeká víc než jedna instance k dispozici, až maximální hodnotu časového limitu. Tento časový limit je zadán pomocí vlastnosti UpgradeReplicaSetCheckTimeout. Pokud vyprší časový limit, Service Fabric pokračuje v upgradu, bez ohledu na počet instancí služby. Pokud cílový počet instancí, Service Fabric nečeká a okamžitě pokračuje v upgradu.</p><p>**Stavové služby**– v jedné doméně upgradu, Service Fabric pokusí zajistěte, aby sady replik kvora. Service Fabric čeká kvora být k dispozici, až maximální hodnotu časového limitu (určeného vlastností UpgradeReplicaSetCheckTimeout). Pokud vyprší časový limit, Service Fabric pokračuje v upgradu, bez ohledu na to kvora. Toto nastavení je sada jako nikdy (nekonečné) při vracení dál a 1200 sekund při vrácení zpět.</p> |
 | ForceRestart |Při aktualizaci konfigurace nebo datového balíčku bez aktualizace service kód, restartování služby pouze v případě, že je vlastnost ForceRestart nastavena na hodnotu true. Po dokončení aktualizace Service Fabric upozorní služby a zda je k dispozici nový balíček konfigurace nebo datový balíček. Služba je zodpovědná za použití změny. V případě potřeby můžete restartovat službu sám sebe. |
 
 <br>
 <br>
 Jeden typ služby pro instanci aplikace lze zadat kritéria MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService a MaxPercentUnhealthyReplicasPerPartition. Nastavení těchto parametrů za služby umožňuje pro aplikace obsahovat typy různé služby pomocí různých vyhodnocení zásad. Typ služby bezstavové brány může mít například MaxPercentUnhealthyPartitionsPerService, který je odlišný od typu stavový stroj služby pro konkrétní instanci aplikace.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Upgrade vaší aplikace pomocí sady Visual Studio](service-fabric-application-upgrade-tutorial.md) vás provede upgrade aplikace pomocí sady Visual Studio.
 
 [Upgrade vaší aplikace pomocí prostředí Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vás provede upgrade aplikace pomocí prostředí PowerShell.

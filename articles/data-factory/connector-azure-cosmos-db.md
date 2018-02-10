@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1114fd272bd16d17fbeb382b0f374a69dc74916a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopírovat data z databáze Cosmos Azure pomocí Azure Data Factory
 
@@ -54,7 +54,7 @@ Pro Azure DB Cosmos propojené služby jsou podporovány následující vlastnos
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **CosmosDb**. | Ano |
-| připojovací řetězec |Zadejte informace potřebné pro připojení k databázi Azure Cosmos DB. Všimněte si, že budete muset zadat informace o databázi v připojovacím řetězci jako následující ukázka. Toto pole můžete označte jako SecureString. |Ano |
+| připojovací řetězec |Zadejte informace potřebné pro připojení k databázi Azure Cosmos DB. Všimněte si, že budete muset zadat informace o databázi v připojovacím řetězci jako následující ukázka. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**

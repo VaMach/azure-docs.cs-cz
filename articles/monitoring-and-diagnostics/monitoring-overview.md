@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitorování aplikací Azure a prostředky
 
@@ -57,8 +57,11 @@ Následující služby Azure nabízí bohaté možnosti pro shromažďování a 
 [Mapa služeb](../operations-management-suite/operations-management-suite-service-map.md) poskytuje vhled do prostředí IaaS analýzou virtuálních počítačů s jejich různé procesy a závislosti na jiných počítačích a externí procesy.  Se integruje se službou události, údaje o výkonu a řešení pro správu v analýzy protokolů tak, aby tato data můžete zobrazit v rámci každého počítače a jejich vztah se zbytkem prostředí.  Mapa služeb je podobný [mapy aplikací ve službě Application Insights](../application-insights/app-insights-app-map.md) , ale zaměřuje se na podporu aplikace součásti infrastruktury.
 
 ### <a name="network-watcher"></a>Network Watcher
-[Sledovací proces sítě](../network-watcher/network-watcher-monitoring-overview.md) poskytuje na základě scénáře monitorování a Diagnostika pro jinou síť scénáře v Azure.  Ukládá data v Azure metriky a Diagnostika pro další analýzu a pracuje s [řešení pro správu v analýzy protokolů](../log-analytics/log-analytics-azure-networking-analytics.md) pro kompletní monitorování síťových prostředků.
-
+[Sledovací proces sítě](../network-watcher/network-watcher-monitoring-overview.md) poskytuje na základě scénáře monitorování a Diagnostika pro jinou síť scénáře v Azure.  Ukládá data do Azure metriky a Diagnostika pro další analýzu a funguje s následující sítě sledování řešení pro monitorování různých aspektů vaší síti:
+* [Sítě monitorování výkonu (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) – síť cloudové řešení monitorování, které monitoruje připojení mezi veřejných cloudů, datových center a místními prostředími
+* [Monitorování ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) -NPM funkci, která monitoruje připojení klient server a výkonu přes okruhy ExpressRoute.
+* Analýza provozu - cloudové řešení, která poskytuje přehled o činnosti uživatelů a aplikací na vaší cloudové síťové.
+* [Analýza DNS](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) -poskytuje zabezpečení, výkonu a operací souvisejících přehledy založené na vaše servery DNS.
 
 ### <a name="management-solutions"></a>Řešení pro správu
 [Řešení pro správu](../log-analytics/log-analytics-add-solutions.md) jsou zabalené sady logiky, které nabízejí přehled pro konkrétní aplikaci nebo službě.  Spoléhají na analýzy protokolů ukládat a analyzovat shromážděná data monitorování.  Řešení pro správu jsou k dispozici od společnosti Microsoft a partnery, které poskytují monitorování pro různé služby Azure a třetích stran. Příklad sledování řešení zahrnují [kontejneru monitorování](../log-analytics/log-analytics-containers.md) který umožňuje zobrazit a spravovat hostitele kontejneru a [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md) který shromažďuje a vizualizuje metriku výkonu pro SQL Azure databáze.

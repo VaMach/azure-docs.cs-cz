@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b4a1465d53f2a5a542e6a89ef98c588fd805155
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 24c933176d2ce52f74c6afddf6356e464703825c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-beta"></a>Kopírování dat z Shopify pomocí Azure Data Factory (Beta)
 
@@ -49,7 +49,7 @@ Pro Shopify propojené služby jsou podporovány následující vlastnosti:
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Shopify** | Ano |
 | hostitel | Koncový bod serveru Shopify. (to znamená, mystore.myshopify.com)  | Ano |
-| accessToken | Rozhraní API přístupový token, který lze použít pro přístup k datům společnosti Shopify. Pokud je offline režimu nevyprší platnost tokenu. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
+| accessToken | Rozhraní API přístupový token, který lze použít pro přístup k datům společnosti Shopify. Pokud je offline režimu nevyprší platnost tokenu. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
 | useHostVerification | Určuje, jestli chcete vyžadovat názvu hostitele v certifikátu serveru, aby odpovídal názvu hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je true.  | Ne |
 | usePeerVerification | Určuje, jestli pro ověření totožnosti serveru při připojení přes protokol SSL. Výchozí hodnota je true.  | Ne |
@@ -93,7 +93,7 @@ Ke zkopírování dat z Shopify, nastavte vlastnost typu datové sady, která **
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Shopify zdroje.
 

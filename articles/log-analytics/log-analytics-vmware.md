@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: banders
-ms.openlocfilehash: 287a98c59a33b603f7186dd99505ecd0ef4f0941
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4af3651ce3d45837166248684d78ab4df95f524c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Řešení VMware monitorování (Preview) v analýzy protokolů
 
@@ -149,7 +149,7 @@ Pokud chcete zobrazit další data vytvoření virtuálního počítače hostite
 #### <a name="common-search-queries"></a>Běžné dotazy vyhledávání
 Řešení obsahuje další užitečné dotazy, které vám může pomoci spravovat hostitele ESXi, jako je prostor úložiště s vysokou latencí úložiště a selhání cestu.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Dotazy](./media/log-analytics-vmware/queries.png)
 

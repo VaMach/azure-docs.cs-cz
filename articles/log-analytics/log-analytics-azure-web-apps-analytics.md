@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6662fee875d44f88781be51443d48e86c1bf2d46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Zobrazení analýzy dat pro metriky mezi všechny prostředky webové aplikace Azure
 
@@ -37,7 +37,7 @@ Pomocí řešení, můžete zobrazit:
 
 Na rozdíl od většině ostatních řešení pro analýzu protokolu není data shromážděná pro Azure Web Apps pomocí agentů. Všechna data, která používá řešení pochází přímo z Azure.
 
-| Připojený zdroj | Podporuje se | Popis |
+| Připojený zdroj | Podporováno | Popis |
 | --- | --- | --- |
 | [Agenti systému Windows](log-analytics-windows-agent.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Řešení neshromažďuje informace od agentů systému Linux. |
@@ -58,7 +58,7 @@ Proveďte následující postup pro konfiguraci Azure Web Apps Analytics řešen
 Řešení Azure Web Apps analýzy shromažďuje dvě sady metriky z Azure:
 
 - Metriky Azure Web Apps
-  - Průměrná paměti pracovní sady
+  - Pracovní sada průměrné paměti
   - Průměrná doba odezvy
   - Počet přijatých nebo odeslaných bajtů
   - Čas procesoru
@@ -69,7 +69,7 @@ Proveďte následující postup pro konfiguraci Azure Web Apps Analytics řešen
   - Počet přijatých nebo odeslaných bajtů
   - Procento procesoru
   - Délka fronty disku
-  - Délka fronty http
+  - Délka fronty HTTP
   - Procento paměti
 
 Metriky plánu služby App Service jsou shromažďovány pouze pokud používáte vyhrazené tarifu. To se nevztahuje na volné nebo sdílené plány služby App Service.
@@ -84,13 +84,13 @@ Po dokončení konfigurace řešení, začněte dat předávaných do pracovníh
 
 Když přidáte řešení Azure Web Apps analýzy do pracovního prostoru **Azure Web Apps Analytics** dlaždice se přidá na řídicí panel Přehled. Tuto dlaždici zobrazí počet Azure Web Apps, řešení má přístup k ve vašem předplatném Azure.
 
-![Azure dlaždice analýzy webové aplikace](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-tile.png)
+![Azure Web Apps Analytics tile](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-tile.png)
 
 ### <a name="view-azure-web-apps-analytics-information"></a>Zobrazit informace o Azure Web Apps Analytics
 
 Klikněte **Azure Web Apps Analytics** dlaždici otevřete **Azure Web Apps Analytics** řídicí panel. Řídicí panel obsahuje okna v následující tabulce. Každý okno uvádí až deset položky odpovídající kritériím tohoto okna pro zadaný obor a časový rozsah. Můžete spustit vyhledávání protokolu, který vrátí všechny záznamy kliknutím **zobrazit všechny** v dolní části okna, nebo kliknutím na záhlaví okna.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Sloupec | Popis |
 | --- | --- |
@@ -138,7 +138,7 @@ Pokud používáte vyhrazené plány služby, může taky shromažďovat metriky
 
 Pomocí kteréhokoli vyhledávací dotazy protokolu jako počáteční bod, můžete snadno vytvořit výstrahu. Můžete například vytvořit upozornění, když metrika Průměrná doba odezvy je větší než každou 1 sekundu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Vytvoření [výstraha](log-analytics-alerts-creating.md) pro určité metriky.
 - Použití [hledání protokolů](log-analytics-log-searches.md) k zobrazení podrobných informací z protokolů aktivity.

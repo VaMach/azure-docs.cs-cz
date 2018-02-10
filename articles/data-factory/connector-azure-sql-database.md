@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a0074bd68dc9714eed9064e42c6e1c6d708d1100
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4d14f396b3a928975b671d10254cfbcc822a0d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure SQL Database pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Pro databáze SQL Azure, propojené služby jsou podporovány následující vla
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **azuresqldatabase.** | Ano |
-| připojovací řetězec |Zadejte informace potřebné pro připojení k instanci databáze SQL Azure pro vlastnost connectionString. Podporováno je pouze základní ověřování. Toto pole můžete označte jako SecureString. |Ano |
+| připojovací řetězec |Zadejte informace potřebné pro připojení k instanci databáze SQL Azure pro vlastnost connectionString. Podporováno je pouze základní ověřování. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 > [!IMPORTANT]
@@ -461,7 +461,7 @@ Při kopírování dat z/do Azure SQL Database, se používají následující m
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atribut FILESTREAM (varbinary(max)) |Byte[] |
-| Float |Dvojitý |
+| Plovoucí desetinná čárka |Dvojitý |
 | Bitové kopie |Byte[] |
 | celá čísla |Int32 |
 | money |Decimal |

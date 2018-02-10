@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 2bf65b7c5b0518da59e767db18fe6f4193e0ab6e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-diagnostic-logs"></a>Diagnostické protokoly služby Service Bus
 
@@ -63,7 +63,7 @@ Přihlásí **OperationalLogs** kategorie zachycení, co se stane, že během op
 
 Řetězce formátu JSON operační protokol obsahovat prvky uvedené v následující tabulce:
 
-Name (Název) | Popis
+Název | Popis
 ------- | -------
 ID aktivity | Interní ID, použité pro sledování
 EventName | Název operace           
@@ -91,9 +91,9 @@ Tady je příklad protokol provozní řetězce formátu JSON:
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Po kliknutí následující odkazy na další informace o službě Service Bus:
+V následujících tématech se dozvíte více o sběrnice:
 
 * [Úvod do služby Service Bus](service-bus-messaging-overview.md)
 * [Začínáme se službou Service Bus](service-bus-dotnet-get-started-with-queues.md)

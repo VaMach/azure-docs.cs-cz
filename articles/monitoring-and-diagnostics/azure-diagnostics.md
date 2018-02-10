@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Co je Azure Diagnostics
 Azure Diagnostics je funkce v rámci Azure, která umožňuje shromažďování diagnostických dat na nasazené aplikace. Můžete použít rozšíření diagnostiky z mnoha různých zdrojů. Aktuálně podporované jsou webové služby Azure Cloud a rolí pracovního procesu, virtuální počítače Azure systémem Microsoft Windows a Service Fabric. Jinými službami Azure mají své vlastní samostatné diagnostiky.
@@ -43,7 +43,7 @@ Rozšíření diagnostiky Azure může přenést tato data do účtu úložišt�
 ## <a name="versioning"></a>Správa verzí
 V tématu [historie Správa verzí Azure Diagnostics](azure-diagnostics-versioning-history.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Vyberte služby, která chcete shromažďovat diagnostiky na a pomocí následujících článků začít pracovat. Pomocí odkazů obecné Azure diagnostics pro referenční informace pro konkrétní úlohy.
 
 ## <a name="web-apps"></a>Web Apps
@@ -75,6 +75,6 @@ Začínáme v [monitorování aplikace Service Fabric](../service-fabric/service
 ## <a name="general-azure-diagnostics-articles"></a>Obecné Azure Diagnostics články
 * [Schéma konfigurace Azure Diagnostics](https://msdn.microsoft.com/library/azure/mt634524.aspx) -informace o změně souboru schématu a shromažďovat diagnostická data trasy. Všimněte si, že můžete také můžete změnit souboru schématu pomocí sady Visual Studio.
 * [Jak je Azure Diagnostics data uložená ve službě Azure Storage](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -znát názvy tabulek a umístění, kam je zapisován diagnostických dat objektů BLOB.
-* Naučte se [pomocí čítače výkonu v Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Naučte se [pomocí čítače výkonu v Azure Diagnostics](../cloud-services/diagnostics-performance-counters.md).
 * Naučte se [trasy Azure diagnostické informace do služby Application Insights](azure-diagnostics-configure-application-insights.md)
 * Pokud máte potíže se spuštěním diagnostiky nebo hledání vaše data v tabulkách Azure Storage, najdete v části [řešení potíží s Azure Diagnostics](azure-diagnostics-troubleshooting.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9f750f0e2764e7753c9d6c62de60ab27df9620c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Kopírování dat z zdroj OData pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Pro OData propojené služby jsou podporovány následující vlastnosti:
 | Adresa URL | Adresy URL kořenového adresáře služby OData. |Ano |
 | authenticationType. | Typ ověřování používaný pro připojení ke zdroji OData.<br/>Povolené hodnoty jsou: **anonymní**, **základní**, a **Windows**. Poznámka: OAuth není podporována. | Ano |
 | userName | Pokud používáte ověřování Basic nebo Windows, zadejte uživatelské jméno. | Ne |
-| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole můžete označte jako SecureString. | Ne |
+| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad 1: použití anonymní ověřování**

@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Protokol výstrah v monitorování Azure – výstrahy (Preview)
 Tento článek poskytuje podrobné informace o tom, jak výstrahy pravidla v pracovní dotazy Analytics ve výstrahách Azure (Preview) a popisuje rozdíly mezi různé typy protokolu pravidla výstrah.
-Aktuálně výstrahy Azure (Preview), podporuje jenom protokolu výstrahy na dotazy z [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) napsané v [nové protokolu Analytics query language](../log-analytics/log-analytics-log-search-upgrade.md)
+
+Aktuálně výstrahy Azure (Preview), podporuje protokolu výstrahy na dotazy z [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) a [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Oznámení Azure (Preview) – protokol oznámení, v současné době nepodporuje dotazů mezi prostoru nebo napříč aplikacemi. 
+
+> V současné době protokolu výstrahy ve výstrahách Azure (Preview) nepodporuje dotazů mezi prostoru nebo napříč aplikacemi.
 
 ## <a name="log-alert-rules"></a>Pravidla výstrah protokolu
 
@@ -70,7 +72,16 @@ V některých případech můžete vytvořit výstrahu při absenci událost.  T
 
 **Agregační funkce**: Určuje výpočet, který provádí a potenciálně číselného pole k agregaci.  Například **count()** vrátí počet záznamů v dotazu, **avg(CounterValue)** Vrátí průměrnou hodnotu pole přepočtené průběhu intervalu.
 
+> [!NOTE]
+
+> Agregační funkci v dotazu musí být s názvem volat: AggregatedValue a zadejte číselnou hodnotu.
+
+
 **Pole Seskupit**: pro každou instanci v tomto poli se vytvoří záznam s hodnotou agregované a výstraha může vygenerovat pro každý.  Například pokud chcete generovat výstrahy pro každý počítač, byste použili **počítačem.**   
+
+> [!NOTE]
+
+> Metriky měření výstrah pravidla, které jsou založeny na Application Insights můžete zadat pole pro seskupení dat. Chcete-li to provést, použijte **agregační na** možnost v definici pravidla.   
 
 **Interval**: definuje časový interval, za které agregovaná data.  Například pokud jste zadali **pět minut**, by se vytvoří záznam pro každou instanci pole skupiny v okně čas zadaný pro výstrahu agregován v intervalech 5 minut.
 
@@ -92,7 +103,7 @@ Dotaz by vytvořit průměrnou hodnotu pro každý počítač v intervalech 5 mi
 V tomto příkladu by se vytvořit samostatné výstrahy pro srv02 a srv03, protože jejich nichž nebyla dodržena prahová hodnota 90 % 3krát přes časový interval.  Pokud **aktivační událost upozornění na základě:** byly změněny na **za sebou** výstrahu by vytvořen pouze pro srv03, od nichž nebyla dodržena prahová hodnota pro tři po sobě jdoucích vzorků.
 
 
-## <a name="next-steps"></a>Další kroky
-* [Získat přehled o výstrahách Azure (Preview)](monitoring-overview-unified-alerts.md) 
+## <a name="next-steps"></a>Další postup
+* [Získat přehled o výstrahách Azure (Preview)](monitoring-overview-unified-alerts.md)
 * Další informace o [pomocí výstrah Azure (preview)](monitor-alerts-unified-usage.md)
 * Další informace o [analýzy protokolů](../log-analytics/log-analytics-overview.md).    

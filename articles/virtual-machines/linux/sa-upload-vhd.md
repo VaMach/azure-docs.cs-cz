@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 9159960af396e89f373da711e0cc46fdd996ab83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b279ec2358a860a71da25f0ffaea7462a80f8339
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Nahrání a vytvoření virtuálního počítače s Linuxem z vlastní disk s 2.0 rozhraní příkazového řádku Azure
 Tento článek ukazuje, jak nahrát virtuální pevný disk (VHD) pro účet úložiště Azure s Azure CLI 2.0 a vytvořit virtuální počítače s Linuxem z tento vlastní disk. K provedení těchto kroků můžete také využít [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tato funkce umožňuje instalovat a konfigurovat Linux distro svých požadavků a použije tento virtuální pevný disk k rychlému vytvoření Azure virtuální počítače (VM).
@@ -29,37 +29,37 @@ Toto téma používá účty úložiště pro poslední virtuální pevné disky
 ## <a name="quick-commands"></a>Rychlé příkazy
 Pokud potřebujete rychle provedení úlohy, následující část podrobně popisuje základní příkazy a nahrát VHD do Azure. Podrobnější informace a kontext pro každý krok naleznete zbývající části dokumentu, [od zde](#requirements).
 
-Ujistěte se, že máte nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#login).
+Ujistěte se, že máte nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#az_login).
 
 V následujících příkladech nahraďte názvy parametrů příklad vlastní hodnoty. Názvy parametrů příklad zahrnuté `myResourceGroup`, `mystorageaccount`, a `mydisks`.
 
-Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup` v `WestUs` umístění:
+Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup` v `WestUs` umístění:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Vytvořit účet úložiště pro virtuální disky s [vytvořit účet úložiště az](/cli/azure/storage/account#create). Následující příklad vytvoří účet úložiště s názvem `mystorageaccount`:
+Vytvořit účet úložiště pro virtuální disky s [vytvořit účet úložiště az](/cli/azure/storage/account#az_storage_account_create). Následující příklad vytvoří účet úložiště s názvem `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Seznam přístupové klíče pro účet úložiště s [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#list). Poznamenejte si `key1`:
+Seznam přístupové klíče pro účet úložiště s [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#az_storage_account_keys_list). Poznamenejte si `key1`:
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Vytvořit kontejner v rámci účtu úložiště pomocí klíče úložiště, můžete získat pomocí [vytvořit kontejner úložiště az](/cli/azure/storage/container#create). Následující příklad vytvoří kontejner s názvem `mydisks` z úložiště klíčů hodnoty `key1`:
+Vytvořit kontejner v rámci účtu úložiště pomocí klíče úložiště, můžete získat pomocí [vytvořit kontejner úložiště az](/cli/azure/storage/container#az_storage_container_create). Následující příklad vytvoří kontejner s názvem `mydisks` z úložiště klíčů hodnoty `key1`:
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Nakonec nahrát svůj disk VHD do kontejneru, který jste vytvořili pomocí [az úložiště objektů blob nahrávání](/cli/azure/storage/blob#upload). Zadejte místní cestu na vaše virtuální pevný disk v části `/path/to/disk/mydisk.vhd`:
+Nakonec nahrát svůj disk VHD do kontejneru, který jste vytvořili pomocí [az úložiště objektů blob nahrávání](/cli/azure/storage/blob#az_storage_blob_upload). Zadejte místní cestu na vaše virtuální pevný disk v části `/path/to/disk/mydisk.vhd`:
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -67,7 +67,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Zadejte identifikátor URI na disk (`--image`) s [vytvořit virtuální počítač az](/cli/azure/vm#create). Následující příklad vytvoří virtuální počítač s názvem `myVM` pomocí virtuálního disku předtím nahrála:
+Zadejte identifikátor URI na disk (`--image`) s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create). Následující příklad vytvoří virtuální počítač s názvem `myVM` pomocí virtuálního disku předtím nahrála:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -95,7 +95,7 @@ Chcete-li provést následující kroky, je třeba:
   * Vytvoření účtu úložiště a kontejner pro uložení vlastní disku a vytvořené virtuální počítače
   * Po vytvoření všechny virtuální počítače, můžete bezpečně odstranit disk
 
-Ujistěte se, že máte nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#login).
+Ujistěte se, že máte nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#az_login).
 
 V následujících příkladech nahraďte názvy parametrů příklad vlastní hodnoty. Názvy parametrů příklad zahrnuté `myResourceGroup`, `mystorageaccount`, a `mydisks`.
 
@@ -120,7 +120,7 @@ Viz také  **[poznámky k instalaci Linux](create-upload-generic.md#general-linu
 > 
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
-Skupiny prostředků logicky seskupit všechny prostředky Azure pro podporu virtuálních počítačů, jako je například virtuální sítě a úložiště. Další informace o skupin prostředků, najdete v části [skupiny zdrojů přehled](../../azure-resource-manager/resource-group-overview.md). Před nahráním váš vlastní disk a vytváření virtuálních počítačů, musíte nejprve vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create).
+Skupiny prostředků logicky seskupit všechny prostředky Azure pro podporu virtuálních počítačů, jako je například virtuální sítě a úložiště. Další informace o skupin prostředků, najdete v části [skupiny zdrojů přehled](../../azure-resource-manager/resource-group-overview.md). Před nahráním váš vlastní disk a vytváření virtuálních počítačů, musíte nejprve vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create).
 
 Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup` v `westus` umístění:
 
@@ -130,7 +130,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>vytvořit účet úložiště
 
-Vytvoření účtu úložiště vlastní disk a virtuální počítače s [vytvořit účet úložiště az](/cli/azure/storage/account#create). Všechny virtuální počítače s nespravované disky, které vytvoříte z vaší vlastní disku musí být ve stejném účtu úložiště jako disk. 
+Vytvoření účtu úložiště vlastní disk a virtuální počítače s [vytvořit účet úložiště az](/cli/azure/storage/account#az_storage_account_create). Všechny virtuální počítače s nespravované disky, které vytvoříte z vaší vlastní disku musí být ve stejném účtu úložiště jako disk. 
 
 Následující příklad vytvoří účet úložiště s názvem `mystorageaccount` ve skupině prostředků vytvořili:
 
@@ -140,7 +140,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Vypsat klíče účtu úložiště
-Vygeneruje Azure dva 512bitové přístupové klíče pro každý účet úložiště. Tyto přístupové klíče se používají při ověřování k účtu úložiště, například k provedení operace zápisu. Další informace o [Správa přístupu k úložišti zde](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Zobrazit přístupové klíče s [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#list).
+Vygeneruje Azure dva 512bitové přístupové klíče pro každý účet úložiště. Tyto přístupové klíče se používají při ověřování k účtu úložiště, například k provedení operace zápisu. Další informace o [Správa přístupu k úložišti zde](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Zobrazit přístupové klíče s [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Zobrazte přístupové klíče pro účet úložiště, který jste vytvořili:
 
@@ -162,7 +162,7 @@ info:    storage account keys list command OK
 Poznamenejte si `key1` jako použije k interakci se svým účtem úložiště v dalších krocích.
 
 ## <a name="create-a-storage-container"></a>Vytvoření kontejneru úložiště
-V stejným způsobem, který vytvoříte různé adresáře, které logicky uspořádat do místního systému souborů můžete vytvořit kontejnery v účtu úložiště pro uspořádání vaše disky. Účet úložiště může obsahovat libovolný počet kontejnerů. Vytvořit kontejner s [vytvořit kontejner úložiště az](/cli/azure/storage/container#create).
+V stejným způsobem, který vytvoříte různé adresáře, které logicky uspořádat do místního systému souborů můžete vytvořit kontejnery v účtu úložiště pro uspořádání vaše disky. Účet úložiště může obsahovat libovolný počet kontejnerů. Vytvořit kontejner s [vytvořit kontejner úložiště az](/cli/azure/storage/container#az_storage_container_create).
 
 Následující příklad vytvoří kontejner s názvem `mydisks`:
 
@@ -173,7 +173,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>Nahrání virtuálního pevného disku
-Teď nahrát vlastní disk s [az úložiště objektů blob nahrávání](/cli/azure/storage/blob#upload). Nahrání a ukládat vlastní disk jako objekt blob stránky.
+Teď nahrát vlastní disk s [az úložiště objektů blob nahrávání](/cli/azure/storage/blob#az_storage_blob_upload). Nahrání a ukládat vlastní disk jako objekt blob stránky.
 
 Zadejte přístupový klíč, kontejner, který jste vytvořili v předchozím kroku a pak cestu k vlastní disku v místním počítači:
 
@@ -184,9 +184,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>Vytvořte virtuální počítač.
-Pokud chcete vytvořit virtuální počítač s nespravované disky, zadejte identifikátor URI na disk (`--image`) s [vytvořit virtuální počítač az](/cli/azure/vm#create). Následující příklad vytvoří virtuální počítač s názvem `myVM` pomocí virtuálního disku předtím nahrála:
+Pokud chcete vytvořit virtuální počítač s nespravované disky, zadejte identifikátor URI na disk (`--image`) s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create). Následující příklad vytvoří virtuální počítač s názvem `myVM` pomocí virtuálního disku předtím nahrála:
 
-Zadáte `--image` parametr s [vytvořit virtuální počítač az](/cli/azure/vm#create) tak, aby odkazovalo na vlastní disk. Ujistěte se, že `--storage-account` odpovídá účet úložiště, kde je uložený váš vlastní disk. Nemusíte používat stejný kontejner jako vlastní disk k uložení virtuálních počítačů. Ujistěte se, že jste před nahráním váš vlastní disk vytvořit žádné další kontejnery stejným způsobem jako v předchozích krocích.
+Zadáte `--image` parametr s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) tak, aby odkazovalo na vlastní disk. Ujistěte se, že `--storage-account` odpovídá účet úložiště, kde je uložený váš vlastní disk. Nemusíte používat stejný kontejner jako vlastní disk k uložení virtuálních počítačů. Ujistěte se, že jste před nahráním váš vlastní disk vytvořit žádné další kontejnery stejným způsobem jako v předchozích krocích.
 
 Následující příklad vytvoří virtuální počítač s názvem `myVM` z vlastní disku:
 
@@ -224,7 +224,7 @@ V rámci `Microsoft.Compute/virtualMachines` poskytovatele šablony, máte `stor
 
 Můžete použít [tento existující šablonu k vytvoření virtuálního počítače z vlastní image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) nebo přečtěte si o [vlastních šablon Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
-Jakmile máte šablonu nakonfigurována, použijte [vytvořit nasazení skupiny az](/cli/azure/group/deployment#create) k vytvoření virtuálních počítačů. Zadejte identifikátor URI šablony JSON s `--template-uri` parametr:
+Jakmile máte šablonu nakonfigurována, použijte [vytvořit nasazení skupiny az](/cli/azure/group/deployment#az_group_deployment_create) k vytvoření virtuálních počítačů. Zadejte identifikátor URI šablony JSON s `--template-uri` parametr:
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \
@@ -239,6 +239,6 @@ az group deployment create --resource-group myNewResourceGroup \
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po připravené a nahrát vlastní virtuální disk, si můžete přečíst více o [pomocí Resource Manageru a šablony](../../azure-resource-manager/resource-group-overview.md). Můžete také chtít [přidat datový disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) na nové virtuální počítače. Pokud máte aplikace spuštěné na vaše virtuální počítače, které potřebujete získat přístup, je nutné [otevřete porty a koncové body](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

@@ -26,5 +26,5 @@ Pokud jste ještě nepřidali vaší webové aplikace jako koncový bod Traffic 
    
    Po dokončení konfigurace nebude uvedené vlastní název domény **názvy domén** část vaší webové aplikace.
 
-V tomto okamžiku by měl být zadejte název pro název domény Traffic Manageru v prohlížeči a zobrazit tak, že je úspěšně přejdete do vaší webové aplikace.
+V tomto okamžiku by měl být zadejte název domény Traffic Manageru v prohlížeči a zobrazit tak, že je úspěšně přejdete do vaší webové aplikace.
 

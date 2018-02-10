@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Rychlý start pro Bash v prostředí cloudu Azure
 
@@ -59,7 +59,7 @@ Vytvoření virtuálního počítače s Ubuntu v nové skupiny prostředků. Azu
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Veřejné a soukromé klíče používá k ověření svého virtuálního počítače jsou umístěny v `/User/.ssh/id_rsa` a `/User/.ssh/id_rsa.pub` pomocí Azure CLI 2.0 ve výchozím nastavení. Je vaší složky .ssh uchovávané v obrázku 5 GB vaší připojené soubory Azure sdílené složky.
+> Veřejné a soukromé klíče používá k ověření svého virtuálního počítače jsou umístěny v `/home/<user>/.ssh/id_rsa` a `/home/<user>/.ssh/id_rsa.pub` pomocí Azure CLI 2.0 ve výchozím nastavení. Je vaší složky .ssh uchovávané v obrázku 5 GB vaší připojené soubory Azure sdílené složky.
 
 Vaše uživatelské jméno pro tento virtuální počítač bude vaše uživatelské jméno použité v prostředí cloudu ($User@Azure:).
 
@@ -76,7 +76,7 @@ Při navazování připojení SSH, měli byste vidět úvodní řádku Ubuntu. <
 Odstranění skupiny prostředků a všechny prostředky v něm: <br>
 Spusťte `az group delete -n MyRG`.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace o zachování souborů pro Bash v prostředí cloudu](persisting-shell-storage.md) <br>
 [Další informace o rozhraní příkazového řádku Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Další informace o Azure Files storage](../storage/files/storage-files-introduction.md) <br>

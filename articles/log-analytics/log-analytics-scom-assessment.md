@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalizace prostředí s nástrojem System Center Operations Manager Health kontrolovat (Preview) řešení
 
@@ -62,7 +62,7 @@ Použijte následující informace k instalaci a konfiguraci řešení.
 
 Hodnocení nástroje System Center Operations Manager shromažďuje data z následujících zdrojů: 
 
-* Registru
+* Registr
 * Windows Management Instrumentation (WMI)
 * V protokolu událostí
 * Data souborů
@@ -216,8 +216,8 @@ Než v analýzy protokolů můžete použít řešení kontrolu stavu, musíte m
 Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a potom přejít k podrobnostem doporučení.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Proveďte opravné akce a zobrazit doporučení pro oblastí zájmu
-1. Přihlaste se k portálu Azure v [https://portal.azure.com](https://portal.azure.com). 
-2. Na portálu Azure klikněte na tlačítko **další služby** v levém dolním nalezen. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **protokolu analýzy**.
+1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
+2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **portálu OMS** dlaždici.  
 4. Na **přehled** klikněte na tlačítko **System Center Operations Manager Health kontrolovat** dlaždici.
 5. Na **System Center Operations Manager Health kontrolovat** zkontrolujte souhrnné informace v jednom z okna oblasti fokus a pak klikněte na jednu zobrazíte doporučení pro tuto oblast fokus.
@@ -228,7 +228,7 @@ Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a
 
 Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový soubor, který používá analýzy protokolů, aby doporučení ze storu ve výsledky hodnocení.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>K identifikaci doporučení, které chcete ignorovat
 1. Na stránce pracovní prostor analýzy protokolů pro vaši vybranou pracovní prostor na portálu Azure, klikněte na tlačítko **hledání protokolů** dlaždici.
@@ -303,6 +303,6 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 *Existuje způsob, jak ignorovat doporučení?* Ano, najdete v článku [ignorovat doporučení](#Ignore-recommendations).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [V protokolech Hledat](log-analytics-log-searches.md) se dozvíte, jak analyzovat doporučení a podrobné údaje o stavu System Center Operations Manager kontrolovat.

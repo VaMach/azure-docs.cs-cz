@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Vytvořit virtuální počítač s Linuxem v zóně dostupnosti pomocí Azure CLI
 
@@ -28,19 +28,19 @@ Tento článek obsahuje kroky prostřednictvím rozhraní příkazového řádku
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Ujistěte se, že jste nainstalovali nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlášený k účtu Azure s [az přihlášení](/cli/azure/#login).
+Ujistěte se, že jste nainstalovali nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlášený k účtu Azure s [az přihlášení](/cli/azure/#az_login).
 
 
-## <a name="check-vm-sku-availability"></a>Zkontrolovat dostupnost virtuálních počítačů SKU
-Dostupnost velikosti virtuálních počítačů nebo jednotky SKU, se může lišit podle oblasti a zóny. Při plánování pro používání zón, dostupnosti, můžete vytvořit seznam dostupné edice virtuálních počítačů tak, že oblast Azure a zóny. Tato možnost je zajištěno, vyberte správnou velikost virtuálního počítače a získat požadované odolnosti napříč zóny. Další informace o různých typech virtuálních počítačů a velikosti najdete v tématu [velikosti virtuálních počítačů přehled](sizes.md).
+## <a name="check-vm-sku-availability"></a>Kontrola dostupnosti skladových položek virtuálních počítačů
+Dostupnost velikostí virtuálních počítačů (neboli skladových položek) se může lišit podle oblasti a zóny. Jako pomůcku při plánování použití zón dostupnosti můžete zobrazit seznam dostupných SKU virtuálních počítačů podle zóny a oblasti Azure. Díky tomu se zajistí, že vyberete odpovídající velikost virtuálního počítače a získáte požadovanou odolnost napříč zónami. Další informace o různých velikostech a typech virtuálních počítačů najdete v [přehledu velikostí virtuálních počítačů](sizes.md).
 
-Můžete zobrazit dostupné edice virtuálních počítačů s [seznamu virtuálních počítačů az-SKU](/cli/azure/vm#az_vm_list_skus) příkaz. Následující příklad vypíše dostupné edice virtuálních počítačů v *eastus2* oblasti:
+Můžete zobrazit dostupné edice virtuálních počítačů s [seznamu virtuálních počítačů az-SKU](/cli/azure/vm#az_vm_list_skus) příkaz. Následující příklad zobrazí seznam dostupných skladových položek virtuálních počítačů v oblasti *eastus2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-Výstup se podobá následující zhuštěné příkladu, který ukazuje dostupnost zóny, ve kterém je každý velikost virtuálního počítače k dispozici:
+Výstup se podobá následujícímu zhuštěnému příkladu, který ukazuje zóny dostupnosti, ve kterých jsou dostupné jednotlivé velikosti virtuálních počítačů:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones

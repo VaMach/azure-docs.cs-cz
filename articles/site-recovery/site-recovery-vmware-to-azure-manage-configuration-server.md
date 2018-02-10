@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>Správa konfiguračního serveru
 
@@ -72,6 +72,22 @@ Pokud potřebujete, můžete zaregistrujte server konfigurace v ke stejnému tre
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Upgrade na konfiguračním serveru
+
+Spuštění aktualizace kumulativní aktualizace konfigurace serveru. Aktualizace můžete použít pro až N-4 verze. Příklad:
+
+- Pokud používáte 9.7 9.8, 9.9 nebo 9.10 – můžete upgradovat přímo do 9.11.
+- Pokud používáte 9,6 nebo starším systémem, a chcete upgradovat na 9.11, je nutné nejprve upgradovat na verzi 9.7. před 9.11.
+
+Odkazy na kumulativní aktualizace pro upgrade na všechny verze serveru konfigurace jsou k dispozici v [wiki aktualizace stránky](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Upgrade serveru následujícím způsobem:
+
+1. Stáhněte si soubor instalačního programu aktualizace na konfiguračním serveru.
+2. Dvakrát klikněte na panel spusťte instalační program.
+3. Instalační program zjistí aktuální verze na počítači spuštěna.
+4. Klikněte na tlačítko **OK** potvrďte a spustíte upgrade. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Odstranit nebo zrušit registraci konfigurační server
 

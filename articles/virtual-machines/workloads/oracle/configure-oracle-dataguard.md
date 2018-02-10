@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3eff4a396c2fd0b52a50a201ceb1a91bae710dc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementace Oracle Data Guard na virtuálním počítači Azure Linux 
 
@@ -39,7 +39,7 @@ Marketplace obrázku, který použijete k vytvoření virtuálních počítačů
 
 ### <a name="sign-in-to-azure"></a>Přihlášení k Azure 
 
-Přihlaste se k předplatnému Azure pomocí [az přihlášení](/cli/azure/#login) příkazů a postupujte podle na obrazovce pokynů.
+Přihlaste se k předplatnému Azure pomocí [az přihlášení](/cli/azure/#az_login) příkazů a postupujte podle na obrazovce pokynů.
 
 ```azurecli
 az login
@@ -47,7 +47,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvořte skupinu prostředků s použitím [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupinu prostředků Azure je logický kontejner, ve které jsou nasazené a spravované prostředky. 
+Vytvořte skupinu prostředků s použitím [vytvořit skupinu az](/cli/azure/group#az_group_create) příkaz. Skupinu prostředků Azure je logický kontejner, ve které jsou nasazené a spravované prostředky. 
 
 Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup` v `westus` umístění:
 
@@ -69,7 +69,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 
-Vytvoření virtuálního počítače pomocí [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz. 
+Vytvoření virtuálního počítače pomocí [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) příkaz. 
 
 Následující příklad vytvoří dva virtuální počítače s názvem `myVM1` a `myVM2`. Pokud už neexistují v umístění klíče výchozí klíče SSH, vytvoří se také. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.
 
@@ -685,7 +685,7 @@ Když virtuální počítač již nepotřebujete, můžete odebrat skupinu prost
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Kurz: Vytvoření vysoce dostupné virtuální počítače](../../linux/create-cli-complete.md)
 

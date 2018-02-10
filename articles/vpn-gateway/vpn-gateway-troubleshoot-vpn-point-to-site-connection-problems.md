@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Řešení potíží: Problémy Azure připojení point-to-site
 
@@ -45,8 +45,8 @@ Chcete-li vyřešit tento problém, postupujte takto:
     | Certifikát | Umístění |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuální User\Personal\Certificates |
-    | Azuregateway -*GUID*. cloudapp.net  | Aktuální User\Trusted kořenové certifikační autority|
-    | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Místní počítač\Důvěryhodné kořenové certifikační autority|
+    | Azuregateway-*GUID*.cloudapp.net  | Aktuální User\Trusted kořenové certifikační autority|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Místní počítač\Důvěryhodné kořenové certifikační autority|
 
 2. Přejděte na uživatele\<uživatelské jméno > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, je nutné ručně nainstalovat certifikát (*.cer soubor) v úložišti počítače a uživatele.
 
@@ -61,15 +61,22 @@ Další informace o tom, jak nainstalovat certifikát klienta najdete v tématu 
 
 Když se pokusíte připojit k virtuální sítě Azure s použitím klienta VPN, zobrazí se následující chybová zpráva:
 
-**Přijatá zpráva byla neočekávané nebo chybně formátovaný. (Chyba 0x80090326)**
+**Přijatá zpráva byla neočekávané nebo chybně formátovaný. (Error 0x80090326)**
 
 ### <a name="cause"></a>Příčina
 
-K tomuto problému dochází, pokud není veřejný klíč certifikátu kořenové nahrála do služby Azure VPN gateway. Může také dojít, pokud klíč je poškozený nebo vypršela platnost.
+K tomuto problému dochází, pokud platí jedna z následujících podmínek:
+
+- Použití trasy definované uživatelem (UDR) s výchozí trasu na podsíť brány je nastaveny nesprávně.
+- Veřejný klíč certifikátu kořenové není nahrála do služby Azure VPN gateway. 
+- Klíč je poškozený nebo vypršela platnost.
 
 ### <a name="solution"></a>Řešení
 
-Chcete-li vyřešit tento problém, zkontrolujte stav kořenového certifikátu v portálu Azure, abyste zjistili, zda byl odvolán. Pokud ho nebude odvolaný, pokuste se odstranit kořenový certifikát a reupload. Další informace najdete v tématu [vytvářet certifikáty](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+Chcete-li vyřešit tento problém, postupujte takto:
+
+1. Odeberte UDR na podsíť brány. Zajistěte, aby že UDR předává veškerý provoz správně.
+2. Zkontrolujte stav kořenového certifikátu v portálu Azure, abyste zjistili, zda byl odvolán. Pokud ho nebude odvolaný, pokuste se odstranit kořenový certifikát a reupload. Další informace najdete v tématu [vytvářet certifikáty](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Chyba klienta sítě VPN: řetěz certifikátů zpracuje, ale byla ukončena 
 
@@ -86,10 +93,10 @@ Když se pokusíte připojit k virtuální sítě Azure s použitím klienta VPN
     | Certifikát | Umístění |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuální User\Personal\Certificates |
-    | Azuregateway -*GUID*. cloudapp.net  | Aktuální User\Trusted kořenové certifikační autority|
-    | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Místní počítač\Důvěryhodné kořenové certifikační autority|
+    | Azuregateway-*GUID*.cloudapp.net  | Aktuální User\Trusted kořenové certifikační autority|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Místní počítač\Důvěryhodné kořenové certifikační autority|
 
-2. Pokud certifikáty jsou již v umístění, zkuste odstranit certifikáty a je přeinstalovat.  **Azuregateway -*GUID*. cloudapp.net** certifikát se nachází ve balíček konfigurace klienta VPN, který jste si stáhli z portálu Azure. Můžete použít soubor archivers extrahujte soubory z balíčku.
+2. Pokud certifikáty jsou již v umístění, zkuste odstranit certifikáty a je přeinstalovat. **Azuregateway -*GUID*. cloudapp.net** certifikát se nachází ve balíček konfigurace klienta VPN, který jste si stáhli z portálu Azure. Můžete použít soubor archivers extrahujte soubory z balíčku.
 
 ## <a name="file-download-error-target-uri-is-not-specified"></a>Chyba při stahování souborů: není zadaný cílový identifikátor URI
 
@@ -146,7 +153,7 @@ Rozbalte balíček konfigurace klienta VPN a najít soubor .cer. K instalaci cer
 
 Při pokusu uložit změny pro bránu sítě VPN na portálu Azure, zobrazí se následující chybová zpráva:
 
-**Nepovedlo se uložit brány virtuální sítě &lt;* název brány*&gt;. Data pro certifikát &lt; *certifikátu ID* &gt; je invalid.* *
+**Nepovedlo se uložit brány virtuální sítě &lt; *název brány*&gt;. Data pro certifikát &lt; *certifikátu ID* &gt; je neplatný.**
 
 ### <a name="cause"></a>Příčina 
 
@@ -181,7 +188,7 @@ Ujistěte se, že data v certifikátu neobsahuje neplatné znaky, jako je např�
 
 Při pokusu uložit změny pro bránu sítě VPN na portálu Azure, zobrazí se následující chybová zpráva: 
 
-**Nepovedlo se uložit brány virtuální sítě &lt;* název brány*&gt;. Název prostředku &lt; *název certifikátu pokusu nahrát* &gt; je neplatný **.
+**Nepovedlo se uložit brány virtuální sítě &lt; *název brány*&gt;. Název prostředku &lt; *název certifikátu pokusu nahrát* &gt; je neplatný**.
 
 ### <a name="cause"></a>Příčina
 
@@ -199,7 +206,7 @@ Když se pokusíte stáhnout balíček konfigurace klienta VPN, zobrazí se nás
 
 Tato chyba může být způsobeno k dočasným potížím sítě. Pokusí stáhnout balíček VPN znovu za několik minut.
 
-## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-to-connect"></a>Upgrade služby Azure VPN Gateway: všechny P2S klienti se nelze připojit
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Upgrade služby Azure VPN Gateway: všechna bodu klientům lokality se nelze připojit
 
 ### <a name="cause"></a>Příčina
 
@@ -207,7 +214,7 @@ Pokud je certifikát více než 50 procent prostřednictvím celé jeho životno
 
 ### <a name="solution"></a>Řešení
 
-Chcete-li vyřešit tento problém, vytvořte a znovu distribuovat nové certifikáty pro klienty VPN. 
+Chcete-li vyřešit tento problém, znovu nasaďte bod do lokality balíčku do všech klientů.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Příliš mnoho klientů VPN připojení najednou
 
@@ -234,6 +241,10 @@ Pokud adresa patří do třídy A použít aplikaci--> podsíť/8
 Pokud adresa patří do třídy B--> použít /16
 
 Pokud adresa patří do třídy C--> použít /24
+
+### <a name="solution"></a>Řešení
+
+Máte trasy pro další sítě vložit do směrovací tabulky s nejdelší shody předpony nebo nižší metrika (proto vyšší prioritu), než bod do lokality. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>Klient VPN nelze získat přístup k síťové sdílené složky
 
@@ -262,7 +273,7 @@ Odebrat připojení VPN point-to-site a znovu nainstalujete klienta VPN. V takov
 
 ### <a name="solution"></a>Řešení
 
-Chcete-li problém vyřešit, odstraňte původní soubory konfigurace klienta VPN z **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, a poté znovu spusťte instalační program klienta VPN.
+Chcete-li problém vyřešit, odstraňte původní soubory konfigurace klienta VPN z **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId >**, a poté znovu spusťte instalační program klienta VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Klient VPN Point-to-site nelze přeložit plně kvalifikovaný název domény prostředků v místní doméně
 
@@ -301,7 +312,7 @@ Zkontrolujte nastavení proxy serveru, ujistěte se, že klient může získat h
 
 ### <a name="cause"></a>Příčina
 
-K této chybě dojde, pokud má nesprávné nastavení serveru RADIUS, který jste použili pro ověřování klienta VPN. 
+K této chybě dojde, pokud má nesprávné nastavení serveru RADIUS, který jste použili pro ověřování klienta VPN nebo brány Azure nemůže připojit k serveru Radius.
 
 ### <a name="solution"></a>Řešení
 
@@ -312,3 +323,45 @@ Ujistěte se, že je správně nakonfigurovaný RADIUS server. Další informace
 ### <a name="cause"></a>Příčina
 
 Kdyby byl nainstalován kořenový certifikát. Kořenový certifikát je nainstalován v klienta **důvěryhodné certifikáty** uložit.
+
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Chyba klienta sítě VPN: Vzdáleného připojení nebyl provést, protože pokus o tunelových propojení VPN se nezdařilo. (Chyba 800) 
+
+### <a name="cause"></a>Příčina
+
+Ovladače NIC je zastaralé.
+
+### <a name="solution"></a>Řešení
+
+Aktualizujte ovladač síťovou kartu:
+
+1. Klikněte na tlačítko **spustit**, typ **Správce zařízení**a vyberte ji ze seznamu výsledků. Pokud se zobrazí výzva k zadání hesla správce nebo k potvrzení, zadejte heslo nebo potvrďte akci.
+2. V ** síťové adaptéry ** kategorií, najít na síťový adaptér, který chcete aktualizovat.  
+3. Dvakrát klikněte na název zařízení, vyberte **aktualizovat ovladač**, vyberte **vyhledání automaticky aktualizovaný ovladač softwaru**.
+4. Pokud Windows nenalezne nový ovladač, můžete zkuste vyhledávání pro jednu na webové stránce výrobce zařízení a postupujte podle pokynů.
+5. Restartujte počítač a zkuste připojení znovu.
+
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Chyba: soubor stažení chyba, kterou není zadaný cílový identifikátor URI
+
+### <a name="cause"></a>Příčina
+
+Příčinou je nesprávná Gateway typ je konfigurovaný.
+
+### <a name="solution"></a>Řešení
+
+Typ brány Azure VPN musí být VPN a musí být typ sítě VPN **RouteBased**.
+
+## <a name="vpn-package-installer-doesnt-complete"></a>Instalační program balíčku VPN nedokončí.
+
+### <a name="cause"></a>Příčina
+
+Tento problém může být způsobeno předchozí instalace klienta VPN. 
+
+### <a name="solution"></a>Řešení
+
+Odstranit staré soubory konfigurace klienta VPN z **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId >** a znovu spusťte instalační program klienta VPN. 
+
+## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Klient VPN přejde do režimu spánku nebo režimu spánku po určité době
+
+### <a name="solution"></a>Řešení
+
+Zkontrolujte přechod do režimu spánku a hibernace nastavení v počítači používajícím klienta VPN.

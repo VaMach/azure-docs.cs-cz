@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/05/2017
 ms.author: sujayt
-ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8f9ff8332f33972489721e0d16717d1d6fe15fcd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Řešení problémů replikace virtuálního počítače Azure do Azure
 
@@ -61,34 +61,93 @@ Protože SuSE Linux používá symbolických odkazů k údržbě seznamu certifi
 
 1.  Přihlaste se jako kořenové uživatele.
 
-2.  Spusťte tento příkaz:
+2.  Chcete-li změnit adresář tento příkaz spusťte.
 
       ``# cd /etc/ssl/certs``
 
-3.  Pokud chcete zobrazit, pokud je certifikát kořenové certifikační Autority Symantec přítomné, spusťte tento příkaz:
+3. Zkontrolujte, zda certifikátu Symantec kořenové certifikační Autority je přítomen.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4.  Pokud soubor nebyl nalezen, spusťte tyto příkazy:
+4. Pokud nebyl nalezen certifikát Symantec kořenové certifikační Autority, spusťte následující příkaz ke stažení souboru. Zkontrolujte chyby a postupujte podle doporučenou akci pro selhání sítě.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-      ``# c_rehash``
+5. Zkontrolujte, zda certifikátu Baltimore kořenové certifikační Autority je přítomen.
 
-5.  Chcete-li vytvořit symlink s b204d74a.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem, spusťte tento příkaz:
+      ``# ls Baltimore_CyberTrust_Root.pem``
 
-      ``# ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+6. Pokud nebyl nalezen certifikát kořenové certifikační Autority Baltimore, stáhněte certifikát.  
 
-6.  Zkontrolujte, zda tento příkaz má následující výstup. Pokud ne, je nutné vytvořit symlink:
+    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-      ``# ls -l | grep Baltimore
-      -rw-r--r-- 1 root root   1303 Apr  7  2016 Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 04:47 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem``
+7. Zkontrolujte, jestli je certifikát DigiCert_Global_Root_CA přítomen.
 
-7. Pokud není přítomen symlink 653b494a.0, použijte tento příkaz k vytvoření symlink:
+    ``# ls DigiCert_Global_Root_CA.pem``
 
-      ``# ln -s Baltimore_CyberTrust_Root.pem 653b494a.0``
+8. Pokud DigiCert_Global_Root_CA není nalezen, spusťte následující příkazy ke stažení certifikátu.
+
+    ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
+
+    ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
+
+9. Spuštěním skriptu rehash aktualizovat certifikát subjektu hodnoty hash pro nově stažené certifikáty.
+
+    ``# c_rehash``
+
+10. Zkontrolujte, pokud předmět hashuje vytvářené symbolických odkazů pro certifikáty.
+
+    - Příkaz
+
+      ``# ls -l | grep Baltimore``
+
+    - Výstup
+
+      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+
+    - Příkaz
+
+      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    - Výstup
+
+      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+      lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+
+    - Příkaz
+
+      ``# ls -l | grep DigiCert_Global_Root``
+
+    - Výstup
+
+      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+
+11. Vytvořit kopii souboru VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem s filename b204d74a.0
+
+    ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+
+12. Vytvořit kopii souboru Baltimore_CyberTrust_Root.pem s filename 653b494a.0
+
+    ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
+
+13. Vytvořit kopii souboru DigiCert_Global_Root_CA.pem s filename 3513523f.0
+
+    ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
+
+
+14. Zkontrolujte, zda jsou k dispozici soubory.  
+
+    - Příkaz
+
+      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+
+    - Výstup
+
+      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Odchozí připojení pro rozsahy adres URL obnovení lokality nebo IP adresu (kód chyby 151037 nebo 151072)
@@ -131,6 +190,20 @@ Nemusíte to vidět svého virtuálního počítače Azure pro výběr v [povole
 
 Můžete použít [odebrat zastaralé konfigurační skript automatické obnovení systému](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) a odebrat zastaralé konfiguraci Site Recovery na virtuálním počítači Azure. Měli byste vidět virtuální počítač v [povolení replikace: Krok 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) po odebrání stálou konfiguraci.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Stav zřizování Virtuálního počítače je neplatný (kód chyby 150019)
+
+Pokud chcete povolit replikaci na virtuálním počítači, musí být stav zřizování **úspěšné**. Pomocí následujícího postupu můžete zkontrolovat stav virtuálního počítače.
+
+1.  Vyberte **Průzkumníka prostředků** z **všechny služby** na portálu Azure.
+2.  Rozbalte **odběry** seznam a vyberte své předplatné.
+3.  Rozbalte **Skupinyprostředků** seznam a vyberte skupinu prostředků virtuálního počítače.
+4.  Rozbalte **prostředky** seznamu a vyberte virtuální počítač
+5.  Zkontrolujte **provisioningState** pole v zobrazení Instance na pravé straně.
+
+### <a name="fix-the-problem"></a>Opravte problém
+
+- Pokud **provisioningState** je **se nezdařilo**, obraťte se na podporu s podrobnostmi o řešení.
+- Pokud **provisioningState** je **aktualizace**, jiné rozšíření pro získávání může nasadit. Zkontrolujte, zda jsou všechny probíhající operace na virtuálním počítači, počkejte na jejich dokončení, a opakujte obnovení lokality se nezdařilo **povolit replikaci** úlohy.
 
 ## <a name="next-steps"></a>Další postup
 [Replikace virtuálních počítačů Azure](site-recovery-replicate-azure-to-azure.md)

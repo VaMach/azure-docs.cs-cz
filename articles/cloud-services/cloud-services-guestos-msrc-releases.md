@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os"></a>Azure hostovaného operačního systému
 Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačního systému Azure v následujících tabulkách. Vyhledávání, zjistěte, pokud konkrétní aktualizace se týká hostovaného operačního systému, kterou používáte. Aktualizace vždy obsahují dál pro konkrétní [rodiny] [ family-explain] byly zavedeny v.
@@ -26,8 +26,14 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 ## <a name="january-guest-os"></a>Leden hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
 | --- | --- | --- | --- | --- |
-| neuvedeno | [4056898] |Pouze zabezpečení systému Windows |4.50 |3. ledna 2018 |
-| neuvedeno | [4056890] |Pouze zabezpečení systému Windows |5.15 |3. ledna 2018 |
+| Relativní 18-01 | [4056898], [4056897], [4056899] |Pouze zabezpečení systému Windows |2.70, 3.57, 4.50 |3. ledna 2018 |
+| Relativní 18-01 | [4056890], [4056892] |Pouze zabezpečení systému Windows |5.15 |3. ledna 2018 |
+| neuvedeno | [4054518] |Souhrn bez zabezpečení prosinec |2.70 |12 prosinec 2017 |
+| neuvedeno | [4054520] |Souhrn bez zabezpečení prosinec |3.57 |12 prosinec 2017 |
+| neuvedeno | [4054519] |Souhrn bez zabezpečení prosinec |4.50 |12 prosinec 2017 |
+| neuvedeno | [4051956] |Aktualizace leden časové pásmo |2.70, 3.57, 4.50 |12 prosinec 2017 |
+
+
 
 ## <a name="december-guest-os"></a>Prosinec hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -36,7 +42,7 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Relativní 17 – 12 | [4054521], [4054522], [4054523] |Pouze zabezpečení systému Windows |2.69, 3.56, 4.49 |12 prosinec 2017 |
 | Relativní 17 – 12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 prosinec 2017 |
 | Relativní 17 – 12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 prosinec 2017 |
-| neuvedeno | [4048957] |Souhrn bez zabezpečení listopadu |2.67 |14. listopadu 2017 |
+| neuvedeno | [4048957] |Souhrn bez zabezpečení listopadu |2.69 |14. listopadu 2017 |
 | neuvedeno | [4048959] |Souhrn bez zabezpečení listopadu |3.56 |14. listopadu 2017 |
 | neuvedeno | [4048958] |Souhrn bez zabezpečení listopadu |4.49 |14. listopadu 2017 |
 | neuvedeno | [4049068] |Časové pásmo prosinec aktualizace |2.69, 3.56, 4.49 |12 prosinec 2017 |
@@ -48,7 +54,7 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Relativní 17 11 | [4048960], [4048962], [4048961] |Pouze zabezpečení systému Windows |2.68, 3.55, 4.48 |14. listopadu 2017 |
 | Relativní 17 11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14. listopadu 2017 |
 | Relativní 17 11 | [4048951] |Flash |3.55, 4.48, 5.13 |14. listopadu 2017 |
-| neuvedeno | [4041681] |Souhrn bez zabezpečení říjen |2.67 |10. října 2017 |
+| neuvedeno | [4041681] |Souhrn bez zabezpečení říjen |2.68 |10. října 2017 |
 | neuvedeno | [4041690] |Souhrn bez zabezpečení říjen |3.55 |10. října 2017 |
 | neuvedeno | [4041693] |Souhrn bez zabezpečení říjen |4.48 |10. října 2017 |
 | neuvedeno | [3191566] |Aktualizace pro Windows Management Framework 5.1  |2.68 |14. listopadu 2017 |
@@ -510,8 +516,8 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS15-038 |[3049576] |Chyby zabezpečení v systému Microsoft Windows umožňují zvýšení úrovně oprávnění důležité |4.20, 3.27, 2.39 |17. dubna 2015 |
 | MS15-039 |[3046482] |Chyba zabezpečení služby XML Core Services umožňuje vynechat funkce zabezpečení |4.20, 3.27, 2.39 |17. dubna 2015 |
 | MS15-040 |[3045711] |Chyba zabezpečení služby AD FS může umožnit vyzrazení informací |4.20, 3.27, 2.39 |17. dubna 2015 |
-| MS15 041 |[3048010] |Chyba zabezpečení v rozhraní .NET Framework může umožnit vyzrazení informací |4.20, 3.27, 2.39 |17. dubna 2015 |
-| MS15 042 |[3047234] |Chyba zabezpečení v systému Windows technologie Hyper-V umožňuje odmítnutí služby |4.20, 3.27, 2.39 |17. dubna 2015 |
+| MS15-041 |[3048010] |Chyba zabezpečení v rozhraní .NET Framework může umožnit vyzrazení informací |4.20, 3.27, 2.39 |17. dubna 2015 |
+| MS15-042 |[3047234] |Chyba zabezpečení v systému Windows technologie Hyper-V umožňuje odmítnutí služby |4.20, 3.27, 2.39 |17. dubna 2015 |
 | Není k dispozici |[3045755] |Aktualizace pro zlepšení protokolu PKU2U ověřování |4.20, 3.27, 2.39 |17. dubna 2015 |
 
 ## <a name="april-guest-os"></a>Duben hostovaný operační systém
@@ -530,7 +536,7 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS15-024 |[3035132] |Chyba zabezpečení PNG zpracování může umožnit vyzrazení informací |4.18, 3.25, 2.37 |neuvedeno |
 | MS15-025 |[3038680] |Chyby zabezpečení jádra systému Windows umožňují zvýšení úrovně oprávnění |4.18, 3.25, 2.37 |neuvedeno |
 | MS15-027 |[3002657] |Chyba zabezpečení služby NETLOGON umožňuje falšování identity |4.18, 3.25, 2.37 |neuvedeno |
-| MS15 028 |[3030377] |Chyba zabezpečení v Plánovači úloh systému Windows umožňuje vynechat funkce zabezpečení |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-028 |[3030377] |Chyba zabezpečení v Plánovači úloh systému Windows umožňuje vynechat funkce zabezpečení |4.18, 3.25, 2.37 |neuvedeno |
 | MS15-029 |[3035126] |Ohrožení zabezpečení v součásti Decoder fotografií systému Windows může umožnit vyzrazení informací |4.18, 3.25, 2.37 |neuvedeno |
 | MS15-030 |[3039976] |Chyba zabezpečení protokolu vzdálené plochy umožňuje odmítnutí služby |4.18, 3.25, 2.37 |neuvedeno |
 
@@ -543,23 +549,23 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Aktualizace zabezpečení aplikace Internet Explorer |4.17, 3.24, 2.36 |neuvedeno |
-| MS15 010 |[3036220] |Chyby zabezpečení ovladače režimu jádra systému Windows mohou umožnit vzdálené spuštění kódu |4.17, 3.24, 2.36 |neuvedeno |
+| MS15-010 |[3036220] |Chyby zabezpečení ovladače režimu jádra systému Windows mohou umožnit vzdálené spuštění kódu |4.17, 3.24, 2.36 |neuvedeno |
 | MS15-011 |[3000483] |Chyba zabezpečení v zásadách skupiny umožňuje vzdálené spuštění kódu |4.17, 3.24, 2.36 |neuvedeno |
 | MS15-014 |[3004361] |Chyba zabezpečení v protokolu SMB umožňuje vynechat funkce zabezpečení |4.17, 3.24, 2.36 |neuvedeno |
 | MS15-015 |[3031432] |Chyba zabezpečení v systému Windows umožňuje zvýšení úrovně oprávnění |4.17, 3.24, 2.36 |neuvedeno |
-| MS15 016 |[3029944] |Ohrožení zabezpečení v komponentě Microsoft grafiky může umožnit vyzrazení informací |4.17, 3.24, 2.36 |neuvedeno |
+| MS15-016 |[3029944] |Ohrožení zabezpečení v komponentě Microsoft grafiky může umožnit vyzrazení informací |4.17, 3.24, 2.36 |neuvedeno |
 | neuvedeno |[3004375] |Aktualizace pro zlepšení Windows příkazového řádku auditování<p/>**Poznámka:**: to je nainstalován, ale klíč registru a povolit ji je vypnutý. |4.17, 3.24, 2.36 |neuvedeno |
 
 ## <a name="january-guest-os"></a>Leden hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
 | --- | --- | --- | --- | --- |
-| MS15 001 |[3023266] |Chyba zabezpečení v systému Windows AppCompatCache umožňuje zvýšení úrovně oprávnění |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-001 |[3023266] |Chyba zabezpečení v systému Windows AppCompatCache umožňuje zvýšení úrovně oprávnění |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-002 |[3020393] |Chyba zabezpečení služby Telnet Windows může způsobit vzdálené spuštění kódu |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 003 |[3021674] |Chyba zabezpečení služby profilu uživatele systému Windows umožňuje zvýšení úrovně oprávnění |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 004 |[3019978] |Chyba zabezpečení součásti systému Windows umožňuje zvýšení úrovně oprávnění |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 005 |[3022777] |Chyba zabezpečení NLA umožňuje vynechat funkce zabezpečení |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-003 |[3021674] |Chyba zabezpečení služby profilu uživatele systému Windows umožňuje zvýšení úrovně oprávnění |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-004 |[3019978] |Chyba zabezpečení součásti systému Windows umožňuje zvýšení úrovně oprávnění |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-005 |[3022777] |Chyba zabezpečení NLA umožňuje vynechat funkce zabezpečení |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-006 |[3004365] |Chyba zabezpečení v zasílání zpráv o chybách systému Windows může povolit obejití funkce zabezpečení |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 007 |[3014029] |Chyba zabezpečení v Network Policy Server RADIUS by mohlo způsobit odepření služby |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-007 |[3014029] |Chyba zabezpečení v Network Policy Server RADIUS by mohlo způsobit odepření služby |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-008 |[3019215] |Chyba zabezpečení ovladač režimu jádra systému Windows umožňuje zvýšení úrovně oprávnění |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS14-080 |[3008923] |Kumulativní aktualizace zabezpečení pro Internet Explorer |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-002 |[3020393] |Chyba zabezpečení služby Telnet Windows může způsobit vzdálené spuštění kódu |4.16, 3.23, 2.35 |Jan 19 2015 |
@@ -582,7 +588,14 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | neuvedeno |[2896881] |Dlouhé doby přihlášení při použití příkazu AddPrinterConnection VBScript mapovat tiskárny pro uživatele během procesu přihlášení v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 [4056898]: http://support.microsoft.com/kb/4056898
+[4056897]: http://support.microsoft.com/kb/4056897
+[4056899]: http://support.microsoft.com/kb/4056899
 [4056890]: http://support.microsoft.com/kb/4056890 
+[4056892]: http://support.microsoft.com/kb/4056892
+[4054518]: http://support.microsoft.com/kb/4054518
+[4054520]: http://support.microsoft.com/kb/4054520
+[4054519]: http://support.microsoft.com/kb/4054519
+[4051956]: http://support.microsoft.com/kb/4051956
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

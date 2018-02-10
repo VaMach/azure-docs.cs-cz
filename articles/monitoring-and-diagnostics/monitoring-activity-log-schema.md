@@ -12,91 +12,104 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure schématu aktivity protokolu události
 **Protokol činnosti Azure** protokolu, který poskytuje přehled o všech událostí na úrovni předplatného, k nimž došlo v Azure. Tento článek popisuje schématu události podle kategorie dat.
 
-## <a name="administrative"></a>Pro správu
+## <a name="administrative"></a>Správa
 Tato kategorie obsahuje záznam všech vytvořit, operace aktualizace, odstranění a akce provést pomocí Správce prostředků. Typy událostí, zobrazí se v této kategorii příklady "vytvořit virtuální počítač" a "odstranit skupinu zabezpečení sítě" každou akci provedenou uživatele nebo aplikace pomocí Resource Manager je modelovaná jako operace na konkrétní typ prostředku. Pokud je typ operaci zápisu, Delete nebo akce, záznamy start a úspěch nebo selhání této operace se zaznamenávají do administrativní kategorie. Administrativní kategorie také zahrnuje všechny změny na řízení přístupu na základě rolí v předplatném.
 
 ### <a name="sample-event"></a>Událost vzorku
 ```json
 {
-  "authorization": {
-    "action": "microsoft.support/supporttickets/write",
-    "role": "Subscription Admin",
-    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-  },
-  "caller": "admin@contoso.com",
-  "channels": "Operation",
-  "claims": {
-    "aud": "https://management.core.windows.net/",
-    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-    "iat": "1421876371",
-    "nbf": "1421876371",
-    "exp": "1421880271",
-    "ver": "1.0",
-    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-    "puid": "20030000801A118C",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-    "name": "John Smith",
-    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-    "appidacr": "2",
-    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-  },
-  "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "description": "",
-  "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-  "eventName": {
-    "value": "EndRequest",
-    "localizedValue": "End request"
-  },
-  "httpRequest": {
-    "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-    "clientIpAddress": "192.168.35.115",
-    "method": "PUT"
-  },
-  "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-  "level": "Informational",
-  "resourceGroupName": "MSSupportGroup",
-  "resourceProviderName": {
-    "value": "microsoft.support",
-    "localizedValue": "microsoft.support"
-  },
-  "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-  "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "operationName": {
-    "value": "microsoft.support/supporttickets/write",
-    "localizedValue": "microsoft.support/supporttickets/write"
-  },
-  "properties": {
-    "statusCode": "Created"
-  },
-  "status": {
-    "value": "Succeeded",
-    "localizedValue": "Succeeded"
-  },
-  "subStatus": {
-    "value": "Created",
-    "localizedValue": "Created (HTTP Status Code: 201)"
-  },
-  "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-  "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-  "subscriptionId": "s1"
+    "authorization": {
+        "action": "Microsoft.Network/networkSecurityGroups/write",
+        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+    },
+    "caller": "rob@contoso.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "_claim_names": "{\"groups\":\"src1\"}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+        "appid": "355249ed-15d9-460d-8481-84026b065942",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "10845a4d-ffa4-4b61-a3b4-e57b9b31cdb5",
+        "e_exp": "262800",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Robertson",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Rob",
+        "ipaddr": "111.111.1.111",
+        "name": "Rob Robertson",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "onprem_sid": "S-1-5-21-4837261184-168309720-1886587427-18514304",
+        "puid": "18247BBD84827C6D",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "rob@contoso.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "rob@contoso.com",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
+    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "level": "Informational",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Network/networkSecurityGroups/write",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups/write"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Network",
+        "localizedValue": "Microsoft.Network"
+    },
+    "resourceType": {
+        "value": "Microsoft.Network/networkSecurityGroups",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups"
+    },
+    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
+    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "properties": {
+        "statusCode": "Created",
+        "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
+        "responseBody": "",
+        "requestbody": ""
+    },
+    "relatedEvents": []
 }
+
 ```
 
 ### <a name="property-descriptions"></a>Popisy vlastností
@@ -104,21 +117,21 @@ Tato kategorie obsahuje záznam všech vytvořit, operace aktualizace, odstraně
 | --- | --- |
 | Autorizace |Objekt BLOB RBAC vlastností události. Obvykle zahrnuje vlastnosti "action", "role" a "obor". |
 | volající |E-mailovou adresu uživatele, který se má provést operace, deklarace hlavní název uživatele nebo název SPN deklarace identity na základě dostupnosti. |
-| Kanály |Jeden z následujících hodnot: "Admin", "Operace" |
+| kanály |Jeden z následujících hodnot: "Admin", "Operace" |
 | Deklarace identity |Token JWT, používá služba Active Directory k ověření uživatele nebo aplikace k provedení této operace v správce prostředků. |
 | correlationId |Obvykle GUID ve formátu řetězce. Události, které sdílejí correlationId patřit do stejné uber akce. |
 | description |Statický text popisu události. |
 | eventDataId |Jedinečný identifikátor události. |
-| požadavku HTTP |Objekt BLOB popisující požadavek Http. Obvykle zahrnuje "clientRequestId", "clientIpAddress" a "metodu" (metoda HTTP. For example, PUT). |
+| httpRequest |Objekt BLOB popisující požadavek Http. Obvykle zahrnuje "clientRequestId", "clientIpAddress" a "metodu" (metoda HTTP. For example, PUT). |
 | úroveň |Úroveň události. Jeden z následujících hodnot: "Kritická", "Chyba", "Upozornění", "Informační" a "Podrobné" |
-| Název skupiny prostředků |Název skupiny prostředků pro prostředek dopad. |
+| resourceGroupName |Název skupiny prostředků pro prostředek dopad. |
 | resourceProviderName |Název zprostředkovatele prostředků pro prostředek dopad |
 | resourceId |Id prostředku ovlivněné prostředku. |
 | operationId |Identifikátor GUID sdílen události, které odpovídají jedné operace. |
 | operationName |Název operace. |
 | properties |Sada `<Key, Value>` páry (tedy slovník) popisující podrobnosti o události. |
 | status |Řetězec popisující stav operace. Některé běžné hodnoty jsou: spuštění v průběhu, bylo úspěšné, neúspěšné, aktivní, vyřešeno. |
-| Podřízený stav |Obvykle stavový kód HTTP REST odpovídající volání, ale můžou taky patřit jiných řetězců popisující podřízeného stavu, jako jsou tyto hodnoty běžné: OK (stavový kód HTTP: 200), které byly vytvořeny (stavový kód HTTP: 201), platné (stavový kód HTTP: 202), ne obsahu (stavový kód HTTP: 204), chybný požadavek (stavový kód HTTP: 400), nebyl nalezen (stavový kód HTTP: 404), konflikt (kód stavu HTTP : 409), vnitřní chybu serveru (kód stavu HTTP: 500), služba není k dispozici (kód stavu HTTP: 503), vypršel časový limit brány (kód stavu HTTP: 504). |
+| subStatus |Obvykle stavový kód HTTP REST odpovídající volání, ale můžou taky patřit jiných řetězců popisující podřízeného stavu, jako jsou tyto hodnoty běžné: OK (stavový kód HTTP: 200), které byly vytvořeny (stavový kód HTTP: 201), platné (stavový kód HTTP: 202), ne obsahu (stavový kód HTTP: 204), chybný požadavek (stavový kód HTTP: 400), nebyl nalezen (stavový kód HTTP: 404), konflikt (kód stavu HTTP : 409), vnitřní chybu serveru (kód stavu HTTP: 500), služba není k dispozici (kód stavu HTTP: 503), vypršel časový limit brány (kód stavu HTTP: 504). |
 | eventTimestamp |Časové razítko při zpracování požadavku odpovídající události služby Azure vygenerovalo událost. |
 | submissionTimestamp |Časové razítko, když jsou události dostupné pro zadávání dotazů. |
 | subscriptionId |ID předplatného Azure. |
@@ -185,15 +198,15 @@ Tato kategorie obsahuje záznam všechny služby stavu incidentů, kterým došl
 ### <a name="property-descriptions"></a>Popisy vlastností
 Název elementu | Popis
 -------- | -----------
-Kanály | Je jedním z následujících hodnot: "Admin", "Operace"
+kanály | Je jedním z následujících hodnot: "Admin", "Operace"
 correlationId | Obvykle je identifikátor GUID ve formátu řetězce. Události s, který patří do stejné akce uber obvykle sdílet stejnou correlationId.
 description | Popis události.
 eventDataId | Jedinečný identifikátor události.
-EventName | Název události.
+eventName | Název události.
 úroveň | Úroveň události. Jeden z následujících hodnot: "Kritická", "Chyba", "Upozornění", "Informační" a "Podrobné"
 resourceProviderName | Název zprostředkovatele prostředků pro ovlivněné prostředek. Pokud není známý, to bude mít hodnotu null.
-Typ prostředku| Typ prostředku ovlivněné prostředku. Pokud není známý, to bude mít hodnotu null.
-Podřízený stav | Obvykle se hodnota null pro události stavu služby.
+resourceType| Typ prostředku ovlivněné prostředku. Pokud není známý, to bude mít hodnotu null.
+subStatus | Obvykle se hodnota null pro události stavu služby.
 eventTimestamp | Časové razítko, když protokolu událostí se generuje a odesílá do protokolu činnosti.
 submissionTimestamp |   Časové razítko, když jsou události dostupné v protokolu aktivit.
 subscriptionId | Předplatné Azure, ve kterém se tato událost byla zaznamenána.
@@ -201,8 +214,8 @@ status | Řetězec popisující stav operace. Některé běžné hodnoty jsou: a
 operationName | Název operace. Obvykle Microsoft.ServiceHealth/incident/action.
 category | "ServiceHealth"
 resourceId | Id prostředku ovlivněné prostředku, pokud je znám. V opačném případě je zadáno ID předplatného.
-Properties.Title | Lokalizovaný název pro tuto komunikaci. Výchozím jazykem je angličtina.
-Properties.Communication | Lokalizované podrobnosti o komunikaci se službou značka jazyka HTML. Výchozí hodnota je angličtina.
+Properties.title | Lokalizovaný název pro tuto komunikaci. Výchozím jazykem je angličtina.
+Properties.communication | Lokalizované podrobnosti o komunikaci se službou značka jazyka HTML. Výchozí hodnota je angličtina.
 Properties.incidentType | Možné hodnoty: AssistedRecovery, ActionRequired, informace, incidentů, údržby, zabezpečení
 Properties.trackingId | Identifikuje incident, který je přidružen této události. Použijte ke korelaci událostí souvisejících s incidentem.
 Properties.impactedServices | Uvozený blob JSON, která popisuje služby a oblasti, které jsou ovlivněny incidentem. Seznam služeb, z nichž každá má ServiceName a seznam ImpactedRegions, z nichž každá má RegionName.
@@ -279,20 +292,20 @@ Tato kategorie obsahuje záznam všech aktivací Azure výstrah. Je například 
 | Název elementu | Popis |
 | --- | --- |
 | volající | Vždy Microsoft.Insights/alertRules |
-| Kanály | Vždy "Admin, operace" |
+| kanály | Vždy "Admin, operace" |
 | Deklarace identity | Objekt blob JSON s typem hlavního názvu služby (hlavní název služby), nebo prostředek výstrahy stroje. |
 | correlationId | Identifikátor GUID ve formátu řetězce. |
 | description |Statický text popis výstrahy události. |
 | eventDataId |Jedinečný identifikátor výstrahy události. |
 | úroveň |Úroveň události. Jeden z následujících hodnot: "Kritická", "Chyba", "Upozornění", "Informační" a "Podrobné" |
-| Název skupiny prostředků |Název skupiny prostředků pro ovlivněné prostředek, pokud se jedná o metriky výstrahu. Pro ostatní typy výstrah to je název skupiny prostředků, který obsahuje výstrahy samotné. |
+| resourceGroupName |Název skupiny prostředků pro ovlivněné prostředek, pokud se jedná o metriky výstrahu. Pro ostatní typy výstrah to je název skupiny prostředků, který obsahuje výstrahy samotné. |
 | resourceProviderName |Název zprostředkovatele prostředků pro ovlivněné prostředek, pokud se jedná o metriky výstrahu. Pro ostatní typy výstrah to je název poskytovatele prostředků pro výstrahu sám sebe. |
 | resourceId | Název ID prostředku pro ovlivněné prostředek, pokud se jedná o metriky výstrahu. Pro ostatní typy výstrah to je ID prostředku výstrahy prostředku sám sebe. |
 | operationId |Identifikátor GUID sdílen události, které odpovídají jedné operace. |
 | operationName |Název operace. |
 | properties |Sada `<Key, Value>` páry (tedy slovník) popisující podrobnosti o události. |
 | status |Řetězec popisující stav operace. Některé běžné hodnoty jsou: spuštění v průběhu, bylo úspěšné, neúspěšné, aktivní, vyřešeno. |
-| Podřízený stav | Obvykle se hodnota null pro výstrahy. |
+| subStatus | Obvykle se hodnota null pro výstrahy. |
 | eventTimestamp |Časové razítko při zpracování požadavku odpovídající události služby Azure vygenerovalo událost. |
 | submissionTimestamp |Časové razítko, když jsou události dostupné pro zadávání dotazů. |
 | subscriptionId |ID předplatného Azure. |
@@ -309,20 +322,20 @@ Vlastnosti pole bude obsahovat různé hodnoty v závislosti na zdroj výstrahy 
 | properties.resourceId | ID prostředku z protokolu událostí aktivity, který chybu způsobil aktivity protokolu pravidlo výstrahy aktivovat. |
 | properties.eventTimestamp | Časové razítko události protokolu události aktivity, který chybu způsobil aktivity protokolu pravidlo výstrahy aktivovat. |
 | properties.operationName | Název operace z protokolu událostí aktivity, který chybu způsobil aktivity protokolu pravidlo výstrahy aktivovat. |
-| Properties.status | Stav z protokolu událostí aktivity, který chybu způsobil aktivity protokolu pravidlo výstrahy aktivovat.|
+| properties.status | Stav z protokolu událostí aktivity, který chybu způsobil aktivity protokolu pravidlo výstrahy aktivovat.|
 
 #### <a name="properties-for-metric-alerts"></a>Vlastnosti metriky výstrah
 | Název elementu | Popis |
 | --- | --- |
-| Vlastnosti. RuleUri | ID prostředku metriky pravidlo výstrahy sám sebe. |
-| Vlastnosti. RuleName | Název metriky pravidlo výstrahy. |
-| Vlastnosti. RuleDescription | Popis metriky pravidlo výstrahy (jak je definována v pravidlu upozornění). |
+| properties.RuleUri | ID prostředku metriky pravidlo výstrahy sám sebe. |
+| properties.RuleName | Název metriky pravidlo výstrahy. |
+| properties.RuleDescription | Popis metriky pravidlo výstrahy (jak je definována v pravidlu upozornění). |
 | Vlastnosti. Prahová hodnota | Prahová hodnota použít při vyhodnocení metriky pravidlo výstrahy. |
-| Vlastnosti. WindowSizeInMinutes | Velikost okna použít při vyhodnocení metriky pravidlo výstrahy. |
-| Vlastnosti. Agregace | Typ agregace definované v metriky pravidlo výstrahy. |
-| Vlastnosti. Operátor | Podmíněný operátor použít při vyhodnocení metriky pravidlo výstrahy. |
-| Vlastnosti. MetricName | Název metriky metriky použít při vyhodnocení metriky pravidlo výstrahy. |
-| Vlastnosti. MetricUnit | Metriky jednotky pro metriku použít při vyhodnocení metriky pravidlo výstrahy. |
+| properties.WindowSizeInMinutes | Velikost okna použít při vyhodnocení metriky pravidlo výstrahy. |
+| properties.Aggregation | Typ agregace definované v metriky pravidlo výstrahy. |
+| properties.Operator | Podmíněný operátor použít při vyhodnocení metriky pravidlo výstrahy. |
+| properties.MetricName | Název metriky metriky použít při vyhodnocení metriky pravidlo výstrahy. |
+| properties.MetricUnit | Metriky jednotky pro metriku použít při vyhodnocení metriky pravidlo výstrahy. |
 
 ## <a name="autoscale"></a>Automatické škálování
 Tato kategorie obsahuje záznam všechny události související s operací škálování stroje podle nastavení automatického škálování, které jste definovali ve vašem předplatném. Je například typ události, které se zobrazí se v této kategorii "Škálování rozšiřování škálování využívajících akce se nezdařila." Použití automatického škálování, můžete automaticky škálovat nebo škálovat počet instancí v typu prostředku podporované na základě času, den nebo zatížení (metriky) dat, na které se používá nastavení automatického škálování. Pokud jsou podmínky splněny, aby škálování nahoru nebo dolů, spuštění a úspěšné nebo neúspěšné události budou popsané v této kategorii.
@@ -388,25 +401,25 @@ Tato kategorie obsahuje záznam všechny události související s operací šk�
 | Název elementu | Popis |
 | --- | --- |
 | volající | Vždy Microsoft.Insights/autoscaleSettings |
-| Kanály | Vždy "Admin, operace" |
+| kanály | Vždy "Admin, operace" |
 | Deklarace identity | Objekt blob JSON s typem hlavního názvu služby (hlavní název služby), nebo prostředek stroje škálování. |
 | correlationId | Identifikátor GUID ve formátu řetězce. |
 | description |Statický text popis události škálování. |
 | eventDataId |Jedinečný identifikátor události škálování. |
 | úroveň |Úroveň události. Jeden z následujících hodnot: "Kritická", "Chyba", "Upozornění", "Informační" a "Podrobné" |
-| Název skupiny prostředků |Název skupiny prostředků pro nastavení automatického škálování. |
+| resourceGroupName |Název skupiny prostředků pro nastavení automatického škálování. |
 | resourceProviderName |Název zprostředkovatele prostředků pro nastavení automatického škálování. |
 | resourceId |Id prostředku nastavení automatického škálování. |
 | operationId |Identifikátor GUID sdílen události, které odpovídají jedné operace. |
 | operationName |Název operace. |
 | properties |Sada `<Key, Value>` páry (tedy slovník) popisující podrobnosti o události. |
-| Vlastnosti. Popis | Podrobný popis činnosti modul škálování. |
-| Vlastnosti. ResourceName | ID prostředku ovlivněné prostředku (prostředků, na kterém byla provedena akce škálování) |
-| Vlastnosti. OldInstancesCount | Počet instancí předtím, než platnost trvala daná akce škálování. |
-| Vlastnosti. NewInstancesCount | Počet instancí po vliv trvala daná akce škálování. |
-| Vlastnosti. LastScaleActionTime | Časové razítko při akci škálování došlo k chybě. |
+| properties.Description | Podrobný popis činnosti modul škálování. |
+| properties.ResourceName | ID prostředku ovlivněné prostředku (prostředků, na kterém byla provedena akce škálování) |
+| properties.OldInstancesCount | Počet instancí předtím, než platnost trvala daná akce škálování. |
+| properties.NewInstancesCount | Počet instancí po vliv trvala daná akce škálování. |
+| properties.LastScaleActionTime | Časové razítko při akci škálování došlo k chybě. |
 | status |Řetězec popisující stav operace. Některé běžné hodnoty jsou: spuštění v průběhu, bylo úspěšné, neúspěšné, aktivní, vyřešeno. |
-| Podřízený stav | Obvykle se hodnota null pro škálování. |
+| subStatus | Obvykle se hodnota null pro škálování. |
 | eventTimestamp |Časové razítko při zpracování požadavku odpovídající události služby Azure vygenerovalo událost. |
 | submissionTimestamp |Časové razítko, když jsou události dostupné pro zadávání dotazů. |
 | subscriptionId |ID předplatného Azure. |
@@ -477,27 +490,27 @@ Tato kategorie obsahuje záznam všech výstrah generovaných Azure Security Cen
 ### <a name="property-descriptions"></a>Popisy vlastností
 | Název elementu | Popis |
 | --- | --- |
-| Kanály | Vždy "operace" |
+| kanály | Vždy "operace" |
 | correlationId | Identifikátor GUID ve formátu řetězce. |
 | description |Statický text popis události zabezpečení. |
 | eventDataId |Jedinečný identifikátor události zabezpečení. |
-| EventName |Popisný název události zabezpečení. |
+| eventName |Popisný název události zabezpečení. |
 | id |Jedinečný identifikátor události zabezpečení. |
 | úroveň |Úroveň události. Jeden z následujících hodnot: "Kritická", "Chyba", "Upozornění", "Informační" nebo "Podrobné" |
-| Název skupiny prostředků |Název skupiny prostředků pro prostředek. |
+| resourceGroupName |Název skupiny prostředků pro prostředek. |
 | resourceProviderName |Název zprostředkovatele prostředků pro Azure Security Center. Vždy "Microsoft.Security". |
-| Typ prostředku |Typ prostředku, který vygeneroval událostí zabezpečení, jako je například "Microsoft.Security/locations/alerts" |
+| resourceType |Typ prostředku, který vygeneroval událostí zabezpečení, jako je například "Microsoft.Security/locations/alerts" |
 | resourceId |Id prostředku výstrahy zabezpečení. |
 | operationId |Identifikátor GUID sdílen události, které odpovídají jedné operace. |
 | operationName |Název operace. |
 | properties |Sada `<Key, Value>` páry (tedy slovník) popisující podrobnosti o události. Tyto vlastnosti budou lišit v závislosti na typu výstrahy zabezpečení. V tématu [tuto stránku](../security-center/security-center-alerts-type.md) popis typy výstrah, které pocházejí z Security Center. |
 | Vlastnosti. Závažnost |Úroveň závažnosti. Možné hodnoty jsou "Vysoká", "Střední" nebo "Nízká". |
 | status |Řetězec popisující stav operace. Některé běžné hodnoty jsou: spuštění v průběhu, bylo úspěšné, neúspěšné, aktivní, vyřešeno. |
-| Podřízený stav | Obvykle se hodnota null pro události zabezpečení. |
+| subStatus | Obvykle se hodnota null pro události zabezpečení. |
 | eventTimestamp |Časové razítko při zpracování požadavku odpovídající události služby Azure vygenerovalo událost. |
 | submissionTimestamp |Časové razítko, když jsou události dostupné pro zadávání dotazů. |
 | subscriptionId |ID předplatného Azure. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Další informace o protokolu činnosti (dříve protokoly auditu)](monitoring-overview-activity-logs.md)
 * [Datový proud protokolu Azure činnosti do centra událostí](monitoring-stream-activity-logs-event-hubs.md)

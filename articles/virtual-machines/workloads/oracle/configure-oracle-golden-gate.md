@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementace Oracle Golden brány ve virtuálním počítači Azure Linux 
 
@@ -40,7 +40,7 @@ Následuje souhrn konfigurace prostředí:
 > |  | **Primární lokalita** | **Replikace webu** |
 > | --- | --- | --- |
 > | **Databázi Oracle** |Oracle 12c verze 2 – (12.1.0.2) |Oracle 12c verze 2 – (12.1.0.2)|
-> | **Název počítače** |myVM1 |Můjvp2 |
+> | **Název počítače** |myVM1 |myVM2 |
 > | **Operační systém** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle SID** |CDB1 |CDB1 |
 > | **Schéma replikace** |TEST|TEST |
@@ -50,7 +50,7 @@ Následuje souhrn konfigurace prostředí:
 
 ### <a name="sign-in-to-azure"></a>Přihlášení k Azure 
 
-Přihlaste se k předplatnému Azure s [az přihlášení](/cli/azure/#login) příkaz. Potom postupujte podle na obrazovce pokynů.
+Přihlaste se k předplatnému Azure s [az přihlášení](/cli/azure/#az_login) příkaz. Potom postupujte podle na obrazovce pokynů.
 
 ```azurecli
 az login
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupinu prostředků Azure je logický kontejner, do které prostředky Azure jsou nasazeny a z které mohly být spravovány. 
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Skupinu prostředků Azure je logický kontejner, do které prostředky Azure jsou nasazeny a z které mohly být spravovány. 
 
 Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup` v umístění `westus`.
 
@@ -80,7 +80,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 
-Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#create). 
+Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create). 
 
 Následující příklad vytvoří dva virtuální počítače s názvem `myVM1` a `myVM2`. Pokud už neexistují ve výchozím umístění klíče, vytvoření klíčů SSH. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.
 
@@ -436,7 +436,7 @@ K instalaci brány Golden Oracle, proveďte následující kroky:
 
   ![Snímek obrazovky stránky instalace vyberte Instalační program](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Změňte umístění softwaru. Vyberte **spustit správce** pole a zadejte umístění databáze. Vyberte **Další** pokračujte.
+3. Změňte umístění softwaru. Vyberte **spustit správce** pole a zadejte umístění databáze. Pokračujte výběrem tlačítka **Next** (Další).
 
   ![Snímek obrazovky stránky vyberte instalace](./media/oracle-golden-gate/golden_gate_install_02.png)
 
@@ -803,7 +803,7 @@ Už je potřeba, následující příkaz lze použít k odebrání skupiny prost
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Kurz vytvoření virtuálního počítače s vysokou dostupností](../../linux/create-cli-complete.md)
 

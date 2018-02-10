@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Brána správy dat
 > [!NOTE]
 > Tento článek se týká verze 1 služby Data Factory, která je obecně dostupná (GA). Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [hostovanou na vlastním integrace runtime v verze 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Brána pro správu dat má nyní byl přejmenované jako Self-hosted integrace Runtime.  
 
 Brána pro správu dat je klientský agent, který je nutné nainstalovat v prostředí místní ke kopírování dat mezi úložišti dat cloudu a místně. Místní data podporovaných službou Data Factory úložiště jsou uvedeny v [podporované zdroje dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats) části.
 
@@ -188,7 +191,7 @@ Brána pro správu dat hostitelská služba restartuje automaticky po uložení 
 Po Brány byl úspěšně registrován, pokud chcete zobrazit nebo aktualizovat nastavení proxy serveru, použijte Správce konfigurace brány pro správu dat.
 
 1. Spusťte **Správce konfigurace brány pro správu dat**.
-2. Přepnout **nastavení** kartě.
+2. Přepněte na kartu **Nastavení**.
 3. Klikněte na tlačítko **změnu** na odkaz v **server Proxy protokolu HTTP** části spustíte **nastavení proxy serveru HTTP** dialogové okno.  
 4. Po kliknutí **Další** tlačítko se zobrazí dialog s upozorněním žádostí o oprávnění k uložení nastavení proxy serveru a restartujte hostitelskou službu brány.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a6138f0927f9761677d6da1ae05546286ad3898
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopírování dat z a do služby Salesforce pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ Následující vlastnosti jsou podporovány pro službu propojené služby Sales
 | type |Vlastnost typu musí být nastavená na **Salesforce**. |Ano |
 | environmentUrl | Zadejte adresu URL instance Salesforce. <br> -Výchozí hodnota je `"https://login.salesforce.com"`. <br> -Ke zkopírování dat z izolovaného prostoru, zadejte `"https://test.salesforce.com"`. <br> -Ke zkopírování dat z vlastní domény, zadejte, například `"https://[domain].my.salesforce.com"`. |Ne |
 | uživatelské jméno |Zadejte uživatelské jméno pro uživatelský účet. |Ano |
-| heslo |Zadejte heslo pro uživatelský účet.<br/><br/>Toto pole můžete označit jako SecureString bezpečně uložit ve službě Data Factory. Také můžete uložit heslo v Azure Key Vault a nechat vyžádání aktivity kopírování odtud provádíte kopírování dat. Další informace najdete v tématu [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). |Ano |
-| securityToken |Zadejte token zabezpečení pro uživatelský účet. Pokyny, jak obnovit a získat token zabezpečení, najdete v části [získat token zabezpečení](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Obecné informace o tokeny zabezpečení najdete v tématu [zabezpečení a rozhraní API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Toto pole můžete označit jako SecureString bezpečně uložit ve službě Data Factory. Také můžete ukládat token zabezpečení v Key Vault a nechat vyžádání aktivity kopírování odtud provádíte kopírování dat. Další informace najdete v tématu [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). |Ano |
+| heslo |Zadejte heslo pro uživatelský účet.<br/><br/>Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
+| securityToken |Zadejte token zabezpečení pro uživatelský účet. Pokyny, jak obnovit a získat token zabezpečení, najdete v části [získat token zabezpečení](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Obecné informace o tokeny zabezpečení najdete v tématu [zabezpečení a rozhraní API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Žádné zdroje, Ano pro sink pokud propojený zdroj služba nemá integrace modulu runtime |
 
 >[!IMPORTANT]
@@ -319,7 +319,7 @@ Při kopírování dat ze služby Salesforce se používají následující mapo
 | Textová oblast (Long) |Řetězec |
 | (Rich) textová oblast |Řetězec |
 | Text (šifrované) |Řetězec |
-| Adresa URL |Řetězec |
+| zprostředkovatele identity |Řetězec |
 
 ## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v objektu pro vytváření dat najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

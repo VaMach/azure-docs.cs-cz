@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Naplánování spuštění a zastavení z modulu runtime integrace Azure SSIS 
 Spuštění modulu runtime integrace Azure služby SSIS (SQL Server Integration Services) (IR) má poplatků, s ním spojená. Tedy chcete spustit IR pouze v případě potřeby pro spouštění balíčků SSIS v Azure a zastavte ji, pokud tomu tak není. Můžete použít uživatelské rozhraní objektu pro vytváření dat nebo prostředí Azure PowerShell [ruční spuštění nebo zastavení služby SSIS IR Azure](manage-azure-ssis-integration-runtime.md)). Tento článek popisuje, jak naplánovat spuštění a zastavení z modulu runtime integrace Azure služby SSIS (IR) pomocí Azure Automation a Azure Data Factory. Zde jsou základní kroky popsané v tomto článku:
@@ -44,8 +44,9 @@ V této části provedete následující kroky:
 ### <a name="create-an-azure-automation-account"></a>Vytvoření účtu Azure Automation
 Pokud nemáte účet Azure Automation, vytvořte podle pokynů v tomto kroku. Podrobné pokyny najdete v tématu [vytvoření účtu Azure Automation](../automation/automation-quickstart-create-account.md). V rámci tohoto kroku vytvoříte **spustit v Azure jako** účet (v Azure Active Directory objekt služby) a přidejte ho do **Přispěvatel** role vašeho předplatného Azure. Ujistěte se, že je stejná jako odběr, který obsahuje data factory, který má SSIS Azure, infračerveného signálu. Automatizace Azure používá tento účet k ověření do Azure Resource Manageru a pracovat na vašich prostředků. 
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).    
-2. Vyberte **nový** v nabídce vlevo vyberte **monitorování + správu**a vyberte **automatizace**. 
+1. Spusťte **Microsoft Edge** nebo **Google Chrome** webového prohlížeče. V současné době uživatelského rozhraní objektu pro vytváření dat je podporována pouze pro webové prohlížeče Microsoft Edge a Google Chrome.
+2. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).    
+3. Vyberte **nový** v nabídce vlevo vyberte **monitorování + správu**a vyberte **automatizace**. 
 
     ![Nový -> sledování a správu -> Automatizace](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. V **přidat účet Automation** okno, proveďte následující kroky: 

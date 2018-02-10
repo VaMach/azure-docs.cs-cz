@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Vytvoření a Správa skupin akce na portálu Azure
 ## <a name="overview"></a>Přehled ##
@@ -58,10 +58,10 @@ Informace o tom, jak pomocí šablony Azure Resource Manager můžete nakonfigur
 
     b. **Typ akce**: Vyberte SMS, e-mailu, webhooku, aplikace Azure, ITSM nebo sady Automation Runbook.
 
-    c. **Podrobnosti o**: v závislosti na typu akce, zadejte telefonní číslo, e-mailovou adresu, webhooku identifikátor URI, aplikace Azure, ITSM připojení nebo sady Automation runbook. Pro akci ITSM kromě určit **pracovní položka** a vyžaduje vaše nástroje ITSM další pole. 
+    c. **Podrobnosti o**: v závislosti na typu akce, zadejte telefonní číslo, e-mailovou adresu, webhooku identifikátor URI, aplikace Azure, ITSM připojení nebo sady Automation runbook. Pro akci ITSM kromě určit **pracovní položka** a vyžaduje vaše nástroje ITSM další pole.
 
    > [!NOTE]
-   > Akce ITSM vyžaduje připojení k ITSM. Naučte se vytvářet [ITSM připojení](../log-analytics/log-analytics-itsmc-overview.md). Akce ITSM aktuálně funguje pouze pro aktivitu protokolu výstrahy. Pro ostatní typy výstrah tato akce je aktuálně žádná operace.
+   > Akce ITSM vyžaduje připojení k ITSM. Naučte se vytvářet [ITSM připojení](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Vyberte **OK** vytvořit skupinu akce.
 
@@ -71,10 +71,10 @@ Jakmile vytvoříte skupinu akcí, se zobrazí na **skupiny akcí** části **mo
 * Přidat, upravit nebo odebrat akce.
 * Odstraňte skupinu akce.
 
-## <a name="next-steps"></a>Další kroky ##
+## <a name="next-steps"></a>Další postup ##
 * Další informace o [SMS výstrahy chování](monitoring-sms-alert-behavior.md).  
 * Získání [porozumět schéma výstrahy webhooku protokolu činnosti](monitoring-activity-log-alerts-webhook.md).  
 * Další informace o [ITSM konektoru](../log-analytics/log-analytics-itsmc-overview.md)
-* Další informace o [omezení rychlosti](monitoring-alerts-rate-limiting.md) výstrah. 
+* Další informace o [omezení rychlosti](monitoring-alerts-rate-limiting.md) výstrah.
 * Získat [přehled výstrah aktivity protokolu](monitoring-overview-alerts.md)a zjistěte, jak dostávat výstrahy.  
 * Zjistěte, jak [Konfigurace upozornění pokaždé, když je odeslána oznámení o stavu služby](monitoring-activity-log-alerts-on-service-notifications.md).

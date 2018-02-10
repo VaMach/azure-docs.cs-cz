@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Připojení modulu runtime integrace Azure SSIS k virtuální síti.
 Připojení k vaší Azure SSIS integrace modulu runtime (IR) virtuální sítě Azure (VNet) v následujících scénářích: 
@@ -31,7 +31,13 @@ Připojení k vaší Azure SSIS integrace modulu runtime (IR) virtuální sítě
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-introduction.md).
 
 ## <a name="access-on-premises-data-stores"></a>Přístup k místním úložištím dat.
-Pokud balíčky SSIS přistupovat k úložištím dat pouze veřejného cloudu, nemusíte připojit k virtuální síti Azure SSIS reakcí na Incidenty. Pokud balíčky SSIS přístup k místním úložištím dat, musíte se připojit k Azure SSIS IR k virtuální síti, která je připojena k místní síti. Pokud katalog služby SSIS je hostovaná v Azure SQL Database, který není ve virtuální síti, budete muset otevřít správné porty. Pokud katalog služby SSIS je hostovaná v Azure SQL spravované Instance, která se nachází v o virtuální síť Azure Resource Manager nebo klasické virtuální sítě, můžete spojit Azure SSIS IR stejnou virtuální síť (nebo) jinou virtuální síť, který má připojení VNet-to-VNet se takový, který má spravované Instance Azure SQL. Další podrobnosti naleznete v následujících částech.
+Pokud balíčky SSIS přistupovat k úložištím dat pouze veřejného cloudu, nemusíte připojit k virtuální síti Azure SSIS reakcí na Incidenty. Pokud balíčky SSIS přístup k místním úložištím dat, musíte se připojit k Azure SSIS IR k virtuální síti, která je připojena k místní síti. 
+
+Pokud katalog služby SSIS je hostovaná v Azure SQL Database, který není ve virtuální síti, budete muset otevřít správné porty. 
+
+Pokud katalog služby SSIS je hostovaná v Azure SQL spravované Instance (MI), je ve virtuální síti, můžete spojit Azure SSIS IR stejnou virtuální síť (nebo) jinou virtuální síť, který má připojení VNet-to-VNet se takový, který má spravované Instance Azure SQL. Virtuální sítě může být klasické virtuální sítě nebo o virtuální síť správu prostředků Azure. Pokud máte v úmyslu Azure SSIS IR ke **stejnou virtuální síť** má SQL MI, zajistěte, aby IR Azure SSIS v **jiné podsíti** z takový, který má SQL MI.   
+
+Další podrobnosti naleznete v následujících částech.
 
 Tady je několik bodů důležité si uvědomit: 
 
@@ -58,10 +64,11 @@ V této části ukazuje, jak připojit k virtuální síti (Classic nebo Azure R
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Prostřednictvím portálu můžete nakonfigurovat klasické virtuální sítě
 Nejprve musíte nakonfigurovat virtuální síť, než bude možné připojit Azure SSIS Reakcí do virtuální sítě.
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **další služby**. Filtrovat a vyberte **virtuální sítě (klasické)**.
-3. Filtrovat a vybrat vaše **virtuální sítě** v seznamu. 
-4. Na stránce virtuální sítě (klasické) vyberte **vlastnosti**. 
+1. Spusťte **Microsoft Edge** nebo **Google Chrome** webového prohlížeče. V současné době uživatelského rozhraní objektu pro vytváření dat je podporována pouze pro webové prohlížeče Microsoft Edge a Google Chrome.
+2. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
+3. Klikněte na tlačítko **další služby**. Filtrovat a vyberte **virtuální sítě (klasické)**.
+4. Filtrovat a vybrat vaše **virtuální sítě** v seznamu. 
+5. Na stránce virtuální sítě (klasické) vyberte **vlastnosti**. 
 
     ![ID prostředku klasické virtuální sítě](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Klikněte na tlačítko Kopírovat **ID prostředku** ID prostředku pro klasické síťové zkopírovat do schránky. Uložte ID ze schránky v OneNote nebo souboru.
@@ -93,13 +100,14 @@ Nejprve musíte nakonfigurovat virtuální síť, než bude možné připojit Az
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Prostřednictvím portálu můžete nakonfigurovat o virtuální síť Azure Resource Manager
 Nejprve musíte nakonfigurovat virtuální síť, než bude možné připojit Azure SSIS Reakcí do virtuální sítě.
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **další služby**. Filtrovat a vyberte **virtuální sítě**.
-3. Filtrovat a vybrat vaše **virtuální sítě** v seznamu. 
-4. Na stránce virtuální sítě, vyberte **vlastnosti**. 
-5. Klikněte na tlačítko Kopírovat **ID prostředku** ID prostředku pro virtuální síť zkopírovat do schránky. Uložte ID ze schránky v OneNote nebo souboru.
-6. Klikněte na tlačítko **podsítě** v levé nabídce a ujistěte se, že počet **dostupné adresy** je větší než uzly ve vaší runtime integrace Azure SSIS.
-5. Ověřte, že tohoto zprostředkovatele Azure Batch je zaregistrován v rámci předplatného Azure, který má virtuální sítě nebo zaregistrujte zprostředkovatele Azure Batch. Pokud již máte účet Azure Batch v rámci vašeho předplatného, je zaregistrován předplatného pro Azure Batch.
+1. Spusťte **Microsoft Edge** nebo **Google Chrome** webového prohlížeče. V současné době uživatelského rozhraní objektu pro vytváření dat je podporována pouze pro webové prohlížeče Microsoft Edge a Google Chrome.
+2. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
+3. Klikněte na tlačítko **další služby**. Filtrovat a vyberte **virtuální sítě**.
+4. Filtrovat a vybrat vaše **virtuální sítě** v seznamu. 
+5. Na stránce virtuální sítě, vyberte **vlastnosti**. 
+6. Klikněte na tlačítko Kopírovat **ID prostředku** ID prostředku pro virtuální síť zkopírovat do schránky. Uložte ID ze schránky v OneNote nebo souboru.
+7. Klikněte na tlačítko **podsítě** v levé nabídce a ujistěte se, že počet **dostupné adresy** je větší než uzly ve vaší runtime integrace Azure SSIS.
+8. Ověřte, že tohoto zprostředkovatele Azure Batch je zaregistrován v rámci předplatného Azure, který má virtuální sítě nebo zaregistrujte zprostředkovatele Azure Batch. Pokud již máte účet Azure Batch v rámci vašeho předplatného, je zaregistrován předplatného pro Azure Batch.
     1. Na portálu Azure, klikněte na tlačítko **odběry** v levé nabídce. 
     2. Vyberte vaše **předplatné**. 
     3. Klikněte na tlačítko **zprostředkovatelé prostředků** na levé straně a ověřte, že `Microsoft.Batch` je registrovaný poskytovatel. 
@@ -111,7 +119,8 @@ Nejprve musíte nakonfigurovat virtuální síť, než bude možné připojit Az
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Připojení k virtuální síti Azure SSIS IR
 
 
-1. V [portál Azure](https://portal.azure.com), vyberte **datové továrny** v levé nabídce. Pokud se nezobrazí **datové továrny** v nabídce vyberte **další služby**, vyberte **datové továrny** v **INTELLIGENCE + analýzy** oddíl. 
+1. Spusťte **Microsoft Edge** nebo **Google Chrome** webového prohlížeče. V současné době uživatelského rozhraní objektu pro vytváření dat je podporována pouze pro webové prohlížeče Microsoft Edge a Google Chrome.
+2. V [portál Azure](https://portal.azure.com), vyberte **datové továrny** v levé nabídce. Pokud se nezobrazí **datové továrny** v nabídce vyberte **další služby**, vyberte **datové továrny** v **INTELLIGENCE + analýzy** oddíl. 
     
     ![Seznam objektů pro vytváření dat](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. V seznamu vyberete datovou továrnu s runtime integrace Azure SSIS. Zobrazí domovská stránka objektu pro vytváření dat. Vyberte **vytvořit a nasadit** dlaždici. Zobrazí Data Factory uživatelské rozhraní (UI) na samostatné kartě. 

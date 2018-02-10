@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: d593b011ce4d0998ef07bc257d3c26f1286e3b0e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Nasazení OpenShift původ v Azure
 
@@ -127,13 +127,13 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Použití [odstranění skupiny az](/cli/azure/group#delete) příkaz, který má-li odebrat skupinu prostředků, OpenShift clusteru a všechny související prostředky, když jste už nepotřebují.
+Použití [odstranění skupiny az](/cli/azure/group#az_group_delete) příkaz, který má-li odebrat skupinu prostředků, OpenShift clusteru a všechny související prostředky, když jste už nepotřebují.
 
 ```azurecli 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Úlohy po nasazení](./openshift-post-deployment.md)
 - [Řešení potíží s OpenShift nasazení](./openshift-troubleshooting.md)

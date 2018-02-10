@@ -1,6 +1,6 @@
 ---
 title: "Jak nainstalovat Linux hlavní cílový server pro převzetí služeb při selhání z Azure do místní | Microsoft Docs"
-description: "Před opětovnou ochranu virtuální počítač s Linuxem, potřebujete hlavní cílový server Linux. Zjistěte, jak k jeho instalaci."
+description: "Před opětovnou ochranu virtuální počítač s Linuxem, musíte Linux hlavní cílový server. Zjistěte, jak k jeho instalaci."
 services: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/22/2017
 ms.author: rajanaki
-ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 11f9385c1082011ee690f48f2579b6f3b156d125
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="install-a-linux-master-target-server"></a>Instalovat hlavní cílový server Linux
-Po selhání virtuálních počítačů, můžete můžete navrácení služeb po obnovení virtuálních počítačů k místní lokalitě. Chcete-li navrácení služeb po obnovení, je potřeba znovu nastavte ochranu virtuálního počítače z Azure do místní lokality. Pro tento proces budete potřebovat místní hlavní cílový server příjem provozu. 
+# <a name="install-a-linux-master-target-server"></a>Instalace serveru hlavního cíle Linuxu
+Po selhání virtuálních počítačů do Azure, můžete můžete navrácení služeb po obnovení virtuálních počítačů k místní lokalitě. Chcete-li navrácení služeb po obnovení, je potřeba znovu nastavte ochranu virtuálního počítače z Azure do místní lokality. Pro tento proces budete potřebovat místní hlavní cílový server příjem provozu. 
 
 Pokud chráněný virtuální počítač je virtuálního počítače s Windows, musíte Windows hlavní cíl. Pro virtuální počítač s Linuxem budete potřebovat hlavního cíle Linuxu. Přečtěte si následující kroky a zjistěte, jak vytvořit a nainstalovat hlavního cíle Linuxu.
 
 > [!IMPORTANT]
-> Od verze 9.10.0 hlavní cílový server, nejnovější hlavní cílový server můžete nainstalovat jenom na Ubuntu 16.04 server. Nové instalace nejsou povoleny u CentOS6.6 servery. Však můžete nadále upgradu vaší starého hlavního cílové servery pomocí 9.10.0 verze.
+> Od verze 9.10.0 hlavní cílový server, můžete pouze nainstalovány nejnovější hlavní cílový server na serveru Ubuntu 16.04. Nové instalace nejsou povoleny u CentOS6.6 servery. Můžete však upgrade vaše staré hlavního cíle servery pomocí 9.10.0 verze.
 
 ## <a name="overview"></a>Přehled
 Tento článek obsahuje pokyny k instalaci hlavního cíle Linuxu.
@@ -35,14 +35,14 @@ POST dotazy nebo připomínky můžete na konci tohoto článku nebo na [fóru A
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Zvolte hostitele, do které chcete nasadit na hlavním cíli, určete, pokud navrácení služeb po obnovení bude do existující virtuální počítač místně nebo do nového virtuálního počítače. 
+* Zvolte hostitele, do které chcete nasadit hlavního cíle, určete, pokud navrácení služeb po obnovení bude do existující virtuální počítač místně nebo do nového virtuálního počítače. 
     * Pro existující virtuální počítač hostitele hlavního cíle mají mít přístup k úložišti dat virtuálního počítače.
-    * Pokud na místním virtuálním počítači neexistuje, je navrácení služeb po obnovení virtuálního počítače vytvořit na stejném hostiteli jako hlavní cíl. Můžete vybrat libovolného hostitele ESXi k instalaci na hlavním cíli.
+    * Pokud na místním virtuálním počítači (v případě obnovení do alternativního umístění) neexistuje, je navrácení služeb po obnovení virtuálního počítače vytvořit na stejném hostiteli jako hlavní cíl. Můžete vybrat libovolného hostitele ESXi k instalaci na hlavním cíli.
 * Hlavní cíl musí být v síti, který může komunikovat s procesovým serverem a konfigurační server.
 * Verze hlavního cíle musí být rovna nebo starší než verze procesového serveru a konfigurační server. Například pokud je verze konfigurace serveru 9.4, verze hlavního cíle může být 9.4 nebo 9.3, ale není 9.5.
-* Na hlavním cíli lze pouze virtuální počítač VMware, nikoli na fyzický server.
+* Hlavní cílový lze pouze virtuální počítač VMware, nikoli na fyzický server.
 
-## <a name="create-the-master-target-according-to-the-sizing-guidelines"></a>Vytvoření hlavního cíle podle pokynů pro změnu velikosti
+## <a name="sizing-guidelines-for-creating-master-target-server"></a>Změna velikosti pokyny pro vytváření hlavní cílový server
 
 Vytvoření hlavního cíle podle následujících pokynů pro změnu velikosti:
 - **Paměť RAM**: 6 GB nebo více
@@ -53,10 +53,10 @@ Vytvoření hlavního cíle podle následujících pokynů pro změnu velikosti:
 Jsou podporovány následující podporované Ubuntu jádra.
 
 
-|Řada jádra  |Podporovat až  |
+|Kernel Series  |Podporovat až  |
 |---------|---------|
-|4.4      |4.4.0-81-Generic         |
-|4.8      |4.8.0-56-Generic         |
+|4.4      |4.4.0-81-generic         |
+|4.8      |4.8.0-56-generic         |
 |4.10     |4.10.0-24-Generic        |
 
 
@@ -66,119 +66,90 @@ Jsou podporovány následující podporované Ubuntu jádra.
 
 Proveďte následující kroky pro instalaci Ubuntu 16.04.2 64bitový operační systém.
 
-**Krok 1:** přejít na [stáhnout odkaz](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64) a zvolte nejbližší zrcadlení z které stáhnout soubor ISO Ubuntu 16.04.2 minimální 64-bit.
-
+1.   Přejděte na [stáhnout odkaz](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64), vyberte nejbližší anddownload zrcadlení soubor ISO Ubuntu 16.04.2 minimální 64-bit.
 Ponechte soubor ISO Ubuntu 16.04.2 minimální 64-bit do jednotky DVD a spuštění systému.
 
-**Krok 2:** vyberte **Angličtina** jako upřednostňovaný jazyk a potom vyberte **Enter**.
+1.  Vyberte **Angličtina** jako upřednostňovaný jazyk a potom vyberte **Enter**.
+    
+    ![Výběr jazyka](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
+1. Vyberte **nainstalovat Ubuntu Server**a potom vyberte **Enter**.
 
-![Výběr jazyka](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
+    ![Vyberte možnost instalace Ubuntu Server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
 
-**Krok 3:** vyberte **nainstalovat Ubuntu Server**a potom vyberte **Enter**.
+1.  Vyberte **Angličtina** jako upřednostňovaný jazyk a potom vyberte **Enter**.
 
-![Vyberte možnost instalace Ubuntu Server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
+    ![Vyberte angličtina jako upřednostňovaný jazyk](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
 
-**Krok 4:** vyberte **Angličtina** jako upřednostňovaný jazyk a potom vyberte **Enter**.
+1. Vyberte příslušnou možnost **časové pásmo** seznam možností a potom vyberte **Enter**.
 
-![Vyberte angličtina jako upřednostňovaný jazyk](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
+    ![Vyberte správné časové pásmo](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
 
-**Krok 5:** vyberte příslušnou možnost **časové pásmo** seznam možností a potom vyberte **Enter**.
+1. Vyberte **ne** (výchozí možnost) a potom vyberte **Enter**.
 
-![Vyberte správné časové pásmo](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
+     ![Konfigurace klávesnice](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
+1. Vyberte **angličtinu (US)** jako země původu klávesnice, a potom vyberte **Enter**.
 
-**Krok 6:** vyberte **ne** (výchozí možnost) a potom vyberte **Enter**.
+1. Vyberte **angličtinu (US)** rozložení klávesnice a pak vyberte **Enter**.
 
+1. Zadejte název hostitele pro server v **Hostname** a pak vyberte **pokračovat**.
 
-![Konfigurace klávesnice](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
+1. Pokud chcete vytvořit uživatelský účet, zadejte uživatelské jméno a potom vyberte **pokračovat**.
 
-**Krok 7:** vyberte **angličtinu (US)** jako země původu klávesnice, a potom vyberte **Enter**.
+      ![Vytvoření uživatelského účtu](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
 
-![Vyberte USA jako země původu](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image6.png)
+1. Zadejte heslo pro nový uživatelský účet a potom vyberte **pokračovat**.
 
-**Krok 8:** vyberte **angličtinu (US)** rozložení klávesnice a pak vyberte **Enter**.
+1.  Potvrďte heslo pro nového uživatele a pak vyberte **pokračovat**.
 
-![Vyberte angličtinu jako rozložení klávesnice](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png)
+    ![Potvrzení hesla](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
 
-**Krok 9:** zadejte název hostitele pro server v **Hostname** a pak vyberte **pokračovat**.
+1.  V další výběr šifrování domovský adresář, vyberte **ne** (výchozí možnost) a potom vyberte **Enter**.
 
-![Zadejte název hostitele pro server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png)
+1. Pokud se časové pásmo, které se zobrazí správný, vyberte **Ano** (výchozí možnost) a potom vyberte **Enter**. Chcete-li překonfigurovat časové pásmo, vyberte **ne**.
 
-**Krok 10:** vytvoření uživatelského účtu, zadejte uživatelské jméno a potom vyberte **pokračovat**.
+1. Možnosti dělicí metody, vyberte **na základě - použít celý disk**a potom vyberte **Enter**.
 
-![Vytvoření uživatelského účtu](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
+     ![Vyberte možnost použít pro dělicí metody](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
 
-**Krok 11:** zadejte heslo pro nový uživatelský účet a potom vyberte **pokračovat**.
+1.  Vyberte příslušný disk z **vyberte disk do oddílu** možnosti a pak vyberte **Enter**.
 
-![Zadejte heslo](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image10.png)
+    ![Vyberte disk](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
 
-**Krok 12:** potvrďte heslo pro nového uživatele a pak vyberte **pokračovat**.
+1.  Vyberte **Ano** k zápisu změn na disk a potom vyberte **Enter**.
 
-![Potvrzení hesla](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
+1.  Ve výběru konfigurace proxy serveru, vyberte možnost výchozí, vyberte **pokračovat**a potom vyberte **Enter**.
 
-**Krok 13:** vyberte **ne** (výchozí možnost) a potom vyberte **Enter**.
+     ![Vyberte možnost výchozí](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
 
-![Nastavit uživatele a hesla](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image12.png)
+1.  Vyberte **žádné automatické aktualizace** a pak vyberte možnost ve výběru pro správu upgrady systému **Enter**.
 
-**Krok 14:** Pokud časové pásmo, které se zobrazí správný, vyberte **Ano** (výchozí možnost) a potom vyberte **Enter**.
+     ![Vyberte, jak spravovat upgrady](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
 
-Chcete-li překonfigurovat časové pásmo, vyberte **ne**.
+    > [!WARNING]
+    > Protože Azure Site Recovery hlavní cílový server vyžaduje velmi konkrétní verzi Ubuntu, musíte zajistit, aby jádra zakázali upgrady pro virtuální počítač. Pokud se povolí, nějaké regulární upgrady způsobit hlavní cílový server fungovat správně. Zkontrolujte, zda jste vybrali **žádné automatické aktualizace** možnost.
 
-![Nakonfigurujte hodiny](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png)
+1.  Vyberte výchozí možnosti. Pokud chcete openSSH pro připojení SSH, vyberte **OpenSSH server** a pak vyberte možnost **pokračovat**.
 
-**Krok 15:** dělicí metody možnosti, vyberte **na základě - použít celý disk**a potom vyberte **Enter**.
+    ![Vyberte software](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
 
-![Vyberte možnost použít pro dělicí metody](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
+1. V selction pro instalaci GRUB spouštěcí zavaděč, vyberte **Ano**a potom vyberte **Enter**.
 
-**Krok 16:** vyberte příslušný disk z **vyberte disk do oddílu** možnosti a pak vyberte **Enter**.
+1. Vyberte odpovídající zařízení, pro instalaci spouštěcí zavaděč (pokud možno **/dev/sda**) a potom vyberte **Enter**.
 
+1. Vyberte **pokračovat**a potom vyberte **Enter** k dokončení instalace.
 
-![Vyberte disk](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
+    ![Dokončení instalace](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
 
-**Krok 17:** vyberte **Ano** k zápisu změn na disk a potom vyberte **Enter**.
+1. Po dokončení instalace, přihlaste se k virtuálnímu počítači s novými pověřeními uživatele. (Odkazovat na **krok 10** Další informace.)
 
-![Zápis změn na disk](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image16.png)
+1. Pomocí kroků popsaných v následující snímek obrazovky nastavení KOŘENOVÉ heslo uživatele. Přihlaste se jako KOŘENOVÉ uživatele.
 
-**Krok 18:** vyberte možnost výchozí, vyberte **pokračovat**a potom vyberte **Enter**.
-
-![Vyberte možnost výchozí](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
-
-**Krok 19:** vyberte příslušnou možnost pro správu upgrady systému a pak vyberte **Enter**.
-
-![Vyberte, jak spravovat upgrady](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
-
-> [!WARNING]
-> Protože Azure Site Recovery hlavní cílový server vyžaduje velmi konkrétní verzi Ubuntu, musíte zajistit, aby jádra zakázali upgrady pro virtuální počítač. Pokud se povolí, nějaké regulární upgrady způsobit hlavní cílový server fungovat správně. Zkontrolujte, zda jste vybrali **žádné automatické aktualizace** možnost.
+    ![Nastavení KOŘENOVÉ heslo uživatele](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
 
 
-**Krok 20:** vyberte výchozí možnosti. Pokud chcete openSSH pro připojení SSH, vyberte **OpenSSH server** a pak vyberte možnost **pokračovat**.
+### <a name="configure-the-machine-as-a-master-target-server"></a>Nakonfigurujte počítač jako hlavní cílový server
 
-![Vyberte software](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
-
-**Krok 21:** vyberte **Ano**a potom vyberte **Enter**.
-
-![Isntall spouštěcí zavaděč GRUB](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image20.png)
-
-**Krok 22:** vyberte odpovídající zařízení, pro instalaci spouštěcí zavaděč (pokud možno **/dev/sda**) a potom vyberte **Enter**.
-
-![Vyberte zařízení, které spouštěcí zavaděč instalace](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image21.png)
-
-**Krok 23:** vyberte **pokračovat**a potom vyberte **Enter** k dokončení instalace.
-
-![Dokončení instalace](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
-
-Po dokončení instalace, přihlaste se k virtuálnímu počítači s novými pověřeními uživatele. (Odkazovat na **krok 10** Další informace.)
-
-Proveďte kroky, které jsou popsány v následující snímek obrazovky nastavení hesla uživatele ROOT. Přihlaste se jako KOŘENOVÉ uživatele.
-
-![Nastavení KOŘENOVÉ heslo uživatele](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
-
-
-### <a name="prepare-the-machine-for-configuration-as-a-master-target-server"></a>Příprava pro konfiguraci počítače jako hlavní cílový server
-V dalším kroku Příprava počítače pro konfiguraci jako hlavní cílový server.
-
-Chcete-li získat ID pro každý SCSI pevný disk ve virtuálním počítači Linux, povolte **disku. EnableUUID = TRUE** parametr.
-
-Chcete-li tento parametr, proveďte následující kroky:
+Chcete-li získat ID pro každý SCSI pevný disk ve virtuálním počítači Linux, **disku. EnableUUID = TRUE** parametr musí být povolena. Chcete-li tento parametr, proveďte následující kroky:
 
 1. Vypněte virtuální počítač.
 
@@ -206,34 +177,29 @@ Chcete-li tento parametr, proveďte následující kroky:
 
 #### <a name="disable-kernel-upgrades"></a>Zakázat upgrady jádra
 
-Azure Site Recovery hlavní cílový server vyžaduje konkrétní verzi Ubuntu, zkontrolujte, zda jsou pro virtuální počítač vypnutá upgrady jádra.
-
-Pokud upgrady jádra jsou povolené, jakékoli regulární upgrady způsobit hlavní cílový server fungovat správně.
+Azure Site Recovery hlavní cílový server vyžaduje konkrétní verzi Ubuntu, zkontrolujte, zda jsou pro virtuální počítač vypnutá upgrady jádra. Pokud jsou povolené jádra upgrady, může to způsobit hlavní cílový server fungovat správně.
 
 #### <a name="download-and-install-additional-packages"></a>Stáhněte a nainstalujte další balíčky
 
 > [!NOTE]
 > Ujistěte se, že máte připojení k Internetu stáhněte a nainstalujte další balíčky. Pokud nemáte připojení k Internetu, budete muset ručně najít tyto balíčky ot. / min a nainstalovat je.
 
-```
-apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx
-```
+ `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
 ### <a name="get-the-installer-for-setup"></a>Získání Instalační program pro instalaci
 
 Pokud hlavní cíl má připojení k Internetu, můžete použít následující kroky stáhnout instalační program. Jinak můžete zkopírujte instalační službu z procesového serveru a nainstalujte ji.
 
-#### <a name="download-the-master-target-installation-packages"></a>Stáhněte si instalační balíčky hlavní cíl
+#### <a name="download-the-master-target-installation-packages"></a>Stáhněte si instalační balíčky hlavního cílového serveru
 
-[Stáhněte si nejnovější bits instalace hlavní cíl Linux](https://aka.ms/latestlinuxmobsvc).
+[Stáhněte si nejnovější bits instalace hlavního cíle Linuxu](https://aka.ms/latestlinuxmobsvc).
 
-Chcete-li stáhnout ji pomocí Linux, zadejte:
+Chcete-li stáhnout pomocí Linux, zadejte:
 
-```
-wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
-```
+`wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
-Ujistěte se, stáhněte a rozbalte instalační program v domovském adresáři. Pokud rozbalte k **/usr/místní**, instalace selže.
+> [!WARNING]
+> Ujistěte se, stáhněte a rozbalte instalační program v domovském adresáři. Pokud rozbalte k **/usr/místní**, instalace selže.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Přístup k Instalační program z procesového serveru
@@ -249,44 +215,44 @@ Chcete-li použít změny v vlastní konfigurace, použijte následující kroky
 
 
 1. Spusťte následující příkaz, který untar binárního souboru.
-    ```
-    tar -zxvf latestlinuxmobsvc.tar.gz
-    ```
+
+    `tar -zxvf latestlinuxmobsvc.tar.gz`
+
     ![Snímek obrazovky příkaz ke spuštění](./media/site-recovery-how-to-install-linux-master-target/image16.png)
 
 2. Spusťte následující příkaz, který udělit oprávnění.
-    ```
-    chmod 755 ./ApplyCustomChanges.sh
-    ```
+
+    `chmod 755 ./ApplyCustomChanges.sh`
+
 
 3. Spusťte následující příkaz pro spuštění skriptu.
-    ```
-    ./ApplyCustomChanges.sh
-    ```
+    
+    `./ApplyCustomChanges.sh`
+
 > [!NOTE]
-> Spusťte skript jenom jednou na serveru. Vypněte server. Restartujte server po přidat disk, jak je popsáno v následující části.
+> Spusťte skript jenom jednou na serveru. Potom vypněte server. Po přidání disku, jak je popsáno v další části, restartujte server.
 
 ### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>Přidejte uchování disk k virtuálnímu počítači hlavního cíle Linuxu
 
 Pomocí následujících kroků můžete vytvořit disku pro uchování:
 
-1. Připojit nový disk 1 TB k virtuálnímu počítači hlavního cíle Linuxu a potom počítač spustit.
+1. K virtuálnímu počítači hlavního cíle Linuxu připojit nový disk 1 TB a potom počítač spustit.
 
 2. Použití **vícenásobný -udou** příkaz Další funkce multipath ID disku pro uchování.
+    
+     `multipath -ll`
 
-    ```
-    multipath -ll
-    ```
-    ![Vícenásobný ID disku pro uchování](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+        ![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
 3. Formátování disku a pak vytvořit systém souborů na nový disk.
 
-    ```
-    mkfs.ext4 /dev/mapper/<Retention disk's multipath id>
-    ```
+    
+    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
+    
     ![Vytvoření systému souborů na disku](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
 
 4. Po vytvoření systému souborů, připojte disk uchovávání informací.
+
     ```
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
@@ -294,9 +260,9 @@ Pomocí následujících kroků můžete vytvořit disku pro uchování:
     ![Připojení disku pro uchování](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
 5. Vytvořte **fstab** položka připojit jednotka pro uchování pokaždé, když bude systém při spuštění.
-    ```
-    vi /etc/fstab
-    ```
+    
+    `vi /etc/fstab`
+    
     Vyberte **vložit** zahájíte úpravy souboru. Vytvořte nový řádek a potom vložte následující text. Upravte vícenásobný ID disku na základě Identifikátoru zvýrazněná více cest z předchozí příkaz.
 
     **/dev/mapper/ <Retention disks multipath id> /mnt/uchování ext4 rw 0 0**
@@ -310,22 +276,18 @@ Pomocí následujících kroků můžete vytvořit disku pro uchování:
 
 
 > [!NOTE]
-> Než nainstalujete hlavní cílový server, zkontrolujte, zda **/etc/hosts** souboru na virtuální počítač obsahuje položky, které mapují názvem místního hostitele na IP adresy, které jsou přidruženy všechny síťové adaptéry.
+> Než nainstalujete hlavního cílového serveru, zkontrolujte, zda **/etc/hosts** souboru na virtuální počítač obsahuje položky, které mapují názvem místního hostitele na IP adresy, které jsou přidruženy všechny síťové adaptéry.
 
 1. Kopírovat heslo z **C:\ProgramData\Microsoft Azure lokality Recovery\private\connection.passphrase** na konfiguračním serveru. Potom uložte ho jako **passphrase.txt** ve stejném adresáři místní spuštěním následujícího příkazu:
 
-    ```
-    echo <passphrase> >passphrase.txt
-    ```
+    `echo <passphrase> >passphrase.txt`
+
     Příklad: 
+
+       `echo itUx70I47uxDuUVY >passphrase.txt`
     
-    ```
-    echo itUx70I47uxDuUVY >passphrase.txt
-    ```
 
-2. Všimněte si, IP adresa konfiguračního serveru. Budete ho potřebovat v dalším kroku.
-
-3. Spusťte následující příkaz k instalaci hlavní cílový server a registrace serveru u konfigurační server.
+2. Poznamenejte si IP adresu konfiguračního serveru. Spusťte následující příkaz k instalaci hlavního cílového serveru a registrace serveru u konfigurační server.
 
     ```
     ./install -q -d /usr/local/ASR -r MT -v VmWare
@@ -338,10 +300,10 @@ Pomocí následujících kroků můžete vytvořit disku pro uchování:
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-    Počkejte na dokončení skriptu. Pokud se hlavní cíl zaregistruje úspěšně, se hlavní cíl je uvedený na **infrastruktura Site Recovery** stránce portálu.
+Počkejte na dokončení skriptu. Pokud hlavního cíle zaregistruje úspěšně, hlavního cíle je uvedený na **infrastruktura Site Recovery** na portálu.
 
 
-#### <a name="install-the-master-target-by-using-interactive-installation"></a>Instalaci se hlavní cíl pomocí interaktivní instalace
+#### <a name="install-the-master-target-by-using-interactive-installation"></a>Instalace hlavního cíle pomocí interaktivní instalace
 
 1. Spusťte následující příkaz k instalaci na hlavním cíli. Pro roli agenta, vyberte **hlavního cíle**.
 
@@ -357,7 +319,7 @@ Po dokončení instalace zaregistrujte konfigurační server pomocí příkazov�
 
 1. Všimněte si IP adresu konfiguračního serveru. Budete ho potřebovat v dalším kroku.
 
-2. Spusťte následující příkaz k instalaci hlavní cílový server a registrace serveru u konfigurační server.
+2. Spusťte následující příkaz k instalaci hlavního cílového serveru a registrace serveru u konfigurační server.
 
     ```
     ./install -q -d /usr/local/ASR -r MT -v VmWare
@@ -369,34 +331,35 @@ Po dokončení instalace zaregistrujte konfigurační server pomocí příkazov�
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Počkejte na dokončení skriptu. Pokud se hlavní cíl se úspěšně registrována v instalaci, se hlavní cíl je uvedený na **infrastruktura Site Recovery** na portálu.
+     Počkejte na dokončení skriptu. Pokud byla úspěšně zaregistrována hlavního cíle, hlavního cíle je uvedený na **infrastruktura Site Recovery** na portálu.
 
 
-### <a name="upgrade-the-master-target"></a>Upgrade na hlavním cíli
+### <a name="install-vmware-tools-on-the-master-target-server"></a>Instalace nástroje VMware na hlavním cílovém serveru
 
-Spusťte instalační program. Automaticky zjišťuje, zda je agent nainstalovaný na hlavním cíli. Pokud chcete upgradovat, vyberte **Y**.  Po dokončení instalace, zkontrolujte verzi hlavního cíle nainstalován pomocí následujícího příkazu:
+Musíte nainstalovat nástroje VMware na hlavního cíle, aby ho můžete zjistit datová úložiště. Pokud nejsou nainstalovány nástroje, není v úložištích dat, uvedené na obrazovce opětovné ochrany. Po instalaci nástroje VMware je potřeba restartovat.
 
-    ```
-    cat /usr/local/.vx_version
-    ```
+### <a name="upgrade-the-master-target-server"></a>Upgrade hlavní cílový server
 
-Uvidíte, že **verze** pole obsahuje číslo verze se hlavní cíl.
+Spusťte instalační program. Automaticky zjišťuje, zda je agent nainstalovaný na hlavním cíli. Pokud chcete upgradovat, vyberte **Y**.  Po dokončení instalace, zkontrolujte verzi hlavního cíle, nainstalován pomocí následujícího příkazu:
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Nainstalujte nástroje VMware na hlavním cílovém serveru
+`cat /usr/local/.vx_version`
 
-Musíte nainstalovat nástroje VMware na hlavním cíli, aby ho můžete zjistit datová úložiště. Pokud nejsou nainstalovány nástroje, není v úložištích dat, uvedené na obrazovce opětovné ochrany. Po instalaci nástroje VMware je potřeba restartovat.
 
-## <a name="next-steps"></a>Další kroky
+Zobrazí se **verze** pole obsahuje číslo verze se hlavní cíl.
+
+## <a name="common-issues"></a>Běžné problémy
+
+* Ujistěte se, že jste nezapínejte řešení Storage vMotion na žádné součásti správy, jako je hlavní cíl. Pokud se hlavní cíl přesune po úspěšné opětovné ochrany, nelze odpojit disky virtuálního počítače (VMDKs). V takovém případě navrácení služeb po obnovení selže.
+
+* Hlavní cíl by neměl mít všechny snímky na virtuálním počítači. Pokud existují snímky, navrácení služeb po obnovení se nezdaří.
+
+* Z důvodu některých vlastních konfigurací seskupování síťové rozhraní je zakázané během spouštění a nemůže inicializovat agenta hlavního cíle. Ujistěte se, že následující vlastnosti jsou správně nastaveny. Zkontrolujte tyto vlastnosti v Ethernet karty souboru /etc/sysconfig/network-scripts/ifcfg-eth *.
+    * BOOTPROTO=dhcp
+    * ONBOOT = Ano
+
+
+## <a name="next-steps"></a>Další postup
 Po dokončení instalace a registrace hlavního cíle, zobrazí se hlavní cíl se zobrazují v **hlavního cíle** kapitoly **infrastruktura Site Recovery**, v části Konfigurace Přehled serveru.
 
 Teď můžete pokračovat s [vytvoření](site-recovery-how-to-reprotect.md), za nímž následují navrácení služeb po obnovení.
 
-## <a name="common-issues"></a>Běžné problémy
-
-* Ujistěte se, že jste nezapínejte řešení Storage vMotion na žádné součásti správy, jako je hlavní cíl. Pokud se hlavní cíl přesune po úspěšné opětovné ochrany, disků virtuálního počítače (VMDKs) nelze odpojit. V takovém případě navrácení služeb po obnovení selže.
-
-* Hlavní cíl by neměl mít všechny snímky na virtuálním počítači. Pokud existují snímky, navrácení služeb po obnovení se nezdaří.
-
-* Z důvodu některých vlastních konfigurací síťový adaptér v někteří zákazníci síťové rozhraní je zakázané během spouštění a nemůže inicializovat agenta hlavní cíl. Ujistěte se, že následující vlastnosti jsou správně nastaveny. Zkontrolujte tyto vlastnosti v Ethernet karty souboru /etc/sysconfig/network-scripts/ifcfg-eth *.
-    * BOOTPROTO = dhcp
-    * ONBOOT = Ano

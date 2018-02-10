@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Seskupení událostí a kolekce pomocí EventFlow
 
@@ -43,6 +43,9 @@ Po instalaci všech balíčků, dalším krokem je ke konfiguraci a povolení Ev
 
 ## <a name="configure-and-enable-log-collection"></a>Konfigurovat a povolit protokol kolekce
 Odpovědná za zasílání protokolů EventFlow kanálu je vytvořený z specifikaci uložené v konfiguračním souboru. `Microsoft.Diagnostics.EventFlow.ServiceFabric` Balíček nainstaluje výchozí konfigurační soubor EventFlow pod `PackageRoot\Config` složku řešení s názvem `eventFlowConfig.json`. Tento konfigurační soubor je potřeba upravit tak, aby zaznamenání dat z výchozí služba `EventSource` třídy a všechny ostatní vstupy chcete konfigurovat a odesílat data na příslušné místo.
+
+>[!NOTE]
+>Pokud váš projekt soubor má formát 2017 Visual Studio `eventFlowConfig.json` souboru nepřidají automaticky. Opravit to vytvoření souboru v `Config` složky a nastavit akce sestavení na `Copy if newer`. 
 
 Zde je ukázka *eventFlowConfig.json* založené na balíčky NuGet uvedených výše:
 ```json
@@ -150,7 +153,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Spuštění služby a sledovat ladění výstup – okno v sadě Visual Studio. Po spuštění služby, měli byste začít zobrazuje důkaz, že vaše služba odesílá záznamy do výstupu, který jste nakonfigurovali. Přejděte k platformě analýzy a vizualizace událostí a ověřte, že protokoly spustili zobrazíte nahoru (může trvat několik minut).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Analýza události a vizualizace s Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analýza události a vizualizace s OMS](service-fabric-diagnostics-event-analysis-oms.md)

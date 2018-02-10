@@ -12,13 +12,13 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="test-your-solution-with-simulated-devices"></a>Testování řešení pomocí simulovaných zařízení
+# <a name="create-a-new-simulated-device"></a>Vytvoření nového simulovaného zařízení
 
 V tomto kurzu se dozvíte, jak přizpůsobit mikroslužbu simulátoru zařízení v předkonfigurovaného řešení vzdáleného monitorování. Chcete-li zobrazit možnosti v simulátoru zařízení, tento kurz používá dva scénáře v aplikaci Contoso IoT.
 

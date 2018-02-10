@@ -16,10 +16,10 @@ ms.date: 08/29/2017
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 9acce21d544a43adcd0c0983771c02c6bb39caec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-get-your-security-center-alerts-in-azure-log-integration"></a>Jak získat vaše výstrahy Security Center v integraci protokolů Azure
 
@@ -49,7 +49,7 @@ Následující kroky vytvoří požadované objektu služby Azure Active Directo
 
 Pokud narazíte na potíže během instalace a konfigurace, otevřete prosím [žádost o podporu](/azure-supportability/how-to-create-azure-support-request.md), vyberte **integrace protokolu** jako službu, pro kterou jsou žádosti o podporu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o protokolu integrace se službou Azure, najdete v následujících dokumentech:
 
 * [Microsoft Azure protokolu integrace pro Azure protokoly](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center podrobnosti, požadavky na systém a instalovat pokyny týkající se integrace protokolů Azure.

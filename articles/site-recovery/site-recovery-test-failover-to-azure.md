@@ -1,32 +1,25 @@
 ---
-title: "Testovací převzetí služeb při selhání do Azure ve službě Site Recovery | Microsoft Docs"
-description: "Další informace o spuštění testovací převzetí služeb z místní do Azure"
+title: "Testovací převzetí služeb při selhání do Azure ve službě Azure Site Recovery | Microsoft Docs"
+description: "Další informace o spouštění testovací převzetí služeb z místního do Azure pomocí služby Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/16/2017
-ms.author: pratshar
-ms.openlocfilehash: a4555b1cc758e2d4bdd11a16776dc3bb209adee8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 02/08/2018
+ms.author: raynew
+ms.openlocfilehash: c6a227ca78a1312fe315cc6838834ec956a08b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="test--failover-to-azure-in-site-recovery"></a>Testovací převzetí služeb při selhání do Azure ve službě Site Recovery
-
+# <a name="test-failover-to-azure-in-site-recovery"></a>Testovací převzetí služeb při selhání do Azure ve službě Site Recovery
 
 
 Tento článek popisuje, jak spustit postupu zotavení po havárii na Azure, pomocí Site Recovery testovací převzetí služeb.  
 
-Můžete spustit převzetí služeb při selhání k ověření replikace a strategie zotavení po havárii bez ztráty dat nebo výpadek. Testovací převzetí služeb nebude mít vliv na probíhající replikace, nebo v provozním prostředí. Můžete spustit testovací převzetí služeb na konkrétní virtuální počítač (VM), nebo na [plán obnovení](site-recovery-create-recovery-plans.md) obsahující více virtuálních počítačů. 
+Můžete spustit převzetí služeb při selhání k ověření replikace a strategie zotavení po havárii, aniž by ztrátě dat nebo výpadek. Testovací převzetí služeb nebude mít vliv na probíhající replikace, nebo v provozním prostředí. Můžete spustit testovací převzetí služeb na konkrétní virtuální počítač (VM), nebo na [plán obnovení](site-recovery-create-recovery-plans.md) obsahující více virtuálních počítačů. 
 
 
 ## <a name="run-a-test-failover"></a>Spuštění testovacího převzetí služeb při selhání
@@ -50,7 +43,7 @@ Tento postup popisuje, jak spouštět testovací převzetí služeb při selhán
     - Pokud stejnou IP adresu není dostupná v podsíti, virtuální počítač přijímá další dostupnou IP adresu v podsíti. [Další informace](#creating-a-network-for-test-failover).
 4. Pokud jste selhání do Azure a je-li povoleno šifrování dat, v **šifrovací klíč**, vyberte certifikát, který byl vydán, když je povolené šifrování během instalace zprostředkovatele. Můžete tento krok ignorovat šifrování není povoleno.
 5. Sledovat průběh převzetí služeb při selhání **úlohy** kartě. Nyní byste měli mít najdete v části testovací počítač repliky na portálu Azure.
-6. Chcete-li iniciovat připojení ke vzdálené ploše virtuálního počítače Azure, je potřeba [přidejte veřejnou IP adresu](site-recovery-monitoring-and-troubleshooting.md) v síťovém rozhraní selhání virtuálního počítače. 
+6. Chcete-li iniciovat připojení ke vzdálené ploše virtuálního počítače Azure, je potřeba [přidejte veřejnou IP adresu](https://aka.ms/addpublicip) v síťovém rozhraní selhání virtuálního počítače. 
 7. Pokud se vše funguje podle očekávání, klikněte na tlačítko **vyčistit testovací převzetí služeb při selhání**. Tím odstraní virtuální počítače, které byly vytvořeny během testovacího převzetí služeb při selhání.
 8. V **poznámky**, zaznamenejte a uložte jakékoli připomínky související s testovací převzetí služeb. 
 
@@ -113,9 +106,9 @@ Pokud se chcete připojit k virtuálním počítačům Azure po převzetí služ
 **Převzetí služeb při selhání** | **Umístění** | **Akce**
 --- | --- | ---
 **Virtuální počítač Azure s Windows** | Na místním počítači před převzetí služeb při selhání | Přístup k virtuálnímu počítači Azure přes internet, povolení protokolu RDP a ujistěte se, že přidána pravidla TCP a UDP pro **veřejné**, a že protokol RDP je povoleno pro všechny profily v **brány Windows Firewall**  >  **Aplikace s povoleným**.<br/><br/> Přístup k virtuálnímu počítači Azure přes připojení site-to-site, povolte RDP na počítači a zajistit, aby se v protokolu RDP **brány Windows Firewall** -> **povolené aplikace a funkce**, pro **Domény a privátní** sítě.<br/><br/>  Ujistěte se, že operační systém zásad sítě SAN je nastaven **OnlineAll**. [Další informace](https://support.microsoft.com/kb/3031135).<br/><br/> Ujistěte se, že nejsou dostupné žádné aktualizace Windows čekající na vyřízení ve virtuálním počítači při aktivaci převzetí služeb při selhání. Služby Windows update může spustit, když jste převzetí služeb při selhání a nebudete moci přihlásit do virtuálního počítače, až do dokončení aktualizace. 
-**Virtuální počítač Azure s Windows** | Virtuální počítač Azure po převzetí služeb při selhání |  [Přidejte veřejnou IP adresu](site-recovery-monitoring-and-troubleshooting.md) pro virtuální počítač.<br/><br/> Pravidla skupiny zabezpečení sítě na selhání virtuálního počítače (a v podsíti Azure, ke kterému je připojený) je potřeba povolit příchozí připojení k portu RDP.<br/><br/> Zkontrolujte **spouštění diagnostiky** ověření snímek virtuálního počítače.<br/><br/> Pokud se nemůžete připojit, zkontrolujte, zda je virtuální počítač spuštěn a zkontrolujte tyto [tipy pro odstraňování potíží](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Virtuální počítač Azure s Windows** | Virtuální počítač Azure po převzetí služeb při selhání |  [Přidejte veřejnou IP adresu](https://aka.ms/addpublicip) pro virtuální počítač.<br/><br/> Pravidla skupiny zabezpečení sítě na selhání virtuálního počítače (a v podsíti Azure, ke kterému je připojený) je potřeba povolit příchozí připojení k portu RDP.<br/><br/> Zkontrolujte **spouštění diagnostiky** ověření snímek virtuálního počítače.<br/><br/> Pokud se nemůžete připojit, zkontrolujte, zda je virtuální počítač spuštěn a zkontrolujte tyto [tipy pro odstraňování potíží](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Virtuální počítač Azure s Linuxem** | Na místním počítači před převzetí služeb při selhání | Zkontrolujte, že služba Secure Shell na virtuálním počítači je nastavená na automatické spuštění při spuštění systému.<br/><br/> Zkontrolujte, jestli pravidla brány firewall umožňují službě SSH připojit se k ní.
-**Virtuální počítač Azure s Linuxem** | Virtuální počítač Azure po převzetí služeb při selhání | Pravidla skupiny zabezpečení sítě na selhání virtuálního počítače (a v podsíti Azure, ke kterému je připojený) je potřeba povolit příchozí připojení na portu SSH.<br/><br/> [Přidejte veřejnou IP adresu](site-recovery-monitoring-and-troubleshooting.md) pro virtuální počítač.<br/><br/> Zkontrolujte **spouštění diagnostiky** pro snímek virtuálního počítače.<br/><br/>
+**Virtuální počítač Azure s Linuxem** | Virtuální počítač Azure po převzetí služeb při selhání | Pravidla skupiny zabezpečení sítě na selhání virtuálního počítače (a v podsíti Azure, ke kterému je připojený) je potřeba povolit příchozí připojení na portu SSH.<br/><br/> [Přidejte veřejnou IP adresu](https://aka.ms/addpublicip) pro virtuální počítač.<br/><br/> Zkontrolujte **spouštění diagnostiky** pro snímek virtuálního počítače.<br/><br/>
 
 
 

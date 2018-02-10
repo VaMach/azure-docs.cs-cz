@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bcf80fe8f10ae8c81b5eea94137bd62558a6447a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Kopírování dat z a do Dynamics 365 nebo Dynamics CRM pomocí Azure Data Factory
 
@@ -66,7 +66,7 @@ Následující vlastnosti jsou podporovány pro Dynamics propojené služby.
 | Název organizace | Název organizace Dynamics instance. | Ne, by měl určovat po více než jedna instance Dynamics přidružené k uživateli |
 | authenticationType. | Typ ověřování pro připojení k serveru Dynamics. Zadejte **"Office 365"** pro Dynamics online. | Ano |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k aplikaci Dynamics. | Ano |
-| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
+| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Žádné zdroje, Ano pro sink Pokud zdroj propojené služby nemá modulu runtime integrace |
 
 >[!IMPORTANT]

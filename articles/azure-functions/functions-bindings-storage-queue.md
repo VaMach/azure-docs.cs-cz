@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure vazby fronty úložiště pro Azure Functions
 
@@ -215,7 +215,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 |**Typ** | neuvedeno| musí být nastavena na `queueTrigger`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
 |**směr**| neuvedeno | V *function.json* pouze souboru. musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
-|**Jméno** | neuvedeno |Název proměnné, která představuje ve frontě v kód funkce.  | 
+|**name** | neuvedeno |Název proměnné, která představuje ve frontě v kód funkce.  | 
 |**queueName** | **QueueName**| Název fronty pro cyklické dotazování. | 
 |**připojení** | **Připojení** |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
 
@@ -437,8 +437,8 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | musí být nastavena na `queue`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
 |**směr** | neuvedeno | musí být nastavena na `out`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
-|**Jméno** | neuvedeno | Název proměnné, která představuje ve frontě v kód funkce. Nastavte na `$return` Chcete-li funkce návratovou hodnotu.| 
-|**queueName** |**QueueName** | Název fronty | 
+|**name** | neuvedeno | Název proměnné, která představuje ve frontě v kód funkce. Nastavte na `$return` Chcete-li funkce návratovou hodnotu.| 
+|**queueName** |**QueueName** | Název fronty. | 
 |**připojení** | **Připojení** |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -458,6 +458,15 @@ V jazyce C# a C# skript zápis více fronty zpráv pomocí jedné z následujíc
 * [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
 V funkce jazyka JavaScript, použijte `context.bindings.<name>` pro přístup ke zprávě výstupní fronty. Řetězec nebo objekt JSON serializovatelný můžete použít pro datová položka fronty.
+
+
+## <a name="exceptions-and-return-codes"></a>Výjimky a návratové kódy
+
+| Vazba |  Referenční informace |
+|---|---|
+| Fronta | [Kódy chyb fronty](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Objekt BLOB, tabulky, fronty | [Kódy chyb úložiště](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Objekt BLOB, tabulky, fronty |  [Řešení potíží](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Další postup
 

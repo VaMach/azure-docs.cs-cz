@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 71caf0e1d58107376888ae454713703d845101eb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalizace prostředí SQL s řešením kontroly stavu serveru SQL v analýzy protokolů
 
@@ -174,7 +174,7 @@ Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a
 ## <a name="ignore-recommendations"></a>Ignorovat doporučení
 Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový soubor, který analýzy protokolů použije k zabránění doporučení ze storu ve výsledky hodnocení.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>K identifikaci doporučení, které se budou ignorovat.
 1. Na stránce pracovní prostor analýzy protokolů pro vaši vybranou pracovní prostor na portálu Azure, klikněte na tlačítko **hledání protokolů** dlaždici.

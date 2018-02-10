@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9c3a725d0d0c5091a280c3fb99279757f1e014f1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9151647e29251b627db605d1f1c6c5809bd67269
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Kopírování dat z QuickBooks pomocí Azure Data Factory (Beta)
 
@@ -52,8 +52,8 @@ Pro QuickBooks propojené služby jsou podporovány následující vlastnosti:
 | type | Vlastnost typu musí být nastavena na: **QuickBooks** | Ano |
 | endpoint | Koncový bod serveru QuickBooks. (to znamená, quickbooks.api.intuit.com)  | Ano |
 | ID společnosti | ID společnosti QuickBooks společnosti k autorizaci.  | Ano |
-| accessToken | Přístupový token pro ověřování OAuth 1.0. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
-| accessTokenSecret | Přístup k tokenu tajný klíč pro ověřování OAuth 1.0. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ano |
+| accessToken | Přístupový token pro ověřování OAuth 1.0. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
+| accessTokenSecret | Přístup k tokenu tajný klíč pro ověřování OAuth 1.0. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
 
 **Příklad:**
@@ -101,7 +101,7 @@ Chcete-li zkopírovat data z QuickBooks, nastavte vlastnost typu datové sady, k
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje QuickBooks zdroje.
 

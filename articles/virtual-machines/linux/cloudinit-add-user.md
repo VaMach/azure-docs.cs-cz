@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 728ffed27747cb298d5da312014a3c9e98b44f1e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce4421fc8276f215564cb7a171a215cc166c8517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Přidání uživatele do virtuálního počítače s Linuxem v Azure pomocí init cloudu
 V tomto článku se dozvíte, jak používat [cloudu init](https://cloudinit.readthedocs.io) přidat uživatele na virtuální počítač (VM) nebo virtuální počítač sadách škálování (VMSS) na zřizování čas v Azure. Tento skript cloudu init spouští při prvním spuštění počítače po prostředky se zřizují pomocí Azure. Další informace o cloudu init fungování nativně ve službě Azure a podporovaných distribucích systému Linux najdete v tématu [cloudu init přehled](using-cloud-init.md).
@@ -26,7 +26,7 @@ V tomto článku se dozvíte, jak používat [cloudu init](https://cloudinit.rea
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Přidání uživatele do virtuálního počítače s inicializací cloudu
 Jedním z první úlohy na žádné nové virtuální počítače Linux je potřeba přidat další uživatelské sami nepoužívejte *kořenové*. Klíče SSH jsou vhodné pro zabezpečení a použitelnost. Klíče jsou přidány do *~/.ssh/authorized_keys* souboru pomocí tohoto skriptu init cloudu.
 
-Chcete-li přidat uživatele do virtuálního počítače s Linuxem, vytvořte soubor ve své aktuální prostředí s názvem *cloud_init_add_user.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadejte `sensible-editor cloud_init_add_user.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Zvolte #1 používat **nano** editor. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek.  Je třeba zadat veřejný klíč (například obsah *~/.ssh/id_rsa.pub*) na hodnotu `ssh-authorized-keys:` -má byla zkrácena sem pro zjednodušení příkladu.
+Chcete-li přidat uživatele do virtuálního počítače s Linuxem, vytvořte soubor ve své aktuální prostředí s názvem *cloud_init_add_user.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadáním příkazu `sensible-editor cloud_init_add_user.txt` soubor vytvořte a zobrazte seznam editorů k dispozici. Zvolte #1 používat **nano** editor. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek.  Je třeba zadat veřejný klíč (například obsah *~/.ssh/id_rsa.pub*) na hodnotu `ssh-authorized-keys:` -má byla zkrácena sem pro zjednodušení příkladu.
 
 ```yaml
 #cloud-config
@@ -42,13 +42,13 @@ users:
 > [!NOTE] 
 > Zahrnuje #cloudu konfiguračním souboru `- default` parametr zahrnuty. Uživatel, to se připojí ke stávající správce vytvořené při zřizování. Pokud vytvoříte uživatele bez `- default` parametr - uživatele automaticky generovaného správce vytvořit platformou Azure by být přepsána. 
 
-Než nasadíte tuto bitovou kopii, je nutné vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
+Než nasadíte tuto bitovou kopii, je nutné vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create) a určete soubor init cloudu s `--custom-data cloud_init_add_user.txt` následujícím způsobem:
+Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) a určete soubor init cloudu s `--custom-data cloud_init_add_user.txt` následujícím způsobem:
 
 ```azurecli-interactive 
 az vm create \
@@ -81,7 +81,7 @@ sudo:x:27:myadminuser
 myadminuser:x:1000:
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Mezi další cloudu init změny konfigurace naleznete v následujících tématech:
  
 - [Přidání další uživatele Linux do virtuálního počítače](cloudinit-add-user.md)

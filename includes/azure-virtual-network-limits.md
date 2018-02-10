@@ -52,7 +52,7 @@ Následující omezení platí pouze pro síťové prostředky spravované přes
 | Pravidla na prostředek, Basic | 150 | 250 |
 | Pravidla na prostředek, Standard | 1250 | 1 500 |
 | Pravidla pro konfiguraci protokolu IP | 299 |299 |
-| Konfigurace IP front-endu, Basic | 10 | kontaktovat podporu |
+| Konfigurace IP front-endu, Basic | 10 | 200 |
 | Konfigurace IP front-endu, Standard | 10 | 600 |
 | Fond back-end, Basic | 100, jedna skupina dostupnosti | - |
 | Fond back-end, Standard | 1000, jedna virtuální síť | - |

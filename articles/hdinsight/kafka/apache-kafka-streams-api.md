@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Apache Kafka streams API
 
@@ -100,6 +100,12 @@ Použijte následující postup pro sestavení a nasazení projektu do vaší Ka
     * Spustit producent, který zapíše do `test` tématu.
     * Spustit příjemce, aby mohli zobrazit výstup zapsán do `wordcounts` tématu
 
+    > [!NOTE]
+    > Musíte ověřit, jestli `auto.create.topics.enable` je nastavena na `true` v konfiguračním souboru Kafka zprostředkovatele. Tato vlastnost může být prohlížet a upravovat v pokročilé Kafka zprostředkovatele konfiguračního souboru pomocí webového uživatelského rozhraní Ambari. Jinak je potřeba vytvořit zprostředkující tématu `RekeyedIntermediateTopic` ručně před spuštěním v tomto příkladu pomocí následujícího příkazu:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     Tyto operace může provést otevřením tři relace SSH. Ale pak budete muset nastavit `$KAFKABROKERS` a `$KAFKAZKHOSTS` pro každou spuštěním kroku 4 z tohoto oddílu v každé relaci SSH. Jednodušší řešením je použití `tmux` nástroje, které můžete rozdělit aktuální zobrazení SSH do více oddílů. Ke spuštění datového proudu, výrobce a příjemce pomocí `tmux`, použijte následující příkaz:
 
     ```bash
@@ -143,9 +149,9 @@ V tomto dokumentu jste zjistili, jak používat rozhraní API datové proudy Kaf
 
 * [Analýza protokolů Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Replikace dat mezi clustery Kafka](apache-kafka-mirroring.md)
-* [Kafka producent a příjemce rozhraní API s HDInsight](apache-kafka-producer-consumer-api.md)
+* [Rozhraní API pro producenta a konzumenta Kafka pomocí HDInsight](apache-kafka-producer-consumer-api.md)
 * [Použití streamování Apache Sparku (DStream) se systémem Kafka ve službě HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Použití strukturovaného streamování Apache Sparku se systémem Kafka ve službě HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Použití Apache Spark strukturovaných streamování pro přesun dat z Kafka v HDInsight k databázi systému Cosmos](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [Požití strukturovaného streamu Apache Spark k přesunu dat z Kafka na HDInsight do Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Použití Apache Stormu se systémem Kafka ve službě HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Připojení k systému Kafka přes virtuální síť Azure](apache-kafka-connect-vpn-gateway.md)

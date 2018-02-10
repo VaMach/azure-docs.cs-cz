@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Příručka pro vývojáře Azure funkce
 V Azure Functions se konkrétní funkce sdílet několik klíčových technických konceptech a součásti, bez ohledu na jazyk nebo vazby, které používáte. Před přechodem do učení podrobnosti, které jsou specifické pro daný jazyk nebo vazby, nezapomeňte si přečíst tento přehled, který se vztahuje na všechny z nich.
@@ -117,6 +117,8 @@ Kód pro Azure Functions je open source a uložené v úložišť GitHub:
 Zde je tabulku všechny podporované vazby.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+Máte potíže s chybami pocházejících z vazby? Zkontrolujte [kódy chyb vazby funkcí Azure](functions-bindings-error-pages.md) dokumentaci.
 
 ## <a name="reporting-issues"></a>Hlášení problémů
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

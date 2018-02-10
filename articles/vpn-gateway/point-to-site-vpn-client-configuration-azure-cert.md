@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2018
+ms.date: 02/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Vytvoření a instalace souborů konfigurace klienta VPN pro nativní Azure certifikát ověřování P2S konfigurace
 
@@ -72,8 +72,9 @@ Pomocí následujícího postupu můžete nakonfigurovat Nativní klient VPN ve 
 1. Vyberte konfigurační soubory klienta VPN, které odpovídá architektuře počítače Windows. Pro 64bitový procesor architekturu vyberte balíček Instalační služby 'VpnClientSetupAmd64'. Pro architekturu procesoru 32-bit vyberte balíček Instalační služby 'VpnClientSetupX86'. 
 2. Dvakrát klikněte na balíček k její instalaci. Pokud se zobrazí automaticky otevírané okno filtru SmartScreen, klikněte na **Další informace** a potom na **Přesto spustit**.
 3. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Připojení k síti VPN zobrazuje název virtuální sítě, ke které se připojuje. 
+4. Před dalším pokusem o připojení, ověřte, zda jste nainstalovali klientský certifikát na klientském počítači. Klientský certifikát je potřeba pro ověřování, při použití nativní Azure certifikát typ ověřování. Další informace o generování certifikátů najdete v tématu [generovat certifikáty](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Informace o tom, jak nainstalovat certifikát klienta najdete v tématu [nainstalovat certifikát klienta](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="installmac"></a>Konfigurace klienta VPN na počítače Mac (OSX)
+## <a name="installmac"></a>Konfigurace klienta VPN na počítače Mac (OS X)
 
 Azure neposkytuje mobileconfig soubor pro ověření certifikátu nativní Azure. Budete muset ručně nakonfigurovat Nativní klient IKEv2 VPN v každé Mac, který se připojí k Azure. **Obecné** složka obsahuje všechny informace, které je třeba ji nakonfigurovat. Pokud nevidíte obecné složce v stahování, je pravděpodobné, že IKEv2 nebyl vybrán jako typ tunelového propojení. Pokud je vybraná IKEv2, generujte souboru zip a načtěte obecné složce. Obecné složce obsahuje následující soubory:
 
@@ -90,27 +91,28 @@ Klikněte na tlačítko **přidat** k importu.
     >[!NOTE]
     >Dvojitým kliknutím na certifikátu nemusí být zobrazeny **přidat** dialogové okno, ale certifikát je nainstalovaný do správného úložiště. Můžete zkontrolovat pro certifikát v řetězci klíčů přihlášení v kategorii certifikáty.
   
-2. Otevřete **sítě** dialogové okno pod **sítě Předvolby** a klikněte na tlačítko **'+'** k vytvoření nového profilu připojení VPN klienta pro připojení P2S k virtuální síti Azure.
+2. Ověřte, že jste nainstalovali klientský certifikát, který byl vydán kořenový certifikát, který jste nahráli do Azure, když jste nakonfigurovali nastavení P2S. To se liší od VPNServerRoot, který jste nainstalovali v předchozím kroku. Klientský certifikát slouží k ověřování a je vyžadován. Další informace o generování certifikátů najdete v tématu [generovat certifikáty](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Informace o tom, jak nainstalovat certifikát klienta najdete v tématu [nainstalovat certifikát klienta](point-to-site-how-to-vpn-client-install-azure-cert.md).
+3. Otevřete **sítě** dialogové okno pod **sítě Předvolby** a klikněte na tlačítko **'+'** k vytvoření nového profilu připojení VPN klienta pro připojení P2S k virtuální síti Azure.
 
   **Rozhraní** hodnota je "VPN" a **typ sítě VPN** hodnota je 'IKEv2'. Zadejte název pro profil v **název služby** pole a pak klikněte na **vytvořit** k vytvoření profilu připojení klienta VPN.
 
   ![Sítě](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-3. V **Obecné** složky, z **VpnSettings.xml** souboru, zkopírujte **VpnServer** hodnota značky. Vložte tuto hodnotu v **adresu serveru** a **vzdáleného ID** pole profilu.
+4. V **Obecné** složky, z **VpnSettings.xml** souboru, zkopírujte **VpnServer** hodnota značky. Vložte tuto hodnotu v **adresu serveru** a **vzdáleného ID** pole profilu.
 
   ![informace o serveru](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-4. Klikněte na tlačítko **nastavení ověřování** a vyberte **certifikát**. 
+5. Klikněte na tlačítko **nastavení ověřování** a vyberte **certifikát**. 
 
   ![nastavení ověřování](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Klikněte na tlačítko **vyberte...** a vyberte certifikát klienta, který chcete použít pro ověřování. Klientský certifikát by měl být již nainstalován na počítači (viz krok #2 **P2S pracovního postupu** část výše).
+6. Klikněte na tlačítko **vyberte...** a vyberte certifikát klienta, který chcete použít pro ověřování. To je certifikát, který jste nainstalovali v kroku 2.
 
   ![certifikát](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-6. **Vyberte Identity** zobrazí seznam certifikátů můžete vybírat. Vybrat vhodný certifikát a potom klikněte na **pokračovat**.
+7. **Vyberte Identity** zobrazí seznam certifikátů můžete vybírat. Vybrat vhodný certifikát a potom klikněte na **pokračovat**.
 
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. V **místní ID** pole, zadejte název certifikátu (z kroku 6). V tomto příkladu je "ikev2Client.com". Potom klikněte na **použít** tlačítko a uložte změny.
+8. V **místní ID** pole, zadejte název certifikátu (z kroku 6). V tomto příkladu je "ikev2Client.com". Potom klikněte na **použít** tlačítko a uložte změny.
 
   ![použít](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-8. Na **sítě** dialogové okno, klikněte na tlačítko **použít** uložit všechny změny. Potom klikněte na **Connect** spustit připojení P2S do virtuální sítě Azure.
+9. Na **sítě** dialogové okno, klikněte na tlačítko **použít** uložit všechny změny. Potom klikněte na **Connect** spustit připojení P2S do virtuální sítě Azure.
 
 ## <a name="next-steps"></a>Další kroky
 

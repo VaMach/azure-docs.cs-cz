@@ -14,41 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: tiandert; bwren
-ms.openlocfilehash: 5f81150a0ef60cbf10010374f1ec80b0c05b6c6f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ba86789a9571c4b09a0224e6c41497f091968ef8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation scénář – zřizování se AWS virtuální počítač
-V tomto článku jsme ukazují, jak můžete využít Azure Automation pro zřízení virtuálního počítače ve vašem předplatném Amazon Web Service (AWS) a pojmenujte tohoto virtuálního počítače konkrétní název – AWS označuje jako "označování" virtuální počítač.
+V tomto článku se dozvíte, jak můžete využít Azure Automation pro zřízení virtuálního počítače ve vašem předplatném Amazon Web Service (AWS) a pojmenujte tohoto virtuálního počítače konkrétní název – AWS označuje jako "označování" virtuální počítač.
 
 ## <a name="prerequisites"></a>Požadavky
-Pro účely tohoto článku musíte mít účet Azure Automation a předplatné AWS. Další informace o vytvoření účtu Azure Automation a nastavit ho pomocí svých přihlašovacích údajů AWS předplatné, zkontrolujte [konfigurace ověřování pomocí Amazon Web Services](automation-config-aws-account.md).  Tento účet by měl vytvořit nebo aktualizovat pomocí svých přihlašovacích údajů AWS předplatné než budete pokračovat, protože jsme bude odkazovat na tento účet v následujících krocích.
+Pro účely tohoto článku musíte mít účet Azure Automation a předplatné AWS. Další informace o vytvoření účtu Azure Automation a nastavit ho pomocí svých přihlašovacích údajů AWS předplatné, zkontrolujte [konfigurace ověřování pomocí Amazon Web Services](automation-config-aws-account.md). Tento účet by měl vytvořit nebo aktualizovat pomocí svých přihlašovacích údajů AWS předplatné než budete pokračovat, protože odkazujete tento účet v následujících krocích.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Nasazení modulu Amazon Web Services prostředí PowerShell
-Náš runbook zřizování virtuálních počítačů bude využít modul AWS PowerShell ke své práci. Proveďte následující kroky pro přidání modulu ke svému účtu Automation, který je nakonfigurovaný pomocí svých přihlašovacích údajů AWS předplatného.  
+Virtuální počítač zřizování runbook využívá modul AWS PowerShell ke své práci. Proveďte následující kroky pro přidání modulu ke svému účtu Automation, který je nakonfigurovaný pomocí svých přihlašovacích údajů AWS předplatného.  
 
 1. Otevřete webový prohlížeč a přejděte do [Galerie prostředí PowerShell](http://www.powershellgallery.com/packages/AWSPowerShell/) a klikněte na **nasadit do Azure Automation tlačítko**.<br><br> ![Import modulu AWS PS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
-2. Budete přesměrováni na stránku přihlášení k Azure a po ověření, můžete se směruje na portálu Azure a zobrazí se následující stránka.<br><br> ![Import modulu stránky](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
-3. Vyberte skupinu prostředků z **skupiny prostředků** rozevíracího seznamu a v podokně parametry, zadejte následující informace:
-   
-   * Z **nový nebo existující účet služby Automation (string)** rozevíracího seznamu vyberte **existující**.  
-   * V **název účtu Automation (string)** pole, zadejte přesný název účtu Automation, který obsahuje přihlašovací údaje pro vaše předplatné AWS.  Například, pokud jste vytvořili vyhrazený účet s názvem **AWSAutomation**, který bude, zadejte do pole.
-   * Vyberte příslušnou oblast z **umístění účtu Automation** rozevíracího seznamu.
-4. Pokud jste dokončili, zadáte požadované informace, klikněte na tlačítko **vytvořit**.
-   
+2. Budete přesměrováni na stránku přihlášení k Azure a po ověření, můžete se směruje na portálu Azure a zobrazí se následující stránka:<br><br> ![Import modulu stránky](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
+3. Vyberte účet Automation, který chcete použít a klikněte na **OK** ke spuštění nasazení.
+
    > [!NOTE]
    > Při importu do Azure Automation modul prostředí PowerShell, ho je také extrahování rutiny a tyto aktivity se nezobrazí, dokud modul úplně nedokončí import a extrahování rutiny. Tento proces může trvat několik minut.  
    > <br>
-   > 
-   > 
-5. Na portálu Azure otevřete účet Automation z kroku 3.
-6. Klikněte na **prostředky** dlaždici a na **prostředky** podokně, vyberte **moduly** dlaždici.
-7. Na **moduly** stránky se zobrazí **AWSPowerShell** modulu v seznamu.
+
+1. Na portálu Azure otevřete účet Automation z kroku 3.
+2. Klikněte na **prostředky** dlaždici a na **prostředky** podokně, vyberte **moduly** dlaždici.
+3. Na **moduly** stránky, uvidíte **AWSPowerShell** modulu v seznamu.
 
 ## <a name="create-aws-deploy-vm-runbook"></a>Vytvoření AWS nasazení virtuálních počítačů sady runbook
-Jakmile nasazený modul PowerShell AWS, jsme teď můžete vytvářet sady runbook k automatizaci zřízení virtuálního počítače v AWS pomocí skriptu prostředí PowerShell. Následující postup popisuje, jak využívat nativní skript prostředí PowerShell ve službě Azure Automation.  
+Po nasazený modul PowerShell AWS, teď můžete vytvářet sady runbook k automatizaci zřízení virtuálního počítače v AWS pomocí skriptu prostředí PowerShell. Následující kroky ukazují, jak využívat nativní skript prostředí PowerShell ve službě Azure Automation.  
 
 > [!NOTE]
 > Pro další možnosti a informace týkající se tohoto skriptu, naleznete [Galerie prostředí PowerShell](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
@@ -66,14 +60,14 @@ Jakmile nasazený modul PowerShell AWS, jsme teď můžete vytvářet sady runbo
 6. Jakmile se zobrazí stránka úprava Powershellového Runbooku, zkopírujte a vložte skript prostředí PowerShell do runbooku vytváření plátno.<br><br> ![Skript prostředí PowerShell sady Runbook](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
    
     > [!NOTE]
-    > Všimněte si následujícího při práci s příklad skriptu prostředí PowerShell:
+    > Při práci s příklad skriptu prostředí PowerShell, pamatujte na tyhle:
     > 
     > * Sada runbook obsahuje počet výchozí hodnoty parametrů. Posuďte všechny výchozí hodnoty a aktualizovat v případě potřeby.
     > * Pokud máte uložené přihlašovací údaje AWS jako asset přihlašovacích údajů jiný název než **AWScred**, budete muset aktualizovat skript na řádku 57 tak, aby odpovídaly odpovídajícím způsobem.  
-    > * Při práci s příkazy rozhraní příkazového řádku AWS v prostředí PowerShell, zejména s Tento ukázkový runbook, je nutné zadat oblasti AWS. Rutiny, jinak nebude úspěšná.  Zobrazení AWS tématu [zadejte oblast AWS](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) v AWS nástroje pro dokument prostředí PowerShell pro další podrobnosti.  
+    > * Při práci s příkazy rozhraní příkazového řádku AWS v prostředí PowerShell, zejména s Tento ukázkový runbook, je nutné zadat oblasti AWS. Rutiny, jinak hodnota nezdaří. Zobrazení AWS tématu [zadejte oblast AWS](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) v AWS nástroje pro dokument prostředí PowerShell pro další podrobnosti.  
     >
 
-7. Pokud chcete načíst seznam názvů bitové kopie ze svého předplatného AWS, spusťte prostředí PowerShell ISE a naimportujte modul Powershellu AWS.  Ověřování na základě AWS nahrazením **Get-AutomationPSCredential** ve vašem prostředí ISE s **AWScred = Get-Credential**.  To vás vyzve k zadání pověření a může poskytnout vaše **Access Key ID** pro uživatelské jméno a **tajný přístupový klíč** hesla.  Viz následující příklad:  
+7. Pokud chcete načíst seznam názvů bitové kopie ze svého předplatného AWS, spusťte prostředí PowerShell ISE a naimportujte modul Powershellu AWS. Ověřování na základě AWS nahrazením **Get-AutomationPSCredential** ve vašem prostředí ISE s **AWScred = Get-Credential**. To vás vyzve k zadání přihlašovacích údajů a může poskytnout vaše **Access Key ID** pro uživatelské jméno a **tajný přístupový klíč** hesla. Viz následující příklad:  
 
         #Sample to get the AWS VM available images
         #Please provide the path where you have downloaded the AWS PowerShell module
@@ -91,11 +85,11 @@ Jakmile nasazený modul PowerShell AWS, jsme teď můžete vytvářet sady runbo
 
     Se vrátí následující výstup:<br><br>
    ![Získat AWS obrázků](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
-8. Zkopírujte a vložte jeden z názvy obrázků v proměnné Automation jako odkazovaná v sadě runbook jako **$InstanceType**. Vzhledem k tomu, že v tomto příkladu jsme se pomocí volné AWS vrstvené předplatné, použijeme **t2.micro** pro náš příklad sady runbook.  
+8. Zkopírujte a vložte jeden z názvy obrázků v proměnné Automation jako odkazovaná v sadě runbook jako **$InstanceType**. Vzhledem k tomu, že v tomto příkladu jsou pomocí volné AWS vrstvené předplatné, je použít **t2.micro** například vaše sady runbook.  
 9. Uložte runbook a potom klikněte na **publikovat** Publikovat sadu runbook a potom **Ano** po zobrazení výzvy.
 
 ### <a name="testing-the-aws-vm-runbook"></a>Otestování sady runbook AWS virtuálních počítačů
-Před pokračováním se testování sady runbook, musíme ověřit pár věcí. Zejména:  
+Než přikročíte k testování sady runbook, je třeba ověřit pár věcí. Zejména:  
 
 * Prostředek pro ověřování proti AWS vytvořila volané **AWScred** nebo skript se aktualizovalo a odkazovat na název vaší asset přihlašovacích údajů.    
 * Modul prostředí PowerShell AWS importu v Azure Automation.  
@@ -103,12 +97,12 @@ Před pokračováním se testování sady runbook, musíme ověřit pár věcí.
 * **Protokolování podrobných záznamů** a volitelně **protokolování záznamů o průběhu** v části nastavení sady runbook **protokolování a trasování** byla nastavena na **na**.<br><br> ![Protokolování sad Runbook a trasování](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
 
 1. Chcete spustit runbook, proto klikněte na **spustit** a pak klikněte na **OK** při spuštění Runbooku podokně otevře.
-2. V podokně spuštění Runbooku zadat **VMname**.  Přijměte výchozí hodnoty pro parametry, které dříve předkonfigurované ve skriptu.  Klikněte na tlačítko **OK** při spuštění úlohy sady runbook.<br><br> ![Spuštění AwsVM nový runbook](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
-3. Podokno úlohy runbooku, který jsme právě vytvořili, je otevřené. Zavřete toto podokno.
-4. Jsme můžete sledovat průběh úlohy a zobrazení výstupu **datové proudy** výběrem **všechny protokoly** dlaždice ze stránky úlohy sady runbook.<br><br> ![Výstup datového proudu](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
+2. V podokně spuštění Runbooku zadat **VMname**. Přijměte výchozí hodnoty pro parametry, které dříve předkonfigurované ve skriptu. Klikněte na tlačítko **OK** při spuštění úlohy sady runbook.<br><br> ![Spuštění AwsVM nový runbook](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+3. Podokno úlohy se spustí úloha sady runbook, kterou jste vytvořili. Zavřete toto podokno.
+4. Můžete sledovat průběh úlohy a zobrazení výstupu **datové proudy** výběrem **všechny protokoly** dlaždice ze stránky úlohy sady runbook.<br><br> ![Výstup datového proudu](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 5. Potvrďte, že je zřizovaný virtuální počítač, přihlaste se k konzole pro správu AWS Pokud nejste aktuálně přihlášeni.<br><br> ![Konzoly AWS nasazení virtuálních počítačů](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * První kroky s grafickými runbooky najdete v článku [Můj první grafický runbook](automation-first-runbook-graphical.md).
 * První kroky s runbooky pracovních postupů PowerShellu najdete v článku [Můj první runbook pracovního postupu PowerShellu](automation-first-runbook-textual.md).
 * Další informace o typech runbooků, jejich výhodách a omezeních najdete v článku [Typy runbooků ve službě Azure Automation](automation-runbook-types.md).

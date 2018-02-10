@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI používá Azure pro zvýšení jeho cyklu vývoje a ke zvýšení jeho zákaznické a výkonu
-![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
+![Daxko/CSI Logo](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Software Daxko/CSI potýkají výzvu: zákaznické základny vhodnosti a rekonstrukce Center byl narůstá, díky úspěch jeho enterprise-software s komplexní řešení, ale ponechat stále s potřebami infrastruktury IT pro rostoucí zákazníka základní byl testování společnosti zaměstnanců IT. Společnost se omezené stále rostoucí operations režie, hlavně pro správu její rostoucí databáze. Horší byl tento režijní náklady na operace vyjímání do vývoj prostředky pro nové iniciativy, jako jsou nové funkce mobility pro software společnosti.
 
@@ -74,7 +74,7 @@ SpectrumNG používá webové role. Protože aplikace je více klientů, služby
 
 Pro webovou vrstvu svou službu CSI softwaru využívá Azure automatické škálování podle den a čas. Dostupné prostředky jsou automaticky skutečnost zohlednit zvýšením vyšší využití během pracovní doby, podle časového pásma každý místní datacentra. Prostředky jsou nastaveny také pro škálování směrem dolů na víkendy, kdy jsou nižší požadavky zákazníka.
 
-![Architektura Daxko/CSI](./media/sql-database-implementation-daxko/figure1.png)
+![Daxko/CSI Architecture](./media/sql-database-implementation-daxko/figure1.png)
 
 Obrázek 1. Cloudové služby rolí pracovního procesu nevykresluje strukturovaných dat z Azure SQL Database a částečně strukturovaných dat z úložiště tabulek. SpectrumNG uživatelé komunikovat s že dat přes cloud services webové role.
 
@@ -91,7 +91,6 @@ Azure SQL Database není právě velké zvýšení SpectrumNG zákazníkům, kte
 * Další informace o nástrojích databáze a elastické škálování najdete v tématu [nástroje elastické databáze a elastické škálování](sql-database-elastic-scale-get-started.md).
 * Další informace o migraci databázi systému SQL Server, najdete v tématu [migrace databáze SQL serveru do Azure](sql-database-cloud-migrate.md).
 * Další informace o aktivní geografickou replikaci, najdete v části [aktivní geografickou replikací](sql-database-geo-replication-overview.md).
-* Další informace o webových rolí a rolí pracovního procesu naleznete v tématu [rolí pracovního procesu](../fundamentals-introduction-to-azure.md#compute).    
 * Další informace o Azure Service Bus, najdete v části [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * Další informace o automatické škálování, najdete v části [škálování cloudové služby](../cloud-services/cloud-services-how-to-scale-portal.md).
 

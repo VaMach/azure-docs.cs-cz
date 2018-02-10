@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Podporu pro VMware a fyzické serveru replikaci do Azure.
 
@@ -130,10 +130,14 @@ Host server RDM | Ano<br/><br/> Není k dispozici pro fyzické servery
 Disk Host server > 1 TB | Ano<br/><br/>Až 4095 GB 
 Host server na disku s velikost fyzického sektoru 4K logické a 4 kB | Ano
 Disk Host server s 4K logické a velikost fyzického sektoru 512 bajtů | Ano 
-Host server svazek s prokládané disku > 1 TB<br/><br/> Logické LVM svazek hostovaný nebo server pro správu – prostory úložiště | Žádný disk přidat nebo odebrat klávesové Host server | Host server - vyloučení disku | Ano hosta nebo server s více cestami (MPIO) | NENÍ K DISPOZICI
+Host server svazek s prokládané disku > 4 TB <br><br/>Správa logických LVM svazků | Ano
+Host server - prostory úložiště | Ne 
+Disk přidat nebo odebrat aktivní hosta/server | Ne 
+Host server - vyloučení disku | Ano 
+Host server s více cestami (MPIO) | neuvedeno
 
 > [!NOTE]
-> ** Rozhraní UEFI spouštění virtuálních počítačů VMware nebo fyzické servery se systémem Windows Server 2012 nebo novější, se dají migrovat na Azure. Platí následující omezení.
+> ** UEFI ** spouštění virtuálních počítačů VMware nebo fyzické servery se systémem Windows Server 2012 nebo novější, se dají migrovat na Azure. Platí následující omezení.
 > - Je podporována pouze migrace do Azure. Navrácení služeb po obnovení k místní lokalitě VMware není podporována.
 > - Server by neměla mít více než 4 oddíly na disk operačního systému.
 > - Vyžaduje verzi služby Azure Site Recovery Mobility 9.13 nebo novější.

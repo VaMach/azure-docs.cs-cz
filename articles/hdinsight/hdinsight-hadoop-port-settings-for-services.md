@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/13/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 70bb69c78a23c9ffe012c0b775c98355da7cbce6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Porty používané služby Hadoop v HDInsight
 
@@ -75,18 +75,18 @@ Musí být ověřeny všechny služby veřejně zveřejněné na Internetu:
 > Některé služby jsou dostupné jenom na konkrétní clusteru typy. Například HBase je k dispozici pouze na typy clusteru HBase.
 
 > [!IMPORTANT]
-> Některé služby spustit pouze v jedné headnode najednou. Pokud se pokusíte připojit ke službě na primární headnode a zobrazí chybu 404, zkuste použít sekundární headnode.
+> Některé služby spustit pouze v jedné headnode najednou. Pokud se pokusíte připojit ke službě na primární headnode a zobrazí se chyba, zkuste použít sekundární headnode.
 
 ### <a name="ambari"></a>Ambari
 
-| Služba | Uzly | Port | Cesta adresy URL | Protocol (Protokol) | 
+| Služba | Uzly | Port | Cesta URL | Protocol (Protokol) | 
 | --- | --- | --- | --- | --- |
-| Webovému uživatelskému rozhraní Ambari | hlavních uzlech | 8080 | / | HTTP |
-| Ambari REST API | hlavních uzlech | 8080 | / api/v1 | HTTP |
+| Ambari web UI | hlavních uzlech | 8080 | / | HTTP |
+| Ambari REST API | hlavních uzlech | 8080 | /api/v1 | HTTP |
 
 Příklady:
 
-* Ambari REST API:`curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
+* Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>HDFS porty
 
@@ -141,7 +141,7 @@ Příklady:
 | Oozie serveru |hlavních uzlech |11000 |HTTP |Adresa URL služby Oozie |
 | Oozie serveru |hlavních uzlech |11001 |HTTP |Port pro Oozie správce |
 
-### <a name="ambari-metrics"></a>Metriky Ambari
+### <a name="ambari-metrics"></a>Ambari Metrics
 
 | Služba | Uzly | Port | Protocol (Protokol) | Popis |
 | --- | --- | --- | --- | --- |
@@ -166,10 +166,11 @@ Příklady:
 
 ### <a name="spark-ports"></a>Spark porty
 
-| Služba | Uzly | Port | Protocol (Protokol) | Cesta adresy URL | Popis |
+| Služba | Uzly | Port | Protocol (Protokol) | Cesta URL | Popis |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift servery |hlavních uzlech |10002 |Thrift | &nbsp; | Služba pro připojení k Spark SQL (Thrift/JDBC) |
 | Livy server | hlavních uzlech | 8998 | HTTP | &nbsp; | Služba pro příkazy, úlohy a aplikace |
+| Poznámkový blok Jupyter | hlavních uzlech | 8001 | HTTP | &nbsp; | Web poznámkového bloku Jupyter |
 
 Příklady:
 

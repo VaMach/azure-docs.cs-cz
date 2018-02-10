@@ -2,23 +2,17 @@
 title: "Azure Site Recovery: Časté otázky | Microsoft Docs"
 description: "Tento článek popisuje oblíbených otázky o Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Časté otázky (FAQ)
 Tento článek obsahuje nejčastější dotazy týkající se Azure Site Recovery. Pokud po přečtení tohoto článku máte dotazy, odešlete je na [fóru Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -166,10 +160,10 @@ Můžete automatizovat může pomocí místního Orchestratoru nebo Operations M
 * [Další informace](site-recovery-failback-azure-to-vmware.md) o selhání zálohovat virtuální počítače VMware a fyzické servery
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>Pokud není Moje místní hostitel neodpovídá nebo zhroucené, se dá převzetí služeb při selhání zpátky do jiného hostitele?
-Ano, můžete obnovení do náhradního umístění navrácení služeb po obnovení do jiného hostitele z Azure. Další informace o možnostech v následující odkazy pro virtuální počítače VMware a Hyper-v.
+Ano, můžete obnovení do náhradního umístění navrácení služeb po obnovení do jiného hostitele z Azure. Další informace o možnostech v následující odkazy pro virtuální počítače VMware a Hyper-V.
 
-* [U virtuálních počítačů VMware](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [Pro virtuální počítače Hyper-v](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [U virtuálních počítačů VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Pro virtuální počítače Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
 
 ## <a name="service-providers"></a>Poskytovatelé služeb
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Jsem poskytovatel služeb. Funguje Site Recovery pro vyhrazené tak sdílené modely infrastruktury?
@@ -198,6 +192,6 @@ Podporujeme sady Azure Cloud Platform System a System Center na základě nasaze
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Podporujete nasazení s jediným Azure Packem a jediným serverem VMM?
 Ano, můžete replikovat virtuální počítače Hyper-V do Azure nebo mezi lokalitami poskytovatele služeb.  Všimněte si, že pokud budete replikovat mezi lokalitami poskytovatele služeb, integrace runbooku Azure není k dispozici.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Projděte si [přehled Site Recovery](site-recovery-overview.md).
 * Seznamte se s [architekturou Site Recovery](site-recovery-components.md).  

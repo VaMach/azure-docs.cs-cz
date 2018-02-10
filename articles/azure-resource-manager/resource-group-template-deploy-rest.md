@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/10/2017
 ms.author: tomfitz
-ms.openlocfilehash: 46856a25fb57bb2c5a3c1aeae13c11655e1a58a5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b46b36805c2f33b1e066bbee2d0333113a26922a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Nasazení prostředků pomocí šablon Resource Manageru a jeho rozhraní REST API
 > [!div class="op_single_selector"]
@@ -88,9 +88,39 @@ Tento článek vysvětluje, jak používat rozhraní REST API služby Správce p
 
 ## <a name="parameter-file"></a>Soubor parametrů
 
-[!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)]
+Pokud použijete soubor s parametry předat hodnoty parametrů během nasazování, budete muset vytvořte soubor JSON ve formátu podobně jako v následujícím příkladu:
 
-## <a name="next-steps"></a>Další kroky
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "webSiteName": {
+            "value": "ExampleSite"
+        },
+        "webSiteHostingPlanName": {
+            "value": "DefaultPlan"
+        },
+        "webSiteLocation": {
+            "value": "West US"
+        },
+        "adminPassword": {
+            "reference": {
+               "keyVault": {
+                  "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+               }, 
+               "secretName": "sqlAdminPassword" 
+            }   
+        }
+   }
+}
+```
+
+Velikost souboru parametr nemůže být delší než 64 KB.
+
+Pokud potřebujete zajistit citlivou hodnotu pro parametr (třeba heslo), přidejte tuto hodnotu do trezoru klíčů. Během nasazování načtěte trezoru klíčů, jak je znázorněno v předchozím příkladu. Další informace najdete v tématu [předat zabezpečené hodnoty během nasazení](resource-manager-keyvault-parameter.md). 
+
+## <a name="next-steps"></a>Další postup
 * Další informace o zpracování asynchronní operace REST najdete v tématu [sledovat asynchronní operace Azure](resource-manager-async-operations.md).
 * Příklad nasazení prostředků prostřednictvím klientské knihovny .NET, naleznete v části [nasazení prostředků s použitím knihovny .NET a šablonu](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Chcete-li definovat parametry v šabloně, přečtěte si téma [vytváření šablon](resource-group-authoring-templates.md#parameters).

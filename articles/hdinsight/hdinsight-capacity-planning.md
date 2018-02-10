@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Plánování kapacity pro clustery HDInsight
 
@@ -89,8 +89,7 @@ Clusteru škála se určuje podle počtu uzlů jeho virtuálních počítačů. 
 
 V závislosti na typu vašeho clusteru zvýšit počet uzlů pracovního procesu přidává další výpočetní kapacity (například více jader), ale může také přidat do celkovou velikost paměti požadované pro celý cluster pro podporu úložiště v paměti zpracovávaných dat. Stejně jako u volba Velikost virtuálního počítače a typ, vybírá škálování správné clusteru je obvykle dosaženo empirically, pomocí simulované úlohy nebo lesknice dotazy.
 
-Je možné škálovat se splnily požadavky na zatížení ve špičce a pak škálování zpět dolů, když už nejsou potřeba tyto další uzly clusteru.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+Je možné škálovat se splnily požadavky na zatížení ve špičce a pak škálování zpět dolů, když už nejsou potřeba tyto další uzly clusteru. Další informace najdete v tématu [clusterů HDInsight škálování](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Životní cyklus clusteru
 

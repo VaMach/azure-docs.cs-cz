@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.author: raymondl
+ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Přeučování webové služby Classic
 Prediktivní webové služby, které jste nasadili je výchozí vyhodnocovací koncový bod. Výchozí koncové body jsou synchronizovány s původní školení a vyhodnocování experimenty, a proto nelze nahradit pro cvičný model pro výchozí koncový bod. Chcete-li přeučování webovou službu, je nutné přidat nový koncový bod k webové službě. 
@@ -68,7 +68,7 @@ Načíst cestu adresy URL:
 2. Klikněte na odkaz aktualizace prostředků.
 3. Zkopírujte adresu URL POST požadavku PATCH. Příklad:
    
-     ADRESA URL OPRAVY: HTTPS://MANAGEMENT.AZUREML.NET/WORKSPACES/00BF70534500B34REBFA1843D6/WEBSERVICES/AF3ER32AD393852F9B30AC9A35B/ENDPOINTS/NEWENDPOINT2
+     PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Nyní můžete trénovaného modelu k aktualizaci vyhodnocování koncového bodu, který jste předtím vytvořili.
 

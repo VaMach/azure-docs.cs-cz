@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 4fa21cf9cbd1680ddd855189f50af50e1068ccd5
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a5100941675b6bdd1934bfcabe10172b4949fff9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>S Azure se rozšířila SnelStart rychle jeho firemní služby ve výši 1 000 nové databáze SQL Azure, za měsíc
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -104,7 +104,6 @@ Okamžitou cílem pro SnelStart je zachovat ročně zvýší jeho splněna záka
 
 ## <a name="more-information"></a>Další informace
 * Další informace o Azure elastické fondy najdete v tématu [elastické fondy](sql-database-elastic-pool.md).
-* Další informace o webových rolí a rolí pracovního procesu naleznete v tématu [rolí pracovního procesu](../fundamentals-introduction-to-azure.md#compute).    
 * Další informace o Azure SQL Data Warehouse, najdete v části [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Další informace o SnelStart najdete v tématu [SnelStart](http://www.snelstart.nl).
 

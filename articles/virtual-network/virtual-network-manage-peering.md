@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e4f1d24da2a775007bf9172bc9267952d0a9bf48
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Vytvoření, jejich změny nebo odstranění virtuální sítě partnerského vztahu
 
@@ -110,7 +110,7 @@ Partnerský vztah virtuálních sítí se vytváří mezi virtuálními sítěmi
 
 |Nástroj|Příkaz|
 |---|---|
-|Rozhraní příkazového řádku|[partnerského vztahu seznam az sítě vnet](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#list) do seznamu partnerských vztahů pro virtuální síť, [az sítě vnet partnerského vztahu zobrazit](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#show) zobrazíte nastavení pro konkrétní partnerský vztah, a [az sítě vnet partnerského vztahu aktualizace](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#update) změnit nastavení partnerského vztahu.|
+|Rozhraní příkazového řádku|[partnerského vztahu seznam az sítě vnet](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_list) do seznamu partnerských vztahů pro virtuální síť, [az sítě vnet partnerského vztahu zobrazit](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_show) zobrazíte nastavení pro konkrétní partnerský vztah, a [az sítě vnet partnerského vztahu aktualizace](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_update) změnit nastavení partnerského vztahu.|
 |PowerShell|[Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) k načtení nastavení zobrazení partnerského vztahu a [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) Chcete-li změnit nastavení.|
 
 ## <a name="delete-a-peering"></a>Odstranit partnerský vztah
@@ -129,7 +129,7 @@ Pokud chcete, aby virtuální sítě pro komunikaci někdy, ale ne vždy místo 
 
 |Nástroj|Příkaz|
 |---|---|
-|Rozhraní příkazového řádku|[AZ síť vnet partnerského vztahu odstranit](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Rozhraní příkazového řádku|[AZ síť vnet partnerského vztahu odstranit](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="requirements-and-constraints"></a>Požadavky a omezení 

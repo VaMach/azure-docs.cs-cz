@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80406994402b488f4172069b13dca593c470efe4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Vytvoření základního virtuálního počítače v Azure pomocí Ansible
 Ansible umožňuje automatizovat nasazení a konfigurace prostředků ve vašem prostředí. Ansible můžete použít ke správě virtuálních počítačů (VM) v Azure, stejně jako jiný prostředek. Tento článek ukazuje, jak vytvořit základní virtuální počítač s Ansible. Můžete si také přečíst postup [vytvořit úplný prostředí virtuálních počítačů s Ansible](ansible-create-complete-vm.md).
@@ -37,13 +37,13 @@ Ke správě prostředků Azure s Ansible, budete potřebovat následující:
 
 
 ## <a name="create-supporting-azure-resources"></a>Vytvoření Podpora prostředků Azure
-V tomto příkladu vytvoříte sadu runbook, která nasadí virtuální počítač do existující infrastruktury. Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/vm#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* umístění:
+V tomto příkladu vytvoříte sadu runbook, která nasadí virtuální počítač do existující infrastruktury. Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/vm#az_vm_create). Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Vytvoření virtuální sítě pro virtuální počítač s [vytvoření sítě vnet az](/cli/azure/network/vnet#create). Následující příklad vytvoří virtuální síť s názvem *myVnet* a podsíť s názvem *mySubnet*:
+Vytvoření virtuální sítě pro virtuální počítač s [vytvoření sítě vnet az](/cli/azure/network/vnet#az_network_vnet_create). Následující příklad vytvoří virtuální síť s názvem *myVnet* a podsíť s názvem *mySubnet*:
 
 ```azurecli
 az network vnet create \
@@ -102,5 +102,5 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Tento příklad vytvoří virtuální počítač v existující skupinu prostředků a virtuální síť už nasazená. Podrobnější příklad o tom, jak použít Ansible k vytvoření doprovodné materiály, jako je například virtuální sítě a pravidel skupin zabezpečení sítě najdete v tématu [vytvořit úplný prostředí virtuálních počítačů s Ansible](ansible-create-complete-vm.md).

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure Data Lake Store pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Pokud chcete použít ověřování hlavní služby, zaregistrujte entitu aplika
 
 >[!IMPORTANT]
 > Ujistěte se, že udělíte hlavní správné oprávnění služby v Azure Data Lake Store:
->- **Jako zdroj**, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu (IAM).
->- **Jako jímku**, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure IR ke kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud se chcete vyhnout této role IAM explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu:
+>- **Jako zdroj**, v Průzkumníku dat -> přístup, udělit alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte soubory ve složce/podsložek, nebo **čtení** oprávnění zkopírovat jeden soubor; a Pokud se rozhodnete přidat jako **oprávnění přístupu a výchozí položku oprávnění**. Žádný požadavek na řízení úrovně přístupu účtu (IAM).
+>- **Jako jímku**, v Průzkumníku dat -> přístup, udělit alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce a pokud se rozhodnete přidat jako **oprávnění přístupu a výchozí položku oprávnění**. Pokud používáte Azure IR ke kopírování (zdroj a jímka mají v cloudu), v řízení přístupu (IAM), udělte alespoň **čtečky** role, aby mohli zjistit Data Lake Store oblasti služby Data Factory. Pokud se chcete vyhnout této role IAM explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu.
 
 Podporovány jsou následující vlastnosti:
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | servicePrincipalId | Zadejte ID aplikace klienta. | Ano |
-| servicePrincipalKey | Zadejte klíč aplikace. Toto pole můžete označte jako SecureString. | Ano |
+| servicePrincipalKey | Zadejte klíč aplikace. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 
 **Příklad:**
 
@@ -114,12 +114,12 @@ Objekt pro vytváření dat může být přidružen [identita spravované služb
 Použití ověřování identity (MSI) spravované služby:
 
 1. [Načtení identita služby data factory](data-factory-service-identity.md#retrieve-service-identity) hodnotu "Služba IDENTITY ID aplikace" generované společně s vaší objekt pro vytváření.
-2. Udělení přístupu identity služby do Data Lake Store stejným způsobem jako u objektu služby. Podrobné pokyny najdete v tématu [ověřování Service-to-service - aplikaci přiřadit Azure AD do Azure Data Lake Store účtu soubor nebo složku](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Udělení přístupu identity služby do Data Lake Store stejným způsobem jako pro následující hlavní služby níže poznámky.
 
 >[!IMPORTANT]
 > Ujistěte se, že udělíte správné identity data factory služby, oprávnění v Azure Data Lake Store:
->- **Jako zdroj**, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu (IAM).
->- **Jako jímku**, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure IR ke kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud se chcete vyhnout této role IAM explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu:
+>- **Jako zdroj**, v Průzkumníku dat -> přístup, udělit alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte soubory ve složce/podsložek, nebo **čtení** oprávnění zkopírovat jeden soubor; a Pokud se rozhodnete přidat jako **oprávnění přístupu a výchozí položku oprávnění**. Žádný požadavek na řízení úrovně přístupu účtu (IAM).
+>- **Jako jímku**, v Průzkumníku dat -> přístup, udělit alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce a pokud se rozhodnete přidat jako **oprávnění přístupu a výchozí položku oprávnění**. Pokud používáte Azure IR ke kopírování (zdroj a jímka mají v cloudu), v řízení přístupu (IAM), udělte alespoň **čtečky** role, aby mohli zjistit Data Lake Store oblasti služby Data Factory. Pokud se chcete vyhnout této role IAM explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu.
 
 V Azure Data Factory nemusíte určovat žádné vlastnosti kromě obecné informace o Data Lake Store v propojené službě.
 
@@ -186,7 +186,7 @@ Chcete-li kopírovat data do/z Azure Data Lake Store, nastavte vlastnost typu da
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které podporuje Azure Data Lake zdroj a jímka.
 
@@ -285,5 +285,5 @@ Tato část popisuje jejich výsledné chování pro různé kombinace hodnot re
 | nepravda |flattenHierarchy | Složku1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Vytvoření cílové složky složku1 s následující strukturou<br/><br/>Složku1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automaticky generovaný název File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automaticky generovaný název File2<br/><br/>Subfolder1 s soubor3, File4 a File5 nejsou zachyceny. |
 | nepravda |mergeFiles | Složku1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Vytvoření cílové složky složku1 s následující strukturou<br/><br/>Složku1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 obsah jsou sloučeny do jednoho souboru s názvem automaticky generovaný soubor. automaticky generovaný název File1<br/><br/>Subfolder1 s soubor3, File4 a File5 nejsou zachyceny. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

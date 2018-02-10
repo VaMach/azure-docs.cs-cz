@@ -7,11 +7,11 @@ author: dcaro
 ms.author: dcaro
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 253e5d341f93e61d851893eb05832fbf35707cfc
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="terraform-cloud-shell-development"></a>Vývoj Terraform cloudové prostředí 
 
@@ -36,7 +36,7 @@ provider "azurerm" {
 }
 ```
 
-Prostředí cloudu předá požadované hodnoty `azurerm` zprostředkovatele, který se prostřednictvím proměnné prostředí při použití některého z `terraform` rozhraní příkazového řádku.
+Prostředí cloudu předá požadované hodnoty `azurerm` zprostředkovatele prostřednictvím proměnné prostředí při použití některého z `terraform` rozhraní příkazového řádku.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Další nástroje pro vývojáře cloudové prostředí
 
@@ -45,7 +45,7 @@ Soubory a stavy prostředí uchová mezi relacemi cloudové prostředí ve služ
 Azure CLI 2.0 je k dispozici v prostředí cloudu a je skvělý nástroj pro testování konfigurace a práce po kontrole `terraform apply` nebo `terraform destroy` dokončení.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Vytvořit cluster malých virtuálních počítačů pomocí klíče registru modulu](terraform-create-vm-cluster-module.md)
 [vytvořit cluster malých virtuálních počítačů pomocí vlastní kompatibilního hardwaru](terraform-create-vm-cluster-with-infrastructure.md)

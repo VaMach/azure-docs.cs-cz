@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a96de1814afc7947205a0dc7ed005f7cadff20bc
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopírování dat z DB2 pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ Pro DB2 propojené služby jsou podporovány následující vlastnosti:
 | schema |Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
 | authenticationType. |Typ ověřování používaný pro připojení k databázi DB2.<br/>Povolená hodnota je: **základní**. |Ano |
 | uživatelské jméno |Zadejte uživatelské jméno pro připojení k databázi DB2. |Ano |
-| heslo |Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole můžete označte jako SecureString. |Ano |
+| heslo |Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
@@ -188,7 +188,7 @@ Při kopírování dat z DB2, se používají následující mapování z DB2 da
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Dvojitý |Dvojitý |
-| Float |Dvojitý |
+| Plovoucí desetinná čárka |Dvojitý |
 | Obrázek |Řetězec |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |

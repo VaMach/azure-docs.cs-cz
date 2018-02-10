@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Ruční nebo automatické škálování počtu instancí
 V [portálu Azure](https://portal.azure.com/), můžete nastavit počet instancí služby ručně nebo můžete nastavit parametry, aby ji automaticky škálování na základě poptávky. To se obvykle označuje jako *škálovat* nebo *škálování v*.
@@ -30,7 +30,7 @@ Je možné škálovat na portálu, a můžete také [REST API](https://msdn.micr
 ## <a name="scaling-manually"></a>Škálování ručně
 1. V [portálu Azure](https://portal.azure.com/), klikněte na tlačítko **Procházet**, pak přejděte k prostředku, kterou chcete použít škálování, jako například **plán služby App Service**.
 2. Klikněte na tlačítko **Nastavení > horizontální navýšení kapacity (plán služby App Service).**
-3. V horní části **škálování** okno se zobrazí historii akcí škálování služby.
+3. V horní části **škálování** okno v **historie spouštění** můžete zobrazit historii akcí škálování služby.
    
     ![Okno škálování](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Je možné škálovat na portálu, a můžete také [REST API](https://msdn.micr
    > V tomto grafu se zobrazí pouze akce, které provádí automatické škálování. Pokud ručně upravit počet instancí, změny se neprojeví v tomto grafu.
    > 
    > 
-4. Můžete ručně upravit počet **instance** pomocí posuvníku.
+4. Můžete ručně upravit počet **instance** v **konfigurace** kartě.
 5. Klikněte **Uložit** příkazu a vy budete škálovat na počet instancí téměř okamžitě.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Škálování podle předem nastavte metriku
@@ -115,7 +115,7 @@ Můžete však mít agresivnější škálování během dne nebo týdne, než n
 11. Je nutné vytvořit i pravidla pro škálování a škálovat v or else během profil počet instancí bude pouze růst (nebo snížit).
 12. Nakonec klikněte na **Uložit**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Monitorování služby metriky](insights-how-to-customize-monitoring.md) zkontrolovat služby je k dispozici a dobře reagovaly.
 * [Povolit monitorování a Diagnostika](insights-how-to-use-diagnostics.md) ke shromažďování metrik podrobné vysoká frekvence vaší služby.
 * [Přijímejte oznámení o výstrahách](insights-receive-alert-notifications.md) vždy, když nastanou provozní události nebo když metriky překročí prahovou hodnotu.

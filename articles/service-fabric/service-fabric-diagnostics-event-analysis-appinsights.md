@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analýza události a vizualizace s Application Insights
 
@@ -96,11 +96,11 @@ Pokud používáte EventFlow pro agregaci událostí, je třeba importovat `Micr
 
 Zajistěte, aby proveďte požadované změny v filtry a také zahrnovat všechny ostatní vstupy (spolu s jejich odpovídajících balíčky NuGet).
 
-## <a name="aisdk"></a>AI. SADA SDK
+## <a name="aisdk"></a>AI.SDK
 
 Obecně doporučujeme používat EventFlow a WAD jako řešení agregace, protože umožňují pro více modulární přístup k diagnostiky a monitorování, tj. Pokud chcete změnit vaše výstupy z EventFlow, vyžaduje nijak nemění skutečné instrumentace, právě jednoduchých úprav konfiguračního souboru. Pokud však rozhodnete investovat do pomocí Application Insights a pravděpodobně nedojde ke změně na jiné platformě, by měla vypadat do aplikace pomocí AI na novou sadu SDK pro agregaci událostí a jejich odesláním AI. To znamená, že se již muset nakonfigurovat EventFlow odeslání dat do AI, ale místo toho nainstaluje balíček Service Fabric NuGet ApplicationInsight. Informace o balíčku naleznete [zde](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Podpora služby Application Insights pro Mikroslužeb a kontejnery](https://azure.microsoft.com/app-insights-microservices/) uvedeny některé nové funkce, které se pracuje (aktuálně stále v beta), které umožňují, abyste měli bohatší možnosti monitorování se na pole s AI. Jedná se o závislost sledování (používá se při vytváření AppMap služeb a aplikací v clusteru a komunikace mezi nimi) a lepší korelace trasování pocházejících z vašich služeb (pomáhá v lepší přesným rozpoznáním problém v pracovním postupu aplikace nebo služby).
+[Podpora služby Application Insights pro Mikroslužeb a kontejnery](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) uvedeny některé nové funkce, které se pracuje (aktuálně stále v beta), které umožňují, abyste měli bohatší možnosti monitorování se na pole s AI. Jedná se o závislost sledování (používá se při vytváření AppMap služeb a aplikací v clusteru a komunikace mezi nimi) a lepší korelace trasování pocházejících z vašich služeb (pomáhá v lepší přesným rozpoznáním problém v pracovním postupu aplikace nebo služby).
 
 Pokud jsou vývoj v rozhraní .NET a budou pravděpodobně používat některé z Service Fabric programovací modely a jsou ochotni použít AI jako svou platformu pro vizualizaci a analýzu dat událostí a protokolů, pak doporučujeme přejít prostřednictvím sady SDK AI trasy jako pracovní postup monitorování a Diagnostika. Čtení [to](../application-insights/app-insights-asp-net-more.md) a [to](../application-insights/app-insights-asp-net-trace-logs.md) začít pracovat s pomocí AI shromáždit a zobrazit protokoly.
 
@@ -112,7 +112,7 @@ Po nakonfigurování AI jako výstupu událostí a protokoly informace začněte
 
 Kliknutím na tlačítko **Analytics** se dostanete na portál Application Insights analýzy, kde může dotazovat událostí a trasování s větší rozsah a volitelnost. Další informace o to v [Analytics ve službě Application Insights](../application-insights/app-insights-analytics.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Nastavení výstrah v AI](../application-insights/app-insights-alerts.md) oznámení o změnách v výkonu a využití
 * [Inteligentní detekce ve službě Application Insights](../application-insights/app-insights-proactive-diagnostics.md) provede proaktivní analýzu telemetrie odesílána AI varovat před potenciálním problémům s výkonem

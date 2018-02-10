@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fde85936760a167f1da2289ac1d18e97df7c9c04
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopírování dat do a z Azure Table storage pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Propojenou službu úložiště Azure můžete vytvořit pomocí klíč účtu. 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavená na **azurestorage**. |Ano |
-| připojovací řetězec | Zadejte informace potřebné pro připojení k úložišti pro vlastnost connectionString. Toto pole můžete označte jako SecureString. |Ano |
+| připojovací řetězec | Zadejte informace potřebné pro připojení k úložišti pro vlastnost connectionString. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
@@ -93,7 +93,7 @@ Pokud chcete používat ověřování podpisu sdíleného přístupu služby, js
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavená na **azurestorage**. |Ano |
-| sasUri | Zadejte sdílený přístupový podpis URI k prostředkům úložiště, například objekt blob, kontejneru nebo tabulky. Toto pole můžete označte jako SecureString. |Ano |
+| sasUri | Zadejte sdílený přístupový podpis URI k prostředkům úložiště, například objekt blob, kontejneru nebo tabulky. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Můžete použít modul Runtime integrace Azure nebo Runtime integrace Self-hosted (Pokud je vaše úložiště dat se nachází v privátní síti). Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
@@ -269,10 +269,10 @@ Když přesun dat do a z Azure Table, následující [mapování definované Azu
 
 | Azure Table datový typ | Typ průběžných dat objektu pro vytváření dat | Podrobnosti |
 |:--- |:--- |:--- |
-| Edm.Binary |Byte] |Pole bajtů až 64 KB. |
+| Edm.Binary |Byte |Pole bajtů až 64 KB. |
 | Edm.Boolean |BOOL |Logická hodnota. |
 | Edm.DateTime |Datum a čas |Hodnota 64-bit, vyjádřené jako koordinovaný světový čas (UTC). Podporovaný rozsah data a času zahájení půlnoc, 1 leden roku 1601. (C.E.), UTC. Rozsah končí 31. prosince 9999. |
-| Edm.Double |double |Hodnota 64-bit plovoucí bodu. |
+| Edm.Double |Double |Hodnota 64-bit plovoucí bodu. |
 | Edm.Guid |Guid |Globálně jedinečný identifikátor 128-bit. |
 | Edm.Int32 |Int32 |32bitové celé číslo. |
 | Edm.Int64 |Int64 |64bitové celé číslo. |

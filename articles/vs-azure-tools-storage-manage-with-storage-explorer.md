@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Začínáme se Storage Explorerem (Preview)
 ## <a name="overview"></a>Přehled
@@ -239,6 +239,20 @@ Kromě spravovat účty pro Azure Cosmos DB prostřednictvím předplatné Azure
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Připojení k Azure Data Lake Store identifikátorem URI
+Pokud chcete získat přístup k prostředkům, které nejsou k dispozici v rámci vašeho předplatného. Ale jiné udělit získat identifikátor Uri pro prostředky. V takovém případě můžete připojit do Data Lake Store pomocí identifikátoru Uri po přihlášení. Naleznete následující kroky.
+1. Otevřete Storage Explorer (Preview).
+2. V levém podokně rozbalte **místní a připojené**.
+3. Klikněte pravým tlačítkem na **Data Lake Store**a v místní nabídce - vyberte **připojit k Data Lake Store...** .
+
+    ![připojení k Data Lake Store kontextové nabídky](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Zadejte identifikátor Uri, pak nástroj přejde na umístění právě zadaná adresa URL.
+
+    ![připojení do dialogového okna kontextu Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![připojení k výsledek Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Vyhledávání účtů úložiště
 Pokud budete potřebovat k vyhledání prostředků úložiště a neznáte, tam, kde je, že do vyhledávacího pole v horní části levého podokna můžete použít k vyhledání prostředku.
 
@@ -254,6 +268,7 @@ Při psaní do vyhledávacího pole, v levém podokně zobrazí všechny prostř
 ## <a name="next-steps"></a>Další postup
 * [Správa prostředků služby Azure Blob Storage pomocí Storage Exploreru (Preview)](vs-azure-tools-storage-explorer-blobs.md)
 * [Správa Azure Cosmos DB v Azure Storage Explorer (Preview)](./cosmos-db/storage-explorer.md)
+* [Správa prostředků Azure Data Lake Store pomocí Storage Exploreru (preview)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

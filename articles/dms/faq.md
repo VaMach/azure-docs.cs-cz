@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Nejčastější dotazy o použití služby Azure databáze migrace
 V tomto článku jsou uvedené nejčastější dotazy týkající se používání služby Azure databáze migrace společně s související odpovědi.
@@ -81,6 +81,9 @@ Můžete provést několik akcí pro urychlení migrace databáze pomocí služb
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>OTÁZKY. Jak mám nastavit virtuální síť Azure?
 Při více Microsoft návodů, které může vás provede procesem nastavení o virtuální síť Azure, se zobrazí v oficiální dokumentaci v článku [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>OTÁZKY. Není k dispozici nebo se zastavil, proč je můj služba migrace databáze Azure?
+Pokud uživatel explicitně zastaví službu migrace databáze Azure (DMS) nebo pokud je služba neaktivní po dobu 24 hodin, služba bude v zastaven nebo automaticky pozastaveném stavu. V každém případě bude služba není k dispozici a je v zastaveném stavu.  Chcete-li obnovit active migrace, restartujte službu.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>OTÁZKY. Kde je můžete nechat zpětnou vazbu o službě Azure databáze migrace?
 Chceme slyšet od vás. Pošlete prosím všechny zpětnou vazbu a / nápady máte o službě Azure databáze migrace prostřednictvím User Voice [zde](https://feedback.azure.com/forums/906100-azure-database-migration-service).

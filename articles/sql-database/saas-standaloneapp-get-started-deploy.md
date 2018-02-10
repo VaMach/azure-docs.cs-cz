@@ -16,21 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: d38cd108821bce05824732bbdbdd322ae8563bde
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Nasazení a prozkoumejte samostatná jednoho klienta aplikace, která používá databázi SQL Azure
 
-V tomto kurzu nasazení a prozkoumejte Wingtip lístky SaaS samostatné aplikace. Aplikace je navržená ke prezentují funkce databáze SQL Azure, které zjednodušují povolení SaaS scénáře.
+V tomto kurzu nasazení a prozkoumat Wingtip lístky SaaS ukázkové aplikace vyvinuté pomocí samostatné aplikace nebo aplikace na klienta, vzoru.  Aplikace je navržená ke prezentují funkce databáze SQL Azure, které zjednodušují povolení víceklientské SaaS scénáře.
 
-Vzor samostatné aplikace nasadí skupinu prostředků Azure obsahující jednoho klienta aplikace a databáze klienta jednou pro každého klienta.  K zajištění víceklientské řešení se dá zřídit několik instancí aplikace.
+Samostatné aplikace nebo aplikace na klienta vzor nasadí instance aplikace pro každého klienta.  Každá aplikace je nakonfigurované pro konkrétní klienta a nasadit ve skupině samostatné prostředků Azure. Několik instancí aplikace připravené k zajištění víceklientské řešení. Tento vzor je vhodná pro menší počet klientů, kde izolaci klientů je nejvyšší prioritou. Azure má partnera programy, které povolit materiály, které lze nasadit do předplatného klienta a spravovaný poskytovatelem služby jménem klienta. 
 
-V tomto kurzu nasadíte skupiny prostředků pro několik klientů do vašeho předplatného Azure.  Tento vzor umožňuje skupiny prostředků k nasazení do předplatného Azure klienta. Azure má partnera programy, které umožňují tyto skupiny prostředků, který bude spravován poskytovatele služeb jménem klienta. Poskytovatel služeb je správce v rámci předplatného klienta.
-
-V části novější nasazení existují tři blue **nasadit do Azure** tlačítka. Každé tlačítko nasadí jinou instanci aplikace. Každá instance je přizpůsobené pro konkrétní klienta. Při stisknutí každé tlačítko odpovídající aplikace je nasazená plně do pěti minut.  Aplikace se nasadí ve vašem předplatném Azure.  Máte úplný přístup k prozkoumávání a pracovat jednotlivé součásti aplikace.
+V tomto kurzu nasadíte tři samostatné aplikace pro tři klienty do vašeho předplatného Azure.  Máte úplný přístup k prozkoumávání a pracovat jednotlivé součásti aplikace.
 
 Zdrojový kód a správu skripty aplikace jsou k dispozici v [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) úložiště GitHub.
 
@@ -61,11 +59,10 @@ Nasazení aplikace pro tři zadaný klienty:
     > Některé ověřování a server brány firewall jsou záměrně zabezpečená pro demonstrační účely. **Vytvořit novou skupinu prostředků** pro každé nasazení aplikace.  Nepoužívejte existující skupinu prostředků. Tato aplikace nebo všechny prostředky, který vytváří, nepoužívejte pro produkční prostředí. Až skončíte s aplikacemi zastavit související fakturace, odstraňte všechny skupiny prostředků.
 
     Je nejvhodnější použít jenom malá písmena, číslice a pomlčky v názvy prostředků.
-    * Pro **skupiny prostředků** – vyberte **vytvořit nový**a pak zadejte jedno malé písmeno **název** pro skupinu prostředků.
-        * Doporučujeme přidat pomlčkou, za nímž následuje vašimi iniciálami, za nímž následuje číslice: například *wingtip-sa-af1*.
-        * Vyberte **umístění** z rozevíracího seznamu.
+    * Pro **skupiny prostředků**, vyberte možnost vytvořit nový a potom zadejte název pro skupinu prostředků, malá písmena. **adresář Wingtip-sa -\<venueName\>-\<uživatele\>**  je doporučené vzor.  Pro \<venueName\>, nahraďte název místo bez mezer. Pro \<uživatele\>, nahraďte hodnotu uživatele z následujícího seznamu.  Tento vzor, může být názvy skupin prostředků *wingtip sa contosoconcerthall af1*, *wingtip sa dogwooddojo af1*, *wingtip sa fabrikamjazzclub af1*.
+    * Vyberte **umístění** z rozevíracího seznamu.
 
-    * Pro **uživatele** -doporučujeme, abyste zvolili hodnota krátké uživatele, jako je například vašimi iniciálami plus číslice: například *af1*.
+    * Pro **uživatele** -doporučujeme hodnotu krátké uživatele, jako je například vašimi iniciálami a číslice: například *af1*.
 
 
 3. **Nasaďte aplikaci**.
@@ -73,25 +70,25 @@ Nasazení aplikace pro tři zadaný klienty:
     * Kliknutím na tlačítko přijmout podmínky a ujednání.
     * Klikněte na **Koupit**.
 
-4. Monitorování stavu nasazení všech tří nasazení kliknutím **oznámení** (ikonu zvonku napravo od pole hledání). Nasazení aplikace trvá pět minut.
+4. Monitorování stavu všech tří nasazení kliknutím **oznámení** (ikonu zvonku napravo od pole hledání). Nasazení aplikace trvá přibližně pět minut.
 
 
-## <a name="run-the-application"></a>Spuštění aplikace
+## <a name="run-the-applications"></a>Spuštění aplikací
 
-Aplikace umožňující prezentovat místa, které jsou hostiteli události. Typy místo obsahují vzájemné součinnosti místnosti, jazz kluby a sportu kluby. Místa jsou zákazníci Wingtip lístky aplikace. V Wingtip lístky místa jsou zapsány jako *klienty*. Probíhá klienta dává místo snadný způsob seznam událostí a prodej lístků zákazníkům. Každý místo získá přizpůsobené webu seznamu svoje události a prodej lístků. Každý klient je izolován od ostatních klientů a je nezávislý z nich. V pozadí každý klient získá instanci samostatné aplikace s vlastní samostatná databáze SQL.
+Aplikace umožňující prezentovat místa, které jsou hostiteli události.  Místa jsou klienty aplikace. Každý místo získá přizpůsobené webového serveru do seznamu svoje události a prodej lístků. Typy místo obsahují vzájemné součinnosti místnosti, jazz kluby a sportu kluby. V ukázce Určuje typ místo fotografie pozadí zobrazený na webu místo.   V modelu samostatné aplikace má každý místo instanci samostatné aplikace s vlastní samostatná databáze SQL.
 
 1. Otevřete stránku události pro všechny tři klienty v záložkách samostatné prohlížeče:
 
-    - http://events.contosoconcerthall. &lt;Uživatele&gt;. trafficmanager.net
-    - http://events.dogwooddojo. &lt;Uživatele&gt;. trafficmanager.net
-    - http://events.fabrikamjazzclub. &lt;Uživatele&gt;. trafficmanager.net
+    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
     (V každou adresu URL, nahraďte &lt;uživatele&gt; s hodnotou uživatele vaše nasazení.)
 
    ![Události](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 K řízení distribuce příchozí požadavky a používá aplikace [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Každá instance konkrétního klienta aplikace obsahuje název klienta jako součást názvu domény v adrese URL. Všechny klienta adresy URL zahrnují konkrétní **uživatele** hodnotu. Adresy URL použijte následující formát:
-- http://events. &lt;venuename&gt;.&lt; Uživatel&gt;. trafficmanager.net
+- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
 
 Každý klient databáze **umístění** je zahrnuta v nastavení aplikace odpovídající nasazené aplikace.
 
@@ -110,7 +107,7 @@ Podívejme se na některé prostředky, které byly nasazeny:
 
 Každá databáze klienta je 50 DTU *samostatné* databáze.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
@@ -120,8 +117,12 @@ Každá databáze klienta je 50 DTU *samostatné* databáze.
 
 - Další informace o víceklientské aplikace SaaS najdete v tématu [vzory pro víceklientské aplikace SaaS návrhu](saas-tenancy-app-design-patterns.md).
 
+ 
+## <a name="delete-resource-groups-to-stop-billing"></a>Odstranění skupiny prostředků zastavit fakturace ##
 
-## <a name="next-steps"></a>Další kroky
+Po dokončení pomocí vzorku odstraňte všechny skupiny prostředků, který jste vytvořili pro zastavení přidružené fakturace.
+
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se dozvěděli:
 
@@ -129,4 +130,7 @@ V tomto kurzu jste se dozvěděli:
 > * Postup nasazení Wingtip lístky SaaS samostatné aplikace.
 > * O servery a databáze, které tvoří aplikace.
 > * Postup odstranění ukázkové prostředky zastavit související fakturace.
+
+Zkuste [zřídit a katalog](saas-standaloneapp-provision-and-catalog.md) kurzu.
+ 
 

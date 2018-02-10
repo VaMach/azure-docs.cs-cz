@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Řešení problémů pomocí sestav o stavu systému
 Azure Service Fabric součásti poskytují sestavy stavu systému na všechny entity v clusteru okamžitě po nasazení. [Úložiště stavu](service-fabric-health-introduction.md#health-store) vytvoří nebo odstraní entit na základě sestav systému. Také slouží k uspořádání je v hierarchii, která zaznamená interakce entity.
@@ -404,7 +404,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaChangeRoleStatus ReplicaOpenStatus, ReplicaCloseStatus,
+### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
 Tato vlastnost slouží k označení chyby nebo upozornění při pokusu o otevření repliky, zavřete repliku nebo přechod na jiný repliku z jedné role. Další informace najdete v tématu [životního cyklu repliky](service-fabric-concepts-replica-lifecycle.md). Chyby může být výjimek vyvolaných z volání rozhraní API nebo dojde k chybě procesu hostitele služby během této doby. Selhání kvůli volání rozhraní API z kódu jazyka C# Service Fabric přidá výjimku a trasování zásobníku sestavy stavu.
 
 Tato upozornění na stav jsou vyvolány po opakování akce místně některé počet opakování (v závislosti na zásadách). Service Fabric opakuje akci až do maximální prahovou hodnotu. Po dosažení jejich velikost nesmí překročit prahovou hodnotu mohou zkuste tak, aby fungoval k napravení situace. Tento pokus může způsobit, že tato upozornění k jejímu vymazání, protože umožňuje na akci na tomto uzlu. Například pokud se nedaří repliku otevřete na uzlu, Service Fabric vyvolá upozornění stavu. Pokud replika stále se neotevře, Service Fabric funguje pro automatickou opravu. Tato akce může zahrnovat pokusem o stejné v jiném uzlu. To způsobí, že upozornění aktivována pro tuto repliku vymazat. 
@@ -494,7 +494,7 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 1:16:03 AM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="reconfiguration"></a>Změny konfigurace
+### <a name="reconfiguration"></a>Rekonfigurace
 Tato vlastnost slouží k označení při repliky provádění [Rekonfigurace](service-fabric-concepts-reconfiguration.md) zjistí, že je zastaven a proces nebo zablokuje novou konfiguraci. Tato sestava stavu může být v replice, jejíž aktuální role je primární, s výjimkou případů primární Rekonfigurace odkládacího souboru, kde může být na repliku, jehož úroveň chcete snížit z primární na aktivní sekundární.
 
 Nové konfigurace může zablokované pro jednu z následujících důvodů:
@@ -638,6 +638,21 @@ Další volání rozhraní API, které může být zablokován jsou na **IReplic
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: Toto upozornění indikuje problém v procesu sestavení. Další informace najdete v tématu [životního cyklu repliky](service-fabric-concepts-replica-lifecycle.md). Může to být z důvodu chybné konfigurace Replikátor adresy. Další informace najdete v tématu [konfigurovat stavová spolehlivé služby](service-fabric-reliable-services-configuration.md) a [zadejte prostředky v service manifest](service-fabric-service-manifest-resources.md). Také může být problém ve vzdáleném uzlu.
 
+### <a name="replicator-system-health-reports"></a>Replikátor sestav o stavu systému
+**Fronty replikací úplné:**
+**System.Replicator** nahlásí upozornění, když se fronta replikací je plná. Na primárním fronty replikací obvykle plný protože jeden nebo více sekundárních replikách jsou pomalé potvrdit operace. Na sekundárním to obvykle se stane, když služba pomalé použít operace. Upozornění je vymazán poté, co už fronta je plná.
+
+* **SourceId**: System.Replicator
+* **Vlastnost**: **PrimaryReplicationQueueStatus** nebo **SecondaryReplicationQueueStatus**, v závislosti na roli repliky.
+* **Další kroky**: Pokud sestava je na primárním, zkontrolujte připojení mezi uzly v clusteru. Pokud všechna připojení jsou v pořádku, může být alespoň jeden pomalé sekundární s latencí vysoké disku pro použití operace. Pokud sestava je na sekundárním, zkontrolujte využití disku a výkonu v uzlu první a poté na primární odchozí připojení z uzlu pomalé.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** na primární replice nahlásí upozornění, když připojení k sekundární (vzdálený) Replikátor není v pořádku. Adresa vzdáleného Replikátor se zobrazí ve zprávě sestavy, což je pohodlnější má zjišťovat, pokud byl předán nesprávné konfigurace v nebo jsou problémy s síti mezi replikátory.
+
+* **SourceId**: System.Replicator
+* **Vlastnost**: **RemoteReplicatorConnectionStatus**
+* **Další kroky**: Zkontrolujte chybové zprávy a zajistěte, aby správně nakonfigurovaná adresa vzdáleného Replikátor (například vzdálené Replikátor se při otevření s adresou naslouchání "localhost", není dostupný z vnějšku). Pokud adresa správná, zkontrolujte připojení mezi primárním uzlu a Vzdálená adresa najít všechny potenciální problémy sítě.
+
 ### <a name="replication-queue-full"></a>Replikační fronta je plná
 **System.Replicator** nahlásí upozornění, když se fronta replikací je plná. Na primárním fronty replikací obvykle plný protože jeden nebo více sekundárních replikách jsou pomalé potvrdit operace. Na sekundárním to obvykle se stane, když služba pomalé použít operace. Upozornění je vymazán poté, co už fronta je plná.
 
@@ -747,7 +762,7 @@ HealthEvents                       :
 System.Hosting nahlásí chybu, pokud stahování balíčku aplikace selže.
 
 * **SourceId**: System.Hosting
-* **Vlastnost**: **stáhnout:***RolloutVersion*.
+* **Vlastnost**: **stáhnout: *** RolloutVersion*.
 * **Další kroky**: Zjistěte, proč se stahování v tomto uzlu selhal.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage sestav o stavu systému
@@ -764,7 +779,7 @@ System.Hosting jako OK sestavy, pokud je aktivace balíček služby v uzlu úsp�
 System.Hosting hlásí jako OK pro každý balíček kódu pokud je aktivace úspěšná. Pokud se aktivace nezdaří, sestavy upozornění podle konfigurace. Pokud **CodePackage** nepodaří aktivovat nebo ukončí s chybou větší než nakonfigurované **CodePackageHealthErrorThreshold**, nahlásí chybu, který je hostitelem. Pokud balíček služby obsahuje více balíčků kódu, zprávu o aktivaci se generuje pro každé z nich.
 
 * **SourceId**: System.Hosting
-* **Vlastnost**: používá předponu **CodePackageActivation** a obsahuje název balíček kódu a vstupního bodu jako **CodePackageActivation:***CodePackageName* :*SetupEntryPoint/EntryPoint*. Například **CodePackageActivation:Code:SetupEntryPoint**.
+* **Vlastnost**: používá předponu **CodePackageActivation** a obsahuje název balíček kódu a vstupního bodu jako **CodePackageActivation: *** CodePackageName*: *SetupEntryPoint/EntryPoint*. Například **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Typ registrace služby
 System.Hosting sestavy jako OK, pokud byl úspěšně zaregistrován typ služby. Ohlásí chybu pokud registrace nebyla provedena v čase, je nakonfigurován pomocí **ServiceTypeRegistrationTimeout**. Pokud je zavřená modul runtime, typ služby je odregistrovat z uzlu a hostování sestavy upozornění.
@@ -825,7 +840,7 @@ HealthEvents               :
 System.Hosting nahlásí chybu, pokud služba stahování balíčku selže.
 
 * **SourceId**: System.Hosting
-* **Vlastnost**: **stáhnout:***RolloutVersion*.
+* **Vlastnost**: **stáhnout: *** RolloutVersion*.
 * **Další kroky**: Zjistěte, proč se stahování v tomto uzlu selhal.
 
 ### <a name="upgrade-validation"></a>Ověření upgradu

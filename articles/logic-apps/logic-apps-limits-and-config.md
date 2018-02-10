@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Omezení aplikace logiky a konfigurace
 
-Toto téma popisuje aktuální omezení a podrobnosti o konfiguraci Azure Logic Apps.
+Tento článek popisuje aktuální omezení a podrobnosti o konfiguraci pro Azure Logic Apps.
 
 ## <a name="limits"></a>Omezení
 
@@ -66,7 +66,7 @@ Tyto limity platí do jednoho logiku aplikace spustit.
 | Maximální interval opakování | 500 dnů | 
 ||| 
 
-Překročení omezení pro spuštění doba trvání nebo uchovávání úložiště v toku vaší normálním zpracování [kontaktujte nás](mailto://logicappsemail@microsoft.com) tak, aby bylo možné pomoci vašim požadavkům.
+Překročení omezení pro spuštění doba trvání nebo uchovávání úložiště v toku vaší normálním zpracování [obraťte se na tým produktu](mailto://logicappsemail@microsoft.com) získat pomoc s vašim požadavkům.
 
 ### <a name="looping-and-debatching-limits"></a>Ve smyčce a debatching omezení
 
@@ -82,18 +82,18 @@ Tyto limity platí do jednoho logiku aplikace spustit.
 
 ### <a name="throughput-limits"></a>Omezení propustnosti
 
-Tyto limity platí do instance jednoho logiku aplikace.
+Tato omezení platí pro prostředek jeden logiku aplikace.
 
 | Název | Omezení | Poznámky | 
 | ----- | ----- | ----- | 
-| Akce spuštěních za 5 minut | 100,000 |<p>Tento limit, může být zvýšeno až 300 000 spuštěním aplikace logiky v `High Througput` režimu a to můžete provést nastavením `operationOptions` vlastnost pod`runtimeConfiguration` prostředku pracovního postupu k `OptimizedForHighThroughput`. <p>Upozorňujeme, že tento režim vysoké propustnosti je ve verzi preview. Zatížení můžete také distribuována mezi více aplikacemi, podle potřeby. | 
+| Akce spuštěních za 5 minut | 100,000 |<p>Limit můžete zvýšit než 300 000 spuštěním aplikace logiky v `High Througput` režimu. Režim vysoké propustnosti se dá nakonfigurovat nastavení `operationOptions` vlastnost pod`runtimeConfiguration` prostředku pracovního postupu k `OptimizedForHighThroughput`. <p>Všimněte si, že tento režim vysoké propustnosti je ve verzi preview. Zatížení můžete také distribuována mezi více aplikacemi, podle potřeby. | 
 | Souběžných volání odchozí akce | ~2,500 | Snižte počet souběžných požadavků nebo zkrátit dobu trvání podle potřeby. | 
 | Koncový bod modulu runtime: souběžných příchozí volání |~1,000 | Snižte počet souběžných požadavků nebo zkrátit dobu trvání podle potřeby. | 
 | Modul runtime koncový bod: počet volání za 5 minut pro čtení  | 60,000 | Můžete rozdělit zatížení mezi více aplikacemi podle potřeby. | 
 | Koncový bod modulu runtime: vyvolat volání za 5 minut| 45,000 |Můžete rozdělit zatížení mezi více aplikacemi podle potřeby. | 
 |||| 
 
-Překročení těchto mezních hodnot v normálním zpracování nebo spuštění zátěžové testování, které může tato omezení překročí [kontaktujte nás](mailto://logicappsemail@microsoft.com) tak, aby bylo možné pomoci vašim požadavkům.
+Překročení těchto mezních hodnot v normálním zpracování nebo spuštění zátěžové testování, které může tato omezení překročí [obraťte se na tým produktu](mailto://logicappsemail@microsoft.com) získat pomoc s vašim požadavkům.
 
 ### <a name="logic-app-definition-limits"></a>Omezení definici aplikace logiky
 

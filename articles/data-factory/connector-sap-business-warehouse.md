@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7f494cff1e8dc57a41467cd722fdf224e10c9dec
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c05d94c8dce51d922be3782380d4a883717bf032
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopírování dat z SAP Business Warehouse pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Pro SAP Business Warehouse (BW) propojené služby jsou podporovány následují
 | systemNumber | Číslo systému SAP BW systému.<br/>Povolené hodnoty: letopočty řetězec desetinné číslo. | Ano |
 | clientId | ID klienta v systému SAP W klienta.<br/>Povolené hodnoty: třímístné řetězec desetinné číslo. | Ano |
 | userName | Jméno uživatele, který má přístup k serveru SAP. | Ano |
-| heslo | Heslo pro uživatele. Toto pole můžete označte jako SecureString. | Ano |
+| heslo | Heslo pro uživatele. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Modul Runtime Self-hosted integrace se vyžaduje, jak je uvedeno v [požadavky](#prerequisites). |Ano |
 
 **Příklad:**
