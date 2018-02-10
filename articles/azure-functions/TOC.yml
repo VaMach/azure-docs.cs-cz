@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Vývoj sady Visual Studio
           href: functions-develop-vs.md
+        - name: Zpracování chyb
+          href: functions-bindings-error-pages.md
     - name: Nasazení
       items:
         - name: Průběžné nasazování

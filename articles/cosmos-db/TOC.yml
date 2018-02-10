@@ -360,6 +360,7 @@
           href: spark-connector-graph.md
         - name: Streamování s Kafkou a Sparkem v HDInsight
           href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Nasazení webu pomocí služby Azure App Service
           href: create-website.md
         - name: Protokolování aplikací pomocí funkce Logic Apps

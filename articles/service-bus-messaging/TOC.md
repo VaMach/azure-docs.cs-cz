@@ -4,7 +4,7 @@
 ## [Architektura služby Service Bus](service-bus-architecture.md)
 ## [Nejčastější dotazy](service-bus-faq.md)
 
-# Začínáme
+# Šablony Rychlý start
 ## [Vytvoření oboru názvů](service-bus-create-namespace-portal.md)
 ## Použití front
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)

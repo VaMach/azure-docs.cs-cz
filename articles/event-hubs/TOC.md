@@ -3,7 +3,7 @@
 ## [Funkce Event Hubs](event-hubs-features.md)
 ## [Nejčastější dotazy](event-hubs-faq.md)
 
-# Začínáme
+# Šablony Rychlý start
 ## [Vytvoření centra událostí](event-hubs-create.md)
 ## Odesílání událostí
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
