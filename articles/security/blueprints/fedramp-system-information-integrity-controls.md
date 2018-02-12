@@ -1,6 +1,6 @@
 ---
-title: "Plán, podle kterého FedRAMP Azure Automation – systém a informace o Integrity"
-description: "Webové aplikace pro FedRAMP – systém a informace o Integrity"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace – systém a informace o Integrity"
+description: "FedRAMP webové aplikace automatizace – systém a informace o Integrity"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Systém a informace o Integrity (SI)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS automatizace a řízení řešení ke sledování stavu aktualizace pro Windows virtuální počítače nasazené v této architektuře. Na řídicím panelu OMS dlaždici správy aktualizací zobrazuje stav nápravy závadu pro všechny nasazené servery Windows. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS automatizace a řízení řešení ke sledování stavu aktualizace pro Windows virtuální počítače nasazené v této architektuře. Na řídicím panelu OMS dlaždici správy aktualizací zobrazuje stav nápravy závadu pro všechny nasazené servery Windows. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače s Windows nasadit pomocí této Azure plán, podle kterého jsou nakonfigurované ve výchozím nastavení příjem automatických aktualizací ze služby Windows Update. Toto řešení taky nasadí OMS automatizace a řízení řešení, pomocí kterého lze vytvořit nasazení aktualizací na servery Windows v případě potřeby nasadit opravy. |
+| **Zákazníka** | Virtuální počítače s Windows, které jsou nasazeny tento plán, podle kterého jsou nakonfigurované ve výchozím nastavení příjem automatických aktualizací ze služby Windows Update. Toto řešení taky nasadí OMS automatizace a řízení řešení, pomocí kterého lze vytvořit nasazení aktualizací na servery Windows v případě potřeby nasadit opravy. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS automatizace a řízení řešení ke sledování stavu aktualizace pro Windows virtuální počítače nasazené v této architektuře. Na řídicím panelu OMS dlaždici správy aktualizací zobrazuje stav nápravy závadu pro všechny nasazené servery Windows. Nasazení aktualizací můžete vytvořit nasazení oprav na servery Windows v případě potřeby. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS automatizace a řízení řešení ke sledování stavu aktualizace pro Windows virtuální počítače nasazené v této architektuře. Na řídicím panelu OMS dlaždici správy aktualizací zobrazuje stav nápravy závadu pro všechny nasazené servery Windows. Nasazení aktualizací můžete vytvořit nasazení oprav na servery Windows v případě potřeby. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS automatizace a řízení řešení ke sledování stavu aktualizace pro Windows virtuální počítače nasazené v této architektuře. Pro každý spravovaný počítač s Windows se kontrola provádí dvakrát denně. Každých 15 minut se volá rozhraní Windows API pro zadání dotazu na čas poslední aktualizace, podle kterého zjistí, jestli se změnil stav, a pokud ano, zahájí se kontrola kompatibility. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS automatizace a řízení řešení ke sledování stavu aktualizace pro Windows virtuální počítače nasazené v této architektuře. Pro každý spravovaný počítač s Windows se kontrola provádí dvakrát denně. Každých 15 minut se volá rozhraní Windows API pro zadání dotazu na čas poslední aktualizace, podle kterého zjistí, jestli se změnil stav, a pokud ano, zahájí se kontrola kompatibility. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. |
+| **Zákazníka** | Tento plán, podle kterého nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Toto rozšíření je nakonfigurován pro automatické aktualizace obou antimalwarový stroj a ochrany podpisů jako verzi k dispozici. |
+| **Zákazníka** | Tento plán, podle kterého nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Toto rozšíření je nakonfigurován pro automatické aktualizace obou antimalwarový stroj a ochrany podpisů jako verzi k dispozici. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Toto rozšíření je nakonfigurován, aby provádět v reálném čase a pravidelné kontroly (týdně), automaticky aktualizovat i antimalwarový stroj a ochrany podpisů a provádět automatické nápravné akce. |
+| **Zákazníka** | Tento plán, podle kterého nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Toto rozšíření je nakonfigurován, aby provádět v reálném čase a pravidelné kontroly (týdně), automaticky aktualizovat i antimalwarový stroj a ochrany podpisů a provádět automatické nápravné akce. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Azure OMS poskytuje centralizovanou funkci, můžete zkontrolovat aktuální stav řešení proti malwaru. |
+| **Zákazníka** | Tento plán, podle kterého nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Azure OMS poskytuje centralizovanou funkci, můžete zkontrolovat aktuální stav řešení proti malwaru. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Toto rozšíření je nakonfigurován pro automatické aktualizace obou antimalwarový stroj a ochrany podpisů jako verzi k dispozici. |
+| **Zákazníka** | Tento plán, podle kterého nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Toto rozšíření je nakonfigurován pro automatické aktualizace obou antimalwarový stroj a ochrany podpisů jako verzi k dispozici. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Toto rozšíření je nakonfigurován k provedení Heuristická detekce. |
+| **Zákazníka** | Tento plán, podle kterého nasadí založené na hostiteli antimalwarové ochrany pro všechny nasazené virtuální počítače s Windows implementovaná pomocí rozšíření virtuálního počítače Antimalware od Microsoftu. Toto rozšíření je nakonfigurován k provedení Heuristická detekce. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí analýzy protokolů a řešení zabezpečení OMS a auditování. Toto řešení poskytuje komplexní pohled postavení zabezpečení, útokům a indikátory možných útoků. Řídicí panel zabezpečení a Audit poskytuje podrobný přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS. |
+| **Zákazníka** | Tento plán, podle kterého nasadí analýzy protokolů a řešení zabezpečení OMS a auditování. Toto řešení poskytuje komplexní pohled postavení zabezpečení, útokům a indikátory možných útoků. Řídicí panel zabezpečení a Audit poskytuje podrobný přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS zabezpečení a Audit řešení. Domény identifikace a přístup poskytuje přehled identity stavu informace systému, včetně počtu neúspěšných pokusů o přihlášení a aktuální počet účtů, které se protokolují v řídicím panelu. Informace k dispozici v tomto řídicím panelu může být užitečné při identifikaci potenciální podezřelých aktivit. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS zabezpečení a Audit řešení. Domény identifikace a přístup poskytuje přehled identity stavu informace systému, včetně počtu neúspěšných pokusů o přihlášení a aktuální počet účtů, které se protokolují v řídicím panelu. Informace k dispozici v tomto řídicím panelu může být užitečné při identifikaci potenciální podezřelých aktivit. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí analýzy protokolů a řešení zabezpečení OMS a auditování. Řídicí panel zabezpečení a Audit poskytuje podrobný přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS, včetně aspekty dat monitorování virtuálních počítačů operačního systému. |
+| **Zákazníka** | Tento plán, podle kterého nasadí analýzy protokolů a řešení zabezpečení OMS a auditování. Řídicí panel zabezpečení a Audit poskytuje podrobný přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS, včetně aspekty dat monitorování virtuálních počítačů operačního systému. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Ovládací prvky logického přístupu slouží k ochraně monitorování informace v rámci této Azure plán, podle kterého před neoprávněným přístupem, úpravu a odstranění. Azure Active Directory vynucuje schválené logické přístup pomocí členství ve skupinách na základě rolí. Možnost zobrazení informací o monitorování a použití nástrojů pro monitorování může být omezen na uživatele, kteří tato oprávnění vyžadují. |
+| **Zákazníka** | Ovládací prvky logického přístupu slouží k ochraně monitorování informace v rámci tento plán, podle kterého před neoprávněným přístupem, úpravu a odstranění. Azure Active Directory vynucuje schválené logické přístup pomocí členství ve skupinách na základě rolí. Možnost zobrazení informací o monitorování a použití nástrojů pro monitorování může být omezen na uživatele, kteří tato oprávnění vyžadují. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-system-monitoring"></a>Informace o sledování systému
 
-**Ma 4e** Organizace zvýší úroveň monitorování aktivity vždy, když je to znamenat vyšší riziko pro organizační operace a prostředky, jednotlivce, jinými organizacemi nebo výhod založený na informacích vynucení zákonem, informace o systému informací o prostředcích, nebo dalších důvěryhodných zdrojů informací.
+**SI-4.e** Organizace zvýší úroveň monitorování aktivity vždy, když je to znamenat vyšší riziko pro organizační operace a prostředky, jednotlivce, jinými organizacemi nebo výhod založený na informacích vynucení zákonem, informace o systému informací o prostředcích, nebo dalších důvěryhodných zdrojů informací.
 
 **Odpovědnosti:**`Customer Only`
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí analýzy protokolů a různá řešení OMS, včetně řešení zabezpečení a auditování. Analýzy protokolů zajišťuje téměř v reálném čase analýzy událostí napříč nasazené prostředky. OMS řešení poskytuje komplexní pohled postavení zabezpečení napříč doménami řešení. OMS poskytuje přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS. OMS může být nakonfigurováno pro generování výstrahy na základě definovaných kritérií. |
+| **Zákazníka** | Tento plán, podle kterého nasadí analýzy protokolů a různá řešení OMS, včetně řešení zabezpečení a auditování. Analýzy protokolů zajišťuje téměř v reálném čase analýzy událostí napříč nasazené prostředky. OMS řešení poskytuje komplexní pohled postavení zabezpečení napříč doménami řešení. OMS poskytuje přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS. OMS může být nakonfigurováno pro generování výstrahy na základě definovaných kritérií. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí různá řešení OMS, včetně řešení zabezpečení a auditování. Analýzy protokolů zajišťuje téměř v reálném čase analýzy událostí napříč nasazené prostředky. OMS řešení poskytuje komplexní pohled postavení zabezpečení napříč doménami řešení. OMS může být nakonfigurováno pro generování výstrahy na základě definovaných kritérií. |
+| **Zákazníka** | Tento plán, podle kterého nasadí různá řešení OMS, včetně řešení zabezpečení a auditování. Analýzy protokolů zajišťuje téměř v reálném čase analýzy událostí napříč nasazené prostředky. OMS řešení poskytuje komplexní pohled postavení zabezpečení napříč doménami řešení. OMS může být nakonfigurováno pro generování výstrahy na základě definovaných kritérií. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí analýzy protokolů a různá řešení OMS, včetně řešení zabezpečení a auditování. OMS poskytuje přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS. |
+| **Zákazníka** | Tento plán, podle kterého nasadí analýzy protokolů a různá řešení OMS, včetně řešení zabezpečení a auditování. OMS poskytuje přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure shromažďuje data monitorování z nasazené prostředky, včetně dat z možnosti monitorování založené na hostiteli. Microsoft Monitoring Agent je nainstalována na všechny virtuální počítače s Windows ke shromažďování dat monitorování používané analýzy protokolů a jiných řešení OMS. |
+| **Zákazníka** | Tento plán, podle kterého shromažďuje data monitorování z nasazené prostředky, včetně dat z možnosti monitorování založené na hostiteli. Microsoft Monitoring Agent je nainstalována na všechny virtuální počítače s Windows ke shromažďování dat monitorování používané analýzy protokolů a jiných řešení OMS. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure používají operační systémy Windows. Systém Windows poskytuje ověření integrity souborů v reálném čase, ochrany a obnovení souborů jádra systému, které jsou nainstalovány v rámci systému Windows nebo autorizovaný aktualizací systému Windows prostřednictvím možnosti ochrany WRP prostředků Windows (.). |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán spustit operační systémy Windows. Systém Windows poskytuje ověření integrity souborů v reálném čase, ochrany a obnovení souborů jádra systému, které jsou nainstalovány v rámci systému Windows nebo autorizovaný aktualizací systému Windows prostřednictvím možnosti ochrany WRP prostředků Windows (.). |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure používají operační systémy Windows. Systém Windows poskytuje ověření integrity souborů v reálném čase, ochrany a obnovení souborů jádra systému, které jsou nainstalovány v rámci systému Windows nebo autorizovaný aktualizací systému Windows prostřednictvím možnosti ochrany WRP prostředků Windows (.). WRP. umožňuje kontrolu v reálném čase integrity. |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán spustit operační systémy Windows. Systém Windows poskytuje ověření integrity souborů v reálném čase, ochrany a obnovení souborů jádra systému, které jsou nainstalovány v rámci systému Windows nebo autorizovaný aktualizací systému Windows prostřednictvím možnosti ochrany WRP prostředků Windows (.). WRP. umožňuje kontrolu v reálném čase integrity. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure používají operační systémy Windows. Systém Windows poskytuje ověření integrity souborů v reálném čase, ochrany a obnovení souborů jádra systému, které jsou nainstalovány v rámci systému Windows nebo autorizovaný aktualizací systému Windows prostřednictvím možnosti ochrany WRP prostředků Windows (.).  |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán spustit operační systémy Windows. Systém Windows poskytuje ověření integrity souborů v reálném čase, ochrany a obnovení souborů jádra systému, které jsou nainstalovány v rámci systému Windows nebo autorizovaný aktualizací systému Windows prostřednictvím možnosti ochrany WRP prostředků Windows (.).  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Nejsou žádné e-mailu servery nasazené jako součást tento plán, podle kterého Azure. |
+| **Zákazníka** | Nejsou žádné e-mailu servery nasazené jako součást tento plán. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Nejsou žádné e-mailu servery nasazené jako součást tento plán, podle kterého Azure. |
+| **Zákazníka** | Nejsou žádné e-mailu servery nasazené jako součást tento plán. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Nejsou žádné e-mailu servery nasazené jako součást tento plán, podle kterého Azure. |
+| **Zákazníka** | Nejsou žádné e-mailu servery nasazené jako součást tento plán. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Nejsou žádné e-mailu servery nasazené jako součást tento plán, podle kterého Azure. |
+| **Zákazníka** | Nejsou žádné e-mailu servery nasazené jako součást tento plán. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -819,7 +819,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Prostředky nasadit pomocí této Azure plán, podle kterého použít komerční operačních systémů a aplikací softwaru. Tento software používá odvětví osvědčené postupy k zajištění, že citlivé informace, že by v chybových zprávách. |
+| **Zákazníka** | Prostředky nasadit pomocí tento plán, podle kterého použít komerční operačních systémů a aplikací softwaru. Tento software používá odvětví osvědčené postupy k zajištění, že citlivé informace, že by v chybových zprávách. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -833,7 +833,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Prostředky nasadit pomocí této Azure plán, podle kterého použít komerční operačních systémů a aplikací softwaru. Tento software používá odvětví osvědčené postupy k poskytnutí chybové zprávy, které jsou vhodné v kontextu používá danou zprávu přijala. |
+| **Zákazníka** | Prostředky nasadit pomocí tento plán, podle kterého použít komerční operačních systémů a aplikací softwaru. Tento software používá odvětví osvědčené postupy k poskytnutí chybové zprávy, které jsou vhodné v kontextu používá danou zprávu přijala. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -861,5 +861,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure používají operační systémy Windows. Windows má zavedené brání spuštění kódu v umístění s omezeným přístupem paměti ochrana: Ne Execute (NX), místo rozložení náhodného přeskupování (technologie ASLR) adresu a zabránění spuštění dat (DEP). |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán spustit operační systémy Windows. Windows má zavedené brání spuštění kódu v umístění s omezeným přístupem paměti ochrana: Ne Execute (NX), místo rozložení náhodného přeskupování (technologie ASLR) adresu a zabránění spuštění dat (DEP). |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |

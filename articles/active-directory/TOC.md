@@ -83,6 +83,7 @@
 #### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrace uživatelů mezi licencemi produktů](active-directory-licensing-group-product-migration.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 #### [Příklady Azure PowerShellu pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 #### [Referenční informace k produktům a plánům služeb v Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
@@ -200,8 +201,6 @@
 ##### [Konektory](application-proxy-understand-connectors.md)
 ##### [Zabezpečení](application-proxy-security-considerations.md)
 ##### [Sítě](application-proxy-network-topology-considerations.md)
-
-
 ##### [Upgrade z TMG nebo UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Pokročilá konfigurace
@@ -212,6 +211,8 @@
 ##### [Bezobslužná instalace](active-directory-application-proxy-silent-installation.md)
 ##### [Vlastní domovská stránka](application-proxy-office365-app-launcher.md)
 ##### [Převod vložených odkazů](application-proxy-link-translation.md)
+##### [Aplikace se zástupnými znaky](active-directory-application-proxy-wildcard.md)
+
 #### Názorné postupy publikování
 ##### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -293,8 +294,9 @@
 
 ## Zabezpečení identit
 ### [Podmíněný přístup](active-directory-conditional-access-azure-portal.md)
-#### [Ovládací prvky](active-directory-conditional-access-controls.md)
+#### [Podmínky](active-directory-conditional-access-conditions.md)
 #### [Podmínka umístění](active-directory-conditional-access-locations.md)
+#### [Ovládací prvky](active-directory-conditional-access-controls.md)
 #### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Vysvětlení zásad zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md)

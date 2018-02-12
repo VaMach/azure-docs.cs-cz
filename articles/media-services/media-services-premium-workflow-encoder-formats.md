@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1cadec240dc7f6e3ac5b8932d66c3d55c76e42
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Formáty Media Encoder Premium pracovního postupu a kodeky
 > [!NOTE]
-> Máte dotazy k kodér premium e-mailu mepd na webu společnosti Microsoft.
+> Premium kodér otázky, e-mailu mepd@microsoft.com.
 > 
 > Procesor médií Media Encoder Premium pracovního postupu popsané v tomto tématu není k dispozici v Číně. 
 > 
@@ -45,8 +45,8 @@ V následující části jsou uvedeny kodeky a soubor formátů, které podporuj
 * GXF
 * Datové proudy MPEG-2 Transport
 * Datové proudy MPEG-2 programu
-* MPEG-4 NEBO MP4
-* Windows Media/amp
+* MPEG-4/MP4
+* Windows Media/ASF
 * AVI (nekomprimované 8bitové/10 bitů)
 
 ### <a name="input-video-codecs"></a>Vstupní Video kodeky
@@ -66,7 +66,7 @@ V následující části jsou uvedeny kodeky a soubor formátů, které podporuj
 * MPEG vrstvy 2
 * MP3 (MPEG-1 zvuk vrstvy 3)
 * Zvuk média systému Windows
-* WAV NEBO PCM
+* WAV/PCM
 
 ## <a id="output_format"></a>Media Encoder Premium pracovního postupu výstupní formáty a kodeky
 V následující části jsou uvedeny formáty kodeky a souborů, které jsou podporované jako výstup z tohoto média procesoru.
@@ -76,8 +76,8 @@ V následující části jsou uvedeny formáty kodeky a souborů, které jsou po
 * MXF (OP1a, XDCAM a AS02)
 * DPP (včetně AS11)
 * GXF
-* MPEG-4 NEBO MP4
-* Windows Media/amp
+* MPEG-4/MP4
+* Windows Media/ASF
 * AVI (nekomprimované 8bitové/10 bitů)
 * Formát souborů Smooth datového proudu (PIFF 1.3)
 * MPEG-TS 

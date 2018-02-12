@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Přehled koncových bodů streamování 
 
@@ -86,12 +86,12 @@ Dynamické balení|Ano|Ano
 Měřítko|Automatické škálování cílové propustnosti.|Další jednotky streamování
 IP filtrování nebo G20 nebo vlastního hostitele|Ano|Ano
 Progresivní stahování|Ano|Ano
-Doporučené využití |Vhodné pro velká většina streamování scénáře.|Profesionální využití.<br/>Pokud se domníváte, že můžete mít potřeby nad rámec Standard. Pokud očekáváte souběžných cílovou skupinu velikost větší než 50 000 prohlížeče, kontaktujte nás (amsstreaming na webu společnosti Microsoft).
+Doporučené využití |Vhodné pro velká většina streamování scénáře.|Profesionální využití.<br/>Pokud se domníváte, že můžete mít potřeby nad rámec Standard. Kontaktujte nás (amsstreaming@microsoft.com) Pokud očekáváte souběžných cílovou skupinu velikost větší než 50 000 prohlížeče.
 
 
 ## <a name="migration-between-types"></a>Migrace mezi typy
 
-Z | Akce | Akce
+Od | Akce | Akce
 ---|---|---
 Classic|Standard|Potřeba opt-in
 Classic|Premium| Škálování (Další jednotky streamování)
@@ -104,7 +104,7 @@ Verze 1.0 s SU > = 1 s CDN|Standard nebo Premium s žádné CDN|V povolena **zas
 Verze 1.0 s SU > = 1 s CDN|Standard s/bez CDN|V povolena **zastavena** stavu. Není povoleno v **spuštění** stavu. Verze 1.0 CDN bude odstraněna a nové jeden vytvořit a spustit.
 Verze 1.0 s SU > = 1 s CDN|Premium/bez CDN|V povolena **zastavena** stavu. Není povoleno v **spuštění** stavu. Classic CDN bude odstraněna a nové jeden vytvořit a spustit.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Prohlédněte si mapy kurzů k Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

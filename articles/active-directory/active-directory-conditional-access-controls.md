@@ -1,6 +1,6 @@
 ---
-title: "Ovládací prvky v Azure Active Directory podmíněného přístupu | Microsoft Docs"
-description: "Zjistěte, jak fungují ovládacích prvků v Azure Active Directory podmíněného přístupu."
+title: "Přístup k ovládacím prvkům v Azure Active Directory podmíněného přístupu | Microsoft Docs"
+description: "Zjistěte, jak řízení přístupu v pracovním podmíněného přístupu Azure Active Directory."
 services: active-directory
 keywords: "podmíněný přístup k aplikacím, podmíněného přístupu s Azure AD, zabezpečený přístup k prostředkům společnosti, zásady podmíněného přístupu"
 documentationcenter: 
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Ovládací prvky v Azure Active Directory podmíněného přístupu 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Řízení přístupu v Azure Active Directory podmíněného přístupu 
 
 S [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), jak oprávněným uživatelům přístup můžete řídit cloudových aplikací. V zásadách podmíněného přístupu které definujete odpovědi ("to") důvod aktivován vaší zásady ("v takovém případě"). 
 

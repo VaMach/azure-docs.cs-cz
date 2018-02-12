@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: Použití vnořené virtualizace
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: Instalace agenta virtuálního počítače v offline režimu
+          href: install-vm-agent-offline.md
 - name: Referenční informace
   items:
     - name: Azure CLI

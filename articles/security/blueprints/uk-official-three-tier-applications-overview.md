@@ -1,6 +1,6 @@
 ---
-title: "Automatizace Azure plán, podle kterého - třívrstvá webové aplikace pro velkou Británii oficiální"
-description: "Automatizace Azure plán, podle kterého & - třívrstvá webové aplikace pro velkou Británii oficiální"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - Spojené království – oficiální třívrstvá webové aplikace automatizace"
+description: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - Spojené království – oficiální třívrstvá webové aplikace automatizace"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Automatizace Azure plán, podle kterého: Třívrstvá webové aplikace pro velkou Británii oficiální
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Zabezpečení Azure a dodržování předpisů plán, podle kterého - UK OFICIÁLNÍHO třívrstvá webové aplikace automatizace
 
 ## <a name="overview"></a>Přehled
 
  Tento článek obsahuje pokyny a automatizace skripty k poskytování architektura třívrstvá webové Microsoft Azure, která je vhodné pro zpracování mnoho úloh, které jsou klasifikovány jako oficiální ve Spojeném království.
 
- Pomocí infrastruktury jako kód přístupu sadu [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) (ARM) šablony nasazení prostředí, aby k Spojené království National Kybernetického zabezpečení Centre (NCSC) 14 [zásady zabezpečení cloudu](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)Centrum pro zabezpečení Internetu (SNS) a [ovládací prvky zabezpečení](https://www.cisecurity.org/critical-controls.cfm).
+ Pomocí infrastruktury jako kód přístupu sadu [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) šablony nasazení prostředí, aby k Spojené království National Kybernetického zabezpečení Centre (NCSC) 14 [zásady zabezpečení cloudu](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) Centrum pro zabezpečení Internetu (SNS) a [ovládací prvky zabezpečení](https://www.cisecurity.org/critical-controls.cfm).
 
  NCSC doporučujeme použít jejich zásady zabezpečení cloudu zákazníci k vyhodnocení vlastnosti zabezpečení služby a pro lepší porozumění tomu dělení zodpovědnosti mezi zákazníkem a dodavatele. Nabízíme informace pro každý z těchto zásad, které vám pomohou pochopit rozdělení odpovědnosti.
 
- Tato architektura a odpovídající šablony ARM jsou podporovány v dokumentu White Paper Microsoft [Azure plán, podle kterého pro velkou Británii Government](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Tento dokument v katalozích jak Azure services zarovnat se UK NCSC 14 cloudu zabezpečení zásadami, a umožňuje organizacím rychlého možnost jejich dodržování předpisů povinnosti na Microsoft Azure pomocí globálně a ve Spojeném království cloudové služby cloud.
+ Tato architektura a odpovídající šablony Azure Resource Manager jsou podporovány v dokumentu White Paper Microsoft [14 cloudu kontrolních mechanismů pro zabezpečení pro velkou Británii cloudu pomocí Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Tento dokument v katalozích jak Azure services zarovnat se UK NCSC 14 cloudu zabezpečení zásadami, a umožňuje organizacím rychlého možnost jejich dodržování předpisů povinnosti na Microsoft Azure pomocí globálně a ve Spojeném království cloudové služby cloud.
 
  Tato šablona nasadí infrastrukturu pro pracovní vytížení. Kód aplikace a podpůrné obchodní vrstvou a softwaru úroveň dat musí být nainstalovaná a nakonfigurovaná. Podrobné pokyny jsou k dispozici [zde](https://aka.ms/ukwebappblueprintrepo).
 
@@ -150,7 +150,7 @@ Load Balancer
 
 **Virtuální síť pro správu**: to [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) obsahuje prostředky, které implementují Správa a sledování možnosti pro úlohy běžící v produkčním prostředí virtuální sítě.
 
-**Jumpbox**: označuje taky jako [bastionu hostitele](https://en.wikipedia.org/wiki/Bastion_host), což je zabezpečeného virtuálního počítače v síti, která správcům umožňuje připojení k virtuálním počítačům v produkčním prostředí virtuální sítě. Jumpbox má skupinu NSG, který umožňuje vzdálenou komunikaci pouze z veřejné IP adresy na seznamu bezpečných adres. Zdroj provoz pro povolení vzdálené plochy (RDP) komunikace, musí být definován v této skupině. Správa prostředků produkční je prostřednictvím protokolu RDP pomocí zabezpečené Jumpbox virtuálního počítače.
+**Jumpbox**: označuje taky jako [bastionu hostitele](https://en.wikipedia.org/wiki/Bastion_host), což je zabezpečeného virtuálního počítače v síti, která správcům umožňuje připojení k virtuálním počítačům v produkčním prostředí virtuální sítě. Jumpbox má skupinu NSG, která umožňuje vzdálenou komunikaci pouze z jedné veřejné IP adresy na seznamu bezpečných adres. Zdroj provoz pro povolení vzdálené plochy (RDP) komunikace, musí být definován v této skupině. Správa prostředků produkční je prostřednictvím protokolu RDP pomocí zabezpečené Jumpbox virtuálního počítače.
 
 **Trasy definované uživatelem**: [trasy definované uživatelem](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) slouží k určení tok provozu IP v rámci virtuálních sítí Azure.
 
@@ -195,17 +195,17 @@ Tyto virtuální sítě se pořád spravují jako samostatné prostředky, ale z
 
 ### <a name="security"></a>Zabezpečení
 
-**Správa zabezpečení**: Tento plán Azure umožňuje správcům připojit k správu virtuální sítě a Jumpbox pomocí protokolu RDP z důvěryhodného zdroje. Síťových přenosů pro správu virtuální sítě je řízena pomocí skupin Nsg. Přístup k portu 3389 je omezen na provoz z důvěryhodných rozsahu IP, kterým může přistupovat podsíť obsahující Jumpbox.
+**Správa zabezpečení**: Tento plán, podle kterého umožňuje správcům připojit k správu virtuální sítě a Jumpbox pomocí protokolu RDP z důvěryhodného zdroje. Síťových přenosů pro správu virtuální sítě je řízena pomocí skupin Nsg. Přístup k portu 3389 je omezen na provoz z důvěryhodných rozsahu IP, kterým může přistupovat podsíť obsahující Jumpbox.
 
 Zákazníci mohou také zvažte použití [model správy rozšířené zabezpečení](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) zabezpečit prostředí při připojování k management virtuální sítě a Jumpbox. Doporučuje se, že pro zvýšení zabezpečení zákazníci používat [privilegovaného přístupu pracovní stanice](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) a konfigurace RDGateway. Použití virtuálních zařízení sítě a veřejného a privátního zóny DMZ nabídne další vylepšení zabezpečení.
 
-**Zabezpečení sítě**: [skupin zabezpečení sítě](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Nsg) – se doporučují pro každou podsíť zajistit druhou úroveň ochrany proti obcházení brány nesprávně nakonfigurován nebo zakázané příchozí přenosy. Příklad: [šablony ARM pro nasazení skupinu NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Zabezpečení sítě**: [skupin zabezpečení sítě](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Nsg) – se doporučují pro každou podsíť zajistit druhou úroveň ochrany proti obcházení brány nesprávně nakonfigurován nebo zakázané příchozí přenosy. Příklad: [šablony Resource Manageru pro nasazování skupinu NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Zabezpečení veřejné koncové body**: Internetová brána zpřístupní služby aplikace uživatelům prostřednictvím Internetu. Provoz přístup k tyto služby zabezpečené pomocí [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), který poskytuje protokol správy brány Firewall webových aplikací a HTTPS.
 
 **Rozsahy IP adres**: rozsahy IP v architektuře, která jsou navržené oblasti. Zákazníci by měli vzít v úvahu svoje vlastní prostředí a použijte příslušné rozsahy.
 
-**Hybridní připojení**: cloudové úlohy jsou připojené k datové centrum místní prostřednictvím sítě VPN IPSEC pomocí služby Azure VPN Gateway. Zákazníci zkontrolujte, že používají bránu příslušné sítě VPN pro připojení k Azure. Příklad: [šablony ARM brány VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Zákazníci, kteří používají ve velkém měřítku, zvažte možnost použití architektura hybridní sítě může přát kritické úlohy s velkými objemy dat požadavky [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) pro připojení k privátní síti společnosti Microsoft cloudových služeb.
+**Hybridní připojení**: cloudové úlohy jsou připojené k místního datového centra prostřednictvím sítě VPN IPSEC pomocí služby Azure VPN Gateway. Zákazníci zkontrolujte, že používají bránu příslušné sítě VPN pro připojení k Azure. Příklad: [šablony Resource Manageru brány VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Zákazníci, kteří používají ve velkém měřítku, zvažte možnost použití architektura hybridní sítě může přát kritické úlohy s velkými objemy dat požadavky [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) pro připojení k privátní síti společnosti Microsoft cloudových služeb.
 
 **Oddělené oblasti zájmu**: tuto referenční architekturu odděluje virtuální sítě pro operace správy a provoz firmy. Samostatné virtuální sítě a podsítě povolit správu provoz, včetně omezení příchozí a odchozí přenosy, pomocí skupin Nsg mezi segmenty sítě následující [zabezpečení služeb a sítě Microsoft cloud](https://docs.microsoft.com/azure/best-practices-network-security) osvědčené postupy.
 
@@ -221,17 +221,17 @@ Zákazníci mohou také zvažte použití [model správy rozšířené zabezpeč
 
 Crown komerční služby (agentura, který lze použít ke zlepšení činnost komerční a nákup vládou) obnovit klasifikaci Microsoft enterprise v oboru cloudové služby na G-Cloud v6 pokrývajících všech nabídek na oficiální úrovni. Podrobnosti o Azure a G-Cloud nachází v [souhrn hodnocení zabezpečení cloudu se službou Azure UK G](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Toto řešení Azure plán, podle kterého Spojené království – oficiální zarovnává zásadám zabezpečení 14 cloudu, které jsou dokumentovány v NCSC [zásady zabezpečení cloudu](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) k zajištění prostředí, které podporuje úlohy, které jsou klasifikovány jako oficiální UK.
+Tento plán, podle kterého zarovnává zásadám zabezpečení 14 cloudu, které jsou dokumentovány v NCSC [zásady zabezpečení cloudu](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) k zajištění prostředí, které podporuje úlohy, které jsou klasifikovány jako oficiální UK.
 
 [Matice odpovědnosti zákazníka](https://aka.ms/blueprintuk-gcrm) (sešitu aplikace Excel) obsahuje všechny zásady zabezpečení 14 cloudu a matice označuje, pro každou zásadu (nebo její Princip komponenty), zda implementace princip má na starosti Microsoft, zákazník nebo sdílené mezi nimi.
 
-[Princip implementace matice](https://aka.ms/ukwebappblueprintpim) (sešitu aplikace Excel) zobrazí všechny zásady zabezpečení 14 cloudu a matice označuje, pro každou zásadu (nebo její Princip komponenty), který je vybraný odpovědnosti zákazníka v zákazníka Matice odpovědnosti, 1) Pokud Azure Automation plán, podle kterého implementuje princip a 2) popis způsobu implementace zarovnaná s uvažovaný zásadu. Tento obsah je k dispozici [zde](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+[Princip implementace matice](https://aka.ms/ukwebappblueprintpim) (sešitu aplikace Excel) zobrazí všechny zásady zabezpečení 14 cloudu a matice označuje, pro každou zásadu (nebo její Princip komponenty), který je vybraný odpovědnosti zákazníka v zákazníka Matice odpovědnosti, 1) Pokud plán, podle kterého automatizace implementuje princip a 2) popis způsobu implementace zarovnaná s uvažovaný zásadu. Tento obsah je k dispozici [zde](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Kromě toho Alliance zabezpečení cloudu (CSA) publikovat matice řízení cloudu pro podporu zákazníci při vyhodnocení poskytovatelů cloudu a k identifikaci otázky, které by měl být zodpovězena, před přesunutím cloudových služeb. V odpovědi, Microsoft Azure odpovědi Initiative dotazník CSA Konsenzu Assessment ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), který popisuje, jak Microsoft adresy navrhované zásady.
 
 ## <a name="deploy-the-solution"></a>Nasazení řešení.
 
-Existují dvě metody, které uživatelé nasazení může použít k nasazení tohoto řešení Azure plán, podle kterého. První metoda používá skript prostředí PowerShell, zatímco druhý způsob využívá portál Azure k nasazení referenční architektura. Podrobné pokyny jsou k dispozici [zde](https://aka.ms/ukwebappblueprintrepo).
+Existují dvě metody, které uživatelé nasazení může použít k nasazení tento plán, podle kterého automatizace. První metoda používá skript prostředí PowerShell, zatímco druhý způsob využívá portál Azure k nasazení referenční architektura. Podrobné pokyny jsou k dispozici [zde](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Právní omezení
 

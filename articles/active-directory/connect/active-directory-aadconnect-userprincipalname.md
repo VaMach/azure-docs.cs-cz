@@ -8,11 +8,11 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName naplnění
 
@@ -67,9 +67,10 @@ Vzhledem k tomu, že hodnota atributu Azure AD UserPrincipalName může být nas
 Při objekt uživatele je první synchronizaci klient služby Azure AD, Azure AD ověří následující v uvedeném pořadí a nastaví hodnotu atributu MailNickName první existující:
 
 - Atribut místní mailNickName
-- Předpona atributu mail na místě
 - Předpona primární adresa SMTP
+- Předpona atributu mail na místě
 - Předpona místní userPrincipalName atribut nebo alternativním přihlašovacím ID
+- Předpona sekundární adresa smtp
 
 Při synchronizaci aktualizací na objekt uživatele se klient Azure AD, Azure AD aktualizací hodnota atributu MailNickName pouze v případě, že dojde k aktualizaci na hodnotu atributu mailNickName místně.
 
@@ -85,12 +86,12 @@ Následuje příklad scénáře jak UPN je vypočtena na základě v této situa
 
 Místní objekt uživatele:
 - mailNickName: &lt;není nastaven.&gt;
-- e-mailu:us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- e-mailu:us2@contoso.com
 - userPrincipalName : us3@contoso.com`
 
 Synchronizovat první objekt uživatele, který má klienta Azure AD
-- Nastavte atribut Azure AD MailNickName na místní předponu atributu e-mailu.
+- Nastavte atribut Azure AD MailNickName na primární předpona adresy SMTP.
 - Nastavte MOERA na &lt;MailNickName&gt;& č. 64;&lt; počáteční domény&gt;.
 - Nastavte atribut Azure AD UserPrincipalName na MOERA.
 
@@ -103,8 +104,8 @@ Objekt uživatele Azure AD klienta:
 
 Místní objekt uživatele:
 - mailNickName: us4
-- e-mailu:us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- e-mailu:us2@contoso.com
 - userPrincipalName : us3@contoso.com
 
 Synchronizovat aktualizace na místní mailNickName atribut klienta Azure AD
@@ -119,8 +120,8 @@ Objekt uživatele Azure AD klienta:
 
 Místní objekt uživatele:
 - mailNickName: us4
-- e-mailu:us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- e-mailu:us2@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Synchronizovat aktualizace na atribut userPrincipalName místní klienta Azure AD
@@ -132,16 +133,16 @@ Objekt uživatele Azure AD klienta:
 - MailNickName: us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>Scénář 4: Příponu UPN neověřený – aktualizace místní atribut mail a primární adresa SMTP
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scénář 4: Příponu UPN neověřený – primární adresa SMTP aktualizace a místní poštovní atribut
 
 Místní objekt uživatele:
 - mailNickName: us4
-- e-mailu:us6@contoso.com
-- proxyAddresses: {SMTP:us7@contoso.com}
+- proxyAddresses: {SMTP:us6@contoso.com}
+- e-mailu:us7@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Synchronizovat aktualizace na atribut mail v místě a primární adresa SMTP klienta Azure AD
-- Po počáteční synchronizaci objektu uživatele, aktualizuje místní poštovní atribut a primární adresa SMTP nebude mít vliv Azure AD MailNickName ani UserPrincipalName atribut.
+- Po počáteční synchronizaci objektu uživatele, aktualizuje místní poštovní atribut a neovlivní primární adresa SMTP atributu Azure AD MailNickName ani UserPrincipalName.
 
 Objekt uživatele Azure AD klienta:
 - MailNickName: us4
@@ -151,8 +152,8 @@ Objekt uživatele Azure AD klienta:
 
 Místní objekt uživatele:
 - mailNickName: us4
-- e-mailu:us6@contoso.com
-- proxyAddresses: {SMTP:us7@contoso.com}
+- proxyAddresses: {SMTP:us6@contoso.com}
+- e-mailu:us7@contoso.com
 - serPrincipalName  : us5@verified.contoso.com
 
 Synchronizovat aktualizace na atribut userPrincipalName místně klientovi Azure AD

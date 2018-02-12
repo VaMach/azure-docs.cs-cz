@@ -86,6 +86,9 @@
           href: apache-spark-use-with-data-lake-store.md
         - name: Připojení k Azure SQL Database
           href: apache-spark-connect-to-sql-database.md
+        - name: Implementace architektury lambda pomocí Sparku a Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Streamování Sparku
       items:
         - name: Přehled

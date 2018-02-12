@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 9b94d9c66f69fac7c73a70618f782b811d4c9e62
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Úvod do monitorování cloudové služby
 
@@ -76,7 +76,7 @@ V **ServiceDefinition.csdef** soubor, přidejte nové nastavení s názvem `Micr
 
 Definuje nové nastavení, která musí být přidán do každé **souboru ServiceConfiguration.cscfg** souboru. 
 
-S největší pravděpodobností máte dva **.cscfg** souborům, jednu s názvem **ServiceConfiguration.cloud.cscfg** pro nasazení do Azure a jednu s názvem **ServiceConfiguration.local.cscfg** která se používá pro místní nasazení v prostředí emulované. Otevřete a změňte každou **.cscfg** souboru. Přidejte nastavení s názvem `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Nastavte hodnotu na buď **primární připojovací řetězec** účtu úložiště classic. Pokud chcete použít místní úložiště na vývojovém počítači, použijte `UseDevelopmentStorage=true`.
+S největší pravděpodobností máte dva **.cscfg** souborům, jednu s názvem **ServiceConfiguration.cloud.cscfg** pro nasazení do Azure a jednu s názvem **ServiceConfiguration.local.cscfg** která se používá pro místní nasazení v prostředí emulované. Otevřete a změňte každou **.cscfg** souboru. Přidejte nastavení s názvem `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Nastavte hodnotu na **primární připojovací řetězec** účtu úložiště classic. Pokud chcete použít místní úložiště na vývojovém počítači, použijte `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

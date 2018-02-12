@@ -1,6 +1,6 @@
 ---
-title: "Automatizace FedRAMP Azure plán, podle kterého – řízení přístupu"
-description: "Webové aplikace pro FedRAMP – řízení přístupu"
+title: "Zabezpečení Azure a řízení přístupu plán, podle kterého - FedRAMP webové aplikace automatizace – dodržování předpisů"
+description: "FedRAMP webové aplikace automatizace – řízení přístupu"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="access-control-ac"></a>Řízení přístupu (AC)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure spoléhá na a implementuje následující typy účtů systému: uživatelů Azure Active Directory (používá se k nasazení řešení a spravovat přístup k prostředkům Azure), uživatelé operačního systému Windows (spravované pomocí služby Active Directory), účet služby SQL Server. |
+| **Zákazníka** | Tento plán, podle kterého využívá a implementuje následující typy účtů systému: uživatelů Azure Active Directory (používá se k nasazení řešení a spravovat přístup k prostředkům Azure), uživatelé operačního systému Windows (spravované pomocí služby Active Directory), účet služby SQL Server. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="account-management"></a>Správa účtů
 
-**AC 2.e** Organizace vyžaduje schválení podle [přiřazení: organizace definované pracovníky nebo rolí] pro požadavky na vytvoření informace systémové účty.
+**AC-2.e** Organizace vyžaduje schválení podle [přiřazení: organizace definované pracovníky nebo rolí] pro požadavky na vytvoření informace systémové účty.
 
 **Odpovědnosti:**`Customer Only`
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řídicí panel řešení OMS zabezpečení a Audit přístupu a identit. Tento řídicí panel umožňuje správcům účet monitorování použití účtů, informace o systému. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řídicí panel řešení OMS zabezpečení a Audit přístupu a identit. Tento řídicí panel umožňuje správcům účet monitorování použití účtů, informace o systému. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řídicí panel řešení OMS zabezpečení a Audit přístupu a identit. Tento řídicí panel Povolit účet správce ke sledování použití účtů, informace o systému. OMS může být nakonfigurován pro odesílání upozornění, pokud podezření netypických aktivity nebo jiné předdefinované události. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řídicí panel řešení OMS zabezpečení a Audit přístupu a identit. Tento řídicí panel umožňuje správcům účet monitorování použití účtů, informace o systému. OMS může být nakonfigurován pro odesílání upozornění, pokud podezření netypických aktivity nebo jiné předdefinované události. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure není nasazen dočasné nebo nouzový účty. Pokud není ručně zakázané, řadiče domény nasazené automaticky zakáže všechny neaktivní účty po 35 dní. |
+| **Zákazníka** | Tento plán, podle kterého není nasazen dočasné nebo nouzový účty. Pokud není ručně zakázané, řadiče domény nasazené automaticky zakáže všechny neaktivní účty po 35 dní. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Řadič domény nasadit pomocí této Azure plán, podle kterého je nakonfigurována na zakažte všechny uživatelské účty po 35 dní nečinnosti. |
+| **Zákazníka** | Řadič domény nasadit pomocí tento plán, podle kterého je nakonfigurována na zakažte všechny uživatelské účty po 35 dní nečinnosti. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje následující typy účtů systému: uživatelů Azure Active Directory, uživatelé operačního systému Windows, účet služby SQL Server. Akce správy účtu služby Azure Active Directory generovat událost v protokolu aktivit Azure; Úroveň operačního systému účtu akce správy vygenerují událost do systémového protokolu. Tyto protokoly se shromažďují analýzy protokolů a uložené v úložišti OMS. OMS můžete nakonfigurovat na odesílání výstrah při výskytu události v předdefinované.  |
+| **Zákazníka** | Tento plán, podle kterého implementuje následující typy účtů systému: uživatelů Azure Active Directory, uživatelé operačního systému Windows, účet služby SQL Server. Akce správy účtu služby Azure Active Directory generovat událost v protokolu aktivit Azure; Úroveň operačního systému účtu akce správy vygenerují událost do systémového protokolu. Tyto protokoly se shromažďují analýzy protokolů a uložené v úložišti OMS. OMS můžete nakonfigurovat na odesílání výstrah při výskytu události v předdefinované.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje následující typy účtů systému: uživatelů Azure Active Directory, uživatelé operačního systému Windows, účet služby SQL Server. Oprávnění k účtu Azure Active Directory jsou implementované pomocí řízení přístupu na základě rolí přiřazování uživatelů do rolí; Oprávnění k účtu Active Directory jsou implementovány pomocí řízení přístupu na základě rolí přiřazování uživatelů do skupiny zabezpečení. Tato schémata na základě rolí lze rozšířit zákazník zvláště potřebám. |
+| **Zákazníka** | Tento plán, podle kterého implementuje následující typy účtů systému: uživatelů Azure Active Directory, uživatelé operačního systému Windows, účet služby SQL Server. Oprávnění k účtu Azure Active Directory jsou implementované pomocí řízení přístupu na základě rolí přiřazování uživatelů do rolí; Oprávnění k účtu Active Directory jsou implementovány pomocí řízení přístupu na základě rolí přiřazování uživatelů do skupiny zabezpečení. Tato schémata na základě rolí lze rozšířit zákazník zvláště potřebám. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje OMS zabezpečení a Audit řešení Identity a přístupu řídicího panelu. Tento řídicí panel umožňuje správcům účet monitorování použití účtů, informace o systému. Toto řešení můžete položit dotaz k hlášení přiřazení privilegované role. |
+| **Zákazníka** | Tento plán, podle kterého se implementuje OMS zabezpečení a Audit řešení identit a přístupu řídicího panelu. Tento řídicí panel umožňuje správcům účet monitorování použití účtů, informace o systému. Toto řešení můžete položit dotaz k hlášení přiřazení privilegované role. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | U prostředků nasadit pomocí této Azure plán, podle kterého jsou povolené žádné sdílené nebo skupinové účty. |
+| **Zákazníka** | U prostředků nasadit pomocí tento plán, podle kterého jsou povolené žádné sdílené nebo skupinové účty. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | U prostředků nasadit pomocí této Azure plán, podle kterého jsou povolené žádné sdílené nebo skupinové účty. |
+| **Zákazníka** | U prostředků nasadit pomocí tento plán, podle kterého jsou povolené žádné sdílené nebo skupinové účty. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -343,11 +343,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny se dá zřídit ve službě Active Directory a konfigurovat pro implementaci omezení hodiny nebo jinými podmínkami použití účtu. |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny se dá zřídit ve službě Active Directory a konfigurovat pro implementaci omezení hodiny nebo jinými podmínkami použití účtu. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-ac-2-12a"></a>NIST 800-53 řízení .a AC-2 (12)
+ ### <a name="nist-800-53-control-ac-2-12a"></a>NIST 800-53 Control AC-2 (12).a
 
 #### <a name="account-management--account-monitoring--atypical-usage"></a>Správa účtů | Účet monitorování / Netypických využití
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řídicí panel řešení OMS zabezpečení a Audit přístupu a identit. Tento řídicí panel umožňuje správcům účet monitorování přístupu pokusy o přihlášení nasazené prostředky. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řídicí panel řešení OMS zabezpečení a Audit přístupu a identit. Tento řídicí panel umožňuje správcům účet monitorování přístupu pokusy o přihlášení nasazené prostředky. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řídicí panel řešení OMS zabezpečení a Audit přístupu a identit. Tento řídicí panel Povolit účet správce, kteří mají-li sledovat přístup pokusy o přihlášení nasazené prostředky. Toto řešení můžete nakonfigurovat k odesílání upozornění, pokud podezření netypických aktivity nebo jiné předdefinované události. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řídicí panel řešení OMS zabezpečení a Audit přístupu a identit. Tento řídicí panel umožňuje správcům účet monitorování přístupu pokusy o přihlášení nasazené prostředky. Toto řešení můžete nakonfigurovat k odesílání upozornění, pokud podezření netypických aktivity nebo jiné předdefinované události. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure vynucuje autorizací logického přístupu pomocí řízení přístupu na základě rolí vynucuje přiřadit uživatele k role, služby Active Directory přiřadit uživatele do skupiny zabezpečení Azure Active Directory a ovládací prvky Windows úrovni operačního systému. Azure Active Directory role přiřazené k uživatelům nebo skupinám řídit logického přístupu k prostředkům v rámci Azure na úrovni prostředku, skupiny nebo předplatné. Skupiny zabezpečení Active Directory řídit logického přístupu k prostředkům na úrovni operačního systému a funkcí. |
+| **Zákazníka** | Tento plán, podle kterého vynucuje autorizací logického přístupu pomocí řízení přístupu na základě rolí vynucuje přiřadit uživatele k role, služby Active Directory přiřadit uživatele do skupiny zabezpečení Azure Active Directory a ovládací prvky Windows úrovni operačního systému. Azure Active Directory role přiřazené k uživatelům nebo skupinám řídit logického přístupu k prostředkům v rámci Azure na úrovni prostředku, skupiny nebo předplatné. Skupiny zabezpečení Active Directory řídit logického přístupu k prostředkům na úrovni operačního systému a funkcí. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure vynucuje omezení toku informací prostřednictvím skupin zabezpečení sítě použít na podsítě, ve kterých jsou nasazené prostředky, aplikační bránu a nástroj pro vyrovnávání zatížení. Skupiny zabezpečení sítě zkontrolujte, že je řízený tok informací mezi prostředky na základě pravidel, schválené. Aplikace brány a zatížení nástroje pro vyrovnávání dynamické směrovat provoz ke konkrétním prostředkům na základě schválené rolí. |
+| **Zákazníka** | Tento plán, podle kterého vynucuje omezení toku informací prostřednictvím skupin zabezpečení sítě použít na podsítě, ve kterých jsou nasazené prostředky, aplikační bránu a nástroj pro vyrovnávání zatížení. Skupiny zabezpečení sítě zkontrolujte, že je řízený tok informací mezi prostředky na základě pravidel, schválené. Aplikace brány a zatížení nástroje pro vyrovnávání dynamické směrovat provoz ke konkrétním prostředkům na základě schválené rolí. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řízení přístupu na základě rolí, kterého lze nakonfigurovat k oddělení povinností podle požadavků organizace. Oprávnění k účtu Azure Active Directory jsou implementované pomocí řízení přístupu na základě rolí přiřazování uživatelů do rolí; Oprávnění k účtu Active Directory jsou implementovány pomocí řízení přístupu na základě rolí přiřazování uživatelů do skupiny zabezpečení. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řízení přístupu na základě role, které lze nakonfigurovat k oddělení povinností podle požadavků organizace. Oprávnění k účtu Azure Active Directory jsou implementované pomocí řízení přístupu na základě rolí přiřazování uživatelů do rolí; Oprávnění k účtu Active Directory jsou implementovány pomocí řízení přístupu na základě rolí přiřazování uživatelů do skupiny zabezpečení. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řízení přístupu na základě rolí k omezení uživatelů na pouze oprávnění explicitně přiřazeny. Oprávnění k účtu Azure Active Directory jsou implementované pomocí řízení přístupu na základě rolí přiřazování uživatelů do rolí; Oprávnění k účtu Active Directory jsou implementovány pomocí řízení přístupu na základě rolí přiřazování uživatelů do skupiny zabezpečení.  |
+| **Zákazníka** | Tento plán, podle kterého implementuje řízení přístupu na základě rolí k omezení uživatelů na pouze oprávnění explicitně přiřazeny. Oprávnění k účtu Azure Active Directory jsou implementované pomocí řízení přístupu na základě rolí přiřazování uživatelů do rolí; Oprávnění k účtu Active Directory jsou implementovány pomocí řízení přístupu na základě rolí přiřazování uživatelů do skupiny zabezpečení.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řízení přístupu na základě rolí k omezení uživatelů na pouze oprávnění explicitně přiřazeny. Virtuální počítač OS úroveň ochrany neumožňují softwaru provést na vyšší úrovni oprávnění než uživatelé provádění softwaru. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řízení přístupu na základě rolí k omezení uživatelů na pouze oprávnění explicitně přiřazeny. Virtuální počítač OS úroveň ochrany neumožňují softwaru provést na vyšší úrovni oprávnění než uživatelé provádění softwaru. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje službu analýzy protokolů v OMS. Nasadit virtuální počítače a Azure diagnostics účty úložiště jsou připojené zdroje pro analýzy protokolů zajistíte, že je auditováno provádění privilegovaných funkcí. |
+| **Zákazníka** | Tento plán, podle kterého implementuje službu analýzy protokolů v OMS. Nasadit virtuální počítače a Azure diagnostics účty úložiště jsou připojené zdroje pro analýzy protokolů zajistíte, že je auditováno provádění privilegovaných funkcí. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -623,7 +623,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řízení přístupu na základě rolí k omezení uživatelů na pouze oprávnění explicitně přiřazeny.  |
+| **Zákazníka** | Tento plán, podle kterého implementuje řízení přístupu na základě rolí k omezení uživatelů na pouze oprávnění explicitně přiřazeny.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -637,7 +637,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Portálu Azure limity po sobě jdoucích neplatné pokusy o přihlášení uživatelů. Zásady skupiny se použije na úrovni operačního systému pro všechny virtuální počítače nasazené pomocí tento plán, podle kterého Azure. Zásady omezení po sobě jdoucích neplatných pokusů o přihlášení uživatelé na více než tři v období 15 minut. |
+| **Zákazníka** | Portálu Azure limity po sobě jdoucích neplatné pokusy o přihlášení uživatelů. Zásady skupiny se použije na úrovni operačního systému pro všechny virtuální počítače nasazené pomocí tento plán. Zásady omezení po sobě jdoucích neplatných pokusů o přihlášení uživatelé na více než tři v období 15 minut. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Portál Azure zamkne účty po po sobě jdoucích neplatné pokusy o přihlášení uživatelů. Zásady skupiny se použije na úrovni operačního systému pro všechny virtuální počítače nasazené pomocí tento plán, podle kterého Azure. Zásady zamkne účty pro tři hodiny po tři po sobě jdoucích neplatných pokusů o přihlášení uživatelů. |
+| **Zákazníka** | Portál Azure zamkne účty po po sobě jdoucích neplatné pokusy o přihlášení uživatelů. Zásady skupiny se použije na úrovni operačního systému pro všechny virtuální počítače nasazené pomocí tento plán. Zásady zamkne účty pro tři hodiny po tři po sobě jdoucích neplatných pokusů o přihlášení uživatelů. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje oznámení pomocí systému, které se zobrazí uživatelům před přihlášení. Poznámka: Azure plán, podle kterého implementuje e příklad systému použijte oznámení. Zákazník musí upravit tento text ke splnění organizace nebo regulačních textu požadavky. |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje oznámení pomocí systému, které se zobrazí uživatelům před přihlášení. Poznámka: Tento plán, podle kterého implementuje e příklad systému použijte oznámení. Zákazník musí upravit tento text ke splnění organizace nebo regulačních textu požadavky. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje oznámení pomocí systému, které se zobrazí uživatelům před přihlášení. Uživatel musí potvrdit oznámení tak, aby přihlásit. |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje oznámení pomocí systému, které se zobrazí uživatelům před přihlášení. Uživatel musí potvrdit oznámení tak, aby přihlásit. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Pro virtuální počítače nasazené pomocí této Azure plán, podle kterého jsou implementovány zásady operačního systému. Zásady implementuje omezení souběžných relací (dvě relace). |
+| **Zákazníka** | Pro virtuální počítače nasazené pomocí tento plán, podle kterého jsou implementovány zásady operačního systému. Zásady implementuje omezení souběžných relací (dvě relace). |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje zámek nečinnosti relace protokolu RDP. Uživatelé mohou ručně zahájit zámek. |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje zámek nečinnosti relace protokolu RDP. Uživatelé mohou ručně zahájit zámek. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje zámek nečinnosti relace protokolu RDP. Uživatelé musí novému ověření, k odemčení relace.  |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje zámek nečinnosti relace protokolu RDP. Uživatelé musí novému ověření, k odemčení relace.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje zámek nečinnosti relace protokolu RDP. Zámek relace ukrývá informace dříve viditelné. |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny implementuje zámek nečinnosti relace protokolu RDP. Zámek relace ukrývá informace dříve viditelné. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Konfigurace hostitele relací vzdálené plochy pro virtuální počítače s Windows nasadit pomocí této Azure plán, podle kterého se dá nakonfigurovat k ukončení relace požadavkům organizace. |
+| **Zákazníka** | Konfigurace hostitele relací vzdálené plochy pro virtuální počítače s Windows nasadit pomocí tento plán, podle kterého se dá nakonfigurovat k ukončení relace požadavkům organizace. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Azure portal a virtuální počítač operační systémy nasadit pomocí této Azure plán, podle kterého povolit používá k zahájení odhlášení. |
+| **Zákazníka** | Azure portal a virtuální počítač operační systémy nasadit pomocí tento plán, podle kterého povolit používá k zahájení odhlášení. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -805,7 +805,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Azure portal a virtuální počítač operační systémy nasadit pomocí této Azure plán, podle kterého povolit používá k zahájení odhlášení. Proces odhlášení indikaci uživatelům, aby byla relace ukončena. |
+| **Zákazníka** | Azure portal a virtuální počítač operační systémy nasadit pomocí tento plán, podle kterého povolit používá k zahájení odhlášení. Proces odhlášení indikaci uživatelům, aby byla relace ukončena. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure poskytuje vzdálený přístup k systému informace prostřednictvím portálu Azure prostřednictvím připojení ke vzdálené ploše prostřednictvím jumpbox a prostřednictvím implementované zákazníka webové aplikace. Přistupuje prostřednictvím portálu Azure a relací vzdálené plochy se auditují a je možné monitorovat prostřednictvím OMS. Zákazník musí implementovat ovládací prvky vzdáleného přístupu, jako nezbytné, aby webové aplikace. |
+| **Zákazníka** | Tento plán, podle kterého poskytuje vzdálený přístup k systému informace prostřednictvím portálu Azure prostřednictvím připojení ke vzdálené ploše prostřednictvím jumpbox a prostřednictvím implementované zákazníka webové aplikace. Přistupuje prostřednictvím portálu Azure a relací vzdálené plochy se auditují a je možné monitorovat prostřednictvím OMS. Zákazník musí implementovat ovládací prvky vzdáleného přístupu, jako nezbytné, aby webové aplikace. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Vzdálený přístup k prostředkům nasadit pomocí tento plán Azure, včetně portálu Azure, připojení ke vzdálené ploše a webové aplikace brány, jsou zabezpečené pomocí protokolu TLS. |
+| **Zákazníka** | Vzdálený přístup k prostředkům nasadit pomocí tento plán, včetně portálu Azure, připojení ke vzdálené ploše a webové aplikace brány, jsou zabezpečené pomocí protokolu TLS. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -903,7 +903,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Vzdálený přístup k fiktivní webové aplikace nasadit pomocí této Azure plán, podle kterého je prostřednictvím služby application gateway. Vzdálený přístup k jiným prostředkům, je prostřednictvím jumpbox. Neexistují žádné veřejně přístupná koncové body. |
+| **Zákazníka** | Vzdálený přístup k fiktivní webové aplikace nasadit pomocí tento plán, podle kterého je prostřednictvím služby application gateway. Vzdálený přístup k jiným prostředkům, je prostřednictvím jumpbox. Neexistují žádné veřejně přístupná koncové body. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -945,7 +945,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure poskytuje vzdálený přístup k systému informace prostřednictvím portálu Azure, prostřednictvím připojení ke vzdálené ploše prostřednictvím jumpbox a ve webové aplikaci. Pokud účet služby Azure Active Directory je vypnuto nebo odstraněno, Azure přístup k portálu je odpojen okamžitě. Podobně pokud účet úrovni operačního systému virtuálního počítače je vypnuto nebo odstraněno, přístup ke vzdálené ploše prostřednictvím jumpbox je odpojen okamžitě. Zákazníci musí implementovat vzdáleného přístupu odpojit pro webové aplikace. |
+| **Zákazníka** | Tento plán, podle kterého poskytuje vzdálený přístup k systému informace prostřednictvím portálu Azure, prostřednictvím připojení ke vzdálené ploše prostřednictvím jumpbox a ve webové aplikaci. Pokud účet služby Azure Active Directory je vypnuto nebo odstraněno, Azure přístup k portálu je odpojen okamžitě. Podobně pokud účet úrovni operačního systému virtuálního počítače je vypnuto nebo odstraněno, přístup ke vzdálené ploše prostřednictvím jumpbox je odpojen okamžitě. Zákazníci musí implementovat vzdáleného přístupu odpojit pro webové aplikace. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 

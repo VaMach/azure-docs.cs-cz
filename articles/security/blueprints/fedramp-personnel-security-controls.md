@@ -1,6 +1,6 @@
 ---
-title: "Automatizace FedRAMP Azure plán, podle kterého – zabezpečení pracovníků"
-description: "Webové aplikace pro FedRAMP – zabezpečení pracovníků"
+title: "Zabezpečení Azure a dodržování předpisů zabezpečení pracovníků plán, podle kterého - FedRAMP webové aplikace automatizace-"
+description: "FedRAMP webové aplikace automatizace – zabezpečení pracovníků"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="personnel-security-ps"></a>Zabezpečení pracovníků (PS)
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="personnel-termination"></a>Ukončení pracovníky
 
-**4e PS** Organizace, při ukončení platnosti jednotlivých pracovních uchovává přístup k informacím organizace a systémy informace dříve řízené ukončena jednotlivých.
+**PS-4.e** Organizace, při ukončení platnosti jednotlivých pracovních uchovává přístup k informacím organizace a systémy informace dříve řízené ukončena jednotlivých.
 
 **Odpovědnosti:**`Customer Only`
 
@@ -393,7 +393,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="third-party-personnel-security"></a>Zabezpečení pracovníků třetích stran
 
-**PS 7.e** Organizace monitorování kompatibility zprostředkovatele.
+**PS-7.e** Organizace monitorování kompatibility zprostředkovatele.
 
 **Odpovědnosti:**`Customer Only`
 

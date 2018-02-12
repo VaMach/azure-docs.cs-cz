@@ -19,6 +19,7 @@
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Webové aplikace
 ### [Přehled](active-directory-b2c-reference-oidc.md)
+### [Ověřování uživatelů v ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [Jádro ASP.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
@@ -27,6 +28,7 @@
 ### [JavaScript s využitím MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [JavaScript s využitím Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Webová rozhraní API
+### [Ochrana rozhraní API ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [Jádro ASP.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
@@ -40,6 +42,7 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)

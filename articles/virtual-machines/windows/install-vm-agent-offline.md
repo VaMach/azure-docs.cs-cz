@@ -1,6 +1,6 @@
 ---
-title: "Instalace agenta virtuálního počítače Azure v Offline režimu | Microsoft Docs"
-description: "Zjistěte, nainstalujte agenta virtuálního počítače Azure v režimu Offline."
+title: "Instalace agenta virtuálního počítače Azure v offline režimu | Microsoft Docs"
+description: "Informace o instalaci agenta virtuálního počítače Azure v režimu offline."
 services: virtual-machines-windows
 documentationcenter: 
 author: genlin
@@ -14,100 +14,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: genli
-ms.openlocfilehash: b38bfaffad3e214f3b854715e4d8030cde432bae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3770cc3338c89a9bf88e2cf9ec3faa37e2ff109b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="install-the-vm-agent-in-offline-mode-in-an-azure-windows-vm"></a>Nainstalujte agenta virtuálního počítače v režimu offline virtuální počítač Windows Azure 
+# <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalace agenta virtuálního počítače Azure v offline režimu 
 
-Agent virtuálního počítače poskytuje užitečné funkce jako je resetování hesla místního správce a nabízených skriptu. Tento článek ukazuje, jak nainstalovat agenta virtuálního počítače pro virtuální počítač, který je offline. 
+Agent virtuálního počítače Azure (VM Agent) poskytuje užitečných funkcí, jako je například resetování hesla místního správce a skript vkládání. Tento článek ukazuje, jak nainstalovat agenta virtuálního počítače pro se offline Windows virtuální počítač (VM). 
 
-## <a name="when-to-use-offline-mode"></a>Kdy použít offline režimu
+## <a name="when-to-use-the-vm-agent-in-offline-mode"></a>Kdy použít agenta virtuálního počítače v režimu offline
 
-Potřebovali byste k instalaci agenta virtuálního počítače v režimu offline v následujícím scénáři:
+Nainstalujte agenta virtuálního počítače v režimu offline v následujících scénářích:
 
-- Nasazení virtuálního počítače Azure, který nemá nainstalován agent virtuálního počítače nebo nepracuje agenta virtuálního počítače.
-- Si nepamatujete heslo správce nebo uživatel nemá přístup virtuálních počítačů.
+- Nasazený virtuální počítač Azure nemá nainstalovaného agenta virtuálního počítače nebo agenta není funkční.
+- Jste zapomněli heslo správce pro virtuální počítač nebo virtuální počítač nelze získat přístup.
 
-V tomto scénáři musíte nainstalovat agenta virtuálního počítače v režimu offline. 
+## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Postup instalace agenta virtuálního počítače v režimu offline
 
+Použijte následující postup k instalaci agenta virtuálního počítače v režimu offline.
 
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Krok 1: Připojte disk operačního systému virtuálního počítače na jiný virtuální počítač jako datový disk
 
-## <a name="detailed-steps"></a>Podrobné kroky
+1.  Odstraňte virtuální počítač. Je nutné vybrat **zachovat disky** možnost při odstranění virtuálního počítače.
 
-**Krok 1: Připojte disk operačního systému virtuálního počítače na jiný virtuální počítač jako datový disk**
+2.  Připojit disk operačního systému jako datový disk k jiným virtuálním Počítačem (označované jako _Poradce při potížích s_ virtuálních počítačů). Další informace najdete v tématu [připojit datový disk k virtuálnímu počítači Windows na portálu Azure](attach-managed-disk-portal.md).
 
-1.  Odstraňte virtuální počítač. Ujistěte se, že jste vybrali **zachovat disky** možnost, pokud to uděláte.
+3.  Připojte k Poradce při potížích s virtuálních počítačů. Otevřete **Správa počítače** > **disku správu**. Zkontrolujte, zda je disk operačního systému online a že písmena jednotek jsou přiřazeny k diskové oddíly.
 
-2.  Připojte disk operačního systému jako datový disk k jiným virtuálním Počítačem (Poradce při potížích virtuálních počítačů). Další informace najdete v tématu věnovaném [postupu připojení datového disku k virtuálnímu počítači s Windows na webu Azure Portal](attach-managed-disk-portal.md).
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Krok 2: Upravte disk operačního systému pro instalaci agenta virtuálního počítače Azure
 
-3.  Připojení k virtuálnímu počítači pro řešení potíží. Otevřete **Správa počítače** > **disku správu**. Ujistěte se, že disk operačního systému je online a že jeho oddíly mají přiřazené písmeno jednotky.
+1.  Zkontrolujte připojení ke vzdálené ploše Poradce při potížích s virtuálních počítačů.
 
-**Krok 2: Upravte disk operačního systému pro instalaci agenta virtuálního počítače**
+2.  Na disku operačního systému, který jste připojili přejděte do složky \windows\system32\config. Zkopírujte všechny soubory v této složce zálohování, v případě, že je vyžadován vrácení zpět.
 
-1.  Zkontrolujte připojení ke vzdálené ploše k odstraňování souvisejících potíží virtuálního počítače.
+3.  Spuštění **Editor registru** (regedit.exe).
 
-2.  Na disku operačního systému, který jste připojili, přejděte na **\windows\system32\config**. Zkopírujte všechny soubory jako záložní v případě, že je vyžadován vrácení zpět.
+4.  Vyberte **HKEY_LOCAL_MACHINE** klíč. V nabídce vyberte **soubor** > **načíst podregistr**:
 
-3.  Spusťte Editor registru (regedit.exe).
+    ![Načíst podregistr](./media/install-vm-agent-offline/load-hive.png)
 
-4.  Klikněte na tlačítko **HKEY_LOCAL_MACHINE** klíče a potom vyberte **soubor** > **načíst podregistr** v nabídce.
+5.  Přejděte do složky \windows\system32\config\SYSTEM na disk operačního systému, který jste připojili. Název podregistr, zadejte **BROKENSYSTEM**. Nové podregistru se zobrazí v části **HKEY_LOCAL_MACHINE** klíč.
 
-    ![Zatížení hive](./media/install-vm-agent-offline/load-hive.png)
+6.  Přejděte do složky \windows\system32\config\SOFTWARE na disk operačního systému, který jste připojili. Název softwaru hive, zadejte **BROKENSOFTWARE**.
 
-5.  Přejděte na **\windows\system32\config\SYSTEM** na operačního systému, které připojené na disku a pak zadejte BROKENSYSTEM jako název podregistr. Až to uděláte, zobrazí se hive v registru **HKEY_LOCAL_MACHINE**.
+7.  Pokud agenta virtuálního počítače není funkční, zálohujte aktuální konfiguraci.
 
-6.  Přejděte na **\windows\system32\config\SOFTWARE** na disk operačního systému jste připojili, zadejte BROKENSOFTWARE jako název podregistr.
-
-7.  Pokud máte aktuální verzi agenta, který není funkční, proveďte zálohu aktuální konfiguraci. Pokud virtuální počítač nemá nainstalovaného agenta virtuálního počítače, přejděte k dalšímu kroku.  
+    >[!NOTE]
+    >Pokud virtuální počítač nemá nainstalovaného agenta, pokračujte ke kroku 8. 
       
-    1. Přejmenujte složku \windowsazure \windowsazure.old
+    1. Přejmenujte složku \windowsazure \windowsazure.old.
 
-    2. Exportovat následující registry
+    2. Exportujte následující registrech:
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE \BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
+        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  Použijte existující soubory pro řešení potíží virtuální počítač jako úložiště pro instalaci agenta virtuálního počítače: 
+8.  Použijte existující soubory na Poradce při potížích se virtuální počítač jako úložiště pro instalaci agenta virtuálního počítače. Proveďte následující kroky:
 
     1. Z Poradce při potížích virtuálních počítačů exportujte následující podklíče registru formát (REG): 
-
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![Obrázek o export klíče registru](./media/install-vm-agent-offline/backup-reg.png)
+        ![Export podklíčů registru](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Upravit tyto tři registru soubory, změňte **systému** klíče položky do **BROKENSYSTEM**a potom uložte soubory.
-        ![Bitovou kopii, změny klíče registru](./media/install-vm-agent-offline/change-reg.png)
-    3. Dvojitým kliknutím na soubor registru soubory importovat.
-    4. Ujistěte se, že tyto klíče jsou úspěšně importovány do podregistr BROKENSYSTEM: WindowsAzureGuestAgent, WindowsAzureTelemetryService a RdAgent.
+    2. Upravte soubory registru. Do každého souboru, změňte hodnotu položky **systému** k **BROKENSYSTEM** (jak je znázorněno v následujícím bitovým kopiím) a soubor uložte.
+
+        ![Změna hodnoty podklíčů registru](./media/install-vm-agent-offline/change-reg.png)
+
+    3. Importujte souborů registru do úložiště dvojitým kliknutím na každého souboru registru.
+
+    4. Potvrďte, že jsou úspěšně importovány do následující tři podklíče **BROKENSYSTEM** hive:
+        - WindowsAzureGuestAgent
+        - WindowsAzureTelemetryService
+        - RdAgent
 
 9.  Zkopírujte složku agenta virtuálního počítače z C:\windowsazure\packages k &lt;disk operačního systému, který jste připojili&gt;: \windowsazure\packages.
-    ![Obrázek o kopírovat soubory](./media/install-vm-agent-offline/copy-package.png)
+
+    ![Zkopírujte soubory agenta virtuálního počítače na disk operačního systému](./media/install-vm-agent-offline/copy-package.png)
       
-    **Poznámka:** nemáte zkopírujte složku protokoly. Po spuštění služby, nové protokoly se budou generovat.
+    >[!NOTE]
+    >Nemáte zkopírovat **protokoly** složky. Po spuštění služby jsou generovány nové protokoly.
 
-10.  Klikněte na tlačítko BROKENSYSTEM a vyberte **soubor** > **Uvolnit podregistr** z nabídky.
+10.  Vyberte **BROKENSYSTEM**. V nabídce vyberte **soubor** > **Uvolnit podregistr**.
 
-11.  Klikněte na tlačítko BROKENSOFTWARE a vyberte **soubor** > **Uvolnit podregistr** z nabídky.
+11.  Vyberte **BROKENSOFTWARE**. V nabídce vyberte **soubor** > **Uvolnit podregistr**.
 
-12.  Odpojte disk a pak znovu vytvořte virtuální počítač pomocí disku operačního systému.
+12.  Odpojte disk operačního systému a pak znovu vytvořte virtuální počítač pomocí disku operačního systému.
 
-13.  Pokud přístup k virtuálnímu počítači se nyní zobrazí RDAgent systémem a protokoly získávání vytvořené.
+13.  Přístup k virtuálnímu počítači. Všimněte si, že je spuštěna RdAgent a generovány protokoly.
 
-14. Pokud je virtuální počítač vytvořené pomocí modelu nasazení classic, jste hotovi. Ale pokud je virtuální počítač vytvořený pomocí modelu nasazení Resource Manager, musí také používáte prostředí Azure PowerShell aktualizovat vlastnosti parametr ProvisionGuestAgent tak, že Azure ví, že virtuální počítač má nainstalovaného agenta. K tomu, spusťte následující příkazy v prostředí Azure PowerShell:
+Pokud jste vytvořili virtuální počítač pomocí modelu nasazení classic, jste hotovi.
 
-        $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
-        $vm.VM.ProvisionGuestAgent = $true
-        Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
 
-    Pokud spustíte **Get-AzureVM** po provedení těchto kroků **GuestAgentStatus** vlastnost by měla naplněno místo prázdná stránka se zobrazí:
+### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Použijte parametr ProvisionGuestAgent vlastnost pro virtuální počítače vytvořené pomocí Azure Resource Manageru
 
-        Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
-        GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
+Pokud vytvoříte virtuální počítač pomocí modelu nasazení Resource Manager, použijte modul Azure PowerShell k aktualizaci **parametr ProvisionGuestAgent** vlastnost. Vlastnost informuje Azure, že virtuální počítač má nainstalovaný Agent virtuálního počítače.
+
+Chcete-li nastavit **parametr ProvisionGuestAgent** vlastnost, spusťte následující příkazy v prostředí Azure PowerShell:
+
+   ```powershell
+   $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
+   $vm.VM.ProvisionGuestAgent = $true
+   Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
+   ```
+
+Spusťte `Get-AzureVM` příkaz. Všimněte si, že **GuestAgentStatus** vlastnost je nyní naplněný daty:
+
+   ```powershell
+   Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
+   GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
+   ```
 
 ## <a name="next-steps"></a>Další postup
 

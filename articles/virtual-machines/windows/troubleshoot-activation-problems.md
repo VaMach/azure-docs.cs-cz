@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Řešení problémů aktivace virtuálního počítače Azure Windows
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Pokud máte potíže při aktivaci Azure Windows virtuální počítač (VM), který je vytvořený z vlastní image, můžete k odstranění potíží informací uvedených v tomto dokumentu. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Principy koncové body Azure služby správy KLÍČŮ pro aktivaci produktu virtuálních počítačů Azure
+Azure používá různými koncovými body pro aktivaci služby správy KLÍČŮ v závislosti na cloudu oblasti, kde je umístěn virtuální počítač. Při použití této Průvodci odstraňováním potíží, používejte příslušný koncový bod služby správy KLÍČŮ, který se vztahují na vaši oblast.
+
+* Azure public cloud regions: kms.core.windows.net:1688
+* Azure China national cloud regions: kms.core.chinacloudapi.cn:1688
+* Německo oblasti národních cloudů: kms.core.cloudapi.de:1688
+* Azure US Gov national cloud regions: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Příznaky
 
@@ -92,7 +100,7 @@ Tento krok se nevztahuje na Windows 2012 nebo Windows 2008 R2. Používá funkci
 
   Pokud ztráty je větší než 0 (nula), virtuální počítač nemá připojení k serveru služby správy KLÍČŮ. V této situaci pokud je virtuální počítač ve virtuální síti a má vlastní server DNS, ujistěte se, že server DNS je schopný přeložit kms.core.windows.net. Nebo zvolit, které řešení kms.core.windows.net serverem DNS.
 
-  Všimněte si, že pokud odeberete všechny servery DNS z virtuální sítě, virtuální počítače používat interní DNS služby Azure. Tato služba může vyřešit kms.core.windows.net.
+  Všimněte si, že pokud odeberete všechny servery DNS z virtuální sítě, virtuální počítače používat interní DNS služby Azure. This service can resolve kms.core.windows.net.
   
 Také ověřte, že brána firewall hosta nebyl nakonfigurován způsobem, který by blokovat pokusy o aktivaci.
 

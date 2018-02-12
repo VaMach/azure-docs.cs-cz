@@ -64,13 +64,13 @@
 
 ## Monitorování
 ### [Monitorování cloudové služby](cloud-services-how-to-monitor.md)
+### [Použití čítačů výkonu](diagnostics-performance-counters.md)
 ### [Testování výkonu](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testování pomocí profileru sady Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Povolení diagnostiky
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Použití čítačů výkonu v Diagnostice Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Ukládání a zobrazení diagnostických dat v Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Trasování cloudové služby pomocí diagnostiky](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Odesílání diagnostických dat do App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)

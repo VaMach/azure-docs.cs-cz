@@ -5,11 +5,11 @@ title: Dokumentace k Microsoft Azure
 description: "Naučte se vytvářet a spravovat výkonné aplikace pomocí cloudových služeb Microsoft Azure. Získejte dokumentaci, ukázkový kód, výukové kurzy a další materiály."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ Nástroje SQL </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Sada doporučených architektur pro cloudové aplikace. Každá architektura zahrnuje osvědčené postupy, doporučené kroky a spustitelnou komponentu, která tato doporučení shrnuje.
+Azure Architecture Center obsahuje pokyny pro sestavení kompletních řešení v Microsoft Azure. Najdete zde referenční architektury, osvědčené postupy, způsoby návrhu, pokyny pro scénáře a referenční implementace.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ Sada doporučených architektur pro cloudové aplikace. Každá architektura zah
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Azure Architecture Center</h3>
+                                                    <p>Pokyny k sestavení kompletních řešení v Microsoft Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Příručka Aplikační architektura v Azure</h3>
-                                                    <p>Základní znalosti pro zajištění úspěšnosti v cloudu. Pokud cloudy nebo Azure zatím neznáte, začněte tady.</p>
+                                                    <p>Tato příručka představuje strukturovaný přístup k návrhu škálovatelných, odolných a vysoce dostupných aplikací v Azure. Je založena na osvědčených postupech, které jsme zjistili díky spolupráci se zákazníky.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ Sada doporučených architektur pro cloudové aplikace. Každá architektura zah
                                                 <div class="cardText">
                                                     <h3>Způsoby návrhu v cloudu</h3>
                                                     <p>Způsoby návrhu pro cloud. Každý vzor obsahuje popis problému, jeho možné řešení a příklad s využitím Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Osvědčené postupy pro cloudové aplikace</h3>
-                                                    <p>
-Sada osvědčených postupů pro cloudové aplikace, které mimo jiné zahrnují problematiku automatického škálování, ukládání do mezipaměti, dělení dat, návrh rozhraní API a monitorování.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

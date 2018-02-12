@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b32997f9a936b73a08b367ca69341da24f31f3a8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-media-services-community"></a>Komunita Azure Media Services
 Tato stránka komunity Azure Media Services (AMS) popisuje různé způsoby získáte aktualizací v souvislosti s AMS. Můžete také zobrazit nové videa a podcastů, klást otázky a váš názor.   
@@ -59,4 +59,6 @@ Následující tabulka uvádí e-mailu týmů dílčí funkce:
 | Přehrávač médií Azure |ampinfo@microsoft.com |
 | Průzkumník Azure média |amse@microsoft.com |
 | Návrhář postupu provádění |mepd@microsoft.com |
+| Vysílání datového proudu souboru a zabalení |amsstreaming@microsoft.com |
+| Živé vysílání datového proudu a zabalení |amslived@microsoft.com |
 

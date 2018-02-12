@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 156ec054c36e6ad5bd9011954e96fe1d4afa05aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3c5e893508126c87f6e4371918d33d3d040a5894
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Podmíněný přístup v Azure Active Directory
 
@@ -45,13 +45,13 @@ Tady jsou některé běžné aspekty přístupu, které podmíněného přístup
 
 
 
-- **Přihlášení riziko**: Azure AD Identity Protection zjistí přihlášení rizika. Jak můžete omezit přístup, pokud zjištěné riziko přihlášení označuje objektu actor chybný? Co dělat, když chcete získat silnější důkaz, přihlášení skutečně provedl oprávněným uživatelem nebo vaše pochybnosti jsou dostatečně pevné i blokovat konkrétním uživatelům v přístupu k aplikaci?
+- **[Přihlášení riziko](active-directory-conditional-access-conditions.md#sign-in-risk)**: Azure AD Identity Protection zjistí přihlášení rizika. Jak můžete omezit přístup, pokud zjištěné riziko přihlášení označuje objektu actor chybný? Co dělat, když chcete získat silnější důkaz, přihlášení skutečně provedl oprávněným uživatelem nebo vaše pochybnosti jsou dostatečně pevné i blokovat konkrétním uživatelům v přístupu k aplikaci?
 
-- **Síťové umístění**: Azure AD je přístupná odkudkoli. Co dělat, když se provádí pokus o přístup ze síťové umístění, které není pod kontrolou oddělení IT? Pomocí kombinace uživatelského jména a hesla může být dostatečně dobrý pokusí ověření identity pro přístup k prostředkům z vaší podnikové sítě. Co dělat, když jste vyžádání silnější ověření identity pro přístup pokusí který se spouští z jiných neočekávané zemích nebo oblastech světa? Co když i chcete zablokovat přístup pokusí z určitých umístění?  
+- **[Síťové umístění](active-directory-conditional-access-locations.md)**: Azure AD je přístupná odkudkoli. Co dělat, když se provádí pokus o přístup ze síťové umístění, které není pod kontrolou oddělení IT? Pomocí kombinace uživatelského jména a hesla může být dostatečně dobrý pokusí ověření identity pro přístup k prostředkům z vaší podnikové sítě. Co dělat, když jste vyžádání silnější ověření identity pro přístup pokusí který se spouští z jiných neočekávané zemích nebo oblastech světa? Co když i chcete zablokovat přístup pokusí z určitých umístění?  
 
-- **Správa zařízení**: ve službě Azure AD, uživatelé můžou používat cloudové aplikace z široké škály zařízení, včetně mobilních a také osobní zařízení. Co dělat, když potřebují tento pokus přístupu by měly být jenom pomocí zařízení, které spravuje vaše IT oddělení provádět uživatele? Co dělat, když chcete i zablokovat určité typy formuláře přístup k zařízením v cloudových aplikací ve vašem prostředí? 
+- **[Správa zařízení](active-directory-conditional-access-conditions.md#device-platforms)**: ve službě Azure AD, uživatelé můžou používat cloudové aplikace z široké škály zařízení, včetně mobilních a také osobní zařízení. Co dělat, když potřebují tento pokus přístupu by měly být jenom pomocí zařízení, které spravuje vaše IT oddělení provádět uživatele? Co dělat, když chcete i zablokovat určité typy formuláře přístup k zařízením v cloudových aplikací ve vašem prostředí? 
 
-- **Klientská aplikace**: v současné době můžete získat přístup k mnoha cloudových aplikací pomocí různých typů aplikací jako jsou webové aplikace, mobilní aplikace nebo aplikace klasické pracovní plochy. Pokus o přístup jak postupovat, pokud se provádí pomocí typ aplikace klienta, který způsobuje, že známé problémy? Co když potřebujete zařízení, které spravuje vaše IT oddělení pro určité typy aplikací? 
+- **[Klientská aplikace](active-directory-conditional-access-conditions.md#client-apps)**: v současné době můžete získat přístup k mnoha cloudových aplikací pomocí různých typů aplikací jako jsou webové aplikace, mobilní aplikace nebo aplikace klasické pracovní plochy. Pokus o přístup jak postupovat, pokud se provádí pomocí typ aplikace klienta, který způsobuje, že známé problémy? Co když potřebujete zařízení, které spravuje vaše IT oddělení pro určité typy aplikací? 
 
 Tyto otázky a odpovědi související představují obvyklé scénáře přístupu podmíněného přístupu Azure AD. Podmíněný přístup je funkce služby Azure Active Directory, která umožňuje zpracovávat scénáře přístup přístup na základě zásad.
 
@@ -67,9 +67,9 @@ Zásady podmíněného přístupu je definice scénářem přístup pomocí nás
 
 **V takovém případě** definuje důvod aktivován vaší zásady. Z tohoto důvodu je charakterizovaná skupinu podmínek, které byly splněny. V Azure AD podmíněný přístup podmínek dvě přiřazení důležitou úlohu:
 
-- **Uživatelé**: provádění pokus o přístupu uživatele (**kdo**). 
+- **[Uživatelé](active-directory-conditional-access-conditions.md#users-and-groups)**: provádění pokus o přístupu uživatele (**kdo**). 
 
-- **Cloudových aplikací**: cíle pokus o přístup (**co**).    
+- **[Cloudových aplikací](active-directory-conditional-access-conditions.md#cloud-apps)**: cíle pokus o přístup (**co**).    
 
 Tyto dvě podmínky jsou povinné v zásadách podmíněného přístupu. Kromě dvě povinné podmínky můžete použít také další podmínky, které popisují, jak se provádí pokus o přístup. Běžných příkladů používají mobilní zařízení nebo umístění, které jsou mimo podnikovou síť. Další informace najdete v tématu [podmínky v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-conditions.md).   
 
@@ -85,9 +85,10 @@ Jednou z výhod použití o přístupu na základě zásad k ochraně přístup 
 
 ## <a name="next-steps"></a>Další postup
 
-- Pokud chcete získat další informace o podmínky, přečtěte si téma [podmínky v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-conditions.md).
+- Pokud chcete vědět více o:
+    - Podmínky, najdete v části [podmínky v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-conditions.md).
 
-- Pokud chcete získat další informace o řízení přístupu, přečtěte si téma [přístup k ovládacím prvkům v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-controls.md).
+    - Přístup k ovládacím prvkům najdete v tématu [přístup k ovládacím prvkům v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-controls.md).
 
 - Pokud chcete získat nějaké zkušenosti s konfigurace zásad podmíněného přístupu najdete v tématu [Začínáme s podmíněným přístupem v Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

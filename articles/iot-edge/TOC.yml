@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Ladění služby Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: Ukládání dat na hraničních zařízeních
+      href: sql-storage.md
     - name: Řešení potíží
       href: troubleshoot.md
 - name: Koncepty

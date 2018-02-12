@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: e6b9b5e497258f37037e0dc3f8efe656d5206af3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Data v databázi Azure SQL zjišťování a klasifikace
 Data zjišťování a klasifikace (momentálně ve verzi preview) a poskytuje pokročilé možnosti integrovaný do databáze SQL Azure pro **zjišťování**, **klasifikace**, **označování**  &  **ochranu** citlivá data v databázích máte.
-Zjišťování a klasifikace co nejvíce citlivými daty (business, finanční, zdravotní péče, osobní údaje, atd.) můžete přehrát hrají roli v ochrany vzrůstem informace vaší organizace. Může sloužit jako infrastruktury pro:
+Zjišťování a klasifikace nejcitlivější data (business, finanční, zdravotní péče, osobní údaje, atd.) můžete přehrát hrají roli v vzrůstem ochrany vaší organizace. Může sloužit jako infrastruktury pro:
+* Vám pomáhá s splnění standardů data o ochraně osobních údajů a dodržování legislativních požadavků, jako je například GDPR.
 * Různé scénáře zabezpečení, jako jsou monitorování (auditování) a výstrah na neobvyklé přístup k citlivým datům.
 * Řízení přístupu k a posílení zabezpečení databáze, které obsahují vysoce důvěrné osobní údaje.
-* Vám pomáhá s splnění standardů data o ochraně osobních údajů a dodržování legislativních požadavků, jako je například GDPR.
 
 ## <a id="subheading-1"></a>Přehled
 Data zjišťování a klasifikace zavádí sadu pokročilé služby a nové funkce SQL, které tvoří nové zlepší SQL Information Protection zaměřené na ochranu dat, nikoli pouze databázi:
@@ -93,7 +93,9 @@ Klasifikace obsahuje dva atributy metadat:
 
 ## <a id="subheading-3"></a>Auditování přístupu k citlivým datům
 
-Důležitým aspektem zlepší ochrany informací je schopnost sledovat přístup k citlivým datům. [Auditování databáze SQL Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) je vylepšená tak, aby zahrnout nové pole do protokolu auditování názvem *data_sensitivity_information*, které protokoly klasifikaci citlivosti (popisky) vlastní data, která vrátila dotaz.
+Důležitým aspektem zlepší ochrany informací je schopnost sledovat přístup k citlivým datům.
+
+[Auditování databáze SQL Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) je vylepšená tak, aby zahrnout nové pole do protokolu auditování názvem *data_sensitivity_information*, které protokoly klasifikace citlivosti (popisky) vlastní data, která vrátila dotaz.
 
 ![Navigační podokno][11]
 

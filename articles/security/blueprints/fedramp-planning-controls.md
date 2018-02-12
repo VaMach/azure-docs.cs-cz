@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Automation. plán, podle kterého - plánování"
-description: "Webové aplikace pro FedRAMP - plánování"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace - plánování"
+description: "FedRAMP webové aplikace automatizace - plánování"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8e4d4f228940d08bc522aabcd6f4ab573ff231d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="planning-pl"></a>Plánování (PL)
 
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
 
-## <a name="nist-800-53-control-pl-1"></a>Ovládací prvek NIST 800-53 PL-1
+## <a name="nist-800-53-control-pl-1"></a>NIST 800-53 Control PL-1
 
 #### <a name="security-planning-policy-and-procedures"></a>Plánování zásad zabezpečení a postupy
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-pl-2c"></a>Ovládací prvek NIST 800-53 PL-2.c
+ ## <a name="nist-800-53-control-pl-2c"></a>NIST 800-53 Control PL-2.c
 
 #### <a name="system-security-plan"></a>Plánu zabezpečení systému
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-pl-4a"></a>Ovládací prvek NIST 800-53 PL-4.a
+ ## <a name="nist-800-53-control-pl-4a"></a>NIST 800-53 Control PL-4.a
 
 #### <a name="rules-of-behavior"></a>Pravidla chování
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-pl-4c"></a>Ovládací prvek NIST 800-53 PL-4.c
+ ## <a name="nist-800-53-control-pl-4c"></a>NIST 800-53 Control PL-4.c
 
 #### <a name="rules-of-behavior"></a>Pravidla chování
 
@@ -165,7 +165,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-pl-4d"></a>Ovládací prvek NIST 800-53 PL-4.d
+ ## <a name="nist-800-53-control-pl-4d"></a>NIST 800-53 Control PL-4.d
 
 #### <a name="rules-of-behavior"></a>Pravidla chování
 

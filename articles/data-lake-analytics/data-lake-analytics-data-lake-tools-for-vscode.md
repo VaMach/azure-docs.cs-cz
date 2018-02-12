@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Pomocí nástroje Azure Data Lake pro Visual Studio Code
 
@@ -35,8 +35,8 @@ Nástroje Azure Data Lake pro VSCode podporuje Windows, Linux a systému MacOS.
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 
 Pro systému MacOS a Linux:
-- [.NET core SDK 2.0](https://www.microsoft.com/net/download/core). 
-- [Monofonní 5.2.x](http://www.mono-project.com/download/).
+- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core). 
+- [Mono 5.2.x](http://www.mono-project.com/download/).
 
 ## <a name="install-data-lake-tools"></a>Nainstalovat nástroje Data Lake
 
@@ -86,36 +86,52 @@ Je nutné otevřít soubor U-SQL nebo složku pro práci s jazykem U-SQL.
 
     Tento skript vytvoří soubor departments.csv se některé dat obsažených ve složce/Output.
 
-5. Uložte soubor jako **myUSQL.usql** ve složce otevřen. Konfigurační soubor xxx_settings.json je taky přidaná do složky.
-6. Otevřít a konfigurovat xxx_settings.json s následujícími vlastnostmi:
-
-    - Účet: Účet Data Lake Analytics v rámci vašeho předplatného Azure, který je potřebný pro zkompilování a spuštění úloh U-SQL, takže je nutné nakonfigurovat účet počítače před kompilaci a spouštění úloh U-SQL.
-    - Databáze: Databáze v rámci vašeho účtu. Výchozí hodnota je **hlavní**.
-    - Schémat: Schéma v databázi. Výchozí hodnota je **dbo**.
-    - Volitelné nastavení:
-        - Priorita: Rozsah priority je od 1 do 1000 s 1 jako nejvyšší prioritou. Výchozí hodnota je **1000**.
-        - Paralelismus: Paralelismus rozsah je od 1 do 150. Výchozí hodnota je maximální paralelismus v účtu Azure Data Lake Analytics povolen. 
-        
-        ![Nástroje data Lake pro Visual Studio Code konfiguračního souboru](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
-      
-        > [!NOTE] 
-        > Po uložení konfigurace se zobrazí na stavovém řádku v levém horním rohu odpovídající soubor .usql účet, databázi a informace o schématu.
+5. Uložte soubor jako **myUSQL.usql** ve složce otevřen.
 
 **Kompilace skript U-SQL**
 
 1. Vyberte Ctrl + Shift + P otevřete paletu příkaz. 
 2. Zadejte **ADL: kompilace skriptu**. Výsledky kompilace se zobrazí v **výstup** okno. Můžete také klikněte pravým tlačítkem na soubor skriptu a potom vyberte **ADL: kompilace skriptu** zkompilovat úlohy U-SQL. Výsledek kompilace se zobrazí v **výstup** podokně.
  
-
 **Odeslat skript U-SQL**
 
 1. Vyberte Ctrl + Shift + P otevřete paletu příkaz. 
 2. Zadejte **ADL: odeslat úlohu**.  Můžete také klikněte pravým tlačítkem na soubor skriptu a potom vyberte **ADL: odeslat úlohu**. 
 
-Po odeslání úlohy U-SQL, odeslání protokolů se objeví v **výstup** okno v produktu VS Code. Pokud je odesílání úspěšné, úlohy adresa URL se zobrazí také. Adresa URL úlohu můžete otevřít ve webovém prohlížeči sledovat stav úlohy v reálném čase.
+ Po odeslání úlohy U-SQL, odeslání protokolů se objeví v **výstup** okno v produktu VS Code. Zobrazení úloh se zobrazí v pravém podokně. Pokud je odesílání úspěšné, úlohy adresa URL se zobrazí také. Adresa URL úlohu můžete otevřít ve webovém prohlížeči sledovat stav úlohy v reálném čase. Na kartě úlohy zobrazení souhrnu se zobrazí podrobnosti úlohy. Hlavní funkce patří odešlete skript, duplicitní skriptu, otevřete v portálu. Na kartě Data zobrazení úlohy najdete soubory vstupní, výstupní soubory prostředků. Soubory si můžete stáhnout na místním počítači.
 
-Chcete-li povolit výstup podrobnosti úlohy, nastavte **jobInformationOutputPath** v **vs kód u-sql_settings.json** souboru.
- 
+   ![Nástroje data Lake pro Visual Studio Code konfiguračního souboru](./media/data-lake-analytics-data-lake-tools-for-vscode/job-view-summary.png)
+
+   ![Nástroje data Lake pro Visual Studio Code konfiguračního souboru](./media/data-lake-analytics-data-lake-tools-for-vscode/job-view-data.png)
+
+**Nastavit výchozí kontext**
+
+ Můžete nastavit výchozí kontext pro toto nastavení platí pro všechny soubory skriptů, pokud jste nenastavili parametry pro soubor v uvedeném pořadí.
+
+1. Vyberte Ctrl + Shift + P otevřete paletu příkaz. 
+2. Zadejte **ADL: nastavte výchozí kontext**.
+3. Klikněte pravým tlačítkem na editor skriptů a vyberte **ADL: nastavte výchozí kontext**, zvolte účet, databázi a schéma, které chcete. Toto nastavení se uloží do xxx_settings.json konfiguračního souboru.
+
+    ![Nástroje data Lake pro Visual Studio Code konfiguračního souboru](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-sequence.png)
+
+**Nastavit parametry skriptu**
+
+1. Vyberte Ctrl + Shift + P otevřete paletu příkaz. 
+2. Zadejte **ADL: nastavte parametry skriptu**.
+3. otevření souboru xxx_settings.JSON s následujícími vlastnostmi:
+
+  - Účet: Účet Data Lake Analytics v rámci vašeho předplatného Azure, který je potřebný pro zkompilování a spuštění úloh U-SQL, takže je nutné nakonfigurovat účet počítače před kompilaci a spouštění úloh U-SQL.
+    - Databáze: Databáze v rámci vašeho účtu. Výchozí hodnota je **hlavní**.
+    - Schémat: Schéma v databázi. Výchozí hodnota je **dbo**.
+    - Volitelné nastavení:
+        - Priorita: Rozsah priority je od 1 do 1000 s 1 jako nejvyšší prioritou. Výchozí hodnota je **1000**.
+        - Paralelismus: Paralelismus rozsah je od 1 do 150. Výchozí hodnota je maximální paralelismus v účtu Azure Data Lake Analytics povolen. 
+
+        ![Nástroje data Lake pro Visual Studio Code konfiguračního souboru](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-setting.png)
+      
+        > [!NOTE] 
+        > Po uložení konfigurace účet, databázi a informace o schématu se zobrazí na hlavním panelu v okraje v levém dolním rohu odpovídající soubor souboru .usql Pokud nemáte výchozí kontext nastavení.
+
 **Ignorovat sadu Git**
 
 1. Vyberte Ctrl + Shift + P otevřete paletu příkaz. 
@@ -124,7 +140,7 @@ Chcete-li povolit výstup podrobnosti úlohy, nastavte **jobInformationOutputPat
     - Pokud nemáte **.gitIgnore** souboru v VSCode pracovní složka, soubor s názvem **.gitIgnor** se vytvoří ve složce. Čtyři položky (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) jsou přidány do souboru ve výchozím nastavení. Aktualizace můžete nastavit další v případě potřeby.
     - Pokud již máte **.gitIgnore** souboru v VSCode pracovní složky, nástroj přidá čtyři položky (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) do vaší **.gitIgnore** souboru pokud čtyři položky nebyly zahrnuty v souboru.
 
-  ![Nástroje data Lake pro Visual Studio Code konfiguračního souboru](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+    ![Nástroje data Lake pro Visual Studio Code konfiguračního souboru](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Použít Python, R a CSharp souboru kódu na pozadí
 Azure Data Lake nástroj podporuje víc vlastní kódů, podle pokynů v tématu [vyvíjet U-SQL s Python, R a CSharp pro Azure Data Lake Analytics v VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
@@ -137,7 +153,7 @@ Nástroje Data Lake můžete pro registraci sestavení vlastní kód v katalogu 
 
 **Registrace sestavení**
 
-Můžete zaregistrovat sestavení prostřednictvím **ADL: registrace sestavení** nebo **ADL: registrace sestavení prostřednictvím konfigurace** příkazy.
+Můžete zaregistrovat sestavení prostřednictvím **ADL: registrace sestavení** nebo **ADL: registraci sestavení (Upřesnit)** příkazy.
 
 **Registrace přes ADL: příkaz registrace sestavení**
 1.  Vyberte Ctrl + Shift + P otevřete paletu příkaz.
@@ -150,51 +166,52 @@ Výsledky: Portál se otevře v prohlížeči a zobrazí proces registrace sesta
 
 Jiné pohodlný způsob, jak aktivovat **ADL: registrace sestavení** příkaz je kliknete pravým tlačítkem na soubor .dll v Průzkumníku souborů. 
 
-**K registraci, když ADL: registrace sestavení pomocí příkazu konfigurace**
+**K registraci, když ADL: registraci sestavení (rozšířené)**
 1.  Vyberte Ctrl + Shift + P otevřete paletu příkaz.
-2.  Zadejte **ADL: registrace sestavení prostřednictvím konfigurace**. 
+2.  Zadejte **ADL: registrace sestavení (rozšířené)**. 
 3.  Zadejte cestu k místní sestavení. 
 4.  Zobrazí se souboru JSON. Zkontrolujte a v případě potřeby upravit závislosti sestavení a parametry prostředků. Pokyny, které se zobrazují v **výstup** okno. Chcete-li přejít k registraci sestavení, uložení (Ctrl + S) souboru JSON.
 
-![Nástroje data Lake pro Visual Studio Code kódu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
->[!NOTE]
->- Závislosti sestavení: automatické nástrojů Azure Data Lake jestli knihovnu DLL nemá žádné závislosti. Po zjištění, zobrazí se závislostí v souboru JSON. 
->- Prostředky: Jako součást registrace k sestavení můžete nahrát vašich prostředků knihovny DLL (například TXT, .png a CSV). 
+    ![Nástroje data Lake pro Visual Studio Code kódu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
+    
+   >[!NOTE]
+   >- Závislosti sestavení: automatické nástrojů Azure Data Lake jestli knihovnu DLL nemá žádné závislosti. Po zjištění, zobrazí se závislostí v souboru JSON. 
+   >- Prostředky: Jako součást registrace k sestavení můžete nahrát vašich prostředků knihovny DLL (například TXT, .png a CSV). 
 
-Jiný způsob, jak aktivovat **ADL: registrace sestavení prostřednictvím konfigurace** příkaz je kliknete pravým tlačítkem na soubor .dll v Průzkumníku souborů. 
+Jiný způsob, jak aktivovat **ADL: registraci sestavení (Upřesnit)** příkaz je kliknete pravým tlačítkem na soubor .dll v Průzkumníku souborů. 
 
 Následující kód U-SQL ukazuje, jak volat sestavení. V ukázce název sestavení je *testování*.
 
-```
-REFERENCE ASSEMBLY [test];
 
-@a = 
-    EXTRACT 
-        Iid int,
-    Starts DateTime,
-    Region string,
-    Query string,
-    DwellTime int,
-    Results string,
-    ClickedUrls string 
-    FROM @"Sample/SearchLog.txt" 
-    USING Extractors.Tsv();
+        REFERENCE ASSEMBLY [test];
 
-@d =
-    SELECT DISTINCT Region 
-    FROM @a;
+        @a = 
+            EXTRACT 
+                Iid int,
+            Starts DateTime,
+            Region string,
+            Query string,
+            DwellTime int,
+            Results string,
+            ClickedUrls string 
+            FROM @"Sample/SearchLog.txt" 
+            USING Extractors.Tsv();
 
-@d1 = 
-    PROCESS @d
-    PRODUCE 
-        Region string,
-    Mkt string
-    USING new USQLApplication_codebehind.MyProcessor();
+        @d =
+            SELECT DISTINCT Region 
+            FROM @a;
 
-OUTPUT @d1 
-    TO @"Sample/SearchLogtest.txt" 
-    USING Outputters.Tsv();
-```
+        @d1 = 
+            PROCESS @d
+            PRODUCE 
+                Region string,
+            Mkt string
+            USING new USQLApplication_codebehind.MyProcessor();
+
+        OUTPUT @d1 
+            TO @"Sample/SearchLogtest.txt" 
+            USING Outputters.Tsv();
+
 
 ## <a name="connect-to-azure"></a>Připojení k Azure
 
@@ -233,7 +250,7 @@ Chcete-li otestovat připojení, získáte seznam svých účtů Data Lake Analy
 
 Po připojení k Azure, můžete použít následující kroky přístup ke katalogu U-SQL.
 
-**Přístup k metadatům Azure Data Lake Analytics**
+**Chcete-li získat přístup k metadatům Azure Data Lake Analytics**
 
 1.  Vyberte Ctrl + Shift + P a potom zadejte **ADL: seznamu tabulek**.
 2.  Vyberte jeden z účtů Data Lake Analytics.
@@ -246,7 +263,7 @@ Po připojení k Azure, můžete použít následující kroky přístup ke kata
 1.  Otevřete příkaz palety (Ctrl + Shift + P) a vyberte **ADL: Zobrazit úlohy**. 
 2.  Vyberte Data Lake Analytics nebo místní účet. 
 3.  Počkejte, než pro účet, který chcete zobrazit v seznamu úloh.
-4.  Vyberte ze seznamu úloh úlohu, nástrojů Data Lake otevře podrobnosti úlohy na portálu Azure a zobrazí soubor informací o úloze v produktu VS Code.
+4.  Vyberte ze seznamu úloh úlohu, nástrojů Data Lake v pravém podokně se otevře zobrazení úloh a zobrazí některé informace v produktu VS Code **výstup**.
 
     ![Typy objektů nástroje data Lake pro Visual Studio kódu IntelliSense](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
@@ -258,7 +275,7 @@ Můžete použít příkazy související s Azure Data Lake Storage na:
  - Nahrajte soubor přímo do Azure Data Lake Storage v produktu VS Code. [Nahrát soubor nebo složku](#upload-file-or-folder).
  - Stáhněte soubor přímo z Azure Data Lake Storage v produktu VS Code. [Stáhněte si soubor](#download-file).
 
-## <a name="list-the-storage-path"></a>Seznam cesta k úložišti 
+### <a name="list-the-storage-path"></a>Seznam cesta k úložišti 
 
 **Do seznamu Cesta k úložišti prostřednictvím příkazu palety**
 
@@ -277,7 +294,7 @@ Klikněte pravým tlačítkem na řetězec cesty k výběru **seznamu Cesta** po
 ![Nástroje data Lake pro Visual Studio Code, klikněte pravým tlačítkem na kontextové nabídky](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
-## <a name="preview-the-storage-file"></a>Náhled souboru úložiště
+### <a name="preview-the-storage-file"></a>Náhled souboru úložiště
 
 Klikněte pravým tlačítkem na editor skriptů a vyberte **ADL: náhled souboru**.
 
@@ -287,7 +304,7 @@ Vyberte vaše **ADLA účet**. -> Zadejte cestu souboru úložiště Azure (nap�
 
 Jiný způsob, jak zobrazit náhled souboru je prostřednictvím v místní nabídce na úplnou cestu souboru nebo relativní cestu souboru v editoru skriptů. 
 
-## <a name="upload-file-or-folder"></a>Nahrání souboru nebo složky
+### <a name="upload-file-or-folder"></a>Nahrání souboru nebo složky
 
 1. Klikněte pravým tlačítkem na editor skriptů a vyberte **nahrát soubor** nebo **nahrát složky**.
 
@@ -301,7 +318,7 @@ Jiný způsob, jak zobrazit náhled souboru je prostřednictvím v místní nab�
 Jako současně, můžete sledovat [odesílání stav](#check-storage-tasks-status).
 
 
-## <a name="download-file"></a>Stáhnout soubor 
+### <a name="download-file"></a>Stáhnout soubor 
 Soubory si můžete stáhnout tak, že zadáte příkazy **ADL: stáhnout soubor** nebo **ADL: Stažení souboru (Upřesnit)**.
 
 **Chcete-li stáhnout soubory, když ADL: Stažení souboru (Upřesnit)**
@@ -329,7 +346,7 @@ Jako současně, můžete sledovat [stahování stav](#check-storage-tasks-statu
 
 Jako současně, můžete sledovat [stahování stav](#check-storage-tasks-status).
 
-## <a name="check-storage-tasks-status"></a>Zkontrolujte stav úlohy úložiště
+### <a name="check-storage-tasks-status"></a>Zkontrolujte stav úlohy úložiště
 Stav se zobrazí v dolní části stavový řádek po dokončení stahování a odesílání.
 1. Klikněte na stavovém řádku mocí následujících a pak stažení a odesílání stav zobrazíte v **výstup** panelu.
 

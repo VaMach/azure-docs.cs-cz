@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Spravovat zachycení paketů s sledovací proces sítě Azure pomocí portálu
 
@@ -61,7 +61,10 @@ Přejděte na [portál Azure](https://portal.azure.com) a klikněte na tlačítk
 Přehled stránka obsahuje že seznam všech paketů zaznamená, který neexistuje bez ohledu na stav.
 
 > [!NOTE]
-> Zachytáváním paketů vyžaduje připojení k účtu úložiště přes port 443.
+> Zachytáváním paketů vyžaduje následující připojování.
+> * Odchozí připojení k účtu úložiště přes port 443.
+> * Příchozí a odchozí připojení k 169.254.169.254
+> * Příchozí a odchozí připojení k 168.63.129.16
 
 ![obrazovka Přehled zachytávání paketů][1]
 

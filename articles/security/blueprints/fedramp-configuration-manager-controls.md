@@ -1,6 +1,6 @@
 ---
-title: "Automatizace FedRAMP Azure plán, podle kterého – Configuration Management."
-description: "Webové aplikace pro FedRAMP – Configuration Management."
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace – Configuration Management"
+description: "FedRAMP webové aplikace automatizace – Configuration Management."
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Správa konfigurací (CM)
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Šablony Azure Resource Manager a doprovodné prostředky, které tvoří tento plán, podle kterého Azure představují směrný plán "konfigurace jako kód" nasazené architektuře. Řešení je k dispozici, když Githubu, které lze použít pro řízení konfigurace. Řešení obsahuje směrný plán konfigurace požadovaného stavu (DSC) pro každý virtuální počítač nasazený. |
+| **Zákazníka** | Šablony Azure Resource Manager a doprovodné prostředky, které tvoří tento plán, podle kterého představují směrný plán "konfigurace jako kód" nasazené architektuře. Řešení je k dispozici, když Githubu, které lze použít pro řízení konfigurace. Řešení obsahuje směrný plán konfigurace požadovaného stavu (DSC) pro každý virtuální počítač nasazený. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-2-1a"></a>((1) .a CM 2 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cm-2-1a"></a>NIST 800-53 Control CM-2 (1).a
 
 #### <a name="baseline-configuration--reviews-and-updates"></a>Standardních hodnot konfigurace | Recenze a aktualizace
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-2-1c"></a>((1) .c CM 2 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cm-2-1c"></a>NIST 800-53 Control CM-2 (1).c
 
 #### <a name="baseline-configuration--reviews-and-updates"></a>Standardních hodnot konfigurace | Recenze a aktualizace
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Šablony Azure Resource Manager a doprovodné prostředky, které tvoří tento plán, podle kterého Azure představují směrný plán "konfigurace jako kód" nasazené architektuře. Řešení je k dispozici, když Githubu, které lze použít pro řízení konfigurace. Na portálu Azure skriptu pro automatizaci je k dispozici pro všechny nasazené prostředky a poskytuje vždy aktuální reprezentace těchto prostředků.  |
+| **Zákazníka** | Šablony Azure Resource Manager a doprovodné prostředky, které tvoří tento plán, podle kterého představují směrný plán "konfigurace jako kód" nasazené architektuře. Řešení je k dispozici, když Githubu, které lze použít pro řízení konfigurace. Na portálu Azure skriptu pro automatizaci je k dispozici pro všechny nasazené prostředky a poskytuje vždy aktuální reprezentace těchto prostředků.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-2-7a"></a>NIST 800-53 řízení .a CM 2 (7)
+ ### <a name="nist-800-53-control-cm-2-7a"></a>NIST 800-53 Control CM-2 (7).a
 
 #### <a name="baseline-configuration--configure-systems-components-or-devices-for-high-risk-areas"></a>Standardních hodnot konfigurace | Konfigurace systémů, komponenty nebo zařízení s vysokým rizikem oblastí
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cm-3c"></a>Ovládací prvek NIST 800-53 CM-3.c
+ ## <a name="nist-800-53-control-cm-3c"></a>NIST 800-53 Control CM-3.c
 
 #### <a name="configuration-change-control"></a>Řízení změn konfigurace
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control"></a>Řízení změn konfigurace
 
-**CM 3.e** Organizace zachová záznamy řízené konfigurací změny systému informace [přiřazení: organizace definované časové období].
+**CM-3.e** Organizace zachová záznamy řízené konfigurací změny systému informace [přiřazení: organizace definované časové období].
 
 **Odpovědnosti:**`Customer Only`
 
@@ -249,7 +249,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-3-1a"></a>((1) .a CM 3 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cm-3-1a"></a>NIST 800-53 Control CM-3 (1).a
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Řízení změn konfigurace | Automatizované dokumentu nebo oznámení nebo zákaz změn
 
@@ -277,7 +277,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-3-1c"></a>((1) .c CM 3 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cm-3-1c"></a>NIST 800-53 Control CM-3 (1).c
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Řízení změn konfigurace | Automatizované dokumentu nebo oznámení nebo zákaz změn
 
@@ -291,7 +291,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-3-1d"></a>((1) .d CM 3 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cm-3-1d"></a>NIST 800-53 Control CM-3 (1).d
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Řízení změn konfigurace | Automatizované dokumentu nebo oznámení nebo zákaz změn
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Řízení změn konfigurace | Automatizované dokumentu nebo oznámení nebo zákaz změn
 
-**.E CM-3 (1)** Organizace používá automatizované mechanismy pro všechny změny do systému informace o dokumentu.
+**CM-3 (1).e** Organizace používá automatizované mechanismy pro všechny změny do systému informace o dokumentu.
 
 **Odpovědnosti:**`Customer Only`
 
@@ -319,7 +319,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-3-1f"></a>((1) .f CM 3 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cm-3-1f"></a>NIST 800-53 Control CM-3 (1).f
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Řízení změn konfigurace | Automatizované dokumentu nebo oznámení nebo zákaz změn
 
@@ -455,11 +455,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure implementovat AppLocker Windows k určení uživatelů, kteří můžete nainstalovat nebo spustit konkrétní aplikací. Další, všechny systémy Windows, které jsou digitálně singed aktualizací operačního systému. |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého implementovat AppLocker Windows k určení uživatelů, kteří můžete nainstalovat nebo spustit konkrétní aplikací. Další, všechny systémy Windows, které jsou digitálně singed aktualizací operačního systému. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-5-5a"></a>NIST 800-53 řízení .a CM 5 (5)
+ ### <a name="nist-800-53-control-cm-5-5a"></a>NIST 800-53 Control CM-5 (5).a
 
 #### <a name="access-restrictions-for-change--limit-production--operational-privileges"></a>Přístup k omezení pro změnu | Omezit produkční / provozní oprávnění
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure zahrnuje směrný plán konfigurace požadovaného stavu (DSC) pro každý virtuální počítač nasazený. Tyto deklarativní skripty prostředí PowerShell definovat a nakonfigurovat prostředky, na které se použijí. Zákazník podle potřeb zvláště lze rozšířit do směrného plánu DSC zahrnuté pro prostředky nasazené v tomhle řešení. |
+| **Zákazníka** | Tento plán zahrnuje směrný plán konfigurace požadovaného stavu (DSC) pro každý virtuální počítač nasazený. Tyto deklarativní skripty prostředí PowerShell definovat a nakonfigurovat prostředky, na které se použijí. Zákazník podle potřeb zvláště lze rozšířit do směrného plánu DSC zahrnuté pro prostředky nasazené v tomhle řešení. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -511,11 +511,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure zahrnuje směrný plán konfigurace požadovaného stavu (DSC) pro každý virtuální počítač nasazený. Směrné plány je automaticky použita pro virtuální počítače během nasazení pomocí rozšíření vlastních skriptů virtuálního počítače. |
+| **Zákazníka** | Tento plán zahrnuje směrný plán konfigurace požadovaného stavu (DSC) pro každý virtuální počítač nasazený. Směrné plány je automaticky použita pro virtuální počítače během nasazení pomocí rozšíření vlastních skriptů virtuálního počítače. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cm-6c"></a>Ovládací prvek NIST 800-53 CM-6.c
+ ## <a name="nist-800-53-control-cm-6c"></a>NIST 800-53 Control CM-6.c
 
 #### <a name="configuration-settings"></a>Nastavení konfigurace
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Nasadí tento plán, podle kterého Azure Automation DSC. Automatizace DSC zarovnává konfigurace počítačů s konkrétní konfigurací definované organizace. |
+| **Zákazníka** | Tento plán, podle kterého nasadí Automation DSC. Automatizace DSC zarovnává konfigurace počítačů s konkrétní konfigurací definované organizace. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí Azure Automation DSC. Automatizace DSC zarovnává konfigurace počítačů s konkrétní konfigurací definované organizace a průběžně sleduje změny. |
+| **Zákazníka** | Tento plán, podle kterého nasadí Azure Automation DSC. Automatizace DSC zarovnává konfigurace počítačů s konkrétní konfigurací definované organizace a průběžně sleduje změny. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí Azure Automation DSC. Část z Azure Operations Management Suite (OMS) Automation DSC je možné nakonfigurovat pro generování výstrahy nebo chcete-li opravit nesprávné konfigurace při zjištění. |
+| **Zákazníka** | Tento plán, podle kterého nasadí Azure Automation DSC. Část z Azure Operations Management Suite (OMS) Automation DSC je možné nakonfigurovat pro generování výstrahy nebo chcete-li opravit nesprávné konfigurace při zjištění. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Prostředky nasadit pomocí této Azure plán, podle kterého jsou nakonfigurované na poskytování funkci minimálně pro jejich zamýšlený účel. Směrný plán konfigurace požadovaného stavu (DSC) je zahrnuté pro všechny nasazené virtuální počítače. Tyto deklarativní skripty prostředí PowerShell definovat a nakonfigurovat prostředky, na které se použijí. Základní DSC zahrnuté pro prostředky nasazené v tomhle řešení můžete rozšířit pomocí zákazník dále omezit tak jeho funkčnost zvláště potřebám. |
+| **Zákazníka** | Prostředky nasadit pomocí tento plán, podle kterého jsou nakonfigurované na poskytování funkci minimálně pro jejich zamýšlený účel. Směrný plán konfigurace požadovaného stavu (DSC) je zahrnuté pro všechny nasazené virtuální počítače. Tyto deklarativní skripty prostředí PowerShell definovat a nakonfigurovat prostředky, na které se použijí. Základní DSC zahrnuté pro prostředky nasazené v tomhle řešení můžete rozšířit pomocí zákazník dále omezit tak jeho funkčnost zvláště potřebám. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -595,11 +595,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí Azure Application Gateway a sítě skupiny zabezpečení omezit použití porty a protokoly pouze ty, které jsou nezbytné. Aplikační bránu, skupiny zabezpečení sítě a směrných plánů DSC pro virtuální počítače lze dále konfigurovat zákazník omezit použití funkcí, porty, protokoly a služby pouze funkce, které jsou určené. |
+| **Zákazníka** | Tento plán, podle kterého nasadí Azure Application Gateway a sítě skupiny zabezpečení omezit použití porty a protokoly pouze ty, které jsou nezbytné. Aplikační bránu, skupiny zabezpečení sítě a směrných plánů DSC pro virtuální počítače lze dále konfigurovat zákazník omezit použití funkcí, porty, protokoly a služby pouze funkce, které jsou určené. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-7-1a"></a>((1) .a CM 7 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cm-7-1a"></a>NIST 800-53 Control CM-7 (1).a
 
 #### <a name="least-functionality--periodic-review"></a>Minimálně funkce | Pravidelné kontroly
 
@@ -613,7 +613,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-7-1b"></a>((1) .b CM 7 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cm-7-1b"></a>NIST 800-53 Control CM-7 (1).b
 
 #### <a name="least-functionality--periodic-review"></a>Minimálně funkce | Pravidelné kontroly
 
@@ -641,7 +641,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-7-5a"></a>NIST 800-53 řízení .a CM 7 (5)
+ ### <a name="nist-800-53-control-cm-7-5a"></a>NIST 800-53 Control CM-7 (5).a
 
 #### <a name="least-functionality--authorized-software--whitelisting"></a>Minimálně funkce | Oprávnění softwaru / vytvoření seznamu povolených
 
@@ -655,7 +655,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-7-5b"></a>NIST 800-53 řízení .b CM 7 (5)
+ ### <a name="nist-800-53-control-cm-7-5b"></a>NIST 800-53 Control CM-7 (5).b
 
 #### <a name="least-functionality--authorized-software--whitelisting"></a>Minimálně funkce | Oprávnění softwaru / vytvoření seznamu povolených
 
@@ -669,7 +669,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-7-5c"></a>NIST 800-53 řízení .c CM 7 (5)
+ ### <a name="nist-800-53-control-cm-7-5c"></a>NIST 800-53 Control CM-7 (5).c
 
 #### <a name="least-functionality--authorized-software--whitelisting"></a>Minimálně funkce | Oprávnění softwaru / vytvoření seznamu povolených
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. Azure Resource Manager poskytuje vždy aktuální seznam nasazené prostředky a můžete přizpůsobit tak, aby značky a skupiny prostředků pro správu inventáře. Toto řešení nasazené prostředky jsou uvedeny konkrétní prostředek značku, která může být přidružen hranice systému. |
+| **Zákazníka** | Tento plán, podle kterého nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. Azure Resource Manager poskytuje vždy aktuální seznam nasazené prostředky a můžete přizpůsobit tak, aby značky a skupiny prostředků pro správu inventáře. Toto řešení nasazené prostředky jsou uvedeny konkrétní prostředek značku, která může být přidružen hranice systému. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. Azure Resource Manager poskytuje vždy aktuální seznam nasazené prostředky, které jsou k dispozici ke kontrole na portálu Azure. |
+| **Zákazníka** | Tento plán, podle kterého nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. Azure Resource Manager poskytuje vždy aktuální seznam nasazené prostředky, které jsou k dispozici ke kontrole na portálu Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. V okně prostředků na portálu Azure jsou uvedeny všechny nasazené prostředky, zadáním vždy aktuální inventář, jako jsou nasazené a odebrat prostředky. |
+| **Zákazníka** | Tento plán, podle kterého nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. V okně prostředků na portálu Azure jsou uvedeny všechny nasazené prostředky, zadáním vždy aktuální inventář, jako jsou nasazené a odebrat prostředky. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -735,11 +735,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. V okně prostředků na portálu Azure jsou uvedeny všechny nasazené prostředky, zadáním vždy aktuální inventář, jako jsou nasazené a odebrat prostředky. |
+| **Zákazníka** | Tento plán, podle kterého nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. V okně prostředků na portálu Azure jsou uvedeny všechny nasazené prostředky, zadáním vždy aktuální inventář, jako jsou nasazené a odebrat prostředky. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-8-3a"></a>NIST 800-53 řízení (3) .a CM-8
+ ### <a name="nist-800-53-control-cm-8-3a"></a>NIST 800-53 Control CM-8 (3).a
 
 #### <a name="information-system-component-inventory--automated-unauthorized-component-detection"></a>Informace o systému součást inventáře | Automatické zjišťování neoprávněným součásti
 
@@ -753,7 +753,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cm-8-3b"></a>NIST 800-53 řízení (3) .b CM-8
+ ### <a name="nist-800-53-control-cm-8-3b"></a>NIST 800-53 Control CM-8 (3).b
 
 #### <a name="information-system-component-inventory--automated-unauthorized-component-detection"></a>Informace o systému součást inventáře | Automatické zjišťování neoprávněným součásti
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. Značky prostředku Azure jsou klíč / hodnota páry, které je možné použít ke kategorizaci prostředky pro účely odpovědnosti za nebo management. |
+| **Zákazníka** | Tento plán, podle kterého nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. Značky prostředku Azure jsou klíč / hodnota páry, které je možné použít ke kategorizaci prostředky pro účely odpovědnosti za nebo management. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. Azure Resource Manager poskytuje vždy aktuální seznam nasazené prostředky. Toto řešení nasazené prostředky jsou uvedeny konkrétní prostředek značku, která může být přidružen hranice systému. |
+| **Zákazníka** | Tento plán, podle kterého nasadí všechny prostředky do skupiny prostředků Azure Resource Manager. Azure Resource Manager poskytuje vždy aktuální seznam nasazené prostředky. Toto řešení nasazené prostředky jsou uvedeny konkrétní prostředek značku, která může být přidružen hranice systému. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -823,7 +823,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cm-9c"></a>Ovládací prvek NIST 800-53 CM-9.c
+ ## <a name="nist-800-53-control-cm-9c"></a>NIST 800-53 Control CM-9.c
 
 #### <a name="configuration-management-plan"></a>Konfigurace plánu
 
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Licence pro Windows a SQL Server jsou zahrnuté pro prostředky nasazené pomocí tento plán, podle kterého Azure. Toto je integrované funkce Azure. Organizace s existující licenční smlouvy k softwaru zvážit při nasazování modelů alternativní licence. |
+| **Zákazníka** | Licence Windows a SQL Server jsou zahrnuté pro prostředky nasazené pomocí tento plán. Toto je integrované funkce Azure. Organizace s existující licenční smlouvy k softwaru zvážit při nasazování modelů alternativní licence. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Licence pro Windows a SQL Server jsou zahrnuté pro prostředky nasazené pomocí tento plán, podle kterého Azure. Uživatel není potřeba samostatně sledovat využití licencí. |
+| **Zákazníka** | Licence Windows a SQL Server jsou zahrnuté pro prostředky nasazené pomocí tento plán. Uživatel není potřeba samostatně sledovat využití licencí. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Neexistuje žádný soubor peer-to-peer, sdílení schopnost nasadit pomocí tento plán, podle kterého Azure. |
+| **Zákazníka** | Neexistuje žádný soubor peer-to-peer, sdílení schopnost nasadit pomocí tento plán. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 

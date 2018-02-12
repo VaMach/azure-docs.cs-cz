@@ -40,11 +40,19 @@
 ## Konfigurace hostování několika webů
 ### [portál Azure Portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Konfigurace přesměrování
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
 ## Konfigurace externího přesměrování
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Azure CLI](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## Konfigurace interního přesměrování
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## Konfigurace přesměrování HTTP na HTTPS
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
+## Konfigurace přesměrování URL
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## Konfigurace webových aplikací jako členů back-endového fondu
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurace sond stavu

@@ -1,6 +1,6 @@
 ---
-title: "Webové aplikace pro FedRAMP - reakcí na incidenty"
-description: "Webové aplikace pro FedRAMP - reakcí na incidenty"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace – reakce na incidenty"
+description: "FedRAMP webové aplikace automatizace – reakce na incidenty"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="incident-response-ir"></a>Reakce na incidenty (IR)
 
@@ -450,7 +450,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="incident-response-plan"></a>Plán reakcí na incidenty
 
-**8.e reakcí na Incidenty** Organizace komunikuje změny plánu reakcí na incidenty [přiřazení: reakce na incidenty definované organizace pracovníky (identifikuje podle názvu nebo podle role) a organizační elementy].
+**IR-8.e** Organizace komunikuje změny plánu reakcí na incidenty [přiřazení: reakce na incidenty definované organizace pracovníky (identifikuje podle názvu nebo podle role) a organizační elementy].
 
 **Odpovědnosti:**`Customer Only`
 
@@ -534,7 +534,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-spillage-response"></a>Informace o prostředku odpovědi
 
-**9.e reakcí na Incidenty** Organizace reaguje na úniky informace identifikující jiné systémy informace nebo součástí systému, které může být následně napadené.
+**IR-9.e** Organizace reaguje na úniky informace identifikující jiné systémy informace nebo součástí systému, které může být následně napadené.
 
 **Odpovědnosti:**`Customer Only`
 

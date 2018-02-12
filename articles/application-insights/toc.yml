@@ -192,6 +192,8 @@
               href: app-insights-usage-segmentation.md
             - name: Trychtýře
               href: usage-funnels.md
+            - name: Dopad
+              href: app-insights-usage-impact.md
             - name: Uchovávání
               href: app-insights-usage-retention.md
             - name: Toky uživatele

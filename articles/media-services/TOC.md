@@ -171,6 +171,7 @@
 #### [Názorný postup práce s Face Redactorem](media-services-redactor-walkthrough.md)
 ### [Zpracování pomocí miniatur videí](media-services-video-summarization.md)
 ### [Zpracování pomocí technologie OCR](media-services-video-optical-character-recognition.md)
+### [Zpracování pomocí Content Moderatoru](media-services-content-moderation.md)
 
 ## [Konfigurace telemetrie](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

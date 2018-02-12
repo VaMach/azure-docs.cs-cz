@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Protokol aktivit
           href: monitoring-overview-activity-logs.md
+        - name: Upozornění protokolu aktivit (Preview)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Skupiny akcí
           href: monitoring-action-groups.md
         - name: Diagnostické protokoly
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Konfigurace upozornění pomocí Azure PowerShellu
           href: insights-alerts-powershell.md
-        - name: Nastavení upozornění metriky pro volání webhooku
-          href: insights-webhooks-alerts.md
+        - name: Akce webhooku pro výstrahy protokolu
+          href: monitor-alerts-unified-log-webhook.md
         - name: Vytvoření upozornění na metriku pomocí šablony Resource Manageru
           href: monitoring-enable-alerts-using-template.md
     - name: Použití automatického škálování

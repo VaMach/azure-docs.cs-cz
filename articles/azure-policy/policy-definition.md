@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definic Azure Policy
 
@@ -66,14 +66,11 @@ Všechny ukázky šablony zásad Azure jsou [šablon pro Azure zásad](json-samp
 
 ## <a name="mode"></a>Mode
 
-Doporučujeme, abyste nastavili `mode` k `all` tak, aby měl zásady přiřazení vyhodnotit všechny skupiny prostředků a typy. Můžete zobrazit příklad definice zásady, které vynucuje značky na skupinu prostředků na [povolit vlastní image virtuálního počítače ze skupiny prostředků](scripts/allow-custom-vm-image.md).
+**Režimu** Určuje, jaké typy prostředků se vyhodnotí pro zásadu. Podporované režimy jsou:
+* `all`: vyhodnocení skupiny prostředků a všechny typy prostředků 
+* `indexed`: pouze vyhodnotit typy prostředků, které podporují značky a umístění
 
-Pokud ji nastavíte na **všechny**, skupiny prostředků a všechny typy prostředků se vyhodnocují zásady. Portál využívá **všechny** pro všechny zásady. Pokud používáte prostředí PowerShell nebo rozhraní příkazového řádku Azure, budete muset zadat `mode` parametr a nastavte ji na **všechny**.
-
-Použít všechny definice zásady vytvořené pomocí portálu `all` režimu, ale pokud chcete použít PowerShell nebo rozhraní příkazového řádku Azure, budete muset zadat `mode` parametr a nastavte ji na `all`.
-
-Pokud nastavíte režim na `indexed`, přiřazení zásad vyhodnotí pouze na typy prostředků, které podporují značky a umístění.
-
+Doporučujeme, abyste nastavili **režimu** k `all`. Všechny definice zásady vytvořené pomocí portálu použijte `all` režimu. Pokud používáte prostředí PowerShell nebo rozhraní příkazového řádku Azure, budete muset zadat **režimu** parametr a nastavte ji na `all`. 
 
 ## <a name="parameters"></a>Parametry
 

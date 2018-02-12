@@ -77,6 +77,8 @@
       href: site-recovery-support-matrix-to-azure.md
     - name: Systém podpory replikace z místního prostředí do sekundární lokality
       href: site-recovery-support-matrix-to-sec-site.md
+    - name: Typy navrácení služeb po obnovení
+      href: concepts-types-of-failback.md
     - name: Zotavení po havárii pro úlohy
       href: site-recovery-workload.md
     - name: Migrace do Azure
@@ -93,6 +95,8 @@
           href: site-recovery-azure-to-azure-networking-guidance.md
         - name: Nastavení mapování sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
           href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Zachování protokolu IP pro zotavení po havárii virtuálního počítače Azure (Preview)
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Příprava mapování sítí pro replikaci virtuálních počítačů Hyper-V do Azure
           href: site-recovery-network-mapping.md
         - name: Nastavení přidělování IP adres pro přístup k Azure po převzetí služeb při selhání
@@ -275,6 +279,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Potíže s převzetím služeb při selhání do Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: Problémy s navrácením služeb po obnovení a znovunastavením ochrany
+          href: troubleshoot-failback-reprotect.md
         - name: Monitorování služby Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Referenční informace

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d8b3046bc242deb90f435498c79eb94420c3909
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Kurz: Azure Active Directory integrace s síti na pracovišti ve službě Facebook.
 
@@ -113,10 +113,10 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<instancename>.facebook.com`
 
-    b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://www.facebook.com/company/<instancename>`
+    b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
-    > Tyto hodnoty nejsou reálné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [síti na pracovišti tým podpory klienta sítě Facebook](https://workplace.fb.com/faq/) k získání těchto hodnot. 
+    > Tyto hodnoty nejsou reálné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Naleznete na stránce ověřování na řídicím panelu firemní síti na pracovišti pro správné hodnoty pro vaše pracoviště komunity. 
 
 4. Na **SAML podpisový certifikát** klikněte na tlačítko **certifikátu (Base64)** a potom uložte soubor certifikátu v počítači.
 
@@ -250,7 +250,7 @@ Pokud chcete testovat vaše nastavení jednotného přihlašování, otevřete P
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

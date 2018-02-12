@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Automation. plán, podle kterého - pohotovostní plánování"
-description: "Webové aplikace pro FedRAMP - pohotovostní plánování"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace - pohotovostní plánování"
+description: "FedRAMP webové aplikace automatizace - pohotovostní plánování"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>Pohotovostní plánování (CP)
 
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
 
-## <a name="nist-800-53-control-cp-1"></a>Ovládací prvek NIST 800-53 CP-1
+## <a name="nist-800-53-control-cp-1"></a>NIST 800-53 Control CP-1
 
 #### <a name="contingency-planning-policy-and-procedures"></a>Pohotovostní plánování zásady a postupy
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-2a"></a>Ovládací prvek NIST 800-53 CP-2.a
+ ## <a name="nist-800-53-control-cp-2a"></a>NIST 800-53 Control CP-2.a
 
 #### <a name="contingency-plan"></a>Pohotovostní plán
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-2c"></a>Ovládací prvek NIST 800-53 CP-2.c
+ ## <a name="nist-800-53-control-cp-2c"></a>NIST 800-53 Control CP-2.c
 
 #### <a name="contingency-plan"></a>Pohotovostní plán
 
@@ -95,11 +95,11 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-2e"></a>Ovládací prvek NIST 800-53 CP-2.e
+ ## <a name="nist-800-53-control-cp-2e"></a>NIST 800-53 Control CP-2.e
 
 #### <a name="contingency-plan"></a>Pohotovostní plán
 
-**Prohlášení CP-2.e** Organizace aktualizuje pohotovostní plán změny adresy pro organizaci, informace o systému nebo prostředí operace a problémy vzniklé při implementaci pohotovostní plán, spuštění nebo testování.
+**CP-2.e** Organizace aktualizuje pohotovostní plán změny adresy pro organizaci, informace o systému nebo prostředí operace a problémy vzniklé při implementaci pohotovostní plán, spuštění nebo testování.
 
 **Odpovědnosti:**`Customer Only`
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-2f"></a>Ovládací prvek NIST 800-53 CP-2.f
+ ## <a name="nist-800-53-control-cp-2f"></a>NIST 800-53 Control CP-2.f
 
 #### <a name="contingency-plan"></a>Pohotovostní plán
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-2g"></a>Ovládací prvek NIST 800-53 CP-2.g
+ ## <a name="nist-800-53-control-cp-2g"></a>NIST 800-53 Control CP-2.g
 
 #### <a name="contingency-plan"></a>Pohotovostní plán
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-2-2"></a>NIST 800-53 řízení CP-2 (2)
+ ### <a name="nist-800-53-control-cp-2-2"></a>NIST 800-53 Control CP-2 (2)
 
 #### <a name="contingency-plan--capacity-planning"></a>Pohotovostní plán | Plánování kapacity
 
@@ -165,7 +165,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-2-3"></a>NIST 800-53 řízení CP-2 (3)
+ ### <a name="nist-800-53-control-cp-2-3"></a>NIST 800-53 Control CP-2 (3)
 
 #### <a name="contingency-plan--resume-essential-missions--business-functions"></a>Pohotovostní plán | Obnovit nezbytné poslání / obchodní funkce
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-2-4"></a>NIST 800-53 řízení CP-2 (4)
+ ### <a name="nist-800-53-control-cp-2-4"></a>NIST 800-53 Control CP-2 (4)
 
 #### <a name="contingency-plan--resume-all-missions--business-functions"></a>Pohotovostní plán | Obnovit všechny poslání / obchodní funkce
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-2-8"></a>NIST 800-53 řízení CP-2 (8)
+ ### <a name="nist-800-53-control-cp-2-8"></a>NIST 800-53 Control CP-2 (8)
 
 #### <a name="contingency-plan--identify-critical-assets"></a>Pohotovostní plán | Identifikujte důležité prostředky
 
@@ -221,7 +221,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-3a"></a>Ovládací prvek NIST 800-53 CP-3.a
+ ## <a name="nist-800-53-control-cp-3a"></a>NIST 800-53 Control CP-3.a
 
 #### <a name="contingency-training"></a>Pohotovostní školení
 
@@ -249,7 +249,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-3c"></a>Ovládací prvek NIST 800-53 CP-3.c
+ ## <a name="nist-800-53-control-cp-3c"></a>NIST 800-53 Control CP-3.c
 
 #### <a name="contingency-training"></a>Pohotovostní školení
 
@@ -277,7 +277,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-4a"></a>Ovládací prvek NIST 800-53 CP-4.a
+ ## <a name="nist-800-53-control-cp-4a"></a>NIST 800-53 Control CP-4.a
 
 #### <a name="contingency-plan-testing"></a>Pohotovostní plán testování
 
@@ -291,7 +291,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-4b"></a>Ovládací prvek NIST 800-53 CP-4.b
+ ## <a name="nist-800-53-control-cp-4b"></a>NIST 800-53 Control CP-4.b
 
 #### <a name="contingency-plan-testing"></a>Pohotovostní plán testování
 
@@ -305,7 +305,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-4c"></a>Ovládací prvek NIST 800-53 CP-4.c
+ ## <a name="nist-800-53-control-cp-4c"></a>NIST 800-53 Control CP-4.c
 
 #### <a name="contingency-plan-testing"></a>Pohotovostní plán testování
 
@@ -333,7 +333,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800-53 řízení .a CP-4 (2)
+ ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800-53 Control CP-4 (2).a
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Pohotovostní plán testování | Lokalita alternativní zpracování
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800-53 řízení .b CP-4 (2)
+ ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800-53 Control CP-4 (2).b
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Pohotovostní plán testování | Lokalita alternativní zpracování
 
@@ -361,7 +361,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-6a"></a>Ovládací prvek NIST 800-53 CP-6.a
+ ## <a name="nist-800-53-control-cp-6a"></a>NIST 800-53 Control CP-6.a
 
 #### <a name="alternate-storage-site"></a>Úložiště alternativní lokality
 
@@ -371,11 +371,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny účty úložiště nasadit pomocí této Azure plán, podle kterého se replikují k zajištění vysoké dostupnosti pomocí geograficky redundantní úložiště (GRS). GRS zajistí, že data se replikují do sekundární oblasti; šest kopií všechna data jsou uchovávaných na samostatné uzly v rámci dvou Datacenter. |
+| **Zákazníka** | Všechny účty úložiště nasadit pomocí tento plán, podle kterého se replikují k zajištění vysoké dostupnosti pomocí geograficky redundantní úložiště (GRS). GRS zajistí, že data se replikují do sekundární oblasti; šest kopií všechna data jsou uchovávaných na samostatné uzly v rámci dvou Datacenter. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-6b"></a>Ovládací prvek NIST 800-53 CP-6.b
+ ## <a name="nist-800-53-control-cp-6b"></a>NIST 800-53 Control CP-6.b
 
 #### <a name="alternate-storage-site"></a>Úložiště alternativní lokality
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny účty úložiště nasadit pomocí této Azure plán, podle kterého se replikují k zajištění vysoké dostupnosti pomocí geograficky redundantní úložiště (GRS). Ovládací prvky fyzického zabezpečení jsou implementované jednotně v datových centrech Azure. |
+| **Zákazníka** | Všechny účty úložiště nasadit pomocí tento plán, podle kterého se replikují k zajištění vysoké dostupnosti pomocí geograficky redundantní úložiště (GRS). Ovládací prvky fyzického zabezpečení jsou implementované jednotně v datových centrech Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -399,11 +399,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny účty úložiště nasadit pomocí této Azure plán, podle kterého se replikují k zajištění vysoké dostupnosti pomocí geograficky redundantní úložiště (GRS). GRS zajistí, že data se replikují do sekundární oblasti. Primární a sekundární oblasti jsou spárován zajistit potřebné vzdálenost mezi datových center k zajištění dostupnosti v případě výpadku celou oblast nebo po havárii. |
+| **Zákazníka** | Všechny účty úložiště nasadit pomocí tento plán, podle kterého se replikují k zajištění vysoké dostupnosti pomocí geograficky redundantní úložiště (GRS). GRS zajistí, že data se replikují do sekundární oblasti. Primární a sekundární oblasti jsou spárován zajistit potřebné vzdálenost mezi datových center k zajištění dostupnosti v případě výpadku celou oblast nebo po havárii. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-6-2"></a>NIST 800-53 řízení CP-6 (2)
+ ### <a name="nist-800-53-control-cp-6-2"></a>NIST 800-53 Control CP-6 (2)
 
 #### <a name="alternate-storage-site--recovery-time--point-objectives"></a>Alternativní lokality úložiště | Doba obnovení / bodu cíle
 
@@ -413,11 +413,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny účty úložiště nasadit pomocí této Azure plán, podle kterého se replikují k zajištění vysoké dostupnosti pomocí geograficky redundantní úložiště (GRS). GRS zajistí, že data se replikují do sekundární oblasti. Zákazníci zajistit, aby byl že model replikace dat Azure je kompatibilní s pohotovostní cíle. |
+| **Zákazníka** | Všechny účty úložiště nasadit pomocí tento plán, podle kterého se replikují k zajištění vysoké dostupnosti pomocí geograficky redundantní úložiště (GRS). GRS zajistí, že data se replikují do sekundární oblasti. Zákazníci zajistit, aby byl že model replikace dat Azure je kompatibilní s pohotovostní cíle. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-6-3"></a>NIST 800-53 řízení CP-6 (3)
+ ### <a name="nist-800-53-control-cp-6-3"></a>NIST 800-53 Control CP-6 (3)
 
 #### <a name="alternate-storage-site--accessibility"></a>Alternativní lokality úložiště | Usnadnění přístupu
 
@@ -431,7 +431,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure spravuje všechny datových centrech společnosti Microsoft a má zavedené dohodnout se s všichni členové týmu problémy usnadnění přístupu k webům alternativní zpracování v případě přerušení úrovni oblasti nebo po havárii a podrobnosti explicitní nouzové správy týmy (EMT) zmírnění dopadů akce. Pokud dojde přerušení k primární lokalitě, nemají Azure pracovníky z této lokality přejít na sekundární lokalitě, jako jsou Azure pracovníky již pověření a pracuje v sekundární lokalitě. Na úrovni oblasti přerušení nebo po havárii v primární lokalitě neovlivní webu sekundární úložiště Microsoft Azure, vzhledem k tomu, že se nacházejí v geograficky odděleném oblastech u každého systému. <br /> Microsoft Azure pracovníky s logického přístupu jsou umístěné v Toužíte, práce vzdáleně; neexistují proto žádné se usnadnění pro logické správy ve službě Microsoft Azure. |
 
 
- ## <a name="nist-800-53-control-cp-7a"></a>Ovládací prvek NIST 800-53 CP-7a
+ ## <a name="nist-800-53-control-cp-7a"></a>NIST 800-53 Control CP-7.a
 
 #### <a name="alternate-processing-site"></a>Lokalita alternativní zpracování
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. |
+| **Zákazníka** | Tento plán, podle kterého obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -455,11 +455,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Pokud nasazujete do alternativní oblasti Azure, zřizování zařízení spravuje transparentně Azure. |
+| **Zákazníka** | Tento plán, podle kterého obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Pokud nasazujete do alternativní oblasti Azure, zřizování zařízení spravuje transparentně Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-7c"></a>Ovládací prvek NIST 800-53 CP-7.c
+ ## <a name="nist-800-53-control-cp-7c"></a>NIST 800-53 Control CP-7.c
 
 #### <a name="alternate-processing-site"></a>Lokalita alternativní zpracování
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Ochrana zabezpečení jsou jednotně implementované v datových centrech Azure. |
+| **Zákazníka** | Tento plán, podle kterého obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Ochrana zabezpečení jsou jednotně implementované v datových centrech Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Datových centrech Azure jsou geograficky oddělené. |
+| **Zákazníka** | Tento plán, podle kterého obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Datových centrech Azure jsou geograficky oddělené. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Pokud nasazujete do alternativní oblasti Azure, dostupnost prostředků transparentně spravuje Azure. |
+| **Zákazníka** | Tento plán, podle kterého obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Pokud nasazujete do alternativní oblasti Azure, dostupnost prostředků transparentně spravuje Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -525,11 +525,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Pokud nasazujete do alternativní oblasti Azure, fyzických prostředků přípravy transparentně spravuje Azure. |
+| **Zákazníka** | Tento plán, podle kterého obsahuje informace o tom, jak můžete nasadit souběžně do několika oblastí a nakonfigurované na poskytování úplné redundance na stránku alternativní zpracování toto řešení. Pokud nasazujete do alternativní oblasti Azure, fyzických prostředků přípravy transparentně spravuje Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-8"></a>Ovládací prvek NIST 800-53 CP-8
+ ## <a name="nist-800-53-control-cp-8"></a>NIST 800-53 Control CP-8
 
 #### <a name="telecommunications-services"></a>Telecommunications služby
 
@@ -543,7 +543,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure se nachází v rámci datová centra služby Microsoft Azure. Microsoft Azure zodpovídá za zajistí pokračování jeho telecommunications služby procesem využitím různých fiber trasy a redundantní hardware a poskytuje maximální dostupnosti. Každý z datových center reprezentována jako součást hranic Microsoft Azure jsou aktivní, od sebe navzájem nezávislé a možnost k poskytování služeb kdykoli plně funkční. Kromě konfigurace active datacenter Microsoft Azure dále snižuje riziko jediný bod selhání s komunikační linky tím, že každé datové centrum tak, aby měl alespoň dvě různé fiber cesty. Společnost Microsoft vlastní a udržuje vlastní síť fiber, jejichž účelem je výhradně podporují vlastnosti Microsoft, který funguje jako globální fiber páteřní, který je porovnatelný z hlediska k víc poskytovatelů internetových služeb. Microsoft kontrakty se úroveň 3 komunikací zajistit údržba služby pole v případě chyb, defekty nebo selhání. Cíle na úrovni služby pro údržbu na vyžádání a kritických časových k opravě je 4 hodiny. Důležité problémy jsou definovány jako incidenty a méně výpadků než způsobené Excused výpadku, které způsobují selhání Microsoft Equipment, jako výsledek, který Microsoft nemůže přijímat žádná data. |
 
 
- ### <a name="nist-800-53-control-cp-8-1a"></a>((1) .a CP-8 NIST 800-53 ovládací prvek
+ ### <a name="nist-800-53-control-cp-8-1a"></a>NIST 800-53 Control CP-8 (1).a
 
 #### <a name="telecommunications-services--priority-of-service-provisions"></a>Telecommunications služby | Priorita zřizuje služby
 
@@ -599,7 +599,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure snižuje riziko jediný bod selhání s komunikační linky tím, že každé datové centrum Azure tak, aby měl alespoň dvě různé fiber cesty. Redundantní komunikace byly zavedené následující různorodých cesty přes síť fiber společnosti Microsoft. Toto je neustále provozní řešení spravuje Azure. |
 
 
- ### <a name="nist-800-53-control-cp-8-4a"></a>NIST 800-53 řízení .a CP-8 (4)
+ ### <a name="nist-800-53-control-cp-8-4a"></a>NIST 800-53 Control CP-8 (4).a
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunications služby | Pohotovostní plán zprostředkovatele
 
@@ -613,7 +613,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure implementovala pohotovostní plánování zásad prostřednictvím publikování zásady zabezpečení společnosti Microsoft, udržované zabezpečení Azure. Cíl zásad správy Azure kontinuity je ochrana externí zákazníky a interní Microsoft business tím, že poskytuje služby a funkční odolnost společně s možnost zotavení obnovit odebírané služby a obchodní jádra Možnosti v předem určený časový rámec během výpadku významné. |
 
 
- ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800-53 řízení (4) .b CP-8
+ ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800-53 Control CP-8 (4).b
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunications služby | Pohotovostní plán zprostředkovatele
 
@@ -627,7 +627,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Zásady zabezpečení Microsoft Azure se zkontrolovány a schváleny ročně pomocí Azure security správy a udržuje na nástroj GRC. Zásady zabezpečení Microsoft platí celé organizace pro všechny informace a postupy použité při provádění Microsoft business. Všechny zaměstnancům společnosti Microsoft a externí pracovníky jsou odpovědní a zodpovědná za soulad s těmito hlavní zásady v rámci jejich určené role. |
 
 
- ### <a name="nist-800-53-control-cp-8-4c"></a>NIST 800-53 řízení .c CP-8 (4)
+ ### <a name="nist-800-53-control-cp-8-4c"></a>NIST 800-53 Control CP-8 (4).c
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunications služby | Pohotovostní plán zprostředkovatele
 
@@ -641,7 +641,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure implementuje pohotovostní plán testování a cvičení podle zásad uvedeným v ERDRP datového centra Azure. Pohotovostní plán testování a údržby postupy jsou implementovány s cílem údržbu ERDRP v konzistentním stavu připravenosti. Tyto postupy platí pro nepřetržitou údržby, testování a požadavky ERDRP školení. Koordinaci ERDRP je zodpovědností správce datového centra. Správce datového centra je zodpovědná za kontrola a testování ERDRP nejméně jednou ročně. |
 
 
- ## <a name="nist-800-53-control-cp-9a"></a>Ovládací prvek NIST 800-53 CP-9.a
+ ## <a name="nist-800-53-control-cp-9a"></a>NIST 800-53 Control CP-9.a
 
 #### <a name="information-system-backup"></a>Informace o zálohování systému
 
@@ -651,11 +651,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí trezoru služeb zotavení. Informace na úrovni uživatele ve službě nasazené SQL database je implementovaná pomocí rozšíření SQL virtuálních počítačů IaaS. |
+| **Zákazníka** | Tento plán, podle kterého se nasadí trezoru služeb zotavení. Informace na úrovni uživatele ve službě nasazené SQL database je implementovaná pomocí rozšíření SQL virtuálních počítačů IaaS. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-9b"></a>Ovládací prvek NIST 800-53 CP-9.b
+ ## <a name="nist-800-53-control-cp-9b"></a>NIST 800-53 Control CP-9.b
 
 #### <a name="information-system-backup"></a>Informace o zálohování systému
 
@@ -665,11 +665,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí trezoru služeb zotavení. Zásady služby Azure Backup je vytvořeno pro všechny virtuální počítače implementujícího uchovávání denní, týdenní, měsíční a roční záložní image.  |
+| **Zákazníka** | Tento plán, podle kterého se nasadí trezoru služeb zotavení. Zásady služby Azure Backup je vytvořeno pro všechny virtuální počítače implementujícího uchovávání denní, týdenní, měsíční a roční záložní image.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-9c"></a>Ovládací prvek NIST 800-53 CP-9.c
+ ## <a name="nist-800-53-control-cp-9c"></a>NIST 800-53 Control CP-9.c
 
 #### <a name="information-system-backup"></a>Informace o zálohování systému
 
@@ -683,7 +683,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-9d"></a>Ovládací prvek NIST 800-53 CP-9.d
+ ## <a name="nist-800-53-control-cp-9d"></a>NIST 800-53 Control CP-9.d
 
 #### <a name="information-system-backup"></a>Informace o zálohování systému
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Důvěrnost a integritu všech objektů BLOB storage nasadit pomocí této Azure plán, podle kterého jsou chráněny prostřednictvím použití SSE Azure, který používá šifrování AES 256 bitů pro všechna data na rest. |
+| **Zákazníka** | Důvěrnost a integritu všech objektů BLOB storage nasadit pomocí tento plán, podle kterého jsou chráněny prostřednictvím použití SSE Azure, který používá šifrování AES 256 bitů pro všechna data na rest. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -711,7 +711,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Zálohování Microsoft Azure monitorování pravidelné spouštění pomocí systému generuje výstrahy, které oznámit tým Microsoft Azure operations všechny zálohy se nezdařilo nebo jsou neúplné. Kromě výstrahy generované systémem jsou pro všechny zálohy vlastníkem Microsoft Azure minimálně každých 12 měsíců, pomocí nástroje Správce BCDR provést obnovení testy. Integritu dat je potvrzen automaticky po dokončení zálohování. <br /> Microsoft Azure SQL DB současně, udržuje tři repliky dat, jedna primární replika a dvě sekundární repliky. Microsoft Azure SQL DB používá schéma kvora na základě potvrzení, kde data se zapisují do primárním serverem a jedna sekundární replika transakce považuje za potvrzené. V případě selhání hardwaru na primární replice Microsoft Azure SQL DB zjistí selhání a převezme na sekundární repliku. V případě fyzické ztráty repliku Microsoft Azure SQL DB automaticky vytvoří novou repliku. Proto existují alespoň dvě kopie konzistentní fyzické transakce dat zákazníka v datovém centru. Microsoft Azure SQL DB nezapíše transakce do databáze, pokud primární a sekundární repliky jsou vytvářeny. |
 
 
- ### <a name="nist-800-53-control-cp-9-2"></a>NIST 800-53 řízení CP-9 (2)
+ ### <a name="nist-800-53-control-cp-9-2"></a>NIST 800-53 Control CP-9 (2)
 
 #### <a name="information-system-backup--test-restoration-using-sampling"></a>Informace o zálohování systému | Testování obnovení pomocí vzorkování
 
@@ -725,7 +725,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-cp-9-3"></a>NIST 800-53 řízení CP-9 (3)
+ ### <a name="nist-800-53-control-cp-9-3"></a>NIST 800-53 Control CP-9 (3)
 
 #### <a name="information-system-backup--separate-storage-for-critical-information"></a>Informace o zálohování systému | Odděleného úložiště pro důležité informace
 
@@ -749,11 +749,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny účty úložiště nasazené v rámci tento plán Azure, včetně těchto použité pro zálohování, implementujte geograficky redundantní úložiště, zajistíte šest kopií všechna data udržované na samostatné uzly napříč dvěma datovými centry. |
+| **Zákazníka** | Všechny účty úložiště nasazené v rámci tento plán, včetně těchto použité pro zálohování, implementujte geograficky redundantní úložiště, zajistíte šest kopií všechna data udržované na samostatné uzly napříč dvěma datovými centry. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-cp-10"></a>Ovládací prvek NIST 800-53 CP-10
+ ## <a name="nist-800-53-control-cp-10"></a>NIST 800-53 Control CP-10
 
 #### <a name="information-system-recovery-and-reconstitution"></a>Obnovení systému informace a obnovení
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí systému SQL Server vždy na skupiny dostupnosti. SQL Server udržuje transakčního protokolu, který podporuje transakce obnovení v případě selhání systému. |
+| **Zákazníka** | Tento plán, podle kterého nasadí systému SQL Server vždy na skupiny dostupnosti. SQL Server udržuje transakčního protokolu, který podporuje transakce obnovení v případě selhání systému. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 

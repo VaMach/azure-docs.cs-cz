@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Databáze Azure pro výkon a možnosti PostgreSQL: co je k dispozici v jednotlivých cenových úrovní
 Když vytvoříte databázi Azure pro PostgreSQL server, rozhodněte tři hlavní možnosti konfigurace prostředky přidělené pro tento server. Tyto možnosti vliv na výkon a škálování serveru.
@@ -46,8 +46,8 @@ Při rozhodování o cenovou úroveň, nejprve spusťte tak, že určíte, pokud
 | :------------------------ | :-------- | :----------- |
 | Maximální výpočetní jednotky | 100 | 800 | 
 | Maximální celková velikost úložiště | 1 TB | 1 TB | 
-| Záruku IOPS úložiště | Není k dispozici | Ano | 
-| Maximální velikost úložiště IOPS | Není k dispozici | 3000 | 
+| Záruku IOPS úložiště | neuvedeno | Ano | 
+| Maximální velikost úložiště IOPS | neuvedeno | 3000 | 
 | Doba uchovávání záloh databáze | 7 dní | 35 dní | 
 
 Období preview nelze změnit cenovou úroveň, jakmile je vytvořena serveru. V budoucnu bude možné upgradovat nebo starší verzi serveru z jednu cenovou úroveň na jinou vrstvu.
@@ -73,7 +73,7 @@ Výpočetní že jednotky jsou měřítkem propustnost zpracování procesoru, k
 | **Úroveň výkonu** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Maximální počet výpočetní jednotky | 100 | 200 | 400 | 800 |
-| Velikost zahrnuté úložiště a zřízené IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS |
+| Velikost zahrnuté úložiště a zřízené IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | Maximální velikost úložiště serveru\* | 1 TB | 1 TB | 1 TB | 1 TB |
 | Zřízení serveru maximální IOPS | 3000 IOPS | 3000 IOPS | 3000 IOPS | 3000 IOPS |
 | Zřízení serveru maximální IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB |
@@ -81,7 +81,7 @@ Výpočetní že jednotky jsou měřítkem propustnost zpracování procesoru, k
 \*Maximální velikost úložiště serveru odkazuje na maximální zřízené velikost úložiště pro váš server.
 
 ## <a name="storage"></a>Úložiště 
-Konfigurace úložiště definuje množství kapacity úložiště, které jsou k dispozici pro databázi Azure pro PostgreSQL server. Úložiště používá služba zahrnuje soubory databáze, transakční protokoly a protokoly serveru PostgreSQL. Zvažte velikost úložiště potřebné pro hostování své databáze a požadavky na výkon (IOPS) při výběru konfigurace úložiště.
+Konfigurace úložiště definuje množství kapacity úložiště, které jsou k dispozici pro databázi Azure pro PostgreSQL server. Úložiště používá služba zahrnuje soubory databáze, dočasné soubory, transakční protokoly a protokoly serveru PostgreSQL. Zvažte velikost úložiště potřebné pro hostování své databáze a požadavky na výkon (IOPS) při výběru konfigurace úložiště.
 
 Některé kapacita úložiště je zahrnutý minimálně s každou cenovou úroveň, jsou popsány v předchozí jako "Zahrnuté velikost úložiště". Kapacita úložiště lze přidat, když je vytvořen serveru, v přírůstcích po 125 GB až do maximální povolené úložiště. Další úložnou kapacitu se dá nakonfigurovat nezávisle na výpočetní jednotky konfigurace. Změny ceny založenou na velikosti úložiště vybrané.
 
@@ -101,6 +101,6 @@ Na pozadí Změna úrovně výkonu databáze vytvoří kopii původního serveru
 
 Dobu trvání procesu celý škálování závisí na velikosti i cenová úroveň serveru před a po provedení změny. Například server, který mění výpočetní jednotky v rámci standardní cenovou úroveň, provést v rámci několik minut. Nové vlastnosti pro server se nepoužívají, dokud nebudou dokončeny změny.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o výpočetní jednotky, najdete v části [vysvětlením výpočetní jednotky](concepts-compute-unit-and-storage.md)
 - Zjistěte, jak [sledování a škálování jediného PostgreSQL serveru pomocí rozhraní příkazového řádku Azure](scripts/sample-scale-server-up-or-down.md)

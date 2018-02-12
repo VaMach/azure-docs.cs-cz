@@ -3,6 +3,7 @@
 > * [Zařízení: Node.js Služba: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
 > * [Zařízení: Služba C#: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Zařízení: Služba Java: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Zařízení: Služba Python: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 Back-end aplikace můžete použít Azure IoT Hub primitiv, jako například [dvojče zařízení] [ lnk-devtwin] a [přímé metody][lnk-c2dmethod], abyste mohli vzdáleně spuštění a monitorování zařízení akce správy na zařízeních. Tento kurz ukazuje, jak back-end aplikace a aplikace na zařízení vzájemně spolupracují na zahájení a monitorování restartování vzdáleného zařízení pomocí služby IoT Hub.
 

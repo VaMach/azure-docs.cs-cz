@@ -1,6 +1,6 @@
 ---
-title: "Automatizace Azure plán, podle kterého - webové aplikace pro FedRAMP"
-description: "Automatizace Azure plán, podle kterého - webové aplikace pro FedRAMP"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - automatizace FedRAMP webové aplikace"
+description: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - automatizace FedRAMP webové aplikace"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Automatizace Azure plán, podle kterého - webové aplikace pro FedRAMP
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Zabezpečení Azure a dodržování předpisů plán, podle kterého - automatizace FedRAMP webové aplikace
 
 ## <a name="overview"></a>Přehled
 
-[Federal rizika a autorizace správu Program (FedRAMP)](https://www.fedramp.gov), je program government celou USA, který poskytuje standardizovaná přístup k zabezpečení, autorizace a nepřetržité monitorování produktů cloudu a služby. Této služby Azure Automation plán, podle kterého - webové aplikace pro FedRAMP obsahuje pokyny pro nasazení kompatibilní se standardem FedRAMP infrastruktury jako služby (IaaS) prostředí, který je vhodný pro jednoduchou webovou aplikaci internetové brány. Toto řešení umožňuje automatizovat nasazení a konfigurace prostředků Azure pro běžné referenční architektura, ukázka způsoby, ve kterém zákazníkům můžete splňovat určité požadavky na zabezpečení a dodržování předpisů a slouží jako základ pro zákazníkům umožňují vytvářet a Nakonfigurujte vlastní řešení v Azure. Řešení implementuje podmnožinu ovládacích prvků ze směrného plánu FedRAMP vysoká, podle SP NIST 800-53. Další informace o požadavcích FedRAMP vysokou a řešení najdete v tématu [FedRAMP vysoké požadavky - přehled vysoké úrovni](fedramp-controls-overview.md). ***Poznámka: Toto řešení se nasadí do Azure Government.***
+[Federal rizika a autorizace správu Program (FedRAMP)](https://www.fedramp.gov), je program government celou USA, který poskytuje standardizovaná přístup k zabezpečení, autorizace a nepřetržité monitorování produktů cloudu a služby. Tento zabezpečení Azure a dodržování předpisů plán, podle kterého automatizace obsahuje pokyny pro nasazení kompatibilní se standardem FedRAMP infrastruktury jako služby (IaaS) prostředí, který je vhodný pro jednoduchou webovou aplikaci internetové brány. Toto řešení umožňuje automatizovat nasazení a konfigurace prostředků Azure pro běžné referenční architektura, ukázka způsoby, ve kterém zákazníkům můžete splňovat určité požadavky na zabezpečení a dodržování předpisů a slouží jako základ pro zákazníkům umožňují vytvářet a Nakonfigurujte vlastní řešení v Azure. Řešení implementuje podmnožinu ovládacích prvků ze směrného plánu FedRAMP vysoká, podle SP NIST 800-53. Další informace o požadavcích FedRAMP vysokou a řešení najdete v tématu [FedRAMP vysoké požadavky - přehled vysoké úrovni](fedramp-controls-overview.md). ***Poznámka: Toto řešení se nasadí do Azure Government.***
 
 Tato architektura má sloužit jako základ pro zákazníky, chcete-li upravit na jejich specifické požadavky a by se neměla používat jako-je v produkčním prostředí. Nasazení aplikace do tohoto prostředí bez úprav není dostatečná pro úplně splnění požadavků FedRAMP vysokou standardních hodnot. Je třeba počítat s následujícím:
 - Tato architektura poskytuje směrný plán pro zákazníky, používat Azure kompatibilní se standardem FedRAMP způsobem.
@@ -36,17 +36,17 @@ Klikněte na tlačítko [sem](https://aka.ms/fedrampblueprintrepo) pokyny pro na
 
 ## <a name="solution-components"></a>Součásti řešení
 
-Tento plán, podle kterého automatizace Azure automaticky nasadí IaaS webové aplikace referenční architektura s ovládacími prvky pro zákazníky, dosažení souladu s požadavky FedRAMP předem nakonfigurovaný zabezpečení. Řešení se skládá z šablon Azure Resource Manageru a skriptů prostředí PowerShell, které průvodce prostředků nasazení a konfigurace. Doprovázející aplikaci Azure plán, podle kterého [dodržování předpisů dokumentace](#compliance-documentation) je k dispozici, označující dědičnosti řízení zabezpečení z Azure a nasazené prostředky a konfigurace, které zarovnané s NIST SP 800-53 ovládací prvky zabezpečení, a tím povolení organizacím rychlého povinnosti dodržování předpisů.
+Tento zabezpečení Azure a dodržování předpisů plán, podle kterého automatizace automaticky nasadí IaaS webové aplikace referenční architektura s ovládacími prvky pro zákazníky, dosažení souladu s požadavky FedRAMP předem nakonfigurovaný zabezpečení. Řešení se skládá z šablon Azure Resource Manageru a skriptů prostředí PowerShell, které průvodce prostředků nasazení a konfigurace. Doplňujícími [dodržování předpisů dokumentace](#compliance-documentation) je k dispozici, označující dědičnosti řízení zabezpečení z Azure a nasazené prostředky a konfigurace, které zarovnané s NIST SP 800-53 ovládacích prvků zabezpečení, zpřístupňují organizaci rychlého povinnosti dodržování předpisů.
 
 ## <a name="architecture-diagram"></a>Diagram architektury
 
 Toto řešení nasadí referenční architektura pro webovou aplikaci IaaS s databáze back-end. Architektura zahrnuje webovou vrstvu, datové vrstvy, infrastrukturu služby Active Directory, aplikační bránu a nástroj pro vyrovnávání zatížení. Virtuální počítače nasazené na úrovně web a data jsou nakonfigurované v nastavení dostupnosti, a instance systému SQL Server jsou nakonfigurované ve skupině dostupnosti AlwaysOn pro vysokou dostupnost. Virtuální počítače jsou připojené k doméně a zásady skupiny služby Active Directory se používají k vynucení zabezpečení a dodržování předpisů konfigurace na úrovni operačního systému. Správa jumpbox (bastionu hostitel) poskytuje zabezpečené připojení pro Správci nasazení přístup k prostředkům.
 
-![alternativní text](images/fedramp-architectural-diagram.png?raw=true "IaaS webové aplikace plán, podle kterého automatizace pro kompatibilní se standardem FedRAMP prostředí")
+![alternativní text](images/fedramp-architectural-diagram.png?raw=true "zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace")
 
 Toto řešení používá následující služby Azure. Podrobnosti o architektuře nasazení jsou umístěné v [architektura nasazení služby](#deployment-architecture) části.
 
-* **Virtuální počítače Azure**
+* **Azure Virtual Machines**
     - (1) správy/bastionu (Windows Server 2016 Datacenter)
     - (2) řadič domény active Directory (Windows Server 2016 Datacenter)
     - (2) uzel clusteru SQL serveru (SQL Server 2016 na Windows Server 2012 R2)
@@ -91,7 +91,7 @@ V následující části Podrobné informace o vývoji a implementaci elementy.
 
 Architektura snižuje riziko ohrožení zabezpečení pomocí služby Application Gateway pomocí brány firewall webových aplikací (firewall webových aplikací) a ruleset OWASP povolena. Další možnosti patří:
 
-- [End na koncové SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Povolit [přesměrování zpracování SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Zakázat [TLS verze 1.0 a verze 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brány firewall webových aplikací](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (firewall webových aplikací režim)
@@ -118,7 +118,7 @@ Každý podsítí má skupina zabezpečení vyhrazené sítě (NSG):
 
 Každá podsíť je přidružen jeho odpovídající skupina NSG.
 
-### <a name="data-at-rest"></a>Data v klidovém stavu
+### <a name="data-at-rest"></a>Neaktivní uložená data
 
 Architektura chrání data v klidovém stavu pomocí několika míry šifrování.
 
@@ -126,7 +126,7 @@ Architektura chrání data v klidovém stavu pomocí několika míry šifrován�
 
 Chcete-li splnit požadavky na šifrování dat na rest, použijte všechny účty úložiště [šifrování služby úložiště](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-#### <a name="sql-database"></a>SQL Database
+#### <a name="sql-database"></a>Databáze SQL
 
 Databáze SQL je nakonfigurovaný na použití [transparentní šifrování šifrování dat (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), která provede v reálném čase šifrování a dešifrování dat a souborů protokolu ochrany informací v klidovém stavu. Šifrování TDE poskytuje záruku, že data uložena nebyla neoprávněnému přístupu k. 
 
@@ -157,7 +157,7 @@ Následujících technologií poskytovat identitu možnosti správy v prostřed�
 - [Azure na základě rolí řízení přístupu (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) umožňuje přesněji správu cílených přístupu k Azure. Předplatné přístup je omezen na správce předplatného, a přístup k prostředkům může být omezen na základě role uživatele.
 - Nasazenou instanci služby Active Directory IaaS poskytuje identity management na úrovni operačního systému pro nasazené virtuální počítače IaaS.
    
-### <a name="compute-resources"></a>Výpočetní prostředky
+### <a name="compute-resources"></a>Výpočet prostředků
 
 #### <a name="web-tier"></a>Webová vrstva
 
@@ -182,9 +182,9 @@ Správa jumpbox (bastionu hostitel) poskytuje zabezpečené připojení pro Spr�
 
 ### <a name="patch-management"></a>Opravy správy
 
-Virtuální počítače s Windows, které jsou nasazené automatizace tento plán, podle kterého jsou nakonfigurované ve výchozím nastavení příjem automatických aktualizací ze služby Windows Update. Toto řešení taky nasadí řešení OMS Azure Automation, pomocí kterého lze vytvořit nasazení aktualizací na servery Windows v případě potřeby nasadit opravy.
+Windows virtuálních počítačů nasazených v tomto zabezpečení Azure a dodržování předpisů plán, podle kterého Automation jsou nakonfigurované ve výchozím nastavení příjem automatických aktualizací ze služby Windows Update. Toto řešení taky nasadí řešení OMS Azure Automation, pomocí kterého lze vytvořit nasazení aktualizací na servery Windows v případě potřeby nasadit opravy.
 
-### <a name="operations-management"></a>Operace správy
+### <a name="operations-management"></a>Řízení provozu
 
 #### <a name="log-analytics"></a>Log Analytics
 
@@ -211,11 +211,11 @@ Následující řešení OMS jsou předem nainstalován jako součást tohoto ř
 
 ### <a name="control-implementation-matrix"></a>Matice implementaci ovládacího prvku
 
-[Matice implementaci ovládacího prvku](https://aka.ms/blueprintwacim) (sešitu aplikace Excel) zobrazí všechny kontrolní mechanismy zabezpečení, které vyžadují vysokou FedRAMP směrného plánu. Matice označuje, pro každý ovládací prvek (nebo její ovládací prvek komponenty), je určen zákazníka-jeho zodpovědné v matici odpovědnosti zákazníka, 1) Pokud plán, podle kterého automatizace implementuje ovládacího prvku a 2) popis způsobu implementace zarovnaná s ovládací prvek uvažovaný. Tento obsah je k dispozici [zde](fedramp-controls-overview.md).
+[Matice implementaci ovládacího prvku](https://aka.ms/blueprintwacim) (sešitu aplikace Excel) zobrazí všechny kontrolní mechanismy zabezpečení, které vyžadují vysokou FedRAMP směrného plánu. Matice označuje, pro každý ovládací prvek (nebo její ovládací prvek komponenty), je určen zákazníka-jeho zodpovědné v matici odpovědnosti zákazníka, 1) Pokud plán, podle kterého automatizace implementuje ovládacího prvku a 2) a popis způsobu implementace zarovnaná s ovládací prvek uvažovaný. Tento obsah je k dispozici [zde](fedramp-controls-overview.md).
 
-## <a name="deploy-the-solution"></a>Nasazení řešení.
+## <a name="deploy-the-solution"></a>Nasazení řešení
 
-Toto řešení Azure plán, podle kterého se skládá z JSON konfigurační soubory a skripty prostředí PowerShell, které jsou zpracovávány službou rozhraní API Správce Azure Resource Manager k nasazení prostředků v rámci Azure. Podrobné pokyny jsou k dispozici [zde](https://aka.ms/fedrampblueprintrepo). ***Poznámka: Toto řešení se nasadí do Azure Government.***
+Tento zabezpečení Azure a dodržování předpisů automatizace plán, podle kterého se skládá z JSON konfigurační soubory a skripty prostředí PowerShell, které jsou zpracovávány službou rozhraní API Správce Azure Resource Manager k nasazení prostředků v rámci Azure. Podrobné pokyny jsou k dispozici [zde](https://aka.ms/fedrampblueprintrepo). ***Poznámka: Toto řešení se nasadí do Azure Government.***
 
 #### <a name="quickstart"></a>Rychlý start
 1. Klonovat nebo stáhnout [to](https://aka.ms/fedrampblueprintrepo) úložiště GitHub do místní pracovní stanici.

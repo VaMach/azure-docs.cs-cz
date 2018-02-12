@@ -29,6 +29,8 @@
       href: apache-kafka-mirroring.md
     - name: Analýza protokolů Kafky
       href: apache-kafka-log-analytics-operations-management.md
+    - name: Použití Kafka s Azure Container Service
+      href: apache-kafka-azure-container-services.md
     - name: Vytváření streamovacích kanálů
       items:
         - name: Kafka a Spark (strukturované streamování)

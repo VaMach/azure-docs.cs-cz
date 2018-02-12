@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-havárii
 
@@ -57,7 +57,7 @@ V následující části je přehled procesu převzetí služeb při selhání a
 
 Můžete nejprve vytvořit nebo použijte existujícího oboru názvů primární a sekundární nový obor názvů, a spárujte dva. Tato párování vám dává alias, který můžete použít pro připojení. Vzhledem k tomu, že používáte alias, nemáte změnit připojovací řetězce. Pouze nové obory názvů mohou být přidány do vaší párování převzetí služeb při selhání. Nakonec je nutné přidat, některá monitorování pro zjištění, pokud je nutné použít převzetí služeb při selhání. Ve většině případů služby je jednou ze součástí velké ekosystému, proto jsou automatické převzetí služeb při selhání zřídka možné, jako je velmi často převzetí služeb při selhání musíte provádět synchronizována s zbývající subsystému nebo infrastruktury.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 V příkladem tohoto scénáře zvažte bodu prodej (POS) řešení, které vysílá zprávy nebo události. Service Bus předává tyto události některé mapování nebo přeformátování řešení, které pak předá namapované data do jiného systému pro další zpracování. V tomto bodě všech těchto systémech může být hostovaná ve stejné oblasti Azure. Rozhodnutí o a jaká část k převzetí služeb při selhání závisí na toku dat ve vaší infrastruktuře. 
 
@@ -99,13 +99,13 @@ Pozorně si projděte následující informace v této verzi nezapomeňte:
 
 1. Při plánování převzetí služeb při selhání, měli byste také zvážit Multi-Factor čas. Například pokud ztratíte připojení po dobu delší než 15-20 minut, můžete se rozhodnout zahájíte převzetí služeb při selhání. 
  
-2. Fakt, že žádná data se replikují znamená, že aktuálně nejsou replikovány aktivních relací. Kromě toho nemusí fungovat detekce duplicitních a naplánované zprávy. Nové relace, naplánované zprávy a nové duplikáty bude fungovat. 
+2. Fakt, že žádná data se replikují znamená, že aktuálně nejsou replikovány aktivních relací. Kromě toho nemusí fungovat detekce duplicitních a naplánované zprávy. Nové relace, nové plánované zprávy a nové duplikáty bude fungovat. 
 
 3. Při přechodu komplexní distribuované infrastruktury by měla být [vyzkoušená](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) alespoň jednou. 
 
 4. Synchronizace entit může trvat delší dobu, přibližně 50 až 100 entit za minutu. Odběry a pravidla se také počítají jako entity. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Najdete v části geografická havárii [zde odkazu k REST API](/rest/api/servicebus/disasterrecoveryconfigs).
 - Spustit obnovení geograficky havárii [ukázku na Githubu](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
