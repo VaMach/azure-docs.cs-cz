@@ -1,6 +1,6 @@
 ---
-title: "Odesílání událostí do centra událostí Azure pomocí rozhraní .NET Standard | Microsoft Docs"
-description: "Začínáme odesílání událostí do centra událostí v rozhraní .NET Standard"
+title: "Odesílání událostí do služby Azure Event Hubs pomocí .NET Standard | Microsoft Docs"
+description: "Začínáme s odesíláním událostí do služby Event Hubs v .NET Standard"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -9,53 +9,53 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5cf01580b53b551064a46282b9005ade6afe9604
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: MT
+ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Začínáme s Azure Event Hubs v rozhraní .NET standardní zasílání zpráv
+# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Začínáme s odesíláním zpráv do služby Azure Event Hubs v .NET Standard
 
 > [!NOTE]
-> Tato ukázka je dostupná na [Githubu](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
+> Tato ukázka je k dispozici na [GitHubu](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
 
-Tento kurz ukazuje, jak psát aplikace konzoly .NET Core odeslaná sadu zpráv do centra událostí. Můžete spustit [Githubu](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) řešení jako-, nahrazuje `EhConnectionString` a `EhEntityPath` řetězce hodnotami centra událostí. Nebo můžete provést kroky v tomto kurzu k vytvoření vlastní.
+Tento kurz ukazuje, jak napsat konzolovou aplikaci .NET Core, která odesílá sadu zpráv do centra událostí. Řešení z [GitHubu](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) můžete spustit tak, jak je, stačí nahradit řetězce `EhConnectionString` a `EhEntityPath` hodnotami vašeho centra událostí. Nebo můžete vytvořit vlastní řešení podle kroků v tomto kurzu.
 
 ## <a name="prerequisites"></a>Požadavky
 
-* [Sadu Microsoft Visual Studio 2015 nebo 2017](http://www.visualstudio.com). Příklady v tento kurz použijte Visual Studio 2017, ale Visual Studio 2015 je také podporována.
-* [.NET core Visual Studio 2015 nebo 2017 nástroje](http://www.microsoft.com/net/core).
+* [Sada Microsoft Visual Studio 2015 nebo 2017](http://www.visualstudio.com). V příkladech v tomto kurzu se používá sada Visual Studio 2017, ale podporuje se i sada Visual Studio 2015.
+* [Nástroje .NET Core pro sadu Visual Studio 2015 nebo 2017](http://www.microsoft.com/net/core).
 * Předplatné Azure.
-* Na obor názvů centra událostí.
+* Obor názvů centra událostí.
 
-K odesílání zpráv do centra událostí, budeme používat Visual Studio k zápisu konzolovou aplikaci C#.
+K odesílání zpráv do centra událostí se v tomto kurzu s použitím sady Visual Studio napíše konzolová aplikace jazyka C#.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Vytvoření oboru názvů Event Hubs a centra událostí
 
-Prvním krokem je použití [portál Azure](https://portal.azure.com) vytvořit obor názvů pro typ rozbočovače události a získat přihlašovací údaje správy, které aplikace potřebuje komunikovat s centrem událostí. Pokud chcete vytvořit obor názvů a centra událostí, postupujte podle pokynů v [v tomto článku](event-hubs-create.md)a poté pokračujte podle následujících pokynů.
+Prvním krokem je použití webu [Azure Portal](https://portal.azure.com) k vytvoření oboru názvů pro příslušný typ centra událostí a získání přihlašovacích údajů pro správu, které vaše aplikace potřebuje ke komunikaci s centrem událostí. Pokud chcete vytvořit obor názvů a centrum událostí, postupujte podle pokynů v [tomto článku](event-hubs-create.md) a pak pokračujte podle následujících pokynů.
 
 ## <a name="create-a-console-application"></a>Vytvoření konzolové aplikace
 
-Spusťte Visual Studio. V nabídce **Soubor** klikněte na položku **Nový** a potom klikněte na položku **Projekt**. Vytvoření aplikace konzoly .NET Core.
+Spusťte Visual Studio. V nabídce **Soubor** klikněte na položku **Nový** a potom klikněte na položku **Projekt**. Vytvořte konzolovou aplikaci .NET Core.
 
 ![Nový projekt][1]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Přidejte balíček NuGet centra událostí
+## <a name="add-the-event-hubs-nuget-package"></a>Přidání balíčku NuGet služby Event Hubs
 
-Přidat [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET standardní knihovny balíček NuGet do projektu pomocí následujících kroků: 
+Pomocí následujícího postupu do svého projektu přidejte balíček NuGet knihovny .NET Standard [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/): 
 
 1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
-2. Klikněte na tlačítko **Procházet** kartu a potom vyhledejte "Microsoft.Azure.EventHubs" a vyberte **Microsoft.Azure.EventHubs** balíčku. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
+2. Klikněte na kartu **Procházet**, vyhledejte Microsoft.Azure.EventHubs a pak vyberte balíček **Microsoft.Azure.EventHubs**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
 
-## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Napsat kód, který odesílání zpráv do centra událostí
+## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Napsání kódu pro odesílání zpráv do centra událostí
 
-1. Do horní části souboru Program.cs přidejte následující příkazy `using`.
+1. Na začátek souboru Program.cs přidejte následující příkazy `using`:
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -63,7 +63,7 @@ Přidat [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
     using System.Threading.Tasks;
     ```
 
-2. Přidejte konstanty k `Program` třídu pro Event Hubs připojovací řetězec a entity cesta (název centra jednotlivých událostí). Nahraďte zástupné symboly v závorkách správné hodnoty, které byly získány při vytváření centra událostí. Ujistěte se, že `{Event Hubs connection string}` úrovni oboru názvů připojovacího řetězce, a to není řetězec centra událostí. 
+2. Do třídy `Program` přidejte konstanty pro připojovací řetězec služby Event Hubs a cestu k entitě (název konkrétního centra událostí). Zástupné symboly v závorkách nahraďte odpovídajícími hodnotami, které jste získali při vytváření centra událostí. Ujistěte se, že `{Event Hubs connection string}` je připojovací řetězec na úrovni oboru názvů, a ne řetězec centra událostí. 
 
     ```csharp
     private static EventHubClient eventHubClient;
@@ -71,14 +71,14 @@ Přidat [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
     private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
-3. Přidat novou metodu s názvem `MainAsync` k `Program` třídy následujícím způsobem:
+3. Do třídy `Program` přidejte následujícím způsobem novou metodu `MainAsync`:
 
     ```csharp
     private static async Task MainAsync(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-        // we are using the connection string from the namespace.
+        // Typically, the connection string should have the entity path in it, but this simple scenario
+        // uses the connection string from the namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
             EntityPath = EhEntityPath
@@ -95,7 +95,7 @@ Přidat [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
     }
     ```
 
-4. Přidat novou metodu s názvem `SendMessagesToEventHub` k `Program` třídy následujícím způsobem:
+4. Do třídy `Program` přidejte následujícím způsobem novou metodu `SendMessagesToEventHub`:
 
     ```csharp
     // Creates an event hub client and sends 100 messages to the event hub.
@@ -121,7 +121,7 @@ Přidat [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
     }
     ```
 
-5. Přidejte následující kód, který `Main` metoda v `Program` třídy.
+5. Do metody `Main` ve třídě `Program` přidejte následující kód:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -151,8 +151,8 @@ Přidat [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-                // we are using the connection string from the namespace.
+                // Typically, the connection string should have the entity path in it, but this simple scenario
+                // uses the connection string from the namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath
@@ -200,7 +200,7 @@ Blahopřejeme! Nyní jste odeslali zprávy do centra událostí.
 ## <a name="next-steps"></a>Další kroky
 Další informace o službě Event Hubs najdete na následujících odkazech:
 
-* [Přijímat události ze služby Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+* [Příjem událostí ze služby Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 * [Přehled služby Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Vytvoření centra událostí](event-hubs-create.md)
 * [Nejčastější dotazy k Event Hubs](event-hubs-faq.md)

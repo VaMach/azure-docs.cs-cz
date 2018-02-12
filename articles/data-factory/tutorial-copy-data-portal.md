@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopírování dat z objektu blob Azure do Azure SQL Database pomocí Azure Data Factory
 V tomto kurzu vytvoříte datovou továrnu pomocí uživatelského rozhraní služby Azure Data Factory. Kanál v této datové továrně kopíruje data ze služby Azure Blob Storage do služby Azure SQL Database. Schéma konfigurace v tomto kurzu se vztahuje na kopírování z úložiště dat založeného na souborech do relačního úložiště dat. Seznam úložišť dat, která jsou podporovaná jako zdroje a jímky, najdete v tabulce [podporovaných úložišť dat](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -144,10 +144,7 @@ V tomto kurzu začnete vytvořením kanálu a propojené služby a datové sady 
 9. Na kartě **Obecné** v dolní části okna **Vlastnosti** jako **název** zadejte **SourceBlobDataset**.
 
     ![Název datové sady](./media/tutorial-copy-data-portal/dataset-name.png)
-10. V okně Vlastnosti přepněte na kartu **Připojení**.   
-
-    ![Karta Připojení](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Klikněte na **+ Nová** vedle textového pole **Propojená služba**. Propojená služba propojuje úložiště dat nebo výpočetní prostředí s datovou továrnou. V tomto případě vytvoříte propojenou službu Azure Storage, která propojí váš účet služby Azure Storage s úložištěm dat. Propojená služba obsahuje informace o připojení, které služba Data Factory používá pro připojení k úložišti objektů blob za běhu. Datová sada určuje kontejner, složku a soubor (volitelné) obsahující zdrojová data. 
+10. V okně Vlastnosti přepněte na kartu **Připojení**. Klikněte na **+ Nová** vedle textového pole **Propojená služba**. Propojená služba propojuje úložiště dat nebo výpočetní prostředí s datovou továrnou. V tomto případě vytvoříte propojenou službu Azure Storage, která propojí váš účet služby Azure Storage s úložištěm dat. Propojená služba obsahuje informace o připojení, které služba Data Factory používá pro připojení k úložišti objektů blob za běhu. Datová sada určuje kontejner, složku a soubor (volitelné) obsahující zdrojová data. 
 
     ![Tlačítko Nová propojená služba](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. V okně **Nová propojená služba** proveďte následující kroky: 
@@ -283,7 +280,7 @@ Před publikováním artefaktů (propojené služby, databáze a kanál) do slu�
 2. Ověřte, že se data ze zdrojového souboru vložila do cílové databáze SQL. 
 
     ![Ověření výstupu SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. V levém podokně klikněte na **Publikovat**. Tato akce publikuje vytvořené entity (propojené služby, datové sady a kanály) do služby Azure Data Factory.
+3. V levém podokně klikněte na **Publikovat vše**. Tato akce publikuje vytvořené entity (propojené služby, datové sady a kanály) do služby Azure Data Factory.
 
     ![Tlačítko Publikovat](./media/tutorial-copy-data-portal/publish-button.png)
 4. Počkejte, dokud se nezobrazí zpráva **Publikování proběhlo úspěšně**. Pokud chcete zobrazit zprávy oznámení, klikněte na bočním panelu vlevo na kartu **Zobrazit oznámení**. Zavřete okno oznámení kliknutím na **X**.
@@ -343,7 +340,7 @@ Pokud nechcete pracovat s úložištěm kódu VSTS, můžete tento krok přesko�
 ## <a name="trigger-the-pipeline-manually"></a>Ruční aktivace kanálu
 V tomto kroku ručně aktivujete kanál, který jste publikovali v minulém kroku. 
 
-1. Klikněte na **Aktivační událost** na panelu nástrojů a pak klikněte na **Aktivovat**. 
+1. Klikněte na **Aktivační událost** na panelu nástrojů a pak klikněte na **Aktivovat**. Na stránce **Spuštění kanálu** klikněte na **Dokončit**.  
 
     ![Nabídka Aktivovat](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Vlevo přepněte na kartu **Monitorování**. Zobrazí se stav ručně aktivovaného spuštění kanálu. Pomocí odkazů ve sloupci Akce můžete zobrazit podrobnosti o konkrétní aktivitě nebo spustit kanál znovu.
@@ -386,10 +383,10 @@ V tomto plánu vytvoříte pro kanál aktivační událost plánovače. Tato akt
 6. Na stránce **Parametry spuštění aktivační události** zkontrolujte upozornění a klikněte na **Dokončit**. Kanál v tomto příkladu nepřijímá žádné parametry. 
 
     ![Parametry kanálu](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Kliknutím na **Publikovat** publikujte změny do úložiště. Aktivační událost se ve skutečnost neaktivuje, dokud úspěšně neproběhne publikování. 
+7. Klikněte na **Synchronizovat** a synchronizujte změny ve vaší větvi s hlavní větví. Ve výchozím nastavení je vybraná možnost **Po synchronizaci publikovat změny**. Proto pokud vyberete **Synchronizovat**, do služby Azure Data Factory se publikují také aktualizované entity z hlavní větve. Aktivační událost se ve skutečnost neaktivuje, dokud úspěšně neproběhne publikování.
 
-    ![Publikování aktivační události](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Vlevo přepněte na kartu **Monitorování**, kde se zobrazí aktivovaná spuštění kanálu. 
+    ![Publikování aktivační události](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Vlevo přepněte na kartu **Monitorování**, kde se zobrazí aktivovaná spuštění kanálu. 
 
     ![Aktivovaná spuštění kanálu](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Pokud chcete přepnout ze zobrazení spuštění kanálu na zobrazení spuštění aktivační události, klikněte na Spuštění kanálu a vyberte Spuštění aktivační události.

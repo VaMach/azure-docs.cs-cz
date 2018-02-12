@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Vytvoření webové aplikace Docker Python využívající databázi PostgreSQL v Azure
 
@@ -33,7 +33,7 @@ V tomto kurzu se naučíte:
 > * Aktualizovat datový model a znovu nasadit aplikaci
 > * Spravovat aplikaci na webu Azure Portal
 
-Následující postup můžete použít v systému macOS. Pokyny pro Linux a Windows jsou ve většině případů stejné, ale odlišnosti nejsou v tomto kurzu podrobně popsané.
+Podle kroků v tomto článku můžete postupovat v systému macOS. Pokyny pro Linux a Windows jsou ve většině případů stejné, ale odlišnosti nejsou v tomto kurzu podrobně popsané.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -136,7 +136,7 @@ V tomto kroku vytvoříte databázi PostgreSQL v Azure. Po nasazení do Azure bu
 
 Vytvořte server PostgreSQL pomocí příkazu [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
 
-V následujícím příkazu nahraďte zástupný text *\<postgresql_name>* jedinečným názvem serveru a zástupný text *\<admin_username>* uživatelským jménem. Název serveru se používá jako součást koncového bodu PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), takže musí být jedinečný v rámci všech serverů v Azure. Uživatelské jméno je určené pro počáteční uživatelský účet správce databáze. Zobrazí se výzva k výběru hesla pro tohoto uživatele.
+V následujícím příkazu nahraďte zástupný symbol *\<postgresql_name>* jedinečným názvem serveru a zástupný symbol *\<admin_username>* uživatelským jménem. Název serveru se používá jako součást koncového bodu PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), takže musí být jedinečný v rámci všech serverů v Azure. Uživatelské jméno je určené pro počáteční uživatelský účet správce databáze. Zobrazí se výzva k výběru hesla pro tohoto uživatele.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
@@ -343,7 +343,7 @@ Zobrazí se dvě hesla. Poznamenejte si uživatelské jméno a první heslo.
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Nahrání kontejneru Dockeru do služby Azure Container Registry
 
-Přihlaste se ke svému registru. Po zobrazení výzvy zadejte heslo, které jste právě načetli.
+Přihlaste se ke svému registru. Po zobrazení výzvy zadejte heslo, které jste načetli.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Začínáme s Azure CDN
-Tento článek popisuje povolení Azure CDN (Content Delivery Network) prostřednictvím vytvoření nového profilu a koncového bodu CDN.
-
-> [!IMPORTANT]
-> Úvod do sítě CDN a seznam funkcí najdete v tématu [Přehled sítě CDN](cdn-overview.md).
-> 
-> 
+Tento článek popisuje povolení služby Azure [Content Delivery Network (CDN)](cdn-overview.md) prostřednictvím vytvoření nového profilu a koncového bodu CDN.
 
 ## <a name="create-a-new-cdn-profile"></a>Vytvoření nového profilu CDN
 Profil CDN je kolekcí koncových bodů CDN. Jednotlivé profily mohou obsahovat jeden nebo víc koncových bodů CDN. K uspořádání koncových bodů CDN podle internetové domény, webové aplikace nebo jiných kritérií můžete použít několik profilů.

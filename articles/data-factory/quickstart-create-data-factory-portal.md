@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Vytvoření datové továrny pomocí uživatelského rozhraní služby Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -133,7 +133,7 @@ V nastavení propojené služby jste zadali účet úložiště Azure obsahujíc
 
    c. Jako název zadejte **OutputDataset**.
 
-   d. Jako složku zadejte **adftutorial/output**. Aktivita kopírování vytvoří výstupní složku, pokud neexistuje.
+   d. Jako složku zadejte **adftutorial/output**. Pokud složka **output** neexistuje, aktivita kopírování ji vytvoří za běhu.
 
    e. Jako název souboru zadejte `@CONCAT(pipeline().RunId, '.txt')`. 
    
@@ -180,7 +180,7 @@ V tomto kroku provedete testovací spuštění kanálu před tím, než ho nasad
 ## <a name="trigger-the-pipeline-manually"></a>Ruční aktivace kanálu
 V tomto postupu nasadíte entity (propojené služby, datové sady a kanály) do služby Azure Data Factory. Pak ručně aktivujete spuštění kanálu. Entity můžete publikovat také do vlastního úložiště Visual Studio Team Services Git, čemuž se věnuje [jiný kurz](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Před aktivací kanálu je nutné publikovat entity do služby Data Factory. Pokud je chcete publikovat, v levém podokně vyberte **Publikovat**. 
+1. Před aktivací kanálu je nutné publikovat entity do služby Data Factory. Pokud je chcete publikovat, v levém podokně vyberte **Publikovat vše**. 
 
    ![Tlačítko Publikovat](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. Pokud chcete kanál aktivovat ručně, vyberte **Aktivační událost** na panelu nástrojů a pak vyberte **Aktivovat**. 
@@ -224,9 +224,9 @@ Tento postup je v tomto kurzu volitelný. Můžete vytvořit *aktivační událo
 5. Prostudujte si zprávu upozornění a vyberte **Dokončit**.
 
    ![Upozornění a tlačítko Dokončit](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Vyberte **Publikovat** a publikujte změny do služby Data Factory. 
+6. Vyberte **Publikovat vše** a publikujte změny do služby Data Factory. 
 
-   ![Tlačítko Publikovat](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Tlačítko Publikovat](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Vlevo přepněte na kartu **Monitorování**. Seznam můžete aktualizovat výběrem možnosti **Aktualizovat**. Uvidíte, že se kanál spustí každou minutu od času publikování až do koncového času. 
 
    Všimněte si hodnot ve sloupci **Aktivoval(a)**. Ruční spuštění aktivační události proběhlo v kroku, který jste provedli dříve (**Aktivovat**). 

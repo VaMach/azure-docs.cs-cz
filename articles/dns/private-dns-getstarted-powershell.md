@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Začínáme s privátními zónami DNS Azure pomocí PowerShellu
 
 Tento článek vás provede kroky k vytvoření první privátní zóny a záznamu DNS pomocí Azure PowerShellu.
 
-K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud chcete začít hostovat svou doménu v DNS Azure, musíte vytvořit zónu DNS pro daný název domény. Všechny záznamy DNS pro vaši doménu se pak vytvoří v této zóně DNS. Když chcete publikovat privátní zónu DNS do virtuální sítě, zadáte seznam virtuálních sítí, které mají povoleno překládat záznamy v rámci této zóny.  Označujeme je jako překladové sítě.  Můžete také zadat sadu virtuálních sítí, pro které bude DNS Azure uchovávat záznamy názvů hostitelů při každém vytvoření virtuálního počítače, změně jeho IP adresy nebo jeho zničení.  Označujeme je jako registrační sítě.
-
-Protože je tato funkce aktuálně ve verzi Managed Preview, bude k dispozici modul PowerShellu ve verzi Preview.
-
 [!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
+K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud chcete začít hostovat svou doménu v DNS Azure, musíte vytvořit zónu DNS pro daný název domény. Všechny záznamy DNS pro vaši doménu se pak vytvoří v této zóně DNS. Když chcete publikovat privátní zónu DNS do virtuální sítě, zadáte seznam virtuálních sítí, které mají povoleno překládat záznamy v rámci této zóny.  Označujeme je jako překladové sítě.  Můžete také zadat sadu virtuálních sítí, pro které bude Azure DNS uchovávat záznamy názvů hostitelů při každém vytvoření virtuálního počítače, změně jeho IP adresy nebo jeho zničení.  Označujeme je jako registrační sítě.
+
+Protože je tato funkce aktuálně ve verzi Managed Preview, modul PowerShellu ve verzi Preview vám poskytneme po odeslání e-mailu na adresu [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
+
+## <a name="get-the-preview-powershell-module"></a>Získání modulu PowerShellu ve verzi Preview
+
+Pokud chcete vytvořit privátní zónu DNS pomocí PowerShellu, odešlete e-mail na adresu [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) a získejte modul PowerShellu ve verzi Preview.
 
 ## <a name="create-the-resource-group"></a>Vytvoření skupiny prostředků
 

@@ -1,6 +1,22 @@
-Ve službě Cloud Shell pomocí příkazu [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) vytvořte v `myAppServicePlan`plánu služby App Service [webovou aplikaci](../articles/app-service/app-service-web-overview.md). 
+---
+title: zahrnout soubor
+description: zahrnout soubor
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: d5dfe6ab6d53d450f7c75d376d630558ee03f698
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 02/03/2018
+---
+Vytvořte [webovou aplikaci](../articles/app-service/app-service-web-overview.md) v plánu služby App Service `myAppServicePlan`.
 
-V následujícím příkladu nahraďte *\<app_name>* globálně jedinečným názvem aplikace (platné znaky jsou `a-z`, `0-9` a `-`). 
+Ve službě Cloud Shell můžete použít příkaz [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). V následujícím příkladu nahraďte *\<app_name>* globálně jedinečným názvem aplikace (platné znaky jsou `a-z`, `0-9` a `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -32,6 +48,8 @@ Vytvořili jste prázdnou webovou aplikaci s povoleným nasazením Gitu.
 
 Přejděte do nově vytvořené webové aplikace.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
+
+Vaše nová webová aplikace by měla vypadat takto:
