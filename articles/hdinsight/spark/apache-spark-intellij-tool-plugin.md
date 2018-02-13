@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 077805cedb7895c8c59b650b3ec691244168a9f5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Vytvoření aplikací Spark pro cluster služby HDInsight pomocí nástrojů Azure pro IntelliJ
 
@@ -69,6 +69,27 @@ Pokyny k instalaci naleznete v tématu [instalaci nástrojů Azure pro IntelliJ]
    
     ![Rozbalené uzly název clusteru](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Odkaz clusteru
+Můžete propojit normální clusteru pomocí Ambari spravované uživatelské jméno, také propojení clusteru hadoop zabezpečení pomocí uživatelského jména domény (například: user1@contoso.com). 
+1. Klikněte na tlačítko **odkaz cluster** z **Azure Explorer**.
+
+   ![odkaz clusteru kontextové nabídky](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Zadejte **název clusteru**, **účet úložiště**, **klíč úložiště**, pak vyberte kontejner z **kontejner úložiště**, last, zadejte uživatelské jméno a heslo. Je potřeba zkontrolovat uživatelské jméno a heslo, pokud selže ověření.
+   
+   ![Dialogové okno odkaz clusteru](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Pokud cluster jak zaznamenána v rámci předplatného Azure a propojené cluster používáme klíč propojené úložiště, uživatelské jméno a heslo. 
+   
+3. Můžete zobrazit v clusteru s podporou propojené **HDInsight** uzlu, pokud vstupní informace jsou správná. Teď můžete odeslat žádost této propojené clusteru.
+
+   ![propojené clusteru](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Také můžete zrušit propojení clusteru z **Azure Explorer**.
+   
+   ![Odpojit clusteru](./media/apache-spark-intellij-tool-plugin/unlink.png)
+
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Spuštění aplikace na Spark Scala clusteru HDInsight Spark
 
 1. Spusťte IntelliJ IDEA a pak vytvořte projekt. V **nový projekt** dialogové okno pole, postupujte takto: 
@@ -82,7 +103,7 @@ Pokyny k instalaci naleznete v tématu [instalaci nástrojů Azure pro IntelliJ]
 
     ![Dialogové okno Nový projekt](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. Vyberte **Další**.
+2. Vyberte **Next** (Další).
 
 3. Průvodce vytvoření projektu Scala automaticky zjišťuje, zda jste nainstalovali Scala modulu plug-in. Vyberte **nainstalovat**.
 
@@ -164,12 +185,14 @@ Pokyny k instalaci naleznete v tématu [instalaci nástrojů Azure pro IntelliJ]
 
    c. **Spark odeslání** karta v dolní části okna by se měl spustit zobrazení průběhu. Můžete také zastavit aplikaci tak, že vyberete červené tlačítko v **Spark odeslání** okno.
       
-      ![Okno Spark odeslání](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![Okno Spark odeslání](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       Další informace o přístupu k výstup úlohy najdete v tématu "přístup a spravovat clustery HDInsight Spark pomocí nástrojů Azure pro IntelliJ" později v tomto článku.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Ladění aplikací Spark v clusteru HDInsight místně nebo vzdáleně 
-Doporučujeme také jiný způsob odesílání aplikací Spark pro cluster. Můžete také provést nastavením parametry v **konfigurace spustit/Debug** IDE. Další informace najdete v tématu [ladění aplikací Spark místně nebo vzdáleně v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Doporučujeme také jiný způsob odesílání aplikací Spark pro cluster. Můžete tak učinit pomocí nastavení v parametrech **konfigurace spustit/Debug** IDE. Další informace najdete v tématu [ladění aplikací Spark místně nebo vzdáleně v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Přístup a spravovat clustery HDInsight Spark pomocí nástrojů Azure pro IntelliJ
 Pomocí nástrojů Azure pro IntelliJ můžete provádět různé operace.
@@ -181,7 +204,9 @@ Pomocí nástrojů Azure pro IntelliJ můžete provádět různé operace.
 
 2. V pravém podokně klikněte **zobrazení úloh Spark** karta zobrazuje všechny aplikace, které byly spuštěny v clusteru. Vyberte název aplikace, pro který chcete zobrazit další podrobnosti.
 
-    ![Podrobnosti o aplikaci](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    ![Podrobnosti aplikace](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >Poznámka
+    >
 
 3. Chcete-li zobrazit základní informace o spuštěné úlohy, pozastavte ukazatel myši nad graf úlohy. Chcete-li zobrazit graf fázích a informace, které generuje každých úlohy, vyberte uzel na graf úlohy.
 
@@ -256,7 +281,7 @@ Tyto chyby dojít, protože velikost haldy není dostatečně velký pro Spark k
 ## <a name="faq"></a>Nejčastější dotazy
 Chcete-li odeslat aplikace do Azure Data Lake Store, zvolte **interaktivní** režimu během procesu Azure přihlášení. Pokud vyberete **automatizovaná** režimu, můžete dojde k chybě.
 
-![interaktivní přihlášení](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
 
 Nyní jsme ho vyřešil. Můžete použít Cluster služby Azure Data Lake odeslat vaší aplikace s libovolnou metodu přihlášení.
 

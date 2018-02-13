@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: ce37cfdd70f95822a912f6ea71b9e4a3f9a30a14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Trvalé svazky s Azure soubory – dynamické zajišťování
+# <a name="persistent-volumes-with-azure-files"></a>Trvalé svazky s soubory Azure
 
 Trvalé svazku představuje část úložiště, které se zřizují pro použití v clusteru s podporou Kubernetes. Trvalé svazku může používat jednoho nebo mnoha pracovními stanicemi soustředěnými kolem a můžete dynamicky nebo staticky zřídit. Tento dokument podrobně popisuje dynamické zřizování sdílenou složku Azure jako trvalé svazek Kubernetes v clusteru služby AKS. 
 
@@ -125,10 +125,10 @@ Výchozí hodnoty fileMode a dirMode liší mezi verzemi Kubernetes, jak je pops
 
 | verze | hodnota |
 | ---- | ---- |
-| V1.6.x, v1.7.x | 0777 |
-| V1.8.0 v1.8.5 | 0700 |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 nebo novější | 0755 |
-| V1.9.0 | 0700 |
+| v1.9.0 | 0700 |
 | V1.9.1 nebo novější | 0755 |
 
 Pokud používáte cluster verze 1.8.5 nebo větší, přípojných možnosti lze zadat v objektu třídy úložiště. Následující příklad sady `0777`. 

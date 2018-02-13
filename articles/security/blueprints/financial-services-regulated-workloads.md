@@ -1,6 +1,6 @@
 ---
-title: "Automatizace Azure plán, podle kterého - finančních služeb pro regulovaná úlohy"
-description: "Finančních služeb plán, podle kterého pro regulovaná úlohy"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FFIEC finančních služeb regulovaná úlohy"
+description: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FFIEC finančních služeb regulovaná úlohy"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Automatizace Azure plán, podle kterého: Finančních služeb plán, podle kterého pro regulovaná úlohy
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Zabezpečení Azure a dodržování předpisů plán, podle kterého - FFIEC finančních služeb regulovaná úlohy
 
 ## <a name="overview"></a>Přehled
 
-Finanční služby plán, podle kterého pro úlohy, která se řídí pomůže nasadit zabezpečení a dodržování platforma jako služba (PaaS) webovou aplikaci určený k řešení citlivá data v cloudu. Plán, podle kterého se skládá z automatizované skripty a pokyny, které prezentují jednoduché referenční architektura a návrh, který pomáhá zjednodušit přijetí řešení Microsoft Azure. Tento plán, podle kterého je znázorněný začátku do konce řešení ke splnění potřeb organizace, které hledají způsoby, jak snížit zatížení a náklady na nasazení v cloudu.
+Azure zabezpečení a dodržování předpisů plán, podle kterého - pomáhá FFIEC finančních služeb Regulated zatížení, nasazení zabezpečení a dodržování platforma jako služba (PaaS) webovou aplikaci určený k řešení citlivá data v cloudu. Plán, podle kterého se skládá z automatizované skripty a pokyny, které prezentují jednoduché referenční architektura a návrh, který pomáhá zjednodušit přijetí řešení Microsoft Azure. Tento plán, podle kterého je znázorněný začátku do konce řešení ke splnění potřeb organizace, které hledají způsoby, jak snížit zatížení a náklady na nasazení v cloudu.
 
 Tento plán slouží ke splnění přísných kompatibilní norem nastavit pomocí American Institute z Certified veřejné účetní například - SOC 1, SOC 2, council Payment Card Industry Data Security Standards DSS 3.2 a FFIEC pro shromažďování, ukládání a načítání finanční citlivá data. Po nasazení řešení, které spravuje finanční data v prostředí zabezpečené, kompatibilní, vícevrstvé ukazuje správné zpracování těchto údajů. Je řešení nasazeno jako koncoví na end řešení Azure založené PaaS. 
 
@@ -52,7 +52,7 @@ Architektura se skládá z následujících součástí a používá možnosti n
 
 Plán, podle kterého řeší následující případ použití níže.
 
-> Tento scénář ukazuje, jak přesunout fiktivní webstore, že citlivá data do PaaS cloudové řešení založené na Azure. Řešení příklad znázorňuje zpracování a kolekce základní uživatelské informace a vybrané citlivá data. Tento pracovní vychází z Azure Automation plán, podle kterého jazyků: platebních zpracování pro PCI DSS kompatibilní prostředí pro zpracování platebních karet. Další informace najdete na rozšíření na tento pracovní ["Zkontrolujte a pokyny pro implementaci"](https://aka.ms/pciblueprintprocessingoverview) dokumentu poskytuje kontrolu kompatibilní se standardem PCI DSS prostředí.
+> Tento scénář ukazuje, jak přesunout fiktivní webstore, že citlivá data do PaaS cloudové řešení založené na Azure. Řešení příklad znázorňuje zpracování a kolekce základní uživatelské informace a vybrané citlivá data. Tento pracovní vychází z Azure zabezpečení a dodržování předpisů plán, podle kterého - vyhovující PCI DSS zpracování platebních prostředí jazyků. Další informace najdete na rozšíření na tento pracovní ["Zkontrolujte a pokyny pro implementaci"](https://aka.ms/pciblueprintprocessingoverview) dokumentu poskytuje kontrolu kompatibilní se standardem PCI DSS prostředí.
 
 ### <a name="use-case"></a>Případ použití
 Malé webstore názvem *Contoso Webstore* lze přesunout finanční data, která obsahuje informace o platebních zákazníka do cloudu. 
@@ -65,7 +65,7 @@ Správce společnosti Contoso Webstore hledá řešení, které lze rychle nasad
 
 Základní architektura je navržen s fiktivní následující prvky:
 
-Domény lokality`contosowebstore.com`
+Domény lokality `contosowebstore.com`
 
 Role uživatele jsou vzhledem k objasnění případ použití a získat přehled o uživatelském rozhraní.
 
@@ -111,7 +111,7 @@ Edna Benson je např. recepční a obchodní manager. Je zodpovědná za zajišt
 - Edna můžete přepsat finanční informace.
 - Účet edna nefiltrované finanční informace nelze zobrazit.
 
-> Ve společnosti Contoso Webstore, uživatel je automaticky **Edna** uživatele pro testování možností nasazené prostředí.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - odhadované ceny
 
@@ -151,7 +151,7 @@ V následující části Podrobné informace o vývoji a implementaci elementy.
 
 Základní architektura snižuje riziko ohrožení zabezpečení služby Application Gateway pomocí brány firewall webových aplikací (firewall webových aplikací) a ruleset OWASP povolena. Další možnosti patří:
 
-- [End na koncové SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Přesměrování zpracování SSL](/azure/application-gateway/application-gateway-ssl-portal) povoleno
 - [TLS verze 1.0 a v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) zakázáno
 - [Brány firewall webových aplikací](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (firewall webových aplikací režim)
@@ -172,7 +172,7 @@ Každý z úrovně sítě má skupina zabezpečení vyhrazené sítě (NSG):
 - Skupina NSG pro správu jumpbox (bastionu hostitel)
 - Skupina NSG pro app service environment
 
-Každý z skupin Nsg mít určité porty a protokoly otevřené pro operaci zabezpečení a správné řešení. Další informace najdete v tématu [pokyny PCI - skupiny zabezpečení sítě](#network-security-groups).
+Každý z skupin Nsg mít určité porty a protokoly otevřené pro operaci zabezpečení a správné řešení. 
 
 Kromě toho tyto konfigurace jsou povolené pro jednotlivé skupiny NSG:
 
@@ -186,7 +186,7 @@ Kromě toho tyto konfigurace jsou povolené pro jednotlivé skupiny NSG:
 #### <a name="custom-domain-ssl-certificates"></a>Certifikáty SSL vlastní doménu.
  Provoz HTTPS je povolit pomocí certifikát SSL a vlastní doménu.
 
-### <a name="data-at-rest"></a>Data v klidovém stavu
+### <a name="data-at-rest"></a>Neaktivní uložená data
 
 Architektura chrání data v klidovém stavu pomocí šifrování, auditování databáze a jiných opatření.
 
@@ -305,7 +305,7 @@ Výchozí nasazení slouží jako základní úroveň doporučení Security Cent
 
 ## <a name="deploy-the-solution"></a>Nasazení řešení
 
-Součásti pro nasazení tohoto řešení jsou k dispozici [úložiště kódu platebních zpracování plán, podle kterého][code-repo]. Nasazení základní architektury vyžaduje několik kroků proveden prostřednictvím v5 Microsoft PowerShell. Pro připojení k webu, zadejte vlastní název domény (například contoso.com). Je to určeno, pomocí `-customHostName` přepínače v kroku 2. Další informace najdete v tématu [koupit vlastní název domény pro Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Vlastní název domény není nutné úspěšně nasadit a provozovat řešení, ale bude možné připojit se k webu pro demonstrační účely.
+Součásti pro nasazení tohoto řešení jsou k dispozici [úložiště kódu plán, podle kterého][code-repo]. Nasazení základní architektury vyžaduje několik kroků proveden prostřednictvím v5 Microsoft PowerShell. Pro připojení k webu, zadejte vlastní název domény (například contoso.com). Je to určeno, pomocí `-customHostName` přepínače v kroku 2. Další informace najdete v tématu [koupit vlastní název domény pro Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Vlastní název domény není nutné úspěšně nasadit a provozovat řešení, ale bude možné připojit se k webu pro demonstrační účely.
 
 Skripty přidávat uživatele domény klienta služby Azure AD, který určíte. Microsoft doporučuje vytvoření nové služby Azure AD klienta pro použití jako testu.
 
@@ -361,7 +361,7 @@ Společnost Microsoft důrazně doporučuje, aby čistou instalaci prostředí P
     
 ## <a name="threat-model"></a>Model hrozeb
 
-Diagram toku dat (diagramu toku dat) a ukázkový model hrozeb pro Contoso Webstore [Model hrozeb zpracování plán, podle kterého platebních](https://aka.ms/pciblueprintthreatmodel).
+Diagram toku dat (diagramu toku dat) a ukázkový model hrozeb pro Contoso Webstore [Model hrozeb plán, podle kterého](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -375,7 +375,7 @@ Je zodpovědností ponechá kopii zákazníků [matice souhrn odpovědnost](http
 
 ## <a name="disclaimer-and-acknowledgments"></a>Právní omezení a potvrzování
 
-*2017 září*
+2017 září
 
 - Tento dokument je pouze informativní charakter. MICROSOFT A AVYAN PROVÉST ŽÁDNÉ ZÁRUKY, AŤ UŽ VÝSLOVNĚ UVEDENÉ, PŘEDPOKLÁDANÉ NEBO STATUTÁRNÍ INFORMACE V TOMTO DOKUMENTU. Tento dokument je poskytován "jako-je." Informace a názory vyjádřené v tomto dokumentu včetně adres URL a dalších odkazů na internetové weby mohou změnit bez předchozího upozornění. Zákazníci čtení tohoto dokumentu na sebe rizika spojená s jejím používáním.  
 - Tento dokument neposkytuje zákazníkům žádná zákonná práva týkající se jakékoli produkty společnosti Microsoft nebo Avyan nebo řešení duševního vlastnictví.  

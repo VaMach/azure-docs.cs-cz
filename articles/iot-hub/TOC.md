@@ -107,6 +107,7 @@
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-device-management-get-started.md)
 #### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java back-end / zařízení Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Back-end Python / zařízení Python](iot-hub-python-python-device-management-get-started.md)
 ### Jak používat vlastnosti dvojčat
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-how-to-configure.md)

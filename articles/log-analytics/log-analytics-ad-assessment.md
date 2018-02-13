@@ -3,7 +3,7 @@ title: "Optimalizace prostředí služby Active Directory s Azure Log Analytics 
 description: "Zkontrolujte Active Directory stavu řešení můžete použít k vyhodnocení rizik a stavu prostředí v pravidelných intervalech."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalizace prostředí služby Active Directory s řešením pro kontrolu stavu v Active Directory v analýzy protokolů
 
@@ -41,7 +41,7 @@ Když jste přidali řešení a kontrolu je dokončené, souhrnné informace pro
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Zkontrolujte Active Directory stavu řešení vyžaduje podporovanou verzi rozhraní .NET Framework 4.5.2 nebo výše nainstalovaný na každém počítači, který má monitorování agenta MMA (Microsoft) nainstalována.  MMA agent používá System Center 2016 - Operations Manager a Operations Manager 2012 R2 a službu analýzy protokolů. 
+* Zkontrolujte Active Directory stavu řešení vyžaduje podporovanou verzi rozhraní .NET Framework 4.5.2 nebo výše nainstalovaný na každém počítači, který má monitorování agenta MMA (Microsoft) nainstalována.  MMA agent používá System Center 2016 - Operations Manager a Operations Manager 2012 R2 a službu analýzy protokolů.
 * Řešení podporuje řadiče domény se systémem Windows Server 2008 a 2008 R2, Windows Server 2012 a 2012 R2 a Windows Server 2016.
 * Pracovní prostor analýzy protokolů pro přidání zkontrolujte Active Directory stavu řešení z Azure marketplace na portálu Azure.  Není nutná žádná další konfigurace.
 
@@ -62,13 +62,13 @@ Agent na řadiči domény, které sestavy ke skupině pro správu nástroje Oper
 
 Zkontrolujte stav, Active Directory shromažďuje data z následujících zdrojů pomocí agenta, který jste povolili:
 
-- Registr 
-- LDAP 
+- Registr
+- LDAP
 - .NET Framework
-- V protokolu událostí 
+- V protokolu událostí
 - Služba Active Directory rozhraní (ADSI)
 - Windows PowerShell
-- Data souborů 
+- Data souborů
 - Windows Management Instrumentation (WMI)
 - Nástroj DCDIAG rozhraní API
 - Rozhraní API služby (NTFRS) replikace souborů
@@ -109,7 +109,7 @@ Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Proveďte opravné akce a zobrazit doporučení pro oblastí zájmu
 3. Klikněte **přehled** dlaždici pro váš pracovní prostor analýzy protokolů na portálu Azure.
-4. Na **přehled** klikněte na tlačítko **Active Directory stavu zkontrolujte** dlaždici. 
+4. Na **přehled** klikněte na tlačítko **Active Directory stavu zkontrolujte** dlaždici.
 5. Na **kontroly stavu** zkontrolujte souhrnné informace v jednom z okna oblasti fokus a pak klikněte na jednu zobrazíte doporučení pro tuto oblast fokus.
 6. Na všech stránkách oblasti fokus můžete zobrazit seřazený podle priority doporučení, která se pro vaše prostředí. Klikněte na tlačítko doporučení v části **vliv na objekty** Chcete-li zobrazit podrobnosti, proč se provádí doporučení.<br><br> ![Obrázek stavu zkontrolujte doporučení](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Můžete provést nápravné akce navržený v **doporučované akce**. Když položka byla řešit, novější vyhodnocování záznamy, které doporučené akce provedené a zvýší vaše skóre dodržování předpisů. Opravené položky se zobrazí jako **předán objekty**.
@@ -133,7 +133,7 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 2. Vložit nebo zadejte každou RecommendationId pro jednotlivá doporučení, které chcete analýzy protokolů ignorovat na samostatném řádku a potom uložte a zavřete soubor.
 3. Uložte soubor v následující složce na každém počítači, kam chcete analýzy protokolů ignorovat doporučení.
    * Na počítačích s Microsoft Monitoring Agent (připojené přímo nebo prostřednictvím nástroje Operations Manager) - *SystemDrive*: \Program Files\Microsoft Agent\Agent monitorování
-   * Na serveru pro správu nástroje Operations Manager 2012 R2 - *SystemDrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * Na serveru pro správu nástroje Operations Manager 2012 R2 - *SystemDrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Na serveru pro správu nástroje Operations Manager 2016 - *SystemDrive*: \Program Files\Microsoft Manager\Server 2016\Operations System Center
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Chcete-li ověřit, že se ignorovat doporučení

@@ -3,7 +3,7 @@ title: "Sledování změn s Azure Log Analytics | Microsoft Docs"
 description: "Řešení sledování změn v analýzy protokolů pomáhá identifikovat software a služby systému Windows změny ve vašem prostředí."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Sledování změn softwaru ve vašem prostředí do řešení pro sledování změn
 
@@ -51,7 +51,7 @@ Pomocí následujícího postupu můžete nakonfigurovat soubory sledovat na po�
 
 1. Na portálu OMS, klikněte na tlačítko **nastavení** (symbol ozubené kolečko).
 2. Na **nastavení** klikněte na tlačítko **Data**a potom klikněte na **sledování souboru Windows**.
-3. V části, aby bylo možné sledování změn v souboru systému Windows, zadejte celou cestu, včetně jeho názvu souboru, který chcete sledovat a pak klikněte na **přidat** symbol. Například: C:\Program Files (x86) \Internet Explorer\iexplore.exe nebo C:\Windows\System32\drivers\etc\hosts.
+3. V části, aby bylo možné sledování změn v souboru systému Windows, zadejte celou cestu, včetně jeho názvu souboru, který chcete sledovat a pak klikněte na **přidat** symbol. For example: C:\Program Files (x86)\Internet Explorer\iexplore.exe or C:\Windows\System32\drivers\etc\hosts.
 4. Klikněte na **Uložit**.  
    ![Sledování změn souborů systému Windows](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
@@ -107,12 +107,12 @@ Následující tabulka uvádí metody shromažďování dat a další podrobnost
 
 | Platforma | Přímé agenta | Agent nástroje Operations Manager | Agenta systému Linux | Azure Storage | Nástroj Operations Manager vyžaduje? | Dat agenta nástroje Operations Manager odeslána prostřednictvím skupiny pro správu | Četnost shromažďování dat |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Systém Windows a Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minut až 50 minut v závislosti na daný typ změny. Další informace naleznete v následující tabulce. |
+| Windows a Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minut až 50 minut v závislosti na daný typ změny. Další informace naleznete v následující tabulce. |
 
 
 Následující tabulka uvádí četnost shromažďování dat pro typy změn.
 
-| **změnit typ** | **frekvence** | **Nemá****agenta****odeslat rozdíly, když se najde?**  |
+| **Změnit typ** | **frequency** | **Nemá****agenta****odeslat rozdíly, když se najde?**  |
 | --- | --- | --- |
 | Registru systému Windows | 50 minut | Ne |
 | Soubor systému Windows | 30 minut | Ano. Pokud se nezměnila za 24 hodin, se budou odesílat snímku. |
@@ -126,39 +126,39 @@ Následující tabulka uvádí četnost shromažďování dat pro typy změn.
 
 Analýzy protokolů provede registru systému Windows, monitorování a sledování do řešení pro sledování změn. Účelem monitorování změn klíče registru je ke kotvícímu bodu body rozšiřitelnosti, kde můžete aktivovat kód třetích stran a malwarem. Následující seznam obsahuje výchozí hodnota klíče registru, které sleduje řešení a proč je každý sledovaný.
 
-- Nastavení HKEY\_místní\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
     - Monitorování skripty, které spustí při spuštění.
-- Nastavení HKEY\_místní\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Monitorování skripty, které běží při vypnutí.
-- Nastavení HKEY\_místní\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
     - Monitoruje klíče, které jsou načteny před uživatel přihlásí k účtu systému Windows. Používá se pro 32bitové aplikace spuštěné na 64bitových počítačích.
 - Nastavení HKEY\_místní\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed součásti
     - Sleduje změny nastavení aplikace.
-- Nastavení HKEY\_místní\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
     - Monitorování běžných automatické spuštění položky, které připojit přímo do Průzkumníka Windows a obvykle spuštění v rámci procesu Explorer.exe.
-- Nastavení HKEY\_místní\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
     - Monitorování běžných automatické spuštění položky, které připojit přímo do Průzkumníka Windows a obvykle spuštění v rámci procesu Explorer.exe.
-- Nastavení HKEY\_místní\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
     - Monitorování běžných automatické spuštění položky, které připojit přímo do Průzkumníka Windows a obvykle spuštění v rámci procesu Explorer.exe.
-- Nastavení HKEY\_místní\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitorování pro ikonu překrytí registraci obslužné rutiny.
-- Nastavení HKEY\_místní\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitorování pro ikonu překrytí registrace obslužné rutiny pro 32bitové aplikace spuštěné na 64bitových počítačích.
-- Nastavení HKEY\_místní\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser pomocné objekty
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
     - Monitorování pro moduly nový prohlížeč Pomocník objekt plug-in pro Internet Explorer. Použít pro přístup k modelu objektu dokumentu (DOM) aktuální stránky a k řízení navigace.
-- Nastavení HKEY\_místní\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser pomocné objekty
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
     - Monitorování pro moduly nový prohlížeč Pomocník objekt plug-in pro Internet Explorer. Použít pro přístup k modelu objektu dokumentu (DOM) aktuální stránky a k řízení navigace pro 32bitové aplikace spuštěné na 64bitových počítačích.
-- Nastavení HKEY\_místní\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Monitorování pro nové rozšíření, Internet Explorer, jako je například vlastní nástroj nabídky a tlačítka panelu nástrojů vlastní.
-- Nastavení HKEY\_místní\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
     - Monitorování pro nové rozšíření, Internet Explorer, jako jsou nabídky vlastního nástroje a vlastní panel nástrojů tlačítka pro 32bitové aplikace spuštěné na 64bitových počítačích.
-- Nastavení HKEY\_místní\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     - Monitoruje 32bitové ovladače přidružené wavemapper, wave1 a wave2, msacm.imaadpcm, .msadpcm, .msgsm610 a čtyřznakového. Podobně jako v oddílu [ovladače] v systému. Soubor INI.
-- Nastavení HKEY\_místní\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     - Monitorování 32bitové ovladače přidružené wavemapper, wave1 a wave2, msacm.imaadpcm, .msadpcm, .msgsm610 a čtyřznakového pro 32bitové aplikace spuštěné na 64bitových počítačích. Podobně jako v oddílu [ovladače] v systému. Soubor INI.
 - Nastavení HKEY\_místní\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
     - Monitoruje seznam známých nebo běžně používané systémové knihovny DLL; Tento systém brání osobám v zneužitím slabé aplikace directory oprávnění podle vyřazením trojský kůň verze systémové knihovny DLL.
-- Nastavení HKEY\_místní\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
     - Monitoruje seznam balíčků schopný přijímat oznámení událostí z přihlášení do systému Windows, model podporu interaktivní přihlášení pro operační systém Windows.
 
 
@@ -185,5 +185,5 @@ Můžete zobrazit změny v konfiguraci infrastruktury a potom přejít k podrobn
 2. Na **změnit sledování** řídicí panel, zkontrolujte souhrnné informace v jednom z okna typ změny a pak klikněte na jednu Chcete-li zobrazit podrobné informace o jeho **hledání protokolů** stránky.
 3. Na všech stránkách vyhledávání protokolu můžete zobrazit výsledky čas, podrobné výsledky a historii hledání protokolu. Můžete také filtrovat podle omezující vlastnosti výsledky upřesněte.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Použití [přihlásit analýzy protokolů hledání](log-analytics-log-searches.md) zobrazíte podrobné sledování dat změn.

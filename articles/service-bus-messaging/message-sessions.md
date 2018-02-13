@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7e5b42e2244b52b06c55e7a6ca30ba1657b1a532
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Zpráva relací: první, nejprve out (FIFO) 
 
@@ -72,6 +72,8 @@ Zařízení stavu relace umožňuje anotaci definované aplikací relace zpráva
 Z hlediska Service Bus je stav relace zpráva neprůhledného binární objekt, který může obsahovat data velikosti jednu zprávu, která je 256 KB pro Service Bus Standard a 1 MB pro Service Bus Premium. Stav zpracování relativně k relaci může uchovávat uvnitř stavu relace nebo stavu relace může ukazovat na některé umístění úložiště nebo záznam databáze, která obsahuje tyto informace.
 
 Rozhraní API pro správu stavu relace, [setstate –](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) a [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), naleznete na [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objekt v C# i rozhraní API Java. Relace, který měl předtím žádný stav relace nastavit vrátí **null** reference pro **GetState**. Vymazání stavu dříve nastavené relace se provádí s [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+Všimněte si, že stav relace zůstane, pokud se nevymaže (vrácení **null**) i v případě, že se spotřebovávají všechny zprávy v relaci.
 
 Všechny existující relace v fronty nebo předplatného, mohou být uvedené s **SessionBrowser** metoda v rozhraní API Java a [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) na [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) a [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) v rozhraní .NET klienta.
 

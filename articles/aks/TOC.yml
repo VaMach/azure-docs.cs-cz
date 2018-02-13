@@ -37,6 +37,8 @@
   items:
     - name: Operace clusteru
       items:
+        - name: Vytvoření clusteru AKS
+          href: create-cluster.md
         - name: Škálování clusteru AKS
           href: scale-cluster.md
         - name: Upgrade clusteru AKS
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Konfigurace svazků s daty
       items:
-        - name: Disky Azure – trvalý svazek
+        - name: Disky Azure
           href: azure-disks-dynamic-pv.md
-        - name: Soubory Azure – trvalý svazek
+        - name: Soubory Azure
           href: azure-files-dynamic-pv.md
+    - name: Konfigurace sítí
+      items:
+        - name: Statická IP adresa
+          href: static-ip.md
     - name: Zabezpečení a ověřování
       items:
         - name: Vytvoření instančního objektu

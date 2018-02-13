@@ -3,7 +3,7 @@ title: "Řešení VMware monitorování v Log Analytics | Microsoft Docs"
 description: "Informace o jak řešení VMware monitorování vám mohou pomoci sledovat hostitelích ESXi a spravovat protokoly."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
-ms.openlocfilehash: 4af3651ce3d45837166248684d78ab4df95f524c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Řešení VMware monitorování (Preview) v analýzy protokolů
 
@@ -44,8 +44,8 @@ Vytvořte operační systém Linux virtuálního počítače z hostitele ESXi p�
 ### <a name="configure-syslog-collection"></a>Konfigurace sběru syslog
 1. Nastavte syslog předávání VSphere. Podrobné informace, které pomohou nastavit předávání syslog, najdete v části [konfigurace syslog na ESXi 5.x a 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Přejděte na **konfigurace hostitele ESXi** > **softwaru** > **upřesňující nastavení** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
-2. V *Syslog.global.logHost* pole, přidejte Linux server a číslo portu *1514*. Například `tcp://hostname:1514` nebo`tcp://123.456.789.101:1514`
-3. Otevřete bránu firewall hostitele ESXi pro syslog. **Konfigurace hostitele ESXi** > **softwaru** > **profil zabezpečení** > **brány Firewall** a otevřete  **Vlastnosti**.  
+2. V *Syslog.global.logHost* pole, přidejte Linux server a číslo portu *1514*. Například `tcp://hostname:1514` nebo `tcp://123.456.789.101:1514`
+3. Otevřete bránu firewall hostitele ESXi pro syslog. **Konfigurace hostitele ESXi** > **softwaru** > **profil zabezpečení** > **brány Firewall** a otevřete **Vlastnosti**.  
 
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
@@ -183,20 +183,20 @@ Může být z několika důvodů:
 
 * Hostitele ESXi není správně předání dat do virtuálního počítače s omsagent. Chcete-li otestovat, proveďte následující kroky:
 
-  1. Pokud chcete potvrdit, přihlaste se do hostitele ESXi pomocí ssh a spusťte následující příkaz:`nc -z ipaddressofVM 1514`
+  1. Pokud chcete potvrdit, přihlaste se do hostitele ESXi pomocí ssh a spusťte následující příkaz: `nc -z ipaddressofVM 1514`
 
       Pokud neproběhne úspěšně, jsou nastavení vSphere v pokročilé konfiguraci pravděpodobně není opravte. V tématu [konfigurace sběru syslog](#configure-syslog-collection) informace o tom, jak nastavit ESXi hostitele pro předávání syslog.
-  2. Pokud připojení port syslog je úspěšné, ale stále se nezobrazí žádná data, potom ho znovu načtěte syslog na hostiteli ESXi pomocí ssh spusťte následující příkaz:` esxcli system syslog reload`
+  2. Pokud připojení port syslog je úspěšné, ale stále se nezobrazí žádná data, potom ho znovu načtěte syslog na hostiteli ESXi pomocí ssh spusťte následující příkaz: ` esxcli system syslog reload`
 * Virtuální počítač s agentem OMS není správně nastaven. Abyste to mohli otestovat, proveďte následující kroky:
 
-  1. Analýzy protokolů naslouchá na portu 1514. Pokud chcete ověřit, že je otevřen, spusťte následující příkaz:`netstat -a | grep 1514`
+  1. Analýzy protokolů naslouchá na portu 1514. Pokud chcete ověřit, že je otevřen, spusťte následující příkaz: `netstat -a | grep 1514`
   2. Měli byste vidět port `1514/tcp` otevřete. Pokud ho použít nechcete, ověřte, zda je omsagent správně nainstalován. Pokud nevidíte informace o portu, není syslog port otevřete ve virtuálním počítači.
 
-    a. Ověřte, zda je OMS Agent spuštěna pomocí `ps -ef | grep oms`. Pokud není spuštěná, spusťte proces spuštěním příkazu` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Ověřte, zda je OMS Agent spuštěna pomocí `ps -ef | grep oms`. Pokud není spuštěná, spusťte proces spuštěním příkazu ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
     b. Otevřete soubor `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-    c. Ověřte, že správné uživatele a skupiny nastavení je platný, podobně jako:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    c. Ověřte, že správné uživatele a skupiny nastavení je platný, podobně jako: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
     d. Pokud soubor neexistuje nebo není správný, uživatele a skupiny nastavení podniknout kroky podle [Příprava serveru Linux](#prepare-a-linux-server).
 

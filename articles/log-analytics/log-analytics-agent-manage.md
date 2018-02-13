@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Správu a údržbu agenta analýzy protokolů pro systém Windows a Linux
 
-Po počátečním nasazení agenta systému Windows nebo Linux pro analýzy protokolů můžete změnit konfiguraci agenta v závislosti na situaci, nebo ji odeberte z počítače, pokud bylo dosaženo do vyřazení fáze životního cyklu.  Tyto úlohy běžné údržby můžete snadno spravovat ručně nebo pomocí automatizace, což snižuje provozní chyba i výdaje.
+Po počátečním nasazení agenta systému Windows nebo Linux pro analýzy protokolů můžete změnit konfiguraci agenta, nebo ji odeberte z počítače, pokud bylo dosaženo do vyřazení fáze životního cyklu.  Tyto úlohy běžné údržby můžete snadno spravovat ručně nebo pomocí automatizace, což snižuje provozní chyba i výdaje.
 
 ## <a name="adding-or-removing-a-workspace"></a>Přidání nebo odebrání pracovního prostoru 
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agenta systému Linux
-Pokud vaše počítače Linux je nutné komunikují prostřednictvím proxy serveru nebo brány OMS k analýze protokolů, proveďte následující kroky.  Hodnota konfigurace proxy má následující syntaxi: `[protocol://][user:password@]proxyhost[:port]`.  *Proxyhost* vlastnost přijímá parametry s plně kvalifikovaný název domény nebo IP adresu proxy serveru.
+Pokud vaše počítače Linux je nutné komunikují prostřednictvím proxy serveru nebo brány OMS k analýze protokolů, proveďte následující kroky.  Hodnota konfigurace proxy má následující syntaxi: `[protocol://][user:password@]proxyhost[:port]`.  Vlastnost *proxyhost* přijímá plně kvalifikovaný název domény nebo IP adresu proxy serveru.
 
 1. Spuštěním následujících příkazů upravte soubor `/etc/opt/microsoft/omsagent/proxy.conf` a změňte hodnoty na vaše konkrétní nastavení.
 
@@ -148,12 +148,9 @@ Stažený soubor pro agenta je samostatný instalační balíček vytvořen s IE
 3. Na příkazovém řádku zadejte `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Agenta systému Linux
-Pokud chcete odebrat agenta, proveďte následující kroky.
+Odebrat agenta, spusťte následující příkaz na počítače se systémem Linux.  *– Mazání* argument úplně odebere agent a jeho konfigurace.
 
-1. Stáhněte na počítač [univerzální skript](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) agenta pro Linux.
-2. Spusťte na počítači soubor .sh sady s argumentem *--purge*. Tím se kompletně odebere agent a jeho konfigurace.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Konfiguraci agenta tak, aby odesílaly do skupiny správy nástroje Operations Manager
 
@@ -174,9 +171,9 @@ Proveďte následující postup pro konfiguraci OMS agenta pro Windows tak, aby 
 ### <a name="linux-agent"></a>Agenta systému Linux
 Proveďte následující kroky konfigurace agenta OMS pro Linux informuje o skupině pro správu System Center Operations Manager. 
 
-1. Upravte soubor`/etc/opt/omi/conf/omiserver.conf`
-2. Ujistěte se, že na začátek řádku s `httpsport=` definuje port 1270. Například:`httpsport=1270`
-3. Restartujte OMI server:`sudo /opt/omi/bin/service_control restart`
+1. Upravte soubor `/etc/opt/omi/conf/omiserver.conf`
+2. Ujistěte se, že na začátek řádku s `httpsport=` definuje port 1270. Například: `httpsport=1270`
+3. Restartujte OMI server: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Další postup
 

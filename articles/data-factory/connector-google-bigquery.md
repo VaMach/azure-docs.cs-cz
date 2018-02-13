@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Kopírování dat z Google BigQuery pomocí Azure Data Factory (beta)
 
@@ -51,12 +51,17 @@ Následující vlastnosti jsou podporovány pro Google BigQuery propojené služ
 | Projekt | ID projektu výchozí projekt BigQuery k dotazu vůči.  | Ano |
 | additionalProjects | Čárkami oddělený seznam ID projektů z veřejné BigQuery projektů přístup.  | Ne |
 | requestGoogleDriveScope | Určuje, zda chcete požadovat přístup k Google Drive. Povolení přístupu Google Drive umožňuje podporu pro federované tabulky, které spojují BigQuery dat s daty z Google Drive. Výchozí hodnota je **false**.  | Ne |
-| authenticationType. | Metoda ověřování OAuth 2.0, používá k ověřování. ServiceAuthentication lze použít pouze v Self-hosted integrace Runtime. <br/>Povolené hodnoty jsou **ServiceAuthentication** a **UserAuthentication**. | Ano |
-| refreshToken | Aktualizace tokenu získaného z Google použitý k autorizaci přístupu k BigQuery pro UserAuthentication. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
-| e-mail | ID s e-mailu účtu služby, který se používá pro ServiceAuthentication. Je možné použít pouze s Self-hosted integrace Runtime.  | Ne |
-| keyFilePath | Úplná cesta k souboru klíče .p12, který se používá k ověření e-mailovou adresu účtu služby. Je možné použít pouze s Self-hosted integrace Runtime.  | Ne |
-| trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority používají k ověření serveru, jakmile se připojíte přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na Self-hosted integrace Runtime. Výchozí hodnota je soubor cacerts.pem nainstalovaný s modulem runtime integrace.  | Ne |
-| useSystemTrustStore | Určuje, jestli chcete použít certifikát Certifikační autority z obchodu důvěryhodnosti systému nebo ze souboru zadané .pem. Výchozí hodnota je **false**.  | Ne |
+| authenticationType. | Metoda ověřování OAuth 2.0, používá k ověřování. ServiceAuthentication lze použít pouze v Self-hosted integrace Runtime. <br/>Povolené hodnoty jsou **UserAuthentication** a **ServiceAuthentication**. Naleznete v části dál v této tabulce na další vlastnosti a ukázky JSON pro tyto typy ověřování v uvedeném pořadí. | Ano |
+
+### <a name="using-user-authentication"></a>Pomocí ověřování uživatelů
+
+Nastavte vlastnost "authenticationType" na **UserAuthentication**a zadejte následující vlastnosti společně s obecné vlastnosti, které jsou popsané v předchozí části:
+
+| Vlastnost | Popis | Požaduje se |
+|:--- |:--- |:--- |
+| clientId | ID aplikace sloužící k vygenerování tokenu obnovení. | Ne |
+| clientSecret | Tajný klíč aplikace použít k vygenerování tokenu obnovení. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
+| refreshToken | Aktualizace tokenu získaného z Google použitý k autorizaci přístupu k BigQuery. Další informace o získání jednoho z [přístupových tokenů OAuth 2.0 získání](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 
 **Příklad:**
 
@@ -70,6 +75,11 @@ Následující vlastnosti jsou podporovány pro Google BigQuery propojené služ
             "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
+            "clientId": "<id of the application used to generate the refresh token>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value":"<secret of the application used to generate the refresh token>"
+            },
             "refreshToken": {
                  "type": "SecureString",
                  "value": "<refresh token>"
@@ -77,6 +87,39 @@ Následující vlastnosti jsou podporovány pro Google BigQuery propojené služ
         }
     }
 }
+```
+
+### <a name="using-service-authentication"></a>Pomocí ověřování služby
+
+Nastavte vlastnost "authenticationType" na **ServiceAuthentication**a zadejte následující vlastnosti společně s obecné vlastnosti, které jsou popsané v předchozí části. Tento typ ověřování lze použít pouze v Self-hosted integrace Runtime.
+
+| Vlastnost | Popis | Požaduje se |
+|:--- |:--- |:--- |
+| e-mail | ID s e-mailu účtu služby, který se používá pro ServiceAuthentication. Je možné použít pouze s Self-hosted integrace Runtime.  | Ne |
+| keyFilePath | Úplná cesta k souboru klíče .p12, který se používá k ověření e-mailovou adresu účtu služby. | Ne |
+| trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority používají k ověření serveru, jakmile se připojíte přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na Self-hosted integrace Runtime. Výchozí hodnota je soubor cacerts.pem nainstalovaný s modulem runtime integrace.  | Ne |
+| useSystemTrustStore | Určuje, jestli chcete použít certifikát Certifikační autority z obchodu důvěryhodnosti systému nebo ze souboru zadané .pem. Výchozí hodnota je **false**.  | Ne |
+
+**Příklad:**
+
+```json
+{
+    "name": "GoogleBigQueryLinkedService",
+    "properties": {
+        "type": "GoogleBigQuery",
+        "typeProperties": {
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+            "keyFilePath": "<.p12 key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+} 
 ```
 
 ## <a name="dataset-properties"></a>Vlastnosti datové sady

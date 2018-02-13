@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure SQL Data Warehouse pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,14 +269,14 @@ SQL Data Warehouse PolyBase přímo podporují objektů Blob v Azure a Azure Dat
 
 Pokud požadavky nejsou splněny, zkontroluje nastavení Azure Data Factory a automaticky se vrátí k hromadné vložení mechanismus pro přesun dat.
 
-1. **Zdroj propojené služby** je typu: **azurestorage** nebo **AzureDataLakeStore**.
+1. **Zdroj propojené služby** je typu: **azurestorage** nebo **AzureDataLakeStore** s objekt zabezpečení ověřování služby.
 2. **Vstupní datové sady** je typu: **AzureBlob** nebo **AzureDataLakeStoreFile**a zadejte v části formát `type` vlastnosti je **OrcFormat** , **ParquetFormat**, nebo **TextFormat** s následující konfigurace:
 
-   1. `rowDelimiter`musí být  **\n** .
-   2. `nullValue`je nastavena na **prázdný řetězec** (""), nebo `treatEmptyAsNull` je nastaven na **true**.
-   3. `encodingName`je nastavena na **znakové sady utf-8**, což je **výchozí** hodnotu.
+   1. `rowDelimiter` musí být  **\n** .
+   2. `nullValue` je nastavena na **prázdný řetězec** (""), nebo `treatEmptyAsNull` je nastaven na **true**.
+   3. `encodingName` je nastavena na **znakové sady utf-8**, což je **výchozí** hodnotu.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, a `skipLineCount` nejsou zadané.
-   5. `compression`může být **bez komprese**, **GZip**, nebo **Deflate**.
+   5. `compression` může být **bez komprese**, **GZip**, nebo **Deflate**.
 
     ```json
     "typeProperties": {

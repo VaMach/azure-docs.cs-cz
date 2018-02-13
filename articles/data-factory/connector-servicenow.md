@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 68a19bd20cd068a1388c806d30c1bdb2d7575682
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopírování dat z ServiceNow pomocí Azure Data Factory (Beta)
 
@@ -51,7 +51,7 @@ Pro ServiceNow propojené služby jsou podporovány následující vlastnosti:
 | endpoint | Koncový bod serveru ServiceNow (`http://ServiceNowData.com`).  | Ano |
 | authenticationType. | Typ ověřování používat. <br/>Povolené hodnoty jsou: **základní**, **OAuth2** | Ano |
 | uživatelské jméno | Uživatelské jméno používané pro připojení k serveru ServiceNow pro ověřování Basic a OAuth2.  | Ne |
-| heslo | Heslo odpovídající uživatelské jméno pro ověřování Basic a OAuth2. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
+| heslo | Heslo odpovídající uživatelské jméno pro ověřování Basic a OAuth2. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 | clientId | ID klienta pro ověřování OAuth2.  | Ne |
 | clientSecret | Tajný klíč klienta pro ověřování OAuth2. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 | useEncryptedEndpoints | Určuje, zda jsou koncové body zdroje dat jsou šifrované pomocí protokolu HTTPS. Výchozí hodnota je true.  | Ne |
@@ -103,14 +103,22 @@ Ke zkopírování dat z ServiceNow, nastavte vlastnost typu datové sady, která
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje ServiceNow zdroje.
 
-### <a name="servicenowsource-as-source"></a>ServiceNowSource jako zdroj
+### <a name="servicenow-as-source"></a>ServiceNow jako zdroj
 
 Ke zkopírování dat z ServiceNow, nastavte typ zdroje v aktivitě kopírování do **ServiceNowSource**. Následující vlastnosti jsou podporovány v aktivitě kopírování **zdroj** části:
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typ zdroje kopie aktivity musí být nastavena na: **ServiceNowSource** | Ano |
-| query | Čtení dat pomocí vlastního dotazu SQL. Například: `"SELECT * FROM alm.asset"`. | Ano |
+| query | Čtení dat pomocí vlastního dotazu SQL. Například: `"SELECT * FROM Actual.alm_asset"`. | Ano |
+
+Při zadání schéma a sloupec pro ServiceNow v dotazu, pamatujte na tyhle:
+
+- **Schéma:** dotaz, který ServiceNow musíte zadat schéma jako `Actual` nebo `Display` které můžete se podívat na ji jako parametr `sysparm_display_value` jako true nebo false při volání metody [rozhraní restful API ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Sloupec:** název sloupce pro skutečná hodnota je `[columne name]_value` při zobrazení hodnota je `[columne name]_display_value`.
+
+**Ukázkový dotaz:** 
+ `SELECT distinct col_value, col_display_value FROM Actual.alm_asset` nebo `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
 
 **Příklad:**
 
@@ -134,7 +142,7 @@ Ke zkopírování dat z ServiceNow, nastavte typ zdroje v aktivitě kopírován�
         "typeProperties": {
             "source": {
                 "type": "ServiceNowSource",
-                "query": "SELECT * FROM alm.asset"
+                "query": "SELECT * FROM Actual.alm_asset"
             },
             "sink": {
                 "type": "<sink type>"

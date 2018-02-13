@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Podmínky v Azure Active Directory podmíněného přístupu 
 
@@ -51,7 +51,7 @@ Když vyberete:
 
 - **Všichni uživatelé**, vaše zásada se použije pro všechny uživatele s v adresáři. To zahrnuje uživatele typu Host.
 
-- **Vyberte uživatele a skupiny**, při zápisu do aplikace oddělení lidských zdrojů, můžete vybrat konkrétní skupiny uživatelů, například všichni členové oddělení lidských zdrojů. 
+- **Vyberte uživatele a skupiny**, můžete vybrat konkrétní skupiny uživatelů. Například můžete vybrat skupinu, která obsahuje všichni členové oddělení lidských zdrojů, když máte aplikaci HR vybrán jako cloudové aplikace. 
 
 - Skupiny, může být jakýkoli typ skupiny ve službě Azure AD, včetně dynamické nebo přiřazené zabezpečení a distribučních skupin.
 
@@ -89,8 +89,8 @@ Pokud chcete použít tuto podmínku, musíte mít [Azure Active Directory Ident
  
 Běžné případy použití pro tuto podmínku jsou zásady, které:
 
-- Zabránění uživatelům s rizikem vysokou přihlašovací potenciálně nezákonné uživatelům zabránit v přístupu k vaší cloudové aplikace. 
-- Vyžadovat vícefaktorové ověřování při pro uživatele s střední riziko přihlášení. Vynucování služby Multi-Factor authentication, můžete poskytnout další jistotu, že přihlášení se provádí legitimní vlastníka účtu.
+- Blokujte přístup pro uživatele s vysokou přihlašovací riziko potenciálně nezákonné uživatelům zabránit v přístupu k vaší cloudové aplikace. 
+- Požadovat použití vícefaktorového ověřování pro uživatele s střední riziko přihlášení. Vynucování služby Multi-Factor authentication, můžete poskytnout další jistotu, že přihlášení se provádí legitimní vlastníka účtu.
 
 Další informace najdete v tématu popisujícím [riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins).  
 
@@ -99,7 +99,7 @@ Další informace najdete v tématu popisujícím [riziková přihlášení](act
 Platforma je charakterizovaná operačního systému, který běží na vašem zařízení. Azure AD identifikuje platformou pomocí informací uvedených zařízení, jako je například uživatelský agent. Protože tyto informace neověřené, doporučujeme, aby měly všechny platformy zásada použitá, a to buď blokování přístupu, požadováno dodržování zásad Intune nebo nutnosti že zařízení být připojené k doméně. Výchozí hodnota je uplatňovat zásady na všech platformách zařízení. 
 
 
-![Podmínky](./media/active-directory-conditional-access-conditions/02.png)
+![Podmínky](./media/active-directory-conditional-access-conditions/24.png)
 
 Úplný seznam platforem podporovaných zařízení najdete v tématu [podmínku platformy zařízení](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
@@ -111,7 +111,7 @@ Společné pro tento stav je zásadu, která omezuje přístup na vašich cloudo
 
 Umístění máte možnost definovat podmínky, které jsou založeny na kde bylo inicializováno pokus o připojení. 
      
-![Podmínky](./media/active-directory-conditional-access-conditions/03.png)
+![Podmínky](./media/active-directory-conditional-access-conditions/25.png)
 
 Běžné případy použití pro tuto podmínku jsou zásady, které:
 

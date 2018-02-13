@@ -14,35 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 8074797e2d37f98cc3b219dbf3e51f558bbee8c7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Pomocí služby Azure kontejneru Kafka v HDInsight
 
-Naučte se používat Azure Container Service (AKS) s Kafka na clusteru HDInsight.
+Naučte se používat Azure kontejneru služby (AKS) s Kafka na clusteru HDInsight. Kroky v tomto dokumentu používají k ověření připojení s Kafka hostované v AKS aplikace Node.js. Tato aplikace používá [kafka uzlu](https://www.npmjs.com/package/kafka-node) balíček ke komunikaci s Kafka. Používá [Socket.io](https://socket.io/) pro událost řízené zasílání zpráv mezi prohlížeče klienta a hostované ve AKS back-end.
 
 [Apache Kafka](https://kafka.apache.org) je open source distribuovaná streamovací platforma, kterou lze použít k vytváření aplikací a kanálů pro streamování dat v reálném čase. Azure Container Service spravuje hostovaného prostředí Kubernetes a umožňuje snadno a rychle nasadit kontejnerizované aplikace. Pomocí virtuální síť Azure, můžete připojit dvě služby.
 
-> [!IMPORTANT]
-> Tento dokument předpokládá, že jste obeznámeni s vytváření a používání následujících služeb Azure:
->
-> * Kafka v HDInsightu
-> * Azure Container Service
-> * Virtuální sítě Azure
->
-> Tento dokument předpokládá také je třeba projít [kurz služby Azure kontejneru](../../aks/tutorial-kubernetes-prepare-app.md). V tomto kurzu vytvoří kontejner služby, vytvoří cluster Kubernetes kontejneru registru a nakonfiguruje `kubectl` nástroj.
-
 > [!NOTE]
-> Kroky v tomto dokumentu používají k ověření připojení s Kafka hostované v AKS aplikace Node.js. Tato aplikace používá [kafka uzlu](https://www.npmjs.com/package/kafka-node) balíček ke komunikaci s Kafka. Používá [Socket.io](https://socket.io/) pro událost řízené zasílání zpráv mezi prohlížeče klienta a hostované ve AKS back-end.
+> Účelem tohoto dokumentu je na kroky potřebné k povolení služby Azure kontejneru ke komunikaci s Kafka v HDInsight. Příkladem samotné je právě základní klientskou Kafka prokázat, že konfigurace funguje.
+
+## <a name="prerequisites"></a>Požadavky
+
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Předplatné Azure
+
+Tento dokument předpokládá, že jste obeznámeni s vytváření a používání následujících služeb Azure:
+
+* Kafka v HDInsightu
+* Azure Container Service
+* Virtuální sítě Azure
+
+Tento dokument předpokládá také je třeba projít [kurz služby Azure kontejneru](../../aks/tutorial-kubernetes-prepare-app.md). V tomto kurzu vytvoří kontejner služby, vytvoří cluster Kubernetes kontejneru registru a nakonfiguruje `kubectl` nástroj.
 
 ## <a name="architecture"></a>Architektura
 
 ### <a name="network-topology"></a>Síťová topologie
 
-HDInsight a AKS použít virtuální síť Azure jako kontejner pro výpočetní prostředky. Pokud chcete povolit komunikaci mezi HDInsight a AKS, je nutné povolit komunikaci mezi sítí. Kroky v tomto dokumentu používají partnerský vztah virtuální síť k sítím. Další informace o vytvoření partnerského vztahu, najdete v článku [partnerský vztah virtuální sítě](../../virtual-network/virtual-network-peering-overview.md) dokumentu.
+HDInsight a AKS použít virtuální síť Azure jako kontejner pro výpočetní prostředky. Pokud chcete povolit komunikaci mezi HDInsight a AKS, je nutné povolit komunikaci mezi sítí. Kroky v tomto dokumentu používají partnerský vztah virtuální síť k sítím. Další připojení, jako je například VPN, by taky měly fungovat. Další informace o vytvoření partnerského vztahu, najdete v článku [partnerský vztah virtuální sítě](../../virtual-network/virtual-network-peering-overview.md) dokumentu.
+
 
 Následující diagram znázorňuje topologii sítě použitou v tomto dokumentu:
 
@@ -51,11 +56,6 @@ Následující diagram znázorňuje topologii sítě použitou v tomto dokumentu
 > [!IMPORTANT]
 > Rozlišení názvů není povoleno mezi peered sítí, takže adresování IP se používá. Ve výchozím nastavení je vrátit názvy hostitelů místo IP adresy, pokud se klienti připojují nakonfigurovaná Kafka v HDInsight. Kafka používat IP upravit kroky v tomto dokumentu místo toho inzerování.
 
-## <a name="prerequisites"></a>Požadavky
-
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* Předplatné Azure
-
 ## <a name="create-an-azure-container-service-aks"></a>Vytvoření služby Azure kontejneru (AKS)
 
 Pokud již nemáte AKS clusteru, použijte jednu z následujících dokumentech se dozvíte, jak chcete vytvořit:
@@ -63,7 +63,10 @@ Pokud již nemáte AKS clusteru, použijte jednu z následujících dokumentech 
 * [Nasazení clusteru Azure Container Service (AKS) - portálu](../../aks/kubernetes-walkthrough-portal.md)
 * [Nasazení clusteru Azure Container Service (AKS) - rozhraní příkazového řádku](../../aks/kubernetes-walkthrough.md)
 
-## <a name="configure-the-virtual-networks"></a>Konfigurace virtuální sítě
+> [!NOTE]
+> AKS vytvoří virtuální síť během instalace. Tato síť je peered jako byla vytvořena pro HDInsight v další části.
+
+## <a name="configure-virtual-network-peering"></a>Nakonfigurujte partnerský vztah virtuální sítě
 
 1. Z [portál Azure](https://portal.azure.com), vyberte __skupiny prostředků__a pak najděte skupinu prostředků, která obsahuje virtuální síť pro váš cluster AKS. Název skupiny prostředků se `MC_<resourcegroup>_<akscluster>_<location>`. `resourcegroup` a `akscluster` položky jsou název skupinu prostředků, kterou jste vytvořili v clusteru a název clusteru. `location` Je umístění, vytvořený v clusteru.
 

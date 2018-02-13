@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 02/12/2018
 ms.author: genli
-ms.openlocfilehash: 0754c6cab9de2f93e9a57e202227a81c51bedf4c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 371e65dd1d80ed24046f3da5c588c21a1958c2e4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Ověřování RADIUS brány Azure VPN integrovat NPS server pro službu Multi-Factor Authentication 
 
-Článek popisuje, jak integrovat Server NPS (Network Policy Server) serveru s ověřováním protokolu RADIUS brány Azure VPN k poskytování služby Multi-Factor Authentication (MFA) pro připojení VPN typu Point-to-site. 
+Článek popisuje, jak integrovat Server NPS (Network Policy Server) s ověřování RADIUS brány Azure VPN k poskytování služby Multi-Factor Authentication (MFA) pro připojení VPN typu point-to-site. 
 
 ## <a name="prerequisite"></a>Požadavek
 
-Jak zapnout MFA, uživatelé musí být v Azure Active Directory (synchronizovaná z místní nebo cloudové pouze) a uživatel musí již dokončení ověření si proces pro MFA.  Uživatele můžete dokončit proces ověření pomocí https://myapps.microsoft.com.
+Pokud chcete povolit MFA, uživatelé musí být v Azure Active Directory (Azure AD), které musí být synchronizovaná s programem buď místní nebo cloudové prostředí. Také uživatel musí již dokončili proces automatické registrace mfa.  Další informace najdete v tématu [nastavit účtu pro dvoustupňové ověření](../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="detailed-steps"></a>Podrobné kroky
 
-### <a name="step-1-create-virtual-network-gateway"></a>Krok 1 vytvořit bránu virtuální sítě
+### <a name="step-1-create-a-virtual-network-gateway"></a>Krok 1: Vytvoření brány virtuální sítě
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Ve virtuální síti, který bude hostitelem bránu virtuální sítě, vyberte **podsítě**a potom vyberte **podsíť brány** vytvořit podsíť. 
 
     ![Obrázek o tom, jak přidat podsíť brány](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
-3. Vytvoření brány virtuální sítě s následujícím nastavením:
+3. Vytvoření brány virtuální sítě tak, že zadáte následující nastavení:
 
-    - **Typ brány**: vyberte **VPN**.
+    - **Typ brány**: Vyberte **VPN**.
     - **Typ sítě VPN**: vyberte **založené na trasách**.
     - **Skladová položka**: Vyberte typ SKU podle svých požadavků.
-    - **Virtuální síť**: vyberte virtuální síť, který jste vytvořili podsíť brány.
+    - **Virtuální síť**: vyberte virtuální síť, ve které jste vytvořili podsíť brány.
 
         ![Obrázek o nastavení brány virtuální sítě](./media/vpn-gateway-radiuis-mfa-nsp/create-vpn-gateway.png)
 
@@ -51,16 +51,16 @@ Jak zapnout MFA, uživatelé musí být v Azure Active Directory (synchronizovan
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Krok 2 konfigurace na server NPS pro Azure MFA
 
 1. Na serveru NPS [instalace serveru NPS rozšíření pro Azure MFA](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
-2. Otevřete konzolu NSP, klikněte pravým tlačítkem na **RADUIS klienti**, vyberte **nový**. Vytvoření klienta RADUIS s následujícím nastavením:
+2. Otevřete konzolu NSP, klikněte pravým tlačítkem na **RADUIS klienti**a potom vyberte **nový**. Vytvoření klienta RADUIS tak, že zadáte následující nastavení:
 
     - **Popisný název**: napište libovolný název.
-    - **Adresa (IP adresu nebo DNS)**: Zadejte podsíť brány, který jste vytvořili v kroku 1.
-    - **Sdílený tajný klíč**: Zadejte jakékoli tajný klíč a zapamatovat si ho. Použijeme ji později.
+    - **Adresa (IP adresu nebo DNS)**: Zadejte podsíť brány, kterou jste vytvořili v kroku 1.
+    - **Sdílený tajný klíč**: Zadejte jakékoli tajný klíč a nezapomeňte pro pozdější použití.
 
     ![Obrázek o nastavení klienta RADUIS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
-3.  V **Upřesnit** kartě, název dodavatele nastavte **RADIUS standardní** a ujistěte se, že **další možnosti** nejsou vybrané.
+3.  Na **Upřesnit** kartě, název dodavatele nastavte **RADIUS standardní** a ujistěte se, že **další možnosti** není zaškrtnuté políčko.
 
     ![Bitovou kopii RADUIS klienta rozšířené možnosti nastavení](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
@@ -68,9 +68,9 @@ Jak zapnout MFA, uživatelé musí být v Azure Active Directory (synchronizovan
 
 ### <a name="step-3-configure-the-virtual-network-gateway"></a>Krok 3 konfigurovat bránu virtuální sítě
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Otevřete bránu virtuální sítě, který jste vytvořili, ujistěte se, že typ brány je **VPN** a typ sítě VPN je **založené na trasách**.
-3. Klikněte na tlačítko **přejděte na konfigurace lokality** > **nyní nakonfigurovat**a poté přidejte následující nastavení:
+1. Přihlaste se k [portál Azure](https://portal.azure.com).
+2. Otevřete bránu virtuální sítě, kterou jste vytvořili. Ujistěte se, že typ brány je nastaven na **VPN** a zda je typ sítě VPN **založené na trasách**.
+3. Klikněte na tlačítko **přejděte na konfigurace lokality** > **nyní nakonfigurovat**a pak zadejte následující nastavení:
 
     - **Fond adres**: Zadejte podsíť brány, který jste vytvořili v kroku 1.
     - **Typ ověřování**: vyberte **ověřování pomocí protokolu RADIUS**.

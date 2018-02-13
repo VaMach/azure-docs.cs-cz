@@ -54,35 +54,37 @@
         - name: Migrace instancí AWS do Azure
           href: tutorial-migrate-aws-to-azure.md
         - name: Migrace virtuálních počítačů Azure do jiné oblasti
-          href: tutorial-migrate-azure-to-azure.md
+          href: azure-to-azure-tutorial-migrate.md
 - name: Koncepty
   items:
-    - name: Architektura replikace z Azure do Azure
-      href: concepts-azure-to-azure-architecture.md
-    - name: Architektura replikace z VMware do Azure
-      href: concepts-vmware-to-azure-architecture.md
-    - name: Architektura replikace z Hyper-V do Azure
-      href: concepts-hyper-v-to-azure-architecture.md
-    - name: Architektura replikace z fyzických prostředků do Azure
-      href: concepts-physical-to-azure-architecture.md
-    - name: Architektura replikace z Hyper-V do sekundární lokality
-      href: concepts-hyper-v-to-secondary-architecture.md
-    - name: Systém podpory replikace z Azure do Azure
-      href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Systém podpory replikace z VMware do Azure
-      href: support-matrix-vmware-to-azure.md
-    - name: Systém podpory replikace z Hyper-V do Azure
-      href: support-matrix-hyper-v-to-azure.md
-    - name: Systém podpory replikace z místního prostředí do Azure
-      href: site-recovery-support-matrix-to-azure.md
-    - name: Systém podpory replikace z místního prostředí do sekundární lokality
-      href: site-recovery-support-matrix-to-sec-site.md
-    - name: Typy navrácení služeb po obnovení
-      href: concepts-types-of-failback.md
-    - name: Zotavení po havárii pro úlohy
-      href: site-recovery-workload.md
-    - name: Migrace do Azure
-      href: site-recovery-migrate-to-azure.md
+    - name: Architektura
+      items:
+        - name: Architektura replikace z Azure do Azure
+          href: azure-to-azure-architecture.md
+        - name: Architektura replikace z VMware do Azure
+          href: concepts-vmware-to-azure-architecture.md
+        - name: Architektura replikace z Hyper-V do Azure
+          href: concepts-hyper-v-to-azure-architecture.md
+        - name: Architektura replikace z fyzických prostředků do Azure
+          href: concepts-physical-to-azure-architecture.md
+        - name: Architektura replikace z Hyper-V do sekundární lokality
+          href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Požadavky podpory
+      items:
+        - name: Systém podpory replikace z Azure do Azure
+          href: azure-to-azure-support-matrix.md
+        - name: Systém podpory replikace z VMware do Azure
+          href: support-matrix-vmware-to-azure.md
+        - name: Systém podpory replikace z Hyper-V do Azure
+          href: support-matrix-hyper-v-to-azure.md
+        - name: Systém podpory replikace z místního prostředí do Azure
+          href: site-recovery-support-matrix-to-azure.md
+        - name: Systém podpory replikace z místního prostředí do sekundární lokality
+          href: site-recovery-support-matrix-to-sec-site.md
+        - name: Zotavení po havárii pro úlohy
+          href: site-recovery-workload.md
+        - name: Migrace do Azure
+          href: site-recovery-migrate-to-azure.md
     - name: Oprávnění k přístupu na základě rolí
       href: site-recovery-role-based-linked-access-control.md
     - name: Nejčastější dotazy
@@ -92,9 +94,9 @@
     - name: Sítě
       items:
         - name: Nastavení sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
-          href: site-recovery-azure-to-azure-networking-guidance.md
+          href: azure-to-azure-about-networking.md
         - name: Nastavení mapování sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
-          href: site-recovery-network-mapping-azure-to-azure.md
+          href: azure-to-azure-network-mapping.md
         - name: Zachování protokolu IP pro zotavení po havárii virtuálního počítače Azure (Preview)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Příprava mapování sítí pro replikaci virtuálních počítačů Hyper-V do Azure
@@ -108,7 +110,7 @@
     - name: Zotavení po havárii
       items:
         - name: Zotavení po havárii virtuálních počítačů Azure po migraci do Azure
-          href: site-recovery-azure-to-azure-after-migration.md
+          href: azure-to-azure-replicate-after-migration.md
         - name: Zotavení po havárii fyzických serverů do Azure
           href: tutorial-physical-to-azure.md
         - name: Replikace virtuálních počítačů Hyper-V do sekundární lokality
@@ -142,7 +144,7 @@
         - name: Zpětná replikace počítačů po převzetí služeb při selhání
           items:
             - name: Zpětná replikace ze sekundární do primární oblasti Azure
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
+              href: azure-to-azure-how-to-reprotect.md
             - name: Zpětná replikace z Azure do místního prostředí
               href: site-recovery-how-to-reprotect.md
         - name: Navrácení služeb po obnovení z Azure
@@ -153,6 +155,12 @@
               href: site-recovery-failback-from-azure-to-hyper-v.md
         - name: Nastavení hlavního linuxového cílového serveru pro navrácení služeb po obnovení
           href: site-recovery-how-to-install-linux-master-target.md
+    - name: Migrace
+      items:
+        - name: Informace o migraci
+          href: site-recovery-migrate-to-azure.md
+        - name: Replikace virtuálních počítačů Azure po migraci do jiné oblasti
+          href: azure-to-azure-replicate-after-migration.md
     - name: Kapacita a škálování
       items:
         - name: Plánování kapacity pro replikaci VMware do Azure
@@ -210,7 +218,7 @@
         - name: Povolení replikace
           items:
             - name: Povolení replikace z Azure do Azure
-              href: site-recovery-replicate-azure-to-azure.md
+              href: azure-to-azure-how-to-enable-replication.md
             - name: Povolení replikace z VMware do Azure
               href: site-recovery-replicate-vmware-to-azure.md
         - name: Nasazení služby Mobility pro VMware
@@ -272,7 +280,7 @@
     - name: Monitorování a odstraňování potíží
       items:
         - name: Potíže s replikací z Azure do Azure
-          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+          href: azure-to-azure-troubleshoot-errors.md
         - name: Potíže s replikací z místního prostředí do Azure
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
         - name: Problémy se službou Mobility

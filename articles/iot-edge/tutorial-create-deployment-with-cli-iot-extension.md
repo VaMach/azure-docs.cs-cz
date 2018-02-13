@@ -6,15 +6,16 @@ keywords:
 author: chrissie926
 manager: timlt
 ms.author: menchi
-ms.date: 01/11/2018
-ms.topic: tutorial
+ms.date: 02/12/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 26067187864f9a2a4c85c953ae8aca888458d245
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.reviewer: kgremban
+ms.openlocfilehash: ce3e979428233af578d71dee5ed10103e105f4f4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Nasazení modulů na IoT hraniční zařízení pomocí IoT rozšíření pro Azure CLI 2.0
 
@@ -24,144 +25,145 @@ Azure CLI 2.0 umožňuje spravovat prostředky Azure IoT Hub, instance služby z
 
 V tomto kurzu nejprve dokončit postup nastavení Azure CLI 2.0 a rozšíření IoT. Potom můžete naučit se nasazovat modulů na IoT hraniční zařízení pomocí dostupné příkazy rozhraní příkazového řádku.
 
-## <a name="installation"></a>Instalace 
+## <a name="prerequisites"></a>Požadavky
 
-### <a name="step-1---install-python"></a>Krok 1 – instalace Python
+* Účet Azure. Pokud nemáte ještě, můžete [vytvořit bezplatný účet](https://azure.microsoft.com/free/?v=17.39a) ještě dnes. 
 
-[Python 2.7 x nebo Python 3.x](https://www.python.org/downloads/) je vyžadován.
+* [Python 2.7 x nebo Python 3.x](https://www.python.org/downloads/).
 
-### <a name="step-2---install-azure-cli-20"></a>Krok 2 – nainstalovat rozhraní příkazového řádku Azure 2.0
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) ve vašem prostředí. Minimálně musí být vaší verzi 2.0 rozhraní příkazového řádku Azure 2.0.24 nebo vyšší. Použití `az –-version` k ověření. Tato verze podporuje az rozšíření příkazy a zavádí rozhraní Knack příkaz. Jeden způsob, jak nainstalovat v systému Windows je ke stažení a instalaci [MSI](https://aka.ms/InstallAzureCliWindows).
 
-Postupujte podle [pokyny k instalaci](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) nastavení Azure CLI 2.0 ve vašem prostředí. Minimálně musí být vaší verzi 2.0 rozhraní příkazového řádku Azure 2.0.24 nebo vyšší. Použití `az –version` k ověření. Tato verze podporuje az rozšíření příkazy a zavádí rozhraní Knack příkaz. Jeden způsob, jak nainstalovat v systému Windows je ke stažení a instalaci [MSI](https://aka.ms/InstallAzureCliWindows).
-
-### <a name="step-3---install-iot-extension"></a>Krok 3: instalace IoT rozšíření
-
-[V souboru readme rozšíření IoT](https://github.com/Azure/azure-iot-cli-extension) popisuje několik způsobů, jak nainstalovat rozšíření. Nejjednodušší způsob, jak se má spustit `az extension add --name azure-cli-iot-ext`. Po instalaci, můžete použít `az extension list` ověření aktuálně nainstalovaná rozšíření nebo `az extension show --name azure-cli-iot-ext` zobrazíte podrobnosti o rozšíření IoT. Chcete-li odebrat rozšíření, můžete použít `az extension remove --name azure-cli-iot-ext`.
-
-
-## <a name="deploy-modules-to-an-iot-edge-device"></a>Nasazení modulů na IoT hraniční zařízení
-V tomto kurzu se dozvíte, jak vytvořit nasazení služby IoT okraj. V příkladu se dozvíte, jak přihlášení k účtu Azure, vytvořte skupinu prostředků Azure (kontejner, který obsahuje související prostředky pro řešení s Azure), vytvoření služby IoT Hub, vytvořit tři identitu zařízení IoT Edge, nastavte značky a pak vytvořit nasazení služby IoT Edge Cílem těchto zařízení. Kroky instalace popsané dříve než začnete. Pokud nemáte účet Azure, ale můžete [vytvořit bezplatný účet](https://azure.microsoft.com/free/?v=17.39a) ještě dnes. 
+* [Rozšíření IoT pro Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension):
+   1. Spusťte `az extension add --name azure-cli-iot-ext`. 
+   2. Po instalaci pomocí `az extension list` ověření aktuálně nainstalovaná rozšíření nebo `az extension show --name azure-cli-iot-ext` zobrazíte podrobnosti o rozšíření IoT.
+   3. Chcete-li odebrat rozšíření, použijte `az extension remove --name azure-cli-iot-ext`.
 
 
-### <a name="1-login-to-the-azure-account"></a>1. Přihlášení k účtu Azure
-  
-    az login
+## <a name="create-an-iot-edge-device"></a>Vytvoření IoT hraniční zařízení
+Tento článek poskytuje pokyny pro vytvoření nasazení IoT okraj. V příkladu se dozvíte, jak přihlásit k účtu Azure, vytvořte skupinu prostředků Azure (kontejner, který obsahuje související prostředky pro řešení s Azure), vytvoření služby IoT Hub, vytvořit tři identitu zařízení IoT Edge, nastavte značky a potom vytvořit nasazení služby IoT Edge Cílem těchto zařízení. 
 
-![přihlášení][1]
+Přihlaste se k účtu Azure. Když zadáte následující příkaz přihlášení se zobrazí výzva k použít webový prohlížeč k přihlášení pomocí jednorázové kódu: 
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Vytvořte skupinu prostředků IoTHubBlogDemo v eastus
+   ```cli
+   az login
+   ```
 
-    az group create -l eastus -n IoTHubBlogDemo
+Vytvořit novou skupinu prostředků s názvem **IoTHubCLI** v oblasti Východ USA: 
 
-![Vytvoření skupiny prostředků][2]
+   ```cli
+   az group create -l eastus -n IoTHubCLI
+   ```
 
+   ![Vytvoření skupiny prostředků][2]
 
-### <a name="3-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>3. Vytvoření IoT Hub blogDemoHub ve skupině nově vytvořený prostředek
+Vytvoření služby IoT hub názvem **CLIDemoHub** ve skupině pro nově vytvořený prostředek:
 
-    az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+   ```cli
+   az iot hub create --name CLIDemoHub --resource-group IoTHubCLI --sku S1
+   ```
 
-![Vytvoření centra IoT][3]
+   >[!TIP]
+   >Každé předplatné je vymezena jeden bezplatné Centrum IoT. Pro vytvoření rozbočovač volné pomocí rozhraní příkazového řádku příkaz se nahradit hodnotu SKU `--sku F1`. Pokud již máte volné hub v rámci vašeho předplatného, budete se při pokusu o vytvoření druhá zobrazí chybové hlášení. 
 
+Vytvořte IoT hraniční zařízení:
 
-### <a name="4-create-an-iot-edge-device"></a>4. Vytvoření IoT hraniční zařízení
+   ```cli
+   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   ```
 
-    az iot hub device-identity create -d edge001 -n blogDemoHub --edge-enabled
+   ![Vytvoření zařízení IoT Edge][4]
 
-![Vytvoření zařízení IoT Edge][4]
+## <a name="configure-the-iot-edge-device"></a>Nakonfigurujte hraniční IoT zařízení
 
-### <a name="5-apply-configuration-to-the-iot-edge-device"></a>5. Použít konfiguraci na IoT hraniční zařízení
+Vytvořit šablonu JSON nasazení a uložte ho místně jako souboru txt. Když spustíte příkaz použít konfiguraci budete potřebovat cestu k souboru.
 
-Nasazení šablony JSON uložte místně jako souboru txt. Když spustíte příkaz použít konfiguraci budete potřebovat cestu k souboru.
+Nasazení šablony JSON by měla obsahovat vždy dva systému moduly, edgeAgent a edgeHub. Tento soubor můžete použít k nasazení dalších modulů zařízení IoT Edge kromě těchto dvou. Použijte následující příklad konfigurace IoT hraniční zařízení s jeden modul tempSensor:
 
-Zde jsou šablonu JSON ukázkové nasazení, která obsahuje jeden modul tempSensor:
+   ```json
+   {
+     "moduleContent": {
+       "$edgeAgent": {
+         "properties.desired": {
+           "schemaVersion": "1.0",
+           "runtime": {
+             "type": "docker",
+             "settings": {
+               "minDockerVersion": "v1.25",
+               "loggingOptions": ""
+             }
+           },
+           "systemModules": {
+             "edgeAgent": {
+               "type": "docker",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
+                 "createOptions": "{}"
+               }
+             },
+             "edgeHub": {
+               "type": "docker",
+               "status": "running",
+               "restartPolicy": "always",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
+                 "createOptions": "{}"
+               }
+             }
+           },
+           "modules": {
+             "tempSensor": {
+               "version": "1.0",
+               "type": "docker",
+               "status": "running",
+               "restartPolicy": "always",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
+                 "createOptions": "{}"
+               }
+             }
+           }
+         }
+       },
+       "$edgeHub": {
+         "properties.desired": {
+           "schemaVersion": "1.0",
+           "routes": {},
+           "storeAndForwardConfiguration": {
+             "timeToLiveSecs": 7200
+           }
+         }
+       },
+       "tempSensor": {
+         "properties.desired": {}
+       }
+     }
+   }
+   ```
 
-```json
-{
-  "moduleContent": {
-    "$edgeAgent": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "runtime": {
-          "type": "docker",
-          "settings": {
-            "minDockerVersion": "v1.25",
-            "loggingOptions": ""
-          }
-        },
-        "systemModules": {
-          "edgeAgent": {
-            "type": "docker",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
-              "createOptions": "{}"
-            }
-          },
-          "edgeHub": {
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
-              "createOptions": "{}"
-            }
-          }
-        },
-        "modules": {
-          "tempSensor": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
-              "createOptions": "{}"
-            }
-          }
-        }
-      }
-    },
-    "$edgeHub": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "routes": {},
-        "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 7200
-        }
-      }
-    },
-    "tempSensor": {
-      "properties.desired": {}
-    }
-  }
-}
-```
+Použít konfiguraci na IoT hraniční zařízení:
 
-    az iot hub apply-configuration --device-id edge001 --hub-name blogDemoHub --content C:\<yourLocation>\edgeconfig.txt
+   ```cli
+   az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
+   ```
 
-![Použít konfiguraci][5]
-
-### <a name="6-list-modules"></a>6. Seznam modulů
+Zobrazení modulů ve vašem zařízení IoT okraj:
     
-    az iot hub module-identity list --device-id edge001 --hub-name blogDemoHub
+   ```cli
+   az iot hub module-identity list --device-id edge001 --hub-name CLIDemoHub
+   ```
 
-![Seznam modulů][6]
+   ![Seznam modulů][6]
 
 ## <a name="next-steps"></a>Další postup
 
-V tomto kurzu jste vytvořili funkce Azure, který obsahuje kód pro filtrování nezpracovaná data generována zařízení IoT okraj. Chcete-li zachovat zkoumat Azure IoT Edge, další informace o použití IoT hraniční zařízení jako brána. 
-
-> [!div class="nextstepaction"]
-> [Vytvoření IoT hraniční zařízení brány](how-to-create-transparent-gateway.md)
+* Zjistěte, jak [pomocí zařízení IoT okraj jako brána](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 
 <!-- Images -->
-[1]: ./media/tutorial-create-deployment-with-cli-iot-extension/login.jpg
-[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.jpg
-[3]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-hub.jpg
+[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.png
 [4]: ./media/tutorial-create-deployment-with-cli-iot-extension/Create-edge-device.png
-[5]: ./media/tutorial-create-deployment-with-cli-iot-extension/apply-configuration.PNG
-[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.PNG
+[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.png
 

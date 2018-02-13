@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Osvědčené postupy pro zlepšení výkonu pomocí zasílání zpráv Service Bus
 
@@ -111,7 +111,12 @@ Dávkování nemá vliv na počet operací fakturovatelný zasílání zpráv a 
 
 ## <a name="batching-store-access"></a>Dávkování přístup k úložišti
 
-Pokud chcete zvýšit propustnost fronty, tématu nebo předplatného, Service Bus dávek více zpráv při zapíše do jeho interní úložiště. Pokud je povoleno na se fronta nebo téma, zápis zpráv do úložiště bude zpracovat v dávce. Pokud je povoleno na fronty nebo předplatného, odstraňování zpráv z úložiště bude zpracovat v dávce. Pokud je povolený přístup dávkové úložiště pro entitu, Service Bus zpozdí operace zápisu úložiště o dané entity podle až 20ms. Další úložiště operace, ke kterým došlo během tohoto intervalu jsou přidány do dávky. Zpracovat v dávce ovlivňuje pouze přístup k úložišti **odeslat** a **Complete** operace; přijímat operace neovlivní. Dávkové úložiště přístup je vlastnost u entity. Dávkování dochází mezi všechny entity, které umožňují přístup dávkové úložiště.
+Pokud chcete zvýšit propustnost fronty, tématu nebo předplatného, Service Bus dávek více zpráv při zapíše do jeho interní úložiště. Pokud je povoleno na se fronta nebo téma, zápis zpráv do úložiště bude zpracovat v dávce. Pokud je povoleno na fronty nebo předplatného, odstraňování zpráv z úložiště bude zpracovat v dávce. Pokud je povolený přístup dávkové úložiště pro entitu, Service Bus zpozdí operace zápisu úložiště o dané entity podle až 20ms. 
+
+> [!NOTE]
+> Neexistuje žádné riziko ztráty zprávy s dávkování, i když dojde k chybě služby Service Bus na konci intervalu 20ms dávkování. 
+
+Další úložiště operace, ke kterým došlo během tohoto intervalu jsou přidány do dávky. Zpracovat v dávce ovlivňuje pouze přístup k úložišti **odeslat** a **Complete** operace; přijímat operace neovlivní. Dávkové úložiště přístup je vlastnost u entity. Dávkování dochází mezi všechny entity, které umožňují přístup dávkové úložiště.
 
 Při vytváření nové fronty, tématu nebo předplatného, je ve výchozím nastavení povolen přístup dávkové úložiště. Chcete-li zakázat přístup dávkové úložiště, nastavte [EnableBatchedOperations] [ EnableBatchedOperations] vlastnost **false** před vytvořením entity. Příklad:
 

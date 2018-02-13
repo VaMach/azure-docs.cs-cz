@@ -3,7 +3,7 @@ title: "Řešení Azure SQL analýzy v Log Analytics | Microsoft Docs"
 description: "Řešení analýzy SQL Azure pomáhá spravovat vaše databáze Azure SQL."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 2a363f663677eb7078b7ae06fde374cdbe083fd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorování databáze Azure SQL pomocí analýzy SQL Azure (Preview) v analýzy protokolů
 
@@ -31,7 +31,7 @@ Toto řešení preview v současné době podporuje až 150 000 databází SQL A
 Řešení Azure SQL Analytics, jako je k dispozici pro analýzy protokolů, ostatní pomáhá sledovat a přijímání oznámení o stavu vašich prostředků Azure – v tomto případě Azure SQL Database. Microsoft Azure SQL Database je služba škálovatelné relační databáze, který nabízí známé jako SQL Server – funkce pro aplikace běžící v cloudu Azure. Analýzy protokolů umožňuje shromažďovat, korelaci a vizualizovat strukturovaná i nestrukturovaná data.
 
 Praktické přehled o používání řešení analýzy SQL Azure a příklady typických scénářů použití naleznete v tématu vložené video:
-          
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -47,7 +47,7 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Přímé agenty Linux nejsou používány nástrojem řešení. |
 | [Skupiny správy nástroje SCOM](log-analytics-om-agents.md) | Ne | Přímé připojení z agenta nástroje SCOM k analýze protokolů nepoužívá řešení. |
 | [Účet služby Azure Storage](log-analytics-azure-storage.md) | Ne | Analýzy protokolů číst data z účtu úložiště. |
-| [Diagnostika Azure](log-analytics-azure-storage.md) | Ano | Azure data metriky a protokolu se odešlou do Log Analytics přímo v Azure. |
+| [Diagnostika Azure](log-analytics-azure-storage.md) | Ano | Metrika a protokolu dat Azure jsou odesílány Log Analytics přímo v Azure. |
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -63,11 +63,11 @@ Proveďte následující postup pro přidání řešení analýzy SQL Azure do p
 2. Na portálu Azure klikněte na tlačítko **nový** (+ symbol), pak v seznamu prostředků, vyberte **monitorování + správu**.  
     ![Monitorování a správa](./media/log-analytics-azure-sql/monitoring-management.png)
 3. V **monitorování + správu** seznamu klikněte na tlačítko **zobrazit všechny**.
-4. V **doporučeno** seznamu, klikněte na tlačítko **Další** a pak v seznamu nové vyhledejte **analýzy SQL Azure (Preview)** a pak ho vyberte.  
+4. V **doporučeno** seznamu, klikněte na tlačítko **Další**a pak v seznamu nové vyhledejte **analýzy SQL Azure (Preview)** a pak ho vyberte.  
     ![Řešení Azure SQL analýzy](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. V **analýzy SQL Azure (Preview)** okně klikněte na tlačítko **vytvořit**.  
+5. V **analýzy SQL Azure (Preview)** oblast, klikněte na tlačítko **vytvořit**.  
     ![Vytvoření](./media/log-analytics-azure-sql/portal-create.png)
-6. V **vytvořte nové řešení** okně, vyberte pracovní prostor, který chcete přidat řešení a pak klikněte na tlačítko **vytvořit**.  
+6. V **vytvořte nové řešení** oblasti, vyberte pracovní prostor, který chcete přidat řešení a pak klikněte na tlačítko **vytvořit**.  
     ![Přidat do pracovního prostoru](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,15 +97,15 @@ Když přidáte řešení do pracovního prostoru, dlaždici analýzy SQL Azure 
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Zobrazení dat analýzy SQL Azure
 
-Klikněte na **analýzy SQL Azure** dlaždici otevřete řídicí panel Azure SQL Analytics. Řídicí panel obsahuje přehled všech databází, které jsou monitorovány prostřednictvím různých perspektiv. Pro různých perspektiv pracovat je nutné povolit správné metriky nebo protokoly na vašich prostředků SQL tok dat do pracovního prostoru analýzy protokolů Azure. 
+Klikněte na **analýzy SQL Azure** dlaždici otevřete řídicí panel Azure SQL Analytics. Řídicí panel obsahuje přehled všech databází, které jsou monitorovány prostřednictvím různých perspektiv. Pro různých perspektiv pracovat je nutné povolit správné metriky nebo protokoly na vašich prostředků SQL tok dat do pracovního prostoru analýzy protokolů Azure.
 
 ![Přehled analýzy Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Výběrem libovolné dlaždice, otevře se podrobná sestava do konkrétní perspektivy. Po výběru perspektivy rozbalení sestavy, je otevřené.
+Výběrem libovolné dlaždice, otevře se podrobná sestava do konkrétní perspektivy. Když je vybraný perspektivy, je otevřené podrobná sestava.
 
 ![Časové limity analýzy Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
-Každý perspektivy obsahuje souhrny předplatné, server, elastický fond a úroveň databáze. Kromě toho každá perspektiva zobrazuje perspektivy konkrétní sestavy na pravé straně. Výběr předplatného, server, fondu nebo databáze ze seznamu pokračuje podrobné sestavy dolů.
+Každý perspektivy obsahuje souhrny předplatné, server, elastický fond a úroveň databáze. Kromě toho každá perspektiva zobrazuje hlediska specifické pro sestavy na pravé straně. Výběr předplatného, server, fondu nebo databáze ze seznamu bude pokračovat procházení.
 
 | Perspektivy | Popis |
 | --- | --- |
@@ -140,7 +140,7 @@ Prostřednictvím doba trvání dotazu a dotaz počká perspektivy mohou korelov
 
 ### <a name="analyze-data-and-create-alerts"></a>Analyzovat data a vytvářet výstrahy
 
-Výstrahy můžete snadno vytvořit s dat pocházejících z prostředků Azure SQL Database. Tady je několik užitečné [hledání protokolů](log-analytics-log-searches.md) dotazy, které můžete použít pro výstrahy:
+Výstrahy můžete snadno vytvořit s dat pocházejících z prostředků Azure SQL Database. Tady jsou některé užitečné [hledání protokolů](log-analytics-log-searches.md) dotazy, které můžete použít pro výstrahy:
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 

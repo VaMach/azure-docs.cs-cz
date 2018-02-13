@@ -3,7 +3,7 @@ title: "Optimalizace prostředí System Center Operations Manager s nástrojem A
 description: "Řešení System Center Operations Manager Health kontrolovat můžete vyhodnotit stav prostředí a riziko v pravidelných intervalech."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalizace prostředí s nástrojem System Center Operations Manager Health kontrolovat (Preview) řešení
 
@@ -60,7 +60,7 @@ Použijte následující informace k instalaci a konfiguraci řešení.
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Informace o System Center Operations Manager assessment datových kolekce
 
-Hodnocení nástroje System Center Operations Manager shromažďuje data z následujících zdrojů: 
+Hodnocení nástroje System Center Operations Manager shromažďuje data z následujících zdrojů:
 
 * Registr
 * Windows Management Instrumentation (WMI)
@@ -72,7 +72,7 @@ Data jsou shromažďována na serveru pro správu a předávány k analýze prot
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Účty spustit jako nástroje Operations Manager pro analýzy protokolů
 
-Log Analytics staví na sady management Pack pro úlohy zajistit přidanou hodnotou services. Každé zatížení vyžaduje určeného pro konkrétní úlohy oprávnění ke spouštění sad management Pack v odlišném kontextu zabezpečení, jako je například účet uživatele domény. Nakonfigurujte účet Operations Manager spustit jako s privilegovaným přihlašovacím údajům. Další informace najdete v tématu [jak vytvořit účet Spustit jako](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) v dokumentaci k nástroji Operations Manager. 
+Log Analytics staví na sady management Pack pro úlohy zajistit přidanou hodnotou services. Každé zatížení vyžaduje určeného pro konkrétní úlohy oprávnění ke spouštění sad management Pack v odlišném kontextu zabezpečení, jako je například účet uživatele domény. Nakonfigurujte účet Operations Manager spustit jako s privilegovaným přihlašovacím údajům. Další informace najdete v tématu [jak vytvořit účet Spustit jako](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) v dokumentaci k nástroji Operations Manager.
 
 K nastavení Operations Manager účet Spustit jako pro System Center Operations Manager Health kontrolovat, použijte následující informace.
 
@@ -82,13 +82,13 @@ K nastavení Operations Manager účet Spustit jako pro System Center Operations
 
 * Uživatelský účet domény, který je členem místní skupiny Administrators na všech serverech podporujících žádné roli nástroje Operations Manager – server pro správu, SQL Server, který je hostitelem provozní, datového skladu a databáze služby ACS, vytváření sestav, webovou konzolu a server brány.
 * Role správce Manager operace pro skupinu pro správu probíhá vyhodnocení
-* Pokud účet nemá oprávnění správce systému SQL, potom spusťte [skriptu](#sql-script-to-grant-granular-permissions-to-the-run-as-account) udělit oprávnění na podrobné úrovni k účtu na každou instanci serveru SQL, který je hostitelem jednoho nebo všech databází nástroje Operations Manager. 
+* Pokud účet nemá oprávnění správce systému SQL, potom spusťte [skriptu](#sql-script-to-grant-granular-permissions-to-the-run-as-account) udělit oprávnění na podrobné úrovni k účtu na každou instanci serveru SQL, který je hostitelem jednoho nebo všech databází nástroje Operations Manager.
 
 1. V konzole nástroje Operations Manager, vyberte **správy** navigační tlačítko.
 2. V části **konfigurace spustit jako**, klikněte na tlačítko **účty**.
 3. V **vytvořit účet Spustit jako** Průvodce na **ÚVOD** klikněte na stránce **Další**.
 4. Na **obecné vlastnosti** vyberte **Windows** v **typ účtu spustit jako:** seznamu.
-5. Zadejte zobrazovaný název v **zobrazovaného názvu** textové pole a volitelně zadejte popis do **popis** pole a pak klikněte na **Další**. 
+5. Zadejte zobrazovaný název v **zobrazovaného názvu** textové pole a volitelně zadejte popis do **popis** pole a pak klikněte na **Další**.
 6. Na **zabezpečení distribuce** vyberte **bezpečnější**.
 7. Klikněte na možnost **Vytvořit**.  
 
@@ -96,7 +96,7 @@ Teď, když je vytvořen účet Spustit jako, potřebuje k cílovým serverům s
 
 1. V části **konfigurace spustit jako**, **účty**, v podokně výsledků dvakrát klikněte na účet, který jste vytvořili dříve.
 2. Na **distribuční** , klikněte na **přidat** pro **vybrané počítače** a přidejte pro tento účet distribuovat do serveru pro správu.  Klikněte na tlačítko **OK** dvakrát a uložit provedené změny.
-3. V části **konfigurace spustit jako**, klikněte na tlačítko **profily**. 
+3. V části **konfigurace spustit jako**, klikněte na tlačítko **profily**.
 4. Vyhledejte *SCOM Assessment profil*.
 5. Název profilu musí být: *Microsoft System Center Advisor SCOM Assessment profilu spustit jako*.
 6. Klikněte pravým tlačítkem myši a aktualizujte jeho vlastnosti a přidejte naposledy vytvořený účet Spustit jako jste vytvořili dříve.
@@ -216,7 +216,7 @@ Než v analýzy protokolů můžete použít řešení kontrolu stavu, musíte m
 Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a potom přejít k podrobnostem doporučení.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Proveďte opravné akce a zobrazit doporučení pro oblastí zájmu
-1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
+1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com).
 2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **portálu OMS** dlaždici.  
 4. Na **přehled** klikněte na tlačítko **System Center Operations Manager Health kontrolovat** dlaždici.

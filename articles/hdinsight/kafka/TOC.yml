@@ -29,8 +29,6 @@
       href: apache-kafka-mirroring.md
     - name: Analýza protokolů Kafky
       href: apache-kafka-log-analytics-operations-management.md
-    - name: Použití Kafka s Azure Container Service
-      href: apache-kafka-azure-container-services.md
     - name: Vytváření streamovacích kanálů
       items:
         - name: Kafka a Spark (strukturované streamování)
@@ -45,6 +43,10 @@
         - name: Kafka a Storm
           href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
+        - name: Použití Kafka s Azure Container Service
+          href: apache-kafka-azure-container-services.md
+        - name: Kafka a Azure Functions
+          href: apache-kafka-azure-functions.md
     - name: Vývoj
       items:
         - name: Použití rozhraní Kafka Producer and Consumer API

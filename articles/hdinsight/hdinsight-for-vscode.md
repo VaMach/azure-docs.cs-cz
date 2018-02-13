@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Pomocí nástroje Azure HDInsight pro Visual Studio Code
 
@@ -101,6 +101,26 @@ Před odesláním je skripty ke clusterům HDInsight z VS kódu, třeba připoji
     - Odeslání interaktivních dotazů PySpark
     - Odeslání PySpark dávkové skripty
     - Konfigurace sady
+
+**Propojení clusteru**
+
+Můžete propojit normální clusteru pomocí Ambari spravované uživatelské jméno, také propojení clusteru hadoop zabezpečení pomocí uživatelského jména domény (například: user1@contoso.com).
+1. Otevřete paletu příkaz výběrem **CTRL + SHIFT + P**a potom zadejte **HDInsight: propojení cluster**.
+
+   ![příkaz clusteru odkaz](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Zadejte HDInsight adresu URL clusteru služby -> vstup-uživatelské jméno > zadejte heslo -> vyberte typ clusteru -> ho ukazuje úspěch informace pokud předány ověření.
+   
+   ![Dialogové okno odkaz clusteru](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > Pokud cluster jak zaznamenána v rámci předplatného Azure a propojené cluster používáme propojené uživatelské jméno a heslo. 
+   
+3. Cluster s podporou propojené můžete zobrazit pomocí příkazu **seznamu clusteru**. Teď můžete odeslat skript do tohoto propojené clusteru.
+
+   ![propojené clusteru](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. Také můžete zrušit propojení clusteru inputing **HDInsight: zrušení propojení cluster** z palety příkaz.
 
 ## <a name="list-hdinsight-clusters"></a>Clustery HDInsight seznamu
 
@@ -258,6 +278,9 @@ Nástroje HDInsight pro VS Code můžete také odeslat interaktivních dotazů P
 Po odeslání úlohy Python odeslání protokolů se objeví v **výstup** okno v produktu VS Code. **Adresa URL uživatelského rozhraní Spark** a **adresa URL uživatelského rozhraní Yarn** jsou také uvedeny. Adresu URL můžete otevřít ve webovém prohlížeči a sledovat stav úlohy.
 
 
+   
+
+
 ## <a name="additional-features"></a>Další funkce
 
 HDInsight pro VS Code podporuje následující funkce:
@@ -288,7 +311,7 @@ HDInsight pro VS Code podporuje následující funkce:
 * [Vizualizace dat Hive pomocí Microsoft Power BI ve službě Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Vizualizace interaktivní dotazu Hive pomocí Power BI v Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Nastavení PySpark interaktivní prostředí pro Visual Studio Code](set-up-pyspark-interactive-environment.md)
-* [Použití Zeppelin ke spouštění dotazů Hive v Azure HDInsight](./hdinsight-connect-hive-zeppelin.md)
+* [Použití Zeppelin ke spouštění dotazů Hive v Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Scénáře
 * [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](spark/apache-spark-use-bi-tools.md)

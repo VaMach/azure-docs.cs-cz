@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c36d742c61fb85f1b6077dd9156d6e36b37db1e1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Vytvoření aplikací Spark pro cluster služby HDInsight pomocí nástrojů Azure pro Eclipse
 
@@ -69,6 +69,26 @@ Otevřete prostředí Eclipse, HDInsight nástroj automaticky zjišťuje, zda js
    
    ![Rozšiřování název clusteru, který najdete v části prostředky](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Odkaz clusteru
+Můžete propojit normální clusteru pomocí Ambari spravované uživatelské jméno, také propojení clusteru hadoop zabezpečení pomocí uživatelského jména domény (například: user1@contoso.com).
+1. Klikněte na tlačítko **odkaz cluster** z **Azure Explorer**.
+
+   ![odkaz clusteru kontextové nabídky](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Zadejte **název clusteru**, **účet úložiště**, **klíč úložiště**, pak vyberte kontejner z **kontejner úložiště**, last, zadejte uživatelské jméno a heslo. Klikněte na tlačítko OK propojení clusteru.
+   
+   ![Dialogové okno odkaz clusteru](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > Pokud cluster jak zaznamenána v rámci předplatného Azure a propojené cluster používáme klíč propojené úložiště, uživatelské jméno a heslo.
+
+3. Můžete zobrazit v clusteru s podporou propojené **HDInsight** uzlu po kliknutí na tlačítko OK, pokud vstupní informace jsou správná. Teď můžete odeslat žádost této propojené clusteru.
+
+   ![propojené clusteru](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Také můžete zrušit propojení clusteru z **Azure Explorer**.
+   
+   ![Odpojit clusteru](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Nastavení projektu pro cluster služby HDInsight Spark Spark Scala
@@ -130,6 +150,7 @@ Otevřete prostředí Eclipse, HDInsight nástroj automaticky zjišťuje, zda js
 6. **Spark odeslání** karta by se měl spustit zobrazení průběhu. Můžete zastavit výběrem červené tlačítko v aplikaci **Spark odeslání** okno. Můžete také zobrazit protokoly pro tuto konkrétní aplikaci spustit výběrem Ikona glóbu (označen pole blue obrázek).
       
    ![Okno Spark odeslání](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Přístup a spravovat clustery HDInsight Spark pomocí nástrojů HDInsight v Azure nástrojů pro Eclipse
 Můžete provádět různé operace pomocí nástroje HDInsight, včetně přístupu k výstupu úlohy.

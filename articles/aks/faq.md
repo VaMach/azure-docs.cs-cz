@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/01/2018
 ms.author: nepeters
-ms.openlocfilehash: 2b78479c257930669729a7781b3893b3e2064bab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Nejčastější dotazy o Azure Container Service (AKS)
 
@@ -50,7 +50,15 @@ Automatické škálování uzlu není podporován, ale je plánovaná. Můžete 
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Proč jsou dvě skupiny prostředků vytvořené pomocí AKS? 
 
-Druhý skupina prostředků je automaticky vytvořené pro snadné odstranění všech prostředků, které jsou přidružené k AKS nasazení.
+Každý cluster Azure Container Service (AKS) je součástí dvě skupiny prostředků. První je vytvořené vámi a obsahuje pouze AKS prostředek. Druhé skupině prostředků se automaticky vytvoří během nasazení a obsahuje všechny infrastruktury prostředků clusteru, jako je například virtuální počítače, sítě a prostředky úložiště. Tato skupina prostředků je vytvořen pro vyčištění snadno prostředků. 
+
+Skupina prostředků vytvořen automaticky, má název, podobně jako:
+
+```
+MC_myResourceGRoup_myAKSCluster_eastus
+```
+
+Při přidávání prostředků Azure pro použití s Kubernetes clusteru, například účty úložiště nebo vyhrazené veřejné IP adresy, tyto prostředky je nutné vytvořit v automaticky vytvořit skupinu prostředků.   
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault integrovat AKS? 
 
