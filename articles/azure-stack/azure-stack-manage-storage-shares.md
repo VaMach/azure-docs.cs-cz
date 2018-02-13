@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Spravovat kapacita úložiště pro Azure zásobníku
 
@@ -130,7 +130,7 @@ Migrace slučuje všechny kontejnery blob na nové sdílené složky.
 - Pokud nemají oprávnění pro skupinu prostředků a pomocí prostředí PowerShell nelze vyhledat další svazky pro přetečení data, pracujete s vlastníkem tyto skupiny prostředků a kontejnery pochopit celková velikost dat k migraci před migrací dat.  
 
 > [!IMPORTANT]
-> Migrace objektů blob pro kontejner je offline operace, která vyžaduje použití prostředí PowerShell. Až do dokončení migrace všech objektů blob pro kontejner, který migrujete zůstat offline a nelze jej použít.
+> Migrace objektů blob pro kontejner je offline operace, která vyžaduje použití prostředí PowerShell. Až do dokončení migrace všech objektů blob pro kontejner, který migrujete zůstat offline a nelze jej použít. Neměli byste také, upgrade zásobník Azure, dokud se nedokončí všechny probíhající migrace.
 
 #### <a name="to-migrate-containers-using-powershell"></a>K migraci kontejnery pomocí prostředí PowerShell
 1. Potvrďte, že máte [prostředí Azure PowerShell nainstalovaný a nakonfigurovaný](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Další informace najdete v tématu [Použití Azure PowerShellu s Azure Resource Managerem](http://go.microsoft.com/fwlink/?LinkId=394767).
