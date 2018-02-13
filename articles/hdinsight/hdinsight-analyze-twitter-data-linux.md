@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analýza dat Twitteru pomocí Hive a Hadoop v HDInsight
 
@@ -45,7 +45,7 @@ Twitter umožňuje načíst [data pro každou tweet](https://dev.twitter.com/doc
 
    | Pole | Hodnota |
    |:--- |:--- |
-   | Name (Název) |MyHDInsightApp |
+   | Název |MyHDInsightApp |
    | Popis |MyHDInsightApp |
    | Web |http://www.myhdinsightapp.com |
 
@@ -326,7 +326,7 @@ Tyto příkazy ukládání dat v umístění, ke kterému mají přístup všech
     > [!NOTE]
     > Pokud jste změnili filtru v `gettweets.py` skriptu, nahraďte **Azure** s jedním z filtrů jste použili.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Jste se naučili postup transformace datové sadě služby nestrukturovaných JSON do strukturovaných tabulku Hive. Další informace o Hive v HDInsight, najdete v následujících dokumentech:
 

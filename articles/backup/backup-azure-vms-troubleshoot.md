@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Odstraňování potíží se zálohováním virtuálních počítačů Azure
 Řešení potíží s chyb zjištěných při pomocí Azure Backup informace uvedené v následující tabulce.
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/17/2018
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Chyba: Zadaný konfigurace disku nejsou podporovány.
 
 > [!NOTE]
-> Máme verzi Private Preview pro podporu záloh pro virtuální počítače s nespravovanými disky většími než 1 TB. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s > disky 1TB. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -72,10 +72,10 @@ V současné době zálohování Azure nepodporuje velikosti disků [větší ne
 ## <a name="jobs"></a>Úlohy
 | Detaily chyby | Alternativní řešení |
 | --- | --- |
-| Zrušení není podporován pro tento typ úlohy – počkejte na dokončení úlohy. |Žádný |
+| Zrušení není podporován pro tento typ úlohy – počkejte na dokončení úlohy. |Žádné |
 | Úloha není ve stavu, možné zrušit – počkejte na dokončení úlohy. <br>NEBO<br> Vybraná úloha není ve stavu, možné zrušit – počkejte na dokončení úlohy. |Ve všech pravděpodobnost téměř dokončení úlohy. Počkejte prosím na dokončení úlohy.|
 | Nelze zrušit úlohu, protože není v průběhu – zrušení je podporována pouze pro úlohy, které jsou v průběhu. Prosím pokus o zrušení na v průběhu úlohy. |K tomu dochází z důvodu přechodné stavu. Počkejte několik minut a opakujte operaci zrušit. |
-| Nepodařilo se zrušit úlohy – prosím počkejte na dokončení úlohy. |Žádný |
+| Nepodařilo se zrušit úlohy – prosím počkejte na dokončení úlohy. |Žádné |
 
 ## <a name="restore"></a>Obnovení
 | Detaily chyby | Alternativní řešení |
@@ -83,13 +83,13 @@ V současné době zálohování Azure nepodporuje velikosti disků [větší ne
 | Obnovení se nezdařilo s cloudu vnitřní chyba |<ol><li>Cloudové služby, ke kterému se pokoušíte obnovit je nakonfigurováno nastavení DNS. Můžete zkontrolovat <br>$deployment = get-AzureDeployment - ServiceName "ServiceName"-slotu "Výroba" Get-AzureDns - DnsSettings $deployment. DnsSettings<br>Pokud je nakonfigurovanou adresu, znamená to, zda jsou nakonfigurovány nastavení DNS.<br> <li>Cloudové služby, ke kterému chcete se pokoušíte obnovit je nakonfigurován s vyhrazené IP adresy a stávající virtuální počítače v rámci cloudové služby jsou v zastaveném stavu.<br>Můžete zkontrolovat, že cloudové služby má vyhrazená IP adresa pomocí následující rutiny prostředí powershell:<br>$deployment = get-AzureDeployment - ServiceName "servicename"-slotu $ "Výroba" dep. ReservedIPName <br><li>Pokoušíte se virtuální počítač s následující zvláštní síťové konfigurace v obnovit do stejné cloudové služby. <br>-Virtuální počítače v části Konfigurace služby Vyrovnávání zatížení (interní a externí)<br>-Virtuální počítače s víc vyhrazených IP adres<br>-Virtuální počítače s více síťovými kartami<br>Vyberte novou cloudovou službu v uživatelském rozhraní nebo prostudujte si prosím [obnovit aspekty](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) u virtuálních počítačů s zvláštní síťové konfigurace.</ol> |
 | Vybraný název DNS už je zabraný – Zadejte prosím jiný název DNS a zkuste to znovu. |Název DNS odkazuje na název cloudové služby (obvykle konče. cloudapp.net). Toto musí být jedinečný. Pokud dojde k této chybě, budete muset zvolit jiný název virtuálního počítače během obnovení. <br><br> Tato chyba se zobrazí pouze uživatelům na portálu Azure. Operace obnovení pomocí prostředí PowerShell bude úspěšné, protože pouze obnoví disky a nepodporuje vytvoření virtuálního počítače. Chyba se potýkají, když virtuální počítač je explicitně vytvořený můžete po operaci obnovení na disku. |
 | Zadaný virtuální síťový konfigurace není správná – zadejte konfiguraci s jinou virtuální síť a zkuste to znovu. |Žádné |
-| Zadaná Cloudová služba používá vyhrazenou IP adresu, která nebude odpovídat konfiguraci virtuálního počítače, který se má obnovit – zadejte jinou cloudovou službu, která není pomocí vyhrazené IP adresy nebo zvolte jiný bod obnovení pro obnovení z. |Žádné |
+| Zadaná Cloudová služba používá vyhrazenou IP adresu, která nebude odpovídat konfiguraci virtuálního počítače, který se má obnovit – zadejte jinou cloudovou službu, která není pomocí vyhrazené IP adresy nebo zvolte jiný bod obnovení pro obnovení z. |Žádný |
 | Cloudové služby bylo dosaženo limitu počtu vstupní koncové body – zkuste operaci zopakovat zadáním jiné cloudové služby nebo pomocí existující koncový bod. |Žádné |
 | Zálohování úložiště a cílový účet úložiště jsou ve dvou různých oblastech – zajistěte, aby byl účet úložiště zadaný v operaci obnovení ve stejné oblasti Azure jako úložiště záloh. |Žádné |
-| Účet úložiště, zadaný pro operaci obnovení není podporována – účty úložiště pouze Basic nebo Standard s místně redundantní nebo geograficky redundantní replikaci nastavení nejsou podporovány. Vyberte prosím účet podporované úložiště |Žádný |
+| Účet úložiště, zadaný pro operaci obnovení není podporována – účty úložiště pouze Basic nebo Standard s místně redundantní nebo geograficky redundantní replikaci nastavení nejsou podporovány. Vyberte prosím účet podporované úložiště |Žádné |
 | Typ zadaný pro operaci obnovení účtu úložiště není online – Ujistěte se, že je účet úložiště zadaný v operaci obnovení online |K tomu může dojít z důvodu přechodné chyby ve službě Azure Storage nebo kvůli výpadku. Zvolte prosím jiný účet úložiště. |
 | Bylo dosaženo kvóty skupina prostředků – prosím odstraňte některé skupiny prostředků pomocí portálu Azure, nebo požádejte podporu Azure o navýšení limitů. |Žádné |
-| Vybraná podsíť neexistuje – vyberte podsíť, která již existuje |Žádné |
+| Vybraná podsíť neexistuje – vyberte podsíť, která již existuje |Žádný |
 | Služba zálohování nemá oprávnění pro přístup k prostředkům ve vašem předplatném. |Tento problém vyřešíte tak, první obnovení disků pomocí kroků uvedených v části **obnovení zálohovaných disky** v [konfigurace obnovení výběru virtuálního počítače](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Potom pomocí prostředí PowerShell kroků uvedených v [vytvoření virtuálního počítače z obnovené disků](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pro vytvoření úplné virtuálního počítače z obnovené disků. |
 
 ## <a name="backup-or-restore-taking-time"></a>Zálohování nebo obnovení doba

@@ -1,6 +1,6 @@
 ---
-title: "Najít trasa služeb na základě umístění Azure | Microsoft Docs"
-description: "Směrovat do bodu zájmu pomocí služeb na základě umístění Azure"
+title: "Hledání trasy s použitím Azure Location Based Services | Dokumentace Microsoftu"
+description: "Trasa k bodu zájmu s použitím Azure Location Based Services"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,33 +12,33 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Směrovat do bodu zájmu pomocí služeb na základě umístění Azure
+# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Trasa k bodu zájmu s použitím Azure Location Based Services
 
-Tento kurz ukazuje způsob použití vašeho účtu služeb na základě umístění Azure a sadu SDK služby trasy k vyhledání trasy, která má body. V tomto kurzu se naučíte:
+Tento kurz demonstruje způsob použití účtu Azure Location Based Services a sady SDK Route Service k vyhledání trasy k bodu zájmu. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Získat adresu souřadnice
-> * Dotaz na službu trasy pro pokynů k bodu zájmu
+> * Získat souřadnice pro adresu
+> * Zadat dotaz na službu Route Service ohledně trasy k bodu zájmu
 
 ## <a name="prerequisites"></a>Požadavky
 
-Než budete pokračovat, nezapomeňte [vytvoření účtu Azure zjišťování na základě polohy](./tutorial-search-location.md#createaccount), a [získat klíč předplatného pro váš účet](./tutorial-search-location.md#getkey). Může také sledovat, jak používat mapový ovládací prvek a rozhraní API pro vyhledávání služby, jak je popsáno v tomto kurzu [vyhledávání nedaleko bodu zájmu pomocí služeb na základě umístění Azure](./tutorial-search-location.md).
+Než budete pokračovat, nezapomeňte [vytvořit účet Azure Location Based Services](./tutorial-search-location.md#createaccount) a [získat pro účet klíč předplatného](./tutorial-search-location.md#getkey). Můžete také sledovat způsob použití rozhraní API pro mapové ovládací prvky a službu Search Service popsaný v kurzu [Hledání okolních bodů zájmu s použitím Azure Location Based Services](./tutorial-search-location.md).
 
 
 <a id="getcoordinates"></a>
 
-## <a name="get-address-coordinates"></a>Získat adresu souřadnice
+## <a name="get-address-coordinates"></a>Získání souřadnic pro adresu
 
-Pomocí následujících kroků můžete vytvořit statické stránky HTML vložených s rozhraním API řízení na základě polohy mapy. 
+Provedením následujících kroků vytvořte statickou stránku HTML s vloženým rozhraním API pro mapové ovládací prvky služeb Location Based Services. 
 
-1. Na místním počítači, vytvořte nový soubor s názvem **MapRoute.html**. 
-2. Přidejte následující součásti HTML k souboru:
+1. Na místním počítači vytvořte nový soubor s názvem **MapRoute.html**. 
+2. Přidejte do souboru následující součásti HTML:
 
     ```HTML
     <!DOCTYPE html>
@@ -75,20 +75,20 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
 
     </html>
     ```
-    Všimněte si, jak hlavičku HTML vloží umístění prostředků pro souborů CSS a JavaScript pro knihovnu služeb na základě umístění Azure. Všimněte si také *skriptu* segmentu v těle souboru HTML, která bude obsahovat vložený kód jazyka JavaScript pro přístup k rozhraní API Azure umístění na základě služby.
+    Všimněte si, že jsou v hlavičce HTML vložena umístění prostředků pro soubory CSS a JavaScript pro knihovnu Azure Location Based Services. Všimněte si také bloku *script* v těle souboru HTML, který bude obsahovat vložený kód jazyka JavaScript pro přístup k rozhraním API služeb Azure Location Based Services.
 
-3. Přidejte následující kód JavaScript, který *skriptu* bloku souboru HTML. Nahraďte zástupný symbol *< klávesy insert >* s primární klíč účtu na základě polohy.
+3. Do bloku *script* v souboru HTML přidejte následující kód jazyka JavaScript. Ve skriptu použijte primární klíč svého účtu Location Based Services.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    **Atlas. Mapa** poskytuje ovládací prvek pro mapu visual a interaktivní webové, a je součástí rozhraní API služby Azure mapy ovládacího prvku.
+    Objekt **atlas.Map** umožňuje ovládání vizuální a interaktivní webové mapy a je součástí rozhraní API pro mapové ovládací prvky prostředí Azure.
 
-4. Přidejte následující kód JavaScript, který *skriptu* bloku. To přidává další vrstvu *linestrings* pro mapový ovládací prvek zobrazíte trasy:
+4. Do bloku *script* přidejte následující kód jazyka JavaScript. Tímto způsobem se do mapového ovládacího prvku přidá vrstva *linestrings*, aby bylo možné zobrazit trasu:
 
     ```JavaScript
     // Initialize the linestring layer for routes on the map
@@ -103,7 +103,7 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
     });
     ```
 
-5. Přidejte následující kód v JavaScriptu vytvořit počáteční a koncové body pro trasy:
+5. Přidáním následujícího kódu jazyka JavaScript vytvořte počáteční a koncový bod trasy:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -119,9 +119,9 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
         icon: "pin-blue"
     });
     ```
-    Tento kód vytvoří dvě [GeoJSON objekty](https://en.wikipedia.org/wiki/GeoJSON) představují počáteční a koncový bod trasy. Koncový bod je kombinací zeměpisnou šířku a délku pro jednu ze *benzinového stanice* vyhledávat v předchozí kurzu [vyhledávání nedaleko bodu zájmu pomocí služeb na základě umístění Azure](./tutorial-search-location.md).
+    Tento kód vytvoří dva [objekty GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) představující počáteční a koncový bod trasy. Koncový bod je kombinace zeměpisné šířky a délky pro jednu z *čerpacích stanic* vyhledávaných v předchozím kurzu [Hledání okolních bodů zájmu s použitím Azure Location Based Services](./tutorial-search-location.md).
 
-6. Přidejte následující kód v JavaScriptu pro přidání do mapy PIN kódy pro počáteční a koncové body:
+6. Přidáním následujícího kódu jazyka JavaScript přidejte na mapu špendlíky pro počáteční a koncový bod:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -141,17 +141,17 @@ Pomocí následujících kroků můžete vytvořit statické stránky HTML vlož
         textOffset: [0, -20]
     });
     ``` 
-    Rozhraní API **map.setCameraBounds** upraví okna mapa podle souřadnice počátečního a koncového bodu. Rozhraní API **map.addPins** přidá body mapový ovládací prvek jako vizuální součásti.
+    Rozhraní API **map.setCameraBounds** upraví okno mapy podle souřadnic počátečního a koncového bodu. Rozhraní API **map.addPins** přidá do mapového ovládacího prvku body jako vizuální součásti.
 
-7. Uložit **MapRoute.html** soubor na vašem počítači. 
+7. Uložte si soubor **MapRoute.html** do počítače. 
 
 <a id="getroute"></a>
 
-## <a name="query-route-service-for-directions-to-point-of-interest"></a>Dotaz na službu trasy pro pokynů k bodu zájmu
+## <a name="query-route-service-for-directions-to-point-of-interest"></a>Zadání dotazu na rozhraní API Route Service ohledně trasy k bodu zájmu
 
-V této části ukazuje, jak používat rozhraní API služby Azure na základě polohy trasy k vyhledání trasy z dané počáteční bod do cílového umístění. Služba směrování poskytuje rozhraní API pro plánování nejrychlejších, nejkratší nebo úsporném trasy mezi dvěma umístěními, vzhledem k tomu, podmínky přenos v reálném čase. Umožňuje také uživatelům plánování trasy v budoucnu pomocí databáze rozsáhlé historické provozu Azure a odhad doby trvání trasy pro žádné datum a čas. 
+Tato část ilustruje způsob použití rozhraní API Route Service služeb Azure Location Based Services k vyhledání trasy z daného počátečního bodu na cílové místo. Rozhraní API Route Service poskytuje rozhraní API pro plánování nejrychlejší, nejkratší nebo úsporné trasy mezi dvěma místy s přihlédnutím k okamžité dopravní situaci. Umožňuje uživatelům také plánovat trasy v budoucnu s použitím rozsáhlé databáze Azure s historickými dopravními informacemi a předvídat dobu trvání trasy pro kterýkoli den a čas. 
 
-1. Otevřete **MapRoute.html** soubor vytvořili v předchozí části a přidejte následující kód JavaScript, který *skriptu* bloku pro ilustraci službu směrování.
+1. Otevřete soubor **MapRoute.html**, který jste vytvořili v předchozí části, a přidejte do bloku *script* následující kód jazyka JavaScript, který ilustruje použití rozhraní API Route Service.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting route on the map
@@ -172,32 +172,32 @@ V této části ukazuje, jak používat rozhraní API služby Azure na základě
         }
     };
     ```
-    Vytvoří tento fragment kódu [XMLHttpRequest](https://xhr.spec.whatwg.org/), a přidá obslužnou rutinu události analyzovat příchozí odpověď. Pro úspěšné odpovědi vytvoří se pole souřadnice úsečky první trasy, která vrátila. Potom přidá této sady souřadnic pro tuto trasu na mapu *linestrings* vrstvy.
+    Tento fragment kódu vytvoří požadavek [XMLHttpRequest](https://xhr.spec.whatwg.org/) a přidá obslužnou rutinu události pro parsování příchozí odpovědi. V případě úspěšné odpovědi se vytvoří pole souřadnic pro úseky první vrácené trasy. Potom se tato sada souřadnic pro příslušnou trasu přidá do vrstvy mapy *linestrings*.
 
-2. Přidejte následující kód, který *skriptu* blok, k odeslání XMLHttpRequest službě trasy Azure na základě polohy.:
+2. Přidejte do bloku *script* následující kód, který odešle požadavek XMLHttpRequest do rozhraní API Route Service v rámci služeb Azure Location Based Services:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    Výše uvedený požadavek ukazuje požadované parametry, které jsou klíč předplatného vašeho účtu a souřadnic pro počáteční a koncový bod, v uvedeném pořadí. 
+    Výše uvedený požadavek demonstruje požadované parametry, kterými jsou klíč účtu a souřadnice počátečního a koncového bodu (v uvedeném pořadí). 
 
-3. Uložit **MapRoute.html** soubor místně, potom otevřete ve webovém prohlížeči podle svého výběru a sledovat výsledek. Pro úspěšné připojení na základě polohy rozhraní API měli byste vidět mapu podobný následujícímu. 
+3. Uložte soubor **MapRoute.html** na místní počítač, potom ho otevřete ve webovém prohlížeči podle svého výběru a podívejte se na výsledek. V případě úspěšného připojení s použitím rozhraní API služeb Location Based Services by se měla zobrazit mapa podobná následující. 
 
-    ![Azure mapový ovládací prvek a služba Směrování](./media/tutorial-route-location/lbs-map-route.png)
+    ![Ovládací prvek Mapa a Route Service v Azure](./media/tutorial-route-location/lbs-map-route.png)
 
 
 ## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Získat adresu souřadnice
-> * Dotaz na službu trasy pro pokynů k bodu zájmu
+> * Získat souřadnice pro adresu
+> * Zadat dotaz na rozhraní API Route Service ohledně trasy k bodu zájmu
 
-Pokračujte v kurzu [najít trasy pro různé režimy cesta pomocí služeb na základě umístění Azure](./tutorial-prioritized-routes.md) Další informace o použití služeb na základě umístění Azure k určení priority trasy k bodu zájmu, aby na základě režim přenosu. 
+Pokračujte kurzem [Hledání tras pro různé režimy dopravy s použitím Azure Location Based Services](./tutorial-prioritized-routes.md), v němž se naučíte používat Azure Location Based Services k určení priority tras k požadovanému bodu zájmu podle režimu dopravy. 

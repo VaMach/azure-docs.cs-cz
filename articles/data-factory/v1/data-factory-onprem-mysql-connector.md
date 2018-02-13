@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Přesun dat pomocí Azure Data Factory z databáze MySQL
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,8 +71,8 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | --- | --- | --- |
 | type |Vlastnost typu musí být nastavena na: **OnPremisesMySql** |Ano |
 | server |Název serveru databáze MySQL. |Ano |
-| Databáze |Název databáze MySQL. |Ano |
-| Schéma |Název schématu v databázi. |Ne |
+| databáze |Název databáze MySQL. |Ano |
+| schema |Název schématu v databázi. |Ne |
 | authenticationType. |Typ ověřování používaný pro připojení k databázi MySQL. Možné hodnoty jsou: `Basic`. |Ano |
 | uživatelské jméno |Zadejte uživatelské jméno pro připojení k databázi MySQL. |Ano |
 | heslo |Zadejte heslo pro uživatelský účet, který jste zadali. |Ano |
@@ -87,7 +87,7 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | --- | --- | --- |
 | tableName |Název tabulky instance databáze MySQL na kterou odkazuje propojená služba. |Ne (Pokud **dotazu** z **RelationalSource** je zadána) |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky, jsou zásady jsou dostupné pro všechny typy aktivit.
 
 Vzhledem k tomu, vlastnosti dostupné ve **rámci typeProperties** části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
@@ -305,42 +305,42 @@ Při přesunu dat do databáze MySQL, se používají následující mapování 
 | bigint bez znaménka |Decimal |
 | bigint |Int64 |
 | Bit |Decimal |
-| Objekt BLOB |Byte] |
+| Objekt blob |Byte[] |
 | BOOL |Logická hodnota |
 | Char |Řetězec |
-| Datum |Data a času |
-| Data a času |Data a času |
+| datum |Datum a čas |
+| datetime |Datum a čas |
 | Decimal |Decimal |
-| Dvojitá přesnost |Double |
-| Double |Double |
+| Dvojitá přesnost |Dvojitý |
+| double |Dvojitý |
 | výčet |Řetězec |
-| Plovoucí desetinná čárka |Jeden |
+| float |Svobodný/svobodná |
 | int bez znaménka |Int64 |
 | celá čísla |Int32 |
 | celé číslo bez znaménka |Int64 |
-| celé číslo |Int32 |
-| dlouhé varbinary |Byte] |
+| integer |Int32 |
+| dlouhé varbinary |Byte[] |
 | dlouhé varchar |Řetězec |
-| longblob |Byte] |
-| LONGTEXT |Řetězec |
-| mediumblob |Byte] |
+| longblob |Byte[] |
+| longtext |Řetězec |
+| mediumblob |Byte[] |
 | mediumint bez znaménka |Int64 |
 | mediumint |Int32 |
 | mediumtext |Řetězec |
 | číselné |Decimal |
-| skutečné |Double |
+| skutečné |Dvojitý |
 | nastavení |Řetězec |
 | smallint bez znaménka |Int32 |
 | smallint |Int16 |
 | Text |Řetězec |
-| time |Časový interval |
-| časové razítko |Data a času |
-| tinyblob |Byte] |
+| time |TimeSpan |
+| časové razítko |Datum a čas |
+| tinyblob |Byte[] |
 | tinyint bez znaménka |Int16 |
 | tinyint |Int16 |
 | tinytext |Řetězec |
 | varchar |Řetězec |
-| Rok |celá čísla |
+| rok |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapování zdroje jímky sloupců
 Další informace o mapování sloupců v datové sadě zdrojového sloupce v datové sadě podřízený najdete v tématu [mapování sloupců datovou sadu v Azure Data Factory](data-factory-map-columns.md).

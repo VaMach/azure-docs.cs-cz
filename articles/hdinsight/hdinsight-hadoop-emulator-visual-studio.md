@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Pomocí nástroje Azure Data Lake pro Visual Studio s Hortonworks karanténě
 
@@ -53,13 +53,13 @@ Ujistěte se, zda je spuštěna Hortonworks karanténě. Potom postupujte podle 
 
     ![Snímek obrazovky dialogového okna, se zvýrazněnou textového pole hesla](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
-    Vyberte **Další** pokračujte.
+    Pokračujte výběrem tlačítka **Next** (Další).
 
 4. Použití **heslo** pole k zadání hesla, které jste nakonfigurovali pro `root` účtu. Nechte ostatní pole na výchozí hodnotu.
 
     ![Snímek obrazovky dialogového okna, se zvýrazněnou textového pole hesla](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    Vyberte **Další** pokračujte.
+    Pokračujte výběrem tlačítka **Next** (Další).
 
 5. Počkejte, než pro ověření služby ukončíte. V některých případech může ověření nezdaří a zobrazí výzvu k aktualizaci konfigurace. Pokud ověření selže, vyberte **aktualizace**a počkejte, konfigurace a ověření pro službu, kterou chcete dokončit.
 
@@ -203,7 +203,7 @@ Potom můžete vytvořit v tabulce pomocí formuláře. V dolní části násled
 
 ![Snímek obrazovky formulář, který slouží k vytvoření tabulky](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Učení LAN Hortonworks izolovaného prostoru](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop kurz – Začínáme s HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

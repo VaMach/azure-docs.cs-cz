@@ -3,7 +3,7 @@ title: "Jak získat přístupový token pomocí Identity služby spravovat Azure
 description: "Podrobné pokyny a příklady pro získání OAuth pomocí souboru MSI virtuálních počítačů Azure přístup k tokenu."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: daveba
+ms.openlocfilehash: 3d9d4d682a25d11129e81855a6bf149ac1d5cff0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Jak používat Azure virtuálního počítače spravované služby Identity (MSI) pro získání tokenu 
 
@@ -269,7 +269,7 @@ Tato část popisuje možné chybové odpovědi. A "200 OK" ve stavu úspěšné
 | 401 unauthorized | unknown_source | Neznámé zdroje  *\<identifikátor URI\>* | Ověřte, že žádost HTTP GET URI správně naformátován. `scheme:host/resource-path` Část musí být zadány jako `http://localhost:50342/oauth2/token`. V části "Ukázková žádost" v [předcházející části REST](#rest) příklad.|
 |           | invalid_request | Žádosti chybí povinný parametr, obsahuje neplatnou hodnotu parametru, parametr obsahuje více než jednou nebo je jinak poškozený. |  |
 |           | unauthorized_client | Klient nemá oprávnění k žádosti o token přístupu pomocí této metody. | Způsobené požadavek, který nepoužili místní smyčky volání rozšíření, nebo na virtuální počítač, který nemá MSI správně nakonfigurován. V tématu [konfigurace virtuálních počítačů spravovaných služba Identity (MSI) pomocí portálu Azure](msi-qs-configure-portal-windows-vm.md) Pokud potřebujete pomoc s konfigurací virtuálních počítačů. |
-|           | ACCESS_DENIED | Vlastník prostředku nebo autorizace server odepřel žádost. |  |
+|           | access_denied | Vlastník prostředku nebo autorizace server odepřel žádost. |  |
 |           | unsupported_response_type | Autorizace serveru nepodporuje získání tokenu přístupu pomocí této metody. |  |
 |           | invalid_scope | Požadovaný rozsah je neplatný, neznámý nebo je nesprávný. |  |
 | 500 vnitřní chybu serveru | Neznámé | Nepodařilo se získat token ze služby Active directory. Podrobnosti najdete v tématu protokoly v  *\<cesta k souboru\>* | Ověřte, že je povoleno MSI ve virtuálním počítači. V tématu [konfigurace virtuálních počítačů spravovaných služba Identity (MSI) pomocí portálu Azure](msi-qs-configure-portal-windows-vm.md) Pokud potřebujete pomoc s konfigurací virtuálních počítačů.<br><br>Také ověřte, že žádost HTTP GET URI správně naformátován, zejména prostředek, který je zadaný identifikátor URI v řetězci dotazu. Najdete v části "Ukázková žádost" v [předcházející části REST](#rest) příklad, nebo [služeb Azure, podpora Azure AD ověření](msi-overview.md#azure-services-that-support-azure-ad-authentication) seznam služeb a jejich odpovídající ID prostředku.

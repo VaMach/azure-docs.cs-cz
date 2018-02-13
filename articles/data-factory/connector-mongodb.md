@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2c8157e27c608ed08b4bd3c790c232d968ed7109
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopírování dat z MongoDB pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,10 +58,10 @@ Pro MongoDB propojené služby jsou podporovány následující vlastnosti:
 | type |Vlastnost typu musí být nastavena na: **MongoDb** |Ano |
 | server |IP adresa nebo název hostitele serveru MongoDB. |Ano |
 | port |Port TCP, který používá MongoDB server naslouchat pro připojení klientů. |Ne (výchozí hodnota je 27017) |
-| Název databáze |Název databáze MongoDB, kterou chcete získat přístup. |Ano |
+| databaseName |Název databáze MongoDB, kterou chcete získat přístup. |Ano |
 | authenticationType. | Typ ověřování používaný pro připojení k databázi MongoDB.<br/>Povolené hodnoty jsou: **základní**, a **anonymní**. |Ano |
 | uživatelské jméno |Uživatelský účet pro přístup k MongoDB. |Ano (Pokud se používá základní ověřování). |
-| heslo |Heslo pro uživatele. Toto pole můžete označte jako SecureString. |Ano (Pokud se používá základní ověřování). |
+| heslo |Heslo pro uživatele. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano (Pokud se používá základní ověřování). |
 | authSource |Název databáze MongoDB, kterou chcete použít ke kontrole přihlašovacích údajů pro ověřování. |Ne. Pro základní ověřování výchozí hodnota je používat účet správce a do databáze určené pomocí vlastnost databaseName. |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
@@ -119,7 +119,7 @@ Ke zkopírování dat z MongoDB, nastavte vlastnost typu datové sady, která **
 
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem MongoDB.
 
@@ -177,10 +177,10 @@ Při kopírování dat z MongoDB, se používají následující mapování Mong
 
 | MongoDB datový typ | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
-| Binární hodnota |Byte] |
+| Binární hodnota |Byte[] |
 | Logická hodnota |Logická hodnota |
 | Datum |Datum a čas |
-| NumberDouble |Double |
+| NumberDouble |Dvojitý |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Řetězec |

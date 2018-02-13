@@ -17,8 +17,8 @@
 ### [Technické možnosti zabezpečení](../azure-security-technical-capabilities.md)
 ### [Zásady správného řízení v Azure](../governance-in-azure.md)
 ### [Šifrování dat v klidovém stavu](../azure-security-encryption-atrest.md)
-### Plány architektury
-#### Dodržování předpisů – PCI DSS
+### Plány zabezpečení a dodržování předpisů v Azure
+#### PCI DSS
 ##### [Zpracování plateb v prostředích kompatibilních s PCI DSS](payment-processing-blueprint.md)
 ##### [Přehled požadavků](pci-dss-requirements-overview.md)
 ##### [Požadavek 1 – brány firewall](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Požadavek 10 – monitorování](pci-dss-requirement-10-monitoring.md)
 ##### [Požadavek 11 – testování](pci-dss-requirement-11-testing.md)
 ##### [Požadavek 12 – zásady](pci-dss-requirement-12-policy.md)
-#### Dodržování předpisů – FedRAMP
-##### [Webové aplikace pro FedRAMP](fedramp.md)
+#### FedRAMP
+##### [Automatizace webových aplikací](fedramp.md)
 ##### [Přehled ovládacích prvků zabezpečení](fedramp-controls-overview.md)
 ##### [Řízení přístupu](fedramp-access-controls.md)
 ##### [Audit a zodpovědnost](fedramp-audit-accountability-controls.md)
@@ -53,11 +53,11 @@
 ##### [Ochrana systémů a komunikací](fedramp-system-communications-protection-controls.md)
 ##### [Integrita systémů a informací](fedramp-system-information-integrity-controls.md)
 ##### [Získávání systémů a služeb](fedramp-system-services-acquisition-controls.md)
-#### Dodržování předpisů – UK-OFFICIAL
-##### [Třívrstvé webové aplikace pro UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Třístupňová automatizace webových aplikací](uk-official-three-tier-applications-overview.md)
 ##### [Přehled](uk-official-three-tier-applications-overview.md)
 ##### [Přehled principů](uk-official-three-tier-applications-principles-overview.md)
-#### Dodržování předpisů – finanční služby
+#### Finanční služby
 ##### [Finanční služby pro regulované úlohy](financial-services-regulated-workloads.md)
 
 # Začínáme
@@ -93,7 +93,6 @@
 ### [Seznámení s integrací protokolů Azure](../security-azure-log-integration-overview.md)
 #### [Začínáme s integrací protokolů Azure](../security-azure-log-integration-get-started.md)
 #### [Integrace protokolů auditu služby Azure Active Directory](../security-azure-log-integration-ad.md)
-#### [Integrace výstrah služby Security Center](../security-azure-log-integration-security-center.md)
 #### [Integrace protokolů se služby Key Vault pomocí Event Hubs](../security-azure-log-integration-keyvault-eventhub.md)
 #### [Nejčastější dotazy](../security-azure-log-integration-faq.md)
 

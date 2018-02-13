@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Jak používat Poznámkový blok Jupyter v Azure Machine Learning Workbench
 
@@ -42,15 +42,15 @@ Můžete používat mnoho různých jádra v Azure ML Workbench nakonfigurován�
 >Zkontrolujte [nakonfigurovat spuštění](experimentation-service-configuration.md) další podrobnosti o spuštění konfigurace a výpočetní cíle.
 
 ### <a name="kernel-naming-convention"></a>Zásady vytváření názvů jádra
-Jádrech mají obvykle název ve formátu "\<název projektu > \<spustit název konfigurace >". Například, pokud máte spuštění konfigurace s názvem _docker python_ v projektu s názvem _myIris_, můžete najít jádra, při otevření poznámkového bloku Jupyter s názvem "myIris docker-python" v seznamu jádra.
-
+Azure ML Workbench generuje vlastní Jupyter jádra.  Tyto s názvem "\<název projektu > \<spustit název konfigurace >". Například, pokud máte spuštění konfigurace s názvem _docker python_ v projektu s názvem _myIris_, Azure ML zpřístupní jádra, s názvem "myIris docker-python".  Nastavit spuštěné jádra v poznámkového bloku Jupyter "Jádra" nabídky, v nabídce dílčí "Změna jádra". Název spuštěné jádra se zobrazí na panelu nabídek úplně vpravo.
+ 
 V současné době nástroje Workbench podporuje následující typy jádra.
 
 ### <a name="local-python-kernel"></a>Místní jádra Python
 Tato Python jádra podporuje spuštění na místním počítači. Je integrován s podporou historii běhů Azure Machine Learning. Název jádra je obvykle "my_project_name místní".
 
 >[!NOTE]
->Nepoužívejte jádra "Python 3". Je samostatný jádra, poskytované Jupyter ve výchozím nastavení. Není integrována s funkcemi Azure Machine Learning.
+>Nepoužívejte jádra "Python 3". Je samostatný jádra, poskytované Jupyter ve výchozím nastavení. Není integrována s funkcemi Azure Machine Learning. Například _% azureml_ Jupyter magic funkcí vracet "nebyl nalezen" chyby. 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python jádra v Docker (místní nebo vzdálené)
 Tato Python jádra běží v kontejner Docker na místním počítači nebo ve vzdáleném virtuálního počítače s Linuxem. Název jádra je obvykle "my_project docker". Přidruženého `docker.runconfig` soubor má `Framework` pole nastavené na `Python`.

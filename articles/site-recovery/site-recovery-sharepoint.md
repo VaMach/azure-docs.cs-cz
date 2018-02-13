@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replikovat vícevrstvé aplikace služby SharePoint pro zotavení po havárii pomocí Azure Site Recovery
 
@@ -66,11 +66,12 @@ Pro vytvoření tohoto článku, používaly virtuální počítače VMware s Wi
 
 ### <a name="source-and-target"></a>Zdroj a cíl
 
-**Scénář** | **Sekundární lokality** | **Do Azure**
+**Scénář** | **Sekundární lokality** | **To Azure**
 --- | --- | ---
 **Hyper-V** | Ano | Ano
 **VMware** | Ano | Ano
 **Fyzický server** | Ano | Ano
+**Azure** | Není k dispozici | Ano
 
 ### <a name="sharepoint-versions"></a>Verze služby SharePoint
 Podporovány jsou následující verze serveru SharePoint.
@@ -116,8 +117,8 @@ Pro internetové weby [vytvořit profil Traffic Manageru typu "Priority"](../tra
 
 | **Kde** | **Zdroj** | **Cíl**|
 | --- | --- | --- |
-| Veřejné služby DNS | Veřejné služby DNS pro weby služby SharePoint <br/><br/> Například: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.NET |
-| Místní DNS | sharepointonprem.contoso.com | Veřejná IP adresa na místní farmě |
+| Veřejné služby DNS | Veřejné služby DNS pro weby služby SharePoint <br/><br/> Například: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
+| On-premises DNS | sharepointonprem.contoso.com | Veřejná IP adresa na místní farmě |
 
 
 V profilu Traffic Manageru [vytvoření koncových bodů primárními a obnovovacími](../traffic-manager/traffic-manager-configure-priority-routing-method.md). Použijte externí koncový bod pro místní koncový bod a veřejnou IP adresu pro koncový bod Azure. Ujistěte se, že je priorita nastavena tak, aby místní koncový bod.
@@ -152,15 +153,15 @@ Nejčastěji používané skripty Azure Site Recovery můžete nasadit do vašeh
 
 1. Přidáte skript předběžné akce na '1 skupiny' převzetí služeb při selhání skupiny dostupnosti SQL. Použít skript, automatické obnovení systému SQL FailoverAG' publikován v ukázkové skripty. Ujistěte se, postupujte podle pokynů ve skriptu a proveďte požadované změny ve skriptu správně.
 
-    ![Přidat AG-skriptu krok-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
+    ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
-    ![Přidat AG-skriptu krok-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
+    ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Přidat skript akce post připojit nástroj pro vyrovnávání zatížení na neúspěšný přes virtuální počítače webová vrstva (2. skupina). Použít skript, automatické obnovení systému-AddSingleLoadBalancer' publikován v ukázkové skripty. Ujistěte se, postupujte podle pokynů ve skriptu a proveďte požadované změny ve skriptu správně.
 
-    ![Přidat LB-skriptu krok-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Přidat LB-skriptu krok-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
+    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
 3. Přidejte ruční krok k aktualizaci záznamů DNS tak, aby odkazoval na nové farmě v Azure.
 
@@ -211,5 +212,5 @@ Postupujte podle [v tomto návodu](site-recovery-failover.md) pro převzetím sl
 3.  Klikněte na 'Převzetí služeb při selhání'.
 4.  Vyberte bod obnovení se spustit proces převzetí služeb při selhání.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [replikace jiné aplikace](site-recovery-workload.md) pomocí Site Recovery.

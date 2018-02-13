@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizovat nasazení prostředků pro funkce aplikace v Azure Functions
 
@@ -76,7 +76,7 @@ Tyto vlastnosti jsou určené v `appSettings` kolekce `siteConfig` objektu:
 
 Definice hostingový plán se liší v závislosti na tom, zda používáte plánu spotřeby nebo služby App Service. V tématu [nasazení funkce aplikace plánu spotřeby](#consumption) a [nasazení funkce aplikace na plán služby App Service](#app-service-plan).
 
-### <a name="function-app"></a>Funkce aplikace
+### <a name="function-app"></a>Function app
 
 Prostředek aplikace funkce se definuje pomocí prostředek typu **Microsoft.Web/Site** a typ **functionapp**:
 
@@ -197,7 +197,7 @@ Poté, co jste vybrali volbu změny měřítka, vytvořte aplikaci funkce. Tato 
 Funkce aplikace má mnoho podřízené prostředky, které můžete použít ve vašem nasazení, včetně nastavení aplikace a možnosti řízení zdroje. Můžete také zvolit odebrat **sourcecontrols** podřízených prostředků a použijte jiné [možnost nasazení](functions-continuous-deployment.md) místo.
 
 > [!IMPORTANT]
-> K úspěšnému nasazení vaší aplikace pomocí Azure Resource Manager, je důležité pochopit, jak jsou prostředky nasazené v Azure. V následujícím příkladu jsou použita nejvyšší úrovně konfigurace pomocí **siteConfig**. Je důležité nastavit tyto konfigurace na nejvyšší úrovni, protože jejich předání informací o tom informace k modulu runtime a nasazení funkce. Informace na nejvyšší úrovni je vyžadována před podřízená **sourcecontrols nebo webové** prostředků se použije. I když je možné nakonfigurovat tato nastavení na podřízené úrovni **config/appSettings** prostředku, v některých případech aplikace funkce musí být nasazený *před* **config/appSettings** platí. Například při použití funkce s [Logic Apps](../logic-apps/index.md), funkcí jsou závislost jiný prostředek.
+> K úspěšnému nasazení vaší aplikace pomocí Azure Resource Manager, je důležité pochopit, jak jsou prostředky nasazené v Azure. V následujícím příkladu jsou použita nejvyšší úrovně konfigurace pomocí **siteConfig**. Je důležité nastavit tyto konfigurace na nejvyšší úrovni, protože jejich předání informací o tom informace k modulu runtime a nasazení funkce. Informace na nejvyšší úrovni je vyžadována před podřízená **sourcecontrols nebo webové** prostředků se použije. I když je možné nakonfigurovat tato nastavení na podřízené úrovni **config/appSettings** prostředku, v některých případech aplikace funkce musí být nasazený *před* **config/appSettings** platí. Například při použití funkce s [Logic Apps](../logic-apps/index.yml), funkcí jsou závislost jiný prostředek.
 
 ```json
 {
@@ -260,7 +260,7 @@ Můžete použít některou z následujících způsobů k nasazení vaší šab
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [portál Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Nasazení do Azure tlačítko
@@ -279,7 +279,7 @@ Tady je příklad, který používá HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o tom, jak vyvíjet a konfigurovat Azure Functions.
 

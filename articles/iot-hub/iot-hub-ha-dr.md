@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub vysoké dostupnosti a zotavení po havárii
 Jako služby Azure IoT Hub poskytuje vysokou dostupnost (HA) pomocí redundance na úrovni oblasti Azure bez další zátěže vyžadují řešení. Platforma Microsoft Azure také obsahuje funkce, které pomáhají při vytváření řešení pomocí možnosti zotavení po havárii nebo mezi oblastmi dostupnosti. Pokud chcete zajistit globální, mezi oblastmi vysoká dostupnost pro zařízení nebo uživatelů, využít výhod těchto funkcí Azure zotavení po Havárii. Článek [Azure obchodní kontinuity technické pokyny](../resiliency/resiliency-technical-guidance.md) popisuje integrované funkce v Azure pro provozní kontinuitu a zotavení po Havárii. [Zotavení po havárii a vysoká dostupnost pro aplikace Azure] [ Disaster recovery and high availability for Azure applications] dokument obsahuje pokyny k architektura s strategie pro aplikace Azure a dosáhnout HA a zotavení po Havárii.
@@ -26,7 +26,7 @@ Jako služby Azure IoT Hub poskytuje vysokou dostupnost (HA) pomocí redundance 
 ## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
 Kromě HA uvnitř oblasti IoT Hub implementuje mechanismy převzetí služeb při selhání pro zotavení po havárii, které vyžadují od uživatele žádný zásah. IoT Hub DR samoobslužné inicializaci a má cíli času obnovení (RTO), 2-26 hodin a tyto cíle bodu obnovení (rpo):
 
-| Funkce | PLÁNOVANÝ BOD OBNOVENÍ |
+| Funkce | RPO |
 | --- | --- |
 | Dostupnost služeb pro operace registru a komunikace |Případné ztrátě CName |
 | Data identit v registru identit |0 – 5 minut ztrátě dat. |
@@ -34,6 +34,8 @@ Kromě HA uvnitř oblasti IoT Hub implementuje mechanismy převzetí služeb př
 | Operace sledování zpráv |Dojde ke ztrátě všech nepřečtených zpráv |
 | Zprávy typu cloud zařízení |0 – 5 minut ztrátě dat. |
 | Frontu zpětné vazby cloud zařízení |Dojde ke ztrátě všech nepřečtených zpráv |
+| Data twin zařízení |0 – 5 minut ztrátě dat. |
+| Úlohy nadřazené a zařízení |0 – 5 minut ztrátě dat. |
 
 ## <a name="regional-failover-with-iot-hub"></a>Místní převzetí služeb při selhání s centrem IoT
 Dokončení zpracování topologií nasazení v řešeních pro IoT je mimo rámec tohoto článku. Popisuje článek *regionální převzetí služeb při selhání* modelu nasazení za účelem vysoké dostupnosti a zotavení po havárii.
@@ -46,7 +48,7 @@ Na vysoké úrovni implementovat model místní převzetí služeb při selhán�
 * **Replikace registru identit**: možné používat, musí obsahovat sekundární IoT hub všechny identity zařízení, které se můžou připojit k řešení. Řešení musí zachovat geograficky replikované zálohy identit zařízení a jejich nahrávání do služby IoT hub sekundární před přepnutím aktivní koncový bod pro zařízení. Funkce exportu identity zařízení IoT Hub je užitečné v tomto kontextu. Další informace najdete v tématu [Příručka vývojáře pro službu IoT Hub - registru identit][IoT Hub developer guide - identity registry].
 * **Slučování logiku**: když primární oblasti opět k dispozici, všechny musí být migrovány stav a data, která byla vytvořena v sekundární lokalitě zpět na primární oblasti. Tento stav a data většinou se týkají identit zařízení a metadata aplikace, které je potřeba sloučit s primární IoT hub a jiných úložišť specifické pro aplikaci v primární oblasti. Pro zjednodušení tento krok, měli byste použít idempotent operace. Operace Idempotent minimalizovat vedlejší účinky z daného distribučního konzistentní událostí a z duplikáty nebo doručení na více systémů pořadí událostí. Kromě toho logiku aplikace by měl být pro tolerovat potenciální nekonzistence nebo "mírně" zastaralé stavu. Tato situace může nastat v důsledku další čas potřebný pro systému "retušovat" podle plánovaných bodů obnovení (RPO).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o službě Azure IoT Hub na následujících odkazech:
 
 * [Začínáme s centra IoT (kurz)][lnk-get-started]

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Připojení k místní zdroje dat s Azure místní brány dat
 Místní data brána funguje jako mostu, zajištění zabezpečených dat přenos mezi místní zdroje dat a vaše servery Azure Analysis Services v cloudu. Kromě práce s více servery Azure Analysis Services ve stejné oblasti, nejnovější verzi brány taky spolupracuje se službou Azure Logic Apps, Power BI, Power aplikace a Flow společnosti Microsoft. S jednou bránou můžete přidružit více služeb ve stejné oblasti. 
@@ -28,11 +28,11 @@ Získání Instalační program s bránou prvním je proces, který sestávajíc
 
 - **Stáhněte a spusťte instalační program** – tento krok nainstaluje služba brány do počítače ve vaší organizaci. Také přihlášení do Azure pomocí účtu ve vaší [klienta](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (Host) účty nejsou podporované.
 
-- **Zaregistrujte bránu** – v tomto kroku, zadejte název a obnovení klíče pro bránu a vyberte oblast, registrace brány cloudové službě brány. Prostředek brány **musí být zaregistrovaný ve stejné oblasti** jako vaše servery služby Analysis Services. 
+- **Zaregistrujte bránu** – v tomto kroku, zadejte název a klíč pro bránu pro obnovení a vyberte oblast, registrace brány cloudové službě brány. V libovolné oblasti se dají registrovat prostředku brány, ale doporučujeme, aby že byl ve stejné oblasti jako vaše servery služby Analysis Services. 
 
 - **Vytvořte prostředek brány v Azure** – v tomto kroku vytvoříte bránu prostředků ve vašem předplatném Azure.
 
-- **Připojte své servery k prostředku brány** – až budete mít bránu prostředků v rámci vašeho předplatného, můžete začít vaše servery k němu připojuje. Více serverů a dalším prostředkům můžete připojit, pokud jsou v oblasti.
+- **Připojte své servery k prostředku brány** – až budete mít bránu prostředků v rámci vašeho předplatného, můžete začít vaše servery k němu připojuje. K nim mohla připojit víc serverů a dalším prostředkům.
 
 Pokud chcete začít hned, najdete v části [nainstalujte a nakonfigurujte místní brána dat](analysis-services-gateway-install.md).
 
@@ -69,17 +69,17 @@ Níže jsou uvedeny plně kvalifikované názvy domény používá bránu.
 
 | Názvy domén | Odchozí porty | Popis |
 | --- | --- | --- |
-| *. powerbi.com |80 |HTTP používaný ke stahování instalační služby. |
-| *. powerbi.com |443 |HTTPS |
-| *. analysis.windows.net |443 |HTTPS |
-| *. login.windows.net |443 |HTTPS |
-| *. servicebus.windows.net |5671-5672 |Pokročilé zpráv služby Řízení front Protocol (AMQP) |
-| *. servicebus.windows.net |443, 9350-9354 |Moduly pro naslouchání na předávání přes Service Bus přes TCP (vyžaduje 443 pro získání tokenu řízení přístupu) |
-| *. frontend.clouddatahub.net |443 |HTTPS |
-| *. core.windows.net |443 |HTTPS |
-| Login.microsoftonline.com |443 |HTTPS |
-| *. msftncsi.com |443 |Použít k testování připojení k Internetu, pokud brána nedostupná pro službu Power BI. |
-| *.microsoftonline p.com |443 |Slouží k ověření v závislosti na konfiguraci. |
+| *.powerbi.com |80 |HTTP používaný ke stahování instalační služby. |
+| *.powerbi.com |443 |HTTPS |
+| *.analysis.windows.net |443 |HTTPS |
+| *.login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |5671-5672 |Pokročilé zpráv služby Řízení front Protocol (AMQP) |
+| *.servicebus.windows.net |443, 9350-9354 |Moduly pro naslouchání na předávání přes Service Bus přes TCP (vyžaduje 443 pro získání tokenu řízení přístupu) |
+| *.frontend.clouddatahub.net |443 |HTTPS |
+| *.core.windows.net |443 |HTTPS |
+| login.microsoftonline.com |443 |HTTPS |
+| *.msftncsi.com |443 |Použít k testování připojení k Internetu, pokud brána nedostupná pro službu Power BI. |
+| *.microsoftonline-p.com |443 |Slouží k ověření v závislosti na konfiguraci. |
 
 ### <a name="force-https"></a>Vynucení komunikaci přes protokol HTTPS s Azure Service Bus
 Můžete vynutit bránu a komunikovat s Azure Service Bus pomocí protokolu HTTPS místo přímé TCP; ale to tak může výrazně snížit výkon. Můžete upravit *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* souboru změnou hodnoty z `AutoDetect` k `Https`. Tento soubor se obvykle nachází ve *brána dat Files\On místní C:\Program*.
@@ -131,7 +131,7 @@ Můžete aplikaci Azure rychlost testovací nástroj třetí strany ke měřidla
 **A**: Ne. Služba systému Windows musí mít platný účet systému Windows. Ve výchozím nastavení spouští službu s SID služby, NT SERVICE\PBIEgwService.
 
 **Q**: jak na to převzetí bránu? <br/>
-**A**: V pořadí k převzetí brány (tak, že spustíte instalační program nebo změnit v Ovládacích panelech > programy) musíte být vlastníkem prostředku brány v Azure a mít obnovovací klíč. Vlastníci prostředků brány lze konfigurovat v řízení přístupu.
+**A**: K převzetí brány (tak, že spustíte instalační program nebo změnit v Ovládacích panelech > programy), musíte být vlastníkem prostředku brány v Azure a mít obnovovací klíč. Vlastníci prostředků brány lze konfigurovat v řízení přístupu.
 
 ### <a name="high-availability"></a>Vysoká dostupnost a zotavení po havárii
 
@@ -144,7 +144,7 @@ Můžete aplikaci Azure rychlost testovací nástroj třetí strany ke měřidla
 ## <a name="troubleshooting"></a>Řešení potíží
 
 **Q**: Proč nevidím moje brány v seznamu instancí brány při pokusu o vytvoření prostředku brány v Azure? <br/>
-**A**: existují dvě možné příčiny. Nejprve je že již vytvořen prostředek pro bránu v aktuální nebo některé jiné předplatné. Pokud chcete odstranit tuto možnost, provést výčet prostředků typu **místní brány Data Gateways** z portálu. Ujistěte se, že při vytváření výčtu všechny prostředky, vyberte všechny odběry. Všimněte si, že po vytvoření prostředku brány se nezobrazí v seznamu instancí brány v prostředí portálu vytvořit prostředek brány. Druhá možnost je, že Azure AD identity uživatele, který bránu nainstalovali, se liší od uživateli přihlášení k portálu Azure. To vyřešit, přihlaste se k portálu pomocí stejného účtu jako uživatel, který bránu nainstalovali.
+**A**: existují dvě možné příčiny. Nejprve je že již vytvořen prostředek pro bránu v aktuální nebo některé jiné předplatné. Pokud chcete odstranit tuto možnost, provést výčet prostředků typu **místní brány Data Gateways** z portálu. Ujistěte se, že při vytváření výčtu všechny prostředky, vyberte všechny odběry. Po vytvoření prostředku brány se nezobrazí v seznamu instancí brány v prostředí portálu vytvořit prostředek brány. Druhá možnost je, že Azure AD identity uživatele, který bránu nainstalovali, se liší od uživateli přihlášení k portálu Azure. Chcete-li vyřešit, přihlaste se k portálu pomocí stejného účtu jako uživatel, který bránu nainstalovali.
 
 **Q**: jak můžete zjistit, co jsou dotazy se posílá místní zdroj dat? <br/>
 **A**: můžete povolit trasování dotazů, který obsahuje dotazy, které se odesílají. Nezapomeňte změnit dotaz trasování zpět na původní hodnotu po dokončení odstraňování potíží. Trasování dotazů, které jsou zapnuté vytvoří větší protokoly.
@@ -182,7 +182,7 @@ Soubory protokolu jsou důležité prostředků při řešení potíží.
 Můžete najít v protokolech Brána pro správu dat a PowerBIGateway pod **protokoly aplikací a služeb**.
 
 
-## <a name="telemetry"></a>Telemetrie
+## <a name="telemetry"></a>Telemetry
 Telemetrická data lze použít pro monitorování a řešení potíží. Ve výchozím nastavení
 
 **Chcete-li zapnout telemetrii**
@@ -201,7 +201,7 @@ Telemetrická data lze použít pro monitorování a řešení potíží. Ve vý
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Instalace a konfigurace místní brána dat](analysis-services-gateway-install.md).   
 * [Správa služby Analysis Services](analysis-services-manage.md)
 * [Získání dat z Azure Analysis Services](analysis-services-connect.md)

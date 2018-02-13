@@ -39,10 +39,18 @@
         - name: Vytváření aplikací .NET HDInsight pro neinteraktivní ověřování
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
+        - name: Apache Phoenix ve službě HDInsight
+          href: ../hdinsight-phoenix-in-hdinsight.md
+          maintainContext: true
         - name: Použití Phoenix a SQLLine
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Použití sady Phoenix Query Server REST SDK
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: Analýza velkých objemů dat
+      items:
+        - name: Použití Sparku ke čtení a zápisu dat HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: Rozšíření clusterů
       items:
         - name: Přizpůsobení clusterů pomocí Bootstrap
@@ -63,6 +71,21 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Publikování aplikací HDInsight na Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – CDAP (Cask Data Application Platform)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
               maintainContext: true
     - name: Zabezpečení
       items:
@@ -122,6 +145,9 @@
             - name: Použití rozhraní Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Škálování clusteru HDInsight
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: Správa protokolů pro cluster HDInsight
           href: ../hdinsight-log-management.md
           maintainContext: true
@@ -157,6 +183,8 @@
         - name: Upgrade clusteru HDInsight na novější verzi
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: Migrace clusteru HBase na novější verzi
+          href: apache-hbase-migrate-new-version.md
         - name: Opravy operačního systému pro cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -219,11 +247,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Replikace clusteru HBase ve virtuální síti Azure
           href: apache-hbase-replication.md
+        - name: Nastavení zálohování a replikace pro HBase a Phoenix
+          href: apache-hbase-backup-replication.md
     - name: Monitorování pomocí OMS
       items:
         - name: Použití Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: Monitorování HBase pomocí OMS
+          href: apache-hbase-monitor-with-oms.md
         - name: Řídicí panely pro konkrétní clustery
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -233,7 +265,9 @@
         - name: Monitorování výkonu clusteru
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Odkaz
+        - name: Osvědčené postupy pro Phoenix z hlediska výkonu
+          href: apache-hbase-phoenix-performance.md
+- name: Referenční informace
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

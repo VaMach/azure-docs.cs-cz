@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bb39cc25cc1c431c7ab98bfc3ed816934cb03e45
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Vytvoření databáze grafů pomocí Pythonu a webu Azure Portal
 
@@ -28,7 +28,7 @@ Tento rychlý start ukazuje, jak pomocí Pythonu a rozhraní [Graph API](graph-i
 Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete rychle vytvořit a dotazovat databáze dokumentů, párů klíč-hodnota a grafů, které tak můžou využívat výhody možnosti globální distribuce a horizontálního škálování v jádru služby Azure Cosmos DB.  
 
 > [!NOTE]
-> Tento rychlý start vyžaduje účet databáze grafů vytvořený po 27. listopadu 2017. Existující účty budou podporovat Python, jakmile se migrují do všeobecné dostupnosti.
+> Tento rychlý start vyžaduje účet databáze grafů vytvořený po 20. prosinci 2017. Existující účty budou podporovat Python, jakmile se migrují do všeobecné dostupnosti.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -135,28 +135,30 @@ Teď se vraťte na portál Azure, kde najdete informace o připojení, a zkop�
         password="<YOUR_PASSWORD>")
     ```
 
-3. Změňte druhý parametr objektu `client` a nahraďte řetězce `<YOUR_DATABASE>` a `<YOUR_COLLECTION_OR_GRAPH>`. Pokud jste použili navrhované hodnoty, parametr by měl vypadat přibližně takto:
+3. V názvu klienta změňte `graphs.azure.com` na `gremlin.cosmosdb.azure.com`. (Pokud se účet databáze grafů vytvořil před 20. prosincem 2017, neprovádějte žádné změny a přejděte k dalšímu kroku.)
+
+4. Změňte druhý parametr objektu `client` a nahraďte řetězce `<YOUR_DATABASE>` a `<YOUR_COLLECTION_OR_GRAPH>`. Pokud jste použili navrhované hodnoty, parametr by měl vypadat přibližně takto:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
     Celý objekt `client` by měl vypadat nějak takhle:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
 
-4. Na webu Azure Portal pomocí tlačítka pro kopírování zkopírujte PRIMÁRNÍ KLÍČ a vložte ho místo `<YOUR_PASSWORD>` v parametru `password=<YOUR_PASSWORD>`.
+5. Na webu Azure Portal pomocí tlačítka pro kopírování zkopírujte PRIMÁRNÍ KLÍČ a vložte ho místo `<YOUR_PASSWORD>` v parametru `password=<YOUR_PASSWORD>`.
 
     Celá definice objektu `client` by měla vypadat nějak takhle:
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. Uložte soubor `connect.py`.
+6. Uložte soubor `connect.py`.
 
 ## <a name="run-the-console-app"></a>Spuštění aplikace konzoly
 

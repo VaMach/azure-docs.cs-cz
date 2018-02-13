@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Správa skupin zabezpečení sítě pomocí rozhraní příkazového řádku Azure
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Požadavek
-Pokud nebyly dosud, nainstalovat a nakonfigurovat nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login). 
+Pokud nebyly dosud, nainstalovat a nakonfigurovat nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Zobrazit existující skupiny Nsg
-Chcete-li zobrazit seznam skupin Nsg v určité skupiny zdrojů, spusťte [seznam nsg sítě az](/cli/azure/network/nsg#list) s `-o table` výstupní formát:
+Chcete-li zobrazit seznam skupin Nsg v určité skupiny zdrojů, spusťte [seznam nsg sítě az](/cli/azure/network/nsg#az_network_nsg_list) s `-o table` výstupní formát:
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ Očekávaný výstup:
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>Seznam všech pravidel pro skupiny NSG
-Chcete-li zobrazit pravidla s názvem skupiny NSG **NSG front-endu**spusťte [az sítě nsg zobrazit](/cli/azure/network/nsg#show) příkaz pomocí [JMESPATH filtr dotazu](/cli/azure/query-az-cli2) a `-o table` výstupní formát:
+Chcete-li zobrazit pravidla s názvem skupiny NSG **NSG front-endu**spusťte [az sítě nsg zobrazit](/cli/azure/network/nsg#az_network_nsg_show) příkaz pomocí [JMESPATH filtr dotazu](/cli/azure/query-az-cli2) a `-o table` výstupní formát:
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ Očekávaný výstup:
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> Můžete také použít [seznam pravidel nsg sítě az](/cli/azure/network/nsg/rule#list) k zobrazení seznamu pouze vlastní pravidla ze skupiny NSG.
+> Můžete také použít [seznam pravidel nsg sítě az](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) k zobrazení seznamu pouze vlastní pravidla ze skupiny NSG.
 >
 
 ## <a name="view-nsg-associations"></a>Zobrazit přidružení skupiny NSG
@@ -151,7 +151,7 @@ Očekávaný výstup:
 ```
 
 ## <a name="change-a-rule"></a>Změna pravidla
-Změnit pravidlo předtím vytvořili, a povolit příchozí přenosy z **Internet** pouze, spusťte [aktualizace pravidla nsg sítě az](/cli/azure/network/nsg/rule#update) příkaz:
+Změnit pravidlo předtím vytvořili, a povolit příchozí přenosy z **Internet** pouze, spusťte [aktualizace pravidla nsg sítě az](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) příkaz:
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>Přidružení skupiny NSG k síťové karty
-Pro přidružení **NSG front-endu** NSG k **TestNICWeb1** síťového adaptéru, použijte [aktualizace seskupování sítě az](/cli/azure/network/nic#update) příkaz:
+Pro přidružení **NSG front-endu** NSG k **TestNICWeb1** síťového adaptéru, použijte [aktualizace seskupování sítě az](/cli/azure/network/nic#az_network_nic_update) příkaz:
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ Očekávaný výstup:
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>Zrušit přidružení skupiny NSG z síťový adaptér
 
-Zrušení přidružení **NSG front-endu** NSG z **TestNICWeb1** síťového adaptéru, spusťte [aktualizace pravidla nsg sítě az](/cli/azure/network/nsg/rule#update) příkaz znovu, ale nahraďte `--network-security-group` argument prázdný řetězec (`""`).
+Zrušení přidružení **NSG front-endu** NSG z **TestNICWeb1** síťového adaptéru, spusťte [aktualizace pravidla nsg sítě az](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) příkaz znovu, ale nahraďte `--network-security-group` argument prázdný řetězec (`""`).
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 Ve výstupu `networkSecurityGroup` klíč je nastaven na hodnotu null.
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>Zrušit přidružení skupiny NSG z podsítě
-Zrušení přidružení **NSG front-endu** NSG z **front-endu** podsíť, znovu spustit [aktualizace pravidla nsg sítě az](/cli/azure/network/nsg/rule#update) příkaz znovu, ale nahraďte `--network-security-group` argument prázdný řetězec (`""`).
+Zrušení přidružení **NSG front-endu** NSG z **front-endu** podsíť, znovu spustit [aktualizace pravidla nsg sítě az](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) příkaz znovu, ale nahraďte `--network-security-group` argument prázdný řetězec (`""`).
 
 ```azurecli
 az network vnet subnet update \
@@ -340,6 +340,6 @@ Skupinu NSG můžete odstranit, pouze pokud má není přidružen k žádnému p
     ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Povolit protokolování](virtual-network-nsg-manage-log.md) pro skupiny Nsg.
 

@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: 45a5c474191192975bfd8d6fc1bf3c0e497d369c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 9f089b5c5d573bf469d6920f9144b7cc5c97c03a
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkce a nástroje pro prostředí PowerShell v prostředí cloudu Azure (Preview)
 
-[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Funkce a nástroje pro [Bash](features.md) je také k dispozici.
@@ -53,7 +53,6 @@ Všechny změny prostředků Azure, buď provedené přímo na portálu Azure ne
 ![](media/features-powershell/azure-drive.png)
 
 #### <a name="contextual-awareness"></a>Kontextová sledování
-
 - **Rozsahu skupiny prostředků**: když v rámci cesty skupiny prostředků v Azure jednotce (`Azure:`), název skupiny prostředků se automaticky předá rutin prostředí Azure PowerShell.
 
     ![](media/features-powershell/resource-group-autocomplete.png)
@@ -91,11 +90,11 @@ Tyto příkazy jsou postavená na vzdálenou komunikaci prostředí PowerShell a
 
 |**Kategorie**    |**Název**                                 |
 |----------------|-----------------------------------------|
-|Nástroje Azure     |[Prostředí Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Rozhraní příkazového řádku Azure (2.0.23)](https://docs.microsoft.com/cli/azure/overview)|
+|Nástroje Azure     |[Prostředí Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.26)](https://docs.microsoft.com/cli/azure/overview)|
 |Textové editory    |VIM<br> nano                             |
-|Správce balíčků |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
+|Správce balíčků |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Správa zdrojového kódu  |Git                                      |
-|Databáze       |[Modul SQL Server](https://www.powershellgallery.com/packages/SqlServer)<br> [Nástroj SQLCMD](https://docs.microsoft.com/sql/tools/sqlcmd-utility)      |
+|Databáze       |[SqlServer module](https://www.powershellgallery.com/packages/SqlServer)<br> [Nástroj SQLCMD](https://docs.microsoft.com/sql/tools/sqlcmd-utility)      |
 |Testovací nástroje      |Pester                                   |
 
 ## <a name="language-support"></a>Podpora jazyků
@@ -104,7 +103,7 @@ Tyto příkazy jsou postavená na vzdálenou komunikaci prostředí PowerShell a
 |------------|-----------|
 |.NET        |4.6        |
 |Node.js     |6.10       |
-|PowerShell  |5.1 a [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell  |5.1 a [6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## <a name="next-steps"></a>Další postup

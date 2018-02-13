@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 31253d8daee1581167a96a20ba8ad529a04b3e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1abc15daaa96e834aedd121a88b543067e53641b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Začínáme s konektorem SFTP
 Pomocí protokolu SFTP konektoru pro přístup k protokolu SFTP účet, který chcete odesílat a přijímat soubory. Můžete provádět různé operace, jako je vytváření, aktualizace, získání nebo odstraňte některé soubory.  
 
-Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-sftp"></a>Připojit k protokolu SFTP
 Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připojení* ke službě. A [připojení](connectors-overview.md) poskytuje připojení mezi aplikace logiky a jiné služby.  
@@ -35,7 +35,7 @@ Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připoje
 > 
 
 ## <a name="use-an-sftp-trigger"></a>Použít aktivační procedury protokolu SFTP
-Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 V tomto příkladu **SFTP – Pokud je soubor přidat ani upravit** aktivační událost se použilo k zahájení pracovní postup aplikace logiky, když je soubor přidán do, nebo úpravě na serveru pomocí protokolu SFTP. Můžete také přidat podmínku, která kontroluje obsah souboru nové nebo upravené a provádí rozhodnutí extrahujte soubor, pokud jeho obsah označuje, že by měla být rozbalena před použitím obsah. Nakonec přidejte akci se extrahovat obsah souboru a umístit extrahované obsah do složky na serveru pomocí protokolu SFTP. 
 
@@ -51,7 +51,7 @@ V příklad enterprise můžete použít této aktivační události k monitorov
 > 
 
 ## <a name="use-an-sftp-action"></a>Použít akci protokolu SFTP
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 > 

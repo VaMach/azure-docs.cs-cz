@@ -3,8 +3,8 @@ title: "Řešení potíží s webovou aplikaci v Azure App Service pomocí sady 
 description: "Zjistěte, jak řešení webové aplikace Azure pomocí vzdálené ladění, trasování a protokolování nástroje, které jsou součástí sady Visual Studio 2013."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Řešení potíží s webovou aplikaci v Azure App Service pomocí sady Visual Studio
 ## <a name="overview"></a>Přehled
@@ -96,14 +96,14 @@ Obvykle nasazení webového projektu s `customErrors` příznak v souboru Web.co
     Zobrazí uzly, které umožňují přístup k obsahu souborů a souborů protokolů webové aplikace.
 2. Rozbalte **soubory** uzel a klikněte dvakrát *Web.config* souboru.
 
-    ![Otevřete soubor Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
+    ![Open Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
     Visual Studio otevře soubor Web.config ze vzdálené webové aplikace a ukazuje [vzdálené] vedle názvu souboru v záhlaví.
 3. Přidejte následující řádek na `system.web` element:
 
     `<customErrors mode="Off"></customErrors>`
 
-    ![Upravit soubor Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
+    ![Edit Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 4. Aktualizujte stránku prohlížeče, který se zobrazuje neužitečné chybovou zprávu, a teď se podrobná chybová zpráva, jako je například v následujícím příkladu:
 
     ![Podrobná chybová zpráva](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
@@ -117,9 +117,9 @@ Pokud Podrobná chybová zpráva neposkytuje dostatek informací, a nelze znovu 
 
 Vzdálené ladění nefunguje, pokud je v edice Express sady Visual Studio.
 
-V této části ukazuje, jak ladit vzdáleně pomocí projektu vytvoříte v [vytvořit webové aplikace ASP.NET v Azure][app-service-web-get-started-dotnet.md].
+V této části ukazuje, jak ladit vzdáleně pomocí projektu vytvoříte v [vytvoření webové aplikace ASP.NET v Azure](app-service-web-get-started-dotnet.md).
 
-1. Otevřete webový projekt, který jste vytvořili v [vytvořit webové aplikace ASP.NET v Azure][app-service-web-get-started-dotnet.md].
+1. Otevřete webový projekt, který jste vytvořili v [vytvoření webové aplikace ASP.NET v Azure](app-service-web-get-started-dotnet.md).
 
 2. Otevřete *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ V této části ukazuje, jak ladit vzdáleně pomocí projektu vytvoříte v [vy
 
 5. V **Průzkumníku řešení**, klikněte pravým tlačítkem na projekt a klikněte na tlačítko **publikovat**.
 
-6. V **profil** rozevíracího seznamu, vyberte stejný profil, že jste použili v [vytvořit webové aplikace ASP.NET v Azure][app-service-web-get-started-dotnet.md]. Potom klikněte na nastavení.
+6. V **profil** rozevíracího seznamu, vyberte stejný profil, že jste použili v [vytvoření webové aplikace ASP.NET v Azure](app-service-web-get-started-dotnet.md). Potom klikněte na nastavení.
 
 7. V **publikovat** dialogové okno, klikněte na tlačítko **nastavení** a pak změňte **konfigurace** k **ladění**a pak klikněte na tlačítko  **Uložit**.
 
@@ -222,7 +222,7 @@ Vzdálené ladění pracuje pouze s nepřetržité webové úlohy. Naplánované
 
 15. Přihlaste se pomocí přihlašovacích údajů Azure a potom klikněte na název webové úlohy přejdete na stránku pro vaše webová úloha.
 
-     ![Klikněte na tlačítko ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
+     ![Click ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
      Řídicího panelu ukazuje, že `GenerateThumbnail` funkce nedávno.
 
@@ -230,7 +230,7 @@ Vzdálené ladění pracuje pouze s nepřetržité webové úlohy. Naplánované
 
 16. Klikněte na název funkce zobrazíte podrobnosti o spuštění funkce.
 
-     ![Podrobností funkce](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
+     ![Podrobnosti funkce](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
 Pokud funkce [napsali protokoly](https://github.com/Azure/azure-webjobs-sdk/wiki), uživatel může klepnout **ToggleOutput** k jejich zobrazení.
 
@@ -336,11 +336,11 @@ Informace o tom, jak vytvořit aplikaci přihlásí webové úlohy, najdete v č
 5. Na panelu Adresa v okně prohlížeče přidat *trace.axd* na adresu URL a potom stiskněte klávesu Enter (adresa URL je podobná http://localhost:53370/trace.axd).
 6. Na **trasování aplikací** klikněte na tlačítko **zobrazit podrobnosti** na prvním řádku (ne řádek BrowserLink).
 
-    ![Trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
     **Podrobností žádosti o** se zobrazí stránka a v **informace trasování** uvidíte výstup trasování příkazy, které jste přidali do části `Index` metoda.
 
-    ![Trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
     Ve výchozím nastavení `trace.axd` je k dispozici pouze místně. Pokud jste chtěli zpřístupnit ze vzdálené webové aplikace, můžete přidat `localOnly="false"` k `trace` element v *Web.config* souboru, jak je znázorněno v následujícím příkladu:
 

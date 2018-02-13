@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Ukázková konfigurace: Cisco ASA zařízení (BGP IKEv2/ne)
 Tento článek obsahuje ukázkové konfigurace pro připojování zařízení Cisco adaptivní zabezpečení zařízení (ASA) do Azure VPN Gateway. Příklad se týká se zařízení Cisco ASA, systémem IKEv2 bez protokol BGP (Border Gateway). 
@@ -60,7 +60,7 @@ Podrobné pokyny k vytvoření konfigurace Azure najdete v tématu [nastavení t
 ### <a name="virtual-network-and-vpn-gateway-information"></a>Virtuální síť a informace o bráně VPN
 V této části jsou uvedeny parametry pro vzorovou.
 
-| **Parametr**                | **Hodnota**                    |
+| **Parameter**                | **Hodnota**                    |
 | ---                          | ---                          |
 | Předpony adres virtuální sítě        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Azure IP adresa brány sítě VPN         | Azure_Gateway_Public_IP      |
@@ -98,10 +98,7 @@ Následující tabulka uvádí algoritmy protokolu IPsec/IKE a parametry, které
 
 * Podpora pro skupinu Diffie-Hellman a skupinu PFS nad rámec skupiny 5 vyžaduje verzi ASA 9.x.
 
-* Podpora pro šifrování pomocí protokolu IPsec s AES-GCM a protokolu IPsec Integrity pomocí algoritmu SHA-256, SHA-384 a SHA-512, vyžaduje verzi ASA 9.x. Tento požadavek podpora platí pro novější ASA zařízení.
-
-    > [!NOTE]
-    > Modely zařízení ASA 5505, 5510, 5520, 5540, 5550 a 5580 nejsou podporovány. Naleznete v dokumentaci VPN ověřit algoritmy, které jsou podporovány pro modely zařízení VPN a verzí firmwaru.
+* Podpora pro šifrování pomocí protokolu IPsec s AES-GCM a protokolu IPsec Integrity pomocí algoritmu SHA-256, SHA-384 a SHA-512, vyžaduje verzi ASA 9.x. Tento požadavek podpora platí pro novější ASA zařízení. V době publikace nepodporují ASA modely 5505, 5510, 5520, 5540, 5550 a 5580 tyto algoritmy. Naleznete v dokumentaci VPN ověřit algoritmy, které jsou podporovány pro modely zařízení VPN a verzí firmwaru.
 
 
 ### <a name="sample-device-configuration"></a>Ukázka konfigurace zařízení
@@ -310,5 +307,5 @@ Použijte následující příkazy ASA pro účely ladění:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Konfigurace aktivní aktivní mezi různými místy a připojení VNet-to-VNet najdete v tématu [konfiguraci brány VPN aktivní aktivní](vpn-gateway-activeactive-rm-powershell.md).

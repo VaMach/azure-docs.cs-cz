@@ -6,15 +6,15 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 1/25/2018
 ms.author: nepeters
-ms.openlocfilehash: a4e4ce6a23f9f8a99d8ae5f9e4e2084e3b749017
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: aa89cf9fe4e2cd5b63017558e89401de86effdc9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-disks---dynamic-provisioning"></a>Trvalé svazky s Azure disky - dynamické zajišťování
+# <a name="persistent-volumes-with-azure-disks"></a>Trvalé svazky s disky systému Azure
 
 Trvalé svazku představuje část úložiště, které se zřizují pro použití v clusteru s podporou Kubernetes. Trvalé svazku může používat jednoho nebo mnoha pracovními stanicemi soustředěnými kolem a můžete dynamicky nebo staticky zřídit. Tento dokument podrobně popisuje dynamické zřizování Azure disk jako trvalé svazek Kubernetes v clusteru služby AKS. 
 
@@ -51,13 +51,14 @@ parameters:
   storageaccounttype: Standard_LRS
 ```
 
-
-
 ## <a name="create-persistent-volume-claim"></a>Vytvoření svazku trvalé deklarace identity
 
 Deklarace identity trvalé svazek používá objekt třídy úložiště dynamicky zřídit část úložiště. Pokud používáte Azure disk, disk se vytvoří ve stejné skupině prostředků jako AKS prostředky.
 
 Manifest tento příklad vytvoří deklarace identity trvalé svazku pomocí `azure-managed-disk` třídy úložiště pro vytvoření disku `5GB` velikost `ReadWriteOnce` přístup. Další informace o PVC režimy přístupu najdete v tématu [režimy přístupu][access-modes].
+
+> [!NOTE]
+> Azure disk může být připojen pouze s typem režim přístupu ReadWriteOnce, že bude k dispozici pouze do jednoho uzlu AKS. Pokud museli sdílet mezi několika uzly trvalé svazku, zvažte použití [Azure Files][azure-files-pvc]. 
 
 ```yaml
 apiVersion: v1
@@ -110,4 +111,5 @@ Další informace o Kubernetes trvalé svazky s využitím disky systému Azure.
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->
+[azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

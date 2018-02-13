@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Jak používat Azure spravované služby Identity (verze public preview) ve službě App Service a Azure Functions
 
@@ -56,7 +56,7 @@ Pokud chcete nastavit identitu spravované služby pomocí rozhraní příkazov�
 
 Následující postup vás provede vytvořením webové aplikace a jeho přiřazení identity pomocí rozhraní příkazového řádku:
 
-1. Pokud používáte Azure CLI v místní konzole, nejdřív přihlásit k Azure pomocí [az přihlášení](/cli/azure/#login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit aplikaci:
+1. Pokud používáte Azure CLI v místní konzole, nejdřív přihlásit k Azure pomocí [az přihlášení](/cli/azure/#az_login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit aplikaci:
 
     ```azurecli-interactive
     az login
@@ -161,7 +161,7 @@ Aplikace s identitou, spravované služby má dvě proměnné definované:
 > [!div class="mx-tdBreakAll"]
 > |Název parametru|V|Popis|
 > |-----|-----|-----|
-> |Prostředek|Dotaz|AAD identifikátor URI prostředku, pro který by měl získat token.|
+> |prostředek|Dotaz|AAD identifikátor URI prostředku, pro který by měl získat token.|
 > |verze rozhraní API.|Dotaz|Verze rozhraní API tokenů, který se má použít. "2017-09-01" je aktuálně podporovány pouze verze.|
 > |Tajný kód|Záhlaví|Hodnota proměnné prostředí MSI_SECRET.|
 
@@ -173,7 +173,7 @@ Aplikace s identitou, spravované služby má dvě proměnné definované:
 > |-------------|----------|
 > |access_token|Požadovaný přístupový token. Volání webové služby můžete použít tento token k ověření přijímající webové služby.|
 > |expires_on|Čas, kdy vyprší platnost přístupového tokenu. Datum je reprezentován jako počet sekund od pod hodnotou 1970-01-01T0:0:0Z UTC až do okamžiku vypršení platnosti. Tato hodnota se používá k určení doby platnosti tokenů v mezipaměti.|
-> |Prostředek|Identifikátor ID URI aplikace přijímající webové služby.|
+> |prostředek|Identifikátor ID URI aplikace přijímající webové služby.|
 > |token_type|Určuje hodnotu typ tokenu. Pouze typ, který podporuje Azure AD je nosiče. Další informace o nosné tokeny najdete v tématu [rámci autorizace OAuth 2.0: použití tokenů nosiče (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 

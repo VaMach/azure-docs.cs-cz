@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: a5b4056f3198e998fa7fb127fd2c4bcda90e4bbb
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Přizpůsobení funkce služby Azure AD pro samoobslužné resetování hesla
 
@@ -74,31 +74,7 @@ Grafické objekty, které zvolíte jsou uvedeny v následujících případech:
     * Předáním *Wh* parametru heslo resetovat stránky, jako je "https://login.microsoftonline.com/?whr=contoso.com"
     * Předáním *uživatelské jméno* parametru heslo resetovat stránky, jako je třeba "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-### <a name="graphics-details"></a>Podrobnosti o grafiky
-
-Chcete-li změnit vizuální vlastnosti na přihlašovací stránku, použijte následující nastavení. Přejděte na **Azure Active Directory** > **firemní branding** > **úpravy firemního brandingu**:
-
-* Obrázek přihlašovací stránky musí být soubor .png nebo .jpg 1420 × 1200 pixelů a nesmí být větší než 500 KB. Nejlepších výsledků dosáhnete doporučujeme, abyste je přibližně 200 KB.
-* Barva pozadí přihlašovací stránce se používá v s vysokou latencí připojení a musí být v šestnáctkovém formátu RGB.
-* Bitové kopie banner by měl být soubor .png nebo .jpg, 60 x 280 pixelů a být větší než 10 KB.
-* Odmocnina logo (normální a tmavým motivem) by měl být soubor .png nebo .jpg, 240 x 240 pixelů (s možností změny velikosti) a nesmí být větší než 10 KB.
-
-### <a name="sign-in-text-options"></a>Možnosti přihlášení textu
-
-Chcete-li přidat text na stránku přihlášení, které jsou důležité pro vaši organizaci použijte následující nastavení. Přejděte na **Azure Active Directory** > **firemní branding** > **úpravy firemního brandingu**:
-
-* **Pomocný parametr název uživatele**: nahradí text příklad  *someone@example.com*  s něco vhodnější pro vaše uživatele. Doporučujeme ponechat výchozí pomocný parametr, pokud podporujete interních a externích uživatelů.
-* **Text přihlašovací stránky**: můžete mít maximálně 256 znaků. Tento text se zobrazí všude, kde uživatelé přihlašovat v online režimu a v prostředí připojení k pracovišti Azure AD na Windows 10. Použijte tento text pro podmínky použití, pokyny a tipy pro vaše uživatele. 
-
-   >[!IMPORTANT]
-   >Přihlašovací stránku, takže neposkytují žádné citlivé informace zde obsah uvidí kdokoliv.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>Nastavení "Zakázat udržování mi přihlášení"
-
-Pomocí **zůstat přihlášeni zakázáno** možnost, uživatelé mohou zůstat přihlášeného, při jejich zavřete a znovu otevřete okno jejich prohlížeče. Tato možnost nemá negativní vliv na dobu platnosti relace. Přejděte na **Azure Active Directory** > **firemní branding** > **úpravy firemního brandingu**.
-
-Některé funkce služby SharePoint Online a Office 2010 jsou závislé na uživatelé budou moci toto políčko zaškrtněte. Pokud je skrýt tuto možnost, mohou uživatelé získat další a neočekávané přihlášení výzvy.
+Najít podrobnosti o tom, jak nakonfigurovat firemního brandingu v článku [přidání firemního brandingu na přihlašovací stránku ve službě Azure AD](customize-branding.md).
 
 ### <a name="directory-name"></a>Název adresáře
 

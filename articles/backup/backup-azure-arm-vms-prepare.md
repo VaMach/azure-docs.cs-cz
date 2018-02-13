@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Příprava prostředí pro zálohování virtuálních počítačů s nasazením Resource Manageru
 
@@ -54,7 +54,7 @@ Než se připravíte prostředí, ujistěte se, že jste pochopili tato omezení
 * Zálohování virtuálních počítačů s daty velikosti disku je větší než 1,023 GB není podporována.
 
   > [!NOTE]
-  > Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s 1 TB (nebo vyšší) nespravované disky. Podrobnosti najdete v části [privátní Preview verzi pro podporu zálohování virtuálních počítačů velké diskové](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s disky > 1TB. Podrobnosti najdete v části [privátní Preview verzi pro podporu zálohování virtuálních počítačů velké diskové](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Zálohování virtuálních počítačů s vyhrazenou IP adresu a žádný definovaný koncový bod není podporována.
@@ -63,7 +63,7 @@ Než se připravíte prostředí, ujistěte se, že jste pochopili tato omezení
 * Zálohovaná data neobsahuje sítě připojené jednotky připojené k virtuálnímu počítači.
 * Nahrazení existujícího virtuálního počítače během obnovení se nepodporuje. Pokud se pokusíte obnovit virtuální počítač, když virtuální počítač existuje, operaci obnovení se nezdaří.
 * Mezi oblastmi zálohování a obnovení nejsou podporovány.
-* Od teď se nepodporuje zálohování a obnovení ACLed virtuální počítače služby storage. Zálohování virtuálních počítačů není podporováno, pokud jste povolili úložiště na funkci virtuální síť, která umožňuje účtům úložiště přistupovat pouze z určitých virtuální sítě nebo podsítě nebo IP adresy.
+* Zálohování a obnovení virtuálních počítačů pomocí nespravované disků v účtech úložiště s pravidly sítě, použije se aktuálně nepodporuje. Při konfiguraci zálohování, ujistěte se, že "Brány firewall a virtuální sítě" nastavení pro účet úložiště umožňuje přístup z "Všechny sítě."
 * Můžete zálohovat virtuální počítače ve všech veřejných oblastech Azure. (Viz [kontrolní seznam](https://azure.microsoft.com/regions/#services) z podporovaných oblastí.) Pokud oblast, kterou hledáte, není podporován dnes, nezobrazí se v rozevíracím seznamu při vytváření trezoru.
 * Obnovení řadiče domény (DC) virtuálního počítače, který je součástí konfigurace více – řadič domény je možné pouze pomocí prostředí PowerShell. Další informace najdete v tématu [obnovení řadiče domény, řadiče domény služby více](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Obnovení virtuálních počítačů, které mají následující zvláštní síťové konfigurace je podporována pouze pomocí prostředí PowerShell. Po dokončení operace obnovení, nebude mít virtuální počítače vytvořené pomocí obnovení pracovního postupu v uživatelském rozhraní tyto konfigurace sítě. Další informace najdete v tématu [obnovení virtuálních počítačů s konfigurací speciální síťových](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -181,7 +181,7 @@ Jakmile povolíte úspěšně zálohování, zásady zálohování se spustí po
 Pokud máte potíže s registrací virtuální počítač, zobrazíte následující informace o instalaci agenta virtuálního počítače a na připojení k síti. Pravděpodobně ani nepotřebujete následující informace Pokud chráníte virtuální počítače vytvořené v Azure. Ale pokud jste migrovali virtuální počítače Azure, ujistěte se, zda správně nainstalovaný agent virtuálního počítače a virtuální počítač může komunikovat se službou virtuální sítě.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Nainstalujte agenta virtuálního počítače na virtuálním počítači
-Pro rozšíření Backup pracovat, Azure [agenta virtuálního počítače](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) musí být nainstalován na virtuální počítač Azure. Pokud byl váš virtuální počítač vytvořen z Azure Marketplace, agent virtuálního počítače již existuje ve virtuálním počítači. 
+Pro rozšíření Backup pracovat, Azure [agenta virtuálního počítače](../virtual-machines/windows/agent-user-guide.md) musí být nainstalován na virtuální počítač Azure. Pokud byl váš virtuální počítač vytvořen z Azure Marketplace, agent virtuálního počítače již existuje ve virtuálním počítači. 
 
 Následující informace slouží pro situacích, kdy jsou *není* pomocí virtuální počítač vytvořen z Azure Marketplace. Například jste migrovali virtuální počítač z překážek místní datacentra. V takovém případě musí být nainstalovaný za účelem ochrany virtuálního počítače agenta virtuálního počítače.
 
@@ -219,7 +219,7 @@ Připojení k úložišti konkrétní oblasti můžete povolit pomocí [služby 
 ![Skupina NSG s značky úložiště pro oblast](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Značky úložiště jsou k dispozici pouze v určitých oblastí a jsou ve verzi preview. Seznam oblastí naleznete v tématu [služby značky pro úložiště](../virtual-network/security-overview.md#service-tags).
+> Značky služby úložiště jsou k dispozici pouze v určitých oblastí a jsou ve verzi preview. Seznam oblastí naleznete v tématu [služby značky pro úložiště](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Použít proxy server HTTP pro zálohování virtuálních počítačů
 Pokud zálohujete virtuální počítač, rozšíření zálohování na virtuální počítač odešle snímek příkazy pro správu do služby Azure Storage pomocí rozhraní API HTTPS. Směrujte provoz rozšíření zálohování přes server proxy protokolu HTTP, protože se jedná o jedinou komponentou nakonfigurovaný pro přístup do veřejného Internetu.

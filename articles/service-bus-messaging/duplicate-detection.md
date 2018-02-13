@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="duplicate-detection"></a>Detekce duplicitních
 
-Pokud aplikace zaznamená ihned po závažné chybě odešle zprávu, a instance restartovat aplikace proto chybnou informací dochází k závěru, že doručení předchozí zpráv se neuskutečnilo, následné odesílání způsobí, že tato zpráva se objeví v systému dvakrát.
+Pokud aplikace zaznamená ihned po závažné chybě odešle zprávu a instance restartovat aplikace chybnou informací dochází k závěru, že doručení předchozí zpráv neuskutečnilo, následné odesílání způsobí, že tato zpráva se objeví v systému dvakrát.
 
-Je také možné pro chybu na úrovni klienta nebo sítě proběhnout chvíli dříve a pro odeslané zprávy, která se do fronty, s potvrzení, že nebudou ji zpět do klienta úspěšně potvrzeny. Tento scénář zanechává klienta nejistých dotázán na výsledek operaci odeslání.
+Je také možné pro chybu na úrovni klienta nebo sítě proběhnout chvíli dříve, a pro odeslané zprávy, která se potvrdí do fronty, s potvrzení nebylo úspěšně vrácen do klienta. Tento scénář zanechává klienta nejistých dotázán na výsledek operaci odeslání.
 
 Detekce duplicitních trvá nejistých mimo těchto situacích povolením odesílatele znovu odeslat stejnou zprávu a fronta nebo téma zahodí všechny duplicitní kopie.
 
@@ -35,7 +35,7 @@ Pro obchodní proces, v níž jsou odesílány více zpráv v průběhu zpracov�
 
 *MessageId* může být vždy některé identifikátor GUID, ale ukotvení identifikátor, který obchodní proces vypočítá předvídatelný opakovatelnosti, která se požaduje efektivně využívat funkce vyhledávání duplicit.
 
-## <a name="enable-duplicate-detection"></a>Povolení detekce duplicitních
+## <a name="enable-duplicate-detection"></a>Povolit vyhledávání duplicit
 
 Na portálu, je zapnutá funkce během vytváření entit s **povolení detekce duplicitních** zaškrtávací políčko, které ve výchozím nastavení. Nastavení pro vytvoření nová témata je ekvivalentní.
 
@@ -53,7 +53,7 @@ Všimněte si, že povolení detekce duplicitních a velikosti okna přímo vliv
 
 Zachování okno malé znamená, že musí být méně identifikátory zpráv uchována a matched a propustnost je dopad na menší. Pro vysoké propustnosti entity, které vyžadují detekci duplikátů byste měli mít okno co nejmenší.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o zasílání zpráv Service Bus, najdete v následujících tématech:
 

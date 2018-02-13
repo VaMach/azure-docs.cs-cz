@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Řešení chyb neplatný šablony
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 Double zkontrolujte povolené hodnoty v šabloně a zadejte jeden během nasazení.
 
-### <a name="solution-4---circular-dependency-detected"></a>Řešení 4 - cyklická závislost zjistil
+### <a name="solution-4---too-many-target-resource-groups"></a>Řešení 4 - příliš mnoho skupin prostředků cíle
+
+Pokud zadáte více než pět skupin prostředků cíle v jednom nasazení, zobrazí tato chyba. Zvažte buď konsolidace počet skupin prostředků ve vašem nasazení nebo nasazení některé šablony jako samostatná nasazení. Další informace najdete v tématu [prostředky Azure nasazení na více než jedno předplatné nebo skupinu prostředků](resource-manager-cross-resource-group-deployment.md).
+
+### <a name="solution-5---circular-dependency-detected"></a>Řešení 5 - cyklická závislost zjistil
 
 Tato chyba se zobrazí, když prostředky jsou vzájemně závislé způsobem, který zabrání spuštění nasazení. Kombinace vzájemné závislosti díky dvou nebo více prostředků čekat na další prostředky, které jsou také čekání. Například resource1 závisí na resource3, resource2 závisí na resource1 a resource3 závisí na resource2. Obvykle můžete tento problém vyřešit odstraněním nepotřebných závislosti.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Úvod do FreeBSD v Azure
 Toto téma obsahuje přehled spuštěným virtuálním počítačem FreeBSD v Azure.
@@ -29,7 +29,7 @@ FreeBSD pro Microsoft Azure je operační systém pokročilé počítače použ�
 
 Microsoft Corporation je zpřístupnění bitové kopie FreeBSD v Azure pomocí [agenta hosta virtuálního počítače Azure](https://github.com/Azure/WALinuxAgent/) předem nakonfigurované. V současné době jsou následující verze FreeBSD nabízí jako obrázky společností Microsoft:
 
-- 10.3 uvolnění FreeBSD
+- FreeBSD 10.3-RELEASE
 - FreeBSD 11.0 – verze
 - UVOLNĚNÍ FreeBSD 11.1
 
@@ -132,6 +132,5 @@ Kořenové prostředí můžete volitelně můžete získat pomocí `sudo -s`.
 ## <a name="known-issues"></a>Známé problémy
 [Agenta hosta virtuálního počítače Azure](https://github.com/Azure/WALinuxAgent/) verze 2.2.2 má [známý problém] (https://github.com/Azure/WALinuxAgent/pull/517), která způsobí selhání přidělení pro virtuální počítač FreeBSD v Azure. Oprava zaznamenaná [agenta hosta virtuálního počítače Azure](https://github.com/Azure/WALinuxAgent/) verze 2.2.3 a pozdějších verzích. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Přejděte na [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) vytvoření FreeBSD virtuálního počítače.
-* Pokud chcete, aby vlastní FreeBSD do Azure, podívejte se na [vytvoření a nahrání virtuálního pevného disku FreeBSD do Azure](classic/freebsd-create-upload-vhd.md).

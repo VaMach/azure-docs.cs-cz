@@ -3,9 +3,9 @@ title: "Azure Disk Encryption – nejčastější dotazy | Microsoft Docs"
 description: "Tento článek obsahuje odpovědi na nejčastější dotazy k Microsoft Azure Disk Encryption pro systém Windows a virtuálních počítačů IaaS Linux."
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Nejčastější dotazy k Azure Disk Encryption
 
@@ -47,14 +47,14 @@ Tento článek obsahuje odpovědi na nejčastější dotazy (FAQ) o Azure Disk E
 
 | Distribuce systému Linux | Verze | Typ svazku podporovaný pro šifrování|
 | --- | --- |--- |
-| Ubuntu | 16.04. DENNĚ LTS | Disk operačního systému a dat |
+| Ubuntu | 16.04-DAILY-LTS | Disk operačního systému a dat |
 | Ubuntu | 14.04.5-DAILY-LTS | Disk operačního systému a dat |
 | RHEL | 7.3 | Disk operačního systému a dat |
 | RHEL | 7.2 | Disk operačního systému a dat |
 | RHEL | 6.8 | Disk operačního systému a dat |
 | RHEL | 6.7 | Datový disk |
 | CentOS | 7.3 | Disk operačního systému a dat |
-| CentOS | 7.2N | Disk operačního systému a dat |
+| CentOS | 7.2n | Disk operačního systému a dat |
 | CentOS | 6.8 | Disk operačního systému a dat |
 | CentOS | 7.1 | Datový disk |
 | CentOS | 7.0 | Datový disk |
@@ -129,9 +129,9 @@ Pokud tento pracovní postup není možné, spoléhat na [šifrování služby �
 
 **Otázka:** kde můžete přejít k nim máte nějaké otázky nebo poskytnout zpětnou vazbu?
 
-**Odpověď:** můžete klást otázky nebo poskytnout zpětnou vazbu na [fórum pro Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**Odpověď:** můžete klást otázky nebo poskytnout zpětnou vazbu na [fórum pro Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto dokumentu jste zjistili, informace o nejčastější dotazy týkající se Azure Disk Encryption. Další informace o této služby a jeho funkce najdete v následujících článcích:
 
 - [Použít šifrování disku v Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

@@ -9,29 +9,27 @@
 - name: Šablony Rychlý start
   expanded: true
   items:
-    - name: Vytvoření objektu pro vytváření dat
-      items:
-        - name: Uživatelské rozhraní
-          href: quickstart-create-data-factory-portal.md
-        - name: Nástroj pro kopírování dat
-          href: quickstart-create-data-factory-copy-data-tool.md
-        - name: PowerShell
-          href: quickstart-create-data-factory-powershell.md
-        - name: .NET
-          href: quickstart-create-data-factory-dot-net.md
-        - name: Python
-          href: quickstart-create-data-factory-python.md
-        - name: REST
-          href: quickstart-create-data-factory-rest-api.md
-        - name: Šablona Resource Manageru
-          href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Vytvoření datové továrny – uživatelské rozhraní
+      href: quickstart-create-data-factory-portal.md
+    - name: Vytvoření datové továrny – nástroj pro kopírování dat
+      href: quickstart-create-data-factory-copy-data-tool.md
+    - name: Vytvoření datové továrny – Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Vytvoření datové továrny – NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Vytvoření datové továrny – Python
+      href: quickstart-create-data-factory-python.md
+    - name: Vytvoření datové továrny – REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Vytvoření datové továrny – šablona Resource Manageru
+      href: quickstart-create-data-factory-resource-manager-template.md
 - name: Kurzy
   items:
     - name: 1. Nasazení balíčků SSIS do Azure
       items:
         - name: Uživatelské rozhraní
           href: tutorial-create-azure-ssis-runtime-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure.md
     - name: 2. Kopírování dat v cloudu
       items:
@@ -39,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Uživatelské rozhraní
           href: tutorial-copy-data-portal.md
-        - name: PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3. Kopírování místních dat do cloudu
       items:
@@ -47,13 +45,13 @@
           href: tutorial-hybrid-copy-data-tool.md
         - name: Uživatelské rozhraní
           href: tutorial-hybrid-copy-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-hybrid-copy-powershell.md
     - name: 4. Hromadné kopírování dat
       items:
         - name: Uživatelské rozhraní
           href: tutorial-bulk-copy-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-bulk-copy.md
     - name: 5. Přírůstkové kopírování dat
       href: tutorial-incremental-copy-overview.md
@@ -62,41 +60,43 @@
           items:
             - name: Uživatelské rozhraní
               href: tutorial-incremental-copy-portal.md
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2. Kopírování z několika tabulek
           items:
-            - name: PowerShell
+            - name: Uživatelské rozhraní
+              href: tutorial-incremental-copy-multiple-tables-portal.md
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3. Použití funkce sledování změn
           items:
             - name: Uživatelské rozhraní
               href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6. Transformace dat v cloudu
       items:
         - name: Uživatelské rozhraní
           href: tutorial-transform-data-spark-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-transform-data-spark-powershell.md
     - name: 7. Transformace dat ve virtuální síti
       items:
         - name: Uživatelské rozhraní
           href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
     - name: 8. Tok řízení
       items:
         - name: Uživatelské rozhraní
           href: tutorial-control-flow-portal.md
-        - name: PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Ukázky
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
-    - name: PowerShell
+    - name: Azure PowerShell
       href: samples-powershell.md
 - name: Koncepty
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Vyvolání balíčků SSIS pomocí aktivity uložených procedur
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Plánování prostředí Azure-SSIS Integration Runtime
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Vytvoření aktivačních událostí
       items:
         - name: Vytvoření aktivační události plánu

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 24f3d506354c9c81d17f96a51599db2e1bccf178
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 772af3bce6947a92fa62a93a84ee84ee34093d82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopírování dat z nebo na Azure File Storage pomocí Azure Data Factory
 
@@ -34,7 +34,7 @@ Konkrétně tento konektor Azure File Storage podporuje kopírování souborů j
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory k Azure File Storage.
 
@@ -47,7 +47,7 @@ Pro soubor propojené služby Azure Storage jsou podporovány následující vla
 | type | Vlastnost typu musí být nastavena na: **souborovém serveru**. | Ano |
 | hostitel | Určuje koncový bod Azure File Storage jako `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ano |
 | ID uživatele | Zadejte uživatele pro přístup k Azure File Storage jako `"userid": "AZURE\\<storage name>"`. | Ano |
-| heslo | Zadejte přístupový klíč úložiště. Toto pole můžete označte jako SecureString.<br/> | Ano |
+| heslo | Zadejte přístupový klíč úložiště. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne Ano pro sink zdroje |
 
 >[!IMPORTANT]
@@ -120,7 +120,7 @@ Ke zkopírování dat z/do Azure File Storage, nastavte vlastnost typu datové s
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které podporuje Azure File Storage zdroj a jímka.
 

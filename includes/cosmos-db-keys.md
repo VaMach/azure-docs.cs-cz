@@ -1,4 +1,4 @@
-  Teď přejděte do okna účtu Cosmos DB a klikněte na **Klíče**. Tyto hodnoty totiž použijeme ve webové aplikaci, kterou v dalších krocích vytvoříme.
+  Nyní přejděte na stránku účtu Azure Cosmos DB a klikněte na tlačítko **klíče**, jak tyto hodnoty se používají ve webové aplikaci, můžete vytvořit další.
 
-![Snímek obrazovky webu Azure Portal ukazující účet Cosmos DB se zvýrazněným tlačítkem Klíče v okně účtu Cosmos DB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče](./media/cosmos-db-keys/keys.png)
+![Snímek obrazovky portálu Azure s tlačítkem klíče na stránce účtu Azure Cosmos DB](./media/cosmos-db-keys/keys.png)
 

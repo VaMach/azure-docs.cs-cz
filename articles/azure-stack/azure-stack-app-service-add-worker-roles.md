@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 30ab325488684a26a6ef442e7c8241526a66aa4c
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: a9be9011062f07d59842d417bf6761ec81c39275
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>V zásobníku Azure App Service: přidání další infrastrukturu nebo pracovních rolí
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*  
 
 Tento dokument obsahuje pokyny pro škálování služby App Service na infrastrukturu a pracovní role Azure zásobníku. Obsahuje kroky pro vytváření rolí další pracovního procesu pro podporu aplikací jakékoli velikosti.
 
@@ -40,15 +41,15 @@ Přidat další pracovníků přímo v rámci správce aplikace služby prostře
 2. Přejděte do **aplikační služby**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. Klikněte na tlačítko **role**. Tady vidíte rozpis všech rolí služby App Service nasadit.
 
 4. Klikněte pravým tlačítkem na řádek škálování a potom klikněte na požadovaný typ **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. Klikněte na tlačítko **škálování**, vyberte počet instancí, kterou chcete škálovat a potom klikněte na **Uložit**.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. V zásobníku Azure App Service bude nyní přidávání dalších virtuálních počítačů, je nakonfigurovat, nainstalovat požadovaný software a označit je jako připravené po dokončení tohoto procesu. Tento proces může trvat přibližně 80 minut.
@@ -64,6 +65,6 @@ Jakmile jsou plně nasazen a připraven, zaměstnanců k dispozici pro uživatel
 
 Pro rozšíření Škálováním správy, Front-endu nebo role vydavatele, postupujte stejným způsobem výběr typu příslušnou roli. Řadiče se nenasadí jako sady škálování a proto dva musí být nasazené v průběhu instalace pro všechny nasazení v produkčním prostředí.
 
-### <a name="next-steps"></a>Další kroky
+### <a name="next-steps"></a>Další postup
 
 [Konfigurace zdrojů nasazení](azure-stack-app-service-configure-deployment-sources.md)

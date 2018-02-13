@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8176a952107a630d42d557e568a230f1cdc840aa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Jak se připojit ke zdrojům dat
 ## <a name="introduction"></a>Úvod
@@ -43,11 +43,11 @@ Při použití "Otevřít v..." nabídky pro zdroje dat na portálu Azure Data C
 
 | Otevřít v aplikaci | Příponu souboru / protocol | Verze podporované aplikace |
 | --- | --- | --- |
-| Excel |ODC |Excel 2010 nebo novější |
-| Aplikace Excel (horní 1000) |ODC |Excel 2010 nebo novější |
-| Power Query |XLSX |Nainstalované aplikace Excel 2016 nebo aplikaci Excel 2010 nebo Excel 2013 doplněk Power Query pro doplněk aplikace Excel |
+| Excel |.odc |Excel 2010 nebo novější |
+| Aplikace Excel (horní 1000) |.odc |Excel 2010 nebo novější |
+| Power Query |.xlsx |Nainstalované aplikace Excel 2016 nebo aplikaci Excel 2010 nebo Excel 2013 doplněk Power Query pro doplněk aplikace Excel |
 | Power BI Desktop |.pbix |Power BI Desktop července 2016 nebo novější |
-| SQL Server Data Tools |vsweb: / / |Visual Studio 2013 Update 4 nebo novější s nástrojů systému SQL Server nainstalován |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 nebo novější s nástrojů systému SQL Server nainstalován |
 | Správce sestav |http:// |V tématu [požadavky na prohlížeč pro SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Data, vaše nástroje
@@ -67,5 +67,5 @@ Aby bylo snazší pro uživatele, kteří zjistit zdroje dat, ale nemáte přís
 ## <a name="summary"></a>Souhrn
 Registrace k datovému zdroji prostřednictvím **Azure Data Catalog** díky dat zjistitelný zkopírováním strukturální a popisný metadat ze zdroje dat ve službě katalogu. Jakmile zdroj dat má byl zaregistrován a zjistit, uživatelé se mohou připojit ke zdroji dat z **Azure Data Catalog** portál "Otevřít v..." " nabídky nebo pomocí nástrojů jejich data výběru.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Začínáme s Azure Data Catalog](data-catalog-get-started.md) kurz podrobné informace o tom, jak se připojit ke zdrojům dat.

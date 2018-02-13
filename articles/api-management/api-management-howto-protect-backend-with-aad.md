@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak chránit, back-endu webového rozhraní API pomocí Azure Active Directory a API Management
 Následující video ukazuje, jak vytvářet back-end webového rozhraní API a chránit pomocí Azure Active Directory a rozhraní API správy protokolu OAuth 2.0.  Tento článek obsahuje přehled a další informace o kroky v videa. Následující 24 minutu video ukazuje, jak na:
@@ -33,7 +33,7 @@ Následující video ukazuje, jak vytvářet back-end webového rozhraní API a 
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Vytvořte adresář služby Azure AD
-K zabezpečení vašeho webového rozhraní API zálohovaný pomocí Azure Active Directory je nutné nejdříve vytvořit klienta služby AAD. V tomto videu klienta s názvem **APIMDemo** se používá. Vytvoření klienta služby AAD, přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com) a klikněte na tlačítko **nový**->**App Services**->**služby Active Directory**->**Directory**->**vytvořit vlastní**. 
+K zabezpečení vašeho webového rozhraní API back-end pomocí Azure Active Directory je nutné nejdříve vytvořit klienta služby AAD. V tomto videu klienta s názvem **APIMDemo** se používá. Vytvoření klienta služby AAD, přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com) a klikněte na tlačítko **nový**->**App Services**->**služby Active Directory**->**Directory**->**vytvořit vlastní**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -42,7 +42,7 @@ V tomto příkladu adresář s názvem **APIMDemo** je vytvořena s výchozí do
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Vytvoření webového rozhraní API služby Zabezpečené přes Azure Active Directory
-V tomto kroku se vytvoří webového rozhraní API back-end pomocí Visual Studio 2013. Tento krok videa se spustí v 1:30. Vytvoření projektu webového rozhraní API back-end v sadě Visual Studio klikněte na položku **soubor**->**nový**->**projektu**a zvolte **webové aplikace ASP.NET** z **webové** seznamu šablon. V tomto videu projektu jmenuje **APIMAADDemo**. Kliknutím na tlačítko **OK** vytvořte projekt. 
+V tomto kroku se vytvoří webového rozhraní API back-end pomocí Visual Studio 2013. Tento krok videa se spustí v 1:30. Vytvoření projektu webového rozhraní API back-end v sadě Visual Studio klikněte na položku **soubor**->**nový**->**projektu**a zvolte **webové aplikace ASP.NET** z **webové** seznamu šablon. V tomto videu projektu jmenuje **APIMAADDemo**. Projekt vytvoříte kliknutím na **OK**. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -81,13 +81,13 @@ Webové rozhraní API v tomto příkladu implementuje základní kalkulačky slu
 
 Přidejte následující `using` příkaz do horní části `CalcInput.cs` souboru.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Generovaná třída nahraďte následujícím kódem.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Klikněte pravým tlačítkem na **řadiče** v **Průzkumníku řešení** a zv
 
 Přidejte následující `using` příkaz do horní části `CalcController.cs` souboru.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Třídy generované kontroleru nahraďte následujícím kódem. Tento kód implementuje `Add`, `Subtract`, `Multiply`, a `Divide` operace rozhraní API základní kalkulačky.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -174,7 +174,7 @@ V adresáři služby Azure AD jako součást procesu konfigurace a publikování
 
 Klikněte na název aplikace a nakonfigurujte požadovaná oprávnění. Přejděte na **konfigurace** kartě a přejděte dolů k položce **oprávnění k ostatním aplikacím** části. Klikněte **oprávnění aplikací** rozevíracího seznamu vedle položky **Windows** **Azure Active Directory**, zaškrtněte políčko pro **čtení dat adresáře**a klikněte na tlačítko **Uložit**.
 
-![Přidání oprávnění][api-management-aad-add-permissions]
+![Přidat oprávnění][api-management-aad-add-permissions]
 
 > [!NOTE]
 > Pokud **Windows** **Azure Active Directory** nejsou uvedené v části oprávnění k ostatním aplikacím, klikněte na tlačítko **přidat aplikaci** a přidejte ji ze seznamu.
@@ -192,7 +192,7 @@ Rozhraní API se konfigurují na rozhraní API portálu vydavatele, který je p�
 
 Operace jde [ručně přidat do rozhraní API](api-management-howto-add-operations.md), nebo může být importován. V tomto videu se operace importují ve formátu Swagger od 6:40.
 
-Vytvořte soubor s názvem `calcapi.json` s následující obsah a uložte ho do počítače. Ujistěte se, že `host` atribut body back-end vašeho webového rozhraní API. V tomto příkladu `"host": "apimaaddemo.azurewebsites.net"` se používá.
+Vytvořte soubor s názvem `calcapi.json` s následující obsah a uložte ho do počítače. Ujistěte se, že `host` atribut body back-end vašeho webového rozhraní API. V tomto příkladu se používá `"host": "apimaaddemo.azurewebsites.net"`.
 
 ```json
 {
@@ -387,7 +387,7 @@ Zvolte **webové aplikace nebo webové rozhraní API**, zadejte název a klikně
 
 ![Nová aplikace][api-management-aad-new-application-devportal-1]
 
-Pro **přihlašovací adresa URL** zadejte adresu URL služby API Management a připojit `/signin`. V tomto příkladu `https://contoso5.portal.azure-api.net/signin` se používá.
+Pro **přihlašovací adresa URL** zadejte adresu URL služby API Management a připojit `/signin`. V tomto příkladu se používá `https://contoso5.portal.azure-api.net/signin`.
 
 Pro **URL Id aplikace** zadejte adresu URL služby API Management a připojit některé jedinečných znaků. To může být jakékoli požadované znaky a v tomto příkladu `https://contoso5.portal.azure-api.net/dp` se používá. Pokud požadovaný **vlastností aplikace** jsou nakonfigurovaná, klikněte na tlačítko zaškrtnutí pro vytvoření aplikace.
 
@@ -430,7 +430,7 @@ Kromě vkládání v koncový bod token, přidáte další text parametr s názv
 
 Potom zadejte pověření klienta. Jedná se o pověření pro prostředek, který má přístup, v tomto případě portál pro vývojáře.
 
-![Pověření klienta][api-management-client-credentials]
+![Přihlašovací údaje klienta][api-management-client-credentials]
 
 Chcete-li získat **Id klienta**, přejděte na **konfigurace** AAD aplikace pro portál pro vývojáře a zkopírujte **Id klienta**.
 
@@ -455,15 +455,15 @@ Okamžitě následující pověření klienta je udělení autorizačního kódu
 
 Dalším krokem je konfigurace oprávnění pro portál pro vývojáře AAD aplikace. Klikněte na tlačítko **oprávnění aplikací** a zaškrtněte políčko pro **čtení dat adresáře**. Klikněte na tlačítko **Uložit** uložte tuto změnu, a pak klikněte na **přidat aplikaci**.
 
-![Přidání oprávnění][api-management-add-devportal-permissions]
+![Přidat oprávnění][api-management-add-devportal-permissions]
 
 Klikněte na ikonu hledání typu **APIM** do počáteční s poli, vyberte **APIMAADDemo**a klikněte na políčko pro uložení.
 
-![Přidání oprávnění][api-management-aad-add-app-permissions]
+![Přidat oprávnění][api-management-aad-add-app-permissions]
 
 Klikněte na tlačítko **delegovaná oprávnění** pro **APIMAADDemo** a zaškrtněte políčko pro **přístup APIMAADDemo**a klikněte na tlačítko **Uložit**. To umožňuje vývojáři aplikace portálu přístup ke službě back-end.
 
-![Přidání oprávnění][api-management-aad-add-delegated-permissions]
+![Přidat oprávnění][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>Povolení autorizace uživatelů OAuth 2.0 pro rozhraní API kalkulačky
 Teď, když server OAuth 2.0 je nakonfigurovaný, můžete v nastavení zabezpečení pro vaše rozhraní API. Tento krok je znázorněn v videa začínající na 14:30.
@@ -510,7 +510,7 @@ Poslední postup ve videu začíná na 20:48 a ukazuje, jak používat [ověřen
 
 Jiné předvedení konfiguraci a použití této zásady, najdete v části [cloudu zahrnují díl 177: víc funkcí správy rozhraní API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) a rychlé převíjení vpřed na 13:50. Rychlé převinutí vpřed do 15:00 v tématu Zásady nakonfigurované v editoru zásad a potom do 18:50 pro předvedení volání operace z portálu pro vývojáře s i bez požadované autorizační token.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Podívejte se na další [videa](https://azure.microsoft.com/documentation/videos/index/?services=api-management) o službě API Management.
 * Další způsoby zabezpečení back-end službu, naleznete v části [vzájemného ověření certifikátů](api-management-howto-mutual-certificates.md).
 

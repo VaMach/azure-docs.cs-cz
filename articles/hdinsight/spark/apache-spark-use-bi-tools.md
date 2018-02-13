@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI nástroje vizualizaci dat pomocí Azure HDInsight
 
@@ -29,7 +29,7 @@ Další informace o použití [Microsoft Power BI](http://powerbi.microsoft.com)
 
 ## <a name="prerequisites"></a>Požadavky
 
-* **Dokončení [Spusťte interaktivní dotazy na clustery Spark v HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Dokončení článek [Spusťte interaktivní dotazy na clustery Spark v HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) a [zkušební předplatné Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (volitelné).
 * **Tableau**: [Tableau plochy](http://www.tableau.com/products/desktop) a [ovladač Microsoft Spark ODBC](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -63,7 +63,7 @@ Poznámkového bloku Jupyter, který jste vytvořili v [předchozí kurzu](apach
 
     ![Zobrazit řádky z tabulky TVK v Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. Z **soubor** nabídky v poznámkovém bloku, klikněte na tlačítko **zavřít a zastavit**. Vypněte poznámkového bloku k uvolnění prostředků. 
+3. V nabídce **Soubor** poznámkového bloku klikněte na **Zavřít a zastavit**. Vypněte poznámkového bloku k uvolnění prostředků. 
 
 
 
@@ -109,7 +109,7 @@ První kroky při práci se službou Spark se připojte ke clusteru v Power BI D
 
     ![Spark clusteru uživatelské jméno a heslo](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark clusteru uživatelské jméno a heslo")
 
-    Power BI Desktop obsahuje informace, musí se připojit k Spark clusteru a načtení dat z `hvac` tabulky. Tabulka a její sloupce jsou zobrazeny v **pole** podokně.  Viz následující snímek obrazovky.
+    Power BI Desktop obsahuje informace, musí se připojit k Spark clusteru a načtení dat z `hvac` tabulky. Tabulka a její sloupce jsou zobrazeny v **pole** podokně.  Podívejte se na následující snímek obrazovky:
 
 6. Vizualizace odchylka mezi teploty cíl a skutečný teploty pro každé sestavení: 
 
@@ -212,11 +212,11 @@ Vizuál je připnutá na řídicí panel - můžete přidat jiných vizuálních
 6. Klikněte **Sheet1** kartě dole vlevo. Ujistěte se, vizualizace, který ukazuje průměrná cíl a skutečný teploty pro všechny budovy pro jednotlivá data. Přetáhněte **datum** a **vytváření ID** k **sloupce** a **skutečné Temp**/**cíle Temp** k **řádky**. V části **značky**, vyberte **oblasti** sloužící oblasti mapy pro vizualizaci dat Spark.
 
      ![Přidat pole pro vizualizaci dat Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "přidat pole pro vizualizaci dat Spark")
-7. Standardně se zobrazují pole teploty jako agregace. Pokud chcete zobrazit průměrné teploty místo, můžete provést tak z rozevíracího seznamu, jak je znázorněno na následujícím snímku obrazovky.
+7. Standardně se zobrazují pole teploty jako agregace. Pokud chcete zobrazit průměrné teploty místo, můžete tak učinit z rozevíracího seznamu, jak je znázorněno na následujícím snímku obrazovky:
 
     ![Trvat průměrná z teploty pro vizualizaci dat Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "trvat průměrná z teploty pro vizualizaci dat Spark")
 
-8. Můžete také super použít jedna mapa teploty z nich získat lepší chování rozdíl mezi cíl a skutečný teploty. Přesuňte myš do rohu nižší oblasti mapy, dokud najdete v části obrazce popisovač zvýrazněných v červeném kroužku. Přetáhněte mapy do jiných mapy nahoře a uvolnění tlačítka myši, když se tvar zvýrazněných v red obdélníku.
+8. Můžete také super použít jedna mapa teploty z nich získat lepší chování rozdíl mezi cíl a skutečný teploty. Přesuňte myš do rohu nižší oblasti mapy, až se tvar popisovač zvýrazněných v červeném kroužku. Přetáhněte mapy do jiných mapy nahoře a uvolnění tlačítka myši, když se tvar zvýrazněných v red obdélníku.
 
     ![Sloučení mapy pro vizualizaci dat Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "sloučení mapy pro vizualizaci dat Spark")
 
@@ -225,7 +225,7 @@ Vizuál je připnutá na řídicí panel - můžete přidat jiných vizuálních
     ![Výstup tableau vizualizace dat Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau výstup vizualizace dat Spark")
 9. Klikněte na tlačítko **Uložit** uložit listu. Můžete vytvořit řídicí panely a do ní přidejte jeden nebo více stylů.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud jste zjistili, jak vytvořit cluster, vytvořit Spark datové rámce k dotazování na data a pak z nástrojů BI přístup k datům. Teď můžete prohlížet pokyny, jak spravovat prostředky clusteru a ladění úloh, které jsou spuštěné v clusteru služby HDInsight Spark.
 

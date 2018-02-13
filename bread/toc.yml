@@ -86,7 +86,7 @@
     - name: Azure China 21Vianet
       tocHref: /azure/china/
       topicHref: /azure/china/
-    - name: portál Azure
+    - name: Azure Portal
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
     - name: Resource Manager
@@ -101,7 +101,7 @@
     - name: Možnosti podpory
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
-    - name: Zálohování
+    - name: Backup
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -239,12 +239,18 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: IoT Hub
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
     - name: IoT Suite
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/
+    - name: Jenkins
+      tocHref: /azure/jenkins/
+      topicHref: /azure/jenkins/
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
@@ -362,7 +368,7 @@
     - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Hledání
+    - name: Search
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: Zabezpečení

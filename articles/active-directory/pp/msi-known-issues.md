@@ -3,7 +3,7 @@ title: "Nejčastější dotazy a známé problémy s spravované služby Identit
 description: "Známé problémy s spravované identita služby pro Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Nejčastější dotazy a známé problémy s spravované služby Identity (MSI) pro Azure Active Directory
 
@@ -57,6 +57,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Kde: 
 - Název rozšíření pro Windows je zadání: ManagedIdentityExtensionForWindows
 - Název rozšíření a typ pro Linux: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Existují role RBAC pro přiřazené identit uživatelů?
+Ano:
+1. Přispěvatel MSI: 
+
+- Můžete: CRUD uživatel s přiřazenou identity. 
+- Nelze: Přiřadit uživatele k prostředku přiřazena identity. (tj. přiřaďte identitu virtuálního počítače)
+
+2. MSI Operator: 
+
+- Může: Přiřaďte identitu uživatele přiřazené k prostředku. (tj. přiřaďte identitu virtuálního počítače)
+- Nelze: CRUD uživatel s přiřazenou identity.
+
+Poznámka: Může přispěvatel předdefinované role provádět všechny akce popsané výše: 
+- Identity uživatelů, které jsou přiřazené CRUD
+- Přiřazení uživatele k prostředku přiřazena identity. (tj. přiřaďte identitu virtuálního počítače)
+
 
 ## <a name="known-issues"></a>Známé problémy
 
@@ -104,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - Povolením systému je jediný způsob, jak odebrat všechny uživatele přiřazené souborů MSI přiřadit MSI. 
 - Zřizování rozšíření virtuálního počítače pro virtuální počítač mohou selhat z důvodu selhání vyhledávání DNS. Restartujte virtuální počítač a zkuste to znovu. 
-- Azure CLI: `Az resource show` a `Az resource list` selže na virtuálním počítači s uživatel přiřazený MSI. Jako alternativní řešení použijte`az vm/vmss show`
+- Přidání MSI 'neexistující' způsobí selhání virtuálního počítače. *Poznámka: Oprava selhání přiřazení identity, pokud neexistuje MSI, se vrátit na více systémů*
 - Kurz pro Azure Storage je dostupná v centrální nám EUAP jenom v tuto chvíli. 
-- Pokud uživatele přiřazené MSI je udělen přístup k prostředku, se zobrazí okno IAM pro tento prostředek "Nelze pro přístup k datům". Jako alternativní řešení pomocí rozhraní příkazového řádku umožňuje zobrazit či upravit přiřazení rolí pro tento prostředek.
-- Vytvoření uživatele přiřazené MSI v názvu podtržítko, není podporováno.
+- Vytvoření uživatele přiřazeny MSI speciální znaky (tj. podtržítko) v názvu, není podporováno.
 - Při přidání druhého uživatele přiřazené identity, clientID nemusí být dostupné pro žádosti o tokeny pro ni. Jako omezení rizik restartujte rozšíření virtuálního počítače MSI následující dvě bash příkazy:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

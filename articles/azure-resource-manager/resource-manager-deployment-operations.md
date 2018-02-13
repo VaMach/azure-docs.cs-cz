@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Operace nasazení zobrazení pomocí Azure Resource Manageru
 
 
 Můžete zobrazit činnosti pro nasazení prostřednictvím portálu Azure. Můžete mít nejvíc zajímat zobrazení operace, když jste obdrželi chybu během nasazení, tento článek zaměřuje na zobrazení operace, které selhaly. Na portálu poskytuje rozhraní, které vám umožňuje snadno najít chyby a zjistit potenciální opravy.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+Lze řešit potíže s nasazením prohlížením protokolů auditu nebo operace nasazení. Toto téma ukazuje obě metody. Nápovědu k řešení chyb při konkrétní nasazení naleznete v tématu [řešení běžných chyb při nasazování prostředků do Azure pomocí Azure Resource Manageru](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portál
 Pokud chcete zobrazit operace nasazení, použijte následující kroky:
@@ -42,7 +42,7 @@ Pokud chcete zobrazit operace nasazení, použijte následující kroky:
     ![Zobrazit neúspěšné nasazení](./media/resource-manager-deployment-operations/view-error.png)
    
     Tato chybová zpráva by vám měly dostatečně pro vámi na zahájení odstraňování potíží. Pokud potřebujete další podrobnosti o úkoly, které byly dokončeny, můžete zobrazit činnosti, jak je znázorněno v následujícím postupu.
-4. Můžete zobrazit všechny operace nasazení ve **nasazení** okno. Vyberte všechny operace zobrazíte další podrobnosti.
+4. Můžete zobrazit všechny operace nasazení. Vyberte všechny operace zobrazíte další podrobnosti.
    
     ![Zobrazit operace](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Pokud chcete zobrazit operace nasazení, použijte následující kroky:
 5. Události pro nasazení můžete zobrazit výběrem **události**.
    
     ![zobrazení událostí](./media/resource-manager-deployment-operations/view-events.png)
-6. Zobrazit všechny události pro nasazení a vyberte všechny další podrobnosti. Všimněte si příliš ID korelace. Tato hodnota může být užitečné při práci se službou technické podpory k řešení nasazení.
+6. Zobrazit všechny události pro nasazení a vyberte všechny další podrobnosti. Všimněte si, ID korelace. Tato hodnota může být užitečné při práci se službou technické podpory k řešení nasazení.
    
     ![Zobrazit události](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -121,7 +121,7 @@ Pokud chcete zobrazit operace nasazení, použijte následující kroky:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Všechny operace nasazení v Azure zahrnuje obsah žádosti a odpovědi. Obsah žádosti je, co jste poslali do Azure během nasazení (například vytvořit virtuální počítač, disk operačního systému a další prostředky). Obsah odpovědi je Azure odeslána zpět ze svého požadavku nasazení. Během nasazení, můžete použít **DeploymentDebugLogLevel** paramenter k určení, že požadavku nebo odpovědi jsou uchovány v protokolu. 
+4. Všechny operace nasazení v Azure zahrnuje obsah žádosti a odpovědi. Obsah žádosti je, co jste poslali do Azure během nasazení (například vytvořit virtuální počítač, disk operačního systému a další prostředky). Obsah odpovědi je Azure odeslána zpět ze svého požadavku nasazení. Během nasazení, můžete použít **DeploymentDebugLogLevel** parametr k určení, že požadavku nebo odpovědi jsou uchovány v protokolu. 
 
   Získat tyto informace z protokolu a uložit ho místně pomocí následujících příkazů prostředí PowerShell:
 
@@ -178,7 +178,7 @@ Pokud chcete zobrazit operace nasazení, použijte následující kroky:
   }
   ```
 
-2. Získat informace o operacích nasazení se [výpisu všech operací nasazení šablony](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) operaci. 
+2. Získat informace o nasazení s [výpisu všech operací nasazení šablony](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -212,7 +212,7 @@ Pokud chcete zobrazit operace nasazení, použijte následující kroky:
   ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Nápovědu k řešení chyb při konkrétní nasazení naleznete v tématu [řešení běžných chyb při nasazování prostředků do Azure pomocí Azure Resource Manageru](resource-manager-common-deployment-errors.md).
 * Další informace o použití protokoly aktivity monitorování jiné typy akcí, najdete v části [zobrazit protokoly aktivity ke správě prostředků Azure](resource-group-audit.md).
 * K ověření vašeho nasazení, než ho spustíte, najdete v části [nasazení skupiny prostředků pomocí šablony Azure Resource Manageru](resource-group-template-deploy.md).

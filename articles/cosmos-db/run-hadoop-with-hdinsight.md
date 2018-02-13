@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 181954e4657166db8aa94021ad093437d8c7abfd
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Spustit úlohu Apache Hive, Pig nebo Hadoop pomocí Azure Cosmos DB a HDInsight
 V tomto kurzu se dozvíte, jak spustit [Apache Hive][apache-hive], [Apache Pig][apache-pig], a [Apache Hadoop] [ apache-hadoop] úloh MapReduce v Azure HDInsight s konektorem Hadoop Cosmos DB. Cosmos DB Hadoop konektor umožňuje Cosmos DB tak, aby fungoval jako zdroj a jímka pro úlohy Hive, Pig a MapReduce. V tomto kurzu použije Cosmos DB jako zdroj dat i v cílovém pro úlohy Hadoop.
+
+> [!IMPORTANT] 
+> Spark pro konektor Azure Cosmos DB možnost se doporučuje pro připojení Azure HDInsight k Azure Cosmos DB. Další informace najdete v tématu [urychlit analýzy velkých objemů dat v reálném čase s Spark pro konektor Azure Cosmos DB](spark-connector.md).
 
 Po dokončení tohoto kurzu, budete moct odpovězte si na následující otázky:
 
@@ -49,7 +52,7 @@ Nemáte čas k dokončení tohoto kurzu a chcete jen získat celé ukázkové sk
     <tr><th>Verze konektoru Hadoop</th>
         <td>1.2.0</td></tr>
     <tr><th>Identifikátor Uri skriptu</th>
-        <td>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</td></tr>
+        <td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
     <tr><th>Datum změny</th>
         <td>04/26/2016</td></tr>
     <tr><th>Podporované HDInsight verze</th>
@@ -86,7 +89,7 @@ Tento kurz používá akce skriptu z portálu Azure k přizpůsobení clusteru H
         <tr><td>Název clusteru</td><td>Název clusteru.<br/>
 Název serveru DNS musí spustit a končit znakem alpha číselné a může obsahovat pomlčky.<br/>
 Pole musí být řetězec o délce 3 až 63 znaků.</td></tr>
-        <tr><td>Název odběru</td>
+        <tr><td>Název předplatného</td>
             <td>Pokud máte více než jedno předplatné Azure, vyberte odběr, který bude hostitelem clusteru HDInsight. </td></tr>
     </table>
 5.Klikněte na tlačítko **vybrat typ clusteru** a nastavte následující vlastnosti do zadaných hodnot.
@@ -118,11 +121,11 @@ Pole musí být řetězec o délce 3 až 63 znaků.</td></tr>
 
      <table border='1'>
          <tr><th>Vlastnost</th><th>Hodnota</th></tr>
-         <tr><td>Name (Název)</td>
+         <tr><td>Název</td>
              <td>Zadejte název akce skriptu.</td></tr>
          <tr><td>Identifikátor URI skriptu</td>
              <td>Zadejte identifikátor URI skriptu, která je volána, chcete-li přizpůsobit clusteru.</br></br>
-Zadejte: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</strong>.</td></tr>
+Zadejte: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
          <tr><td>Hlavní uzel</td>
              <td>Klikněte na zaškrtávací políčko pro spuštění skriptu prostředí PowerShell na hlavní uzel.</br></br>
              <strong>Zaškrtněte toto políčko</strong>.</td></tr>

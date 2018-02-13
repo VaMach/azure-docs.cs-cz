@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Vytvoření databáze grafu pomocí PHP a portálu Azure
 
@@ -137,7 +137,9 @@ Teď se vraťte na portál Azure, kde najdete informace o připojení, a zkop�
     ]);
     ```
 
-3. Změňte parametr `username` v objektu Connection na název vaší databáze a grafu. Pokud jste použili doporučené hodnoty `sample-database` a `sample-graph`, měl by vypadat takto:
+3. Pokud se účet databáze grafů vytvořil 20. prosince 2017 nebo později, v názvu hostitele změňte `graphs.azure.com` na `gremlin.cosmosdb.azure.com`.
+
+4. Změňte parametr `username` v objektu Connection na název vaší databáze a grafu. Pokud jste použili doporučené hodnoty `sample-database` a `sample-graph`, měl by vypadat takto:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Teď se vraťte na portál Azure, kde najdete informace o připojení, a zkop�
     ]);
     ```
 
-4. Na portálu Azure pomocí tlačítka pro kopírování zkopírujte PRIMÁRNÍ KLÍČ a vložte ho místo `your_primary_key` v parametru password.
+5. Na portálu Azure pomocí tlačítka pro kopírování zkopírujte PRIMÁRNÍ KLÍČ a vložte ho místo `your_primary_key` v parametru password.
 
     Inicializace objektu Connection by teď měla vypadat takto:
 
@@ -171,7 +173,7 @@ Teď se vraťte na portál Azure, kde najdete informace o připojení, a zkop�
     ]);
     ```
 
-5. Uložte soubor `connect.php`.
+6. Uložte soubor `connect.php`.
 
 ## <a name="run-the-console-app"></a>Spuštění aplikace konzoly
 

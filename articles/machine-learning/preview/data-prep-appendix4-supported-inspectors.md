@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Podporované inspektoři Azure Machine Learning datový přípravy ve verzi Preview
 Tento dokument popisuje sadu kontroly, které jsou k dispozici v této verzi preview.
@@ -39,7 +39,7 @@ Tato kontrola pro číselné sloupce, poskytuje celou řadu různých statistiky
 
 
 ### <a name="options"></a>Možnosti 
-- Žádné
+- Žádný
 
 ## <a name="histogram"></a>Histogram 
 Vypočítá a zobrazí histogram jednoho číselné sloupce. Výchozí počet kbelíků se počítá pomocí Scott na pravidla. Pravidlo však lze přepsat pomocí možnosti.
@@ -52,6 +52,7 @@ Tato kontrola podporuje bylo účinek.
 - Výchozí počet kbelíků (Scott na pravidlo) 
 - Zobrazit bylo
 - Překrytí výkresu hustotou jádra (Gaussovské jádra) 
+- Použít logaritmickou stupnici
 
 
 ### <a name="actions"></a>Akce
@@ -62,9 +63,10 @@ Tato kontrola uvede tabulku frekvence hodnot pro sloupec, který je aktuálně v
 
 ### <a name="options"></a>Možnosti 
 - Počet nejvyšší hodnoty
-- Sestupné
+- Sestupně
 - Obsahovat hodnoty null nebo chyby
 - Zobrazit bylo
+- Použít logaritmickou stupnici
 
 
 ### <a name="actions"></a>Akce 
@@ -123,7 +125,7 @@ Tato kontrola zobrazuje seznam vzorů ve vybraném sloupci řetězec. Vzory jsou
 
 ### <a name="options"></a>Možnosti
 - Počet nejvyšší hodnoty
-- Sestupné
+- Sestupně
 - Zobrazit bylo
 
 ### <a name="actions"></a>Akce

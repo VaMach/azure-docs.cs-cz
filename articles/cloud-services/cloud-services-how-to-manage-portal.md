@@ -14,22 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e60bf5c82e68d49abaa44d80ac9fafba2d8265da
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-manage-cloud-services"></a>Jak spravovat cloudové služby
-V **cloudové služby** oblasti Azure portálu, můžete aktualizovat roli služby nebo nasazení, zvýšení úrovně dvoufázového nasazení do produkčního prostředí, prostředky propojit cloudové služby, aby mohli zobrazit závislosti prostředků a škálování prostředky společně a odstraňování cloudové služby nebo nasazení.
+# <a name="manage-cloud-services-in-the-azure-portal"></a>Spravovat cloudové služby na portálu Azure
+V **cloudové služby** oblasti portálu Azure, můžete:
 
-Další informace o tom, jak škálování cloudové služby jsou k dispozici [zde](cloud-services-how-to-scale-portal.md).
+* Aktualizujte roli služby nebo nasazení.
+* Umožňuje zvýšit úroveň dvoufázového nasazení do produkčního prostředí.
+* Propojte prostředky ke cloudové službě, můžete zobrazit závislosti prostředků a škálování prostředky společně.
+* Odstraňte cloudovou službu nebo nasazení.
 
-## <a name="how-to-update-a-cloud-service-role-or-deployment"></a>Postupy: aktualizovat roli služby cloudu nebo nasazení
+Další informace o tom, jak škálování cloudové služby najdete v tématu [nakonfigurovat automatické škálování pro cloudové služby na portálu](cloud-services-how-to-scale-portal.md).
+
+## <a name="update-a-cloud-service-role-or-deployment"></a>Aktualizace nasazení nebo role cloudové služby
 Pokud je potřeba aktualizovat kód aplikace pro cloudové služby, použijte **aktualizace** v okně cloudové služby. Můžete aktualizovat roli jednoho nebo všech rolí. Pokud chcete aktualizovat, můžete nahrát nový balíček služby nebo konfigurační soubor služby.
 
 1. V [portál Azure][Azure portal], vyberte cloudovou službu, kterou chcete aktualizovat. Tento krok se otevře okno instance služby pro cloud.
-2. V okně klikněte **aktualizace** tlačítko.
+
+2. V okně vyberte **aktualizace**.
 
     ![Tlačítko Aktualizovat](./media/cloud-services-how-to-manage-portal/update-button.png)
 
@@ -37,29 +43,32 @@ Pokud je potřeba aktualizovat kód aplikace pro cloudové služby, použijte **
 
     ![UpdateDeployment](./media/cloud-services-how-to-manage-portal/update-blade.png)
 
-4. **Volitelně** aktualizovat označení nasazení a účet úložiště.
-5. Pokud žádné role mít pouze jednu instanci role, vyberte **nasadit, i když jedna nebo víc rolí obsahuje jednu instanci** povolit upgradu pokračovat.
+4. Volitelně můžete Aktualizujte účet úložiště a označení nasazení.
 
-    Azure můžete pouze zaručit 99,95 % dostupnost služby při aktualizaci služby cloud pokud každá role má aspoň dvě instance role (virtuální počítače). Se dvěma instancemi role jeden virtuální počítač zpracovává požadavky na klienta během dalších je aktualizována.
+5. Pokud žádné role mít pouze jednu instanci role, vyberte **nasadit, i když jedna nebo víc rolí obsahuje jednu instanci** zaškrtávacího políčka umožníte upgradu pokračovat.
 
-6. Zkontrolujte **spuštění nasazení** tak, aby měl použijí po dokončení nahrávání balíčku aktualizace.
-7. Klikněte na tlačítko **OK** spustíte aktualizaci služby.
+    Azure může zaručit pouze 99,95 % dostupnost služby při aktualizaci cloudové služby, pokud každá role má aspoň dvě instance role (virtuální počítače). Se dvěma instancemi role jeden virtuální počítač zpracovává požadavky na klienta během dalších je aktualizována.
 
-## <a name="how-to-swap-deployments-to-promote-a-staged-deployment-to-production"></a>Postupy: Prohodit nasazení na podporu dvoufázového nasazení do produkčního prostředí
+6. Vyberte **spuštění nasazení** zaškrtávací políčko k použití aktualizace po dokončení nahrávání balíčku.
+
+7. Vyberte **OK** spustíte aktualizaci služby.
+
+## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Swap – nasazení na podporu dvoufázového nasazení do produkčního prostředí
 Pokud se rozhodnete nasadit novou verzi cloudové služby, fáze a otestovat novou verzi v prostředí s pracovní cloudové služby. Použití **Prohodit** přepnout adresy URL, které dvě nasazení se podrobněji a povyšte novou verzí do produkčního prostředí.
 
 Můžete zaměnit nasazení z **cloudové služby** stránku nebo řídicí panel.
 
 1. V [portál Azure][Azure portal], vyberte cloudovou službu, kterou chcete aktualizovat. Tento krok se otevře okno instance služby pro cloud.
-2. V okně klikněte **Prohodit** tlačítko.
 
-    ![Cloudové služby Swap](./media/cloud-services-how-to-manage-portal/swap-button.png)
+2. V okně vyberte **odkládacího souboru**.
 
-3. Otevře se následující potvrzovací výzvu.
+    ![Cloudové služby Prohodit tlačítko](./media/cloud-services-how-to-manage-portal/swap-button.png)
+
+3. Otevře se následující výzvu k potvrzení:
 
     ![Cloudové služby Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
-4. Po ověření, informace o nasazení, klikněte na tlačítko **OK** chcete Prohodit nasazení.
+4. Po ověření, informace o nasazení, vyberte **OK** chcete Prohodit nasazení.
 
     Swap nasazení dochází rychle jediné, co se změní je virtuální IP adresy (VIP) pro nasazení.
 
@@ -73,15 +82,15 @@ Existují dva klíče požadavky pro úspěšné nasazení prohození:
 
 - Pokud chcete používat statickou IP adresu pro vaše produkční slot, jeden pro přípravný slot také musíte rezervovat. Prohození, jinak selže.
 
-- Všechny instance role musí být spuštěna, než bude možné provést prohození. Můžete zkontrolovat stav vašimi instancemi v okně Přehled portálu Azure. Alternativně můžete použít [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) příkazu v prostředí Windows PowerShell.
+- Všechny instance role musí být spuštěna, než bude možné provést prohození. Můžete zkontrolovat stav vaší instance **přehled** okno portálu Azure. Alternativně můžete použít [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) příkazu v prostředí Windows PowerShell.
 
-Všimněte si, že hostovaného operačního systému, aktualizace a opravy operace služby může také způsobit nasazení záměna selhání. Další informace najdete v tématu [Poradce při potížích se nasazení služby cloud](cloud-services-troubleshoot-deployment-problems.md).
+Poznámka: aktualizace operačního systému hosta a službou opravy operations také způsobit nasazení záměna selhání. Další informace najdete v tématu [Poradce při potížích se nasazení služby cloud](cloud-services-troubleshoot-deployment-problems.md).
 
 **Nesnižuje prohození výpadek své aplikaci? Jak by měly zpracovávat ho?**
 
-Jak je popsáno v poslední části, je obvykle rychlé prohození nasazení, protože je právě změnu konfigurace pro vyrovnávání zatížení Azure. V některých případech ale ho můžete trvat deset nebo víc sekund a způsobit selhání přechodný připojení. Chcete-li omezit vliv na vaše zákazníky, zvažte implementaci [logika opakovaných pokusů klienta](../best-practices-retry-general.md).
+Jak je popsáno v předchozí části, je obvykle rychlé prohození nasazení, protože je právě změnu konfigurace pro vyrovnávání zatížení Azure. V některých případech může trvat 10 nebo další sekund a výsledek selhání přechodný připojení. Chcete-li omezit vliv na vaše zákazníky, zvažte implementaci [logika opakovaných pokusů klienta](../best-practices-retry-general.md).
 
-## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Postupy: odstranění nasazení a cloudové služby
+## <a name="delete-deployments-and-a-cloud-service"></a>Odstranění nasazení a cloudové služby
 Před odstraněním cloudové služby, je nutné odstranit každé existující nasazení.
 
 Pokud chcete uložit výpočetní náklady, můžete odstranit pracovní nasazení po ověření, že produkčního nasazení funguje podle očekávání. Fakturuje se výpočetní náklady pro instance nasazené rolí, které jsou zastaveny.
@@ -89,32 +98,34 @@ Pokud chcete uložit výpočetní náklady, můžete odstranit pracovní nasazen
 Pomocí následujícího postupu můžete odstranit nasazení nebo cloudové služby.
 
 1. V [portál Azure][Azure portal], vyberte cloudovou službu, kterou chcete odstranit. Tento krok se otevře okno instance služby pro cloud.
-2. V okně klikněte **odstranit** tlačítko.
 
-    ![Cloudové služby Swap](./media/cloud-services-how-to-manage-portal/delete-button.png)
+2. V okně vyberte **odstranit**.
 
-3. Celý cloudové služby můžete odstranit kontrolou **Cloudová služba a její nasazení** nebo zvolit buď **produkční nasazení** nebo **pracovní nasazení**.
+    ![Cloud Services odstranit tlačítko](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
-    ![Cloudové služby Swap](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+3. Pokud chcete odstranit celou cloudové služby, vyberte **Cloudová služba a její nasazení** zaškrtávací políčko. Nebo můžete zvolit buď **produkční nasazení** nebo **pracovní nasazení** zaškrtávací políčko.
 
-4. Klikněte **odstranit** tlačítko dole.
-5. Chcete-li odstranit cloudovou službu, klikněte na tlačítko **odstranění Cloudová služba**. Potom v potvrzovací výzvu, klikněte na **Ano**.
+    ![Cloud Services Delete](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+
+4. Vyberte **odstranit** dole.
+
+5. Chcete-li odstranit cloudové služby, vyberte **odstranění Cloudová služba**. Potom v potvrzovací výzvu, vyberte **Ano**.
 
 > [!NOTE]
-> Pokud Cloudová služba je Odstraněná a podrobné monitorování je nastavena, musíte odstranit data ručně z vašeho účtu úložiště. Informace o tom, kde najít metriky tabulky najdete v tématu [to](cloud-services-how-to-monitor.md) článku.
+> Pokud Cloudová služba je Odstraněná a podrobné monitorování je nastavena, musíte odstranit data ručně z vašeho účtu úložiště. Informace o tom, kde najít metriky tabulky najdete v tématu [Úvod do cloudu monitorování služby](cloud-services-how-to-monitor.md).
 
 
-## <a name="how-to-find-more-information-about-failed-deployments"></a>Postupy: Další informace o selhání nasazení
-**Přehled** okno obsahuje stavového řádku v horní části. Po kliknutí na tlačítko panelu, nové okno se zobrazí veškeré informace o chybě. Pokud nasazení neobsahuje žádné chyby, v okně informace je prázdný.
+## <a name="find-more-information-about-failed-deployments"></a>Další informace o selhání nasazení
+**Přehled** okno obsahuje stavového řádku v horní části. Po výběru panelu nové okno se zobrazí veškeré informace o chybě. Pokud nasazení neobsahuje žádné chyby, v okně informace je prázdný.
 
-![Cloudové služby Swap](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Přehled služby cloud Services](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 
 [Azure portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Obecná konfigurace cloudové služby](cloud-services-how-to-configure-portal.md).
 * Zjistěte, jak [nasazení cloudové služby](cloud-services-how-to-create-deploy-portal.md).
 * Konfigurace [vlastní název domény](cloud-services-custom-domain-name-portal.md).
-* Konfigurace [certifikáty ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Konfigurace [certifikáty SSL](cloud-services-configure-ssl-certificate-portal.md).

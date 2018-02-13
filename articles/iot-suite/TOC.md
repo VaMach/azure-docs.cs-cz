@@ -58,7 +58,9 @@
 ### [Použití pravidel k detekci problémů](iot-suite-remote-monitoring-automate.md)
 ### [Správa zařízení](iot-suite-remote-monitoring-manage.md)
 ### [Řešení problémů se zařízeními](iot-suite-remote-monitoring-maintain.md)
-### [Použití simulovaných zařízení](iot-suite-remote-monitoring-test.md)
+### [Pochopení schématu modelu zařízení](iot-suite-remote-monitoring-device-schema.md)
+### [Pochopení chování modelu zařízení](iot-suite-remote-monitoring-device-behavior.md)
+### [Vytvoření nového simulovaného zařízení](iot-suite-remote-monitoring-test.md)
 ### [Přizpůsobení řešení](iot-suite-remote-monitoring-customize.md)
 ### [Nasazení pomocí rozhraní příkazového řádku](iot-suite-remote-monitoring-deploy-cli.md)
 ### Připojení fyzického zařízení

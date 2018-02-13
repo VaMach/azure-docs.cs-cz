@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: a97038b942998b611bdde50ccf67c5b2e3fa4cd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c5d6eb8333083cf87e35a667159ecc71b944e9a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Kurz: Azure Active Directory integrace s New Relic.
 
@@ -108,12 +108,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Nové domény Relic a adresy URL jednotné přihlašování informace](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_url.png)
 
-    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.newrelic.com`
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` -nezapomeňte nahradit vlastní ID nový účet New Relic.
 
     b. V **identifikátor** textovému poli, zadejte hodnotu:`rpm.newrelic.com`
-
-    > [!NOTE] 
-    > Přihlášení hodnota adresy URL není skutečné. Aktualizujte tuto hodnotu s skutečná adresa URL přihlašování. Obraťte se na [tým podpory pro nového klienta Relic](https://support.newrelic.com/) získat tuto hodnotu. 
 
 4. Na **SAML podpisový certifikát** klikněte na tlačítko **certifikátu (Base64)** a potom uložte soubor certifikátu v počítači.
 
@@ -252,7 +249,7 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 Když kliknete na dlaždici New Relic na přístupovém panelu, můžete by měl získat automaticky přihlášení k aplikaci New Relic.
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

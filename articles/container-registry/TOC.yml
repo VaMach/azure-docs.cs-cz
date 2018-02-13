@@ -43,19 +43,21 @@
       href: container-registry-get-started-docker-cli.md
     - name: Zobrazení úložišť
       href: container-registry-repositories.md
-    - name: Vytvoření instančního objektu
-      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.jso
     - name: Upgrade registru Classic
       href: container-registry-upgrade.md
     - name: Použití webhooků ACR
-      href: ./container-registry-webhook.md
+      href: container-registry-webhook.md
     - name: Authentication
       items:
         - name: Přehled ověřování
           href: container-registry-authentication.md
+        - name: Ověřování instančních objektů
+          href: container-registry-auth-service-principal.md
+        - name: Azure Container Instances
+          href: container-registry-auth-aci.md
         - name: Azure Container Service
-          href: ./container-registry-auth-aks.md
-- name: Odkaz
+          href: container-registry-auth-aks.md
+- name: Referenční informace
   items:
     - name: Azure CLI
       href: /cli/azure/acr
@@ -67,6 +69,8 @@
       href: /dotnet/api/overview/azure/containerregistry
     - name: Python
       href: /python/api/overview/azure/container-registry
+    - name: Java
+      href: /java/api/overview/azure/containerregistry
     - name: Node.js
       href: /javascript/api/overview/azure/container-registry
     - name: Šablona Resource Manageru

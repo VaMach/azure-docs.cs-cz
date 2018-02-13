@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pro Visual Studio  
 
-Azure funkce Tools for Visual Studio 2017 představuje rozšíření pro Visual Studio, která umožňuje vývoj, testování a nasazení funkce jazyka C# do Azure. Pokud je vaše první zkušenosti s Azure Functions, další informace najdete v [Úvod do Azure Functions](functions-overview.md).
+Azure funkce Tools for Visual Studio 2017 představuje rozšíření pro Visual Studio, která umožňuje vývoj, testování a nasazení funkce jazyka C# do Azure. Pokud toto prostředí je první díky Azure Functions, další informace najdete v [Úvod do Azure Functions](functions-overview.md).
 
 Funkce nástroje Azure poskytuje následující výhody: 
 
@@ -61,9 +61,9 @@ Když vytvoříte nový projekt pomocí šablony Azure Functions, zobrazí práz
     
 * **Local.Settings.JSON**: udržuje nastavení používané při místním spuštění funkce. Tato nastavení nejsou používány nástrojem Azure, jsou používány [nástroje základní funkce Azure](functions-run-local.md). Tento soubor lze použijte k určení nastavení, jako jsou třeba řetězce připojení k jiným službám Azure. Přidejte nový klíč k **hodnoty** pole pro každé připojení vyžaduje funkce ve vašem projektu. Další informace najdete v tématu [nastavení místního souboru](functions-run-local.md#local-settings-file) v tématu nástroje základní funkce Azure.
 
-Modul runtime funkce interně používá účet úložiště Azure. Pro všechny aktivovat jiného typu než HTTP a pomocí webhooků, musíte nastavit **Values.AzureWebJobsStorage** klíče na platný připojovací řetězec účet úložiště Azure.
+Modul runtime funkce interně používá účet úložiště Azure. Pro všechny aktivovat jiného typu než HTTP a pomocí webhooků, musíte nastavit **Values.AzureWebJobsStorage** klíče na platný připojovací řetězec účet úložiště Azure. 
 
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
  Nastavení připojovacího řetězce pro účet úložiště:
 
@@ -83,7 +83,7 @@ V předem kompilované funkce jsou definovány vazby používané funkce použit
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    Klíč řetězce připojení s názvem **QueueStorage** zadaný, který je definován v souboru local.settings.json. 
+    Tento příklad aktivační událost používá připojovací řetězec s klíč s názvem **QueueStorage**. Tato nastavení připojovacího řetězce musí být definovány v souboru local.settings.json. 
  
 3. Zkontrolujte nově přidané třídy. Zobrazí statického **spustit** metody s atributem **%{FunctionName/** atribut. Tento atribut označuje, že metoda je vstupní bod pro funkci. 
 
@@ -113,7 +113,7 @@ V předem kompilované funkce jsou definovány vazby používané funkce použit
 
 Nástroje Azure Functions Core umožňují spouštět projekt Azure Functions na místním počítači pro vývoj. K instalaci těchto nástrojů budete vyzváni při prvním spuštění funkce ze sady Visual Studio.  
 
-Pokud chcete funkci otestovat, stiskněte F5. Po výzvě přijměte požadavek ze sady Visual Studio na stažení a instalaci nástrojů Azure Functions Core (CLI).  Může být také potřeba povolit výjimku brány firewall, aby nástroje mohly zpracovávat požadavky HTTP.
+Pokud chcete funkci otestovat, stiskněte F5. Po výzvě přijměte požadavek ze sady Visual Studio na stažení a instalaci nástrojů Azure Functions Core (CLI). Může být také potřeba povolit výjimku brány firewall, aby nástroje mohly zpracovávat požadavky HTTP.
 
 S projektem systémem můžete otestovat váš kód by při testování nasazené funkce. Další informace najdete v tématu [strategie pro testování kódu v Azure Functions](functions-test-a-function.md). Při spuštění v režimu ladění, jsou zarážky v sadě Visual Studio podle očekávání. 
 
@@ -125,12 +125,23 @@ Další informace o použití nástrojů pro základní funkce Azure, najdete v 
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]  
->Všechna nastavení, které jste přidali v local.settings.json je nutné také přidat do funkce aplikace v Azure. Tato nastavení nejsou automaticky přidáni. Požadovaná nastavení můžete přidat do aplikace pro funkce v jednom z těchto způsobů:
->
->* [Pomocí portálu Azure](functions-how-to-use-azure-function-app-settings.md#settings).
->* [Pomocí `--publish-local-settings` možnost publikování v nástrojích pro základní funkce Azure](functions-run-local.md#publish).
->* [Použití Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+## <a name="function-app-settings"></a>Nastavení Function App   
+
+Všechna nastavení, které jste přidali v local.settings.json je nutné také přidat do funkce aplikace v Azure. Tato nastavení nejsou uloženy automaticky při publikování tohoto projektu. 
+
+Nejjednodušší způsob, jak nahrát požadovaná nastavení pro funkce aplikace v Azure je použití **spravovat nastavení aplikace...**  odkaz, který se zobrazí po úspěšném publikování projektu. 
+
+![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+
+Zobrazí se **nastavení aplikace** dialogové okno pro funkce aplikace, kde můžete přidat nové nastavení aplikace nebo upravit existující.
+
+![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+
+Můžete také spravovat nastavení aplikace v jednom z těchto dalších způsobů:
+
+* [Pomocí portálu Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Pomocí `--publish-local-settings` možnost publikování v nástrojích pro základní funkce Azure](functions-run-local.md#publish).
+* [Použití Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
 
 ## <a name="next-steps"></a>Další postup
 

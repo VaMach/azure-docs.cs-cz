@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2017
+ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Příprava vývojového prostředí ve Windows
 > [!div class="op_single_selector"]
@@ -41,9 +41,10 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 * Windows 10
 
 > [!NOTE]
-> Windows 7 ve výchozím nastavení obsahuje jenom prostředí Windows PowerShell 2.0 Rutiny prostředí PowerShell pro Service Fabric vyžadují PowerShell 3.0 nebo novější. Můžete si [stáhnout prostředí Windows PowerShell 5.0][powershell5-download] z webu Microsoft Download Center.
-> 
-> 
+> Podpora Windows 7:
+> - Windows 7 ve výchozím nastavení obsahuje jenom prostředí Windows PowerShell 2.0 Rutiny prostředí PowerShell pro Service Fabric vyžadují PowerShell 3.0 nebo novější. Můžete si [stáhnout prostředí Windows PowerShell 5.0][powershell5-download] z webu Microsoft Download Center.
+> - Reverzní proxy Service Fabric není ve Windows 7 k dispozici.
+>
 
 ## <a name="install-the-sdk-and-tools"></a>Instalace sady SDK a nástrojů
 ### <a name="to-use-visual-studio-2017"></a>Použití sady Visual Studio 2017
@@ -62,11 +63,10 @@ Pokud potřebujete jenom sadu SDK, můžete nainstalovat tento balíček:
 * [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
 
 Aktuální verze jsou:
-* Sada Service Fabric SDK 2.8.232
-* Modul runtime Service Fabric 6.0.232
-* Service Fabric Tools for Visual Studio 2015 1.8.51024.1
-* Visual Studio 2017 s aktualizací Update 3 obsahuje Service Fabric Tools for Visual Studio 1.7.20170817
-* Visual Studio 2017 s aktualizací Update 4 ve verzi Preview 1 (15.4.0 Preview 1.0) obsahuje Service Fabric Tools for Visual Studio 1.7.20170721
+* Sada Service Fabric SDK a Service Fabric Tools 3.0.456
+* Modul runtime Service Fabric 6.1.456
+* Service Fabric Tools for Visual Studio 2015 2.0.10124.2
+* Visual Studio 2017 15.5.6 obsahuje Service Fabric Tools for Visual Studio 2.0.20180124.2 
 
 Seznam podporovaných verzí najdete v tématu [Podpora pro Service Fabric](service-fabric-support.md)
 

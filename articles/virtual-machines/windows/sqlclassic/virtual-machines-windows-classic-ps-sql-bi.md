@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence v Azure Virtual Machines
 > [!IMPORTANT] 
@@ -62,7 +62,7 @@ Virtuální počítač Microsoft Azure galerie obsahuje několik imagí, které 
 
 Další informace o vydání a funkce v systému SQL Server podporovány naleznete v následujících tématech:
 
-* [Edice serveru SQL](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
+* [SQL Server Editions](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 * [Funkce podporovaných jednotlivými edicemi systému SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>BI funkce nainstalované Image SQL serveru galerii virtuálních počítačů
@@ -75,7 +75,7 @@ Následující tabulka shrnuje nainstalovaných na běžné Galerie obrázků vi
 * SQL Server 2012 SP3 Enterprise
 * SQL Server 2012 SP3 Standard
 
-| Funkci SQL Server BI | Nainstalovat na bitovou kopii Galerie | Poznámky |
+| SQL Server BI Feature | Nainstalovat na bitovou kopii Galerie | Poznámky |
 | --- | --- | --- |
 | **Reporting Services – nativní režim** |Ano |Nainstalován, ale vyžaduje konfigurace, včetně adresu URL správce sestav. Najdete v části [konfigurace služby Reporting Services](#configure-reporting-services). |
 | **Služby Reporting Services režimu serveru SharePoint** |Ne |Bitovou kopii virtuálního počítače Microsoft Azure Galerie nezahrnuje SharePoint nebo SharePoint instalační soubory. <sup>1</sup> |
@@ -98,10 +98,10 @@ Následující tabulka shrnuje nainstalovaných na běžné Galerie obrázků vi
   * Jednotka ukládání do mezipaměti zásady pro výchozí jednotce **C**: nevhodné pro práci s daty.
   * **D**: jednotka je dočasné jednotce, která se používá hlavně pro stránkovací soubor. **D**: jednotka není trvalý a neukládají se v úložišti objektů blob. Úlohy správy, například o změně pro virtuální počítač velikost resetování **D**: jednotky. Doporučuje se **není** použít **D**: disku pro soubory databáze, včetně databáze tempdb.
     
-    Další informace o vytváření a připojení disků najdete v tématu [jak připojit datový Disk k virtuálnímu počítači](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Další informace o vytváření a připojení disků najdete v tématu [jak připojit datový Disk k virtuálnímu počítači](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Zastavení nebo odinstalaci služby, které není plánujete použít. Pro příklad, pokud virtuální počítač se používá pouze pro služby Reporting Services, zastavení nebo odinstalaci služby Analysis Services a SQL Server Integration Services. Na následujícím obrázku je příkladem služby, které jsou spuštěny ve výchozím nastavení.
   
-    ![Službu SQL Server.](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
+    ![SQL Server services](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
   
   > [!NOTE]
   > Databázový stroj SQL Server je vyžadována v Podporované scénáře BI. Jeden server topologie virtuálních počítačů je databázový stroj vyžadovat, aby byl spuštěn na stejného virtuálního počítače.
@@ -152,19 +152,19 @@ Existují dvě běžné pracovní postupy pro připojení k virtuální počíta
   1. Typ **název cloudové služby** jako název počítače.
   2. Zadejte dvojtečkou (:) a číslem veřejného portu, který je nakonfigurovaný pro koncový bod TCP vzdálené plochy.
      
-      MyService.cloudapp.NET:63133
+      Myservice.cloudapp.net:63133
      
       Další informace najdete v tématu [co je Cloudová služba?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 
 **Spuštění, vytváření sestav služby Configuration Manager**
 
-V **systému Windows Server 2012/2016**:
+In **Windows Server 2012/2016**:
 
 1. Z **spustit** zadejte **služby Reporting Services** zobrazíte seznam aplikací.
 2. Klikněte pravým tlačítkem na **Správce konfigurace služby Reporting Services** a klikněte na tlačítko **spustit jako správce**.
 
-V **systému Windows Server 2008 R2**:
+In **Windows Server 2008 R2**:
 
 1. Klikněte na tlačítko **spustit**a potom klikněte na **všechny programy**.
 2. Klikněte na tlačítko **Microsoft SQL Server 2016**.
@@ -223,7 +223,7 @@ Pokud se chcete připojit na webový portál nebo správce sestav pro 2014 a 201
 
 1. Vytvoření koncového bodu pro virtuální počítač TCP Port 80. Další informace najdete v tématu, [koncové body virtuálního počítače a porty brány Firewall](#virtual-machine-endpoints-and-firewall-ports) v tomto dokumentu.
 2. Otevřete port 80 v bráně firewall virtuálního počítače.
-3. Přejděte na webový portál nebo ohlásit manager pomocí virtuální počítač Azure **název DNS** jako název serveru v adrese URL. Například:
+3. Přejděte na webový portál nebo ohlásit manager pomocí virtuální počítač Azure **název DNS** jako název serveru v adrese URL. Příklad:
    
     **Server sestav**: http://uebi.cloudapp.net/reportserver **webový portál**: http://uebi.cloudapp.net/reports
    
@@ -334,12 +334,12 @@ Následující diagram znázorňuje tyto porty otevřít v bráně firewall virt
 
 ![porty otevřít pro bi aplikace ve virtuálních počítačích Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
-## <a name="resources"></a>Zdroje
+## <a name="resources"></a>Zdroje a prostředky
 * Najdete zásadách podpory pro serverového softwaru společnosti Microsoft používá v prostředí virtuálního počítače Azure. Následující téma shrnuje podporu pro funkce, například nástrojem BitLocker, Clustering převzetí služeb při selhání a vyrovnávání zatížení sítě. [Podpora Microsoft serveru software pro virtuální počítače Azure](http://support.microsoft.com/kb/2721672).
 * [SQL Server na virtuálních počítačích Azure – přehled](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Zřizování virtuálního počítače systému SQL Server v Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Tom, jak připojit datový Disk k virtuálnímu počítači](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Tom, jak připojit datový Disk k virtuálnímu počítači](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migrace databáze do systému SQL Server ve virtuálním počítači Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Určete režim serveru instance Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Multidimenzionální modelování (společnosti Adventure Works kurzu)](https://technet.microsoft.com/library/ms170208.aspx)

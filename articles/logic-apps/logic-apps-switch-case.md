@@ -3,7 +3,7 @@ title: "Switch – příkaz pro různé akce v Azure Logic Apps | Microsoft Docs
 description: "Zvolte jiné akce lze provádět v logiku aplikace založené na výrazu hodnoty pomocí příkazu switch"
 services: logic-apps
 keywords: "Switch – příkaz"
-author: derek1ee
+author: ecfan
 manager: anneta
 editor: 
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; estfan
+ms.openlocfilehash: 8f11d18009d60ea5c74781ccef2ff7d811516750
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Provádění různých akcí v aplikacích logiky s příkaz switch
 
@@ -34,7 +34,7 @@ Příkaz přepínač můžete použít k implementaci těchto scénářů. Aplik
 ## <a name="prerequisites"></a>Požadavky
 
 - Aktivní předplatné Azure. Pokud nemáte předplatné Azure aktivní [vytvořit bezplatný účet](https://azure.microsoft.com/free/), nebo zkuste [volné aplikace logiky pro](https://tryappservice.azure.com/).
-- [Základní znalosti o aplikace logiky](logic-apps-what-are-logic-apps.md)
+- [Základní znalosti o aplikace logiky](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Do pracovního postupu přidat příkaz switch
 
@@ -120,7 +120,7 @@ Klást otázky, odpovídat na ně a poučit se ze zkušeností jiných uživatel
 
 Pokud chcete pomoci při vylepšování Azure Logic Apps a konektorů, hlasujte nebo zanechte své nápady na [webu zpětné vazby uživatelů Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zjistěte, jak [přidat podmínky](logic-apps-use-logic-app-features.md)
 - Další informace o [chyb a výjimek](logic-apps-exception-handling.md)

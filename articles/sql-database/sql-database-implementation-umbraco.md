@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco používá Azure SQL Database k rychlému zřizování a škálování služby pro tisíce klienty v cloudu
 ![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -124,7 +124,6 @@ Od vyberete Azure jako jeho partnerský server pro cloud, byl Umbraco moci posky
 ## <a name="more-information"></a>Další informace
 * Další informace o Azure elastické fondy najdete v tématu [elastické fondy](sql-database-elastic-pool.md).
 * Další informace o Azure Service Bus, najdete v části [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
-* Další informace o webových rolí a rolí pracovního procesu naleznete v tématu [rolí pracovního procesu](../fundamentals-introduction-to-azure.md#compute).    
 * Další informace o virtuální sítě najdete v tématu [virtuální sítě](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Další informace o zálohování a obnovení najdete v tématu [kontinuity podnikových procesů](sql-database-business-continuity.md).    
 * Další informace o monitorování ppols najdete v tématu [monitorování fondy](sql-database-elastic-pool-manage-portal.md).    

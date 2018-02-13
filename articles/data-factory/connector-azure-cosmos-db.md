@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopírovat data z databáze Cosmos Azure pomocí Azure Data Factory
 
@@ -54,7 +54,7 @@ Pro Azure DB Cosmos propojené služby jsou podporovány následující vlastnos
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **CosmosDb**. | Ano |
-| připojovací řetězec |Zadejte informace potřebné pro připojení k databázi Azure Cosmos DB. Všimněte si, že budete muset zadat informace o databázi v připojovacím řetězci jako následující ukázka. Toto pole můžete označte jako SecureString. |Ano |
+| připojovací řetězec |Zadejte informace potřebné pro připojení k databázi Azure Cosmos DB. Všimněte si, že budete muset zadat informace o databázi v připojovacím řetězci jako následující ukázka. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
@@ -114,7 +114,7 @@ Aktivita kopírování pro data bez schémat úložiště, jako je například A
 1. Pokud zadáte strukturu dat pomocí **struktura** vlastnost v definici datové sady, služba Data Factory ctí tato struktura jako schéma. V takovém případě Pokud řádek neobsahuje hodnotu pro sloupec, bude poskytnuta hodnota null pro ni.
 2. Pokud nezadáte strukturu dat pomocí **struktura** vlastnost v definici datové sady, služba Data Factory odvodí schématu pomocí prvního řádku v datech. V takovém případě pokud první řádek neobsahuje úplnou schéma, některé sloupce budou chybět ve výsledku operace kopírování.
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Azure Cosmos DB zdroj a jímka.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 4b8023b8b2c33ce9fc1a6294e21b1518abbc392b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Zkoumání a modelování dat pomocí Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -218,7 +218,7 @@ Jakmile data vstoupila v Spark, je dalším krokem v procesu vědecké účely d
 Tento kód a následné fragmenty použijte k dotazování na ukázkové a místní magic k vykreslení dat SQL magic.
 
 * **SQL magic (`%%sql`)** jádra PySpark HDInsight podporuje snadno vložené HiveQL dotazy proti sqlContext. (-O VARIABLE_NAME) argument potrvají výstup příkazu jazyka SQL jako Pandas DataFrame na serveru Jupyter. To znamená, že je k dispozici v místním režimu.
-*  **`%%local` Magic** slouží ke spouštění kódu místně na serveru Jupyter, což je headnode clusteru HDInsight. Obvykle použijete, `%%local` magic ve spojení s `%%sql` magic s parametrem -o. Parametr -o by zachovat výstup příkazu jazyka SQL místně a pak %% místní magic by aktivovat další sadu fragment kódu ke spouštění místně na výstupu dotazů SQL, který je místně trvalé
+* **`%%local` Magic** slouží ke spouštění kódu místně na serveru Jupyter, což je headnode clusteru HDInsight. Obvykle použijete, `%%local` magic ve spojení s `%%sql` magic s parametrem -o. Parametr -o by zachovat výstup příkazu jazyka SQL místně a pak %% místní magic by aktivovat další sadu fragment kódu ke spouštění místně na výstupu dotazů SQL, který je místně trvalé
 
 Výstup se automaticky vizualizuje po spuštění kódu.
 
@@ -962,14 +962,14 @@ Kód v této části ukazuje, jak cvičení, hodnocení a uložit regrese náhod
 
 RMSE = 0.891209218139
 
-R sqr = 0.759661334921
+R-sqr = 0.759661334921
 
 Doba k provedení výše buňky: 49.21 sekund
 
 ### <a name="gradient-boosting-trees-regression"></a>Přechodu zvýšení skóre regresní stromy
 Kód v této části ukazuje, jak pro trénování, hodnocení a uložit přechodu zvýšení skóre stromy model, který předpovídá velikost tip pro data NYC taxíkem cesty.
 
-** Natrénování a vyhodnocení **
+**Natrénování a vyhodnocení**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1013,7 +1013,7 @@ Kód v této části ukazuje, jak pro trénování, hodnocení a uložit přecho
 
 RMSE = 0.908473148639
 
-R sqr = 0.753835096681
+R-sqr = 0.753835096681
 
 Doba k provedení výše buňky: 34.52 sekund
 
@@ -1047,7 +1047,7 @@ Tady je kód k vykreslení data s využitím serveru Jupyter.
 
 **VÝSTUP:**
 
-![Skutečný vs předpovědět tip objemy](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
+![Actual-vs-predicted-tip-amounts](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="clean-up-objects-from-memory"></a>Vyčištění objektů z paměti
 Použití `unpersist()` odstranit objekty uložené v mezipaměti v paměti.
@@ -1085,7 +1085,7 @@ Spotřebovat a stanovení skóre nezávislé datové sadě služby popsané v [s
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
 
 
-**VÝSTUP**
+**OUTPUT**
 
 logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0317_03_23.516568"
 

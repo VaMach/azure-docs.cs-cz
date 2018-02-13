@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>Operace služby IoT Hub monitorování
 
 Operace služby IoT Hub monitorování umožňuje sledovat stav operace ve službě IoT hub v reálném čase. IoT Hub sleduje události napříč několika kategorií operací. Můžete se taky rozhodnout do odesílání událostí z jedné nebo více kategorií pro koncový bod služby IoT hub pro zpracování. Můžete sledovat data chyby nebo nastavit složitější zpracování vámi data.
 
 >[!NOTE]
->Operace IoT Hub monitorování se již nepoužívá a bude odebrána ze služby IoT Hub v budoucnu. Monitorování operací a stavu služby IoT Hub, najdete v části [monitorování stavu služby Azure IoT Hub a rychle diagnostikovat problémy][lnk-monitor]. Další informace o vyřazení časovou osu najdete v tématu [monitorovat řešení Azure IoT s monitorování Azure a Azure Resource Health][lnk-blog-announcement].
+>Monitorování operací služby IoT Hub je zastaralá a odebere ze služby IoT Hub na 10. října 2018. Monitorování operací a stavu služby IoT Hub, najdete v části [monitorování stavu služby Azure IoT Hub a rychle diagnostikovat problémy][lnk-monitor]. Další informace o vyřazení časovou osu najdete v tématu [monitorovat řešení Azure IoT s monitorování Azure a Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub monitoruje šesti kategorie události:
 
@@ -191,7 +191,7 @@ Kategorie směrování zpráv sleduje chyb vzniklých při vyhodnocení zpráva 
 }
 ```
 
-## <a name="view-events"></a>zobrazení událostí
+## <a name="view-events"></a>Zobrazení událostí
 
 Můžete použít *iothub-explorer* nástroj rychle otestovat, zda služby IoT hub je generování události monitorování. Chcete-li nainstalovat nástroj, postupujte podle pokynů v [iothub-explorer] [ lnk-iothub-explorer] úložiště GitHub.
 
@@ -287,11 +287,11 @@ class Program
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
 * [Příručka vývojáře pro službu IoT Hub][lnk-devguide]
-* [Nasazení AI do hraniční zařízení s Azure IoT Edge][lnk-iotedge]
+* [Nasazení AI do hraničních zařízení s použitím Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png

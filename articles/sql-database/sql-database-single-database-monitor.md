@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorování výkonu databáze ve službě Azure SQL Database
 Monitorování výkonu databáze SQL v Azure začíná sledováním využití prostředků relativně ke zvolené úrovni výkonu databáze. Monitorování vám pomůže určit, zda má databáze nadbytečnou kapacitu nebo zda má naopak potíže s vyčerpáním prostředků, a podle toho se můžete rozhodnout, zda je třeba změnit úroveň výkonu nebo [úroveň služeb](sql-database-service-tiers.md) vaší databáze. Databázi můžete monitorovat pomocí grafických nástrojů na [portálu Azure](https://portal.azure.com) nebo pomocí [zobrazení dynamické správy SQL](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -61,10 +61,10 @@ Můžete monitorovat využití prostředků pomocí [SQL databáze Query Perform
 
 Můžete také sledovat využití pomocí těchto dvou zobrazení:
 
-* [Sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-* [Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+* [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+* [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-#### <a name="sysdmdbresourcestats"></a>Sys.dm_db_resource_stats
+#### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
 Můžete použít [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) zobrazení v každé databázi SQL. **Sys.dm_db_resource_stats** zobrazení ukazuje poslední data použití prostředků relativně k vrstvě služby. Průměrnou procentuální hodnotu pro procesor, vstupů/výstupů dat, protokolu zápisy a paměti se zaznamenávají každých 15 sekund a jsou uchovávány 1 hodina.
 
 Protože toto zobrazení nabízí podrobnější pohled na využití prostředků, použijte **sys.dm_db_resource_stats** první pro nějakou analýzu aktuální stav nebo řešení potíží. Například tento dotaz zobrazí průměrnou a maximální prostředky používané pro aktuální databázi přes poslední hodinu:
@@ -82,8 +82,8 @@ Protože toto zobrazení nabízí podrobnější pohled na využití prostředk�
 
 Pro jiné dotazy, podívejte se na příklady v [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-#### <a name="sysresourcestats"></a>Sys.resource_stats
-[Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) zobrazit v **hlavní** databáze obsahuje další informace, které můžete sledovat výkon vaší databázi SQL na úrovni konkrétní službu a výkonu. Data se shromažďují pro každých 5 minut a bude zachována pro účely přibližně 35 dnů. Toto zobrazení je užitečné pro dlouhodobější analýzu historie používání prostředků vaší databázi SQL.
+#### <a name="sysresourcestats"></a>sys.resource_stats
+[Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) zobrazit v **hlavní** databáze obsahuje další informace, které můžete sledovat výkon vaší databázi SQL na úrovni konkrétní službu a výkonu. Data se shromažďují pro každých 5 minut a bude zachována pro účely přibližně 14 dnů. Toto zobrazení je užitečné pro dlouhodobější analýzu historie používání prostředků vaší databázi SQL.
 
 Následující graf ukazuje procesoru využití prostředků pro databáze Premium P2 úrovní výkonu pro každou hodinu v týdnu. Tento graf začíná v pondělí, zobrazuje 5 pracovních dní a poté zobrazí víkendu, když se stane mnohem méně na aplikaci.
 
@@ -135,7 +135,7 @@ Další příklad ukazuje, různé způsoby, které můžete použít **sys.reso
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 3. Tyto informace o průměrnou a maximální hodnoty každého prostředku metriky a můžete vyhodnotit, jak dobře vaše úlohy zapadá do úroveň výkonu, které jste zvolili. Obvykle, průměrná hodnoty z **sys.resource_stats** poskytují dobrý směrného plánu používat pro cílovou velikost. Mělo by být váš primární měření Flash disk. Příklad by mohla využívat vrstvě služby na úrovni Standard S2 úroveň výkonu. Průměr pomocí procenta pro procesor a vstupně-výstupní operace čtení a zápisů jsou pod 40 procent, průměrný počet pracovních procesů je menší než 50 a průměrný počet relací, které je nižší než 200. Vaše zatížení může začlenit do úrovní výkonu S1. Je snadno zjistit, jestli vaše databáze se vejde limity pracovního procesu a relace. Pokud chcete zobrazit, zda databáze zapadá do nižší úroveň výkonu s ohledem na využití procesoru, čte a zápisu a dělit počet jednotek DTU na nižší úroveň výkonu podle počtu jednotek DTU vaše aktuální úroveň výkonu a výsledek vynásobit 100:
    
-    **S1 DTU / S2 DTU * 100 = 20 NEBO 50 * 100 = 40**
+    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
    
     Výsledkem je relativní výkon rozdíl mezi úrovněmi dvě výkonu v procentech. Pokud vaše využití prostředků nepřekročí toto množství, může vaše úlohy začlenit do nižší úroveň výkonu. Však musíte vyhledat všechny rozsahy hodnot použití prostředků a zjistit, v procentech, jak často by se vešla vaše databáze úlohy s nižší úrovní výkonu. Následující dotaz vypíše shody procento na dimenzi prostředků, podle prahové hodnoty 40 procent vypočtené v tomto příkladu:
    
@@ -212,7 +212,7 @@ Tyto dotazy znovu, vrátí počet bodu v čase. Pokud shromažďujete více uká
 
 Pro analýzu databáze SQL, můžete získat historická statistiky u relací pomocí dotazu [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) zobrazení a kontrola **active_session_count** sloupce. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Automaticky optimalizovat indexy databáze a spuštění plány pomocí dotazu [Azure SQL Database automatické ladění](sql-database-automatic-tuning.md).
 - Monitorování výkonu databáze automaticky pomocí [inteligentního Statistika SQL Azure](sql-database-intelligent-insights.md). Tato funkce poskytuje diagnostické informace a příčina analýzu problémy s výkonem.

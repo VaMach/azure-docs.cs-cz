@@ -7,7 +7,7 @@
 ## [Zobrazení skupin zabezpečení](network-watcher-security-group-view-overview.md)
 ## [Další směrování](network-watcher-next-hop-overview.md)
 ## [Řešení potíží s připojením VPN](network-watcher-troubleshoot-overview.md)
-## [Kontrola možnosti připojení](network-watcher-connectivity-overview.md)
+## [Řešení potíží s připojení](network-watcher-connectivity-overview.md)
 ## [Omezení služby](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Začínáme
@@ -46,7 +46,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Test připojení
+## Řešení potíží s připojeními
 ### [portál Azure Portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)

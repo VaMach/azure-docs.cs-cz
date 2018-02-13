@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c0145a5b5c54f5b9e3b5731d52df99c0a80fc271
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f42ba7ed9c07a9d0bc73929db2a095248ad7d56f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory – funkce a systémové proměnné
 > [!NOTE]
@@ -30,10 +30,10 @@ Tento článek obsahuje informace o funkcích a proměnné, podporované službo
 ## <a name="data-factory-system-variables"></a>Data Factory systémové proměnné
 | Název proměnné | Popis | Objekt oboru | Obor JSON a případy použití |
 | --- | --- | --- | --- |
-| WindowStart |Začátek časového intervalu pro aktuální aktivity při spuštění okna |Aktivity |<ol><li>Zadejte data výběr dotazy. Najdete v části konektor články v odkazuje [aktivity přesunu dat](data-factory-data-movement-activities.md) článku.</li> |
-| WindowEnd |Konec časového intervalu pro aktuální aktivity při spuštění okna |Aktivity |stejné jako WindowStart. |
-| SliceStart |Začátek časového intervalu pro datový řez vytvářen |Aktivity<br/>Datové sady |<ol><li>Zadejte složku dynamické cesty a názvy souborů při práci s [objektů Blob v Azure](data-factory-azure-blob-connector.md) a [datové sady systém souborů](data-factory-onprem-file-system-connector.md).</li><li>Určení závislostí vstupní pomocí funkce objekt pro vytváření dat v kolekci vstupy aktivity.</li></ol> |
-| SliceEnd |Konec časového intervalu pro aktuální datový řez. |Aktivity<br/>Datové sady |stejné jako SliceStart. |
+| WindowStart |Začátek časového intervalu pro aktuální aktivity při spuštění okna |aktivita |<ol><li>Zadejte data výběr dotazy. Najdete v části konektor články v odkazuje [aktivity přesunu dat](data-factory-data-movement-activities.md) článku.</li> |
+| WindowEnd |Konec časového intervalu pro aktuální aktivity při spuštění okna |aktivita |stejné jako WindowStart. |
+| SliceStart |Začátek časového intervalu pro datový řez vytvářen |aktivita<br/>dataset |<ol><li>Zadejte složku dynamické cesty a názvy souborů při práci s [objektů Blob v Azure](data-factory-azure-blob-connector.md) a [datové sady systém souborů](data-factory-onprem-file-system-connector.md).</li><li>Určení závislostí vstupní pomocí funkce objekt pro vytváření dat v kolekci vstupy aktivity.</li></ol> |
+| SliceEnd |Konec časového intervalu pro aktuální datový řez. |aktivita<br/>dataset |stejné jako SliceStart. |
 
 > [!NOTE]
 > Objekt pro vytváření dat aktuálně vyžaduje, aby plán určeného v aktivitě přesně odpovídá plán zadaný v dostupnosti výstupní datovou sadu. Proto WindowStart, WindowEnd a SliceStart a SliceEnd vždy mapují na stejné časové období a jednu výstupní řez.
@@ -95,14 +95,14 @@ V následujících tabulkách najdete všechny funkce v Azure Data Factory:
 | Datum |EndOfDay(X) |X: data a času |Získá datum a čas, který představuje konec dne (komponenta dne) X.<br/><br/>Příklad: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Datum |EndOfMonth(X) |X: data a času |Získá Konec měsíce reprezentována měsíc součást parametr X. <br/><br/>Příklad: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum a čas, který představuje konec dne měsíce) |
 | Datum |StartOfDay(X) |X: data a času |Získá začátek dne reprezentována komponentu den parametru X.<br/><br/>Příklad: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Data a času |From(X) |X: řetězec |Analyzovat řetězec X datum a čas. |
-| Data a času |Ticks(X) |X: data a času |Získá o rysky vlastnost parametru X. Jeden značek rovná 100 nanosekundách. Hodnota této vlastnosti představuje počet značek, které uplynuly od 12:00:00, 1. ledna 0001. |
+| Datum a čas |From(X) |X: řetězec |Analyzovat řetězec X datum a čas. |
+| Datum a čas |Ticks(X) |X: data a času |Získá o rysky vlastnost parametru X. Jeden značek rovná 100 nanosekundách. Hodnota této vlastnosti představuje počet značek, které uplynuly od 12:00:00, 1. ledna 0001. |
 | Text |Format(X) |X: proměnnou string |Formáty text (použijte `\\'` kombinaci, abyste se vyhnuli `'` znaků).|
 
 > [!IMPORTANT]
 > Při práci s funkcí v jiné funkci, není potřeba použít  **$$**  předponu pro vnitřní funkce. Například: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' a RowKey ge \\' {0: rrrr MM-dd hh: mm:}\\", Time.AddHours (SliceStart, -6)). V tomto příkladu, Všimněte si, že  **$$**  předponu nepoužívá pro **Time.AddHours** funkce. 
 
-#### <a name="example"></a>Příklad
+#### <a name="example"></a>Příklad:
 V následujícím příkladu jsou vstupní a výstupní parametry pro aktivitu Hive určit pomocí `Text.Format` funkce a proměnné SliceStart systému. 
 
 ```json  

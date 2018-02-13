@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b9a151ac04bc539e337b0007a264e196dc0ae6a3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Foreach – aktivita v Azure Data Factory
 Aktivita ForEach definuje opakovaných tok řízení v vašeho kanálu. Tato aktivita se používá k opakování v kolekci a spouští zadané aktivity ve smyčce. Implementace smyčky této aktivity se podobá struktuře smyčky Foreach v programovacích jazycích.
@@ -237,7 +237,7 @@ Je možné, Iterujte přes několik aktivit (například: kopírování a webov�
 }
 
 ```
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 **Scénář:** Iterate přes InnerPipeline v rámci aktivity příkazu ForEach s aktivitou spuštění kanálu. Vnitřní kanál kopíruje s parametry definice schémat.
 
 #### <a name="master-pipeline-definition"></a>Definice hlavního kanálu
@@ -573,7 +573,7 @@ Výraz pro shromažďování výstup všechny iterace ForEach `@activity('Nameof
 ]
 
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v části Další aktivity toku řízení podporovaných službou Data Factory: 
 
 - [Aktivita spuštění kanálu](control-flow-execute-pipeline-activity.md)

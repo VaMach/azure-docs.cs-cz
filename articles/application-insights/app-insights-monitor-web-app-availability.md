@@ -1,5 +1,5 @@
 ---
-title: "Sledování dostupnosti a odezvy libovolných webů | Microsoft Docs"
+title: "Sledování dostupnosti a odezvy libovolných webů | Dokumentace Microsoftu"
 description: "Nastavení testů webu ve službě Application Insights. Zasílání upozornění, pokud web přestane být k dispozici nebo reaguje pomalu."
 services: application-insights
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Sledování dostupnosti a odezvy libovolných webů
 Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit testy ke sledování dostupnosti a odezvy. [Azure Application Insights](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
@@ -26,10 +26,16 @@ Testy dostupnosti můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS,
 
 Existují dva typy testů dostupnosti:
 
-* [Testování ping adresy URL](#create): jednoduchý test, který můžete vytvořit na portálu Azure.
+* [Testování ping adresy URL](#create): jednoduchý test, který můžete vytvořit na portálu Azure Portal.
 * [Vícekrokový webový test](#multi-step-web-tests): který můžete vytvořit v sadě Visual Studio Enterprise a odeslat na portál.
 
 Pro každý prostředek aplikace můžete vytvořit až 100 testů dostupnosti.
+
+
+> [!NOTE] 
+> * Umístění testu dostupnosti se nedávno přesunula do datacenter Azure. Tento krok nám umožňuje přidat umístění s rostoucí sítí datacenter Azure.  
+> * Testy není třeba aktualizovat. Všechny testy jsou migrované a spouštějí se z nových umístění. 
+>* Další informace najdete v [aktualizaci služby](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/).
 
 ## <a name="create"></a>Otevření prostředku pro sestavy testů dostupnosti
 
@@ -108,6 +114,11 @@ Výsledek testu dostupnosti umožňuje:
 
 *Zdá se, že všechno je v pořádku, ale přesto je hlášena chyba.* Informace o tom, jak snížit šum, najdete v [Častých otázkách](#qna).
 
+
+> [!TIP]
+> Pro zajištění spolehlivého monitorování doporučujeme testovat alespoň ze 2 umístění.
+>
+
 ## <a name="multi-step-web-tests"></a>Vícekrokové webové testy
 Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Například pokud sledujete prodejní web, můžete otestovat, zda správně funguje přidávání položek do nákupního košíku.
 
@@ -118,7 +129,8 @@ Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Napříkla
 Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Studio Enterprise a pak nahrajte tento záznam do služby Application Insights. Application Insights přehrává scénář v intervalech a ověřuje odezvy.
 
 > [!NOTE]
-> V testech nelze použít programové funkce nebo smyčky. Test musí být zcela obsažený ve skriptu .webtest. Můžete však použít standardní moduly plug-in.
+> * V testech nelze použít programové funkce nebo smyčky. Test musí být zcela obsažený ve skriptu .webtest. Můžete však použít standardní moduly plug-in.
+> * Vícekrokové webové testy podporují pouze anglické znaky. Pokud používáte sadu Visual Studio v jiném jazyce, aktualizujte definiční soubor webového testu pro překlad/vyloučení jiných než anglických znaků.
 >
 
 #### <a name="1-record-a-scenario"></a>1. Záznam scénáře

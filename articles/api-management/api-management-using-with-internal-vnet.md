@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Interní virtuální sítě pomocí služby Azure API Management
 S virtuálními sítěmi Azure Azure API Management můžete spravovat rozhraní API není dostupný na Internetu. Počet technologie VPN jsou k dispozici pro připojení. API Management se dá nasadit v dva hlavní režimy uvnitř virtuální sítě:
@@ -26,7 +26,7 @@ S virtuálními sítěmi Azure Azure API Management můžete spravovat rozhraní
 * Interní
 
 
-Když API Management nasadí v režimu interní virtuální síť, jsou viditelné ve virtuální síti, která můžete řídit přístup ke pouze všechny služby na koncové body (brány, portál pro vývojáře, portál vydavatele, přímou správu a Git). Žádné koncové body služby jsou registrované na veřejném serveru DNS.
+Když API Management nasadí v režimu interní virtuální síť, jsou viditelné ve virtuální síti, která můžete řídit přístup ke pouze všechny služby na koncové body (brány, portál pro vývojáře, portálu Azure, přímou správu a Git). Žádné koncové body služby jsou registrované na veřejném serveru DNS.
 
 Použití služby API Management v interní režimu, můžete dosáhnout následujících scénářů:
 * Ujistěte se, rozhraní API hostovaných ve vašem privátním datacentru bezpečně přístupné třetími stranami mimo pomocí site-to-site nebo připojení k síti VPN Azure ExpressRoute.
@@ -72,16 +72,16 @@ Můžete také povolit připojení k virtuální síti pomocí rutin prostředí
 Když API Management je v režimu externí virtuální síť, DNS spravuje Azure. Pro režim interní virtuální sítě budete muset spravovat vlastní směrování.
 
 > [!NOTE]
-> Služba API Management nepřijímá požadavky na požadavky pocházejících z IP adresy. Pouze reaguje na požadavky na název hostitele, který je nakonfigurovaný na jeho koncové body služby. Tyto koncové body patří brány, portál pro vývojáře, portál vydavatele, koncový bod přímou správu a Git.
+> Služba API Management nepřijímá požadavky na požadavky pocházejících z IP adresy. Pouze reaguje na požadavky na název hostitele, který je nakonfigurovaný na jeho koncové body služby. Tyto koncové body patří brány, portál pro vývojáře, portál Azurethe, přímou správu koncový bod a Git.
 
 ### <a name="access-on-default-host-names"></a>Přístup na výchozí názvy hostitelů
 Při vytváření služby API Management, například s názvem "contoso", jsou ve výchozím nastavení nakonfigurované následující služby na koncové body:
 
    * Brána nebo proxy server: contoso.azure api.net
 
-   * Portál vydavatele a portál pro vývojáře: contoso.portal.azure api.net
+   * portál Azure a portál pro vývojáře: contoso.portal.azure api.net
 
-   * Koncový bod přímá správa: contoso.management.azure api.net
+   * Direct management endpoint: contoso.management.azure-api.net
 
    * Git: contoso.scm.azure-api.net
 

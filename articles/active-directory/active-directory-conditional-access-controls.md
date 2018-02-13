@@ -1,6 +1,6 @@
 ---
-title: "Ovládací prvky v Azure Active Directory podmíněného přístupu | Microsoft Docs"
-description: "Zjistěte, jak fungují ovládacích prvků v Azure Active Directory podmíněného přístupu."
+title: "Přístup k ovládacím prvkům v Azure Active Directory podmíněného přístupu | Microsoft Docs"
+description: "Zjistěte, jak řízení přístupu v pracovním podmíněného přístupu Azure Active Directory."
 services: active-directory
 keywords: "podmíněný přístup k aplikacím, podmíněného přístupu s Azure AD, zabezpečený přístup k prostředkům společnosti, zásady podmíněného přístupu"
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Ovládací prvky v Azure Active Directory podmíněného přístupu 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Řízení přístupu v Azure Active Directory podmíněného přístupu 
 
-S [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), jak oprávněným uživatelům přístup můžete řídit cloudových aplikací. V zásadách podmíněného přístupu definujete odpovědi ("to") na určitý stav ("v takovém případě"). V kontextu podmíněného přístupu 
+S [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), jak oprávněným uživatelům přístup můžete řídit cloudových aplikací. V zásadách podmíněného přístupu které definujete odpovědi ("to") důvod aktivován vaší zásady ("v takovém případě"). 
 
-- "**v takovém případě**" se nazývá **podmínky – příkaz**
+![Řízení](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Udělejte to**" se nazývá **ovládací prvky**
 
-![Ovládací prvek](./media/active-directory-conditional-access-controls/11.png)
+V kontextu podmíněného přístupu 
+
+- "**v takovém případě**" se nazývá **podmínky**
+
+- "**Udělejte to**" se nazývá **přístup k ovládacím prvkům**
+
 
 Kombinace příkaz podmínky s ovládacími prvky představuje zásady podmíněného přístupu.
 
-![Ovládací prvek](./media/active-directory-conditional-access-controls/12.png)
+![Řízení](./media/active-directory-conditional-access-controls/61.png)
 
 Každý ovládací prvek je buď požadavek, který musí být splněny osoba nebo systému přihlášení nebo omezení na to, co uživatel provést po přihlášení. 
 
@@ -46,14 +50,14 @@ Existují dva typy ovládacích prvků:
 
 Toto téma vysvětluje různé ovládacích prvků, které jsou k dispozici v Azure AD podmíněného přístupu. 
 
-## <a name="grant-controls"></a>Udělení ovládací prvky
+## <a name="grant-controls"></a>Udělit řízení
 
 Udělení kontrolní prvky můžete buď úplně blokovat přístup nebo povolit přístup s další požadavky výběrem požadované ovládací prvky. Pro více ovládacích prvků můžete požadovat:
 
 - Všechny vybrané ovládací prvky, musí být splněny (*a*) 
 - Vybrán jeden ovládací prvek musí být splněny (*nebo*)
 
-![Ovládací prvek](./media/active-directory-conditional-access-controls/17.png)
+![Řízení](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -107,7 +111,7 @@ Tyto ovládací prvky umožňují použití určité externí nebo vlastní slu�
 
 Zprostředkovatelé aktuálně nabízející kompatibilní službu patří:
 
-- Duo zabezpečení
+- [Duo zabezpečení](https://duo.com/docs/azure-ca)
 
 - RSA
 
@@ -123,12 +127,12 @@ Zkopírujte JSON data a pak ji vložit do textového pole související. Neprov�
 
 Možnost vytvořit vlastní ovládací prvek je v **spravovat** části **podmíněného přístupu** stránky.
 
-![Ovládací prvek](./media/active-directory-conditional-access-controls/82.png)
+![Řízení](./media/active-directory-conditional-access-controls/82.png)
 
 Kliknutím na tlačítko **nové vlastní ovládací prvek**, otevře se okno s textové pole pro data JSON ovládacího prvku.  
 
 
-![Ovládací prvek](./media/active-directory-conditional-access-controls/81.png)
+![Řízení](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Odstranění vlastní ovládací prvky
@@ -150,18 +154,18 @@ Upravit vlastní ovládací prvek, musí odstranit aktuální ovládací prvek a
 
 ## <a name="session-controls"></a>Ovládací prvky relace
 
-Ovládací prvky relace povolit omezený prostředí v rámci cloudové aplikace. Ovládací prvky relace vynucuje cloudových aplikací a spoléhá na další informace, které poskytuje Azure AD do aplikace o relaci.
+Ovládací prvky relací umožňují používat v cloudové aplikaci omezené možnosti. Ovládací prvky relace vynucuje cloudových aplikací a spoléhá na další informace, které poskytuje Azure AD do aplikace o relaci.
 
-![Ovládací prvek](./media/active-directory-conditional-access-controls/31.png)
+![Řízení](./media/active-directory-conditional-access-controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Pomocí omezení aplikace, které vynucují
+### <a name="use-app-enforced-restrictions"></a>Používat omezení vynucená aplikací
 
 Tento ovládací prvek můžete použít tak, aby vyžadovala Azure AD k předání informací o zařízení ke cloudové aplikaci. To pomáhá cloudové aplikaci vědět, pokud uživatel pochází ze zařízení připojených k doméně nebo kompatibilní zařízení. Tento ovládací prvek je aktuálně podporuje jenom s SharePoint jako cloudové aplikace. SharePoint používá informace o zařízení a poskytuje uživatelům úplné nebo omezené prostředí v závislosti na stavu zařízení.
 Další informace o tom, jak vyžadovat omezený přístup se službou SharePoint naleznete v tématu [řízení přístupu z nespravovaných zařízení](https://aka.ms/spolimitedaccessdocs).
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Pokud chcete vědět, jak konfigurovat zásadu podmíněného přístupu, najdete v článku [Začínáme s podmíněným přístupem v Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

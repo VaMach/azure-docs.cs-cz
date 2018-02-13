@@ -44,6 +44,8 @@
         - name: Nástroje pro VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Odesílání úloh z Nástrojů R pro Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Rozšíření clusterů
       items:
         - name: Přizpůsobení clusterů pomocí Bootstrap
@@ -91,6 +93,21 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Publikování aplikací HDInsight na Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – CDAP (Cask Data Application Platform)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
               maintainContext: true
     - name: Zabezpečení
       items:
@@ -269,7 +286,7 @@
         - name: Monitorování výkonu clusteru
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

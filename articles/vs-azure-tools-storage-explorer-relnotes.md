@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Poznámky k verzi Microsoft Azure Storage Explorer (Preview)
 
-Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer 0.9.3 (Preview), a také poznámky k verzi pro předchozí verze.
+Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer 0.9.4 (Preview), a také poznámky k verzi pro předchozí verze.
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) je samostatná aplikace, která umožňuje snadno pracovat s daty Azure Storage ve Windows, systému macOS a Linux.
 
-## <a name="version-093"></a>Verze 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>Verze 0.9.4 nebo 0.9.3
+01/21/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Stažení Azure Storage Explorer 0.9.3 (Preview)
-- [Azure Storage Explorer (Preview) 0.9.3 pro Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer (Preview) 0.9.3 pro Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer (Preview) 0.9.3 pro Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Stažení Azure Storage Explorer 0.9.4 (Preview)
+- [Azure Storage Explorer (Preview) 0.9.4 pro Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer (Preview) 0.9.4 pro Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer (Preview) 0.9.4 pro Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nová
 * Vaše stávající okno Průzkumníka úložiště bude znovu použít při:
@@ -44,6 +44,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
     * Pro počítače Mac je možnost "nové okno, v nabídce aplikace.
 
 ### <a name="fixes"></a>Opravy
+* Vyřešený problém zabezpečení. Proveďte upgrade 0.9.4 na vám nejdřívější pohodlí.
 * Původní aktivity nebyly se odpovídajícím způsobem vyčistit. To vliv na výkon dlouhotrvající úlohy. Že jsou teď ještě čistí správně.
 * Akce zahrnující velkého počtu souborů a adresářů by způsobilo příležitostně Storage Explorer chcete ukotvit. Požadavky na Azure pro sdílené složky jsou nyní trottled k omezení využití prostředků systému.
 
@@ -94,7 +95,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 
 ### <a name="new"></a>Nová
 * Náhled podpora pro Azure Cosmos DB:
-    * [Online dokumentace](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Online dokumentace](./cosmos-db/storage-explorer.md)
     * Vytvoření databáze a kolekce
     * Pracovat s daty
     * Dotaz, vytvoření nebo odstranění dokumentů
@@ -174,7 +175,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 10/20/2017
 ### <a name="new"></a>Nová
 * Náhled podpora pro Azure Cosmos DB:
-    * [Online dokumentace](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Online dokumentace](./cosmos-db/storage-explorer.md)
     * Vytvoření databáze a kolekce
     * Pracovat s daty
     * Dotaz, vytvoření nebo odstranění dokumentů

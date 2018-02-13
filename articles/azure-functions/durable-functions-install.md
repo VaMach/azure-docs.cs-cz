@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Nainstalujte rozšíření trvanlivý funkce a ukázky (Azure Functions)
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/08/2017
 
 * Visual Studio 2017 (doporučeno) 
 
-* portál Azure
+* Azure Portal
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
 
@@ -115,7 +115,7 @@ Visual Studio Code poskytuje místní vývojové prostředí, který po sobě za
     func host start
     ```
 
-## <a name="azure-portal"></a>portál Azure
+## <a name="azure-portal"></a>Azure Portal
 
 Pokud dáváte přednost, můžete portál Azure pro vývoj trvanlivý funkce.
 
@@ -123,7 +123,7 @@ Pokud dáváte přednost, můžete portál Azure pro vývoj trvanlivý funkce.
 
 1. Vytvořit novou aplikaci funkce v [functions.azure.com](https://functions.azure.com/signin).
 
-2. Konfigurace funkce aplikaci [použít verzi 2.0 runtime](functions-versions.md).
+2. Konfigurace funkce aplikaci [použít verzi 2.0 runtime](set-runtime-version.md).
 
 3. Vytvořte novou funkci tak, že vyberete **"Vytvoření vlastní funkce."** .
 
@@ -175,7 +175,7 @@ Pokud dáváte přednost, můžete portál Azure pro vývoj trvanlivý funkce.
 
 Blahopřejeme! První trvanlivý funkce je spuštěná na portálu Azure!
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Spuštění funkce řetězení ukázka](durable-functions-sequence.md)

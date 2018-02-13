@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Přehled: Převzetí služeb při selhání skupiny a aktivní geografickou replikaci
 Aktivní geografickou replikaci můžete nakonfigurovat až čtyři čitelný sekundární databáze v umístění center stejný nebo jiný dat (oblastí). Sekundární databáze jsou k dispozici pro dotazování a převzetí služeb při selhání v případě výpadku datacentra nebo neschopnost se připojit k primární databázi. Převzetí služeb při selhání musí ručně zahájit aplikace uživatele. Po převzetí služeb při selhání má nový primární koncový bod jiné připojení. 
@@ -71,7 +71,7 @@ Tato funkce aktivní geografickou replikací poskytuje následující základní
 * **Více čitelný sekundární repliky**: dvě nebo více sekundárních databází zvýšit redundance a úroveň ochrany pro primární databáze a aplikace. Existuje více sekundární databáze, i nadále aplikace chráněn, i když dojde k selhání jednoho sekundární databáze. Pokud existuje pouze jedna sekundární databáze, a se nezdaří, aplikace je vystaven vyšší riziko teprve po vytvoření nové sekundární databáze.
 
    > [!NOTE]
-   > Pokud používáte k sestavení globálně distribuované aplikace a potřebujete poskytovat přístup jen pro čtení k datům ve více než čtyři segions aktivní geografickou replikaci, můžete vytvořit sekundární sekundární (Tento proces se označuje jako řetězení). Tímto způsobem můžete dosáhnout prakticky neomezené škálování replikace databáze. Kromě toho řetězení snižuje zatížení replikace z primární databáze. O kompromisu je prodleva vyšší replikace na listu většinu sekundární databáze. 
+   > Pokud používáte k sestavení globálně distribuované aplikace a potřebujete poskytovat přístup jen pro čtení k datům ve více než čtyři oblasti aktivní geografickou replikaci, můžete vytvořit sekundární sekundární (Tento proces se označuje jako řetězení). Tímto způsobem můžete dosáhnout prakticky neomezené škálování replikace databáze. Kromě toho řetězení snižuje zatížení replikace z primární databáze. O kompromisu je prodleva vyšší replikace na listu většinu sekundární databáze. 
    >
 
 * **Podpora fondu elastické databáze**: aktivní geografickou replikací je možné nakonfigurovat pro všechny databáze v každém elastického fondu. Sekundární databáze může být v jiném elastického fondu. Pro normální databáze lze sekundární elastický fond a naopak naopak tak dlouho, dokud úrovně služeb jsou stejné. 
@@ -145,10 +145,10 @@ Jak je popsáno dříve, skupiny automatické převzetí služeb při selhání 
 | [Příkaz ALTER DATABASE (databáze Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Přidat sekundární SERVER ON argument použít k vytvoření sekundární databáze pro stávající databáze a spustí replikaci dat |
 | [Příkaz ALTER DATABASE (databáze Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Pomocí funkce převzetí služeb při selhání nebo FORCE_FAILOVER_ALLOW_DATA_LOSS přepínač sekundární databáze, která bude primární k zahájení převzetí služeb při selhání |
 | [Příkaz ALTER DATABASE (databáze Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Odebrat sekundární SERVER ON použijte k ukončení replikaci dat mezi SQL Database a zadaný sekundární databázi. |
-| [Sys.geo_replication_links (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Vrátí informace o všechna existující replikační připojení pro každou databázi na logického serveru Azure SQL Database. |
-| [Sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Získá čas poslední replikace, poslední replikace funkce lag a další informace o propojení replikace pro danou databázi SQL. |
-| [Sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Zobrazuje stav pro všechny databázové operace, včetně stav odkazů replikace. |
-| [uložená procedura sp_wait_for_database_copy_sync (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |způsobí, že aplikace počkejte, dokud všechny potvrzené transakce jsou replikována a potvrzena aktivní sekundární databáze. |
+| [sys.geo_replication_links (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Vrátí informace o všechna existující replikační připojení pro každou databázi na logického serveru Azure SQL Database. |
+| [sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Získá čas poslední replikace, poslední replikace funkce lag a další informace o propojení replikace pro danou databázi SQL. |
+| [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Zobrazuje stav pro všechny databázové operace, včetně stav odkazů replikace. |
+| [sp_wait_for_database_copy_sync (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |způsobí, že aplikace počkejte, dokud všechny potvrzené transakce jsou replikována a potvrzena aktivní sekundární databáze. |
 |  | |
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Správa SQL databáze převzetí služeb při selhání pomocí prostředí PowerShell
@@ -156,15 +156,15 @@ Jak je popsáno dříve, skupiny automatické převzetí služeb při selhání 
 | Rutina | Popis |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Získá jednu nebo více databází. |
-| [Nové AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Sekundární databáze pro databázi vytvoří a spustí replikaci dat. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Sekundární databáze pro databázi vytvoří a spustí replikaci dat. |
 | [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Přepne sekundární databáze, která bude primární k zahájení převzetí služeb při selhání. |
-| [Odebrat AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Ukončí replikaci dat mezi SQL Database a zadaný sekundární databázi. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Ukončí replikaci dat mezi SQL Database a zadaný sekundární databázi. |
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Získá odkazy geografická replikace mezi Azure SQL Database a skupinu prostředků nebo SQL Server. |
-| [Nové AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Tento příkaz vytvoří skupinu převzetí služeb při selhání a zaregistruje ho na primární a sekundární servery|
-| [Odebrat AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Odebere skupinu převzetí služeb při selhání ze serveru a odstraní všechny sekundární databáze zahrnuté skupině |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Tento příkaz vytvoří skupinu převzetí služeb při selhání a zaregistruje ho na primární a sekundární servery|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Odebere skupinu převzetí služeb při selhání ze serveru a odstraní všechny sekundární databáze zahrnuté skupině |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Načte konfiguraci skupiny převzetí služeb při selhání |
 | [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Upraví konfiguraci převzetí služeb při selhání skupiny |
-| [Přepínač AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Aktivační události převzetí služeb při selhání skupiny převzetí služeb při selhání na sekundární server |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Aktivační události převzetí služeb při selhání skupiny převzetí služeb při selhání na sekundární server |
 |  | |
 
 > [!IMPORTANT]
@@ -190,7 +190,7 @@ Jak je popsáno dříve, skupiny automatické převzetí služeb při selhání 
 | [Převzetí služeb při selhání skupiny aktualizací](/rest/api/sql/failovergroups/update) | Aktualizuje skupinu převzetí služeb při selhání. |
 |  | |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Ukázkové skripty najdete v části:
    - [Konfigurace a převzetí služeb při selhání jedné databáze používá aktivní geografickou replikaci](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Konfigurace a převzetí služeb při selhání ve fondu databáze používá aktivní geografickou replikaci](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

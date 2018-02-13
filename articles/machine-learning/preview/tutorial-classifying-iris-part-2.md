@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Klasifikace Iris – část 2: Sestavení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -326,7 +326,7 @@ Pokud chcete skript spustit v kontejneru Docker ve vzdáleném počítači s Lin
 3. V okně CLI zadejte stejný příkaz jako předtím, jenom tentokrát s cílem _myvm_:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
-   az ml experiment submit -c myvm .\iris_sklearn.py
+   az ml experiment submit -c myvm iris_sklearn.py
    ```
    Příkaz se spustí stejně, jako když používáte prostředí `docker-python`, jenže tentokrát se spustí ve vzdáleném virtuálním počítači s Linuxem. V okně CLI se zobrazí stejné výstupní informace.
 
@@ -346,7 +346,7 @@ Pokud chcete skript spustit v kontejneru Docker ve vzdáleném počítači s Lin
 Tento skript můžete také spustit v clusteru HDInsight Spark. Seznamte se s [postupem vytvoření clusteru HDInsight Spark pro použití v aplikaci Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
 >[!NOTE] 
->HDInsight cluster musí používat jako primární úložiště objektů Blob v Azure. Použití úložiště Azure Data Lake se ještě nepodporuje.
+>Cluster HDInsight musí jako primární úložiště používat Azure Blob. Použití úložiště Azure Data Lake se ještě nepodporuje.
 
 1. Pokud máte přístup ke clusteru Spark pro Azure HDInsight, vygenerujte příkaz pro spuštění konfigurace služby HDInsight podle uvedeného příkladu. Jako parametry zadejte název clusteru HDInsight, vaše uživatelské jméno HDInsight a heslo. Použijte následující příkaz:
 
@@ -374,7 +374,7 @@ Tento skript můžete také spustit v clusteru HDInsight Spark. Seznamte se s [p
    >Při spouštění ve vzdáleném clusteru HDInsight můžete také pomocí uživatelského účtu `admin` zobrazit na adrese `https://<cluster_name>.azurehdinsight.net/yarnui` podrobnosti provádění úlohy YARN (Yet Another Resource Negotiator).
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 V této druhé části třídílné série kurzů jste se naučili, jak pomocí služeb Azure Machine Learning provádět tyto úlohy:
 > [!div class="checklist"]
 > * Použití aplikace Azure Machine Learning Workbench

@@ -35,30 +35,44 @@
       href: container-service-quotas.md
 - name: Návody
   items:
-    - name: Škálování clusteru AKS
-      href: scale-cluster.md
-    - name: Upgrade clusteru AKS
-      href: upgrade-cluster.md
-    - name: Ověřování pomocí ACR
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Spouštění aplikací pomocí Helm
-      href: kubernetes-helm.md
-    - name: Vývoj aplikací pomocí Draft
-      href: kubernetes-draft.md
-    - name: Integrace s Azure s využitím OSBA
-      href: integrate-azure.md
-    - name: Použití řídicího panelu Kubernetes
-      href: kubernetes-dashboard.md
-    - name: Vytvoření instančního objektu
-      href: kubernetes-service-principal.md
+    - name: Operace clusteru
+      items:
+        - name: Vytvoření clusteru AKS
+          href: create-cluster.md
+        - name: Škálování clusteru AKS
+          href: scale-cluster.md
+        - name: Upgrade clusteru AKS
+          href: upgrade-cluster.md
+        - name: Odstranění clusteru AKS
+          href: delete-cluster.md
     - name: Konfigurace svazků s daty
       items:
-        - name: Disky Azure – trvalý svazek
+        - name: Disky Azure
           href: azure-disks-dynamic-pv.md
-        - name: Soubory Azure – trvalý svazek
+        - name: Soubory Azure
           href: azure-files-dynamic-pv.md
-        - name: Soubory Azure – svazek
-          href: azure-files.md
+    - name: Konfigurace sítí
+      items:
+        - name: Statická IP adresa
+          href: static-ip.md
+    - name: Zabezpečení a ověřování
+      items:
+        - name: Vytvoření instančního objektu
+          href: kubernetes-service-principal.md
+        - name: Ověřování pomocí ACR
+          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Vývoj a spouštění aplikací
+      items:
+        - name: Spouštění aplikací pomocí Helm
+          href: kubernetes-helm.md
+        - name: Vývoj aplikací pomocí Draft
+          href: kubernetes-draft.md
+        - name: Integrace s Azure s využitím OSBA
+          href: integrate-azure.md
+    - name: Základy Kubernetes
+      items:
+        - name: Použití řídicího panelu Kubernetes
+          href: kubernetes-dashboard.md
 - name: Referenční informace
   items:
     - name: Azure CLI
@@ -79,3 +93,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Videa
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
+    - name: Nejčastější dotazy
+      href: faq.md

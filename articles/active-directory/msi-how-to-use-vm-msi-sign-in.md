@@ -3,7 +3,7 @@ title: "Jak používat Azure virtuálního počítače spravované služby Ident
 description: "Podrobné pokyny a příklady pro použití, přihlaste se objektu služby MSI virtuálních počítačů Azure pro skript klienta a prostředku přístup."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 6c9e3ce4bbe33d06af64d97e1455ec20902d0ff4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.author: daveba
+ms.openlocfilehash: 735b673227ac128bbc01d3b2072f4b14d84b0e66
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Jak používat Azure virtuálního počítače spravované služby Identity (MSI) pro přihlášení 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
 Tento článek obsahuje příklady skriptů prostředí PowerShell a rozhraní příkazového řádku pro přihlašování pomocí služby MSI instančního objektu a pokyny na důležité oblastech, jako je zpracování chyb.
 
 ## <a name="prerequisites"></a>Požadavky

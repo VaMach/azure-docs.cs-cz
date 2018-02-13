@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure hybridní připojení předávací protokol
 Předávání přes Azure je jedním z klíčů schopností pilíře na platformě Azure Service Bus. Nové *hybridní připojení* funkce předávání je zabezpečený, otevřete protokol evolution na základě protokolu HTTP a objekty WebSockets. Nahrazuje dřívějším, stejně s názvem *BizTalk Services* funkce, který byl postavený na vlastnickým protokolem foundation. Integrace hybridní připojení do Azure App Services budou nadále fungovat jako-je.
@@ -96,9 +96,9 @@ Pokud připojení protokolu WebSocket nezdaří z důvodu cesta hybridní připo
 
 | Kód | Chyba | Popis |
 | --- | --- | --- |
-| 404 |Nebyl nalezen |Hybridní připojení cesta je neplatná nebo je špatná základní adresa URL. |
+| 404 |Nenalezené |Hybridní připojení cesta je neplatná nebo je špatná základní adresa URL. |
 | 401 |Neautorizováno |Token zabezpečení je chybějící nebo poškozený nebo neplatný. |
-| 403 |Je zakázané |Token zabezpečení není platný pro tuto cestu pro tuto akci. |
+| 403 |Zakázáno |Token zabezpečení není platný pro tuto cestu pro tuto akci. |
 | 500 |Vnitřní chyba |Došlo k chybě ve službě. |
 
 Pokud připojení protokolu WebSocket záměrně ukončení služby po začátku bylo nastaveno tak to tak informace se předávají pomocí odpovídající kód chyby protokolu WebSocket společně s popisný chybová zpráva, která zahrnuje i ID sledování Služba nebude vypnuta řídicí kanál bez zjištění chybový stav. Všechny čistého vypnutí je klient řídí.
@@ -161,7 +161,7 @@ Pokud dojde k chybě, můžete službu odpovědět následujícím způsobem:
 
 | Kód | Chyba | Popis |
 | --- | --- | --- |
-| 403 |Je zakázané |Adresa URL není platný. |
+| 403 |Zakázáno |Adresa URL není platný. |
 | 500 |Vnitřní chyba |Došlo k chybě ve službě |
 
 Po navázání připojení k serveru protokol WebSocket vypne, jestliže odesílatel protokolu WebSocket vypne, nebo s následujícím stavem:
@@ -191,7 +191,7 @@ Při dokončení správně, tato metoda handshake záměrně selže, s kódem ch
 
 | Kód | Chyba | Popis |
 | --- | --- | --- |
-| 403 |Je zakázané |Adresa URL není platný. |
+| 403 |Zakázáno |Adresa URL není platný. |
 | 500 |Vnitřní chyba |Došlo k chybě ve službě. |
 
 ### <a name="listener-token-renewal"></a>Naslouchací proces obnovení tokenu
@@ -248,9 +248,9 @@ Pokud připojení protokolu WebSocket nezdaří z důvodu cesta hybridní připo
 
 | Kód | Chyba | Popis |
 | --- | --- | --- |
-| 404 |Nebyl nalezen |Hybridní připojení cesta je neplatná nebo je špatná základní adresa URL. |
+| 404 |Nenalezené |Hybridní připojení cesta je neplatná nebo je špatná základní adresa URL. |
 | 401 |Neautorizováno |Token zabezpečení je chybějící nebo poškozený nebo neplatný. |
-| 403 |Je zakázané |Token zabezpečení není platný pro tuto cestu a pro tuto akci. |
+| 403 |Zakázáno |Token zabezpečení není platný pro tuto cestu a pro tuto akci. |
 | 500 |Vnitřní chyba |Došlo k chybě ve službě. |
 
 Pokud připojení protokolu WebSocket záměrně ukončení služby po počátečním nastavení se to tak informace se předávají pomocí odpovídající kód chyby protokolu WebSocket společně s popisný chybová zpráva, která zahrnuje i ID sledování
@@ -262,7 +262,7 @@ Pokud připojení protokolu WebSocket záměrně ukončení služby po počáte�
 | 1008 |Vypršela platnost tokenu zabezpečení, proto porušení zásad autorizace. |
 | 1011 |Došlo k chybě ve službě. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Přenos – nejčastější dotazy](relay-faq.md)
 * [Vytvoření oboru názvů](relay-create-namespace-portal.md)
 * [Začínáme s .NET](relay-hybrid-connections-dotnet-get-started.md)

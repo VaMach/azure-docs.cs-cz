@@ -15,7 +15,9 @@
 ### [Seznamy řízení přístupu](virtual-networks-acl.md)
 
 # Začínáme
-## [Vytvoření první virtuální sítě](virtual-network-get-started-vnet-subnet.md)
+## [Vytvoření virtuální sítě – portál](quick-create-portal.md)
+## [Vytvoření virtuální sítě – PowerShell](quick-create-powershell.md)
+## [Vytvoření virtuální sítě – Azure CLI](quick-create-cli.md)
 
 # Postup
 ## Plánování a návrh
@@ -155,6 +157,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Protokoly](virtual-network-nsg-manage-log.md)
+### [Směrovací tabulky](manage-route-table.md)
 ### Síťová rozhraní (NIC)
 #### [Vytvoření, změna nebo odstranění síťových rozhraní](virtual-network-network-interface.md)
 #### [Přidání, změna nebo odstranění IP adresy](virtual-network-network-interface-addresses.md)
@@ -175,6 +178,7 @@
 ### [Testování propustnosti](virtual-network-bandwidth-testing.md)
 ### [Nelze odstranit virtuální sítě](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Problémy propojení virtuálních počítačů](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Konfigurace PTR pro kontrolu bannerů protokolu SMTP](create-ptr-for-smtp-service.md)
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 80c2ab0cd97ce5afef7e38bad9f0fa0e4f3f363c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Zjistit experimenty v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ Galerie obsahuje širokou škálu [experimenty](https://gallery.cortanaintellige
 ## <a name="discover"></a>Informace
 Procházet experimenty [v galerii](http://gallery.cortanaintelligence.com), v horní části domovské stránce galerie, vyberte **experimenty**.
 
- **[Experimenty](https://gallery.cortanaintelligence.com/experiments)**  stránky zobrazí seznam nedávno přidané a populární experimenty. Pokud chcete zobrazit všechny experimenty, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní experiment, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
+**[Experimenty](https://gallery.cortanaintelligence.com/experiments)**  stránky zobrazí seznam nedávno přidané a populární experimenty. Pokud chcete zobrazit všechny experimenty, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní experiment, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
 
 Můžete získat další informace o experimentu na stránce podrobností experimentu. Otevřete stránku experimentu podrobnosti, vyberte experimentu. V experimentu podrobnosti stránky, v **komentáře** části, můžete komentář, poskytnout zpětnou vazbu nebo klást otázky týkající se experimentu. Experiment můžete také sdílet s přátele nebo kolegy na Twitteru nebo LinkedIn. Také můžete poštovní odkaz na stránku podrobností experimentu pozvaným jiní uživatelé při zobrazení stránky.
 

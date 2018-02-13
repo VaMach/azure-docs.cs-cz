@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Začínáme s vlastní zásady
 
@@ -55,7 +55,7 @@ Než budete pokračovat, ujistěte se, že máte klienta Azure AD B2C, což je k
  e. Pro **data**, použijte výchozí hodnoty.<br>
  f. Pro **použití klíče**, použijte **šifrování**.<br>
  g. Vyberte **Vytvořit**.<br>
-5. Vytvořte B2C_1A_FacebookSecret. <br>
+5. Create B2C_1A_FacebookSecret. <br>
 Pokud již máte tajný klíč aplikace Facebook, přidejte ji jako klíč zásad klienta. Jinak musí vytvořit klíč s hodnotu zástupného symbolu, tak, aby vaše zásady projít ověřením.<br>
  a. Vyberte **Přidat**.<br>
  b. Pro **možnosti**, použijte **ruční**.<br>
@@ -130,7 +130,7 @@ Jednotlivé sady starter obsahuje:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 2. Otevřete složku SocialAndLocalAccounts.  Základního souboru (TrustFrameworkBase.xml) v této složce obsahuje obsah potřebné pro místní i sociálního nebo podnikové účty. Sociální obsah není v konfliktu s kroky pro místní účty zprovoznění.
-3. Otevřete TrustFrameworkBase.xml. Pokud potřebujete editoru XML [zkuste Visual Studio Code](https://code.visualstudio.com/download), lightweight editor napříč platformami.
+3. Open TrustFrameworkBase.xml. Pokud potřebujete editoru XML [zkuste Visual Studio Code](https://code.visualstudio.com/download), lightweight editor napříč platformami.
 4. V kořenovém `TrustFrameworkPolicy` element, aktualizovat `TenantId` a `PublicPolicyUri` atributy, nahraďte `yourtenant.onmicrosoft.com` s názvem domény klienta služby Azure AD B2C:
    ```xml
     <TrustFrameworkPolicy
@@ -146,8 +146,8 @@ Jednotlivé sady starter obsahuje:
    >`PolicyId`je název zásady, které vidíte na portálu a název, kterým je tento soubor zásad odkazují jiné soubory zásad.
 
 5. Uložte soubor.
-6. Otevřete TrustFrameworkExtensions.xml. Provést stejné změny dva nahrazením `yourtenant.onmicrosoft.com` s vašeho klienta Azure AD B2C. Ujistěte se, stejné náhrada v `<TenantId>` element celkem tři změny. Uložte soubor.
-7. Otevřete SignUpOrSignIn.xml. Provést stejné změny nahrazením `yourtenant.onmicrosoft.com` s vašeho klienta Azure AD B2C na třech místech. Uložte soubor.
+6. Open TrustFrameworkExtensions.xml. Provést stejné změny dva nahrazením `yourtenant.onmicrosoft.com` s vašeho klienta Azure AD B2C. Ujistěte se, stejné náhrada v `<TenantId>` element celkem tři změny. Uložte soubor.
+7. Open SignUpOrSignIn.xml. Provést stejné změny nahrazením `yourtenant.onmicrosoft.com` s vašeho klienta Azure AD B2C na třech místech. Uložte soubor.
 8. Otevřete resetování hesla a úpravy souborů profilu. Provést stejné změny nahrazením `yourtenant.onmicrosoft.com` s vašeho klienta Azure AD B2C na třech místech do každého souboru. Uložte soubory.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Přidat ID aplikace do vlastních zásad
@@ -157,7 +157,7 @@ Přidat ID aplikace souboru rozšíření (`TrustFrameworkExtensions.xml`):
 2. Nahraďte obou instancí `IdentityExperienceFrameworkAppId` s ID aplikace Framework prostředí Identity aplikace, kterou jste vytvořili dříve. Zde naleznete příklad:
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Nahraďte obou instancí `ProxyIdentityExperienceFrameworkAppId` s ID aplikace Framework prostředí Identity Proxy aplikace, kterou jste vytvořili dříve.
 4. Uložte soubor rozšíření.
@@ -171,7 +171,7 @@ Přidat ID aplikace souboru rozšíření (`TrustFrameworkExtensions.xml`):
     >[!WARNING]
     >Vlastní zásady pro soubory, musí se nahrát v následujícím pořadí:
 
-1. Nahrajte TrustFrameworkBase.xml.
+1. Upload TrustFrameworkBase.xml.
 2. Nahrajte TrustFrameworkExtensions.xml.
 3. Nahrajte SignUpOrSignin.xml.
 4. Odešlete další soubory zásad.
@@ -196,7 +196,7 @@ Při odeslání souboru, název souboru zásady, se přidá jako předpona s `B2
 >Obvyklou příčinou selhání přihlášení je nesprávně nakonfigurovaný IdentityExperienceFramework aplikace.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Přidat Facebook jako zprostředkovatele identity
 Nastavení sítě Facebook:

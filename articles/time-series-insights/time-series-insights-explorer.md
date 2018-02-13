@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Průzkumník Azure Statistika časové řady
 Tento článek popisuje různé funkce a možnosti dostupné v rámci webové aplikace explorer Statistika časové řady. Pomocí Průzkumníka časové řady Insights ve webovém prohlížeči vytvořit vizualizacemi vašich dat.
@@ -37,11 +37,11 @@ V rámci připojení vaší zdroj události pro vaše prostředí časové řady
 
 2. Jakmile vyberete prostředí, použijte buď **FROM** a **na** konfigurace nahoře, nebo klikněte na tlačítko a přetáhněte přes požadované časové rozpětí.  Klikněte na lupy vpravo, nahoře nebo přes vybraný časový interval klikněte pravým tlačítkem a vyberte **vyhledávání**.  
 
-3. Můžete taky aktualizovat dostupnosti automaticky každou minutu výběrem **automaticky na** tlačítko.
+3. Můžete taky aktualizovat dostupnosti automaticky každou minutu výběrem **automaticky na** tlačítko.  Všimněte si, že se na tlačítko 'Auto-na' se vztahuje pouze na dostupnosti grafu, není obsah hlavní vizualizace.
 
 4. Všimněte si, ikonu cloudu Azure přejdete do prostředí na portálu Azure.
 
-   ![Čas řady Přehled prostředí](media/time-series-insights-explorer/explorer1.png)
+   ![Prostředí Time Series Insights](media/time-series-insights-explorer/explorer1.png)
 
 5. V dalším kroku zobrazí graf, který obsahuje počet všechny události během vybraný časový interval.  Zde máte řadu ovládacích prvků:
 
@@ -57,10 +57,10 @@ V rámci připojení vaší zdroj události pro vaše prostředí časové řady
 
          |Operace  |Podporované typy  |Poznámky  |
          |---------|---------|---------|
-         |<, >, <=, >=     |  Double, DateTime, časový interval       |         |
+         |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | Řetězec, Bool, Double, DateTime, časový interval, hodnotu NULL        |         |
          |V     | Řetězec, Bool, Double, DateTime, časový interval, hodnotu NULL        |  Všechny operandy musí být stejného typu nebo musí být konstanta NULL.        |
-         |MÁ     | Řetězec        |  Na pravé straně jsou povoleny pouze konstantní textové literály. Prázdný řetězec a NULL nejsou povoleny.       |
+         |HAS     | Řetězec        |  Na pravé straně jsou povoleny pouze konstantní textové literály. Prázdný řetězec a NULL nejsou povoleny.       |
 
       - **Příklady dotazů**
       
@@ -90,7 +90,7 @@ V rámci připojení vaší zdroj události pro vaše prostředí časové řady
 
 11. **Heatmap** lze rychle rozpoznat jedinečný nebo neobvyklé datové řady v daný dotaz. Pouze jeden hledaný termín můžete vizualizovat jako heatmap.    
 
-   ![Heatmap](media/time-series-insights-explorer/explorer6.png)
+   ![Heat mapa](media/time-series-insights-explorer/explorer6.png)
 
 12. **Události**: když zvolíte prozkoumat události při výběru nebo kliknete pravým tlačítkem na výše, události panelu je k dispozici.  Zde se zobrazí všechny nezpracované události a export událostí jako JSON nebo souborů CSV. Všimněte si, že časové řady Statistika ukládá všechna nezpracovaná data.
 
@@ -102,10 +102,10 @@ V rámci připojení vaší zdroj události pro vaše prostředí časové řady
 
    - **Sloupec statistiky**: statistiky sloupce zadejte grafů a tabulek, které rozdělí data z každý sloupec vybrané datové řady přes vybrané časové rozpětí.  
  
-      ![STATISTIKY](media/time-series-insights-explorer/explorer8.png) 
+      ![STATISTIKA](media/time-series-insights-explorer/explorer8.png) 
 
 Nyní jste viděli různé funkce a možnosti dostupné v rámci webové aplikace explorer Statistika časové řady. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 > [!div class="nextstepaction"]
 >[Diagnostika a řešení problémů ve vašem prostředí Statistika časové řady](time-series-insights-diagnose-and-solve-problems.md)

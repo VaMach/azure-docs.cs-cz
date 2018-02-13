@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatické upgrady operačního systému sadu škálování virtuálního počítače Azure
 
@@ -40,9 +40,7 @@ Automatický upgrade operačního systému má následující vlastnosti:
 Zatímco ve verzi preview, platí následující omezení a omezení:
 
 - Automatické operační systém upgraduje podporuje se jen [čtyři SKU OS](#supported-os-images). Neexistuje žádné SLA nebo záruky. Doporučujeme, abyste že nepoužijete automatické upgrady na kritické úlohy produkční verzi Preview.
-- Podpora pro sady škálování v prostředí clusterů Service Fabric už bude brzo dostupné.
 - Azure disk encryption (momentálně ve verzi preview) je **není** aktuálně podporované škálování virtuálního počítače sady Automatické OS upgradu.
-- V portálu rozhraní tu bude brzo dostupná.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Zaregistrujte se a použít automatický Upgrade operačního systému
@@ -58,17 +56,23 @@ Jak dlouho trvá přibližně 10 minut na stav registrace do sestavy jako *regis
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Doporučujeme vám, že vaše aplikace používat sondy stavu. Chcete-li zaregistrovat funkci zprostředkovatele pro sondy stavu, použijte [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) následujícím způsobem:
+> [!NOTE]
+> Clusterů Service Fabric má své vlastní představu o stavu aplikací, ale sady škálování bez Service Fabric pomocí test stavu nástroje pro vyrovnávání zatížení pro sledování stavu aplikací. Chcete-li zaregistrovat funkci zprostředkovatele pro sondy stavu, použijte [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) následujícím způsobem:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Znovu, trvá přibližně 10 minut na stav registrace sestavy jako *registrovaná*. Můžete zkontrolovat aktuální stav registrace s [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Jednou zaregistrován. Ujistěte se, že *Microsoft.Network* poskytovatel je zaregistrovaný u [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) následujícím způsobem:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Prostředí portálu
+Jakmile budete postupovat podle výše uvedených kroků registrace, můžete přejít na [portálu Azure](https://aka.ms/managed-compute) chcete povolit automatické upgrady operačního systému na škálovací sady a sledovat průběh upgradu:
 
-Znovu, trvá přibližně 10 minut na stav registrace sestavy jako *registrovaná*. Můžete zkontrolovat aktuální stav registrace s [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Jednou zaregistrován. Ujistěte se, že *Microsoft.Network* poskytovatel je zaregistrovaný u [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) následujícím způsobem:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Podporované bitové kopie operačního systému
@@ -78,14 +82,17 @@ Aktuálně jsou podporovány následující SKU (více se přidají):
     
 | Vydavatel               | Nabídka         |  Skladová jednotka (SKU)               | Verze  |
 |-------------------------|---------------|--------------------|----------|
-| Canonical               | UbuntuServer  | 16.04 LTS          | nejnovější   |
+| Canonical               | UbuntuServer  | 16.04-LTS          | nejnovější   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | nejnovější   |
-| MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | nejnovější   |
-| MicrosoftWindowsServer  | WindowsServer | 2016. Datacenter Smalldisk | nejnovější   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | nejnovější   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | nejnovější   |
 
 
 
-## <a name="application-health"></a>Stav aplikace
+## <a name="application-health-without-service-fabric"></a>Stav aplikace bez Service Fabric
+> [!NOTE]
+> Tato část se vztahuje pouze na sady škálování bez Service Fabric. Service Fabric má svou vlastní představu o stavu aplikace. Při použití automatické upgrady operačního systému pomocí Service Fabric, je doména aktualizace podle domény aktualizace kvůli udržení vysoké dostupnosti se služby spuštěné v Service Fabric nasazuje novou bitovou kopii operačního systému. Další informace o vlastnostech odolnost clusterů Service Fabric, najdete v tématu [této dokumentace](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Během upgradu operačního systému, instance virtuálního počítače ve škálovací sadě upgradují jeden batch najednou. Upgrade by měly pokračovat pouze, pokud je v pořádku na upgradovaná instance virtuálních počítačů zákazníků aplikace. Doporučujeme vám, že aplikace poskytuje stavu signály, které modul upgradu operačního systému sada škálování. Ve výchozím nastavení během upgradu operačního systému platformy zvažuje rozšíření zřizování stavu, pokud instance virtuálního počítače je v pořádku po upgradu a stav napájení virtuálního počítače. Během upgradu operačního systému v instanci virtuálního počítače disk operačního systému v instanci virtuálního počítače se nahradí nový disk založené na nejnovější verzi bitové kopie. Po dokončení upgradu operačního systému, nakonfigurovaných rozšíření se spouštějí na těchto virtuálních počítačích. Jenom v případě, že všechna rozšíření na virtuálním počítači se úspěšně zřízený, aplikace považuje za v pořádku. 
 
 Škálovací sadu můžete volitelně nakonfigurovaný s testy stavu aplikace platformy poskytnout přesné informace o probíhající stavu aplikace. Testy stavu aplikace jsou vlastní zatížení vyrovnávání sond používané jako signál stavu. Aplikace běžící na instanci škálovací sadu virtuálních počítačů může reagovat na externí HTTP nebo TCP požadavky určující, zda je v pořádku. Další informace o fungování vlastní načíst vyrovnávání sondy najdete v tématu [sondy nástroje pro vyrovnávání zatížení Rady pro pochopení](../load-balancer/load-balancer-custom-probe-overview.md). Stav aplikace testu není vyžadován pro automatické upgrady operačního systému, ale důrazně doporučujeme.

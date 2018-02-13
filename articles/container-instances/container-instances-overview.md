@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -43,7 +43,9 @@ Pro načtení a uložení stavu pomocí služby Azure Container Instances nabíz
 
 ## <a name="linux-and-windows-containers"></a>Kontejnery Windows a Linuxu
 
-Se službou Azure Container Instances můžete plánovat kontejnery Windows i Linuxu pomocí stejného rozhraní API. Jednoduše určíte základní typ operačního systému a všechno ostatní je stejné.
+Se službou Azure Container Instances můžete plánovat kontejnery Windows i Linuxu pomocí stejného rozhraní API. Při vytváření [skupiny kontejnerů](container-instances-container-groups.md) stačí jednoduše zadat typ operačního systému.
+
+Některé funkce jsou momentálně omezené jenom na linuxové kontejnery. Pracujeme na tom, aby všechny funkce byly dostupné i pro kontejnery Windows. Aktuální rozdíly pro tyto platformy najdete v tématu věnovaném [kvótám a dostupnosti oblastí pro Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Společně plánované skupiny
 

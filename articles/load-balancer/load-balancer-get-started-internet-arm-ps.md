@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření internetového nástroje pro vyrovnávání zatížení Azure – PowerShell | Dokumentace Microsoftu"
-description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v Resource Manageru pomocí prostředí PowerShell"
+title: "Vytvoření veřejného nástroje pro vyrovnávání zatížení – PowerShell | Dokumentace Microsoftu"
+description: "Zjistěte, jak vytvořit veřejný nástroj pro vyrovnávání zatížení v Resource Manageru pomocí PowerShellu"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Vytvoření internetového nástroje pro vyrovnávání zatížení v Resource Manageru pomocí prostředí PowerShell
+# <a name="get-started"></a>Vytvoření veřejného nástroje pro vyrovnávání zatížení v Resource Manageru pomocí PowerShellu
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Nasazení řešení pomocí Azure PowerShellu
 
-Následující postupy vysvětlují, jak vytvořit internetový nástroj pro vyrovnávání zatížení pomocí Azure Resource Manageru s prostředím PowerShell. S Azure Resource Managerem se jednotlivé prostředky vytvoří a nakonfigurují zvlášť, následně se spojí dohromady a vytvoří nástroj pro vyrovnávání zatížení.
+Následující postupy vysvětlují, jak vytvořit veřejný nástroj pro vyrovnávání zatížení pomocí Azure Resource Manageru s prostředím PowerShell. S Azure Resource Managerem se jednotlivé prostředky vytvoří a nakonfigurují zvlášť, následně se spojí dohromady a vytvoří nástroj pro vyrovnávání zatížení.
 
 Pokud chcete nasadit nástroj pro vyrovnávání zatížení, je nutné vytvořit a nakonfigurovat následující objekty:
 

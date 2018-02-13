@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Nejčastější dotazy k Azure Data Factory
 Tento článek se týká 2 verzi služby Azure Data Factory. Poskytuje odpovědi na nejčastější dotazy týkající se služby Data Factory.  
@@ -68,7 +68,7 @@ Nyní máte volného modelu všechny toku styl, který vyžaduje pro integraci d
 Další informace najdete v tématu [kurz: řízení toky](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Nasazení balíčků služby SSIS do Azure 
-Pokud chcete přesunout úlohy služby SSIS, můžete vytvořit objekt pro vytváření dat verze 2 a zřídit modulu runtime integrace Azure SSIS. Modul runtime integrace Azure SSIS je plně spravovaný cluster Azure virtuálních počítačů (uzlů), které jsou vyhrazené pro spouštění vlastních balíčků SSIS v cloudu. Podrobné pokyny najdete v tématu [balíčky SSIS nasadit do Azure](tutorial-deploy-ssis-packages-azure.md) kurzu. 
+Pokud chcete přesunout úlohy služby SSIS, můžete vytvořit objekt pro vytváření dat verze 2 a zřídit modulu runtime integrace Azure SSIS. Modul runtime integrace Azure SSIS je plně spravovaný cluster Azure virtuálních počítačů (uzlů), které jsou vyhrazené pro spouštění vlastních balíčků SSIS v cloudu. Podrobné pokyny najdete v tématu [balíčky SSIS nasadit do Azure](tutorial-create-azure-ssis-runtime-portal.md) kurzu. 
  
 
 ### <a name="sdks"></a>Sady SDK
@@ -93,7 +93,7 @@ Modul runtime integrace je na výpočetní infrastruktuře používaný službou
 
 Jedna či více instancí integrace runtime můžete nasadit jako potřebné k přesunutí a transformovat data. Modul runtime integrace lze spustit v Azure veřejné síti nebo v privátní síti (místní, Azure Virtual Network nebo virtuální privátní cloud Amazon Web Services [VPC]). 
 
-Další informace najdete v tématu [integrace runtime v Azure Data Factory](concepts-integration-runtime.md).
+Další informace najdete v tématu [Prostředí Integration Runtime v Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Co je limit počtu integrační moduly runtime?
 Neexistuje žádné pevný limit počtu instancí integrace modulu runtime, může být v datové továrně. Existuje ale omezení počtu jader virtuálního počítače, které modul runtime integrace můžete použít jedno předplatné pro spouštění balíčku služby SSIS. Další informace najdete v tématu [omezuje služby Data Factory](../azure-subscription-service-limits.md#data-factory-limits).
@@ -176,7 +176,7 @@ Ano. Aktivity v verze 2 můžete zřetězené bez nutnosti datových sad. Zřet�
 Ano, jsou podporovány všechny verze 1 aktivity v verze 2.
 
 ### <a name="how-can-i-schedule-a-version-2-pipeline"></a>Plánování kanálu verze 2 
-Při plánování kanálu verze 2 můžete použít Plánovač aktivační událost. Aktivační událost používá wall hodiny plánu kalendáře a ve kterém můžete naplánovat kanály pravidelně nebo pomocí kalendářové opakující vzory (například týdně v pondělí na 18: 00 a čtvrtek v 21: 00). Další informace najdete v tématu [kanálu spouštěcí a aktivační události](concepts-pipeline-execution-triggers.md).
+Při plánování kanálu verze 2 můžete použít Plánovač aktivační událost. Aktivační událost používá wall hodiny plánu kalendáře a ve kterém můžete naplánovat kanály pravidelně nebo pomocí kalendářové opakující vzory (například týdně v pondělí na 18: 00 a čtvrtek v 21: 00). Další informace najdete v tématu [Spouštění kanálů a aktivační události](concepts-pipeline-execution-triggers.md).
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run-in-version-2"></a>Můžete předat parametry do kanálu, spusťte v verze 2?
 Ano, parametry jsou koncept první třídy, nejvyšší úrovně v verze 2. Můžete definovat parametry na úrovni kanálu a předání argumentů při spuštění kanálu spustit na vyžádání nebo pomocí aktivační událost.  
@@ -196,7 +196,7 @@ Můžete použít `@coalesce` vytvořit ve výrazech pro pohodlné zpracování 
 ### <a name="can-i-use-retry-and-timeout-at-the-activity-level-in-version-2"></a>Můžete použít opakování a časový limit na úrovni aktivity v verze 2?
 Ano. K řízení provádění aktivit v verze 2 jako v verze 1, můžete nakonfigurovat opakování a časový limit na úrovni aktivity. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Podrobné pokyny pro vytváření dat verze 2 najdete v následujících kurzech:
 
 - [Rychlý úvod: Vytvořte objekt pro vytváření dat](quickstart-create-data-factory-dot-net.md)

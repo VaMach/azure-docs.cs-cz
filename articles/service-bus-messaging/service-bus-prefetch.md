@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Předběžné načtení zpráv Azure Service Bus
 
@@ -27,7 +27,7 @@ Jeden počáteční [Receive](/dotnet/api/microsoft.servicebus.messaging.queuecl
 
 ## <a name="enable-prefetch"></a>Umožnit předběžné načtení
 
-V rozhraní .NET, povolte funkci předběžné nastavením [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) vlastnost **MessageReceiver**, **QueueClient**, nebo **SubscriptionClient**  na číslo větší než nula. Nastavení hodnoty na nulové vypne předběžné načtení.
+Pomocí rozhraní .NET, povolíte funkci předběžné nastavením [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) vlastnost **MessageReceiver**, **QueueClient**, nebo **SubscriptionClient**  na číslo větší než nula. Nastavení hodnoty na nulové vypne předběžné načtení.
 
 Toto nastavení můžete snadno přidat na straně příjmu z [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) nebo [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) nastavení ukázky Pokud chcete vidět v tomto kontextu.
 
@@ -37,7 +37,7 @@ Předběžné načtení také funguje stejně jako s [OnMessage](/dotnet/api/mic
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Pokud je rychlejší, proč je předběžné načtení není výchozí možnost?
 
-Předběžné načtení urychluje tok zpráv tak, že zprávy pro místní načtení snadno dostupné, když a předtím, než aplikace požádá o jednu. Tento nárůst propustnosti je výsledkem kompromis rozhodnutí, která musí explicitně vytváření aplikací:
+Předběžné načtení urychluje tok zpráv tak, že zprávy pro místní načtení snadno dostupné, když a předtím, než aplikace požádá o jednu. Tento nárůst propustnosti je výsledkem na druhou stranu, která musí explicitně vytváření aplikací:
 
 Pomocí [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) přijímat režimu, všechny zprávy, které získáte do vyrovnávací paměti předběžné načtení již nejsou k dispozici ve frontě a pouze jsou umístěny ve vyrovnávací paměti předběžné načtení v paměti, dokud nedorazí k příjemci do aplikace prostřednictvím **přijímat**/**ReceiveAsync** nebo **OnMessage**/**OnMessageAsync** rozhraní API. Pokud aplikace ukončí před obdržení zpráv do aplikace, tyto zprávy se nenávratně ztratí.
 
@@ -53,7 +53,7 @@ Pokud potřebujete základní v celé a zpracování zprávy je běžně levnýc
 
 Předběžné načtení maximální počet a dobu trvání uzamčení na fronty nebo předplatné konfiguraci muset vyváženy tak, aby se časový limit uzamčení alespoň překračuje kumulativní očekávaná zpráva zpracování času pro maximální velikost vyrovnávací paměti předběžné načtení plus jednu zprávu. Ve stejnou dobu, časový limit uzamčení by mělo není trvat dlouho, zprávy může být vyšší než jejich maximální [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) omylem jsou vyřazena, proto nutnosti jejich zámku vyprší před se víckrát.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o zasílání zpráv Service Bus, najdete v následujících tématech:
 

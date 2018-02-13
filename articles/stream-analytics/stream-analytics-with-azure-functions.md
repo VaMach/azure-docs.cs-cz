@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Spusťte Azure Functions s úlohy Azure Stream Analytics 
- 
-> [!IMPORTANT]
-> Tato funkce je ve verzi preview.
 
 Funkce Azure s Azure Stream Analytics můžete spustit tak, že nakonfigurujete funkce jako jeden z jímky výstup do úlohy Stream Analytics. Functions je prostředí událostmi, výpočetní na vyžádání, které umožňuje implementovat kód, který je aktivovaného událostmi, ke kterým dochází v Azure nebo služby třetích stran. Tato schopnost funkce reagovat na aktivační události je přirozené výstup do úlohy Stream Analytics.
 
@@ -62,7 +59,7 @@ Postupujte podle [odhalování podvodů v reálném čase](stream-analytics-real
 
 2. Vyhledejte **run.csx** funkce. Aktualizujte jej s následujícím kódem. (Nezapomeňte nahradit "\<místo připojovacího řetězce redis cache\>" s Azure Redis Cache primární připojovací řetězec, který jste získali v předchozí části.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +110,7 @@ Postupujte podle [odhalování podvodů v reálném čase](stream-analytics-real
 
    Když Stream Analytics přijme "HTTP požadavku Entity příliš velké" výjimky z funkce, snižuje velikost dávky, který odesílá funkce. Ve funkci použijte následující kód zkontrolujte, že Stream Analytics neodešle nadměrné velikosti dávky. Ujistěte se, že jsou konzistentní s hodnotou zadanou v portálu Stream Analytics batch maximální počet a velikost hodnoty používané ve funkci.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);

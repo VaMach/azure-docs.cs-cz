@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Klasifikace Iris – Část 1: Příprava dat
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -64,26 +64,30 @@ Aplikaci Azure Machine Learning Workbench můžete nainstalovat podle pokynů v 
 
    ![Zobrazení dat](media/tutorial-classifying-iris/data_view.png)
 
-3. Ponechte výchozí hodnoty a pak vyberte tlačítko **Další**.  
+3. Vyberte **Textové soubory (*.csv, .json, .txt.,... )** a klikněte na **Další**.
+   ![Zdroj dat](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. Přejděte k souboru **iris.csv** a klikněte na **Další**.  
  
    ![Výběr iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Zkontrolujte, že jste pro účely tohoto cvičení vybrali soubor **iris.csv** z aktuálního adresáře projektu. Jinak se pozdější kroky nemusí podařit.
    
-4. Po výběru souboru vyberte tlačítko **Dokončit**.
+5. Ponechte výchozí hodnoty a klikněte na **Dokončit**.
 
-4. Vytvoří se nový soubor s názvem **iris-1.dsource**. Soubor má jedinečný název s „-1“, protože ukázkový projekt už obsahuje neočíslovaný soubor **iris.dsource**.  
+6. Vytvoří se nový soubor s názvem **iris-1.dsource**. Soubor má jedinečný název s „-1“, protože ukázkový projekt už obsahuje neočíslovaný soubor **iris.dsource**.  
 
    Soubor se otevře a zobrazí se data. Do této datové sady se automaticky přidá řada záhlaví sloupců od **Column1** po **Column5**. Přejděte do dolní části a všimněte si, že poslední řádek datové sady je prázdný. Řádek je prázdný, protože v souboru CSV je zalomení řádku navíc.
 
    ![Zobrazení dat iris](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Vyberte tlačítko **Metriky**. Podívejte se na histogramy. Pro každý sloupec se vypočítala úplná sada statistik. Můžete také vybrat tlačítko **Data** a znovu zobrazit data. 
+7. Vyberte tlačítko **Metriky**. Podívejte se na histogramy. Pro každý sloupec se vypočítala úplná sada statistik. Můžete také vybrat tlačítko **Data** a znovu zobrazit data. 
 
    ![Zobrazení dat iris](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Vyberte tlačítko **Připravit**. Otevře se dialogové okno **Připravit**. 
+8. Vyberte tlačítko **Připravit**. Otevře se dialogové okno **Připravit**. 
 
    Ukázkový projekt již obsahuje soubor **iris.dprep**. Ve výchozím nastavení se zobrazí výzva k vytvoření nového toku dat v již existujícím balíčku pro přípravu dat **iris.dprep**. 
 
@@ -93,27 +97,27 @@ Aplikaci Azure Machine Learning Workbench můžete nainstalovat podle pokynů v 
 
    Vytvoří se nový balíček pro přípravu dat s názvem **iris-1.dprep** a otevře se v editoru přípravy dat.
 
-7. Teď provedeme základní přípravu dat. Přejmenujte sloupce. Výběrem záhlaví jednotlivých sloupců umožníte úpravu jejich textu. 
+9. Teď provedeme základní přípravu dat. Přejmenujte sloupce. Výběrem záhlaví jednotlivých sloupců umožníte úpravu jejich textu. 
 
    Pro jednotlivé sloupce zadejte **Sepal Length**, **Sepal Width**, **Petal Length**, **Petal Width** a **Species**.
 
    ![Přejmenování sloupců](media/tutorial-classifying-iris/rename_column.png)
 
-8. Pokud chcete zjistit počet jedinečných hodnot, vyberte sloupec **Species** a kliknutím pravým tlačítkem jej vyberte. Z rozevírací nabídky vyberte **Četnost hodnot**. 
+10. Pokud chcete zjistit počet jedinečných hodnot, vyberte sloupec **Species** a kliknutím pravým tlačítkem jej vyberte. Z rozevírací nabídky vyberte **Četnost hodnot**. 
 
    ![Výběr možnosti Četnost hodnot](media/tutorial-classifying-iris/value_count.png)
 
    Tato akce otevře podokno **Kontroly** a zobrazí histogram se čtyři pruhy. Cílový sloupec obsahuje tři různé hodnoty **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** a hodnotu **(null)**.
 
-9. Pokud chcete vyfiltrovat hodnoty null, vyberete v grafu pruh reprezentující hodnotu null. Hodnotu **(null)** obsahuje jeden řádek. Pokud chcete tento řádek odebrat, vyberte symbol minus (**-**).
+11. Pokud chcete vyfiltrovat hodnoty null, vyberete v grafu pruh reprezentující hodnotu null. Hodnotu **(null)** obsahuje jeden řádek. Pokud chcete tento řádek odebrat, vyberte symbol minus (**-**).
 
    ![Histogram počtu hodnot](media/tutorial-classifying-iris/filter_out.png)
 
-10. Všimněte si jednotlivých kroků uvedených v podokně **KROKY**. Při přejmenování sloupců a vyfiltrování řádků s hodnotou null se každá akce zaznamenala jako krok přípravy dat. Jednotlivé kroky můžete upravit a tím upravit nastavení, změnit pořadí kroků a odebrat jednotlivé kroky.
+12. Všimněte si jednotlivých kroků uvedených v podokně **KROKY**. Při přejmenování sloupců a vyfiltrování řádků s hodnotou null se každá akce zaznamenala jako krok přípravy dat. Jednotlivé kroky můžete upravit a tím upravit nastavení, změnit pořadí kroků a odebrat jednotlivé kroky.
 
    ![Kroky](media/tutorial-classifying-iris/steps.png)
 
-11. Zavřete editor přípravy dat. Vyberte **Zavřít** (x) na kartě **iris-1** s ikonou grafu. Vaše práce se automaticky uloží do souboru **iris-1.dprep** zobrazeného pod nadpisem **Příprava dat**.
+13. Zavřete editor přípravy dat. Vyberte **Zavřít** (x) na kartě **iris-1** s ikonou grafu. Vaše práce se automaticky uloží do souboru **iris-1.dprep** zobrazeného pod nadpisem **Příprava dat**.
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Vygenerování kódu Pythonu/PySpark k vyvolání balíčku pro přípravu dat
 
@@ -144,7 +148,7 @@ Aplikaci Azure Machine Learning Workbench můžete nainstalovat podle pokynů v 
 
    Další informace o přípravě dat v aplikaci Azure Machine Learning Workbench najdete v příručce [Začínáme s přípravou dat](data-prep-getting-started.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 V této první části třídílné série kurzů jste použili aplikaci Azure Machine Learning Workbench k provedení těchto úloh:
 > [!div class="checklist"]
 > * Vytvoření nového projektu 

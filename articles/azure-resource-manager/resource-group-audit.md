@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Zobrazit protokoly aktivity akce u prostředků
 Prostřednictvím protokolů činnosti můžete určit:
@@ -29,7 +29,11 @@ Prostřednictvím protokolů činnosti můžete určit:
 * Stav operace
 * Hodnoty další vlastnosti, které vám můžou pomoct zkoumání operaci
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+Protokol aktivit obsahuje všechny operace zápisu (PUT, POST, DELETE) provést na vašich prostředků. Operace čtení (GET) neobsahuje. Seznam akcí prostředků najdete v tématu [poskytovatel prostředků Azure Resource Manager operations](../active-directory/role-based-access-control-resource-provider-operations.md). Najít k chybě při odstraňování problémů s nebo k monitorování, jak upravit uživatele ve vaší organizaci prostředek, můžete protokoly auditu.
+
+Protokoly aktivity jsou uchovány 90 dní. Pro libovolný rozsah kalendářních dat, se můžete dotazovat, dokud počáteční datum není více než 90 dní v minulosti.
+
+
 
 Můžete načíst informace z protokolů aktivity prostřednictvím portálu, prostředí PowerShell, rozhraní příkazového řádku Azure, rozhraní API pro přehledy REST, nebo [knihovny .NET Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -142,7 +146,7 @@ Můžete načíst informace z protokolů aktivity prostřednictvím portálu, pr
 ## <a name="rest-api"></a>REST API
 Operace REST pro práci s protokolu aktivit jsou součástí [rozhraní REST API pro přehledy](https://msdn.microsoft.com/library/azure/dn931943.aspx). Načtení aktivity protokolu události, najdete v části [seznam událostí správy v předplatném](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Azure protokoly aktivity s Power BI můžete použít k získání lepší přehled o akcích v rámci vašeho předplatného. V tématu [zobrazení a analýza protokolů Azure aktivity v Power BI a další](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Další informace o nastavení zásad zabezpečení najdete v tématu [řízení přístupu na základě Role v Azure](../active-directory/role-based-access-control-configure.md).
 * Další informace o příkazy pro zobrazení operace nasazení najdete v tématu [zobrazit operace nasazení](resource-manager-deployment-operations.md).

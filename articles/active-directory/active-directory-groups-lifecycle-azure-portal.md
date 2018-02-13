@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Nakonfigurovat vypršení platnosti pro skupiny Office 365 (preview)
 
@@ -34,11 +34,21 @@ Teď můžete spravovat životní cyklus skupiny Office 365 nastavením vypršen
 
 Informace o tom, jak stáhnout a nainstalovat rutiny Azure AD PowerShell najdete v tématu [Azure Active Directory PowerShell pro grafu – veřejné verze Preview 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
+## <a name="roles-and-permissions"></a>Role a oprávnění
+Toto jsou role, které můžete konfigurovat a používat vypršení platnosti pro skupiny Office 365 ve službě Azure AD.
+
+Role | Oprávnění
+-------- | --------
+Globální správce<br>Správce uživatelských účtů | Můžete vytvořit, číst, aktualizovat nebo odstranit nastavení zásad vypršení platnosti skupiny Office 365
+Uživatel | Můžete obnovit skupinu služeb Office 365, který vlastní<br>Můžete obnovit skupinu služeb Office 365, který vlastní
+
+Další informace o oprávnění k obnovení odstraněné skupiny najdete v tématu [obnovit odstraněné skupiny Office 365](active-directory-groups-restore-azure-portal.md).
+
 ## <a name="set-group-expiration"></a>Sada skupiny vypršení platnosti
 
 1. Otevřete [centra pro správu Azure AD](https://aad.portal.azure.com) pomocí účtu, který je globálním správcem v klientovi služby Azure AD.
 
-2. Otevřete Azure AD, vyberte **uživatelů a skupin**.
+2. Vyberte **uživatelů a skupin**.
 
 3. Vyberte **nastavení skupiny** a pak vyberte **vypršení platnosti** otevře se nastavení vypršení platnosti.
   
@@ -48,7 +58,7 @@ Informace o tom, jak stáhnout a nainstalovat rutiny Azure AD PowerShell najdete
 
   * Nastavení doby platnosti skupiny ve dnech. Můžete třeba vybrat jednu z přednastavení hodnoty, nebo vlastní hodnota (by měl být 31 dnů nebo déle). 
   * Zadejte e-mailovou adresu, kde odeslat oznámení vypršení platnosti a obnovení v případě, že skupina má bez vlastníka. 
-  * Vyberte skupiny Office 365, které vyprší. Můžete povolit vypršení platnosti pro **všechny** skupiny Office 365, můžete vybrat z skupiny Office 365, nebo můžete vybrat **žádné** zakázat vypršení platnosti pro všechny skupiny.
+  * Vyberte skupiny Office 365, které vyprší. Můžete povolit vypršení platnosti pro **všechny** skupiny Office 365, můžete povolit pouze **vybrané** skupiny Office 365, nebo můžete vybrat **žádné** zakázat vypršení platnosti pro všechny skupiny .
   * Uložit nastavení, když jste hotovi výběrem **Uložit**.
 
 

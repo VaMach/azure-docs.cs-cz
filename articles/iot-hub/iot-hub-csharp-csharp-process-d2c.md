@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>Směrování zpráv s centra IoT (.NET)
 
@@ -101,7 +101,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Tato metoda náhodně přidá vlastnost `"level": "critical"` a `"level": "storage"` na zprávy odeslané zařízením, která simuluje zprávu, která vyžaduje okamžitý zásah back-end aplikace nebo ten, který musí být trvale uložená. Aplikace předá tyto informace ve vlastnostech zpráv místo v textu zprávy, že IoT Hub může směrovat zprávy Cíl správné zprávy.
+Tato metoda náhodně přidá vlastnost `"level": "critical"` a `"level": "storage"` na zprávy odeslané zařízením, která simuluje zprávu, která vyžaduje okamžitý zásah back-end aplikace nebo ten, který musí být trvale uložená. Aplikace podporuje směrování zpráv podle tělo zprávy.
 
 > [!NOTE]
 > Vlastnosti zprávy pro směrování zpráv můžete použít pro různé scénáře, včetně studený cesty při zpracování, kromě zde ukazuje příklad hot-path.
@@ -209,7 +209,7 @@ V této části vytvořit účet úložiště, připojte ho do služby IoT hub a
 
 1. Na portálu Azure přejděte na svůj účet úložiště, v části **služby objektů Blob**, klikněte na tlačítko **procházet objekty BLOB...** .  Vyberte vašeho kontejneru, přejděte na a klikněte na soubor JSON a klikněte na tlačítko **Stáhnout** chcete zobrazit data.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste zjistili, jak spolehlivě odesláním zprávy typu zařízení cloud pomocí funkce směrování zpráv služby IoT Hub.
 
 [Odesílání zpráv typu cloud zařízení s centrem IoT] [ lnk-c2d] ukazuje, jak k odesílání zpráv do vašeho zařízení z back end vašeho řešení.

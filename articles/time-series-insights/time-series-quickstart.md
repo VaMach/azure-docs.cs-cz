@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3bad625e598d4249496849d3be020be083f8da7f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Rychlý start: Prozkoumání služby Azure Time Series Insights
 V tomto rychlém startu se dozvíte, jak začít s průzkumníkem služby Azure Time Series Insights v bezplatném ukázkovém prostředí. Zjistíte, jak pomocí webového prohlížeče vizualizovat velké objemy dat IoT a prohlédnete si klíčové funkce průzkumníka služby Time Series Insights. 

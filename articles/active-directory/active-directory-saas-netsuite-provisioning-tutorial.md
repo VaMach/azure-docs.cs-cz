@@ -1,5 +1,5 @@
 ---
-title: 'Kurz: Azure Active Directory integrace s Netsuite | Microsoft Docs'
+title: "Kurz: Konfigurace Netsuite pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a Netsuite."
 services: active-directory
 documentationCenter: na
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 20a670a3843586ab57ce776f400bd382947d7861
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6ffec33ba922fc59fa68f2c39a1d5b587e816d0b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Kurz: Konfigurace Netsuite pro zřizování automatické uživatelů
 
@@ -64,7 +64,7 @@ Cílem této části se popisují postup povolení zřizování uživatelů z u�
 
 4. Nastavte **režimu zřizování** k **automatické**. 
 
-    ![Zřizování](./media/active-directory-saas-netsuite-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-netsuite-provisioning-tutorial/provisioning.png)
 
 5. V části **přihlašovací údaje správce** části, zadejte následující nastavení konfigurace:
    
@@ -86,11 +86,11 @@ Cílem této části se popisují postup povolení zřizování uživatelů z u�
 
 12. Klikněte na tlačítko **uložit.**
 
-Spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené k Netsuite v části Uživatelé a skupiny. Všimněte si, že počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci Netsuite.
+Spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené k Netsuite v části Uživatelé a skupiny. Všimněte si, že počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 40 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** oddílu monitorovat průběh a odkazech na protokoly aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci Netsuite zřizování.
 
-Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet byly synchronizovány Netsuite Počkejte až 20 minut.
+Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

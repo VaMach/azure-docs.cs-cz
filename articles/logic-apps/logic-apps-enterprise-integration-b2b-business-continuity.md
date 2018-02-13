@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Zotavení po havárii mezi oblastmi B2B aplikace logiky
 
@@ -92,7 +92,7 @@ Chcete-li povolit zotavení po havárii pro příchozí zprávy, vyberte duplici
 
 ![Vyberte nastavení duplicitní kontroly](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Vytvoření [aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md) v sekundární oblasti.    
+1. Vytvoření [aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md) v sekundární oblasti.    
 
 2. Hledání **X12**a vyberte **X12-při změně číslo řízení**.   
 
@@ -115,7 +115,7 @@ Chcete-li povolit zotavení po havárii pro příchozí zprávy, vyberte duplici
 
 6. Hledání **X12**a vyberte **X12-přidáte nebo aktualizujete řízení čísla**.   
 
-   ![Přidat nebo aktualizovat čísla ovládací prvek](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Přidat nebo aktualizovat kontrolní čísla](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Chcete-li akce připojení k účtu integrace sekundární oblasti, vyberte **změnit připojení** > **přidat nové připojení** seznam účtů k dispozici integrace. Zadejte název připojení, vyberte vaše *sekundární oblasti integrace účet* ze seznamu a vyberte **vytvořit**. 
 
@@ -147,7 +147,7 @@ Pokud chcete povolit obnovení po havárii pro příchozí zprávy, vyberte v na
 
 ![Vyberte nastavení duplicitní kontroly](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Vytvoření [aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md) v sekundární oblasti.    
+1. Vytvoření [aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md) v sekundární oblasti.    
 
 2. Hledání **EDIFACT**a vyberte **EDIFACT - při změně číslo řízení**.
 
@@ -170,7 +170,7 @@ Pokud chcete povolit obnovení po havárii pro příchozí zprávy, vyberte v na
 
 7. Hledání **EDIFACT**a vyberte **EDIFACT - přidáte nebo aktualizujete řízení čísla**.   
 
-   ![Přidat nebo aktualizovat čísla ovládací prvek](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Přidat nebo aktualizovat kontrolní čísla](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Chcete-li akce připojení k účtu integrace sekundární oblasti, vyberte **změnit připojení** > **přidat nové připojení** seznam účtů k dispozici integrace. Zadejte název připojení, vyberte vaše *sekundární oblasti integrace účet* ze seznamu a vyberte **vytvořit**.
 
@@ -199,7 +199,7 @@ Kontinuita podnikových procesů pro dokumenty, které používají protokol AS2
 > [!TIP]
 > Můžete také [šablony rychlý start AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) k vytvoření aplikace logiky. Vytváření primární a sekundární integrace účty jsou nezbytné požadavky pro použití šablony. Šablona pomůže vytvořit aplikaci logiky, který má aktivační události a akce. Aplikace logiky vytvoří připojení z aktivační událost primární integrace účtu a akci, která má účet sekundární integrace.
 
-1. Vytvoření [aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md) v sekundární oblasti.  
+1. Vytvoření [aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md) v sekundární oblasti.  
 
 2. Hledání **AS2**a vyberte **AS2 - hodnota při povinná kontrola úrovně Důvěryhodnosti je vytvořena**.   
 
@@ -243,7 +243,7 @@ Kontinuita podnikových procesů pro dokumenty, které používají protokol AS2
 
 Podle toho, časový interval, přírůstkové běhový stav replikuje z primární oblasti sekundární oblast. Během události po havárii, když primární oblasti není k dispozici, přímé přenosy sekundární oblast pro kontinuitu podnikových procesů. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Monitorování zpráv B2B](logic-apps-monitor-b2b-message.md)
 

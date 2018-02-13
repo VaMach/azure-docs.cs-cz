@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: bffca3b1daa3e909a0b17baf33c7f85d57836d32
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Zkopírovat nebo přesunout data snadno pomocí Průvodce kopírováním objekt pro vytváření dat Azure
 > [!NOTE]
-> Tento článek se týká verze 1 služby Data Factory, která je obecně dostupná (GA). Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [kurzu aktivitu kopírování v dokumentaci k verze 2](../quickstart-create-data-factory-dot-net.md). 
+> Tento článek se týká verze 1 služby Data Factory, která je obecně dostupná (GA). Pokud používáte verzi 2 služby Data Factory, který je ve verzi Preview, přečtěte si [kurz aktivity kopírování v dokumentaci verze 2](../quickstart-create-data-factory-dot-net.md). 
 
 
 Průvodce kopírováním Azure Data Factory je k usnadnění procesu příjem dat, který je obvykle prvním krokem v případě integrace pomocí dat začátku do konce. Při průchodu přes Průvodce kopírováním Azure Data Factory, není potřeba pochopit žádné definice JSON propojené služby, datové sady a kanály. Ale po dokončení všech kroků v průvodci, průvodce automaticky vytvoří kanál ke zkopírování dat z vybraného zdroje dat do vybraného cílového umístění. Kromě toho Průvodce kopírováním umožňuje ověřit data se požity v době vytváření obsahu, které ukládá většinu doby, zvláště když je jsou příjem dat první ze zdroje dat. Chcete-li spustit Průvodce kopírováním, klikněte na tlačítko **kopírování dat** na domovské stránce objektu pro vytváření dat dlaždici.
@@ -92,6 +92,6 @@ Operace kopírování jednorázové umožňuje přesun dat ze zdroje do cíle po
 
 ![Plánování vlastnosti](./media/data-factory-copy-wizard/scheduling-properties.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Rychlé návod k vytvoření kanálu s aktivitou kopírování pomocí Průvodce kopírováním Data Factory najdete v tématu [kurz: vytvoření kanálu pomocí Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md).
 

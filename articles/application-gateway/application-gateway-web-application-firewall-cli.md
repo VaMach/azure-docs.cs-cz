@@ -1,162 +1,188 @@
 ---
-title: "Konfigurace brány firewall webových aplikací: Azure Application Gateway | Microsoft Docs"
-description: "Tento článek obsahuje pokyny o tom, jak začít používat brány firewall webových aplikací na existující nebo nové aplikační brány."
-documentationcenter: na
+title: "Vytvoření služby application gateway s brány firewall webových aplikací – rozhraní příkazového řádku Azure | Microsoft Docs"
+description: "Postup vytvoření služby application gateway pomocí brány firewall webových aplikací pomocí rozhraní příkazového řádku Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Konfigurace brány firewall webových aplikací na nový nebo existující aplikace brány pomocí rozhraní příkazového řádku Azure
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Vytvoření služby application gateway pomocí brány firewall webových aplikací pomocí rozhraní příkazového řádku Azure
 
-> [!div class="op_single_selector"]
-> * [portál Azure Portal](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
+Rozhraní příkazového řádku Azure můžete použít k vytvoření [Aplikační brána](application-gateway-introduction.md) s [brány firewall webových aplikací](application-gateway-web-application-firewall-overview.md) (firewall webových aplikací), který používá [škálovací sadu virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Firewall webových aplikací používá [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) pravidla k ochraně vaší aplikace. Mezi tato pravidla patří ochranu před útoky, například typu Injektáž SQL a útoky skriptování mezi weby a hijacks relace. 
 
-Naučte se vytvářet brány firewall webových aplikací (firewall webových aplikací)-Povolit aplikační brány. Také zjistěte, jak přidat do existující aplikace bránu firewall webových aplikací.
+V tomto článku se dozvíte, jak:
 
-Firewall webových aplikací v Azure Application Gateway chrání webových aplikací z běžných útoky založenými na web jako Injektáž SQL, útoky skriptování mezi weby a hijacks relace.
+> [!div class="checklist"]
+> * Nastavení sítě
+> * Vytvoření služby application gateway s povolen firewall webových aplikací
+> * Vytvoření sady škálování virtuálního počítače
+> * Vytvoření účtu úložiště a konfiguraci diagnostiky
 
- Application Gateway je nástroj pro vyrovnávání zatížení vrstvy 7. Poskytuje převzetí služeb při selhání, směrování výkonu požadavků HTTP mezi různými servery, zda jsou v cloudu nebo místně. Application Gateway poskytuje mnoho řadiče (ADC) funkce doručování aplikací:
+![Příklad brány firewall webových aplikací](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
 
- * Vyrovnávání zatížení HTTP 
- * Spřažení na základě souboru cookie relace 
- * Secure Sockets Layer (SSL) snižování zátěže 
- * Testy vlastní stavu 
- * Podpora pro funkce ve více lokalitách
- 
- Úplný seznam podporovaných funkcích naleznete v tématu [Přehled služby Application Gateway](application-gateway-introduction.md).
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-Tento článek ukazuje, jak [přidání brány firewall webových aplikací do existující aplikace bránu](#add-web-application-firewall-to-an-existing-application-gateway). Také ukazuje, jak [vytvoření služby application gateway, která používá brány firewall webových aplikací](#create-an-application-gateway-with-web-application-firewall).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![scénář image][scenario]
+Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Předpoklad: Instalace rozhraní příkazového řádku Azure 2.0
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Chcete-li provést kroky v tomto článku, je potřeba [nainstalovat rozhraní příkazového řádku Azure (Azure CLI) pro Mac, Linux a Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Vytvořte skupinu prostředků Azure s názvem *myResourceGroupAG* s [vytvořit skupinu az](/cli/azure/group#az_group_create).
 
-## <a name="waf-configuration-differences"></a>Rozdíly konfigurace firewall webových aplikací
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
+```
 
-Pokud jste si přečetli [vytvoření služby application gateway pomocí Azure CLI](application-gateway-create-gateway-cli.md), pochopit SKU nastavení konfigurace při vytvoření služby application gateway. Firewall webových aplikací poskytuje další nastavení můžete definovat při konfiguraci verze SKU na aplikační brány. Neexistují žádné další změny, které provedete ve službě application gateway sám sebe.
+## <a name="create-network-resources"></a>Vytvoření síťové prostředky
 
-| **Nastavení** | **Podrobnosti**
-|---|---|
-|**SKU** |Normální aplikační brána bez firewall webových aplikací podporuje **standardní\_malé**, **standardní\_střední**, a **standardní\_velké**velikosti. Se zavedením firewall webových aplikací, jsou dva další SKU, **firewall webových aplikací\_střední** a **firewall webových aplikací\_velké**. Firewall webových aplikací není podporována na malé application Gateway.|
-|**Režim** | Toto nastavení je režim firewall webových aplikací. Povolené hodnoty jsou **detekce** a **prevence**. Když je nastavený firewall webových aplikací **detekce** režimu, všechny hrozby jsou uložené v souboru protokolu. V **prevence** režim, jsou protokolovány události, ale útočník obdrží 403 Neautorizováno odpověď ze služby application gateway.|
-
-## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>Přidání brány firewall webových aplikací do existující aplikační brány
-
-Tento příkaz změní stávající standardní aplikační brány firewall webových aplikací s podporou aplikační brány:
+Virtuální sítě a podsítě se používají k poskytování síťové připojení k službě application gateway a její přidružené prostředky. Vytvořit virtuální síť s názvem *myVNet* a podsíť s názvem *myAGSubnet* s [vytvoření sítě vnet az](/cli/azure/network/vnet#az_network_vnet_create) a [az sítě vnet podsíť vytváření](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Vytvoření veřejné IP adresy s názvem *myAGPublicIPAddress* s [vytvoření veřejné sítě az-ip](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
-#!/bin/bash
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myBackendSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myAGSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
+## <a name="create-an-application-gateway-with-a-waf"></a>Vytvoření služby application gateway s firewall webových aplikací
+
+Můžete použít [az brány aplikace-vytvořit](/cli/azure/application-gateway#az_application_gateway_create) k vytvoření aplikační brány s názvem *myAppGateway*. Při vytváření služby application gateway pomocí Azure CLI, je třeba zadat informace o konfiguraci, například kapacitu, sku a nastavení HTTP. Službu application gateway je přiřazena k *myAGSubnet* a *myPublicIPSddress* kterou jste vytvořili.
+
+```azurecli-interactive
+az network application-gateway create \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --capacity 2 \
+  --sku WAF_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
 az network application-gateway waf-config set \
   --enabled true \
-  --firewall-mode Prevention \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --firewall-mode Detection \
+  --rule-set-version 3.0
 ```
 
-Tento příkaz aktualizuje aplikační bránu firewall webových aplikací. Chcete-li pochopit, jak zobrazit protokoly pro službu application gateway, přečtěte si téma [diagnostics Application Gateway](application-gateway-diagnostics.md). Vzhledem k zabezpečení povaze firewall webových aplikací zkontrolujte protokoly pravidelně zjistit postavení zabezpečení webových aplikací.
+Ho může trvat několik minut pro službu application gateway, který se má vytvořit. Po vytvoření služby application gateway se zobrazí tyto nové funkce:
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Vytvoření služby application gateway pomocí brány firewall webových aplikací
+- *appGatewayBackendPool* -aplikační brány musí mít alespoň jeden fond adres back-end.
+- *appGatewayBackendHttpSettings* -Určuje, že port 80 a protokol HTTP se používá pro komunikaci.
+- *appGatewayHttpListener* -přidružený naslouchací proces výchozí *appGatewayBackendPool*.
+- *appGatewayFrontendIP* -přiřadí *myAGPublicIPAddress* k *appGatewayHttpListener*.
+- *rule1 New* – výchozí směrování pravidlo, které souvisí s *appGatewayHttpListener*.
 
-Následující příkaz vytvoří aplikační brány s firewall webových aplikací:
+## <a name="create-a-virtual-machine-scale-set"></a>Vytvoření sady škálování virtuálního počítače
+
+V tomto příkladu vytvoříte škálovací sadu virtuálních počítačů, která poskytuje dva servery pro fond back-end v aplikační brány. Jsou virtuální počítače ve škálovací sadě přidružené *myBackendSubnet* podsítě. Chcete-li vytvořit měřítko nastavte, můžete použít [vytvořit az vmss](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
-#!/bin/bash
-
-az network application-gateway create \
-  --name "AdatumAppGateway2" \
-  --location "eastus" \
-  --resource-group "AdatumAppGatewayRG" \
-  --vnet-name "AdatumAppGatewayVNET2" \
-  --vnet-address-prefix "10.0.0.0/16" \
-  --subnet "Appgatewaysubnet2" \
-  --subnet-address-prefix "10.0.0.0/28" \
- --servers "10.0.0.5 10.0.0.4" \
-  --capacity 2 
-  --sku "WAF_Medium" \
-  --http-settings-cookie-based-affinity "Enabled" \
-  --http-settings-protocol "Http" \
-  --frontend-port "80" \
-  --routing-rule-type "Basic" \
-  --http-settings-port "80" \
-  --public-ip-address "pip2" \
-  --public-ip-address-allocation "dynamic" \
-  --tags "cli[2] owner[administrator]"
+az vmss create \
+  --name myvmss \
+  --resource-group myResourceGroupAG \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --admin-password Azure123456! \
+  --instance-count 2 \
+  --vnet-name myVNet \
+  --subnet myBackendSubnet \
+  --vm-sku Standard_DS2 \
+  --upgrade-policy-mode Automatic \
+  --app-gateway myAppGateway \
+  --backend-pool-name appGatewayBackendPool
 ```
 
-> [!NOTE]
-> Application Gateway vytvoří s základní konfigurací firewall webových aplikací jsou nakonfigurovány s řádku 3.0 pro ochranu.
-
-## <a name="get-an-application-gateway-dns-name"></a>Získat název DNS brány aplikace
-
-Po vytvoření brány je dalším krokem je konfigurace front-endu pro komunikaci. Pokud použijete veřejnou IP adresu, služby application gateway vyžaduje dynamicky přiřazené název DNS, který není popisný. Aby se zajistilo, že uživatelé můžete dosáhl aplikační bránu, použijte záznam CNAME přejděte na veřejný koncový bod služby application gateway. Další informace najdete v tématu [nakonfigurovat vlastní název domény pro cloudové služby Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
-
-Pokud chcete nakonfigurovat záznam CNAME, načtěte podrobnosti o aplikační brány a její přidružené název IP a DNS pomocí prvku PublicIPAddress připojit k službě application gateway. Použijte službu application gateway název DNS vytvořit záznam CNAME, který ukazuje dva webové aplikace k tomuto názvu DNS. Nedoporučujeme použití záznamy A, protože VIP může změnit po restartování služby application gateway.
+### <a name="install-nginx"></a>Instalace serveru NGINX
 
 ```azurecli-interactive
-#!/bin/bash
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group myResourceGroupAG \
+  --vmss-name myvmss \
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+```
 
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Vytvoření účtu úložiště a konfiguraci diagnostiky
+
+V tomto kurzu se Aplikační brána používá účet úložiště k ukládání dat za účelem odhalování a prevence. Analýzy protokolů nebo Centrum událostí můžete použít také k zaznamenání dat. 
+
+### <a name="create-a-storage-account"></a>vytvořit účet úložiště
+
+Vytvořit účet úložiště s názvem *myagstore1* s [vytvořit účet úložiště az](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
+
+```azurecli-interactive
+az storage account create \
+  --name myagstore1 \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --sku Standard_LRS \
+  --encryption blob
+```
+
+### <a name="configure-diagnostics"></a>Konfigurace diagnostiky
+
+Konfigurace diagnostiky k záznamu dat do ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog a ApplicationGatewayFirewallLog protokoly. SUBSTITUTE `<subscriptionId>` s ID vašeho předplatného a pak proveďte konfiguraci diagnostiky s [vytvořit az monitorování diagnostiky nastavení](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
+
+```azurecli-interactive
+appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
+storeid=$(az storage account show --name myagstore1 --resource-group myResourceGroupAG --query id -o tsv)
+az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
+  --logs '[ { "category": "ApplicationGatewayAccessLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayPerformanceLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayFirewallLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --storage-account $storeid
+```
+
+## <a name="test-the-application-gateway"></a>Testování služby application gateway
+
+Chcete-li získat veřejnou IP adresu brány, aplikace, použijte [az sítě veřejné ip zobrazit](/cli/azure/network/public-ip#az_network_public_ip_show). Zkopírujte veřejnou IP adresu a pak ji vložit do panelu Adresa prohlížeče.
+
+```azurepowershell-interactive
 az network public-ip show \
-  --name pip2 \
-  --resource-group "AdatumAppGatewayRG"
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
 ```
 
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
-```
+![Otestovat základní adresu URL v aplikační brány](./media/application-gateway-web-application-firewall-cli/application-gateway-nginxtest.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Další postup přizpůsobení pravidel firewall webových aplikací najdete v tématu [přizpůsobit pravidla brány firewall webových aplikací pomocí Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
+V tomto kurzu jste se naučili:
 
-[scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
+> [!div class="checklist"]
+> * Nastavení sítě
+> * Vytvoření služby application gateway s povolen firewall webových aplikací
+> * Vytvoření sady škálování virtuálního počítače
+> * Vytvoření účtu úložiště a konfiguraci diagnostiky
+
+Další informace o aplikačních bran a jejich přidružené prostředky, i nadále články s návody.

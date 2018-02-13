@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33ec5775a371a04074f07d589d35d1c05bd64d30
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af09c5602c53be4377ba19e68ff3486bcfefe0ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Příprava na místní servery VMware pro zotavení po havárii do Azure
 
@@ -71,8 +71,8 @@ Ujistěte se, že servery VMware splňovat následující požadavky.
 
 **Komponenta** | **Požadavek**
 --- | ---
-**vCenter server** | vCenter 6.5, 6.0 nebo 5,5
-**hostitelů vSphere** | vSphere verze 6.5, 6.0, 5.5
+**vCenter server** | vCenter 6.5, 6.0 nebo 5.5
+**hostitelů vSphere** | vSphere 6.5, 6.0, 5.5
 
 ## <a name="check-vmware-vm-requirements"></a>Zkontrolujte požadavky na virtuální počítač VMware
 
@@ -88,7 +88,7 @@ Ujistěte se, že virtuální počítač splňuje požadavky na Azure shrnuté v
 **Sdílený virtuální pevný disk** | Nepodporuje se
 **FC disku** | Nepodporuje se
 **Formát pevného disku** | VHD nebo VHDX.<br/><br/> I když VHDX není aktuálně podporovaná v Azure, Site Recovery automaticky převede VHDX virtuálního pevného disku při selhání do Azure. Pokud selžou zpět na místní virtuální počítače nadále používat formát VHDX.
-**Nástroj BitLocker** | Není podporováno. Zakážete, než povolíte replikaci pro virtuální počítač.
+**Bitlocker** | Nepodporuje se. Zakážete, než povolíte replikaci pro virtuální počítač.
 **Název virtuálního počítače.** | 1 až 63 znaků.<br/><br/> Omezen na písmena, číslice a pomlčky. Název virtuálního počítače musí začínat a končit písmenem nebo číslicí.
 **Typ virtuálního počítače** | Generace 1 - Linux nebo Windows<br/><br/>Generace 2 – pouze v systému Windows
 
@@ -110,9 +110,9 @@ Pro připojení k virtuální počítače s Linuxem pomocí protokolu SSH po př
 1. Na místním počítači před převzetí služeb při selhání zkontrolujte, že služba Secure Shell nastavena na automatické spuštění při spuštění systému. Zkontrolujte, jestli pravidla brány firewall umožňují připojení SSH.
 
 2. Na virtuálním počítači Azure po převzetí služeb při selhání povolte příchozí připojení k portu SSH pro pravidel skupiny zabezpečení sítě na selhání virtuálních počítačů a v podsíti Azure, ke kterému je připojený.
-   [Přidejte veřejnou IP adresu](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) pro virtuální počítač. Můžete zkontrolovat **spouštění diagnostiky** zobrazíte snímek virtuálního počítače.
+   [Přidejte veřejnou IP adresu](site-recovery-monitoring-and-troubleshooting.md) pro virtuální počítač. Můžete zkontrolovat **spouštění diagnostiky** zobrazíte snímek virtuálního počítače.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Nastavit zotavení po havárii do Azure pro virtuální počítače VMware](tutorial-vmware-to-azure.md)

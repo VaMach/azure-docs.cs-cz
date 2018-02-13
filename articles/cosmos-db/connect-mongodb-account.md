@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 2ad6308903d1c3615392eadedfd7da3cfad4096d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 41c0b360b54f9a9dcd2458ce5bdc05911c4f73a5
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Připojení aplikace MongoDB pro Azure Cosmos DB
 Zjistěte, jak připojit aplikace MongoDB k účtu Azure Cosmos DB pomocí připojovacího řetězce MongoDB. Potom můžete databázi Azure Cosmos DB jako data store pro vaši aplikaci MongoDB. 
@@ -75,5 +75,5 @@ Představte si třeba účet, který ukazuje **připojovací řetězec** okno. J
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Další postup
-* Zjistěte, jak [použít MongoChef](mongodb-mongochef.md) rozhraním API DB Cosmos Azure pro účet MongoDB.
+* Zjistěte, jak [použít Studio 3T (MongoChef)](mongodb-mongochef.md) rozhraním API DB Cosmos Azure pro účet MongoDB.
 * Prozkoumejte rozhraní API služby Azure Cosmos DB pro MongoDB zobrazením [ukázky](mongodb-samples.md).

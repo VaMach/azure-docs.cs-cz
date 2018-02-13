@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Kopírování dat z místní Oracle pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -141,7 +141,7 @@ V rámci typeProperties části se liší pro jednotlivé typy datovou sadu a po
 | --- | --- | --- |
 | tableName |Název tabulky v databázi Oracle, který propojená služba odkazuje na. |Ne (Pokud **oracleReaderQuery** z **OracleSource** je zadána) |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 > [!NOTE]
@@ -572,26 +572,26 @@ Při přesouvání dat z databáze Oracle, se používají následující mapov�
 
 | Oracle datový typ | Datový typ rozhraní .NET framework |
 | --- | --- |
-| BFILE |Byte] |
-| OBJEKT BLOB |Byte]<br/>(podporovány pouze na Oracle 10g a vyšší, kdy pomocí ovladače Microsoft) |
+| BFILE |Byte[] |
+| OBJEKT BLOB |Byte[]<br/>(podporovány pouze na Oracle 10g a vyšší, kdy pomocí ovladače Microsoft) |
 | CHAR – |Řetězec |
 | DATOVÝ TYP CLOB |Řetězec |
-| DATUM |Data a času |
+| DATE (Datum) |Datum a čas |
 | PLOVOUCÍ DESETINNÁ ČÁRKA |Decimal, řetězec (Pokud přesnost > 28) |
 | CELÉ ČÍSLO |Decimal, řetězec (Pokud přesnost > 28) |
 | INTERVAL ROK, MĚSÍC |Int32 |
-| DENNÍ INTERVAL SEKUNDY. |Časový interval |
+| DENNÍ INTERVAL SEKUNDY. |TimeSpan |
 | DLOUHÁ |Řetězec |
-| DLOUHO NEZPRACOVANÁ |Byte] |
+| DLOUHO NEZPRACOVANÁ |Byte[] |
 | NCHAR |Řetězec |
 | NCLOB |Řetězec |
 | ČÍSLO |Decimal, řetězec (Pokud přesnost > 28) |
 | NVARCHAR2 |Řetězec |
-| NEZPRACOVANÁ |Byte] |
+| NEZPRACOVANÁ |Byte[] |
 | ID ŘÁDKU |Řetězec |
-| ČASOVÉ RAZÍTKO |Data a času |
-| ČASOVÉ RAZÍTKO S MÍSTNÍM ČASOVÉM PÁSMU |Data a času |
-| ČASOVÉ RAZÍTKO S ČASOVÝM PÁSMEM |Data a času |
+| ČASOVÉ RAZÍTKO |Datum a čas |
+| ČASOVÉ RAZÍTKO S MÍSTNÍM ČASOVÉM PÁSMU |Datum a čas |
+| ČASOVÉ RAZÍTKO S ČASOVÝM PÁSMEM |Datum a čas |
 | CELÉ ČÍSLO BEZ ZNAMÉNKA |Číslo |
 | VARCHAR2 |Řetězec |
 | XML |Řetězec |

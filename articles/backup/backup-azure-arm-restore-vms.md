@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Obnovení virtuálních počítačů pomocí portálu Azure
 Ochrana dat pomocí snímky dat na definovaných intervalech. Tyto snímky jsou známé jako body obnovení a byly uloženy do trezory služeb zotavení. Pokud je nutné opravit nebo znovu vytvořit virtuální počítač (VM), můžete obnovit virtuální počítač z jakýchkoli bodů obnovení uložené. Pokud obnovíte bod obnovení, můžete:
@@ -70,7 +70,7 @@ Obnovení virtuálního počítače nebo všechny disky z virtuálního počíta
 
     **Obnovení** otevře se okno.
 
-    ![okno obnovení](./media/backup-azure-arm-restore-vms/restore-blade.png)
+    ![Obnovit okno](./media/backup-azure-arm-restore-vms/restore-blade.png)
 7. Na **obnovení** vyberte **bod obnovení**. **Vyberte bod obnovení** otevře se okno.
 
     ![Vyberte bod obnovení](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
@@ -104,7 +104,7 @@ Po výběru bodu obnovení, vyberte takovou konfiguraci obnovení virtuálního 
 
    * **Obnovení disků**
 
-Poskytuje portálu **rychle vytvořit** možnost pro obnovený virtuální počítač. K přizpůsobení konfigurace virtuálního počítače nebo názvy prostředky vytvořené při vytváření nového virtuálního počítače volba, použijte k obnovení zálohovaných disky prostředí PowerShell nebo portálu. Připojte je k zvoleného konfigurace virtuálního počítače použijte příkazy prostředí PowerShell. Nebo můžete pomocí této šablony, která se dodává s obnovenou disky, které chcete přizpůsobit obnoveným virtuálním Počítačem. Informace o tom, jak obnovit virtuální počítač, který má několik síťových adaptérů nebo pod nástrojem pro vyrovnávání zatížení najdete v tématu [obnovit virtuální počítač s konfigurací speciální síťových](#restore-a vm-with-special-network-configurations). Pokud vaše virtuální počítač Windows používá [ROZBOČOVAČE licencování](../virtual-machines/windows/hybrid-use-benefit-licensing.md), obnovení disků a prostředí PowerShell nebo šablonu uvedeného v tomto článku použít k vytvoření virtuálního počítače. Ujistěte se, zda jste zadali **typ licence** jako "Windows_Server" při vytváření virtuálního počítače využívat výhody centra obnoveným virtuálním Počítačem. 
+Poskytuje portálu **rychle vytvořit** možnost pro obnovený virtuální počítač. K přizpůsobení konfigurace virtuálního počítače nebo názvy prostředky vytvořené při vytváření nového virtuálního počítače volba, použijte k obnovení zálohovaných disky prostředí PowerShell nebo portálu. Připojte je k zvoleného konfigurace virtuálního počítače použijte příkazy prostředí PowerShell. Nebo můžete pomocí této šablony, která se dodává s obnovenou disky, které chcete přizpůsobit obnoveným virtuálním Počítačem. Informace o tom, jak obnovit virtuální počítač, který má několik síťových adaptérů nebo pod nástrojem pro vyrovnávání zatížení najdete v tématu [obnovit virtuální počítač s konfigurací speciální síťových](#restore-vms-with-special-network-configurations). Pokud vaše virtuální počítač Windows používá [ROZBOČOVAČE licencování](../virtual-machines/windows/hybrid-use-benefit-licensing.md), obnovení disků a prostředí PowerShell nebo šablonu uvedeného v tomto článku použít k vytvoření virtuálního počítače. Ujistěte se, zda jste zadali **typ licence** jako "Windows_Server" při vytváření virtuálního počítače využívat výhody centra obnoveným virtuálním Počítačem. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Vytvoření nového virtuálního počítače z bodu obnovení
 1. Pokud si nejste již existuje, [vyberte bod obnovení](#restore-a vm-with-special-network-configurations) předtím, než začnete vytvářet nový virtuální počítač z bodu obnovení. Až vyberete bod obnovení na **obnovit konfiguraci** okno, zadejte nebo vyberte hodnoty pro každý z těchto polí:
@@ -115,7 +115,7 @@ Poskytuje portálu **rychle vytvořit** možnost pro obnovený virtuální poč�
 
     c. **Skupina prostředků**. Použít existující skupinu prostředků nebo vytvořte novou. Pokud se obnovení klasické virtuální počítač, použijte toto pole k zadání názvu novou cloudovou službu. Pokud vytváříte novou skupinu nebo cloudovou službu prostředku, musí být globálně jedinečný název. Obvykle název cloudové služby souvisí s adresou URL veřejné: například [cloudservice]. cloudapp.net. Pokud se pokusíte použít název skupiny nebo cloudové služby prostředků cloudu, které jsou již používán, Azure přiřadí prostředků skupiny nebo cloudové služby má stejný název jako virtuální počítač. Azure zobrazí prostředků skupiny nebo cloudové služby a virtuální počítače nejsou přiřazeny žádné skupiny vztahů. Další informace najdete v tématu [jak migrovat z skupiny vztahů regionální virtuální síť](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
-    d. **Virtuální síť**. Vyberte virtuální síť, při vytváření virtuálního počítače. Pole poskytuje všechny virtuální sítě přidružený k odběru. Skupina prostředků virtuálního počítače se zobrazí v závorkách.
+    d. **Virtuální síť:** Vyberte virtuální síť, při vytváření virtuálního počítače. Pole poskytuje všechny virtuální sítě přidružený k odběru. Skupina prostředků virtuálního počítače se zobrazí v závorkách.
 
     e. **Podsíť**. Pokud virtuální sítě má podsítí, je ve výchozím nastavení vybrán první podsíť. Pokud existují další podsítě, vyberte podsíť, kterou chcete.
 
@@ -196,7 +196,7 @@ Pokud chcete získat šablony, který byl vytvořen jako součást obnovení mo�
    ![Odeslání nasazení šablony](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Po obnovení kroky
-* Pokud používáte cloudové na init Linux distribuci, jako je například Ubuntu, z bezpečnostních důvodů, je blokován heslo post obnovení. Použití rozšíření VMAccess na obnovený virtuální počítač [resetování hesla](../virtual-machines/linux/classic/reset-access.md). Doporučujeme, abyste pomocí klíče SSH na tyto distribuce, aby se zabránilo resetování post obnovení hesla.
+* Pokud používáte cloudové na init Linux distribuci, jako je například Ubuntu, z bezpečnostních důvodů, je blokován heslo post obnovení. Použití rozšíření VMAccess na obnovený virtuální počítač [resetování hesla](../virtual-machines/linux/reset-password.md). Doporučujeme, abyste pomocí klíče SSH na tyto distribuce, aby se zabránilo resetování post obnovení hesla.
 * Při konfiguraci zálohy rozšíření jsou nainstalovány, ale nebude povolen. Pokud se problém, přeinstalujte rozšíření. 
 * Pokud zálohované virtuální počítač má statickou IP post obnovení, obnovený virtuální počítač má dynamické IP, aby se zabránilo konfliktu při vytváření obnoveným virtuálním Počítačem. Další informace o tom, jak můžete [přidat statickou IP adresu pro virtuální počítač obnovený](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Obnovený virtuální počítač nemá hodnotu dostupnosti nastavit. Doporučujeme použít možnost obnovení disky [přidejte skupinu dostupnosti](../virtual-machines/windows/tutorial-availability-sets.md) při vytváření virtuálního počítače z prostředí PowerShell nebo šablon pomocí obnovit disky. 
@@ -248,7 +248,7 @@ Pokud chcete znovu vytvořit plně virtuální počítače po obnovení na disku
 
    d. Vytvoření virtuálního počítače s [více vyhrazené IP adresy](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď, když obnovíte virtuální počítače, najdete v článku Poradce při potížích informace na běžné chyby s virtuálními počítači. Navíc najdete v článku na správu úloh pomocí vašich virtuálních počítačů.
 
 * [Řešení potíží s chybami](backup-azure-vms-troubleshoot.md#restore)

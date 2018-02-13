@@ -3,7 +3,7 @@ title: "Uživatel přiřazený MSI na virtuální počítač s Linuxem používa
 description: "Kurz vás provede procesem pomocí uživatele přiřazené spravované služby Identity (MSI) na virtuální počítač s Linuxem pro přístup k úložišti Azure."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: arluca
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Použít pro přístup k úložišti Azure přiřazený uživatelem spravované služby Identity (MSI) na virtuální počítač s Linuxem
 
@@ -134,10 +134,10 @@ Protože soubory vyžadují úložiště objektů blob, musíte vytvořit kontej
 
 Pomocí souboru MSI kódu můžete získat přístupové tokeny k ověřování k prostředkům, které podporují ověřování Azure AD. V tomto kurzu použijete Azure Storage.
 
-Nejprve udělíte přístup identity MSI ke kontejneru úložiště Azure. V takovém případě použijete kontejneru vytvořili dříve. Aktualizujte hodnoty pro `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, a `<CONTAINER NAME>` jako vhodné pro vaše prostředí. Nahraďte `<CLIENT ID>` s `clientId` vlastnost vrácený `az identity create` v [vytvořit instalační služby MSI přiřazený uživatelem](#create-a-user-assigned-msi):
+Nejprve udělíte přístup identity MSI ke kontejneru úložiště Azure. V takovém případě použijete kontejneru vytvořili dříve. Aktualizujte hodnoty pro `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, a `<CONTAINER NAME>` jako vhodné pro vaše prostředí. Kromě toho nahradit `<MSI PRINCIPALID>` s `principalId` vlastnost vrácený `az identity create` v [vytvořit instalační služby MSI přiřazený uživatelem](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 Odpověď obsahuje podrobnosti o vytvoření přiřazení role:

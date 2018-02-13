@@ -1,6 +1,6 @@
 ---
-title: "Plán, podle kterého FedRAMP Azure Automation – systém a komunikace ochrany"
-description: "Webové aplikace pro FedRAMP - systému a komunikace ochrany"
+title: "Ochrana komunikace a systému plán, podle kterého - FedRAMP webové aplikace automatizace – dodržování předpisů a zabezpečení Azure"
+description: "FedRAMP webové aplikace automatizace – systém a komunikace ochrany"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Systém a komunikace ochrany (SC)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure odděluje funkce uživatele z funkce systému správy prostřednictvím vynucení ovládacích prvků logického přístupu a architektura systému. Funkce uživatele je omezený na rozhraní zákazníka nasazené webové aplikace. Rozhraní pro funkci správy systému jsou oddělené od uživatelského rozhraní. Všechny možnosti připojení správy je přes zabezpečené bastionu hostitele (jumpbox) umístěný v podsíti správy pomocí pravidel skupiny zabezpečení sítě pro omezení přístupu k prostředkům produkční podle potřeby. |
+| **Zákazníka** | Tento plán, podle kterého uživatel funkce odděluje od funkce systému správy prostřednictvím vynucení ovládacích prvků logického přístupu a architektura systému. Funkce uživatele je omezený na rozhraní zákazníka nasazené webové aplikace. Rozhraní pro funkci správy systému jsou oddělené od uživatelského rozhraní. Všechny možnosti připojení správy je přes zabezpečené bastionu hostitele (jumpbox) umístěný v podsíti správy pomocí pravidel skupiny zabezpečení sítě pro omezení přístupu k prostředkům produkční podle potřeby. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure používají operační systémy Windows. Windows udržuje domén samostatné provádění jednotlivých spuštěných procesů přiřazením privátní virtuální adresní prostor jednotlivých procesů. Kromě toho řešení implementuje architektura a přístupu ovládacích prvků slouží k oddělení funkce zabezpečení potřeby. |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán spustit operační systémy Windows. Windows udržuje domén samostatné provádění jednotlivých spuštěných procesů přiřazením privátní virtuální adresní prostor jednotlivých procesů. Kromě toho řešení implementuje architektura a přístupu ovládacích prvků slouží k oddělení funkce zabezpečení potřeby. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure používají operační systémy Windows. Operační systém spravuje prostředky (například paměť, úložiště) tak, aby informace jsou přístupné pouze pro uživatele a role s příslušnými oprávněními. |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán spustit operační systémy Windows. Operační systém spravuje prostředky (například paměť, úložiště) tak, aby informace jsou přístupné pouze pro uživatele a role s příslušnými oprávněními. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí aplikační bránu, která zahrnují brány firewall webových aplikací a možnosti vyrovnávání zatížení. Podpora webová vrstva, databázové vrstvy a služby Active Directory nasazených virtuálních počítačů nasazených v sadě dostupnosti škálovatelné. |
+| **Zákazníka** | Tento plán, podle kterého nasadí aplikační bránu, která zahrnují brány firewall webových aplikací a možnosti vyrovnávání zatížení. Podpora webová vrstva, databázové vrstvy a služby Active Directory nasazených virtuálních počítačů nasazených v sadě dostupnosti škálovatelné. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure používají operační systémy Windows. Každý proces Windows poskytuje prostředky potřebné ke spuštění programu. Priorita prostředků spravuje operačního systému. |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán spustit operační systémy Windows. Každý proces Windows poskytuje prostředky potřebné ke spuštění programu. Priorita prostředků spravuje operačního systému. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí služby Application Gateway, nástroj pro vyrovnávání zatížení a nakonfiguruje pravidla skupiny zabezpečení sítě k řízení commutations na externí hranice a mezi interní podsítě. Aplikační bránu, Vyrovnávání zatížení a událostí skupiny zabezpečení sítě a diagnostické protokoly jsou shromážděny prostřednictvím analýzy protokolů OMS umožňující zákazníka monitorování. |
+| **Zákazníka** | Tento plán, podle kterého nasadí služby Application Gateway, nástroj pro vyrovnávání zatížení a nakonfiguruje pravidla skupiny zabezpečení sítě k řízení commutations na externí hranice a mezi interní podsítě. Aplikační bránu, Vyrovnávání zatížení a událostí skupiny zabezpečení sítě a diagnostické protokoly jsou shromážděny prostřednictvím analýzy protokolů OMS umožňující zákazníka monitorování. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí prostředky v architekturu s podsíť samostatný webový, databáze podsíť, podsíť služby Active Directory a podsítě správy. Podsítě jsou logicky oddělených použít na jednotlivé podsítě omezit přenos dat mezi podsítě, které jenom to nezbytná pro fungování systému a správu pravidel skupiny zabezpečení sítě (například externích přenosů nelze získat přístup k databázi, správu, nebo podsítě služby Active Directory). |
+| **Zákazníka** | Tento plán, podle kterého nasadí prostředky v architekturu s podsíť samostatný webový, databáze podsíť, podsíť služby Active Directory a podsítě správy. Podsítě jsou logicky oddělených použít na jednotlivé podsítě omezit přenos dat mezi podsítě, které jenom to nezbytná pro fungování systému a správu pravidel skupiny zabezpečení sítě (například externích přenosů nelze získat přístup k databázi, správu, nebo podsítě služby Active Directory). |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí aplikační brány pro správu externí připojení k zákazníka nasazené webové aplikace. Externí připojení pro přístup ke správě jsou omezené na bastionu hostitele nebo IP adresy oprávnění jumpbox nasazena v podsíti správy s pravidla zabezpečení sítě použít k omezení externích připojení ke službě. |
+| **Zákazníka** | Tento plán, podle kterého nasadí aplikační brány pro správu externí připojení k zákazníka nasazené webové aplikace. Externí připojení pro přístup ke správě jsou omezené na bastionu hostitele nebo IP adresy oprávnění jumpbox nasazena v podsíti správy s pravidla zabezpečení sítě použít k omezení externích připojení ke službě. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -161,11 +161,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí dvě veřejné IP adresy: jednu asociovaným s bránou aplikace; jeden přidružený k hostiteli bastionu správy / jumpbox. |
+| **Zákazníka** | Tento plán, podle kterého nasadí dvě veřejné IP adresy: jednu asociovaným s bránou aplikace; jeden přidružený k hostiteli bastionu správy / jumpbox. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-sc-7-4a"></a>.A NIST 800-53 řízení SC-7 (4)
+ ### <a name="nist-800-53-control-sc-7-4a"></a>NIST 800-53 Control SC-7 (4).a
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>Hranice ochrany | Externí Telecommunications služby
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí dvě veřejné IP adresy: jednu asociovaným s bránou aplikace; jeden přidružený k hostiteli bastionu správy / jumpbox. Správa těchto rozhraní je povolená díky softwarově definované sítě. |
+| **Zákazníka** | Tento plán, podle kterého nasadí dvě veřejné IP adresy: jednu asociovaným s bránou aplikace; jeden přidružený k hostiteli bastionu správy / jumpbox. Správa těchto rozhraní je povolená díky softwarově definované sítě. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -189,11 +189,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí dvě veřejné IP adresy: jednu asociovaným s bránou aplikace; jeden přidružený k hostiteli bastionu správy / jumpbox. Správa těchto rozhraní je povolená díky softwarově definované sítě. |
+| **Zákazníka** | Tento plán, podle kterého nasadí dvě veřejné IP adresy: jednu asociovaným s bránou aplikace; jeden přidružený k hostiteli bastionu správy / jumpbox. Správa těchto rozhraní je povolená díky softwarově definované sítě. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-sc-7-4c"></a>.C NIST 800-53 řízení SC-7 (4)
+ ### <a name="nist-800-53-control-sc-7-4c"></a>NIST 800-53 Control SC-7 (4).c
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>Hranice ochrany | Externí Telecommunications služby
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Bránu webové aplikace nasadit pomocí této Azure plán, podle kterého je nakonfigurovaný s naslouchací proces protokolu HTTPS, následná důvěrnost a integritu relací komunikace. Připojení ke vzdálené ploše na jumpbox jsou šifrované zajištění důvěrnosti a integrity. |
+| **Zákazníka** | Bránu webové aplikace nasadit pomocí tento plán, podle kterého je nakonfigurovaný s naslouchací proces protokolu HTTPS, následná důvěrnost a integritu relací komunikace. Připojení ke vzdálené ploše na jumpbox jsou šifrované zajištění důvěrnosti a integrity. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -225,7 +225,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>Hranice ochrany | Externí Telecommunications služby
 
-**.E SC-7 (4)** Organizace zkontroluje výjimky pro zásady tok přenosů [přiřazení: organizace definované frekvence] a odebere výjimky, které již nejsou podporovány explicitní zvláště/obchodních potřeb.
+**SC-7 (4).e** Organizace zkontroluje výjimky pro zásady tok přenosů [přiřazení: organizace definované frekvence] a odebere výjimky, které již nejsou podporovány explicitní zvláště/obchodních potřeb.
 
 **Odpovědnosti:**`Customer Only`
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Sady pravidel u nasazeného nástrojem tento plán, podle kterého Azure skupin zabezpečení sítě jsou konfigurováni pomocí odepřít výchozí schéma. |
+| **Zákazníka** | Sady pravidel u nasazeného nástrojem tento plán, podle kterého skupin zabezpečení sítě jsou konfigurováni pomocí odepřít výchozí schéma. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí této Azure plán, podle kterého jsou nakonfigurovány s povolena brána firewall založená na hostiteli. |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého jsou nakonfigurovány s povolena brána firewall založená na hostiteli. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí prostředky v architekturu s podsítí samostatné správy pro zákazníka nasazení nástroje zabezpečení informace a podpora součástí. Podsítě jsou logicky odděleny pravidel skupiny zabezpečení sítě. |
+| **Zákazníka** | Tento plán, podle kterého nasadí prostředky v architekturu s podsítí samostatné správy pro zákazníka nasazení nástroje zabezpečení informace a podpora součástí. Podsítě jsou logicky odděleny pravidel skupiny zabezpečení sítě. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí prostředky v architekturu s podsíť samostatný webový, databáze podsíť, podsíť služby Active Directory a podsítě správy. Podsítě jsou logicky odděleny použít na jednotlivé podsítě omezit přenos dat mezi podsítě, které jenom to nezbytná pro fungování systému a správu pravidel skupiny zabezpečení sítě. |
+| **Zákazníka** | Tento plán, podle kterého nasadí prostředky v architekturu s podsíť samostatný webový, databáze podsíť, podsíť služby Active Directory a podsítě správy. Podsítě jsou logicky odděleny použít na jednotlivé podsítě omezit přenos dat mezi podsítě, které jenom to nezbytná pro fungování systému a správu pravidel skupiny zabezpečení sítě. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nakonfiguruje prostředky pro komunikaci pomocí protokolů pouze zabezpečené. Komponenta aplikační bránu firewall webových aplikací je nakonfigurován přijmout osob, které informují z externí používá přes HTTPS/TLS a komunikovat s fondu typu back end jenom přes protokol HTTPS/TLS. SQL Server je nakonfigurován pro komunikaci pouze pomocí protokolu HTTPS/TLS. Služba Vzdálená plocha jsou nakonfigurovány pro použití zabezpečeného připojení. |
+| **Zákazníka** | Tento plán, podle kterého se nakonfiguruje prostředky pro komunikaci pomocí protokolů pouze zabezpečené. Komponenta aplikační bránu firewall webových aplikací je nakonfigurován přijmout osob, které informují z externí používá přes HTTPS/TLS a komunikovat s fondu typu back end jenom přes protokol HTTPS/TLS. SQL Server je nakonfigurován pro komunikaci pouze pomocí protokolu HTTPS/TLS. Služba Vzdálená plocha jsou nakonfigurovány pro použití zabezpečeného připojení. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí Azure Key Vault. Azure Key Vault pomáhá chránit kryptografické klíče a tajné klíče používané cloudovými aplikacemi a službami. Azure Key Vault můžete generovat klíče pomocí FIPS 140-2 úroveň 2 hardwaru zabezpečení (HSM) modul generování klíče schopnosti. |
+| **Zákazníka** | Tento plán, podle kterého nasadí Azure Key Vault. Azure Key Vault pomáhá chránit kryptografické klíče a tajné klíče používané cloudovými aplikacemi a službami. Azure Key Vault můžete generovat klíče pomocí FIPS 140-2 úroveň 2 hardwaru zabezpečení (HSM) modul generování klíče schopnosti. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Azure Key Vault se používá k uložení kryptografické klíče a tajné klíče používán tento plán, podle kterého Azure. Key Vault zjednodušuje proces správy klíčů pro klíče, které k přístupu a šifrování dat. Následující ověřovací data jsou uložené v Key Vault: Azure heslo pro účet nasadit, heslo správce virtuálního počítače, heslo účtu služby SQL Server. |
+| **Zákazníka** | Azure Key Vault se používá k uložení kryptografické klíče a tajné klíče používán tento plán. Key Vault zjednodušuje proces správy klíčů pro klíče, které k přístupu a šifrování dat. Následující ověřovací data jsou uložené v Key Vault: Azure heslo pro účet nasadit, heslo správce virtuálního počítače, heslo účtu služby SQL Server. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Ověřování systému Windows, vzdálené plochy a BitLocker zaměstnává tento plán, podle kterého Azure. Tyto součásti lze nakonfigurovat moct spolehnout na FIPS 140 ověřit kryptografických modulů. |
+| **Zákazníka** | Tento plán, podle kterého jsou zaměstnaní ověřování systému Windows, vzdálené plochy a nástroj BitLocker. Tyto součásti lze nakonfigurovat moct spolehnout na FIPS 140 ověřit kryptografických modulů. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Nejsou žádná spolupráce výpočetní zařízení, které jsou nasazeny jako součást tento plán, podle kterého Azure. Poznámka: K dispozici jsou fyzické výpočetní zařízení spolupráce v rámci oboru systémy, které jsou nasazené na platformě Azure. |
+| **Zákazníka** | Nejsou žádná spolupráce výpočetní zařízení, které jsou nasazeny jako součást tento plán. Poznámka: K dispozici jsou fyzické výpočetní zařízení spolupráce v rámci oboru systémy, které jsou nasazené na platformě Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Nejsou žádná spolupráce výpočetní zařízení, které jsou nasazeny jako součást tento plán, podle kterého Azure. Poznámka: K dispozici jsou fyzické výpočetní zařízení spolupráce v rámci oboru systémy, které jsou nasazené na platformě Azure. |
+| **Zákazníka** | Nejsou žádná spolupráce výpočetní zařízení, které jsou nasazeny jako součást tento plán. Poznámka: K dispozici jsou fyzické výpočetní zařízení spolupráce v rámci oboru systémy, které jsou nasazené na platformě Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Neexistují žádné hlasové přes internet protocol technologie nasazen jako součást tento plán, podle kterého Azure. |
+| **Zákazníka** | Neexistují žádné hlasové přes internet protocol technologie nasazen jako součást tento plán. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Neexistují žádné hlasové přes internet protocol technologie nasazen jako součást tento plán, podle kterého Azure. |
+| **Zákazníka** | Neexistují žádné hlasové přes internet protocol technologie nasazen jako součást tento plán. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Vzdálený přístup k prostředkům nasadit pomocí tento plán Azure, včetně portálu Azure, připojení ke vzdálené ploše a webové aplikace brány, jsou zabezpečené pomocí protokolu TLS. Protokol TLS poskytuje pravosti pro komunikaci na úrovni relace. |
+| **Zákazníka** | Vzdálený přístup k prostředkům nasadit pomocí tento plán, včetně portálu Azure, připojení ke vzdálené ploše a webové aplikace brány, jsou zabezpečené pomocí protokolu TLS. Protokol TLS poskytuje pravosti pro komunikaci na úrovni relace. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Vzdálený přístup k prostředkům nasadit pomocí tento plán Azure, včetně portálu Azure, připojení ke vzdálené ploše a webové aplikace brány, jsou zabezpečené pomocí protokolu TLS. Portál Azure a relací vzdálené plochy zneplatnit identifikátory relace při odhlášení. Webové relace zneplatnění se vynucuje prostřednictvím Azure Application Gateway - pravidla brány Firewall firewall webových (webové aplikace aplikací). Firewall webových aplikací platí spřažení souboru cookie relace a provádí časový limit relace po 30 minutách nečinnosti z klienta (Konfigurovat post nasazení do konkrétních pravidel organizace). |
+| **Zákazníka** | Vzdálený přístup k prostředkům nasadit pomocí tento plán, včetně portálu Azure, připojení ke vzdálené ploše a webové aplikace brány, jsou zabezpečené pomocí protokolu TLS. Portál Azure a relací vzdálené plochy zneplatnit identifikátory relace při odhlášení. Webové relace zneplatnění se vynucuje prostřednictvím Azure Application Gateway - pravidla brány Firewall firewall webových (webové aplikace aplikací). Firewall webových aplikací platí spřažení souboru cookie relace a provádí časový limit relace po 30 minutách nečinnosti z klienta (Konfigurovat post nasazení do konkrétních pravidel organizace). |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure implementovat šifrování disku k ochraně utajení a integrity informací v klidovém stavu. Azure disk encryption pro systém Windows je implementovaná pomocí funkce nástroje BitLocker systému Windows. SQL Server je nakonfigurován pro používání transparentní dat šifrování (TDE), který provádí v reálném čase šifrování a dešifrování dat a souborů k ochraně informací v klidovém stavu protokolu. Šifrování TDE poskytuje záruku, že data uložena nebyla neoprávněnému přístupu k. Zákazník může zvolit implementovat další kontroly úrovni aplikace, chránit integritu uložené informace. Důvěrnost a integritu všech objektů BLOB storage nasadit pomocí této Azure plán, podle kterého jsou chráněny prostřednictvím použití Azure pro úložiště služby šifrování (SSE). SSE chrání data umístěná v účtech Azure storage pomocí šifrování AES 256 bitů. |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého implementovat šifrování disku k ochraně utajení a integrity informací v klidovém stavu. Azure disk encryption pro systém Windows je implementovaná pomocí funkce nástroje BitLocker systému Windows. SQL Server je nakonfigurován pro používání transparentní dat šifrování (TDE), který provádí v reálném čase šifrování a dešifrování dat a souborů k ochraně informací v klidovém stavu protokolu. Šifrování TDE poskytuje záruku, že data uložena nebyla neoprávněnému přístupu k. Zákazník může zvolit implementovat další kontroly úrovni aplikace, chránit integritu uložené informace. Důvěrnost a integritu všech objektů BLOB storage nasadit pomocí tento plán, podle kterého jsou chráněny prostřednictvím použití Azure pro úložiště služby šifrování (SSE). SSE chrání data umístěná v účtech Azure storage pomocí šifrování AES 256 bitů. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán, podle kterého Azure používají operační systémy Windows. Windows udržuje domén samostatné provádění jednotlivých spuštěných procesů přiřazením privátní virtuální adresní prostor jednotlivých procesů. |
+| **Zákazníka** | Virtuální počítače nasazené pomocí tento plán spustit operační systémy Windows. Windows udržuje domén samostatné provádění jednotlivých spuštěných procesů přiřazením privátní virtuální adresní prostor jednotlivých procesů. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |

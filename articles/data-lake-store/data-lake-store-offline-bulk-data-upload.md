@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Používat službu Azure Import/Export pro offline kopii dat do Data Lake Store
 V tomto článku se dozvíte kopírování obrovských sad dat (> 200 GB) do Azure Data Lake Store pomocí metod kopii offline, jako je třeba [služba Azure Import/Export](../storage/common/storage-import-export-service.md). Soubor používá jako příklad v tomto článku je konkrétně 339,420,860,416 bajtů nebo přibližně 319 GB na disku. Umožňuje volání 319GB.tsv tento soubor.
@@ -33,6 +33,7 @@ Než začnete, musíte mít následující:
 * **Účet Azure Data Lake Store**. Pokyny o tom, jak vytvořit najdete v tématu [Začínáme s Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Příprava dat
+
 Než začnete používat službu Import/Export, rozdělit datového souboru k přesunu **do kopie, které jsou menší než 200 GB** velikost. Nástroj pro import nefunguje s soubory větší než 200 GB. V tomto kurzu jsme rozdělit do bloků, 100 GB. Můžete to provést pomocí [emulaci](https://cygwin.com/install.html). Emulaci podporuje příkazy Linux. V takovém případě použijte následující příkaz:
 
     split -b 100m 319GB.tsv
@@ -207,7 +208,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv”
 ````
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

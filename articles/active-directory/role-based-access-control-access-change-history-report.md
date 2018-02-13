@@ -3,7 +3,7 @@ title: "Přístup k vytváření sestav - Azure RBAC | Microsoft Docs"
 description: "Vygenerujte sestavu, která uvádí všechny změny v přístupu k vašemu předplatnému Azure pomocí řízení přístupu na základě rolí za posledních 90 dnů."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c430e1206e6e97f2c7fb7d2a6ff0dd6e65ee8bbf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Vytvoření sestavy přístup k řízení přístupu na základě rolí
 Vždy, když někdo uděluje nebo odvolá přístup v rámci vašich předplatných, změny se budou protokolovat do Azure událostí. Můžete vytvořit sestavy historie změn přístupu zobrazíte všechny změny za posledních 90 dnů.
@@ -36,7 +36,7 @@ Při volání tento příkaz můžete určit kterou vlastnost tohoto přiřazen�
 | **PrincipalId** | Jedinečný identifikátor uživatele, skupiny nebo aplikace, kterému byla přiřazena role |
 | **PrincipalName** |Jméno uživatele, skupiny nebo aplikace |
 | **PrincipalType** |Jestli přiřazení byla pro uživatele, skupiny nebo aplikace |
-| **Hodnoty vlastnosti RoleDefinitionId** |Identifikátor GUID role, který byl udělen nebo odebrán |
+| **RoleDefinitionId** |Identifikátor GUID role, který byl udělen nebo odebrán |
 | **RoleName** |Role, který byl udělen nebo odebrán |
 | **Rozsah** | Jedinečný identifikátor předplatné, skupinu prostředků nebo prostředek, který se vztahuje na přiřazení | 
 | **ScopeName** |Název předplatné, skupinu prostředků nebo prostředek |
@@ -59,7 +59,7 @@ Pokud chcete sestavu uložit nebo manipulovat s daty, exportujte přístup změn
 
 ![Protokol změn zobrazit jako tabulku – snímek obrazovky](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Práce s [vlastní role v Azure RBAC](role-based-access-control-custom-roles.md)
 * Naučte se spravovat [RBAC Azure pomocí prostředí powershell](role-based-access-control-manage-access-powershell.md)
 

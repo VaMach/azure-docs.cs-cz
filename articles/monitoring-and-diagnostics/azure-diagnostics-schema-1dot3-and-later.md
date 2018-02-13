@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 a novější schéma konfigurace
 > [!NOTE]
@@ -384,7 +384,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**PublicConfig**|Povinná hodnota. Na této stránce najdete v popisu jinde.|  
 |**PrivateConfig**|Volitelné. Na této stránce najdete v popisu jinde.|  
-|**Hodnotu IsEnabled**|Logická hodnota. Na této stránce najdete v popisu jinde.|  
+|**IsEnabled**|Logická hodnota. Na této stránce najdete v popisu jinde.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig Element  
  *Stromové struktury: PublicConfig kořenové - DiagnosticsConfiguration-*
@@ -411,7 +411,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributy|Popis|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | Maximální množství místa na místní disk, který může být využívány službou různé typy diagnostická data shromažďovaná společností Azure Diagnostics. Výchozí nastavení je 5 120 MB.<br />
+| **overallQuotaInMB** | Maximální množství místa na místní disk, který může být využívány službou různé typy diagnostická data shromažďovaná společností Azure Diagnostics. Výchozí nastavení je 4 096 MB.<br />
 |**useProxyServer** | Konfigurace Azure Diagnostics chcete použít nastavení proxy serveru jako sada v nastavení aplikace Internet Explorer.|  
 
 <br /> <br />
@@ -557,7 +557,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Podřízený Element|Popis|  
 |-------------------|-----------------|  
-|**Zdroj dat**|Protokol událostí systému Windows ke shromažďování. Požadovaný atribut:<br /><br /> **název** – dotaz XPath popisující události systému windows, které se mají shromažďovat. Například:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Ke shromažďování všech událostí, zadejte "*"|  
+|**Zdroj dat**|Protokol událostí systému Windows ke shromažďování. Požadovaný atribut:<br /><br /> **název** – dotaz XPath popisující události systému windows, které se mají shromažďovat. Příklad:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Ke shromažďování všech událostí, zadejte "*"|  
 
 
 
@@ -592,7 +592,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Název elementu|Popis|  
 |------------------|-----------------|  
-|**Podřízený**|Na této stránce najdete v popisu jinde.|  
+|**Sink**|Na této stránce najdete v popisu jinde.|  
 
 ## <a name="sink-element"></a>Jímky – Element
  *Strom: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - jímka*
@@ -603,12 +603,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atribut|Typ|Popis|  
 |---------------|----------|-----------------|  
-|**Jméno**|Řetězec|Řetězec identifikující sinkname.|  
+|**name**|řetězec|Řetězec identifikující sinkname.|  
 
 |Element|Typ|Popis|  
 |-------------|----------|-----------------|  
-|**Application Insights**|Řetězec|Použít pouze při odesílání dat do služby Application Insights. Obsahovat klíč instrumentace pro aktivní účet Application Insights, máte přístup.|  
-|**Kanály**|Řetězec|Jeden pro každou další filtrování, který datového proudu, který jste|  
+|**Application Insights**|řetězec|Použít pouze při odesílání dat do služby Application Insights. Obsahovat klíč instrumentace pro aktivní účet Application Insights, máte přístup.|  
+|**Kanály**|řetězec|Jeden pro každou další filtrování, který datového proudu, který jste|  
 
 ## <a name="channels-element"></a>Element kanály  
  *Stromové struktury: Kanály SinksConfig - jímka - kořenové - DiagnosticsConfiguration - PublicConfig - WadCFG-*
@@ -619,7 +619,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Element|Typ|Popis|  
 |-------------|----------|-----------------|  
-|**Kanál**|Řetězec|Na této stránce najdete v popisu jinde.|  
+|**Channel**|řetězec|Na této stránce najdete v popisu jinde.|  
 
 ## <a name="channel-element"></a>Element kanálu
  *Strom: Kořenové - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - jímka - kanály - kanál*
@@ -631,7 +631,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Atributy|Typ|Popis|  
 |----------------|----------|-----------------|  
 |**logLevel**|**řetězec**|Určuje úroveň závažnosti minimální pro položky protokolu, které se přenáší. Výchozí hodnota je **Undefined**, která přenáší všechny protokoly. Další možné hodnoty (v pořadí podle nejvíc minimálně informace) jsou **podrobné**, **informace**, **upozornění**, **chyba**, a **kritický**.|  
-|**Jméno**|**řetězec**|Jedinečný název kanálu k odkazování na|  
+|**name**|**řetězec**|Jedinečný název kanálu k odkazování na|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element 

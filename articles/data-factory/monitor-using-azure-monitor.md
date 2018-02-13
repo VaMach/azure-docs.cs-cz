@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorovat pomocí monitorování Azure data Factory  
 Cloudové aplikace jsou komplexní s mnoha přesunutí částmi. Monitorování poskytuje data a ujistěte se, že vaše aplikace zůstává nahoru a spuštěna v dobrém stavu. Také pomáhá stave vypnout potenciální problémy nebo vyřešit potíže s uplynulou těch, které jsou. Kromě toho můžete data monitorování a získáte přehled o hloubkové o vaší aplikaci. Tato znalostní báze můžete dozvíte, jak zlepšit výkon aplikace nebo udržovatelnosti nebo automatizaci akcí, které by jinak vyžadují ruční zásah.
@@ -57,7 +57,7 @@ PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-**Záhlaví**
+**Hlavičky**
 * Nahraďte `{api-version}` s `2016-09-01`.
 * Nahraďte `{resource-id}` s ID prostředku prostředku, pro kterou chcete upravit nastavení pro diagnostiku. Další informace [použití skupin prostředků ke správě prostředků Azure](../azure-resource-manager/resource-group-portal.md).
 * Nastavte `Content-Type` hlavičky k `application/json`.
@@ -114,7 +114,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Časovými úseky | Řetězec | Členitost metriky, které jsou ukládány do formátu ISO 8601 doba trvání. Musí být PT1M (jedné minuty)|
 | povoleno| Logická hodnota | Určuje, zda je povoleno kolekci této kategorie metrika nebo protokolu pro tento prostředek|
 | retentionPolicy| Komplexní typ| Popisuje zásady uchovávání informací pro kategorii metrika nebo protokolu. Použít pro pouze možnost účet úložiště.|
-| počet dnů| celá čísla| Počet dní, které chcete zachovat metriky nebo protokoly. Hodnota 0 uchovává protokoly bez omezení. Použít pro pouze možnost účet úložiště. |
+| dny| Int| Počet dní, které chcete zachovat metriky nebo protokoly. Hodnota 0 uchovává protokoly bez omezení. Použít pro pouze možnost účet úložiště. |
 
 **Odpověď**
 
@@ -175,7 +175,7 @@ GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-**Záhlaví**
+**Hlavičky**
 * Nahraďte `{api-version}` s `2016-09-01`.
 * Nahraďte `{resource-id}` s ID prostředku prostředku, pro kterou chcete upravit nastavení pro diagnostiku. Pro další informace o použití skupin prostředků ke správě prostředků Azure.
 * Nastavte `Content-Type` hlavičky k `application/json`.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Další informace v tomto poli] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+More info here](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Schéma protokoly a události
 
@@ -273,7 +273,7 @@ Další informace v tomto poli] (https://msdn.microsoft.com/en-us/library/azure/
 }
 ```
 
-| Vlastnost | Typ | Popis | Příklad |
+| Vlastnost | Typ | Popis | Příklad: |
 | --- | --- | --- | --- |
 | Úroveň |Řetězec | Úroveň diagnostických protokolů. Úroveň 4 je vždy případ aktivity při spuštění protokoly. | `4`  |
 | correlationId |Řetězec | Jedinečné ID pro sledování určité žádosti klient server | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -285,9 +285,9 @@ Další informace v tomto poli] (https://msdn.microsoft.com/en-us/library/azure/
 |úroveň| Řetězec | Úroveň diagnostických protokolů. Nastavením této vlastnosti "Informační" | `Informational` |
 |operationName| Řetězec |Název aktivitu se stavem. Pokud je ve stavu počáteční prezenčního signálu, je `MyActivity -`. Pokud je ve stavu prezenčního signálu end, je `MyActivity - Succeeded` s konečného stavu | `MyActivity - Succeeded` |
 |pipelineName| Řetězec | Název kanálu | `MyPipeline` |
-|Název aktivity activityName| Řetězec | Název aktivity | `MyActivity` |
+|activityName| Řetězec | Název aktivity | `MyActivity` |
 |start| Řetězec | Spuštění aktivity při spuštění v časový interval, formátu UTC | `2017-06-26T20:55:29.5007959Z`|
-|End| Řetězec | Konce aktivity při spuštění v časový interval, formátu UTC. Pokud nebyl ukončen aktivity ještě (protokolů diagnostiky pro spuštění aktivity), výchozí hodnota je `1601-01-01T00:00:00Z` nastavena.  | `2017-06-26T20:55:29.5007959Z` |
+|konec| Řetězec | Konce aktivity při spuštění v časový interval, formátu UTC. Pokud nebyl ukončen aktivity ještě (protokolů diagnostiky pro spuštění aktivity), výchozí hodnota je `1601-01-01T00:00:00Z` nastavena.  | `2017-06-26T20:55:29.5007959Z` |
 
 
 ### <a name="pipeline-run-logs-attributes"></a>Atributy protokoly spuštění kanálu
@@ -320,7 +320,7 @@ Další informace v tomto poli] (https://msdn.microsoft.com/en-us/library/azure/
 }
 ```
 
-| Vlastnost | Typ | Popis | Příklad |
+| Vlastnost | Typ | Popis | Příklad: |
 | --- | --- | --- | --- |
 | Úroveň |Řetězec | Úroveň diagnostických protokolů. Úroveň 4 je případ aktivity při spuštění protokoly. | `4`  |
 | correlationId |Řetězec | Jedinečné ID pro sledování určité žádosti klient server | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -332,7 +332,7 @@ Další informace v tomto poli] (https://msdn.microsoft.com/en-us/library/azure/
 |operationName| Řetězec |Název kanálu se stavem. "Kanál – bylo úspěšné" s konečného stavu po dokončení spuštění kanálu| `MyPipeline - Succeeded` |
 |pipelineName| Řetězec | Název kanálu | `MyPipeline` |
 |start| Řetězec | Spuštění aktivity při spuštění v časový interval, formátu UTC | `2017-06-26T20:55:29.5007959Z`|
-|End| Řetězec | Konec aktivity spouští v časový interval, formátu UTC. Pokud nebyl ukončen aktivity ještě (protokolů diagnostiky pro spuštění aktivity), výchozí hodnota je `1601-01-01T00:00:00Z` nastavena.  | `2017-06-26T20:55:29.5007959Z` |
+|konec| Řetězec | Konec aktivity spouští v časový interval, formátu UTC. Pokud nebyl ukončen aktivity ještě (protokolů diagnostiky pro spuštění aktivity), výchozí hodnota je `1601-01-01T00:00:00Z` nastavena.  | `2017-06-26T20:55:29.5007959Z` |
 |status| Řetězec | Poslední stav kanálu spustit (úspěšné nebo neúspěšné) | `Succeeded`|
 
 
@@ -365,7 +365,7 @@ Další informace v tomto poli] (https://msdn.microsoft.com/en-us/library/azure/
 
 ```
 
-| Vlastnost | Typ | Popis | Příklad |
+| Vlastnost | Typ | Popis | Příklad: |
 | --- | --- | --- | --- |
 | Úroveň |Řetězec | Úroveň diagnostických protokolů. Nastavte úroveň 4 pro aktivitu spustit protokoly. | `4`  |
 | correlationId |Řetězec | Jedinečné ID pro sledování určité žádosti klient server | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -375,7 +375,7 @@ Další informace v tomto poli] (https://msdn.microsoft.com/en-us/library/azure/
 |category| Řetězec | Kategorie diagnostické protokoly. Nastavením této vlastnosti "PipelineRuns" | `PipelineRuns` |
 |úroveň| Řetězec | Úroveň diagnostických protokolů. Nastavením této vlastnosti "Informační" | `Informational` |
 |operationName| Řetězec |Název aktivační události s konečného stavu jestli se úspěšně aktivoval. "MyTrigger - bylo úspěšné" Pokud prezenční signál byla úspěšná| `MyTrigger - Succeeded` |
-|Název aktivační události| Řetězec | Název aktivační události | `MyTrigger` |
+|triggerName| Řetězec | Název aktivační události | `MyTrigger` |
 |triggerType| Řetězec | Typ aktivační události (ruční aktivační události nebo plán aktivační události) | `ScheduleTrigger` |
 |triggerEvent| Řetězec | Události Aktivační události | `ScheduleTime - 2017-07-06T01:50:25Z` |
 |start| Řetězec | Začátek ještě efektivněji aktivační události v časový interval, formátu UTC | `2017-06-26T20:55:29.5007959Z`|
@@ -398,5 +398,5 @@ ADFV2 vysílá následující metriky
 
 Přístup metriky, postupujte podle pokynů v článku – https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tématu [monitorování a Správa kanálů prostřednictvím kódu programu](monitor-programmatically.md) článku se dozvíte o monitorování a Správa kanálů spuštěním. 

@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-azure-policy"></a>Co je Azure Policy?
 
@@ -38,7 +38,7 @@ Tato oprávnění nejsou součástí role **Přispěvatel**.
 
 Každá definice zásady obsahuje podmínky, za kterých se vynucuje. Obsahuje také doprovodnou akci, která se provede při splnění podmínek.
 
-Ve službě Azure Policy nabízíme několik integrovaných zásad, které máte k dispozici ve výchozím nastavení. Například:
+Ve službě Azure Policy nabízíme několik integrovaných zásad, které máte k dispozici ve výchozím nastavení. Příklad:
 
 - **Vyžadovat SQL Server 12.0:** Tato definice zásady obsahuje podmínky/pravidla pro zajištění, aby všechny servery SQL byly verze 12.0. Akcí je zamítnutí všech serverů, které nesplňují tato kritéria.
 - **Povolené skladové položky účtu úložiště:** Tato definice zásady obsahuje sadu podmínek/pravidel určujících, jestli se nasazovaný účet úložiště nachází v sadě velikostí skladových položek. Akcí je zamítnutí všech serverů, které neodpovídají sadě definovaných velikostí skladových položek.

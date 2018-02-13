@@ -1,3 +1,8 @@
+> [!NOTE]
+> Azure DNS můžete nakonfigurovat vlastní název DNS pro webových aplikacích Azure. Další informace najdete v tématu [Azure DNS používá k poskytování nastavení vlastní domény pro službu Azure](../articles/dns/dns-custom-domain.md#app-service-web-apps).
+>
+>
+
 Přihlaste se k webu vašeho poskytovatele domény.
 
 Vyhledejte stránku pro správu záznamů DNS. Každý poskytovatel domén má vlastní rozhraní pro správu záznamů DNS, takže se obraťte na dokumentaci poskytovatele. Hledejte oblasti webu označené jako **Domain Name** (Název domény), **DNS** nebo **Name Server Management** (Správa názvových serverů). 

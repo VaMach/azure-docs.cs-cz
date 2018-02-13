@@ -20,8 +20,6 @@
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
 ### [Vytvoření víc instancí](resource-group-create-multiple.md)
 ### [Aktualizace prostředku](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Způsoby navrhování šablon](best-practices-resource-manager-design-templates.md)
-
 
 ## Nasazení
 ### Azure PowerShell
@@ -80,7 +78,7 @@
 #### [Potíže s nasazením Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Vysvětlení chyb nasazení](resource-manager-troubleshoot-tips.md)
 
-# Odkaz
+# Referenční informace
 ## [Formát šablon](/azure/templates/)
 ## [Funkce šablon](resource-group-template-functions.md)
 ### [Funkce pole a objektu](resource-group-template-functions-array.md)

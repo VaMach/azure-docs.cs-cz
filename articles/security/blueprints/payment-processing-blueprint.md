@@ -1,6 +1,6 @@
 ---
-title: "Platebních zpracování plán, podle kterého pro kompatibilní se standardem PCI DSS prostředí"
-description: "PCI DSS požadavek"
+title: "Azure zabezpečení a dodržování předpisů plán, podle kterého - vyhovující PCI DSS zpracování platebních prostředí"
+description: "Azure zabezpečení a dodržování předpisů plán, podle kterého - vyhovující PCI DSS zpracování platebních prostředí"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Služby Azure Automation plán, podle kterého: Zpracování v prostředích, kompatibilní se standardem PCI DSS plateb
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure zabezpečení a dodržování předpisů plán, podle kterého - vyhovující PCI DSS zpracování platebních prostředí
 
 ## <a name="overview"></a>Přehled
 
@@ -43,7 +43,7 @@ Základní architektura se skládá z následujících součástí:
 - **Nasazení šablony**. V tomto nasazení [šablon Azure Resource Manageru](/azure/azure-resource-manager/resource-group-overview#template-deployment) se používají k automaticky nasazení komponent architektury do Microsoft Azure tak, že zadáte parametry konfigurace během instalace.
 - **Automatizované skripty nasazení**. Tyto skripty pomoct nasadit řešení začátku do konce. Skripty se zabývají:
     - Instalace modulu a [globálního správce](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) instalační skript se používá k instalaci a ověřte, zda jsou správně nakonfigurovány požadované moduly prostředí PowerShell a rolí globálního správce.
-    - Instalace skriptu prostředí PowerShell slouží k nasazení řešení začátku do konce, poskytnuto prostřednictvím soubor .zip a souboru .bacpac, které obsahují předdefinovaných ukázkovou webovou aplikaci s [ukázkové databáze SQL](https://github.com/Microsoft/azure-sql-security-sample). obsah. Zdrojový kód pro toto řešení je k dispozici ke kontrole [úložiště kódu platebních zpracování plán, podle kterého][code-repo]. 
+    - Instalace skriptu prostředí PowerShell slouží k nasazení řešení začátku do konce, poskytnuto prostřednictvím soubor .zip a souboru .bacpac, které obsahují předdefinovaných ukázkovou webovou aplikaci s [ukázkové databáze SQL](https://github.com/Microsoft/azure-sql-security-sample). obsah. Zdrojový kód pro toto řešení je k dispozici ke kontrole [ úložiště kódu plán, podle kterého][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagram architektury
 
@@ -66,13 +66,13 @@ Správce hledá řešení, které lze rychle nasadit k dosažení jeho cílů v 
 
 Základní architektura je navržen s fiktivní následující prvky:
 
-Domény lokality`contosowebstore.com`
+Domény lokality `contosowebstore.com`
 
 Rolí uživatelů používaných pro ilustraci případ použití a získat přehled o uživatelském rozhraní.
 
 #### <a name="role-site-and-subscription-admin"></a>Role: Správce serveru a předplatné
 
-|Položka      |Příklad|
+|Položka      |Příklad:|
 |----------|------|
 |Uživatelské jméno: |`adminXX@contosowebstore.com`|
 | Název: |`Global Admin Azure PCI Samples`|
@@ -84,11 +84,11 @@ Rolí uživatelů používaných pro ilustraci případ použití a získat pře
 
 #### <a name="role-sql-administrator"></a>Role: Správce SQL
 
-|Položka      |Příklad|
+|Položka      |Příklad:|
 |----------|------|
 |Uživatelské jméno: |`sqlAdmin@contosowebstore.com`|
 | Název: |`SQLADAdministrator PCI Samples`|
-| Křestní jméno: |`SQL AD Administrator`|
+| Jméno: |`SQL AD Administrator`|
 |Příjmení: |`PCI Samples`|
 |Typ uživatele:| `Administrator`|
 
@@ -97,11 +97,11 @@ Rolí uživatelů používaných pro ilustraci případ použití a získat pře
 
 #### <a name="role-clerk"></a>Role: Fulltextu
 
-|Položka      |Příklad|
+|Položka      |Příklad:|
 |----------|------|
 |Uživatelské jméno:| `receptionist_EdnaB@contosowebstore.com`|
 | Název: |`Edna Benson`|
-| Křestní jméno:| `Edna`|
+| Jméno:| `Edna`|
 |Příjmení:| `Benson`|
 | Typ uživatele: |`Member`|
 
@@ -110,8 +110,6 @@ Edna Benson je např. recepční a obchodní manager. Je zodpovědná za zajišt
 - Můžete vytvořit a přečtěte si informace o zákazníkovi edna
 - Edna můžete upravit informace o zákazníkovi.
 - Edna můžete přepsat nebo nahradit číslo platební karty, vypršení platnosti a CVV informace.
-
-> Ve společnosti Contoso Webstore, uživatel je automaticky jako **Edna** uživatele pro testování možností nasazené prostředí.
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - odhadované ceny
 
@@ -151,7 +149,7 @@ V následující části Podrobné informace o vývoji a implementaci elementy.
 
 Základní architektura snižuje riziko ohrožení zabezpečení pomocí služby Application Gateway pomocí brány firewall webových aplikací (firewall webových aplikací) a ruleset OWASP povolena. Další možnosti patří:
 
-- [End na koncové SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Povolit [přesměrování zpracování SSL](/azure/application-gateway/application-gateway-ssl-portal)
 - Zakázat [TLS verze 1.0 a verze 1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brány firewall webových aplikací](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (firewall webových aplikací režim)
@@ -183,7 +181,7 @@ Každý z skupin Nsg mít určité porty a protokoly otevřené pro zabezpečen�
 #### <a name="custom-domain-ssl-certificates"></a>Certifikáty SSL vlastní doménu.
  Provoz HTTPS je povolit pomocí certifikát SSL a vlastní doménu.
 
-### <a name="data-at-rest"></a>Data v klidovém stavu
+### <a name="data-at-rest"></a>Neaktivní uložená data
 
 Architektura chrání data v klidovém stavu pomocí šifrování, auditování databáze a jiných opatření.
 
@@ -207,8 +205,8 @@ Instance databáze SQL Azure používá následující bezpečnostní opatření
 
 [Operations Management Suite (OMS)](/azure/operations-management-suite/) můžete poskytnout Contoso Webstore rozsáhlé protokolování veškerou aktivitu systému a uživatele, zahrnují protokolování dat držitele karty. Změny můžete zkontrolovat a ověřit přesnost. 
 
-- **Protokoly aktivity:**[protokoly aktivity](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) získat přehled o činnosti, které byly provedeny v prostředky ve vašem předplatném.
-- **Diagnostické protokoly:**[diagnostické protokoly](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) jsou všechny protokoly vygenerované každých prostředkem. Tyto protokoly patří protokoly událostí systému Windows, úložiště objektů Azure Blob, tabulek a protokoly fronty.
+- **Protokoly aktivity:**[protokoly aktivity](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) získat přehled o činnosti, které byly provedeny v prostředky ve vašem předplatném.  
+- **Diagnostické protokoly:**[diagnostické protokoly](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) jsou všechny protokoly vygenerované každých prostředkem.   Tyto protokoly patří protokoly událostí systému Windows, úložiště objektů Azure Blob, tabulek a protokoly fronty.
 - **Protokoly brány firewall:** služby Application Gateway poskytuje úplné diagnostiky a přístup k protokolům. Brány firewall protokoly jsou k dispozici pro aplikační bránu prostředky, které mají povolen firewall webových aplikací.
 - **Archivaci protokolu:** všechny diagnostické protokoly jsou nakonfigurovány k zápisu do účtu úložiště Azure centralizovaný a šifrované pro archivaci s dobou uchování definované (2 dny). Protokoly jsou připojena k analýze protokolů Azure pro zpracování, ukládání a dashboarding. [Analýza protokolu](https://azure.microsoft.com/services/log-analytics) je OMS služba, která pomáhá shromažďovat a analyzovat data generována prostředky ve vašem cloudu a místní prostředí.
 
@@ -272,7 +270,7 @@ Virtuální počítač byl vytvořen jako jumpbox (bastionu hostitel) s následu
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) pro Azure Cloud Services a virtuálních počítačů je ochrana v reálném čase funkci, která pomáhá identifikovat a odstraňovat viry, spyware a další škodlivý software s konfigurovat výstrahy, když známé škodlivý nebo nežádoucí software pokusí nainstalovat nebo spustit v Azure systémech.
 
-### <a name="operations-management"></a>Operace správy
+### <a name="operations-management"></a>Řízení provozu
 
 #### <a name="application-insights"></a>Application Insights
 
@@ -299,7 +297,7 @@ Tyto další řešení OMS by měl být a konfigurovány:
 
 Výchozí nasazení slouží jako základní úroveň center doporučení zabezpečení, uvádí stav v pořádku a zabezpečené konfigurace. Můžete povolit shromažďování dat z Azure Security Center. Další informace najdete v tématu [Azure Security Center – Začínáme](/azure/security-center/security-center-get-started).
 
-## <a name="deploy-the-solution"></a>Nasazení řešení.
+## <a name="deploy-the-solution"></a>Nasazení řešení
 
 Součásti pro nasazení tohoto řešení jsou k dispozici [úložiště kódu PCI plán, podle kterého][code-repo]. Nasazení základní architektury vyžaduje několik kroků proveden prostřednictvím v5 Microsoft PowerShell. Pro připojení k webu, zadejte vlastní název domény (například contoso.com). Je to určeno, pomocí `-customHostName` přepínače v kroku 2. Další informace najdete v tématu [koupit vlastní název domény pro Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Vlastní název domény není nutné úspěšně nasadit a provozovat řešení, ale bude možné připojit se k webu pro demonstrační účely.
 
@@ -357,7 +355,7 @@ Důrazně doporučujeme, aby čistou instalaci prostředí PowerShell použít k
     
 ## <a name="threat-model"></a>Model hrozeb
 
-Diagram toku dat (diagramu toku dat) a ukázkový model hrozeb pro Contoso Webstore [Model hrozeb zpracování plán, podle kterého platebních](https://aka.ms/pciblueprintthreatmodel).
+Diagram toku dat (diagramu toku dat) a ukázkový model hrozeb pro Contoso Webstore [Model hrozeb plán, podle kterého](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -373,7 +371,7 @@ Je zodpovědností ponechá kopii zákazníků [matice souhrn odpovědnost](http
 
 ## <a name="disclaimer-and-acknowledgements"></a>Právní omezení a potvrzení
 
-*2017 září*
+2017 září
 
 - Tento dokument je pouze informativní charakter. MICROSOFT A AVYAN PROVÉST ŽÁDNÉ ZÁRUKY, AŤ UŽ VÝSLOVNĚ UVEDENÉ, PŘEDPOKLÁDANÉ NEBO STATUTÁRNÍ INFORMACE V TOMTO DOKUMENTU. Tento dokument je poskytován "jako-je." Informace a názory vyjádřené v tomto dokumentu včetně adres URL a dalších odkazů na internetové weby mohou změnit bez předchozího upozornění. Zákazníci čtení tohoto dokumentu na sebe rizika spojená s jejím používáním.  
 - Tento dokument neposkytuje zákazníkům žádná zákonná práva týkající se jakékoli produkty společnosti Microsoft nebo Avyan nebo řešení duševního vlastnictví.  
@@ -390,7 +388,7 @@ Je zodpovědností ponechá kopii zákazníků [matice souhrn odpovědnost](http
 ### <a name="document-authors"></a>Autoři dokumentu
 
 - *František Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan poradě)*
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Úložiště kódu"

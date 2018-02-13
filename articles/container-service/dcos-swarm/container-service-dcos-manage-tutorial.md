@@ -1,6 +1,6 @@
 ---
-title: "Kurz pro Azure Container Service – spravovat DC/OS"
-description: "Kurz pro Azure Container Service – spravovat DC/OS"
+title: "Kurz Azure Container Service – Správa DC/OS"
+description: "Kurz Azure Container Service – Správa DC/OS"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c58bd764cf0fdacd55675f8343c6e7481a11823
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 04b5d158c636668a726e046e4f471b452e31ff0d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Kurz pro Azure Container Service – spravovat DC/OS
+# <a name="azure-container-service-tutorial---manage-dcos"></a>Kurz Azure Container Service – Správa DC/OS
 
-DC/OS poskytuje distribuované platformu pro spuštění moderní a kontejnerizované aplikace. S Azure Container Service zřizování provozní připravený cluster DC/OS je jednoduchý a rychlé. Tento úvodní informace, které základní kroky potřebné k nasazení clusteru DC/OS a spuštění základní úlohy.
+DC/OS poskytuje distribuovanou platformu pro spouštění moderních a kontejnerizovaných aplikací. Se službou Azure Container Service je zřízení clusteru DC/OS připraveného pro produkční prostředí snadné a rychlé. Tento rychlý start podrobně popisuje základní kroky nezbytné k nasazení clusteru DC/OS a spuštění základní úlohy.
 
 > [!div class="checklist"]
-> * Vytvoření clusteru služby ACS DC/OS
+> * Vytvoření clusteru ACS DC/OS
 > * Připojení ke clusteru
 > * Instalace rozhraní příkazového řádku DC/OS
 > * Nasazení aplikace do clusteru
 > * Škálování aplikace v clusteru
-> * Škálování uzly clusteru DC/OS
-> * Základní správu DC/OS
+> * Škálování uzlů clusteru DC/OS
+> * Základní správa DC/OS
 > * Odstranění clusteru DC/OS
 
 Tento kurz vyžaduje Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-dcos-cluster"></a>Vytvoření clusteru DC/OS
 
-Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
+Nejdřív vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
 
 Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *westeurope*.
 
@@ -41,9 +41,9 @@ Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umí
 az group create --name myResourceGroup --location westeurope
 ```
 
-Dále vytvořte cluster DC/OS s [vytvořit acs az](/cli/azure/acs#create) příkaz.
+Potom vytvořte cluster DC/OS pomocí příkazu [az acs create](/cli/azure/acs#az_acs_create).
 
-Následující příklad vytvoří cluster DC/OS s názvem *myDCOSCluster* a vytvoří klíče SSH, pokud dosud neexistují. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  
+Následující příklad vytvoří cluster DC/OS *myDCOSCluster* a vytvoří klíče SSH, pokud ještě neexistují. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  
 
 ```azurecli
 az acs create \
@@ -53,17 +53,17 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Po několika minutách se příkaz dokončí a vrátí informace o nasazení.
+Po několika minutách se příkaz dokončí a vrátí informace o nasazení.
 
 ## <a name="connect-to-dcos-cluster"></a>Připojení ke clusteru DC/OS
 
-Po vytvoření clusteru DC/OS, může být přistupuje prostřednictvím tunelového propojení SSH. Spusťte následující příkaz, který vrátí veřejnou IP adresu hlavního serveru DC/OS. Tato IP adresa je uložené v proměnné a používat v dalším kroku.
+Po vytvoření je cluster DC/OS přístupný prostřednictvím tunelu SSH. Spuštění následujícího příkazu vrátí veřejnou IP adresu hlavního uzlu DC/OS. Tato IP adresa se uloží do proměnné a použije v dalším kroku.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-Vytvoření tunelu SSH, spusťte následující příkaz a postupujte podle na obrazovce pokyny. Pokud port 80 je již používán, příkaz se nezdaří. Aktualizace tunelových port na jedno není ve použití, například `85:localhost:80`. 
+Pokud chcete vytvořit tunel SSH, spusťte následující příkaz a postupujte podle pokynů na obrazovce. Pokud se už používá port 80, příkaz selže. Aktualizujte port tunelu na nějaký, který se nepoužívá, například `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
@@ -71,13 +71,13 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## <a name="install-dcos-cli"></a>Instalace rozhraní příkazového řádku DC/OS
 
-Instalace pomocí rozhraní příkazového řádku DC/OS [az acs orchestrátoru DC/OS instalace rozhraní příkazového řádku](/azure/acs/dcos#install-cli) příkaz. Pokud používáte Azure CloudShell, rozhraní příkazového řádku DC/OS je již nainstalován. Pokud používáte Azure CLI v systému macOS nebo Linux, může být potřeba spustit příkaz s sudo.
+Nainstalujte rozhraní příkazového řádku DC/OS pomocí příkazu [az acs dcos install-cli](/azure/acs/dcos#install-cli). Pokud používáte Azure Cloud Shell, rozhraní příkazového řádku DC/OS je už nainstalované. Pokud používáte Azure CLI v systému macOS nebo Linuxu, možná budete muset příkaz spustit s příkazem sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Před použitím rozhraní příkazového řádku s clusterem, je nutné nakonfigurovat na použití tunelového propojení SSH. Uděláte to tak, spusťte následující příkaz, nastavení portu, v případě potřeby.
+Než bude možné používat rozhraní příkazového řádku s clusterem, musí se nakonfigurovat pro použití tunelu SSH. To provedete spuštěním následujícího příkazu, ve kterém podle potřeby upravte port.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -85,7 +85,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Spuštění aplikace
 
-Výchozí hodnota plánování mechanismus pro cluster služby ACS DC/OS je Marathon. Marathon slouží ke spuštění aplikace a správu stavu aplikace na clusteru DC/OS. Při plánování aplikace přes Marathon, vytvořte soubor s názvem **marathon app.json**a zkopírujte do něj následující obsah. 
+Výchozím plánovacím mechanismem pro cluster DC/OS je Marathon. Marathon slouží ke spouštění aplikace a správě stavu aplikace v clusteru DC/OS. Pokud chcete naplánovat aplikaci přes Marathon, vytvořte soubor **marathon-app.json** a zkopírujte do něj následující obsah. 
 
 ```json
 {
@@ -113,28 +113,28 @@ Výchozí hodnota plánování mechanismus pro cluster služby ACS DC/OS je Mara
 }
 ```
 
-Spusťte následující příkaz, který naplánovat spuštění aplikace v clusteru DC/OS.
+Spuštěním následujícího příkazu v aplikaci naplánujte spouštění v clusteru DC/OS.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Pokud chcete zobrazit stav nasazení pro aplikaci, spusťte následující příkaz.
+Pokud chcete zobrazit stav nasazení aplikace, spusťte následující příkaz.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Když **úlohy** hodnota sloupce přepíná z *0 nebo 1* k *1 nebo 1*, nasazení aplikace byla dokončena.
+Až se hodnota ve sloupci **TASKS** (ÚKOLY) změní z *0/1* na *1/1*, nasazení aplikace je dokončené.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
 
-## <a name="scale-marathon-application"></a>Škálování aplikací Marathon
+## <a name="scale-marathon-application"></a>Škálování aplikace Marathon
 
-V předchozím příkladu byla vytvořena jedna instance aplikace. K aktualizaci tohoto nasazení tak, aby byly k dispozici tři instance aplikace, otevře **marathon app.json** souboru a aktualizujte vlastnost instance na 3.
+V předchozím příkladu se vytvořila jedna instance aplikace. Pokud chcete toho nasazení aktualizovat tak, aby byly dostupné tři instance aplikace, otevřete soubor **marathon app.json** a aktualizujte vlastnost instance na 3.
 
 ```json
 {
@@ -162,32 +162,32 @@ V předchozím příkladu byla vytvořena jedna instance aplikace. K aktualizaci
 }
 ```
 
-Aktualizace aplikace pomocí `dcos marathon app update` příkaz.
+Aktualizujte aplikaci pomocí příkazu `dcos marathon app update`.
 
 ```azurecli
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
-Pokud chcete zobrazit stav nasazení pro aplikaci, spusťte následující příkaz.
+Pokud chcete zobrazit stav nasazení aplikace, spusťte následující příkaz.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Když **úlohy** hodnota sloupce přepíná z *1/3* k *3/1*, nasazení aplikace byla dokončena.
+Až se hodnota ve sloupci **TASKS** (ÚKOLY) změní z *1/3* na *3/1*, nasazení aplikace je dokončené.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
 
-## <a name="run-internet-accessible-app"></a>Spuštění aplikace dostupné pro internet
+## <a name="run-internet-accessible-app"></a>Spuštění aplikace přístupné z internetu
 
-Clusteru ACS DC/OS se skládá z dvě sady uzlu, jeden veřejný, která je přístupná v síti internet a jeden privátní, která není přístupná v síti internet. Výchozí sada je privátní uzly, který byl použit v posledním příkladu.
+Cluster ACS DC/OS se skládá ze dvou sad uzlů. Jedna je veřejná a je přístupná z internetu a druhá je privátní a z internetu přístupná není. Výchozí sadou jsou privátní uzly, které se použily v předchozím příkladu.
 
-Chcete-li aplikaci dostupný na Internetu, nasaďte do sady veřejné uzlu. K tomu, dát `acceptedResourceRoles` objektu hodnotu `slave_public`.
+Pokud chcete aplikaci zpřístupnit z internetu, nasaďte ji do veřejné sady uzlů. Za tím účelem přiřaďte objektu `acceptedResourceRoles` hodnotu `slave_public`.
 
-Vytvořte soubor s názvem **nginx public.json** a zkopírujte do něj následující obsah.
+Vytvořte soubor s názvem **nginx-public.json** a zkopírujte do něj následující obsah.
 
 ```json
 {
@@ -219,33 +219,33 @@ Vytvořte soubor s názvem **nginx public.json** a zkopírujte do něj následuj
 }
 ```
 
-Spusťte následující příkaz, který naplánovat spuštění aplikace v clusteru DC/OS.
+Spuštěním následujícího příkazu v aplikaci naplánujte spouštění v clusteru DC/OS.
 
 ```azurecli 
 dcos marathon app add nginx-public.json
 ```
 
-Získáte veřejnou IP adresu clusteru veřejných agentů DC/OS.
+Získejte veřejnou IP adresu agentů veřejného clusteru DC/OS.
 
 ```azurecli 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Procházení na tuto adresu vrátí výchozí web NGINX.
+Po přechodu na tuto adresu se vrátí výchozí web NGINX.
 
 ![NGINX](./media/container-service-dcos-manage-tutorial/nginx.png)
 
 ## <a name="scale-dcos-cluster"></a>Škálování clusteru DC/OS
 
-V předchozích příkladech byla aplikace škálovat na více instancí. DC/OS infrastruktury můžete škálovat také k zajištění vyšší nebo nižší výpočetní kapacity. To lze provést pomocí [škálování služby acs az]() příkaz. 
+V předchozím příkladu se aplikace škálovala na několik instancí. Infrastruktura DC/OS se také dá škálovat, aby poskytovala více nebo méně výpočetní kapacity. Používá se k tomu příkaz [az acs scale](). 
 
-Pokud chcete zobrazit aktuální počet agentů DC/OS, použijte [zobrazit acs az](/cli/azure/acs#show) příkaz.
+Ke zjištění aktuálního počtu agentů DC/OS použijte příkaz [az acs show](/cli/azure/acs#az_acs_show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Chcete-li zvýšit počet 5, použijte [škálování služby acs az](/cli/azure/acs#scale) příkaz. 
+Ke zvýšení jejich počtu na 5 použijte příkaz [az acs scale](/cli/azure/acs#az_acs_scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -253,7 +253,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>Odstranění clusteru DC/OS
 
-Pokud již nepotřebujete, můžete použít [odstranění skupiny az](/cli/azure/group#delete) příkaz, který má-li odebrat skupinu prostředků, clusteru DC/OS a všechny související prostředky.
+Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, clusteru DC/OS a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
@@ -261,18 +261,18 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste se naučili o základní úlohy správy DC/OS, včetně následujících. 
+V tomto kurzu jste se seznámili se základními úlohami správy DC/OS, včetně následujících. 
 
 > [!div class="checklist"]
-> * Vytvoření clusteru služby ACS DC/OS
+> * Vytvoření clusteru ACS DC/OS
 > * Připojení ke clusteru
 > * Instalace rozhraní příkazového řádku DC/OS
 > * Nasazení aplikace do clusteru
 > * Škálování aplikace v clusteru
-> * Škálování uzly clusteru DC/OS
+> * Škálování uzlů clusteru DC/OS
 > * Odstranění clusteru DC/OS
 
-Přechodu na v dalším kurzu se dozvíte o aplikaci v DC/OS v Azure Vyrovnávání zatížení. 
+Přejděte k dalšímu kurzu, kde se seznámíte s aplikací vyrovnávání zatížení v DC/OS v Azure. 
 
 > [!div class="nextstepaction"]
 > [Vyrovnávání zatížení aplikací](container-service-load-balancing.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Zabezpečení webového rozhraní API MVC
 S Azure Active Directory koncový bod v2.0, budete moci chránit webového rozhraní API pomocí [OAuth 2.0](active-directory-v2-protocols.md) přístup tokeny, povolení uživatelé s i osobní účet Microsoft a pracovní nebo školní účty k bezpečnému přístupu k vaší webové rozhraní API.
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * Přidejte třídu OWIN při spuštění do projektu TodoListService názvem `Startup.cs`.  Klikněte pravým tlačítkem na projekt--> **přidat** --> **nová položka** --> vyhledejte "OWIN".  Middleware OWIN při spuštění vaší aplikace vyvolá metodu `Configuration(…)`.
 * Změňte deklaraci třídy k `public partial class Startup` -již implementovali jsme součástí této třídy pro vás v jiném souboru.  V `Configuration(…)` metoda, zkontrolujte zavolá ConfgureAuth(...) nastavení ověřování pro webovou aplikaci.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -81,7 +81,7 @@ public partial class Startup
 
 * Otevřete soubor `App_Start\Startup.Auth.cs` a implementovat `ConfigureAuth(…)` metoda, která bude přijímat tokeny z koncového bodu v2.0 nastavení webového rozhraní API.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -118,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * Nyní můžete pomocí `[Authorize]` atributy chránit řadiče a akce s ověřování nosiče OAuth 2.0.  Uspořádání `Controllers\TodoListController.cs` se značky autorizovat.  Tato akce vynutí uživatele k přihlášení před přístupem k této stránce.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -126,7 +126,7 @@ public class TodoListController : ApiController
 
 * Když oprávnění volající úspěšně vyvolá jeden z `TodoListController` rozhraní API, akce může potřebovat přístup k informacím o volajícím.  OWIN poskytuje přístup k deklarace identity uvnitř tokenu nosiče prostřednictvím `ClaimsPrincipal` objektu.  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
@@ -156,7 +156,7 @@ Pro srovnání je hotová ukázka (bez vašich hodnot nastavení) [je k dispozic
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní se můžete přesunout na další témata.  Můžete se pokusit:
 
 [Volání webového rozhraní API z webové aplikace >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)

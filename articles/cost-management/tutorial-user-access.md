@@ -1,89 +1,89 @@
 ---
-title: "Přiřadit přístup v Azure náklady na správu | Microsoft Docs"
-description: "Přiřadíte přístup náklady data správy s uživatelskými účty, které definují úrovně přístupu pro entity."
+title: "Přiřazení přístupu do služby Azure Cost Management | Microsoft Docs"
+description: "Přiřaďte přístup k datům služby Cost Management pomocí uživatelských účtů, které určují úroveň přístupu k entitám."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Přiřadit přístup k datům náklady na správu
+# <a name="assign-access-to-cost-management-data"></a>Přiřazení přístupu k datům služby Cost Management
 
-Přístup k datům náklady na správu pochází od uživatele nebo Správa entit. Přístup k určení Cloudyn uživatelské účty *entity* a funkce správy. Existují dva typy přístupu: správce a uživatele. Pokud nezměnil na uživatele, správce přístup umožňuje na portálu Cloudyn uživatele neomezený používání všech funkcí, včetně: Správa uživatelů, správy příjemce seznamy a entity kořenový přístup k datům všechny entity. Uživatelský přístup je určený pro koncové uživatele k zobrazení sestav a vytváření sestav pomocí přístup, že mají k datům entity.
+Přístup k datům služby Cost Management zajišťuje správa uživatelů nebo entit. Přístup k *entitám* a funkcím správy určují uživatelské účty Cloudyn. Existují dva typy přístupu: přístup správce a uživatelský přístup. Pokud není přístup správce pro daného uživatele upravený, umožňuje uživateli neomezený přístup ke všem funkcím portálu Cloudyn, včetně správy uživatelů, správy seznamů příjemců a přístupu ke kořenové entitě všech dat entit. Uživatelský přístup je určený koncovým uživatelům, aby mohli zobrazovat sestavy a vytvářet je pomocí přístupu, který mají k datům entit.
 
-Entity se používají tak, aby odrážela obchodní organizaci hierarchická struktura. Identifikují oddělení, rozdělení a týmy ve vaší organizaci v Cloudyn. Hierarchie entit umožňuje lépe sledovat výdaje podle entity.
+Entity se používají tak, aby odrážely hierarchickou strukturu vaší obchodní organizace. Identifikují jednotlivá oddělení, divize a týmy vaší organizace ve službě Cloudyn. Hierarchie entit vám pomáhá přesně sledovat výdaje podle entit.
 
-Při registraci do Azure smlouvy nebo účtu, účet s oprávněním správce byla vytvořena v Cloudyn, tak abyste mohli provést všechny kroky v tomto kurzu. Tento kurz se zaměřuje na přístup k datům náklady na správu včetně správu uživatelů a Správa entit. Získáte informace o těchto tématech:
+Při registraci vaší smlouvy nebo účtu Azure se ve službě Cloudyn vytvořil účet s oprávněním správce, takže můžete provést všechny kroky v tomto kurzu. Tento kurz se týká přístupu k datům služby Cost Management včetně správy uživatelů a správy entit. Získáte informace o těchto tématech:
 
 > [!div class="checklist"]
-> * Vytvořit uživatele s přístupem správce
-> * Vytvořit uživatele s přístupu uživatele
-> * Vytvořte entity
+> * Vytvoření uživatele s přístupem správce
+> * Vytvoření uživatele s uživatelským přístupem
+> * Vytváření entit
 
 
 
-## <a name="create-a-user-with-admin-access"></a>Vytvořit uživatele s přístupem správce
+## <a name="create-a-user-with-admin-access"></a>Vytvoření uživatele s přístupem správce
 
-I když už máte přístup správce, spolupracovníky ve vaší organizaci může také nutné mít přístup správce. V portálu Cloudyn, klikněte na symbol ozubené kolečko v horním pravém rohu a vyberte **Správa uživatelů**. Klikněte na tlačítko **přidat nové uživatele** přidat nového uživatele.
+I když vy už přístup správce máte, můžou ho potřebovat i další spolupracovníci z vaší organizace. Na portálu Cloudyn klikněte na symbol ozubeného kolečka v pravém horním rohu a vyberte možnost **User Management** (Správa uživatelů). Kliknutím na **Add New User** (Přidat nového uživatele) přidejte nového uživatele.
 
-Zadejte požadované informace o uživateli. Pole hesla můžete ponechat prázdné, tak, aby na první přihlášení může uživatel nastavit nové heslo. Odkaz s přihlašovací informace se odešlou do uživatele podle e-mailu z Cloudyn při výběru **uživatele oznámení e-mailem**. Vyberte oprávnění k povolení správy uživatelů, tak, aby uživatel můžete vytvořit a upravit jiní uživatelé. Uvádí Správa příjemců chcete umožnit uživatelům upravit příjemce seznamy.
+Zadejte požadované informace o uživateli. Pole hesla můžete nechat prázdné, aby si mohl uživatel při prvním přihlášení nastavit nové heslo. Pokud vyberete možnost **Notify user by email** (Oznámit uživateli e-mailem), služba Cloudyn uživateli e-mailem zašle odkaz s přihlašovacími údaji. Vyberte možnost Allow User Management (Povolit správu uživatelů), aby mohl uživatel vytvářet a upravovat jiné uživatele. Povolením možnosti Allow Recipient Lists Management (Povolit správu seznamů příjemců) umožníte uživateli upravovat seznamy příjemců.
 
-V části **má uživatel přístup správce**, kořenové entity vaší organizace je vybrána. Nechte vybrané kořenové a potom uložte informace o uživateli. Výběr entity kořenové umožňuje uživatelům mít oprávnění správce nejen kořenové entity ve stromové struktuře, ale také všechny entity, které jsou umístěné pod ním.  
+V části **User has admin access** (Uživatel má přístup správce) je vybraná kořenová entita vaší organizace. Nechte vybranou kořenovou entitu a uložte informace o uživateli. Výběrem kořenové entity dáte uživateli oprávnění správce nejen ke kořenové entitě v rámci stromu, ale také ke všem entitám zařazeným pod ní.  
   ![Přidání nového uživatele s přístupem správce](.\media\tutorial-user-access\new-admin-access.png)
 
-## <a name="create-a-user-with-user-access"></a>Vytvořit uživatele s přístupu uživatele
-Typické uživatelům, kteří potřebují přístup k datům náklady na správu, jako řídicí panely a sestavy musí mít přístup uživatelů k jejich zobrazení. Vytvořte nového uživatele s přístupem uživatele podobnou té, kterou jste vytvořili s přístupem správce, s následující rozdíly:
+## <a name="create-a-user-with-user-access"></a>Vytvoření uživatele s uživatelským přístupem
+Běžní uživatelé, které potřebují přístup k datům služby Cost Management, jako jsou řídicí panely a sestavy, by měli mít k jejich zobrazení uživatelský přístup. Nového uživatele s uživatelským přístupem vytvoříte podobně jako předtím uživatele s přístupem správce, jenom s těmito rozdíly:
 
-- Vymazat **povolit správu uživatelů**, **povolit příjemce uvádí správu**a zrušte zaškrtnutí všech v **má uživatel přístup správce** seznamu.
-- Vyberte entity, že uživatel potřebuje přístup k v **má uživatel přístup uživatele** seznamu.
-- Podle potřeby můžete také povolit správce přístup ke konkrétní entity.
+- Zrušte zaškrtnutí políček **Allow User Management** (Povolit správu uživatelů), **Allow Recipient Lists Management** (Povolit správu seznamů příjemců) a všech políček v seznamu **User has admin access** (Uživatel má přístup správce).
+- V seznamu **User has user access** (Uživatel má uživatelský přístup) vyberte entity, ke kterým uživatel potřebuje mít přístup.
+- Podle potřeby můžete povolit přístup k určitým entitám také správci.
 
-![Přidání nového uživatele pomocí přístupu uživatele](.\media\tutorial-user-access\new-user-access.png)
+![Přidání nového uživatele s uživatelským přístupem](.\media\tutorial-user-access\new-user-access.png)
 
-Podívejte se na kurz video o přidávání uživatelů, najdete v tématu [přidání uživatelů do Azure náklady na správu Cloudyn](https://youtu.be/Nzn7GLahx30).
+Pokud se chcete podívat na výukové video o přidávání uživatelů, přejděte na video [Přidávání uživatelů do služby Azure Cost Management od Cloudyn](https://youtu.be/Nzn7GLahx30).
 
-## <a name="create-entities"></a>Vytvořte entity
+## <a name="create-entities"></a>Vytváření entit
 
-Když definujete vaše hierarchie entit náklady, osvědčeným postupem je k identifikaci struktuře vaší organizace.
+Při určování nákladové hierarchie entit se osvědčilo identifikovat strukturu vaší organizace.
 
-Při sestavování stromu, zvažte, jak můžete potřebujete nebo chcete zobrazit jejich náklady oddělených obchodních jednotek, náklady centrech, prostředí a prodejní oddělení. Stromu entity v Cloudyn je flexibilní kvůli dědičnosti entity. Jednotlivé odběry pro vaše cloudové účty jsou propojeny s konkrétní entity. Ano entity jsou více klientů. Přístupu konkrétním uživatelům můžete přiřadit pouze jejich segmentu vaší firmy pomocí entity. Tím zajistí dat izolované, dokonce i v jiných velká část obchodní jako pobočky. A izolaci dat pomáhá s zásad správného řízení.  
+Při vytváření stromu se zamyslete nad tím, jak chcete nebo potřebujete rozdělit náklady podle obchodních jednotek, nákladových středisek, prostředí a obchodních oddělení. Strom entit ve službě Cloudyn je díky dědičnosti entit flexibilní. Jednotlivé odběry pro vaše cloudové účty jsou propojené s konkrétními entitami. Entity jsou tedy víceklientské. Konkrétním uživatelům můžete pomocí entit přiřadit přístup jenom ke konkrétnímu segmentu vaší společnosti. Tím zajistíte izolaci dat, dokonce i ve velkých částech společnosti, jako jsou pobočky. Izolace dat pomáhá v řízení.  
 
-Při registraci Azure smlouvy nebo účet s Cloudyn daty prostředků Azure, včetně využití, výkon, fakturace a značky data z vašich předplatných byl zkopírován do vašeho účtu Cloudyn. Však musíte ručně vytvořit vašeho stromu entity. Při přeskočení registrace Azure Resource Manager pak pouze fakturační údaje a několik sestavy asset jsou dostupné na portálu Cloudyn.
+Při registraci smlouvy Azure nebo účtu ve službě Cloudyn proběhlo zkopírování vašich dat prostředků Azure včetně využití, výkonu, fakturace a dat značek z vašich odběrů do účtu služby Cloudyn. Strom entit je ale potřeba vytvořit ručně. Pokud jste přeskočili registraci Azure Resource Manageru, jsou na portálu Cloudyn dostupná jenom fakturační data a pár sestav prostředků.
 
-Na portálu Cloudyn, klikněte na tlačítko **nastavení** v horním pravém rohu a vyberte **cloudové účty**. Začněte s jednou entitou (uživatel root) a sestavení vašeho stromu entity v kořenovém adresáři. Tady je příklad hierarchie entit, který může vypadat řada organizací IT po dokončení stromu:
+Na portálu Cloudyn klikněte v pravém horním rohu na **Settings** (Nastavení) a vyberte **Cloud Accounts** (Účty v cloudu). Začnete s jednou entitou (kořenovou entitou) a pod ní začnete vytvářet strom entit. Tady je příklad hierarchie entit, která se můžete po dokončení stromu podobat řadě organizací v oblasti IT:
 
-![entity stromu](.\media\tutorial-user-access\entity-tree.png)
+![Strom entit](.\media\tutorial-user-access\entity-tree.png)
 
-Vedle **entity**, klikněte na tlačítko **Přidat entitu**. Zadejte informace o osobě nebo oddělení, které chcete přidat. **Úplný název** a **e-mailu** pole nemají tak, aby odpovídala stávající uživatele. Pokud chcete zobrazit seznam úrovně přístupu, vyhledejte v nápovědě pro *přidání entity*.
+Vedle položky **Entities** (Entity) klikněte na **Add Entity** (Přidat entitu). Zadejte informace o osobě nebo oddělení, které chcete přidat. Pole **Full Name** (Celé jméno) a **Email** (E-mail) nemusejí odpovídat existujícím uživatelům. Pokud chcete zobrazit seznam úrovní přístupu, vyhledejte v nápovědě téma *Adding an entity* (Přidání entity).
 
 ![Přidání entity](.\media\tutorial-user-access\add-entity.png)
 
-Když jste hotovi, **Uložit** entity.
+Po dokončení uložte entitu kliknutím na **Save** (Uložit).
 
 
-Podívejte se na kurz video o vytváření hierarchie entit náklady, najdete v tématu [vytváření hierarchie entit náklady v Azure náklady na správu Cloudyn](https://youtu.be/dAd9G7u0FmU).
+Pokud se chcete podívat na výukové video o vytváření nákladové hierarchie entit, přejděte na video [Vytváření nákladové hierarchie entit ve službě Azure Cost Management od Cloudyn](https://youtu.be/dAd9G7u0FmU).
 
-Pokud se uživatel s Azure Enterprise Agreement, podívejte se na kurz video o přiřazení účtům a předplatným pro entity v [připojení k Azure Resource Manager s Azure náklady na správu Cloudyn](https://youtu.be/oCIwvfBB6kk).
+Pokud se uživatel se smlouvou Azure Enterprise, podívejte se na výukové video o přiřazení účtů a předplatných k entitám [Připojení k Azure Resource Manageru ve službě Azure Cost Management od Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Další kroky
 
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Vytvořit uživatele s přístupem správce
-> * Vytvořit uživatele s přístupu uživatele
-> * Vytvořte entity
+> * Vytvoření uživatele s přístupem správce
+> * Vytvoření uživatele s uživatelským přístupem
+> * Vytváření entit
 
-Přechodu na v dalším kurzu se dozvíte, jak k prognózy výdajů pomocí historická data.
+V následujícím kurzu se dozvíte, jak na základě historických dat předpovědět budoucí výdaje.
 
 > [!div class="nextstepaction"]
 > [Odhad budoucích výdajů](tutorial-forecast-spending.md)

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Nakonfigurovat privátní IP adresy pro virtuální počítač pomocí rozhraní příkazového řádku Azure
 
@@ -41,9 +41,9 @@ Tento článek se týká modelu nasazení Resource Manager. Můžete také [spra
 
 Vytvoření virtuálního počítače s názvem *DNS01* v *front-endu* podsíť virtuální sítě s názvem *TestVNet* se statickou privátní IP z *192.168.1.101*, dokončení Následující kroky:
 
-1. Pokud nebyly dosud, nainstalovat a nakonfigurovat nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login). 
+1. Pokud nebyly dosud, nainstalovat a nakonfigurovat nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#az_login). 
 
-2. Vytvoření veřejné IP adresy pro virtuální počítač s [vytvoření veřejné sítě az-ip](/cli/azure/network/public-ip#create) příkaz. Seznam uvedený za výstupem vysvětluje použité parametry.
+2. Vytvoření veřejné IP adresy pro virtuální počítač s [vytvoření veřejné sítě az-ip](/cli/azure/network/public-ip#az_network_public_ip_create) příkaz. Seznam uvedený za výstupem vysvětluje použité parametry.
 
     > [!NOTE]
     > Vám může potřebujete nebo chcete použít různé hodnoty pro vaše argumenty v tomto a dalších krocích, v závislosti na vašem prostředí.
@@ -74,7 +74,7 @@ Vytvoření virtuálního počítače s názvem *DNS01* v *front-endu* podsíť 
    * `--name`: Název veřejné IP adresy.
    * `--location`: Oblast azure, ve kterém k vytvoření veřejné IP adresy.
 
-3. Spustit [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#create) příkaz pro vytvoření síťový adaptér se statickou privátní IP. Seznam uvedený za výstupem vysvětluje použité parametry. 
+3. Spustit [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#az_network_nic_create) příkaz pro vytvoření síťový adaptér se statickou privátní IP. Seznam uvedený za výstupem vysvětluje použité parametry. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ Vytvoření virtuálního počítače s názvem *DNS01* v *front-endu* podsíť 
     * `--vnet-name`: Název sítě VNet, ve které chcete vytvořit síťovou kartu.
     * `--subnet`: Název podsítě, ve které chcete vytvořit síťovou kartu.
 
-4. Spustit [vytvoření virtuálního počítače azure](/cli/azure/vm/nic#create) příkaz pro vytvoření virtuálního počítače pomocí veřejné IP adresy a síťové karty, které jste vytvořili dříve. Seznam uvedený za výstupem vysvětluje použité parametry.
+4. Spustit [vytvoření virtuálního počítače azure](/cli/azure/vm/nic#az_vm_nic_create) příkaz pro vytvoření virtuálního počítače pomocí veřejné IP adresy a síťové karty, které jste vytvořili dříve. Seznam uvedený za výstupem vysvětluje použité parametry.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ Vytvoření virtuálního počítače s názvem *DNS01* v *front-endu* podsíť 
     }
     ```
    
-   Parametry než základní [vytvořit virtuální počítač az](/cli/azure/vm#create) parametry.
+   Parametry než základní [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) parametry.
 
    * `--nics`: Název síťové karty, ke kterému je připojený virtuální počítač.
    
@@ -268,7 +268,7 @@ Chcete-li změnit síťový adaptér pro virtuální počítač používá v př
     > [!NOTE]
     > Pokud je dostatečně velký pro mít více než jeden síťový adaptér virtuálního počítače, spusťte **odstranit síťových adaptérů sítě azure** příkaz k odstranění původního síťový adaptér.
    
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [vyhrazené veřejné IP adresy](virtual-networks-reserved-public-ip.md) adresy.
 * Další informace o [veřejné IP (splnění) na úrovni instance](virtual-networks-instance-level-public-ip.md) adresy.
 * Obrátit [vyhrazené IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx).

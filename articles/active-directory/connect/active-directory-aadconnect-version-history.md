@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historie verzí
 Tým služby Azure Active Directory (Azure AD) pravidelně aktualizuje Azure AD Connect s novými funkcemi a funkce. Ne všechny dodatky platí pro všechny cílové skupiny.
@@ -82,7 +82,7 @@ Chcete-li toto nastavení použít pro existující účet služby AD DS pomocí
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-kde 
+Kde 
 
 **$ObjectDN** = účet služby Active Directory, jehož oprávnění musí lze zvýšit.
 
@@ -401,7 +401,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Vyberte|
-    |CertKeyAlgorithmParams|CertHashString|kde|
+    |CertKeyAlgorithmParams|CertHashString|Kde|
     |||S|
 
 * Umožňuje zákazníkům vytvářet vlastní synchronizační pravidla, které jsou předávány sAMAccountName, domainNetBios a domainFQDN pro objekty skupiny, a také distinguishedName pro uživatelské objekty byly zavedeny následující změny schématu:
@@ -473,7 +473,7 @@ Synchronizace služby Azure AD Connect
   * Aktualizované výchozí synchronizační pravidlo nastavené není export atributy **userCertificate** a **userSMIMECertificate** Pokud máte více než 15 hodnoty atributů.
   * Atributy AD **employeeID** a **msExchBypassModerationLink** jsou teď součástí je sada pravidel pro výchozí synchronizace.
   * Atribut AD **fotografií** byl odebrán z výchozí sada pravidel synchronizace.
-  * Přidat **preferredDataLocation** schéma úložiště Metaverse a schématu na konektor AAD. Zákazníci, kteří chtějí aktualizovat buď atributy ve službě Azure AD můžete implementovat vlastní synchronizační pravidla Uděláte to tak. Další informace o atribut, naleznete v části [synchronizace Azure AD Connect: jak provést změnu výchozí konfigurace – povolení synchronizace PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Přidat **preferredDataLocation** schéma úložiště Metaverse a schématu na konektor AAD. Zákazníci, kteří chtějí aktualizovat buď atributy ve službě Azure AD můžete implementovat vlastní synchronizační pravidla Uděláte to tak. 
   * Přidat **userType** schéma úložiště Metaverse a schématu na konektor AAD. Zákazníci, kteří chtějí aktualizovat buď atributy ve službě Azure AD můžete implementovat vlastní synchronizační pravidla Uděláte to tak.
 
 * Azure AD Connect nyní automaticky povolí použití atributu ConsistencyGuid jako atribut zdrojové ukotvení pro místní objekty služby AD. Další, Azure AD Connect naplní atribut ConsistencyGuid s hodnotou atributu objectGuid, pokud je prázdná. Tato funkce se vztahuje na pouze nové nasazení. Další informace o této funkci, naleznete v části [Azure AD Connect: Principy – pomocí msDS-ConsistencyGuid jako sourceAnchor návrh](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

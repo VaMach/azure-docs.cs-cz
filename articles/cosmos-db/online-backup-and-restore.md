@@ -4,7 +4,7 @@ description: "Zjistěte, jak provést automatické zálohování a obnovení na 
 keywords: "zálohování a obnovení, zálohování online"
 services: cosmos-db
 documentationcenter: 
-author: RahulPrasad16
+author: mimig1
 manager: jhubbard
 editor: monicar
 ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: raprasa
-ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mimig
+ms.openlocfilehash: f88bdd6ffb70ccd2aa48453747964c4afb5bea46
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatické online zálohování a obnovení databáze Cosmos Azure
 Azure Cosmos DB automaticky provede zálohování všech dat v pravidelných intervalech. Automatické zálohování se provádějí bez vlivu na výkon nebo dostupnost databázových operací. Všechny zálohy se ukládají odděleně v jiné službě úložiště a tyto zálohy jsou globálně replikovat pro odolnost proti místní havárie. Automatické zálohování jsou určené pro scénáře, pokud omylem odstraníte vaší Cosmos DB kontejneru a později vyžadují obnovení dat nebo řešení zotavení po havárii.  
@@ -27,7 +27,7 @@ Azure Cosmos DB automaticky provede zálohování všech dat v pravidelných int
 Tento článek začíná rychlé rekapitulace data redundance a dostupnosti v Cosmos DB a pak popisuje zálohování. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Vysoká dostupnost s Cosmos DB - rekapitulace
-Cosmos DB je navržený jako [globálně distribuované](distribute-data-globally.md) – umožňuje škálovat propustnosti nad několika oblastmi Azure společně s zásad řízené převzetí služeb při selhání a transparentní rozhraní API více funkci. Nabízí Auzre Cosmos DB [99,99 % dostupnost SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) pro všechny účty jedné oblasti a všechny oblasti s více účty s zmírnit konzistence a 99.999 % čtení dostupnosti pro všechny účty databáze více oblast. Dříve, než potvrdil klientovi jsou trvale potvrzena na místní disky ve kvora replik v rámci místního datového centra všech zápisů v Azure Cosmos DB. Všimněte si, že vysokou dostupnost databáze Cosmos spoléhá na místní úložiště a nezávisí na žádné technologie externího úložiště. Kromě toho pokud databázový účet je přidružen více než jedné oblasti Azure, replikují se v jiných oblastech také vaše zápisy. Škálovat vaše data propustnost a přístup v nízkou latenci, může mít mnoho pro čtení oblasti spojené s vaším účtem databáze podle potřeby. V každé oblasti pro čtení je spolehlivě (replikovaných) dat zachová pro sady replik.  
+Cosmos DB je navržený jako [globálně distribuované](distribute-data-globally.md) – umožňuje škálovat propustnosti nad několika oblastmi Azure společně s zásad řízené převzetí služeb při selhání a transparentní rozhraní API více funkci. Nabízí Azure Cosmos DB [99,99 % dostupnost SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) pro všechny účty jedné oblasti a všechny oblasti s více účty s zmírnit konzistence a 99.999 % čtení dostupnosti pro všechny účty databáze více oblast. Dříve, než potvrdil klientovi jsou trvale potvrzena na místní disky ve kvora replik v rámci místního datového centra všech zápisů v Azure Cosmos DB. Všimněte si, že vysokou dostupnost databáze Cosmos spoléhá na místní úložiště a nezávisí na žádné technologie externího úložiště. Kromě toho pokud databázový účet je přidružen více než jedné oblasti Azure, replikují se v jiných oblastech také vaše zápisy. Škálovat vaše data propustnost a přístup v nízkou latenci, může mít mnoho pro čtení oblasti spojené s vaším účtem databáze podle potřeby. V každé oblasti pro čtení je spolehlivě (replikovaných) dat zachová pro sady replik.  
 
 Jak je znázorněno v následujícím diagramu, je jediný kontejner Cosmos DB [vodorovně oddílů](partition-data.md). Kruh v následujícím diagramu je označený jako "Oddíl" a každý oddíl je zpřístupnit pomocí sady replik. Toto je místní distribuční v rámci jedné oblasti Azure (označen osy X). Dále každý oddíl (s jeho odpovídající sady replik) je pak globálně distribuované nad několika oblastmi spojené s vaším účtem databáze (například v tento obrázek tří oblastí – Východ USA, západní USA a střed). "Oddílu sada" je globálně distribuované entity, která obsahuje více kopií vašich dat v jednotlivých oblastech (označen osy Y). Můžete přiřadit prioritu oblasti spojené s vaším účtem databáze a databáze Cosmos bude transparentně převzetí služeb při selhání pro další oblast v případě havárie. Můžete také ručně simulovat převzetí služeb při selhání začátku do konce dostupnosti vaší aplikace.  
 
@@ -59,7 +59,7 @@ Pokud omylem odstraníte databáze nebo kolekce, můžete [souboru lístek podpo
 ## <a name="handling-data-corruption"></a>Zpracování poškození dat
 Azure Cosmos DB ponechá posledních dvou zálohování všech oddílů v databázovém účtu. Tento model funguje dobře, pokud kontejner (kolekce dokumentů, graf, tabulku) nebo databáze je omylem odstranit, protože jeden z poslední verze může být obnovena. Ale v případě, když uživatelé mohou zavést kvůli problému s poškozením dat, Azure Cosmos DB může být vědomi poškození dat a je možné, že poškození může přepsat existující zálohy. Jakmile se detekuje poškození, musí uživatel odstranit poškozená kontejner (kolekce nebo grafu nebo tabulky) tak, aby zálohování jsou chráněny před přepsáním s poškozenými daty.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 K replikaci databáze v několika datových centrech, najdete v části [distribuci dat globálně pomocí Cosmos DB](distribute-data-globally.md). 
 

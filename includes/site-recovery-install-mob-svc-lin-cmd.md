@@ -1,6 +1,7 @@
 1. Zkopírujte instalační službu do místní složky (například TMP) na serveru, který chcete chránit. V terminálu spusťte následující příkazy:
   ```
-  cd /tmp
+  cd /tmp ;
+
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
 2. Pro instalaci služby Mobility, spusťte následující příkaz:
@@ -14,7 +15,7 @@
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line"></a>Instalátoru služby mobility příkazového řádku
+#### <a name="mobility-service-installer-command-line"></a>Nastavení mobilních zařízení služby Instalační program příkazového řádku
 
 ```
 Usage:
@@ -23,13 +24,13 @@ Usage:
 
 |Parametr|Typ|Popis|Možné hodnoty|
 |-|-|-|-|
-|-r |Povinné|Určuje, zda by měly být nainstalovány služby Mobility (MS) nebo MasterTarget(MT) by měly být nainstalovány.|MS </br> MT –|
+|-r |Povinné|Určuje, zda by měly být nainstalovány služby Mobility (MS) nebo MasterTarget(MT) by měly být nainstalovány.|MS </br> MT|
 |-d |Nepovinné|Umístění, kde bude nainstalován služba Mobility|/usr/local/ASR|
-|-v|Povinné|Určuje platformu, na kterém služba Mobility je získávání nainstalovaná </br> </br>- **VMware** : tuto hodnotu použijte, pokud k instalaci služby mobility na virtuálním počítači systémem *VMware vSphere hostitelích ESXi*, *hostitelů Hyper-V* a *Phsyical servery* </br> - **Azure** : tuto hodnotu použijte, pokud instalujete agenta na virtuálním počítači Azure IaaS| VMware </br> Azure|
-|-q|Nepovinné|Určuje, ke spuštění instalačního programu v bezobslužném režimu| Není k dispozici|
+|-v|Povinné|Určuje platformu, na kterém služba Mobility je získávání nainstalovaná </br> </br>-** VMware: tuto hodnotu použijte, pokud k instalaci služby mobility na virtuálním počítači systémem *VMware vSphere hostitelích ESXi*, * hostitelů Hyper-V, a *fyzických serverů* </br> -** Azure: tuto hodnotu použijte, pokud instalujete agenta na virtuálním počítači Azure IaaS| VMware </br> Azure|
+|-q|Nepovinné|Určuje, ke spuštění instalačního programu v bezobslužném režimu| neuvedeno|
 
 
-#### <a name="mobility-service-configuration-command-line"></a>Konfigurace služby mobility příkazového řádku
+#### <a name="mobility-service-configuration-command-line"></a>Nastavení mobilních zařízení služby konfigurace příkazového řádku
 
 ```
 Usage:

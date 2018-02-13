@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
-ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Odesílání zpráv typu cloud zařízení ze služby IoT Hub
 
@@ -41,12 +41,12 @@ Pokud službu IoT Hub odešle zprávu do zařízení, služba nastaví stav zpr�
 
 Zařízení můžete také zvolit:
 
-* *Odmítnout* zpráva, což způsobí, že IoT Hub, která ji nastavte na **Deadlettered** stavu. Zařízení, která se připojují přes protokol MQTT nelze odmítnout zprávy typu cloud zařízení.
+* *Odmítnout* zpráva, což způsobí, že IoT Hub, která ji nastavte na **mrtvých lettered** stavu. Zařízení, která se připojují přes protokol MQTT nelze odmítnout zprávy typu cloud zařízení.
 * *Zrušte* zpráva, což způsobí, že IoT Hub uvést zprávy zpět do fronty, se stavem nastavena na **zařazených do fronty**. Zařízení, která se připojují přes protokol MQTT nelze abandon zprávy typu cloud zařízení.
 
 Vlákno může dojít k selhání zpracování zprávy bez upozornění služby IoT Hub. V takovém případě zprávy automaticky přechod z **neviditelná** stavu zpět **zařazených do fronty** stavu po *časový limit viditelnosti (nebo zámku)*. Výchozí hodnota tohoto limitu je jedna minuta.
 
-**Maximální počet doručení** vlastnost na IoT Hub určuje maximální počet časy zprávu můžete přecházet mezi **zařazených do fronty** a **neviditelná** stavy. Po tomto počtu přechodů IoT Hub, nastaví stav zprávy **Deadlettered**. Podobně IoT Hub nastaví stav zprávu, která **Deadlettered** po jeho čas vypršení platnosti (viz [hodnota Time to live][lnk-ttl]).
+**Maximální počet doručení** vlastnost na IoT Hub určuje maximální počet časy zprávu můžete přecházet mezi **zařazených do fronty** a **neviditelná** stavy. Po tomto počtu přechodů IoT Hub, nastaví stav zprávy **mrtvých lettered**. Podobně IoT Hub nastaví stav zprávu, která **mrtvých lettered** po jeho čas vypršení platnosti (viz [hodnota Time to live][lnk-ttl]).
 
 [Odesílání zpráv typu cloud zařízení s centrem IoT] [ lnk-c2d-tutorial] ukazuje, jak k odesílání zpráv typu cloud zařízení z cloudu a přijímat na zařízení.
 
@@ -76,7 +76,7 @@ Při odesílání zpráv typu cloud zařízení služby může požádat o doru�
 | Vlastnost objektu ACK. | Chování |
 | ------------ | -------- |
 | **kladné** | Pokud dosáhne zpráv typu cloud zařízení **dokončeno** stavu služby IoT Hub vytvoří zprávu zpětnou vazbu. |
-| **Záporná** | Pokud dosáhne zpráv typu cloud zařízení **Deadlettered** stavu služby IoT Hub vytvoří zprávu zpětnou vazbu. |
+| **Záporná** | Pokud dosáhne zpráv typu cloud zařízení **mrtvých lettered** stavu služby IoT Hub vytvoří zprávu zpětnou vazbu. |
 | **Úplná**     | IoT Hub vytvoří zprávu zpětné vazby v obou případech. |
 
 Pokud **Ack** je **úplné**a jste neobdrželi zprávu zpětné vazby, což znamená, že vypršela platnost zprávy zpětnou vazbu. Službu nelze vědět, co se stalo s původní zprávy. V praxi služby zkontrolujte, že zvládne zpracovat zpětné vazby než vyprší její platnost. Čas vypršení platnosti maximální dva dny, které opustí čas získat službu běží znovu Pokud dojde k chybě.
@@ -87,7 +87,7 @@ Jak je popsáno v [koncové body][lnk-endpoints], IoT Hub zajišťuje zpětnou v
 | ------------ | ----------- |
 | EnqueuedTime | Časové razítko označující, kdy byla zpráva vytvořena. |
 | ID uživatele       | `{iot hub name}` |
-| Typ obsahu  | `application/vnd.microsoft.iothub.feedback.json` |
+| ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 Text je serializací JSON pole záznamů, každý s následujícími vlastnostmi:
 
@@ -95,7 +95,7 @@ Text je serializací JSON pole záznamů, každý s následujícími vlastnostmi
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Časové razítko označující, když se stalo výsledek zprávy. Například zařízení byla dokončena nebo zprávy s vypršenou platností. |
 | OriginalMessageId  | **MessageId** zprávy cloud zařízení, ke kterému má vztah tyto informace zpětnou vazbu. |
-| statusCode         | Požadovaný řetězec. Použít v zpětnou vazbu zprávy generované IoT Hub. <br/> 'Success' <br/> "Platnost vypršela. <br/> 'DeliveryCountExceeded. <br/> 'Odmítnut. <br/> 'Vyprázdní. |
+| statusCode         | Požadovaný řetězec. Použít v zpětnou vazbu zprávy generované IoT Hub. <br/> 'Success' <br/> "Platnost vypršela. <br/> 'DeliveryCountExceeded' <br/> 'Odmítnut. <br/> 'Vyprázdní. |
 | Popis        | Řetězce hodnoty pro **StatusCode**. |
 | ID zařízení           | **DeviceId** cílového zařízení, k němuž se vztahuje toto připomínek zprávy cloud zařízení. |
 | DeviceGenerationId | **DeviceGenerationId** cílového zařízení, k němuž se vztahuje toto připomínek zprávy cloud zařízení. |
@@ -134,7 +134,7 @@ Každý IoT hub zpřístupní následující možnosti konfigurace pro zasílán
 
 Další informace o tom, jak nastavit tyto možnosti konfigurace najdete v tématu [centra IoT vytvořit][lnk-portal].
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Informace o sadách SDK, můžete použít pro příjem zpráv typu cloud zařízení najdete v tématu [SDK služby Azure IoT][lnk-sdks].
 

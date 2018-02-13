@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 59f718e0e547ed9374152985e706acad4421b35b
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 30e606154830b867382ea1ea439b97749370a1f6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Rozšíření virtuálního počítače a funkce pro Linux
 
@@ -47,7 +47,7 @@ Každé rozšíření virtuálního počítače může mít vlastní sadu požad
 
 Agent virtuálního počítače Azure spravuje interakce mezi virtuální počítač Azure a kontroleru prostředků infrastruktury Azure. Agent virtuálního počítače je zodpovědná za funkční aspekty nasazení a správa virtuálních počítačích Azure, včetně spuštění rozšíření virtuálního počítače. Agent virtuálního počítače Azure je předinstalován v Azure Marketplace bitové kopie a může být nainstalován ručně na podporovaných operačních systémů.
 
-Informace o podporovaných operačních systémů a pokyny k instalaci najdete v tématu [agent virtuálního počítače Azure](../windows/classic/agents-and-extensions.md).
+Informace o podporovaných operačních systémů a pokyny k instalaci najdete v tématu [agent virtuálního počítače Azure](agent-user-guide.md).
 
 ## <a name="discover-vm-extensions"></a>Zjistit rozšíření virtuálního počítače
 
@@ -85,7 +85,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Rozšíření virtuálního počítače je použít pro existující virtuální počítač prostřednictvím portálu Azure. To pokud chcete udělat, vyberte virtuální počítač, vyberte **rozšíření**a klikněte na tlačítko **přidat**. Vyberte požadované rozšíření ze seznamu dostupných rozšíření a postupujte podle pokynů v průvodci.
 

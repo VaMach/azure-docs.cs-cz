@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 490db57e9f36bed5575b7af5a6e2673fb63af3a8
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Šířky pásma nebo propustnost testování (NTTTCP)
 
@@ -74,7 +74,7 @@ netsh advfirewall firewall přidejte pravidlo program = c:\\nástroje\\ntttcp.ex
 
 Spusťte NTTTCP na příjemce (**spustit z CMD**, nikoli z prostředí PowerShell):
 
-ntttcp - r – m [2\*\#num\_jader],\*, a.b.c.r -t 300
+ntttcp -r –m [2\*\#num\_cores],\*,a.b.c.r -t 300
 
 Pokud virtuální počítač má čtyři jader a IP adresu 10.0.0.4, by vypadat například takto:
 
@@ -157,6 +157,13 @@ Odesílatel <Windows>:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
+## <a name="testing-cloud-service-instances"></a>Cloudové služby instance testování:
+Je nutné přidat následující části do vaší ServiceDefinition.csdef
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
 ```
 
 ## <a name="next-steps"></a>Další postup

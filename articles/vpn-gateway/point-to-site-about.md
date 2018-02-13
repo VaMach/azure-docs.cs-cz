@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-point-to-site-vpn"></a>O Point-to-Site VPN
 
@@ -36,7 +36,7 @@ Point-to-site VPN můžete použít jednu z těchto protokolů:
 Pokud máte prostředí různých klientských skládající se z zařízení s Windows a Mac, nakonfigurujte SSTP a IKEv2.
 
 >[!NOTE]
->IKEv2 pro P2S je k dispozici pro model nasazení Resource Manager. Není k dispozici pro model nasazení classic.
+>IKEv2 pro P2S je k dispozici pro pouze modelu nasazení Resource Manager. Není k dispozici pro model nasazení classic.
 >
 
 ## <a name="authentication"></a>Jak jsou klienti P2S VPN ověřuje?
@@ -67,6 +67,10 @@ Uživatelé používat nativní klienti VPN na zařízeních s Windows a Mac pro
 * Pro zařízení se systémem Mac obsahuje mobileconfig souboru, který uživatelé instalují do svých zařízení.
 
 Soubor zip také obsahuje hodnoty některých důležitých nastavení na straně Azure, můžete použít k vytvoření vlastního profilu pro tato zařízení. Některé hodnoty zahrnují adresu brány VPN, typy nakonfigurované tunelu, trasy a kořenový certifikát pro ověřování brány.
+
+>[!NOTE]
+>Pro klienty systému Windows musí mít oprávnění správce v klientském zařízení za účelem zahájení připojení VPN z klientského zařízení do Azure.
+>
 
 ### <a name="gwsku"></a>Které P2S podporu SKU brány sítě VPN?
 

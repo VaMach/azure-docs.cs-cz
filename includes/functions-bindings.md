@@ -4,6 +4,7 @@ V následující tabulce jsou uvedeny vazby, které jsou podporovány v dvě hla
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|  
 | [Databáze Cosmos](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔<sup>1</sup>|✔|✔|✔|  
+| [Událost mřížky](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| | |  
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  
 | [Externí soubor](../articles/azure-functions/functions-bindings-external-file.md)<sup>2</sup>    |✔|| |✔|✔|  
 | [Externí tabulky](../articles/azure-functions/functions-bindings-external-table.md)<sup>2</sup>  |✔|| |✔|✔|  
@@ -21,7 +22,7 @@ V následující tabulce jsou uvedeny vazby, které jsou podporovány v dvě hla
 | [Table Storage](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|  
 | [Časovač](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔<sup>1</sup>| | |✔|
-| [Webhooky](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔||✔| |✔|
+| [Webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔||✔| |✔|
   
 <sup>1</sup> musí být registrován jako rozšíření vazby v 2.x. V tématu [známé problémy v 2.x](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 

@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Procházení zpráv
 
-Zpráva procházení ("prohlížení") umožňuje klientovi výčet všechny zprávy, které se nacházejí v fronty nebo předplatného, obvykle pro diagnostiku a účely ladění.
+Zpráva procházení ("prohlížení") umožňuje klientovi služby Service Bus se vytvořit výčet všechny zprávy, které se nacházejí v fronty nebo předplatného, obvykle pro diagnostiku a účely ladění.
 
-Funkce Náhled operace, které vrátí všechny zprávy, které existují v fronty nebo předplatné protokolu zpráv, ne jenom ty k dispozici pro okamžité pořízení s *Receive()* nebo *OnMessage()* smyčky. *Stavu* vlastnost každá zpráva informuje, zda je zpráva aktivní (k dispozici pro další přijetí), odložené (viz odložení [odkaz bude Doplněn]) nebo naplánované (viz naplánovaná zprávy [odkaz bude Doplněn]).
+Funkce Náhled operace, které vrátí všechny zprávy, které existují v fronty nebo předplatné protokolu zpráv, ne jenom ty k dispozici pro okamžité pořízení s `Receive()` nebo `OnMessage()` smyčky. `State` Vlastnost každá zpráva informuje, zda je zpráva aktivní (k dispozici pro další přijetí), [odložené](message-deferral.md), nebo [naplánované](message-sequencing.md).
 
-Spotřebované a jeho platnost zprávy se vyčistily podle asynchronní "uvolňování paměti" spustit a nemusí nutně přesně při zprávy platnost nevyprší, a proto může vrátit funkce Náhled skutečně zprávy, které již vypršela platnost a bude odebrána a lettered při příjmu zpráv operace je volána vedle fronty nebo předplatné.
+Spotřebované a jeho platnost zprávy se vyčistily podle asynchronní "uvolňování" spustit a nemusí nutně přesně při zprávy vyprší a proto `Peek` může vrátit skutečně zprávy, které již vypršela platnost a bude odebrána nebo v případě lettered zpráv operace příjmu je volána vedle fronty nebo předplatné.
 
 To je obzvláště důležité, třeba vzít v úvahu při pokusu o obnovení odložené zpráv z fronty. Zpráva, pro kterou [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) rychlých uplynutí již není vhodné pro regulární načtení jiným způsobem, i když se vrátí funkce Náhled. Vrací tyto zprávy je záměrné, protože funkce Náhled diagnostického nástroje aktuálním stavu protokolu.
 
@@ -41,7 +41,7 @@ Při volání opakovaně, metoda funkce Náhled zobrazí všechny zprávy, kter�
 
 Můžete také počáteční hodnoty přetížení metody s [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) , pro kterou chcete spustit a pak zavolají přetížení bez parametrů metody pro výčet Další. **PeekBatch** ekvivalentně funguje, ale všechny najednou načte sadu zpráv.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o zasílání zpráv Service Bus, najdete v následujících tématech:
 

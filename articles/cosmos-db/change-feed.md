@@ -3,7 +3,7 @@ title: "Práce se změnami kanálu podpory v Azure Cosmos DB | Microsoft Docs"
 description: "Použijte Azure Cosmos DB změnu informačního kanálu podporu sledování změn v dokumentech a provádět na základě událostí zpracování jako aktivační události a průběžná aktualizace mezipaměti a analýzy systémy."
 keywords: "Změna kanálu"
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Práce se změnami kanálu podpory v Azure Cosmos DB
 
@@ -60,6 +60,7 @@ Další podrobnosti:
 * Změny mohou být synchronizovány z jakékoli bodu v čase, tedy neexistuje žádné období uchovávání pevné dat, pro které jsou k dispozici změny.
 * Změny jsou k dispozici v bloky rozsahy klíčů oddílů. Tato možnost umožňuje změny z rozsáhlých kolekcí, které mají být zpracovány současně více příjemci nebo servery.
 * Aplikace můžete požadovat více informačních kanálů změnu současně na stejné kolekci.
+* ChangeFeedOptions.StartTime slouží k poskytování počáteční počáteční bod, třeba, aby najít odpovídající dané času hodin token pro pokračování. ContinuationToken, pokud zadaný, wins přes hodnoty StartTime a StartFromBeginning. Přesnost ChangeFeedOptions.StartTime je ~ 5 sekund. 
 
 ## <a name="use-cases-and-scenarios"></a>Případy použití a scénáře
 
@@ -178,6 +179,7 @@ Levé klient byl spuštěn první a jeho spuštění, monitorování, které se 
 
 Poznámka: Pokud máte dva bez serveru Azure funkcí monitorování stejné kolekce a pomocí stejné zapůjčení, pak dvě funkce může dojít k různých dokumenty v závislosti na způsobu knihovně procesoru rozhodne zpracujte oddíly.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Principy knihovně změnu kanálu procesoru
 
 Existují čtyři hlavní součásti implementace změnu kanálu procesoru: monitorovaných kolekce, kolekce zapůjčení, procesoru hostitele a uživatelé. 
@@ -270,7 +272,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 Je to. Po provedení těchto kroků několik spustí dokumenty, než dorazí do **DocumentFeedObserver ProcessChangesAsync** metoda.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o databázi Cosmos Azure pomocí Azure Functions najdete v části [Cosmos databázi Azure: bez serveru databáze computing pomocí Azure Functions](serverless-computing-database.md).
 

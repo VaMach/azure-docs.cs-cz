@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c05d94c8dce51d922be3782380d4a883717bf032
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopírování dat z SAP Business Warehouse pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ Pro SAP Business Warehouse (BW) propojené služby jsou podporovány následují
 | server | Název serveru, na kterém se nachází instance SAP BW. | Ano |
 | systemNumber | Číslo systému SAP BW systému.<br/>Povolené hodnoty: letopočty řetězec desetinné číslo. | Ano |
 | clientId | ID klienta v systému SAP W klienta.<br/>Povolené hodnoty: třímístné řetězec desetinné číslo. | Ano |
-| Uživatelské jméno | Jméno uživatele, který má přístup k serveru SAP. | Ano |
-| heslo | Heslo pro uživatele. Toto pole můžete označte jako SecureString. | Ano |
+| userName | Jméno uživatele, který má přístup k serveru SAP. | Ano |
+| heslo | Heslo pro uživatele. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Modul Runtime Self-hosted integrace se vyžaduje, jak je uvedeno v [požadavky](#prerequisites). |Ano |
 
 **Příklad:**
@@ -116,7 +116,7 @@ Ke zkopírování dat z SAP BW, nastavte vlastnost typu datové sady, která **R
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje SAP BW zdroje.
 
@@ -173,17 +173,17 @@ Při kopírování dat z SAP BW, se používají následující mapování z typ
 | AKTUÁLNÍ | Decimal |
 | CUKY | Řetězec |
 | DEC | Decimal |
-| FLTP | Double |
+| FLTP | Dvojitý |
 | INT1 | Bajtů |
 | INT2 | Int16 |
 | INT4 | Int |
 | JAZYK | Řetězec |
 | LCHR | Řetězec |
-| LRAW | Byte] |
+| LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
-| NEZPRACOVANÁ | Byte] |
-| RAWSTRING | Byte] |
+| NEZPRACOVANÁ | Byte[] |
+| RAWSTRING | Byte[] |
 | ŘETĚZEC | Řetězec |
 | JEDNOTKA | Řetězec |
 | SOUBORY DAT | Řetězec |

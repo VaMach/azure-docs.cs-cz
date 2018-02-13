@@ -3,7 +3,7 @@ title: "Transformace dat pomocí skriptu U-SQL - Azure | Microsoft Docs"
 description: "Informace o zpracování nebo transformace dat pomocí spouštění skriptů U-SQL na výpočetní služba Azure Data Lake Analytics."
 services: data-factory
 documentationcenter: 
-author: shengcmsft
+author: nabhishek
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
-ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/29/2018
+ms.author: abnarain
+ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformace dat pomocí spouštění skriptů U-SQL v Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,16 +40,19 @@ Následující tabulka obsahuje popis obecné vlastnosti používané v definici
 | Vlastnost                 | Popis                              | Požaduje se                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **Typ**                 | Vlastnost typu musí být nastavená na: **AzureDataLakeAnalytics**. | Ano                                      |
-| **název účtu**          | Název účtu Azure Data Lake Analytics.  | Ano                                      |
+| **accountName**          | Název účtu Azure Data Lake Analytics.  | Ano                                      |
 | **dataLakeAnalyticsUri** | Identifikátor URI služby Azure Data Lake Analytics.           | Ne                                       |
-| **ID předplatného**       | ID předplatného Azure                    | Ne (když není určeno, předplatné objektu pro vytváření dat se používá). |
-| **Název skupiny prostředků**    | Název skupiny prostředků Azure.                | Ne (když není určeno, skupinu prostředků objektu pro vytváření dat se používá). |
+| **subscriptionId**       | ID předplatného Azure                    | Ne (když není určeno, předplatné objektu pro vytváření dat se používá). |
+| **resourceGroupName**    | Název skupiny prostředků Azure.                | Ne (když není určeno, skupinu prostředků objektu pro vytváření dat se používá). |
 
 ### <a name="service-principal-authentication"></a>Ověřování instančních objektů
 Azure Data Lake Analytics propojená služba vyžaduje, aby objekt zabezpečení ověřování služby pro připojení ke službě Azure Data Lake Analytics. Pokud chcete použít ověřování hlavní služby, zaregistrujte entitu aplikace v Azure Active Directory (Azure AD) a jí udělit přístup k Data Lake Analytics a Data Lake Store, používá. Podrobné pokyny najdete v tématu [Service-to-service ověřování](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Poznamenejte si následující hodnoty, které můžete použít k definování propojené služby:
+
 * ID aplikace
 * Klíč aplikace 
 * ID tenanta
+
+Udělení oprávnění objektu služby k Azure Data Lake Anatlyics pomocí [Průvodce přidáním uživatele](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Použijte objekt zabezpečení ověřování služby tak, že zadáte následující vlastnosti:
 
@@ -66,17 +69,17 @@ Použijte objekt zabezpečení ověřování služby tak, že zadáte následuj�
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "azuredatalakeanalytics URI",
-            "servicePrincipalId": "service principal id",
+            "accountName": "<account name>",
+            "dataLakeAnalyticsUri": "<azure data lake analytics URI>",
+            "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
-                "value": "service principal key",
+                "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "tenant ID",
+            "tenant": "<tenant ID>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
-        }
+        },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -96,12 +99,12 @@ Následující fragment kódu JSON definuje kanál s aktivitou Data Lake Analyti
     "description": "description",
     "type": "DataLakeAnalyticsU-SQL",
     "linkedServiceName": {
-        "referenceName": "AzureDataLakeAnalyticsLinkedService",
+        "referenceName": "<linked service name of Azure Data Lake Analytics>",
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
         "scriptLinkedService": {
-            "referenceName": "LinkedServiceofAzureBlobStorageforscriptPath",
+            "referenceName": "<linked service name of Azure Data Lake Store or Azure Storage which contains the U-SQL script>",
             "type": "LinkedServiceReference"
         },
         "scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
@@ -124,11 +127,11 @@ Následující tabulka popisuje názvy a popisy vlastností, které jsou specifi
 | type                | Aktivity Data Lake Analytics U-SQL, je typ aktivity **DataLakeAnalyticsU SQL**. | Ano      |
 | linkedServiceName   | Propojená služba Azure Data Lake Analytics. Další informace o této propojené služby najdete v tématu [výpočetní propojené služby](compute-linked-services.md) článku.  |Ano       |
 | scriptPath          | Cesta ke složce, který obsahuje skript U-SQL. Název souboru je malá a velká písmena. | Ano      |
-| scriptLinkedService | Propojené služby, který odkazuje úložiště, který obsahuje skript pro vytváření dat. | Ano      |
+| scriptLinkedService | Propojená služba, která odkazuje **Azure Data Lake Store** nebo **Azure Storage** obsahující skriptu pro vytváření dat. | Ano      |
 | degreeOfParallelism | Maximální počet uzlů současně slouží ke spuštění úlohy. | Ne       |
-| Priorita            | Určuje, jaké úlohy mimo všechny, které jsou zařazeny do fronty, měla by být vybrána má spustit jako první. Čím nižší je číslo, tím vyšší je priorita. | Ne       |
-| parameters          | Parametry pro skript U-SQL          | Ne       |
-| runtimeVersion      | Verze runtime – stroje U-SQL používat | Ne       |
+| priorita            | Určuje, jaké úlohy mimo všechny, které jsou zařazeny do fronty, měla by být vybrána má spustit jako první. Čím nižší je číslo, tím vyšší je priorita. | Ne       |
+| parameters          | Parametry k předání do skriptu U-SQL.    | Ne       |
+| runtimeVersion      | Verze runtime – stroje U-SQL používat. | Ne       |
 | compilationMode     | <p>Režim kompilace U-SQL. Musí mít jednu z těchto hodnot: **Semantic:** provádět jenom sémantického kontroly a kontrola nezbytné vhodnosti **úplné:** provést úplné kompilace, včetně kontrola syntaxe, optimalizace, generování kódu atd., **SingleBox:** provést úplné kompilace s TargetType nastavení SingleBox. Pokud nezadáte hodnotu pro tuto vlastnost, server určí režim optimální kompilace. | Ne |
 
 Objekt pro vytváření dat odešle najdete [definice skriptu SearchLogProcessing.txt](#sample-u-sql-script) pro definici skriptu. 
@@ -176,18 +179,18 @@ V definici ukázkový kanál a odhlašování parametry jsou přiřazeny pevně 
 }
 ```
 
-Je možné místo toho použít dynamické parametry. Například: 
+Je možné místo toho použít dynamické parametry. Příklad: 
 
 ```json
 "parameters": {
-    "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
-    "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    "in": "/datalake/input/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/data.tsv",
+    "out": "/datalake/output/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/result.tsv"
 }
 ```
 
-V takovém případě vstupní soubory jsou stále zachyceny ze složky /datalake/input a výstupní soubory se generují ve složce /datalake/output. Názvy souborů jsou dynamické podle času zahájení řez.  
+V takovém případě vstupní soubory jsou stále zachyceny ze složky /datalake/input a výstupní soubory se generují ve složce /datalake/output. Názvy souborů jsou dynamické podle času zahájení okna předávány v při získá aktivaci kanálu.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v následujících článcích, které vysvětlují, jak k transformaci dat jinými způsoby: 
 
 * [Aktivita Hive](transform-data-using-hadoop-hive.md)

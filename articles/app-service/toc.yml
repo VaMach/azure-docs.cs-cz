@@ -31,6 +31,8 @@
   items:
     - name: 1. Aplikace s DB
       items:
+        - name: .NET Core s SQL DB
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET s SQL DB
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP s MySQL
@@ -39,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java s MySQL
           href: app-service-web-tutorial-java-mysql.md
+        - name: Python s PostgreSQL
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1. Vytvoření rozhraní RESTful API
       href: app-service-web-tutorial-rest-api.md
     - name: 2. Mapování vlastní domény
@@ -71,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: Diagnostika
       href: app-service-diagnostics.md
+    - name: Opravy operačního systému a modulů runtime
+      href: app-service-patch-os-runtime.md
 - name: Návody
   items:
     - name: Konfigurace aplikace
@@ -160,7 +166,7 @@
         - name: Klonování aplikace
           href: app-service-web-app-cloning.md
         - name: Přesunutí prostředků
-          href: app-service-move-resources.md
+          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: Spouštění úloh na pozadí
       items:
         - name: Vytvoření webových úloh
@@ -175,7 +181,7 @@
       href: /powershell
     - name: REST API
       href: /rest/api/appservice/
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'

@@ -1,26 +1,20 @@
 ---
-title: "Spustit postupu zotavení po havárii na sekundární místní sítí pomocí Azure Site Recovery | Microsoft Docs"
+title: "Spuštění postupu zotavení po havárii na sekundární místní lokalitu s Azure Site Recovery | Microsoft Docs"
 description: "Další informace o spouštění postupu zotavení po havárii na sekundární místní sítí pomocí Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 445878e2-6682-49ba-914d-4c6824ab08a6
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e5f8dce1ca2f728d15161622fb9ff2afb4b6c86
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Spuštění postupu zotavení po havárii pro virtuální počítače Hyper-V do sekundárního místního webu
+# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Spuštění postupu zotavení po havárii pro virtuální počítače Hyper-V do sekundárního místního lokality
 
 [Azure Site Recovery](site-recovery-overview.md) služby přispívá ke strategie zotavení po havárii správy a Orchestrace replikace, převzetí služeb při selhání a navrácení služeb po obnovení místního počítače a virtuální počítače Azure (VM).
 
@@ -52,7 +46,7 @@ V tomto kurzu se dozvíte, jak spustit postupu zotavení po havárii pro virtuá
 6. V **poznámky**, zaznamenejte a uložte jakékoli připomínky související s testovací převzetí služeb. 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Spustit selhání produkční](tutorial-vmm-to-vmm-failover-failback.md)
 

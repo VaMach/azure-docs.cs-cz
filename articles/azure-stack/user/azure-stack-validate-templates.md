@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Zkontrolujte vaše šablony pro Azure zásobník validátoru šablony
 
@@ -66,7 +66,7 @@ Ověření šablony nějakým chybám jsou protokolovány v konzoli prostředí 
 | IncludeComputeCapabilities | Zahrnuje vyhodnocení prostředky infrastruktury jako velikosti virtuálních počítačů a rozšíření virtuálního počítače | Ne |
 | IncludeStorageCapabilities | Zahrnuje vyhodnocení prostředků úložiště, jako jsou typy SKU | Ne |
 | Sestava | Určuje název vygenerovanou sestavu ve formátu HTML | Ne |
-| Verbose | Protokoly chyb a varování do konzoly nástroje | Ne|
+| Podrobné | Protokoly chyb a varování do konzoly nástroje | Ne|
 
 
 ### <a name="examples"></a>Příklady
@@ -93,11 +93,11 @@ Stažené soubory zahrnují výchozí *AzureStackCloudCapabilities_with_AddOns_2
 3.  Použijte rutinu Get-CloudCapabilities načtení verze aktualizace service a vytvořte soubor JSON možnosti cloudu:
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
  - [Nasazení šablon do Azure zásobníku](azure-stack-arm-templates.md)
  - [Vývoj šablon pro Azure zásobníku](azure-stack-develop-templates.md)
 

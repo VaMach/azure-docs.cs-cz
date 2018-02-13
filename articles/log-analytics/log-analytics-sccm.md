@@ -3,7 +3,7 @@ title: "Připojení nástroje Configuration Manager k analýze protokolů | Micr
 description: "Tento článek popisuje kroky pro připojení k analýze protokolů nástroje Configuration Manager a začněte analyzovat data."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: banders
-ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.author: magoedte
+ms.openlocfilehash: 5acf2ad27a55684a8cb42ed646c54d1ec91a5625
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Připojení k analýze protokolů nástroje Configuration Manager
 System Center Configuration Manager můžete připojit k analýze protokolů v OMS pro synchronizaci dat kolekce zařízení. Díky data z hierarchie nástroje Configuration Manager k dispozici v OMS.
@@ -78,7 +78,7 @@ Následující postup popisuje webu Azure portal s oprávněními pro přístup 
 ## <a name="add-an-oms-connection-to-configuration-manager"></a>Přidat připojení k OMS nástroje Configuration Manager
 Chcete-li přidat připojení k OMS, musí mít prostředí nástroje Configuration Manager [spojovací bod služby](https://technet.microsoft.com/library/mt627781.aspx) konfigurován pro online režim.
 
-1. V **správy** prostoru nástroje Configuration Manager, vyberte **OMS konektor**. Tím se otevře **Průvodce přidáním připojení OMS**. Vyberte **Další**.
+1. V **správy** prostoru nástroje Configuration Manager, vyberte **OMS konektor**. Tím se otevře **Průvodce přidáním připojení OMS**. Vyberte **Next** (Další).
 2. Na **Obecné** obrazovky, potvrďte, že jste dokončili následující akce a mít podrobnosti pro každou položku a pak vyberte **Další**.
 
    1. Na webu Azure portal jste registrováni nástroje Configuration Manager jako webovou aplikaci nebo webové rozhraní API aplikaci a že máte [ID klienta z registrace](../active-directory/active-directory-integrating-applications.md).

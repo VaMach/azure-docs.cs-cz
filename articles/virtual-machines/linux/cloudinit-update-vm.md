@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 4209bc270a6d255c8512dd6ccd5551b556da5a6b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e45bec2a71f94c66ce3044fb81bd2d7cefdf53a5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Aktualizace a nainstalovat balíčky v virtuálního počítače s Linuxem v Azure pomocí init cloudu
 V tomto článku se dozvíte, jak používat [cloudu init](https://cloudinit.readthedocs.io) aktualizovat balíčky na systémem Linux nastaví virtuální počítač (VM) nebo škálování virtuálních počítačů (VMSS) při zřizování čas v Azure. Tyto skripty cloudu init spustit při prvním spuštění počítače po prostředky se zřizují Azure. Další informace o cloudu init fungování nativně ve službě Azure a podporovaných distribucích systému Linux najdete v tématu [init cloudu – přehled](using-cloud-init.md)
@@ -26,7 +26,7 @@ V tomto článku se dozvíte, jak používat [cloudu init](https://cloudinit.rea
 ## <a name="update-a-vm-with-cloud-init"></a>Aktualizace virtuálního počítače s inicializací cloudu
 Z bezpečnostních důvodů můžete nakonfigurovat virtuální počítač na nejnovější aktualizace na při prvním spuštění. Jak cloud init funguje napříč různých distribucích systému Linux, je nutné specifikovat `apt` nebo `yum` pro správce balíčků. Místo toho můžete definovat `package_upgrade` a umožněte proces cloudu init určit příslušné mechanismus pro distro používán. Tento pracovní postup můžete použít stejné cloudové init skripty ve distribucích.
 
-Informace o procesu upgradu v akci, vytvořte soubor ve své aktuální prostředí s názvem *cloud_init_upgrade.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadejte `sensible-editor cloud_init_upgrade.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Zvolte #1 používat **nano** editor. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek.  
+Informace o procesu upgradu v akci, vytvořte soubor ve své aktuální prostředí s názvem *cloud_init_upgrade.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadáním příkazu `sensible-editor cloud_init_upgrade.txt` soubor vytvořte a zobrazte seznam editorů k dispozici. Zvolte #1 používat **nano** editor. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek.  
 
 ```yaml
 #cloud-config
@@ -35,13 +35,13 @@ packages:
 - httpd
 ```
 
-Než nasadíte tuto bitovou kopii, je nutné vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
+Než nasadíte tuto bitovou kopii, je nutné vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create) a určete soubor init cloudu s `--custom-data cloud_init_upgrade.txt` následujícím způsobem:
+Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) a určete soubor init cloudu s `--custom-data cloud_init_upgrade.txt` následujícím způsobem:
 
 ```azurecli-interactive 
 az vm create \
@@ -76,7 +76,7 @@ Calculating upgrade... Done
 
 Můžete také zobrazit, který `httpd` byla nainstalovaná, spuštěním `yum history` a zkontrolujte odkazy na výstup `httpd`. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Mezi další cloudu init změny konfigurace naleznete v následujících tématech:
  
 - [Přidání další uživatele Linux do virtuálního počítače](cloudinit-add-user.md)

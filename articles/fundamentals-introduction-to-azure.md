@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="introducing-microsoft-azure"></a>Úvod do Microsoft Azure
 Microsoft Azure je platforma aplikace společnosti Microsoft pro veřejný cloud.  Cílem tohoto článku je poskytují základ pro pochopení základy Azure, i v případě, že bez znalosti o cloud computing.
@@ -68,7 +68,7 @@ Tento poměrně obecné přístup do cloudu computing můžete používat k adre
 3. **Rozšíření vašeho datového centra** -použití Azure spuštěné virtuální počítače jako rozšíření vašeho datového centra místní SharePoint nebo jinými aplikacemi. Za tímto účelem je možné vytvořit doménách systému Windows v cloudu pomocí služby Active Directory ve virtuálních počítačích Azure. Virtuální sítě Azure (uvedených později) můžete použít ke svázání vaší místní sítí a sítí v Azure společně.
 
 ### <a name="web-apps"></a>Web Apps
-![Službě Azure Web Apps ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png)   
+![Azure Web Apps ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png)   
  *Obrázek: Azure Web Apps spustí webovou aplikaci v cloudu bez nutnosti ke správě základní webového serveru.*
 
 Mezi nejběžnější činností, které uživatelé provádějí v cloudu běží webů a webových aplikací. To umožňuje virtuální počítače Azure, ale je stále vám zůstane je zodpovědností správě jednoho nebo více virtuálních počítačů a základní operační systémy. Cloudové služby webové role můžete to provést, ale nasazení a údržbu, je stále trvá administrativy.  Co dělat, když chcete web kde někdo jiný kód má na starosti správu činností, které pro vás?
@@ -163,7 +163,7 @@ Někdy budete chtít přesunout velké množství dat do Azure. Který by trvat 
 * **Obnovení dat archivovat** -Import/Export můžete mít Microsoft přenos velkých objemů dat uložené v Azure Blob Storage do zařízení úložiště které odešlete a pak mít toto zařízení doručit zpět do umístění, kterou si přejete. Protože tato akce trvá delší dobu, není vhodný pro zotavení po havárii. Je nejvhodnější pro archivovaná data, která nepotřebujete rychlý přístup k.
 
 ### <a name="file-service"></a>Služba File
-![Služba Azure souborů](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
+![Azure File Service](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
 *Obrázek: Azure Souborová služba poskytuje SMB \\ \\server\share cesty pro aplikace běžící v cloudu.*
 
 Na místě, se běžně používají velkých objemů úložiště souborů, které jsou dostupné prostřednictvím protokolu Server Message Block (SMB) \\ \\Server\share formátu. Azure má teď služba, která umožňuje používat tento protokol v cloudu. Aplikace běžící v Azure slouží ke sdílení souborů mezi virtuálními počítači pomocí rozhraní API jako ReadFile a WriteFile známé soubor systému. Kromě toho soubory lze také přistupovat přes rozhraní REST, která umožňuje přístup k sdílené složky z místní při také nastavení virtuální sítě současně. Soubory Azure je postavený na služby objektů blob, takže zdědil stejné dostupnosti, odolnost, škálovatelnosti a geografická redundance integrovaný do úložiště Azure.
@@ -236,7 +236,7 @@ Visual Studio Team Services poskytuje službu, testování zatížení. Můžete
 
 Visual Studio Team Services také poskytuje podporu pro agilní vývoj s funkcí jako sestavení průběžnou integraci, kanbanové karty a virtuální týmové místnosti.
 
-**Visual Studio Team Services scénáře**
+**Visual Studio Team Services Scenarios**
 
 Visual Studio Team Services je vhodný pro společnosti, kteří potřebují spolupracovat po celém světě a nebudete už mít infrastrukturu Uděláte to tak. Můžete získat instalační program v minutách, zvolte systému správy zdrojů a začít psaní kódu a sestavování daný den.  Nástroje team poskytují místo pro koordinaci a spolupráce a další nástroje poskytují analýzy potřebné při testování a ladění aplikace rychle.
 
@@ -372,7 +372,7 @@ Pokud už používáte Windows Server nebo System Center, Azure backup je přiro
 Bez ohledu na to, co je to kód často potřebuje komunikovat s jiným kódem.  V některých situacích všechno, co je potřeba je základní zařazených do fronty zasílání zpráv. V ostatních případech se vyžadují složitější interakce. Azure poskytuje několik různých způsobů k řešení těchto problémů. Obrázek 5 ukazuje volby.
 
 ### <a name="queues"></a>Fronty
-![Předávání přes Azure Service Bus](./media/fundamentals-introduction-to-azure/QueuesIntroNew.png)
+![Azure Service Bus Relay](./media/fundamentals-introduction-to-azure/QueuesIntroNew.png)
 
 *Obrázek: Fronty povolit přijít spojení mezi částí aplikace a usnadnit tak škálování.*  
 
@@ -398,7 +398,7 @@ Jestli spustit i v cloudu, ve vašem datovém centru na mobilní zařízení, ne
 Kromě fronty (1: 1) dříve popisované Service Bus taky poskytuje další metody komunikace.
 
 #### <a name="service-bus-relay"></a>Service Bus Relay
-![Předávání přes Azure Service Bus](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
+![Azure Service Bus Relay](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
 
 *Obrázek: Předávání přes Service Bus umožňuje komunikaci mezi aplikacemi na různých stranách bránou firewall.*
 
@@ -461,7 +461,7 @@ Cloudové služby aplikace můžete ukládat data do mezipaměti, a pak načíst
 
 Azure má několik různých mezipaměti technologie, které mají zapuštěno v čase. V pořadí, že byly zavedeny, je sdílený, v roli, spravovat a Redis cache. Sdílené ukládání do mezipaměti je technologie starší a byste je neměli vytvářet nové implementace s ním. Spravované mezipaměti má stejné funkce mezipaměť hostovaná v instanci Role, ale služba se spravuje mimo portál Azure. Implementace Redis má největší počet funkcí a doporučuje se při psaní nový kód pro ukládání do mezipaměti.
 
-**Scénáře Azure Cache**
+**Azure Cache Scenarios**
 
 Aplikace, která opakovaně čte katalog produktů může využívat tento druh ukládání do mezipaměti, třeba od data potřebuje bude k dispozici rychleji. Technologie také podporuje uzamčení, nechá ji použije se pro čtení a zápis, jakož i data jen pro čtení. A aplikace ASP.NET můžete použít službu pro ukládání dat relace s právě změně konfigurace.
 

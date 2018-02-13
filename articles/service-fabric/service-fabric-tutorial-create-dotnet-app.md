@@ -1,6 +1,6 @@
 ---
-title: "Vytvořit aplikaci .NET pro Service Fabric | Microsoft Docs"
-description: "Zjistěte, jak vytvořit aplikaci s front-endové ASP.NET Core a spolehlivá služba stavová back-end a nasazení aplikací do clusteru."
+title: "Vytvoření aplikace .NET pro Service Fabric | Microsoft Docs"
+description: "Zjistěte, jak vytvořit aplikaci s front-endem v ASP.NET Core a stavovým back-endem spolehlivé služby a jak tuto aplikaci nasadit do clusteru."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,70 +12,69 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2017
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 497582138504250b3c4a77dab440d29ad928a7d8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Vytvoření a nasazení aplikace pomocí služby front-endové webové rozhraní API ASP.NET Core a stavové služby back-end
-V tomto kurzu je součástí, jednu z řady.  Se dozvíte, jak vytvořit aplikaci Azure Service Fabric pomocí webového rozhraní API ASP.NET Core front-end a stavové služby back-end ukládat data. Jakmile budete hotovi, máte hlasovací aplikaci s ASP.NET Core web, který je front-end, který uloží výsledků hlasování ve stavové služby back-end v clusteru. Pokud nechcete, aby ručně vytvořit hlasovací aplikaci, můžete [stáhnout zdrojový kód](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pro hotová aplikace a přeskočit na [provede hlasujících ukázkovou aplikaci](#walkthrough_anchor).
+# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Vytvoření a nasazení aplikace s front-end službou webového rozhraní API pro ASP.NET Core a stavovou back-end službou
+Tento kurz je první částí série.  Dozvíte se, jak vytvořit aplikaci Azure Service Fabric s front-endem webového rozhraní API pro ASP.NET Core a stavovou back-end službou pro ukládání dat. Až budete hotovi, budete mít hlasovací aplikaci s webovým front-endem v ASP.NET Core, která ukládá výsledky hlasování do stavové back-end služby v clusteru. Pokud nechcete hlasovací aplikaci vytvářet ručně, můžete si [stáhnout zdrojový kód](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) dokončené aplikace a přeskočit k části [Prohlídka ukázkové hlasovací aplikace](#walkthrough_anchor).
 
 ![Diagram aplikace](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-V rámci jedna řada, zjistíte, jak:
+V první části této série se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření služby webového rozhraní API ASP.NET Core jako stavové spolehlivé služby
-> * Vytvoření služby webové aplikace ASP.NET Core jako bezstavové webové služby
-> * Použít reverzní proxy server ke komunikaci s stavové služby
+> * Vytvořit službu webového rozhraní API pro ASP.NET Core jako spolehlivou stavovou službu
+> * Vytvořit službu webové aplikace ASP.NET Core jako bezstavovou webovou službu
+> * Použít reverzní proxy ke komunikaci se stavovou službou
 
-V této série kurzu zjistíte, jak:
+V této sérii kurzů se naučíte:
 > [!div class="checklist"]
-> * Sestavení aplikace .NET Service Fabric
-> * [Nasazení aplikace na vzdálený cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [Konfigurace CI/CD pomocí Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Nastavení monitorování a diagnostiky pro aplikaci](service-fabric-tutorial-monitoring-aspnet.md)
+> * Sestavit aplikaci .NET pro Service Fabric
+> * [Nasadit aplikaci do vzdáleného clusteru](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Nakonfigurovat CI/CD pomocí Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Nastavit monitorování a diagnostiku aplikace](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Požadavky
-Před zahájením tohoto kurzu:
-- Pokud nemáte předplatné Azure, vytvořte [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Nainstalovat Visual Studio 2017](https://www.visualstudio.com/) a nainstalujte **Azure development** a **ASP.NET a webové vývoj** úlohy.
-- [Instalace Service Fabric SDK](service-fabric-get-started.md)
+Než začnete s tímto kurzem:
+- Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Nainstalujte sadu Visual Studio 2017](https://www.visualstudio.com/) verze 15.3 nebo novější se sadami funkcí **Vývoj pro Azure** a **Vývoj pro ASP.NET a web**.
+- [Nainstalujte sadu Service Fabric SDK](service-fabric-get-started.md).
 
-## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Vytvoření služby ASP.NET Web API jako spolehlivě.
-Nejprve vytvořte webu front-end hlasovací aplikace pomocí ASP.NET Core. ASP.NET Core je odlehčený, napříč platformami webové rozhraní vývoj, které vám pomůže vytvořit moderní webové uživatelské rozhraní a webovým rozhraním API. Pokud chcete získat úplný znalosti o tom, jak ASP.NET Core integruje se službou Service Fabric, důrazně doporučujeme čtení [ASP.NET Core v Service Fabric spolehlivé služby](service-fabric-reliable-services-communication-aspnetcore.md) článku. Teď může v tomto kurzu vám rychle začít. Další informace o ASP.NET Core, najdete v článku [ASP.NET základní dokumentace](https://docs.microsoft.com/aspnet/core/).
-
-> [!NOTE]
-> V tomto kurzu vychází z [ASP.NET Core nástrojů pro Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). .NET Core nástrojů pro Visual Studio 2015 se již nebude aktualizováno.
+## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Vytvoření služby webového rozhraní API pro ASP.NET jako spolehlivé služby
+Nejprve vytvořte webový front-end hlasovací aplikace pomocí ASP.NET Core. ASP.NET Core je jednoduché, multiplatformní rozhraní pro vývoj pro web, pomocí kterého můžete vytvářet moderní webová uživatelská rozhraní a webová rozhraní API. Pokud chcete naplno porozumět integraci ASP.NET Core se Service Fabric, důrazně doporučujeme prostudovat si článek [ASP.NET Core v Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md). Prozatím můžete rychle začít tímto kurzem. Další informace o ASP.NET Core najdete v [dokumentaci k ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
 1. Spusťte sadu Visual Studio jako **správce**.
 
-2. Vytvoření projektu s **soubor**->**nový**->**projektu**
+2. Vytvořte nový projekt přes **Soubor**->**Nový**->**Projekt**.
 
 3. V dialogovém okně **Nový projekt** zvolte **Cloud > Aplikace Service Fabric**.
 
-4. Název aplikace **Voting** a stiskněte klávesu **OK**.
+4. Pojmenujte aplikaci **Voting** a stiskněte **OK**.
 
    ![Dialogové okno Nový projekt ve Visual Studiu](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. Na **nové služby Fabric** vyberte **bezstavové ASP.NET Core**a název vaší služby **VotingWeb**.
+5. Na stránce **Nová služba Service Fabric** zvolte **Bezstavová služba ASP.NET Core** a pojmenujte službu **VotingWeb**.
    
-   ![Výběr v dialogovém okně Nový služby webovou službu ASP.NET.](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
+   ![Volba webové služby ASP.NET v dialogovém okně Nová služba](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. Další stránka obsahuje sadu ASP.NET Core šablony projektů. V tomto kurzu zvolte **webové aplikace (MVC)**. 
+6. Na další stránce se zobrazí sada šablon projektů ASP.NET Core. Pro účely tohoto kurzu zvolte **Webová aplikace (model-zobrazení-kontroler)**. 
    
-   ![Zvolte typ projektu ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
+   ![Volba typu projektu ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
-   Visual Studio vytvoří aplikaci a projekt služby a zobrazí je v Průzkumníku řešení.
+   Sada Visual Studio vytvoří aplikaci a projekt služby a zobrazí je v Průzkumníku řešení.
 
-   ![Průzkumník řešení po vytvoření aplikace ASP.NET základní webového rozhraní API služby]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+   ![Průzkumník řešení po vytvoření aplikace se službou webového rozhraní API pro ASP.NET Core]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### <a name="add-angularjs-to-the-votingweb-service"></a>Přidat ke službě VotingWeb AngularJS
-Přidat [AngularJS](http://angularjs.org/) pro vaši službu pomocí integrovaných [Bower podporu](/aspnet/core/client-side/bower). Otevřete *bower.json* a přidejte položky pro úhlová a úhlová bootstrap a pak změny uložte.
+### <a name="add-angularjs-to-the-votingweb-service"></a>Přidání AngularJS do služby VotingWeb
+Přidejte do své služby [AngularJS](http://angularjs.org/) pomocí [podpory Bower](/aspnet/core/client-side/bower). Nejprve do projektu přidejte konfigurační soubor Bower.  V Průzkumníku řešení klikněte pravým tlačítkem na **VotingWeb** a vyberte **Přidat -> Nová položka**. Vyberte **Web** a pak **Konfigurační soubor Bower**.  Vytvoří se soubor *bower.json*.
+
+Otevřete soubor *bower.json*, přidejte položky pro angular a angular-bootstrap a pak uložte provedené změny.
 
 ```json
 {
@@ -83,18 +82,18 @@ Přidat [AngularJS](http://angularjs.org/) pro vaši službu pomocí integrovan�
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.7",
-    "jquery": "2.2.0",
-    "jquery-validation": "1.14.0",
+    "jquery": "3.2.1",
+    "jquery-validation": "1.16.0",
     "jquery-validation-unobtrusive": "3.2.6",
-    "angular": "v1.6.5",
+    "angular": "v1.6.8",
     "angular-bootstrap": "v1.1.0"
   }
 }
 ```
-Při ukládání *bower.json* soubor, úhlová je nainstalován ve vašem projektu *wwwroot/lib* složky. Kromě toho je uveden v rámci *závislosti/Bower* složky.
+Po uložení souboru *bower.json* se Angular nainstaluje do složky *wwwroot/lib* vašeho projektu. Kromě toho je uvedený také ve složce *Dependencies/Bower*.
 
-### <a name="update-the-sitejs-file"></a>Aktualizovat soubor site.js
-Otevřete *wwwroot/js/site.js* souboru.  Nahraďte jeho obsah JavaScript používané domovské zobrazení:
+### <a name="update-the-sitejs-file"></a>Aktualizace souboru site.js
+Otevřete soubor *wwwroot/js/site.js*.  Nahraďte jeho obsah kódem JavaScriptu, který používají zobrazení Home:
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -133,8 +132,8 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 }]);
 ```
 
-### <a name="update-the-indexcshtml-file"></a>Aktualizovat soubor Index.cshtml
-Otevřete *Views/Home/Index.cshtml* souboru konkrétní domovskou řadiče zobrazení.  Nahraďte jeho obsah následujícím, pak uložte provedené změny.
+### <a name="update-the-indexcshtml-file"></a>Aktualizace souboru Index.cshtml
+Otevřete soubor *Views/Home/Index.cshtml*, což je zobrazení specifické pro kontroler Home.  Nahraďte jeho obsah následujícím kódem a pak uložte provedené změny.
 
 ```html
 @{
@@ -153,7 +152,7 @@ Otevřete *Views/Home/Index.cshtml* souboru konkrétní domovskou řadiče zobra
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="col-xs-12 center-block">
                     <div class="col-xs-6 form-group">
-                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item"/>
                     </div>
                     <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -163,7 +162,7 @@ Otevřete *Views/Home/Index.cshtml* souboru konkrétní domovskou řadiče zobra
             </div>
         </div>
 
-        <hr />
+        <hr/>
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
@@ -196,87 +195,104 @@ Otevřete *Views/Home/Index.cshtml* souboru konkrétní domovskou řadiče zobra
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Aktualizovat soubor _Layout.cshtml
-Otevřete *Views/Shared/_Layout.cshtml* souboru, výchozí rozložení pro aplikace ASP.NET.  Nahraďte jeho obsah následujícím, pak uložte provedené změny.
+### <a name="update-the-layoutcshtml-file"></a>Aktualizace souboru _Layout.cshtml
+Otevřete soubor *Views/Shared/_Layout.cshtml*, což je výchozí rozložení aplikace ASP.NET.  Nahraďte jeho obsah následujícím kódem a pak uložte provedené změny.
 
 ```html
 <!DOCTYPE html>
 <html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"]</title>
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/css/site.css" rel="stylesheet"/>
 
 </head>
 <body>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+<div class="container body-content">
+    @RenderBody()
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/angular/angular.js"></script>
-    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="~/js/site.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/angular/angular.js"></script>
+<script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="~/js/site.js"></script>
 
-    @RenderSection("Scripts", required: false)
+@RenderSection("Scripts", required: false)
 </body>
 </html>
 ```
 
-### <a name="update-the-votingwebcs-file"></a>Aktualizovat soubor VotingWeb.cs
-Otevřete *VotingWeb.cs* souboru, který vytvoří webového hostitele jádro ASP.NET uvnitř bezstavové služby pomocí WebListener webový server.  
+### <a name="update-the-votingwebcs-file"></a>Aktualizace souboru VotingWeb.cs
+Otevřete soubor *VotingWeb.cs*, který v rámci bezstavové služby vytváří webového hostitele ASP.NET Core s využitím webového serveru WebListener.  
 
-Přidat `using System.Net.Http;` direktivy do horní části souboru.  
+Na začátek souboru přidejte direktivu `using System.Net.Http;`.  
 
-Nahraďte `CreateServiceInstanceListeners()` fungovat s následující a potom uložte změny.
+Funkci `CreateServiceInstanceListeners()` nahraďte následujícím kódem a pak uložte provedené změny.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     return new ServiceInstanceListener[]
     {
-        new ServiceInstanceListener(serviceContext =>
-            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
-            {
-                ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting WebListener on {url}");
+        new ServiceInstanceListener(
+            serviceContext =>
+                new KestrelCommunicationListener(
+                    serviceContext,
+                    "ServiceEndpoint",
+                    (url, listener) =>
+                    {
+                        ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
 
-                return new WebHostBuilder().UseWebListener()
+                        return new WebHostBuilder()
+                            .UseKestrel()
                             .ConfigureServices(
                                 services => services
-                                    .AddSingleton<StatelessServiceContext>(serviceContext)
-                                    .AddSingleton<HttpClient>())
+                                    .AddSingleton<HttpClient>(new HttpClient())
+                                    .AddSingleton<FabricClient>(new FabricClient())
+                                    .AddSingleton<StatelessServiceContext>(serviceContext))
                             .UseContentRoot(Directory.GetCurrentDirectory())
                             .UseStartup<Startup>()
-                            .UseApplicationInsights()
                             .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                             .UseUrls(url)
                             .Build();
-            }))
+                    }))
     };
 }
 ```
 
-### <a name="add-the-votescontrollercs-file"></a>Přidejte soubor VotesController.cs
-Přidáte řadič, který definuje hlasujících akce. Klikněte pravým tlačítkem na **řadiče** složku, pak vyberte **Přidat -> Nový položky -> třída**.  Název souboru "VotesController.cs" a klikněte na tlačítko **přidat**.  
-
-Nahraďte obsah souboru následující příkaz, potom uložte změny.  Dále v [aktualizovat soubor VotesController.cs](#updatevotecontroller_anchor), tento soubor se změní pro čtení a zápis hlasujících data z back endové službě.  Prozatím se vrátí řadičem statický řetězec data k zobrazení.
+Přidejte také metodu `GetVotingDataServiceName`, která na dotaz vrací název služby:
 
 ```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Text;
-using System.Net.Http;
-using System.Net.Http.Headers;
+internal static Uri GetVotingDataServiceName(ServiceContext context)
+{
+    return new Uri($"{context.CodePackageActivationContext.ApplicationName}/VotingData");
+}
+```
 
+### <a name="add-the-votescontrollercs-file"></a>Přidání souboru VotesController.cs
+Přidejte kontroler definující akce hlasování. Klikněte pravým tlačítkem na složku **Controllers** (Kontrolery) a pak vyberte **Přidat -> Nová položka -> Třída**.  Pojmenujte soubor VotesController.cs a klikněte na **Přidat**.  
+
+Nahraďte obsah souboru následujícím kódem a pak uložte provedené změny.  V pozdější části [Aktualizace souboru VotesController.cs](#updatevotecontroller_anchor) se tento soubor upraví tak, aby načítal a zapisoval data hlasování z back-end služby.  Prozatím kontroler vrací do zobrazení statická řetězcová data.
+
+```csharp
 namespace VotingWeb.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Fabric;
+    using System.Fabric.Query;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+
     [Produces("application/json")]
     [Route("api/Votes")]
     public class VotesController : Controller
@@ -302,8 +318,8 @@ namespace VotingWeb.Controllers
 }
 ```
 
-### <a name="configure-the-listening-port"></a>Nakonfigurujte port pro naslouchání
-Při vytváření front-endová služba VotingWeb Visual Studio náhodně vybere port pro službu pro naslouchání.  Služba VotingWeb funguje jako front-end pro tuto aplikaci a přijímá externích přenosů, můžeme vytvořit vazbu pevná, služby a také znát port. V Průzkumníku řešení otevřete *VotingWeb/PackageRoot/ServiceManifest.xml*.  Najít **koncový bod** prostředku v **prostředky** části a změňte **Port** hodnotu na 80, nebo na jiný port. K nasazení a spuštění aplikace místně, musí být aplikace naslouchající port otevřené a dostupné ve vašem počítači.
+### <a name="configure-the-listening-port"></a>Konfigurace portu pro naslouchání
+Po vytvoření front-end služby VotingWeb sada Visual Studio náhodně vybere port, na kterém bude služba naslouchat.  Služba VotingWeb se chová jako front-end této aplikace a přijímá externí provoz, takže tuto službu svážeme s pevným a dobře známým portem.  [Manifest služby](service-fabric-application-and-service-manifests.md) deklaruje koncové body služby. V Průzkumníku řešení otevřete soubor *VotingWeb/PackageRoot/ServiceManifest.xml*.  V části **Resources** (Prostředky) vyhledejte prostředek **Endpoint** (Koncový bod) a změňte hodnotu **Port** na 80 nebo jiný port. Pokud chcete aplikaci nasadit a spustit místně, port pro naslouchání aplikace musí být otevřený a dostupný na vašem počítači.
 
 ```xml
 <Resources>
@@ -316,63 +332,59 @@ Při vytváření front-endová služba VotingWeb Visual Studio náhodně vybere
   </Resources>
 ```
 
-Také aktualizujte hodnotu vlastnosti Adresa URL aplikace v projektu Voting, otevře se webový prohlížeč na správný port při ladění pomocí 'F5'.  V Průzkumníku řešení, vyberte **Voting** projekt a aktualizace **adresa URL aplikace** vlastnost.
+Aktualizujte také hodnotu vlastnosti Adresa URL aplikace v projektu Voting, aby se webový prohlížeč při ladění pomocí F5 otevřel na správném portu.  V Průzkumníku řešení vyberte projekt **Voting** a aktualizujte vlastnost **Adresa URL aplikace**.
 
 ![Adresa URL aplikace](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
-### <a name="deploy-and-run-the-application-locally"></a>Nasazení a spuštění aplikace místně
-Teď můžete pokračovat a spusťte aplikaci. Stisknutím klávesy `F5` v sadě Visual Studio aplikaci nasaďte pro účely ladění. `F5`selže, pokud nebyla dříve otevřete Visual Studio jako **správce**.
+### <a name="deploy-and-run-the-application-locally"></a>Místní nasazení a spuštění aplikace
+Teď můžete aplikaci spustit. Stisknutím klávesy `F5` v sadě Visual Studio aplikaci nasaďte pro účely ladění. `F5` selže, pokud jste předtím sadu Visual Studio neotevřeli jako **správce**.
 
 > [!NOTE]
-> Při prvním místním spuštění a nasazení aplikace sada Visual Studio vytvoří místní cluster pro účely ladění.  Vytvoření clusteru může trvat delší dobu. Stav vytváření clusteru se zobrazí v okně výstupu sady Visual Studio.
+> Při prvním místním spuštění a nasazení aplikace sada Visual Studio vytvoří místní cluster pro účely ladění.  Vytvoření clusteru může nějakou dobu trvat. Stav vytváření clusteru se zobrazí v okně výstupu sady Visual Studio.
 
-Webové aplikace v tomto okamžiku by měl vypadat přibližně takto:
+V tuto chvíli by vaše webová aplikace měla vypadat přibližně takto:
 
-![ASP.NET Core front-endu](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
+![Front-end ASP.NET Core](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
-Aby se ukončilo ladění aplikace, přejděte zpět do sady Visual Studio a stiskněte klávesu **Shift + F5**.
+Pokud chcete zastavit ladění aplikace, vraťte se do sady Visual Studio a stiskněte **Shift+F5**.
 
-## <a name="add-a-stateful-back-end-service-to-your-application"></a>Přidání stavová služba back endu do aplikace
-Teď, když máme rozhraní ASP.NET Web API služby spuštěné v naší aplikaci, přejdeme dopředu a přidejte stavové spolehlivé služby k uložení některá data v naší aplikaci.
+## <a name="add-a-stateful-back-end-service-to-your-application"></a>Přidání stavové back-end služby do aplikace
+Když je teď v aplikaci spuštěná služba webového rozhraní API pro ASP.NET, přidejte spolehlivou stavovou službu, která v aplikaci bude ukládat nějaká data.
 
-Service Fabric můžete konzistentně a spolehlivě ukládat vaše právo data uvnitř vaší služby pomocí spolehlivé kolekce. Spolehlivé kolekce jsou sadu třídy vysoce dostupné a spolehlivého kolekce, které jsou pro každý, kdo má používá kolekce C#.
+Service Fabric umožňuje konzistentně a spolehlivě ukládat data přímo v rámci služby s použitím spolehlivých kolekcí. Spolehlivé kolekce jsou sady vysoce dostupných a spolehlivých tříd kolekcí, které budou znát všichni, kteří už někdy používali kolekce jazyka C#.
 
-V tomto kurzu vytvoříte službu, která ukládá hodnotu čítače v kolekci spolehlivé.
+V tomto kurzu vytvoříte službu, která do spolehlivé kolekce ukládá hodnotu čítače.
 
-1. V Průzkumníku řešení klikněte pravým tlačítkem na **služby** v aplikaci projektu a zvolte **Přidat > Nový Service Fabric Service**.
-   
-    ![Přidání nové služby do existující aplikace](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
-
-2. V **nové služby Fabric** dialogovém okně, vyberte **Stateful ASP.NET Core**a název služby **VotingData** a stiskněte klávesu **OK**.
+1. V Průzkumníku řešení klikněte pravým tlačítkem na **Služby** v rámci projektu aplikace a zvolte **Přidat -> Nová služba Service Fabric**.
+    
+2. V dialogovém okně **Nová služba Service Fabric** zvolte **Stavová služba ASP.NET Core**, pojmenujte službu **VotingData** a stiskněte **OK**.
 
     ![Dialogové okno Nová služba ve Visual Studiu](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
-    Po vytvoření svůj projekt služby, máte dvě služby ve vaší aplikaci. Při dalším sestavit aplikaci, můžete přidat další služby stejným způsobem. Každý může být nezávisle verzí a upgradovaný.
+    Po vytvoření projektu služby budete mít ve své aplikaci dvě služby. V průběhu vytváření aplikace můžete stejným způsobem přidávat další služby. Každou z nich je možné nezávisle označovat verzí a upgradovat.
 
-3. Další stránka obsahuje sadu ASP.NET Core šablony projektů. V tomto kurzu zvolte **webového rozhraní API**.
+3. Na další stránce se zobrazí sada šablon projektů ASP.NET Core. Pro účely tohoto kurzu zvolte **Webové rozhraní API**.
 
-    ![Zvolte typ projektu ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
+    ![Volba typu projektu ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
-    Visual Studio vytvoří projekt služby a zobrazí je v Průzkumníku řešení.
+    Sada Visual Studio vytvoří projekt služby a zobrazí ho v Průzkumníku řešení.
 
     ![Průzkumník řešení](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
-### <a name="add-the-votedatacontrollercs-file"></a>Přidejte soubor VoteDataController.cs
+### <a name="add-the-votedatacontrollercs-file"></a>Přidání souboru VoteDataController.cs
 
-V **VotingData** projektu klikněte pravým tlačítkem na **řadiče** složku, pak vyberte **Přidat -> Nový položky -> – třída**. Název souboru "VoteDataController.cs" a klikněte na tlačítko **přidat**. Nahraďte obsah souboru následující příkaz, potom uložte změny.
+V projektu **VotingData** klikněte pravým tlačítkem na složku **Controllers** (Kontrolery) a pak vyberte **Přidat -> Nová položka -> Třída**. Pojmenujte soubor VoteDataController.cs a klikněte na **Přidat**. Nahraďte obsah souboru následujícím kódem a pak uložte provedené změny.
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.ServiceFabric.Data;
-using System.Threading;
-using Microsoft.ServiceFabric.Data.Collections;
-
 namespace VotingData.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.ServiceFabric.Data;
+    using Microsoft.ServiceFabric.Data.Collections;
+
     [Route("api/[controller]")]
     public class VoteDataController : Controller
     {
@@ -387,24 +399,24 @@ namespace VotingData.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var ct = new CancellationToken();
+            CancellationToken ct = new CancellationToken();
 
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                var list = await votesDictionary.CreateEnumerableAsync(tx);
+                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                var enumerator = list.GetAsyncEnumerator();
+                Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
-                var result = new List<KeyValuePair<string, int>>();
+                List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 
                 while (await enumerator.MoveNextAsync(ct))
                 {
                     result.Add(enumerator.Current);
                 }
 
-                return Json(result);
+                return this.Json(result);
             }
         }
 
@@ -412,7 +424,7 @@ namespace VotingData.Controllers
         [HttpPut("{name}")]
         public async Task<IActionResult> Put(string name)
         {
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
@@ -427,7 +439,7 @@ namespace VotingData.Controllers
         [HttpDelete("{name}")]
         public async Task<IActionResult> Delete(string name)
         {
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
@@ -448,139 +460,183 @@ namespace VotingData.Controllers
 ```
 
 
-## <a name="connect-the-services"></a>Připojení služby
-V tomto kroku další jsme připojení dvě služby a zkontrolujte front-end webové aplikace, získání a nastavení, hlasování informace z back endové službě.
+## <a name="connect-the-services"></a>Propojení služeb
+V tomto kroku propojíte tyto dvě služby a nastavíte front-end webovou aplikaci tak, aby získávala a nastavovala informace o hlasování z back-end služby.
 
-Service Fabric nabízí flexibilitu v tom, jak komunikovat se službami reliable services. V rámci jedné aplikace můžete mít služby, které jsou přístupné přes TCP. Dalším službám, které může být přístupné přes rozhraní HTTP REST API a stále dalších služeb může být přístupné přes webové sokety. Pro informace o dostupných možnostech a kompromisy související se situací, viz [komunikaci se službou](service-fabric-connect-and-communicate-with-services.md).
+Service Fabric nabízí naprostou flexibilitu způsobu, jakým komunikujete se spolehlivými službami. V rámci jedné aplikace můžete mít služby přístupné přes protokol TCP. Další služby můžou být přístupné přes rozhraní HTTP REST API a ještě další služby můžou být přístupné přes webové sokety. Další informace o dostupných možnostech a souvisejících kompromisech najdete v tématu [Komunikace se službami](service-fabric-connect-and-communicate-with-services.md).
 
-V tomto kurzu používáme [webového rozhraní API ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
+V tomto kurzu použijete [Webové rozhraní API pro ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
-### <a name="update-the-votescontrollercs-file"></a>Aktualizovat soubor VotesController.cs
-V **VotingWeb** projekt, otevřete *Controllers/VotesController.cs* souboru.  Nahraďte `VotesController` třídy definice obsah následujícím kódem a pak změny uložte.
+### <a name="update-the-votescontrollercs-file"></a>Aktualizace souboru VotesController.cs
+V projektu **VotingWeb** otevřete soubor *Controllers/VotesController.cs*.  Nahraďte obsah definice třídy `VotesController` následujícím kódem a pak uložte provedené změny.
 
 ```csharp
-    public class VotesController : Controller
+public class VotesController : Controller
+{
+    private readonly HttpClient httpClient;
+    private readonly FabricClient fabricClient;
+    private readonly StatelessServiceContext serviceContext;
+
+    public VotesController(HttpClient httpClient, StatelessServiceContext context, FabricClient fabricClient)
     {
-        private readonly HttpClient httpClient;
-        string serviceProxyUrl = "http://localhost:19081/Voting/VotingData/api/VoteData";
-        string partitionKind = "Int64Range";
-        string partitionKey = "0";
+        this.fabricClient = fabricClient;
+        this.httpClient = httpClient;
+        this.serviceContext = context;
+    }
 
-        public VotesController(HttpClient httpClient)
+    // GET: api/Votes
+    [HttpGet("")]
+    public async Task<IActionResult> Get()
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+
+        ServicePartitionList partitions = await this.fabricClient.QueryManager.GetPartitionListAsync(serviceName);
+
+        List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
+
+        foreach (Partition partition in partitions)
         {
-            this.httpClient = httpClient;
-        }
+            string proxyUrl =
+                $"{proxyAddress}/api/VoteData?PartitionKey={((Int64RangePartitionInformation) partition.PartitionInformation).LowKey}&PartitionKind=Int64Range";
 
-        // GET: api/Votes
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            IEnumerable<KeyValuePair<string, int>> votes;
-
-            HttpResponseMessage response = await this.httpClient.GetAsync($"{serviceProxyUrl}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
-
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            using (HttpResponseMessage response = await this.httpClient.GetAsync(proxyUrl))
             {
-                return this.StatusCode((int)response.StatusCode);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    continue;
+                }
+
+                result.AddRange(JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync()));
             }
-
-            votes = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync());
-
-            return Json(votes);
         }
 
-        // PUT: api/Votes/name
-        [HttpPut("{name}")]
-        public async Task<IActionResult> Put(string name)
+        return this.Json(result);
+    }
+
+    // PUT: api/Votes/name
+    [HttpPut("{name}")]
+    public async Task<IActionResult> Put(string name)
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+        long partitionKey = this.GetPartitionKey(name);
+        string proxyUrl = $"{proxyAddress}/api/VoteData/{name}?PartitionKey={partitionKey}&PartitionKind=Int64Range";
+
+        StringContent putContent = new StringContent($"{{ 'name' : '{name}' }}", Encoding.UTF8, "application/json");
+        putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+        using (HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent))
         {
-            string payload = $"{{ 'name' : '{name}' }}";
-            StringContent putContent = new StringContent(payload, Encoding.UTF8, "application/json");
-            putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            string proxyUrl = $"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}";
-
-            HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent);
-
             return new ContentResult()
             {
-                StatusCode = (int)response.StatusCode,
+                StatusCode = (int) response.StatusCode,
                 Content = await response.Content.ReadAsStringAsync()
             };
         }
+    }
 
-        // DELETE: api/Votes/name
-        [HttpDelete("{name}")]
-        public async Task<IActionResult> Delete(string name)
+    // DELETE: api/Votes/name
+    [HttpDelete("{name}")]
+    public async Task<IActionResult> Delete(string name)
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+        long partitionKey = this.GetPartitionKey(name);
+        string proxyUrl = $"{proxyAddress}/api/VoteData/{name}?PartitionKey={partitionKey}&PartitionKind=Int64Range";
+
+        using (HttpResponseMessage response = await this.httpClient.DeleteAsync(proxyUrl))
         {
-            HttpResponseMessage response = await this.httpClient.DeleteAsync($"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
-
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                return this.StatusCode((int)response.StatusCode);
+                return this.StatusCode((int) response.StatusCode);
             }
-
-            return new OkResult();
-
         }
+
+        return new OkResult();
     }
+
+
+    /// <summary>
+    /// Constructs a reverse proxy URL for a given service.
+    /// Example: http://localhost:19081/VotingApplication/VotingData/
+    /// </summary>
+    /// <param name="serviceName"></param>
+    /// <returns></returns>
+    private Uri GetProxyAddress(Uri serviceName)
+    {
+        return new Uri($"http://localhost:19081{serviceName.AbsolutePath}");
+    }
+
+    /// <summary>
+    /// Creates a partition key from the given name.
+    /// Uses the zero-based numeric position in the alphabet of the first letter of the name (0-25).
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    private long GetPartitionKey(string name)
+    {
+        return Char.ToUpper(name.First()) - 'A';
+    }
+}
 ```
 <a id="walkthrough" name="walkthrough_anchor"></a>
 
-## <a name="walk-through-the-voting-sample-application"></a>Provede hlasujících ukázkové aplikace
-Hlasovací aplikaci se skládá ze dvou služeb:
-- Webová služba front-endu (VotingWeb) – ASP.NET Core webových front-endové služby, která obsluhuje webové stránky a zpřístupňuje rozhraní API pro komunikaci s back-end službu.
-- Služba back endu (VotingData)-ASP.NET Core webová služba, která zpřístupňuje rozhraní API můžete ukládat výsledky hlas ve slovníku spolehlivé trvalé na disku.
+## <a name="walk-through-the-voting-sample-application"></a>Prohlídka ukázkové hlasovací aplikace
+Hlasovací aplikace se skládá ze dvou služeb:
+- Webová front-end služba (VotingWeb) – Webová front-end služba v ASP.NET, která obsluhuje webovou stránku a zveřejňuje webová rozhraní API pro komunikaci s back-end službou.
+- Back-end služba (VotingData) – Webová služba v ASP.NET Core, která zveřejňuje rozhraní API pro ukládání výsledků hlasování do spolehlivého slovníku trvale uloženého na disku.
 
 ![Diagram aplikace](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Když hlasovat v aplikaci dojít k následujícím událostem:
-1. JavaScript odešle žádost hlas webovému rozhraní API ve front-endové webové službě jako požadavek HTTP PUT.
+Při hlasování v aplikaci dojde k následujícím událostem:
+1. JavaScript odešle požadavek s hlasem do webového rozhraní API ve webové front-end službě jako požadavek HTTP PUT.
 
-2. Webovou službu front-endu používá proxy server pro vyhledání a předávat požadavek HTTP PUT ve službě back-end.
+2. Webová front-end služba pomocí proxy vyhledá požadavek HTTP PUT a přesměruje ho do back-end služby.
 
-3. Back endové službě přijímá příchozí požadavky a ukládá aktualizované výsledek v spolehlivé slovník, který získá replikují do několika uzly v clusteru a trvalé na disku. Všechny aplikační data se ukládají v clusteru, takže se žádná databáze.
+3. Back-end služba přijme příchozí požadavek a uloží aktualizované výsledky do spolehlivého slovníku, který se replikuje do několika uzlů v rámci clusteru a trvale se uloží na disku. Veškerá data aplikace se ukládají v clusteru, takže není potřeba žádná databáze.
 
 ## <a name="debug-in-visual-studio"></a>Ladění v sadě Visual Studio
-Při ladění aplikace v sadě Visual Studio, kterou používáte místní cluster Service Fabric vývoj. Máte možnost upravit prostředí ladění pro váš scénář. V této aplikaci uložíme data v naší službě back-end pomocí slovník spolehlivé. Visual Studio odebere aplikaci za výchozí při zastavení ladicího programu. Odebrání aplikace způsobí, že data ve službě back-end taky odeberou. Chcete-li zachovat data mezi relace ladění, můžete změnit **režim ladění aplikací** jako vlastnost na **Voting** projektu v sadě Visual Studio.
+Při ladění aplikace v sadě Visual Studio používáte místní vývojový cluster Service Fabric. Možnosti ladění si můžete upravit tak, aby vyhovovaly vašemu scénáři. V této aplikaci budete data ukládat v back-end službě s použitím spolehlivého slovníku. Sada Visual Studio ve výchozím nastavení odebere aplikaci při zastavení ladicího programu. Odebrání aplikace způsobí i odebrání dat v back-end službě. Pokud chcete zachovat data mezi ladicími relacemi, můžete změnit **Režim ladění aplikace** ve vlastnosti projektu **Voting** v sadě Visual Studio.
 
-Podívat se na co se stane, že v kódu, proveďte následující kroky:
-1. Otevřete **VotesController.cs** souboru a nastavit zarážky ve webové rozhraní API **Put** – metoda (řádku 47) – můžete vyhledat soubor v Průzkumníku řešení v sadě Visual Studio.
+Pokud se chcete podívat, co se děje v kódu, proveďte následující kroky:
+1. Otevřete soubor **VotesController.cs** a nastavte zarážku v metodě **Put** webového rozhraní API (řádek 63) – Soubor můžete vyhledat v Průzkumníku řešení v sadě Visual Studio.
 
-2. Otevřete **VoteDataController.cs** souboru a nastavit zarážky v tomto rozhraní web API **Put** – metoda (řádku 50).
+2. Otevřete soubor **VoteDataController.cs** a nastavte zarážku v metodě **Put** tohoto webového rozhraní API (řádek 53).
 
-3. Přejděte zpět do prohlížeče a klikněte na hlasování možnost nebo přidat novou možnost hlasování. Kliknutí na první zarážky do kontroleru webového přední konci na rozhraní api.
+3. Vraťte se do prohlížeče a klikněte na některou možnost hlasování nebo přidejte novou. Dostanete se k první zarážce v kontroleru rozhraní API webového front-endu.
     
-    1. Toto je, kde JavaScript v prohlížeči odešle požadavek na kontroler API web ve službě front-endu.
+    1. Tady JavaScript v prohlížeči odesílá požadavek do kontroleru webového rozhraní API ve front-end službě.
     
-    ![Přidejte Front-End služby hlas](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+    ![Front-end služba pro přidání hlasu](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Nejprve jsme vytvořit adresu URL ReverseProxy pro naši službu back-end **(1)**.
-    3. Potom jsme poslat PUT požadavek HTTP ReverseProxy **(2)**.
-    4. Nakonec vrátíme odpověď z back-end službu do klienta **(3)**.
+    2. Nejprve se vytvoří adresa URL k ReverseProxy pro back-end službu **(1)**.
+    3. Pak se do ReverseProxy odešle požadavek HTTP PUT **(2)**.
+    4. Nakonec se do klienta vrátí odpověď z back-end služby **(3)**.
 
-4. Stiskněte klávesu **F5** pokračovat
-    1. Nyní jste na zarážce ve službě back-end.
+4. Pokračujte stisknutím **F5**.
+    1. Nyní jste se dostali k zarážce v back-end službě.
     
-    ![Přidat hlas Back-End službu](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+    ![Back-end služba pro přidání hlasu](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. Na prvním řádku v metodě **(1)** používáme `StateManager` nebo přidat spolehlivé slovník nazývaný `counts`.
-    3. Všechny interakce s hodnotami ve slovníku spolehlivé vyžadují transakci, této konfigurace pomocí příkazu **(2)** vytvoří této transakce.
-    4. V transakci, jsme potom aktualizujte hodnotu relevantní klíče pro možnost hlasování a provede operaci **(3)**. Po potvrzení metoda vrátí, data aktualizovat ve slovníku a replikovat do jiných uzlů v clusteru. Data jsou teď bezpečně uložená v clusteru, a může převzít back-end službu do dalších uzlů, i nadále s dostupná data.
-5. Stiskněte klávesu **F5** pokračovat
+    2. Na prvním řádku v metodě **(1)** se pomocí `StateManager` načte nebo přidá spolehlivý slovník `counts`.
+    3. Všechny interakce s hodnotami ve spolehlivém slovníku vyžadují transakci. Tuto transakci vytvoří tento příkaz using **(2)**.
+    4. V transakci se pro možnost hlasování aktualizuje hodnota příslušného klíče a potvrdí se operace **(3)**. Jakmile se vrátí metoda potvrzení, data ve slovníku se aktualizují a replikují do dalších uzlů v clusteru. Data jsou teď bezpečně uložená v clusteru a v případě selhání back-end služby ji můžou převzít ostatní uzly, aby data byla i nadále dostupná.
+5. Pokračujte stisknutím **F5**.
 
-Chcete-li ukončit relaci ladění, stiskněte **Shift + F5**.
+Pokud chcete zastavit ladicí relaci, stiskněte **Shift + F5**.
 
 
 ## <a name="next-steps"></a>Další kroky
-V této části kurzu jste se dozvěděli, jak:
+V této části kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Vytvoření služby webového rozhraní API ASP.NET Core jako stavové spolehlivé služby
-> * Vytvoření služby webové aplikace ASP.NET Core jako bezstavové webové služby
-> * Použít reverzní proxy server ke komunikaci s stavové služby
+> * Vytvořit službu webového rozhraní API pro ASP.NET Core jako spolehlivou stavovou službu
+> * Vytvořit službu webové aplikace ASP.NET Core jako bezstavovou webovou službu
+> * Použít reverzní proxy ke komunikaci se stavovou službou
 
-Přechodu na další kurz:
+Přejděte k dalšímu kurzu:
 > [!div class="nextstepaction"]
-> [Nasaďte aplikaci do Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [Nasazení aplikace do Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)

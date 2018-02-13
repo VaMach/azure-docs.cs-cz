@@ -11,14 +11,14 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: 667efced715b904234bd2b941453ed27e9ef1c42
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
 
@@ -185,7 +185,7 @@ V této části vytvoříte stránky, které vaše aplikace zobrazí.
 6. Objeví se dialogové okno pro vytvoření zobrazení. V seznamu **Šablona** vyberte **Vytvořit**. V seznamu **Třída modelu** vyberte třídu **OnlineOrder**.
    
    ![][15]
-7. Klikněte na tlačítko **Přidat**.
+7. Klikněte na tlačítko **Add** (Přidat).
 8. Teď změňte zobrazený název vaší aplikace. V **Průzkumníku řešení** poklikejte na soubor **Views\Shared\\_Layout.cshtml** a otevře se v editoru Visual Studio.
 9. Všechny výskyty **My ASP.NET Application** změňte na **Northwind Traders Products**.
 10. Odstraňte odkazy **Home**, **About** a **Contact**. Odstraňte zvýrazněný uzel:
@@ -358,7 +358,7 @@ Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objedná
     
     ![][20]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následující zdroje:  
 
 * [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)

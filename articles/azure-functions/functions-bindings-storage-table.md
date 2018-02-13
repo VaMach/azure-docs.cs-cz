@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table úložiště vazby pro Azure Functions
 
@@ -64,7 +64,7 @@ public class TableStorage
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
         TraceWriter log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
@@ -350,11 +350,11 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | musí být nastavena na `table`. Tato vlastnost nastavena automaticky při vytvoření vazby na portálu Azure.|
 |**směr** | neuvedeno | musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytvoření vazby na portálu Azure. |
-|**Jméno** | neuvedeno | Název proměnné, která představuje tabulky nebo entity v kód funkce. | 
-|**Název tabulky** | **Název tabulky** | Název tabulky.| 
-|**klíč oddílu** | **Klíč oddílu** |Volitelné. Klíč oddílu tabulka entity ke čtení. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
+|**name** | neuvedeno | Název proměnné, která představuje tabulky nebo entity v kód funkce. | 
+|**tableName** | **TableName** | Název tabulky.| 
+|**partitionKey** | **Klíč oddílu** |Volitelné. Klíč oddílu tabulka entity ke čtení. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
 |**rowKey** |**RowKey** | Volitelné. Klíč řádku entity tabulky ke čtení. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
-|**proveďte** |**Proveďte** | Volitelné. Maximální počet entit ke čtení v jazyce JavaScript. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
+|**proveďte** |**Take** | Volitelné. Maximální počet entit ke čtení v jazyce JavaScript. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
 |**Filtr** |**Filtr** | Volitelné. Výraz filtru OData pro tabulku, vstupní v jazyce JavaScript. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
 |**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
 
@@ -609,9 +609,9 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | musí být nastavena na `table`. Tato vlastnost nastavena automaticky při vytvoření vazby na portálu Azure.|
 |**směr** | neuvedeno | musí být nastavena na `out`. Tato vlastnost nastavena automaticky při vytvoření vazby na portálu Azure. |
-|**Jméno** | neuvedeno | Název proměnné používá v kódu funkce, který představuje tabulky nebo entity. Nastavte na `$return` Chcete-li funkce návratovou hodnotu.| 
-|**Název tabulky** |**Název tabulky** | Název tabulky.| 
-|**klíč oddílu** |**Klíč oddílu** | Klíč oddílu tabulka entity k zápisu. Najdete v článku [oddíl využití](#output---usage) pokyny o tom, jak tuto vlastnost použít.| 
+|**name** | neuvedeno | Název proměnné používá v kódu funkce, který představuje tabulky nebo entity. Nastavte na `$return` Chcete-li funkce návratovou hodnotu.| 
+|**tableName** |**TableName** | Název tabulky.| 
+|**partitionKey** |**Klíč oddílu** | Klíč oddílu tabulka entity k zápisu. Najdete v článku [oddíl využití](#output---usage) pokyny o tom, jak tuto vlastnost použít.| 
 |**rowKey** |**RowKey** | Klíč řádku entity tabulky pro zápis. Najdete v článku [oddíl využití](#output---usage) pokyny o tom, jak tuto vlastnost použít.| 
 |**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
 
@@ -634,6 +634,14 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 * **Zapisovat jeden nebo více řádků v jazyce JavaScript**
 
   V funkce jazyka JavaScript, přístup k tabulce výstup pomocí `context.bindings.<name>`.
+
+## <a name="exceptions-and-return-codes"></a>Výjimky a návratové kódy
+
+| Vazba | Referenční informace |
+|---|---|
+| Table | [Kódy chyb tabulky](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Objekt BLOB, tabulky, fronty | [Kódy chyb úložiště](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Objekt BLOB, tabulky, fronty | [Řešení potíží](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Další postup
 

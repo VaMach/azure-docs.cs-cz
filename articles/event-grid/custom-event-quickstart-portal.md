@@ -3,23 +3,23 @@ title: "Vlastní události pro Azure Event Grid pomocí webu Azure Portal | Doku
 description: "Pomocí Azure Event Gridu a PowerShellu můžete publikovat téma a přihlásit se k odběru příslušné události."
 services: event-grid
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 0fe498b7b6dcf59bc5caef8ff5a40053e0498f85
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Vytvoření a směrování vlastních událostí pomocí webu Azure Portal a Event Gridu
 
-Azure Event Grid je služba zpracování událostí pro cloud. V tomto článku pomocí webu Azure Portal vytvoříte vlastní téma, přihlásíte se k jeho odběru a aktivujete událost, abyste viděli výsledek. Obvykle odesíláte události do koncového bodu, který na událost reaguje například webhookem nebo funkcí Azure Functions. Pro zjednodušení tohoto článku však budete události odesílat na adresu URL, která jenom shromažďuje zprávy. Tuto adresu URL vytvoříte pomocí open source nástroje třetí strany [RequestBin](https://requestb.in/).
+Azure Event Grid je služba zpracování událostí pro cloud. V tomto článku pomocí webu Azure Portal vytvoříte vlastní téma, přihlásíte se k jeho odběru a aktivujete událost, abyste viděli výsledek. Obvykle odesíláte události do koncového bodu, který na událost reaguje například webhookem nebo funkcí Azure Functions. Pro zjednodušení tohoto článku však budete události odesílat na adresu URL, která jenom shromažďuje zprávy. Tuto adresu URL vytvoříte pomocí nástrojů třetích [RequestBin](https://requestb.in/) nebo [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** je open source nástroj, který není určený pro použití vyžadující vysokou propustnost. Zde uvedené použití tohoto nástroje je čistě demonstrativní. Pokud najednou nabídnete více než jednu událost, možná se v nástroji nezobrazí všechny.
+>**RequestBin** a **Hookbin** nejsou určené pro použití s vysokou propustností. Použití těchto nástrojů je čistě demonstrativní. Pokud najednou nabídnete více než jednu událost, možná se v nástroji nezobrazí všechny.
 
 Až budete hotovi, uvidíte, že se data událostí odeslala do koncového bodu.
 
@@ -51,7 +51,7 @@ Téma poskytuje uživatelsky definovaný koncový bod, do kterého odesíláte u
 
    ![Přidání tématu Event Gridu](./media/custom-event-quickstart-portal/add-topic.png)
 
-1. Zadejte název tématu. Název tématu musí být jedinečný, protože je reprezentován položkou DNS. Ve verzi Preview podporuje služba Event Grid umístění **westus2** a **westcentralus**. Vyberte skupinu prostředků, kterou jste vytvořili dříve. Vyberte **Vytvořit**.
+1. Zadejte název tématu. Název tématu musí být jedinečný, protože je reprezentován položkou DNS. Vyberte jednu z [podporovaných oblastí](overview.md). Vyberte skupinu prostředků, kterou jste vytvořili dříve. Vyberte **Vytvořit**.
 
    ![Zadání hodnot pro téma Event Gridu](./media/custom-event-quickstart-portal/provide-topic-values.png)
 
@@ -61,7 +61,7 @@ Téma poskytuje uživatelsky definovaný koncový bod, do kterého odesíláte u
 
 ## <a name="create-a-message-endpoint"></a>Vytvoření koncového bodu zpráv
 
-Před přihlášením k odběru tématu vytvoříme koncový bod pro zprávy události. Místo psaní kódu, který by na událost reagoval, vytvoříme koncový bod, který bude shromažďovat zprávy, abyste je mohli zobrazit. RequestBin je open source nástroj třetí strany, který umožňuje vytvořit koncový bod a zobrazit požadavky, které se do něj odesílají. Přejděte na web [RequestBin](https://requestb.in/) a klikněte na **Create a RequestBin** (Vytvořit přihrádku žádostí).  Zkopírujte adresu URL přihrádky, protože ji budete potřebovat při přihlašování k odběru tématu.
+Před přihlášením k odběru tématu vytvoříme koncový bod pro zprávy události. Místo psaní kódu, který by na událost reagoval, vytvoříme koncový bod, který bude shromažďovat zprávy, abyste je mohli zobrazit. RequestBin a Hookbin jsou nástroje třetích stran, které umožňují vytvořit koncový bod a zobrazit požadavky, které se do nich odesílají. Přejděte na nástroj [RequestBin](https://requestb.in/) a klikněte na **Create a RequestBin** (Vytvořit RequestBin) nebo přejděte na nástroj [Hookbin](https://hookbin.com/) a klikněte na **Create New Endpoint** (Vytvořit nový koncový bod).  Zkopírujte adresu URL přihrádky, protože ji budete potřebovat při přihlašování k odběru tématu.
 
 ## <a name="subscribe-to-a-topic"></a>Přihlášení k odběru tématu
 
@@ -75,7 +75,7 @@ K odběru tématu se přihlašujete, aby služba Event Grid věděla, které ud�
 
    ![Přidání odběru Event Gridu](./media/custom-event-quickstart-portal/add-subscription.png)
 
-1. Zadejte jedinečný název odběru události. Jako typ tématu vyberte **Témata Event Gridu**. Jako instanci vyberte vlastní téma, které jste vytvořili. Zadejte adresu URL z nástroje RequestBin jako koncový bod pro oznámení události. Až budete hotovi se zadáváním hodnot, vyberte **Vytvořit**.
+1. Zadejte jedinečný název odběru události. Jako typ tématu vyberte **Témata Event Gridu**. Jako instanci vyberte vlastní téma, které jste vytvořili. Zadejte adresu URL z nástroje RequestBin nebo Hookbin jako koncový bod pro oznámení události. Až budete hotovi se zadáváním hodnot, vyberte **Vytvořit**.
 
    ![Zadání hodnot pro odběr Event Gridu](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
@@ -106,7 +106,7 @@ CURL je nástroj, který provádí požadavky HTTP. V tomto článku používám
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Právě jste aktivovali událost a služba Event Grid odeslala zprávu do koncového bodu, který jste nakonfigurovali při přihlášení k odběru. Přejděte na adresu URL nástroje RequestBin, kterou jste vytvořili dříve. Nebo v prohlížeči klikněte na tlačítko pro obnovení otevřeného okna s webem RequestBin. Zobrazí se událost, kterou jste právě odeslali.
+Právě jste aktivovali událost a služba Event Grid odeslala zprávu do koncového bodu, který jste nakonfigurovali při přihlášení k odběru. Přejděte na adresu URL koncového bodu, kterou jste vytvořili dříve. Nebo v otevřeném prohlížeči klikněte na tlačítko pro obnovení. Zobrazí se událost, kterou jste právě odeslali.
 
 ```json
 [{
@@ -118,6 +118,8 @@ Právě jste aktivovali událost a služba Event Grid odeslala zprávu do koncov
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```

@@ -1,6 +1,6 @@
 ---
-title: "ACR pomocí clusteru služby Azure DC/OS"
-description: "Cluster DC/OS v Azure Container Service pomocí registru kontejneru služby Azure"
+title: "Použití služby ACR s clusterem Azure DC/OS"
+description: "Použití služby Azure Container Registry s clusterem DC/OS ve službě Azure Container Service"
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,39 +9,39 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Použití ACR s cluster DC/OS pro nasazení aplikace
+# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Použití služby ACR s clusterem DC/OS k nasazení aplikace
 
-V tomto článku jsme prozkoumejte použití registru kontejner Azure s cluster DC/OS. Pomocí ACR umožňuje soukromě ukládání a správě bitových kopií kontejneru. Tento kurz obsahuje následující úlohy:
+V tomto článku se podíváme na to, jak používat službu Azure Container Registry s clusterem DC/OS. ACR umožňuje privátní ukládání a správu imagí kontejneru. Tento kurz se zabývá následujícími úkony:
 
 > [!div class="checklist"]
-> * Nasazení registru kontejner Azure (v případě potřeby)
-> * Konfigurace ověřování ACR na cluster DC/OS
-> * Odeslat bitovou kopii do registru kontejner Azure
-> * Spusťte kontejner image z registru kontejner Azure
+> * Nasazení služby Azure Container Registry (v případě potřeby)
+> * Konfigurace ověřování služby ACR v clusteru DC/OS
+> * Odeslání image do služby Azure Container Registry
+> * Spuštění image kontejneru ze služby Azure Container Registry
 
-Je třeba cluster služby ACS DC/OS, pokud chcete provést kroky v tomto kurzu. V případě potřeby [tento ukázkový skript](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) můžete vytvořit za vás.
+K provedení kroků v tomto kurzu potřebujete cluster DC/OS ACS. V případě potřeby si ho můžete nechat vytvořit pomocí [tohoto ukázkového skriptu](./../kubernetes/scripts/container-service-cli-deploy-dcos.md).
 
 Tento kurz vyžaduje Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-azure-container-registry"></a>Nasadit kontejner Azure registru
+## <a name="deploy-azure-container-registry"></a>Nasazení služby Azure Container Registry
 
-V případě potřeby vytvořte registru kontejneru Azure s [vytvořit az acr](/cli/azure/acr#create) příkaz. 
+V případě potřeby vytvořte službu Azure Container Registry pomocí příkazu [az acr create](/cli/azure/acr#az_acr_create). 
 
-Následující příklad vytvoří registr s využitím náhodnému generování název. Registr je také nakonfigurovaný se k pomocí účtu správce `--admin-enabled` argument.
+Následující příklad vytvoří registr s náhodně vygenerovaným názvem. Registr má také prostřednictvím argumentu `--admin-enabled` nakonfigurovaný účet správce.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
-Po vytvoření registru rozhraní příkazového řádku Azure výstupy data podobný následujícímu. Poznamenejte si `name` a `loginServer`, ty se používají v dalších krocích.
+Po vytvoření registru rozhraní Azure CLI vytvoří výstup, který obsahuje zhruba následující data. Poznamenejte si položky `name` a `loginServer`, ty se totiž používají v dalších krocích.
 
 ```azurecli
 {
@@ -64,87 +64,87 @@ Po vytvoření registru rozhraní příkazového řádku Azure výstupy data pod
 }
 ```
 
-Získání kontejneru přihlašovacích údajů registru pomocí [az acr pověření zobrazit](/cli/azure/acr/credential) příkaz. Nahraďte `--name` se si poznamenali v předchozím kroku. Všimněte si jeden hesla, je potřeba v pozdější fázi.
+Pomocí příkazu [az acr credential show](/cli/azure/acr/credential) zjistěte přihlašovací údaje registru kontejneru. Položku `--name` nahraďte údajem, který jste si poznamenali v předchozím kroku. Poznamenejte si heslo, budete ho potřebovat v pozdějším kroku.
 
 ```azurecli-interactive
 az acr credential show --name myContainerRegistry23489
 ```
 
-Další informace o registru kontejner Azure najdete v tématu [Úvod do privátní registrech kontejner Docker](../../container-registry/container-registry-intro.md). 
+Další informace o službě Azure Container Registry najdete v článku [Úvod do privátních registrů kontejneru Dockeru](../../container-registry/container-registry-intro.md). 
 
-## <a name="manage-acr-authentication"></a>Spravovat ACR ověřování
+## <a name="manage-acr-authentication"></a>Správa ověřování služby ACR
 
-Konvenční způsob, jak nabízení a vyžadování image privátní registr, je nejprve ověřit pomocí registru. Chcete-li to provést, použijte `docker login` na libovolného klienta, který potřebuje přístup k privátním registru. Vzhledem k tomu, že cluster DC/OS může obsahovat mnoho uzlů, které potřebujete se ACR ověřit, je užitečné pro automatizaci tohoto procesu mezi všechny uzly. 
+Běžný způsob nabízené a vyžádané instalace image z privátního registru začíná ověřením v daném registru. V klientovi, který potřebuje získat přístup k privátnímu registru, byste k tomu použili příkaz `docker login`. Jelikož ale může cluster DC/OS obsahovat mnoho uzlů, z nichž všechny potřebují provést ověření ve službě ACR, je užitečné tento proces ve všech uzlech automatizovat. 
 
-### <a name="create-shared-storage"></a>Vytvoření sdílené úložiště
+### <a name="create-shared-storage"></a>Vytvoření sdíleného úložiště
 
-Tento proces používá sdílenou složku Azure, namontování na každém uzlu v clusteru. Pokud již jste nenastavili sdílené úložiště, najdete v části [nastavit sdílenou složku v clusteru DC/OS](container-service-dcos-fileshare.md).
+Tento proces využívá sdílenou složku Azure vytvořenou v každém uzlu clusteru. Pokud jste ještě sdílené úložiště nevytvořili, projděte si článek [Vytvoření sdílené složky v clusteru DC/OS](container-service-dcos-fileshare.md).
 
-### <a name="configure-acr-authentication"></a>Konfigurace ověřování ACR
+### <a name="configure-acr-authentication"></a>Konfigurace ověřování služby ACR
 
-Nejdřív získat plně kvalifikovaný název domény hlavního serveru DC/OS a uložte ho do proměnné.
+Nejdřív získejte plně kvalifikovaný název domény předlohy clusteru DC/OS a uložte ho jako proměnnou.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Vytvoření připojení SSH s hlavním serverem (nebo prvního hlavního serveru) ve vašem clusteru založenými na DC/OS. Aktualizujte uživatelské jméno, pokud při vytvoření clusteru se použila jiná než výchozí hodnotu.
+Vytvořte připojení SSH k této předloze (nebo první předloze) clusteru založeného na DC/OS. Pokud se při vytváření clusteru použila jiná než výchozí hodnota, aktualizujte uživatelské jméno.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Spusťte následující příkaz k přihlášení do registru kontejner Azure. Nahraďte `--username` s názvem kontejneru registru a `--password` s jedním z zadaná hesla. Nahraďte poslední argument *mycontainerregistry.azurecr.io* v příkladu s názvem loginServer registru kontejneru. 
+Přihlaste se do služby Azure Container Registry pomocí následujícího příkazu. Položku `--username` nahraďte názvem registru kontejneru a položku `--password` jedním ze zadaných hesel. Argument *mycontainerregistry.azurecr.io* v příkladu nahraďte názvem serveru loginServer registru kontejneru. 
 
-Tento příkaz uloží hodnoty ověřování místně v části `~/.docker` cesta.
+Tento příkaz uloží hodnoty ověřování do cesty `~/.docker`.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
 ```
 
-Vytvořte komprimovaný soubor, který obsahuje hodnoty registru ověřování kontejneru.
+Vytvořte komprimovaný soubor, který obsahuje hodnoty ověřování registru kontejneru.
 
 ```azurecli-interactive
 tar czf docker.tar.gz .docker
 ```
 
-Zkopírujte tento soubor do clusteru sdíleného úložiště. Tento krok umožňuje soubor k dispozici na všech uzlech clusteru DC/OS.
+Zkopírujte tento soubor do sdíleného úložiště v clusteru. Tímto krokem soubor zpřístupníte ve všech uzlech v clusteru DC/OS.
 
 ```azurecli-interactive
 cp docker.tar.gz /mnt/share/dcosshare
 ```
 
-## <a name="upload-image-to-acr"></a>Odeslat bitovou kopii na ACR
+## <a name="upload-image-to-acr"></a>Odeslání image do služby ACR
 
-Nyní z vývojovém počítači, nebo všechny ostatní systémy s Docker nainstalovaná, vytvoření bitové kopie a nahrajte ho do registru kontejner Azure.
+Teď na vývojářském počítači nebo v jakémkoli jiném systému s nainstalovaným Dockerem vytvořte image a odešlete ji do služby Azure Container Registry.
 
-Vytvořte kontejner z Ubuntu image.
+Vytvořte kontejner z image Ubuntu.
 
 ```azurecli-interactive
 docker run ubuntu --name base-image
 ```
 
-Nyní zachytit kontejneru do novou bitovou kopii. Musí obsahovat název bitové kopie `loginServer` název kontejneru registrywith a formát `loginServer/imageName`.
+Potom kontejner zachyťte do nové image. Název image musí obsahovat název `loginServer` registru kontejneru ve formátu `loginServer/imageName`.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ````
 
-Přihlaste se do registru kontejner Azure. Nahraďte název názvu loginServer – uživatelské jméno s názvem kontejneru registru a--heslo s jedním z zadaná hesla.
+Přihlášení do služby Azure Container Registry Nahraďte název názvem serveru loginServer, položku --username názvem registru kontejneru a položku --password jedním ze zadaných hesel.
 
 ```azurecli-interactive
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
-Nakonec nahrajte image na registru ACR. Tento příklad odešle obrázek s názvem demo orchestrátoru DC/OS.
+Nakonec odešlete image do registru služby ACR. Tento příklad odešle image s názvem dcos-demo.
 
 ```azurecli-interactive
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
-## <a name="run-an-image-from-acr"></a>Spusťte bitovou kopii z ACR
+## <a name="run-an-image-from-acr"></a>Spuštění image ze služby ACR
 
-Chcete-li použít bitovou kopii z registru ACR, vytvořte soubor názvy *acrDemo.json* a zkopírujte následující text do ní. Nahraďte název bitové kopie s názvem loginServer registru kontejneru a název bitové kopie, například `loginServer/imageName`. Poznamenejte si `uris` vlastnost. Tato vlastnost obsahuje umístění kontejneru ověřování souboru registru, který v tomto případě je Azure sdílené složky, která je připojena v každém uzlu v clusteru DC/OS.
+Pokud chcete použít některou image z registru služby ACR, vytvořte soubor s názvem *acrDemo.json* a zkopírujte do něj následující text. Nahraďte název image názvem loginServer registru kontejneru a názvem image, například `loginServer/imageName`. Poznamenejte si vlastnost `uris`. Tato vlastnost obsahuje umístění souboru ověřování registru kontejneru, kterým je v tomto případě sdílená složka Azure vytvořená v každém uzlu clusteru DC/OS.
 
 ```json
 {
@@ -184,7 +184,7 @@ Chcete-li použít bitovou kopii z registru ACR, vytvořte soubor názvy *acrDem
 }
 ```
 
-Nasazení aplikace pomocí rozhraní příkazového řádku DC / ° c.
+Nasaďte aplikaci pomocí rozhraní CLI DC/OS.
 
 ```azurecli-interactive
 dcos marathon app add acrDemo.json
@@ -192,10 +192,10 @@ dcos marathon app add acrDemo.json
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu máte nakonfigurovat DC/OS použijte registru kontejner Azure, včetně těchto úloh:
+V tomto kurzu jste nakonfigurovali DC/OS pro použití služby Azure Container Registry a provedli následující kroky:
 
 > [!div class="checklist"]
-> * Nasazení registru kontejner Azure (v případě potřeby)
-> * Konfigurace ověřování ACR na cluster DC/OS
-> * Odeslat bitovou kopii do registru kontejner Azure
-> * Spusťte kontejner image z registru kontejner Azure
+> * Nasazení služby Azure Container Registry (v případě potřeby)
+> * Konfigurace ověřování služby ACR v clusteru DC/OS
+> * Odeslání image do služby Azure Container Registry
+> * Spuštění image kontejneru ze služby Azure Container Registry

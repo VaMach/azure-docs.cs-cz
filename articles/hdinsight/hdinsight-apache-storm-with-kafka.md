@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 50a22877241c77ccb1a7df24ab7df006094a439f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Pomocí Apache Kafka Storm v HDInsight
 
@@ -339,7 +339,7 @@ Z relace SSH do clusteru Storm použijte následující příkazy k zastavení t
 
 Vzhledem k tomu, že kroky v tomto dokumentu vytvořit oba clustery ve stejné skupině prostředků Azure, můžete odstranit skupinu prostředků na portálu Azure. Odstraňuje se skupina prostředků odebere všechny prostředky, které jsou vytvořené pomocí následujících tohoto dokumentu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další příklad topologie, které lze použít s Storm v HDInsight, naleznete v části [topologie Storm příklad a součásti](storm/apache-storm-example-topology.md).
 

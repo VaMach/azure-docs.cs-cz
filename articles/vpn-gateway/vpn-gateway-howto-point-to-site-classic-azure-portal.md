@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím ověření certifikátu (Classic): Azure Portal
 
@@ -59,7 +59,7 @@ Další informace o připojení Point-to-Site najdete v části [Nejčastější
 Tyto hodnoty můžete použít k vytvoření testovacího prostředí nebo můžou sloužit k lepšímu pochopení příkladů v tomto článku:
 
 * **Název: VNet1**
-* **Adresní prostor: 192.168.0.0/16**<br>V tomto příkladu používáme pouze jeden adresní prostor. Pro svoji virtuální síť můžete mít více adresních prostorů.
+* **Adresní prostor: 192.168.0.0/16**<br>V tomto příkladu používáme pouze jeden adresní prostor. Pro svoji virtuální síť můžete mít více adresních prostorů, jak ukazuje diagram.
 * **Název podsítě: FrontEnd**
 * **Rozsah adres podsítě: 192.168.1.0/24**
 * **Předplatné:** Ujistěte se, že máte správné předplatné, pokud máte více než jedno.
@@ -103,7 +103,7 @@ Pokud ještě nemáte virtuální síť, vytvořte si ji. Snímky obrazovek slou
 
 ### <a name="gateway"></a>Část 2: Vytvoření podsítě brány a brány dynamického směrování
 
-V tomto kroku vytvoříte podsíť brány a bránu dynamického směrování. Na webu Azure Portal pro model nasazení Classic je možné vytvořit podsíť brány a bránu na stejných stránkách konfigurace.
+V tomto kroku vytvoříte podsíť brány a bránu dynamického směrování. Na webu Azure Portal pro model nasazení Classic je možné vytvořit podsíť brány a bránu na stejných stránkách konfigurace. Podsíť brány se používá jenom pro služby brány. Nikdy nenasazujte nic (například virtuální počítače nebo jiné služby) přímo do podsítě brány.
 
 1. Na portálu přejděte na virtuální síť, pro kterou chcete vytvořit bránu.
 2. Na stránce pro virtuální síť klikněte na stránce **Přehled** v části pro připojení VPN na **Brána**.
@@ -112,25 +112,22 @@ V tomto kroku vytvoříte podsíť brány a bránu dynamického směrování. Na
 3. Na stránce **Nové připojení VPN** vyberte **Point-to-Site**.
 
   ![Připojení typu Point-to-Site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. Do pole **Klientský adresní prostor** přidejte rozsah IP adres. Z tohoto rozsahu dostanou klienti VPN IP adresu při svém připojení. Použijte rozsah privátních IP adres, který se nepřekrývá s místním umístěním, ze kterého se budete připojovat, nebo s virtuální sítí, ke které se chcete připojit. Automaticky vyplněný rozsah můžete odstranit a pak přidat rozsah privátních IP adres, který chcete použít.
+4. Do pole **Klientský adresní prostor** přidejte rozsah IP adres. Z tohoto rozsahu dostanou klienti VPN IP adresu při svém připojení. Použijte rozsah privátních IP adres, který se nepřekrývá s místním umístěním, ze kterého se budete připojovat, nebo s virtuální sítí, ke které se chcete připojit. Automaticky vyplněný rozsah můžete odstranit a pak přidat rozsah privátních IP adres, který chcete použít. Tento příklad ukazuje automaticky vyplněný rozsah. Odstraňte ho a přidejte požadovanou hodnotu.
 
   ![Klientský adresní prostor](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
-5. Zaškrtněte políčko **Vytvořit bránu hned**.
-
-  ![Zaškrtávací políčko Vytvořit bránu hned](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
-6. Kliknutím na **Volitelná konfigurace brány** otevřete stránku **Konfigurace brány**.
+5. Zaškrtněte políčko **Vytvořit bránu hned**. Kliknutím na **Volitelná konfigurace brány** otevřete stránku **Konfigurace brány**.
 
   ![Kliknutí na tlačítko Volitelná konfigurace brány](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
-7. Klikněte na **Podsíť – Konfigurovat požadované nastavení** a přidejte požadovanou **podsíť brány**. I když je možné vytvořit podsíť brány s minimální velikostí /29, doporučujeme vytvořit větší podsíť, která pojme více adres, tzn. vybrat velikost aspoň /28 nebo /27. Tím vznikne dostatečný prostor pro adresy, který umožní nastavení případných dalších konfigurací v budoucnu. Při práci s podsítěmi brány nepřidružujte skupinu zabezpečení sítě (NSG) k podsíti brány. Pokud byste k této podsíti přidružili skupinu zabezpečení sítě, brána sítě VPN by mohla přestat fungovat podle očekávání.
+6. Klikněte na **Podsíť – Konfigurovat požadované nastavení** a přidejte požadovanou **podsíť brány**. I když je možné vytvořit podsíť brány s minimální velikostí /29, doporučujeme vytvořit větší podsíť, která pojme více adres, tzn. vybrat velikost aspoň /28 nebo /27. Tím vznikne dostatečný prostor pro adresy, který umožní nastavení případných dalších konfigurací v budoucnu. Při práci s podsítěmi brány nepřidružujte skupinu zabezpečení sítě (NSG) k podsíti brány. Pokud byste k této podsíti přidružili skupinu zabezpečení sítě, brána sítě VPN by mohla přestat fungovat podle očekávání.
 
   ![Přidání podsítě brány](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
-8. Vyberte **velikost** brány. Velikost je skladová položka brány pro vaši bránu virtuální sítě. Na portálu je výchozí SKU **Basic**. Další informace o SKU brány najdete v tématu [Informace o nastavení VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+7. Vyberte **velikost** brány. Velikost je skladová položka brány pro vaši bránu virtuální sítě. Na portálu je výchozí SKU **Basic**. Další informace o SKU brány najdete v tématu [Informace o nastavení VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
   ![Velikost brány](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-9. Vyberte pro bránu **typ směrování**. Konfigurace P2S vyžadují **dynamický** typ směrování. Až dokončíte konfiguraci této stránky, klikněte na **OK**.
+8. Vyberte pro bránu **typ směrování**. Konfigurace P2S vyžadují **dynamický** typ směrování. Až dokončíte konfiguraci této stránky, klikněte na **OK**.
 
   ![Konfigurace typu směrování](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. V dolní části stránky **Nové připojení VPN** klikněte na **OK** – zahájí se vytváření brány virtuální sítě. Dokončení brány VPN může trvat až 45 minut v závislosti na vybrané skladové jednotce brány.
+9. V dolní části stránky **Nové připojení VPN** klikněte na **OK** – zahájí se vytváření brány virtuální sítě. Dokončení brány VPN může trvat až 45 minut v závislosti na vybrané skladové jednotce brány.
 
 ## <a name="generatecerts"></a>2. Vytvoření certifikátů
 
@@ -202,7 +199,7 @@ Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než 
 
 ### <a name="verifyvpnconnect"></a>Ověření připojení VPN
 
-1. Chcete-li ověřit, zda je připojení VPN aktivní, v příkazovém řádku se zvýšenými oprávněními spusťte příkaz *ipconfig/all*.
+1. Pokud chcete ověřit, jestli je připojení VPN aktivní, z příkazového řádku se zvýšenými oprávněními v klientském počítači spusťte příkaz *ipconfig/all*.
 2. Zkontrolujte výsledky. Všimněte si, že IP adresa, kterou jste obdrželi, je jedna z adres z rozsahu adres připojení typu Point-to-Site, který jste určili během vytváření vaší virtuální sítě. Výsledek by se měl podobat tomuto příkladu:
 
   ```
@@ -261,7 +258,7 @@ Klientský certifikát můžete odvolat tím, že přidáte jeho kryptografický
 
 ## <a name="faq"></a>Nejčastější dotazy týkající se připojení Point-to-Site
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v tématu [Virtuální počítače](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Bližší informace o sítích a virtuálních počítačích najdete v tématu s [přehledem sítě virtuálních počítačů s Linuxem v Azure](../virtual-machines/linux/azure-vm-network-overview.md).

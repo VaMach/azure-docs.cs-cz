@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Rejstřík článků o správě aplikací ve službě Azure Active Directory
 Tato stránka obsahuje úplný seznam každému dokumentu zapsána o různých funkcích týkající se aplikace v Azure Active Directory (Azure AD).
@@ -137,7 +137,7 @@ Automatizovat vytváření, údržbu a odebírání uživatelských identit v ap
 | Další informace o tom, jak funguje a najděte odpovědi na nejčastější dotazy |[Automatizovat uživatele zřizování & zrušení zřízení k aplikacím SaaS](active-directory-saas-app-provisioning.md) |
 | Nakonfigurujte, jak je namapovaný informace mezi službou Azure AD a aplikace SaaS |[Přizpůsobení mapování atributů](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Zapisují se výrazy pro mapování atributů](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Postup povolení automatického zřizování do žádné aplikace, který podporuje protokol SCIM |[Nastavit automatické zřizování uživatelů do všech aplikací SCIM-Enabled](active-directory-scim-provisioning.md) |
-| Vytvoření sestavy a odstraňování souvisejících potíží zřizování uživatelů |[Zprávy o zřizování automatické uživatelů](active-directory-saas-provisioning-reporting.md)<br><br>[Zřizování oznámení](active-directory-saas-account-provisioning-notifications.md)<br><br>[Řešení potíží s zřizování uživatelů](active-directory-application-provisioning-content-map.md) |
+| Vytvoření sestavy a odstraňování souvisejících potíží zřizování uživatelů |[Zprávy o zřizování automatické uživatelů](active-directory-saas-provisioning-reporting.md)<br><br>[Řešení potíží s zřizování uživatelů](active-directory-application-provisioning-content-map.md) |
 | Omezení, kdo získá zřídit aplikace na základě jejich hodnot atributů |[Filtry oborů](active-directory-saas-scoping-filters.md) |
 
 Zřizování automatizované uživatelů je k dispozici pro všechny edice Azure AD pro až deset aplikace na uživatele. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) podporuje neomezená aplikace. Pokud má vaše organizace [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) nebo [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), pak můžete [použití skupin pro správu, kteří uživatelé získat zřízený](#managing-access-to-applications).

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: a241199ff8441d76d48d297b69af05a604d2a423
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="u-sql-programmability-guide"></a>Průvodce programovatelnosti U-SQL
 
@@ -903,7 +903,7 @@ Uživatelem definované agregace jsou funkce související s agregace, které js
 
 Definice uživatelem definované agregace základní třídy je následující:
 
-```c#
+```csharp
     [SqlUserDefinedAggregate]
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
     {
@@ -952,7 +952,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: Accumulate první parametr
 * TResult: Návratový typ ukončit
 
-Například:
+Příklad:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1364,7 +1364,7 @@ public class HTMLOutputter : IOutputter
     }
 
     // The Close method is used to write the footer to the file. It's executed only once, after all rows
-    public override void Close().
+    public override void Close()
     {
     //Reference to IO.Stream object - g_writer
     StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
@@ -1480,7 +1480,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 Abyste se vyhnuli, vytvoření instance objektu v základní skriptu, můžeme vytvořit funkce obálku, jak je znázorněno v našem příkladu starší:
 
-```c#
+```csharp
         // Define the factory classes
         public static class Factory
         {
@@ -1796,7 +1796,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 
 Nebo pomocí volání metody vytváření obálky:
 
-```c#
+```csharp
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
@@ -1871,7 +1871,7 @@ Příklad: [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 Objekty hlavního programovatelnosti jsou:
 
-```c#
+```csharp
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```

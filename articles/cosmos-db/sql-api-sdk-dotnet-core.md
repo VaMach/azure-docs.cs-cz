@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK pro rozhraní API pro SQL: poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Ukázky**</td><td>[Ukázky kódu rozhraní .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Začínáme**</td><td>[Začínáme s Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>Začínáme</td><td>[Začínáme s Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Kurz vývoje webové aplikace**</td><td>[Vývoj webových aplikací s Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -58,6 +58,14 @@ Cosmos DB .NET SDK služby Azure základní má parity funkcí s nejnovější v
 
 > [!NOTE] 
 > Cosmos DB .NET SDK služby Azure jádra není kompatibilní s aplikací pro univerzální platformu Windows (UWP). Pokud vás zajímá .NET Core SDK, který podporuje aplikace UWP odeslat e-mailu [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Pevné regrese kde FeedOptions.MaxItemCount = -1 došlo System.ArithmeticException: velikost stránky je záporná.
+* Přidat novou funkci ToString() do QueryMetrics.
+* Zveřejněné statistiky oddílu na čtení kolekce.
+* Přidané vlastnosti PartitionKey k ChangeFeedOptions.
+* Menšími opravami chyb.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -141,7 +149,7 @@ Cosmos DB .NET SDK služby Azure základní má parity funkcí s nejnovější v
 
 Azure Cosmos DB .NET Core SDK umožňuje vytvářet rychlé a napříč platformami [ASP.NET Core](https://www.asp.net/core) a [.NET Core](https://www.microsoft.com/net/core#windows) aplikace běžely na Windows, Mac a Linux. Nejnovější verzi Azure Cosmos DB .NET Core SDK je plně [Xamarin](https://www.xamarin.com) kompatibilní a umožňuje vytvářet aplikace, které cílí na iOS, Android a Mono (Linux).  
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
 Azure Cosmos DB .NET Core Preview SDK umožňuje vytvářet rychlé a napříč platformami [ASP.NET Core](https://www.asp.net/core) a [.NET Core](https://www.microsoft.com/net/core#windows) aplikace běžely na Windows, Mac a Linux.
 
@@ -157,6 +165,7 @@ Pokud máte otázky související s touto sadou SDK, odeslání na [StackOverflo
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |05 února 2018 |--- |
 | [1.7.1](#1.7.1) |16. listopadu 2017 |--- |
 | [1.7.0](#1.7.0) |10 listopadu 2017 |--- |
 | [1.6.0](#1.6.0) |17 říjen 2017 |--- |
@@ -174,7 +183,7 @@ Pokud máte otázky související s touto sadou SDK, odeslání na [StackOverflo
 | [1.1.1](#1.1.1) |14. března 2017 |--- |
 | [1.1.0](#1.1.0) |16 února 2017 |--- |
 | [1.0.0](#1.0.0) |21 prosince 2016 |--- |
-| [0.1.0-Preview](#0.1.0-preview) |15. listopadu 2016 |31. prosinci 2016 |
+| [0.1.0-preview](#0.1.0-preview) |15. listopadu 2016 |31. prosinci 2016 |
 
 ## <a name="see-also"></a>Viz také
 Další informace o Cosmos DB najdete v tématu [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) stránku služby. 

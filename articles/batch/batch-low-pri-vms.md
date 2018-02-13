@@ -9,22 +9,22 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 02/01/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Pomocí služby Batch použijte virtuální počítače s nízkou prioritou
 
-Azure Batch nabízí nízkou prioritu virtuální počítače (VM) k snížit náklady na úloh služby Batch. Virtuální počítače s nízkou prioritou umožňují nové typy úloh služby Batch, tím, že poskytuje velké množství výpočetního výkonu, která je také ekonomické.
-
-Virtuální počítače s nízkou prioritou využít výhod kapacitní v Azure. Když zadáte nízkou prioritu virtuálních počítačů ve fondech, Azure Batch mohou automaticky používat tento přebytek, pokud je k dispozici.
-
-Kompromis pro používání virtuálních počítačů s nízkou prioritou je, že tyto virtuální počítače může být zrušené při žádné kapacitní je k dispozici v Azure. Z toho důvodu jsou nejvhodnější pro některé typy úloh virtuálních počítačů s nízkou prioritou. Použijte virtuální počítače nízkou prioritu pro batch a asynchronní zpracování úloh, kde čas dokončení úlohy je flexibilní a práce je distribuován do mnoha virtuálních počítačů.
-
+Azure Batch nabízí nízkou prioritu virtuální počítače (VM) k snížit náklady na úloh služby Batch. Virtuální počítače s nízkou prioritou zkontrolujte nové typy dávky úlohy je možné povolením velké množství výpočetního výkonu, které má být použit pro velmi nízkou cenu.
+ 
+Virtuální počítače s nízkou prioritou využít výhod kapacitní v Azure. Když zadáte nízkou prioritu virtuálních počítačů ve fondech, Azure Batch můžete použít tento přebytek, pokud je k dispozici.
+ 
+Kompromis pro používání virtuálních počítačů s nízkou prioritou je, že tyto virtuální počítače nemusí být k dispozici přidělování, nebo může být zrušené kdykoli, v závislosti na dostupné kapacity. Z toho důvodu jsou nejvhodnější pro některé typy úloh virtuálních počítačů s nízkou prioritou. Použijte virtuální počítače nízkou prioritu pro batch a asynchronní zpracování úloh, kde čas dokončení úlohy je flexibilní a práce je distribuován do mnoha virtuálních počítačů.
+ 
 Virtuální počítače s nízkou prioritou jsou nabízena za výrazně sníženou cenu ve srovnání s vyhrazených virtuálních počítačích. Podrobnosti o cenách najdete v části [ceny služby Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 
@@ -71,9 +71,12 @@ Azure Batch poskytuje několik možností, které usnadňují spotřebovávají 
 
 -   Když úlohy jsou přerušení, Batch zjistí a automaticky requeues úlohy spustit znovu.
 
--   Virtuální počítače s nízkou prioritou kvóty samostatné virtuální procesory, se liší od pro vyhrazených virtuálních počítačích. 
+-   Virtuální počítače s nízkou prioritou mají kvóty samostatné virtuální procesor, který se liší od pro vyhrazených virtuálních počítačích. 
     Kvótu pro virtuální počítače s nízkou prioritou je vyšší, než se kvóty pro vyhrazených virtuálních počítačích, protože virtuální počítače s nízkou prioritou nižší náklady. Další informace najdete v tématu [Batch, kvóty a omezení služby](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Virtuální počítače s nízkou prioritou nejsou aktuálně podporovány pro účty Batch vytvořené v [režim předplatné uživatele](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Vytváření a aktualizaci fondy
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
@@ -181,7 +184,7 @@ Chcete-li zobrazit metriky na portálu Azure:
 
 ![Metriky pro uzly s nízkou prioritou](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Přečtěte si téma [Přehled funkcí Batch pro vývojáře](batch-api-basics.md), kde jsou základní informace pro každého, kdo se připravuje použít Batch. Článek obsahuje podrobné informace o prostředcích služby Batch, jako jsou fondy, uzly a úlohy, a mnoha funkcích rozhraní API, které můžete použít při vytváření aplikace Batch.
 * Další informace o dostupných [rozhraních API a nástrojích služby Batch](batch-apis-tools.md) pro sestavování řešení Batch.

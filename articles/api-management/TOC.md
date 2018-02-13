@@ -42,7 +42,7 @@
 ## Mezipaměť
 ### [Zvýšení výkonu přidáním mezipaměti](api-management-howto-cache.md)
 ## Zabezpečení back-endu
-### [Ochrana webového rozhraní API back-endu pomocí AAD](api-management-howto-protect-backend-with-aad.md)
+### [Ochrana webového rozhraní API back-endu pomocí Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Připojení k virtuální síti](api-management-using-with-vnet.md)
 ### [Připojení k interní virtuální síti](api-management-using-with-internal-vnet.md)
 ### [Integrace Application Gateway v interní virtuální síti](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## Přizpůsobení prostředí pro vývojáře
 ### [Změna rozložení a obsahu stránek](api-management-modify-content-layout.md)
 ### [Přizpůsobení systémových stránek pomocí šablon](api-management-developer-portal-templates.md)
-### [Ověřování pomocí AAD](api-management-howto-aad.md)
-### [Ověřování pomocí AAD B2C](api-management-howto-aad-b2c.md)
+### [Ověřování pomocí Azure AD](api-management-howto-aad.md)
+### [Ověřování pomocí Azure AD B2C](api-management-howto-aad-b2c.md)
 ### [Delegované ověřování](api-management-howto-setup-delegation.md)
 ### [E-mailová oznámení a šablony](api-management-howto-configure-notifications.md)
 ### [Povolení podpory OAuth v konzole](api-management-howto-oauth2.md)
@@ -97,7 +97,7 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [Rozhraní REST (původní)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
-# Zdroje
+# Zdroje a prostředky
 ## [Nejčastější dotazy](api-management-faq.md)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services/)
 ## [Pokyny k návrhu rozhraní API](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)

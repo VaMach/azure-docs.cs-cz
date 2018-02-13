@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Architektura AI a hloubkového učení
 [Datové vědy virtuálního počítače](http://aka.ms/dsvm) (DSVM) a [počítač hloubkového učení](http://aka.ms/dsvm/deeplearning) podporuje mnoho hloubkové learning rozhraní k sestavení aplikace umělé Intelligence (AI) s prediktivní analýzy a kognitivní možnosti jako bitovou kopii a znalosti jazyka. 
@@ -55,8 +55,8 @@ Zde jsou uvedeny podrobnosti na všechny hloubkového učení rozhraní, které 
 | Co je to?   | Hloubkové learning framework      |
 | Podporované DSVM edice      | Windows, Linux     |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | Keras je nainstalován v Python 2.7 (_kořenové_), a také Python 3.5 (_py35_) prostředí.   |
-| Odkazy na ukázky      | https://github.com/fchollet/keras/Tree/Master/Examples      |
-| Na DSVM souvisejících nástrojích      | Microsoft kognitivní Toolkit, TensorLlow, Theano      |
+| Odkazy na ukázky      | https://github.com/fchollet/keras/tree/master/examples      |
+| Na DSVM souvisejících nástrojích      | Microsoft kognitivní Toolkit, TensorFlow, Theano      |
 | Jak se použít nebo ji spustit?    | Stáhnout ukázky z Githubu umístění, zkopírujte jej do adresáře v rámci ~/notebooks a otevře ji v Jupyter   |
 
 
@@ -117,7 +117,7 @@ V terminálu, aktivovat verzi jazyka Python chcete (_kořenové_ nebo _py35_) sp
 | Podporované DSVM edice      | Linux     |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | Hloubkové horních je nainstalován v `/dsvm/tools/deep_water`.   |
 | Odkazy na ukázky      | Ukázky jsou dostupné prostřednictvím hloubkového horních serveru.      |
-| Na DSVM souvisejících nástrojích      | H2o, šumivého horních      |
+| Na DSVM souvisejících nástrojích      | H2O, šumivého horních      |
 
 ### <a name="how-to-use--run-it"></a>Jak se použít nebo ji spustit?  
 
@@ -157,7 +157,7 @@ Službu spusťte trvá přibližně jednu minutu. Spustit webový prohlížeč a
 
 
 
-## <a name="nvdia-smi"></a>nvdia smi
+## <a name="nvdia-smi"></a>nvdia-smi
 
 |    |           |
 | ------------- | ------------- |

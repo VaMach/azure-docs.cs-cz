@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkce operačního systému v Azure App Service
 Tento článek popisuje běžné funkce operačního systému standardních hodnot, které jsou k dispozici pro všechny aplikace běžící na [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Tato funkce zahrnuje soubor, sítě a přístup k registru a diagnostické protokoly a události. 
@@ -49,7 +49,7 @@ Existují různé jednotky v App Service, včetně místní jednotky a síťové
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Místní jednotky
-Jádro aplikace App Service je služby spuštěné na infrastruktuře Azure PaaS (platforma jako služba). Místní disky, které jsou "připojené" k virtuálnímu počítači v důsledku toho jsou stejné typy jednotku, která je k dispozici pro všechny role pracovního procesu, který běží v Azure. To zahrnuje jednotce operačního systému (jednotku D:\), aplikaci jednotku, která obsahuje balíček Azure cspkg soubory používané výhradně službou App Service (a dostupná pro zákazníky) a na jednotku "user" (jednotka C:\), jejichž velikost se liší v závislosti na velikosti virtuálního počítače.
+Jádro aplikace App Service je služby spuštěné na infrastruktuře Azure PaaS (platforma jako služba). Místní disky, které jsou "připojené" k virtuálnímu počítači v důsledku toho jsou stejné typy jednotku, která je k dispozici pro všechny role pracovního procesu, který běží v Azure. To zahrnuje jednotce operačního systému (jednotku D:\), aplikaci jednotku, která obsahuje balíček Azure cspkg soubory používané výhradně službou App Service (a dostupná pro zákazníky) a na jednotku "user" (jednotka C:\), jejichž velikost se liší v závislosti na velikosti virtuálního počítače. Je důležité monitorovat využití vašeho disku růstem vaší aplikace. Když je dosaženo kvóty disku, může mít nežádoucí účinky do vaší aplikace.
 
 <a id="NetworkDrives"></a>
 

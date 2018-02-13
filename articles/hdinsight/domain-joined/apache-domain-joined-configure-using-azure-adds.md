@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 4278c631ca7f2ce0417eab22ce2e5b12581dac30
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurace clusterů HDInsight připojený k doméně pomocí nástroje Azure Active Directory Domain Services
 
 Připojené k doméně clustery poskytují více uživateli enterprise funkcích zabezpečení v HDInsight. Clustery HDInsight připojený k doméně jsou připojené k domén služby active directory tak, aby uživatelé domény můžete používat přihlašovací údaje domény k ověření s clustery a spouštění úloh big data. 
 
-Existují tři způsoby, jak nastavit řadič domény, aby cluster připojený k doméně HDInsight se můžete připojit k:
+K nastavení řadiče domény, aby cluster připojený k doméně HDInsight se můžete připojit k dvěma způsoby:
 
 - Azure Active Directory Domain Services (Azure AD DS)
-- Místní služby Active Directory
 - Řadič služby Active Directory Domain na virtuálních počítačích Azure IaaS
 
 V tomto článku zjistěte, jak nakonfigurovat cluster HDInsight připojený k doméně pomocí Azure Active Directory Domain Services.

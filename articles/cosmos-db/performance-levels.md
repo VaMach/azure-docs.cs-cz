@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Vyřazení úrovní výkonu S1, S2 a S3
 
@@ -56,8 +56,8 @@ Následující tabulka porovnává možnosti propustnost a úložiště, které 
 
 |   |Dělené kolekce|Kolekce tvořené jedním oddílem|S1|S2|S3|
 |---|---|---|---|---|---|
-|Maximální propustnost|Unlimited|10 tis. RU/s|250 RU/s|1 tis. RU/s|2.5 tis. RU/s|
-|Minimální propustnost|2.5 tis. RU/s|400 RU/s|250 RU/s|1 tis. RU/s|2.5 tis. RU/s|
+|Maximální propustnost|Unlimited|10 tis. RU/s|250 RU/s|1 K RU/s|2.5 tis. RU/s|
+|Minimální propustnost|2.5 tis. RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 tis. RU/s|
 |Maximální velikost úložiště|Unlimited|10 GB|10 GB|10 GB|10 GB|
 |Cena (každý měsíc)|Propustnost: $6 / 100 RU/s<br><br>Úložiště: $ 0,25/GB|Propustnost: $6 / 100 RU/s<br><br>Úložiště: $ 0,25/GB|25 USD|50 USD|100 USD|
 
@@ -147,7 +147,7 @@ Další možností pro změnu úrovně výkonu vaší kolekce je prostřednictv�
 
 Zde je fragment kódu pro změnu propustnost kolekce do 5 000 jednotek žádosti za sekundu:
     
-```C#
+```csharp
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -174,7 +174,7 @@ Navštivte [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.docum
 
 Zákazníci EA bude cena chránit až do konce jejich aktuální kontrakt.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o cenách a správě dat pomocí Azure Cosmos DB najdete v těchto zdrojích:
 
 1.  [Segmentace dat v databázi Cosmos](sql-api-partition-data.md). Vysvětlení rozdílu kontejneru tvořené jedním oddílem a oddílů kontejnery, jakož i tipy k implementaci strategie dělení bezproblémově škálování.

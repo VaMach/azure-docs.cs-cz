@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření vlastním hostováním integrace runtime v Azure Data Factory | Microsoft Docs"
-description: "Zjistěte, jak můžete pomocí SQL Server aktivity uložené procedury vyvolat uloženou proceduru v databázi SQL Azure nebo Azure SQL Data Warehouse z objektu pro vytváření dat kanál."
+title: "Vytvoření Azure SSIS integrace runtime v Azure Data Factory | Microsoft Docs"
+description: "Naučte se vytvářet modulu runtime integrace Azure SSIS tak, aby balíčku služby SSIS můžete spustit v cloudu Azure."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -11,32 +11,44 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: a5ed3cbfac0b86cedde5718cef4231a7fcc36f2e
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 86e624476b7869331720e58363ad14b22704b19b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Vytvoření modulu runtime integrace Azure SSIS v Azure Data Factory
 Tento článek popisuje kroky pro zřizování modulu runtime integrace Azure SSIS v Azure Data Factory. Následně můžete pomocí SQL Server Data Tools (SSDT) nebo aplikace SQL Server Management Studio (SSMS) do tohoto modulu runtime v Azure nasadit balíčky SSIS (SQL Server Integration Services).
 
+Kurz: [kurz: nasadit balíčky SQL Server Integration Services (služby SSIS) do Azure](tutorial-create-azure-ssis-runtime-portal.md) ukázal, jak vytvořit modul Runtime integrace Azure SSIS (IR) pomocí Azure SQL Database jako úložiště pro katalog služby SSIS. Tento článek se rozšíří na kurz a ukazuje, jak provést následující akce: 
+
+- Použijte spravované Instance Azure SQL (soukromém náhledu) pro hostování katalog služby SSIS (databáze SSISDB).
+- Připojení Azure SSIS Reakcí do virtuální sítě Azure (VNet). Koncepční informace o připojení Azure SSIS IR k virtuální síti a konfiguraci virtuální sítě na portálu Azure najdete v tématu [připojení k Azure SSIS Reakcí do virtuální sítě](join-azure-ssis-integration-runtime-virtual-network.md). 
+
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-introduction.md).
 
-Kurz: [kurz: nasadit balíčky SQL Server Integration Services (služby SSIS) do Azure](tutorial-deploy-ssis-packages-azure.md) ukazuje, jak vytvořit modul Runtime integrace Azure SSIS (IR) pomocí Azure SQL Database jako úložiště pro katalog služby SSIS. Tento článek se rozšíří na kurz a ukazuje, jak provést následující akce: 
 
-- Použijte spravované Instance Azure SQL (soukromém náhledu) pro hostování katalog služby SSIS (databáze SSISDB).
-- Připojení Azure SSIS Reakcí do virtuální sítě Azure (VNet). 
+## <a name="overview"></a>Přehled
+Tento článek ukazuje různé způsoby zřizování Azure SSIS IR:
 
-Koncepční informace o připojení Azure SSIS IR k virtuální síti a konfiguraci virtuální sítě na portálu Azure najdete v tématu [připojení k Azure SSIS Reakcí do virtuální sítě](join-azure-ssis-integration-runtime-virtual-network.md). 
+- [portál Azure Portal](#azure-portal)
+- [Azure PowerShell](#azure-powershell)
+- [Šablona Azure Resource Manageru](#azure-resource-manager-template)
+
+Při vytváření služby Azure SSIS IR objekt pro vytváření dat se připojuje k vaší databázi SQL Azure Příprava databáze katalogu služby SSIS (SSISDB). Skript také nakonfiguruje oprávnění a nastavení vaší virtuální sítě, pokud je zadáte, a připojí k této virtuální síti novou instanci prostředí Azure SSIS Integration Runtime.
+
+Pokud zřídíte instanci Azure SSIS reakcí na Incidenty, jsou nainstalovány také Azure Feature Pack pro službu SSIS a Redistributable přístup. Tyto komponenty nabízejí mimo připojení k datovým zdrojům podporovaným integrovanými komponentami navíc možnosti připojení k souborům aplikací Excel a Access a různým datovým zdrojům Azure. V tuto chvíli nemůžete instalovat komponenty třetích stran pro službu SSIS (včetně komponent třetích stran od Microsoftu, jako jsou komponenty Oracle a Teradata od společnosti Attunity a komponenty SAP BI).
 
 ## <a name="prerequisites"></a>Požadavky
 
 - **Předplatné Azure**. Pokud předplatné nemáte, můžete si vytvořit [bezplatný zkušební](http://azure.microsoft.com/pricing/free-trial/) účet.
 - **Server služby Azure SQL Database** nebo **spravovaná instance SQL Serveru (privátní verze Preview) (rozšířená verze Private Preview)**. Pokud ještě nemáte databázový server, vytvořte si ho na webu Azure Portal před tím, než začnete. Tento server hostuje databázi katalogu služby SSIS (SSISDB). Doporučujeme vytvořit databázový server ve stejné oblasti Azure jako prostředí Integration Runtime. Tato konfigurace umožňuje prostředí Integration Runtime zapisovat protokoly spuštění do databáze SSISDB bez přecházení mezi oblastmi Azure. Poznamenejte si cenové úrovně se server Azure SQL. Seznam podporovaných cenové úrovně pro databázi SQL Azure najdete v tématu [limitů prostředků databáze SQL](../sql-database/sql-database-resource-limits.md).
-- **Klasická virtuální síť (volitelné)**. Virtuální síť Azure musíte mít v případě, že platí alespoň jedna z následujících podmínek:
+
+    Potvrďte, že serveru Azure SQL Database nebo spravované Instance systému SQL Server (rozšířené soukromém náhledu) nemá katalog služby SSIS (SSIDB databáze). Zřízení Azure-SSIS IR nepodporuje používání existujícího katalogu služby SSIS.
+- **Classic nebo Azure Resource Manager virtuální Network(VNet) (volitelné)**. Virtuální síť Azure musíte mít v případě, že platí alespoň jedna z následujících podmínek:
     - Databázi katalogu služby SSIS hostujete na spravované instanci SQL Serveru (privátní verze Preview), která je součástí virtuální sítě.
     - Z balíčků SSIS spuštěných v prostředí Azure SSIS Integration Runtime se chcete připojit k místním úložištím dat.
 - **Azure PowerShell**. Postupujte podle pokynů v tématu [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/install-azurerm-ps). PowerShell použijete ke spuštění skriptu, který zřídí prostředí Azure SSIS Integration Runtime spouštějící balíčky SSIS v cloudu. 
@@ -45,18 +57,20 @@ Koncepční informace o připojení Azure SSIS IR k virtuální síti a konfigur
 > Seznam oblastí podporovaných službou Azure Data Factory V2 a prostředím Azure SSIS Integration Runtime najdete v tématu [Dostupné produkty v jednotlivých oblastech](https://azure.microsoft.com/regions/services/). Rozbalením možnosti **Data a analýzy** zobrazíte **Data Factory V2** a **SSIS Integration Runtime**.
 
 ## <a name="azure-portal"></a>Azure Portal
+V této části použijete portál Azure, konkrétně Data Factory uživatelského rozhraní, k vytvoření služby Azure SSIS infračerveného signálu. 
 
 ### <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).    
-2. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
+1. Spusťte **Microsoft Edge** nebo **Google Chrome** webového prohlížeče. V současné době uživatelského rozhraní objektu pro vytváření dat je podporována pouze pro webové prohlížeče Microsoft Edge a Google Chrome.
+2. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).    
+3. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
-3. V **nový objekt pro vytváření dat** zadejte **MyAzureSsisDataFactory** pro **název**. 
+3. Na stránce **Nová datová továrna** jako **název** zadejte **MyAzureSsisDataFactory**. 
       
-     ![Nová stránka objektu pro vytváření dat](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+     ![Stránka Nová datová továrna](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
  
-   Název objektu pro vytváření dat Azure musí být **globálně jedinečný**. Pokud se zobrazí chybová zpráva, změňte název objektu pro vytváření dat (například yournameMyAzureSsisDataFactory) a zkuste to znovu. V tématu [pro vytváření dat – pravidla pojmenování](naming-rules.md) článku pravidla pojmenování artefaktů služby Data Factory.
+   Název objektu pro vytváření dat Azure musí být **globálně jedinečný**. Pokud se zobrazí následující chyba, změňte název datové továrny (například na vaše_jméno_MyAzureSsisDataFactory) a zkuste to znovu. Pravidla pojmenování artefaktů služby Data Factory najdete v článku [Data Factory – pravidla pojmenování](naming-rules.md).
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
 3. Vyberte své **předplatné** Azure, ve kterém chcete vytvořit datovou továrnu. 
@@ -67,82 +81,79 @@ Koncepční informace o připojení Azure SSIS IR k virtuální síti a konfigur
          
       Informace o skupinách prostředků najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Jako **verzi** vyberte **V2 (Preview)**.
-5. Vyberte **umístění** pro objekt pro vytváření dat. V seznamu jsou uvedeny pouze umístění, které jsou podporovány pro vytvoření datové továrny.
+5. Vyberte **umístění** pro objekt pro vytváření dat. V seznamu se zobrazí pouze podporovaná umístění pro vytváření datových továren.
 6. Zaškrtněte **Připnout na řídicí panel**.     
 7. Klikněte na možnost **Vytvořit**.
 8. Na řídicím panelu vidíte následující dlaždice se statusem: **Nasazování datové továrny**. 
 
     ![nasazování dlaždice datové továrny](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
-9. Po dokončení vytvoření se zobrazí **Data Factory** stránky, jak je znázorněno na obrázku.
+9. Po vytvoření se zobrazí stránka **Datová továrna**, jak je znázorněno na obrázku.
    
    ![Domovská stránka objektu pro vytváření dat](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-10. Klikněte na tlačítko **Autor & monitorování** ke spuštění na Data objektu pro vytváření uživatele rozhraní (UI) na samostatné kartě. 
+10. Kliknutím na dlaždici **Vytvořit a monitorovat** otevřete na samostatné kartě uživatelské rozhraní služby Data Factory. 
 
-### <a name="provision-an-azure-ssis-integration-runtime"></a>Zřídit modulu runtime integrace Azure SSIS
+### <a name="provision-an-azure-ssis-integration-runtime"></a>Zřízení prostředí Azure SSIS Integration Runtime
 
-1. Na stránku Začínáme, klikněte na **konfigurace Runtime integrační služby SSIS** dlaždici. 
+1. Na stránce Začínáme klikněte na dlaždici **Konfigurace prostředí SSIS Integration Runtime**. 
 
-   ![Konfigurace služby SSIS integrace Runtime dlaždice](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
-2. V **obecné nastavení** stránka **nastavení integrace modulu Runtime**, proveďte následující kroky: 
+   ![Dlaždice Konfigurace prostředí SSIS Integration Runtime](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+2. Na stránce **Obecná nastavení** v okně **Instalace prostředí Integration Runtime** proveďte následující kroky: 
 
    ![Obecná nastavení](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
-    1. Zadejte **název** pro integraci modulu runtime.
-    2. Vyberte **umístění** pro integraci modulu runtime. Zobrazí se pouze podporovaných umístění.
-    3. Vyberte **velikost uzlu** který má být nakonfigurován s modulem runtime SSIS.
+    1. Zadejte **název** prostředí Integration Runtime.
+    2. Zadejte **umístění** prostředí Integration Runtime. Zobrazí se pouze podporovaná umístění.
+    3. Vyberte **velikost uzlu**, která se má pro modul runtime služby SSIS nakonfigurovat.
     4. Zadejte **počet uzlů** v clusteru.
     5. Klikněte na **Další**. 
-1. V **nastavení SQL**, proveďte následující kroky: 
+1. V **Nastavení SQL** proveďte následující kroky: 
 
     ![Nastavení SQL](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
 
-    1. Zadejte Azure **předplatné** který má server Azure SQL. 
-    2. Vyberte server Azure SQL pro **koncový bod serveru databáze katalogu**.
-    3. Zadejte **správce** uživatelské jméno.
-    4. Zadejte **heslo** pro správce.  
-    5. Vyberte **vrstvy služby** pro databázi SSISDB. Výchozí hodnota je Basic.
+    1. Zadejte **předplatné** Azure, které obsahuje server SQL Azure. 
+    2. Jako **Koncový bod databázového serveru katalogu** vyberte váš server SQL Azure.
+    3. Zadejte uživatelské jméno **správce**.
+    4. Zadejte **heslo** pro tohoto správce.  
+    5. Vyberte **úroveň služby** pro databázi SSISDB. Výchozí hodnota je Basic.
     6. Klikněte na **Další**. 
-1.  V **Upřesnit nastavení** vyberte hodnotu **maximální paralelní spuštěních podle uzlu**.   
+1.  Na stránce **Upřesnit nastavení** vyberte hodnotu pro **Maximální počet paralelních zpracování na uzel**.   
 
     ![Upřesnit nastavení](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
-5. Tento krok je **volitelné**. Pokud máte klasickou virtuální síť (VNet), který chcete runtime integrace se chcete připojit, vyberte **vyberte virtuální síť pro vaše runtime integrace Azure SSIS připojit a povolit službám Azure ke konfiguraci oprávnění nebo nastavení sítě VNet** možnost a proveďte následující kroky: 
+5. Tento krok je **volitelný**. Pokud máte virtuální síť (Classic nebo Azure Resource Manager), které chcete runtime integrace se chcete připojit, vyberte **vyberte virtuální síť pro vaše runtime integrace Azure SSIS připojit a povolit službám Azure ke konfiguraci oprávnění nebo nastavení sítě VNet**možnost a proveďte následující kroky: 
 
-    ![Pokročilé nastavení s virtuální sítě](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
+    ![Upřesnit nastavení s virtuální sítí](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
 
-    1. Zadejte **předplatné** má klasické virtuální sítě. 
-    2. Vyberte **VNet**. <br/>
-    4. Vyberte **podsítě**.<br/> 
-1. Klikněte na tlačítko **Dokončit** zahájíte vytváření runtime integrace Azure SSIS. 
+    1. Pro **předplatné**, zadejte **předplatné** s virtuální sítí. 
+    2. Pro typ, zadejte **typ** sítě vnet (klasickou virtuální síť nebo virtuální sítě Azure Resource Manager). 
+    3. Pro **název virtuální sítě**, vyberte název vaší **VNet**. 
+    4. Pro **název podsítě**, vyberte název **podsíť** ve virtuální síti.
+1. Kliknutím na **Dokončit** zahajte vytváření prostředí Azure SSIS Integration Runtime. 
 
     > [!IMPORTANT]
-    > - Tento proces trvá přibližně 20 minut
-    > - Služba Data Factory se připojuje k vaší databázi SQL Azure Příprava databáze katalogu služby SSIS (SSISDB). Skript také nakonfiguruje oprávnění a nastavení vaší virtuální sítě, pokud je zadáte, a připojí k této virtuální síti novou instanci prostředí Azure SSIS Integration Runtime.
-7. V **připojení** okně přepínač tak, aby **integrační moduly runtime** v případě potřeby. Klikněte na tlačítko **aktualizovat** aktualizovat stav. 
+    > - Tento proces trvá přibližně 20 minut.
+    > - Služba Data Factory se připojí k vaší službě Azure SQL Database a připraví databázi katalogu služby SSIS (SSISDB). Skript také nakonfiguruje oprávnění a nastavení vaší virtuální sítě, pokud je zadáte, a připojí k této virtuální síti novou instanci prostředí Azure SSIS Integration Runtime.
+7. V okně **Připojení** v případě potřeby přepněte na **Prostředí Integration Runtime**. Kliknutím na **Aktualizovat** aktualizujte stav. 
 
     ![Stav vytváření](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
-8. Použijte odkazy v části **akce** sloupce, které chcete monitorovat, zastavit a spustit, upravit nebo odstranit modul runtime integrace. Použijte poslední odkaz zobrazíte kód JSON pro integraci modulu runtime. Tlačítka Upravit a odstranit jsou povolené jenom v případě, že Reakcí je zastavena. 
+8. Použijte odkazy v části **akce** sloupec, který se zastavit a spustit, upravit nebo odstranit integrace modulu runtime. Pomocí posledního odkazu zobrazíte kód JSON pro prostředí Integration Runtime. Tlačítka pro úpravu a odstranění jsou aktivní, pouze když je prostředí IR zastavené. 
 
-    ![Azure SSIS IR - akce](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)        
-9. Klikněte na tlačítko **monitorování** v části **akce**.  
+    ![Azure SSIS IR – akce](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)        
 
-    ![Azure IR SSIS – podrobnosti](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-details.png)
-10. Pokud dojde **chyba** spojené s Reakcí SSIS Azure, uvidíte počet chyb na této stránce a na odkaz zobrazíte podrobnosti o této chybě. Například pokud katalog služby SSIS již existuje na serveru databáze, zobrazí chybu, která určuje existenci databázi SSISDB.  
-11. Klikněte na tlačítko **integrační moduly runtime** v horní části přejděte zpět na předchozí stránku zobrazíte všechny moduly integrace runtime přidružené k objektu pro vytváření dat k položce.  
+### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>Prostředí Azure SSIS Integration Runtime na portálu
 
-### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>Azure integrační moduly runtime SSIS na portálu
+1. V uživatelském prostředí služby Azure Data Factory přepněte na kartu **Upravit**, klikněte na **Připojení** a pak přepněte zpět na kartu **Prostředí Integration Runtime**, kde se zobrazí existující prostředí Integration Runtime ve vaší datové továrně. 
+    ![Zobrazení existujících IR](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+1. Kliknutím na **Nový** vytvořte nové prostředí Azure-SSIS IR. 
 
-1. V uživatelském rozhraní Azure Data Factory přepnout **upravit** , klikněte na **připojení**a potom přepnout na **integrační moduly runtime** zobrazte existující integrační moduly Runtime v vaší služby data factory. 
-    ![Finanční úřad stávajících zobrazení](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
-1. Klikněte na tlačítko **nový** k vytvoření nové infračerveného signálu Azure SSIS. 
+    ![Prostředí Integration Runtime prostřednictvím nabídky](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+2. Pokud chcete vytvořit prostředí Azure-SSIS Integration Runtime, klikněte na **Nový**, jak je znázorněno na obrázku. 
+3. V okně Instalace prostředí Integration Runtime vyberte **Migrovat metodou „lift and shift“ existující balíčky služby SSIS ke spuštění v Azure** a pak klikněte na **Další**.
 
-    ![Modul runtime integrace pomocí nabídky](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
-2. Chcete-li vytvořit modulu runtime integrace Azure SSIS, klikněte na tlačítko **nový** jak je znázorněno na obrázku. 
-3. V okně Nastavení integrace modulu Runtime, vyberte **navýšení a shift existující balíčky SSIS spuštění v Azure**a potom klikněte na **Další**.
-
-    ![Zadejte typ integrace modulu runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
-4. Najdete v článku [zřídit modulu runtime integrace Azure SSIS](#provision-an-azure-ssis-integration-runtime) části pro zbývající kroky k nastavení služby Azure SSIS infračerveného signálu.
+    ![Zadání typu prostředí Integration Runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+4. Zbývající kroky k nastavení prostředí Azure-SSIS IR najdete v části [Zřízení prostředí Azure SSIS Integration Runtime](#provision-an-azure-ssis-integration-runtime).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+V této části použijte prostředí Azure PowerShell k vytvoření služby Azure SSIS infračerveného signálu.
 
 ### <a name="create-variables"></a>Vytvoření proměnných
 Definujte proměnné, které se použijí ve skriptech v tomto kurzu:
@@ -160,10 +171,10 @@ $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeSize = "Standard_A4_v2" 
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -175,12 +186,8 @@ $SSISDBServerAdminPassword = "[your server admin password]"
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-# Remove these the following two OPTIONAL variables if you are using Azure SQL Database. 
-# These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
-# It should be in the format: $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
-
-# OPTIONAL: In public preview, only classic virtual network (VNet) is supported.
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+# Specify information about your classic or Azure Resource Manager virtual network (VNet). 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
 
@@ -228,8 +235,11 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
     Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 ```
 
@@ -316,40 +326,31 @@ Zde je úplná skript, který vytvoří Azure SSIS reakcí na Incidenty a připo
 
 ```powershell
 # Azure Data Factory version 2 information 
-# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
-$SubscriptionName = "[your Azure subscription name]"
-$ResourceGroupName = "[your Azure resource group name]"
-$DataFactoryName = "[your data factory name]"
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
+$SubscriptionName = "<Azure subscription name>"
+$ResourceGroupName = "<Azure resource group name>"
+# Data factory name. Must be globally unique
+$DataFactoryName = "<Data factory name>" 
 $DataFactoryLocation = "EastUS" 
 
-# Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
-$AzureSSISName = "[your Azure-SSIS integration runtime name]"
-$AzureSSISDescription = "This is my Azure-SSIS integration runtime"
+# Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
+$AzureSSISName = "<Specify a name for your Azure-SSIS (IR)>"
+$AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 $AzureSSISLocation = "EastUS" 
-# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeSize = "Standard_A4_v2" 
+ # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
-$SSISDBServerAdminUserName = "[your server admin username]"
-$SSISDBServerAdminPassword = "[your server admin password]"
-
+$SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
+$SSISDBServerAdminUserName = "<Azure SQL server - user name>"
+$SSISDBServerAdminPassword = "<Azure SQL server - user password>"
 # Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
-$SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
-
-## Remove these two OPTIONAL variables if you are using Azure SQL Database. 
-## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-# In public preview, only classic virtual network (VNet) is supported.
-$VnetId = "[your VNet resource ID or leave it empty]" 
-$SubnetName = "[your subnet name or leave it empty]" 
-
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+$SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
@@ -368,22 +369,12 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 
-# Register to Azure Batch resource provider
-if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
-{
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
-    {
-        Start-Sleep -s 10
-    }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
-}
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
-                         -Location $DataFactoryLocation `
-                         -Name $DataFactoryName
+                        -Location $DataFactoryLocation `
+                        -Name $DataFactoryName
 
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
 $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
@@ -393,15 +384,14 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Type Managed `
                                             -CatalogServerEndpoint $SSISDBServerEndpoint `
                                             -CatalogAdminCredential $serverCreds `
+                                            -CatalogPricingTier $SSISDBPricingTier `
                                             -Description $AzureSSISDescription `
                                             -Location $AzureSSISLocation `
                                             -NodeSize $AzureSSISNodeSize `
                                             -NodeCount $AzureSSISNodeNumber `
-                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                            -VnetId $VnetId `
-                                            -Subnet $SubnetName
+                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode
 
-write-host("##### Starting #####")
+write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
 Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
@@ -412,7 +402,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="azure-resource-manager-template"></a>Šablona Azure Resource Manageru
-Šablonu Azure Resource Manager můžete použít k vytvoření modulu runtime integrace Azure SSIS. Zde je ukázka návod: 
+V této části použijete k vytvoření modulu runtime integrace Azure SSIS šablonu Azure Resource Manager. Zde je ukázka návod: 
 
 1. Vytvořte soubor JSON pomocí následující šablony Resource Manageru. Nahraďte vlastními hodnotami hodnoty v lomené závorky (zástupného). 
 
@@ -478,11 +468,11 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ## <a name="deploy-ssis-packages"></a>Nasazení balíčků SSIS
 Teď použijte SQL Server Data Tools (SSDT) nebo aplikaci SQL Server Management Studio (SSMS) k nasazení vašich balíčků SSIS do Azure. Připojte se k serveru SQL Azure, který hostuje katalog služby SSIS (SSISDB). Název serveru SQL Azure je ve formátu &lt;název_serveru&gt;.database.windows.net (pro službu Azure SQL Database). Pokyny najdete v článku věnovaném [nasazení balíčků](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v dalších tématech IR Azure SSIS v této dokumentaci:
 
 - [Modul Runtime integrace Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Tento článek obsahuje koncepční informace o integraci runtimes obecně včetně infračerveného signálu Azure SSIS. 
-- [Kurz: Nasazení balíčků SSIS do Azure](tutorial-deploy-ssis-packages-azure.md) Tento článek obsahuje podrobné pokyny pro vytvoření Azure-SSIS IR a využívá databázi Azure SQL k hostování katalogu SSIS. 
+- [Kurz: Nasazení balíčků SSIS do Azure](tutorial-create-azure-ssis-runtime-portal.md) Tento článek obsahuje podrobné pokyny pro vytvoření Azure-SSIS IR a využívá databázi Azure SQL k hostování katalogu SSIS. 
 - [Monitorování Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Tento článek ukazuje, jak načíst informace o Azure-SSIS IR a popisy stavů ve vrácených informacích. 
 - [Správa Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Tento článek ukazuje, jak zastavit, spustit nebo odebrat Azure-SSIS IR. Ukazuje také postup horizontálního navýšení kapacity Azure-SSIS IR přidáním více uzlů. 
 - [Připojení Azure-SSIS IR k virtuální síti](join-azure-ssis-integration-runtime-virtual-network.md) Tento článek obsahuje koncepční informace o připojení Azure-SSIS IR k virtuální síti Azure (VNet). Poskytuje také kroky pro využití webu Azure Portal ke konfiguraci virtuální sítě, aby se k ní prostředí Azure-SSIS IR mohlo připojit. 

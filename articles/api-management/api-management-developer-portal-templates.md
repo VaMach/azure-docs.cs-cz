@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Postup přizpůsobení portálu pro vývojáře Azure API Management pomocí šablon
 
@@ -28,16 +28,10 @@ Existují tři základní způsoby, kterými jde přizpůsobit portál pro vývo
 * [Aktualizace stylů použitých pro elementy stránek napříč portálem pro vývojáře][customize-styles]
 * [Úprava šablony použité pro stránky vytvořený portál][portal-templates] (popsáno v této příručce)
 
-Šablony slouží k přizpůsobení obsah stránky portálu generována developer (např. dokumentace rozhraní API, produktů, ověřování uživatelů atd.). Pomocí [DotLiquid](http://dotliquidmarkup.org/) syntaxe a zadané sadu prostředků lokalizovaný řetězec, ikony a ovládací prvky stránky, máte flexibilitu při konfiguraci obsahu stránek, podle potřeby.
+Šablony slouží k přizpůsobení obsah stránky portálu vývojáře generované systémem (například dokumentace rozhraní API, produktů, ověřování uživatelů, atd.). Pomocí [DotLiquid](http://dotliquidmarkup.org/) syntaxe a zadané sadu prostředků lokalizovaný řetězec, ikony a ovládací prvky stránky, máte flexibilitu při konfiguraci obsahu stránek, podle potřeby.
 
 ## <a name="developer-portal-templates-overview"></a>Přehled šablon portálu vývojáře
-Úprava šablony se provádí z **portál pro vývojáře** při právě přihlášeni jako správce. Tam dostat nejdřív otevřete portál Azure a klikněte na tlačítko **portál vydavatele** na panelu nástrojů služby instanci služby API Management.
-
-![Portál vydavatele][api-management-management-console]
-
-Potom vpravo nahoře klikněte na **Portál pro vývojáře**. 
-
-![Nabídce portálu pro vývojáře][api-management-developer-portal-menu]
+Úprava šablony se provádí z **portál pro vývojáře** při právě přihlášeni jako správce. Tam dostat nejdřív otevřete portál Azure a klikněte na tlačítko **portál pro vývojáře** na panelu nástrojů služby instanci služby API Management.
 
 Pro přístup k portálu šablony vývojáře, klikněte na ikonu přizpůsobit na levé straně zobrazení nabídky přizpůsobení, a klikněte na **šablony**.
 
@@ -65,7 +59,7 @@ Editor pro každé šablony portálu pro vývojáře má dvě části, které se
 
 ![Šablona datového modelu][api-management-template-data]
 
-V předchozím příkladu jsou dva produkty zobrazí v portálu pro vývojáře, které byly získány ze údaje zobrazené na **data šablony** podokně, jak je znázorněno v následujícím příkladu.
+V předchozím příkladu jsou dva produkty zobrazí v portálu pro vývojáře, které byly získány ze údaje zobrazené na **data šablony** podokně, jak je znázorněno v následujícím příkladu:
 
 ```json
 {
@@ -164,7 +158,7 @@ Můžete obnovit šablonu na předchozí publikovanou verzi, klikněte na tlač�
 
 Pro potvrzení klikněte na tlačítko **Ano**.
 
-![Potvrďte][api-management-revert-template-confirm]
+![Potvrdit][api-management-revert-template-confirm]
 
 Po dokončení této operace je za provozu v portálu pro vývojáře dřív publikovaná verze šablony.
 
@@ -177,7 +171,7 @@ Chcete-li obnovit jednu šablonu, která má výchozí verze kliknutím na tlač
 
 Pro potvrzení klikněte na tlačítko **Ano**.
 
-![Potvrďte][api-management-reset-template-confirm]
+![Potvrdit][api-management-reset-template-confirm]
 
 Chcete-li obnovit všechny šablony na jejich výchozí verze, klikněte na tlačítko **obnovit výchozí šablony** na seznam šablon.
 
@@ -185,7 +179,7 @@ Chcete-li obnovit všechny šablony na jejich výchozí verze, klikněte na tla�
 
 Obnovená šablony musí pak publikovat samostatně nebo všechny najednou podle kroků v [k publikování šablony](#to-publish-a-template).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Referenční informace pro vývojáře portálu šablony, řetězcové prostředky, ikony a ovládací prvky stránky najdete v tématu [API managementu vývojáře portálu šablony](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

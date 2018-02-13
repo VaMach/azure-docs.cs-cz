@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Shromážděte protokoly aktivity Azure do analýzy protokolů napříč odběrů
 
@@ -27,7 +27,7 @@ Pokud pracovní prostor analýzy protokolů stejného předplatného Azure, nebo
 
 ## <a name="overview"></a>Přehled
 
-Strategie použitá v tomto scénáři je tak, aby měl odesílat události do protokolu činnosti Azure [centra událostí](../event-hubs/event-hubs-what-is-event-hubs.md) kde [aplikace logiky](../logic-apps/logic-apps-what-are-logic-apps.md) je odešle do pracovního prostoru analýzy protokolů. 
+Strategie použitá v tomto scénáři je tak, aby měl odesílat události do protokolu činnosti Azure [centra událostí](../event-hubs/event-hubs-what-is-event-hubs.md) kde [aplikace logiky](../logic-apps/logic-apps-overview.md) je odešle do pracovního prostoru analýzy protokolů. 
 
 ![Obrázek toku dat z aktivity protokolu do protokolu analýzy](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -141,7 +141,7 @@ Chcete-li získat název a připojovací řetězec centra událostí, postupujte
 
 Návrhář aplikace logiky nyní zobrazuje dostupné konektory a jejich aktivační události, které používáte ke spuštění pracovního postupu aplikace logiky.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Přidat aktivační událost centra událostí
 

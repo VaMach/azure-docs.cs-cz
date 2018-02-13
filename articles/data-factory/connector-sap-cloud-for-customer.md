@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopírování dat z cloudu SAP pro zákazníka (C4C) pomocí Azure Data Factory
 
@@ -47,7 +47,7 @@ Pro SAP Cloud pro zákazníka propojené služby jsou podporovány následujíc�
 | type | Vlastnost typu musí být nastavena na: **SapCloudForCustomer**. | Ano |
 | Adresa URL | Adresa URL služby SAP C4C OData. | Ano |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k SAP C4C. | Ano |
-| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole můžete označte jako SecureString. | Ano |
+| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Ne Ano pro sink zdroje |
 
 >[!IMPORTANT]
@@ -85,7 +85,7 @@ Ke zkopírování dat z cloudu SAP pro zákazníka, nastavte vlastnost typu dato
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu datové sady musí být nastavena na: **SapCloudForCustomerResource** |Ano |
-| Cesta | Zadejte cestu SAP C4C OData entity. |Ano |
+| path | Zadejte cestu SAP C4C OData entity. |Ano |
 
 **Příklad:**
 
@@ -105,7 +105,7 @@ Ke zkopírování dat z cloudu SAP pro zákazníka, nastavte vlastnost typu dato
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje SAP cloudové zdroje zákazníka.
 
@@ -207,12 +207,12 @@ Při kopírování dat z cloudu SAP pro zákazníka, následující mapování s
 
 | SAP C4C OData datový typ | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
-| Edm.Binary | Byte] |
-| Edm.Boolean | BOOL |
-| Edm.Byte | Byte] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Logická hodnota (Bool) |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | Datum a čas |
 | Edm.Decimal | Decimal |
-| Edm.Double | Double |
+| Edm.Double | Dvojitý |
 | Edm.Single | Svobodný/svobodná |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
@@ -220,8 +220,8 @@ Při kopírování dat z cloudu SAP pro zákazníka, následující mapování s
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
 | Edm.String | Řetězec |
-| Edm.Time | Časový interval |
-| Edm.DateTimeOffset | Datový typ DateTimeOffset |
+| Edm.Time | TimeSpan |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 
 ## <a name="next-steps"></a>Další postup

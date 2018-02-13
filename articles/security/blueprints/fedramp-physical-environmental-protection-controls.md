@@ -1,6 +1,6 @@
 ---
-title: "Automatizace FedRAMP Azure plán, podle kterého - ochrany fyzických a prostředí"
-description: "Webové aplikace pro FedRAMP - ochrany fyzických a prostředí"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého ochrany - FedRAMP webové aplikace automatizace - fyzických a prostředí"
+description: "FedRAMP webové aplikace automatizace - ochrany fyzických a prostředí"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Fyzických a prostředí ochrany (PE)
 
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
 
-## <a name="nist-800-53-control-pe-1"></a>NIST 800-53 řízení PE-1
+## <a name="nist-800-53-control-pe-1"></a>NIST 800-53 Control PE-1
 
 #### <a name="physical-and-environmental-protection-policy-and-procedures"></a>Zásady ochrany fyzických a prostředí a postupy
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure implementuje tento požadavek potřeby jejich zákazníků. Tento nástroj přístup datacenter je autoritativní zdroj výpis všichni pracovníci s autorizovaný přístup k určité datového centra. Nástroj je spojen s datacentra fyzického zabezpečení přístupu k řízení zařízení a povolí přístup podle úrovně přístupu, které jsou schváleny tým DCM. Úrovně přístupu jsou přiřazeny v nástroji Microsoft buď uživatele vydané Odznáček nebo oznámení dočasný přístup, který je přiřazen v datacentru pomocí nadřízeného řízení místnosti (řádku). Úrovně přístupu jsou schváleny tým DCM. Navíc přiřazovány fyzické odznaky přihlašovací údaje vyžadují některé oblasti datacentra registrace uživatele biometrických dat (ruční geometrie nebo otisků prstů). |
 
 
- ## <a name="nist-800-53-control-pe-2c"></a>NIST 800-53 řízení PE-2.c
+ ## <a name="nist-800-53-control-pe-2c"></a>NIST 800-53 Control PE-2.c
 
 #### <a name="physical-access-authorizations"></a>Povolení fyzický přístup
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure implementuje tento požadavek potřeby jejich zákazníků. Všechny přístupy k zařízením datové centrum Azure jsou zaznamenána a auditovat. |
 
 
- ## <a name="nist-800-53-control-pe-3c"></a>NIST 800-53 řízení PE-3.c
+ ## <a name="nist-800-53-control-pe-3c"></a>NIST 800-53 Control PE-3.c
 
 #### <a name="physical-access-control"></a>Fyzický přístup ovládacího prvku
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="physical-access-control"></a>Fyzický přístup ovládacího prvku
 
-**PE 3.e** Organizace zabezpečuje klíče, kombinace a dalších zařízení fyzický přístup.
+**PE-3.e** Organizace zabezpečuje klíče, kombinace a dalších zařízení fyzický přístup.
 
 **Odpovědnosti:**`Azure Only`
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure další omezuje oblastí v datových centrech společnosti Microsoft, které obsahují důležité systémy (např. colocations, kritická prostředí, MDF místnostmi atd.) prostřednictvím různé mechanismy zabezpečení, jako je řízení přístupu elektronické, biometrických zařízení, a ovládací prvky Anti-passback. Přístup k Azure colocations jsou udělena jako samostatný, vyšší úroveň přístupu DCAT než jiné oblasti přístup datového centra. Kromě toho všechny Azure FTE a dodavatelů, kteří mají přístup k Azure Government colocations povinně oficiálně podstoupit blokování cloudu společnosti Microsoft a ověření přístupem USA před se autorizovaný přístup k prostředí. Další podrobnosti týkající se blokování cloud pro Azure Government colocations jsou uvedeny v části PS-03. |
 
 
- ## <a name="nist-800-53-control-pe-4"></a>NIST 800-53 řízení PE – 4
+ ## <a name="nist-800-53-control-pe-4"></a>NIST 800-53 Control PE-4
 
 #### <a name="access-control-for-transmission-medium"></a>Řízení přístupu pro přenosového média
 
@@ -221,7 +221,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure implementuje tento požadavek potřeby jejich zákazníků. Microsoft Azure implementovala řízení přístupu pro přenosového média prostřednictvím návrhu a vytvoření prostorách hlavní distribuční rámce (MDF) a colocations chránit informace systému distribuce a přenosu řádky z náhodných škod přerušení a fyzické manipulaci. Přístup k MDF místnostmi a colocations vyžadují dvoufaktorové ověřování (oznámení "BADGE" přístup a biometrických údajů). Tím se zajistí, že přístup je omezen na jen oprávněný personál (viz PE-2, PE 3). V rámci MDF jsou chráněny přenos a distribuci řádky z náhodných škod, přerušení a fyzické manipulaci prostřednictvím systému vedení, uzamčení stojany, klece nebo zásobník kabel. |
 
 
- ## <a name="nist-800-53-control-pe-5"></a>NIST 800-53 řízení PE-5
+ ## <a name="nist-800-53-control-pe-5"></a>NIST 800-53 Control PE-5
 
 #### <a name="access-control-for-output-devices"></a>Řízení přístupu pro výstupní zařízení
 
@@ -263,7 +263,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure implementuje tento požadavek potřeby jejich zákazníků. Fyzický přístup k protokolům jsou zkontrolovány nepřetržitě a udržuje na následné investigativní revizi. |
 
 
- ## <a name="nist-800-53-control-pe-6c"></a>NIST 800-53 řízení PE-6.c
+ ## <a name="nist-800-53-control-pe-6c"></a>NIST 800-53 Control PE-6.c
 
 #### <a name="monitoring-physical-access"></a>Monitorování fyzického přístupu
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure udržuje datacenter přístup k záznamům v DCAT ve formě schválené DCAT požadavky. Požadavky DCAT můžete schválit pouze tým DCM. Úrovně přístupu v datovém centru nejsou přiřazeni a spravované v rámci DCAT. Přístup Datacenter je čtvrtletně zkontrolovat. Veškerý přístup k datových centrech Azure je zaznamenána DCAT a je k dispozici pro budoucí možné šetření. Návštěvníky je potřeba mít vyvedena za všech okolností. Přístup doprovodu v rámci datového centra je zaprotokolována v rámci alarmů monitorování systému a v případě potřeby můžete vztažen k návštěvníka pro budoucí revize. Návštěvník přístup kterou nepřetržitě kontrolují přiřazené doprovodu a supervisor místnosti řízení prostřednictvím průmyslové televize a alarmů systému pro monitorování. Návštěvníky nejsou k dispozici s přístupem a musí být doplněn jejich doprovod za všech okolností. |
 
 
- ## <a name="nist-800-53-control-pe-9"></a>NIST 800-53 řízení PE-9
+ ## <a name="nist-800-53-control-pe-9"></a>NIST 800-53 Control PE-9
 
 #### <a name="power-equipment-and-cabling"></a>Napájení zařízení a kabeláže
 
@@ -361,7 +361,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure implementuje tento požadavek potřeby jejich zákazníků. Microsoft Azure poskytuje ochranných prostory a příslušné označování pro kabely. V prostředí, které byly analyzovány pro ochranu před prostředí rizika, jako je krádež, ještě efektivněji, výbušnin, kouře, horních, prachu, musí být umístěny zařízení infrastruktury Microsoft Azure, například kabely, elektrický řádky a zálohování generátory vibrace, zemětřesení, škodlivé chemikálií, elektrické rušení, výpadky napájení, elektrický narušení (špičky). Všechny prostředky přenosné online službám (např. stojany, serverů, síťových zařízení) musí být uzamčena nebo zajištěny způsobem v místě, aby bylo možné zajistit ochranu proti odcizení nebo přesun škody. Napájení a informace o systému kabely v jakémkoli prostředí Microsoft Azure jsou správně označené a chráněná před zachycením nebo poškození. Napájení a informace o systému kabely jsou oddělené od sebe navzájem na všechny body v prostředí, aby se zabránilo narušení. |
 
 
- ## <a name="nist-800-53-control-pe-10a"></a>NIST 800-53 řízení PE-10.a
+ ## <a name="nist-800-53-control-pe-10a"></a>NIST 800-53 Control PE-10.a
 
 #### <a name="emergency-shutoff"></a>Nouzový přístupnými
 
@@ -389,7 +389,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Microsoft Azure implementuje tento požadavek potřeby jejich zákazníků. Tlačítka EPO jsou strategicky umístit umožňující aktivace v případě nouze. Tlačítka EPO mohou být umístěny v colocations, obsazená zařízení centra operace (FOCs), nebo podle potřeby kódem místní ještě efektivněji. |
 
 
- ## <a name="nist-800-53-control-pe-10c"></a>NIST 800-53 řízení PE-10.c
+ ## <a name="nist-800-53-control-pe-10c"></a>NIST 800-53 Control PE-10.c
 
 #### <a name="emergency-shutoff"></a>Nouzový přístupnými
 

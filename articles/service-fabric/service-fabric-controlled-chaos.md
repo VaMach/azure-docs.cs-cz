@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 9475774b99ee6bc01fb43ffc6fcddea025779c05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Vyvolat řízené Chaos v prostředí clusterů Service Fabric
 Ve velkém měřítku distribuovaných systémů, jako jsou ze své podstaty nespolehlivé cloudových infrastruktur. Azure Service Fabric umožňuje vývojářům psát spolehlivé distribuované služby nespolehlivé infrastruktuře. Zápis robustní distribuované služby nespolehlivé infrastruktuře, vývojáři potřeba otestovat stability svých služeb, při odpovídající nespolehlivé infrastruktury prochází přes přechodů mezi stavy složité z důvodu chyb.
@@ -33,7 +33,7 @@ Po konfiguraci Chaos s rychlost a druh chyb, můžete začít Chaos prostřednic
 > V současné podobě Chaos indukuje pouze bezpečné chyb, což znamená, že chybí externí chyb ztrátě kvora nebo ztrátě dat se nikdy neprovádí.
 >
 
-Je spuštěn Chaos, vyvolá různé události, které zaznamenat stav spuštění v tuto chvíli. Například ExecutingFaultsEvent obsahuje všechny chyb, které se rozhodla Chaos provést v této iteraci. ValidationFailedEvent obsahuje podrobnosti o selhání ověření (stavu nebo stabilitu problémy), který byl nalezen během ověření clusteru. Rozhraní API GetChaosReport (C#, prostředí Powershell nebo REST) Chcete-li získat sestavu Chaos spustí můžete vyvolat. Tyto události získat uchovávané v [spolehlivé slovník](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), který má zásady zkrácení závisí na dvě konfigurace: **MaxStoredChaosEventCount** (výchozí hodnota je 25 000) a **StoredActionCleanupIntervalInSeconds** (výchozí hodnota je 3600). Každý *StoredActionCleanupIntervalInSeconds* Chaos kontroly a všechny, ale nejnovější *MaxStoredChaosEventCount* události, jsou vymazány ze slovníku spolehlivé.
+Je spuštěn Chaos, vyvolá různé události, které zaznamenat stav spuštění v tuto chvíli. Například ExecutingFaultsEvent obsahuje všechny chyb, které se rozhodla Chaos provést v této iteraci. ValidationFailedEvent obsahuje podrobnosti o selhání ověření (stavu nebo stabilitu problémy), který byl nalezen během ověření clusteru. Rozhraní API GetChaosReport (C#, prostředí Powershell nebo REST) Chcete-li získat sestavu Chaos spustí můžete vyvolat. Tyto události získat uchovávané v [spolehlivé slovník](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), který má zásady zkrácení závisí na dvě konfigurace: **MaxStoredChaosEventCount** (výchozí hodnota je 25 000) a **StoredActionCleanupIntervalInSeconds** (výchozí hodnota je 3600). Každý *StoredActionCleanupIntervalInSeconds* Chaos kontroly a všechny, ale nejnovější *MaxStoredChaosEventCount* události, jsou vymazány ze slovníku spolehlivé.
 
 ## <a name="faults-induced-in-chaos"></a>Vyvolané v Chaos chyb
 Chaos generuje chyby napříč celý cluster Service Fabric a komprimaci chyb, které jsou zobrazená v měsíců nebo let do několik hodin. Kombinace prokládaná chyb s vysokou odolnost rychlost vyhledá náročnějších případech, které jinak může být načteni. Toto cvičení Chaos vede k významné zlepšení kvality kódu služby.
@@ -65,11 +65,14 @@ Získat chyb, které Chaos vyvolané, můžete použít rozhraní API GetChaosRe
 > Bez ohledu na to jak velkou hodnotu *MaxConcurrentFaults* má Chaos zaručuje – chybí externí chyb - neexistuje ztrátě kvora nebo ztrátě dat.
 >
 
-* **EnableMoveReplicaFaults**: Povolí nebo zakáže chyb, které způsobují primární nebo sekundární repliky přesunout. Tyto chyby jsou ve výchozím nastavení zakázány.
+* **EnableMoveReplicaFaults**: Povolí nebo zakáže chyb, které způsobují primární nebo sekundární repliky přesunout. Tyto chyby jsou povolené ve výchozím nastavení.
 * **WaitTimeBetweenIterations**: dobu čekání mezi iterací. To znamená množství času Chaos se pozastaví po provedení zaokrouhlit chyb a nutnosti dokončení odpovídající ověření stavu clusteru. Čím vyšší hodnota, čím nižší je míra vkládání průměrná selhání.
 * **WaitTimeBetweenFaults**: dobu čekání mezi dvě po sobě jdoucích chyb v jednom iterací. Vyšší hodnota, čím nižší současnému (nebo překryv mezi) chyb.
 * **ClusterHealthPolicy**: zásady stavu clusteru se používá k ověření stavu clusteru mezi Chaos iterací. Pokud stav clusteru došlo k chybě nebo pokud se stane neočekávané výjimce během zpracování chyby, budou Chaos Počkejte 30 minut před další-kontrolou stavu - poskytnout chvíli recuperate clusteru.
 * **Kontext**: kolekce (řetězec, řetězec) zadejte páry klíč hodnota. Mapy slouží k zaznamenání informací o Chaos spustit. Nemůže být více než 100 tyto dvojice a každý řetězec (klíč nebo hodnota) může mít maximálně povolených 4095 znaků dlouhé. Tato mapa je nastavena podle starter zmatku spustit, aby se volitelně ukládat kontext o konkrétní spustit.
+* **ChaosTargetFilter**: Tento filtr lze použít k cílové Chaos chyb pouze na určité typy uzlů nebo pouze na určité instance aplikace. Pokud se nepoužívá ChaosTargetFilter, Chaos závady všechny entity clusteru. Pokud se používá ChaosTargetFilter Chaos závady jenom entity, které splňují specifikace ChaosTargetFilter. NodeTypeInclusionList a ApplicationInclusionList povolit pouze union sémantiku. Jinými slovy není možné zadat průnik NodeTypeInclusionList a ApplicationInclusionList. Například není možné zadat "poruch tuto aplikaci, pouze pokud je na daný typ uzlu." Jakmile entity je součástí NodeTypeInclusionList nebo ApplicationInclusionList, nelze dané entity vyloučit pomocí ChaosTargetFilter. I v případě, že applicationX se nezobrazí v ApplicationInclusionList, v některých Chaos iteraci applicationX může být došlo k chybě protože Odehrává se na uzlu nodeTypeY, který je součástí NodeTypeInclusionList. Pokud NodeTypeInclusionList i ApplicationInclusionList jsou null nebo prázdný, je vyvolána ArgumentException.
+    * **NodeTypeInclusionList**: seznam typy uzlů, které chcete zahrnout do Chaos chyb. Všechny typy chyb (restartovat uzel, restartujte codepackage, odeberte repliky, restartujte repliky, přesunutí primární a sekundární) jsou povolené pro uzly z těchto typů uzlu. Pokud nodetype (vyslovení NodeTypeX) nejsou uvedené v NodeTypeInclusionList, pak uzlu úrovni chyb (např. NodeRestart) budou nikdy povolené pro uzly NodeTypeX, ale kód balíčku a repliky chyb lze povolit stále pro NodeTypeX, pokud aplikace v Jsou umístěny na uzlu NodeTypeX ApplicationInclusionList se stane. V tomto seznamu, tento počet zvýšit mohou obsahovat maximálně 100 názvy typu uzlu, se vyžaduje ke konfiguraci MaxNumberOfNodeTypesInChaosTargetFilter konfigurace upgradu.
+    * **ApplicationInclusionList**: seznam aplikací identifikátory URI pro zahrnutí do Chaos chyb. Všechny repliky, které patří do služby tyto aplikace se přenášejí pomocí Chaos repliky chyb (restartování replika, replika odebrat, přesunutí primární a sekundární přesunutí). Chaos restartovat balíček kódu jenom v případě, že balíček kódu je hostitelem repliky jenom tyto aplikace. Pokud aplikace v tomto seznamu nezobrazí, ho můžete stále být došlo k chybě v některé Chaos iteraci Pokud ukončení aplikace v uzlu typu uzlu, který je incuded v NodeTypeInclusionList. Ale pokud applicationX je vázaný na nodeTypeY prostřednictvím omezení umístění a applicationX chybí z ApplicationInclusionList a nodeTypeY chybí z NodeTypeInclusionList, pak applicationX nikdy selže. Maximálně 1000 názvy aplikací mohou být součástí tohoto seznamu, tento počet zvýšit, se vyžaduje ke konfiguraci MaxNumberOfApplicationsInChaosTargetFilter konfigurace upgradu.
 
 ## <a name="how-to-run-chaos"></a>Jak spustit Chaos
 
@@ -136,7 +139,23 @@ class Program
                 MaxPercentUnhealthyApplications = 100,
                 MaxPercentUnhealthyNodes = 100
             };
-            
+
+            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+            // for nodes of type 'FrontEndType'
+            var nodetypeInclusionList = new List<string> { "FrontEndType"};
+
+            // In addition to the faults included by nodetypeInclusionList, 
+            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
+
+            // List of cluster entities to target for Chaos faults.
+            var chaosTargetFilter = new ChaosTargetFilter
+            {
+                NodeTypeInclusionList = nodetypeInclusionList,
+                ApplicationInclusionList = applicationInclusionList
+            };
+
             var parameters = new ChaosParameters(
                 maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
@@ -145,7 +164,7 @@ class Program
                 startContext,
                 waitTimeBetweenIterations,
                 waitTimeBetweenFaults,
-                clusterHealthPolicy);
+                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
 
             try
             {
@@ -250,12 +269,26 @@ $clusterHealthPolicy.ConsiderWarningAsError = $False
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
+#List of cluster entities to target for Chaos faults.
+$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
+$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+# for nodes of type 'FrontEndType'
+$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
+$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# In addition to the faults included by nodetypeInclusionList, 
+# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
+
 Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
 
 while($true)
 {
@@ -286,5 +319,4 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
-
 ```

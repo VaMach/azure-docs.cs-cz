@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 152a5145c2a337561fc21d4f3fe67abab2d918f9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopírování dat z Amazon jednoduché úložiště služby pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,9 +37,9 @@ Konkrétně tento konektor Amazon S3 podporuje kopírování souborů jako-je ne
 Pokud chcete zkopírovat data z Amazonu S3, zkontrolujte, zda že máte následující oprávnění:
 
 - `s3:GetObject`a `s3:GetObjectVersion` pro Amazon S3 objekt operace.
-- `s3:ListBucket`pro operace sady Amazon S3. Pokud použijete Průvodce kopírováním objekt pro vytváření dat `s3:ListAllMyBuckets` je také nutný.
+- `s3:ListBucket`nebo `s3:GetBucketLocation` pro operace sady Amazon S3. Pokud použijete Průvodce kopírováním objekt pro vytváření dat `s3:ListAllMyBuckets` je také nutný.
 
-Podrobnosti o úplný seznam Amazon S3 oprávnění najdete v tématu [zadání oprávnění v zásadách](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
+Podrobnosti o úplný seznam Amazon S3 oprávnění najdete v tématu [zadání oprávnění v zásadách](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Začínáme
 
@@ -55,7 +55,7 @@ Pro Amazon S3 propojené služby jsou podporovány následující vlastnosti:
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavená na **AmazonS3**. | Ano |
 | accessKeyId | ID tajný přístupový klíč. |Ano |
-| secretAccessKey | Tajný přístupový klíč sám sebe. Toto pole můžete označte jako SecureString. |Ano |
+| secretAccessKey | Tajný přístupový klíč sám sebe. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 >[!NOTE]
@@ -160,7 +160,7 @@ Chcete-li kopírovat data z Amazonu S3, nastavte vlastnost typu datové sady, kt
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které podporuje Azure Data Lake zdroj a jímka.
 

@@ -1,10 +1,10 @@
 ---
-title: "Zkontrolujte připojení s sledovací proces sítě Azure - portálu Azure | Microsoft Docs"
-description: "Tato stránka vysvětluje, jak ověřit funkčnost připojení k sledovací proces sítě na portálu Azure"
+title: "Řešení potíží s připojení s sledovací proces sítě Azure - rozhraní REST API Azure | Microsoft Docs"
+description: "Naučte se používat připojení k řešení potíží s schopností sledovací proces sítě Azure pomocí rozhraní REST API Azure."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Zkontrolujte připojení s sledovací proces sítě Azure pomocí portálu Azure
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Poradce při potížích připojení s sledovací proces sítě Azure pomocí rozhraní REST API Azure
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-connectivity-portal.md)
@@ -27,47 +27,17 @@ ms.lasthandoff: 12/21/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Rozhraní API Azure REST](network-watcher-connectivity-rest.md)
 
-Naučte se používat připojení k ověření, pokud lze navázat přímé připojení TCP z virtuálního počítače do daného koncového bodu.
+Další informace o použití připojení řešení Chcete-li ověřit, zda lze vytvořit přímé připojení TCP z virtuálního počítače do daného koncového bodu.
 
 ## <a name="before-you-begin"></a>Než začnete
 
 Tento článek předpokládá, že máte v následujících zdrojích informací:
 
-* Instance sledovací proces sítě v oblasti, které chcete zkontrolovat připojení.
-
-* Zkontrolujte připojení k virtuálním počítačům.
-
-ARMclient se používá k volání rozhraní REST API pomocí prostředí PowerShell. ARMClient se nachází na chocolatey v [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient).
-
-Tento scénář předpokládá, že už jste udělali kroky v [vytvořit sledovací proces sítě](network-watcher-create.md) vytvořit sledovací proces sítě.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* Instance sledovací proces sítě v oblasti, kterou chcete vyřešte potíže připojením.
+* Virtuální počítače potíží s připojením s.
 
 > [!IMPORTANT]
-> Kontrola připojení vyžaduje rozšíření virtuálního počítače `AzureNetworkWatcherExtension`. Instalaci rozšíření na virtuální počítač s Windows najdete v článku [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Windows](../virtual-machines/windows/extensions-nwa.md) a u virtuálního počítače s Linuxem, navštivte [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Registrace funkce preview
-
-Kontrola připojení je aktuálně ve verzi public preview k použití této funkce, které musí být registrováno. Chcete-li to provést, spusťte následující ukázku v prostředí PowerShell:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Chcete-li ověřit, zda že byla registrace úspěšná, spusťte následující ukázku v prostředí Powershell:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-Pokud funkci byla správně zaregistrovány, by měl odpovídat následující výstup:
-
-```
-FeatureName                             ProviderName      RegistrationState
------------                             ------------      -----------------
-AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
-```
+> Řešení potíží s připojení vyžaduje rozšíření virtuálního počítače `AzureNetworkWatcherExtension`. Instalaci rozšíření na virtuální počítač s Windows najdete v článku [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Windows](../virtual-machines/windows/extensions-nwa.md) a u virtuálního počítače s Linuxem, navštivte [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Přihlaste se pomocí ARMClient
 
@@ -494,13 +464,11 @@ V následujícím příkladu je odpověď z spuštění předchozího volání r
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Informace o automatizaci paketu zachytává se virtuální počítač výstrahy zobrazením [vytvořit zaznamenání výstrahy spouštěná paketu](network-watcher-alert-triggered-packet-capture.md)
+Informace o automatizaci paketu zachytává se virtuální počítač výstrahy zobrazením [vytvořit zaznamenání výstrahy spouštěná paketu](network-watcher-alert-triggered-packet-capture.md).
 
-Najít, pokud určité provoz je povolený v nebo z virtuálního počítače navštivte stránky [zkontrolujte IP tok ověření](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
+Najít, pokud určité provoz je povolený v nebo z virtuálního počítače navštivte stránky [zkontrolujte IP tok ověření](network-watcher-check-ip-flow-verify-portal.md).
 
 
 

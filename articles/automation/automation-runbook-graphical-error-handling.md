@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Zpracování chyb v grafických runboocích Azure Automation
 
@@ -40,7 +40,7 @@ Grafické runbooky Azure Automation byly vylepšeny o možnost zahrnovat zpracov
 
 Kdykoli nějaká důležitá aktivita vyvolá chybu nebo výjimku, je důležité zabránit zpracování další aktivity v runbooku a odpovídajícím způsobem chybu zpracovat. To je obzvláště důležité v případě, kdy na vašich runboocích závisí podnikový proces nebo proces servisních operací.
 
-Pro každou aktivitu, která může vést k chybě, může autor runbooku přidat chybové propojení odkazující na jinou aktivitu.  Cílová aktivita může být libovolného typu, včetně aktivity s kódem, aktivity vyvolávající rutinu, aktivity vyvolávající jiný runbook atd.
+Pro každou aktivitu, která může vést k chybě, může autor runbooku přidat chybové propojení odkazující na jinou aktivitu. Cílová aktivita může být libovolného typu, včetně aktivity s kódem, aktivity vyvolávající rutinu, aktivity vyvolávající jiný runbook atd.
 
 Kromě toho může cílová aktivita také obsahovat odchozí propojení. Může se jednat o běžná propojení nebo chybová propojení. To znamená, že autor runbooku může implementovat komplexní logiku zpracování chyb bez nutnosti uchýlit se k aktivitě s kódem. Doporučeným postupem je vytvoření vyhrazeného runbooku s běžnými funkcemi pro zpracování chyb, ale není to nutné. Logika zpracování chyb v aktivitě s kódem PowerShellu není jedinou možností.  
 
@@ -63,7 +63,7 @@ Po konfiguraci tohoto nastavení vytvoříte aktivitu, která bude zpracovávat 
 
 V následujícím příkladu runbook načte proměnnou obsahující název virtuálního počítače. Následně se pokusí spustit virtuální počítač pomocí další aktivity.<br><br> ![Příklad zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-Aktivity **Get-AutomationVariable** a **Start-AzureRmVm** jsou nakonfigurované, aby převáděly výjimky na chyby.  Pokud dojde k problémům se získáním proměnné nebo spuštěním virtuálního počítače, vygenerují se chyby.<br><br> ![Nastavení aktivity pro zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+Aktivity **Get-AutomationVariable** a **Start-AzureRmVm** jsou nakonfigurované, aby převáděly výjimky na chyby. Pokud dojde k problémům se získáním proměnné nebo spuštěním virtuálního počítače, vygenerují se chyby.<br><br> ![Nastavení aktivity pro zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 Chybová propojení vedou z těchto aktivit do jediné aktivity **Error Management** (aktivita s kódem). V této aktivitě je nakonfigurovaný jednoduchý výraz PowerShellu, který pomocí klíčového slova *Throw* zastaví zpracování a prostřednictvím *$Error.Exception.Message* získá zprávu s popisem aktuální výjimky.<br><br> ![Příklad kódu pro zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

@@ -3,7 +3,7 @@ title: "Zobrazení analýzy dat Azure Web Apps | Microsoft Docs"
 description: "Můžete řešení Azure Web Apps analýzy a získáte přehled o webových aplikacích Azure shromažďováním jiné metriky mezi všechny prostředky webové aplikace Azure."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Zobrazení analýzy dat pro metriky mezi všechny prostředky webové aplikace Azure
 
@@ -37,7 +37,7 @@ Pomocí řešení, můžete zobrazit:
 
 Na rozdíl od většině ostatních řešení pro analýzu protokolu není data shromážděná pro Azure Web Apps pomocí agentů. Všechna data, která používá řešení pochází přímo z Azure.
 
-| Připojený zdroj | Podporuje se | Popis |
+| Připojený zdroj | Podporováno | Popis |
 | --- | --- | --- |
 | [Agenti systému Windows](log-analytics-windows-agent.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Řešení neshromažďuje informace od agentů systému Linux. |
@@ -58,7 +58,7 @@ Proveďte následující postup pro konfiguraci Azure Web Apps Analytics řešen
 Řešení Azure Web Apps analýzy shromažďuje dvě sady metriky z Azure:
 
 - Metriky Azure Web Apps
-  - Průměrná paměti pracovní sady
+  - Pracovní sada průměrné paměti
   - Průměrná doba odezvy
   - Počet přijatých nebo odeslaných bajtů
   - Čas procesoru
@@ -69,7 +69,7 @@ Proveďte následující postup pro konfiguraci Azure Web Apps Analytics řešen
   - Počet přijatých nebo odeslaných bajtů
   - Procento procesoru
   - Délka fronty disku
-  - Délka fronty http
+  - Délka fronty HTTP
   - Procento paměti
 
 Metriky plánu služby App Service jsou shromažďovány pouze pokud používáte vyhrazené tarifu. To se nevztahuje na volné nebo sdílené plány služby App Service.
@@ -84,25 +84,25 @@ Po dokončení konfigurace řešení, začněte dat předávaných do pracovníh
 
 Když přidáte řešení Azure Web Apps analýzy do pracovního prostoru **Azure Web Apps Analytics** dlaždice se přidá na řídicí panel Přehled. Tuto dlaždici zobrazí počet Azure Web Apps, řešení má přístup k ve vašem předplatném Azure.
 
-![Azure dlaždice analýzy webové aplikace](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-tile.png)
+![Azure Web Apps Analytics tile](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-tile.png)
 
 ### <a name="view-azure-web-apps-analytics-information"></a>Zobrazit informace o Azure Web Apps Analytics
 
 Klikněte **Azure Web Apps Analytics** dlaždici otevřete **Azure Web Apps Analytics** řídicí panel. Řídicí panel obsahuje okna v následující tabulce. Každý okno uvádí až deset položky odpovídající kritériím tohoto okna pro zadaný obor a časový rozsah. Můžete spustit vyhledávání protokolu, který vrátí všechny záznamy kliknutím **zobrazit všechny** v dolní části okna, nebo kliknutím na záhlaví okna.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Sloupec | Popis |
 | --- | --- |
 | Azure Webapps |   |
-| Trendy webové žádosti o aplikace | Ukazuje spojnicový graf trendu žádost webové aplikace pro rozsah, kterou jste vybrali a seznam top deset webových požadavků. Klikněte na spojnicový graf ke spuštění vyhledávání protokolu pro<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Klikněte na položku webové žádosti o spuštění vyhledávání protokolu pro trend metriky webové žádosti, který požadují. |
-| Doba odezvy aplikací webové | Zobrazuje spojnicový graf doby odezvy webové aplikace pro rozsah, kterou jste vybrali. Také ukazuje seznam seznam horní deset webové aplikace odpovědi časový limit. Klikněte na graf ke spuštění vyhledávání protokolu pro<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Klikněte na webovou aplikaci spustit vyhledávání protokolu vrácení dobu odezvy pro webovou aplikaci. |
-| Provoz webové aplikace | Spojnicový graf pro provoz webové aplikace se zobrazí v MB a uvádí horní provoz webové aplikace. Klikněte na graf ke spuštění vyhledávání protokolu pro<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Zobrazuje všechny webové aplikace s přenosy dat za poslední minutu. Klikněte na webovou aplikaci spustit vyhledávání protokolu zobrazující bajtů přijatých a odeslaných pro webovou aplikaci. |
+| Trendy webové žádosti o aplikace | Ukazuje spojnicový graf trendu žádost webové aplikace pro rozsah, kterou jste vybrali a seznam top deset webových požadavků. Klikněte na spojnicový graf ke spuštění vyhledávání protokolu pro <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Klikněte na položku webové žádosti o spuštění vyhledávání protokolu pro trend metriky webové žádosti, který požadují. |
+| Doba odezvy aplikací webové | Zobrazuje spojnicový graf doby odezvy webové aplikace pro rozsah, kterou jste vybrali. Také ukazuje seznam seznam horní deset webové aplikace odpovědi časový limit. Klikněte na graf ke spuštění vyhledávání protokolu pro <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Klikněte na webovou aplikaci spustit vyhledávání protokolu vrácení dobu odezvy pro webovou aplikaci. |
+| Provoz webové aplikace | Spojnicový graf pro provoz webové aplikace se zobrazí v MB a uvádí horní provoz webové aplikace. Klikněte na graf ke spuštění vyhledávání protokolu pro <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Zobrazuje všechny webové aplikace s přenosy dat za poslední minutu. Klikněte na webovou aplikaci spustit vyhledávání protokolu zobrazující bajtů přijatých a odeslaných pro webovou aplikaci. |
 | Plánů služby Azure App Service |   |
-| S využitím výkonu procesoru plánů služby App Service &gt; 80 % | Zobrazí celkový počet plány služby App Service, které mají větší než 80 % využití procesoru a jsou uvedeny top 10 plány služby App Service podle využití procesoru. Klikněte na tlačítko oblasti celkový ke spuštění vyhledávání protokolu pro<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Zobrazuje seznam vaše plány služby App Service a jejich průměrné využití procesoru. Klikněte na tlačítko plán služby App Service ke spuštění vyhledávání protokolu zobrazující jeho průměrné využití procesoru. |
-| Plánů služby App Service se využití paměti &gt; 80 % | Zobrazí celkový počet plány služby App Service, které mají větší než 80 % využití paměti a jsou uvedeny top 10 plány služby App Service podle využití paměti. Klikněte na tlačítko oblasti celkový ke spuštění vyhledávání protokolu pro<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Zobrazuje seznam vaše plány služby App Service a jejich průměrné využití paměti. Klikněte na tlačítko plán služby App Service ke spuštění vyhledávání protokolu zobrazující jeho průměrné využití paměti. |
+| S využitím výkonu procesoru plánů služby App Service &gt; 80 % | Zobrazí celkový počet plány služby App Service, které mají větší než 80 % využití procesoru a jsou uvedeny top 10 plány služby App Service podle využití procesoru. Klikněte na tlačítko oblasti celkový ke spuštění vyhledávání protokolu pro <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Zobrazuje seznam vaše plány služby App Service a jejich průměrné využití procesoru. Klikněte na tlačítko plán služby App Service ke spuštění vyhledávání protokolu zobrazující jeho průměrné využití procesoru. |
+| Plánů služby App Service se využití paměti &gt; 80 % | Zobrazí celkový počet plány služby App Service, které mají větší než 80 % využití paměti a jsou uvedeny top 10 plány služby App Service podle využití paměti. Klikněte na tlačítko oblasti celkový ke spuštění vyhledávání protokolu pro <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Zobrazuje seznam vaše plány služby App Service a jejich průměrné využití paměti. Klikněte na tlačítko plán služby App Service ke spuštění vyhledávání protokolu zobrazující jeho průměrné využití paměti. |
 | Protokoly aktivity službě Azure Web Apps |   |
-| Službě Azure Web Apps aktivity auditu | Zobrazuje celkový počet webové aplikace s [protokoly aktivity](log-analytics-activity.md) a seznam operací protokolu aktivit prvních 10. Klikněte na tlačítko oblasti celkový ke spuštění vyhledávání protokolu pro<code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Zobrazuje seznam operací protokolu aktivit. Klikněte na tlačítko Spustit hledání protokolů, který obsahuje seznam záznamů pro operaci operace protokolu aktivit. |
+| Službě Azure Web Apps aktivity auditu | Zobrazuje celkový počet webové aplikace s [protokoly aktivity](log-analytics-activity.md) a seznam operací protokolu aktivit prvních 10. Klikněte na tlačítko oblasti celkový ke spuštění vyhledávání protokolu pro <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Zobrazuje seznam operací protokolu aktivit. Klikněte na tlačítko Spustit hledání protokolů, který obsahuje seznam záznamů pro operaci operace protokolu aktivit. |
 
 
 
@@ -138,7 +138,7 @@ Pokud používáte vyhrazené plány služby, může taky shromažďovat metriky
 
 Pomocí kteréhokoli vyhledávací dotazy protokolu jako počáteční bod, můžete snadno vytvořit výstrahu. Můžete například vytvořit upozornění, když metrika Průměrná doba odezvy je větší než každou 1 sekundu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Vytvoření [výstraha](log-analytics-alerts-creating.md) pro určité metriky.
 - Použití [hledání protokolů](log-analytics-log-searches.md) k zobrazení podrobných informací z protokolů aktivity.

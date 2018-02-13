@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: seohack1
-ms.openlocfilehash: 9c0fb2c1d90f4c4ef50e658e9baca91795581eae
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Sestavení aplikace na ploše systému Windows
 Pomocí Azure Active Directory (Azure AD) B2C můžete přidat výkonné identity samoobslužné funkce pro správu k vaší aplikace na ploše v několika krocích. Tento článek vám ukáže, jak vytvořit aplikaci "seznam úkolů".NET Windows Presentation Foundation (WPF), která zahrnuje uživatelskou registraci, přihlašování a správu profilu. Aplikace bude zahrnují podporu pro registraci a přihlaste se pomocí uživatelského jména nebo e-mailu. Podporu registrace a přihlašování bude zahrnovat také pomocí sociálních účty například Facebook nebo Google.
@@ -72,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>Zadejte podrobnosti o svém B2C
 Otevřete soubor `Globals.cs` a všechny hodnoty vlastností, nahraďte vlastními. Tato třída se používá v rámci `TaskClient` odkaz běžně používané hodnoty.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -93,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>Vytvořte PublicClientApplication
 Primární třída MSAL je `PublicClientApplication`. Tato třída reprezentuje vaší aplikace v systému Azure AD B2C. Když initalizes aplikace, vytvořte instanci `PublicClientApplication` v `MainWindow.xaml.cs`. To lze použít v celé okno.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -111,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Zahájení registrace toku
 Když uživatel rozhodne pro přihlásí nahoru, chcete zahájit registraci toku, který používá registrační zásadě, kterou jste vytvořili. Pomocí MSAL jen zavoláte `pca.AcquireTokenAsync(...)`. Parametry, které předat `AcquireTokenAsync(...)` určit, které token se zobrazí, zásady používané v žádosti o ověření a další.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -162,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Zahájit toku přihlášení
 Tok přihlášení můžete zahájit stejným způsobem zahájení registrace toku. Když se uživatel přihlásí, ujistěte se stejným volání MSAL, tentokrát pomocí přihlášení zásad:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -177,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Zahájit tok úpravy profilu
 Znovu můžete zásadu upravit profil spustit stejným způsobem:
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -193,7 +193,7 @@ Ve všech těchto případech MSAL buď vrátí token v `AuthenticationResult` n
 ### <a name="check-for-tokens-on-app-start"></a>Zkontrolujte pro tokeny při spuštění aplikace
 MSAL můžete také použít ke sledování stavu přihlášení uživatele.  V této aplikaci chceme uživateli zůstanou přihlášeného i po jejich zavřete aplikaci a znovu ho otevřete.  Zpět v `OnInitialized` přepsat, použijte na MSAL `AcquireTokenSilent` metoda zkontrolujte s mezipamětí tokenů:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -232,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>Volání rozhraní API úloh
 Teď používáte MSAL ke spouštění zásad a získat tokeny.  Když chcete použít tyto tokeny k volání rozhraní API úloh, můžete znovu použít na MSAL `AcquireTokenSilent` metoda zkontrolujte s mezipamětí tokenů:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -277,7 +277,7 @@ private async void GetTodoList()
 
 Při volání `AcquireTokenSilentAsync(...)` úspěšné a nebude nalezen token v mezipaměti, můžete přidat token, který má `Authorization` hlavičky požadavku HTTP. Úloha webové rozhraní API bude tuto hlavičku používají k ověření požadavek na čtení seznamu úkolů uživatele:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -290,7 +290,7 @@ Při volání `AcquireTokenSilentAsync(...)` úspěšné a nebude nalezen token 
 ## <a name="sign-the-user-out"></a>Odhlášení uživatele
 Nakonec můžete MSAL k ukončení relace uživatele s aplikací, když uživatel vybere **Odhlásit se**.  Při použití MSAL, toho dosahuje tím, že zrušíte všechny tokeny z tokenu mezipaměti:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

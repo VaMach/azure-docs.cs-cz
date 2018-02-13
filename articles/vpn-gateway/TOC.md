@@ -34,6 +34,7 @@
 ### Konfigurace P2S VPN
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Vytvoření a instalace konfiguračních souborů klienta VPN](point-to-site-vpn-client-configuration-radius.md)
+### [Integrace ověřování P2S VPN RADIUS se serverem NPS](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Konfigurace připojení typu VNet-to-VNet
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -61,13 +62,13 @@
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (Classic)](vpn-gateway-about-forced-tunneling.md)
 ## Úprava nastavení místní síťové brány
-### [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
+### [portál Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Ověření připojení brány VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Resetování brány VPN](vpn-gateway-resetgw-classic.md)
 ## Odstranění brány VPN
-### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+### [portál Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [Azure PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
@@ -76,7 +77,7 @@
 ### [Přehled a konfigurace Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Ukázka: Zařízení Cisco ASA (IKEv2/bez BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Migrace z modelu Classic do Resource Manageru](vpn-gateway-classic-resource-manager-migration.md)
-## Řešení potíží
+## [Řešení problémů](vpn-gateway-troubleshoot.md)
 ### [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Nastavení zařízení brány firewall nebo VPN navrhované komunitou](vpn-gateway-third-party-settings.md)
 ### [Problémy s připojením typu Point-to-Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

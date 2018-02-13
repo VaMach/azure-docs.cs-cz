@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Nasazení a prozkoumejte horizontálně dělené víceklientské aplikace, která používá Azure SQL Database
 
-V tomto kurzu nasazení a prozkoumat ukázkové aplikace víceklientské databáze SaaS, která je s názvem Wingtip lístků. Adresář Wingtip aplikace je navržená k prezentují funkce databáze SQL Azure, které usnadňují implementaci SaaS scénářů.
+V tomto kurzu nasazení a prozkoumat ukázkové aplikace SaaS více klientů, která je s názvem Wingtip lístků. Adresář Wingtip lístky aplikace je navržená ke prezentují funkce databáze SQL Azure, které usnadňují implementaci SaaS scénářů.
 
-Tato implementace Wingtips využívá vzor horizontálně dělené víceklientské databáze. Identifikátor klienta, je horizontálního dělení. Data klienta je distribuován do konkrétní databázi podle hodnot identifikátoru klienta. Bez ohledu na to, kolik klientů obsahuje všechny danou databázi jsou všechny databáze více klientů v tom smyslu, že schémata tabulek obsahovat identifikátor klienta. 
+Tato implementace Wingtip lístky aplikace využívá vzor horizontálně dělené víceklientské databáze. Identifikátor klienta, je horizontálního dělení. Data klienta je distribuován do konkrétní databázi podle hodnot identifikátoru klienta. 
 
 Tento vzor databáze umožňuje ukládání jednoho nebo více klientů v každé horizontálního oddílu nebo databáze. Můžete optimalizovat pro nižší cenu tak, že každou databázi sdílet víc klientů. Nebo můžete optimalizovat pro izolaci tak, že každá databáze uložit pouze jednoho klienta. Zvoleného optimalizace můžete provést samostatně pro každou konkrétní klienta. Zvoleného mohou být provedeny, když klient nejdřív uložen, nebo můžete později změnit své rozhodnutí. Aplikace je určena pro dobře v obou případech.
 
 #### <a name="app-deploys-quickly"></a>Rychle nasazuje aplikace
 
-Následující části nasazení poskytuje modrý **nasadit do Azure** tlačítko. Při stisknutí tlačítka nasazení aplikace Wingtip plně pět minut později. Adresář Wingtip aplikace běží v cloudu Azure a používá Azure SQL Database. Adresář Wingtip se nasadí do vašeho předplatného Azure. Máte plný přístup k práci s jednotlivé součásti aplikace.
+Aplikace běží v cloudu Azure a používá databázi SQL Azure. Následující části nasazení poskytuje modrý **nasadit do Azure** tlačítko. Při stisknutí tlačítka se k předplatnému Azure do pěti minut plně nasazení aplikace. Máte plný přístup k práci s jednotlivé součásti aplikace.
 
 Aplikace je nasazená s daty pro tři ukázkové klienty. Klienti jsou uloženy společně v jedné databáze více klientů.
 
@@ -40,7 +40,7 @@ Každý, kdo můžete stáhnout zdrojového kódu C# a prostředí PowerShell pr
 #### <a name="learn-in-this-tutorial"></a>Další informace v tomto kurzu
 
 > [!div class="checklist"]
-> - Postup nasazení aplikace Wingtip SaaS.
+> - Postup nasazení aplikace SaaS Wingtip lístků.
 > - Kde lze získat zdrojovému kódu aplikace a skripty pro správu.
 > - O servery a databáze, které tvoří aplikace.
 > - Jak klienti jsou mapované na svoje data pomocí *katalogu*.
@@ -139,7 +139,7 @@ Centrálního **události rozbočovače** webová stránka obsahuje seznam odkaz
 
 K řízení distribuce příchozích požadavků, Wingtip aplikace používá [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Stránka události pro každého klienta zahrnuje název klienta v jeho adresa URL. Každou adresu URL také obsahuje konkrétní hodnota uživatele. Každou adresu URL dodržuje uvedené formát pomocí následujících kroků:
 
-- http://events.Wingtip. &lt;Uživatele&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Aplikace události analyzuje název klienta z adresy URL. Je název klienta *fabrikamjazzclub* v předchozí příklad adresy URL.
 2. Aplikace pak hashuje název klienta pro vytvoření klíče pro přístup k katalogu pomocí [horizontálního oddílu mapy správu](sql-database-elastic-scale-shard-map-management.md).
@@ -254,7 +254,7 @@ Někdy víceklientské databáze vyžaduje více prostředků pro dobrý výkon 
     - [Elastických fondů pomáhají spravovat a škálování více databází Azure SQL](sql-database-elastic-pool.md)
     - [Horizontální navýšení kapacity s Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se dozvěděli:
 

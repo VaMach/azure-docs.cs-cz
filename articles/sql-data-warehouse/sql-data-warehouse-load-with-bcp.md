@@ -13,36 +13,29 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 10/31/2016
+ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 55211e29149cd334421bd8723d47278a19afbfbb
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="load-data-with-bcp"></a>Načtení dat pomocí bcp
-> [!div class="op_single_selector"]
-> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
-> * [BCP](sql-data-warehouse-load-with-bcp.md)
-> 
-> 
 
-**[bcp][bcp]** je nástroj příkazového řádku pro hromadné načítání, který umožňuje kopírovat data mezi SQL Serverem, datovými soubory a SQL Data Warehouse. Pomocí bcp můžete importovat velké počty řádků do tabulek SQL Data Warehouse nebo exportovat data z tabulek SQL Serveru do datových souborů. S výjimkou případu, kdy se nástroj bcp používá s parametrem queryout, nepotřebujete k použití nástroje bcp žádné znalosti jazyka Transact-SQL.
+**[bcp](/sql/tools/bcp-utility.md)** je nástroj příkazového řádku pro hromadné načítání, který umožňuje kopírovat data mezi SQL Serverem, datovými soubory a SQL Data Warehouse. Pomocí bcp můžete importovat velké počty řádků do tabulek SQL Data Warehouse nebo exportovat data z tabulek SQL Serveru do datových souborů. S výjimkou případu, kdy se nástroj bcp používá s parametrem queryout, nepotřebujete k použití nástroje bcp žádné znalosti jazyka Transact-SQL.
 
-Nástroj bcp představuje rychlý a snadný způsob, jak přesunout menší datové sady z databáze SQL Data Warehouse nebo do ní. Přesné množství dat, který se doporučuje načítat/extrahovat přes bcp, bude záviset na vašem síťovém připojení k datovému centru Azure.  Obecně platí, že pomocí bcp můžete snadno načítat a extrahovat tabulky dimenzí, nedoporučuje se ale používat pro načítání nebo extrahování velkých objemů dat.  Doporučeným nástrojem pro načítání a extrahování velkých objemů dat je nástroj Polybase, který je také vhodnější pro využívání architektury MPP (Massively Parallel Processing) SQL Data Warehouse.
+Nástroj bcp představuje rychlý a snadný způsob, jak přesunout menší datové sady z databáze SQL Data Warehouse nebo do ní. Přesné množství dat, které se doporučuje načítat/extrahovat přes bcp, závisí na síťovém připojení k Azure.  Malé tabulky dimenzí se pomocí bcp načítají a extrahují snadno. Pro načítání a extrahování velkých objemů dat se však namísto bcp doporučuje použít nástroj Polybase. Nástroj PolyBase je určený pro architekturu se značným objemem paralelního zpracování v SQL Data Warehouse.
 
 Pomocí nástroje bcp můžete:
 
-* Načítat data do SQL Data Warehouse pomocí jednoduchého nástroje příkazového řádku
-* Extrahovat data z SQL Data Warehouse pomocí jednoduchého nástroje příkazového řádku
+* Načítat data do SQL Data Warehouse pomocí nástroje příkazového řádku
+* Extrahovat data z SQL Data Warehouse pomocí nástroje příkazového řádku
 
-V tomto kurzu se dozvíte, jak:
+V tomto kurzu:
 
-* Importovat data do tabulky pomocí příkazu bcp in
-* Exportovat data z tabulky pomocí příkazu bcp out
+* Proběhne import dat do tabulky pomocí příkazu bcp in.
+* Proběhne export dat z tabulky pomocí příkazu bcp out.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
@@ -52,13 +45,12 @@ V tomto kurzu se dozvíte, jak:
 Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 
 * Databázi SQL Data Warehouse
-* Nainstalovaný nástroj příkazového řádku bcp
-* Nainstalovaný nástroj příkazového řádku SQLCMD
+* Nainstalované nástroje příkazového řádku bcp a sqlcmd Můžete si je stáhnout z webu [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=36433). 
 
-> [!NOTE]
-> Nástroje bcp a sqlcmd si můžete stáhnout z webu [Stažení softwaru společnosti Microsoft][Microsoft Download Center].
-> 
-> 
+### <a name="data-in-ascii-or-utf-16-format"></a>Data ve formátu ASCII nebo UTF-16
+Pokud pro tento kurz používáte svoje vlastní data, musí vaše data používat kódování ASCII nebo UTF-16, protože bcp nepodporuje kódování UTF-8. 
+
+PolyBase podporuje UTF-8, ale zatím nepodporuje UTF-16. Pokud chcete používat bcp pro exportování dat a potom PolyBase pro načítání dat, je třeba, abyste data po vyexportování z SQL Serveru převedli do kódování UTF-8. 
 
 ## <a name="import-data-into-sql-data-warehouse"></a>Import dat do SQL Data Warehouse
 V tomto kurzu vytvoříte tabulku v Azure SQL Data Warehouse a naimportujete do ní data.
@@ -82,10 +74,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-> [!NOTE]
-> Další informace o vytváření tabulek v SQL Data Warehouse a možnostech dostupných v klauzuli WITH viz [Přehled tabulek][Table Overview] nebo [Syntaxe CREATE TABLE][CREATE TABLE syntax].
-> 
-> 
+Další informace o vytvoření tabulky najdete v článku [Přehled tabulek](sql-data-warehouse-tables-overview.md) nebo v informacích o syntaxi příkazu [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse.md).
+ 
 
 ### <a name="step-2-create-a-source-data-file"></a>Krok 2: Vytvoření zdrojového datového souboru
 Otevřete Poznámkový blok a zkopírujte následující řádky dat do nového textového souboru. Pak tento soubor uložte do místního dočasného adresáře C:\Temp\DimDate2.txt.
@@ -106,7 +96,7 @@ Otevřete Poznámkový blok a zkopírujte následující řádky dat do nového 
 ```
 
 > [!NOTE]
-> Je důležité pamatovat na to, že nástroj bcp.exe nepodporuje kódování souborů UTF-8. Při použití nástroje bcp.exe prosím použijte soubory ASCII nebo UTF-16.
+> Je důležité pamatovat na to, že nástroj bcp.exe nepodporuje kódování souborů UTF-8. V případě použití nástroje bcp.exe použijte soubory v kódování ASCII nebo UTF-16.
 > 
 > 
 
@@ -123,7 +113,7 @@ To, jestli byla data načtena, můžete ověřit spuštěním následujícího d
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Tento dotaz by měl vrátit následující výsledky:
+Dotaz by měl vrátit následující výsledky:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -141,9 +131,8 @@ Tento dotaz by měl vrátit následující výsledky:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: Vytvoření statistiky pro vaše nově načtená data
-Azure SQL Data Warehouse zatím nepodporuje automatické vytváření ani automatickou aktualizaci statistik. Aby vám dotazy vracely co nejlepší výsledky, je důležité, aby se statistiky vytvořily pro všechny sloupce všech tabulek po prvním načtením nebo kdykoli, kdy v datech dojde k podstatným změnám. Podrobné vysvětlení statistiky najdete v tématu [Statistika][Statistics] ve skupině témat věnovaných vývoji. Níže je zběžný příklad vytvoření statistik pro tabulku načtenou v tomto příkladě.
+Posledním krokem po načtení dat je vytvoření nebo aktualizace statistiky. Tímto způsobem je možné zvýšit výkon při zpracování dotazů. Další informace najdete v článku [Statistika](sql-data-warehouse-tables-statistics.md). Následující příklad použití příkazu sqlcmd vytvoří statistiku pro tabulku, která obsahuje nově načtená data.
 
-Proveďte následující příkazy CREATE STATISTICS na příkazovém řádku sqlcmd:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -154,7 +143,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 ## <a name="export-data-from-sql-data-warehouse"></a>Export dat z SQL Data Warehouse
-V tomto kurzu vytvoříte z tabulky v SQL Data Warehouse datový soubor. Data, která jsme vytvořili výše, vyexportujeme do nového datového souboru s názvem DimDate2_export.txt.
+V tomto kurzu bude vytvořen datový soubor z tabulky v SQL Data Warehouse. Exportují se data, která jste naimportovali v předchozí části. Výsledky se uloží do souboru DimDate2_export.txt.
 
 ### <a name="step-1-export-the-data"></a>Krok 1: Export dat
 Při použití nástroje bcp můžete připojit a vyexportovat data pomocí následujícího příkazu (hodnoty podle potřeby nahraďte svými):
@@ -162,7 +151,7 @@ Při použití nástroje bcp můžete připojit a vyexportovat data pomocí nás
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-To, že se data vyexportovala správně, můžete ověřit tak, že nový soubor otevřete. Data v souboru by se měla shodovat následujícím textem:
+To, že se data vyexportovala správně, můžete ověřit tak, že nový soubor otevřete. Data v souboru by měla odpovídat následujícímu textu:
 
 ```
 20150301,1,3
@@ -185,21 +174,13 @@ To, že se data vyexportovala správně, můžete ověřit tak, že nový soubor
 > 
 
 ## <a name="next-steps"></a>Další kroky
-Přehled načítání najdete v tématu [Načtení dat do SQL Data Warehouse][Load data into SQL Data Warehouse].
-Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][SQL Data Warehouse development overview].
+Pokud chcete navrhnout vlastní proces načítání, najdete informace v článku [Přehled načítání] (sql-data-warehouse-design-elt-data-loading).  
 
-<!--Image references-->
 
-<!--Article references-->
-
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Table Overview]: ./sql-data-warehouse-tables-overview.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+
+
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

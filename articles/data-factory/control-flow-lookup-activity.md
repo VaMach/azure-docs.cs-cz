@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Aktivita vyhledávání v Azure Data Factory
 Vyhledávání aktivity slouží ke čtení nebo vyhledat záznam, název tabulky nebo hodnota z externího zdroje. Na tento výstup mohou dále odkazovat následující aktivity. 
@@ -36,6 +36,8 @@ Následující zdroje dat jsou aktuálně podporovány pro vyhledávání:
 - Azure SQL Data Warehouse (JSON dat převedených z dotazu)
 - SQL Server (JSON dat převedených z dotazu)
 - Azure Table storage (JSON dat převedených z dotazu)
+
+Maximální počet řádků vrácených vyhledávání aktivity je **5000**a až do **10MB** velikost.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -60,7 +62,7 @@ Následující zdroje dat jsou aktuálně podporovány pro vyhledávání:
 ## <a name="type-properties"></a>Vlastnosti typu
 Název | Popis | Typ | Povinné?
 ---- | ----------- | ---- | --------
-Datové sady | Poskytuje odkaz na datovou sadu pro vyhledávání. V současné době jsou typy podporované datové sady:<ul><li>`AzureBlobDataset`pro [úložiště objektů Azure Blob](connector-azure-blob-storage.md#dataset-properties) jako zdroj</li><li>`FileShareDataset`pro [systém souborů](connector-file-system.md#dataset-properties) jako zdroj</li><li>`AzureSqlTableDataset`pro [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) nebo [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) jako zdroj</li><li>`SqlServerTable`pro [systému SQL Server](connector-sql-server.md#dataset-properties) jako zdroj</li><li>`AzureTableDataset`pro [Azure Table storage](connector-azure-table-storage.md#dataset-properties) jako zdroj</li> | Dvojice klíč/hodnota | Ano
+dataset | Poskytuje odkaz na datovou sadu pro vyhledávání. V současné době jsou typy podporované datové sady:<ul><li>`AzureBlobDataset`pro [úložiště objektů Azure Blob](connector-azure-blob-storage.md#dataset-properties) jako zdroj</li><li>`FileShareDataset`pro [systém souborů](connector-file-system.md#dataset-properties) jako zdroj</li><li>`AzureSqlTableDataset`pro [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) nebo [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) jako zdroj</li><li>`SqlServerTable`pro [systému SQL Server](connector-sql-server.md#dataset-properties) jako zdroj</li><li>`AzureTableDataset`pro [Azure Table storage](connector-azure-table-storage.md#dataset-properties) jako zdroj</li> | Dvojice klíč/hodnota | Ano
 zdroj | Obsahuje vlastnosti specifické pro datové sady zdroje, stejný jako zdroj kopie aktivity. Získáte podrobnosti o z části "Zkopírovat vlastnosti aktivity" v jednotlivých odpovídající konektor článků. | Dvojice klíč/hodnota | Ano
 firstRowOnly | Určuje, jestli se mají vracet pouze první řádek nebo všechny řádky. | Logická hodnota | Ne. Výchozí hodnota je `true`.
 
@@ -267,7 +269,7 @@ Tato instance databáze SQL Azure obsahuje data se zkopírují do úložiště o
 }
 ```
 
-### <a name="sourcetablejson"></a>SourceTable.JSON
+### <a name="sourcetablejson"></a>sourcetable.json
 
 #### <a name="set-of-objects"></a>Sada objektů
 

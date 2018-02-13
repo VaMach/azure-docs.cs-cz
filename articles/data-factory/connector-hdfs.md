@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 81ad6a82e41fdd0f26859aa47f91dfa21d464a01
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 400c58abf04d28dd0e5f1d7aac204f09c43b942e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Kopírování dat z a do HDFS pomocí Azure Data Factory
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Kopírování dat z HDFS pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Verze 1 – GA](v1/data-factory-hdfs-connector.md)
 > * [Verze 2 – Preview](connector-hdfs.md)
 
-Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z a do HDFS. Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
+Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z HDFS. Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [HDFS konektoru V1](v1/data-factory-hdfs-connector.md).
@@ -42,7 +42,7 @@ Konkrétně tento konektor HDFS podporuje:
 
 ## <a name="prerequisites"></a>Požadavky
 
-Ke zkopírování dat z/do HDFS, který není veřejně přístupný, musíte nastavit Self-hosted integrace Runtime. V tématu [Self-hosted integrace Runtime](concepts-integration-runtime.md) článku se dozvíte podrobnosti.
+Ke kopírování dat ze HDFS, který není veřejně přístupný, musíte nastavit Self-hosted integrace Runtime. V tématu [Self-hosted integrace Runtime](concepts-integration-runtime.md) článku se dozvíte podrobnosti.
 
 ## <a name="getting-started"></a>Začínáme
 
@@ -60,7 +60,7 @@ Pro HDFS propojené služby jsou podporovány následující vlastnosti:
 | Adresa URL |Adresa URL HDFS |Ano |
 | authenticationType. | Povolené hodnoty jsou: **anonymní**, nebo **Windows**. <br><br> Použít **ověřování protokolem Kerberos** HDFS konektor, najdete v části [v této části](#use-kerberos-authentication-for-hdfs-connector) odpovídajícím způsobem nastavit v místním prostředí. |Ano |
 | userName |Ověřování uživatelského jména pro systém Windows. Pro ověřování pomocí protokolu Kerberos, zadejte `<username>@<domain>.com`. |Ano (pro ověřování systému Windows) |
-| heslo |Heslo pro ověřování systému Windows. Toto pole můžete označte jako SecureString. |Ano (pro ověřování systému Windows) |
+| heslo |Heslo pro ověřování systému Windows. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano (pro ověřování systému Windows) |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad: pomocí anonymní ověřování**
@@ -149,9 +149,9 @@ Chcete-li zkopírovat data z HDFS, nastavte vlastnost typu datové sady, která 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
-Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje HDFS zdroj a jímka.
+Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem HDFS.
 
 ### <a name="hdfs-as-source"></a>HDFS jako zdroj
 

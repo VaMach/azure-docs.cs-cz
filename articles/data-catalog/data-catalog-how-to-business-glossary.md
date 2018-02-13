@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: bcd2ba4f92937cf1e134b2a59d97c7bea7802145
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a80b7fd0c21851a6670431e9b8647ca5cf5f51ec
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Nastavit obchodní Glosář pro řídí označování
 ## <a name="introduction"></a>Úvod
@@ -81,5 +81,5 @@ Glosář značky a značky uživatele jsou obě vyhledávat a můžete je použ�
 ## <a name="summary"></a>Souhrn
 Pomocí obchodní Glosář v Azure Data Catalog a upraveny označování, které umožňuje můžete identifikovat, spravovat a zjistili datové prostředky konzistentním způsobem. Obchodní Glosář můžete zvýšit úroveň learning slovník business členové organizace. Glosáři také podporuje zaznamenávání smysluplný metadata, která zjednodušuje asset zjišťování a pochopení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Dokumentace k REST API pro operace obchodní Glosář](https://msdn.microsoft.com/library/mt708855.aspx)

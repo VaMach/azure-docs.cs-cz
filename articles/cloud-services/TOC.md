@@ -44,12 +44,12 @@
 ### [Připojení k vlastnímu řadiči domény](cloud-services-connect-to-custom-domain.md)
 
 ## Správa služby
-### [Omezení spekulativního spouštění](mitigate-se.md}
 ### [Běžné úlohy správy](cloud-services-how-to-manage-portal.md)
 ### [Konfigurace cloudové služby](cloud-services-how-to-configure-portal.md)
 ### [Správa cloudové služby pomocí Azure Automation](automation-manage-cloud-services.md)
 ### [Konfigurace automatického škálování](cloud-services-how-to-scale-portal.md)
 ### [Použití Pythonu ke správě prostředků Azure](cloud-services-python-how-to-use-service-management.md)
+### [Omezení spekulativního spouštění](mitigate-se.md)
 
 ### [Opravy hostovaného operačního systému](cloud-services-guestos-msrc-releases.md)
 ### Vyřazení hostovaného operačního systému
@@ -64,13 +64,13 @@
 
 ## Monitorování
 ### [Monitorování cloudové služby](cloud-services-how-to-monitor.md)
+### [Použití čítačů výkonu](diagnostics-performance-counters.md)
 ### [Testování výkonu](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testování pomocí profileru sady Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Povolení diagnostiky
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Použití čítačů výkonu v Diagnostice Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Ukládání a zobrazení diagnostických dat v Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Trasování cloudové služby pomocí diagnostiky](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Odesílání diagnostických dat do App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)

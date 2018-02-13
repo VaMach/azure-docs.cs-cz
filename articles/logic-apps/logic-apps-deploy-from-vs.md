@@ -15,17 +15,17 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Návrh, vytvoření a nasazení Azure Logic Apps v sadě Visual Studio
 
 I když [portál Azure](https://portal.azure.com/) nabízí skvělý způsob, jak můžete vytvořit a spravovat Azure Logic Apps, můžete použít Visual Studio pro navrhování, sestavování a nasazení aplikace logiky. Visual Studio poskytuje bohaté nástroje, například návrháře logiku aplikace můžete vytvářet aplikace logiky, šablony nasazení a automatizace nakonfigurujte a nasaďte na jakémkoli prostředí. 
 
-Chcete-li začít se službou Azure Logic Apps, zjistěte další [postup vytvoření první aplikace logiky na portálu Azure](logic-apps-create-a-logic-app.md).
+Chcete-li začít se službou Azure Logic Apps, zjistěte další [postup vytvoření první aplikace logiky na portálu Azure](quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="installation-steps"></a>Postup instalace
 
@@ -109,7 +109,7 @@ Pokud chcete svou aplikaci logiky odkazovat na závislé prostředky, můžete p
 Používáte logiku aplikace parametry v těchto druhů triggery a akce:
 
 *   Podřízené pracovní postup
-*   Funkce aplikace
+*   Function app
 *   APIM volání
 *   Adresa URL rozhraní API připojení modulu runtime
 *   Cesta připojení rozhraní API
@@ -228,7 +228,7 @@ Pokud máte stávající projekt skupiny prostředků, můžete přidat aplikaci
     
 4. V **přidat prostředek** dialogové okno, vyhledejte a vyberte **aplikace logiky**. Název aplikace logiky a vyberte **přidat**.
 
-    ![Přidání prostředku](./media/logic-apps-deploy-from-vs/addresource.png)
+    ![Přidat prostředek](./media/logic-apps-deploy-from-vs/addresource.png)
 
 ## <a name="next-steps"></a>Další kroky
 

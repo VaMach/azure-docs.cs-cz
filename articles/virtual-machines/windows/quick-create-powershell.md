@@ -1,5 +1,5 @@
 ---
-title: "Rychlý start Azure – Vytvoření virtuálního počítače s Windows pomocí PowerShellu | Microsoft Docs"
+title: "Rychlý start Azure – Vytvoření virtuálního počítače s Windows pomocí PowerShellu | Dokumentace Microsoftu"
 description: "Rychle se naučíte, jak vytvářet virtuální počítače s Windows pomocí PowerShellu."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c6193c63e6efaa4b6472b7de1a042dc4f58b42d3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: ba0a0c336fbdab91121f5c4bff00b24c1088bd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>Vytvoření virtuálního počítače s Windows pomocí PowerShellu
 
@@ -52,7 +52,7 @@ Při spuštění tohoto kroku se zobrazí výzva k zadání přihlašovacích ú
 ```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
+    -Name "myVM$(Get-Random)" `
     -Location "East US" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `

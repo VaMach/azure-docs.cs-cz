@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Rychlý start: Spuštění úlohy Spark job v Azure Databricks pomocí portálu Azure
 
@@ -38,10 +38,7 @@ V této části vytvoříte pomocí portálu Azure pracovní prostor služby Azu
 
 2. V části **Azure Databricks (Preview)** klikněte na **Vytvořit**.
 
-    > [!NOTE]
-    > Služba Azure Databricks je aktuálně ve verzi Limited Preview. Pokud chcete, abychom zvážili zařazení vašeho předplatného Azure na seznam pro verzi Preview, vyplňte [registrační formulář](https://databricks.azurewebsites.net/).
-
-2. V části **Služba Azure Databricks** zadejte následující hodnoty:
+3. V části **Služba Azure Databricks** zadejte následující hodnoty:
 
     ![Vytvoření pracovního prostoru služby Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Vytvoření pracovního prostoru služby Azure Databricks")
 
@@ -50,7 +47,7 @@ V této části vytvoříte pomocí portálu Azure pracovní prostor služby Azu
     * V části **Skupina prostředků** určete, jestli chcete vytvořit novou skupinu prostředků, nebo použít existující. Skupina prostředků je kontejner, který obsahuje související prostředky pro řešení Azure. Další informace naleznete v tématu [Přehled skupin prostředků v Azure](../azure-resource-manager/resource-group-overview.md).
     * V poli **Umístění** vyberte **Východní USA 2**. Další dostupné oblasti najdete v tématu [Dostupné služby Azure podle oblastí](https://azure.microsoft.com/regions/services/).
 
-3. Klikněte na možnost **Vytvořit**.
+4. Klikněte na možnost **Vytvořit**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Vytvoření clusteru Spark ve službě Databricks
 
@@ -149,7 +146,7 @@ Pomocí následujících kroků vytvořte ve službě Databricks poznámkový bl
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud jste při vytváření clusteru Spark zaškrtli políčko **Terminate after ___ minutes of activity** (Ukončit po ___ minutách aktivity), cluster se po zadané době nečinnosti automaticky ukončí.
+Pokud jste při vytváření clusteru Spark zaškrtli políčko **Terminate after __ minutes of inactivity** (Ukončit po __ minutách nečinnosti), cluster se po zadané době nečinnosti automaticky ukončí.
 
 Pokud jste toto políčko nezaškrtli, je potřeba cluster ukončit ručně. Pokud to chcete udělat, v levém podokně v pracovním prostoru Azure Databricks klikněte na **Clusters** (Clustery). U clusteru, který chcete ukončit, přesuňte kurzor na tři tečky pod sloupcem **Actions** (Akce) a klikněte na ikonu **Terminate** (Ukončit).
 

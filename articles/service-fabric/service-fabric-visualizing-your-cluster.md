@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Vizualizujte cluster pomocí Service Fabric Exploreru
 
@@ -35,6 +35,9 @@ Chcete-li stáhnout Service Fabric Explorer jako desktopová aplikace pomocí n�
   - https://aka.ms/sfx-linux-x86
   - https://aka.ms/sfx-linux-x64
 
+- macOS
+  - https://aka.ms/sfx-macos
+
 > [!NOTE]
 > Verze aplikace Service Fabric Explorer může mít více nebo méně funkcí než podpora clusteru. Vám může vrátit zpět na verzi Service Fabric Explorer nasazené na clusteru pro zajištění kompatibility úplné funkce.
 >
@@ -44,7 +47,7 @@ Chcete-li stáhnout Service Fabric Explorer jako desktopová aplikace pomocí n�
 
 Service Fabric Explorer také hostovaná v clusteru Service Fabric koncový bod správy protokolu HTTP. Spustit SFX ve webovém prohlížeči, přejděte do clusteru koncový bod správy protokolu HTTP z libovolného prohlížeče – například https://clusterFQDN:19080.
 
-Pro vývojáře instalace pracovní stanice můžete spustit v místním clusteru Service Fabric Explorer přechodem na http://localhost: 19080/Explorer. Podívejte se na tomto článku [Příprava vývojového prostředí](service-fabric-get-started.md).
+Pro vývojáře instalace pracovní stanice můžete spustit Service Fabric Explorer v místním clusteru tak, že přejdete do https://localhost:19080/Průzkumníka. Podívejte se na tomto článku [Příprava vývojového prostředí](service-fabric-get-started.md).
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Připojení ke clusteru Service Fabric
 Pokud chcete připojit ke clusteru Service Fabric, budete potřebovat koncový bod správy clusterů (plně kvalifikovaný název domény nebo IP adresy) a port pro koncový bod správy protokolu HTTP (19080 ve výchozím nastavení). Například https://mysfcluster.westus.cloudapp.azure.com:19080. Zaškrtnutím políčka "Připojení k localhost" pomocí připojení k místnímu clusteru na pracovní stanici.

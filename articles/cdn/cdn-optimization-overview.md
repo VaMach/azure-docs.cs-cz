@@ -3,8 +3,8 @@ title: "Optimalizace doručování obsahu Azure pro váš scénář"
 description: "K optimalizaci doručování obsahu pro konkrétní scénáře"
 services: cdn
 documentationcenter: 
-author: smcevoy
-manager: erikre
+author: dksimpson
+manager: 
 editor: 
 ms.assetid: 
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
-ms.author: v-semcev
-ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.date: 01/24/2018
+ms.author: rli
+ms.openlocfilehash: fa4cf306eeb1a8372da5b2a86ac73fbba2832666
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Optimalizace doručování obsahu Azure pro váš scénář
 
@@ -33,27 +33,31 @@ Tento článek obsahuje přehled různých funkcí optimalizace a kdy byste měl
 
 ## <a name="provider-options"></a>Možnosti zprostředkovatele
 
-Podporuje Azure Content Delivery Network společnosti Akamai:
+**Azure Content Delivery Network společnosti Akamai** podporuje následující optimalizace:
 
-* Obecné webové doručení 
+* [Obecné webové doručení](#general-web-delivery) 
 
-* Obecné streamování médií
+* [Obecné streamování médií](#general-media-streaming)
 
-* Streamování videa na přání médií
+* [Streamování videa na přání médií](#video-on-demand-media-streaming)
 
-* Stažení velkých souborů
+* [Stažení velkých souborů](#large-file-download)
 
-* Akcelerace dynamických webů 
+* [Akcelerace dynamického webu](#dynamic-site-acceleration) 
 
-Azure Content Delivery Network od společnosti Verizon podporuje pouze obecné webové doručení. Slouží pro video na vyžádání a stahování velkých souborů. Nemáte chcete vybrat typ optimalizace.
+**Azure Content Delivery Network od společnosti Verizon** podporuje následující optimalizace:
+
+* [Obecné webové doručení](#general-web-delivery) (můžete použít také pro streamování médií a stažení obsahu velkých souborů)
+
+* [Akcelerace dynamického webu](#dynamic-site-acceleration) 
 
 Důrazně doporučujeme, abyste otestovali výkonu rozdíly mezi různé zprostředkovatele můžete vybrat optimální zprostředkovatele pro vaše doručení.
 
 ## <a name="select-and-configure-optimization-types"></a>Vyberte a nakonfigurujte optimalizace typy
 
-Pokud chcete vytvořit nový koncový bod, vyberte typ optimalizace, který nejlépe odpovídá scénář a typ obsahu, který chcete, aby koncový bod pro doručování. **Obecné webové doručení** je výchozí výběr. Můžete aktualizovat možnosti optimalizace pro jakékoli existující koncový bod Akamai kdykoli. Tato změna nemá přerušit doručování z CDN. 
+Pokud chcete vytvořit nový koncový bod, vyberte typ optimalizace, který nejlépe odpovídá scénář a typ obsahu, který chcete, aby koncový bod pro doručování. **Obecné webové doručení** je výchozí výběr. Pro existující **Azure Content Delivery Network společnosti Akamai** koncových bodů, můžete možnost optimalizace kdykoli aktualizovat. Tato změna nemá přerušit doručování z CDN. 
 
-1. Vyberte koncový bod v rámci profilu Standard Akamai.
+1. V rámci **Azure Content Delivery Network společnosti Akamai** profil, vyberte koncový bod.
 
     ![Výběr koncového bodu ](./media/cdn-optimization-overview/01_Akamai.png)
 
@@ -63,18 +67,18 @@ Pokud chcete vytvořit nový koncový bod, vyberte typ optimalizace, který nejl
 
 ## <a name="optimization-for-specific-scenarios"></a>Optimalizace pro konkrétní scénáře
 
-Koncový bod CDN pro jednu z následujících scénářů, můžete optimalizovat. 
+Koncový bod CDN pro jednu z těchto scénářů, můžete optimalizovat. 
 
-### <a name="general-web-delivery"></a>Obecné webové doručení
+### <a name="general-web-delivery"></a>Obecné doručování webu
 
 Obecné webové doručení je nejběžnější možnosti optimalizace. Je určený pro optimalizaci obecné webového obsahu, například webových stránek a webových aplikací. Tato optimalizace můžete použít také pro soubor, a stáhne video.
 
 Typické webu obsahuje obsah statické a dynamické. Statický obsah zahrnuje obrázků, knihovny jazyka JavaScript a stylů, které lze do mezipaměti a doručit různým uživatelům. Dynamický obsah je přizpůsobené pro jednotlivé uživatele, například položky zpráv, které jsou přizpůsobené profilu uživatele. Dynamický obsah neukládá do mezipaměti, protože je jedinečný pro každého uživatele, třeba nákupní košík obsah. Obecné webové doručení můžete optimalizovat celý web. 
 
 > [!NOTE]
-> Pokud používáte Azure Content Delivery Network společnosti Akamai, můžete chtít použít optimalizace, pokud vaše Průměrná velikost je menší než 10 MB. Pokud vaše Průměrná velikost souboru je větší než 10 MB, vyberte **stahování velkých souborů** z **optimalizované pro** rozevíracího seznamu.
+> Pokud používáte **Azure Content Delivery Network společnosti Akamai**, můžete chtít použít optimalizace, pokud vaše Průměrná velikost je menší než 10 MB. Pokud vaše Průměrná velikost souboru je větší než 10 MB, vyberte **stahování velkých souborů** z **optimalizované pro** rozevíracího seznamu.
 
-### <a name="general-media-streaming"></a>Obecné streamování médií
+### <a name="general-media-streaming"></a>Streamování obecných médií
 
 Pokud budete muset použít koncový bod pro živé streamování a streamování videa na přání, doporučujeme streamování optimalizace obecné médií.
 
@@ -82,7 +86,7 @@ Datové proudy Media je čas citlivé, protože paketů, které přicházejí po
 
 Tento scénář je běžný u Zákazníci využívající službu Azure media. Když používáte službu Azure media services, zobrazí jeden streamování koncový bod, který lze použít pro datové proudy živě i na vyžádání. V tomto scénáři není nutné přepnout na jiný koncový bod, když se změní ze za provozu se streamování na vyžádání zákazníků. Obecné média streamování optimalizace podporuje tento typ scénáře.
 
-Síť doručování obsahu Azure od společnosti Verizon používá daný typ doručení optimalizace obecné webové při doručování obsahu streamování médií.
+**Azure sítě pro doručování obsahu od společnosti Verizon** používá daný typ doručení optimalizace obecné webové při doručování obsahu streamování médií.
 
 Další informace o optimalizaci streamování médií najdete v tématu [optimalizace streamování médií](cdn-media-streaming-optimization.md).
 
@@ -90,30 +94,32 @@ Další informace o optimalizaci streamování médií najdete v tématu [optima
 
 Optimalizace streamování na vyžádání Video-on-Demand média zlepšuje streamování obsahu na vyžádání video-on-demand. Pokud používáte koncový bod pro vyžádání video-on-demand streamování, můžete chtít použít tuto možnost.
 
-Síť doručování obsahu Azure od společnosti Verizon používá daný typ doručení optimalizace obecné webové při doručování obsahu streamování médií.
+**Azure sítě pro doručování obsahu od společnosti Verizon** používá daný typ doručení optimalizace obecné webové při doručování obsahu streamování médií.
 
 Další informace o optimalizaci streamování médií najdete v tématu [optimalizace streamování médií](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
 > Pokud koncový bod slouží především na vyžádání video-on-demand obsahu, použijte tento typ optimalizace. Hlavní rozdíl mezi optimalizace a streamování optimalizace obecné médií je časový limit opakování připojení. Časový limit je mnohem kratší pro práci s živé streamování scénáře.
 
-### <a name="large-file-download"></a>Stažení velkých souborů
+### <a name="large-file-download"></a>Stahování velkých souborů
 
-Pokud používáte Azure Content Delivery Network společnosti Akamai, musíte použít velkých souborů stahování dodávat soubory větší než 1,8 GB. Azure Content Delivery Network od společnosti Verizon nemá omezení na soubor stáhnout velikost v jeho doručení optimalizaci obecné webů.
+Pokud používáte **Azure Content Delivery Network společnosti Akamai**, musíte použít velkých souborů stahování dodávat soubory větší než 1,8 GB. **Azure Content Delivery Network od společnosti Verizon** nemá omezení velikosti souboru stažení, v jeho doručení optimalizaci obecné webů.
 
-Pokud používáte Azure Network doručování obsahu společnosti Akamai, stahování velkých souborů jsou optimalizované pro obsah větší než 10 MB. Pokud vaše Průměrná velikost souboru je menší než 10 MB, můžete chtít použít obecné webové doručení. Pokud vaše soubory průměrné velikosti jsou konzistentně větší než 10 MB, může to být efektivnější vytvořit samostatné koncový bod pro velkých souborů. Aktualizace firmwaru a softwaru jsou například obvykle velkých souborů.
+Pokud používáte **sítě pro doručování obsahu Azure společnosti Akamai**, stahování velkých souborů jsou optimalizované pro obsah větší než 10 MB. Pokud vaše Průměrná velikost souboru je menší než 10 MB, můžete chtít použít obecné webové doručení. Pokud vaše soubory průměrné velikosti jsou konzistentně větší než 10 MB, může to být efektivnější vytvořit samostatné koncový bod pro velkých souborů. Aktualizace firmwaru a softwaru jsou například obvykle velkých souborů.
 
-Síť doručování obsahu Azure od společnosti Verizon používá daný typ doručení optimalizace obecné webové při doručování obsahu stahování velkých souborů.
+**Azure sítě pro doručování obsahu od společnosti Verizon** používá daný typ doručení optimalizace obecné webové při doručování obsahu stahování velkých souborů.
 
 Další informace o optimalizaci velkých souborů najdete v tématu [velkých souborů optimalizace](cdn-large-file-optimization.md).
 
-### <a name="dynamic-site-acceleration"></a>Akcelerace dynamických webů
+### <a name="dynamic-site-acceleration"></a>Akcelerace dynamického webu
 
- Akcelerace dynamických webů je k dispozici z Akamai a Verizon Content Delivery Network profily. Tato optimalizace zahrnuje další poplatek používat. Další informace najdete na stránce s cenami.
+ Akcelerace dynamických webů je k dispozici v obou **Azure Content Delivery Network společnosti Akamai** a **Azure Content Delivery Network od společnosti Verizon** profily. Tato optimalizace zahrnuje další poplatek se použije. Další informace najdete v tématu [Content Delivery Network ceny](https://azure.microsoft.com/pricing/details/cdn/).
 
 Akcelerace dynamických webů zahrnuje různé techniky využívající latenci a výkonu dynamického obsahu. Mezi dostupné techniky patří trasy a síťové optimalizace, optimalizace TCP a další. 
 
 Tato optimalizace vám pomůže urychlit webovou aplikaci, která zahrnuje mnoho odpovědí, které nejsou lze uložit do mezipaměti. Příklady jsou výsledky hledání, najdete v článku věnovaném transakce nebo dat v reálném čase. Můžete nadále používat možnosti ukládání do mezipaměti jádra CDN statických dat. 
+
+Další informace o dynamických webů akcelerace najdete v tématu [dynamických webů akcelerace](cdn-dynamic-site-acceleration.md).
 
 
 

@@ -38,12 +38,16 @@
 ### [Správa zařízení s využitím rozšíření IoT pro Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Vzdálené monitorování a oznámení s využitím Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
+## Použití MXChip IoT DevKit
+### [Použití sady Azure IoT Suite pro vzdálené monitorování](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
+
 # Návody
 ## Plánování
-### [Porovnání IoT Hub a Event Hubs](iot-hub-compare-event-hubs.md)
+### [Porovnání služeb IoT Hub a Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Škálování vlastního řešení](iot-hub-scaling.md)
 ### [Vysoká dostupnost a zotavení po havárii](iot-hub-ha-dr.md)
 ### [Podpora dalších protokolů](iot-hub-protocol-gateway.md)
+### [Porovnání směrování událostí a zpráv](iot-hub-event-grid-routing-comparison.md)
 ## [Vývoj](iot-hub-how-to.md)
 ### [Příručka pro vývojáře](iot-hub-devguide.md)
 #### [Průvodce funkcemi ze zařízení do cloudu](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +55,7 @@
 #### [Odesílání a příjem zpráv](iot-hub-devguide-messaging.md)
 ##### [Odeslání zpráv ze zařízení do cloudu do IoT Hubu](iot-hub-devguide-messages-d2c.md)
 ##### [Čtení zpráv ze zařízení do cloudu z integrovaného koncového bodu](iot-hub-devguide-messages-read-builtin.md)
+##### [Reakce na události služby IoT Hub](iot-hub-event-grid.md)
 ##### [Použití vlastních koncových bodů a pravidel směrování pro zprávy ze zařízení do cloudu](iot-hub-devguide-messages-read-custom.md)
 ##### [Odesílání zpráv z cloudu do zařízení z IoT Hubu](iot-hub-devguide-messages-c2d.md)
 ##### [Vytvoření a čtení zpráv IoT Hubu](iot-hub-devguide-messages-construct.md)
@@ -75,10 +80,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Odesílání zpráv z cloudu do zařízení
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Nahrání souborů ze zařízení
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,16 +95,19 @@
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java back-end / zařízení Java](iot-hub-java-java-twin-getstarted.md)
+#### [Back-end Python / zařízení Python](iot-hub-python-twin-getstarted.md)
 ### Použití přímých metod
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-direct-methods.md)
 #### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java back-end / zařízení Java](iot-hub-java-java-direct-methods.md)
+#### [Back-end Python / zařízení Python](iot-hub-python-python-direct-methods.md)
 ### Začínáme se správou zařízení
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-device-management-get-started.md)
 #### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java back-end / zařízení Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Back-end Python / zařízení Python](iot-hub-python-python-device-management-get-started.md)
 ### Jak používat vlastnosti dvojčat
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-how-to-configure.md)

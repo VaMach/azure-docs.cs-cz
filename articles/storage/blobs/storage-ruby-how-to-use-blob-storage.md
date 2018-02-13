@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/18/2018
 ms.author: tamram
-ms.openlocfilehash: 2c1534dcbb0e26ecdff7c057efb5094c60b5c5b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4c6d47511acdae7afaf4a535c24c6fcc7e389b1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-blob-storage-from-ruby"></a>Používání úložiště Blob z Ruby
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -35,28 +35,31 @@ Tento průvodce vám ukáže, jak provádět běžné scénáře s využitím ú
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Vytvoření Ruby aplikace
-Vytvořte aplikaci pro poznámky Ruby. Pokyny najdete v tématu [Ruby, na které webové aplikace ve virtuálním počítači Azure](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
+Vytvořte aplikaci pro poznámky Ruby. Pokyny najdete v tématu [vytvoření Ruby aplikace ve službě App Service v systému Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
+
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurace aplikace pro přístup k úložišti
 Pokud chcete používat Azure Storage, musíte stáhnout a použít Ruby azure balíčku, který obsahuje sadu knihoven pohodlí, které komunikují s služby REST úložiště.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Použití RubyGems získat balíček
 1. Pomocí rozhraní příkazového řádku, jako například **prostředí PowerShell** (Windows), **Terminálové** (Mac), nebo **Bash** (Unix).
-2. "Gem instalace azure" zadejte v příkazovém okně instalace gem a závislostí.
+2. Zadejte "gem instalace azure storage blob" v příkazovém okně instalace gem a závislostí.
 
 ### <a name="import-the-package"></a>Import balíčku
 Na začátek souboru Ruby, kde máte v úmyslu používat úložiště pomocí svém oblíbeném textovém editoru, přidejte následující:
 
 ```ruby
-require "azure"
+require "azure/storage/blob"
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>Nastavit připojení k Azure Storage
-Modul azure, bude číst proměnné prostředí **AZURE\_úložiště\_účet** a **AZURE\_úložiště\_ACCESS_KEY** informace požadované pro připojení k účtu úložiště Azure. Pokud nejsou nastavené těchto proměnných prostředí, je nutné zadat informace o účtu před použitím **Azure::Blob::BlobService** následujícím kódem:
+Modul azure, bude číst proměnné prostředí **AZURE\_úložiště\_účet** a **AZURE\_úložiště\_ACCESS_KEY** informace požadované pro připojení k účtu úložiště Azure. Pokud nejsou nastavené těchto proměnných prostředí, je nutné zadat informace o účtu pomocí **Azure::Blob::BlobService:: vytvořit** následujícím kódem:
 
 ```ruby
-Azure.config.storage_account_name = "<your azure storage account>"
-Azure.config.storage_access_key = "<your azure storage access key>"
+blob_client = Azure::Storage::Blob::BlobService.create(
+    storage_account_name: account_name,
+    storage_access_key: account_key
+    )
 ```
 
 K získání těchto hodnot z klasický nebo účet správce prostředků úložiště na portálu Azure:
@@ -70,12 +73,12 @@ K získání těchto hodnot z klasický nebo účet správce prostředků úlož
 ## <a name="create-a-container"></a>Vytvoření kontejneru
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-**Azure::Blob::BlobService** objekt vám umožňuje spolupracovat s kontejnery a objekty BLOB. Chcete-li vytvořit kontejner, použijte **vytvořit\_container()** metoda.
+**Azure::Storage::Blob::BlobService** objekt vám umožňuje spolupracovat s kontejnery a objekty BLOB. Chcete-li vytvořit kontejner, použijte **vytvořit\_container()** metoda.
 
 Následující příklad kódu vytvoří kontejner nebo vytiskne chybu, pokud existuje.
 
 ```ruby
-azure_blob_service = Azure::Blob::BlobService.new
+azure_blob_service = Azure::Storage::Blob::BlobService.create_from_env
 begin
     container = azure_blob_service.create_container("test-container")
 rescue
@@ -119,17 +122,19 @@ puts blob.name
 
 ## <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 K zobrazení seznamu kontejnery, použijte **list_containers()** metoda.
-K zobrazení seznamu objektů BLOB v kontejneru, použijte **seznamu\_blobs()** metoda.
+K zobrazení seznamu objektů BLOB v kontejneru, použijte **seznamu\_blobs()** metoda. Chcete-li zobrazit seznam všech objektů BLOB v kontejneru, musíte podle pokračovací token vrácený služby a spouštět list_blobs se tento token. Najdete v článku [seznamu objektů BLOB REST API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) podrobnosti.
 
-To výstupy adresy URL všech objektů BLOB v všechny kontejnery pro účet.
+Následující kód výstupy všechny objekty BLOB v kontejneru.
 
 ```ruby
-containers = azure_blob_service.list_containers()
-containers.each do |container|
-    blobs = azure_blob_service.list_blobs(container.name)
+nextMarker = nil
+loop do
+    blobs = azure_blob_service.list_blobs(container_name, { marker: nextMarker })
     blobs.each do |blob|
-    puts blob.name
+        puts "\tBlob name #{blob.name}"
     end
+    nextMarker = blobs.continuation_token
+    break unless nextMarker && !nextMarker.empty?
 end
 ```
 
@@ -150,10 +155,10 @@ Nakonec pokud chcete odstranit objekt blob, použijte **odstranit\_blob()** meto
 azure_blob_service.delete_blob(container.name, "image-blob")
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o složitějších úlohách úložiště najdete na následujících odkazech:
 
 * [Blog týmu Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Azure SDK pro Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) úložišti na Githubu
+* [Azure SDK úložiště pro Ruby](https://github.com/azure/azure-storage-ruby) úložišti na Githubu
 * [Přenos dat pomocí nástroje příkazového řádku AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

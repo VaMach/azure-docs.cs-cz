@@ -3,8 +3,9 @@ title: "Přehled zabezpečení služby Azure SQL Database | Dokumentace Microsof
 description: "Další informace o zabezpečení Azure SQL Database a SQL Server, včetně rozdíly mezi cloudové a místní SQL Server."
 services: sql-database
 documentationcenter: 
-author: tmullaney
-manager: jhubbard
+author: giladm
+manager: shaik
+ms.reviewer: carlrab
 editor: 
 ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
@@ -13,42 +14,53 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 07/05/2017
-ms.author: thmullan;jackr
-ms.openlocfilehash: 14a7fdb304e90aec10bee9167817f564870cd6c1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 01/29/2018
+ms.author: giladm
+ms.openlocfilehash: cf105dbc366b96dbb49484bffce9b81960cf41f4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="securing-your-sql-database"></a>Zabezpečení SQL Database
 
-V tomto článku najdete základní informace o zabezpečení datové vrstvy aplikace pomocí Azure SQL Database. Tento článek vám především pomůže začít s prostředky pro ochranu dat, řízením přístupu a proaktivním monitorováním. 
+V tomto článku najdete základní informace o zabezpečení datové vrstvy aplikace pomocí Azure SQL Database. Konkrétně tento článek vám pomůže začít s prostředky pro ochranu dat, řízení přístupu a Proaktivní monitorování. 
 
 Úplný přehled všech funkcí zabezpečení dostupných pro různé typy SQL najdete v tématu [Security Center pro databázový stroj SQL Serveru a Azure SQL Database](https://msdn.microsoft.com/library/bb510589). Další informace také najdete v [technickém dokumentu white paper o zabezpečení služby Azure SQL Database](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## <a name="protect-data"></a>Ochrana dat
-Služba SQL Database chrání vaše data zajištěním šifrování přenášených dat pomocí [protokolu TLS (Transport Layer Security)](https://support.microsoft.com/kb/3135244), neaktivních uložených dat pomocí [transparentního šifrování dat](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) a používaných dat pomocí funkce [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+
+### <a name="encryption"></a>Šifrování
+Databáze SQL zabezpečuje můžete data tím, že poskytuje šifrování dat v provozu s [Transport Layer Security](https://support.microsoft.com/kb/3135244), pro data v klidovém stavu s [transparentní šifrování dat](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)a pro data v použití s [ Funkce Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Všechna připojení ke službě Azure SQL Database vyžadují nepřetržité šifrování (SSL/TLS) příchozích a odchozích databázových dat. V připojovacím řetězci vaší aplikace, musíte zadat parametry k šifrování připojení a *není* důvěřovat certifikátu serveru (Pokud udělá se to pro vás zkopírujte připojovací řetězec mimo portál Azure), jinak hodnota připojení nebude ověřit identitu serveru a bude náchylné k útokům "man-in-the-middle". Například u ovladače ADO.NET mají parametry připojovacího řetězce hodnoty **Encrypt=True** a **TrustServerCertificate=False**. 
+>Všechna připojení ke službě Azure SQL Database vyžadují nepřetržité šifrování (SSL/TLS) příchozích a odchozích databázových dat. V připojovacím řetězci vaší aplikace, musíte zadat parametry k šifrování připojení a *není* důvěřovat certifikátu serveru (Pokud udělá se to pro vás zkopírujte připojovací řetězec mimo portál Azure), jinak hodnota připojení není ověřit identitu serveru a je náchylný na útoky "man-in-the-middle". Například u ovladače ADO.NET mají parametry připojovacího řetězce hodnoty **Encrypt=True** a **TrustServerCertificate=False**. 
 
 Existují i jiné možnosti šifrování dat:
 
 * [Šifrování na úrovni buňky](https://msdn.microsoft.com/library/ms179331.aspx) umožňuje šifrovat určité sloupce nebo buňky dat pomocí různých šifrovacích klíčů.
 * Pokud potřebujete modul hardwarového zabezpečení nebo chcete centrálně spravovat hierarchii šifrovacích klíčů, měli byste uvažovat o [řešení Azure Key Vault s SQL Serverem na virtuálním počítači v Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
 
+### <a name="data-discovery--classification"></a>Data zjišťování a klasifikace
+Data zjišťování a klasifikace (momentálně ve verzi preview) poskytuje pokročilé možnosti integrovaný do Azure SQL Database pro zjišťování, klasifikaci, označování a ochranu citlivá data v databázích máte. Zjišťování a klasifikace co nejvíce citlivými daty (business, finanční, zdravotní péče, osobní údaje, atd.) můžete přehrát hrají roli v ochrany vzrůstem informace vaší organizace. Může sloužit jako infrastruktury pro:
+
+- Různé scénáře zabezpečení, jako jsou monitorování (auditování) a výstrah na neobvyklé přístup k citlivým datům.
+- Řízení přístupu k a posílení zabezpečení databáze, které obsahují vysoce citlivá data.
+- Vám pomáhá s splnění standardů data o ochraně osobních údajů a dodržování legislativních požadavků.
+
+Další informace najdete v tématu [Začínáme s SQL DB Data zjišťování a klasifikace](sql-database-data-discovery-and-classification.md). 
+
 ## <a name="control-access"></a>Řízení přístupu
 Služba SQL Database chrání vaše data omezením přístupu k databázi pomocí pravidel brány firewall, ověřovacími mechanismy vyžadujícími po uživatelích prokázání identity a autorizací přístupu k datům prostřednictvím členství a oprávnění na základě rolí, stejně jako prostřednictvím zabezpečení na úrovni řádku a dynamického maskování dat. Diskuzi o používání funkcí řízení přístupu ve službě SQL Database najdete v tématu [Řízení přístupu](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> Správa databází a logických serverů v Azure se řídí tím, jaké role má uživatelský účet na portálu přiřazené. Další informace v tomto tématu najdete v tématu [řízení přístupu na základě rolí na portálu Azure](../active-directory/role-based-access-control-what-is.md).
+> Správa databází a logických serverů v Azure se řídí tím, jaké role má uživatelský účet na portálu přiřazené. Další informace v tomto článku najdete v tématu [řízení přístupu na základě rolí na portálu Azure](../active-directory/role-based-access-control-what-is.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Brána firewall a pravidla brány firewall
 Brána firewall pomáhá chránit vaše data tím, že brání veškerému přístupu k vašemu databázovému serveru, dokud pomocí [pravidel brány firewall](sql-database-firewall-configure.md) neurčíte, které počítače k tomu mají oprávnění. Brána firewall uděluje přístup k databázím v závislosti na zdrojové IP adrese každého požadavku.
 
-### <a name="authentication"></a>Ověřování
+### <a name="authentication"></a>Authentication
 Ověřování ve službě SQL Database určuje, jakým způsobem prokážete svou identitu při připojování k databázi. SQL Database podporuje dva typy ověřování:
 
 * **Ověřování SQL,** které používá uživatelské jméno a heslo. Když jste vytvářeli logický server databáze, zadali jste uživatelské jméno a heslo účtu „server admin“. Tyto přihlašovací údaje můžete použít k ověření a přihlášení k libovolné databázi na daném serveru jako vlastník databáze neboli „dbo“. 
@@ -60,7 +72,7 @@ Autorizace určuje, co může uživatel provádět ve službě Azure SQL Databas
 ### <a name="row-level-security"></a>Zabezpečení na úrovni řádku
 Zabezpečení na úrovni řádku umožňuje řízení přístupu k řádkům v databázové tabulce na základě charakteristiky uživatele spouštějícího dotaz (například členství ve skupině nebo kontext spuštění). Další informace najdete v tématu [Zabezpečení na úrovni řádku](https://msdn.microsoft.com/library/dn765131).
 
-### <a name="data-masking"></a>Maskování dat 
+### <a name="dynamic-data-masking"></a>Dynamické maskování dat 
 Databáze SQL dynamická data maskování omezuje ohrožení citlivých dat pomocí maskování uživatelům bez oprávnění. Dynamické maskování automaticky dat zjistí potenciálně citlivá data v databázi SQL Azure a poskytuje řešitelné doporučení k maskování těchto polí s minimálním dopadem na aplikační vrstvu. Funguje tak, že maskuje citlivá data v sadě výsledků dotazu nad určenými poli databáze, zatímco data v databázi se nemění. Další informace najdete v tématu [Začínáme s SQL Database dynamická data maskování](sql-database-dynamic-data-masking-get-started.md) lze použít k omezení rizika citlivá data.
 
 ## <a name="proactive-monitoring"></a>Proaktivní monitorování
@@ -70,15 +82,12 @@ Služba SQL Database chrání vaše data poskytováním možností auditování 
 Auditování služby SQL Database sleduje databázové aktivity a pomáhá dodržovat legislativní předpisy díky zaznamenávání databázových událostí do protokolu auditu ve vašem účtu služby Azure Storage. Auditování vám umožňuje pochopit probíhající databázové aktivity a pomocí analýzy a zkoumání historické aktivity identifikovat potenciální hrozby nebo možné zneužití a narušení zabezpečení. Další informace najdete v tématu [Začínáme s auditováním služby SQL Database](sql-database-auditing.md).  
 
 ### <a name="threat-detection"></a>Detekce hrozeb
-Detekce hrozeb doplňuje auditování, tím, že poskytuje další vrstvu zabezpečení intelligence integrovaný do služby Azure SQL Database, která upozorní na neobvyklé a potenciálně škodlivé pokusy přístup nebo využívat databáze. O podezřelých aktivit, potenciální ohrožení zabezpečení a prostřednictvím injektáže SQL, a vzory přístupu k nezvyklé databázové, zobrazí se výstraha. Můžete prohlížet výstrah o zjištěných hrozbách [Azure Security Center](https://azure.microsoft.com/services/security-center/) a zadejte podrobnosti podezřelých aktivit a doporučujeme akce o tom, jak prozkoumat a zmírnit riziko. Detekce hrozeb stojí $15, počet serverů za měsíc. Bude volné pro prvních 60 dní. Další informace najdete v článku [Začínáme zjišťovat hrozby ve službě SQL Database](sql-database-threat-detection.md).
- 
-### <a name="data-masking"></a>Maskování dat 
-Databáze SQL dynamická data maskování omezuje ohrožení citlivých dat pomocí maskování uživatelům bez oprávnění. Dynamické maskování automaticky dat zjistí potenciálně citlivá data v databázi SQL Azure a poskytuje řešitelné doporučení k maskování těchto polí s minimálním dopadem na aplikační vrstvu. Funguje tak, že maskuje citlivá data v sadě výsledků dotazu nad určenými poli databáze, zatímco data v databázi se nemění. Další informace najdete v tématu Začínáme s [maskování dynamická data databáze SQL](sql-database-dynamic-data-masking-get-started.md)
+Detekce hrozeb doplňuje auditování, tím, že poskytuje další vrstvu zabezpečení intelligence integrovaný do služby Azure SQL Database, která upozorní na neobvyklé a potenciálně škodlivé pokusy přístup nebo využívat databáze. Upozorní o podezřelých aktivit, potenciální ohrožení zabezpečení a prostřednictvím injektáže SQL, jakož i nezvyklé databázové přístupové vzorce. Můžete prohlížet výstrah o zjištěných hrozbách [Azure Security Center](https://azure.microsoft.com/services/security-center/) a zadejte podrobnosti podezřelých aktivit a doporučujeme akce o tom, jak prozkoumat a zmírnit riziko. Detekce hrozeb stojí $15, počet serverů za měsíc. Je bezplatná pro prvních 60 dní. Další informace najdete v článku [Začínáme zjišťovat hrozby ve službě SQL Database](sql-database-threat-detection.md).
  
 ## <a name="compliance"></a>Dodržování předpisů
 Kromě výše uvedeného funkce a funkce, které mohou pomoci aplikace splňovat různé požadavky na zabezpečení, Azure SQL Database také účastní pravidelné audity a certifikovala proti počet standardů dodržování předpisů. Další informace najdete v [Centru zabezpečení Microsoft Azure](https://azure.microsoft.com/support/trust-center/), kde také najdete nejnovější seznam [certifikátů služby SQL Database v oblasti dodržování předpisů](https://azure.microsoft.com/support/trust-center/services/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Diskuzi o používání funkcí řízení přístupu ve službě SQL Database najdete v tématu [Řízení přístupu](sql-database-control-access.md).
 - Informace o auditování databáze, najdete v části [auditování databáze SQL](sql-database-auditing.md).

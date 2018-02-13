@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Volání webového rozhraní API z webové aplikace .NET
 S koncovým bodem v2.0 můžete rychle přidání ověřování do vaší webové aplikace a webové rozhraní API s podporou pro oba osobní účty Microsoft a pracovní nebo školní účty.  Zde jsme budete vytvářet webové aplikace MVC, která podepisuje uživatele pomocí OpenID Connect, s pomoc od společnosti Microsoft OWIN middleware.  Webové aplikace se získání přístupových tokenů OAuth 2.0 pro webové rozhraní api, které jsou zabezpečeny OAuth 2.0, který umožňuje vytvořit, číst a odstranit na daného uživatele "seznam úkolů".
@@ -68,7 +68,7 @@ Teď nakonfigurovat middlewaru OWIN, který má být použit [ověřovacího pro
 * Otevřete soubor `App_Start\Startup.Auth.cs` a přidejte `using` příkazy pro knihovny z výše.
 * Ve stejném souboru implementovat `ConfigureAuth(...)` metoda.  Parametry, zadejte v `OpenIDConnectAuthenticationOptions` bude sloužit jako souřadnice pro vaši aplikaci komunikovat s Azure AD.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ V `AuthorizationCodeReceived` oznámení, chceme používat [OAuth 2.0 v kombina
 * A přidat další `using` příkaz, který má `App_Start\Startup.Auth.cs` MSAL v souboru.
 * Nyní přidejte nové metody, `OnAuthorizationCodeReceived` obslužné rutiny události.  Tato obslužná rutina použije MSAL získat token přístupu k rozhraní API seznamu úkolů a uloží token v mezipaměti na MSAL tokenu pro pozdější:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ Nyní je čas skutečně používáte access_token, které jste získali v kroku
     `using Microsoft.Identity.Client;`
 * V `Index` akce, použijte MSAL `AcquireTokenSilentAsync` metoda získat access_token, které je možné načíst data ze služby na seznam úkolů:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * Ukázka pak přidá výsledný token na požadavek HTTP GET `Authorization` hlavičky, která služba seznam úkolů používá k ověření žádosti.
 * Pokud vrátí seznam úkolů služby `401 Unauthorized` odpovědi, access_tokens v MSAL mít zneplatní z nějakého důvodu.  V takovém případě by měl vyřaďte všechny access_tokens z mezipaměti MSAL a zobrazí uživateli zprávu, která budou muset přihlásit znovu, který bude restartován tok tokenu pořízení.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * Podobně pokud MSAL nelze vrátit access_token z jakéhokoli důvodu, byste měli vyzvat uživatele se znovu přihlásit.  To je jednoduché, zachytávání žádné `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

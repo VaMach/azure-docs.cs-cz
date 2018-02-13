@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: a21fdfbc4396f2b7aff50fae4ca796d8ea6a733b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Vytvoření a úprava okruhu ExpressRoute
 > [!div class="op_single_selector"]
@@ -130,7 +130,7 @@ Můžete provádět následující úlohy bez výpadků:
 > [!IMPORTANT]
 > Možná budete muset znovu vytvořit okruh ExpressRoute, pokud je nedostatečné kapacity na existující port. Pokud v tomto umístění není k dispozici žádné další kapacitu, nelze upgradovat okruh.
 >
-> Nejde snížit šířku pásma okruhu ExpressRoute bez přerušení. Přechod na starší verzi šířky pásma vyžaduje zrušení zřízení okruh ExpressRoute a pak znova nezajistíte nové okruh ExpressRoute.
+> I když můžete plynule upgradovat šířku pásma, nejde snížit šířku pásma okruhu ExpressRoute bez přerušení. Přechod na starší verzi šířky pásma vyžaduje zrušení zřízení okruh ExpressRoute a pak znova nezajistíte nové okruh ExpressRoute.
 > 
 > Zákaz operace rozšíření Premium může selhat, pokud používáte prostředky, které jsou větší než co je povoleno pro standardní okruh.
 > 
@@ -150,7 +150,7 @@ Váš okruh ExpressRoute můžete odstranit výběrem **odstranit** ikonu. Vezm�
 * Pokud je poskytovatel služby okruh ExpressRoute Stav zřizování **zřizování** nebo **zajištěno** , musíte pracovat se svým poskytovatelem služeb pro zrušení zřízení okruhu na jejich straně. Abychom mohli pokračovat a rezervovat prostředky vám účtovat, dokud poskytovatele služeb dokončení zrušení okruhu a upozorní nás.
 * Pokud má poskytovatel služeb zrušit okruhu (poskytovatele služeb Stav zřizování je nastavena na **není zajišťováno**), můžete odstranit okruh. To zastaví fakturace pro okruh.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po vytvoření okruhu, pokračujte následujícími další kroky:
 
 * [Vytvoření a úprava směrování pro okruhu ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)

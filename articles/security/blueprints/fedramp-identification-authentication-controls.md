@@ -1,6 +1,6 @@
 ---
-title: "Plán, podle kterého FedRAMP Azure Automation - identifikace a ověření"
-description: "Webové aplikace pro FedRAMP - identifikace a ověření"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace - identifikace a ověření"
+description: "FedRAMP webové aplikace automatizace - identifikace a ověření"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identifikace a ověření (IA)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Účty, které jsou vytvořené tento plán, podle kterého Azure mají jedinečné identifikátory. Integrované účty s nejedinečné identifikátory se zakážou nebo odeberou. |
+| **Zákazníka** | Účty, které jsou vytvořené tento plán, podle kterého mít jedinečné identifikátory. Integrované účty s nejedinečné identifikátory se zakážou nebo odeberou. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | U prostředků nasadit pomocí této Azure plán, podle kterého jsou povolené žádné sdílené nebo skupinové účty. |
+| **Zákazníka** | U prostředků nasadit pomocí tento plán, podle kterého jsou povolené žádné sdílené nebo skupinové účty. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Přístup k prostředkům nasadit pomocí této Azure plán, podle kterého je chráněn před útoky před zneužitím integrované funkce protokolu Kerberos Azure Active Directory, služby Active Directory a operačního systému Windows. Ověřovací klient zasílá v ověřování protokolem Kerberos, obsahuje další data, například šifrované seznam adres IP, časová razítka klienta a doba platnosti lístku. Pokud je přehrány paket, zkontroluje se časové razítko. Pokud je starší než časové razítko nebo stejný jako předchozí authenticator, paket byl odmítnut. |
+| **Zákazníka** | Přístup k prostředkům nasadit pomocí tento plán, podle kterého je chráněn před útoky před zneužitím integrované funkce protokolu Kerberos Azure Active Directory, služby Active Directory a operačního systému Windows. Ověřovací klient zasílá v ověřování protokolem Kerberos, obsahuje další data, například šifrované seznam adres IP, časová razítka klienta a doba platnosti lístku. Pokud je přehrány paket, zkontroluje se časové razítko. Pokud je starší než časové razítko nebo stejný jako předchozí authenticator, paket byl odmítnut. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Přístup k prostředkům nasadit pomocí této Azure plán, podle kterého je chráněn před útoky před zneužitím integrované funkce protokolu Kerberos Azure Active Directory, služby Active Directory a operačního systému Windows. Ověřovací klient zasílá v ověřování protokolem Kerberos, obsahuje další data, například šifrované seznam adres IP, časová razítka klienta a doba platnosti lístku. Pokud je přehrány paket, zkontroluje se časové razítko. Pokud je starší než časové razítko nebo stejný jako předchozí authenticator, paket byl odmítnut. |
+| **Zákazníka** | Přístup k prostředkům nasadit pomocí tento plán, podle kterého je chráněn před útoky před zneužitím integrované funkce protokolu Kerberos Azure Active Directory, služby Active Directory a operačního systému Windows. Ověřovací klient zasílá v ověřování protokolem Kerberos, obsahuje další data, například šifrované seznam adres IP, časová razítka klienta a doba platnosti lístku. Pokud je přehrány paket, zkontroluje se časové razítko. Pokud je starší než časové razítko nebo stejný jako předchozí authenticator, paket byl odmítnut. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure vyzve k zadání při nasazení pro zadaný zákazníka identifikátory pro jednotlivé účty.  |
+| **Zákazníka** | Tento plán, podle kterého vyzve k zadání při nasazení pro zadaný zákazníka identifikátory pro jednotlivé účty.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -253,13 +253,13 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="identifier-management"></a>Identifikátor správy
 
-**4e IA** Že organizace spravuje informace o systému identifikátory zakázáním identifikátor po [přiřazení: organizace definované časové období nečinnosti].
+**IA-4.e** Že organizace spravuje informace o systému identifikátory zakázáním identifikátor po [přiřazení: organizace definované časové období nečinnosti].
 
 **Odpovědnosti:**`Customer Only`
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje naplánovanou úlohu pro službu Active Directory automaticky zakázat účty po 35 dní nečinnosti. |
+| **Zákazníka** | Tento plán, podle kterého implementuje naplánovanou úlohu pro službu Active Directory automaticky zakázat účty po 35 dní nečinnosti. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Veškerý obsah ověřovací počáteční data pro tento plán, podle kterého Azure vytvořené účty splňovat požadavky uvedené v IA-5 (1), ověření při zákazník během nasazení.  |
+| **Zákazníka** | Veškerý obsah počáteční authenticator pro účty vytvořené tento plán, podle kterého splňovat požadavky uvedené v IA-5 (1), ověření při zákazník během nasazení.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Ověřovací data používá tento plán, podle kterého Azure splňovaly požadavky pro sílu podle požadavků FedRAMP. |
+| **Zákazníka** | Ověřovací data používá tento plán, podle kterého splňovaly požadavky pro sílu podle požadavků FedRAMP. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny ověřovací data součástí této Azure plán, podle kterého se liší od jejich výchozí hodnoty. Ověřovací data jsou během nasazení tohoto řešení zadaný zákazníka. |
+| **Zákazníka** | Všechny ověřovací data pro součásti tento plán, podle kterého se liší od jejich výchozí hodnoty. Ověřovací data jsou během nasazení tohoto řešení zadaný zákazníka. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny je vytvořit a nakonfigurovat tak, aby implementace omezení doba platnosti hesla (60 dnů). |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny je vytvořit a nakonfigurovat tak, aby implementace omezení doba platnosti hesla (60 dnů). |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje Key Vault k ochraně obsahu authenticator před neoprávněným sdílením a úpravy. Následující ověřovací data jsou uložené v Key Vault: Azure heslo pro účet nasadit, heslo správce virtuálního počítače, heslo účtu služby SQL Server. |
+| **Zákazníka** | Tento plán, podle kterého implementuje Key Vault k ochraně obsahu authenticator před neoprávněným sdílením a úpravy. Následující ověřovací data jsou uložené v Key Vault: Azure heslo pro účet nasadit, heslo správce virtuálního počítače, heslo účtu služby SQL Server. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje Key Vault k ochraně obsahu authenticator před neoprávněným sdílením a úpravy. Následující ověřovací data jsou uložené v Key Vault: Azure heslo pro účet nasadit, heslo správce virtuálního počítače, heslo účtu služby SQL Server. Key Vault šifruje klíče a tajné klíče (např. ověřovací klíče, klíče účtu úložiště, šifrovací klíče dat a hesla) pomocí klíčů chráněných moduly hardwarového zabezpečení (HSM). |
+| **Zákazníka** | Tento plán, podle kterého implementuje Key Vault k ochraně obsahu authenticator před neoprávněným sdílením a úpravy. Následující ověřovací data jsou uložené v Key Vault: Azure heslo pro účet nasadit, heslo správce virtuálního počítače, heslo účtu služby SQL Server. Key Vault šifruje klíče a tajné klíče (např. ověřovací klíče, klíče účtu úložiště, šifrovací klíče dat a hesla) pomocí klíčů chráněných moduly hardwarového zabezpečení (HSM). |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | U prostředků nasadit pomocí této Azure plán, podle kterého jsou povolené žádné sdílené nebo skupinové účty. |
+| **Zákazníka** | U prostředků nasadit pomocí tento plán, podle kterého jsou povolené žádné sdílené nebo skupinové účty. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny je vytvořeno a konfigurován k vynucování požadavky na složitost hesla pro místní účty virtuálního počítače a účty AD.  |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny je vytvořeno a konfigurován k vynucování požadavky na složitost hesla pro místní účty virtuálního počítače a účty AD.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny je vytvořit a nakonfigurovat tak, aby vynutit omezení na hesla, které vynucují minimální (1 den) a (60 dnů) maximální doba života omezení pro místní účty a účty AD. |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny je vytvořit a nakonfigurovat tak, aby vynutit omezení na hesla, které vynucují minimální (1 den) a (60 dnů) maximální doba života omezení pro místní účty a účty AD. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -477,13 +477,13 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="authenticator-management--password-based-authentication"></a>Ověřovací data správy | Ověřování pomocí hesla
 
-**.E IA-5 (1)** Informace o systému, pro ověřování založené na heslech zakáže opakované použití hesla pro [přiřazení: organizace definované číslo] generace.
+**IA-5 (1).e** Informace o systému, pro ověřování založené na heslech zakáže opakované použití hesla pro [přiřazení: organizace definované číslo] generace.
 
 **Odpovědnosti:**`Customer Only`
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny je vytvořit a nakonfigurovat tak, aby vynutit omezení pro opakované použití podmínky (24 hesla) pro místní účty a účty AD. |
+| **Zákazníka** | Tento plán, podle kterého nasadí řadič domény, ke kterému jsou připojené všechny nasazené virtuální počítače. Zásady skupiny je vytvořit a nakonfigurovat tak, aby vynutit omezení pro opakované použití podmínky (24 hesla) pro místní účty a účty AD. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -501,7 +501,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-ia-5-2a"></a>.A NIST 800-53 řízení IA-5 (2)
+ ### <a name="nist-800-53-control-ia-5-2a"></a>NIST 800-53 Control IA-5 (2).a
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Ověřovací data správy | Ověřování na základě infrastruktury veřejných klíčů
 
@@ -529,7 +529,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ### <a name="nist-800-53-control-ia-5-2c"></a>.C NIST 800-53 řízení IA-5 (2)
+ ### <a name="nist-800-53-control-ia-5-2c"></a>NIST 800-53 Control IA-5 (2).c
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Ověřovací data správy | Ověřování na základě infrastruktury veřejných klíčů
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Zahrnout uživatelské účty, které jsou nasazené s Tento plán, podle kterého Azure AD a místní uživatelské účty. Obě tyto poskytují mechanismy, které vynutit dodržování předpisů s požadavky na zavedených heslo pro vytvoření počátečního hesla a během změny hesla. Azure Active Directory je automatizovaného nástroje vzhledem k určí, zda heslo ověřovací data dostatečně silné vyhovět délku hesla, složitost, otáčení a doba platnosti omezení nastavené v IA-5 (1). Azure Active Directory zajistí, že splňuje authenticator síly hesla při vytváření těchto standardů. Odběratel určen hesla použít k nasazení tohoto řešení se kontroluje splnění požadavků na sílu hesel. |
+| **Zákazníka** | Uživatelské účty, které jsou nasazené s Tento plán, podle kterého zahrnují AD a místní uživatelské účty. Obě tyto poskytují mechanismy, které vynutit dodržování předpisů s požadavky na zavedených heslo pro vytvoření počátečního hesla a během změny hesla. Azure Active Directory je automatizovaného nástroje vzhledem k určí, zda heslo ověřovací data dostatečně silné vyhovět délku hesla, složitost, otáčení a doba platnosti omezení nastavené v IA-5 (1). Azure Active Directory zajistí, že splňuje authenticator síly hesla při vytváření těchto standardů. Odběratel určen hesla použít k nasazení tohoto řešení se kontroluje splnění požadavků na sílu hesel. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Se nepoužívá nezašifrované statické ověřovací data integrována do aplikací, přístup k skripty nebo funkční klávesy nasadit pomocí tento plán, podle kterého Azure. Každý skript nebo aplikace, která používá ověřovací data zavolá kontejner Azure Key Vault před každou použití. Je auditovat přístup k Azure Key Vault kontejnery, což umožňuje detekci narušení tento zákaz, pokud účet služby se používá pro přístup systému bez odpovídající volání kontejneru Azure Key Vault. |
+| **Zákazníka** | Se nepoužívá nezašifrované statické ověřovací data integrována do aplikací, přístup k skripty nebo funkční klávesy nasadit pomocí tento plán. Každý skript nebo aplikace, která používá ověřovací data zavolá kontejner Azure Key Vault před každou použití. Je auditovat přístup k Azure Key Vault kontejnery, což umožňuje detekci narušení tento zákaz, pokud účet služby se používá pro přístup systému bez odpovídající volání kontejneru Azure Key Vault. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Žádné prostředky nasadit pomocí této Azure plán, podle kterého jsou nakonfigurována pro použití ověřovací data uložená v mezipaměti. Ověřování pro nasazené virtuální počítače vyžaduje, že ověřovací data se zadá při ověřování. |
+| **Zákazníka** | Žádné prostředky nasadit pomocí tento plán, podle kterého jsou nakonfigurována pro použití ověřovací data uložená v mezipaměti. Ověřování pro nasazené virtuální počítače vyžaduje, že ověřovací data se zadá při ověřování. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Přístup k prostředkům nasadit pomocí této Azure plán, podle kterého je pomocí vzdálené plochy a spoléhá na ověřování systému Windows. Výchozí chování relace ověřování systému Windows zakrývá hesla při vstupu během relace ověřování.  |
+| **Zákazníka** | Přístup k prostředkům nasadit pomocí tento plán, podle kterého je pomocí vzdálené plochy a spoléhá na ověřování systému Windows. Výchozí chování relace ověřování systému Windows zakrývá hesla při vstupu během relace ověřování.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Ověřování systému Windows, vzdálené plochy a BitLocker zaměstnává tento plán, podle kterého Azure. Tyto součásti lze nakonfigurovat moct spolehnout na FIPS 140 ověřit kryptografických modulů. |
+| **Zákazníka** | Tento plán, podle kterého jsou zaměstnaní ověřování systému Windows, vzdálené plochy a nástroj BitLocker. Tyto součásti lze nakonfigurovat moct spolehnout na FIPS 140 ověřit kryptografických modulů. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 

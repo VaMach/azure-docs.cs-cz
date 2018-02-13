@@ -2,33 +2,31 @@
 title: "Zásobník datacenter integrace se službou Azure - DNS"
 description: "Zjistěte, jak integrovat Azure zásobníku DNS s vaším datovým centrem DNS"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Zásobník datacenter integrace se službou Azure - DNS
-
-*Platí pro: Azure zásobníku integrované systémy*
-
 Pro přístup k koncové body Azure zásobníku (`portal`, `adminportal`, `management`, `adminmanagement`atd.)  ze zásobníku mimo Azure budete muset integraci služby Azure DNS zásobníku se servery DNS, které jsou hostiteli zóny DNS, kterou chcete použít v zásobníku Azure.
 
-## <a name="azure-stack-dns-namespace"></a>Obor názvů Azure DNS zásobníku
+## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS namespace
 Je nutné zajistit některé důležité informace související s DNS při nasazení Azure zásobníku.
 
 
-|Pole  |Popis  |Příklad|
+|Pole  |Popis  |Příklad:|
 |---------|---------|---------|
 |Oblast|Geografické umístění nasazení Azure zásobníku.|`east`|
-|Název externí domény|Název zóny, který chcete použít pro vaše nasazení Azure zásobníku.|`cloud.fabrikam.com`|
-|Název interní domény|Název interní zóny, který se používá pro služby infrastruktury v zásobníku Azure.  Je integrované adresářové služby a privátní (nedostupný z mimo Azure zásobníku nasazení).|`azurestack.local`|
+|External Domain Name|Název zóny, který chcete použít pro vaše nasazení Azure zásobníku.|`cloud.fabrikam.com`|
+|Internal Domain Name|Název interní zóny, který se používá pro služby infrastruktury v zásobníku Azure.  Je integrované adresářové služby a privátní (nedostupný z mimo Azure zásobníku nasazení).|`azurestack.local`|
 |Server DNS pro předávání|Servery DNS, které se používají k předávání dotazů DNS, zóny DNS a záznamy, které jsou hostované mimo Azure zásobníku, buď v podnikovém intranetu nebo veřejného Internetu.|`10.57.175.34`<br>`8.8.8.8`|
 |Pojmenování předpony (volitelné)|Chcete Azure zásobníku infrastruktury role instance počítače názvy tak, aby měl předpony názvu.  Pokud není zadaná, výchozí hodnota je `azs`.|`azs`|
 
@@ -98,7 +96,7 @@ Autoritativní servery jsou ty, které obsahují informace o zóně externí DNS
 Chcete-li integrovat Azure zásobníku nasazení infrastruktury služby DNS, je třeba následující informace:
 
 - Server DNS plně kvalifikovaných názvů domén
-- IP adresy serverů DNS
+- DNS server IP addresses
 
 Plně kvalifikované názvy domény pro servery Azure DNS zásobníku mít následující formát:
 
@@ -138,6 +136,6 @@ Každý registrátor má vlastní nástroje pro správu DNS, které umožňují 
 
 Většina registrátorů DNS musíte poskytnout minimálně dva servery DNS pro delegování dokončíte.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-[Zásobník datacenter integrace se službou Azure - Identity](azure-stack-integrate-identity.md)
+[Integrace brány firewall](azure-stack-firewall.md)

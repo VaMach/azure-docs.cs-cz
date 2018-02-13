@@ -1,5 +1,5 @@
 ---
-title: "Koncové body služby virtuální sítě Azure | Microsoft Docs"
+title: "Koncové body služby virtuální sítě Azure | Dokumentace Microsoftu"
 description: "Zjistěte, jak povolit přímý přístup k prostředkům Azure z virtuální sítě pomocí koncových bodů služby."
 services: virtual-network
 documentationcenter: na
@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>Koncové body služby virtuální sítě (Preview)
+# <a name="virtual-network-service-endpoints"></a>Koncové body služby virtuální sítě
 
 Koncové body služby virtuální sítě rozšiřují privátní adresní prostor vaší virtuální sítě a její identitu do služeb Azure přes přímé připojení. Koncové body umožňují svázat vaše důležité prostředky služeb Azure pouze s vašimi virtuálními sítěmi. Provoz z vaší virtuální sítě do služby Azure vždy zůstává v páteřní síti Microsoft Azure.
 
-Tato funkce je dostupná ve verzi Preview pro následující služby a oblasti Azure:
+Tato funkce je dostupná pro následující služby a oblasti Azure:
 
-- **Azure Storage:** Všechny oblasti ve veřejném cloudu Azure.
-- **Azure SQL:** Všechny oblasti ve veřejném cloudu Azure.
+- **Azure Storage:** Obecná dostupnost. Všechny oblasti ve veřejném cloudu Azure a v cloudu Azure Government.
+- **Azure SQL:** Preview. Všechny oblasti ve veřejném cloudu Azure.
 
 Nejaktuálnější oznámení pro verzi Preview najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -66,7 +66,7 @@ Koncové body služby poskytují následující výhody:
 ### <a name="configuration"></a>Konfigurace
 
 - Koncové body služby se konfigurují v podsíti ve virtuální síti. Koncové body fungují s jakýmkoli typem výpočetních instancí spuštěných v rámci této podsítě.
-- Z jedné podsítě je možné povolit pro konkrétní službu pouze jeden koncový bod služby. V podsíti můžete konfigurovat několik koncových bodů služby pro všechny podporované služby Azure (například Azure Storage nebo Azure SQL Database).
+- V podsíti můžete konfigurovat několik koncových bodů služby pro všechny podporované služby Azure (například Azure Storage nebo Azure SQL Database).
 - Virtuální sítě musí být ve stejné oblasti jako prostředek služby Azure. Pokud používáte pro Azure Storage účty GRS a RA-GRS, primární účet musí být ve stejné oblasti jako virtuální síť.
 - Virtuální síť, ve které je koncový bod nakonfigurovaný, může být ve stejném předplatném jako prostředek služby Azure nebo v jiném předplatném. Další informace o oprávněních požadovaných pro nastavení koncových bodů a zabezpečení služeb Azure najdete v části [Zřizování](#Provisioning).
 - U podporovaných služeb můžete pomocí koncových bodů služby svázat s virtuálními sítěmi nové nebo existující prostředky.
@@ -106,7 +106,7 @@ Koncové body služby může ve virtuálních sítích nezávisle na sobě konfi
 
 Další informace o [předdefinovaných rolích](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a přiřazení konkrétních oprávnění k [vlastním rolím](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Virtuální sítě a prostředky služeb Azure můžou být ve stejném předplatném nebo v různých předplatných. Pokud jsou virtuální síť a prostředky služeb Azure v různých předplatných, během období Preview musí být prostředky ve stejném tenantovi Active Directory (AD). 
+Virtuální sítě a prostředky služeb Azure můžou být ve stejném předplatném nebo v různých předplatných. Pokud jsou virtuální síť a prostředky služeb Azure v různých předplatných, musí být prostředky ve stejném tenantovi Active Directory (AD). 
 
 ## <a name="pricing-and-limits"></a>Ceny a omezení
 

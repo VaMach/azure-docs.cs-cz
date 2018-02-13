@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: LADocs
-ms.openlocfilehash: 7ce0860272901f3b4e4cf3d63f7361d539f64741
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f939c626be11a358b0f8bece8840992a4362e1f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Partner smluv pro B2B komunikace se službou Azure Logic Apps a Enterprise integračního balíčku
 
@@ -46,7 +46,7 @@ Zde jsou některé běžné výhody při použití smlouvy:
 
 ## <a name="how-to-use-an-agreement"></a>Jak používat smlouvu
 
-Můžete vytvořit [aplikace logiky](logic-apps-what-are-logic-apps.md "Další informace o Logic apps") s možnostmi B2B pomocí smlouvu, kterou jste vytvořili.
+Můžete vytvořit [aplikace logiky](logic-apps-overview.md "Další informace o Logic apps") s možnostmi B2B pomocí smlouvu, kterou jste vytvořili.
 
 ## <a name="how-to-edit-an-agreement"></a>Jak upravit smlouvu
 
@@ -74,5 +74,5 @@ Jakékoli smlouvy, můžete odstranit pomocí následujících kroků:
 
     V okně smlouvy přestane zobrazovat odstraněné smlouvy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Vytvoření smlouvy AS2](logic-apps-enterprise-integration-as2.md)

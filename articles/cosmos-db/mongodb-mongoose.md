@@ -1,6 +1,6 @@
 ---
-title: "Pomocí rozhraní Mongoose Azure Cosmos DB | Microsoft Docs"
-description: "Zjistěte, jak se připojit k databázi Azure Cosmos aplikace Node.js Mongoose"
+title: "Používání rozhraní Mongoose se službou Azure Cosmos DB | Microsoft Docs"
+description: "Zjistěte, jak připojit aplikaci Node.js využívající Mongoose ke službě Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: 
 author: romitgirdhar
@@ -14,15 +14,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9878936b5dd76730633dec16b1c3a3eaac78e95a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: fb6db6555171b65767a715c6b4c8ff37f42c94ef
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Pomocí Azure Cosmos DB rozhraní Mongoose
+# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Používání rozhraní Mongoose se službou Azure Cosmos DB
 
-Tento kurz ukazuje, jak používat [Mongoose Framework](http://mongoosejs.com/) při ukládání dat v Azure Cosmos DB. V tomto návodu používáme MongoDB rozhraní API pro Azure Cosmos DB. Pro těch, které jste obeznámeni Mongoose představuje rozhraní objektu modelování pro MongoDB v Node.js a poskytuje jednoduché a na základě schématu řešení pro modelování data aplikací.
+Tento kurz ukazuje, jak použít [rozhraní Mongoose](http://mongoosejs.com/) při ukládání dat ve službě Azure Cosmos DB. V tomto návodu používáme rozhraní MongoDB API pro službu Azure Cosmos DB. Pokud Mongoose ještě neznáte, jedná se o rozhraní pro modelování objektů pro MongoDB v Node.js, které poskytuje jednoduché řešení modelování dat aplikací založené na schématu.
 
 Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos.
 
@@ -36,28 +36,28 @@ Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Vytvoření účtu služby Azure Cosmos DB
 
-Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete použít, můžete přeskočit na [nastavení aplikace Node.js](#SetupNode). Pokud používáte emulátor DB Cosmos Azure, postupujte podle kroků v [emulátoru DB Cosmos Azure](local-emulator.md) nastavit emulátoru a přeskočit na [nastavení aplikace Node.js](#SetupNode).
+Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete použít, můžete přeskočit k části [Nastavení aplikace Node.js](#SetupNode). Pokud používáte emulátor služby Azure Cosmos DB, nastavte emulátor pomocí postupu v tématu [Emulátor služby Azure Cosmos DB](local-emulator.md) a přeskočte k části [Nastavení aplikace Node.js](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="set-up-your-nodejs-application"></a>Nastavení aplikace Node.js
 
 >[!Note]
-> Pokud jste chtěli jenom návod ukázkový kód místo instalace vlastní aplikace, klonovat [ukázka](https://github.com/Azure-Samples/Mongoose_CosmosDB) používá pro účely tohoto kurzu a sestavit aplikaci Node.js Mongoose v Azure Cosmos DB.
+> Pokud si místo nastavování samotné aplikace chcete jenom projít vzorový kód, naklonujte [ukázku](https://github.com/Azure-Samples/Mongoose_CosmosDB) použitou v tomto kurzu a sestavte svou aplikaci Node.js využívající Mongoose ve službě Azure Cosmos DB.
 
-1. Pokud chcete vytvořit aplikace Node.js ve složce podle vaší volby, spusťte následující příkaz v příkazovém řádku uzlu.
+1. Pokud chcete vytvořit aplikaci Node.js ve složce podle vašeho výběru, spusťte na příkazovém řádku node následující příkaz.
 
     ```npm init```
 
-    Odpovězte na otázky a projektu budou připravené na vynucování.
+    Stačí odpovědět na otázky a váš projekt bude připravený k použití.
 
-1. Přidat nový soubor do složky a pojmenujte ji ```index.js```.
-1. Nainstaluje potřebné balíčky pomocí jedné z ```npm install``` možnosti:
-    * Mongoose:```npm install mongoose --save```
-    * Dotenv (Pokud chcete načíst vaše tajné klíče ze souboru .env):```npm install dotenv --save```
-    
+1. Přidejte do složky nový soubor a pojmenujte ho ```index.js```.
+1. Pomocí některé z možností příkazu ```npm install``` nainstalujte potřebné balíčky:
+    * Mongoose: ```npm install mongoose --save```
+    * Dotenv (pokud chcete načíst tajné kódy ze souboru .env): ```npm install dotenv --save```
+
     >[!Note]
-    > ```--save``` Příznak přidá do souboru package.json závislost.
+    > Příznak ```--save``` přidá závislost do souboru package.json.
 
 1. Importujte závislosti v souboru index.js.
     ```JavaScript
@@ -65,14 +65,14 @@ Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Přidat Cosmos DB připojovací řetězec a název databáze Cosmos k ```.env``` souboru.
+1. Do souboru ```.env``` přidejte váš připojovací řetězec služby Cosmos DB a název služby Cosmos DB.
 
     ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
     COSMOSDB_DBNAME={Your DB Name Here}
     ```
 
-1. Připojte k databázi Cosmos Azure pomocí rozhraní Mongoose přidáním následující kód do konce index.js.
+1. Připojte se pomocí rozhraní Mongoose ke službě Azure Cosmos DB přidáním následujícího kódu na konec souboru index.js.
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
 
@@ -83,27 +83,27 @@ Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete
     });
     ```
     >[!Note]
-    > Proměnné prostředí jsou zde načtené pomocí možnosti process.env. {variableName} pomocí balíčku npm 'dotenv'.
+    > Proměnné prostředí se tady načítají pomocí příkazu process.env.{název_proměnné} s použitím balíčku npm dotenv.
 
-    Po připojení k databázi Cosmos Azure nyní můžete spustit nastavení objektové modely v Mongoose.
-    
-## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>Upozornění pro Azure Cosmos DB pomocí Mongoose
+    Po připojení ke službě Azure Cosmos DB můžete v Mongoose začít nastavovat objektové modely.
 
-Pro každý model, který vytvoříte Mongoose vytvoří novou kolekci MongoDB pod pozadí. Však zadána model fakturace pro kolekci Azure Cosmos databáze, nemusí být nejvíce finančně efektivním způsobem přejít, pokud máte k dispozici více objektové modely, které jsou řídce naplněny.
+## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>Výhody a rizika používání Mongoose se službou Azure Cosmos DB
 
-Tento návod popisuje obou modelů. Nejprve zaměříme návod na ukládání jeden typ dat na kolekci. Toto je chování defacto Mongoose.
+Pro každý model, který vytvoříte, vytvoří Mongoose na pozadí novou kolekci MongoDB. Vzhledem k modelu fakturace služby Azure Cosmos DB podle počtu kolekcí to však nemusí být cenově nejvýhodnější přístup, pokud máte více řídce naplněných objektových modelů.
 
-Mongoose má také koncept názvem [Discriminators](http://mongoosejs.com/docs/discriminators.html). Discriminators jsou mechanismus dědičnosti schématu. Umožňují vám tak, aby měl více modelů s překrývající se schémat na stejnou základní kolekci MongoDB.
+Tento návod popisuje oba modely. Nejprve se zaměříme na návod na ukládání jednoho typu dat na kolekci. Takto se Mongoose chová standardně.
 
-Můžete ukládat různé datové modely ve stejné kolekci a pak stahují jenom data potřebná pomocí klauzuli filtru v době dotazu.
+V Mongoose existuje také koncept označovaný jako [Diskriminátory](http://mongoosejs.com/docs/discriminators.html). Diskriminátory představují mechanismus dědičnosti schématu. Umožňují existenci více modelů s překrývajícími se schématy nad stejnou základní kolekcí MongoDB.
 
-### <a name="one-collection-per-object-model"></a>Jedna kolekce za objektový model
+Ve stejné kolekci můžete ukládat různé datové modely a následně v době zpracování dotazu můžete pomocí klauzule filtru stáhnout pouze data, která potřebujete.
 
-Výchozí chování Mongoose je vytvoření kolekce MongoDB pokaždé, když vytvoříte model objektů. V této části popisuje jak dosáhnout s MongoDB pro Azure Cosmos DB. Tato metoda se doporučuje s Azure Cosmos DB, když máte objektové modely s velkými objemy dat. Toto je výchozí operační modelu pro Mongoose, proto je seznámit s tím, pokud jste obeznámeni s Mongoose.
+### <a name="one-collection-per-object-model"></a>Model jedné kolekce na objekt
 
-1. Otevřete váš ```index.js``` znovu.
+Výchozím chováním Mongoose je vytvořit kolekci MongoDB při každém vytvoření objektového modelu. Tato část popisuje, jak toho dosáhnout pomocí MongoDB pro službu Azure Cosmos DB. Tuto metodu doporučujeme použít se službou Azure Cosmos DB v případě, že máte objektové modely s velkými objemy dat. Toto je výchozí provozní model Mongoose, takže ho pravděpodobně znáte, pokud už znáte Mongoose.
 
-1. Vytvořte definici schématu pro 'Family'.
+1. Znovu otevřete soubor ```index.js```.
+
+1. Vytvořte definici schématu Family (Rodina).
 
     ```JavaScript
     const Family = mongoose.model('Family', new mongoose.Schema({
@@ -130,7 +130,7 @@ Výchozí chování Mongoose je vytvoření kolekce MongoDB pokaždé, když vyt
     }));
     ```
 
-1. Vytvoření objektu pro 'Family'.
+1. Vytvořte objekt Family.
 
     ```JavaScript
     const family = new Family({
@@ -150,7 +150,7 @@ Výchozí chování Mongoose je vytvoření kolekce MongoDB pokaždé, když vyt
     });
     ```
 
-1. Nakonec umožňuje ukládat objekt Azure Cosmos. Tím se vytvoří kolekce pod pozadí.
+1. Nakonec objekt uložte do služby Azure Cosmos DB. Tím se na pozadí vytvoří kolekce.
 
     ```JavaScript
     family.save((err, saveFamily) => {
@@ -158,8 +158,8 @@ Výchozí chování Mongoose je vytvoření kolekce MongoDB pokaždé, když vyt
     });
     ```
 
-1. Nyní vytvoříme jiné schéma a objekt. Tento čas, můžeme vytvořit pro dovolenou cílů, které může být zajímá rodiny.
-    1. Stejně jako poslední můžeme vytvořit schéma
+1. Teď vytvoříme další schéma a objekt. Tentokrát vytvoříme definici schématu Vacation Destinations (Prázdninové destinace), které můžou rodiny zajímat.
+    1. Stejně jako předtím vytvoříme schéma.
     ```JavaScript
     const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
         name: String,
@@ -167,7 +167,7 @@ Výchozí chování Mongoose je vytvoření kolekce MongoDB pokaždé, když vyt
     }));
     ```
 
-    1. Vytvoření ukázkové objektu (můžete přidat více objektů pro toto schéma) a uložte ho.
+    1. Vytvořte ukázkový objekt (do tohoto schématu můžete přidat více objektů) a uložte ho.
     ```JavaScript
     const vacaySpot = new VacationDestinations({
         name: "Honolulu",
@@ -179,11 +179,11 @@ Výchozí chování Mongoose je vytvoření kolekce MongoDB pokaždé, když vyt
     });
     ```
 
-1. Nyní přejděte do portálu Azure, jste si všimli dvě kolekce vytvořené v Azure Cosmos DB.
+1. Teď přejděte na web Azure Portal a všimněte si, že se ve službě Azure Cosmos DB vytvořily dvě kolekce.
 
-    ![Kurz k Node.js – snímek obrazovky portálu Azure znázorňující účet Azure Cosmos databáze s názvem kolekce zvýrazněná – databáze Node][alldata]
+    ![Kurz k Node.js – Snímek obrazovky webu Azure Portal se zobrazeným účtem služby Azure Cosmos DB a několika zvýrazněnými názvy kolekcí – databáze Node][mutiple-coll]
 
-1. Umožňuje číst nakonec data z databáze Azure Cosmos. Vzhledem k tomu, že používáme výchozí provozní model Mongoose, čtení jsou stejné jako další čtení s Mongoose.
+1. Nakonec načteme data ze služby Azure Cosmos DB. Vzhledem k tomu, že používáme výchozí provozní model Mongoose, probíhá čtení stejným způsobem jako jakákoli jiná čtení pomocí Mongoose.
 
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -191,13 +191,13 @@ Výchozí chování Mongoose je vytvoření kolekce MongoDB pokaždé, když vyt
     });
     ```
 
-### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Pomocí Mongoose discriminators k ukládání dat do jedné kolekce
+### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Použití diskriminátorů Mongoose k ukládání dat v jedné kolekci
 
-Tato metoda používáme [Mongoose Discriminators](http://mongoosejs.com/docs/discriminators.html) za účelem optimalizace pro nákladů na každou kolekci Azure Cosmos DB. Discriminators umožňují definovat rozdílné 'klíče', které umožňuje ukládání, rozlišit a filtrovat modely jiný objekt.
+V této metodě použijeme [Diskriminátory Mongoose](http://mongoosejs.com/docs/discriminators.html) k optimalizaci nákladů na jednotlivé kolekce služby Azure Cosmos DB. Diskriminátory umožňují definovat odlišující klíč, pomocí kterého můžete ukládat, odlišovat a filtrovat různé objektové modely.
 
-Tady vytváříme základní objekt modelu, definujte rozdílné klíč a přidání 'Family' a 'VacationDestinations' jako rozšíření základní modelu.
+Tady vytvoříme základní objektový model, nadefinujeme odlišující klíč a do základního modelu přidáme jako rozšíření modely Family a VacationDestinations.
 
-1. Umožňuje nastavit základní konfigurace a definujte diskriminátoru klíč.
+1. Nastavíme základní konfiguraci a nadefinujeme klíč diskriminátoru.
 
     ```JavaScript
     const baseConfig = {
@@ -206,13 +206,13 @@ Tady vytváříme základní objekt modelu, definujte rozdílné klíč a přid�
     };
     ```
 
-1. V dalším kroku nastavíme běžné objektový model
+1. Dále nadefinujeme společný objektový model.
 
     ```JavaScript
     const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
     ```
 
-1. Nyní jsme definovali 'Family' modelu. Si zde všimnout, že používáme ```commonModel.discriminator``` místo ```mongoose.model```. Kromě toho také přidáváme základní konfigurace mongoose schématu. Zde discriminatorKey Ano, je ```FamilyType```.
+1. Teď nadefinujeme model Family. Všimněte si, že tady místo příkazu ```mongoose.model``` používáme příkaz ```commonModel.discriminator```. Kromě toho také přidáváme základní konfiguraci do schématu mongoose. Proto tady má DiscriminatorKey (Klíč diskriminátoru) hodnotu ```FamilyType```.
 
     ```JavaScript
     const Family_common = commonModel.discriminator('FamilyType', new     mongoose.Schema({
@@ -239,7 +239,7 @@ Tady vytváříme základní objekt modelu, definujte rozdílné klíč a přid�
     }, baseConfig));
     ```
 
-1. Podobně přidejme jiné schéma, tentokrát pro 'VacationDestinations'. Tady je DiscriminatorKey ```VacationDestinationsType```.
+1. Podobným způsobem přidáme další schéma, tentokrát pro model VacationDestinations. Tady má DiscriminatorKey hodnotu ```VacationDestinationsType```.
 
     ```JavaScript
     const Vacation_common = commonModel.discriminator('VacationDestinationsType', new mongoose.Schema({
@@ -248,8 +248,8 @@ Tady vytváříme základní objekt modelu, definujte rozdílné klíč a přid�
     }, baseConfig));
     ```
 
-1. Navíc umožňuje vytvářet objekty pro model a uložte ho.
-    1. Umožňuje přidat objekty do modelu 'Family'.
+1. Nakonec pro model vytvoříme objekty a uložíme ho.
+    1. Přidáme objekty do modelu Family.
     ```JavaScript
     const family_common = new Family_common({
         lastName: "Volum",
@@ -272,7 +272,7 @@ Tady vytváříme základní objekt modelu, definujte rozdílné klíč a přid�
     });
     ```
 
-    1. Dále umožňuje přidat objekty do modelu 'VacationDestinations' a uložte ho.
+    1. Dále přidáme objekty do modelu VacationDestinations a uložíme ho.
     ```JavaScript
     const vacay_common = new Vacation_common({
         name: "Honolulu",
@@ -284,13 +284,13 @@ Tady vytváříme základní objekt modelu, definujte rozdílné klíč a přid�
     });
     ```
 
-1. Nyní, pokud přejdete zpět na portál Azure, zjistíte, že máte jenom jednu kolekci s názvem ```alldata``` daty 'Family' a 'VacationDestinations'.
+1. Pokud se teď vrátíte na web Azure Portal, zjistíte, že máte pouze jednu kolekci ```alldata``` obsahující data modelů Family i VacationDestinations.
 
-    ![Kurz k Node.js – snímek obrazovky portálu Azure znázorňující účet Azure Cosmos databáze s názvem kolekce zvýrazněná – databáze Node][mutiple-coll]
+    ![Kurz k Node.js – Snímek obrazovky webu Azure Portal se zobrazeným účtem služby Azure Cosmos DB a zvýrazněným názvem kolekce – databáze Node][alldata]
 
-1. Všimněte si také, že každý objekt má jiný atribut říká ```__type```, které pomáhá rozlišit mezi dva modely jiný objekt.
+1. Všimněte si také, že každý objekt má jiný atribut ```__type```, který pomáhá s odlišováním těchto dvou různých objektových modelů.
 
-1. Nakonec umožňuje číst data, která je uložená v Azure Cosmos DB. Mongoose postará filtrování dat založených na modelu. Ano budete muset udělat nic různých při čtení dat. Zadat pouze váš model (v tomto případě ```Family_common```) a zpracovává Mongoose filtrování 'DiscriminatorKey'.
+1. Nakonec načteme data uložená ve službě Azure Cosmos DB. Mongoose zajišťuje filtrování dat na základě modelu. Proto při čtení dat nemusíte nic dělat jinak. Stačí zadat model (v tomto případě ```Family_common```) a Mongoose se postará o filtrování podle hodnoty DiscriminatorKey.
 
     ```JavaScript
     Family_common.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -298,15 +298,15 @@ Tady vytváříme základní objekt modelu, definujte rozdílné klíč a přid�
     });
     ```
 
-Jak můžete vidět, je snadné pro práci s Mongoose discriminators. Ano Pokud máte aplikaci, která používá rozhraní Mongoose, v tomto kurzu je způsob, jak můžete ke zprovoznění aplikace a systémem MongoDB API v Azure Cosmos DB bez nutnosti příliš mnoho změn.
+Jak vidíte, pracovat s diskriminátory Mongoose je snadné. Takže pokud máte aplikaci využívající rozhraní Mongoose, pomocí tohoto kurzu můžete svou aplikaci zprovoznit s použitím rozhraní MongoDB API ve službě Azure Cosmos DB bez nutnosti příliš mnoha změn.
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-Další informace o MongoDB operace, operátory, fáze, příkazy a možnosti podporované Cosmos DB MongoDB rozhraní API služby Azure v [MongoDB API podpora pro funkce MongoDB a syntaxe](mongodb-feature-support.md).
+Další informace o operacích, operátorech, fázích, příkazech a možnostech MongoDB podporovaných rozhraním MongoDB API služby Azure Cosmos DB najdete v tématu [Podpora funkcí a syntaxe MongoDB v rozhraní MongoDB API](mongodb-feature-support.md).
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

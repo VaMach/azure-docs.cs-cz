@@ -1,5 +1,5 @@
 ---
-title: "Kurz: Azure Active Directory integrace s síti na pracovišti ve službě Facebook. | Microsoft Docs"
+title: "Kurz: Konfigurace síti na pracovišti ve službě Facebook pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a síti na pracovišti ve službě Facebook."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Kurz: Konfigurace síti na pracovišti ve službě Facebook pro zřizování uživatelů
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Kurz: Konfigurace síti na pracovišti ve službě Facebook pro zřizování automatické uživatelů
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v síti na pracovišti Facebook a Azure AD a automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD k firemní síti pomocí sítě Facebook.
 
@@ -73,9 +73,9 @@ Azure AD podporuje možnost automaticky synchronizovat Podrobnosti účtu přiř
 
 4. Nastavte **režimu zřizování** k **automatické**. 
 
-    ![Zřizování](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. V části **přihlašovací údaje správce** zadejte tajný klíč tokenu a URL klienta ze svého pracoviště správcem sítě Facebook.
+5. V části **přihlašovací údaje správce** části, zadejte tajný klíč tokenu pracovišti správcem sítě Facebook a nastavte hodnotu URL klienta `https://www.facebook.com/scim/v1/` .
 
 6. Na portálu Azure klikněte na tlačítko **Test připojení** zajistit Azure AD může připojit k pracovní ploše aplikace Facebook. Pokud se nepovede připojit, zajistěte, aby že vaše pracoviště Facebook účet má oprávnění správce týmu.
 
@@ -95,9 +95,8 @@ Další informace o tom, jak nakonfigurovat automatické zřizování najdete v 
 
 Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet byl synchronizován k síti na pracovišti ve službě Facebook Počkejte až 20 minut.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Konfigurovat jednotné přihlašování](active-directory-saas-workplacebyfacebook-tutorial.md)
-

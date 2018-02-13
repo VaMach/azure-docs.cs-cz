@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Úvod do Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,4 +127,13 @@ Předpokládejme například, že vaše výpočetní prostředí, jako je cluste
 Seznam rozdílů mezi verzí 1 a verzí 2 služby Data Factory najdete v [porovnání s verzí 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Další kroky
-Naučte se vytvořit datovou továrnu na základě podrobných pokynů v následujících průvodcích pro rychlý start: [prostředí PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md) a portál Azure. 
+Začněte s vytvářením kanálu služby Data Factory pomocí jednoho z následujících nástrojů nebo sad SDK: 
+
+- [Uživatelské rozhraní Data Factory na webu Azure Portal](quickstart-create-data-factory-portal.md)
+- [Nástroj pro kopírování dat na webu Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Šablona Azure Resource Manageru](quickstart-create-data-factory-resource-manager-template.md)
+ 

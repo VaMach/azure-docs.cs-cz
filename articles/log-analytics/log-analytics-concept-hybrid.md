@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 02/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Shromažďovat data z počítačů ve vašem prostředí s analýzy protokolů
 
@@ -32,7 +32,7 @@ Počítače, které jsou hostované ve vašem prostředí může být přímo p�
 
 ## <a name="overview"></a>Přehled
 
-![log-Analytics-Agent-Direct-Connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
+![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
 Před analýza a funguje na shromážděná data, musíte nejprve nainstalovat a připojit agentů pro všechny počítače, které chcete odesílat data do služby analýzy protokolů. Můžete nainstalovat agenty na místní počítače pomocí instalačního programu, příkazového řádku nebo pomocí požadovaného stavu konfigurace (DSC) ve službě Azure Automation. 
 
@@ -41,6 +41,10 @@ Agenta pro Linux a Windows komunikuje přes port 443 protokolu TCP odchozí slu�
 Agenta pro Linux a Windows není jenom pro připojení do analýzy protokolů, ale také podporuje připojení k Azure Automation hostitelů role pracovního procesu Hybrid Runbook a řešení pro správu jako je sledování změn a Správa aktualizací.  Další informace o roli hybridní pracovní proces Runbooku najdete v tématu [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 Pokud vaše zásady zabezpečení IT neumožňují počítače v síti pro připojení k Internetu, agent může být nakonfigurován pro připojení k bráně OMS shromážděná data v závislosti na řešení, které jste povolili odesílat a přijímat informace o konfiguraci. Další informace a kroky pro konfiguraci vašeho systému Linux nebo Windows agenta pro komunikaci přes bránu OMS ke službě Analýza protokolů najdete v tématu [počítače připojit k OMS pomocí brány OMS](log-analytics-oms-gateway.md). 
+
+> [!NOTE]
+> Agenta pro Windows podporuje jenom zabezpečení TLS (Transport Layer) 1.0 a 1.1.  
+> 
 
 ## <a name="prerequisites"></a>Požadavky
 Než začnete, zkontrolujte následující podrobnosti k ověření, že splňují minimální požadavky na systém.
@@ -62,11 +66,11 @@ Informace o následující seznam konfigurace proxy a firewall informace požado
 |*.azure-automation.net | 443 | Ano | 
 
 ### <a name="linux-operating-systems"></a>Operační systémy Linux
-Následující Linuxových distribucích jsou oficiálně podporované.  Agenta systému Linux mohou však spustit také na dalších distribuce, které nejsou uvedené.
+Následující Linuxových distribucích jsou oficiálně podporované.  Agenta systému Linux mohou však spustit také na dalších distribuce, které nejsou uvedené.  Pokud není uvedeno jinak, jsou podporovány všechny verze menší pro každou hlavní verzi uvedené.  
 
 * Linux Amazon 2012.09 k 2015.09 (x86/x64)
-* CentOS Linux 5, 6 a 7 (x86/x64)
-* Oracle Linux 5, 6 a 7 (x86/x64)
+* CentOS Linux 5, 6 a 7 (x86/x64)  
+* Oracle Linux 5, 6 a 7 (x86/x64) 
 * Red Hat Enterprise Linux Server 5, 6 a 7 (x86/x64)
 * Debian GNU/Linux 6, 7 a 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
@@ -94,7 +98,7 @@ Hodnota konfigurace proxy serveru má následující syntaxi:
 |Vlastnost| Popis |
 |--------|-------------|
 |Protocol (Protokol) | https |
-|Uživatel | Volitelné uživatelské jméno pro ověření proxy serverem |
+|uživatel | Volitelné uživatelské jméno pro ověření proxy serverem |
 |heslo | Volitelné heslo pro ověření proxy serverem |
 |proxyhost | Adresa nebo plně kvalifikovaný název domény serveru nebo OMS proxy serveru brány |
 |port | Číslo portu volitelné pro server/OMS proxy serveru brány |
@@ -113,7 +117,7 @@ Připojení místní počítače přímo k Log Analytics lze provést různými 
 |Počítač s Linuxem| [Ruční instalace](log-analytics-quick-collect-linux-computer.md)|Nainstalujte agenta pro Linux volání skript obálku hostované na Githubu. | 
 | System Center Operations Manager|[Integrace nástroje Operations Manager s analýzy protokolů](log-analytics-om-agents.md) | Konfigurace integrace mezi nástrojem Operations Manager a analýzy protokolů pro předávání shromažďovat data z počítačů se systémy Linux a Windows zprávy skupinu pro správu.|  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Zkontrolujte [zdroje dat](log-analytics-data-sources.md) pochopit zdroje dat, která je k dispozici ke shromažďování dat ze systému Windows nebo Linux. 
 

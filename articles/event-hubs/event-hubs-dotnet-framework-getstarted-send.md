@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Odeslání událostí do Azure Event Hubs pomocí rozhraní .NET Framework
 
@@ -39,7 +39,7 @@ Prvním krokem je použití webu [Azure Portal](https://portal.azure.com) k vytv
 
 ## <a name="create-a-sender-console-application"></a>Vytvoření konzolové aplikace Odesílatel
 
-V této části napíšete konzolovou aplikaci pro Windows, která zasílá události do vašeho centra událostí.
+V této části napíšete konzolovou aplikaci systému Windows, která zasílá události do vašeho centra událostí.
 
 1. Pomocí šablony projektu **Konzolová aplikace** vytvořte v sadě Visual Studio nový projekt desktopové aplikace Visual C#. Projekt pojmenujte **Odesílatel**.
    
@@ -101,7 +101,7 @@ V této části napíšete konzolovou aplikaci pro Windows, která zasílá udá
   
 Blahopřejeme! Nyní jste odeslali zprávy do centra událostí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událostí a odesílá data. Nyní se můžete podívat na některý z následujících scénářů:
 
 * [Příjem událostí pomocí třídy EventProcessorHost](event-hubs-dotnet-framework-getstarted-receive-eph.md)

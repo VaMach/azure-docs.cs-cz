@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f7ef46d9c40138c211427845423783fefde5dc3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Nainstalujte SQL &#92; IIS &#92;. NET zásobníku v Azure
 
@@ -32,7 +32,9 @@ V tomto kurzu jsme nainstalovat SQL &#92; IIS &#92;. NET zásobníku pomocí Azu
 > * Vytvoření virtuálního počítače s SQL serverem
 > * Nainstalujte rozšíření systému SQL Server
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+Pokud se rozhodnete nainstalovat a používat PowerShell místně, musíte použít modul Azure PowerShell verze 5.1.1 nebo novější. Verzi zjistíte spuštěním příkazu ` Get-Module -ListAvailable AzureRM`. Pokud potřebujete upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps). Pokud používáte PowerShell místně, je také potřeba spustit příkaz `Login-AzureRmAccount` pro vytvoření připojení k Azure.
 
 ## <a name="create-a-iis-vm"></a>Vytvoření virtuálního počítače služby IIS 
 
@@ -41,9 +43,10 @@ V tomto příkladu používáme [New-AzVM](https://www.powershellgallery.com/pac
 Klikněte na **zkuste ho** tlačítko pravém horním rohu stránky blok kódu spusťte cloudové prostředí v tomto okně. Zobrazí se výzva k zadání přihlašovacích údajů pro virtuální počítač na příkazový řádek.
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 Instalace IIS a rozhraní .NET framework pomocí rozšíření vlastních skriptů.
@@ -52,7 +55,7 @@ Instalace IIS a rozhraní .NET framework pomocí rozšíření vlastních skript
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
@@ -109,7 +112,7 @@ Použití [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/s
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste nainstalovali SQL &#92; IIS &#92;. NET zásobníku pomocí Azure PowerShell. Naučili jste se tyto postupy:
 

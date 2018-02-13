@@ -40,16 +40,21 @@
       maintainContext: true
     - name: Použití Jenkinse s využitím VSTS
       href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+    - name: Nasazení aplikací Service Fabric
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Ukázky
   items:
     - name: Ukázkové úlohy a skripty
       href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Moduly plug-in
       items:
         - name: Modul plug-in Azure App Service
           href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Modul plug-in Azure AD
+          href: 'https://plugins.jenkins.io/azure-ad'
         - name: Modul plug-in Azure Container Agents
           href: 'https://plugins.jenkins.io/azure-container-agents'
         - name: Modul plug-in Azure Container Service
@@ -58,10 +63,14 @@
           href: 'https://plugins.jenkins.io/azure-credentials'
         - name: Modul plug-in Azure Function
           href: 'https://plugins.jenkins.io/azure-function'
+        - name: Modul plug-in Azure Service Fabric
+          href: 'https://plugins.jenkins.io/service-fabric'
         - name: Modul plug-in Azure Storage
           href: 'https://plugins.jenkins.io/windows-azure-storage'
         - name: Modul plug-in Azure VM Agents
           href: 'https://plugins.jenkins.io/azure-vm-agents'
+        - name: Modul plug-in Azure VM Scale Set
+          href: 'https://plugins.jenkins.io/azure-vmss'
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Domovská stránka Jenkinse

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 06772c9e21936d224f721413ccdc1c859b07b940
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50d5ecd0542d236d4d68656af7808c329728aa39
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="tutorial-configuring-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Kurz: Konfigurace ServiceNow pro automatické zřizování s Azure Active Directory uživatelů
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Kurz: Konfigurace ServiceNow pro zřizování automatické uživatelů s Azure Active Directory
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v ServiceNow a Azure AD a automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD do ServiceNow.
 
@@ -60,7 +60,7 @@ Tato část vás provede připojení k ServiceNow na uživatelský účet zřizo
 
 4. Nastavte **zřizování** režim **automatické**. 
 
-    ![Zřizování](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
 
 5. V části přihlašovací údaje správce proveďte následující kroky:
    
@@ -84,9 +84,11 @@ Tato část vás provede připojení k ServiceNow na uživatelský účet zřizo
 
 12. Klikněte na tlačítko **uložit.**
 
-Spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené k ServiceNow v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci ServiceNow.
+Spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené k ServiceNow v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 40 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** oddílu monitorovat průběh a odkazech na protokoly aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci ServiceNow zřizování.
 
-## <a name="additional-resources"></a>Další zdroje
+Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
+
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

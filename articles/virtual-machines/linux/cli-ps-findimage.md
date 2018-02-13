@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Postup nalezení bitové kopie virtuálního počítače s Linuxem v Azure Marketplace pomocí Azure CLI
 Toto téma popisuje, jak pomocí Azure CLI 2.0 najít Image virtuálních počítačů v Azure Marketplace. Tyto informace slouží k určení image pořízenou prostřednictvím Marketplace, při vytváření virtuálního počítače s Linuxem.
@@ -41,7 +41,7 @@ Pokud chcete zadat image pořízenou prostřednictvím Marketplace, obvykle pou�
 
 ## <a name="list-popular-images"></a>Seznam oblíbených obrázků
 
-Spustit [seznamu obrázků virtuálních počítačů az](/cli/azure/vm/image#list) příkazu, aniž by `--all` možnost, podívejte se do seznamu oblíbených Image virtuálních počítačů v Azure Marketplace. Například spusťte následující příkaz, který zobrazí seznam oblíbených bitové kopie v mezipaměti ve formátu tabulky:
+Spustit [seznamu obrázků virtuálních počítačů az](/cli/azure/vm/image#az_vm_image_list) příkazu, aniž by `--all` možnost, podívejte se do seznamu oblíbených Image virtuálních počítačů v Azure Marketplace. Například spusťte následující příkaz, který zobrazí seznam oblíbených bitové kopie v mezipaměti ve formátu tabulky:
 
 ```azurecli
 az vm image list --output table
@@ -134,7 +134,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Přejděte bitové kopie 
-Jiný způsob, jak najít bitovou kopii v umístění je spuštění [bitové kopie virtuálních počítačů az seznamu vydavatelů](/cli/azure/vm/image#list-publishers), [bitové kopie virtuálních počítačů az seznamu nabízí](/cli/azure/vm/image#list-offers), a [bitové kopie virtuálních počítačů az seznamu SKU](/cli/azure/vm/image#list-skus) příkazy v pořadí. Pomocí těchto příkazů určit tyto hodnoty:
+Jiný způsob, jak najít bitovou kopii v umístění je spuštění [bitové kopie virtuálních počítačů az seznamu vydavatelů](/cli/azure/vm/image#az_vm_image_list_publishers), [bitové kopie virtuálních počítačů az seznamu nabízí](/cli/azure/vm/image#az_vm_image_list_offers), a [bitové kopie virtuálních počítačů az seznamu SKU](/cli/azure/vm/image#az_vm_image_list_skus) příkazy v pořadí. Pomocí těchto příkazů určit tyto hodnoty:
 
 1. Vypsat vydavatele imagí.
 2. Pro daného vydavatele vypsat jeho nabídky.
@@ -256,5 +256,5 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
-## <a name="next-steps"></a>Další kroky
-Nyní můžete přesněji bitovou kopii, kterou chcete použít provedením Poznámka URN hodnoty. Předat tuto hodnotu s `--image` parametr při vytváření virtuálního počítače s [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz. Mějte na paměti, že můžete volitelně nahradit číslo verze v název URN "poslední zálohy". Tato verze je vždy nejnovější verzi rozdělení. Pokud chcete rychle vytvořit virtuální počítač pomocí informací o URN, přečtěte si téma [vytvořit a spravovat virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure](tutorial-manage-vm.md).
+## <a name="next-steps"></a>Další postup
+Nyní můžete přesněji bitovou kopii, kterou chcete použít provedením Poznámka URN hodnoty. Předat tuto hodnotu s `--image` parametr při vytváření virtuálního počítače s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) příkaz. Mějte na paměti, že můžete volitelně nahradit číslo verze v název URN "poslední zálohy". Tato verze je vždy nejnovější verzi rozdělení. Pokud chcete rychle vytvořit virtuální počítač pomocí informací o URN, přečtěte si téma [vytvořit a spravovat virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure](tutorial-manage-vm.md).

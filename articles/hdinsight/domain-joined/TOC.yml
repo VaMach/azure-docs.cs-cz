@@ -10,6 +10,9 @@
       href: apache-domain-joined-configure.md
     - name: Konfigurace clusterů připojených k doméně s využitím Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
+    - name: Synchronizace uživatelů Azure AD do clusteru služby HDInsight
+      href: ../hdinsight-sync-aad-users-to-cluster.md
+      maintainContext: true
     - name: Konfigurace zásad Hivu
       href: apache-domain-joined-run-hive.md
       maintainContext: true

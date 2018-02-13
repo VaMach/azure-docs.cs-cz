@@ -4,13 +4,13 @@ description: "Obsahuje přehled služby Azure Migrate."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Informace o službě Azure Migrate
 
@@ -42,7 +42,7 @@ Azure Migrate vám pomůže s následujícími úlohami:
 
 ## <a name="what-do-i-need-to-pay-for"></a>Za co musím platit?
 
-Služba Azure Migrate je dostupná bez dalších poplatků. Během období Public Preview se však budou účtovat další poplatky za využití možností vizualizace závislostí. Pro zajištění podpory [vizualizace závislostí](concepts-dependency-visualization.md) vytvoří Azure Migrate ve výchozím nastavení pracovní prostor Log Analytics. Pokud využíváte vizualizaci závislostí nebo používáte pracovní prostor mimo službu Azure Migrate, budou se vám účtovat poplatky za využití pracovního prostoru. [Další informace](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) o poplatcích. Až tato služba bude obecně dostupná, za využití možností vizualizace závislostí se žádné poplatky účtovat nebudou.
+Další informace o cenách služby Azure Migrate najdete [zde](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## <a name="whats-in-an-assessment"></a>Co je součástí posouzení?
@@ -66,7 +66,7 @@ Posouzení pomáhá identifikovat vhodnost Azure pro místní virtuální počí
 3.  Připojíte se k virtuálnímu počítači pomocí připojení konzoly ve vCenter Serveru, během připojování zadáte nové heslo pro virtuální počítač a potom ve virtuálním počítači spustíte aplikaci kolektoru, aby se zahájilo zjišťování.
 4.  Kolektor pomocí rutin VMware PowerCLI shromáždí metadata virtuálního počítače. Zjišťování probíhá bez agenta a na hostitele VMware ani virtuální počítače se nic neinstaluje. Shromážděná metadata obsahují informace o virtuálním počítači (jádra, paměť, disky, velikosti disků a síťové adaptéry). Shromáždí se také data o výkonu virtuálních počítačů, včetně využití procesoru a paměti, IOPS disku, propustnosti disku (Mb/s) a výstupu sítě (MB/s).
 5.  Metadata se vloží do projektu Azure Migrate. Můžete je zobrazit na webu Azure Portal.
-6.  Pro účely posouzení shromáždíte zjištěné virtuální počítače do skupin. Můžete například seskupit virtuální počítače, na kterých běží stejná aplikace. Virtuální počítače můžete seskupit na portálu Azure Migrate, nebo pomocí značek ve vCenter Serveru. Kromě toho můžete použít vizualizaci závislostí, zobrazit závislosti pro konkrétní počítač nebo pro všechny počítače ve skupině a skupinu upřesnit.
+6.  Pro účely posouzení shromáždíte zjištěné virtuální počítače do skupin. Můžete například seskupit virtuální počítače, na kterých běží stejná aplikace. Pro přesnější seskupení můžete použít vizualizaci závislostí, zobrazit závislosti pro konkrétní počítač nebo pro všechny počítače ve skupině a skupinu upřesnit.
 7.  Jakmile je skupina zformována, vytvoříte posouzení pro skupinu. 
 8.  Po dokončení můžete posouzení zobrazit na portálu nebo si ho stáhnout ve formátu aplikace Excel.
 

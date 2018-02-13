@@ -5,28 +5,26 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 02/01/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 03dc26ba3fcf10b52f6d6b77445de3f6770c4162
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Zásobník datacenter integrace se službou Azure - Identity
-
-*Platí pro: Azure zásobníku integrované systémy*
-
 Zásobník Azure pomocí Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) můžete nasadit jako zprostředkovatele identity. Volba je nutné provést před nasazením Azure zásobníku. Nasazení pomocí služby AD FS se také označuje jako nasazení Azure zásobníku v odpojeném režimu.
 
 V následující tabulce jsou uvedeny rozdíly mezi dvěma identity volby:
 
-||Fyzicky odpojen.|Fyzicky připojení|
+||Odpojení od Internetu|Připojení k Internetu|
 |---------|---------|---------|
 |Fakturace|Musí být kapacity<br> Smlouva Enterprise Agreement (EA) pouze|Kapacitu nebo platím jako jste – použití<br>EA nebo poskytovatele Cloud Solution Provider (CSP)|
 |Identita|Musí být služba AD FS|Azure AD ani AD FS|
-|Syndikace Marketplace.|Není aktuálně k dispozici|Podporuje se<br>BYOL licencování|
+|Syndikace Marketplace.|Podporováno<br>BYOL licencování|Podporováno<br>BYOL licencování|
 |Registrace|Doporučené, vyžaduje vyměnitelné médium<br> a samostatné připojené zařízení.|Automatizované|
 |Opravy a aktualizace|Vyžaduje, vyžaduje vyměnitelné médium<br> a samostatné připojené zařízení.|Balíček aktualizace můžete stáhnout přímo<br> z Internetu do Azure zásobníku.|
 
@@ -57,16 +55,16 @@ Požadavky:
 |Komponenta|Požadavek|
 |---------|---------|
 |Graph|Microsoft Active Directory 2012 nebo 2012 R2/2016|
-|SLUŽBA AD FS|Windows Server 2012 nebo 2012 R2/2016|
+|AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Nastavení integrace grafu
 
 Tyto informace se vyžaduje jako vstupy pro automatizaci parametry:
 
 
-|Parametr|Popis|Příklad|
+|Parametr|Popis|Příklad:|
 |---------|---------|---------|
-|CustomADGlobalCatalog|Plně kvalifikovaný název domény cílového doménové struktury služby Active Directory<br>Chcete-li integrovat|contoso.com|
+|CustomADGlobalCatalog|Plně kvalifikovaný název domény cílového doménové struktury služby Active Directory<br>Chcete-li integrovat|Contoso.com|
 |CustomADAdminCredentials|Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Vytvoření uživatelského účtu ve stávající službě Active Directory (volitelné)
@@ -116,10 +114,10 @@ Služba grafu v zásobníku Azure používá následující protokoly a porty pr
 
 Tyto informace o požadované jako vstup pro automatizaci parametry:
 
-|Parametr|Popis|Příklad|
+|Parametr|Popis|Příklad:|
 |---------|---------|---------|
 |CustomAdfsName|Název zprostředkovatele deklarací identity. <cr>Zobrazí se tak na cílovou stránku služby AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Federační metadata odkaz|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomAD<br>FSFederationMetadataEndpointUri|Federační metadata odkaz|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automation aktivační události. ke konfiguraci vztahu důvěryhodnosti zprostředkovatele deklarací identity v Azure zásobníku
@@ -155,10 +153,10 @@ Tuto metodu použijte, pokud platí některá z následujících podmínek:
 Tyto informace o požadované jako vstup pro automatizaci parametry:
 
 
-|Parametr|Popis|Příklad|
+|Parametr|Popis|Příklad:|
 |---------|---------|---------|
 |CustomAdfsName|Název zprostředkovatele deklarací identity. Zobrazí se tak na cílovou stránku služby AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Soubor metadat federace|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomADFSFederationMetadataFile|Soubor metadat federace|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 ### <a name="create-federation-metadata-file"></a>Vytvoření souboru federační metadata
 
@@ -333,6 +331,6 @@ Pokud žádné z rutiny selže, můžete shromažďovat další protokoly pomoc�
    ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-[Azure zásobníku datacenter integrace – Publikování koncové body](azure-stack-integrate-endpoints.md)
+[Zaregistrovat Azure zásobníku](azure-stack-registration.md)

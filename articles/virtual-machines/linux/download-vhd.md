@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Stáhnout Linux virtuální pevný disk z Azure
 
@@ -43,7 +43,7 @@ Chcete-li použít virtuální pevný disk jako bitovou kopii k vytvoření dal�
     exit 
     ```
 
-2. Přihlaste se k účtu Azure s [az přihlášení](https://docs.microsoft.com/cli/azure/#login).
+2. Přihlaste se k účtu Azure s [az přihlášení](https://docs.microsoft.com/cli/azure/#az_login).
 3. Zastavte a zrušit přidělení virtuálního počítače.
 
     ```azurecli
@@ -85,7 +85,7 @@ Ke stažení souboru virtuálního pevného disku, je nutné generovat [sdílen�
 
     ![Kliknutím na Uložit v prohlížeči](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zjistěte, jak [odesílání a vytvoření virtuálního počítače s Linuxem z vlastní disk s Azure CLI 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Správa Azure disků Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

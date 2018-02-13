@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Úvod do Azure událostí mřížky
 
@@ -22,18 +22,20 @@ Filtry můžete směrovat určité události do různých koncových bodů, víc
 
 Událost mřížky v současné době podporuje následující oblasti:
 
+* Asie a Tichomoří – jihovýchod
+* Asie – východ
 * Střed USA
 *   Východ USA
 *   Východní USA 2
+* Evropa – západ
+* Evropa – sever
 *   Západní střed USA
 *   Západní USA
 *   Západní USA 2
 
-Přidá jiných oblastí.
-
 Tento článek obsahuje přehled Azure událostí mřížky. Pokud chcete začít pracovat s událostí mřížky, najdete v části [vytvořit a směrování vlastních událostí s Azure událostí mřížky](custom-event-quickstart.md). Následující obrázek ukazuje, jak připojí mřížky události vydavatele a obslužné rutiny, ale neposkytuje úplný seznam podporovaných možností.
 
-![Funkční model událostí mřížky](./media/overview/event-grid-functional-model.png)
+![Funkční model událostí mřížky](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>Zdroje událostí
 
@@ -42,23 +44,23 @@ Následující služby Azure v současné době je integrované vydavatele podpo
 * Předplatná Azure (operace správy)
 * Vlastní témata
 * Event Hubs
+* IoT Hub
 * Skupiny prostředků (operace správy)
 * Objekt Blob úložiště
-
-Jinými službami Azure se přidá tohoto roku.
+* Úložiště pro obecné účely v2 (GPv2)
 
 ## <a name="event-handlers"></a>Obslužné rutiny událostí
 
 Následující služby Azure v současné době je podpora předdefinované obslužné rutiny událostí mřížky: 
 
 * Azure Automation
-* Funkce Azure
+* Azure Functions
 * Event Hubs
 * Logic Apps
-* Microsoft toku
-* Webhooky
+* Microsoft Flow
+* WebHooky
 
-Jinými službami Azure se přidá tohoto roku.
+Při použití Azure Functions jako obslužná rutina, používejte aktivační událost mřížky místo obecné aktivace protokolu HTTP. Událost mřížky ověří automaticky aktivuje událost mřížky funkce. S obecné aktivace protokolu HTTP, je nutné implementovat [ověření odpovědi](security-authentication.md#webhook-event-delivery).
 
 ## <a name="concepts"></a>Koncepty
 
@@ -111,11 +113,9 @@ Event Grid propojuje vaši aplikaci s dalšími službami. Můžete například 
 
 ## <a name="how-much-does-event-grid-cost"></a>Jaké události mřížky náklady?
 
-Azure mřížky událostí používá model tvorby cen platím za událostí, takže platíte jenom se používá.
+Azure mřížky událostí používá model tvorby cen platím za událostí, takže platíte jenom se používá. Nejprve 100 000 operace měsíčně jsou volné. Operace jsou definovány jako příjem příchozích dat událostí, rozšířená shoda, pokus o doručení a správu volání. Podrobnosti najdete v tématu [stránce s cenami](https://azure.microsoft.com/pricing/details/event-grid/).
 
-Událost mřížky stojí 0,60 za mil. operace ($0,30 verzi Preview) a jsou nejprve 100 000 operaci za měsíc zdarma. Operace jsou definovány jako příjem příchozích dat událostí, rozšířená shoda, pokus o doručení a správu volání.  Další podrobnosti naleznete na [stránce s cenami](https://azure.microsoft.com/pricing/details/event-grid/).
-
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Události objektu Blob Storage trasy](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Reakce na události úložiště objektů blob pomocí událostí mřížky.

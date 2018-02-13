@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Připojit zásobník Azure do Azure pomocí sítě VPN
 
@@ -43,7 +43,7 @@ V tabulce hodnoty příklad sítě jsou ukázkové hodnoty, které se používaj
 **Tabulka hodnot příklad sítě**
 |   |Azure Stack|Azure|
 |---------|---------|---------|
-|Název virtuální sítě     |AZS-VNet|AzureVNet |
+|Název virtuální sítě     |Azs-VNet|AzureVNet |
 |Adresní prostor virtuální sítě |10.1.0.0/16|10.100.0.0/16|
 |Název podsítě     |FrontEnd|FrontEnd|
 |Rozsah adres podsítě|10.1.0.0/24 |10.100.0.0/24 |
@@ -71,7 +71,7 @@ Nejdřív vytvoříte síťovým prostředkům pro Azure. Následující pokyny 
 3. Vyberte **podsíť brány** přidat podsíť brány virtuální sítě.
 4. Ve výchozím nastavení je název této podsítě nastavený na **GatewaySubnet**.
    Podsítě brány jsou speciální a musí mít tento konkrétní název, aby fungovaly správně.
-5. V **rozsahu adres** pole, ověřte adresu **10.100.0.0/24**.
+5. V **rozsahu adres** pole, ověřte adresu **10.100.1.0/24**.
 6. Vyberte **OK** vytvořit podsíť brány.
 
 ### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
@@ -93,7 +93,7 @@ Nejdřív vytvoříte síťovým prostředkům pro Azure. Následující pokyny 
 5. V seznamu zdrojů vyberte **brány místní sítě**.
 6. V **název**, typ **Azs-GW**.
 7. V **IP adresu**, zadejte veřejnou IP adresu pro vaše zásobníku brány virtuální sítě Azure, je uvedena výše v tabulce Konfigurace sítě.
-8. V **adresní prostor**, zásobník Azure, zadejte **10.0.10.0/23** adresní prostor pro **AzureVNet**.
+8. V **adresní prostor**, zásobník Azure, zadejte **10.1.0.0/24** a **10.1.1.0/24** adresní prostor pro **AzureVNet**.
 9. Ověřte, že vaše **předplatné**, **skupiny prostředků**, a **umístění** jsou správné a potom vyberte **vytvořit**.
 
 ## <a name="create-the-connection"></a>Vytvoření připojení
@@ -118,7 +118,7 @@ Vytvoření virtuálního počítače v Azure nyní a umístí jej podsíť virt
 5. Zadejte platné uživatelské jméno a heslo. Tento účet používáte k přihlášení k virtuálnímu počítači po jeho vytvoření.
 6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění**a potom vyberte **OK**.
 7. Na **velikost** vyberte velikost virtuálního počítače pro tuto instanci a potom vyberte **vyberte**.
-8. Na **nastavení** části můžete přijmout výchozí hodnoty. Ujistěte se, že **AzureVnet** virtuální síť je vybrána a ověřte, že podsíť je nastavena na **10.0.20.0/24**. Vyberte **OK**.
+8. Na **nastavení** části můžete přijmout výchozí hodnoty. Ujistěte se, že **AzureVnet** virtuální síť je vybrána a ověřte, že podsíť je nastavena na **10.100.0.0/24**. Vyberte **OK**.
 9. Zkontrolujte nastavení na **Souhrn** a pak vyberte **OK**.
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>Vytvoření síťové prostředky v Azure zásobníku
@@ -181,7 +181,7 @@ Způsob, jak více obecně myslíte o této je, že prostředek brány místní 
 4. V seznamu zdrojů vyberte **brány místní sítě**.
 5. V **název**, typ **Azure-GW**.
 6. V **IP adresu**, zadejte veřejné IP adresy pro bránu virtuální sítě v Azure **Azure-GW – PiP**. Tato adresa se zobrazí dříve v tabulce Konfigurace sítě.
-7. V **adresní prostor**, adresní prostor sítě vnet Azure, kterou jste vytvořili, zadejte **10.0.20.0/23**.
+7. V **adresní prostor**, adresní prostor sítě vnet Azure, kterou jste vytvořili, zadejte **10.100.0.0/24** a **10.100.1.0/24**.
 8. Ověřte, že vaše **předplatné**, **skupiny prostředků**, a **umístění** jsou správné a potom vyberte **vytvořit**.
 
 ### <a name="create-the-connection"></a>Vytvoření připojení
@@ -225,7 +225,7 @@ Abyste měli jistotu, že je přenos odesílat přes připojení site-to-site, o
 5. Přihlaste se pomocí účtu, který se konfiguruje při vytváření virtuálního počítače.
 6. Otevřít se zvýšenými oprávněními **prostředí Windows PowerShell** okno.
 7. Zadejte **ipconfig /all**.
-8. Ve výstupu najít **IPv4 adresu**a potom uložte adresu pro pozdější použití. Toto je adresa, která provede testování ping z Azure. V našem ukázkovém prostředí je touto adresou **10.0.10.4**, ale ve vašem prostředí tato hodnota může být jiná. Musí spadat do **10.0.10.0/24** podsíť, kterou jste vytvořili dříve.
+8. Ve výstupu najít **IPv4 adresu**a potom uložte adresu pro pozdější použití. Toto je adresa, která provede testování ping z Azure. V příkladu prostředí, je na adresu **10.1.0.4**, ale ve vašem prostředí mohou být různé. Musí spadat do **10.1.0.0/24** podsíť, kterou jste vytvořili dříve.
 9. Pokud chcete vytvořit pravidlo brány firewall, která umožňuje virtuálního počítače, které neodpovídají na ověřování aktivity, spusťte následující příkaz prostředí PowerShell:
 
    ```powershell
@@ -242,7 +242,7 @@ Abyste měli jistotu, že je přenos odesílat přes připojení site-to-site, o
 5. Přihlaste se pomocí účtu, který se konfiguruje při vytváření virtuálního počítače.
 6. Otevřít se zvýšenými oprávněními **prostředí Windows PowerShell** okno.
 7. Zadejte **ipconfig /all**.
-8. Měli byste vidět IPv4 adresu, která spadá do **10.0.20.0/24**. V příkladu prostředí, je na adresu **10.0.20.4**, ale vaše adresa může být odlišné.
+8. Měli byste vidět IPv4 adresu, která spadá do **10.100.0.0/24**. V příkladu prostředí, je na adresu **10.100.0.4**, ale vaše adresa může být odlišné.
 9. Pokud chcete vytvořit pravidlo brány firewall, která umožňuje virtuálního počítače, které neodpovídají na ověřování aktivity, spusťte následující příkaz prostředí PowerShell:
 
    ```powershell
@@ -252,7 +252,7 @@ Abyste měli jistotu, že je přenos odesílat přes připojení site-to-site, o
    ```
 
 10. Z virtuálního počítače v Azure zadejte příkaz ping v zásobníku Azure prostřednictvím tunelu virtuálního počítače. K tomuto účelu odeslat příkaz ping vyhrazené IP adresy, které jste si poznamenali ze Azs-VM.
-   V příkladu prostředí, je to **10.0.10.4**, ale ujistěte se, na příkaz ping na adresu, které jste si poznamenali ve svém testovacím prostředí. Měli byste vidět výsledek, který vypadá jako na následujícím snímku obrazovky:
+   V příkladu prostředí, je to **10.1.0.4**, ale ujistěte se, na příkaz ping na adresu, které jste si poznamenali ve svém testovacím prostředí. Měli byste vidět výsledek, který vypadá jako na následujícím snímku obrazovky:
    
     ![Úspěšný příkaz ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. Odpověď od vzdáleného virtuálního počítače označuje testu úspěšné! Můžete zavřít okno virtuálního počítače. Chcete-li otestovat připojení, můžete se pokusit jinými druhy přenosů dat, jako je kopírování souborů.
@@ -264,8 +264,8 @@ Pokud chcete vědět, kolik dat prochází připojení site-to-site, tyto inform
 2. Přejděte na **všechny prostředky**a pak vyberte **Azs Azure** připojení. **Připojení** se zobrazí.
 4. Na **připojení** části statistiku **Data v** a **Data** zobrazí. Na následujícím snímku obrazovky jsou velké počty přičítat přenos dalších souborů. Měli byste vidět některé nenulové hodnoty.
    
-    ![Data vstup a výstup](media/azure-stack-connect-vpn/Connection.png)
+    ![Vstupní a výstupní data](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Nasazení aplikací do Azure a Azure zásobníku](azure-stack-solution-pipeline.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Pomocí Docker svazku zásuvné moduly a protokolování ovladače v vašeho kontejneru
 Azure Service Fabric podporuje určení [Docker svazku zásuvné moduly](https://docs.docker.com/engine/extend/plugins_volume/) a [Docker protokolování ovladače](https://docs.docker.com/engine/admin/logging/overview/) pro vaši službu kontejneru. Může uchovávat vaše data v [Azure Files](https://azure.microsoft.com/services/storage/files/) při vašeho kontejneru je přesunout nebo restartováním jiného hostitele.
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter na hostiteli nepodporuje připojení SMB ([podporována pouze v systému Windows Server verze. 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Tím se zabrání použití určitých svazku ovladače třeba ovladače svazku Azure Files. Místo toho jeden můžou připojit sdílené složky přímo v kontejneru pomocí **net použití**. 
+> Windows Server 2016 Datacenter nepodporuje mapování SMB připojení zařízení k kontejnery ([, je podporována pouze v systému Windows Server verze. 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Pomocí tohoto omezení zabrání mapování sítě svazku a Azure Files svazku ovladačů ve verzích, které jsou starší než. 1709. 
 >   
 
 
@@ -53,8 +53,9 @@ Moduly plug-in jsou určené v manifestu aplikace takto:
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ Moduly plug-in jsou určené v manifestu aplikace takto:
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ Moduly plug-in jsou určené v manifestu aplikace takto:
 
 **Zdroj** značka pro **svazku** element odkazuje do zdrojové složky. Zdrojová složka může být do složky ve virtuálním počítači, který je hostitelem kontejnery nebo trvalé vzdálené úložiště. **Cílové** značka je umístění, **zdroj** je namapována na spuštěné kontejneru. Cíl proto nemůže být umístění, které již existuje v rámci vašeho kontejneru.
 
+Parametry aplikačního jsou podporovány pro svazky, jak je znázorněno v předchozím fragmentu kódu manifestu (vyhledejte `MyStoreVar` příklad použít).
+
 Při zadávání svazek modul plug-in, Service Fabric automaticky vytvoří svazek pomocí zadaných parametrů. **Zdroj** značka je název svazku a **ovladač** značky určuje modulu plug-in svazku ovladačů. Možnosti lze zadat pomocí **DriverOption** značky následujícím způsobem:
 
 ```xml
@@ -93,4 +96,4 @@ Při zadávání svazek modul plug-in, Service Fabric automaticky vytvoří svaz
 Pokud je zadaný ovladač Docker protokolu, budete muset nasazení agentů (nebo kontejnery) pro zpracování protokoly v clusteru. **DriverOption** značku lze použít k určení možností pro ovladač protokolu.
 
 ## <a name="next-steps"></a>Další postup
-Nasazení kontejnerů do clusteru Service Fabric najdete v tématu [nasazení kontejneru v Service Fabric](service-fabric-deploy-container.md).
+K nasazení kontejnerů do clusteru Service Fabric, najdete v článku [nasazení kontejneru v Service Fabric](service-fabric-deploy-container.md).

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Jak vytvořit a nakonfigurovat Self-hosted integrace Runtime
 Integrační modul Runtime (IR) je na výpočetní infrastruktuře používá k zajištění funkce integrace dat různých prostředích sítě Azure Data Factory. Podrobnosti o IR najdete v tématu [Přehled integrace modulu Runtime](concepts-integration-runtime.md).
@@ -139,9 +139,9 @@ V **podniková brána firewall** úrovně, je nutné nakonfigurovat následujíc
 
 Názvy domén | Porty | Popis
 ------------ | ----- | ------------
-*. servicebus.windows.net | 443, 80 | Používá ke komunikaci s back-end služba pro přesun dat
-*. core.windows.net | 443 | Použít pro kopírování připravený pomocí objektů Blob v Azure (Pokud je nakonfigurováno)
-*. frontend.clouddatahub.net | 443 | Používá ke komunikaci s back-end služba pro přesun dat
+*.servicebus.windows.net | 443, 80 | Používá ke komunikaci s back-end služba pro přesun dat
+*.core.windows.net | 443 | Použít pro kopírování připravený pomocí objektů Blob v Azure (Pokud je nakonfigurováno)
+*.frontend.clouddatahub.net | 443 | Používá ke komunikaci s back-end služba pro přesun dat
 
 V **brány Windows firewall** úrovni (úroveň počítače), jsou obvykle povolené tyto Odchozí porty. Pokud není, můžete nakonfigurovat domén a porty odpovídajícím způsobem na hostovanou na vlastním integrace modulu runtime počítače.
 

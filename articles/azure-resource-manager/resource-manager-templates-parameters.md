@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d0f53751bf529d52c156a8b9319b10560eb8997
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Část parametry šablon Azure Resource Manager
 V sekci parametrů šablony zadejte hodnoty, které můžete zadat při nasazování prostředky. Tyto hodnoty parametrů umožňují přizpůsobit nasazení zadáním hodnoty, které jsou přizpůsobené pro konkrétní prostředí (například vývoj, testování a provozním). Není nutné zadat parametry v šabloně, ale bez parametrů šablony vždy nasazení stejné prostředky se stejnými názvy, umístění a vlastnosti.
@@ -84,11 +84,11 @@ Předchozí příklad ukázal jenom některé z vlastností, které můžete pou
 
 | Název elementu | Požaduje se | Popis |
 |:--- |:--- |:--- |
-| Název parametru |Ano |Název parametru. Musí být platný identifikátor jazyka JavaScript. |
+| parameterName |Ano |Název parametru. Musí být platný identifikátor jazyka JavaScript. |
 | type |Ano |Typ hodnoty parametru. Povolené typy a hodnoty jsou **řetězec**, **secureString**, **int**, **bool**, **objekt**, **secureObject**, a **pole**. |
 | Výchozí hodnota |Ne |Výchozí hodnota pro parametr, pokud není zadána žádná hodnota pro parametr. |
 | allowedValues |Ne |Povolené hodnoty pro parametr a ujistěte se, že je zadaná hodnota pravé pole. |
-| MinValue |Ne |Minimální hodnota pro parametry typu int, tato hodnota je (včetně). |
+| minValue |Ne |Minimální hodnota pro parametry typu int, tato hodnota je (včetně). |
 | MaxValue |Ne |Maximální hodnota parametry typu int, tato hodnota je (včetně). |
 | minLength |Ne |Minimální délka řetězce, secureString a parametry typu pole, tato hodnota je (včetně). |
 | Hodnota maxLength |Ne |Maximální délka řetězce, secureString a parametry typu pole, tato hodnota je (včetně). |
@@ -131,6 +131,7 @@ V šabloně definujte parametr a během nasazení zadat objekt JSON místo jednu
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -160,7 +161,7 @@ Pak odkazujete podvlastnosti parametru pomocí operátoru tečka.
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -237,7 +238,7 @@ Při práci s parametry, může být užitečné následující informace:
    }
    ```
 
-* Pokud je to možné, nepoužívejte parametr k určení umístění. Místo toho použijte **umístění** vlastnost skupiny prostředků. Pomocí **resourceGroup () .location** výraz pro všechny vaše prostředky, v prostředcích v šabloně nasazených ve stejném umístění jako pro skupinu prostředků:
+* Použijte parametr k určení umístění a sdílet tuto hodnotu parametru co nejvíce s prostředky, které by mohly být ve stejném umístění. Tento postup minimalizuje počet, který uživatelé vyzváni k zadání informace o umístění. Pokud typ prostředku je podporován pouze omezený počet umístění, můžete chtít zadejte platné umístění přímo v šabloně, nebo přidejte parametr jiné umístění. Když organizace omezuje povolených oblastí pro své uživatele **resourceGroup () .location** výraz může zabránit uživateli v schopnost nasazení šablony. Například jeden uživatel vytvoří skupinu prostředků v oblasti. Druhý uživatel musí nasadit do této skupiny prostředků, ale nemá přístup k oblasti. 
    
    ```json
    "resources": [
@@ -245,13 +246,12 @@ Při práci s parametry, může být užitečné následující informace:
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   Pokud typ prostředku je podporován pouze omezený počet umístění, můžete chtít zadat platné umístění přímo v šabloně. Pokud musíte použít **umístění** parametr, že hodnota parametru co nejvíce sdílet s prostředky, které by mohly být ve stejném umístění. Tento postup minimalizuje počet, který uživatelé vyzváni k zadání informace o umístění.
+    
 * Vyhněte se použití parametr nebo proměnná pro verze rozhraní API pro typ prostředku. Vlastnosti prostředku a hodnoty se může lišit podle čísla verze. IntelliSense v editoru kódu nemůže určit správné schéma verze rozhraní API je nastavena na parametr nebo proměnná. Místo toho pevný kódu rozhraní API verze v šabloně.
 * Vyhněte se zadání názvu parametru v šabloně odpovídající parametr v příkazu pro nasazení. Správce prostředků řeší tento ke konfliktu názvů přidáním operátory **FromTemplate** pro parametr šablony. Například, pokud zahrnete parametr s názvem **ResourceGroupName** v šabloně, je v konfliktu s **ResourceGroupName** parametr ve [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) rutiny. Během nasazení, budete vyzváni, zadejte hodnotu pro **ResourceGroupNameFromTemplate**.
 
@@ -264,7 +264,7 @@ Tyto šablony příklad ukazují některé scénáře použití parametrů. Je k
 |[parametry mají funkce pro výchozí hodnoty](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstruje použití funkce šablon při definování výchozí hodnoty pro parametry. Šablony není nasazen žádné prostředky. To vytvoří hodnoty parametrů a vrátí tyto hodnoty. |
 |[parametr objekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Ukazuje, jak pomocí objektu pro parametr. Šablony není nasazen žádné prostředky. To vytvoří hodnoty parametrů a vrátí tyto hodnoty. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Hotové šablony pro mnoho různých typů řešení najdete na stránce [Šablony Azure pro rychlý start](https://azure.microsoft.com/documentation/templates/).
 * Pro vstupní hodnoty parametrů během nasazování naleznete v tématu [nasazení aplikace pomocí šablony Azure Resource Manageru](resource-group-template-deploy.md). 

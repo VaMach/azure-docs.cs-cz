@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Podporované zdroje dat v Azure Data Catalog
 
@@ -82,7 +82,7 @@ Metadata můžete publikovat pomocí veřejné rozhraní API nebo klikněte na-j
       </td>
     </tr>
     <tr>
-      <td>HDFS adresáře</td>
+      <td>Adresář HDFS</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -90,7 +90,7 @@ Metadata můžete publikovat pomocí veřejné rozhraní API nebo klikněte na-j
       <td></td>
     </tr>
     <tr>
-      <td>HDFS souboru</td>
+      <td>Soubor HDFS</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -210,7 +210,7 @@ Metadata můžete publikovat pomocí veřejné rozhraní API nebo klikněte na-j
       <td>Pouze servery v nativním režimu. Režim serveru SharePoint není podporována.</td>
     </tr>
     <tr>
-      <td>Tabulka systému SQL Server</td>
+      <td>Tabulka SQL Serveru</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -218,7 +218,7 @@ Metadata můžete publikovat pomocí veřejné rozhraní API nebo klikněte na-j
       <td></td>
     </tr>
     <tr>
-      <td>Zobrazení systému SQL Server</td>
+      <td>SQL Server view</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -234,7 +234,7 @@ Metadata můžete publikovat pomocí veřejné rozhraní API nebo klikněte na-j
       <td></td>
     </tr>
     <tr>
-      <td>Zobrazení Teradata</td>
+      <td>Teradata view</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

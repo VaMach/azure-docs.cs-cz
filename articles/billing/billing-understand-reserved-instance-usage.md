@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Pochopení vyhrazenou instanci využití pro vaše předplatné s průběžnými platbami
 
@@ -56,6 +56,16 @@ Na další informace o filtrování a zadejte ID rezervace. Následující sním
 3. Základní rezervace virtuálních počítačů měření dílčí kategorie řádek představuje řádku nákladů $0 v části prohlášení. Náklady na provozování tento virtuální počítač je již uhrazeno rezervace.
 4. Jedná se o Id měření pro rezervace. Náklady na toto monitorování je $0. Žádné virtuální počítače, která kvalifikují pro vyhrazenou instanci má tento MeterId ve sdíleném svazku clusteru, aby se zohlednily náklady. 
 5. Standard_DS1_v2 je jeden virtuální procesor bez výhody Azure hybridní nasazení virtuálních počítačů a virtuálních počítačů. Toto měření proto popisuje dalších poplatků softwaru systému Windows. V tématu [náklady na software Windows instancí virtuálních počítačů rezervy Azure.](billing-reserved-instance-windows-software-costs.md) Najít měření odpovídající řady D 1 jádro virtuálních počítačů. Pokud se používá Azure hybridní výhody, není použita tato dalších poplatků. 
+
+## <a name="next-steps"></a>Další postup
+Další informace o vyhrazenou instancí virtuálního počítače, naleznete v následujících článcích.
+
+- [Předem pro virtuální počítače s instancí vyhrazené virtuálních počítačů](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Správa instancí vyhrazený virtuální počítač](billing-manage-reserved-vm-instance.md)
+- [Ušetřit peníze u virtuálních počítačů s vyhrazenou instancí virtuálního počítače](billing-save-compute-costs-reservations.md)
+- [Pochopit, jak se použije slevu vyhrazenou instanci virtuálního počítače](billing-understand-vm-reservation-charges.md)
+- [Pochopení vyhrazenou instanci využití pro podnikového zápisu](billing-understand-reserved-instance-usage-ea.md)
+- [Náklady na software Windows není součástí vyhrazené instance](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Potřebujete pomoct? Obraťte se na podporu.
 

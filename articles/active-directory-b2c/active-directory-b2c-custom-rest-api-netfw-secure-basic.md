@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Zabezpečení vašich služeb RESTful pomocí základního ověřování protokolu HTTP
 V [souvisejícím článku Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), vytvoření RESTful služby (webového rozhraní API), který se integruje se službou Azure Active Directory B2C cesty (Azure AD B2C) uživatele bez ověřování. 
@@ -76,7 +76,7 @@ Přidat `ClientAuthMiddleware.cs` třídy v části *App_Start* složky. Postupu
 
 3. Otevřete *App_Start\ClientAuthMiddleware.cs* souboru a nahradit soubor obsahu s následujícím kódem:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -194,7 +194,7 @@ Přidání třídy pro spuštění OWIN s názvem `Startup.cs` rozhraní API. Po
 
 2. Otevřete *Startup.cs* souboru a nahradit soubor obsahu s následujícím kódem:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     
@@ -342,6 +342,6 @@ Jakmile služby RESTful je chráněný pomocí ID klienta (username) a tajný kl
 * Po dokončení [začít pracovat s vlastními zásadami](active-directory-b2c-get-started-custom.md) návod, doporučujeme vám vytvořit váš scénář pomocí vlastních zásad pro soubory. Pro vaši informaci uvádíme [ukázkové soubory zásad](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 * Si můžete stáhnout kompletní kód z [řešení sady Visual Studio ukázkový pro referenci](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Používat klientské certifikáty k zabezpečení rozhraní RESTful API.](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 

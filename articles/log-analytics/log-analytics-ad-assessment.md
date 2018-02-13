@@ -3,7 +3,7 @@ title: "Optimalizace prostředí služby Active Directory s Azure Log Analytics 
 description: "Zkontrolujte Active Directory stavu řešení můžete použít k vyhodnocení rizik a stavu prostředí v pravidelných intervalech."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalizace prostředí služby Active Directory s řešením pro kontrolu stavu v Active Directory v analýzy protokolů
 
@@ -41,7 +41,7 @@ Když jste přidali řešení a kontrolu je dokončené, souhrnné informace pro
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Zkontrolujte Active Directory stavu řešení vyžaduje podporovanou verzi rozhraní .NET Framework 4.5.2 nebo výše nainstalovaný na každém počítači, který má monitorování agenta MMA (Microsoft) nainstalována.  MMA agent používá System Center 2016 - Operations Manager a Operations Manager 2012 R2 a službu analýzy protokolů. 
+* Zkontrolujte Active Directory stavu řešení vyžaduje podporovanou verzi rozhraní .NET Framework 4.5.2 nebo výše nainstalovaný na každém počítači, který má monitorování agenta MMA (Microsoft) nainstalována.  MMA agent používá System Center 2016 - Operations Manager a Operations Manager 2012 R2 a službu analýzy protokolů.
 * Řešení podporuje řadiče domény se systémem Windows Server 2008 a 2008 R2, Windows Server 2012 a 2012 R2 a Windows Server 2016.
 * Pracovní prostor analýzy protokolů pro přidání zkontrolujte Active Directory stavu řešení z Azure marketplace na portálu Azure.  Není nutná žádná další konfigurace.
 
@@ -62,13 +62,13 @@ Agent na řadiči domény, které sestavy ke skupině pro správu nástroje Oper
 
 Zkontrolujte stav, Active Directory shromažďuje data z následujících zdrojů pomocí agenta, který jste povolili:
 
-- Registru 
-- LDAP 
-- Rozhraní .NET framework
-- V protokolu událostí 
+- Registr
+- LDAP
+- .NET Framework
+- V protokolu událostí
 - Služba Active Directory rozhraní (ADSI)
 - Windows PowerShell
-- Data souborů 
+- Data souborů
 - Windows Management Instrumentation (WMI)
 - Nástroj DCDIAG rozhraní API
 - Rozhraní API služby (NTFRS) replikace souborů
@@ -108,10 +108,8 @@ Po instalaci, zobrazí se souhrn doporučení pomocí dlaždice stavu zkontroluj
 Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a potom přejít k podrobnostem doporučení.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Proveďte opravné akce a zobrazit doporučení pro oblastí zájmu
-1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
-2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
-3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **portálu OMS** dlaždici.  
-4. Na **přehled** klikněte na tlačítko **AD Health zkontrolujte** dlaždici. 
+3. Klikněte **přehled** dlaždici pro váš pracovní prostor analýzy protokolů na portálu Azure.
+4. Na **přehled** klikněte na tlačítko **Active Directory stavu zkontrolujte** dlaždici.
 5. Na **kontroly stavu** zkontrolujte souhrnné informace v jednom z okna oblasti fokus a pak klikněte na jednu zobrazíte doporučení pro tuto oblast fokus.
 6. Na všech stránkách oblasti fokus můžete zobrazit seřazený podle priority doporučení, která se pro vaše prostředí. Klikněte na tlačítko doporučení v části **vliv na objekty** Chcete-li zobrazit podrobnosti, proč se provádí doporučení.<br><br> ![Obrázek stavu zkontrolujte doporučení](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Můžete provést nápravné akce navržený v **doporučované akce**. Když položka byla řešit, novější vyhodnocování záznamy, které doporučené akce provedené a zvýší vaše skóre dodržování předpisů. Opravené položky se zobrazí jako **předán objekty**.
@@ -124,13 +122,8 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 2. Pro počítače ve vašem prostředí použijte následující dotaz, který seznam doporučení, které selhaly.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak výše uvedeném dotazu by změnit na následující.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
     Zde je snímek obrazovky zobrazující protokolu vyhledávací dotaz:<br><br> ![doporučení se nezdařilo](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 
 3. Zvolte doporučení, které chcete ignorovat. Hodnoty pro RecommendationId budete používat v dalším postupu.
@@ -140,7 +133,7 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 2. Vložit nebo zadejte každou RecommendationId pro jednotlivá doporučení, které chcete analýzy protokolů ignorovat na samostatném řádku a potom uložte a zavřete soubor.
 3. Uložte soubor v následující složce na každém počítači, kam chcete analýzy protokolů ignorovat doporučení.
    * Na počítačích s Microsoft Monitoring Agent (připojené přímo nebo prostřednictvím nástroje Operations Manager) - *SystemDrive*: \Program Files\Microsoft Agent\Agent monitorování
-   * Na serveru pro správu nástroje Operations Manager 2012 R2 - *SystemDrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * Na serveru pro správu nástroje Operations Manager 2012 R2 - *SystemDrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Na serveru pro správu nástroje Operations Manager 2016 - *SystemDrive*: \Program Files\Microsoft Manager\Server 2016\Operations System Center
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Chcete-li ověřit, že se ignorovat doporučení
@@ -149,12 +142,8 @@ Po na další naplánované spuštění kontroly stavu, ve výchozím nastavení
 1. Následující dotazy hledání protokolů můžete použít k zobrazení seznamu všech ignorováno doporučení.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak výše uvedeném dotazu by změnit na následující.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. Pokud se později rozhodnete, zda chcete zobrazit ignorováno doporučení, odeberte všechny soubory IgnoreRecommendations.txt nebo RecommendationIDs můžete odebrat z nich.
 
@@ -195,5 +184,5 @@ Po na další naplánované spuštění kontroly stavu, ve výchozím nastavení
 
 * Ano, najdete v části [ignorovat doporučení](#ignore-recommendations) část výše.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Použití [přihlásit analýzy protokolů hledání](log-analytics-log-searches.md) se dozvíte, jak analyzovat podrobné doporučení a údaje o kontrolu stavu AD.

@@ -36,9 +36,8 @@ Domény selhání definují skupinu virtuálních počítačů, které sdílejí
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Použití spravovaných disků pro virtuální počítače ve skupině dostupnosti
 Pokud aktuálně používáte virtuální počítače s nespravovanými disky, důrazně doporučujeme [převést virtuální počítače ve skupině dostupnosti na používání spravovaných disků](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Spravované disky](../articles/virtual-machines/windows/managed-disks-overview.md) poskytují vyšší spolehlivost skupiny dostupnosti tím, že zajišťují dostatečné oddělení jednotlivých disků virtuálních počítačů ve skupině dostupnosti, aby se zabránilo jedinému bodu selhání. Provádí to automatickým umisťováním disků do různých úložných clusterů. Pokud dojde k selhání úložného clusteru kvůli selhání softwaru, selžou pouze instance virtuálních počítačů na těchto jednotkách úložiště.
-
-![Domény selhání spravovaných disků](./media/virtual-machines-common-manage-availability/md-fd.png)
+[Spravované disky](../articles/virtual-machines/windows/managed-disks-overview.md) poskytují vyšší spolehlivost skupiny dostupnosti tím, že zajišťují dostatečné oddělení jednotlivých disků virtuálních počítačů ve skupině dostupnosti, aby se zabránilo jedinému bodu selhání. Dělá to tak, že automaticky uvedení disky domén selhání jiného úložiště (clustery úložiště) a zarovnáním domény selhání virtuálního počítače. Pokud domény selhání úložiště nezdaří z důvodu selhání hardwaru nebo softwaru, nezdaří se pouze instance virtuálního počítače s disky na domény selhání úložiště.
+![Spravované disky FDs](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
 > Počet domén selhání pro spravované skupiny dostupnosti se liší podle oblasti – buď dvě, nebo tři na oblast. V následující tabulce jsou uvedeny počty podle oblastí
@@ -49,7 +48,7 @@ Pokud se chystáte používat virtuální počítače s [nespravovanými disky](
 
 1. **Uchovávejte všechny disky (s operačním systémem i s daty) přidružené k virtuálnímu počítači ve stejném účtu úložiště.**
 2. Než začnete přidávat další virtuální pevné disky do účtu úložiště, **zkontrolujte [omezení](../articles/storage/common/storage-scalability-targets.md) počtu nespravovaných disků v účtu služby Storage**.
-3. **Pro každý virtuální počítač ve skupině dostupnosti použijte samostatný účet úložiště.** Nesdílejte účty služby Storage mezi více virtuálními počítači ve stejné skupině dostupnosti. Sdílení účtů úložiště virtuálními počítači v různých skupinách dostupnosti je přijatelné, pokud dodržíte předcházející osvědčené postupy.
+3. **Pro každý virtuální počítač ve skupině dostupnosti použijte samostatný účet úložiště.** Nesdílejte účty služby Storage mezi více virtuálními počítači ve stejné skupině dostupnosti. Je přijatelné pro virtuální počítače v různých sad dostupnosti můžete sdílet účty úložiště v případě výše doporučených postupů dodržíte ![nespravované disky FDs](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Konfigurace jednotlivých vrstev aplikace v samostatných skupinách dostupnosti
 Pokud jsou všechny vaše virtuální počítače téměř identické a pro vaši aplikaci slouží stejnému účelu, doporučujeme nakonfigurovat skupinu dostupnosti pro každou vrstvu aplikace.  Pokud do stejné skupiny dostupnosti umístíte dvě různé vrstvy, bude možné restartovat všechny virtuální počítače na stejné úrovni aplikace. Nakonfigurováním alespoň dvou virtuálních počítačů ve skupině dostupnosti pro každou vrstvu můžete zajistit, že v každé skupině dostupnosti bude k dispozici alespoň jeden virtuální počítač.
@@ -66,7 +65,7 @@ Pokud nástroj pro vyrovnávání zatížení není nakonfigurovaný k vyrovnáv
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Dostupnost zóny používat k ochraně úrovně selhání datacenter
 
-[Dostupnost zóny](../articles/availability-zones/az-overview.md) (preview), nastaví alternativu k dostupnosti, rozbalte položku úroveň řízení, budete muset zachovat dostupnost aplikace a data na virtuální počítače. Dostupnosti zóna je fyzicky oddělená zóny v rámci oblasti Azure. Existují tři zóny dostupnosti za podporovanou oblast Azure. Každou zónu dostupnosti má samostatnou spotřeby zdroje, sítě a chlazení a logicky oddělené od dalších dostupnost zóny v rámci oblasti Azure. Pomocí architektury řešení pro použití replikované virtuální počítače v zóny, můžete chránit vaše aplikace a data před ztrátou datacentru. Pokud dojde k narušení jednu zónu, pak replikované aplikace a data jsou okamžitě dostupné v jiné zóně. 
+[Dostupnost zóny](../articles/availability-zones/az-overview.md) (preview), nastaví alternativu k dostupnosti, rozbalte položku úroveň řízení, budete muset zachovat dostupnost aplikace a data na virtuální počítače. Zóna dostupnosti je fyzicky oddělená zóna v oblasti Azure. Existují tři zóny dostupnosti za podporovanou oblast Azure. Každou zónu dostupnosti má samostatnou spotřeby zdroje, sítě a chlazení a logicky oddělené od dalších dostupnost zóny v rámci oblasti Azure. Pomocí architektury řešení pro použití replikované virtuální počítače v zóny, můžete chránit vaše aplikace a data před ztrátou datacentru. Pokud dojde k narušení jednu zónu, pak replikované aplikace a data jsou okamžitě dostupné v jiné zóně. 
 
 ![Dostupnost zóny](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 

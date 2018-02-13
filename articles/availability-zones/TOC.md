@@ -33,6 +33,9 @@
 #### [Vytvoření veřejné IP adresy v zóně dostupnosti s využitím PowerShellu](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Vytvoření veřejné IP adresy v zóně dostupnosti s využitím rozhraní příkazového řádku](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### Úložiště
+#### [Zónově redundantní úložiště](../storage/common/storage-redundancy.md#zone-redundant-storage)
+
 # Zotavení po havárii
 ## [Použití Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 

@@ -1,6 +1,6 @@
 ---
-title: "Řešení v Operations Management Suite (OMS) | Microsoft Docs"
-description: "Řešení rozšířit funkce služby Operations Management Suite (OMS) tím, že poskytuje scénářů zabalené správy, které zákazníci mohou přidat do jejich pracovním prostorem OMS.  Tento článek poskytuje podrobné informace o tom, jak vlastní řešení vytvořené zákazníci a partneři."
+title: "Řešení pro správu Azure | Microsoft Docs"
+description: "Řešení pro správu zahrnují scénářů zabalené správy v Azure, které zákazníci mohou přidat jejich pracovní prostor analýzy protokolů.  Tento článek poskytuje podrobné informace o tom, jak vlastní řešení vytvořené zákazníci a partneři."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>Práce s řešení pro správu v Operations Management Suite (OMS) (Preview)
+# <a name="working-with-management-solutions-in-azure-preview"></a>Práce s řešení pro správu v Azure (Preview)
 > [!NOTE]
-> Toto je předběžná dokumentace pro řešení pro správu v OMS, které jsou aktuálně ve verzi preview.    
+> Toto je předběžná dokumentace pro řešení pro správu v Azure, které jsou aktuálně ve verzi preview.    
 > 
 > 
 
-Řešení pro správu rozšířit funkce služby Operations Management Suite (OMS) tím, že poskytuje zabalené správu scénáře, které zákazníci můžete přidat do svého prostředí.  Kromě [řešení od společnosti Microsoft](../log-analytics/log-analytics-add-solutions.md), partnery a zákazníky, můžete vytvořit řešení pro správu k použití ve svém vlastním prostředí nebo přístupná zákazníkům prostřednictvím komunitou.
+Řešení pro správu zahrnují scénářů zabalené správy, které zákazníci mohou přidat do prostředí Azure.  Kromě [řešení od společnosti Microsoft](../log-analytics/log-analytics-add-solutions.md), partnery a zákazníky, můžete vytvořit řešení pro správu k použití ve svém vlastním prostředí nebo přístupná zákazníkům prostřednictvím komunitou.
 
 ## <a name="finding-and-installing-management-solutions"></a>Hledání a instalace řešení pro správu
 Existuje více metod pro vyhledání a instalace řešení pro správu, jak je popsáno v následujících částech.
@@ -35,14 +35,14 @@ Existuje více metod pro vyhledání a instalace řešení pro správu, jak je p
 ### <a name="azure-marketplace"></a>Azure Marketplace
 Řešení pro správu od společnosti Microsoft a důvěryhodným partnerům může být nainstalována v Azure Marketplace na portálu Azure.
 
-1. Přihlaste se k portálu Azure.
+1. Přihlaste se k webu Azure Portal.
 2. V levém podokně vyberte **další služby**.
 3. Buď přejděte dolů k položce **řešení** nebo typ *řešení* do **filtru** dialogové okno.
 4. Klikněte **+ přidat** tlačítko.
 5. Vyhledejte řešení, která vás zajímá buď procházením, kliknutím na **filtru** tlačítko nebo zadáním v **vyhledávání Everthing** pole.
 6. Klikněte na položku marketplace zobrazíte její podrobné informace.
 7. Klikněte na tlačítko **vytvořit** otevřete **přidat řešení** podokně.
-8. Zobrazí se výzva k požadované informace, jako [OMS pracovní prostor a účet Automation](#oms-workspace-and-automation-account) kromě hodnoty všech parametrů v řešení.
+8. Zobrazí se výzva k požadované informace, jako [pracovní prostor analýzy protokolů a účet Automation](#log-analytics-workspace-and-automation-account) kromě hodnoty všech parametrů v řešení.
 9. Klikněte na tlačítko **vytvořit** instalací řešení.
 
 ### <a name="oms-portal"></a>Portálu OMS
@@ -50,14 +50,14 @@ Existuje více metod pro vyhledání a instalace řešení pro správu, jak je p
 
 1. Přihlaste se k portálu OMS.
 2. Klikněte **řešení Galerie** dlaždici.
-3. Na stránce Galerie řešení OMS informace o jednotlivých k dispozici řešení. Klikněte na název řešení, které chcete přidat do OMS.
-4. Na stránce pro řešení, které jste vybrali zobrazí se podrobné informace o řešení. Klikněte na tlačítko **Přidat**.
-5. Nová dlaždice pro řešení, které jste přidali, zobrazí se na Přehled stránky v OMS a vy můžete začít používat po OMS služba zpracovává vaše data.
+3. Na stránce Galerie řešení OMS informace o jednotlivých k dispozici řešení. Klikněte na název řešení, které chcete přidat.
+4. Na stránce pro řešení, které jste vybrali zobrazí se podrobné informace o řešení. Klikněte na tlačítko **Add** (Přidat).
+5. Nová dlaždice pro řešení, které jste přidali, zobrazí se na přehled stránku v portálu a můžete jej začít používat po analýzy protokolů zpracovává vaše data.
 
 ### <a name="azure-quickstart-templates"></a>Rychlý úvod do šablon pro Azure
 Členové komunity můžete odeslat řešení pro správu šablon Azure rychlý start.  Můžete stahovat tyto šablony pro pozdější instalaci nebo je další zkontrolovat postup [vytvářet vlastní řešení](#creating-a-solution).
 
-1. Postupujte podle procesu popsaného v tématu [OMS pracovní prostor a účet Automation](#oms-workspace-and-automation-account) propojit pracovní prostor a účet.
+1. Postupujte podle procesu popsaného v tématu [pracovní prostor analýzy protokolů a účet Automation](#log-analytics-workspace-and-automation-account) propojit pracovní prostor a účet.
 2. Přejděte na [šablony Azure rychlý Start](https://azure.microsoft.com/documentation/templates/).  
 3. Hledání řešení, které vás zajímají.
 4. Vyberte řešení z výsledků zobrazíte její podrobnosti.
@@ -66,34 +66,32 @@ Existuje více metod pro vyhledání a instalace řešení pro správu, jak je p
 7. Klikněte na tlačítko **nákupu** instalací řešení.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Nasazení šablony Azure Resource Manageru
-Řešení, které jste získali od komunity nebo [vytvořit sami](#creating-a-solution) jsou implementované jako šablony Resource Manageru, a můžete použít libovolnou metodu standardní pro [nasazení šablony](../azure-resource-manager/resource-group-template-deploy-portal.md).  Všimněte si, že před instalací řešení, musíte vytvořit a odkaz [OMS pracovní prostor a účet Automation](#oms-workspace-and-automation-account).
+Řešení, které jste získali od komunity nebo [vytvořit sami](#creating-a-solution) jsou implementované jako šablony Resource Manageru, a můžete použít libovolnou metodu standardní pro [nasazení šablony](../azure-resource-manager/resource-group-template-deploy-portal.md).  Všimněte si, že před instalací řešení, musíte vytvořit a odkaz [pracovní prostor analýzy protokolů a účet Automation](#log-analytics-workspace-and-automation-account).
 
-## <a name="oms-workspace-and-automation-account"></a>Pracovní prostor OMS a účet Automation.
-Většina řešení pro správu vyžadují [pracovním prostorem OMS](../log-analytics/log-analytics-manage-access.md) tak, aby obsahovala zobrazení a [účet Automation](../automation/automation-security-overview.md#automation-account-overview) tak, aby obsahovala sady runbook a související prostředky. Pracovní prostor a účet, musí splňovat následující požadavky.
+## <a name="log-analytics-workspace-and-automation-account"></a>Pracovní prostor analýzy protokolů a účet Automation.
+Většina řešení pro správu vyžadují [pracovní prostor analýzy protokolů](../log-analytics/log-analytics-manage-access.md) tak, aby obsahovala zobrazení a [účet Automation](../automation/automation-security-overview.md#automation-account-overview) tak, aby obsahovala sady runbook a související prostředky. Pracovní prostor a účet, musí splňovat následující požadavky.
 
-* Řešení lze použít pouze jeden pracovní prostor OMS a jeden účet Automation.  
-* Pracovní prostor OMS a účet Automation používá řešení musí být propojena na sebe navzájem. Pracovní prostor služby OMS může propojit jen s jeden účet Automation a účet Automation může propojit jen s jeden pracovní prostor OMS.
-* Propojení, tento pracovní prostor OMS a účet Automation musí být ve stejné skupině prostředků a oblast.  Jedinou výjimkou je pracovní prostor služby OMS v oblasti Východ USA a a účet Automation v oblasti Východ USA 2.
+* Řešení lze použít pouze jeden pracovní prostor analýzy protokolů a jeden účet Automation.  
+* Pracovní prostor analýzy protokolů a účet Automation používá řešení musí být propojena na sebe navzájem. Pracovní prostor analýzy protokolů může propojit jen s jeden účet Automation a účet Automation může propojit jen do jednoho pracovního prostoru analýzy protokolů.
+* Propojení, pracovní prostor analýzy protokolů a účet Automation musí být ve stejné skupině prostředků a oblast.  Výjimkou je pracovního prostoru v oblasti Východ USA a a účet Automation v oblasti Východ USA 2.
 
-### <a name="creating-a-link-between-an-oms-workspace-and-automation-account"></a>Vytváření propojení mezi pracovním prostorem OMS a účet Automation.
-Jak je zadat pracovní prostor OMS a účet Automation závisí na metodě instalace pro vaše řešení.
+### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Vytvoření propojení mezi pracovní prostor analýzy protokolů a účet Automation.
+Jak zadejte pracovní prostor analýzy protokolů a účet Automation, závisí na metodě instalace pro vaše řešení.
 
-* Při instalaci řešení společnosti Microsoft prostřednictvím portálu OMS je nainstalován v aktuálním pracovním prostorem OMS a není třeba žádný účet Automation.
-* Když instalujete řešení prostřednictvím Azure Marketplace, budete vyzváni pracovním prostorem OMS a účet Automation a se vám vytvoří propojení mezi nimi.  
-* Pro řešení mimo Azure Marketplace je nutné před instalací řešení propojit pracovní prostor OMS a účet Automation.  Můžete provést zvolením řešení v Azure Marketplace a výběr pracovním prostorem OMS a účet Automation.  Nemáte skutečně nainstalovat řešení, protože odkaz se vytvoří, jakmile jsou vybrané pracovní prostor OMS a účet Automation.  Po vytvoření odkazu, tento pracovní prostor OMS a účet Automation můžete použít pro žádné řešení. 
+* Při instalaci řešení společnosti Microsoft prostřednictvím portálu OMS je nainstalován v aktuálním pracovním prostoru a není třeba žádný účet Automation.
+* Když instalujete řešení prostřednictvím Azure Marketplace, budete vyzváni k pracovní prostor a účet Automation a se vám vytvoří propojení mezi nimi.  
+* Pro řešení mimo Azure Marketplace je nutné před instalací řešení propojit pracovní prostor analýzy protokolů a účet Automation.  Můžete provést zvolením řešení v Azure Marketplace a vyberete pracovní prostor analýzy protokolů a účet Automation.  Nemáte skutečně nainstalovat řešení, protože odkaz se vytvoří, jakmile jsou vybrané pracovní prostor analýzy protokolů a účet Automation.  Po vytvoření odkazu, tento pracovní prostor analýzy protokolů a účet Automation můžete použít pro žádné řešení. 
 
-### <a name="verifying-the-link-between-an-oms-workspace-and-automation-account"></a>Ověření propojení mezi pracovním prostorem OMS a účet Automation.
-Můžete ověřit propojení mezi pracovním prostorem OMS a účtu Automation pomocí následujícího postupu.
+### <a name="verifying-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Ověření propojení mezi pracovní prostor analýzy protokolů a účet Automation.
+Můžete ověřit propojení mezi pracovní prostor analýzy protokolů a účtu Automation pomocí následujícího postupu.
 
 1. Vyberte účet Automation na portálu Azure.
-2. Přejděte do dolní části **nastavení** podokně.
-3. Pokud je oddíl s názvem **OMS prostředky** v **nastavení** podokně a pak tento účet je připojen k pracovnímu prostoru OMS.
-4. Vyberte **prostoru** k zobrazení podrobností o pracovním prostorem OMS propojené k tomuto účtu Automation.
+2. Pokud **prostoru** nastavení v **související prostředky** části nabídky je zapnutý, pak tento účet je připojen k pracovní prostor analýzy protokolů.  Kliknutím na **prostoru** k zobrazení podrobností o pracovním prostoru.
 
 ## <a name="listing-management-solutions"></a>Výpis řešení pro správu
 Chcete-li zobrazit řešení pro správu v pracovní prostory přidružený k vašemu předplatnému Azure se používá následující postup.
 
-1. Přihlaste se k portálu Azure.
+1. Přihlaste se k webu Azure Portal.
 2. V levém podokně vyberte **další služby**.
 3. Buď přejděte dolů k položce **řešení** nebo typ *řešení* do **filtru** dialogové okno.
 4. Objeví se řešení, které jsou nainstalovány ve všech vašich pracovních prostorů.
@@ -110,7 +108,7 @@ Pokud je odebrán řešení pro správu, budou odebrány také všechny prostře
 ## <a name="creating-a-management-solution"></a>Vytváření řešení pro správu
 Úplné pokyny k vytváření řešení pro správu jsou k dispozici na [vytváření řešení v Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Hledání [šablon Azure rychlý Start](https://azure.microsoft.com/documentation/templates) ukázky různých šablonách Resource Manager.
 * Vytvořit vlastní [řešení pro správu](operations-management-suite-solutions-creating.md).
 

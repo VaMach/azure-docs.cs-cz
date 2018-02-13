@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Vytvoření externího App Service environment #
 
-Azure App Service Environment je nasazení služby Azure App Service do používanou podsíť virtuální sítě Azure (VNet). Existují dva způsoby, jak nasadit služby App Service environment (App Service Environment):
+Azure App Service Environment je nasazení služby Azure App Service do podsítě ve virtuální síti Azure. Služba App Service Environment (ASE) se dá nasadit dvěma způsoby:
 
-- V VIP na externí IP adresu často označuje jako externí App Service Environment.
+- Pomocí virtuální IP adresy na externí IP adresu – často se označuje jako externí služba ASE
 - S virtuální IP adresu na interní IP adresu často říká App Service Environment ILB protože vnitřní koncový bod je vyrovnávání interní zatížení (ILB).
 
 Tento článek ukazuje, jak vytvořit externí App Service Environment. Přehled App Service Environment, najdete v části [Úvod do služby App Service Environment][Intro]. Informace o tom, jak vytvořit App Service Environment ILB najdete v tématu [vytvoření a použití App Service Environment ILB][MakeILBASE].
@@ -69,7 +69,7 @@ Vytvořit App Service Environment, když vytvoříte plán služby App Service:
 
 4. Vyberte plán služby App Service a pak vyberte **vytvořit nový**.
 
-    ![Nový plán aplikační služby][2]
+    ![Nový plán služby App Service][2]
 
 5. V **umístění** rozevíracího seznamu vyberte oblast, kde chcete vytvořit App Service Environment. Pokud vyberete existující App Service Environment, se nevytvoří nové App Service Environment. Plán služby App Service je vytvořen v App Service Environment, kterou jste vybrali. 
 
@@ -87,7 +87,7 @@ Vytvořit App Service Environment, když vytvoříte plán služby App Service:
 
     b. Zadejte nový název podsítě.
 
-    c. Vyberte velikost podsítě. *Mějte na paměti, vyberte velikost dostatečně velký pro přizpůsobení budoucímu růstu vašeho App Service Environment.* Doporučujeme, abyste `/25`, která je 128 adresy a dokáže zpracovat App Service Environment maximální velikost. Nedoporučujeme `/28`, například, protože nejsou k dispozici pouze 16 adres. Infrastruktura používá alespoň pět adres. V `/28` podsíť, jste zbývajících s maximální škálování 11 instancí.
+    c. Vyberte velikost podsítě. *Mějte na paměti, vyberte velikost dostatečně velký pro přizpůsobení budoucímu růstu vašeho App Service Environment.* Doporučujeme, abyste `/25`, která je 128 adresy a dokáže zpracovat App Service Environment maximální velikost. Nedoporučujeme `/28`, například, protože nejsou k dispozici pouze 16 adres. Infrastruktura používá minimálně sedm adresy a sítě Azure používá jiný 5. V `/28` podsíť, která jste ponechaná na maximální škálování 4 instancí plánu služby App Service pro externí App Service Environment a jenom 3, instance plán služby App Service pro ILB App Service Environment.
 
     d. Vyberte rozsah IP adres podsítě.
 

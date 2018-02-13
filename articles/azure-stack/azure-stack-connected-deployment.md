@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: c1a3b2107abdc3ef19a314616518c494687d81bf
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Plánování rozhodnutí pro Azure zásobník Azure připojené nasazení integrované systémy
-Poté, co jste se rozhodli [jak bude zásobník Azure integrovat do cloudového prostředí hybridní](azure-stack-deployment-decisions.md), pak můžete dokončit svoje rozhodnutí o nasazení Azure zásobníku.
+Poté, co jste se rozhodli [jak bude zásobník Azure integrovat do cloudového prostředí hybridní](azure-stack-connection-models.md), pak můžete dokončit svoje rozhodnutí o nasazení Azure zásobníku.
 
 Nasazení Azure zásobníku připojení k Azure znamená, že pro vaše úložiště identit může mít Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS). Můžete také z buď fakturační model: platím jako--používání nebo na základě kapacity. Připojené nasazení je výchozí možnost, protože umožňuje zákazníkům získat nejvíce hodnotu mimo Azure zásobníku, zejména pro hybridní cloudové scénáře, které zahrnují Azure a Azure zásobníku. 
 
@@ -41,11 +41,11 @@ Pokud používáte Azure AD pro úložiště vaší identity vyžaduje dva účt
     - Jako účet správce služby. Toto je vlastník předplatného výchozí poskytovatele (který můžete později změnit). Může přihlásit k portálu pro správu Azure zásobníku s tímto účtem a můžete ji použít k vytvoření nabídky a plány, nastavit kvóty a provádění dalších funkcí pro správu v zásobníku Azure.
 2. **Fakturace účtu** (povinné pro obě připojení a odpojení nasazení). Tento účet Azure slouží k vytvoření fakturační vztah mezi systému Azure zásobníku integrované a back-end Azure commerce. Toto je účet, který bude platit pro Azure zásobníku poplatky. Tento účet se použije i pro marketplace syndikace a dalších hybridní scénáře. 
 
-### <a name="ad-fs-identity-store"></a>ÚLOŽIŠTĚ IDENTIT SLUŽBY AD FS
+### <a name="ad-fs-identity-store"></a>Úložiště identit služby AD FS
 Tuto možnost zvolte, pokud chcete použít vlastní identity úložiště, jako je vaše podnikové služby Active Directory, pro účty správce služby.  
 
 ## <a name="choose-a-billing-model"></a>Vyberte fakturační model
-Můžete buď **platím jako--používání** nebo **kapacity** model fakturace. Platím jako--používání fakturační model nasazení musí být schopen sestavy využití prostřednictvím připojení k Azure alespoň jednou za 30 dní, proto, pokud není k dispozici bude připojení, model fakturace kapacitu je jedinou možností. 
+Můžete buď **platím jako--používání** nebo **kapacity** model fakturace. Platím jako--používání fakturační model nasazení musí být schopen sestavy využití prostřednictvím připojení k Azure alespoň jednou za 30 dní. Proto fakturační model platím jako--používání je dostupná jenom pro připojené nasazení.  
 
 ### <a name="pay-as-you-use"></a>Platím jako jste – použití
 Využití je s fakturační model platím jako--používání účtovat k předplatnému Azure. Platíte jenom při použití služby Azure zásobníku. Pokud je model rozhodnete, budete potřebovat předplatné Azure a přidružené k tomuto předplatnému ID účtu (například serviceadmin@contoso.onmicrosoft.com). Jsou podporovány EA, CSP a CSL odběry. Využití sestav se konfiguruje během [registrace Azure zásobníku](azure-stack-registration.md).
@@ -57,9 +57,8 @@ Pokud se chystáte použít předplatného poskytovatele CSP, naleznete v tabulc
 
 |Scénář|Možnosti domény a předplatného|
 |-----|-----|
-|Jste přímý nebo nepřímý partnera CSP, a bude fungovat v Azure zásobníku|Použití odběru CSL (běžné vrstvu služby).|
-|Jste přímý nebo nepřímý partnera CSP, a bude fungovat v Azure zásobníku|V partnerské centrum, vytvořte klienta Azure AD s popisný název, například <your organization>CSPAdmin a předplatné Azure CSP s ním spojená.|
-|Jsou nepřímé prodejce CSP, a bude fungovat v Azure zásobníku|Zeptejte se svého nepřímých CSP poskytovatele k vytvoření, použití Partnerské centrum, klient služby Azure AD pro vaši organizaci a předplatné Azure CSP s ním spojená.|
+|Jste **přímé partnera CSP** nebo **nepřímých poskytovatele CSP**, a bude fungovat v Azure zásobníku|Použití odběru CSL (běžné vrstvu služby).<br>     nebo<br>Vytvoření klienta Azure AD s popisný název v partnerské centrum. Například &lt;vaší organizace > CSPAdmin s předplatným Azure CSP s ním spojená.|
+|Můžete **nepřímých CSP prodejce**, a bude fungovat v Azure zásobníku|Požádejte svého nepřímých poskytovatele CSP vytvoření klienta Azure AD pro vaši organizaci s předplatným Azure CSP přidružené pomocí Partnerské centrum.|
 
 ### <a name="capacity-based-billing"></a>Kapacity na základě fakturace
 Pokud se rozhodnete použít model fakturace kapacitu, musíte koupit Azure zásobníku kapacity plánování SKU na základě kapacity vašeho systému. Musíte vědět, počet fyzických jader v zásobníku vaší Azure koupit správné množství. 
@@ -70,3 +69,6 @@ Enterprise Agreement (EA) vyžaduje kapacity fakturace předplatného Azure pro 
 - Informace o případy použití, nákup, partneři a OEM výrobci hardwaru najdete v tématu [zásobník Azure](https://azure.microsoft.com/overview/azure-stack/) stránky produktu.
 - Informace o plán a geografická dostupnosti pro zásobník Azure integrované systémy, najdete v dokumentu white paper: [Azure zásobník: rozšíření Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Další informace o Microsoft Azure zásobníku balení a ceny [stáhnout .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+
+## <a name="next-steps"></a>Další postup
+[Integrace sítě datového centra](azure-stack-network.md)

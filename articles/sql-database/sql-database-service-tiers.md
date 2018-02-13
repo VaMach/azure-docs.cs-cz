@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 08/20/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 55f59fddee008eb42b7252d6368a56873a6abd16
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Co je Azure SQL Database úrovně služeb
 
@@ -34,10 +34,10 @@ Volba úrovně služby závisí hlavně na kontinuity podnikových procesů, úl
 |Cíl pracovního vytížení|Vývoj a výroby|Vývoj a výroby|Vývoj a výroby|Úlohy, které může tolerovat ztráty dat až 5 minut z důvodu selhání služby|
 |Smlouva SLA o provozuschopnosti|99,99 %|99,99 %|99,99 %|Není k dispozici při ve verzi preview|
 |Uchování záloh|7 dní|35 dní|35 dní|35 dní|
-|Procesor|Nízký|Nízká, střední, vysoká|Střední, vysoká|Střednědobé používání|
-|Propustnost vstupně-výstupní operace|Nízký  | Střednědobé používání | O řád vyšší než Standard|Stejné jako Premium|
+|Procesor|Nízká|Nízká, střední, vysoká|Střední, vysoká|Střednědobé používání|
+|Propustnost vstupně-výstupní operace|Nízká  | Střednědobé používání | O řád vyšší než Standard|Stejné jako Premium|
 |Latence vstupně-výstupní operace|Vyšší než Premium|Vyšší než Premium|Nižší než Basic a Standard|Stejné jako Premium|
-|Indexu Columnstore a OLTP v paměti|Není k dispozici|Není k dispozici|Podporuje se|Podporuje se|
+|Indexu Columnstore a OLTP v paměti|neuvedeno|neuvedeno|Podporováno|Podporováno|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Omezení velikosti úroveň výkonu a úložiště
@@ -66,13 +66,13 @@ Volba úrovně služby závisí hlavně na kontinuity podnikových procesů, úl
 > [!IMPORTANT]
 > \* Velikosti úložiště větší než velikost zahrnutého úložiště jsou ve verzi Preview a účtují se za ně další poplatky. Podrobnosti najdete na stránce s [cenami služby SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> \* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: USA – východ 2, USA – západ, USA (Gov) – Virginia, Západní Evropa, Německo – střed, Jihovýchodní Asie, Japonsko – východ, Austrálie – východ, Kanada – střed a Kanada – východ. Viz [Aktuální omezení pro P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \*Ve vrstvě | Premium je více než 1 TB úložiště aktuálně k dispozici v následujících oblastech: Austrálie – východ, Austrálie – jihovýchod, Brazílie – Jih, Střední Kanada, Východní Kanada, střed USA, Francie centrální, Německo centrální, Japonsko – východ, Japonsko – Západ, Korejská centrální Střed USA – sever, Severní Evropa, střed USA – Jih, jihovýchodní Asie, Spojené království – Jih, Spojené království – Západ, East2 USA, západ USA, Virginia verze pro státní správu USA a západní Evropa. Viz [Aktuální omezení pro P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 Podrobnosti o konkrétní úrovně výkonu a možnosti velikosti úložiště k dispozici v tématu [limitů prostředků databáze SQL](sql-database-resource-limits.md).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o [jedna databáze prostředků](sql-database-single-database-resources.md).
 - Další informace o elastické fondy najdete v tématu [elastické fondy](sql-database-elastic-pool.md).

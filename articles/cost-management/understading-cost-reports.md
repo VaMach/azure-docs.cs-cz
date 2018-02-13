@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: df2108a6e2a01195340a09eacf1c56f9d738c923
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="understanding-cost-reports"></a>Principy náklady sestavy
+# <a name="understanding-cost-reports"></a>Vysvětlení sestav nákladů
 
 Tento článek vám pomůže pochopit základní strukturu Cloudyn sestavy a funkce. Většina Cloudyn sestavy jsou intuitivní a mít jednotný vzhled a chování. Po přečtení tohoto článku, jsou připravené k použití všechny sestavy. Mnoho funkcí standard je k dispozici v rámci různých sestavy, umožňující snadno vyhledat sestavy. Sestavy jsou přizpůsobitelné, a můžete vybrat z několika možností k výpočtu a zobrazení výsledků.
 
@@ -124,7 +124,7 @@ Každou číslem oblast na předchozím obrázku je podrobně popsaná v násled
 
     ![formáty zobrazení](./media/understanding-cost-reports/display-formats.png)
 
-13. **Více barev**
+13. **Multi-color**
 
     Použití více barvu, která nastavení barvy grafy v sestavě.
 
@@ -132,6 +132,6 @@ Každou číslem oblast na předchozím obrázku je podrobně popsaná v násled
 
     Pomocí akce Uložit, exportujte nebo plánování sestavy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Pokud jste ještě nedokončili první kurz pro náklady na správu, přečtěte si ho na [zkontrolujte využití a náklady na](tutorial-review-usage.md).

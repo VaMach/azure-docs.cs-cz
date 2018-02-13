@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0a1d8ff4b9821b0d41b6225872472a9d5aedffc7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopírování dat z Hive pomocí Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru Hive.
 
@@ -47,14 +47,14 @@ Pro Hive propojené služby jsou podporovány následující vlastnosti:
 | type | Vlastnost typu musí být nastavena na: **Hive** | Ano |
 | hostitel | IP adresa nebo název hostitele serveru Hive, oddělené podle ';' pro více hostitelů (pouze v případě serviceDiscoveryMode je povolit).  | Ano |
 | port | Port TCP, který používá Hive server naslouchat pro připojení klientů.  | Ne |
-| Typ | Typ serveru Hive. <br/>Povolené hodnoty jsou: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Ne |
+| serverType | Typ serveru Hive. <br/>Povolené hodnoty jsou: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Ne |
 | thriftTransportProtocol | Přenosový protokol pro použití v Thrift vrstvy. <br/>Povolené hodnoty jsou: **binární**, **SASL**, ** HTTP ** | Ne |
 | authenticationType. | Metodu ověřování pro přístup k serveru Hive. <br/>Povolené hodnoty jsou: **anonymní**, **uživatelské jméno**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ano |
 | serviceDiscoveryMode | TRUE označuje pomocí služby ZooKeeper false není.  | Ne |
 | zooKeeperNameSpace | Obor názvů na ZooKeeper pod které Hive Server 2 jsou přidány uzly.  | Ne |
 | useNativeQuery | Určuje, zda používá nativní dotazy HiveQL ovladače, nebo je převede na ekvivalentní formuláře v HiveQL.  | Ne |
 | uživatelské jméno | Uživatelské jméno, který používáte pro přístup k serveru Hive.  | Ne |
-| heslo | Heslo odpovídající uživatelské jméno, které jste zadali do pole uživatelské jméno, je možné označit toto pole jako SecureString uložit bezpečně v ADF, nebo uložit heslo v Azure Key Vault a nechat vyžádání aktivity kopírování z ní při kopírování dat - lea Další z nout [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
+| heslo | Heslo odpovídající uživateli. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 | httpPath | Částečné adresa URL odpovídající serveru Hive.  | Ne |
 | enableSsl | Určuje, zda jsou šifrované připojení k serveru pomocí protokolu SSL. Výchozí hodnota je false.  | Ne |
 | trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority pro ověření serveru při připojení přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na vlastním hostováním infračerveného signálu. Výchozí hodnota je soubor cacerts.pem nainstalované s infračerveného signálu.  | Ne |
@@ -106,7 +106,7 @@ Ke zkopírování dat z Hive, nastavte vlastnost typu datové sady, která **Hiv
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem Hive.
 

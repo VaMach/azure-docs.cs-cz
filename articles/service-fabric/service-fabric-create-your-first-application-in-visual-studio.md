@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Vytvoření první aplikace spolehlivé stavové služby Service Fabric v jazyce C#
 
@@ -82,7 +82,18 @@ Až se aplikace spustí, Visual Studio automaticky zobrazí **Prohlížeč diagn
    
 ![Prohlížeč diagnostických událostí][5]
 
-Šablona stavové služby, kterou jsme použili, uvádí jenom hodnotu čítače, která se zvyšuje v metodě `RunAsync` v souboru **MyStatefulService.cs**.
+>[!NOTE]
+>Události by měly automatiky spustit sledování v prohlížeči diagnostických událostí, ale pokud ho budete muset nakonfigurovat ručně, nejdřív otevřete soubor `ServiceEventSource.cs` umístěný v projektu **MyStatefulService**. Zkopírujte hodnotu atributu `EventSource` v horní části třídy `ServiceEventSource`. V příkladu níže má zdroj událostí název `"MyCompany-MyApplication-MyStatefulService"`, který ve vaší situaci může být jiný.
+>
+>![Vyhledání názvu zdroje události služby][service-event-source-name]
+>
+>Potom kliknutím na ikonu ozubeného kola umístěnou na kartě Prohlížeč diagnostických událostí otevřete dialogové okno **Zprostředkovatelé Trasování událostí pro Windows**. Vložte právě zkopírovaný název zdroje událostí do vstupního pole **Zprostředkovatelé Trasování událostí pro Windows**. Potom klikněte na tlačítko **Použít**. Tím automaticky spustí trasování událostí.
+>
+>![Nastavení názvu zdroje diagnostických událostí][setting-event-source-name]
+>
+>Nyní by se události měly zobrazovat v okně Diagnostické události.
+
+Použitá šablona stavové služby uvádí hodnotu čítače, která se zvyšuje v metodě `RunAsync` v souboru **MyStatefulService.cs**.
 
 Pokud některou událost rozbalíte, zobrazí se další podrobnosti, včetně uzlu, na kterém kód běží. V tomto případě je to uzel \_Node\_0, to se ale může na vašem počítači lišit.
    
@@ -146,3 +157,5 @@ Další informace o [spolehlivých službách](service-fabric-reliable-services-
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png

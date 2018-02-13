@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 29d19364b9a98e351c95f13e68a2e63b9f6439f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7408f240a1b05e0d53716764a9f8d1e19229ebe
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Kódování X12 zprávy pro Azure Logic Apps s Enterprise integračního balíčku
 
@@ -36,7 +36,7 @@ Tady je položky, které budete potřebovat:
 
 ## <a name="encode-x12-messages"></a>Kódování X12 zprávy
 
-1. [Vytvoření aplikace logiky](logic-apps-create-a-logic-app.md).
+1. [Vytvoření aplikace logiky](quickstart-create-first-logic-app-workflow.md).
 
 2. Konektor kódovat X12 zpráva nemá, aktivační události, je nutné přidat aktivační událost pro spuštění aplikace logiky, jako je aktivační událost požadavku. V návrháři aplikace logiky přidejte aktivační událost a potom přidat akci do aplikace logiky.
 
@@ -95,6 +95,6 @@ X12 kódovat konektor provádí tyto úlohy:
 ## <a name="view-the-swagger"></a>Zobrazení swagger
 Najdete v článku [swagger podrobnosti](/connectors/x12/). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace o integračního balíčku Enterprise](logic-apps-enterprise-integration-overview.md "Další informace o Enterprise integračního balíčku") 
 

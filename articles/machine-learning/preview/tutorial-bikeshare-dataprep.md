@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e4bcf7ec2a18f6068554c2eb85b72ffc36dcc4fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Kurz projektu BikeShare: Pokročilá příprava dat pomocí aplikace Azure Machine Learning Workbench
 Služby Azure Machine Learning (verze Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -27,15 +27,17 @@ V tomto kurzu se naučíte, jak pomocí služeb Azure Machine Learning (verze Pr
 > * Vygenerovat balíček pro přípravu dat.
 > * Spustit balíček pro přípravu dat pomocí jazyka Python.
 > * Vygenerovat trénovací datovou sadu opětovným použitím balíčku pro přípravu dat s dalšími vstupními soubory.
+> * Spouštění skriptů v místním okně Azure CLI
+> * Spouštění skriptů v cloudovém prostředí Azure HDInsight
 
-> [!IMPORTANT]
-> Tento kurz se zabývá pouze přípravou dat, nikoli sestavením prediktivního modelu.
->
-> Připravená data můžete použít k trénování vlastních prediktivních modelů. Můžete například vytvořit model k predikci poptávky po kolech během 2hodinových časových intervalů.
 
 ## <a name="prerequisites"></a>Požadavky
 * Musíte mít místně nainstalovanou aplikaci Azure Machine Learning Workbench. Další informace najdete ve [stručném průvodci instalací](quickstart-installation.md).
+* Pokud nemáte nainstalované rozhraní příkazového řádku Azure, postupujte podle pokynů [nainstalujte nejnovější verzi rozhraní příkazového řádku Azure]. (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Clusteru HDInsights Spark](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) musí být vytvořen v Azure.
+* Účet úložiště Azure.
 * Potřebujete znalost vytvoření nového projektu v aplikaci Workbench.
+* I když to není nutné, je vhodné mít [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) nainstalovaná, takže můžete nahrát, stáhněte a zobrazit objekty BLOB ve vašem účtu úložiště. 
 
 ## <a name="data-acquisition"></a>Získání dat
 Tento kurz používá [sadu dat programu Hubway z Bostonu](https://s3.amazonaws.com/hubway-data/index.html) a data o počasí v Bostonu agentury [NOAA](http://www.noaa.gov/).
@@ -53,6 +55,22 @@ Tento kurz používá [sadu dat programu Hubway z Bostonu](https://s3.amazonaws.
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
 2. Po stažení všechny soubory .zip rozzipujte.
+
+## <a name="upload-data-files-to-azure-blob-storage"></a>Nahrání datové soubory do úložiště objektů Blob v Azure
+Úložiště objektů blob můžete použít k hostování datových souborů.
+
+1. Použijte stejný účet úložiště Azure, který se používá pro cluster HDInsight, který používáte.
+
+    ![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
+
+2. Vytvořit nový kontejner s názvem "**datové soubory**' chcete uložit datové soubory BikeShare.
+
+3. Nahrání datové soubory. Nahrát `BostonWeather.csv` do složky s názvem `weather`a datové soubory do složky s názvem cesty `tripdata`.
+
+    ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
+
+> [!TIP]
+> Můžete také používat **Azure Storage Explorer** nahrát objekty BLOB. Tento nástroj můžete použít, pokud chcete zobrazit obsah soubory vytvořené v tomto kurzu také.
 
 ## <a name="learn-about-the-datasets"></a>Informace o datových sadách
 1. Soubor s __daty o počasí v Bostonu__ obsahuje následující pole týkající se počasí s informacemi aktualizovanými každou hodinu:
@@ -78,7 +96,7 @@ Tento kurz používá [sadu dat programu Hubway z Bostonu](https://s3.amazonaws.
 1. Z nabídky Start nebo spouštěče aplikací spusťte aplikaci **Azure Machine Learning Workbench**.
 
 2. Vytvořte nový projekt Azure Machine Learning.  Klikněte na tlačítko **+** na stránce **Projects** (Projekty). Můžete také vybrat **File** (Soubor) > **New** (Nový).
-   - Použijte šablonu **Blank Project** (Prázdný projekt).
+   - Použití **sdílené složky kolo** šablony.
    - Projekt pojmenujte **BikeShare** (Sdílení kol). 
 
 ## <a id="newdatasource"></a>Vytvoření nového zdroje dat
@@ -97,9 +115,9 @@ Tento kurz používá [sadu dat programu Hubway z Bostonu](https://s3.amazonaws.
 
    ![Obrázek položky File(s)/Directory (Soubory/adresář)](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **File Selection** (Výběr souboru): Přidejte data o počasí. Procházením vyberte soubor `BostonWeather.csv`, který jste stáhli v předchozích krocích. Klikněte na **Další**.
+2. **File Selection** (Výběr souboru): Přidejte data o počasí. Procházet a vybrat `BostonWeather.csv` soubor, který jste nahráli do __Azure Blob Storage__ dříve. Klikněte na **Další**.
 
-   ![Obrázek výběru souboru s vybraným souborem BostonWeather.csv](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
+   ![Obrázek výběru souboru s vybraným souborem BostonWeather.csv](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
 3. **File Details** (Podrobnosti souboru): Zkontrolujte rozpoznané schéma souboru. Aplikace Azure Machine Learning Workbench analyzuje data v souboru a odvodí z něj schéma, které se má použít.
 
@@ -136,9 +154,9 @@ Tento kurz používá [sadu dat programu Hubway z Bostonu](https://s3.amazonaws.
 
    Pokračujte výběrem tlačítka __Next__ (Další). 
 
-5. **Sampling** (Vzorkování): Výběrem tlačítka **+ New** (Nové) vytvořte schéma vzorkování. Vyberte nový přidaný řádek __Top 10000__ (Nejvyšších 10 000) a pak vyberte __Edit__ (Upravit). V poli __Sample Strategy__ (Strategie vzorku) nastavte hodnotu **Full File** (Celý soubor) a pak vyberte **Apply** (Použít).
+5. **Vzorkování**: Chcete-li vytvořit schéma vzorkování, vyberte **upravit** tlačítko. Vyberte nový přidaný řádek __Top 10000__ (Nejvyšších 10 000) a pak vyberte __Edit__ (Upravit). V poli __Sample Strategy__ (Strategie vzorku) nastavte hodnotu **Full File** (Celý soubor) a pak vyberte **Apply** (Použít).
 
-   ![Obrázek přidání nové strategie vzorkování](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
+   ![Obrázek přidání nové strategie vzorkování](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
    Aby se strategie __Full File__ (Celý soubor) použila, vyberte položku __Full File__ (Celý soubor) a pak vyberte __Set as Active__ (Nastavit jako aktivní). Vedle položky __Full File__ (Celý soubor) se zobrazí hvězdička, která označuje aktivní strategii.
 
@@ -223,6 +241,8 @@ Sloupec __REPORTTYPE__ (Typ zprávy) už nepotřebujete. Klikněte pravým tlač
 
    Pokud chcete řádky s chybami odebrat, klikněte pravým tlačítkem na záhlaví sloupce **HOURLYDRYBULBTEMPF** (Teplota suchého teploměru ve stupních Fahrenheita). Vyberte **Filter Column** (Filtrovat sloupec). U možnosti **I Want To** (Chci) použijte výchozí hodnotu **Keep Rows** (Zachovat řádky). V rozevíracím seznamu **Conditions** (Podmínky) změňte hodnotu výběrem možnosti **is not error** (není chyba). Výběrem tlačítka **OK** filtr použijte.
 
+    ![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
+
 4. Abyste odebrali zbývající řádky s chybami v ostatních sloupcích, opakujte tento postup filtrování u sloupců **HOURLYRelativeHumidity** (Hodinová relativní vlhkost) a **HOURLYWindSpeed** (Hodinová rychlost větru).
 
 ## <a name="use-by-example-transformations"></a>Použití příkladů transformací
@@ -261,7 +281,10 @@ Abyste mohli data použít v předpovědi s dvouhodinovými časovými bloky, mu
 
    > [!NOTE]
    > Aplikace Azure ML Workbench syntetizuje program na základě vámi zadaných příkladů a použije stejný program u zbývajících řádků. Všechny ostatní řádky se vyplní automaticky na základě příkladu, který jste zadali. Aplikace Workbench také analyzuje vaše data a pokusí se identifikovat hraniční případy. 
-  
+
+   > [!IMPORTANT]
+   > Identifikace edge případech nemusí fungovat v systému Mac v aktuální verzi nástroje Workbench. Přeskočit __krok 3__ a __krok 4__ níže na macu. Místo toho stiskněte __OK__ po všechny řádky obsazeny odvozené hodnotami.
+   
 3. Text **Analyzing Data** (Analyzují se data) nad mřížkou označuje, že se aplikace Workbench pokouší rozpoznat hraniční případy. Jakmile to dokončí, změní se stav na **Review next suggested row** (Zkontrolovat další navržený řádek) nebo **No suggestions** (Žádné návrhy). V tomto příkladu se zobrazí stav **Review next suggested row** (Zkontrolovat další navržený řádek).
 
 4. Pokud chcete zkontrolovat navrhované změny, vyberte odkaz **Review next suggested row** (Zkontrolovat další navržený řádek). Buňka, kterou byste měli zkontrolovat a opravit (pokud je to potřeba), je na obrazovce zvýrazněna.
@@ -287,10 +310,15 @@ Abyste mohli data použít v předpovědi s dvouhodinovými časovými bloky, mu
 
    Do prvního řádku zadejte `Jan 01, 2015 12AM-2AM` jako příklad a stiskněte klávesu **ENTER**.
 
-   Aplikace Workbench určí transformaci podle příkladu, který poskytnete. V tomto příkladu je výsledkem to, že se formát data změní a zřetězí se na dvouhodinové intervaly.
+   Aplikace Workbench určí transformaci podle příkladu, který poskytnete. V tomto příkladu výsledkem je, že je datum formátu změnit a zřetězen s dvou hodin.
 
    ![Obrázek s příkladem Jan 01, 2015 12AM-2AM (1. ledna 2015, 0:00–2:00)](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
+   > [!IMPORTANT]
+   > V systému Mac, postupujte podle následujících kroku místo __krok 8__ níže.
+   >
+   > * Přejděte na první buňky, který obsahuje `Feb 01, 2015 12AM-2AM`. Měla by být __řádek 15__. Opravte hodnotu k `Jan 02, 2015 12AM-2AM`a stiskněte klávesu __Enter__. 
+   
 
 8. Počkejte, než se stav změní z **Analyzing Data** (Analyzují se data) na **Review next suggested row** (Zkontrolovat další navržený řádek). To může trvat několik sekund. Výběrem odkazu stavu přejděte na navrhovaný řádek. 
 
@@ -306,6 +334,7 @@ Abyste mohli data použít v předpovědi s dvouhodinovými časovými bloky, mu
 
    > [!TIP]
    > Kliknutím na šipku dolů v podokně **Steps** (Kroky) můžete u tohoto kroku použít pokročilý režim **Derive column by example** (Odvodit sloupec podle příkladu). V datové mřížce jsou vedle názvů sloupců **DATE\_1** (Datum_1) a **Hour Range** (Hodinové rozmezí) zaškrtávací políčka. Zrušte zaškrtnutí políčka vedle sloupce **Hour range** (Hodinové rozmezí) a podívejte se, jak se tím změní výstup. Protože sloupec **Hour Range** (Hodinové rozmezí) jako vstup chybí, považuje se hodnota **12AM-2AM** (0:00–2:00) za konstantu a je připojena k odvozeným hodnotám. Výběrem tlačítka **Cancel** (Zrušit) se vraťte zpět do hlavní mřížky bez použití změn.
+   ![derivedcolumnadvancededitdeselectcolumn.png](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. Abyste mohli sloupec přejmenovat, poklikejte na jeho záhlaví. Změňte název na **Date Hour Range** (Hodinové rozmezí k datu) a potom stiskněte klávesu **ENTER**.
 
@@ -331,7 +360,7 @@ Dalším krokem je sumarizace stavu počasí získáním středních hodnot z ho
 
 Změna dat v číselných sloupcích na rozmezí 0–1 umožňuje u některých modelů rychlou konvergenci. Momentálně není k dispozici žádná předdefinovaná transformace, která by tuto transformaci prováděla genericky. Tuto operaci však můžete provést pomocí skriptu v jazyce Python.
 
-1. V nabídce **Transform** (Transformace) vyberte **Transform Dataflow** (Transformovat tok dat).
+1. Z **transformace** nabídce vyberte možnost **transformace toku dat (skript)**.
 
 2. Do textového pole, které se zobrazí, zadejte následující kód. Pokud jste používali stejné názvy sloupců, měl by kód fungovat bez úprav. V jazyce Python vytváříte jednoduchou logiku normalizace minimálních a maximálních hodnot.
 
@@ -372,6 +401,7 @@ Právě jste dokončili přípravu dat o počasí. Teď připravíte data o jíz
 
 1. Naimportujte soubor `201701-hubway-tripdata.csv` podle postupu v části [Vytvoření nového zdroje dat](#newdatasource). Během procesu importu použijte následující možnosti:
 
+    * __Soubor výběr__: vyberte **objektů Blob v Azure** při procházení a vyberte soubor.
     * __Schéma v části Sampling (Vzorkování)__: Použijte schéma vzorkování **Full File** (Celý soubor) a nastavte ho jako aktivní. 
     * V části __Data Type__ (Datový typ) přijměte výchozí hodnoty.
 
@@ -505,7 +535,12 @@ K sumarizaci poptávky po kolech v 2hodinových intervalech použijte odvozené 
     > Příklad můžete zadat do libovolného řádku. V tomto příkladu je hodnota `Jan 01, 2017 12AM-2AM` platnou hodnotou prvního řádku dat.
 
     ![Obrázek příkladu s daty](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-   
+
+   > [!IMPORTANT]
+   > V systému Mac, postupujte podle následujících kroku místo __krok 3__ níže.
+   >
+   > * Přejděte na první buňky, který obsahuje `Jan 01, 2017 1AM-2AM`. Měla by být __řádek 14__. Opravte hodnotu k `Jan 01, 2017 12AM-2AM`a stiskněte klávesu __Enter__. 
+
 3. Počkejte, než aplikace vypočítá hodnoty pro všechny řádky. To může trvat několik sekund. Po dokončení analýzy zkontrolujte data pomocí odkazu __Review next suggested row__ (Zkontrolovat další navržený řádek).
 
    ![Obrázek dokončené analýzy s odkazem kontroly](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -586,19 +621,95 @@ V tomto kurzu je název souboru `BikeShare Data Prep.py`. Tento soubor se použ�
 
 ## <a name="save-test-data-as-a-csv-file"></a>Uložení testovacích dat do souboru .csv
 
-Pokud chcete uložit tok dat **Join Result** (Výsledek spojení) do souboru .csv, musíte změnit skript `BikeShare Data Prep.py`. Aktualizujte skript v jazyce Python pomocí následujícího kódu:
+Pokud chcete uložit tok dat **Join Result** (Výsledek spojení) do souboru .csv, musíte změnit skript `BikeShare Data Prep.py`. 
 
-```python
-from azureml.dataprep.package import run
+1. Otevřete projekt pro úpravy v VSCode.
 
-# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
-df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    ![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTest.csv
-df.to_csv('Your Test Data File Path here')
-```
+2. Skript jazyka Python v aktualizovat `BikeShare Data Prep.py` soubor pomocí následujícího kódu:
 
-V horní části obrazovky vyberte **Run** (Spustit). Skript je odeslán jako **úloha** na místním počítači. Jakmile se stav úlohy změní na __Completed__(Dokončeno), znamená to, že soubor byl zapsán do určeného umístění.
+    ```python
+    import pyspark
+
+    from azureml.dataprep.package import run
+    from pyspark.sql.functions import *
+
+    # start Spark session
+    spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
+    # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
+    df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    df.show(n=10)
+    row_count_first = df.count()
+
+    # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
+    # 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+    blobfolder = 'Your Azure Storage blob path'
+
+    df.write.csv(blobfolder, mode='overwrite') 
+
+    # retrieve csv file parts into one data frame
+    csvfiles = "<Your Azure Storage blob path>/*.csv"
+    df = spark.read.option("header", "false").csv(csvfiles)
+    row_count_result = df.count()
+    print(row_count_result)
+    if (row_count_first == row_count_result):
+        print('counts match')
+    else:
+        print('counts do not match')
+    print('done')
+    ```
+
+3. Nahraďte `Your Azure Storage blob path` s cestou k výstupnímu souboru, který bude vytvořen. Nahraďte pro oba `blobfolder` a `csvfiles` proměnné.
+
+## <a name="create-hdinsight-run-configuration"></a>Vytvoření konfigurace spustit HDInsight
+
+1. V aplikaci Azure Machine Learning Workbench otevřete okno příkazového řádku, vyberte nabídku **Soubor** a pak vyberte **Otevřít příkazový řádek**. Příkazový řádek se spustí ve složce projektu s příkazem `C:\Projects\BikeShare>`.
+
+ ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
+
+   >[!IMPORTANT]
+   >Okno příkazového řádku (otevřené z aplikace Workbench) musíte použít k provedení následujících kroků.
+
+2. Pomocí příkazového řádku se přihlaste k Azure. 
+
+   Aplikace Workbench a CLI používají při ověřování prostředků Azure nezávislé mezipaměti přihlašovacích údajů. Tento krok je potřeba provést jenom jednou, než vyprší token v mezipaměti. `az account list` Příkaz vrátí seznam dostupných předplatných na vaše přihlášení. Pokud jich je více než jedno, použijte hodnotu ID z požadovaného předplatného. Nastavit jako výchozí účet pro použití s toto předplatné `az account set -s` příkaz a pak zadejte hodnotu pro ID předplatného. Potvrďte nastavení pomocí účtu `show` příkaz.
+
+   ```azurecli
+   REM login by using the aka.ms/devicelogin site
+   az login
+   
+   REM lists all Azure subscriptions you have access to 
+   az account list -o table
+   
+   REM sets the current Azure subscription to the one you want to use
+   az account set -s <subscriptionId>
+   
+   REM verifies that your current subscription is set correctly
+   az account show
+   ```
+
+3. Vytvořte HDInsight spustit konfigurace. Budete potřebovat název clusteru a sshuser heslo.
+    ```azurecli
+    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml experiment prepare -c hdinsight
+    ```
+> [!NOTE]
+> Při vytváření prázdného projektu spustit výchozí konfigurace jsou **místní** a **docker**. Tento krok vytvoří novou konfiguraci spuštění, který je k dispozici v **Azure Machine Learning Workbench** při spuštění skriptů. 
+
+## <a name="run-in-hdinsight-cluster"></a>Spuštění v clusteru HDInsight
+
+Vraťte se na **Azure Machine Learning Workbench** aplikace na spouštění skriptu v clusteru HDInsight.
+
+1. Přejděte zpět na domovskou obrazovku projektu kliknutím **domácí** ikonu na levé straně.
+
+2. Vyberte **hdinsight** z rozevíracího seznamu spustit skript v clusteru HDInsight.
+
+3. V horní části obrazovky vyberte **Run** (Spustit). Skript je odeslán jako **úlohy**. Stav úlohy změní na __dokončeno__, soubor byl zapsán do zadaného umístění ve vaší **kontejneru úložiště Azure**.
+
+    ![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
+
 
 ## <a name="substitute-data-sources"></a>Nahrazení zdrojů dat
 
@@ -608,7 +719,7 @@ V předchozích krocích jste k přípravě testovacích dat použili zdroje dat
 
     * V části __File Selection__ (Výběr souboru) vyberte současně všech šest zbývajících souborů .csv s daty o jízdách.
 
-        ![Načtení šesti zbývajících souborů](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![Načtení šesti zbývajících souborů](media/tutorial-bikeshare-dataprep/browseazurestoragefortripdatafiles.png)
 
         > [!NOTE]
         > Položka __+5__ označuje, že kromě uvedeného souboru je vybráno pět dalších souborů.
@@ -619,11 +730,13 @@ V předchozích krocích jste k přípravě testovacích dat použili zdroje dat
 
    Název tohoto zdroje dat uložte, protože se používá v dalších krocích později.
 
-2. Vyberte ikonu složky, abyste si mohli prohlédnout soubory v projektu. Rozbalte adresář __aml\_config__ a pak vyberte soubor `local.runconfig`.
+2. Vyberte ikonu složky, abyste si mohli prohlédnout soubory v projektu. Rozbalte adresář __aml\_config__ a pak vyberte soubor `hdinsight.runconfig`.
 
-    ![Obrázek umístění souboru local.runconfig](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
+    ![Obrázek umístění hdinsight.runconfig](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. Na konec souboru `local.runconfig` přidejte následující řádky a potom soubor uložte výběrem ikony disku.
+3. Klikněte na tlačítko Upravit k otevření souboru v VSCode.
+
+4. Na konec souboru `hdinsight.runconfig` přidejte následující řádky a potom soubor uložte výběrem ikony disku.
 
     ```yaml
     DataSourceSubstitutions:
@@ -637,15 +750,41 @@ V předchozích krocích jste k přípravě testovacích dat použili zdroje dat
 Přejděte na soubor `BikeShare Data Prep.py` v jazyce Python, který jste upravili v předchozích krocích, a trénovací data uložte pomocí jiné cesty k souboru.
 
 ```python
+import pyspark
+
 from azureml.dataprep.package import run
+from pyspark.sql.functions import *
+
+# start Spark session
+spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
 # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+df.show(n=10)
+row_count_first = df.count()
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTrain.csv
-df.to_csv('Your Training Data File Path here')
+# Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/traindata'
+# 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+blobfolder = 'Your Azure Storage blob path'
+
+df.write.csv(blobfolder, mode='overwrite') 
+
+# retrieve csv file parts into one data frame
+csvfiles = "<Your Azure Storage blob path>/*.csv"
+df = spark.read.option("header", "false").csv(csvfiles)
+row_count_result = df.count()
+print(row_count_result)
+if (row_count_first == row_count_result):
+    print('counts match')
+else:
+    print('counts do not match')
+print('done')
 ```
 
-Pokud chcete odeslat novou úlohu, použijte ikonu **Run** (Spustit) v horní části stránky. **Úloha** se odešle s novou konfigurací. Výstupem této úlohy jsou trénovací data. Tato data se vytvoří pomocí stejného postupu přípravy dat, který jste vytvořili v předchozích krocích. Dokončení úlohy může trvat několik minut.
+1. Použijte název složky `traindata` pro výstup trénovacích dat.
+
+2. Pokud chcete odeslat novou úlohu, použijte ikonu **Run** (Spustit) v horní části stránky. Zajistěte, aby **hdinsight** je vybrána. **Úloha** se odešle s novou konfigurací. Výstupem této úlohy jsou trénovací data. Tato data se vytvoří pomocí stejného postupu přípravy dat, který jste vytvořili v předchozích krocích. Dokončení úlohy může trvat několik minut.
+
 
 ## <a name="next-steps"></a>Další postup
 Dokončili jste kurz přípravy dat projektu BikeShare. V tomto kurzu jste se naučili, jak pomocí služeb Azure Machine Learning (verze Preview) provést následující:

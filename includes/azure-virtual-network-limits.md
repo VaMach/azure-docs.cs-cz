@@ -31,7 +31,7 @@ Následující omezení platí pouze pro síťové prostředky spravované přes
 | Souběžné TCP nebo UDP toků na síťový adaptér virtuálního počítače nebo role instance |500 000 |500 000 |
 | Síťová rozhraní (NIC) |350 |20000 |
 | Skupiny zabezpečení sítě (NSG) |100 |5000 |
-| Počet pravidel NSG na skupinu NSG |200 |500 |
+| Počet pravidel NSG na skupinu NSG |200 |1000 |
 | IP adresy a rozsahy, zadaný pro zdrojové nebo cílové ve skupině zabezpečení |2000 |4000 |
 | Skupiny zabezpečení aplikací |200 |500 |
 | Skupiny zabezpečení aplikací na konfiguraci IP adresy, na síťový adaptér |10 |20 |
@@ -39,8 +39,8 @@ Následující omezení platí pouze pro síťové prostředky spravované přes
 | Skupiny zabezpečení aplikací, které lze zadat v rámci všech pravidel zabezpečení skupiny zabezpečení sítě |50 |100 |
 | Směrovací tabulky definované uživatelem |100 |200 |
 | Trasy definované uživatelem na směrovací tabulku |100 |400 |
-| Veřejné IP adresy - dynamické |60 (základní) |kontaktovat podporu |
-| Veřejné IP adresy – statické |20 (základní) |kontaktovat podporu |
+| Veřejné IP adresy - dynamické |(Basic) 60 |kontaktovat podporu |
+| Veřejné IP adresy – statické |(Basic) 20 |kontaktovat podporu |
 | Veřejné IP adresy – statické |20 (standardní) |kontaktovat podporu |
 | Kořenové certifikáty typu Point-to-Site na službu VPN Gateway |20 |20 |
 
@@ -48,14 +48,14 @@ Následující omezení platí pouze pro síťové prostředky spravované přes
 
 | Prostředek | Výchozí omezení | Maximální omezení |
 | --- | --- | --- |
-| Nástroje pro vyrovnávání zatížení | 100 | 1000 |
+| Služby vyrovnávání zatížení | 100 | 1000 |
 | Pravidla na prostředek, Basic | 150 | 250 |
 | Pravidla na prostředek, Standard | 1250 | 1 500 |
 | Pravidla pro konfiguraci protokolu IP | 299 |299 |
-| Konfigurace IP front-endu, Basic | 10 | kontaktovat podporu |
+| Konfigurace IP front-endu, Basic | 10 | 200 |
 | Konfigurace IP front-endu, Standard | 10 | 600 |
 | Fond back-end, Basic | 100, jedna skupina dostupnosti | - |
-| Fond back-end, Standard | 1000, jedna virtuální síť | kontaktovat podporu |
+| Fond back-end, Standard | 1000, jedna virtuální síť | - |
 | HA porty, Standard | 1 na interní front-endu | - |
 
 Pokud potřebujete navýšit výchozí omezení, [kontaktujte podporu](../articles/azure-supportability/resource-manager-core-quotas-request.md ).

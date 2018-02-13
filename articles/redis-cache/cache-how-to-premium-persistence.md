@@ -3,8 +3,8 @@ title: "Postup konfigurace trvalosti dat pro mezipaměť Azure Redis Cache Premi
 description: "Zjistěte, jak konfigurovat a spravovat vaše instance Azure Redis Cache Premium vrstvu trvalosti dat"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
-ms.author: sdanie
-ms.openlocfilehash: 638f0154d3a4fd091197a2da86374a053b31c4c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 270158bbf85a58a48a367a091ad2b09a9d114b2b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Postup konfigurace trvalosti dat pro mezipaměť Azure Redis Cache Premium
 Azure Redis Cache má jiný mezipaměti nabídky, které poskytují flexibilitu při výběru velikost mezipaměti a funkce, včetně funkce úrovně Premium, jako je clustering, trvalosti a podpory služby virtual network. Tento článek popisuje postup konfigurace trvalosti v instanci služby Azure Redis Cache premium.
@@ -179,7 +179,7 @@ Pokud je povoleno clustering, každý horizontálního oddílu v mezipaměti má
 Po přepsání dvě sady AOF soubory existují v úložišti. Přepisů probíhat na pozadí a připojit k první sadu souborů, zatímco připojení množinové operace, které se odesílají do mezipaměti při přepsání v druhé sadě. Zálohy se dočasně ukládají během přepisů v případě selhání, ale bude po dokončení přepište okamžitě odstraněna.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Naučte se používat další funkce mezipaměti premium.
 
 * [Úvod do Azure Redis Cache na úrovni Premium](cache-premium-tier-intro.md)

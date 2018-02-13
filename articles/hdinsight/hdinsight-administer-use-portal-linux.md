@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Správa clusterů systému Hadoop v HDInsight pomocí portálu Azure
 
@@ -81,10 +81,10 @@ Pokud se zobrazí chyba NoRegisteredProviderFound nebo MissingSubscriptionRegist
 4. Klikněte na cluster, ze seznamu na stránce Přehled v tématu:
 
     ![Azure portálu essentials clusteru HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **přehled nabídky:**
-    * **Řídicí panel**: Otevře řídicí panel clusteru, který je Ambari Web pro clustery se systémem Linux.
+    * **Řídicí panel**: Otevře webovému uživatelskému rozhraní Ambari pro cluster.
     * **Secure Shell**: zobrazí pokyny pro připojení ke clusteru pomocí připojení Secure Shell (SSH).
     * **Škálování clusteru**: umožňuje změnit počet uzlů pracovního procesu pro tento cluster.
-    * **Přesunout**: přesunout clusteru na jiném skupiny prostředků nebo předplatného.
+    * **Přesunout**: Přesune clusteru k jiné skupině prostředků nebo do jiného předplatného.
     * **Odstranit**: Odstraní clusteru.
 
     **Levé nabídce:**
@@ -98,7 +98,7 @@ Pokud se zobrazí chyba NoRegisteredProviderFound nebo MissingSubscriptionRegist
     * **Nástroje pro HDInsight**: informace nápovědy pro HDInsight související nástroje.
     * **Použití jádra předplatné**: Zobrazit jádra dostupná a použitá pro vaše předplatné.
     * **Škálování clusteru**: Zvyšte a snižte počet uzlů pracovního procesu clusteru. V tématu[škálování clusterů](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **SSH + clusteru přihlášení**: zobrazí pokyny pro připojení ke clusteru pomocí připojení Secure Shell (SSH). Další informace najdete v tématu [použití SSH s HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)a resetovat clusteru přihlašovací pověření.
+    * **SSH + clusteru přihlášení**: zobrazí pokyny pro připojení ke clusteru pomocí připojení Secure Shell (SSH). Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     * **Partnera HDInsight**: Přidat nebo odebrat současného partnera HDInsight.
     * **Externí Metaúložiště**: Zobrazit metaúložiště Hive a Oozie. Metaúložiště se dá nakonfigurovat jenom během procesu vytváření clusteru. V tématu [použít metaúložiště Hive nebo Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Skript akce**: Spusťte Bash skripty v clusteru. V tématu [HDInsight se systémem Linux přizpůsobit clustery pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md).
@@ -226,6 +226,21 @@ Cluster služby HDInsight můžete přesunout do jiné skupiny prostředků Azur
 
 V tématu [clusteru HDInsight se Upgrade na novější verzi](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Otevřete webovému uživatelskému rozhraní Ambari
+
+Ambari poskytuje intuitivní, snadno použitelné Hadoop správu webového uživatelského rozhraní zajištěna jeho rozhraní RESTful API. Ambari umožňuje správci systému pro správu a sledování clusterů systému Hadoop.
+
+1. Otevřete cluster služby HDInsight z portálu Azure.  V tématu [seznamu a zobrazit clustery](#list-and-show-clusters).
+2. Klikněte na tlačítko **clusteru řídicí panel**.
+
+    ![Nabídky clusteru HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Zadejte uživatelské jméno clusteru a heslo.  Výchozí uživatelské jméno clusteru _správce_. Ambari webového uživatelského rozhraní vypadá takto:
+
+    ![HDInsight Hadoop Ambari Web UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Další informace najdete v tématu [Správa clusterů HDInsight pomocí webového uživatelského rozhraní Ambari](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Změna hesla
 Cluster služby HDInsight může mít dva uživatelské účty. HDInsight clusteru (také známa jako uživatelský účet. Uživatelský účet HTTP) a vytvoří se během procesu vytváření uživatelského účtu SSH. Chcete-li změnit clusteru uživatel účet uživatelské jméno a heslo a akce skriptu ke změně účtu uživatele SSH můžete použít webovému uživatelskému rozhraní Ambari
 
@@ -266,8 +281,8 @@ Ambari poté změní heslo na všech uzlech v clusteru.
 
    | Pole | Hodnota |
    | --- | --- |
-   | Name (Název) |Ssh heslo změnit |
-   | Skript bash identifikátor URI |Identifikátor URI k souboru changepassword.sh |
+   | Název |Ssh heslo změnit |
+   | URI skriptu Bash |Identifikátor URI k souboru changepassword.sh |
    | Uzly (Head, pracovního procesu, Nimbus, nadřízeného, Zookeeper atd.) |✓ pro všechny typy uzlů, které jsou uvedené |
    | Parametry |Zadejte uživatelské jméno SSH a pak nové heslo. Měla by existovat jediného místa mezi uživatelské jméno a heslo. |
    | Zachovat tuto akci skriptu... |Nechte pole nezaškrtnuté. |
@@ -349,7 +364,7 @@ Pomocí portálu Azure, můžete procházet obsah výchozí kontejner.
 * [Použití Hivu se službou HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Použití SSH s HDInsightem](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto článku jste se naučili některé základní funkce správy. Další informace naleznete v následujících článcích:
 

@@ -2,17 +2,17 @@
 title: "Azure mřížky události doručení a zkuste to znovu"
 description: "Popisuje, jak Azure událostí mřížky doručí události a jak zpracovává nedoručených zpráv."
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Doručení zpráv událostí mřížky a zkuste to znovu 
 
@@ -40,7 +40,7 @@ Následující kódy odpovědi HTTP znamenat, že události doručení pokus se 
 - 404 – Nenalezeno
 - 408 časový limit požadavku.
 - 414 URI příliš dlouhý
-- 500 vnitřní chybu serveru
+- 500 Internal Server Error
 - 503 Služba nedostupná
 - Vypršel časový limit 504 brány
 
@@ -58,11 +58,11 @@ Událost mřížky používá zásady opakování exponenciálního omezení ryc
 6. 30 minut
 7. 1 hodina
 
-Událost mřížky přidá malé náhodné přeskupování všechny intervalech zkuste to znovu.
+Událost mřížky přidá malé náhodné přeskupování všechny intervalech zkuste to znovu. Po jedné hodině události doručení proběhne jednou za hodinu.
 
 ## <a name="retry-duration"></a>Opakujte doba trvání
 
-Ve verzi Preview vyprší mřížky událostí Azure všechny události, které nejsou doručeny během dvou hodin.
+Azure mřížky událostí vyprší všechny události, které nejsou doručeny do 24 hodin.
 
 ## <a name="next-steps"></a>Další postup
 

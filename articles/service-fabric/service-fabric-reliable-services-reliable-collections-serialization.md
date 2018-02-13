@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0687baf12a48788d86467b1f1a822b5d9050e5d5
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Spolehlivé serializace objektu kolekce v Azure Service Fabric
 Spolehlivé kolekce replikovat a zachovat jejich položky a ujistěte se, že jsou odolné napříč selhání počítače a výpadky napájení.
@@ -33,22 +33,22 @@ Správce spolehlivé stavu zahrnuje integrovanou serializátor pro některé bě
 Předdefinované serializátorů jsou efektivnější, protože vědí, nelze změnit jejich typy a není potřeba zahrnovat informace o typu jako její název typu.
 
 Správce spolehlivé stavu má integrovanou serializátor pro následující typy: 
-- Identifikátor GUID
+- Guid
 - BOOL
-- Bajtů
-- SByte –
-- Byte]
+- byte
+- SByte
+- Byte
 - Char
-- Řetězec
+- řetězec
 - Decimal
-- Double
-- Plovoucí desetinná čárka
+- double
+- float
 - celá čísla
 - uint
 - dlouhá
-- ulong –
+- ulong
 - krátký
-- ushort –
+- ushort
 
 ## <a name="custom-serialization"></a>Vlastní serializace
 
@@ -56,7 +56,7 @@ Vlastní serializátorů se běžně používají, pokud chcete zvýšit výkon,
 
 [IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) slouží k registraci vlastní serializátor pro daný typ T. Tato registrace musí dojít při sestavování StatefulServiceBase, před zahájením obnovení, všechny spolehlivé kolekce získali přístup k příslušné serializátor číst jejich trvalá data.
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -79,7 +79,7 @@ Vlastní serializátor musí implementovat [IStateSerializer<T> ](https://docs.m
 
 Následuje příklad vlastního typu, v názvem OrderKey, který obsahuje čtyři vlastnosti
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -98,7 +98,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 Následuje příklad implementace IStateSerializer<OrderKey>.
 Všimněte si, že čtení a zápis přetížení, které provést ve baseValue, jejich příslušné přetížení volání pro předávání kompatibility.
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)
@@ -147,7 +147,7 @@ Vlastní serializátor uživatelé by měl splňovat pokyny serializátoru, kter
 Běžný způsob podpory všechny verze je přidání informací o velikosti od začátku a jenom přidávání volitelné vlastnosti.
 Tímto způsobem jednotlivých verzí může číst mnohem můžete a přejít přes zbývající část datového proudu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
   * [Serializace a upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Referenční informace pro vývojáře pro spolehlivé kolekce](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [Upgrade vaší aplikace pomocí sady Visual Studio](service-fabric-application-upgrade-tutorial.md) vás provede upgrade aplikace pomocí sady Visual Studio.

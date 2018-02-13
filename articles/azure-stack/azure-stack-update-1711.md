@@ -3,7 +3,7 @@ title: "Aktualizace zásobníku Azure 1711 | Microsoft Docs"
 description: "Další informace o tom, co je v aktualizaci 1711 pro Azure zásobníku integrované systémy, známé problémy a kde se stáhnout aktualizaci."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure aktualizace 1711 zásobníku
 
@@ -62,7 +62,7 @@ Tato aktualizace zahrnuje následující vylepšení a opravy pro Azure zásobn�
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 nové funkce a opravy
 
 - [14 listopadu 2017 – KB4048953 (sestavení operačního systému 14393.1884)](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Známé problémy s proces aktualizace
 
 Tato část obsahuje známé problémy, které mohou nastat při instalaci aktualizace 1711.
@@ -97,7 +97,7 @@ Tato část obsahuje po instalaci Známé problémy s sestavení **20171201.3**.
 
    - Může se zobrazit prázdný řádek v horní části seznamu. By měl mít pořád povolený výběr položky podle očekávání.
    - Pokud je seznam položek v rozevíracím seznamu krátký, asi nebudete moci zobrazit některé názvy položek.
-   - Pokud máte více předplatných uživatele, rozevíracího seznamu skupiny prostředků může být prázdná. 
+   - Pokud máte více předplatných uživatele, rozevíracího seznamu skupiny prostředků může být prázdná.
 
         > [!NOTE]
         > Obejít poslední dva problémy, můžete zadat název předplatné nebo skupinu prostředků (pokud ho znáte), nebo můžete místo toho použít PowerShell.
@@ -118,18 +118,18 @@ Tato část obsahuje po instalaci Známé problémy s sestavení **20171201.3**.
 - Můžete nakonfigurovat dostupnost virtuálního počítače nastavit pouze u domény selhání jednoho a doméně aktualizace jednoho.
 - Neexistuje žádné zkušenosti marketplace pro vytvoření sady škálování virtuálního počítače. Můžete vytvořit škálování nastavit pomocí šablony.
 - Nastavení škálování pro sady škálování virtuálního počítače nejsou k dispozici na portálu. Jako alternativní řešení, můžete použít [prostředí Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Z důvodu rozdílů verze prostředí PowerShell, je nutné použít `-Name` parametr místo `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Sítě
 - Nástroj pro vyrovnávání zatížení s veřejnou IP adresu nelze vytvořit pomocí portálu. Jako alternativní řešení můžete použít PowerShell k vytvoření nástroje pro vyrovnávání zatížení.
 - Když vytvoříte Vyrovnávání zatížení sítě, musíte vytvořit pravidlo překladu adres sítě. Pokud to neuděláte, obdržíte chybu při pokusu přidat pravidlo NAT po vytvoření nástroje pro vyrovnávání zatížení.
 - Veřejnou IP adresu z virtuálního počítače (VM) nelze zrušit přidružení, po virtuálního počítače byla vytvořena a související s touto adresou IP. Zrušení přidružení se zobrazí postup, ale pořád přidruženy původní virtuální počítač dříve přiřazenou veřejnou IP adresu. K tomuto chování dochází i v případě, že je přiřadit IP adresu na nový virtuální počítač (obvykle označuje jako *prohození*). Všechny budoucí pokusy o připojení přes tuto IP adresu povede připojení do původně přidružený virtuální počítač a ne do nového. V současné době je nutné pouze použít nové veřejné IP adresy pro vytvoření nového virtuálního počítače.
 - Operátory Azure zásobníku může nelze nasadit, odstraňovat, upravovat virtuální sítě nebo skupiny zabezpečení sítě. Tento problém je primárně zobrazit na následné aktualizace pokusy stejného balíčku. To je způsobeno problémem balení s aktualizaci, která je aktuálně šetření.
 - Interní Vyrovnávání zatížení (ILB) nesprávně zpracovává adresy MAC pro virtuální počítače back-end, které dělí instance systému Linux.
- 
-#### <a name="sqlmysql"></a>SQL nebo MySQL
-- To může trvat až jednu hodinu, než klienti databáze můžete vytvářet v nové SQL nebo MySQL SKU. 
+
+#### <a name="sqlmysql"></a>SQL/MySQL
+- To může trvat až jednu hodinu, než klienti databáze můžete vytvářet v nové SQL nebo MySQL SKU.
 - Vytvoření položky přímo na SQL a MySQL hostitelské servery, které nejsou prováděné poskytovatelem prostředků není podporována a může mít za následek neodpovídající stavu.
- 
+
 #### <a name="app-service"></a>App Service
 - Uživatel musí zaregistrovat zprostředkovatele prostředku úložiště dřív, než vytvoří jejich první funkce Azure v rámci předplatného.
 
@@ -149,7 +149,7 @@ V Azure Active Directory Federation Services (ADFS) nasazené prostředí, **azu
 - **Povolení zálohování infrastruktury na ASDK je jenom pro účely testování.**  
   Infrastruktura zálohování můžete použít k obnovení několika uzly řešení. Můžete povolit zálohování infrastruktury na ASDK, ale neexistuje žádný způsob, jak otestovat obnovení.
 
-Další informace najdete v části [zálohování a data obnovení pro zásobník Azure pomocí služby Backup infrastruktury](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+Další informace najdete v tématu [zálohování a data obnovení pro zásobník Azure pomocí služby Backup infrastruktury](azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Stažení aktualizace
 

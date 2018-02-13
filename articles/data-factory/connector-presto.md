@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 9d272072ce77aca159edb36a6b7a78c94aee476d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 713826f890f6fb37a1e231d84e7e3c3b149dd58a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Kopírování dat z Presto pomocí Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke Presto konektoru.
 
@@ -48,19 +48,19 @@ Pro Presto propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Presto** | Ano |
-| hostitel | IP adresu nebo název hostitele serveru Presto. (tj. 192.168.222.160)  | Ano |
-| endVerze | Verze serveru Presto. (tj. 0.148-t)  | Ano |
+| hostitel | IP adresu nebo název hostitele serveru Presto. (i.e. 192.168.222.160)  | Ano |
+| serverVersion | Verze serveru Presto. (tj. 0.148-t)  | Ano |
 | Katalog | Kontext katalogu pro všechny žádosti na server.  | Ano |
 | port | Port TCP, který používá Presto server naslouchat pro připojení klientů. Výchozí hodnota je 8080.  | Ne |
 | authenticationType. | Mechanismus ověřování používaný pro připojení k serveru Presto. <br/>Povolené hodnoty jsou: **anonymní**, **LDAP** | Ano |
 | uživatelské jméno | Uživatelské jméno používané pro připojení k serveru Presto.  | Ne |
-| heslo | Heslo odpovídající uživatelské jméno. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
+| heslo | Heslo odpovídající uživatelské jméno. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 | enableSsl | Určuje, zda jsou šifrované připojení k serveru pomocí protokolu SSL. Výchozí hodnota je false.  | Ne |
 | trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority pro ověření serveru při připojení přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na vlastním hostováním infračerveného signálu. Výchozí hodnota je soubor cacerts.pem nainstalované s infračerveného signálu.  | Ne |
 | useSystemTrustStore | Určuje, jestli se má použít certifikát Certifikační autority z úložiště důvěryhodnosti systému nebo z určeného souboru PEM. Výchozí hodnota je false.  | Ne |
 | allowHostNameCNMismatch | Určuje, jestli chcete vyžadovat protokol SSL vydaný certifikační Autoritou název certifikátu shodovat s názvem hostitele serveru při připojení přes protokol SSL. Výchozí hodnota je false.  | Ne |
 | allowSelfSignedServerCert | Určuje, jestli se má povolit certifikáty podepsané svým držitelem ze serveru. Výchozí hodnota je false.  | Ne |
-| ID časové zóny | Místní časové pásmo používaný pro připojení. Platné hodnoty pro tuto možnost, jsou určené v databázi IANA časové pásmo. Výchozí hodnota je systémovým časovým pásmem.  | Ne |
+| timeZoneID | Místní časové pásmo používaný pro připojení. Platné hodnoty pro tuto možnost, jsou určené v databázi IANA časové pásmo. Výchozí hodnota je systémovým časovým pásmem.  | Ne |
 
 **Příklad:**
 
@@ -107,7 +107,7 @@ Ke zkopírování dat z Presto, nastavte vlastnost typu datové sady, která **P
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Presto zdroje.
 

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 180a476445760930ab4f3505e0e6e9474e404445
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a0f1d9aa733e023bbc544e28ce4d4a89168f7398
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Nasazení clusteru Docker Swarm
 
@@ -25,7 +25,7 @@ Tento rychlý start vyžaduje použití Azure CLI verze 2.0.4 nebo novější. V
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logická skupina, ve které se nasazují a spravují prostředky Azure.
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Skupina prostředků Azure je logická skupina, ve které se nasazují a spravují prostředky Azure.
 
 Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *westus*.
 
@@ -50,7 +50,7 @@ Výstup:
 
 ## <a name="create-docker-swarm-cluster"></a>Vytvoření clusteru Docker Swarm
 
-Vytvořte cluster Docker Swarm ve službě Azure Container Service pomocí příkazu [az acs create](/cli/azure/acs#create). 
+Vytvořte cluster Docker Swarm ve službě Azure Container Service pomocí příkazu [az acs create](/cli/azure/acs#az_acs_create). 
 
 Následující příklad vytvoří cluster *mySwarmCluster* s jedním hlavním linuxovým uzlem a třemi agentskými linuxovými uzly.
 
@@ -58,7 +58,7 @@ Následující příklad vytvoří cluster *mySwarmCluster* s jedním hlavním 
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-V některých případech, například s omezenou zkušební verzí, má předplatné Azure omezený přístup k prostředkům Azure. Pokud se nasazení nezdaří kvůli omezenému počtu dostupných jader, snižte výchozí počet agentů přidáním možnosti `--agent-count 1` do příkazu [az acs create](/cli/azure/acs#create). 
+V některých případech, například s omezenou zkušební verzí, má předplatné Azure omezený přístup k prostředkům Azure. Pokud se nasazení nezdaří kvůli omezenému počtu dostupných jader, snižte výchozí počet agentů přidáním možnosti `--agent-count 1` do příkazu [az acs create](/cli/azure/acs#az_acs_create). 
 
 Po několika minutách se příkaz dokončí a vrátí informace o clusteru ve formátu JSON.
 
@@ -109,7 +109,7 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    image: microsoft/azure-vote-front:redis-v1
+    image: microsoft/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -127,9 +127,9 @@ Výstup:
 
 ```bash
 Creating network "user_default" with the default driver
-Pulling azure-vote-front (microsoft/azure-vote-front:redis-v1)...
-swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:redis-v1...
-swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:redis-v1... : downloaded
+Pulling azure-vote-front (microsoft/azure-vote-front:v1)...
+swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:v1...
+swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:v1... : downloaded
 Pulling azure-vote-back (redis:latest)...
 swarm-agent-EE873B23000004: Pulling redis:latest... : downloaded
 Creating azure-vote-front ... 
@@ -145,7 +145,7 @@ Přejděte na IP adresu fondu agentských uzlů Swarm a otestujte aplikaci Azure
 ![Obrázek přechodu na aplikaci Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Odstranění clusteru
-Pokud už cluster nepotřebujete, můžete k odebrání skupiny prostředků, služby kontejneru a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete).
+Pokud už cluster nepotřebujete, můžete k odebrání skupiny prostředků, služby kontejneru a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

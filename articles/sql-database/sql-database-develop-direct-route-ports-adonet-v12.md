@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: ea184cce4217e6c81c02740f0d6ccf79cc1c1c4a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3004edee0096d2e1594679371fb162b392e67f9a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porty nad rámec 1433 pro technologii ADO.NET 4.5
 Toto téma popisuje chování připojení databáze SQL Azure pro klienty, kteří používají ADO.NET 4.5 nebo novější. 
@@ -35,7 +35,7 @@ Pro připojení k databázi SQL Azure, musíte nejprve požádáme zda váš kli
 Port 1433 je jediný port, který musí být otevřený v počítači, který je hostitelem klientské aplikace SQL Database.
 
 #### <a name="inside-client-runs-on-azure"></a>*Uvnitř:* klienta běží na Azure
-Váš klient běží v rámci hranic cloudu Azure, používá, můžete takzvaný *přímé trasy* komunikovat se serverem SQL Database. Po vytvoření připojení, další interakce mezi klientem a databáze zahrnovat žádný proxy server middleware.
+Váš klient běží v rámci hranic cloudu Azure, používá, můžete takzvaný *přímé trasy* komunikovat se serverem SQL Database. Po vytvoření připojení, další interakce mezi klientem a databáze zahrnovat žádná brána databáze SQL Azure.
 
 Pořadí je následující:
 

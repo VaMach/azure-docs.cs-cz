@@ -2,17 +2,18 @@
 title: "Azure zásobníku datacenter integrace – Publikování koncové body"
 description: "Zjistěte, jak publikovat koncové body Azure zásobníku ve vašem datovém centru"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure zásobníku datacenter integrace – Publikování koncové body
 
@@ -45,11 +46,13 @@ Interní infrastruktury virtuální IP adresy nejsou uvedené, protože není js
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Seznam odvolaných certifikátů|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP A UDP|53|
-|Key Vault (uživatel)|*.Vault.*  &lt;oblast >.&lt; plně kvalifikovaný název domény > *|TCP|443|
-|Key Vault (správce)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Key Vault (uživatel)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault (správce)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Fronta úložiště|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Tabulka úložiště|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Objekt Blob úložiště|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Zprostředkovatel prostředků SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Poskytovatel prostředků MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## <a name="ports-and-urls-outbound"></a>Porty a adresy URL (odchozí)
 
@@ -64,49 +67,6 @@ Azure zásobníku podporuje pouze transparentní proxy servery. V nasazení, kde
 |Registrace|https://management.azure.com|HTTPS|443|
 |Využití|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## <a name="firewall-publishing"></a>Publikování brány firewall
-
-Porty uvedené v předchozí části platí pro příchozí komunikaci, při publikování zásobníku služby Azure přes existující bránu firewall.
-
-Doporučujeme, abyste se použít zařízení brány firewall ke zvýšení zabezpečení Azure zásobníku. Je však není explicitní požadavek. I když se třeba k útokům (DDOS) distribuované denial-of-service a prověřování obsahu vám může pomoci brány firewall, budou také k propustnost úzkým místem pro služby Azure storage jako objekty BLOB, tabulek a front.
-
-Podle modelu Identity (Azure AD ani AD FS), může nebo nemusí být pro publikování koncový bod služby AD FS vyžaduje. Pokud se používá režim odpojené nasazení, musíte publikovat koncový bod služby AD FS. (Další informace najdete v tématu Datacenter integraci identity.)
-
-Azure Resource Manager (správce), portál správce a koncové body Key Vault (správce) nevyžadují nutně externí publikování. To závisí na scénáři. Například jako poskytovatele služeb, můžete omezit prostor k útoku a jenom správu zásobník Azure z uvnitř vaší sítě a nikoli z Internetu.
-
-V organizaci, enterprise externí síti může být existující podnikové síti. V takové situaci musíte publikovat těchto koncových bodů provoz zásobník Azure z podnikové sítě.
-
-## <a name="edge-firewall-scenario"></a>Scénář hraniční brány firewall
-
-V nasazení okraj je zásobník Azure nasadit přímo za hraniční směrovač (poskytovatel) s nebo bez brány firewall úrovních před ním.
-
-![Diagram architektury nasazení edge Azure zásobníku](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-Obvykle jsou veřejné směrovatelné IP adresy zadané pro fondu veřejných virtuálních IP adres v době nasazení v nasazení okraj. Tento scénář umožňuje uživatelům mít úplná samoobslužné řízené cloudové prostředí jako ve veřejné cloud jako je například Azure.
-
-### <a name="using-nat"></a>Použití NAT
-
-I když se nedoporučuje kvůli režijní náklady, můžete použít překlad adres (NAT) pro publikování koncové body. Pro koncový bod publikování, které plně řídí uživatelé, to vyžaduje pravidlo NAT na uživatele VIP, který obsahuje všechny porty, které může uživatel použít.
-
-Je potřeba zamyslet se, že Azure nepodporuje nastavení tunelového připojení sítě VPN pro koncový bod pomocí NAT v případě hybridního cloudu s Azure.
-
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>Scénáře brány firewall Enterprise, intranetu nebo hraniční síti
-
-V nasazení služby enterprise, intranetu nebo hraniční zásobník Azure nasadí nad rámec druhá brána firewall, která je obvykle součástí hraniční síti (označované také jako DMZ).
-
-![Scénáře brány firewall Azure zásobníku](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-Pokud byly nastaveny veřejné směrovatelné IP adresy pro veřejný fondu virtuálních IP adres Azure zásobníku, tyto adresy logicky patří do hraniční sítě a vyžadovat pravidla pro publikování v primární brány firewall.
-
-### <a name="using-nat"></a>Použití NAT
-
-Pokud neveřejný směrovatelné IP adresy jsou používány pro veřejné fondu virtuálních IP adres Azure zásobníku, NAT se používá v sekundární brány firewall k publikování koncové body Azure zásobníku. V tomto scénáři budete muset nakonfigurovat pravidla pro publikování v bráně firewall primární za okraj a na sekundární brány firewall. Pokud chcete použít NAT, zvažte následující body:
-
-- NAT přidá zatížení při správě pravidel brány firewall, protože uživatelé řídit své vlastní koncové body a vlastní pravidla pro publikování v zásobníku softwarově definované sítě (SDN). Uživatelé musí kontaktovat operátor zásobník Azure získat jejich VIP publikována a k aktualizaci seznamu port.
-- Při použití NAT limity činnost koncového uživatele, poskytuje úplné řízení ke operátor přes publikování požadavky.
-- Pro hybridní scénáře cloudu s Azure zvažte, že Azure nepodporuje nastavení tunelového připojení sítě VPN pro koncový bod pomocí adres (NAT)
-
 
 ## <a name="next-steps"></a>Další postup
-
-[Zásobník datacenter integrace se službou Azure - zabezpečení](azure-stack-integrate-security.md)
+[Požadavky pro Azure zásobníku infrastruktury veřejných KLÍČŮ](azure-stack-pki-certs.md)

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Postup vytvoření bitové kopie virtuálního počítače nebo virtuální pevný disk
 
@@ -37,7 +37,7 @@ Ujistěte se, že splňujete následující požadavky:
 
 * Je nutné virtuální počítač Azure vytvořené v modelu nasazení Resource Manager pomocí spravovaných disků. Pokud jste nevytvořili virtuální počítač s Linuxem, můžete použít [portál](quick-create-portal.md), [rozhraní příkazového řádku Azure](quick-create-cli.md), nebo [šablony Resource Manageru](create-ssh-secured-vm-from-template.md). Podle potřeby nakonfigurujte virtuální počítač. Například [přidat datových disků](add-disk.md), aktualizace a instalovat aplikace. 
 
-* Také je potřeba mít nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a být přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#login).
+* Také je potřeba mít nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a být přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#az_login).
 
 ## <a name="quick-commands"></a>Rychlé příkazy
 
@@ -79,7 +79,7 @@ Pomocí Azure CLI 2.0 označit virtuální počítač jako zobecněn a zachycen�
       --name myVM
     ```
 
-3. Nyní vytvoření bitové kopie prostředků virtuálního počítače s [vytvoření bitové kopie az](/cli//azure/image#create). Následující příklad vytvoří bitovou kopii s názvem *myImage* ve skupině prostředků s názvem *myResourceGroup* pomocí prostředků virtuálního počítače s názvem *Můjvp*:
+3. Nyní vytvoření bitové kopie prostředků virtuálního počítače s [vytvoření bitové kopie az](/cli/azure/image#az_image_create). Následující příklad vytvoří bitovou kopii s názvem *myImage* ve skupině prostředků s názvem *myResourceGroup* pomocí prostředků virtuálního počítače s názvem *Můjvp*:
    
     ```azurecli
     az image create \
@@ -91,7 +91,7 @@ Pomocí Azure CLI 2.0 označit virtuální počítač jako zobecněn a zachycen�
    > Obrázek se vytvoří ve stejné skupině prostředků jako vašeho zdrojového virtuálního počítače. Virtuální počítače můžete vytvořit v libovolné skupině prostředků v rámci vašeho předplatného z této bitové kopie. Z hlediska správy můžete chtít vytvořit skupinu prostředků specifické pro vaše prostředky virtuálních počítačů a bitové kopie.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Krok 3: Vytvoření virtuálního počítače ze zaznamenané bitové kopie
-Vytvoření virtuálního počítače pomocí bitové kopie vytvořené pomocí [vytvořit virtuální počítač az](/cli/azure/vm#create). Následující příklad vytvoří virtuální počítač s názvem *myVMDeployed* z bitové kopie s názvem *myImage*:
+Vytvoření virtuálního počítače pomocí bitové kopie vytvořené pomocí [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create). Následující příklad vytvoří virtuální počítač s názvem *myVMDeployed* z bitové kopie s názvem *myImage*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>Vytvoření virtuálního počítače v jiné skupině prostředků 
 
-Virtuální počítače můžete vytvořit z image v libovolné skupině prostředků v rámci vašeho předplatného. Pokud chcete vytvořit virtuální počítač v jiné skupině prostředků než bitovou kopii, zadejte je úplné ID prostředku do bitové kopie. Použití [seznamu obrázků az](/cli/azure/image#list) zobrazení seznamu obrázků. Výstup se podobá následujícímu příkladu:
+Virtuální počítače můžete vytvořit z image v libovolné skupině prostředků v rámci vašeho předplatného. Pokud chcete vytvořit virtuální počítač v jiné skupině prostředků než bitovou kopii, zadejte je úplné ID prostředku do bitové kopie. Použití [seznamu obrázků az](/cli/azure/image#az_image_list) zobrazení seznamu obrázků. Výstup se podobá následujícímu příkladu:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -112,7 +112,7 @@ Virtuální počítače můžete vytvořit z image v libovolné skupině prostř
    "name": "myImage",
 ```
 
-Následující příklad používá [vytvořit virtuální počítač az](/cli/azure/vm#create) vytvoření virtuálního počítače v jiné skupině prostředků než zdrojové bitové kopie zadáním ID prostředku bitové kopie:
+Následující příklad používá [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) vytvoření virtuálního počítače v jiné skupině prostředků než zdrojové bitové kopie zadáním ID prostředku bitové kopie:
 
 ```azurecli
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>Krok 4: Ověření nasazení
 
-Nyní SSH k virtuálnímu počítači, který jste vytvořili pro ověření nasazení a začít používat nový virtuální počítač. Pro připojení pomocí protokolu SSH, najít IP adresu nebo plně kvalifikovaný název domény vašeho virtuálního počítače s [az virtuálních počítačů zobrazit](/cli/azure/vm#show):
+Nyní SSH k virtuálnímu počítači, který jste vytvořili pro ověření nasazení a začít používat nový virtuální počítač. Pro připojení pomocí protokolu SSH, najít IP adresu nebo plně kvalifikovaný název domény vašeho virtuálního počítače s [az virtuálních počítačů zobrazit](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -135,7 +135,7 @@ az vm show \
    --show-details
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Můžete vytvořit víc virtuálních počítačů z vaší zdrojové bitové kopie virtuálního počítače. Pokud potřebujete provést změny do bitové kopie: 
 
 - Vytvořte virtuální počítač z bitové kopie.

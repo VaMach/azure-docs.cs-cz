@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: b48ba1a1a47bc27e1d394e6fa56826df1eb742dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Připojení virtuálního počítače Red Hat Enterprise Linux 7 ke spravované doméně
 Tento článek ukazuje, jak připojit virtuální počítač Red Hat Enterprise Linux (RHEL) 7 k spravované doméně služby Azure AD Domain Services.
@@ -34,7 +34,7 @@ Chcete-li provést úkoly vypsané v tomto článku, je třeba:
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Zřídit virtuální počítač Red Hat Enterprise Linux
 Zřízení virtuálního počítače s RHEL 7 v Azure, pomocí kteréhokoli z následujících metod:
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [portál Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -69,7 +69,7 @@ V souboru hostitele zadejte následující hodnotu:
 V dalším kroku instalovat balíčky požadované pro připojení k doméně na virtuálním počítači. V terminálu SSH zadejte následující příkaz pro instalaci požadovaných balíčků:
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 

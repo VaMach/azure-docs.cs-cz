@@ -1,6 +1,6 @@
 ---
-title: "Potřebujete pomoc s portálem Moje aplikace v Azure Active Directory | Microsoft Docs"
-description: "Získáte pokyny k provádění běžných úloh při práci s na přístupovém panelu."
+title: "Zobrazit nápovědu k přístupu a použití portálu Moje aplikace v Azure Active Directory | Microsoft Docs"
+description: "Získáte pomoc s přihlášením a provádět běžné úkoly na přístupovém panelu."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,123 +15,109 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="do-you-need-help-with-the-my-apps-portal"></a>Potřebujete pomoci s portálem Moje aplikace?
+# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Řešení problémů s přístupu a použití portálu Moje aplikace
 
-Pravděpodobně bylo dosaženo této stránce vzhledem k tomu, že je bohužel běžely problém při použití aplikace My portálu. Když ale existují případy, které vyžadují, abyste obraťte se na helpdesk nebo správce získat problém vyřešit, tady jsou některé řešení potíží témata, která může být schopen pomoci nejprve.
+Pokud dojde k problémům s přihlášením nebo pomocí portálu Moje aplikace, zkuste tyto tipy k řešení potíží se předtím, než se obrátíte pomoc helpdesk nebo na správce.
 
 ## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Mám problémy při přihlášení k portálu Moje aplikace
 
-Obecné problémy zkontrolujte:
+Zkuste tyto Obecné tipy pro:
 
-- Zkontrolujte, pokud se přihlašujete do správnou adresu URL: [https://myapps.microsoft.com](https://myapps.microsoft.com)
-
+- První, kontrola, pokud chcete zobrazit, zda používáte správnou adresu URL, [https://myapps.microsoft.com](https://myapps.microsoft.com).
 - Zkuste přidat adresu URL do prohlížeče důvěryhodných serverů.
-
-- Zajistěte, aby není platnost nebo zapomenete heslo. Zkontrolujte [sem](active-directory-passwords-update-your-own-password.md) další podrobnosti o tom, jak aktualizovat heslo.
-
-- Zkontrolujte, jestli si kontaktní údaje ověřování je aktuální a není blokuje přístup. Zkontrolujte [sem](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) další podrobnosti o nastavení informace o vašem ověřování.
-
+- Ujistěte se, že vaše heslo je správný a jestli nevypršela platnost. Další informace najdete v tématu [resetovat heslo pracovního nebo školního](active-directory-passwords-update-your-own-password.md).
+- Zkontrolujte, že vaše kontaktní údaje ověřování je aktuální a není blokuje přístup. Další informace najdete v tématu [co Azure Multi-Factor Authentication znamená pro mě nejlepší?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
 - Vymažte soubory cookie v prohlížeči a zkuste se znovu přihlásit.
 
-Pokud jsou stále dochází k problémům při pokusu o přihlášení, kontaktujte prosím správce o další pomoc.
+Pokud jsou stále dochází k problémům při pokusu o přihlášení, obraťte se na správce.
 
 
-## <a name="how-do-i-update-my-password"></a>Jak aktualizovat hesla?
+## <a name="i-seem-to-be-having-password-issues"></a>I se zdá, že se heslo problémy s
 
-Pokud jste heslo zapomněli, nikdy přijaté z pracovníci IT, byl uzamčen z vašeho účtu a chcete ho změnit, najdete v článku [nápovědy, zapomenuté heslo Azure AD](active-directory-passwords-update-your-own-password.md) další podrobnosti.
+Pokud zapomněli jste heslo nikdy přijaté z pracovníci IT, váš účet uzamčen nebo chcete změnit heslo, najdete v části [nápovědy, zapomenuté heslo Azure AD](active-directory-passwords-update-your-own-password.md).
 
-## <a name="how-do-i-register-for-password-reset"></a>Jak zaregistrovat pro resetování hesla?
+## <a name="i-need-to-register-for-password-reset"></a>Potřebuji zaregistrovat pro resetování hesla
 
-Jako koncový uživatel můžete resetovat heslo nebo odemknout účet bez nutnosti řeči na uživatele, kteří používají samoobslužné resetování hesla (SSPR). Před použitím této funkce si budete muset zaregistrovat metody ověřování nebo potvrdit předdefinované metody ověřování, které připravil správce. Další podrobnosti najdete v tématu [registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
+Můžete resetovat heslo nebo odemknout účet bez nutnosti s někým mluvit pomocí samoobslužné resetování hesla (SSPR). Před použitím této funkce, musí zaregistrovat vaše metody ověřování nebo potvrďte metody předdefinované ověřování, které váš správce vyžaduje. Další informace najdete v tématu [registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
 
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Mám problémy při instalaci rozšíření Moje aplikace zabezpečené přihlašování
 
-Zkontrolujte, pokud byly splněny požadavky na prohlížeč:
+Moje aplikace portál vyžaduje prohlížeč, který podporuje jazyk JavaScript a aktivoval šablon stylů CSS. Používáte-li heslo aplikace založené na jednom přihlášení, doprovodné rozšíření musí být nainstalována také. Toto rozšíření je stažen automaticky při spuštění aplikace, který je nakonfigurován pro heslo aplikace založené na jednom přihlášení.
 
-- Na portálu vyžaduje prohlížeč, který podporuje jazyk JavaScript a aktivoval šablon stylů CSS. Používáte-li heslo aplikace založené na jednom přihlášení, doprovodné rozšíření musí být nainstalována také. Toto rozšíření je stažen automaticky při spuštění aplikace, který je nakonfigurován pro heslo aplikace založené na jednom přihlášení.
+Zkontrolujte, zda byly splněny následující požadavky na prohlížeč:
+- **Hraniční**: v systému Windows 10 Anniversary Edition nebo novějším.
+- **Chrome**: v systému Windows 7 nebo novější a Mac OS X nebo novější.
+- **Firefox 26.0 nebo novější**: v systému Windows XP SP2 nebo novější a Mac OS X 10.6 nebo novější.
+- **Internet Explorer 8, 9, 10, 11**: na Windows 7 nebo novější (omezená podpora).
 
-- Požadavky na prohlížeč pro rozšíření jsou:
-    - Hraniční Windows 10 Anniversary Edition nebo novější.
-    - Chrome na systému Windows 7 nebo novější a v systému MacOS X nebo novější
-    - Firefox 26.0 nebo novější na systému Windows XP SP2 nebo novější a na Mac OS X 10.6 nebo novější
-    - Internet Explorer 8, 9, 10, 11 na Windows 7 nebo novější (omezená podpora)
-
-Můžete také stáhnout rozšíření pro Chrome a hraniční z přímé odkazy níže:
+Můžete také stáhnout rozšíření pro Chrome a hraniční přímo z následujících lokalit:
 
 - [Rozšíření Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-
 - [Rozšíření Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-Po instalaci zkuste následující kroky, pokud narazíte na problémy:
+Pokud jste nainstalovali rozšíření ale stále má problémy, zkuste následující postup:
 
-- Zkontrolujte v nastavení prohlížeče rozšíření povolení rozšíření.
-
+- Zkontrolujte nastavení rozšíření prohlížeče a ujistěte se, že je povolena rozšíření.
 - Restartujte prohlížeč a přihlaste se k portálu Moje aplikace.
-
 - Vymažte soubory cookie prohlížeče a přihlaste se k portálu Moje aplikace.
-- Postupujte podle [řešení potíží s příponou Panel přístupu pro Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) Průvodce pro přístup k nástroj pro diagnostiku a podrobné pokyny ke konfiguraci rozšíření pro aplikaci Internet Explorer.
+- Pro přístup k nástroj pro diagnostiku a podrobné pokyny ke konfiguraci rozšíření pro Internet Explorer, najdete v části [řešení potíží s příponou Panel přístupu pro Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Použití rozšíření Moje aplikace zabezpečené přihlašování
-Změna výchozí URL pro rozšíření Moje aplikace
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Použití v mé aplikace zabezpečené přihlašování rozšíření
+* Pokud používáte Moje adresa URL aplikace jiné než `https://myapps.microsoft.com`, nakonfigurujte výchozí adresu URL pomocí těchto kroků:
+   1. Když jste *není* přihlášení k rozšíření, klikněte pravým tlačítkem na ikonu rozšíření.
+   2. V nabídce vyberte **Moje adresa URL aplikace**.
+   3. Vyberte výchozí adresa URL.
+   4. Vyberte ikonu pro rozšíření.
+   5. Přihlaste se k rozšíření, vyberte **Přihlaste se k Začínáme**.
 
-Pokud používáte jinou adresu URL Moje aplikace než https://myapps.microsoft.com musíte nakonfigurovat výchozí adresa URL, když následující kroky:
-1. Když nejste do rozšíření, **klikněte pravým tlačítkem na** ikonu rozšíření.
-2. Klikněte na **vyberte adresu URL Moje aplikace** z nabídky.
-3. **Vyberte** výchozí adresa URL.
-4. Klikněte na ikonu rozšíření.
-5. Přihlaste se do rozšíření výběrem **Přihlaste se k Začínáme**.
+* Přihlaste se k aplikaci přímo z prohlížeče, takto:
+   1. Po instalaci rozšíření, přihlaste se k němu výběrem **Přihlaste se k Začínáme**.
+   2. Přihlaste se k aplikaci pomocí adresy URL přihlašování.  
+       Adresa URL přihlašování je obvykle adresu URL aplikace, které zobrazí formulář přihlášení.
+      Rozšíření by měl změnit stav a vám oznamuje, že heslo je k dispozici.
+   3. K přihlášení, vyberte ikonu rozšíření.
 
-Přihlaste se přímo do aplikace z prohlížeče
-1. Po instalaci rozšíření, přihlaste se do rozšíření výběrem **Přihlaste se k Začínáme**.
-2. Přejděte na **adresa URL přihlašování** chcete přihlásit k aplikaci, to je obvykle adresu URL aplikace, zobrazí přihlašovací formulář.
-3. Rozšíření by měl změnit stav a umožňují znát heslo je k dispozici, klikněte na **rozšíření ikonu** k přihlášení
-
-Spustí aplikaci z rozšíření
-1. Po instalaci rozšíření, přihlaste se do rozšíření výběrem **Přihlaste se k Začínáme**.
-2. Klikněte na ikonu rozšíření otevřete nabídku.
-3. **Hledání** pro aplikaci na portálu Moje aplikace k dispozici.
-4. Klikněte na aplikaci **výsledky hledání** spustíte.
-5. Poslední tři aplikace spustí se také zobrazí v **nedávno použité** zástupce seznamu
+* Spuštění aplikace z rozšíření, postupujte takto:
+   1. Po instalaci rozšíření, přihlaste se k němu výběrem **Přihlaste se k Začínáme**.
+   2. Vyberte ikonu rozšíření otevřete nabídku.
+   3. Vyhledejte aplikaci, která je k dispozici na portálu Moje aplikace.
+   4. V seznamu výsledků hledání vyberte aplikaci.  
+       Poslední tři aplikace poprvé, zobrazí se zobrazují v **nedávno použité** zástupce seznamu.
 
 > [!NOTE]
-> Tyto možnosti jsou pouze k dispozici pro Edge, Chrome, Firefox.
+> Tyto možnosti jsou k dispozici pouze pro okraj a Chrome, Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Jak lze přidat novou aplikaci?
 
-1.  Na **aplikace** klikněte na tlačítko **přidat aplikaci**.
+1.  Na **aplikace** vyberte **přidat aplikaci**.
+2.  Vyhledejte aplikaci, kterou chcete přidat a potom vyberte **přidat**.
 
-2.  Hledat aplikace, kterou chcete přidat a pak klikněte na **přidat**.
-
-**Poznámky:**
-
-- Pouze máte přístup k tuto možnost, pokud správce povolil to pro váš účet.
-
-- Pokud aplikace vyžaduje oprávnění, budete muset čekat na schválení správce.
-
+   > [!NOTE]
+   > * Tuto možnost můžete přistupovat pouze v případě, že správce má povolené pro váš účet.
+   > * Pokud aplikace vyžaduje oprávnění, možná budete muset čekat na schválení správce.
+   > 
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Jak lze spravovat Moje členství ve skupině?
 
-1. Klikněte **skupiny** dlaždici. 
-2. Chcete-li vytvořit skupinu, v rámci skupiny I vlastní, klikněte na tlačítko **vytvořit skupinu**a pak postupujte podle pokynů.
-3. O připojení ke skupině, v rámci skupiny jsem v, klikněte na tlačítko **připojit se ke skupině**a pak postupujte podle pokynů.
+Vyberte **skupiny** dlaždici, a poté proveďte jednu z následujících akcí: 
+* Chcete-li vytvořit skupinu, v části **skupiny I vlastní**, vyberte **vytvořit skupinu**a pak postupujte podle pokynů.
+* O připojení ke skupině, v části **skupiny jsem v**, vyberte **připojit se ke skupině**a pak postupujte podle pokynů.
 
-**Poznámky:**
-
-- Pouze máte přístup k tuto možnost, pokud správce povolil to pro váš účet.
-
-- Skupiny, které jsou členy umožňují zobrazit podrobnosti a nechte skupinu.
-
-- Skupiny, které jste vlastníkem vám umožní zobrazit podrobnosti, přidat nebo odebrat členy a nechte skupinu.
+   > [!NOTE]
+   > * Tuto možnost můžete přistupovat pouze v případě, že správce má povolené pro váš účet.
+   > * Pokud jste členem skupiny, můžete zobrazit podrobnosti a nechte skupinu.
+   > * Pokud jste vlastníkem skupiny, můžete zobrazit podrobnosti, přidat nebo odebrat členy a nechte skupinu.
+   >
 
 
 ## <a name="next-steps"></a>Další postup
 
-Související informace o odstraňování potíží, najdete v části [problémů pomocí aplikace přístup k panelu webu nebo mobilní aplikace](active-directory-application-access-panel-content-map.md)
+Další informace o odstraňování potíží naleznete v části [problémů pomocí aplikace přístup k panelu webu nebo mobilní aplikace](active-directory-application-access-panel-content-map.md).
 

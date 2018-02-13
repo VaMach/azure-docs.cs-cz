@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27a9297c5d4cfb52f254ceb12e37423403e7f41b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Začínáme s konektorem služby Facebook
 Připojení k síti Facebook a příspěvků na timeline, získat kanálů stránek a další. Facebook můžete:
@@ -28,7 +28,7 @@ Připojení k síti Facebook a příspěvků na timeline, získat kanálů strá
 * Používejte aktivační událost, když je obdržena nového příspěvku.
 * Použití akce, které odeslání na časové ose získat kanálů stránek a další. Tyto akce se odpověď a pak proveďte výstup k dispozici pro další akce. Například po nového příspěvku na časové ose můžete provést tento post a push na váš informační kanál sítě Twitter. 
 
-Můžete začít s vytvářením aplikace logiky teď najdete v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Můžete začít s vytvářením aplikace logiky teď najdete v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-facebook"></a>Umožňuje vytvořit připojení k síti Facebook
 Když přidáte tento konektor aplikace logiky, musíte je nejdříve autorizovat logic apps, abyste připojení k vaší službě Facebook.

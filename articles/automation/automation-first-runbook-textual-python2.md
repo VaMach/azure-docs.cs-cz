@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="my-first-python-runbook"></a>Můj první runbook Python
 
@@ -63,17 +63,16 @@ print("Hello World!")
 
 Klikněte na tlačítko **Uložit** uložit sady runbook.
 
-## <a name="test-the-runbook"></a>Otestování sady runbook
+## <a name="test-the-runbook"></a>Otestování runbooku
 
 Před publikováním runbooku, které ho zpřístupní v produkčním prostředí, byste měli runbook otestovat a ujistit se, že funguje správně. Když runbook testujete, spustíte jeho  verzi **Koncept** a interaktivně zobrazíte jeho výsledek.
 
 1. Kliknutím na **Testovací podokno** otevřete testovací podokno.
-   ![Testovací podokno](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. Kliknutím na **Spustit** spustíte test. Měla by to být jediná povolená možnost.
-1. Vytvoří se [úloha runbooku](automation-runbook-execution.md) a její stav se zobrazí.
+2. Kliknutím na **Spustit** spustíte test. Měla by to být jediná povolená možnost.
+3. Vytvoří se [úloha runbooku](automation-runbook-execution.md) a její stav se zobrazí.
    Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Přesune na *počáteční* když pracovní proces úlohu a potom *systémem* při runbook skutečně spustí.
-1. Po dokončení úlohy runbooku se zobrazí jeho výstup. V takovém případě byste měli vidět *Hello, World*.
-1. Zavřete testovací podokno a vraťte se na plátno.
+4. Po dokončení úlohy runbooku se zobrazí jeho výstup. V takovém případě byste měli vidět *Hello, World*.
+5. Zavřete testovací podokno a vraťte se na plátno.
 
 ## <a name="publish-and-start-the-runbook"></a>Publikování a spuštění sady runbook
 
@@ -82,19 +81,18 @@ Když runbook publikujete, přepíšete existující publikované verzi verzí v
 V takovém případě publikovanou verzi zatím nemáte vzhledem k tomu, že jste právě vytvořili sadu runbook.
 
 1. Kliknutím na **Publikovat** runbook publikujte a po zobrazení výzvy klikněte na **Ano**.
-   ![Tlačítko Publikovat](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. Pokud jste posunete doleva, abyste runbook viděli v **Runbooky** podokně nyní zobrazuje **stav vytváření** z **publikováno**.
+2. Pokud jste posunete doleva, abyste runbook viděli v **Runbooky** podokně nyní zobrazuje **stav vytváření** z **publikováno**.
 1. Posuňte se zpět doprava, abyste viděli podokno **MyFirstRunbook-Python**.
    Možnosti v horní části nám umožňují spuštění runbooku, zobrazení runbooku, naplánování jeho spuštění někdy v budoucnu nebo vytvoření [webhooku](automation-webhooks.md), který umožní spuštění prostřednictvím volání protokolu HTTP.
-1. Chcete spustit runbook, proto klikněte na **spustit** a pak klikněte na **Ok** po otevření okna spuštění Runbooku.
-1. Podokno úlohy se spustí úloha sady runbook, kterou jste vytvořili. V tomto podokně můžete zavřít, ale v takovém případě můžete ho můžete nechat otevřený, mohli sledovat průběh úlohy.
-1. Stav úlohy se zobrazí v **Souhrn úlohy** a odpovídá stavům, že jste viděli při testování runbooku.
-1. Když se jako stav runbooku zobrazí *Dokončeno*, klikněte na **Výstup**. Otevře se podokno výstup a zobrazí se vaše *Hello, World*.
-1. Zavřete podokno Výstup.
-1. Klikněte na **Všechny protokoly** a otevřete podokno Datové proudy, které patří k úloze runbooku. Ve výstupním datovém proudu byste měli vidět jenom text *Hello World*, ale můžou se zobrazit i jiné datové proudy z úlohy runbooku, například Podrobný nebo Chyba, pokud do nich runbook zapisuje.
-1. Zavřete podokno datové proudy a podokno úloha a vraťte se do podokna MyFirstRunbook-Python.
-1. Kliknutím na **Úlohy** otevřete podokno Úlohy, které patří k tomuto runbooku. Vypíšou se všechny úlohy, které tento runbook vytvořil. Ve výpisu by se měla zobrazit pouze jedna úloha, protože jste ji spustili jenom jednou.
-1. Na tuto úlohu můžete kliknout a otevřít podokno Úloha, které jste zobrazili při spuštění runbooku. Pomocí této možnosti se můžete vrátit v čase a zobrazit si podrobnosti libovolné úlohy, která byla pro konkrétní runbook vytvořena.
+2. Chcete spustit runbook, proto klikněte na **spustit** a pak klikněte na **Ok** po otevření okna spuštění Runbooku.
+3. Podokno úlohy se spustí úloha sady runbook, kterou jste vytvořili. V tomto podokně můžete zavřít, ale v takovém případě můžete ho můžete nechat otevřený, mohli sledovat průběh úlohy.
+4. Stav úlohy se zobrazí v **Souhrn úlohy** a odpovídá stavům, že jste viděli při testování runbooku.
+5. Když se jako stav runbooku zobrazí *Dokončeno*, klikněte na **Výstup**. Otevře se podokno výstup a zobrazí se vaše *Hello, World*.
+6. Zavřete podokno Výstup.
+7. Klikněte na **Všechny protokoly** a otevřete podokno Datové proudy, které patří k úloze runbooku. Ve výstupním datovém proudu byste měli vidět jenom text *Hello World*, ale můžou se zobrazit i jiné datové proudy z úlohy runbooku, například Podrobný nebo Chyba, pokud do nich runbook zapisuje.
+8. Zavřete podokno datové proudy a podokno úloha a vraťte se do podokna MyFirstRunbook-Python.
+9. Kliknutím na **Úlohy** otevřete podokno Úlohy, které patří k tomuto runbooku. Vypíšou se všechny úlohy, které tento runbook vytvořil. Ve výpisu by se měla zobrazit pouze jedna úloha, protože jste ji spustili jenom jednou.
+10. Na tuto úlohu můžete kliknout a otevřít podokno Úloha, které jste zobrazili při spuštění runbooku. Pomocí této možnosti se můžete vrátit v čase a zobrazit si podrobnosti libovolné úlohy, která byla pro konkrétní runbook vytvořena.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Přidání ověřování ke správě prostředků Azure
 
@@ -194,9 +192,7 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-Při spuštění sady runbook Python (buď na **Test** okno nebo jako publikované sady runbook), můžete zadat hodnoty pro parametry v **spustit sadu Runbook** okno pod **parametry**.
-
-![Parametr Hodnota pole](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+Při spuštění sady runbook Python (buď na **Test** stránky nebo jako publikované sady runbook), můžete zadat hodnoty pro parametry v **spuštění Runbooku** v části **parametry** .
 
 Po spuštění zadáním hodnoty v prvním poli, druhý se zobrazí a tak dále, tak, aby podle potřeby můžete zadat libovolný počet hodnot parametrů.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Řešení potíží: Připojení k Azure site-to-site VPN se nemůže připojit a zastaví práce
 
@@ -26,7 +26,7 @@ Po dokončení konfigurace připojení site-to-site VPN mezi místní sítí a v
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Řešení potíží
+## <a name="troubleshooting-steps"></a>postup řešení potíží
 
 Chcete-li problém vyřešit, zkuste je napřed [resetování brány Azure VPN](vpn-gateway-resetgw-classic.md) a resetovat tunelové propojení z místního zařízení VPN. Pokud potíže potrvají, postupujte podle těchto kroků zjistit příčinu problému.
 
@@ -52,7 +52,7 @@ Porovnání se sdílený klíč pro místní zařízení VPN Azure virtuální s
 
 Chcete-li zobrazit sdílený klíč pro připojení k síti VPN Azure, použijte jednu z následujících metod:
 
-**Azure Portal**
+**portál Azure Portal**
 
 1. Přejděte na připojení site-to-site VPN brány, kterou jste vytvořili.
 
@@ -87,12 +87,12 @@ Kontrolovat a odeberte uživatelem definované směrování (UDR) nebo skupiny z
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Krok 6. Ověřte, že podsítě přesně odpovídají (Azure na základě zásad brány)
 
--   Ověřte, že podsítě odpovídají přesně mezi virtuální sítí Azure a místními definice pro virtuální síť Azure.
+-   Ověřte, že virtuální sítě adres mezerou (mezerami) odpovídají přesně mezi virtuální sítí Azure a místními definice.
 -   Ověřte, že podsítí mezi přesně odpovídají **bránu místní sítě** a místní definice pro místní sítě.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Krok 7. Ověřte test stavu služba Azure gateway
 
-1. Přejděte na [test stavu](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Přejděte na test stavu.
 
 2. Proklikejte se prostřednictvím upozornění certifikátu.
 3. Pokud se zobrazí odpověď, považuje za bránu sítě VPN v pořádku. Pokud jste neobdrželi odpověď, nemusí být brána v pořádku nebo skupinu NSG na podsítě brány je příčinou problému. Tento text je ukázková odpověď:
@@ -103,7 +103,7 @@ Kontrolovat a odeberte uživatelem definované směrování (UDR) nebo skupiny z
 
 Metoda perfect forward secrecy funkce může způsobit problémy odpojení. Pokud zařízení VPN má metoda perfect forward secrecy povolit, zakážete funkci. Aktualizujte bránu VPN typu zásad protokolu IPsec.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 -   [Konfigurace připojení typu site-to-site k virtuální síti.](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Konfigurace zásady protokolu IPsec/IKE pro připojení VPN typu site-to-site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

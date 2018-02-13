@@ -1,27 +1,20 @@
 ---
-title: "Plánování mapování sítě pro replikaci virtuálního počítače technologie Hyper-V pomocí Site Recovery | Microsoft Docs"
+title: "O mapování sítě pro replikaci virtuálního počítače technologie Hyper-V pomocí Site Recovery | Microsoft Docs"
 description: "Nastavte mapování sítě pro Hyper-V replikaci virtuálního počítače z překážek místní datacentra do Azure nebo do sekundární lokality."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: tysonn
-ms.assetid: fcaa2f52-489d-4c1c-865f-9e78e000b351
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 91d6d0466789daa662162c60bc3c97ba6115e7eb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d56f8f5bfb40c1c43090f43e119bf9b98918d6e5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Plánování mapování sítě pro replikaci virtuálního počítače technologie Hyper-V pomocí Site Recovery
-
+# <a name="about-network-mapping-for-hyper-v-vm-replication"></a>O mapování sítě pro replikaci virtuálního počítače technologie Hyper-V
 
 
 Tento článek vám pomůže pochopit a naplánovat sítě mapování během replikace virtuálních počítačů Hyper-V do Azure nebo do sekundární lokality, pomocí [služba Azure Site Recovery](site-recovery-overview.md).
@@ -62,14 +55,14 @@ Poznámky:
 
 
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Tady je příklad pro ilustraci tento mechanismus. Podívejme se na organizaci s dvěma umístěními v New Yorku a Chicagu.
 
 **Umístění** | **Server VMM** | **Sítě virtuálních počítačů** | **Mapovat na**
 ---|---|---|---
-New York | VMM NewYork| VMNetwork1 NewYork | Mapovat do Chicaga VMNetwork1
- |  | VMNetwork2 NewYork | Není mapováno
+New York | VMM NewYork| VMNetwork1-NewYork | Mapovat do Chicaga VMNetwork1
+ |  | VMNetwork2-NewYork | Není mapováno
 Chicago | VMM Chicago| VMNetwork1 Chicago | Mapovat na VMNetwork1 NewYork
  | | VMNetwork1 Chicago | Není mapováno
 
@@ -86,16 +79,16 @@ Zde je, jak jsou cloudy VMM nastavit v našem příkladu organizace a logické s
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>Není k dispozici</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
-SilverCloud2 | <p>Není k dispozici</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
+GoldCloud2 | <p>Není k dispozici</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>Není k dispozici</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 #### <a name="logical-and-vm-network-settings"></a>Nastavení sítě logické a virtuální počítač
 
 **Umístění** | **Logické sítě** | **Přidružené sítě virtuálních počítačů**
 ---|---|---
-New York | LogicalNetwork1 NewYork | VMNetwork1 NewYork
-Chicago | LogicalNetwork1 Chicago | VMNetwork1 Chicago
- | LogicalNetwork2Chicago | VMNetwork2 Chicago
+New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+Chicago | LogicalNetwork1-Chicago | VMNetwork1 Chicago
+ | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
 #### <a name="target-network-settings"></a>Nastavení cílové sítě
 
@@ -105,7 +98,7 @@ Na základě tohoto nastavení, když vyberete Cílová síť virtuálních poč
 ---|---|---|---
 VMNetwork1 Chicago | SilverCloud1 | SilverCloud2 | Dostupné
  | GoldCloud1 | GoldCloud2 | Dostupné
-VMNetwork2 Chicago | SilverCloud1 | SilverCloud2 | Není k dispozici
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Není k dispozici
  | GoldCloud1 | GoldCloud2 | Dostupné
 
 
@@ -119,7 +112,7 @@ Pokud chcete zobrazit, co se stane, že v případě navrácení služeb po obno
 
 **Virtuální počítač** | **Připojení k síti virtuálních počítačů**
 ---|---
-VM1 | VMNetwork1 sítě
+VM1 | VMNetwork1-Network
 Virtuálního počítače 2 (repliky VM1) | VMNetwork1 Chicago
 
 S těmito nastaveními pojďme si shrnout, co se stane, že v několika možných scénářích.
@@ -133,6 +126,6 @@ Mapování sítě VMNetwork1 Chicagu se změní. | 1 virtuální počítač bude
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o [plánování síťové infrastruktury](site-recovery-network-design.md).

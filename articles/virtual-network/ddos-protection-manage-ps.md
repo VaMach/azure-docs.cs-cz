@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: baac97db61b84000557e7150a64ffb64d81ce00c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 33ff6cfcacd1632dc49b448e70361e1cb2ce1176
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-azure-powershell"></a>Správa Azure DDoS ochrany standardní pomocí Azure PowerShell
 
@@ -29,7 +29,7 @@ Zjistěte, jak povolit a zakázat distribuovaná útok na dostupnost služby (De
 >Azure DDoS ochrany Standard (Ochrana proti útoku DDoS) se aktuálně ve verzi preview. Ochrana proti útoku DDoS podporovat omezený počet prostředků Azure a je k dispozici pouze v vyberte počet oblastí. Seznam dostupných oblastí najdete v tématu [DDoS ochrany standardní přehled](ddos-protection-overview.md). Budete muset [zaregistrovat pro službu](http://aka.ms/ddosprotection) během omezené preview získat ochrana proti útoku DDoS pro vaše předplatné povolený. Po registraci, vás kontaktovat tým Azure DDoS, který vás provede procesem povolování.
 
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k předplatnému Azure pomocí příkazu `Login-AzureRmAccount` a postupujte podle pokynů na obrazovce. Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete. Pokud je potřeba nainstalovat nebo upgradovat prostředí Azure PowerShell najdete v tématu [modul nainstalovat Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -127,13 +127,13 @@ Využití konfiguraci výstrah monitorování Azure, můžete vybrat všechny do
     Get-AzureRmAlertRule -Name myMetricRuleWithEmail -ResourceGroup myresourcegroup -DetailedOutput 
     ```
 
-Můžete si také přečíst informace o [konfigurace webhooky](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a [aplikace logiky](../logic-apps/logic-apps-what-are-logic-apps.md) pro vytvoření výstrahy.
+Můžete si také přečíst informace o [konfigurace webhooky](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a [aplikace logiky](../logic-apps/logic-apps-overview.md) pro vytvoření výstrahy.
 
 ## <a name="configure-logging-on-ddos-protection-metrics"></a>Konfigurovat protokolování na metriky ochrana proti útoku DDoS
 
 Odkazovat [prostředí PowerShell rychlý start ukázky](../monitoring-and-diagnostics/insights-powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json) vám pomohou přístup a konfiguraci služby Azure pomocí prostředí PowerShell protokolování diagnostiky.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Další informace o diagnostických protokolů Azure.](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Analýza protokolů z úložiště Azure s analýzy protokolů](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

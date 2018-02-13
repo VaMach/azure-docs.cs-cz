@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5857a0286dce92493c4d538f79ef9f47012bc0a2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - důležité informace o zabezpečení pro přesun dat
 
@@ -190,7 +190,7 @@ Následující cloudové úložiště dat vyžaduje vytvoření seznamu povolen�
 **Otázka:** jaké jsou požadavky na certifikát pro bránu?
 **Odpověď:** certifikát, který se používá v aplikaci správce přihlašovacích údajů k bezpečně nastavení přihlašovací údaje k úložišti dat vyžaduje aktuální brány. Tento certifikát je certifikát podepsaný svým držitelem, vytvořit a nakonfigurovat nastavení brány. Můžete použít vlastní protokol TLS / SSL certifikát místo. Další informace najdete v tématu [klikněte na tlačítko-jednou přihlašovacích údajů správce aplikací](#click-once-credentials-manager-app) části. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Informace o výkonu aktivitě kopírování najdete v tématu [zkopírujte aktivity výkonu a vyladění průvodce](data-factory-copy-activity-performance.md).
 
  

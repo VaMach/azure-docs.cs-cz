@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8708f13109767c7cb9e4a1bf0d2797d7c4fb9a23
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Plánování rozhodnutí pro Azure zásobník Azure odpojené nasazení integrované systémy
-Poté, co jste se rozhodli [jak bude zásobník Azure integrovat do cloudového prostředí hybridní](azure-stack-deployment-decisions.md), pak můžete dokončit svoje rozhodnutí o nasazení Azure zásobníku.
+Poté, co jste se rozhodli [jak bude zásobník Azure integrovat do cloudového prostředí hybridní](azure-stack-connection-models.md), pak můžete dokončit svoje rozhodnutí o nasazení Azure zásobníku.
 
 S odpojeném pomocí volby nasazení Azure, můžete nasadit a používat zásobník Azure bez připojení k Internetu. K odpojené nasazení jste však omezená na úložiště identity služby AD FS a model fakturace na základě kapacity. 
 
@@ -34,7 +34,7 @@ Tuto možnost zvolte, pokud je:
 > [!TIP]
 > V některých případech tohoto typu prostředí jsou také označovány jako "Podmořský scénář".
 
-Odpojené nasazení neznamená výhradně, nemůžete později vaší instanci Azure zásobníku do Azure připojit pro hybridní scénáře virtuálních počítačů klienta. Znamená to, že nemáte připojení do Azure během nasazení nebo nechcete použít jako úložiště identit Azure Active Directory. Ale pokud chcete mít připojení k Azure po nasazení, bez ohledu na to, co chcete použít jako úložiště identit, měli byste vybrat připojte se k nasazení Azure možnost. 
+Odpojené nasazení neznamená výhradně, nemůžete později vaší instanci Azure zásobníku do Azure připojit pro hybridní scénáře virtuálních počítačů klienta. Znamená to, že nemáte připojení do Azure během nasazení nebo nechcete použít jako úložiště identit Azure Active Directory.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funkce, které jsou zasažená nebo není k dispozici v odpojeném nasazení 
 Azure zásobníku byl navržený tak, aby fungují lépe, když je připojený k Azure, takže je důležité si uvědomit, že se některé funkce a funkce, které jsou narušena nebo zcela v odpojeném režimu k dispozici. 
@@ -60,3 +60,5 @@ Telemetrická data|Není k dispozici – Telemetrická data pro zásobník Azure
 - Informace o plán a geografická dostupnosti pro zásobník Azure integrované systémy, najdete v dokumentu white paper: [Azure zásobník: rozšíření Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Další informace o Microsoft Azure zásobníku balení a ceny [stáhnout .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
+## <a name="next-steps"></a>Další postup
+[Integrace sítě datového centra](azure-stack-network.md)

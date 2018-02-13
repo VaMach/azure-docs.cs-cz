@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Začínáme s Azure Search v Javě
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Všechna volání rozhraní API REST služby Azure Search vyžadují, abyste zad
 5. Zkopírujte adresu URL služby a klíč správce. Budete je potřebovat později, až je budete přidávat do souboru **config.properties**.
 
 ## <a name="download-the-sample-files"></a>Stažení ukázkových souborů
-1. Přejděte na [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) na GitHubu.
+1. Přejděte na [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) on GitHub.
 2. Klikněte na **Stáhnout ZIP**, uložte soubor .zip na disk a potom z něj extrahujte všechny soubory. Zvažte extrahování souborů do pracovního prostoru Java, aby bylo později snazší projekt najít.
 3. Ukázkové soubory jsou jen pro čtení. Klikněte pravým tlačítkem na vlastnosti složky a vymažte atribut jen pro čtení.
 

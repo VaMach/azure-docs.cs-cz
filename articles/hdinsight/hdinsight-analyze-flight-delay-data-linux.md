@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analýza dat zpoždění letu pomocí Hive v HDInsight se systémem Linux
 
@@ -43,11 +43,11 @@ Zjistěte, jak analyzovat data zpoždění letu pomocí Hive v HDInsight se syst
 
 2. Na stránce vyberte následující hodnoty:
 
-   | Name (Název) | Hodnota |
+   | Název | Hodnota |
    | --- | --- |
    | Filtr roku |2013 |
    | Filtrovat období |Leden |
-   | Pole |Rok, FlightDate, UniqueCarrier, operátora, FlightNum, OriginAirportID, původu, OriginCityName, OriginState, DestAirportID, cíle, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Pole |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Zrušte zaškrtnutí všech ostatních polí. 
 
 3. Vyberte **Stáhnout**.
@@ -200,9 +200,7 @@ Pokud ještě nemáte databázi SQL, použijte informace v [vytvoření Azure SQ
 > Pro připojení k databázi SQL a vytvořte tabulku mnoha způsoby. Následující postup použijte [FreeTDS](http://www.freetds.org/) z clusteru HDInsight.
 
 
-1. Použití SSH se připojit ke clusteru HDInsight se systémem Linux a spustit následovně z relace SSH.
-
-2. Použijte následující příkaz k instalaci FreeTDS:
+1. Chcete-li nainstalovat FreeTDS, použijte následující příkaz z připojení SSH do clusteru:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Pokud ještě nemáte databázi SQL, použijte informace v [vytvoření Azure SQ
 3. Po dokončení instalace použijte následující příkaz pro připojení k databázi SQL serveru. Nahraďte **serverName** s názvem serveru SQL Database. Nahraďte **adminLogin** a **adminPassword** s přihlášení pro databázi SQL. Nahraďte **databaseName** s názvem databáze.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    Po zobrazení výzvy zadejte heslo pro přihlašovací jméno správce databáze SQL.
 
     Zobrazí se výstup podobný následujícímu:
 
@@ -286,7 +286,7 @@ Pokud ještě nemáte databázi SQL, použijte informace v [vytvoření Azure SQ
 
     Měli byste vidět seznam dat v tabulce. Typ `exit` ukončete nástroj tsql.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Informace o další způsoby, jak pracovat s daty v HDInsight, naleznete v následujících článcích:
 

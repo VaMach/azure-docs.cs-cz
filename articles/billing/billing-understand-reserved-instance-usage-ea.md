@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Pochopení vyhrazenou instanci využití pro podnikového zápisu
 Pochopení využití vyhrazená instance pomocí ReservationId z [rezervace stránky](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) a soubor využití z [EA portálu.](https://ea.azure.com) Můžete také zjistit rezervace využití v souhrnu oddílu využití [EA portálu.](https://ea.azure.com)
@@ -56,6 +56,16 @@ Vyhrazená Instance využití taky se zobrazí v části Souhrn využití EA por
 
 1. Vám není účtován pro součást hardwaru virtuálního počítače, jako je předmětem vyhrazenou instanci. 
 2. Budou účtovat softwaru Windows jako Benefit hybridní Azure se nepoužívá. 
+
+## <a name="next-steps"></a>Další postup
+Další informace o vyhrazenou instancí virtuálního počítače, naleznete v následujících článcích.
+
+- [Předem pro virtuální počítače s instancí vyhrazené virtuálních počítačů](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Správa instancí vyhrazený virtuální počítač](billing-manage-reserved-vm-instance.md)
+- [Ušetřit peníze u virtuálních počítačů s vyhrazenou instancí virtuálního počítače](billing-save-compute-costs-reservations.md)
+- [Pochopit, jak se použije slevu vyhrazenou instanci virtuálního počítače](billing-understand-vm-reservation-charges.md)
+- [Pochopení vyhrazenou instanci využití pro vaše předplatné s průběžnými platbami](billing-understand-reserved-instance-usage.md)
+- [Náklady na software Windows není součástí vyhrazené instance](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Potřebujete pomoct? Obraťte se na podporu.
 

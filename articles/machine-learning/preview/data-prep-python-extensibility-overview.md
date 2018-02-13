@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Rozšíření dat přípravy Python
 Azure Machine Learning Data přípravy jako způsob vyplnění funkce mezery mezi integrované funkce, zahrnuje rozšíření na více úrovních. V tomto dokumentu jsme popisují rozšiřitelnost prostřednictvím skript v jazyce Python. 
@@ -125,7 +125,7 @@ nebo
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Použijte vlastní moduly
-V toku dat transformace (skript) zápisu python kód takto:
+V toku dat transformace (skript) uveďte následující kód Python
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-Přidat sloupce (skript), nastavte typ bloku kódu = modulu a zápis python následující kód:
+Přidat sloupce (skript), nastavte typ bloku kódu = modul a zadejte následující kód Python
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Pro spuštění různých kontextů (místní, spark docker) přejděte na absolutní cesta na správném místě. Můžete použít "os.getcwd() + relativePath" ho najít.
+Pro spuštění různých kontextech (místní, Docker, Spark), přejděte na absolutní cesta na správném místě. Můžete použít "os.getcwd() + relativePath" ho najít.
 
 
 ## <a name="column-data"></a>Datové sloupce 

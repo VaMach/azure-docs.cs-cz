@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Začínáme s Azure SQL Database konektoru
 Pomocí konektoru Azure SQL Database, vytvořte pracovní postupy pro vaši organizaci, které spravovat data v tabulkách. 
@@ -31,7 +31,7 @@ S databází SQL můžete:
 
 Toto téma ukazuje, jak k používání konektoru databáze SQL v aplikaci logiky a také uvádí seznam akcí.
 
-Další informace o Logic Apps najdete v tématu [co jsou logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) a [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Další informace o Logic Apps najdete v tématu [co jsou logic apps](../logic-apps/logic-apps-overview.md) a [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-sql-database"></a>Připojení k databázi Azure SQL
 Než se aplikace logiky k jakékoli služby, nejprve vytvořit *připojení* ke službě. Připojení poskytuje připojení mezi aplikace logiky a jiné služby. Například pro připojení k databázi SQL, je nejprve vytvořit databázi SQL *připojení*. Chcete-li vytvořit připojení, zadejte přihlašovacích údajů, které standardně používáte k přístupu ke službě, ke kterému se připojujete. Ano v databázi SQL, zadejte přihlašovací údaje databáze SQL k vytvoření připojení. 
@@ -42,10 +42,10 @@ Než se aplikace logiky k jakékoli služby, nejprve vytvořit *připojení* ke 
 > 
 
 ## <a name="use-a-trigger"></a>Použít aktivační událost
-Tento konektor nemá žádné aktivační události. Spusťte aplikaci logiky, jako jsou aktivační událost opakování, aktivační události Webhooku protokolu HTTP, aktivační události, které jsou k dispozici ostatní konektory a další pomocí jiných aktivační události. [Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md) poskytuje příklad.
+Tento konektor nemá žádné aktivační události. Spusťte aplikaci logiky, jako jsou aktivační událost opakování, aktivační události Webhooku protokolu HTTP, aktivační události, které jsou k dispozici ostatní konektory a další pomocí jiných aktivační události. [Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md) poskytuje příklad.
 
 ## <a name="use-an-action"></a>Použít akci.
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Vyberte znaménko plus. Zobrazí několik možností: **přidat akci**, **přidat podmínku**, nebo jeden z **Další** možnosti.
    
@@ -70,6 +70,6 @@ Akce je operace prováděné definované v aplikaci logiky pracovního postupu. 
 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/sql/). 
 
-## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
+## <a name="next-steps"></a>Další postup
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
 

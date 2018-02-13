@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09e812974cdcea831f5e905bc4abd6319185a972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8871012458c97a36b1f8c2cca413319ec7d72e8e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Přesunutí dat ze serveru pomocí protokolu SFTP pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | Vlastnost | Popis | Požaduje se |
 | --- | --- | --- | --- |
 | type | Vlastnost typu musí být nastavená na `Sftp`. |Ano |
-| hostitele | Název nebo IP adresa serveru pomocí protokolu SFTP. |Ano |
+| hostitel | Název nebo IP adresa serveru pomocí protokolu SFTP. |Ano |
 | port |Port, na kterém naslouchá server pomocí protokolu SFTP. Výchozí hodnota je: 21 |Ne |
 | authenticationType. |Zadejte typ ověřování. Povolené hodnoty: **základní**, **parametru SshPublicKey**. <br><br> Odkazovat na [základní ověřování pomocí](#using-basic-authentication) a [pomocí SSH ověření veřejného klíče](#using-ssh-public-key-authentication) částech na další vlastnosti a ukázky JSON v uvedeném pořadí. |Ano |
 | skipHostKeyValidation | Určete, zda chcete přeskočit ověření klíče hostitele. | Ne. Výchozí hodnota: false |
@@ -120,10 +120,10 @@ Chcete-li použít ověření veřejného klíče SSH, nastavte `authenticationT
 | uživatelské jméno |Uživatel, který má přístup k serveru pomocí protokolu SFTP |Ano |
 | privateKeyPath | Zadejte absolutní cestu k souboru privátního klíče můžete přístup k této brány. | Zadejte buď `privateKeyPath` nebo `privateKeyContent`. <br><br> Platí jenom v případě, že kopírování dat z místního serveru pomocí protokolu SFTP. |
 | privateKeyContent | Serializovaná řetězec privátní klíče obsahu. Průvodce kopírováním můžete číst soubor privátního klíče a automaticky extrahování privátní klíče obsahu. Pokud používáte jakékoli jiné nástroje nebo SDK, použijte vlastnost privateKeyPath. | Zadejte buď `privateKeyPath` nebo `privateKeyContent`. |
-| přístupové heslo | Zadejte průchodu fráze nebo hesla k dešifrování privátního klíče, pokud soubor klíče je chráněn heslo. | Ano, pokud heslo je chráněný soubor privátního klíče. |
+| passPhrase | Zadejte průchodu fráze nebo hesla k dešifrování privátního klíče, pokud soubor klíče je chráněn heslo. | Ano, pokud heslo je chráněný soubor privátního klíče. |
 
 > [!NOTE]
-> Konektor SFTP podporují pouze klíč OpenSSH. Ujistěte se, že je váš soubor klíče ve správném formátu. Nástroj pro Putty můžete převést na formát OpenSSH .ppk.
+> Pomocí protokolu SFTP konektor podporuje klíč RSA/DSA OpenSSH. Ujistěte se, že obsah souboru klíče začíná "---BEGIN [RSA/DSA] PRIVÁTNÍ klíč,". Pokud soubor privátního klíče je soubor ve formátu ppk, použijte prosím Putty nástroj pro převod z .ppk OpenSSH formátu.
 
 #### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Příklad: Parametru SshPublicKey ověřování pomocí privátního klíče filePath
 
@@ -174,8 +174,8 @@ Chcete-li použít ověření veřejného klíče SSH, nastavte `authenticationT
 | Vlastnost | Popis | Požaduje se |
 | --- | --- | --- |
 | folderPath |Sub – cesta ke složce. Použít řídicí znak ' \ ' pro speciální znaky v řetězci. V tématu [ukázka propojené definice služby a datovou sadu](#sample-linked-service-and-dataset-definitions) příklady.<br/><br/>Tato vlastnost se můžete kombinovat **partitionBy** tak, aby měl složky cesty založené na řez počáteční nebo koncové hodnoty data a času. |Ano |
-| fileName |Zadejte název souboru do **folderPath** Pokud chcete, aby v tabulce odkazovat na konkrétní soubor ve složce. Pokud nezadáte žádnou hodnotu pro tuto vlastnost, tabulka odkazuje na všechny soubory ve složce.<br/><br/>Pokud není zadán název souboru pro datovou sadu výstupů, název vygenerovaný soubor bude v následujícím tento formát: <br/><br/>Data. <Guid>.txt (například: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Ne |
-| fileFilter |Zadejte filtr pro umožňuje vybrat podmnožinu souborů v folderPath, nikoli všech souborů.<br/><br/>Povolené hodnoty jsou: `*` (více znaků) a `?` (jeden znak).<br/><br/>Příklady 1:`"fileFilter": "*.log"`<br/>Příklad 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter se vztahuje vstupní datové sady sdílení souborů. Tato vlastnost není podporována s HDFS. |Ne |
+| fileName |Zadejte název souboru do **folderPath** Pokud chcete, aby v tabulce odkazovat na konkrétní soubor ve složce. Pokud nezadáte žádnou hodnotu pro tuto vlastnost, tabulka odkazuje na všechny soubory ve složce.<br/><br/>Pokud není zadán název souboru pro datovou sadu výstupů, název vygenerovaný soubor bude v následujícím tento formát: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Ne |
+| fileFilter |Zadejte filtr pro umožňuje vybrat podmnožinu souborů v folderPath, nikoli všech souborů.<br/><br/>Povolené hodnoty jsou: `*` (více znaků) a `?` (jeden znak).<br/><br/>Příklady 1: `"fileFilter": "*.log"`<br/>Příklad 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter se vztahuje vstupní datové sady sdílení souborů. Tato vlastnost není podporována s HDFS. |Ne |
 | partitionedBy |partitionedBy slouží k určení dynamické folderPath, název souboru pro data časové řady. Například folderPath parametry pro každou hodinu data. |Ne |
 | Formát | Jsou podporovány následující typy formátu: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Nastavte **typ** vlastnost pod formát na jednu z těchto hodnot. Další informace najdete v tématu [textovém formátu](data-factory-supported-file-and-compression-formats.md#text-format), [formátu Json](data-factory-supported-file-and-compression-formats.md#json-format), [Avro formát](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formátu](data-factory-supported-file-and-compression-formats.md#orc-format), a [Parquet formát](data-factory-supported-file-and-compression-formats.md#parquet-format) oddíly. <br><br> Pokud chcete **zkopírujte soubory jako-je** mezi souborové úložiště (binární kopie), přeskočte část formátu v obou definice vstupní a výstupní datové sady. |Ne |
 | Komprese | Zadejte typ a úroveň komprese pro data. Podporované typy jsou: **GZip**, **Deflate**, **BZip2**, a **ZipDeflate**. Jsou podporované úrovně: **Optimal** a **nejrychlejší**. Další informace najdete v tématu [formáty souborů a komprese v Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Ne |
@@ -215,7 +215,7 @@ V tomto příkladu {řez} se nahradí hodnotu objektu pro vytváření dat syst�
 ```
 V tomto příkladu jsou extrahován rok, měsíc, den a čas SliceStart do samostatné proměnné, které jsou používány folderPath a název vlastnosti.
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vzhledem k tomu, vlastnosti dostupné v rámci typeProperties části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování vlastnosti typu lišit v závislosti na typech zdrojů a jímky.
@@ -307,7 +307,7 @@ Nastavení "externí": "PRAVDA" informuje služba Data Factory, datová sada je 
 }
 ```
 
-**Výstupní datovou sadu objektů Blob v Azure**
+**Výstupní datová sada Azure Blob**
 
 Data se zapisují do nového objektu blob každou hodinu (frekvence: hodiny, interval: 1). Cesta ke složce pro tento objekt blob je vyhodnocován dynamicky podle času zahájení řezu, které jsou zpracovávány. Cesta ke složce používá rok, měsíc, den a čas částí čas spuštění.
 

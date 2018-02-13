@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 8293da8c77725d051f295826d9a78bf81055dcb3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Použití zobrazení Ambari Hive se systémem Hadoop v HDInsight
 
@@ -125,7 +125,7 @@ Chcete-li zobrazit vizualizaci plán dotazu, vyberte **vysvětlují, Visual** ka
 
 **Visual vysvětlují** zobrazení dotazu může být užitečné porozumět toku složitých dotazů. Textové ekvivalent v tomto zobrazení můžete zobrazit pomocí **vysvětlit** tlačítko v editoru dotazů.
 
-### <a name="tez-ui"></a>Tez uživatelského rozhraní
+### <a name="tez-ui"></a>Tez UI
 
 Pokud chcete zobrazit uživatelské rozhraní Tez pro dotaz, vyberte **Tez** kartě níže listu.
 

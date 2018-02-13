@@ -1,6 +1,6 @@
 ---
 title: "Generování a exportování certifikátů pro Point-to-Site: prostředí PowerShell: Azure | Microsoft Docs"
-description: "Tento článek obsahuje kroky k vytvoření certifikátu podepsaného svým držitelem kořenové, exportujte veřejný klíč a generovat klientské certifikáty pomocí prostředí PowerShell ve Windows 10."
+description: "Tento článek obsahuje kroky k vytvoření certifikátu podepsaného svým držitelem kořenové, exportujte veřejný klíč a generovat klientské certifikáty pomocí prostředí PowerShell na Windows 10 nebo Windows Server 2016."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Generování a exportování certifikátů pro připojení Point-to-Site pomocí prostředí PowerShell ve Windows 10
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Generování a exportování certifikátů pro připojení Point-to-Site pomocí prostředí PowerShell na Windows 10 nebo Windows Server 2016
 
-Připojení point-to-Site používají certifikáty k ověření. Tento článek ukazuje, jak vytvořit certifikát podepsaný svým držitelem kořenové a generovat klientské certifikáty pomocí prostředí PowerShell ve Windows 10. Pokud hledáte kroků konfigurace Point-to-Site, například jak nahrát kořenových certifikátů, vyberte jeden z článků ' konfigurace Point-to-Site, z následujícího seznamu:
+Připojení point-to-Site používají certifikáty k ověření. Tento článek ukazuje, jak vytvořit certifikát podepsaný svým držitelem kořenové a generovat klientské certifikáty pomocí prostředí PowerShell na Windows 10 nebo Windows Server 2016. Pokud hledáte kroků konfigurace Point-to-Site, například jak nahrát kořenových certifikátů, vyberte jeden z článků ' konfigurace Point-to-Site, z následujícího seznamu:
 
 > [!div class="op_single_selector"]
 > * [Vytvořit certifikáty podepsané svým držitelem – prostředí PowerShell](vpn-gateway-certificates-point-to-site.md)
@@ -35,15 +35,15 @@ Připojení point-to-Site používají certifikáty k ověření. Tento článek
 > 
 
 
-Musíte provést kroky v tomto článku v počítači se systémem Windows 10. Rutiny prostředí PowerShell, které používáte pro generování certifikátů jsou součástí operačního systému Windows 10 a nefungují v jiných verzích Windows. Počítače Windows 10 je potřeba jenom pro generování certifikátů. Po vygenerování certifikátů jsou můžete odešlete, nebo je nainstalovat pro všechny podporované klientské operační systémy. 
+Musíte provést kroky v tomto článku v počítači se systémem Windows 10 nebo Windows Server 2016. Rutiny prostředí PowerShell, které používáte pro generování certifikátů jsou součástí operačního systému a nefungují v jiných verzích Windows. K vytvoření certifikátů, je potřeba jenom počítače Windows 10 nebo Windows Server 2016. Po vygenerování certifikátů jsou můžete odešlete, nebo je nainstalovat pro všechny podporované klientské operační systémy. 
 
-Pokud nemáte přístup k počítači s Windows 10, můžete použít [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) pro generování certifikátů. Certifikáty, které můžete vygenerovat pomocí obou těchto metod se dá nainstalovat na všechny [podporované](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) klientský operační systém.
+Pokud nemáte přístup k počítači se systémem Windows 10 nebo Windows Server 2016, můžete použít [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) pro generování certifikátů. Certifikáty, které můžete vygenerovat pomocí obou těchto metod se dá nainstalovat na všechny [podporované](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) klientský operační systém.
 
 ## <a name="rootcert"></a>Vytvořit certifikát podepsaný svým držitelem kořenové
 
 Pomocí rutiny New-SelfSignedCertificate vytvořit certifikát podepsaný svým držitelem kořenové. Parametr Další informace najdete v tématu [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Z počítače se systémem Windows 10 otevřete konzolu prostředí Windows PowerShell se zvýšenými oprávněními.
+1. Z počítače se systémem Windows 10 nebo Windows Server 2016 otevřete konzolu prostředí Windows PowerShell se zvýšenými oprávněními.
 2. Použijte následující příklad k vytvoření certifikátu podepsaného svým držitelem kořenové. Následující příklad vytvoří certifikát podepsaný svým držitelem kořenové s názvem 'P2SRootCert', který je automaticky nainstalován v 'Certifikáty – aktuální User\Personal\Certificates'. Certifikát můžete zobrazit tak, že otevřete *certmgr.msc*, nebo *Správa uživatelských certifikátů*.
 
   ```powershell
@@ -131,7 +131,7 @@ Pokud vytváříte další klientské certifikáty, nebo nejsou pomocí stejné 
 
 Chcete-li nainstalovat certifikát klienta, přečtěte si téma [nainstalovat certifikát klienta pro připojení Point-to-Site](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V konfiguraci Point-to-Site pokračujte.
 

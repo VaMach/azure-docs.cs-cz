@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Prohlídka Analytics ve službě Application Insights
 [Analýza](app-insights-analytics.md) je výkonný vyhledávání funkcí [Application Insights](app-insights-overview.md). Tyto stránek popisují dotazovací jazyk analýzy protokolů.
@@ -134,7 +134,7 @@ Ve výchozím vaše dotazy jsou omezeny na poslední 24 hodin. Můžete však zm
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Časové rozmezí potlačit zápis jakýkoli dotaz, který uvádí `timestamp` v klauzuli where. Například:
+Časové rozmezí potlačit zápis jakýkoli dotaz, který uvádí `timestamp` v klauzuli where. Příklad:
 
 ```AIQL
 
@@ -538,7 +538,7 @@ Pokud vaše aplikace připojí [vlastní dimenze (Vlastnosti) a vlastní měřen
 
 Například pokud vaše aplikace obsahuje:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -611,7 +611,7 @@ Pokud používáte [TrackEvent()](app-insights-api-custom-events-metrics.md#trac
 
 Podívejme příklad kde kódu aplikace obsahuje tyto řádky:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
@@ -629,7 +629,7 @@ Extrahujte měření a dimenze z události:
 ![Zobrazení počet vlastní události](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Vlastní metriky tabulky
-Pokud používáte [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) k odeslání vlastní metriky hodnoty, najdete své výsledky v **customMetrics** datového proudu. Například:  
+Pokud používáte [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) k odeslání vlastní metriky hodnoty, najdete své výsledky v **customMetrics** datového proudu. Příklad:  
 
 ![Vlastní metriky v analytics Application Insights](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -709,7 +709,7 @@ Pokročilé dotazy:
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Referenční dokumentace jazyka Analytics](app-insights-analytics-reference.md)
 * [SQL-uživatelů tahák](https://aka.ms/sql-analytics) překládá nejběžnější idioms.
 

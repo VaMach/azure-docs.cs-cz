@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2d110705a86fa8bc05859bd8bfde34b0b5b11575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Podpora init cloudu pro virtuální počítače v Azure
 Tento článek vysvětluje, zda existuje pro podporu [cloudu init](https://cloudinit.readthedocs.io) ke konfiguraci virtuálního počítače (VM) nebo virtuální počítač sadách škálování (VMSS) na zřizování čas v Azure. Tyto skripty cloudu init spustit při prvním spuštění počítače po prostředky se zřizují Azure.  
 
 ## <a name="cloud-init-overview"></a>Přehled Cloud-init
-[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Protože init cloudu je volána v průběhu procesu počáteční spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.  Další informace o tom, jak správně formátu vaše `#cloud-config` soubory, najdete v článku [web dokumentace cloudu init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`soubory jsou textové soubory kódovaný jako base64.
+[Cloud-init](https://cloudinit.readthedocs.io) je široce využívaným přístupem k přizpůsobení virtuálního počítače s Linuxem při jeho prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Protože init cloudu je volána v průběhu procesu počáteční spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.  Další informace o tom, jak správně formátu vaše `#cloud-config` soubory, najdete v článku [web dokumentace cloudu init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`soubory jsou textové soubory kódovaný jako base64.
 
 Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
 
@@ -33,11 +33,13 @@ Init cloudu také funguje v různých distribucí. Například nepoužívejte **
 
 | Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze | init cloudu připravené
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04 LTS |nejnovější |ano | 
+|Canonical |UbuntuServer |16.04-LTS |nejnovější |ano | 
 |Canonical |UbuntuServer |14.04.5-LTS |nejnovější |ano |
 |CoreOS |CoreOS |Stable |nejnovější |ano |
-|OpenLogic |CentOS |7 CI |nejnovější |preview |
-|RedHat |RHEL |7 NEZPRACOVANÁ POLOŽEK KONFIGURACE |nejnovější |preview |
+|OpenLogic |CentOS |7-CI |nejnovější |náhled |
+|RedHat |RHEL |7 NEZPRACOVANÁ POLOŽEK KONFIGURACE |nejnovější |náhled |
+
+Během preview nebudou podporovat Azure zásobníku zřizování RHEL 7.4 a CentOS 7.4 pomocí init cloudu.
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Jaký je rozdíl mezi init cloudu a agenta systému Linux (WALA)?
 WALA je použít pro zřídit a nakonfigurovat virtuální počítače a zpracování rozšíření Azure agenta specifické pro platformu Azure. Jsme se zlepší úloh konfigurace virtuálních počítačů pro použití cloudu init místo agenta systému Linux Chcete-li povolit existující cloudu init zákazníkům používat jejich aktuální cloudu init skripty.  Pokud jste už investovali do cloudu init skriptů pro konfiguraci systémů Linux, jsou **žádné další nastavení potřebná** a umožňuje jim. 
@@ -49,14 +51,14 @@ WALA konfigurace virtuálních počítačů jsou omezené čas pro práci v rám
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Nasazení cloudu inicializací povoleno virtuálního počítače
 Nasazení virtuálního počítače v cloudu inicializací povolená je stejně jednoduché jako odkazující cloudu inicializací povolená distribuce během nasazení.  Údržby Linux distribuční programu muset zvolit povolení a integrovat cloudu init do jejich základní Azure publikované Image. Jakmile ověříte, že je povoleno cloudu inicializací bitovou kopii, kterou chcete nasadit, můžete použít rozhraní příkazového řádku Azure k nasazení bitové kopie. 
 
-Prvním krokem při nasazení této bitové kopie je vytvoření skupiny prostředků pomocí [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
+Prvním krokem při nasazení této bitové kopie je vytvoření skupiny prostředků pomocí [vytvořit skupinu az](/cli/azure/group#az_group_create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
 
 Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-Dalším krokem je vytvoření souboru ve své aktuální prostředí s názvem *cloudu init.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadejte `sensible-editor cloud-init.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Zvolte #1 používat **nano** editor. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
+Dalším krokem je vytvoření souboru ve své aktuální prostředí s názvem *cloudu init.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadáním příkazu `sensible-editor cloud-init.txt` soubor vytvořte a zobrazte seznam editorů k dispozici. Zvolte #1 používat **nano** editor. Ujistěte se, že se celý soubor cloud-init zkopíroval správně, zejména první řádek:
 
 ```yaml
 #cloud-config
@@ -68,7 +70,7 @@ Stiskněte klávesu `ctrl-X` ukončíte souboru zadejte `y` uložit soubor a sti
 
 Posledním krokem je vytvoření virtuálního počítače s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) příkaz. 
 
-Následující příklad vytvoří virtuální počítač s názvem *centos74* a vytvoří klíče SSH, pokud už neexistují ve výchozím umístění klíče. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  Použití `--custom-data` parametr předávat do cloudu init konfiguračního souboru. Zadejte úplnou cestu k *cloudu init.txt* konfigurace, pokud jste uložili soubor mimo pracovní adresář existuje. Následující příklad vytvoří virtuální počítač s názvem *centos74*:
+Následující příklad vytvoří virtuální počítač s názvem *centos74* a vytvoří klíče SSH, pokud už neexistují ve výchozím umístění klíče. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  Pomocí parametru `--custom-data` předejte svůj konfigurační soubor cloud-init. Zadejte úplnou cestu k *cloudu init.txt* konfigurace, pokud jste uložili soubor mimo pracovní adresář existuje. Následující příklad vytvoří virtuální počítač s názvem *centos74*:
 
 ```azurecli-interactive 
 az vm create \

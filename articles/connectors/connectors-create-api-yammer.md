@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37f72d829fc50a0f967f08e068c553f5026f35eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Začínáme s konektorem Yammer
 Připojení k Yammeru k přístupu konverzací v podnikové síti. Yammer můžete:
@@ -28,14 +28,14 @@ Připojení k Yammeru k přístupu konverzací v podnikové síti. Yammer může
 * Použití spustí pro, když není vaší následující nové zprávy skupinu nebo informačního kanálu.
 * Chcete-li vytvořit zprávu, získáte všechny zprávy a další pomocí akcí. Tyto akce se odpověď a pak proveďte výstup k dispozici pro další akce. Když se objeví nová zpráva, můžete odeslat e-mailu pomocí Office 365.
 
-Začněte vytvořením aplikace logiky nyní; v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Začněte vytvořením aplikace logiky nyní; v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-yammer"></a>Umožňuje vytvořit připojení k Yammeru
 K používání konektoru Yammer, je třeba nejprve vytvořit **připojení** pak zadejte podrobnosti pro tyto vlastnosti: 
 
 | Vlastnost | Požaduje se | Popis |
 | --- | --- | --- |
-| Token |Ano |Zadejte přihlašovací údaje Yammer |
+| Token |Ano |Zadat přihlašovací údaje k Yammeru |
 
 > [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 > 

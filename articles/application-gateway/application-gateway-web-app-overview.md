@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c29ff60a50e68c75b4e8f62713d6d1fffd2123d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Podpora služby Application Gateway pro back-endy s více tenanty
 
-Azure Application Gateway jako součást fondů back-end podporuje škálovací sady virtuálních počítačů, síťová rozhraní, veřejné a privátní IP adresy nebo plně kvalifikovaný název domény. Ve výchozím nastavení služba Application Gateway nemění hlavičku hostitele příchozího požadavku HTTP od klienta a nezměněnou hlavičku posílá na back-end. Existuje řada služeb jako [Azure Web Apps](../app-service/app-service-web-overview.md) a [API Management](../api-management/api-management-key-concepts.md), které jsou ze své podstaty s více tenanty a při překládání na správný koncový bod se spoléhají na konkrétní hlavičku hostitele nebo rozšíření SNI. Application Gateway nyní podporuje možnost uživatelů přepsat hlavičku hostitele příchozího požadavku HTTP na základě nastavení HTTP na straně back-endu. Tato schopnost umožňuje podporu back-endů s více tenanty Azure Web Apps a API Management. Tato schopnost je dostupná pro standardní skladové položky i pro skladové položky WAF. Podpora back-endu s více tenanty funguje také s ukončováním protokolu SSL a scénáři koncového šifrování protokolu SSL.
+Azure Application Gateway jako součást fondů back-end podporuje škálovací sady virtuálních počítačů, síťová rozhraní, veřejné a privátní IP adresy nebo plně kvalifikovaný název domény. Ve výchozím nastavení služba Application Gateway nemění hlavičku hostitele příchozího požadavku HTTP od klienta a nezměněnou hlavičku posílá na back-end. Existuje řada služeb jako [Azure Web Apps](../app-service/app-service-web-overview.md), které jsou ze své podstaty s více tenanty a při překládání na správný koncový bod se spoléhají na konkrétní hlavičku hostitele nebo rozšíření SNI. Application Gateway nyní podporuje možnost uživatelů přepsat hlavičku hostitele příchozího požadavku HTTP na základě nastavení HTTP na straně back-endu. Tato schopnost umožňuje podporu back-endů s více tenanty Azure Web Apps a API Management. Tato schopnost je dostupná pro standardní skladové položky i pro skladové položky WAF. Podpora back-endu s více tenanty funguje také s ukončováním protokolu SSL a scénáři koncového šifrování protokolu SSL.
 
 ![scénář webové aplikace](./media/application-gateway-web-app-overview/scenario.png)
 

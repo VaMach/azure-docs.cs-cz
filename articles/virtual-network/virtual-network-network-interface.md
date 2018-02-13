@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 9f1cf113f75bc5a96af8c33d4b83d1bd0f5c6efd
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Vytvoření, změnit nebo odstranit síťové rozhraní
 
@@ -68,8 +68,8 @@ Na portálu neposkytuje možnost veřejnou IP adresu přiřadit síťové rozhra
 
 |Nástroj|Příkaz|
 |---|---|
-|Rozhraní příkazového řádku|[Vytvoření az síťových adaptérů sítě](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nové AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|Rozhraní příkazového řádku|[Vytvoření az síťových adaptérů sítě](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 
 ## <a name="view-network-interface-settings"></a>Zobrazení nastavení síťového rozhraní
 
@@ -94,7 +94,7 @@ Pokud adresu IPv6 je přiřazen k síťovému rozhraní, výstup prostředí Pow
 
 |Nástroj|Příkaz|
 |---|---|
-|Rozhraní příkazového řádku|[seznam seskupování sítě az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) zobrazíte síťových rozhraní v rámci předplatného; [az sítě seskupování zobrazit](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) zobrazení nastavení síťového rozhraní|
+|Rozhraní příkazového řádku|[seznam seskupování sítě az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_list) zobrazíte síťových rozhraní v rámci předplatného; [az sítě seskupování zobrazit](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_show) zobrazení nastavení síťového rozhraní|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) zobrazíte síťových rozhraní v odběru nebo zobrazení nastavení síťového rozhraní|
 
 ## <a name="change-dns-servers"></a>Změnit servery DNS
@@ -114,7 +114,7 @@ DNS server je přiřazena službou serveru Azure DHCP rozhraní sítě v rámci 
 
 |Nástroj|Příkaz|
 |---|---|
-|Rozhraní příkazového řádku|[aktualizace az sítě nic](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Rozhraní příkazového řádku|[aktualizace az sítě nic](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Povolení nebo zakázání předávání IP
@@ -136,7 +136,7 @@ Nastavení musí být povolena pro každé síťové rozhraní, který je připo
 
 |Nástroj|Příkaz|
 |---|---|
-|Rozhraní příkazového řádku|[aktualizace az sítě nic](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Rozhraní příkazového řádku|[aktualizace az sítě nic](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet-assignment"></a>Změnit přiřazení podsítě
@@ -157,7 +157,7 @@ Podsíť, ale není virtuální síť, přiřazený síťové rozhraní, můžet
 
 |Nástroj|Příkaz|
 |---|---|
-|Rozhraní příkazového řádku|[aktualizace ip-config seskupování az sítě](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Rozhraní příkazového řádku|[aktualizace ip-config seskupování az sítě](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -176,8 +176,8 @@ Při odstranění rozhraní sítě, jsou vydávány žádné MAC nebo IP adresy 
 
 |Nástroj|Příkaz|
 |---|---|
-|Rozhraní příkazového řádku|[AZ síť seskupování odstranit](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Odebrat AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Rozhraní příkazového řádku|[AZ síť seskupování odstranit](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_delete)|
+|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Další postup
 Vytvoření virtuálního počítače s více síťových rozhraní nebo IP adres, přečtěte si následující články:
@@ -186,6 +186,6 @@ Vytvoření virtuálního počítače s více síťových rozhraní nebo IP adre
 
 |Úkol|Nástroj|
 |---|---|
-|Vytvoření virtuálního počítače s několika síťovými kartami|[Rozhraní příkazového řádku](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [prostředí PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Vytvoření jednoho virtuálního počítače síťový adaptér s více adresami IPv4|[Rozhraní příkazového řádku](virtual-network-multiple-ip-addresses-cli.md), [prostředí PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|Vytvoření virtuálního počítače s několika síťovými kartami|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Vytvoření jednoho virtuálního počítače síťový adaptér s více adresami IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Vytvoření jednoho virtuálního počítače síťový adaptér s privátní adresou IPv6 (za pro vyrovnávání zatížení Azure)|[Rozhraní příkazového řádku](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [prostředí PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [šablony Azure Resource Manageru](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|

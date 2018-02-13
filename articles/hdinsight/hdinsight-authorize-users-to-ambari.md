@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorizace uživatelů pro zobrazení Ambari
 
-[Clustery HDInsight připojený k doméně](./domain-joined/apache-domain-joined-introduction.md) poskytují funkce na podnikové úrovni, včetně ověřování založené na Azure Active Directory. Můžete synchronizovat nové uživatele
-<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both domain-joined HDInsight cluster and standard HDInsight cluster.
+[Clustery HDInsight připojený k doméně](./domain-joined/apache-domain-joined-introduction.md) poskytují funkce na podnikové úrovni, včetně ověřování založené na Azure Active Directory. Můžete [synchronizovat nové uživatele](hdinsight-sync-aad-users-to-cluster.md) přidán do skupiny Azure AD, které byly zadány přístup ke clusteru, kteří konkrétní mohou provádět určité akce. Práce se uživatelé, skupiny a oprávnění v Ambari je podporována pro připojené k doméně cluster HDInsight a standardní clusteru HDInsight.
 
 Uživatelé služby Active Directory může přihlásit k uzlům clusteru pomocí svých přihlašovacích údajů domény. Přihlašovací údaje domény může také používat k ověření clusteru interakce s ostatní schválené koncové body, jako je Hue, zobrazení Ambari, rozhraní ODBC, JDBC, prostředí PowerShell a rozhraní REST API.
 
@@ -38,7 +37,7 @@ Pokud jste tak již neučinili, postupujte podle [tyto pokyny](./domain-joined/a
 
 Abyste se dostali na **stránce management Ambari** na [webové uživatelské rozhraní Ambari](hdinsight-hadoop-manage-ambari.md), přejděte do  **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Zadejte uživatelské jméno správce clusteru a heslo, které jste definovali při vytvoření clusteru. Potom vyberte z řídicího panelu Ambari **spravovat Ambari** pod **správce** nabídky:
 
-![Spravovat Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
+![Manage Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
 ## <a name="grant-permissions-to-hive-views"></a>Udělení oprávnění k zobrazení Hive
 
@@ -141,10 +140,9 @@ Jsme naše uživatele Azure AD domain "hiveuser2" přiřadili *clusteru uživate
 
 ![Uživatel s rolí uživatele clusteru](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Nakonfigurovat zásady Hive v HDInsight připojený k doméně](./domain-joined/apache-domain-joined-run-hive.md)
 * [Správa clusterů HDInsight připojený k doméně](./domain-joined/apache-domain-joined-manage.md)
 * [Použití zobrazení Hive se systémem Hadoop v HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Synchronizace Azure AD uživatelům clusteru](hdinsight-sync-aad-users-to-cluster.md)

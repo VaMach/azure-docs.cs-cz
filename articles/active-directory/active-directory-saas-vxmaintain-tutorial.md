@@ -1,5 +1,5 @@
 ---
-title: 'Kurz: Integrovat Azure Active Directory vxMaintain | Microsoft Docs'
+title: 'Kurz: Azure Active Directory integrace s vxMaintain | Microsoft Docs'
 description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a vxMaintain."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Kurz: Integrovat vxMaintain Azure Active Directory
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Kurz: Azure Active Directory integrace s vxMaintain
 
 V tomto kurzu zjistěte, jak integrovat vxMaintain s Azure Active Directory (Azure AD).
 
@@ -195,7 +195,7 @@ Výběr **vxMaintain** dlaždice na přístupovém panelu musí přihlásit do a
 
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Seznam kurzů k integraci aplikací SaaS v Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

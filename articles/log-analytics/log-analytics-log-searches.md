@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Najít data pomocí protokolu hledání v analýzy protokolů
 
@@ -30,7 +30,7 @@ Základem analýzy protokolů je funkce vyhledávání protokolu, která umožň
 
 Na stránce hledání můžete vytvořit dotaz a pak při hledání, můžete filtrovat výsledky pomocí ovládacích prvků omezující vlastnosti. Můžete také vytvořit pokročilými dotazy transformace, filtr a sestavy na výsledky.
 
-Běžné dotazy vyhledávání protokolu se zobrazí na většina stránek řešení. V konzoli OMS můžete kliknutím na tlačítko dlaždice nebo přejít k podrobnostem na jiné položky k zobrazení podrobností o položce pomocí protokolu vyhledávání.
+Běžné dotazy vyhledávání protokolu se zobrazí na většina stránek řešení. V rámci portálu OMS můžete kliknutím na tlačítko dlaždice nebo přejít k podrobnostem na jiné položky k zobrazení podrobností o položce pomocí protokolu vyhledávání.
 
 V tomto kurzu budeme zabývat příklady nepokrývají všechny základní informace při použití hledání protokolů.
 
@@ -39,7 +39,7 @@ Jsme budete začínat jednoduchý, praktické příklady a potom stavět na je, 
 Poté, co jste obeznámeni s vyhledávání techniky, můžete zkontrolovat [analýzy protokolů protokolu vyhledávání odkaz](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Použití základní filtrů
-První věc, kterou potřebujete vědět, je, že první část vyhledávání dotazu před spuštěním "|" znak svislé čáry znak, je vždy *filtru*. Můžete si ho představit jako klauzule WHERE v TSQL – Určuje *co* podmnožinu dat načítat z úložiště dat OMS. Hledání v úložišti dat je z velké části o zadání charakteristiky data, která mají být extrahovány, takže je přirozené dotazu by začínat klauzuli WHERE.
+První věc, kterou potřebujete vědět, je, že první část vyhledávání dotazu před spuštěním "|" znak svislé čáry znak, je vždy *filtru*. Můžete si ho představit jako klauzule WHERE v TSQL – Určuje *co* podmnožinu dat vyžádání mimo og pracovní prostor analýzy. Hledání v úložišti dat je z velké části o zadání charakteristiky data, která mají být extrahovány, takže je přirozené dotazu by začínat klauzuli WHERE.
 
 Nejzákladnější filtry, které můžete použít jsou *klíčová slova*, jako je například "Chyba" nebo "časový limit nebo název počítače. Tyto typy dotazů jednoduché obecně vrátí různých tvarů dat v rámci stejné sadu výsledků dotazu. Je to proto analýzy protokolů má jiný *typy* dat v systému.
 
@@ -80,7 +80,7 @@ Důvodem je, že všechny filtry v dotazu, jsou vyhodnoceny jako používán *a*
 
 Například dotaz `Type=Event EventLog="Windows PowerShell"` je stejný jako `Type=Event AND EventLog="Windows PowerShell"`. Vrátí všechny události, které byly přihlášení a shromažďují z protokolu událostí Windows PowerShell. Pokud přidáte filtr několikrát opakovaně výběrem stejné omezující vlastnost, pak tento problém je čistě kosmetické – ho může zaplnit panelu Hledat, ale stále vrátí stejné výsledky protože implicitní operátor AND je vždycky k dispozici.
 
-Implicitní operátor AND můžete snadno vrátit explicitně pomocí operátoru NOT. Například:
+Implicitní operátor AND můžete snadno vrátit explicitně pomocí operátoru NOT. Příklad:
 
 `Type:Event NOT(EventLog:"Windows PowerShell")`nebo jeho ekvivalent `Type=Event EventLog!="Windows PowerShell"` vrátí všechny události z všechny protokoly, které nejsou v prostředí Windows PowerShell protokolu.
 
@@ -126,7 +126,7 @@ V následujícím pořadí explicitní vyhodnotí každý dotaz. Poznámka: v z�
 (EventLog=Application OR EventLog=System) AND Computer=SERVER1.contoso.com
 ```
 
-Stejně jako pole v protokolu událostí, je možné načíst data pouze pro sadu konkrétní počítače přidáním nebo. Například:
+Stejně jako pole v protokolu událostí, je možné načíst data pouze pro sadu konkrétní počítače přidáním nebo. Příklad:
 
 ```
 (EventLog=Application OR EventLog=System) AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com OR Computer=SERVER3.contoso.com)
@@ -322,7 +322,7 @@ Druhý, **měření počtu** aktuálně vrací hodnotu pouze prvních 100 odliš
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>Pomocí funkce max a min příkaz měr
 Existují různé scénáře, kde **měr Max()** a **měr Min()** jsou užitečné. Ale vzhledem k tomu, že jednotlivé funkce je opačné vzájemně, jsme budete ilustrují Max() a můžete experimentovat s Min() sami.
 
-Pokud jste odeslat dotaz pro události zabezpečení, mají **úroveň** vlastnost, která se může lišit. Například:
+Pokud jste odeslat dotaz pro události zabezpečení, mají **úroveň** vlastnost, která se může lišit. Příklad:
 
 ```
 Type=SecurityEvent
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Příkaz měr pomocí funkce AVG.
 Statistické funkce Avg() použít s měr můžete vypočítat průměrnou hodnotu pro některé pole a seskupení výsledků podle stejné nebo jiné pole. To je užitečné v různých případech, například údaje o výkonu.
 
-Začneme s údaje o výkonu. Všimněte si, že OMS aktuálně shromažďuje čítače výkonu pro počítače s Windows a Linux.
+Začneme s údaje o výkonu. Všimněte si, že analýzy protokolů aktuálně shromažďuje čítače výkonu pro počítače s Windows a Linux.
 
 K vyhledání *všechny* údaje o výkonu, je nejzákladnější dotazu:
 
@@ -414,7 +414,7 @@ Teď můžete přidat počítače a čítače s v následujícím příkladu:
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-Protože máte velmi konkrétní výběru, **měření Avg()** příkaz může vrátit průměr není počítačem, ale celou farmu, jednoduše tak, že seskupení podle název_čítače. Například:
+Protože máte velmi konkrétní výběru, **měření Avg()** příkaz může vrátit průměr není počítačem, ale celou farmu, jednoduše tak, že seskupení podle název_čítače. Příklad:
 
 ```
 Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03") | Measure Avg(CounterValue) by CounterName
@@ -448,7 +448,7 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ## <a name="use-the-where-command"></a>Použít where příkazu
 Tam, kde příkaz lze použít jako filtr, ale můžete použijí v kanálu pro další filtrování agregované výsledky, které vyrobila příkaz měr – oproti nezpracovaná výsledky, jsou filtrovány na začátku dotazu.
 
-Například:
+Příklad:
 
 ```
 Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(CounterValue) as AVGCPU by Computer
@@ -551,7 +551,7 @@ Funkce countdistinct spočítá počet jedinečných hodnot v rámci jednotlivý
 * | measure countdistinct(Computer) by Type
 ```
 
-![OMS countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
+![OMS-countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
 
 ## <a name="use-the-measure-interval-command"></a>Pomocí příkazu interval měr
 S téměř v reálném čase výkonu shromažďování dat, můžete shromažďovat a vizualizovat všechny čítače výkonu v analýzy protokolů. Jednoduše zadat dotaz **typu: výkonu** vrátí tisíce metriky grafy na základě počtu čítače a serverů ve vašem prostředí analýzy protokolů. S průběhem metriky na vyžádání můžete si prohlédnout metriky celkového ve vašem prostředí na vysoké úrovni a podrobné informace na podrobnější data, jako je třeba.
@@ -583,7 +583,7 @@ Více klauzulí agregační můžete zadat v příkazu měr.  Každé z nich mů
  ```
 Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval 1hour
 ```
-![OMS multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
+![OMS-multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 Tady je další příklad:
 
@@ -592,7 +592,7 @@ Tady je další příklad:
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o protokolu hledání najdete v tématu:
 
 * Použití [vlastní pole v analýzy protokolů](log-analytics-custom-fields.md) rozšířit vyhledávání protokolu.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkce triggerů a vazeb koncepty
 
@@ -280,7 +280,7 @@ Například aktivační procedury fronty Azure storage podporuje následující 
 * ID
 * InsertionTime
 * NextVisibleTime
-* Vlastnosti PopReceipt
+* PopReceipt
 
 Tyto hodnoty metadata jsou dostupné v *function.json* vlastnosti souboru. Předpokládejme například, použít aktivační událost fronty a zprávy ve frontě obsahuje název objektu blob, které chcete číst. V *function.json* souboru, můžete použít `queueTrigger` metadata vlastnost v objektu blob `path` vlastnost, jak je znázorněno v následujícím příkladu:
 
@@ -483,6 +483,12 @@ V jazyce C# a jinými jazyky rozhraní .NET, můžete použít imperativní vazb
 ## <a name="functionjson-file-schema"></a>Schéma souboru Function.JSON
 
 *Function.json* schéma souboru je k dispozici na [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="handling-binding-errors"></a>Zpracování chyb vazby
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
+Odkazy na všechny relevantní chyby pro různé služby nepodporuje funkce, najdete v článku [vazby kódy chyb](functions-bindings-error-pages.md#binding-error-codes) části [zpracování chyb Azure Functions](functions-bindings-error-pages.md) přehledu.  
 
 ## <a name="next-steps"></a>Další postup
 

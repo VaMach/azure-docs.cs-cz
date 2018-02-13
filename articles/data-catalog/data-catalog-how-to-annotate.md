@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Postup přidání poznámek ke zdrojům dat
 ## <a name="introduction"></a>Úvod
@@ -40,14 +40,14 @@ Každý z těchto perspektiv se hodí v situaci, a Data Catalog používá crowd
 ## <a name="different-types-of-annotations"></a>Různé typy poznámky
 Data Catalog podporuje následující typy poznámky:
 
-| Poznámky | Poznámky |
+| Poznámka | Poznámky |
 | --- | --- |
 | Popisný název |Na úrovni asset data, aby datové prostředky srozumitelnější můžete zadat popisné názvy. Popisné názvy jsou nejužitečnější, pokud je základní název objektu jako nesrozumitelné, zkrácené nebo v opačném případě nemá význam pro uživatele. |
 | Popis |Popisy můžete zadat na datový prostředek a atribut nebo úrovně sloupce. Popisy jsou krátké textové poznámky, které popisují uživatele perspektivy na datový prostředek nebo jeho použití. |
 | Značky (značky uživatele) |Můžete zadat značky na datový prostředek a atribut nebo úrovně sloupce. Značky uživatele jsou popisky definovaný uživatelem, které slouží ke kategorizaci datových prostředků nebo atributy. |
 | Značky (Glosář značky) |Můžete zadat značky na datový prostředek a atribut nebo úrovně sloupce. Glosář značky jsou definované centrálně slovníku pojmů, které slouží ke kategorizaci datových prostředků nebo atributů s použitím běžné obchodní taxonomii. Další informace naleznete v článku [Jak nastavit obchodní glosář řízeným přidáváním značek](data-catalog-how-to-business-glossary.md) |
 | Odborníci |Odborníci můžete zadat na úrovni asset data. Odborníci identifikovat uživatele nebo skupiny s odbornými perspektivami na data a může sloužit jako body kontaktu pro uživatele, kteří zjišťovat registrované datové zdroje a máte otázky, které nenajdete odpovědi v existujících poznámek. |
-| Požádat o přístup |Žádost o přístup k informacím můžete zadat na úrovni asset data. Tyto informace jsou pro uživatele, kteří zjistit zdroj dat, který ještě nemají oprávnění k přístupu. Uživatele můžete zadat e-mailovou adresu uživatele nebo skupiny, který uděluje přístup, adresa URL procesu nebo nástroj, který uživatelé potřebovat přístup, nebo můžete zadat samotný proces jako text. |
+| Vyžádat si přístup |Žádost o přístup k informacím můžete zadat na úrovni asset data. Tyto informace jsou pro uživatele, kteří zjistit zdroj dat, který ještě nemají oprávnění k přístupu. Uživatele můžete zadat e-mailovou adresu uživatele nebo skupiny, který uděluje přístup, adresa URL procesu nebo nástroj, který uživatelé potřebovat přístup, nebo můžete zadat samotný proces jako text. |
 | Dokumentace |Dokumentace můžete zadat na úrovni asset data. Asset dokumentace je formátovaným textem informace, které může obsahovat odkazy a bitové kopie a která může poskytnout všechny informace není vyjádřené prostřednictvím popisy a značky. |
 
 ## <a name="annotating-multiple-assets"></a>Zadávání poznámek k více prostředků
@@ -66,5 +66,5 @@ Stejně jako metadata extrahovaná ze zdroje dat během registrace se přidá do
 ## <a name="summary"></a>Souhrn
 Registrace zdroje dat pomocí katalogu Data Catalog umožňuje dat zjistitelný zkopírováním strukturální a popisný metadat ze zdroje dat ve službě katalogu. Po registraci zdroje dat, uživatelé mohou poskytovat poznámky snadno vyhledatelné a pochopitelné z portálu pro katalog Data Catalog.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Začínáme s Azure Data Catalog](data-catalog-get-started.md) kurz podrobné informace o tom, jak přidání poznámek ke zdrojům dat.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Spouštění dotazů Hive se systémem Hadoop v HDInsight pomocí REST
 
@@ -50,7 +50,9 @@ Naučte se používat rozhraní REST API WebHCat ke spouštění dotazů Hive se
 
     Můžete zobrazit odpověď podobná následující text:
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     Parametry použité v tomto příkazu jsou následující:
 
@@ -65,7 +67,9 @@ Naučte se používat rozhraní REST API WebHCat ke spouštění dotazů Hive se
 
     Tento požadavek vrátí odpověď podobná následující text:
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Následující informace vám pomůžou vytvořit tabulku s názvem **log4jLogs**:
 
@@ -105,7 +109,9 @@ Naučte se používat rozhraní REST API WebHCat ke spouštění dotazů Hive se
 
    Tento příkaz vrátí ID úlohy, který slouží ke kontrole stavu úlohy.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. Pokud chcete zkontrolovat stav úlohy, použijte následující příkaz:
 

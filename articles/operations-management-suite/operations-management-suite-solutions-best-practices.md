@@ -1,5 +1,5 @@
 ---
-title: "Osvědčené postupy řešení OMSManagement | Microsoft Docs"
+title: "Řešení pro správu v Azure osvědčené postupy | Microsoft Docs"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Osvědčené postupy pro vytváření řešení pro správu v Operations Management Suite (OMS) (Preview)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Osvědčené postupy pro vytváření řešení pro správu v Azure (Preview)
 > [!NOTE]
-> Toto je předběžná dokumentace pro vytváření řešení pro správu v OMS, které jsou aktuálně ve verzi preview. Žádné schéma popsané níže se mohou změnit.  
+> Toto je předběžná dokumentace k vytvoření řešení pro správu v Azure, které jsou aktuálně ve verzi preview. Žádné schéma popsané níže se mohou změnit.  
 
-Tento článek obsahuje osvědčené postupy pro [vytváření soubor řešení správy](operations-management-suite-solutions-solution-file.md) v Operations Management Suite (OMS).  Tyto informace budou aktualizovány, jako jsou identifikovány další osvědčené postupy.
+Tento článek obsahuje osvědčené postupy pro [vytváření soubor řešení správy](operations-management-suite-solutions-solution-file.md) v Azure.  Tyto informace budou aktualizovány, jako jsou identifikovány další osvědčené postupy.
 
 ## <a name="data-sources"></a>Zdroje dat
 - Zdroje dat mohou být [nakonfigurovat pomocí šablony Resource Manageru](../log-analytics/log-analytics-template-workspace-configuration.md), ale by neměly být obsažené v souboru řešení.  Důvodem je, že konfigurace zdroje dat není aktuálně idempotent, což znamená, že vaše řešení může přepsat existující konfiguraci v prostoru uživatele.<br><br>Řešení může například vyžadovat upozornění a chyb události z protokolu událostí aplikace.  Pokud toto určíte jako zdroj dat ve vašem řešení, riskujete odebrání – informační události, pokud uživatel měli nakonfigurovaný v jejich pracovním prostoru.  Pokud jste zahrnuli všechny události, pak vám může být shromažďování nadměrné informační události v prostoru uživatele.
@@ -48,7 +48,7 @@ Tento článek obsahuje osvědčené postupy pro [vytváření soubor řešení 
 - Nakonfigurujte řešení, aby [odkaz](operations-management-suite-solutions-solution-file.md#solution-resource) pravidla upozornění, že uživatel může změnit jejich konfigurace.  Budou chtít provést změny, jako je například úprava seznamu příjemců, změna prahovou hodnotu upozornění nebo zakázat pravidlo výstrahy. 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Provede základní proces [navrhování a vytváření řešení pro správu](operations-management-suite-solutions-creating.md).
 * Zjistěte, jak [vytvořte soubor řešení](operations-management-suite-solutions-solution-file.md).
 * [Přidat uložená hledání a výstrahy](operations-management-suite-solutions-resources-searches-alerts.md) do řešení pro správu.

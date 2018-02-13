@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7667f94ac4e7edd4e94d6605adefea469102a0c4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 948c54a2e9be2260d0a7d2cce31b67ffbbd23d03
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Místní nasazení z Gitu do služby Azure App Service
 
@@ -54,18 +54,13 @@ App Service podporuje aplikace vytvořené v různých programovacích jazyků.
 
 1. Pokud úložiště už neobsahuje obsah, přidejte soubor statické .html následujícím způsobem; nebo můžete tento krok přeskočit:
    * Pomocí textového editoru, vytvořte nový soubor s názvem **index.html** v kořenovém adresáři úložiště Git
-   * Přidejte následující text jako obsah pro index.html souboru a uložte jej: *Hello Git!*
+   * Obsah index.html souboru a uložte ho přidejte následující text: *Hello Git!*
 1. Z příkazového řádku ověřte, že jste v kořenovém adresáři úložiště Git. Pak použijte následující příkaz pro přidání souborů do úložiště:
 
-    ```bash
-    git add -A
-    ```
-    
+        git add -A 
 1. V dalším kroku potvrďte změny do úložiště pomocí následujícího příkazu:
 
-    ```bash
-    git commit -m "Hello Azure App Service"
-    ```
+        git commit -m "Hello Azure App Service"
 
 ## <a name="Step3"></a>Krok 3: Povolení úložišti aplikace služby App Service
 
@@ -92,7 +87,7 @@ Pomocí následujících kroků k publikování aplikace do služby App Service 
 1. Pomocí příkazového řádku, ověřte, že jste v kořenu místní úložiště Git.
 1. Použití `git remote` přidat odkaz na vzdálené uvedené v **adresy URL pro Git** z kroku 1. Váš příkaz vypadá podobně jako následující:
 
-    ```
+    ```bash
     git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
     ```
 

@@ -3,7 +3,7 @@ title: "Vytvoření vlastních rolí pro Azure RBAC | Microsoft Docs"
 description: "Další informace jak definovat vlastní role pomocí řízení přístupu pro přesnější správu identit ve vašem předplatném Azure."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/11/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Vytvořit vlastní role pro řízení přístupu
 Vytvořte vlastní roli v řízení řízení přístupu (RBAC), pokud žádná z předdefinovaných rolí podle svých potřeb konkrétní přístup. Můžete vytvořit vlastní role pomocí [prostředí Azure PowerShell](role-based-access-control-manage-access-powershell.md), [rozhraní příkazového řádku Azure](role-based-access-control-manage-access-azure-cli.md) (CLI) a [REST API](role-based-access-control-manage-access-rest.md). Stejně jako předdefinované role můžete přiřadit vlastní role pro uživatele, skupiny a aplikace na předplatné, skupinu prostředků a prostředků obory. Vlastní role jsou uloženy v klient služby Azure AD a mohlo sdílet víc předplatných.
@@ -116,7 +116,7 @@ Příklady platný přiřaditelnými obory:
 * Kdo může zobrazit vlastní role?
     Všechny předdefinované role v Azure RBAC povolí zobrazení rolí, které jsou k dispozici pro přiřazení. Uživatelé, kteří mohou provádět `Microsoft.Authorization/roleDefinition/read` operace v oboru můžete zobrazit role RBAC, které jsou k dispozici pro přiřazení v tomto oboru.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Řízení přístupu na základě role](role-based-access-control-configure.md): Začínáme s RBAC na portálu Azure.
 * Seznam dostupných operací, najdete v části [poskytovatel prostředků Azure Resource Manager operations](role-based-access-control-resource-provider-operations.md).
 * Zjistěte, jak spravovat přístup pomocí:

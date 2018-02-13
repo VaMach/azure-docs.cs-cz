@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85a3b1b96effb716b8a33da8ad37309462042a44
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 87acbe81d20e0f2b209565eace16de1b979b1d96
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Přesun dat z místní HDFS pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +69,7 @@ Propojená služba odkazuje na objekt pro vytváření dat úložiště dat. Vyt
 | type |Vlastnost typu musí být nastavena na: **Hdfs** |Ano |
 | URL |Adresa URL HDFS |Ano |
 | authenticationType. |Anonymní, nebo Windows. <br><br> Použít **ověřování protokolem Kerberos** HDFS konektor, najdete v části [v této části](#use-kerberos-authentication-for-hdfs-connector) odpovídajícím způsobem nastavit v místním prostředí. |Ano |
-| Uživatelské jméno |Ověřování uživatelského jména pro systém Windows. Pro ověřování pomocí protokolu Kerberos, zadejte `<username>@<domain>.com`. |Ano (pro ověřování systému Windows) |
+| userName |Ověřování uživatelského jména pro systém Windows. Pro ověřování pomocí protokolu Kerberos, zadejte `<username>@<domain>.com`. |Ano (pro ověřování systému Windows) |
 | heslo |Heslo pro ověřování systému Windows. |Ano (pro ověřování systému Windows) |
 | gatewayName |Název brány, kterou služba Data Factory měla použít pro připojení k HDFS. |Ano |
 | encryptedCredential |[Nové AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) výstup pověření přístup. |Ne |
@@ -159,7 +159,7 @@ V tomto příkladu {řez} se nahradí hodnotu objektu pro vytváření dat syst�
 ```
 V tomto příkladu jsou extrahován rok, měsíc, den a čas SliceStart do samostatné proměnné, které jsou používány folderPath a název vlastnosti.
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vzhledem k tomu, vlastnosti dostupné v rámci typeProperties části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
@@ -434,7 +434,7 @@ Existují dvě možnosti nastavit v místním prostředí tak, aby používala o
 
   **Restartujte** služba KDC po konfiguraci.
 
-2.  Příprava objekt zabezpečení s názvem  **krbtgt/REALM.COM@AD.COM**  na serveru služby KDC pomocí následujícího příkazu:
+2.  Příprava objekt zabezpečení s názvem ** krbtgt/REALM.COM@AD.COM ** na serveru služby KDC pomocí následujícího příkazu:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -447,7 +447,7 @@ Existují dvě možnosti nastavit v místním prostředí tak, aby používala o
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Navázání vztahu důvěryhodnosti z domény systému Windows k Sféra Kerberos. [heslo] je heslo pro objekt  **krbtgt/REALM.COM@AD.COM** .
+2.  Navázání vztahu důvěryhodnosti z domény systému Windows k Sféra Kerberos. [heslo] je heslo pro objekt ** krbtgt/REALM.COM@AD.COM **.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

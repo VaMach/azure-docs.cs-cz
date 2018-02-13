@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 8d6f2347e06e58ec2b506aa9eaf716b3f71f3a77
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ladění snímků výjimky v aplikacích .NET
 
@@ -29,7 +29,7 @@ Snímek kolekce je k dispozici pro:
 * Aplikace rozhraní .NET 2.0 core a ASP.NET Core 2.0 v systému Windows.
 
 Podporovány jsou následující prostředí:
-* Aplikační služba Azure.
+* Azure App Service.
 * Služba Azure Cloud spuštěna řada operačního systému, 4 nebo novější.
 * Azure Service Fabric služby běžící na Windows Server 2012 R2 nebo novějším.
 * Virtuální počítače Azure s Windows serverem 2012 R2 nebo novější.
@@ -82,7 +82,7 @@ Podporovány jsou následující prostředí:
 
 3. Úprava vaší aplikace `Startup` třída k přidání a konfiguraci kolekce snímku telemetrie procesoru.
 
-   ```C#
+   ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
    ...
@@ -140,7 +140,7 @@ Podporovány jsou následující prostředí:
 2. Přidat [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) balíček NuGet v aplikaci.
 
 3. Snímky jsou shromažďovány pouze na výjimky, které jsou hlášeny Application insights. Potřebujete upravit kód k jejich sestavy. Kód zpracování výjimek závisí na struktuře vaší aplikace, ale zde je příklad:
-    ```C#
+    ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -291,7 +291,7 @@ Postupujte podle těchto kroků nakonfigurujete vaše cloudové služby role s v
 ```
 
 2. Upravit vaše role `OnStart` metoda pro přidání proměnné prostředí, která odkazuje na `SnapshotStore` místní prostředek.
-```C#
+```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);

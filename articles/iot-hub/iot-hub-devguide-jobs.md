@@ -3,7 +3,7 @@ title: "Pochopení úlohy Azure IoT Hub | Microsoft Docs"
 description: "Příručka vývojáře - plánování úloh spouštět na několika zařízeních připojení do služby IoT hub. Úlohy můžete aktualizovat značky a požadované vlastnosti a volat přímé metody na několika zařízeních."
 services: iot-hub
 documentationcenter: .net
-author: juanjperez
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
-ms.author: juanpere
-ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 01/29/2018
+ms.author: dobett
+ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Plánování úloh na několika zařízeních
 
@@ -104,8 +104,8 @@ Následující seznam obsahuje vlastnosti a odpovídající popisy, které se da
 | Vlastnost | Popis |
 | --- | --- |
 | **jobId** |Aplikace zadat ID pro úlohu. |
-| **čas spuštění** |Aplikace zadat čas spuštění (ISO-8601) pro úlohu. |
-| **čas ukončení** |Centrum IoT k dispozici po dokončení úlohy datum (ISO-8601). Platné jenom po úlohu dosáhne stavu 'dokončení'. |
+| **startTime** |Aplikace zadat čas spuštění (ISO-8601) pro úlohu. |
+| **endTime** |Centrum IoT k dispozici po dokončení úlohy datum (ISO-8601). Platné jenom po úlohu dosáhne stavu 'dokončení'. |
 | **Typ** |Typy úloh: |
 | | **scheduledUpdateTwin**: úlohu použít k aktualizaci sadu požadované vlastnosti a značky. |
 | | **scheduledDeviceMethod**: úloha používá k volání metody zařízení na sadu dvojčata zařízení. |
@@ -130,11 +130,11 @@ Další témata referenční příručka vývojáře IoT Hub patří:
 * [Koncové body centra IoT] [ lnk-endpoints] popisuje různé koncových bodů, které každý IoT hub zpřístupní pro spuštění a management operace.
 * [Omezování a kvóty] [ lnk-quotas] popisuje kvóty, které platí pro službu IoT Hub a omezení chování se očekává při použití služby.
 * [Azure IoT zařízení a služby sady SDK] [ lnk-sdks] uvádí různé jazykové sady SDK můžete použít při vývoji aplikace zařízení a služby, které interakci s centrem IoT.
-* [IoT Hub dotazovacího jazyka pro dvojčata zařízení, úlohy a směrování zpráv] [ lnk-query] popisuje dotazovací jazyk Centrum IoT, můžete použít k načtení informací ze služby IoT Hub o úlohách a dvojčata zařízení.
+* [IoT Hub dotazovacího jazyka pro dvojčata zařízení, úlohy a směrování zpráv] [ lnk-query] popisuje dotazovací jazyk IoT Hub. Tento dotaz jazyk se použije k načtení informací o úlohách a dvojčata zařízení ze služby IoT Hub.
 * [Podpora IoT Hub MQTT] [ lnk-devguide-mqtt] poskytuje další informace o podpoře služby IoT Hub pro protokol MQTT.
 
-## <a name="next-steps"></a>Další kroky
-Pokud chcete vyzkoušet některé konceptů popsaných v tomto článku, může zajímat v následujícím kurzu IoT Hub:
+## <a name="next-steps"></a>Další postup
+Můžete vyzkoušet na některé z konceptů popsaných v tomto článku, najdete v následujícím kurzu IoT Hub:
 
 * [Plán a všesměrovým úlohy][lnk-jobs-tutorial]
 

@@ -1,22 +1,22 @@
 ---
 title: "Nasazení řešení – Azure vzdáleného sledování Java | Microsoft Docs"
-description: "V tomto kurzu se dozvíte, jak zřídit předkonfigurovaného řešení vzdáleného monitorování microsoervices Java pomocí rozhraní příkazového řádku."
+description: "V tomto kurzu se dozvíte, jak zřídit předkonfigurovaného řešení vzdáleného monitorování pomocí rozhraní příkazového řádku."
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 94c3db3286623264e9df7873962d10dd5cc662d4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>Nasazení předkonfigurovaného řešení vzdáleného monitorování pomocí rozhraní příkazového řádku
 
@@ -54,8 +54,10 @@ Když nasadíte předkonfigurované řešení, máte několik možností, které
 
 | Možnost | Hodnoty | Popis |
 | ------ | ------ | ----------- |
-| Skladová jednotka (SKU)    | `basic`, `standard` | A _základní_ nasazení je určený pro testovací a ukázky, nasazování všechny mikroslužeb do jediného virtuálního počítače. A _standardní_ nasazení je určeno v produkčním prostředí se nasadí mikroslužeb do více virtuálních počítačů. |
+| Skladová jednotka (SKU)    | `basic`, `standard`, `local` | A _základní_ nasazení je určený pro testovací a ukázky, nasazování všechny mikroslužeb do jediného virtuálního počítače. A _standardní_ nasazení je určeno v produkčním prostředí se nasadí mikroslužeb do více virtuálních počítačů. A _místní_ nasazení nakonfiguruje kontejner Docker ke spuštění mikroslužeb na místním počítači a používá služby Azure, jako je například úložiště a Cosmos databáze, v cloudu. |
 | Modul runtime | `dotnet`, `java` | Vybere jazyk provádění mikroslužeb. |
+
+Další informace o tom, jak použít místní nasazení najdete v tématu [místního spuštění řešení vzdáleného monitorování](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="deploy-the-preconfigured-solution"></a>Nasadit předkonfigurované řešení
 
@@ -94,7 +96,7 @@ pcs -h
 
 Další informace o rozhraní příkazového řádku najdete v tématu [použití rozhraní příkazového řádku](https://github.com/Azure/pcs-cli/blob/master/README.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 

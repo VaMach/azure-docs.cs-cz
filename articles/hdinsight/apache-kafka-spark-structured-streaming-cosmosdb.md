@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/16/2017
+ms.date: 01/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 49a57431c778ee018ecd71e3921cd21c3be94885
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 55d0fb91c8a8b995a5b9369d762f5bd87cb086c9
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Použít Spark strukturovaná streamování s Kafka a Azure Cosmos DB
 
@@ -145,11 +145,11 @@ Nahrát poznámkových bloků z projektu do vaší Spark v clusteru HDInsight po
 
 4. Opakujte kroky 1 – 3 načíst __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ poznámkového bloku.
 
-## <a name="load-tweets-into-kafka"></a>Načtení tweetů do Kafka
+## <a name="load-taxi-data-into-kafka"></a>Načítání dat taxíkem do Kafka
 
 Jakmile soubory byly odeslány, vyberte __datového proudu taxíkem data na kafka.ipynb__ záznam, tím otevřete Poznámkový blok. Postupujte podle kroků v poznámkovém bloku k načtení dat do Kafka.
 
-## <a name="process-tweets-using-spark-structured-streaming"></a>Proces tweetů pomocí Spark strukturovaných streamování
+## <a name="process-taxi-data-using-spark-structured-streaming"></a>Zpracování taxíkem dat pomocí Spark strukturovaných streamování
 
 Na domovské stránce poznámkového bloku Jupyter, vyberte __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ položku. Ze Kafka a do Azure DB Cosmos pomocí Spark strukturovaných Streaming, postupujte podle kroků v poznámkovém bloku k datům datového proudu.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/12/2017
-ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 625e3f599303bfb93db9d52beb2aed48ad50d3b7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Podporované zdroje dat pro přípravu Azure Machine Learning dat. 
 Tento článek popisuje aktuálně podporovaných zdrojů dat pro přípravu dat Azure Machine Learning.
@@ -35,7 +35,7 @@ Takto vypadají podporovaných zdrojů dat pro tuto verzi.
 - Uživatelské jméno
 - Heslo
 - Pro připojení k databázi
-- Dotaz SQL
+- Příkaz jazyka SQL
 
 #### <a name="notes"></a>Poznámky
 - SQL variant sloupce nejsou podporovány.
@@ -59,7 +59,7 @@ Načtení souboru čárkami oddělených hodnot úložiště.
 
 #### <a name="options"></a>Možnosti
 - Oddělovač
-- Komentovat
+- Poznámka
 - Záhlaví
 - Decimal – symbol
 - Kódování souborů
@@ -69,12 +69,12 @@ Načtení souboru čárkami oddělených hodnot úložiště.
 Načtení souboru karta oddělených hodnot úložiště.
 
 #### <a name="options"></a>Možnosti
-- Komentovat
+- Poznámka
 - Záhlaví
 - Kódování souborů
 - Řádky tak, aby přeskočil
 
-### <a name="excel-xlsxlsx"></a>Aplikace Excel (.xls/.xlsx)
+### <a name="excel-xlsxlsx"></a>Excel (.xls/.xlsx)
 Přečtěte si jeden listu aplikace Excel soubor současně zadáním názvu list nebo číslo.
 
 #### <a name="options"></a>Možnosti
@@ -86,7 +86,7 @@ Přečtěte si jeden listu aplikace Excel soubor současně zadáním názvu lis
 Načtení souboru JSON úložiště. Soubor je "průmětu" na čtení.
 
 #### <a name="options"></a>Možnosti
-- Žádný
+- Žádné
 
 ### <a name="parquet"></a>Parquet
 Číst Parquet datové sady, buď jeden soubor nebo složku.

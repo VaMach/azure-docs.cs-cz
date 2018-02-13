@@ -227,6 +227,8 @@
               items:
                 - name: Ukázky .NET
                   href: sql-api-dotnet-samples.md
+                - name: Ukázky Java
+                  href: sql-api-java-samples.md
                 - name: Ukázky Node.js
                   href: sql-api-nodejs-samples.md
                 - name: Ukázky Pythonu
@@ -248,7 +250,7 @@
           items:
             - name: Připojení k účtu MongoDB
               href: connect-mongodb-account.md
-            - name: Použití MongoChef
+            - name: Použití Studia 3T
               href: mongodb-mongochef.md
             - name: Použití Robomongo
               href: mongodb-robomongo.md
@@ -341,7 +343,7 @@
         - name: Správa klíčů a konzistence
           href: manage-account.md
         - name: Azure Storage Explorer
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Zabezpečení
           items:
             - name: Šifrování v klidovém stavu
@@ -352,10 +354,15 @@
               href: secure-access-to-data.md
     - name: Integrace
       items:
+        - name: Implementace architektury lambda s využitím HDInsightu
+          href: lambda-architecture.md
         - name: Připojení ke Sparku
           href: spark-connector.md
         - name: Připojení ke Spark GraphX
           href: spark-connector-graph.md
+        - name: Streamování s Kafkou a Sparkem v HDInsight
+          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Nasazení webu pomocí služby Azure App Service
           href: create-website.md
         - name: Protokolování aplikací pomocí funkce Logic Apps

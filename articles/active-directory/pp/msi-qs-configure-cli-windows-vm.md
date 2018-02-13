@@ -3,7 +3,7 @@ title: "Postup konfigurace MSI se přiřazené pro virtuální počítač Azure 
 description: "Krok podle podrobné pokyny pro konfiguraci přiřazený uživatelem spravované služby Identity (MSI) pro virtuální počítač Azure, pomocí rozhraní příkazového řádku Azure."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 495ed6daf0d73d89a4bc572f6bccf294cee7decb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Konfigurace přiřazený uživatelem spravované služby Identity (MSI) pro virtuální počítač, pomocí rozhraní příkazového řádku Azure
 
@@ -35,7 +35,7 @@ V tomto článku se dozvíte, jak povolit a odebrat MSI se přiřazené pro virt
 V tomto kurzu spustit příklady skriptu rozhraní příkazového řádku, máte dvě možnosti:
 
 - Použití [prostředí cloudu Azure](~/articles/cloud-shell/overview.md) z portálu Azure nebo prostřednictvím tlačítko "Zkuste ho", umístěný v pravém horním rohu každé blok kódu.
-- [Nainstalujte nejnovější verzi 2.0 rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 nebo novější) Pokud byste radši chtěli použít místní konzoly rozhraní příkazového řádku. Potom se přihlaste k Azure pomocí [az přihlášení](/cli/azure/#login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit přiřazený uživatelem MSI a virtuálních počítačů:
+- [Nainstalujte nejnovější verzi 2.0 rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 nebo novější) Pokud byste radši chtěli použít místní konzoly rozhraní příkazového řádku. Potom se přihlaste k Azure pomocí [az přihlášení](/cli/azure/#az_login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit přiřazený uživatelem MSI a virtuálních počítačů:
 
    ```azurecli
    az login
@@ -45,7 +45,7 @@ V tomto kurzu spustit příklady skriptu rozhraní příkazového řádku, máte
 
 Tato část vás provede procesem vytvoření virtuálního počítače a přiřazení MSI přiřazené k virtuálnímu počítači. Pokud již máte virtuální počítač, který chcete použít, tuto část přeskočit a pokračovat na další.
 
-1. Pokud už máte skupinu prostředků, kterou jste chtěli použít, můžete tento krok přeskočit. Vytvoření [skupiny prostředků](~/articles/azure-resource-manager/resource-group-overview.md#terminology) pro nasazení MSI a členství ve skupině pomocí [vytvořit skupinu az](/cli/azure/group/#create). Nezapomeňte nahradit `<RESOURCE GROUP>` a `<LOCATION>` hodnoty parametrů s vlastními hodnotami. :
+1. Pokud už máte skupinu prostředků, kterou jste chtěli použít, můžete tento krok přeskočit. Vytvoření [skupiny prostředků](~/articles/azure-resource-manager/resource-group-overview.md#terminology) pro nasazení MSI a členství ve skupině pomocí [vytvořit skupinu az](/cli/azure/group/#az_group_create). Nezapomeňte nahradit `<RESOURCE GROUP>` a `<LOCATION>` hodnoty parametrů s vlastními hodnotami. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -73,7 +73,7 @@ Odpověď obsahuje podrobnosti pro přiřazené uživatele soubor MSI vytvořili
    }
    ```
 
-3. Vytvoření virtuálního počítače pomocí [vytvořit virtuální počítač az](/cli/azure/vm/#create). Následující příklad vytvoří virtuální počítač přidružené k nové přiřazený uživatelem soubor MSI, podle specifikace `--assign-identity` parametr. Nezapomeňte nahradit `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, a `<`MSI ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id' vlastnost vytvořili v předchozím kroku: 
+3. Vytvoření virtuálního počítače pomocí [vytvořit virtuální počítač az](/cli/azure/vm/#az_vm_create). Následující příklad vytvoří virtuální počítač přidružené k nové přiřazený uživatelem soubor MSI, podle specifikace `--assign-identity` parametr. Nezapomeňte nahradit `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, a `<`MSI ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id' vlastnost vytvořili v předchozím kroku: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>

@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření datového skladu SQL Azure – Azure Portal | Dokumentace Microsoftu"
+title: "Rychlé zprovoznění: Vytvoření datového skladu SQL Azure – Azure Portal | Microsoft Docs"
 description: "Vytvořte server SQL, pravidlo brány firewall na úrovni serveru a datový sklad pro službu Azure SQL Data Warehouse na webu Azure Portal. Pak ji dotazujte."
 keywords: sql data warehouse tutorial, create a SQL data warehouse
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Vytvoření a dotazování datového skladu SQL Azure na webu Azure Portal
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Rychlé zprovoznění: Vytvoření a dotazování datového skladu SQL Azure na webu Azure Portal
 
 Rychle vytvořte a dotazujte datový sklad SQL Azure pomocí webu Azure Portal.
 

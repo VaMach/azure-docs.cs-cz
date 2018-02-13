@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Zjistit soutěže v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/06/2018
 Odpovědi na nejčastější dotazy týkající se soutěže, naleznete v části [nejčastější dotazy k Microsoft Cortana Intelligence soutěže](competition-faq.md).
 
 ## <a name="discover"></a>Informace
- **[Soutěže](https://gallery.cortanaintelligence.com/competitions)**  stránky ([aka.ms/CIComp](http://aka.ms/CIComp)) zobrazí seznam nejčastěji používané soutěže.
+**[Soutěže](https://gallery.cortanaintelligence.com/competitions)**  stránky ([aka.ms/CIComp](http://aka.ms/CIComp)) zobrazí seznam nejčastěji používané soutěže.
 
 ![Vyberte soutěže z Galerie domovské stránky](./media/gallery-competitions/select-competitions-in-gallery.png)
 

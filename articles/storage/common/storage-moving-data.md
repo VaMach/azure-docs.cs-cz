@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Přesunutí dat z Azure Storage a do Azure Storage
 Pokud chcete přesunout místní data do služby Azure Storage (nebo naopak), existuje mnoho různých způsobů, jak to udělat. Přístup, který nejlépe vyhovuje bude záviset na váš scénář. Tento článek vám poskytne rychlý přehled o různých scénářů a příslušné nabídky pro každé z nich.
@@ -41,9 +41,9 @@ Podívejte se na naše seznam [Průzkumníci úložiště Azure](../storage-expl
 Pokud vyžadují nebo jsou pohodlnější pomocí nástroje příkazového řádku (např. Správci systému), jsou zde je třeba zvážit několik možností:
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy je nástroj Windows, který se spouští z příkazového řádku a který je určený pro vysoce výkonné kopírování dat do Azure Storage a z Azure Storage. Můžete také zkopírovat data v rámci účtu úložiště nebo mezi jiným účtům úložiště.
+AzCopy je nástroj příkazového řádku určený pro vysoce výkonné kopírování dat do a z Azure Storage. Můžete také zkopírovat data v rámci účtu úložiště nebo mezi jiným účtům úložiště. AzCopy je k dispozici na [Windows](storage-use-azcopy.md) a na [Linux](storage-use-azcopy-linux.md).
 
-V tématu [přenos dat pomocí nástroje příkazového řádku Azcopy](storage-use-azcopy.md) Další informace.
+V tématu [přenos dat pomocí nástroje příkazového řádku Azcopy](storage-use-azcopy.md) nebo [přenos dat pomocí nástroje AzCopy v systému Linux](storage-use-azcopy-linux.md) Další informace.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell je modul, který nabízí rutiny pro správu služeb v Azure. Je to prostředí příkazového řádku založené na úlohách a skriptovací jazyk určený speciálně pro správu systému.

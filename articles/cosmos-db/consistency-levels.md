@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Data přizpůsobitelné úrovně konzistence v Azure Cosmos DB
 Azure Cosmos DB slouží od základů až s globální distribuce v paměti pro každý datový model. Je navržen pro nabízejí předvídatelný s nízkou latencí záruky a více dobře definovaný volný konzistence modelů. V současné době Azure Cosmos DB poskytuje pět úrovně konzistence: silnou, s ohraničenou odolností, založenou relace, konzistentní Předpona a případnou. Typu ohraničenou prošlostí, relace, konzistentní předponu a případné jsou označovány jako "volný konzistence modely", jako poskytují menší konzistence než silné, což je většina vysoce konzistentní modelu, který je k dispozici. 
@@ -113,27 +113,31 @@ Ve výchozím nastavení pro uživatelem definované prostředky úroveň konzis
 | Indexování režimu | Čtení | Dotazy |
 | --- | --- | --- |
 | Konzistentní (výchozí) |Vyberte z typu silné a ohraničenou prošlostí, relace, konzistentní předpony nebo případné |Vyberte, ze silného typu s ohraničenou prošlostí, relaci nebo případné |
-| Opožděné |Vyberte z typu silné a ohraničenou prošlostí, relace, konzistentní předpony nebo případné |Nahodilé |
-| Žádný |Vyberte z typu silné a ohraničenou prošlostí, relace, konzistentní předpony nebo případné |Neuvedeno |
+| Lazy |Vyberte z typu silné a ohraničenou prošlostí, relace, konzistentní předpony nebo případné |Nahodilé |
+| Žádné |Vyberte z typu silné a ohraničenou prošlostí, relace, konzistentní předpony nebo případné |Neuvedeno |
 
 Jako s požadavky na čtení, můžete snížit úroveň konzistence požadavku specifického dotazu v každé rozhraní API.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="consistency-levels-for-the-mongodb-api"></a>Úrovně konzistence pro rozhraní API MongoDB
+
+Azure Cosmos DB aktuálně implementuje MongoDB verze 3.4, který má dvě nastavení konzistence silné a případnou. Protože Azure Cosmos DB více api, toto nastavení konzistence lze použít na úrovni účtu a vynucení konzistence se řídí každé rozhraní API.  Dokud MongoDB 3.6, byl žádná koncepce konzistence relace, takže pokud nastavíte účet rozhraní API MongoDB chcete použít konzistence typu relace, je při použití rozhraní API MongoDB snížit na případné konzistence. Pokud potřebujete záruku pro čtení a vaše vlastníte zápis pro účet rozhraní API MongoDB, výchozí úroveň konzistence pro účet by mělo být nastavené silné nebo ohraničenou typu prošlostí.
+
+## <a name="next-steps"></a>Další postup
 Pokud chcete provést další výklad o úrovně konzistence a kompromisy, doporučujeme v následujících zdrojích informací:
 
 * Doug Terry. Replikovaná Data konzistence vysvětlené prostřednictvím baseballové (video).   
-  [https://www.YouTube.com/Watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 * Doug Terry. Replikovaná Data konzistence vysvětlené prostřednictvím baseballové.   
-  [http://Research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.PDF](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * Doug Terry. Relace záruky pro slabě konzistentní replikovaná Data.   
-  [http://DL.ACM.org/CITATION.cfm?ID=383631](http://dl.acm.org/citation.cfm?id=383631)
-* ADAM Abadi. Konzistence kompromisy moderní distribuované návrhu databáze systémy: Zakončení je pouze část textu ".   
-  [http://Computer.org/CSDL/mags/co/2012/02/mco2012020037-ABS.HTML](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Petr Bailis, Shivaram Venkataraman, Michael J. tw, Joseph M. Hellerstein, Stoica uchování. Pravděpodobnosti ohraničenou typu Prošlostí (PBS) pro praktické částečné kvor.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.PDF](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
+* Daniel Abadi. Konzistence kompromisy moderní distribuované návrhu databáze systémy: Zakončení je pouze část textu ".   
+  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Pravděpodobnosti ohraničenou typu Prošlostí (PBS) pro praktické částečné kvor.   
+  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * Wernerovi Vogels. Závěrečné konzistentní – kdykoli znovu spustit.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.HTML](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * Moni Naor, Avishai vlny, zatížení, kapacity a dostupnosti systémů kvora, SIAM deníku na výpočetních, v.27 n.2, p.423-447, duben 1998.
-  [http://epubs.siam.org/DOI/Abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
 * Sebastianu Burckhardt, Jan Dern, Macanal Musuvathi, Royi Tan, řada produktů: nástroj úplný a automatické linearizability pro kontrolu, řízení 2010 konference ACM SIGPLAN na programovací jazyk návrhu a implementace, června 05-10, 2010, Toronto, Ontario, Kanada [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Petr Bailis, Shivaram Venkataraman, Michael J. tw, Joseph M. Hellerstein, uchování Stoica Probabilistically ohraničenou typu prošlostí pro praktické částečné kvor řízení dotační VLDB, v.5 n.8, p.776-787, duben 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* Petr Bailis, Shivaram Venkataraman, Michael J. tw, Joseph M. Hellerstein, uchování Stoica Probabilistically ohraničenou typu prošlostí pro praktické částečné kvor řízení dotační VLDB, v.5 n.8, p.776-787, duben 2012 [http:// DL.ACM.org/CITATION.cfm?ID=2212359](http://dl.acm.org/citation.cfm?id=2212359)

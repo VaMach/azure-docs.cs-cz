@@ -2,7 +2,7 @@
 ## [Co je Relay?](relay-what-is-it.md)
 ## [Nejčastější dotazy](relay-faq.md)
 
-# Začínáme
+# Šablony Rychlý start
 ## [Vytvoření oboru názvů](relay-create-namespace-portal.md)
 ## [Vytvoření hybridní lokální/cloudové aplikace](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybridní připojení

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1379cbb0ea9b01a20d1974ed08e93b4872ffd92b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 765ca21c7c38fa116e0ca95b3c8dc6a6152834ce
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Přesun dat do a z Azure Table pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ Služba Data Factory pro data bez schémat úložiště, jako je například Azu
 
 Osvědčeným postupem pro zdroje dat bez schémat, proto je zadat strukturu dat pomocí **struktura** vlastnost.
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní datové sady a zásad jsou dostupné pro všechny typy aktivit.
 
 Vlastnosti dostupné v rámci typeProperties části aktivity se liší na druhé straně každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
@@ -474,13 +474,13 @@ Jak je uvedeno v [aktivity přesunu dat](data-factory-data-movement-activities.m
 
 Při přesunu dat do a z Azure Table, následující [mapování definovaná službou Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) se používají ve typy OData tabulky Azure na typ .NET a naopak.
 
-| Typ dat OData | Typ formátu .NET | Podrobnosti |
+| Typ dat OData | .NET Type | Podrobnosti |
 | --- | --- | --- |
 | Edm.Binary |Byte] |Pole bajtů až 64 KB. |
 | Edm.Boolean |BOOL |Logická hodnota. |
-| Edm.DateTime |Data a času |Hodnota 64-bit, vyjádřené jako koordinovaný světový čas (UTC). Podporovaný rozsah datum a čas zahájení z 12:00 hodin, 1, 1601. ledna (C.E.), UTC. Rozsah končí u 31. prosince 9999. |
-| Edm.Double |Double |Hodnota 64-bit plovoucí bodu. |
-| Edm.Guid |Identifikátor GUID |Globálně jedinečný identifikátor 128-bit. |
+| Edm.DateTime |Datum a čas |Hodnota 64-bit, vyjádřené jako koordinovaný světový čas (UTC). Podporovaný rozsah datum a čas zahájení z 12:00 hodin, 1, 1601. ledna (C.E.), UTC. Rozsah končí u 31. prosince 9999. |
+| Edm.Double |double |Hodnota 64-bit plovoucí bodu. |
+| Edm.Guid |Guid |Globálně jedinečný identifikátor 128-bit. |
 | Edm.Int32 |Int32 |32bitové celé číslo. |
 | Edm.Int64 |Int64 |64bitové celé číslo. |
 | Edm.String |Řetězec |Hodnota kódování UTF-16. Řetězcové hodnoty může mít až 64 KB. |

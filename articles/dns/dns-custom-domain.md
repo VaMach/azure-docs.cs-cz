@@ -3,20 +3,20 @@ title: "Azure DNS integrovat vašich prostředků Azure | Microsoft Docs"
 description: "Naučte se používat Azure DNS podél zajistit DNS pro vašich prostředků Azure."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 1/19/2018
+ms.author: kumud
+ms.openlocfilehash: cbc769cd7356b3057fd2aae295071b04d2e40d91
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Zadejte nastavení vlastní domény pro službu Azure pomocí Azure DNS
 
@@ -26,7 +26,7 @@ Azure DNS poskytuje DNS pro vlastní doménu pro některé z vašich prostředk�
 
 Abyste mohli používat Azure DNS pro vaši vlastní doménu, musíte nejprve delegování domény do Azure DNS. Navštivte [delegování domény do Azure DNS](./dns-delegate-domain-azure-dns.md) pokyny ke konfiguraci serverů název pro delegování. Jakmile doménu se deleguje na zónu Azure DNS, budete moci nakonfigurovat záznamy DNS, které jsou potřeba.
 
-Můžete nakonfigurovat jednoduché nebo vlastní doména pro [Azure funkce aplikace](#azure-function-app), [Azure IoT](#azure-iot), [veřejné IP adresy](#public-ip-address), [služby App Service (webové aplikace)](#app-service-web-apps), [Úložiště objektů blob](#blob-storage), a [Azure CDN](#azure-cdn).
+Můžete nakonfigurovat jednoduché nebo vlastní doména pro [Azure funkce aplikace](#azure-function-app), [veřejné IP adresy](#public-ip-address), [služby App Service (webové aplikace)](#app-service-web-apps), [Blob storage](#blob-storage), a [Azure CDN](#azure-cdn).
 
 ## <a name="azure-function-app"></a>Aplikace Azure – funkce
 
@@ -44,38 +44,17 @@ Přejděte do zóny DNS a klikněte na tlačítko **+ sady záznamů**. Zadejte 
 
 |Vlastnost  |Hodnota  |Popis  |
 |---------|---------|---------|
-|Name (Název)     | myfunctionapp        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
+|Název     | myfunctionapp        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
 |Typ     | CNAME        | Použití záznam CNAME používá alias.        |
-|HODNOTA TTL     | 1        | 1 se používá pro 1 hodina        |
+|TTL     | 1        | 1 se používá pro 1 hodina        |
 |Hodnota TTL jednotky     | Hodiny        | Hodiny se používají jako měření času         |
-|Alias     | adatumfunction.azurewebsites.NET        | Název DNS vytváříte alias, v tomto příkladu je název DNS adatumfunction.azurewebsites.net dostupné ve výchozím nastavení do aplikaci funkce.        |
+|Alias     | adatumfunction.azurewebsites.net        | Název DNS vytváříte alias, v tomto příkladu je název DNS adatumfunction.azurewebsites.net dostupné ve výchozím nastavení do aplikaci funkce.        |
 
 Přejděte zpět do aplikace pro funkce, klikněte na **funkce**a v části **sítě** klikněte na tlačítko **vlastní domény**, pak v části **názvy hostitelů**klikněte na tlačítko **+ přidat název hostitele**.
 
 Na **přidat název hostitele** okno, zadejte záznam CNAME v **hostname** textové pole a klikněte na tlačítko **ověřením**. Pokud záznam bylo možné najít, **přidat název hostitele** se zobrazí tlačítko. Klikněte na tlačítko **přidat název hostitele** přidat alias.
 
 ![funkce aplikace přidat okno název hostitele](./media/dns-custom-domain/functionaddhostname.png)
-
-## <a name="azure-iot"></a>Azure IoT
-
-Azure IoT nemá žádné úpravy, které jsou potřeba v samotné služby. Chcete-li používat vlastní doménu pomocí služby IoT Hub pouze záznam CNAME odkazoval na prostředky, je potřeba.
-
-Přejděte na **Internet věcí** > **IoT Hub** a vyberte své služby IoT hub. Na **přehled** okno, Všimněte si, plně kvalifikovaný název domény služby IoT hub.
-
-![Okno centra IoT](./media/dns-custom-domain/iot.png)
-
-Potom přejděte na zónu DNS a klikněte na tlačítko **+ sady záznamů**. Zadejte následující informace na **přidat sadu záznamů** a klikněte na **OK** k jeho vytvoření.
-
-
-|Vlastnost  |Hodnota  |Popis  |
-|---------|---------|---------|
-|Name (Název)     | myiothub        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro službu IoT hub.        |
-|Typ     | CNAME        | Použití záznam CNAME používá alias.
-|HODNOTA TTL     | 1        | 1 se používá pro 1 hodina        |
-|Hodnota TTL jednotky     | Hodiny        | Hodiny se používají jako měření času         |
-|Alias     | adatumIOT.azure devices.net        | Název DNS vytváříte alias, v tomto příkladu je název hostitele adatumIOT.azure devices.net poskytované služby IoT hub.
-
-Jakmile je vytvořen záznam, otestovat překlad pomocí záznamu CNAME`nslookup`
 
 ## <a name="public-ip-address"></a>Veřejná IP adresa
 
@@ -90,9 +69,9 @@ Přejděte do zóny DNS a klikněte na tlačítko **+ sady záznamů**. Zadejte 
 
 |Vlastnost  |Hodnota  |Popis  |
 |---------|---------|---------|
-|Name (Název)     | mywebserver        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
+|Název     | mywebserver        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
 |Typ     | A        | Použijte záznam prostředku je IP adresa.        |
-|HODNOTA TTL     | 1        | 1 se používá pro 1 hodina        |
+|TTL     | 1        | 1 se používá pro 1 hodina        |
 |Hodnota TTL jednotky     | Hodiny        | Hodiny se používají jako měření času         |
 |IP adresa     | <your ip address>       | Veřejnou IP adresu.|
 
@@ -117,11 +96,11 @@ Přejděte do zóny DNS a klikněte na tlačítko **+ sady záznamů**. Zadejte 
 
 |Vlastnost  |Hodnota  |Popis  |
 |---------|---------|---------|
-|Name (Název)     | mywebserver        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
+|Název     | mywebserver        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
 |Typ     | CNAME        | Použití záznam CNAME používá alias. Pokud prostředek používá IP adresu, se použije záznam.        |
-|HODNOTA TTL     | 1        | 1 se používá pro 1 hodina        |
+|TTL     | 1        | 1 se používá pro 1 hodina        |
 |Hodnota TTL jednotky     | Hodiny        | Hodiny se používají jako měření času         |
-|Alias     | WebServer.azurewebsites.NET        | Název DNS vytváříte alias, v tomto příkladu je název DNS webserver.azurewebsites.net dostupné ve výchozím nastavení do webové aplikace.        |
+|Alias     | webserver.azurewebsites.net        | Název DNS vytváříte alias, v tomto příkladu je název DNS webserver.azurewebsites.net dostupné ve výchozím nastavení do webové aplikace.        |
 
 
 ![Vytvořte záznam CNAME](./media/dns-custom-domain/createcnamerecord.png)
@@ -151,11 +130,11 @@ Přejděte do zóny DNS a klikněte na tlačítko **+ sady záznamů**. Zadejte 
 
 |Vlastnost  |Hodnota  |Popis  |
 |---------|---------|---------|
-|Name (Název)     | asverify.mystorageaccount        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
+|Název     | asverify.mystorageaccount        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
 |Typ     | CNAME        | Použití záznam CNAME používá alias.        |
-|HODNOTA TTL     | 1        | 1 se používá pro 1 hodina        |
+|TTL     | 1        | 1 se používá pro 1 hodina        |
 |Hodnota TTL jednotky     | Hodiny        | Hodiny se používají jako měření času         |
-|Alias     | asverify.adatumfunctiona9ed.BLOB.Core.Windows.NET        | Název DNS vytváříte alias, v tomto příkladu je název DNS asverify.adatumfunctiona9ed.blob.core.windows.net dostupné ve výchozím nastavení k účtu úložiště.        |
+|Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Název DNS vytváříte alias, v tomto příkladu je název DNS asverify.adatumfunctiona9ed.blob.core.windows.net dostupné ve výchozím nastavení k účtu úložiště.        |
 
 Přejděte zpět na váš účet úložiště kliknutím **úložiště** > **účty úložiště**, vyberte svůj účet úložiště a klikněte na **vlastní domény**. Zadejte alias, který jste vytvořili bez předpony asverify v textovém poli, zkontrolujte ** použít nepřímé ověření CNAME a klikněte na tlačítko **Uložit**. Po dokončení tohoto kroku se vraťte do zóny DNS a vytvořte záznam CNAME bez předpony asverify.  Po tomto bodě se bezpečně odstranit záznam CNAME s předponou cdnverify.
 
@@ -173,22 +152,22 @@ Přejděte na **sítě** > **profilů CDN**vyberte váš profil CDN a klikněte 
 
 Vyberte koncový bod se práce a klikněte na tlačítko **+ vlastní domény**. Poznámka: **hostitele koncového bodu** jako tato hodnota je záznam, který záznam CNAME odkazuje na.
 
-![Vlastní domény CDN](./media/dns-custom-domain/endpointcustomdomain.png)
+![Vlastní doména CDN](./media/dns-custom-domain/endpointcustomdomain.png)
 
 Přejděte do zóny DNS a klikněte na tlačítko **+ sady záznamů**. Zadejte následující informace na **přidat sadu záznamů** a klikněte na **OK** k jeho vytvoření.
 
 |Vlastnost  |Hodnota  |Popis  |
 |---------|---------|---------|
-|Name (Název)     | cdnverify.mycdnendpoint        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
+|Název     | cdnverify.mycdnendpoint        | Tato hodnota společně s Popisek názvu domény je plně kvalifikovaný název domény pro vlastní název domény.        |
 |Typ     | CNAME        | Použití záznam CNAME používá alias.        |
-|HODNOTA TTL     | 1        | 1 se používá pro 1 hodina        |
+|TTL     | 1        | 1 se používá pro 1 hodina        |
 |Hodnota TTL jednotky     | Hodiny        | Hodiny se používají jako měření času         |
-|Alias     | cdnverify.adatumcdnendpoint.azureedge.NET        | Název DNS vytváříte alias, v tomto příkladu je název DNS cdnverify.adatumcdnendpoint.azureedge.net dostupné ve výchozím nastavení k účtu úložiště.        |
+|Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Název DNS vytváříte alias, v tomto příkladu je název DNS cdnverify.adatumcdnendpoint.azureedge.net dostupné ve výchozím nastavení k účtu úložiště.        |
 
 Přejděte zpět na koncový bod CDN kliknutím **sítě** > **profilů CDN**a vyberte váš profil CDN. Klikněte na tlačítko **+ vlastní domény** zadejte váš alias záznam CNAME bez předpony cdnverify a klikněte na tlačítko **přidat**.
 
 Po dokončení tohoto kroku se vraťte do zóny DNS a vytvořte záznam CNAME bez cdnverify předponu.  Po tomto bodě se bezpečně odstranit záznam CNAME s předponou cdnverify. Další informace o síti CDN a jak nakonfigurovat vlastní doménu bez kroku zprostředkující registrace najdete v článku [mapy Azure CDN obsah k vlastní doméně](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zjistěte, jak [nakonfigurovat zpětné DNS pro služby hostované v Azure](dns-reverse-dns-for-azure-services.md).

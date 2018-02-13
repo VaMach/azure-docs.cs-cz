@@ -3,7 +3,7 @@ title: "Tom, jak přiřadit MSI přístup k prostředku Azure, pomocí rozhraní
 description: "Podrobné pokyny pro přiřazení MSI na jeden prostředek, přístup k jiný prostředek, pomocí rozhraní příkazového řádku Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
-ms.author: bryanla
-ms.openlocfilehash: 7d817a90277a1320ccc028822032916c98cae4b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: be80065f83e8c80e7c1d6ab383cea04e0d2679a0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Přiřadit identita spravované služby (MSI) přístup k prostředku pomocí rozhraní příkazového řádku Azure
 
@@ -41,13 +41,13 @@ Pokud chcete spustit skript příklady rozhraní příkazového řádku, máte t
 
 Po povolení MSI na prostředek Azure [například virtuální počítač Azure](msi-qs-configure-cli-windows-vm.md): 
 
-1. Pokud používáte Azure CLI v místní konzole, nejdřív přihlásit k Azure pomocí [az přihlášení](/cli/azure/#login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit virtuální počítač:
+1. Pokud používáte Azure CLI v místní konzole, nejdřív přihlásit k Azure pomocí [az přihlášení](/cli/azure/#az_login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit virtuální počítač:
 
    ```azurecli-interactive
    az login
    ```
 
-2. V tomto příkladu nabízíme virtuálního počítače Azure přístup k účtu úložiště. Nejprve používáme [seznam zdrojů az](/cli/azure/resource/#list) získat objekt služby pro virtuální počítač s názvem "Můjvp", který byl vytvořen, když jsme povolené MSI ve virtuálním počítači:
+2. V tomto příkladu nabízíme virtuálního počítače Azure přístup k účtu úložiště. Nejprve používáme [seznam zdrojů az](/cli/azure/resource/#az_resource_list) získat objekt služby pro virtuální počítač s názvem "Můjvp", který byl vytvořen, když jsme povolené MSI ve virtuálním počítači:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)

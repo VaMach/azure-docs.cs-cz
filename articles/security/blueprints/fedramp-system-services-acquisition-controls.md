@@ -1,6 +1,6 @@
 ---
-title: "Plán, podle kterého FedRAMP Azure Automation – systém a získávání služby"
-description: "Webové aplikace pro FedRAMP - systému a získávání služby"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace – systém a získávání služby"
+description: "FedRAMP webové aplikace automatizace – systém a získávání služby"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Systém a získávání služby (SA)
 
@@ -281,7 +281,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-system-documentation"></a>Informace naleznete v dokumentaci systému
 
-**SA 5.e** Organizace distribuuje dokumentaci [přiřazení: organizace definované pracovníky nebo rolí].
+**SA-5.e** Organizace distribuuje dokumentaci [přiřazení: organizace definované pracovníky nebo rolí].
 
 **Odpovědnosti:**`Customer Only`
 
@@ -477,7 +477,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="developer-configuration-management"></a>Správa konfigurace vývojáře
 
-**SA 10.e** Organizace vyžaduje vývojáře informace systému, součást systému nebo informace systému služby a sledovat nedostatky zabezpečení a řešení Chyba v rámci systému, komponenty nebo nálezy služby a sestavy, které [přiřazení: definované organizace pracovníky].
+**SA-10.e** Organizace vyžaduje vývojáře informace systému, součást systému nebo informace systému služby a sledovat nedostatky zabezpečení a řešení Chyba v rámci systému, komponenty nebo nálezy služby a sestavy, které [přiřazení: definované organizace pracovníky].
 
 **Odpovědnosti:**`Customer Only`
 
@@ -561,7 +561,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="developer-security-testing-and-evaluation"></a>Vývojáře zabezpečení testování a vyhodnocení
 
-**SA 11.e** Organizace vyžaduje vývojáře informace systému, součást systému nebo informace systému služby a opravte chyby zjištěné při testování zabezpečení nebo vyhodnocení.
+**SA-11.e** Organizace vyžaduje vývojáře informace systému, součást systému nebo informace systému služby a opravte chyby zjištěné při testování zabezpečení nebo vyhodnocení.
 
 **Odpovědnosti:**`Customer Only`
 

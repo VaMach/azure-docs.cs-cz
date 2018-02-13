@@ -3,21 +3,21 @@ title: "Používat pro přístup k Azure Storage MSI virtuálních počítačů 
 description: "Kurz vás provede procesem pomocí Linux virtuálního počítače spravované služby Identity (MSI) pro přístup k úložišti Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 2b264f8e2227e410caba8370d58c824d469198e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 1484ecdeb26f06d54dceef0e4fb1a5c63fab732a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Použít identitu služby spravované Linux virtuálního počítače pro přístup k úložišti Azure pomocí přístupového klíče
 
@@ -227,7 +227,7 @@ Odpověď:
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Přehled MSI najdete v tématu [identita spravované služby přehled](../active-directory/msi-overview.md).
 - Další postup Tento stejný kurz pomocí úložiště pověření SAS najdete v tématu [používal Linux virtuálního počítače spravované služby identitu pro přístup k úložišti Azure pomocí pověření SAS](msi-tutorial-linux-vm-access-storage-sas.md)

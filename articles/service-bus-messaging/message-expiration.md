@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>Vypršení platnosti zprávy (Time to Live)
 
@@ -25,11 +25,11 @@ Datová část uvnitř zprávu, nebo příkaz nebo dotaz, který zprávu přenes
 
 Pro vývoj a testovací prostředí, ve kterých front a témat se často používají v rámci částečné spustí aplikací nebo částí aplikace je také žádoucí, aby mají být automaticky shromažďují tak, aby spustit další test paměti může izolované testovací zprávy spuštění čištění.
 
-Vypršení platnosti pro jakékoli jednotlivé zprávy se dá nastavit podle nastavení [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) vlastnosti systému, která určuje relativní doba trvání. Doba vypršení platnosti změní absolutní rychlých, pokud zpráva je zařazených do fronty s entitou. V ten moment se [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) vlastnost přebírá hodnotu [ **EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Vypršení platnosti pro jakékoli jednotlivé zprávy se dá nastavit podle nastavení [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) vlastnosti systému, která určuje relativní doba trvání. Doba vypršení platnosti změní absolutní rychlých, pokud zpráva je zařazených do fronty s entitou. V ten moment se [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) vlastnost přebírá hodnotu [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
 
 Posledních **ExpiresAtUtc** rychlých, zprávy způsobilé pro načtení. Doba vypršení platnosti nemá vliv na zprávy, které jsou aktuálně uzamčena pro doručení. Tyto zprávy jsou stále zpracovává normálně. Pokud vyprší platnost zámek nebo opuštění zprávy, doba vypršení platnosti se projeví okamžitě.
 
-Při zprávy v rámci zámku aplikace může být u sebe zprávy s vypršenou platností jmenovitě. Jestli je ochotná pokračujte s zpracování nebo zvolí ukončil zpráva aplikace závisí implementátor.
+Při zprávy v rámci zámku aplikace může být u sebe zprávy s vypršenou platností. Jestli je ochotná pokračujte s zpracování nebo zvolí ukončil zpráva aplikace závisí implementátor.
 
 ## <a name="entity-level-expiration"></a>Vypršení platnosti úrovni entit
 
@@ -47,14 +47,14 @@ Představte si třeba webové stránky, které je spolehlivě spuštění úlohy
 
 Service Bus fronty, témata a odběry se dá vytvořit jako dočasné entity, které se automaticky odeberou, když se pro zadaném časovém období nebyly použity.
  
-Automatické čištění je užitečné v vývojová a testovací scénáře, ve kterých entity dynamicky se vytvářejí a nejsou vyčištěna po použití kvůli testu nebo ladění spustit s byla přerušena. Je také užitečné, když aplikace vytvoří dynamické entitami, jako je například fronty odpovědi, pro příjem odpovědí zpět do procesu webového serveru nebo do jiného relativně krátkodobou objektu, kde je obtížné spolehlivě vyčištění tyto entity při objektu instance zmizí.
+Automatické čištění je užitečné v vývojová a testovací scénáře, ve kterých entity dynamicky se vytvářejí a nejsou po použití, z důvodu některých přerušení testu nebo spuštění ladění vyčištěna. Je také užitečné, když aplikace vytvoří dynamické entitami, jako je například fronty odpovědi, pro příjem odpovědí zpět do procesu webového serveru nebo do jiného relativně krátkodobou objektu, kde je obtížné spolehlivě vyčištění tyto entity při objektu instance zmizí.
 
 Tato funkce je povolena, pomocí [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) vlastnost, která je nastavena na hodnotu doby trvání, pro kterou má být entity nečinnosti (nepoužívané), než je automaticky odstraněna. Minimální doba je 5 minut.
  
-Vlastnost musí být nastavená prostřednictvím operace Azure Resource Manager nebo prostřednictvím klienta rozhraní .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) rozhraní API. Nejde ji nastavit pomocí portálu.
+**AutoDeleteOnIdle** prostřednictvím operace Azure Resource Manager nebo prostřednictvím klienta rozhraní .NET Framework, musí být nastavená vlastnost [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) rozhraní API. Nejde ji nastavit pomocí portálu.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o zasílání zpráv Service Bus, najdete v následujících tématech:
 

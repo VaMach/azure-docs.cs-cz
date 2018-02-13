@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB databáze šifrování v klidovém stavu
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Protože služba PaaS, Cosmos DB je velmi snadno použitelný. Protože je v klidovém stavu a přenosu šifrovaný všechna uživatelská data, které jsou uloženy v databázi Cosmos, nemusíte provádět žádnou akci. Jiný způsob, jak to uvedli je, že je šifrování v klidovém stavu "na" ve výchozím nastavení. Neexistují žádná opatření, můžete zapnout nebo vypnout. Poskytujeme tuto funkci při jsme i dál splňují naše [dostupnosti a výkonu SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implement-encryption-at-rest"></a>Implementace šifrování v klidovém stavu
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementace šifrování v klidovém stavu pro Azure Cosmos DB
 
 Šifrování v klidovém stavu je implementována pomocí několika technologiemi zabezpečení, včetně systémů zabezpečeného úložiště klíčů, šifrované sítí a kryptografické rozhraní API. Systémy, které dešifrovat a zpracování dat mají komunikovat se systémy, které správu klíčů. Diagram znázorňuje, jak je oddělená úložiště šifrovaných dat a správu klíčů. 
 
@@ -64,7 +64,7 @@ Odpověď: není žádný dopad nebo změny na výkon SLA teď, když je povolen
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>Otázka: místní emulátoru podporuje šifrování v klidovém stavu?
 Odpověď: emulátoru se o samostatný nástroj pro vývoj/testování a nepoužívá služby správy klíčů, které používá spravované služby Cosmos DB. Naše doporučení je povolit nástroj BitLocker na jednotkách, kde ukládáte citlivé emulátoru testovacích datech. [Emulátoru podporuje Změna výchozí adresář dat](local-emulator.md) a také pomocí známých umístění.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Přehled zabezpečení systému Cosmos DB a nejnovější vylepšení najdete v tématu [zabezpečení databáze Azure Cosmos DB](database-security.md).
 Další informace o certifikace společnosti Microsoft najdete v tématu [Centrum zabezpečení Azure](https://azure.microsoft.com/en-us/support/trust-center/).

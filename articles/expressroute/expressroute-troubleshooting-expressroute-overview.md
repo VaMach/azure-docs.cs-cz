@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: e52e53255a1462522f297d8918eb1c347a460f77
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>Ověření připojení ExpressRoute
 ExpressRoute, které zasahuje do místní sítě do cloudu Microsoftu přes privátní připojení, které usnadňují poskytovatele připojení, zahrnuje následující tři odlišné sítě zóny:
@@ -216,12 +216,12 @@ Ukázková odpověď, úspěšně nakonfigurovaný soukromého partnerského vzt
 Podrobnosti konfigurace partnerského vztahu Azure veřejné získáte pomocí následujících příkazů:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 Konfigurace podrobností partnerského vztahu Microsoftu získáte pomocí následujících příkazů:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
+     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Pokud není nakonfigurováno partnerský vztah, by chybovou zprávu. Ukázka odpověď, když stanovené partnerského vztahu (Azure veřejný partnerský vztah v tomto příkladu) není nakonfigurovaný v rámci okruhu:
 

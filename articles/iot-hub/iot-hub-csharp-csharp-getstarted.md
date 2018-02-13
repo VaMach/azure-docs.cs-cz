@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec9ff4a866ef8736ed260b4d17aa997433c1ef8d
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3ea8979f21fcc8a85e80db9b49377ba9a48836e2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Připojení zařízení ke službě IoT Hub pomocí .NET
 
@@ -31,9 +31,9 @@ Na konci tohoto kurzu budete mít tři konzolové aplikace .NET:
 * **ReadDeviceToCloudMessages** zobrazuje telemetrická data odesílaná aplikací pro zařízení.
 * **SimulatedDevice** propojuje službu IoT Hub s dříve vytvořenou identitou zařízení a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu MQTT.
 
-Řešení Visual Studio, které obsahuje tyto tři aplikace z Githubu, si můžete stáhnout nebo naklonovat.
+Pokud chcete vytvořit zcela novou ukázkovou aplikaci, postupujte podle kroků v tomto kurzu. Alternativně můžete [stáhnout](https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app/archive/master.zip) nebo naklonovat řešení sady Visual Studio z GitHubu:
 
-```bash
+```cmd/sh
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 
@@ -54,6 +54,7 @@ Nyní jste vytvořili službu IoT Hub a máte název hostitele a připojovací �
 
 <a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Příjem zpráv typu zařízení-cloud
+
 V této části vytvoříte konzolovou aplikaci .NET, která čte zprávy typu zařízení-cloud ze služby IoT Hub. Služba IoT Hub zpřístupní koncový bod kompatibilní se službou [Azure Event Hubs][lnk-event-hubs-overview], který vám umožní číst zprávy typu zařízení-cloud. Z důvodu zjednodušení vytvoří tento kurz jednoduchou čtečku, která není vhodná pro vysoce výkonná nasazení. Další informace o tom, jak zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial]. Další informace o zpracování zpráv ze služby Event Hubs najdete v kurzu [Začínáme se službou Event Hubs][lnk-eventhubs-tutorial]. (Tento kurz se vztahuje na koncové body kompatibilní se službou IoT Hub Event Hub.)
 
 > [!NOTE]
@@ -63,18 +64,18 @@ V této části vytvoříte konzolovou aplikaci .NET, která čte zprávy typu z
 
     ![Nový klasický desktopový projekt Visual C# pro systém Windows][10a]
 
-2. V Průzkumníku řešení klikněte pravým tlačítkem myši na projekt **ReadDeviceToCloudMessages** a potom klikněte na tlačítko **Spravovat balíčky NuGet**.
+1. V Průzkumníku řešení klikněte pravým tlačítkem myši na projekt **ReadDeviceToCloudMessages** a potom klikněte na tlačítko **Spravovat balíčky NuGet**.
 
-3. V okně **Správce balíčků NuGet** vyhledejte **WindowsAzure.ServiceBus**, vyberte možnost **Instalovat** a přijměte podmínky používání. Tímto postupem se stáhne a nainstaluje služba [Azure Service Bus][lnk-servicebus-nuget] a všechny její závislosti a přidá se na ni odkaz. Tento balíček umožní aplikaci připojení ke koncovému bodu kompatibilnímu se službou Event Hubs ve službě IoT Hub.
+1. V okně **Správce balíčků NuGet** vyhledejte **WindowsAzure.ServiceBus**, vyberte možnost **Instalovat** a přijměte podmínky používání. Tímto postupem se stáhne a nainstaluje služba [Azure Service Bus][lnk-servicebus-nuget] a všechny její závislosti a přidá se na ni odkaz. Tento balíček umožní aplikaci připojení ke koncovému bodu kompatibilnímu se službou Event Hubs ve službě IoT Hub.
 
-4. Do horní části souboru **Program.cs** přidejte následující příkazy `using`:
+1. Do horní části souboru **Program.cs** přidejte následující příkazy `using`:
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     using System.Threading;
     ```
 
-5. Do třídy **Program** přidejte následující pole. Nahraďte hodnotu zástupného symbolu připojovacím řetězcem pro službu IoT Hub, kterou jste vytvořili v části Vytvoření služby IoT Hub.
+1. Do třídy **Program** přidejte následující pole. Nahraďte hodnotu zástupného symbolu připojovacím řetězcem pro službu IoT Hub, kterou jste vytvořili v části Vytvoření služby IoT Hub.
 
     ```csharp
     static string connectionString = "{iothub connection string}";
@@ -82,7 +83,7 @@ V této části vytvoříte konzolovou aplikaci .NET, která čte zprávy typu z
     static EventHubClient eventHubClient;
     ```
 
-6. Přidejte následující metodu do třídy **Program**:
+1. Přidejte následující metodu do třídy **Program**:
 
     ```csharp
     private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
@@ -102,7 +103,7 @@ V této části vytvoříte konzolovou aplikaci .NET, která čte zprávy typu z
 
     Tato metoda používá instanci **EventHubReceiver** k příjmu zpráv ze všech oddílů pro příjem zpráv typu zařízení-cloud ve službě IoT Hub: Všimněte si, jak při vytváření objektu **EventHubReceiver** předáte parametr `DateTime.Now`, aby objekt přijímal pouze zprávy odeslané po spuštění. Tento filtr je užitečný v testovacím prostředí, protože uvidíte aktuální sadu zpráv. V produkčním prostředí byste se měli ujistit, že váš kód zpracovává všechny zprávy. Další informace najdete v kurzu [Postupy zpracování zpráv typu zařízení-cloud ve službě IoT Hub][lnk-process-d2c-tutorial].
 
-7. Nakonec do metody **Main** přidejte následující řádky:
+1. Nakonec do metody **Main** přidejte následující řádky:
 
     ```csharp
     Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
@@ -123,7 +124,7 @@ V této části vytvoříte konzolovou aplikaci .NET, která čte zprávy typu z
     foreach (string partition in d2cPartitions)
     {
         tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
-    }  
+    }
     Task.WaitAll(tasks.ToArray());
     ```
 
@@ -135,18 +136,18 @@ V této části vytvoříte konzolovou aplikaci .NET, která simuluje zařízen�
 
     ![Nový klasický desktopový projekt Visual C# pro systém Windows][10b]
 
-2. V Průzkumníku řešení klikněte pravým tlačítkem myši na projekt **SimulatedDevice** a potom klikněte na tlačítko **Spravovat balíčky NuGet**.
+1. V Průzkumníku řešení klikněte pravým tlačítkem myši na projekt **SimulatedDevice** a potom klikněte na tlačítko **Spravovat balíčky NuGet**.
 
-3. V okně **Správce balíčků NuGet** vyberte **Procházet**, vyhledejte **Microsoft.Azure.Devices.Client**, vyberte možnost **Instalovat**, nainstalujte balíček  **Microsoft.Azure.Devices.Client** a přijměte podmínky používání. Tímto postupem se stáhne a nainstaluje [balíček NuGet sady SDK pro zařízení Azure IoT][lnk-device-nuget] a jeho závislosti a přidá se na něj odkaz.
+1. V okně **Správce balíčků NuGet** vyberte **Procházet**, vyhledejte **Microsoft.Azure.Devices.Client**, vyberte možnost **Instalovat**, nainstalujte balíček  **Microsoft.Azure.Devices.Client** a přijměte podmínky používání. Tímto postupem se stáhne a nainstaluje [balíček NuGet sady SDK pro zařízení Azure IoT][lnk-device-nuget] a jeho závislosti a přidá se na něj odkaz.
 
-4. Do horní části souboru **Program.cs** přidejte následující příkaz `using`:
+1. Do horní části souboru **Program.cs** přidejte následující příkaz `using`:
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Newtonsoft.Json;
     ```
 
-5. Do třídy **Program** přidejte následující pole. Nahraďte `{iot hub hostname}` názvem hostitel centra IoT, který jste získali v části Vytvoření centra IoT. Nahraďte `{device key}` klíčem zařízení, který jste získali v části Vytvoření identity zařízení.
+1. Do třídy **Program** přidejte následující pole. Nahraďte `{iot hub hostname}` názvem hostitel centra IoT, který jste získali v části Vytvoření centra IoT. Nahraďte `{device key}` klíčem zařízení, který jste získali v části Vytvoření identity zařízení.
 
     ```csharp
     static DeviceClient deviceClient;
@@ -154,7 +155,7 @@ V této části vytvoříte konzolovou aplikaci .NET, která simuluje zařízen�
     static string deviceKey = "{device key}";
     ```
 
-6. Přidejte následující metodu do třídy **Program**:
+1. Přidejte následující metodu do třídy **Program**:
 
     ```csharp
     private static async void SendDeviceToCloudMessagesAsync()
@@ -190,7 +191,7 @@ V této části vytvoříte konzolovou aplikaci .NET, která simuluje zařízen�
 
     Tato metoda odesílá novou zprávu typu zařízení-cloud každou sekundu. Zpráva obsahuje objekt serializovaný do formátu JSON, s ID zařízení a náhodně generovanými čísly, který simuluje snímač teploty a snímač vlhkosti.
 
-7. Nakonec do metody **Main** přidejte následující řádky:
+1. Nakonec do metody **Main** přidejte následující řádky:
 
     ```csharp
     Console.WriteLine("Simulated device\n");
@@ -215,11 +216,11 @@ Nyní jste připraveni aplikaci spustit.
 
     ![Vlastnosti projektu po spuštění][41]
 
-2. Stisknutím klávesy **F5** spusťte obě aplikace. Výstup konzoly z aplikace **SimulatedDevice** zobrazuje zprávy, které aplikace pro zařízení odesílá do služby IoT Hub. Výstup konzoly z aplikace **ReadDeviceToCloudMessages** zobrazuje zprávy, které služba IoT Hub přijímá.
+1. Stisknutím klávesy **F5** spusťte obě aplikace. Výstup konzoly z aplikace **SimulatedDevice** zobrazuje zprávy, které aplikace pro zařízení odesílá do služby IoT Hub. Výstup konzoly z aplikace **ReadDeviceToCloudMessages** zobrazuje zprávy, které služba IoT Hub přijímá.
 
     ![Výstup konzoly z aplikací][42]
 
-3. Na dlaždici **Využití** na webu [Azure Portal][lnk-portal] se zobrazuje počet zpráv odeslaných do služby IoT Hub:
+1. Na dlaždici **Využití** na webu [Azure Portal][lnk-portal] se zobrazuje počet zpráv odeslaných do služby IoT Hub:
 
     ![Dlaždice Využití na portálu Azure Portal][43]
 
@@ -243,7 +244,6 @@ Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpra
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
 [10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
-
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

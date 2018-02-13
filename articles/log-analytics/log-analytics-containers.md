@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Řešení monitorování kontejneru v analýzy protokolů
 
@@ -46,15 +46,15 @@ Než začnete, zkontrolujte následující podrobnosti k ověření, že splňuj
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Podpora řešení monitorování kontejneru pro platformy Docker Orchestrator a verze operačního systému
 Následující tabulka popisuje Docker orchestration a monitorování podporu kontejneru inventáře, výkonu a protokoly s analýzy protokolů operačního systému.   
 
-| | ACS | Linux | Windows | Kontejner<br>Inventáře | Image<br>Inventáře | Node<br>Inventáře | Kontejner<br>Výkon | Kontejner<br>Událost | Událost<br>Protokol | Kontejner<br>Protokol |
+| | ACS | Linux | Windows | Kontejner<br>Inventarizace | Image<br>Inventarizace | Node<br>Inventarizace | Kontejner<br>Výkon | Kontejner<br>Událost | Událost<br>Protokol | Kontejner<br>Protokol |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Služba<br>Prostředky infrastruktury | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Otevřete Red Hat<br>Posunutí | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
-| Windows Server<br>(samostatně) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Linux Server<br>(samostatně) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Otevřete Red Hat<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Windows Server<br>(standalone) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Linux Server<br>(standalone) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
 
 ### <a name="docker-versions-supported-on-linux"></a>Verze docker podporované v systému Linux
@@ -542,22 +542,22 @@ Data jsou shromažďována každé tři minuty následující typy agenta.
 
 V následující tabulce jsou uvedeny příklady záznamů shromážděných řešením pro monitorování kontejneru a datové typy, které se zobrazí ve výsledcích hledání protokolu.
 
-| Datový typ | Datový typ v hledání protokolů | Pole |
+| Typ dat | Datový typ v hledání protokolů | Pole |
 | --- | --- | --- |
 | Výkon pro hostitele a kontejnery | `Type=Perf` | Počítač, ObjectName, název_čítače &#40; % času procesoru, Disk načte MB, zapíše MB, MB využití paměti, disku sítě přijatých bajtů, síti odesílat bajtů, procesor doba využití sítě &#41; přepočtené, TimeGenerated, Cesta_k_čítači, SourceSystem |
 | Kontejner inventáře | `Type=ContainerInventory` | TimeGenerated, počítače a název kontejneru, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, příkazu, CreatedTime, StartedTime, FinishedTime, SourceSystem, identifikátor ContainerID, ID obrázku |
 | Kontejner image inventáře | `Type=ContainerImageInventory` | TimeGenerated, počítače, Image, ImageTag, ImageSize, VirtualSize, spuštění, pozastavena, zastavit, se nezdařilo, SourceSystem, ID obrázku, TotalContainer |
 | Kontejner protokolu | `Type=ContainerLog` | TimeGenerated, počítač, ID bitové kopie, název kontejneru, LogEntrySource, LogEntry, SourceSystem, identifikátor ContainerID |
 | Protokol služby kontejneru | `Type=ContainerServiceLog`  | TimeGenerated, počítače, TimeOfCommand, Image, příkazu, SourceSystem, identifikátor ContainerID |
-| Uzel inventáře kontejneru | `Type=ContainerNodeInventory_CL`| TimeGenerated, počítače, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes inventáře | `Type=KubePodInventory_CL` | TimeGenerated, počítače, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Uzel inventáře kontejneru | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes inventáře | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
 | Proces kontejneru | `Type=ContainerProcess_CL` | TimeGenerated, počítače, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
 | Kubernetes události | `Type=KubeEvents_CL` | TimeGenerated, počítače, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, zprávy |
 
 Popisky připojenou k *PodLabel* datové typy jsou vlastní štítky. Připojením PodLabel popisky uvedené v tabulce jsou uvedeny příklady. Ano `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` se liší v sadě dat vaše prostředí a obecně vypadat jako `PodLabel_yourlabel_s`.
 
 
-## <a name="monitor-containers"></a>Monitorování kontejnery
+## <a name="monitor-containers"></a>Monitorování kontejnerů
 Až budete mít řešení povoleno na portálu OMS **kontejnery** dlaždice se zobrazí souhrnné informace o kontejneru hostitelů a kontejnerů, které jsou spuštěné v hostitelích.
 
 ![Dlaždice kontejnery](./media/log-analytics-containers/containers-title.png)
@@ -653,7 +653,7 @@ Který zobrazí seznam metriky výkonu, které se shromažďují pro jednotlivé
 ## <a name="example-log-search-queries"></a>Příklad protokolu vyhledávací dotazy
 Je často užitečné k vytvoření dotazů počínaje příklad nebo dva a pak úpravy, aby odpovídaly vašemu prostředí. Jako počáteční bod, můžete vyzkoušet **ukázkové dotazy** oblasti, které vám umožní vytvořit složitější dotazy.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Kontejnery dotazy](./media/log-analytics-containers/containers-queries.png)
 
@@ -663,5 +663,5 @@ Uložení dotazů je standardní funkce v analýzy protokolů. Je uložíte, bud
 
 Jakmile vytvoříte dotaz, který pro vás užitečné, uložte kliknutím na **Oblíbené** v horní části stránky hledání protokolu. Potom ho později snadno přístup **vlastní řídicí panel** stránky.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [V protokolech Hledat](log-analytics-log-searches.md) zobrazíte podrobné kontejneru datových záznamů.

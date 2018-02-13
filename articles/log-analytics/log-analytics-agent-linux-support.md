@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/17/2017
+ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f598da9b82b4425ca509a26a2e6e366ba4c3394
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Řešení potíží s agentem systému Linux pro analýzy protokolů
 
@@ -34,7 +34,7 @@ Tento článek obsahuje nápovědu k odstraňování potíží chyby setkat s ag
 1. Reonboard ke službě Analýza protokolů s agentem OMS pro Linux pomocí následujícího příkazu s parametrem `-v` povolena. To umožňuje podrobný výstup agenta připojení prostřednictvím proxy serveru pro službu OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Projděte si část [konfigurace agenta pro použití s proxy serveru nebo brány OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) ověření jste správně nakonfigurovali agenta pro komunikaci přes proxy server.    
+2. Projděte si část [aktualizovat nastavení proxy serveru](log-analytics-agent-manage.md#update-proxy-settings) ověření jste správně nakonfigurovali agenta pro komunikaci přes proxy server.    
 * Double zkontrolujte, jestli jsou následující koncové body služby analýzy protokolů seznam povolených adres:
 
     |Prostředek agenta| Porty |  
@@ -42,7 +42,7 @@ Tento článek obsahuje nápovědu k odstraňování potíží chyby setkat s ag
     |*.ods.opinsights.azure.com | Port 443|   
     |*.oms.opinsights.azure.com | Port 443|   
     |ods.systemcenteradvisor.com | Port 443|   
-    |*.BLOB.Core.Windows.NET/ | Port 443|   
+    |*.blob.core.windows.net/ | Port 443|   
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problém: Obdržíte 403 chybu při pokusu o zařadit do provozu
 

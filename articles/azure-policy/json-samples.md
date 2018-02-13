@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Šablony pro Azure zásad
 
@@ -55,7 +55,7 @@ Následující tabulka obsahuje odkazy na šablony json Azure zásady. Tyto uká
 | [Povolená SKU služby Vyrovnávání zatížení](scripts/allowed-lb-skus.md) | Vyžaduje, aby používal nástroje pro vyrovnávání zatížení schválené SKU. Zadáte pole povolených SKU. |
 | [Žádná síť partnerský vztah k síti ER](scripts/no-peering-er-net.md) | Zakáže síť partnerského vztahu z bylo možné přidružit k síti v určené skupině prostředků. Používejte k ochraně připojení s centrální spravované síťové infrastruktury. Zadáte název skupiny prostředků, aby se zabránilo přidružení. |
 | [Žádná uživatelská tabulka definovanou trasou](scripts/no-user-def-route-table.md)  |Zakazuje virtuálních sítí nasazuje s tabulkou trasy definované uživatelem. |
-| [Povolená SKU brány virtuální sítě](scripts/no-user-def-route-table.md) | Vyžaduje, aby používal brány virtuální sítě schválené typů SKU a brány. Určete pole schválené SKU a pole typy schválené brány. |
+| [Povolená SKU brány virtuální sítě](scripts/allowed-vn-gate-sku.md) | Vyžaduje, aby používal brány virtuální sítě schválené typů SKU a brány. Určete pole schválené SKU a pole typy schválené brány. |
 | [Použijte schválené podsíť pro síťová rozhraní virtuálních počítačů](scripts/use-approved-subnet-vm-nics.md) | Vyžaduje, aby používal síťových rozhraní schválené podsítě. Zadáte ID schválené podsítě. |
 | [Použít schválené vNet pro síťová rozhraní virtuálních počítačů](scripts/use-approved-vnet-vm-nics.md) | Vyžaduje, aby síťových rozhraní použít schválené virtuální síť. Zadáte ID schválené virtuální sítě. |
 |**Značky**||

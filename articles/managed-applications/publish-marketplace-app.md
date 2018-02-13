@@ -3,18 +3,18 @@ title: "Azure spravované aplikace na webu Marketplace | Microsoft Docs"
 description: "Popisuje Azure spravované aplikace, které jsou dostupné přes Marketplace."
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure spravovaných aplikací na webu Marketplace
 
@@ -26,7 +26,7 @@ Tento článek vysvětluje, jak můžete publikovat aplikaci na Marketplace s c�
 
 K dokončení tohoto článku, musíte už mít soubor .zip vaší spravované aplikaci definice. Další informace najdete v tématu [vytvořit aplikaci služby katalogu](publish-service-catalog-app.md).
 
-Kromě toho existuje několik předpokladů firmy. Jsou:
+Kromě toho existuje několik předpokladů firmy. Jsou to tyto:
 
 * Vaše společnost nebo její dceřiné společnosti, musí být umístěny v určité zemi, kde je podporováno prodeje podle marketplace.
 * Tento produkt musí mít licenci způsobem, který je kompatibilní s modely fakturace nepodporuje marketplace.
@@ -36,26 +36,18 @@ Kromě toho existuje několik předpokladů firmy. Jsou:
 * Souhlas s podmínkami Azure Marketplace zapojení zásady a vydavatele smlouvy.
 * Souhlasit s podmínky použití, prohlášení o ochraně osobních údajů Microsoft a certifikované smlouvy programu služby Microsoft Azure.
 
-## <a name="set-up-your-account-for-publishing-portal"></a>Nastavení účtu pro publikování portál
+## <a name="become-a-publisher"></a>Stát vydavatelem
 
-Portál publikování se používá k publikování a správa tyto nabídky. Publikování aplikace marketplace, musí mít schválené Microsoft Developer pro Azure Marketplace. Pokud jste ještě nezaregistrovali pro účet schválené, najdete v části [vytvoření účtu Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Chcete-li začnou vydavatele v Azure Marketplace, postupujte takto:
 
-Pokud máte dispozici schválené **Microsoft Developer Center** účet, ale ještě nepoužívali [publikování portálu Azure](https://cloudpartner.azure.com/), je třeba zaregistrovat pro publikování portál.
-
-1. Otevřete na nové Chrome Incognito nebo Internet Explorer InPrivate procházení relace a ujistěte se, že nejste přihlášení do osobního účtu.
-2. Přejděte na [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
-3. Pokud jste nového uživatele a přihlášení k publikování portálu poprvé, pak musíte se přihlásit s stejné ID e-mailu jako účtu developer center. Nyní jsou propojeny developer center účet a účet pro publikování portálu.
-
-Později můžete přidat ostatním členům společnosti jako [spolusprávce](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) na portálu pro publikování. Pokud jsou přidány jako spolusprávce publikování portálu, se můžete přihlásit pomocí účtu spolusprávce.
-
-> [!TIP]
-> Účast zásady jsou popsané na [webu Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
->
->
+1. Vytvoření Microsoft ID – vytvoření účtu Microsoft pomocí e-mailovou adresu, která patří do domény vaší společnosti, ale nechcete jeden uživatel. Tato e-mailová adresa se používá pro Microsoft Developer Center a cloudu portál pro partnery. Další informace najdete v tématu [Azure Marketplace vydavatele průvodce](https://aka.ms/sellerguide).
+1. Odeslání [Azure Marketplace navrženém formuláře](https://aka.ms/ampnomination) – **řešení, které chcete publikovat?**, vyberte **spravované aplikace**. Po odeslání formuláře tým registrace Marketplace aplikace zkontroluje a ověří žádost. Schválení proces může trvat jednu až tři dny. Vaše navrženém schválena, obdržíte propagační kód vzdát poplatek za zápis pro středisku pro vývojáře. V takovém případě **není** vyplněním formuláře navrženém Marketplace, jste vyzváni k zaplacení poplatků registrace $99.
+1. Zaregistrovat v [středisku pro vývojáře](https://developer.microsoft.com) -Microsoft ověří, jestli vaše organizace platný právní subjekt s platnou DAŇOVÉ číslo pro země, ve kterém je zaregistrován. Schválení proces může trvat 5 až 10 dní. Abyste se vyhnuli poplatek za zápis, použijte propagační kód, který jste obdrželi v e-mailu z procesu navrženém. Další informace najdete v tématu [Azure Marketplace vydavatele průvodce](https://aka.ms/sellerguide).
+1. Přihlaste se k [portál pro partnery cloudu](https://cloudpartner.azure.com) – v profilu vydavatele přidružení účtu středisku pro vývojáře s profilem vydavatele Marketplace. Další informace najdete v tématu [Azure Marketplace vydavatele průvodce](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Vytvořit novou aplikaci Azure nabídka
 
-Po splňujete požadavky, jste připraveni vytvořit nabídku spravované aplikace.
+Po vytvoření účtu partnera portálu, jste připraveni vytvořit nabídku spravované aplikace.
 
 ### <a name="set-up-an-offer"></a>Nastavit nabídky
 
@@ -65,11 +57,7 @@ Nabídka pro spravované aplikace odpovídá na třídu produktu nabídky od vyd
 
 1. V navigačním podokně na levé straně vyberte **+ nové nabídky** > **aplikací Azure**.
 
-   ![Nová nabídka](./media/publish-marketplace-app/newOffer.png)
-
 1. V **Editor** zobrazení, najdete v části požadované formuláře. Každý formulář je popsán dále v tomto článku.
-
-   ![Nastavení nabídky](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>Nabídka nastavení formuláře
 
@@ -95,13 +83,9 @@ V případě nadřazené nabídky na Marketplace se zobrazí SKU. Zobrazí se ja
 
 1. Vyberte **SKU** > **nové SKU**.
 
-   ![Vyberte nové SKU](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. Zadejte **SKU ID**. SKU ID je jedinečný identifikátor pro SKU v rámci nabídku. Toto ID je viditelná v adresách URL produktu, šablony Resource Manageru a fakturace sestavy. Může být složené jenom malé alfanumerické znaky nebo pomlčky (-). ID nemůže končit pomlčkou a jeho omezeno na maximálně 50 znaků. Po nabídku přejde za provozu, toto pole je uzamčené. Můžete mít více SKU v rámci nabídku. Je nutné SKU pro každé bitové kopie, které chcete publikovat.
 
 1. Vyplňte **SKU podrobnosti** část v následující podobě:
-
-   ![Zadejte nové SKU](./media/publish-marketplace-app/sku-settings.png)
 
    Vyplňte následující pole:
 
@@ -110,14 +94,9 @@ V případě nadřazené nabídky na Marketplace se zobrazí SKU. Zobrazí se ja
    * **Popis**: Zadejte podrobný popis o verze SKU.
    * **Typ SKU**: povolené hodnoty jsou *spravované aplikace* a *šablony řešení*. Pro tento případ, vyberte *spravované aplikace*.
    * **Země nebo oblast dostupnosti**: Vyberte zemí, kde je k dispozici spravované aplikace.
-
-      ![Vyberte jednotlivé země](./media/publish-marketplace-app/select-country.png)
-
    * **Ceny**: Zadejte cenu pro správu aplikace. Vyberte dostupný zemí před nastavením cenu.
 
 1. Přidejte nový balíček. Vyplňte **podrobnosti balíčku** část v následující podobě:
-
-   ![Balíček](./media/publish-marketplace-app/new-package.png)
 
    Vyplňte následující pole:
 

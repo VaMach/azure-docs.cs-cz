@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure Cosmos DB vazby pro Azure Functions
 
@@ -152,10 +152,10 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 |**Typ** || musí být nastavena na `cosmosDBTrigger`. |
 |**směr** || musí být nastavena na `in`. Tento parametr je nastaven automaticky při vytváření aktivační události na portálu Azure. |
-|**Jméno** || Název proměnné používá v kódu funkce, která představuje seznam dokumentů se změnami. | 
+|**name** || Název proměnné používá v kódu funkce, která představuje seznam dokumentů se změnami. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | Název nastavení aplikace, který obsahuje připojovací řetězec použitý pro připojení k účtu Azure Cosmos DB monitorovány. |
-|**Název databáze**|**Název databáze**  | Název databáze Azure Cosmos DB s kolekcí monitorovány. |
-|**Název_kolekce** |**Název_kolekce** | Název kolekce, který je monitorován. |
+|**databaseName**|**DatabaseName**  | Název databáze Azure Cosmos DB s kolekcí monitorovány. |
+|**collectionName** |**Název_kolekce** | Název kolekce, který je monitorován. |
 |**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Volitelné) Název nastavení aplikace, který obsahuje připojovací řetězec k službě, která kolekci zapůjčení. Pokud není nastavena, `connectionStringSetting` hodnota se používá. Tento parametr je automaticky nastaven při vytvoření vazby na portálu. Připojovací řetězec pro kolekci zapůjčení musí mít oprávnění k zápisu.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Volitelné) Název databáze, který obsahuje kolekci používá k ukládání zapůjčení. Pokud není nastavena hodnota `databaseName` nastavení se používá. Tento parametr je automaticky nastaven při vytvoření vazby na portálu. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Volitelné) Název kolekce používá k ukládání zapůjčení. Pokud není nastavena hodnota `leases` se používá. |
@@ -384,7 +384,7 @@ Zde je vazba dat v *function.json* souboru:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -423,7 +423,7 @@ Zde je vazba dat v *function.json* souboru:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -457,13 +457,13 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 |**Typ**     || musí být nastavena na `documentdb`.        |
 |**směr**     || musí být nastavena na `in`.         |
-|**Jméno**     || Název parametru vazby, který představuje dokumentu ve funkci.  |
-|**Název databáze** |**Název databáze** |Databáze obsahující dokumentu.        |
-|**Název_kolekce** |**Název_kolekce** | Název kolekce, která obsahuje dokument. |
-|**ID**    | **ID** | ID dokumentu pro načtení. Tato vlastnost podporuje vazby parametrů. Další informace najdete v tématu [vazby na vlastní vstupní vlastnosti ve výrazu vazby](functions-triggers-bindings.md#bind-to-custom-input-properties). Obě není nastavený **id** a **sqlQuery** vlastnosti. Pokud není nastavený buď jednu, je načíst celou kolekci. |
+|**name**     || Název parametru vazby, který představuje dokumentu ve funkci.  |
+|**databaseName** |**DatabaseName** |Databáze obsahující dokumentu.        |
+|**collectionName** |**Název_kolekce** | Název kolekce, která obsahuje dokument. |
+|**id**    | **ID** | ID dokumentu pro načtení. Tato vlastnost podporuje vazby parametrů. Další informace najdete v tématu [vazby na vlastní vstupní vlastnosti ve výrazu vazby](functions-triggers-bindings.md#bind-to-custom-input-properties). Obě není nastavený **id** a **sqlQuery** vlastnosti. Pokud není nastavený buď jednu, je načíst celou kolekci. |
 |**sqlQuery**  |**SqlQuery**  | Dotaz služby Azure Cosmos DB SQL použitý k načtení více dokumentů. Vlastnost podporuje runtime vazby, jako v následujícím příkladě: `SELECT * FROM c where c.departmentId = {departmentId}`. Obě není nastavený **id** a **sqlQuery** vlastnosti. Pokud není nastavený buď jednu, je načíst celou kolekci.|
 |**připojení**     |**ConnectionStringSetting**|Název nastavení aplikace obsahující připojovacího řetězce Azure Cosmos DB.        |
-|**klíč oddílu**|**Klíč oddílu**|Určuje hodnotu klíče oddílu pro vyhledávání. Může zahrnovat vázané parametry.|
+|**partitionKey**|**Klíč oddílu**|Určuje hodnotu klíče oddílu pro vyhledávání. Může zahrnovat vázané parametry.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -729,11 +729,11 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 |**Typ**     || musí být nastavena na `documentdb`.        |
 |**směr**     || musí být nastavena na `out`.         |
-|**Jméno**     || Název parametru vazby, který představuje dokumentu ve funkci.  |
-|**Název databáze** | **Název databáze**|Databáze obsahující kolekci, kde se má vytvořit dokumentu.     |
-|**Název_kolekce** |**Název_kolekce**  | Název kolekce, kde se má vytvořit dokumentu. |
+|**name**     || Název parametru vazby, který představuje dokumentu ve funkci.  |
+|**databaseName** | **DatabaseName**|Databáze obsahující kolekci, kde se má vytvořit dokumentu.     |
+|**collectionName** |**Název_kolekce**  | Název kolekce, kde se má vytvořit dokumentu. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Logická hodnota označující, zda kolekce se vytvoří při neexistuje. Výchozí hodnota je *false* s vyhrazenou propustností, který obsahuje náklady důsledky se vytváří nové kolekce. Další informace najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**klíč oddílu**|**Klíč oddílu** |Když `CreateIfNotExists` hodnotu true, definuje cestu ke klíči oddílu pro vytvořenou kolekci.|
+|**partitionKey**|**Klíč oddílu** |Když `CreateIfNotExists` hodnotu true, definuje cestu ke klíči oddílu pro vytvořenou kolekci.|
 |**collectionThroughput**|**CollectionThroughput**| Když `CreateIfNotExists` hodnotu true, definuje [propustnost](../cosmos-db/set-throughput.md) vytvořené kolekce.|
 |**připojení**    |**ConnectionStringSetting** |Název nastavení aplikace obsahující připojovacího řetězce Azure Cosmos DB.        |
 
@@ -745,6 +745,12 @@ Ve výchozím nastavení když zapíšete do výstupního parametru ve funkci, s
 
 > [!Note]  
 > Pokud zadáte ID stávající dokument, získá přepsány nový dokument výstup. 
+
+## <a name="exceptions-and-return-codes"></a>Výjimky a návratové kódy
+
+| Vazba | Referenční informace |
+|---|---|
+| DocumentDB | [Kódy chyb DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>Další postup
 

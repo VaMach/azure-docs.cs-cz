@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - důležité informace o zabezpečení pro přesun dat
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,9 +57,6 @@ V tomto článku jsme zkontrolujte důležité informace o zabezpečení v násl
 
    Teď můžete zvolit uložení přihlašovacích údajů úložiště dat v [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), nechte Azure Data Factory k načtení během provádění aktivity. Další informace najdete v tématu [přihlašovací údaje úložiště v Azure Key Vault](store-credentials-in-key-vault.md).
 
-   > [!NOTE]
-   > V současné době pouze [Dynamics konektor](connector-dynamics-crm-office-365.md) tuto funkci podporuje. 
-
 ### <a name="data-encryption-in-transit"></a>Šifrování dat při přenosu
 Pokud cloudové úložiště dat podporuje protokol HTTPS nebo TLS, všech dat přenesených mezi služby pro přesun dat v datové továrně a cloudové úložiště dat jsou prostřednictvím zabezpečeného kanálu HTTPS nebo TLS.
 
@@ -82,10 +79,10 @@ Azure Data Lake store taky zajišťuje šifrování dat uložených v účtu. Kd
 Úložiště Azure Blob Storage a Azure Table podporuje šifrování služby úložiště (SSE), který automaticky šifruje vaše data před uložením do úložiště a dešifruje před načtení. Další informace najdete v tématu [šifrování služby úložiště Azure pro Data v klidovém stavu](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 podporuje klient i server šifrování dat v klidovém stavu. Další informace najdete v tématu [ochranu šifrování dat pomocí](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Objekt pro vytváření dat v současné době nepodporuje Amazon S3 uvnitř virtuální privátní cloud (VPC).
+Amazon S3 podporuje klient i server šifrování dat v klidovém stavu. Další informace najdete v tématu [ochranu šifrování dat pomocí](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift podporuje šifrování clusteru pro neaktivní uložená data. Další informace najdete v tématu [šifrování databáze Redshift Amazon](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Objekt pro vytváření dat v současné době nepodporuje Amazon Redshift uvnitř VPC. 
+Amazon Redshift podporuje šifrování clusteru pro neaktivní uložená data. Další informace najdete v tématu [šifrování databáze Redshift Amazon](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce podporuje šifrování štítu platformy, která umožňuje šifrování všech souborů, přílohy, vlastní pole. Další informace najdete v tématu [Princip toku webového serveru pro ověřování OAuth](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -187,7 +184,7 @@ Následující cloudové úložiště dat vyžaduje povolených IP adresu počí
 **Odpověď:** vlastním hostováním integrace runtime umožňuje založené na protokolu HTTP připojení k Internetu otevřete. **Odchozí porty 443 a 80** musí být otevřen pro integraci s vlastním hostováním runtime pro toto připojení. Otevřete **příchozí Port 8050** pouze na úrovni počítače (ne na úrovni podniková brána firewall) pro aplikaci správce přihlašovacích údajů. Pokud se databáze SQL Azure nebo Azure SQL Data Warehouse používá jako zdroj / cíl a pak muset otevřít **1433** také portu. Další informace najdete v tématu [konfigurace a vytvoření seznamu povolených IP adresy brány Firewall](#firewall-configurations-and-whitelisting-ip-address-of gateway) části. 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Informace o výkonu aktivitě kopírování najdete v tématu [zkopírujte aktivity výkonu a vyladění průvodce](copy-activity-performance.md).
 
  

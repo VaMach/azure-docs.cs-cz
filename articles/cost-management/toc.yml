@@ -29,9 +29,17 @@
       href: understading-cost-reports.md
 - name: Návody
   items:
+    - name: Aktivace účtů a předplatných Azure
+      href: activate-subs-accounts.md
+    - name: Přidání rozšířené metriky pro virtuální počítače
+      href: azure-vm-extended-metrics.md
+    - name: Připojení účtu Google
+      href: connect-google-account.md
+    - name: Připojení účtu AWS
+      href: connect-aws-account.md
     - name: Použití sestav Cost Managementu
       href: use-reports.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Videa ke správě nákladů
       href: ref-videos.md

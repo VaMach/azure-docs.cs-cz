@@ -1,92 +1,180 @@
 ---
-title: "Vytvoření pravidla na základě cesty pro službu application gateway - portálu Azure | Microsoft Docs"
-description: "Naučte se vytvářet pravidla na základě cesty pro aplikační bránu pomocí portálu Azure."
+title: "Vytvoření služby application gateway s pravidel adres URL na základě cestu směrování - portálu Azure | Microsoft Docs"
+description: "Naučte se vytvořit adresu URL na základě cesty pravidla směrování pro aplikační bránu a škálování virtuálních počítačů, nastavit pomocí portálu Azure."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Vytvoření pravidla na základě cesty pro aplikační bránu pomocí portálu Azure
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Vytvoření služby application gateway s cesta pravidla založená na směrování pomocí portálu Azure
 
-> [!div class="op_single_selector"]
-> * [portál Azure Portal](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+Na portálu Azure můžete použít ke konfiguraci [pravidla směrování na základě cesty adresy URL](application-gateway-url-route-overview.md) při vytváření [Aplikační brána](application-gateway-introduction.md). V tomto kurzu vytvoříte back-endové fondy používání virtuálních počítačů. Potom můžete vytvořit pravidla směrování pro Ujistěte se, že web přenos dorazí na příslušné servery ve fondech.
 
-Pomocí adresy URL na základě cestu směrování, přidružíte tras na základě cesty adresy URL požadavků HTTP. Zkontroluje, zda existuje trasa do fondu back-end serverů pro adresu URL uvedené v bráně aplikace nakonfigurovaná, a pak pošle síťový provoz do fondu definované. Běžně používá pro směrování adres URL na základě cesty je načíst vyrovnávat požadavky pro různé typy obsahu, na jiný server back endové fondy.
+V tomto článku se dozvíte, jak:
 
-Application Gateway mít dva typy pravidel: basic a pravidla na základě cesty adresy URL. Typ základní pravidlo poskytuje kruhového dotazování služby pro back endové fondy. Pravidla na základě cesty, kromě distribučních kruhového dotazování vzorek cesty adresy URL žádosti také použít při výběru vhodné fond back-end.
+> [!div class="checklist"]
+> * Vytvoření služby Application Gateway
+> * Vytváření virtuálních počítačů pro back-end serverů
+> * Vytvoření back-endové fondy s back-end serverů
+> * Vytvořit naslouchací proces back-end
+> * Vytvoření pravidla směrování na základě cesty
 
-## <a name="scenario"></a>Scénář
+![Příklad směrování URL](./media/application-gateway-create-url-route-portal/scenario.png)
 
-V následujícím scénáři vytvoří pravidlo založené na cestu v existující aplikační brány.
-Tento scénář předpokládá, že jste již provedli kroky v [vytvoření služby application gateway pomocí portálu](application-gateway-create-gateway-portal.md).
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-![Adresa URL trasy][scenario]
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
-## <a name="createrule"></a>Vytvoření pravidla na základě cesty
+Přihlaste se k portálu Azure v [http://portal.azure.com](http://portal.azure.com)
 
-Pravidla na základě cesty vyžaduje vlastní naslouchací proces. Než vytvoříte pravidlo, ujistěte se, že jste ověřte, zda jsou k dispozici naslouchací proces používat.
+## <a name="create-an-application-gateway"></a>Vytvoření služby Application Gateway
 
-### <a name="step-1"></a>Krok 1
+Virtuální síť je požadován pro komunikaci mezi prostředky, které vytvoříte. V tomto příkladu jsou vytvořeny dvě podsítě: jednu pro aplikační bránu a druhou pro back-end serverů. Můžete vytvořit virtuální síť ve stejnou dobu, kterou vytvoříte službu application gateway.
 
-Přejděte na [portál Azure](http://portal.azure.com) a vyberte existující aplikační brány. Klikněte na tlačítko **pravidla**.
+1. Klikněte na tlačítko **nový** najít v levém horním rohu portálu Azure.
+2. Vyberte **sítě** a pak vyberte **Application Gateway** v seznamu doporučený.
+3. Pro aplikační bránu, zadejte tyto hodnoty:
 
-![Přehled služby Application Gateway][1]
+    - *myAppGateway* – pro název služby application gateway.
+    - *myResourceGroupAG* – pro novou skupinu prostředků.
 
-### <a name="step-2"></a>Krok 2
+    ![Vytvořte novou aplikační bránu](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-Klikněte **na základě cesty** tlačítko Přidat nové pravidlo na základě cesty.
+4. Přijměte výchozí hodnoty u ostatních nastavení a potom klikněte na **OK**.
+5. Klikněte na tlačítko **vyberte virtuální síť**, klikněte na tlačítko **vytvořit nový**a potom zadejte tyto hodnoty pro virtuální síť:
 
-### <a name="step-3"></a>Krok 3
+    - *myVNet* – pro název virtuální sítě.
+    - *10.0.0.0/16* – pro adresní prostor virtuální sítě.
+    - *myAGSubnet* – název podsítě.
+    - *10.0.0.0/24* – adresního prostoru podsítě.
 
-**Přidat na základě cesty pravidlo** okno obsahuje dvě části. V první části je, kde jste definovali naslouchací proces, název pravidla a nastavení výchozí cesty. Výchozí cesta nastavení jsou pro trasy, které nejsou spadají pod vlastní trasy na základě cesty. Druhá část **přidat na základě cesty pravidlo** je okno, kde můžete definovat pravidla na základě cesty sami.
+    ![Vytvoření virtuální sítě](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-**Základní nastavení**
+6. Klikněte na tlačítko **OK** k vytvoření virtuální sítě a podsítě.
+7. Klikněte na tlačítko **zvolte veřejnou IP adresu**, klikněte na tlačítko **vytvořit nový**a potom zadejte název veřejné IP adresy. V tomto příkladu je název veřejné IP adresy *myAGPublicIPAddress*. Přijměte výchozí hodnoty u ostatních nastavení a potom klikněte na **OK**.
+8. Přijměte výchozí hodnoty pro konfiguraci naslouchacího procesu nechte zakázáno brány firewall webových aplikací a pak klikněte na tlačítko **OK**.
+9. Zkontrolujte nastavení na stránce Souhrn a pak klikněte na tlačítko **OK** vytvoření síťové prostředky a aplikační brány. Ho může trvat několik minut, než aplikační brány, aby lze vytvořit, počkejte na dokončení nasazení přejde k další části úspěšně.
 
-* **Název**: popisný název pravidla, která je přístupná na portálu.
-* **Naslouchací proces**: naslouchací proces, který se používá pro pravidlo.
-* **Výchozí fond back-end**: back-end má být použit pro výchozí pravidlo.
-* **Výchozí nastavení HTTP**: nastavení protokolu HTTP, který se má použít pro výchozí pravidlo.
+### <a name="add-a-subnet"></a>Přidat podsíť
 
-**Nastavení pravidla na základě cesty**
+1. Klikněte na tlačítko **všechny prostředky** v levé nabídce a pak klikněte na tlačítko **myVNet** ze seznamu prostředků.
+2. Klikněte na tlačítko **podsítě**a potom klikněte na **podsítě**.
 
-* **Název**: popisný název pravidla na základě cesty.
-* **Cesty**: cesta toto pravidlo vyhledá při předávání provozu.
-* **Fond back-end**: back-end má být použit pro pravidlo.
-* **Nastavení HTTP**: nastavení protokolu HTTP, který se má použít pro pravidlo.
+    ![Vytvoření podsítě](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-> [!IMPORTANT]
-> **Cesty** nastavení je seznam vzorů cesta tak, aby odpovídaly. Každý vzor musí začínat lomítkem a hvězdičkou je povoleno pouze na konci. Platný příklady: /xyz, /xyz*a /xyz/*.  
+3. Zadejte *myBackendSubnet* pro název podsítě a pak klikněte na tlačítko **OK**.
 
-![Přidat pravidlo na základě cesty okno s informacemi o doplnit][2]
+## <a name="create-virtual-machines"></a>Vytváření virtuálních počítačů
 
-Přidávání pravidla na základě cestu k existující aplikační brány je jednoduchý proces prostřednictvím portálu Azure. Po vytvoření pravidla na základě cesty, můžete upravit tak, aby obsahovala dalších pravidlech. 
+V tomto příkladu můžete vytvořit tři virtuální počítače, který se má použít jako back-end serverů pro službu application gateway. Je také nainstalovat službu IIS na virtuálních počítačích, chcete-li ověřit, že aplikační brány byl úspěšně vytvořen.
 
-![Přidat další pravidla, na základě cesty][3]
+1. Klikněte na možnost **Nové**.
+2. Klikněte na tlačítko **výpočetní** a pak vyberte **Windows Server 2016 Datacenter** v seznamu doporučený.
+3. Pro virtuální počítač, zadejte tyto hodnoty:
 
-Tento krok nakonfiguruje trasu na základě cesty. Je důležité si uvědomit, že požadavky nejsou přepsán. Jako požadavky mohou, aplikační bránu zkontroluje žádosti a, na základě vzoru pro adresu URL, odešle požadavek na příslušný fond back-end.
+    - *myVM1* – pro název virtuálního počítače.
+    - *azureuser* – pro uživatelské jméno správce.
+    - *Azure123456!* pro heslo.
+    - Vyberte **použít existující**a potom vyberte *myResourceGroupAG*.
 
-## <a name="next-steps"></a>Další kroky
+4. Klikněte na **OK**.
+5. Vyberte **DS1_V2** pro velikost virtuálního počítače, a klikněte na tlačítko **vyberte**.
+6. Ujistěte se, že **myVNet** je vybraná pro virtuální síť a podsíť je **myBackendSubnet**. 
+7. Klikněte na tlačítko **zakázané** zakázat Diagnostika spouštění.
+8. Klikněte na tlačítko **OK**, zkontrolujte nastavení na stránce Souhrn a pak klikněte na tlačítko **vytvořit**.
 
-Další postup konfigurace s Azure Application Gateway snižování zátěže protokolu SSL najdete v tématu [konfigurace aplikační brány pro přesměrování zpracování SSL pomocí portálu Azure](application-gateway-ssl-portal.md).
+### <a name="install-iis"></a>Instalace služby IIS
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+1. Otevřete prostředí pro interaktivní a ujistěte se, že je nastavena na **prostředí PowerShell**.
+
+    ![Instalace vlastní rozšíření](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+
+2. Spusťte následující příkaz pro instalaci služby IIS na virtuálním počítači: 
+
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. Vytvořte dva další virtuální počítače a instalace služby IIS pomocí kroky, které právě dokončila. Zadejte názvy *Můjvp2* a *myVM3* pro názvy a hodnoty VMName v AzureRmVMExtension sady.
+
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Vytvoření back-endové fondy s virtuálními počítači
+
+1. Klikněte na tlačítko **všechny prostředky** a pak klikněte na **myAppGateway**.
+2. Klikněte na tlačítko **back-endové fondy**. Výchozí fond byl automaticky vytvořen s aplikační brány. Klikněte na tlačítko **appGateayBackendPool**.
+3. Klikněte na tlačítko **přidat cíl** přidat *myVM1* k appGatewayBackendPool.
+
+    ![Přidat back-end serverů](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. Klikněte na **Uložit**.
+5. Klikněte na tlačítko **back-endové fondy** a pak klikněte na **přidat**.
+6. Zadejte název *imagesBackendPool* a přidejte *Můjvp2* pomocí **přidat cíl**.
+7. Klikněte na **OK**.
+8. Klikněte na tlačítko **přidat** znovu a přidat jiného fondu back-end s názvem *videoBackendPool* a přidejte *myVM3* k němu.
+
+## <a name="create-a-backend-listener"></a>Vytvořit naslouchací proces back-end
+
+1. Klikněte na tlačítko **naslouchací procesy** a kliknutím na možnost **základní**.
+2. Zadejte *myBackendListener* pro název, *myFrontendPort* pro název front-endový port a potom *8080* jako port pro naslouchací proces.
+3. Klikněte na **OK**.
+
+## <a name="create-a-path-based-routing-rule"></a>Vytvoření pravidla směrování na základě cesty
+
+1. Klikněte na tlačítko **pravidla** a pak klikněte na **na základě cesty**.
+2. Zadejte *rule2* pro název.
+3. Zadejte *bitové kopie* pro název první cesty. Zadejte */images/** pro cestu. Vyberte **imagesBackendPool** pro fond back-end.
+4. Zadejte *Video* pro název druhé cesty. Zadejte */video/** pro cestu. Vyberte **videoBackendPool** pro fond back-end.
+
+    ![Vytvoření pravidla, na základě cesty](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. Klikněte na **OK**.
+
+## <a name="test-the-application-gateway"></a>Testování služby application gateway
+
+1. Klikněte na tlačítko **všechny prostředky**a potom klikněte na **myAGPublicIPAddress**.
+
+    ![Zaznamenejte veřejná IP adresa brány aplikace](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. Zkopírujte veřejnou IP adresu a pak ji vložit do panelu Adresa prohlížeče. Například http://http: / / 40.121.222.19.
+
+    ![Otestovat základní adresu URL v aplikační brány](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. Změňte adresu URL k http://&lt;ip adresu&gt;: 8080/video/test.htm, nahraďte &lt;ip adresu&gt; s IP adresu a měli vidět něco podobného jako v následujícím příkladu:
+
+    ![Testovací adresu URL bitové kopie v aplikační brány](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. Změňte adresu URL k http://&lt;ip adresu&gt;: 8080/video/test.htm, nahraďte &lt;ip adresu&gt; s IP adresu a měli vidět něco podobného jako v následujícím příkladu:
+
+    ![Adresa URL videa testu v aplikační brány](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
+
+## <a name="next-steps"></a>Další postup
+
+V tomto článku jste se dozvěděli, jak
+
+> [!div class="checklist"]
+> * Vytvoření služby Application Gateway
+> * Vytváření virtuálních počítačů pro back-end serverů
+> * Vytvoření back-endové fondy s back-end serverů
+> * Vytvořit naslouchací proces back-end
+> * Vytvoření pravidla směrování na základě cesty
+
+Další informace o aplikačních bran a jejich přidružené prostředky, i nadále články s návody.

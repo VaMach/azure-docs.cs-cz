@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Řešení potíží s Azure Diagnostics
 Tento článek popisuje informace o odstraňování potíží, které se týkají pomocí Azure Diagnostics. Další informace o Azure diagnostics najdete v tématu [přehled Azure Diagnostics](azure-diagnostics.md).
@@ -36,25 +36,25 @@ Toto jsou cesty k některé důležité protokoly a artefakty. Tyto informace ve
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 | Artefaktů | Cesta |
 | --- | --- |
-| **Azure Diagnostics konfiguračního souboru** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<verze > \Config.txt |
-| **Soubory protokolu** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<verze > \ |
-| **Místní úložiště pro data diagnostiky** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
-| **Agent konfiguračním souborem monitorování** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Balíček rozšíření Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<verze > |
+| **Azure Diagnostics konfiguračního souboru** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Soubory protokolu** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Místní úložiště pro data diagnostiky** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Agent konfiguračním souborem monitorování** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Balíček rozšíření Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Cesta kolekce nástroje protokolu** | %SystemDrive%\Packages\GuestAgent\ |
-| **Soubor protokolu MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **Soubor protokolu MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Virtuální počítače
 | Artefaktů | Cesta |
 | --- | --- |
-| **Azure Diagnostics konfiguračního souboru** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<verze > \RuntimeSettings |
-| **Soubory protokolu** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<verze > \Logs\ |
-| **Místní úložiště pro data diagnostiky** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
-| **Agent konfiguračním souborem monitorování** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Stav souboru** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<verze > \Status |
-| **Balíček rozšíření Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
+| **Azure Diagnostics konfiguračního souboru** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Soubory protokolu** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **Místní úložiště pro data diagnostiky** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **Agent konfiguračním souborem monitorování** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Stav souboru** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Balíček rozšíření Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Cesta kolekce nástroje protokolu** | C:\WindowsAzure\Packages |
-| **Soubor protokolu MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **Soubor protokolu MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Data metriky se nezobrazí na portálu Azure
 Azure Diagnostics poskytuje metriky data, která lze zobrazit na portálu Azure. Pokud máte potíže s zobrazuje data v portálu, zkontrolujte WADMetrics\* tabulky v účtu úložiště Azure Diagnostics zobrazit, pokud existují odpovídající záznamy metriky. 
@@ -71,15 +71,15 @@ Pokud nejsou žádná data pro konkrétní metriku, zkontrolujte **konfigurace d
 - \ASP.NET\Requests zařazených do fronty
 - \ASP.NET\Requests odmítl
 - \Processor(W3wp)\% času procesoru
-- Bajty \Private \Process (w3wp)
+- \Process(w3wp)\Private Bytes
 - \Process(WaIISHost)\% času procesoru
-- Bajty \Private \Process (WaIISHost)
+- \Process(WaIISHost)\Private Bytes
 - \Process(WaWorkerHost)\% času procesoru
-- Bajty \Private \Process (WaWorkerHost)
+- \Process(WaWorkerHost)\Private Bytes
 - \Memory\Page chyby/s
 - \.NET CLR paměti (_globální_)\% čas
-- Zápis \Disk \LogicalDisk (C:) bajty/s
-- \Disk \LogicalDisk (C:) přečtených bajtů/s
+- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk(C:)\Disk Read Bytes/sec
 - Zápis \Disk \LogicalDisk (D:) bajty/s
 - \Disk \LogicalDisk (D:) přečtených bajtů/s
 
@@ -154,7 +154,7 @@ Pokud přemýšlíte o obrátíte na podporu, je první věcí, kterou může v�
 ## <a name="diagnostics-data-tables-not-found"></a>Nebyl nalezen tabulky dat diagnostiky
 Tabulky v úložišti Azure, které hostují události trasování událostí pro Windows jsou pojmenované pomocí následujícího kódu:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -207,7 +207,7 @@ Tento kód generuje čtyři tabulky:
 
 | Událost | Název tabulky |
 | --- | --- |
-| Zprostředkovatel = "prov1" &lt;událost s id = "1" nebo&gt; |WADEvent + MD5("prov1") + "1" |
+| Zprostředkovatel = "prov1" &lt;událost s id = "1" nebo&gt; |WADEvent+MD5(“prov1”)+”1” |
 | Zprostředkovatel = "prov1" &lt;událost s id = "2" eventDestination = "dest1" /&gt; |WADdest1 |
 | Zprostředkovatel = "prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
 | Zprostředkovatel = "prov2" &lt;DefaultEvents eventDestination = "dest2" /&gt; |WADdest2 |

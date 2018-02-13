@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Nejčastější dotazy o migraci úložiště Azure
 
@@ -278,9 +278,9 @@ Ostatní uživatelé poskytnout přístup k prostředkům úložiště:
 
 -   Pokud používáte geograficky redundantní úložiště s přístupem pro čtení, můžete přístup k datům ze sekundární oblasti kdykoli. Použijte jednu z následujících metod:  
       
-    - **AzCopy**: připojit **-sekundární** k názvu účtu úložiště v adrese URL pro přístup sekundárního koncového bodu. Například:  
+    - **AzCopy**: připojit **-sekundární** k názvu účtu úložiště v adrese URL pro přístup sekundárního koncového bodu. Příklad:  
      
-      https://storageaccountname-Secondary.BLOB.Core.Windows.NET/vhds/BlobName.VHD
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS token**: použití tokenu SAS pro přístup k datům z koncového bodu. Další informace najdete v tématu [pomocí sdílené přístupové podpisy](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -294,6 +294,10 @@ Ale můžete použít vlastní domény není HTTPS. Další informace najdete v 
 Neexistuje žádný způsob, jak získat přístup k účtu úložiště přímo pomocí protokolu FTP. Můžete však nastavit virtuální počítač Azure a pak nainstalujte serveru FTP na virtuálním počítači. Server FTP, ukládat soubory ve sdílené složce souborů Azure nebo na datový disk, který je k dispozici pro virtuální počítač může mít.
 
 Pokud chcete pouze ke stahování dat bez nutnosti použití Průzkumníka úložiště nebo jiné aplikace, je možné použít tokenu SAS. Další informace najdete v tématu [pomocí sdílené přístupové podpisy](storage-dotnet-shared-access-signature-part-1.md).
+
+**Jak provedu migraci objektů blob z jednoho účtu úložiště do druhého?**
+
+ To provedete pomocí našich [objektu Blob skriptu migrace](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Potřebujete pomoct? Obraťte se na podporu.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Příručka pro vývojáře Azure funkce
 V Azure Functions se konkrétní funkce sdílet několik klíčových technických konceptech a součásti, bez ohledu na jazyk nebo vazby, které používáte. Před přechodem do učení podrobnosti, které jsou specifické pro daný jazyk nebo vazby, nezapomeňte si přečíst tento přehled, který se vztahuje na všechny z nich.
@@ -53,11 +53,11 @@ Nastavte `disabled` vlastnost `true` zabránit funkci spouštěna.
 
 | Vlastnost | Hodnoty nebo typy | Komentáře |
 | --- | --- | --- |
-| `type` |Řetězec |Typ vazby. Například, `queueTrigger`. |
+| `type` |řetězec |Typ vazby. Například, `queueTrigger`. |
 | `direction` |v out |Určuje, zda vazby pro příjem dat do funkce nebo odeslání dat z funkce. |
-| `name` |Řetězec |Název, který se používá pro vázaných dat ve funkci. Pro jazyk C# to je název argumentu; pro jazyk JavaScript je klíče v seznamu klíč/hodnota. |
+| `name` |řetězec |Název, který se používá pro vázaných dat ve funkci. Pro jazyk C# to je název argumentu; pro jazyk JavaScript je klíče v seznamu klíč/hodnota. |
 
-## <a name="function-app"></a>Funkce aplikace
+## <a name="function-app"></a>Function app
 Funkce aplikace se skládá z jedné nebo více jednotlivých funkcí, které se spravují dohromady službou Azure App Service. Všechny funkce v aplikaci funkce sdílet stejnou cenový plán, průběžné nasazování a verze modulu runtime. Všechny funkce, které jsou napsané v různých jazycích mohou sdílet stejné aplikaci funkce. Funkce aplikace si můžete představit jako způsob, jak uspořádat a souhrnně spravovat funkcí. 
 
 ## <a name="runtime-script-host-and-web-host"></a>Modul runtime (hostitel skriptu a webového hostitele)
@@ -102,7 +102,7 @@ Dojde-li více spouštěcí událostí rychleji, než funkce jednovláknové run
 
 ## <a name="functions-runtime-versioning"></a>Verze runtime funkce
 
-Můžete nakonfigurovat verzi modulu runtime její funkce pomocí `FUNCTIONS_EXTENSION_VERSION` nastavení aplikace. Například hodnota "~ 1" označuje, že funkce aplikace bude používat 1 jako jeho hlavní verzi. Funkce aplikace upgradují na každý nový podverze při jejich vydání. Další informace, včetně toho, jak chcete zobrazit přesnou verzi funkce aplikace, najdete v části [jak mít verze modulu runtime Azure Functions](functions-versions.md).
+Můžete nakonfigurovat verzi modulu runtime její funkce pomocí `FUNCTIONS_EXTENSION_VERSION` nastavení aplikace. Například hodnota "~ 1" označuje, že funkce aplikace bude používat 1 jako jeho hlavní verzi. Funkce aplikace upgradují na každý nový podverze při jejich vydání. Další informace, včetně toho, jak chcete zobrazit přesnou verzi funkce aplikace, najdete v části [jak mít verze modulu runtime Azure Functions](set-runtime-version.md).
 
 ## <a name="repositories"></a>Úložiště
 Kód pro Azure Functions je open source a uložené v úložišť GitHub:
@@ -110,7 +110,7 @@ Kód pro Azure Functions je open source a uložené v úložišť GitHub:
 * [Azure Functions runtime](https://github.com/Azure/azure-webjobs-sdk-script/)
 * [Azure Functions na portálu](https://github.com/projectkudu/AzureFunctionsPortal)
 * [Šablony funkcí Azure](https://github.com/Azure/azure-webjobs-sdk-templates/)
-* [Sada Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
 * [Sada Azure WebJobs SDK rozšíření](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Vazby
@@ -118,10 +118,12 @@ Zde je tabulku všechny podporované vazby.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
+Máte potíže s chybami pocházejících z vazby? Zkontrolujte [kódy chyb vazby funkcí Azure](functions-bindings-error-pages.md) dokumentaci.
+
 ## <a name="reporting-issues"></a>Hlášení problémů
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace najdete v následujících materiálech:
 
 * [Osvědčené postupy pro službu Azure Functions](functions-best-practices.md)

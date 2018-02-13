@@ -30,8 +30,15 @@ Vyhrazená instance virtuálních počítačů můžete zakoupit [portál Azure]
 
     ![Snímek obrazovky před odesláním rezervace nákupu](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Další kroky po nákupu rezervace
+## <a name="next-steps"></a>Další postup 
 Diskontní rezervace je automaticky použity počet spuštěných virtuálních počítačů, které odpovídají oboru rezervace a atributy. Můžete aktualizovat oboru rezervace prostřednictvím [portál Azure](https://portal.azure.com), prostředí PowerShell, rozhraní příkazového řádku nebo pomocí rozhraní API. 
 
 Další informace o správě rezervace naleznete v tématu [spravovat instancí Azure vyhrazené virtuální počítač](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Další informace o vyhrazenou instancí virtuálního počítače, naleznete v následujících článcích.
+
+- [Ušetřit peníze u virtuálních počítačů s vyhrazenou instancí virtuálního počítače](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Pochopit, jak se použije slevu vyhrazenou instanci virtuálního počítače](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Pochopení vyhrazenou instanci využití pro vaše předplatné s průběžnými platbami](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Pochopení vyhrazenou instanci využití pro podnikového zápisu](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Náklady na software Windows není součástí vyhrazené instance](../articles/billing/billing-reserved-instance-windows-software-costs.md)

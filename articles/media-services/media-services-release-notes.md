@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Poznámky k verzi Azure Media Services
 Tyto poznámky k verzi pro Azure Media Services shrnout změny z předchozích verzí a známé problémy.
@@ -190,7 +190,7 @@ Služba Media Services nyní nabízí možnost chránit obou video na vyžádán
 
 Další informace najdete v tématu [tomto blogu](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
-Můžete použít [sady Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (počínaje verzí 3.5.1) nebo rozhraní REST API pro konfiguraci AssetDeliveryConfiguration na používání technologie Widevine. 
+Konfiguraci zásady AssetDeliveryConfiguration na používání technologie Widevine můžete provést pomocí sady [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (počínaje verzí 3.5.1) nebo rozhraní REST API. 
 * Služba Media Services přidaná podpora pro Apple ProRes videa. Teď můžete nahrát QuickTime zdrojových souborech videa využívající Apple ProRes nebo jiných kodeky. Další informace najdete v tématu [tomto blogu](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 * Nyní můžete Media Encoder Standard udělat extrakce archivu subclipping a za provozu. Další informace najdete v tématu [tomto blogu](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Byly provedeny následující aktualizace filtrování: 
@@ -348,8 +348,8 @@ Media Services SDK pro .NET je nyní verze 3.0.0.7
 * Živé streamování preview. Další informace najdete v tématu [pracovní pomocí služby Media Services živě Streamovat](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Služba doručení klíče. Další informace najdete v tématu [dynamického šifrování pomocí standardu AES-128 a službu doručení klíče](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Dynamické šifrování AES. Další informace najdete v tématu [dynamického šifrování pomocí standardu AES-128 a službu doručení klíče](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* Službu doručování licencí PlayReady. Další informace najdete v tématu [dynamického šifrování PlayReady použití a službu doručování licencí](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* Dynamického šifrování PlayReady. Další informace najdete v tématu [dynamického šifrování PlayReady použití a službu doručování licencí](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* Službu doručování licencí PlayReady. 
+* Dynamického šifrování PlayReady. 
 * Šablona licence Media Services PlayReady. Další informace najdete v tématu [přehled šablonu licence Media Services PlayReady].
 * Prostředky šifrovat úložiště datového proudu. Další informace najdete v tématu [Stream obsahu zašifrovaného úložiště](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
@@ -457,7 +457,7 @@ Následující změny jsou zahrnuty v červen 2013 uvolní sada SDK služby Medi
 * Počínaje verzí 2.3.0.0, sada SDK služby Media Services podporuje, propojování více úložiště účtů k účtu Media Services. Tuto funkci podporovat následující rozhraní API:
   
     * Typ IStorageAccount
-    * Vlastnost Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts
+    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
     * Vlastnost StorageAccount
     * Vlastnost StorageAccountName
   
@@ -468,7 +468,7 @@ Následující změny jsou zahrnuty v červen 2013 uvolní sada SDK služby Medi
     * Typ Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint
     * Typ Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription
     * Typ Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection
-    * Typ Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType
+    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType type
 * Závislost na úložiště klienta SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll)
 * Závislost na protokolu OData 5.5 (Microsoft.Data.OData.dll)
 

@@ -15,19 +15,21 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 6256ffe9f616ec35f97f792545c72dbb25b3efa6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Vytvoření webové aplikace v Pythonu v Azure
 
 [Azure Web Apps](app-service-web-overview.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  Tento kurz Rychlý start vás provede vývojem a nasazením aplikace v Pythonu do Azure Web Apps. Vytvoříte webovou aplikaci pomocí rozhraní příkazového řádku [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a pomocí Gitu nasadíte do této webové aplikace ukázkový kód v Pythonu.
 
-![Ukázková aplikace spuštěná v Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![Ukázková aplikace spuštěná ve službě Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
+Postup v tomto kurzu můžete použít v případě počítačů se systémem Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -35,8 +37,6 @@ Pro absolvování tohoto kurzu potřebujete:
 
 * <a href="https://git-scm.com/" target="_blank">Nainstalovat Git</a>.
 * <a href="https://www.python.org/downloads/" target="_blank">Nainstalovat Python</a>.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Stažení ukázky
 
@@ -88,9 +88,11 @@ V okně terminálu ukončete webový server stisknutím **Ctrl + C**.
 
 Přejděte do vaší nově vytvořené webové aplikace. Nahraďte _&lt;app name>_ jedinečným názvem aplikace.
 
-```bash
+```
 http://<app name>.azurewebsites.net
 ```
+
+Vaše nová webová aplikace by měla vypadat takto:
 
 ![Prázdná stránka webové aplikace](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
@@ -148,7 +150,7 @@ http://<app_name>.azurewebsites.net
 
 Ukázkový kód Pythonu je spuštěný ve webové aplikaci služby Azure App Service.
 
-![Ukázková aplikace spuštěná v Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![Ukázková aplikace spuštěná ve službě Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 **Blahopřejeme!** Nasadili jste svoji první aplikaci v Pythonu do služby App Service.
 
@@ -181,7 +183,7 @@ V levé nabídce klikněte na **App Services** a pak klikněte na název vaší 
 
 Zobrazí se stránka s přehledem vaší webové aplikace. Tady můžete provádět základní úlohy správy, jako je procházení, zastavení, spuštění, restartování a odstranění.
 
-![Okno App Service na webu Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![Stránka služby App Service na webu Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 Levá nabídka obsahuje odkazy na různé stránky pro konfiguraci vaší aplikace.
 

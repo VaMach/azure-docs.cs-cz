@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Časté otázky k Azure Files
 [Soubory Azure](storage-files-introduction.md) nabízí plně spravované sdílené složky v cloudu, které jsou přístupné přes oborových standardů [zpráva bloku protokol Server (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (také označovaný jako systém souborů běžné Internet nebo CIFS). Sdílené složky Azure můžete ke cloudu nebo na místní nasazení systému Windows, Linux a systému macOS připojit současně. Také můžete mezipaměti Azure sdílené složky na počítačích systému Windows Server pomocí synchronizace souboru Azure (preview) pro rychlý přístup blízko kde data se používají.
@@ -73,7 +73,7 @@ Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubor
 
 * <a id="redundancy-options"></a>
 **Jaké možnosti redundance úložiště podporuje soubory Azure?**  
-    Soubory Azure v současné době podporuje pouze místně redundantní úložiště (LRS) a geograficky redundantní úložiště (GRS). Plánujeme podporu zónově redundantní úložiště (ZRS) a přístup pro čtení geograficky redundantní úložiště (RA-GRS) v budoucnu, ale nemáme časové osy sdílet v tuto chvíli.
+    Soubory Azure v současné době podporuje místně redundantní úložiště (LRS), zóny redundantní úložiště (ZRS) a geograficky redundantní úložiště (GRS). Plánujeme podporu geograficky redundantní úložiště (RA-GRS) přístup pro čtení v budoucnu, ale nemáme časové osy sdílet v tuto chvíli.
 
 * <a id="tier-options"></a>
 **Jaké vrstvami úložiště jsou podporovány v souborech Azure?**  
@@ -86,11 +86,11 @@ Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubor
 **Opravdu chcete najdete v části konkrétní funkce přidána do Azure Files. Můžete ho přidat?**  
     Tým služby Azure Files je zajímá konzultaci veškeré zpětnou vazbu, měli byste o naši službu. Prosím hlasovat o žádosti o funkce v [Azure soubory UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Nemůžeme se Těšíme se na delighting jste s mnoha nových funkcí.
 
-## <a name="azure-file-sync"></a>Synchronizace Azure File
+## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
 **Jaké oblasti jsou podporované pro synchronizaci souborů Azure (preview)?**  
-    Synchronizace souboru Azure je v současné době dostupná ve východní USA, západ USA, západní Evropa, Austrálie – východ a jihovýchodní Asie. Podpora pro více oblastí se přidat, protože jsme postupujte k obecné dostupnosti. Další informace najdete v tématu [dostupnost v oblastech](storage-sync-files-planning.md#region-availability).
+    V současné době synchronizace souboru Azure je k dispozici v Austrálie – východ, Střední Kanada, východní USA, jihovýchodní Asie, Spojené království – Jih, západní Evropa a západní USA. Podpora pro více oblastí se přidat, protože jsme postupujte k obecné dostupnosti. Další informace najdete v tématu [dostupnost v oblastech](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Může mít servery připojené k doméně a domény nepřipojená ve stejné skupině synchronizace?**  
@@ -103,7 +103,7 @@ Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubor
 * <a id="afs-conflict-resolution"></a>**Pokud stejný soubor se změnil na dvou serverech přibližně ve stejnou dobu, co se stane?**  
     Synchronizace služby Azure soubor používá strategie simple řešení konfliktů: jsme zachovat oba změny u souborů, které se změnilo na dva servery ve stejnou dobu. Nedávno napsané změnu ponechá původní název souboru. Starší soubor má počítač "zdroj" a číslo konflikt připojeným k názvu. Postupuje tuto taxonomii: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< ext\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Například by první konflikt CompanyReport.docx jako CompanyReport CentralServer.docx, pokud CentralServer kde starší zápisu došlo k chybě. Druhý konflikt by se jmenovala CompanyReport. CentralServer 1.docx.
 
@@ -171,18 +171,18 @@ Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubor
 * <a id="afs-files-excluded"></a>
 **Které soubory nebo složky se automaticky vyloučí pomocí synchronizace souboru Azure?**  
     Ve výchozím nastavení vyloučí synchronizace souboru Azure následující soubory:
-    * Desktop.ini
-    * Thumbs.DB
-    * ehthumbs.DB
+    * desktop.ini
+    * thumbs.db
+    * ehthumbs.db
     * ~$\*.\*
-    * \*LACCDB
+    * \*.laccdb
     * \*TMP.
     * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     Ve výchozím nastavení jsou také vyloučit následující složky:
 
     * \System volume Information
-    * \$RECYKLUJTE. KOŠ
+    * \$RECYCLE.BIN
     * \SyncShareState
 
 * <a id="afs-os-support"></a>

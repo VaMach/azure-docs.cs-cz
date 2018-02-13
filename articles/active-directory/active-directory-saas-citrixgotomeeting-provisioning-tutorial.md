@@ -1,5 +1,5 @@
 ---
-title: 'Kurz: Azure Active Directory integrace s GoToMeeting | Microsoft Docs'
+title: "Kurz: Konfigurace GoToMeeting pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a GoToMeeting."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 48b8072b5ebe61f5a9dccd9d8ea31e5a6945f265
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Kurz: Konfigurace GoToMeeting pro zřizování automatické uživatelů
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Kurz: Konfigurace GoToMeeting pro zřizování automatické uživatelů
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v GoToMeeting a Azure AD a automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD do GoToMeeting.
 
@@ -62,7 +62,7 @@ Tato část vás provede připojení k GoToMeeting na uživatelský účet zřiz
 
 4. Nastavte **zřizování** režim **automatické**. 
 
-    ![Zřizování](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 5. V části přihlašovací údaje správce proveďte následující kroky:
    
@@ -84,9 +84,11 @@ Tato část vás provede připojení k GoToMeeting na uživatelský účet zřiz
 
 12. Klikněte na tlačítko **uložit.**
 
-Spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené k GoToMeeting v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci GoToMeeting.
+Spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené k GoToMeeting v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 40 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** oddílu monitorovat průběh a odkazech na protokoly aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci GoToMeeting zřizování.
 
-## <a name="additional-resources"></a>Další zdroje
+Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
+
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/29/2018
 ms.author: mimig
-ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Protokolování diagnostiky Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Pomocí tohoto kurzu Začínáme s Azure DB Cosmos protokolování prostřednict
 
 ## <a name="what-is-logged"></a>Co je protokolováno?
 
-* Přihlášení se všechny ověřené požadavky REST SQL API, které zahrnuje i neúspěšné požadavky v důsledku oprávnění k přístupu, systémových chyb nebo chybných požadavků. Podpora pro MongoDB, graf a tabulka rozhraní API není aktuálně k dispozici.
+* Všechny žádosti o ověření back-end (TCP/REST), mezi všechna rozhraní API, přihlášení, které zahrnuje i neúspěšné požadavky v důsledku oprávnění k přístupu, systémových chyb nebo chybných požadavků. Graf, Cassandra, zahájí se podpora pro uživatele a žádostí o rozhraní API tabulky nejsou momentálně k dispozici.
 * Operace na samotná databáze, která zahrnuje operace CRUD na všechny dokumenty, kontejnery a databází.
 * Operace na klíče účtu, které zahrnují vytváření, upravování a odstraňování těchto klíčů.
 * Neověřené požadavky, které skončí odpovědí 401 – Neoprávněno. Například požadavky, které nemají nosný token, jsou poškozené nebo jejichž platnost vypršela, nebo mají neplatný token.
@@ -54,8 +54,8 @@ K dokončení tohoto kurzu, musí mít následující prostředky:
     * **Archiv na účet úložiště**. Pokud chcete použít tuto možnost, musíte se připojit k existující účet úložiště. Pokud chcete vytvořit nový účet úložiště na portálu, najdete v části [vytvořit účet úložiště](../storage/common/storage-create-storage-account.md) a postupujte podle pokynů pro vytvoření správce prostředků, účtu pro obecné účely. Pak se vraťte na tuto stránku na portálu vyberte svůj účet úložiště. To může trvat několik minut pro účty nově vytvořené úložiště zobrazí v rozevírací nabídce.
     * **Datový proud do centra událostí**. Chcete-li použít tuto možnost, musíte existující centra událostí obor názvů a události rozbočovače pro připojení k. Vytvoření oboru názvů Event Hubs naleznete v tématu [vytvořit obor názvů Event Hubs a centra událostí pomocí portálu Azure](../event-hubs/event-hubs-create.md). Pak se vraťte na tuto stránku v portálu a zvolte název oboru názvů a zásad centra událostí.
     * **Odeslat k analýze protokolů**.     Chcete-li použít tuto možnost, buď použijte existujícímu pracovnímu prostoru nebo vytvořte nový pracovní prostor analýzy protokolů podle pokynů k [vytvořit nový pracovní prostor](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) na portálu. Další informace o prohlížení protokolů v analýzy protokolů, najdete v části [zobrazení přihlásí analýzy protokolů](#view-in-loganalytics).
-    * **Přihlaste se DataPlaneRequests**. Tuto možnost vyberte k protokolování diagnostiky pro účty SQL, graf a tabulka rozhraní API. Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
-    * **Přihlaste se MongoRequests**. Tuto možnost vyberte k protokolování diagnostiky pro rozhraní API MongoDB účty. Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
+    * **Přihlaste se DataPlaneRequests**. Vyberte tuto možnost, chcete-li protokolovat požadavky na back-end ze základní distribuované platformy Azure Cosmos DB pro SQL, grafu, MongoDB, Cassandra a Table API účty. Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
+    * **Přihlaste se MongoRequests**. Vyberte tuto možnost, chcete-li protokolovat požadavky na iniciované uživatelem z front-endu pro obsluhující MongoDB API účty Azure Cosmos DB.  Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
     * **Metriky požadavky**. Tuto možnost vyberte pro uložení podrobné dat v [metrik Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
 
 3. Klikněte na **Uložit**.
@@ -415,7 +415,7 @@ Následující tabulka popisuje obsah každé položky protokolu.
 | properties | neuvedeno | Obsah tohoto pole jsou popsané v následující řádky. |
 | ID aktivity | activityId_g | Jedinečný identifikátor GUID pro protokolovaných operací. |
 | UserAgent | userAgent_s | Řetězec, který určuje uživatelský agent klienta provádění požadavku. Formát je {uživatelské jméno agenta} / {version}.|
-| Typ prostředku | ResourceType | Typ prostředku, u níž. Tato hodnota může být jakýkoli z následujících typů prostředků: databáze, kolekce, dokument, přílohy, uživatele, oprávnění, StoredProcedure, aktivační události, UserDefinedFunction nebo nabídku. |
+| resourceType | ResourceType | Typ prostředku, u níž. Tato hodnota může být jakýkoli z následujících typů prostředků: databáze, kolekce, dokument, přílohy, uživatele, oprávnění, StoredProcedure, aktivační události, UserDefinedFunction nebo nabídku. |
 | statusCode |statusCode_s | Stav odpovědi operace. |
 | requestResourceId | ID prostředku | ResourceId týkající se žádosti, mohou odkazovat databaseRid, collectionRid nebo documentRid v závislosti na operaci provést.|
 | clientIpAddress | clientIpAddress_s | IP adresa klienta. |

@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Nahraďte hardwarová součást v uzlu jednotky škálování Azure zásobníku
 
@@ -28,7 +28,7 @@ Tento článek popisuje obecný postup k nahrazení hardwarové součásti, kter
 
 Bez za provozu součásti zahrnují následující:
 
-- PROCESOR *
+- CPU*
 - Paměť *
 - Řadič pro správu základní desky nebo základní desky (BMC) / video karty
 - Disk řadiče nebo hostitelských adaptérů (HBA) nebo propojovací rozhraní systému
@@ -44,11 +44,11 @@ Následující vývojový diagram znázorňuje proces obecné FRU nahradit bez z
 
 * Tato akce nemusí být vyžadovány na základě podmínky pro fyzický hardware.
 
-** Jestli dodavatele hardwaru, od výrobců OEM provede nahrazení součásti a aktualizace firmwaru může lišit v závislosti na podporu kontrakt.
+** Jestli dodavatele hardwaru, od výrobců OEM provede nahrazení součásti a aktualizace firmwaru může lišit podle vaší smlouvě o podpoře.
 
 ## <a name="review-alert-information"></a>Přečtěte si informace o výstrahách
 
-Stav zásobník Azure a systém monitorování sledovat stav síťových adaptérů a datových jednotek řízené prostory úložiště – přímé. Ho nesleduje jiných hardwarových součástí. Pro všechny ostatní hardwarové součásti jsou vyvolány výstrahy specifické pro dodavatele hardwaru řešení monitorování, které běží na hostiteli životního cyklu hardwaru.
+Stav zásobník Azure a systém monitorování sledovat stav síťových adaptérů a datových jednotek řízené prostory úložiště – přímé. Ho nesleduje jiných hardwarových součástí. Pro všechny ostatní hardwarové součásti jsou vyvolány výstrahy specifické pro dodavatele hardwaru řešení monitorování, které běží na hostiteli životního cyklu hardwaru.  
 
 ## <a name="component-replacement-process"></a>Proces nahrazení komponent
 
@@ -60,7 +60,7 @@ Následující kroky poskytují souhrnné informace o nahrazení proces komponen
    > V každém případě jenom jeden uzel vyprázdnit a vypnout ve stejnou dobu, aniž by vás S2D (prostory úložiště – přímé).
 
 2. Po uzlu jednotka škálování je v režimu údržby, použijte [vypnutí](azure-stack-node-actions.md#scale-unit-node-actions) akce. Tuto akci nelze vyžadovat na základě podmínky pro fyzický hardware.
- 
+
    > [!NOTE]
    > V případě nepravděpodobné, že vypnutí akce nepomůže použijte místo toho webové rozhraní základní desky management controller, (BMC).
 
@@ -74,4 +74,3 @@ Následující kroky poskytují souhrnné informace o nahrazení proces komponen
 
 - Informace o nahrazení za provozu fyzický disk najdete v tématu [Výměna disku](azure-stack-replace-disk.md).
 - Informace o nahrazení do fyzického uzlu najdete v tématu [nahradit uzlu jednotky škálování](azure-stack-replace-node.md).
-- 

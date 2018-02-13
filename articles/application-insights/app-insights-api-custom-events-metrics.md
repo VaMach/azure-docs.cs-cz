@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API pro vlastní události a metriky
 
@@ -158,7 +158,7 @@ Odeslání jednoho metriky hodnoty:
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -178,7 +178,7 @@ Tady je příklad totožný kódu:
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -334,7 +334,7 @@ Je k dispozici v telemetrii `customMetrics` tabulky v [Application Insights Anal
 * `valueSum`-Toto je součet měření. Chcete-li získat střední hodnoty, vydělte `valueCount`.
 * `valueCount`-Počet měření, které byly agregovat do této `trackMetric(..)` volání.
 
-## <a name="page-views"></a>Zobrazení stránky
+## <a name="page-views"></a>Zobrazení stránek
 V aplikaci pomocí zařízení nebo webové stránky je odeslána telemetrická zobrazení stránky ve výchozím nastavení při načtení každé obrazovky nebo stránky. Ale můžete změnit, sledovat zobrazení stránky v další nebo různých časech. Například v aplikaci, která zobrazí karty nebo okna, můžete sledovat na stránce vždy, když uživatel otevře nové okno.
 
 ![Použití přehledu v okně Přehled](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
@@ -422,7 +422,7 @@ Při sledování telemetrie ručně, nejjednodušší způsob, jak zajistit tele
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
@@ -576,7 +576,7 @@ Pokud [vzorkování](app-insights-sampling.md) je v provozu, vlastnost itemCount
 ## <a name="trackdependency"></a>TrackDependency
 Volání TrackDependency použijte ke sledování doby odezvy a úspěšnost volání externí část kódu. Výsledky se zobrazí v grafech závislost na portálu.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -913,7 +913,7 @@ K *dynamicky zastavit a spustit* shromažďování a předávání telemetrie:
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 

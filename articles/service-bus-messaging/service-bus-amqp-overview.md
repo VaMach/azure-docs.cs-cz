@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: e2d190dddc3b84eb07eaf2ffea1af48bba0ea13a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2dffd22ecfc0aaf6e338567d5cf107a2c07383
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Podpora protokolu AMQP 1.0 v Service Bus
 Cloudové služby Azure Service Bus i místní [sběrnice služby pro Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) podporu Advanced zpráv služby Řízení front Protocol (AMQP) 1.0. AMQP umožňuje vytvořit a platformy, hybridní aplikace pomocí otevřený standardní protokol. Můžete vytvořit aplikací s použitím komponenty, které jsou integrovány v různých jazycích a architektury a které běží na různých operačních systémech. Všechny tyto součásti mohou připojit k Service Bus a bezproblémově výměna strukturovaných obchodní zpráv, efektivní a na úplné přesnost.
@@ -76,7 +76,7 @@ V tuto chvíli následujících klientských knihoven se ví, pracovat s sběrni
 | C |Apache Qpid kanálem C |
 | PHP |Apache Qpid kanálem PHP |
 | Python |Apache Qpid kanálem Python |
-| C# |AMQP .net Lite |
+| C# |AMQP .Net Lite |
 
 **Obrázek 2: Tabulka knihoven klienta protokolu AMQP 1.0**
 
@@ -84,7 +84,7 @@ V tuto chvíli následujících klientských knihoven se ví, pracovat s sběrni
 * AMQP 1.0 je otevřený, spolehlivého zasílání zpráv protokol, který můžete použít k vytvoření a platformy, hybridní aplikace. AMQP 1.0 je OASIS standard.
 * Podpora protokolu AMQP 1.0 je teď dostupná v Azure Service Bus, jakož i sběrnice služby pro Windows Server (Service Bus 1.1). Ceny je stejné jako pro existující protokoly.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Připraveni na další informace? Získáte pomocí následujících odkazů:
 
 * [Pomocí protokolu AMQP služby Service Bus pomocí technologie .NET]

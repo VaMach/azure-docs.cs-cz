@@ -2,23 +2,17 @@
 title: "Výsledky testu pro replikaci technologie Hyper-V mezi lokalitami s Azure Site Recovery | Microsoft Docs"
 description: "Tento článek obsahuje informace o testování výkonu pro místně na místní replikaci virtuálních počítačů technologie Hyper-V pomocí Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: tysonn
-ms.assetid: 96ff404f-0d88-43fa-a00b-2dffde93d192
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: c221fe94c5301b0a36882d5ae1c57e523002ecc4
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f25bbca86fdbb480a4db7623d4ee8d296415a4be
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Výsledky testu pro místně na místní replikaci technologie Hyper-V pomocí Site Recovery
 
@@ -109,9 +103,9 @@ Výsledky jasnému určení, že Azure Site Recovery, kombinaci s replikou techn
 
 ![Požadavky na hardware](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
-| Server | Paměť RAM | Model | Procesor | Počet procesorů | SÍŤOVÝ ADAPTÉR | Software |
+| Server | Paměť RAM | Model | Procesor | Počet procesorů | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servery Hyper-V v clusteru: <br />ESTLAB HOST11<br />ESTLAB HOST12<br />ESTLAB HOST13<br />ESTLAB HOST14<br />ESTLAB HOST25 |128ESTLAB HOST25 má 256 |R820 Dell™ PowerEdge™ |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 |I x 4 GB/s |Windows Server Datacenter 2012 R2 (x64) + role Hyper-V |
+| Servery Hyper-V v clusteru: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 má 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + role Hyper-V |
 | VMM Server |2 | | |2 |1 Gb/s |Windows Server databáze 2012 R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="secondary-recovery-site"></a>(Obnovení) sekundární lokality
@@ -121,11 +115,11 @@ Výsledky jasnému určení, že Azure Site Recovery, kombinaci s replikou techn
 
 ![Specifikace primární hardwaru](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
 
-| Server | Paměť RAM | Model | Procesor | Počet procesorů | SÍŤOVÝ ADAPTÉR | Software |
+| Server | Paměť RAM | Model | Procesor | Počet procesorů | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servery Hyper-V v clusteru: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB HOST10 |96 |R720 Dell™ PowerEdge™ |Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz |2 |I x 4 GB/s |Windows Server Datacenter 2012 R2 (x64) + role Hyper-V |
-| ESTLAB HOST17 |128 |R820 Dell™ PowerEdge™ |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + role Hyper-V |
-| ESTLAB HOST24 |256 |R820 Dell™ PowerEdge™ |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + role Hyper-V |
+| Servery Hyper-V v clusteru: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + role Hyper-V |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + role Hyper-V |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + role Hyper-V |
 | VMM Server |2 | | |2 |1 Gb/s |Windows Server databáze 2012 R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Úlohy serveru
@@ -136,7 +130,7 @@ Výsledky jasnému určení, že Azure Site Recovery, kombinaci s replikou techn
 
 | Úloha | Vstupně-výstupních operací velikost (KB) | % Přístup | % Pro čtení | Počet nezpracovaných vstupně-výstupních operací | Vzor vstupně-výstupních operací |
 | --- | --- | --- | --- | --- | --- |
-| Souborový Server |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Náhodné 100 % |
+| Souborový server |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Náhodné 100 % |
 | SQL Server (svazku 1) SQL Server (svazku 2) |864 |100%100% |70%0% |88 |100 % random100 % sekvenčních |
 | Výměna |32 |100% |67% |8 |náhodné 100 % |
 | Pracovní stanice/VDI |464 |66%34% |70%95% |11 |Obě náhodných 100 % |
@@ -152,10 +146,10 @@ Výsledky jasnému určení, že Azure Site Recovery, kombinaci s replikou techn
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
-| Souborový Server |50 |1 |2 |552 |22 |
-| INFRASTRUKTURY VIRTUÁLNÍCH KLIENTSKÝCH POČÍTAČŮ |149 |.5 |1 |80 |6 |
+| Souborový server |50 |1 |2 |552 |22 |
+| VDI |149 |.5 |1 |80 |6 |
 | Webový server |149 |.5 |1 |80 |6 |
-| CELKOVÝ POČET |470 | | |96.83 TB |4108 |
+| CELKEM |470 | | |96.83 TB |4108 |
 
 ### <a name="site-recovery-settings"></a>Nastavení obnovení lokality
 
@@ -164,10 +158,10 @@ Výsledky jasnému určení, že Azure Site Recovery, kombinaci s replikou techn
 
 | Primární cloud VMM | Chráněné virtuální počítače v cloudu | Četnost replikace | Další body obnovení |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15 minut |Žádný |
-| PrimaryCloudRpo30s |47 |30 sekund. |Žádný |
+| PrimaryCloudRpo15m |142 |15 minut |Žádné |
+| PrimaryCloudRpo30s |47 |30 sekund. |Žádné |
 | PrimaryCloudRpo30sArp1 |47 |30 sekund. |1 |
-| PrimaryCloudRpo5m |235 |5 minut |Žádný |
+| PrimaryCloudRpo5m |235 |5 minut |Žádné |
 
 ### <a name="performance-metrics"></a>Metriky výkonu
 
@@ -183,6 +177,6 @@ Tabulka shrnuje metriky výkonu a čítače, které byly měřená v nasazení.
 | Virtuální počítač číst propustnost |Zařízení virtuálního úložiště \Hyper-V (<VHD>) \Read bajty/s |
 | Propustnost zápisu virtuálních počítačů |Zařízení virtuálního úložiště \Hyper-V (<VHD>) \Write bajty/s |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Nastavení replikace mezi dvěma místními servery VMM](site-recovery-vmm-to-vmm.md)

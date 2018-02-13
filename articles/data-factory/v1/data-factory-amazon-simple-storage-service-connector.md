@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Přesun dat ze služby Amazon jednoduché úložiště pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Propojená služba odkazuje na objekt pro vytváření dat úložiště dat. Vyt
 
 | Vlastnost | Popis | Povolené hodnoty | Požaduje se |
 | --- | --- | --- | --- |
-| accessKeyID |ID tajný přístupový klíč. |Řetězec |Ano |
+| accessKeyID |ID tajný přístupový klíč. |řetězec |Ano |
 | secretAccessKey |Tajný přístupový klíč sám sebe. |Šifrované tajné řetězec |Ano |
 
 >[!NOTE]
@@ -98,7 +98,7 @@ Oddíly jako je například struktura, dostupnost a zásady jsou podobné pro v�
 | bucketName |Název sady S3. |Řetězec |Ano |
 | key |Klíč objektu S3. |Řetězec |Ne |
 | Předpona |Předpona pro klíč objektu S3. Jsou vybrané objekty, jejichž klíče začít s touto předponou. Platí pouze v případě, klíč je prázdný. |Řetězec |Ne |
-| Verze |Verze objektu S3, pokud je povolena Správa verzí S3. |Řetězec |Ne |
+| verze |Verze objektu S3, pokud je povolena Správa verzí S3. |Řetězec |Ne |
 | Formát | Jsou podporovány následující typy formátu: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Nastavte **typ** vlastnost pod formát na jednu z těchto hodnot. Další informace najdete v tématu [textovém formátu](data-factory-supported-file-and-compression-formats.md#text-format), [formátu JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formát Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formátu](data-factory-supported-file-and-compression-formats.md#orc-format), a [Parquet formát](data-factory-supported-file-and-compression-formats.md#parquet-format) oddíly. <br><br> Pokud chcete zkopírovat soubory jako-je mezi souborové úložiště (binární kopie), přeskočte část formátu v obou definice vstupní a výstupní datové sady. |Ne | |
 | Komprese | Zadejte typ a úroveň komprese pro data. Podporované typy jsou: **GZip**, **Deflate**, **BZip2**, a **ZipDeflate**. Jsou podporované úrovně: **Optimal** a **nejrychlejší**. Další informace najdete v tématu [formáty souborů a komprese v Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Ne | |
 
@@ -171,7 +171,7 @@ Můžete mít vypočítat tyto vlastnosti dynamicky za běhu, pomocí systémov�
 
 Totéž proveďte pro **předponu** vlastnost datové sadě služby Amazon S3. Seznam podporovaných funkce a proměnné, naleznete v části [funkce pro vytváření dat a systémové proměnné](data-factory-functions-variables.md).
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivit najdete v tématu [vytváření kanálů](data-factory-create-pipelines.md). Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit. Vlastnosti, které jsou k dispozici v **rámci typeProperties** části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování vlastnosti lišit v závislosti na typech zdrojů a jímky. Pokud je zdroj v aktivitě kopírování typu **FileSystemSource** (která zahrnuje Amazon S3), je k dispozici v této vlastnosti **rámci typeProperties** části:
 
 | Vlastnost | Popis | Povolené hodnoty | Požaduje se |
@@ -361,7 +361,7 @@ Kanál obsahuje aktivitu kopírování, který je nakonfigurovaný na použití 
 > Mapování sloupců z datové sady zdroje na sloupce ze sady dat podřízený naleznete v tématu [mapování sloupců datovou sadu v Azure Data Factory](data-factory-map-columns.md).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Viz následující články:
 
 * Další informace o klíčových faktorů této dopad výkon přesun dat (aktivita kopírování) v objektu pro vytváření dat a různé způsoby, jak ji optimalizovat, najdete v článku [zkopírujte aktivity výkonu a vyladění průvodce](data-factory-copy-activity-performance.md).

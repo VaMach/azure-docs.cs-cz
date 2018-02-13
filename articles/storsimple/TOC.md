@@ -2,7 +2,6 @@
 
 ## Přehled
 ### [Informace o řešení](storsimple-ova-overview.md)
-### [Dostupnost v oblastech](storsimple-regions.md)
 
 ## Začínáme
 ### Plánování
@@ -13,6 +12,7 @@
 ### Nasazení
 #### [Příprava nasazení](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Nasazení služby StorSimple Manager](storsimple-virtual-array-manage-service.md)
+##### [Nové ověřování](storsimple-virtual-array-aad-registration-key.md)
 #### [Zřizování v prostředí Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Zřizování v prostředí VMWare](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Nastavení jako souborového serveru](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### Nasazení
 #### [Služba Správce zařízení StorSimple](storsimple-8000-manage-service.md)
+#### [Nové ověřování pro službu](storsimple-8000-aad-registration-key.md)
 #### [Fyzické zařízení v Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Fyzické zařízení na portálu Government](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Cloudové zařízení v Azure](storsimple-8000-cloud-appliance-u2.md)
@@ -235,6 +236,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Marketingový blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Možnosti podpory StorSimple](storsimple-8000-support-options.md)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Ceny](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

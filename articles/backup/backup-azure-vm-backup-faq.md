@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Dotazy týkající se služby Azure Backup pro virtuální počítače
 Tento článek obsahuje odpovědi na běžné dotazy, které vám pomůžou rychle porozumět komponentám služby Azure Backup pro virtuální počítače. Některé odpovědi zahrnují odkazy na články obsahující komplexní informace. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -69,6 +69,23 @@ Obnovení disků použijte k:
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Můžete použít zálohování nespravované disku virtuálního počítače k obnovení po upgradu Moje disky na spravované disky?
 Ano, můžete použít zálohy pořízené před migrací disky z nespravované na spravované. Ve výchozím nastavení úloha obnovení virtuálního počítače vytvoří virtuální počítač s nespravované disky. Obnovení disky funkce slouží k obnovení disků a použít je k vytvoření virtuálního počítače na spravovaného disky. 
 
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Co je postup obnovení virtuálního počítače do bodu obnovení prováděné před provedením převod z nespravovaných do spravovaných disky pro virtuální počítač?
+V tomto scénáři ve výchozím nastavení, úloha obnovení virtuálního počítače vytvoří virtuální počítač s nespravované disky. Vytvoření virtuálního počítače s spravované disky:
+1. [Obnovit na nespravované disky](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Převeďte obnovené disky na spravované disky](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Vytvoření virtuálního počítače s spravované disky](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Rutiny prostředí Powershell najdete v části [zde](backup-azure-vms-automation.md#restore-an-azure-vm).
+
 ## <a name="manage-vm-backups"></a>Správa záloh virtuálních počítačů
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Co se stane, když že se na virtuálních počítačích změní zásady zálohování?
 Nová zásada se aplikuje na virtuální počítače, je následovaný plán a uchovávání nové zásady, které obsahuje. Pokud je rozšířeno uchování, stávajících bodů obnovení jsou označeny k jejich podle nové zásady. Pokud je snížen uchovávání, jsou označeny pro vyřazení v další úlohy čištění a následně odstranit. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Jak můžete přesunout, že virtuální počítač zaregistrované v Azure backup mezi skupinami prostředků?
+Postupujte podle níže uvedených pokynů úspěšně přesuňte virtuální počítač zálohovaná cílová skupina prostředků 
+1. Dočasně zastavení zálohování a zachovat zálohovaná data
+2. Přesuňte virtuální počítač cílová skupina prostředků
+3. Znovu proveďte její ochranu pomocí stejné, nový trezor
+
+Uživatelé mohou obnovit z bodů obnovení k dispozici vytvořil před operaci přesunutí.
+
+

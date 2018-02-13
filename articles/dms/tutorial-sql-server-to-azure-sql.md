@@ -1,6 +1,6 @@
 ---
 title: "Používat službu Azure databáze migrace pro migraci systému SQL Server do Azure SQL Database | Microsoft Docs"
-description: "Další informace pro migraci z místního serveru SQL do Azure SQL pomocí služba migrace databáze Azure."
+description: "Zjistěte, k migraci z místního serveru SQL do Azure SQL pomocí služby Azure databáze migrace."
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/17/2017
-ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.date: 01/24/2018
+ms.openlocfilehash: 8dc8b4db80d5e319fad0b681924ab5a8e5642b2e
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migrace systému SQL Server do databáze Azure SQL
 Službu Azure databáze migrace můžete použít k migraci databáze z místní instance systému SQL Server do Azure SQL Database. V tomto kurzu, migrovat **Adventureworks2012** databáze obnovena do místní instance systému SQL Server 2016 (nebo vyšší) do Azure SQL Database pomocí služby Azure databáze migrace.
@@ -34,13 +34,16 @@ K dokončení tohoto kurzu potřebujete:
 
 - Stáhněte a nainstalujte [SQL Server 2016 nebo novější](https://www.microsoft.com/sql-server/sql-server-downloads) (všechny edice).
 - Povolte protokol TCP/IP, který je zakázaný ve výchozím nastavení během instalace systému SQL Server Express, pomocí pokynů v článku [povolit nebo zakázat síťový protokol serveru](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Konfigurace vaší [brány Windows Firewall pro přístup k databázovému stroji](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Vytvoření instance Azure SQL Database instance, kterou provedete podle následujících podrobností v článku [vytvoření Azure SQL database na portálu Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - Stáhněte a nainstalujte [Data migrace pomocníka](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 nebo novější.
 - Vytvoření virtuální sítě pro službu Azure databáze migrace pomocí modelu nasazení Azure Resource Manager, které poskytuje připojení site-to-site k vaší místní zdrojové servery pomocí [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) nebo [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Ujistěte se, že vaše Azure virtuální síť (VNET) skupinu zabezpečení sítě pravidla proveďte bloku následující komunikace porty 443, 53, 9354, 445, 12000. Další podrobnosti o filtrování provozu NSG virtuální síť Azure, najdete v článku [filtrování provozu sítě přenosů se skupinami zabezpečení sítě](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Konfigurace vaší [brány Windows Firewall pro přístup k databázovému stroji](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Otevřete vaší brány Windows firewall a povolit službu Azure databáze migrace k přístupu ke zdroji systému SQL Server.
+- Pokud používáte zařízení brány firewall před vaší zdrojové databáze, musíte přidat pravidla firewallu povolující službu Azure databáze migrace pro přístup k databází zdroje pro migraci.
+- Vytvořte úrovni serveru [pravidlo brány firewall](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) pro server Azure SQL Database, aby mohly služba migrace databáze Azure přístup k cílovým databázím. Zadejte rozsah podsíť virtuální sítě používaný pro službu Azure databáze migrace.
 - Zkontrolujte, zda pověření používaná k připojení k instanci systému SQL Server zdrojové [ovládacího PRVKU serveru](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) oprávnění.
 - Ujistěte se, že pověření použitá pro připojení k cílové instance Azure SQL Database mít oprávnění CONTROL DATABASE na cílovým databázím Azure SQL.
-- Otevřete vaší brány Windows firewall a povolit službu Azure databáze migrace k přístupu ke zdroji systému SQL Server.
 
 ## <a name="assess-your-on-premises-database"></a>Vyhodnocení místní databázi
 Než bude možné migrovat data z místní instance systému SQL Server do Azure SQL Database, budete muset vyhodnocení databázi systému SQL Server pro libovolným omezujícím problémům, které by mohly bránit migrace. Pomocník pro migraci dat v3.3 nebo novější, postupujte podle kroků popsaných v článku [provádění na posouzení migrace systému SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) k dokončení místní databáze hodnocení. Následuje souhrn požadované kroky:
@@ -98,7 +101,7 @@ K migraci **AdventureWorks2012** schématu do Azure SQL Database, proveďte nás
     ![Generování skriptů SQL](media\tutorial-sql-server-to-azure-sql\dma-assessment-source.png)
 9.  Vyberte **skript SQL generovat** vytvářet skripty SQL a poté zkontrolovat skripty pro všechny chyby.
 
-    ![Skript schématu](media\tutorial-sql-server-to-azure-sql\dma-schema-script.png)
+    ![Schema Script](media\tutorial-sql-server-to-azure-sql\dma-schema-script.png)
 10. Vyberte **nasazení schématu** pro nasazení schématu do Azure SQL Database a potom po nasazení schématu zkontrolujte cílový server pro anomálie.
 
     ![Nasazení schématu](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
@@ -207,4 +210,4 @@ Po vytvoření služby najít na portálu Azure a pak vytvořte projekt migrace.
 1. Vyberte aktivitu migrace, můžete zkontrolovat stav aktivity.
 2. Po dokončení migrace, ověřte cílová databáze Azure SQL.
 
-    ![byla dokončena](media\tutorial-sql-server-to-azure-sql\dms-completed-activity.png)
+    ![Dokončené](media\tutorial-sql-server-to-azure-sql\dms-completed-activity.png)

@@ -1,91 +1,91 @@
 ---
-title: "Zkontrolujte využití a náklady v Azure náklady na správu | Microsoft Docs"
-description: "Zkontrolujte využití a nákladů pro sledování trendů, zjišťování umožňuje zvýšit efektivitu a vytvořit oznámení."
+title: "Kontrola využití a nákladů ve službě Azure Cost Management | Microsoft Docs"
+description: "Zkontrolujte si využití a náklady, abyste mohli sledovat trendy, zjišťovat nedostatečnou efektivitu a vytvářet výstrahy."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="review-usage-and-costs"></a>Zkontrolujte využití a náklady
+# <a name="review-usage-and-costs"></a>Kontrola využití a nákladů
 
-Azure náklady na správu Cloudyn ukazuje využití a náklady, aby mohli sledovat trendy, zjistit umožňuje zvýšit efektivitu a vytvořit výstrahy. Všechna data o využití a náklady se zobrazí v Cloudyn řídicí panely a sestavy. V příkladech v tomto kurzu vás provede, když je kontrola využití a náklady na použití řídicích panelů a sestav. V tomto kurzu se naučíte:
+Azure Cost Management od Cloudyn zobrazuje využití a náklady, abyste mohli sledovat trendy, zjišťovat nedostatečnou efektivitu a vytvářet upozornění. Všechna data o využití a nákladech se zobrazí na řídicích panelech a v sestavách Cloudyn. Příklady v tomto kurzu vás provedou kontrolou využití a nákladů prostřednictvím řídicích panelů a sestav. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Sledování využití a trendy nákladů
-> * Zjištění umožňuje zvýšit efektivitu využití
-> * Vytvořte upozornění na neobvyklé výdajů a nákladů nad plán
+> * Sledovat trendy využití a nákladů
+> * Zjišťovat nedostatečnou efektivitu využití
+> * Vytvářet upozornění na nedostatečné nebo nadměrné výdaje
 
 
 
-## <a name="open-the-cloudyn-portal"></a>Otevřete portál Cloudyn
+## <a name="open-the-cloudyn-portal"></a>Otevření portálu Cloudyn
 
-Prostudování všech využití a náklady na portálu Cloudyn. Otevřete portál Cloudyn z portálu Azure nebo přejděte na https://azure.cloudyn.com a přihlaste se.
+Všechna data o využití a nákladech můžete zkontrolovat na portálu Cloudyn. Portál Cloudyn můžete otevřít z webu Azure Portal nebo můžete přejít na adresu https://azure.cloudyn.com a přihlásit se.
 
-## <a name="track-usage-and-cost-trends"></a>Sledování využití a trendy nákladů
+## <a name="track-usage-and-cost-trends"></a>Sledování trendů využití a nákladů
 
-Můžete sledovat skutečné peníze stráveného pro využití a náklady se sestavami v čase pro identifikaci trendů. Pokud chcete spustit, prohlížení trendy, pomocí sestavy skutečné náklady v čase. V nabídce sestavy v horní části portálu, klikněte na tlačítko **náklady** > **analýza nákladů** > **skutečné náklady v čase**. Když poprvé otevřete sestavu, použijí se k němu žádné skupiny nebo filtry.
+Pomocí průběžných sestav můžete sledovat částky utracené za využití a náklady. Pokud si chcete prohlédnout trendy, použijte sestavu Actual Cost Over Time (Skutečné náklady v průběhu času). V nabídce sestav v horní části portálu klikněte na položky **Cost (Náklady)** > **Cost Analysis (Analýza nákladů)** > **Actual Cost Over Time (Skutečné náklady v průběhu času)**. Když sestavu otevřete poprvé, nejsou v ní použité žádné skupiny ani filtry.
 
-Tady je ukázková sestava:
+Toto je příklad sestavy:
 
-![Ukázková sestava](./media/tutorial-review-usage/actual-cost01.png)
+![Příklad sestavy](./media/tutorial-review-usage/actual-cost01.png)
 
-Tato sestava zobrazuje všechny útraty za posledních 30 dní. Chcete-li zobrazit pouze výdaje služby Azure, použijte skupiny služby a pak filtrovat všech služeb Azure. Následující obrázek znázorňuje filtrované služby.
+Sestava obsahuje veškeré výdaje za posledních 30 dnů. Pokud chcete zobrazit jenom výdaje za služby Azure, vyberte skupinu Service (Služba) a potom vyfiltrujte všechny služby Azure. Následující obrázek ukazuje vyfiltrované služby.
 
-![filtrované služby](./media/tutorial-review-usage/actual-cost02.png)
+![Vyfiltrované služby](./media/tutorial-review-usage/actual-cost02.png)
 
-V předchozím příkladu byl stráven nižší cenu na 2017-08-31 než před zahájením. Tento trend náklady dál pro různé služby o devět dní. Potom další výdaje pokračuje jako předtím. Příliš mnoho sloupců však mohou skrývat zřejmé trendu. Zobrazení sestavy můžete změnit na řádek nebo oblasti grafu zobrazíte data zobrazená v ostatních zobrazeních. Následující obrázek ukazuje trend zřetelněji.
+V předchozím příkladu se od 31. 8. 2017 utratilo méně peněz než předtím. Tento trend pokračuje pro různé služby zhruba devět dnů. Potom pokračují další výdaje stejně jako předtím. Příliš mnoho sloupců ale může ztížit odhalení zjevného trendu. Zobrazení sestavy můžete změnit na spojnicový nebo plošný graf, které znázorňují data jiným způsobem. Z následujícího obrázku je trend lépe patrný.
 
-![trend v sestavě](./media/tutorial-review-usage/actual-cost03.png)
+![Trend v sestavě](./media/tutorial-review-usage/actual-cost03.png)
 
-V příkladu byste jasně vidět, že Azure Storage a náklady vynechaných spouštění na 2017-08-31 při výdaje na jinými službami Azure nižší úrovně. Ano co způsobilo tento snížení v výdaje? Někteří zaměstnanci v tomto příkladu byly na dovolenou mimo pracovní a nepoužívá službu úložiště.
+V příkladu je jasně vidět, že od 31. 8. 2017 klesly náklady na Azure Storage, zatímco výdaje na ostatní služby Azure zůstaly stejné. Co tedy toto snížení výdajů způsobilo? V tomto příkladu došlo k tomu, že někteří zaměstnanci byli na dovolené a službu Storage nepoužívali.
 
-Podívejte se na kurz video o sledování trendů využití a náklady, najdete v tématu [analýza cloudu fakturace dat oproti době s Azure náklady na správu Cloudyn](https://youtu.be/7LsVPHglM0g).
+Pokud se chcete podívat výukové video o sledování trendů využití a nákladů, podívejte se na video [Analýza informací o fakturaci cloudu pomocí služby Azure Cost Management od Cloudyn](https://youtu.be/7LsVPHglM0g).
 
-## <a name="detect-usage-inefficiencies"></a>Zjištění umožňuje zvýšit efektivitu využití
+## <a name="detect-usage-inefficiencies"></a>Zjišťovat nedostatečnou efektivitu využití
 
-Optimalizátor sestavy zlepšit efektivitu, optimalizovat využití a identifikovat způsoby, jak ušetřit peníze věnovaný cloudové prostředky. Jsou užitečné zejména s doporučeními nákladově efektivní velikosti určené snížit nečinnosti nebo nákladné virtuálních počítačů.
+Optimalizační sestavy umožňují zvýšit efektivitu, optimalizovat využití a najít způsoby, jak ušetřit výdaje za cloudové prostředky. Jsou užitečné hlavně kvůli doporučením nákladově efektivního nastavení velikosti, která mají pomoci snížit počty nečinných nebo nákladných virtuálních počítačů.
 
-Strategie jejich virtualizace je častých problémů, které ovlivňuje organizace, když se původně přesouvají prostředky cloudu. Často používají přístup podobně jako ten, který se používá k vytváření virtuálních počítačů pro místní virtualizovaného prostředí. A, se předpokládá, že přesunutím jejich místní virtuální počítače do cloudu, jako jsou snížit náklady-je. Tento přístup však není pravděpodobné, jak snížit náklady.
+Když organizace poprvé přesunou prostředky do cloudu, často se setkávají s potížemi, které jsou výsledkem jejich virtualizační strategie. Často používají podobný přístup, jako když vytvářely virtuální počítače pro místní prostředí virtualizace. Potom předpokládají, že už přesunem místních virtuálních počítačů do cloudu dojde ke snížení nákladů. Tento přístup ale náklady pravděpodobně nesníží.
 
-Problém je, že byl již zaplacení své stávající infrastruktury. Uživatelé lze vytvořit a udržovat velké virtuální počítače se systémem, pokud jejich líbilo – nečinnosti nebo Ne a s malým množstvím důsledkem. Přechodu do cloudu je velký nebo nečinné virtuálních počítačů, bude pravděpodobně *zvýšit* náklady. Cenově přidělení pro zdroje je důležité, když zadáte do smluv s poskytovatele cloudových služeb. Platíte musí pro potvrzení ať už používáte prostředek plně nebo ne.
+Potíž je v tom, že za svoji stávající infrastrukturu už zaplatily. Uživatelé předtím mohli vytvářet velké virtuální počítače a nechávat je spuštěné, ať už nečinné, nebo ne, a mělo to jen minimální následky. Přesun velkých nebo nečinných virtuálních počítačů do cloudu ale náklady pravděpodobně spíš *zvýší*. Po uzavření smluv s poskytovateli cloudových služeb je důležité přidělení nákladů k prostředkům. Musíte zaplatit za všechno, co potvrdíte, ať už daný prostředek plně využíváte, nebo ne.
 
-Sestava náklady na platné velikost doporučení identifikuje potenciální úspora roční tak, že porovnáte kapacity typ instance virtuálních počítačů k jejich historických procesoru a data o využití paměti.  
+Sestava Cost Effective Sizing Recommendations (Doporučení nákladově efektivního nastavení velikosti) určuje potenciální roční úspory tak, že porovnává kapacitu typů instancí virtuálních počítačů s historickými daty o využití CPU a paměti.  
 
-V nabídce sestavy v horní části portálu, klikněte na tlačítko **Optimalizátor** > **ceny optimalizace** > **náklady platné velikost doporučení**. Filtrujte zprostředkovatele k Azure a podívejte se na pouze virtuální počítače Azure. Tady je příklad obrázek.
+V nabídce sestav v horní části portálu klikněte na **Optimizer (Optimalizace)** > **Pricing Optimization (Optimalizace cen)** > **Cost Effective Sizing Recommendations (Doporučení nákladově efektivního nastavení velikosti)**. Filtrujte poskytovatele podle Azure, aby se zobrazily jenom virtuální počítače Azure. Následuje příklad.
 
 ![Virtuální počítače Azure](./media/tutorial-review-usage/sizing01.png)
 
-V tomto příkladu může uložit $3,114 pomocí následujících doporučení k měnit typy instance virtuálních počítačů. Kliknutím na symbol plus (+) v části **podrobnosti** pro první doporučení. Zde jsou uvedeny podrobnosti o první doporučení.
+Podle tohoto příkladu je možné díky doporučením na změnu typů instancí virtuálních počítačů ušetřit 3114 USD. První doporučení zobrazíte kliknutím na symbol plus (+) ve sloupci **Details** (Podrobnosti). Toto jsou podrobnosti prvního doporučení.
 
-![Podrobnosti o doporučení](./media/tutorial-review-usage/sizing02.png)
+![Podrobnosti doporučení](./media/tutorial-review-usage/sizing02.png)
 
-Zobrazit ID instance virtuálního počítače kliknutím na plus symbol vedle **seznamu kandidátů**.
+Kliknutím na symbol plus vedle položky **List of Candidates** (Seznam kandidátů) zobrazíte ID instancí virtuálních počítačů.
 
-![Seznam kandidáty](./media/tutorial-review-usage/sizing03.png)
+![Seznam kandidátů](./media/tutorial-review-usage/sizing03.png)
 
-Podívejte se na kurz video o zjišťování umožňuje zvýšit efektivitu využití, najdete v tématu [optimalizace velikost virtuálního počítače v Azure náklady na správu Cloudyn](https://youtu.be/1xaZBNmV704).
+Pokud vás zajímá výukové video o zjišťování nedostatečné efektivity využití, podívejte se na video [Optimalizace velikosti virtuálního počítače ve službě Azure Cost Management od Cloudyn](https://youtu.be/1xaZBNmV704).
 
-## <a name="create-alerts-for-unusual-spending"></a>Vytvořte výstrahy pro neobvyklou výdaje
+## <a name="create-alerts-for-unusual-spending"></a>Vytváření upozornění na neobvyklé výdaje
 
-Můžete výstrahu zúčastněným stranám automaticky pro útraty anomálií a nákladů nad plán rizika. Můžete snadno a rychle vytvořit výstrah pomocí sestavy, podporu výstrahy založené na nároky a náklady prahové hodnoty.
+Ostatní účastníky můžete automaticky upozorňovat na anomálie ve výdajích a rizika nadměrných výdajů. Upozornění můžete snadno a rychle vytvořit pomocí sestav, které podporují výstrahy na základě prahových hodnot rozpočtu a nákladů.
 
-Vytvoření oznámení pro jakékoli útraty pomocí žádnou sestavu náklady. V tomto příkladu pomocí upozornění v případě virtuálního počítače Azure výdaje přiblíží celkový rozpočet sestavy skutečné náklady v čase. V nabídce sestavy v horní části portálu, klikněte na tlačítko **náklady** > **analýza nákladů** > **skutečné náklady v čase**. Nastavit **skupiny** k **služby** a nastavte **filtru ve službě** k **virtuální počítač Azure nebo**. V horní pravé části sestavy, klikněte na tlačítko **akce** a pak vyberte **Naplánování sestavy**.
+Upozornění na jakékoli výdaje můžete vytvořit pomocí kterékoli sestavy nákladů. V tomto příkladu budete pomocí sestavy Actual Cost Over Time (Skutečné náklady v průběhu času) upozorňovat na to, že se výdaje blíží k celkové výši rozpočtu. V nabídce sestav v horní části portálu klikněte na položky **Cost (Náklady)** > **Cost Analysis (Analýza nákladů)** > **Actual Cost Over Time (Skutečné náklady v průběhu času)**. U položky **Groups** (Skupiny) nastavte hodnotu **Service** (Služba) a u položky **Filter on the service** (Filtrovat podle služby) hodnotu **Azure/VM** (Azure / virtuální počítač). V pravé horní části sestavy klikněte na **Actions** (Akce) a potom vyberte **Schedule report** (Naplánovat sestavu).
 
-Použití **plánování** kartu a pošlete sami sobě e-mailu pomocí frekvenci, který chcete sestavy. Všechny značky, seskupování a filtrování jste použili jsou zahrnuty v sestavě poslaného e-mailem. Klikněte na tlačítko **prahová hodnota** kartě a vyberte zvolte **vs skutečné náklady. Prahová hodnota**. Pokud jste měli celkové nároky než 500 000 $ a jste chtěli oznámení, když náklady v blízkosti o polovinu, vytvořte **Red výstraha** na 250 000 $ a **žlutá výstraha** v 240,000 $. Zvolte počet po sobě jdoucích výstrah. Pokud se zobrazí celkový počet výstrah, které jste zadali, budou odeslány žádné další výstrahy. Uložení plánované sestavy.
+Na kartě **Scheduling** (Plánování) si naplánujte, že se vám má sestava s požadovanou frekvencí zasílat e-mailem. Součástí sestavy v e-mailu budou všechny značky, seskupení a filtry, které jste použili. Klikněte na kartu **Threshold** (Prahová hodnota) a vyberte **Actual Cost vs. Threshold** (Skutečné náklady vs. prahová hodnota). Pokud jste měli celkový rozpočet 500 000 USD a chtěli jste dostat oznámení, když se náklady přiblíží polovině, vytvořte výstrahu **Red alert** (Červená výstraha) na částce 250 000 USD a výstrahu **Yellow alert** (Žlutá výstraha) na částce 240 000 USD. Potom vyberte počet po sobě jdoucích výstrah. Až dostanete celkový počet výstrah, který jste zadali, už vám žádné další výstrahy chodit nebudou. Uložte naplánovanou sestavu.
 
-![Ukázková sestava](./media/tutorial-review-usage/schedule-alert01.png)
+![Příklad sestavy](./media/tutorial-review-usage/schedule-alert01.png)
 
-Můžete také náklady na procento vs. Prahová hodnota metrika nároky na vytvoření výstrahy. Pomocí této metrika můžete nároky procenta místo hodnoty měny.
+K vytváření výstrah můžete také vybrat metriku Cost Percentage vs. Budget (Procento nákladů z rozpočtu). Pokud použijete tuto metriku, budou se místo částek zobrazovat procenta z rozpočtu.
 
 
 ## <a name="next-steps"></a>Další kroky
@@ -93,12 +93,12 @@ Můžete také náklady na procento vs. Prahová hodnota metrika nároky na vytv
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Sledování využití a trendy nákladů
-> * Zjištění umožňuje zvýšit efektivitu využití
-> * Vytvořte upozornění na neobvyklé výdajů a nákladů nad plán
+> * Sledovat trendy využití a nákladů
+> * Zjišťovat nedostatečnou efektivitu využití
+> * Vytvářet upozornění na nedostatečné nebo nadměrné výdaje
 
 
-Přechodu na v dalším kurzu se dozvíte o řízení přístupu k datům.
+V dalším kurzu se dozvíte, jak řídit přístup k datům.
 
 > [!div class="nextstepaction"]
 > [Řízení přístupu k datům](tutorial-user-access.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 0bab180fe726eeece9d03883889253825b5e9560
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96ac8ce81087717f05ae6480a8f875079139b7b6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importovat aplikace logiky jako rozhraní API
 
@@ -33,7 +33,7 @@ V tomto článku se dozvíte, jak:
 ## <a name="prerequisites"></a>Požadavky
 
 + Dokončete následující rychlý start: [vytvoření instance služby Azure API Management](get-started-create-service-instance.md)
-+ Zkontrolujte, zda že je aplikace logiky v rámci vašeho předplatného. Další informace najdete [vytvoření první aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
++ Zkontrolujte, zda že je aplikace logiky v rámci vašeho předplatného. Další informace najdete [vytvoření první aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -65,7 +65,7 @@ Operace lze volat přímo z portálu Azure, který představuje pohodlný způso
 3. Vyberte nějaké operace.
 
     Stránka zobrazí pole pro parametry dotazu a pole hlavičky. Jednu z hlaviček "Ocp-Apim-Subscription-Key", je pro předplatné klíč produktu, který je přidružen toto rozhraní API. Pokud jste vytvořili instanci APIM, jste správcem již, tak klíč se vyplní automaticky. 
-1. Stiskněte klávesu **odeslat**.
+1. Stiskněte **Odeslat**.
 
     Back-end odpoví **200 OK** a některá data.
 
@@ -80,7 +80,7 @@ Operace lze také volat **portál pro vývojáře** k testování rozhraní API.
 3. Vyberte **rozhraní API** kterou jste vytvořili.
 4. Klikněte na tlačítko operaci, kterou chcete testovat.
 5. Stiskněte klávesu **vyzkoušet**.
-6. Stiskněte klávesu **odeslat**.
+6. Stiskněte **Odeslat**.
     
     Po vyvolání operace portál pro vývojáře zobrazí **Stav odpovědi**, **Hlavičky odpovědi** a jakýkoli **Obsah odpovědi**.
 
@@ -91,7 +91,7 @@ Operace lze také volat **portál pro vývojáře** k testování rozhraní API.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Transformace a chránit publikované rozhraní API](transform-api.md)

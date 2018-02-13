@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Vytvoření první funkce na webu Azure Portal
 
@@ -52,21 +52,25 @@ Dál vytvoříte v nové aplikaci Function App funkci.
    
     ![Stručný úvod do služby Functions na webu Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Funkce ve vybraném jazyce se vytvoří pomocí šablony funkce aktivované protokolem HTTP. Novou funkci můžete spustit odesláním požadavku HTTP.
+Funkce ve vybraném jazyce se vytvoří pomocí šablony funkce aktivované protokolem HTTP. Toto téma ukazuje funkci skriptu jazyka C# na portálu, ale můžete vytvořit funkci v libovolném [podporovaném jazyku](supported-languages.md). 
+
+Novou funkci můžete spustit odesláním požadavku HTTP.
 
 ## <a name="test-the-function"></a>Testování funkce
 
-1. V nové funkci klikněte na **</> Získat adresu URL funkce**, vyberte **výchozí (klíč funkce)** a pak na **Kopírovat**. 
+1. V nové funkci klikněte vpravo nahoře na **</> Získat adresu URL funkce**, vyberte **výchozí (klíč funkce)** a potom klikněte na **Kopírovat**. 
 
     ![Kopírování adresy URL funkce z webu Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Vložte adresu URL funkce do panelu Adresa vašeho prohlížeče. Připojte k této adrese URL řetězec dotazu `&name=<yourname>` a stisknutím klávesy `Enter` na klávesnici požadavek proveďte. Následuje příklad odpovědi vrácené funkcí v prohlížeči Edge:
+2. Vložte adresu URL funkce do panelu Adresa vašeho prohlížeče. Na konec této adresy URL připojte hodnotu řetězce dotazu `&name=<yourname>` a stisknutím klávesy `Enter` na klávesnici požadavek proveďte. V prohlížeči by se měla zobrazit odpověď, kterou funkce vrátila.  
+
+    Následuje příklad odpovědi v prohlížeči Edge (ostatní prohlížeče mohou zahrnovat zobrazený kód XML):
 
     ![Odezva funkce v prohlížeči.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     Adresa URL požadavku obsahuje klíč, který je ve výchozím nastavení nezbytný pro přístup k funkci přes protokol HTTP.   
 
-3. Při spuštění funkce se do protokolů zaznamenávají informace o trasování. Pokud chcete zobrazit výstup trasování z předchozího zpracování, vraťte se na funkce na portálu a kliknutím na šipku nahoru ve spodní části obrazovky rozbalte položku **Protokoly**. 
+3. Při spuštění funkce se do protokolů zaznamenávají informace o trasování. Pokud chcete zobrazit výstup trasování z předchozího zpracování, vraťte se k funkci na portálu a kliknutím na šipku ve spodní části obrazovky rozbalte položku **Protokoly**. 
 
    ![Prohlížeč protokolu funkcí na webu Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Nastavit Oracle ASM na virtuálním počítači Azure Linux  
 
@@ -35,13 +35,13 @@ Virtuální počítače Azure, zadejte plně konfigurovatelné a flexibilní vý
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a místně používat rozhraní příkazového řádku, musíte mít Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Příprava prostředí
 
 ### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Chcete-li vytvořit skupinu prostředků, použijte [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupinu prostředků Azure je logický kontejner, ve které jsou nasazené a spravované prostředky. V tomto příkladu skupinu prostředků s názvem *myResourceGroup* v *eastus* oblast.
+Skupinu prostředků vytvoříte pomocí příkazu [az group create](/cli/azure/group#az_group_create). Skupinu prostředků Azure je logický kontejner, ve které jsou nasazené a spravované prostředky. V tomto příkladu skupinu prostředků s názvem *myResourceGroup* v *eastus* oblast.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-Chcete-li vytvořit virtuální počítač na základě bitové kopie databáze Oracle a nakonfigurujte ho na použití Oracle ASM, použijte [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz. 
+Chcete-li vytvořit virtuální počítač na základě bitové kopie databáze Oracle a nakonfigurujte ho na použití Oracle ASM, použijte [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) příkaz. 
 
 Následující příklad vytvoří virtuální počítač s názvem můjvp přesměrovat, který je velikost Standard_DS2_v2 s čtyři připojené datových disků 50 GB. Pokud už neexistují ve výchozím umístění klíče, vytvoří také klíče SSH.  Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  
 
@@ -580,7 +580,7 @@ Software databáze Oracle je již nainstalována na bitovou kopii Azure Marketpl
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Kurz: Konfigurace Oracle DataGuard](configure-oracle-dataguard.md)
 

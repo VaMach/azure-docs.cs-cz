@@ -84,10 +84,17 @@
       items:
         - name: Použití s Data Lake Store
           href: apache-spark-use-with-data-lake-store.md
+        - name: Připojení k Azure SQL Database
+          href: apache-spark-connect-to-sql-database.md
+        - name: Implementace architektury lambda pomocí Sparku a Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Streamování Sparku
       items:
         - name: Přehled
           href: apache-spark-streaming-overview.md
+        - name: Vytvoření vysoce dostupných streamovacích úloh Sparku v YARNu
+          href: apache-spark-streaming-high-availability.md
         - name: Zpracování streamovaných událostí
           href: apache-spark-eventhub-streaming.md
         - name: Strukturované streamování s využitím Event Hubs
@@ -101,6 +108,8 @@
         - name: Streamování Sparku (DStream) s využitím Kafky
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Vytvoření streamovacích úloh Sparku s přesně jedním zpracováním událostí
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark a Machine Learning
       items:
         - name: Předpověď výkonu HVAC
@@ -113,8 +122,13 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Použití se sadou Microsoft Cognitive Toolkit
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Vytvoření kanálu strojového učení Sparku
+          href: apache-spark-creating-ml-pipelines.md
     - name: Analýza velkých objemů dat
       items:
+        - name: Použití Sparku ke čtení a zápisu dat HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Analýza protokolů Telemetrie Application Insights
           href: apache-spark-analyze-application-insight-logs.md
     - name: Rozšíření clusterů
@@ -162,6 +176,21 @@
             - name: Publikování aplikací HDInsight na Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Instalace publikované aplikace – CDAP (Cask Data Application Platform)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Instalace publikované aplikace – Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Zabezpečení
       items:
         - name: Použití SSH s HDInsightem
@@ -178,6 +207,10 @@
           maintainContext: true
     - name: Spravovat
       items:
+        - name: Konfigurace nastavení Sparku
+          href: apache-spark-settings.md
+        - name: Optimalizace sparkových úloh
+          href: apache-spark-perf.md
         - name: Plánování kapacity clusteru
           href: ../hdinsight-capacity-planning.md
           maintainContext: true

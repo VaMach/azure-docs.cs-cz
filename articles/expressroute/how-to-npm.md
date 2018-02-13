@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurace programu Sledování výkonu sítě pro ExpressRoute (Preview)
 
@@ -43,9 +43,11 @@ Můžete:
 
 Okruhy ExpressRoute na celém světě můžete monitorovat pomocí pracovního prostoru, který je hostován v jednom z následujících oblastí:
 
-* Západní Evropa 
+* Západní Evropa
+* Západní střed USA
 * Východ USA 
 * Jihovýchodní Asie 
+* Východ Jižní Austrálie
 
 ## <a name="workflow"></a>Pracovní postup
 
@@ -56,14 +58,13 @@ Monitorovací agenty jsou nainstalovány na více serverech, jak místně a v Az
     * Nainstalujte monitorování agenty na místní servery a virtuální počítače Azure.
     * Nakonfigurujte nastavení na serveru agenta monitorování umožňující monitorovací agenty ke komunikaci. (Otevřít porty brány firewall, atd.)
 3. Konfigurace skupiny (NSG) pravidla zabezpečení sítě umožňuje monitorování agent nainstalovaný na virtuálních počítačích Azure ke komunikaci s místní monitorování agentů.
-4. Požadavek na seznam povolených adres pracovního prostoru NPM.
-5. Nastavení monitorování: automaticky zjistit a spravovat, které sítě jsou viditelné v NPM.
+4. Nastavení monitorování: automaticky zjistit a spravovat, které sítě jsou viditelné v NPM.
 
 Pokud už používáte nástroj Sledování výkonu sítě k monitorování jiných objektů nebo služeb a už máte pracovní prostor v jednom z podporovaných oblastí, můžete přeskočit krok 1 a 2 krok a zahájit konfiguraci kroku 3.
 
-## <a name="configure"></a>Krok 1: Vytvoření pracovního prostoru
+## <a name="configure"></a>Krok 1: Vytvoření pracovního prostoru (v předplatné, které má virtuální sítě propojené s ExpressRoute Circuit(s))
 
-1. V [portál Azure](https://portal.azure.com), v seznamu služeb v Hledat **Marketplace** pro sledování výkonu sítě. V vrácení, klikněte na tlačítko Otevřít **sledování výkonu sítě** stránky.
+1. V [portál Azure](https://portal.azure.com), vyberte odběr, který má virtuální sítě peered pro váš okruh ExpressRoute. Potom v seznamu služeb v Hledat **Marketplace** pro sledování výkonu sítě. V vrácení, klikněte na tlačítko Otevřít **sledování výkonu sítě** stránky.
 
   ![portál](.\media\how-to-npm\3.png)<br><br>
 2. V dolní části hlavní **sledování výkonu sítě** klikněte na tlačítko **vytvořit** otevřete **sledování výkonu sítě - vytvořit nové řešení** stránky. Klikněte na tlačítko **pracovním prostorem OMS - vyberte pracovní prostor** chcete otevřít stránku pracovní prostory. Klikněte na tlačítko **+ vytvořit nový pracovní prostor** chcete otevřít stránku pracovní prostor.
@@ -84,7 +85,7 @@ Pokud už používáte nástroj Sledování výkonu sítě k monitorování jin�
 4. Klikněte na tlačítko **OK** uložte a nasaďte nastavení šablonu. Jakmile ověří šablony, klikněte na možnost **vytvořit** k nasazení v pracovním prostoru.
 5. Po nasazení pracovním prostoru, přejděte na **NetworkMonitoring(name)** prostředek, který jste vytvořili. Ověřte nastavení a pak klikněte na **řešení vyžaduje další konfiguraci**.
 
-  ![Další konfigurace](.\media\how-to-npm\5.png)
+  ![další konfigurace](.\media\how-to-npm\5.png)
 6. Na **Vítá vás nástroj Sledování výkonu sítě** vyberte **použití protokolu TCP pro syntetické transakce**, pak klikněte na tlačítko **odeslání**. TCP transakce jsou používány pouze k zkontrolujte a přerušení připojení. U těchto připojení TCP je odesílána žádná data.
 
   ![TCP pro syntetické transakce](.\media\how-to-npm\6.png)
@@ -104,12 +105,12 @@ Pokud už používáte nástroj Sledování výkonu sítě k monitorování jin�
 
   ![Skript PowerShellu](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: nainstalujte agenta monitorování na každém serveru monitorování
+### <a name="installagent"></a>2.2: nainstalujte agenta monitorování na každém serveru monitorování (na každý virtuální sítě, který chcete monitorovat)
 
 Doporučujeme nainstalovat aspoň dva agenty na každé straně připojení ExpressRoute (tj, místní, virtuálních sítí Azure) pro redundanci. Použijte následující postup k instalaci agentů:
 
 1. Spustit **instalace** instalace agenta na každém serveru, který chcete použít pro sledování ExpressRoute. Server, který použijete pro monitorování může být virtuální počítač nebo místní a musí mít přístup k Internetu. Musíte nainstalovat alespoň jeden místního agenta a jednoho agenta v každém segmentu sítě, který chcete monitorovat v Azure.
-2. Na **úvodní** klikněte na tlačítko **Další**.
+2. Na **úvodní** stránce klikněte na **Další**.
 3. Na **licenční podmínky** si přečtěte licenční a pak klikněte na tlačítko **souhlasím**.
 4. Na **cílovou složku** stránky, změnit nebo ponechat výchozí instalační složku a pak klikněte na tlačítko **Další**.
 5. Na **možnosti instalace agenta** stránky, můžete k připojení agenta k Azure Log Analytics (OMS) nebo nástroje Operations Manager. Nebo můžete nechat volby prázdné Pokud chcete provést konfiguraci agenta později. Po provedení vybrané položky, klikněte na **Další**.
@@ -124,8 +125,10 @@ Doporučujeme nainstalovat aspoň dva agenty na každé straně připojení Expr
 
     ![Účet](.\media\how-to-npm\10.png)
 6. Na **připraveno k instalaci** stránka, zkontrolujte vybrané možnosti a pak klikněte na tlačítko **nainstalovat**.
-7. Na **konfigurace byla úspěšně dokončena** klikněte na tlačítko **Dokončit**.
+7. Na stránce **Konfigurace byla úspěšně dokončena** klikněte na **Dokončit**.
 8. Po dokončení se zobrazí v ovládacím panelu Microsoft Monitoring Agent. Můžete zkontrolovat konfiguraci existuje a ověřte, zda agent je připojena k provozní přehledy (OMS). Při připojení k OMS, agent zobrazí zpráva s oznámením: **Microsoft Monitoring Agent úspěšně připojil ke službě Microsoft Operations Management Suite**.
+
+9. Prosím tento postup opakujte pro každý virtuální síť, že je potřeba sledovat.
 
 ### <a name="proxy"></a>2.3: Konfigurace nastavení proxy serveru (volitelné)
 
@@ -138,7 +141,7 @@ Konfigurace nastavení proxy serveru pro službu Microsoft Monitoring Agent pomo
 3. Klikněte na kartu **Nastavení proxy serveru**.
 4. Vyberte **použít proxy server** a zadejte adresu URL a číslo portu, pokud je zapotřebí. Pokud váš proxy server vyžaduje ověření, zadejte uživatelské jméno a heslo pro přístup k proxy serveru.
 
-  ![Proxy server](.\media\how-to-npm\11.png)
+  ![proxy](.\media\how-to-npm\11.png)
 
 ### <a name="verifyagent"></a>2.4: ověření připojení agenta
 
@@ -164,7 +167,7 @@ Ve výchozím nastavení je otevřen port 8084. Poskytnutím parametru 'ČísloP
 >
 >
 
-Na serverech agenta otevřete okno prostředí PowerShell s oprávněními správce. Spustit [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) skript prostředí PowerShell (který jste předtím stáhli). Nepoužívejte žádné parametry.
+Na serverech agenta otevřete okno prostředí PowerShell s oprávněními správce. Spustit [EnableRules](https://aka.ms/npmpowershellscript) skript prostředí PowerShell (který jste předtím stáhli). Nepoužívejte žádné parametry.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -174,23 +177,15 @@ Pro sledování agenta servery, které jsou v Azure, je nutné nakonfigurovat sk
 
 Další informace o NSG najdete v tématu [skupin zabezpečení sítě](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Krok 4: Požadavek na seznam povolených adres pracovního prostoru
-
 >[!NOTE]
 >Zajistěte, aby nainstalovali agenty (místní server agent a Azure server agenta) a spuštění skriptu prostředí PowerShell před pokračováním se tento krok.
 >
 >
 
-Než budete moct začít používat funkci sledování ExpressRoute NPM, musíte požádat o tak, aby měl váš pracovní prostor seznam povolených adres. [Kliknutím sem přejděte na stránku a vyplňte formulář žádosti o](https://aka.ms/npmcohort). (Nápovědu: můžete chtít otevřít tento odkaz v novém okně nebo záložce). Proces vytvoření seznamu povolených může trvat pracovního dne nebo déle. Po dokončení povolených obdržíte e-mailu.
 
-## <a name="setupmonitor"></a>Krok 5: Konfigurace NPM pro monitorování ExpressRoute
+## <a name="setupmonitor"></a>Krok 4: Konfigurace NPM pro monitorování ExpressRoute
 
->[!WARNING]
->Nepokračujte, další dokud pracovní prostor byl seznam povolených adres a obdržíte e-mail s potvrzením.
->
->
-
-Po dokončení předchozích částech a ověřte, zda byly seznam povolených adres, můžete nastavit monitorování.
+Po dokončení předchozích sekcí, můžete nastavit monitorování.
 
 1. Přejděte na dlaždici s přehledem monitorování výkonu síťového přechodem na **všechny prostředky** stránky a kliknutím na seznam povolených adres NPM prostoru.
 
@@ -200,7 +195,7 @@ Po dokončení předchozích částech a ověřte, zda byly seznam povolených a
   ![Instalace funkce](.\media\how-to-npm\npm2.png)
 3. Na stránce konfigurace přejděte na kartu 'ExpressRoute partnerských vztahů', nachází na levé straně panelu. Klikněte na tlačítko **zjistit teď**.
 
-  ![Zjišťování](.\media\how-to-npm\13.png)
+  ![Zjistit](.\media\how-to-npm\13.png)
 4. Po dokončení zjišťování zobrazí pravidla pro jedinečný název okruhu a název virtuální sítě. Na začátku tato pravidla jsou zakázány. Povolit pravidla a potom vyberte monitorování agentů a prahové hodnoty.
 
   ![pravidla](.\media\how-to-npm\14.png)
@@ -208,7 +203,7 @@ Po dokončení předchozích částech a ověřte, zda byly seznam povolených a
 
   ![dlaždice monitorování](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Krok 6: Zobrazení monitorování dlaždice
+## <a name="explore"></a>Krok 5: Zobrazení monitorování dlaždice
 
 ### <a name="dashboard"></a>Stránka Sledování výkonu sítě
 
@@ -239,7 +234,7 @@ Kliknutím na **soukromé partnerské vztahy** dlaždice na řídicím panelu zo
 Chcete-li zobrazit okruh topologie, klikněte na **topologie** dlaždici. Tím přejdete na zobrazení topologie vybrané okruhu nebo partnerský vztah. Diagram topologie poskytuje latence pro každý segment v síti a každé směrování vrstvy 3 je reprezentována uzlu diagramu. Kliknutím na směrování, zobrazí se další podrobnosti o směrování.
 Můžete zvýšit úroveň viditelnosti zahrnout směrování místní přesunutím posuvníku níže **filtry**. Přesunutí jezdce doleva nebo doprava, zvýšení nebo snížení počtu směrování v grafu topologie. Latence v každém segmentu je viditelná, což umožňuje rychlejší izolace vysokou latencí segmentů ve vaší síti.
 
-![filtry](.\media\how-to-npm\topology.png)
+![Filtry](.\media\how-to-npm\topology.png)
 
 #### <a name="detailed-topology-view-of-a-circuit"></a>Podrobné zobrazení topologie okruhu
 

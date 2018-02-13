@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Vytvoření IoT hraničním zařízením, která funguje jako brána transparentní – náhled
 
@@ -61,7 +61,7 @@ Můžete použít ukázkové prostředí Powershell a skriptů Bash popsané v [
 >Tato ukázka je určená jenom pro účely testování. Produkčních scénářích najdete v části [zabezpečit vaše nasazení IoT] [ lnk-iothub-secure-deployment] Azure IoT pokyny o tom, jak zabezpečit řešení IoT a odpovídajícím způsobem zřídit svůj certifikát.
 
 
-1. [SDK služby Microsoft Azure IoT a knihovny pro C] klonovat z Githubu:
+1. Klonování SDK služby Microsoft Azure IoT a knihovny pro C z Githubu:
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
@@ -104,12 +104,12 @@ Chcete-li nakonfigurovat zařízení IoT okraj jako brána stačí nakonfigurova
 
 Předpokládáme následující názvy souborů z výše uvedené ukázkové skripty:
 
-| Výstup | Bash skriptu | PowerShell |
-| ------ | ----------- | ---------- |
-| Certifikát pro zařízení | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| Privátní klíč zařízení | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| Zařízení řetěz certifikátů | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| IoT hub vlastníka certifikační Autority | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| Výstup | Název souboru |
+| ------ | --------- |
+| Certifikát pro zařízení | `certs/new-edge-device.cert.pem` |
+| Privátní klíč zařízení | `private/new-edge-device.cert.pem` |
+| Zařízení řetěz certifikátů | `certs/new-edge-device-full-chain.cert.pem` |
+| IoT hub vlastníka certifikační Autority | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 Zadejte informace o zařízení a certifikátu do hraniční IoT runtime. 
  
@@ -177,7 +177,7 @@ To se provádí přidáním `GatewayHostName` vlastnost, která má připojovac�
 
 Tyto dva kroky povolit aplikaci zařízení pro připojení k zařízení brány.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Pochopení požadavků a nástrojů pro vývoj modulů IoT Edge][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md

@@ -81,7 +81,7 @@ ACU: 180–240
 
 <sup>1</sup> propustnost maximální disku (IOPS nebo MB/s) možné pomocí řady GS virtuálních počítačů může být omezena číslo, velikost a proložení připojené disky. Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>2</sup> instance je izolovaný hardware vyhrazený pro jednoho zákazníka.
+<sup>2</sup> instance je izolovaný hardware vyhrazený pro jednoho zákazníka. 
 
 <sup>3</sup> omezené základní velikostí, které jsou k dispozici 
 
@@ -117,7 +117,7 @@ ACU: 210–250
 
 <sup>1</sup> propustnost maximální disku (IOPS nebo MB/s) možné pomocí řady DSv2 virtuálních počítačů může být omezena číslo, velikost a proložení připojené disky.  Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/virtual-machines/windows/premium-storage.md).
 
-<sup>2</sup> instance je izolované uzlu, který zaručuje, že virtuální počítač je pouze virtuální počítač na našem Intel Haswell uzlu.
+<sup>2</sup> instance je izolovaný hardware vyhrazený pro jednoho zákazníka. 
 
 <sup>3</sup> 25000 MB/s se Zrychlený sítěmi.
 
@@ -135,7 +135,7 @@ ACU: 210–250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000          |
 | Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1 000          | 60000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> instance je izolované uzlu, který zaručuje, že virtuální počítač je pouze virtuální počítač na našem Intel Haswell uzlu.
+<sup>1</sup> instance je izolovaný hardware vyhrazený pro jednoho zákazníka. 
 
 <sup>2</sup> 25000 MB/s se Zrychlený sítěmi.
 

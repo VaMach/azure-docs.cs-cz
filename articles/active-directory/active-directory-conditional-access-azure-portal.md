@@ -1,6 +1,6 @@
 ---
 title: "Podmíněný přístup pro Azure Active Directory | Microsoft Docs"
-description: "Pomocí podmíněného řízení přístupu ve službě Azure Active Directory zkontrolujte za určitých podmínek při ověřování pro přístup k aplikacím."
+description: "Zjistěte, jak podmíněný přístup v Azure Active Directory může pomoct při správě řízení přístupu z centrálního umístění."
 services: active-directory
 keywords: "podmíněný přístup k aplikacím, podmíněného přístupu s Azure AD, zabezpečený přístup k prostředkům společnosti, zásady podmíněného přístupu"
 documentationcenter: 
@@ -13,208 +13,83 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3c5e893508126c87f6e4371918d33d3d040a5894
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Podmíněný přístup v Azure Active Directory
 
-První mobilní, cloudové první světě Azure Active Directory umožňuje jednotné přihlašování k zařízení, aplikacím a službám odkudkoli. S jak narůstá počet zařízení (včetně BYOD), použít vypnout podnikových sítích a aplikace SaaS 3. stran, odborníci v oblasti IT potýkají s dva dosáhnout cíle:
+Zabezpečení je velmi důležité pro organizace pomocí cloudu. Klíčovým prvkem zabezpečení cloudu je identit a přístupu, pokud jde o správu prostředků cloudu. V první mobilní, cloudové první world uživatelé mohly přistupovat k prostředkům vaší organizace pomocí různých zařízení a aplikací z libovolného místa. V důsledku toho stačí zaměřené na kdo má přístup k prostředku není dostatečná už. Chcete-li hlavní rovnováhu mezi zabezpečením a produktivitu, odborníci v oblasti IT muset zohlednit, jak se prostředkům přistupuje do rozhodnutí o řízení přístupu. Pomocí podmíněného přístupu Azure AD které můžete vyřešit tento požadavek. Podmíněný přístup je funkce služby Azure Active Directory, která umožňuje vynutit ovládacích prvků na přístup k aplikacím ve vašem prostředí na základě určitých podmínek z centrálního umístění. 
 
-- Umožnit koncovým uživatelům k dosažení produktivity. kdykoli a kdekoli
-- Ochrana podnikových prostředků kdykoli
 
-Pokud chcete zvýšit produktivitu, Azure Active Directory poskytuje uživatelům s širokou škálu možností pro přístup k vaší podnikové prostředky. Azure Active Directory se správou aplikací přístup, umožňuje pouze zkontrolujte *příslušní lidé* můžete přístup k vaší aplikace. Co dělat, pokud chcete mít větší kontrolu nad jak příslušní lidé přistupují k prostředkům za určitých podmínek? Co když i máte podmínky, za kterých chcete zablokovat přístup k určitým aplikacím i pro *pravým osoby*? Například když může to být OK můžete příslušní lidé přistupují k určitým aplikacím z důvěryhodné sítě; však nemusí chcete, aby tyto aplikace přistupovat ze sítě, kterým nedůvěřujete. Tyto otázky pomocí podmíněného přístupu můžete vyřešit.
+![Řízení](./media/active-directory-conditional-access-azure-portal/81.png)
 
-Podmíněný přístup je funkce služby Azure Active Directory, která umožňuje vynutit ovládacích prvků na přístup k aplikacím ve vašem prostředí na základě určitých podmínek. S ovládacími prvky můžete buď tie další požadavky na přístup, nebo můžete ho blokovat. Implementace podmíněného přístupu je založená na zásadách. O přístupu na základě zásad usnadňuje prostředí konfigurace, protože postupuje způsob, jakým si myslíte o požadavků na přístup.  
-
-Obvykle můžete definovat požadavků na přístup pomocí příkazů, které jsou založeny na vzoru následující:
-
-![Řízení](./media/active-directory-conditional-access-azure-portal/10.png)
-
-Když nahradíte dva výskyty "*to*" reálného informace, máte příklad prohlášení o zásadách, pravděpodobně bude vypadat snadno dokážete:
-
-*Když dodavatelů se pokoušíte získat přístup ze sítě, které nejsou důvěryhodné naší cloudové aplikace, pak Blokujte přístup.*
-
-Prohlášení o zásadách výše označuje power podmíněného přístupu. Když povolíte dodavatelů v podstatě přístup cloudových aplikací (**kdo**), s podmíněným přístupem můžete také definovat podmínky, za kterých je možné přístup (**jak**).
-
-V rámci Azure Active Directory podmíněný přístup,
-
-- "**v takovém případě**" se nazývá **podmínky – příkaz**
-- "**Udělejte to**" se nazývá **ovládací prvky**
-
-![Řízení](./media/active-directory-conditional-access-azure-portal/11.png)
-
-Kombinace příkaz podmínky s ovládacími prvky představuje zásady podmíněného přístupu.
-
-![Řízení](./media/active-directory-conditional-access-azure-portal/12.png)
-
-
-## <a name="controls"></a>Ovládací prvky
-
-V zásadách podmíněného přístupu ovládací prvky definovat, co je, že, musí dojít v případě, že příkaz podmínky má byly splněny.  
-S ovládacími prvky můžete blokovat přístup nebo povolit přístup s další požadavky.
-Pokud budete konfigurovat zásadu, která umožňuje přístup, je nutné vybrat alespoň jeden požadavek.  
-
-Existují dva typy ovládacích prvků: 
-
-- **Ovládací prvky grant** – ovládací prvky Grant řídí, zda může uživatel dokončí ověření a přístup k prostředku, který se pokouší přihlásit k. Pokud máte více ovládacích prvků vybraná, můžete nakonfigurovat, jestli všechny z nich jsou povinné, při zpracování vaší zásady.
-Aktuální implementace služby Azure Active Directory umožňuje nakonfigurovat následující požadavky řízení grant:
-
-    ![Řízení](./media/active-directory-conditional-access-azure-portal/73.png)
-
-- **Ovládací prvky relace** -relace řídí povolit omezení prostředí v rámci cloudové aplikace. Ovládací prvky relace vynucuje cloudových aplikací a spoléhá na další informace, které poskytuje Azure AD do aplikace o relaci.
-
-    ![Řízení](./media/active-directory-conditional-access-azure-portal/31.png)
-
-
-Další informace najdete v tématu [ovládacích prvků v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-controls.md).
-
-
-## <a name="condition-statement"></a>Příkaz podmínky
-
-V předchozí části obsahuje zavedla podporované možnosti blokovat nebo omezení přístupu k prostředkům v podobě ovládacích prvků. V zásadách podmíněného přístupu zadejte kritéria, která musí být splněny pro vaše ovládací prvky, které se má použít v podobě příkaz podmínky.  
-
-Do vaší příkaz podmínky může zahrnovat následující přiřazení:
-
-![Řízení](./media/active-directory-conditional-access-azure-portal/07.png)
-
-
-### <a name="who"></a>Kdo?
-
-Pokud budete konfigurovat zásadu podmíněného přístupu, je nutné vybrat uživatele nebo skupiny, které vaše zásada se vztahuje na. V řadě případů budete chtít vaše ovládací prvky má být použita pro konkrétní skupinu uživatelů. V příkazu podmínku můžete definovat této sady výběrem požadovaných uživatelů a skupin, které vaše zásada se vztahuje na. V případě potřeby můžete také výslovně vyloučit sadu uživatelů ze zásady výjimky je.  
-
-![Řízení](./media/active-directory-conditional-access-azure-portal/08.png)
-
-
-
-### <a name="what"></a>Co?
-
-Pokud budete konfigurovat zásadu podmíněného přístupu, je nutné vybrat cloudové aplikace, které vaše zásada se vztahuje na.
-Ve vašem prostředí z hlediska ochrany vyžaduje další pozornost než jiné jsou obvykle určité aplikace. Tímto je ovlivněn, například aplikace, které mají přístup k citlivým datům.
-Pokud vyberete cloudové aplikace, definujte rozsah cloudové aplikace, které vaše zásada se vztahuje na. V případě potřeby můžete také výslovně vyloučili sadu aplikací z vaší zásady.
-
-![Řízení](./media/active-directory-conditional-access-azure-portal/09.png)
-
-Úplný seznam cloudových aplikací v požadované zásady podmíněného přístupu můžete použít, najdete v článku [technické informace o Azure Active Directory podmíněného přístupu](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).
-
-### <a name="how"></a>Jak?
-
-Také přístup k aplikacím probíhá podle podmínek, které můžete řídit, může být pro nastavení dalších ovládacích prvků na tom, jak cloudové aplikace přistupují uživatelé není nutné. Věcí však může vypadat jinak, pokud se provádí přístup k vaší cloudové aplikace, například v ze sítě, které nejsou důvěryhodné nebo zařízení, která nejsou kompatibilní. V příkazu podmínku můžete definovat určité podmínky přístupu, které mají další požadavky na tom, jak se provádí přístup k aplikacím.
-
-![Podmínky](./media/active-directory-conditional-access-azure-portal/01.png)
-
-
-## <a name="conditions"></a>Podmínky
-
-V aktuální implementace služby Azure Active Directory můžete definovat podmínky v následujících oblastech:
-
-- Riziko přihlášení
-- Platformy zařízení
-- Umístění
-- Klientské aplikace
-
-
-![Podmínky](./media/active-directory-conditional-access-azure-portal/01.png)
-
-### <a name="sign-in-risk"></a>Riziko přihlášení
-
-Riziko přihlášení je objekt, který se používá služba Azure Active Directory pro trasování pravděpodobnost, že u přihlášení pokus nebyla provedena legitimní vlastníkem uživatelského účtu. V tomto objektu pravděpodobnost (vysoká, střední nebo nízká) je uložen v podobě atributu s názvem [úroveň rizika přihlašovací](active-directory-reporting-risk-events.md#risk-level). Tento objekt je generován během přihlášení uživatele, pokud byly zjištěny rizika přihlášení pomocí služby Azure Active Directory. Další informace najdete v tématu popisujícím [riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins).  
-Úroveň rizika počítané přihlášení můžete použít jako podmínku v zásadách podmíněného přístupu. 
-
-![Podmínky](./media/active-directory-conditional-access-azure-portal/22.png)
-
-### <a name="device-platforms"></a>Platformy zařízení
-
-Platforma je charakterizovaná operačního systému, který běží na vašem zařízení: můžete definovat platformy zařízení, které jsou zahrnuty a také platformy zařízení, které jsou vyloučené ze zásad.  
-Pokud chcete použít v zásadách platformy zařízení, nejprve změňte konfigurace přepínačů **Ano**a vyberte všechny nebo platformy jednotlivých zařízení se zásady vztahují. Pokud vyberete platformy jednotlivých zařízení, zásady má vliv pouze na těchto platformách. V tomto případě nejsou zásady dopad na přihlášení na jiných podporovaných platforem.
-
-
-![Podmínky](./media/active-directory-conditional-access-azure-portal/02.png)
-
-Úplný seznam platforem podporovaných zařízení najdete v tématu [podmínku platformy zařízení](active-directory-conditional-access-technical-reference.md#device-platform-condition).
-
-
-### <a name="locations"></a>Umístění
-
-Umístění máte možnost definovat podmínky, které jsou založeny na kde bylo inicializováno pokus o připojení. Položky v seznamu umístění jsou buď **s názvem umístění** nebo **MFA důvěryhodné IP adresy**.  
-
-**S názvem umístění** je funkce služby Azure Active Directory, který umožňuje definovat popisky pro pokusy o připojení umístění nebyly provedeny z. Zadat umístění, buď konfigurací IP adresy rozsahů adres, nebo vyberte zemi nebo oblast.  
-
-![Podmínky](./media/active-directory-conditional-access-azure-portal/42.png)
-
-Kromě toho můžete označit jako důvěryhodné umístění s názvem umístění. Pro zásady podmíněného přístupu, důvěryhodném umístění je další možností filtru, který vám umožní vybrat *všech důvěryhodných umístění* v podmínce vaše umístění.
-Pojmenované umístění jsou také důležité v kontextu detekce [rizik události](active-directory-reporting-risk-events.md) snížit počet pozitivních false pro nemožná cesta do netypických míst riziko událostí. 
-
-Počet pojmenované umístění, které můžete konfigurovat, je omezené velikost je související objekt ve službě Azure AD. Můžete nakonfigurovat:
- 
- - Jedno umístění s názvem s maximálně 500 rozsahy IP adres
- - Nesmí být delší než 60 s názvem umístění (preview) s jeden rozsah IP adres přiřazené ke každému z nich 
-
-Další informace najdete v tématu [s názvem umístění v Azure Active Directory](active-directory-named-locations.md).
-
-
-**MFA důvěryhodné IP adresy** je funkce služby Multi-Factor authentication, která umožňuje definovat důvěryhodné rozsahy IP adres reprezentující místní intranet vaší organizace. Při konfiguraci umístění podmínku důvěryhodných IP adres umožňuje rozlišovat připojení z vaší podnikové síti a všech jiných umístění. Další informace najdete v tématu [důvěryhodné IP adresy](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
-
-Zásady podmíněného přístupu můžete:
-
-- Zahrnout
-    - Libovolné umístění
-    - Všechny důvěryhodné umístění
-    - Vybrané umístění
-- Vyloučit
-    - Všechny důvěryhodné umístění
-    - Vybrané umístění
-     
-![Podmínky](./media/active-directory-conditional-access-azure-portal/03.png)
-
-
-### <a name="client-apps"></a>Klientské aplikace
-
-Klientská aplikace může být buď na obecné úrovni aplikace (webový prohlížeč, mobilní aplikace, klient plocha), jste použili pro připojení k Azure Active Directory nebo můžete konkrétně vybrat protokolu Exchange Active Sync.  
-Starší verze ověřování odkazuje na klienty, kteří používají základní ověřování, jako je starší klienty Office, které nepoužívají moderní ověřování. Pomocí starší verze ověřování není aktuálně podporuje podmíněný přístup.
-
-![Podmínky](./media/active-directory-conditional-access-azure-portal/04.png)
-
-
-Úplný seznam klientských aplikací v požadované zásady podmíněného přístupu můžete použít, najdete v článku [technické informace o Azure Active Directory podmíněného přístupu](active-directory-conditional-access-technical-reference.md#client-apps-condition).
-
-
+Tento článek vám poskytne koncepční přehled podmíněného přístupu ve službě Azure AD.
 
 
 ## <a name="common-scenarios"></a>Obvyklé scénáře
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>Vyžadování vícefaktorového ověřování pro aplikace
+První mobilní, cloudové první světě Azure Active Directory umožňuje jednotné přihlašování k zařízení, aplikacím a službám odkudkoli. S jak narůstá počet zařízení (včetně BYOD), použít vypnout podnikových sítích a aplikace SaaS 3. stran, odborníci v oblasti IT potýkají s dva dosáhnout cíle:
 
-Mnoho prostředí mít aplikace, které vyžadují vyšší úroveň ochrany než jiné.
-To platí, například pro aplikace, které mají přístup k citlivým datům.
-Pokud chcete přidat další vrstvu ochrany do těchto aplikací, můžete nakonfigurovat zásady podmíněného přístupu, který vyžaduje službu Multi-Factor authentication, když uživatelé přistupují těchto aplikací.
+- Posílení produktivity uživatelů k dosažení produktivity. kdykoli a kdekoli
+- Ochrana podnikových prostředků kdykoli
 
+Pomocí zásady podmíněného přístupu můžete použít ovládací prvky správná přístupová práva v rámci požadované podmínky. Podmíněný přístup pro Azure AD poskytuje dodatečné zabezpečení potřeby a zůstane mimo způsob, jak vaše uživatele, když není. 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Vyžadování vícefaktorového ověřování pro přístup ze sítě, které nejsou důvěryhodné
-
-Tento scénář je podobný předchozímu scénáři, protože ho přidá požadavek pro službu Multi-Factor authentication.
-Hlavní rozdíl je však podmínky pro tento požadavek.  
-Během fokus předchozím scénáři je v aplikacích s přístup k citlivým datům, je aktivní tohoto scénáře důvěryhodného umístění.  
-Jinými slovy může mít požadavek pro službu Multi-Factor authentication, pokud uživatel ze sítě, kterým nedůvěřujete přístupu k aplikaci.
+Tady jsou některé běžné aspekty přístupu, které podmíněného přístupu vám může pomoct s:
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>Jenom důvěryhodné zařízení mají přístup ke službám Office 365
 
-Pokud ve svém prostředí používáte Intune, můžete okamžitě začít používat rozhraní zásad podmíněného přístupu v konzole Azure.
+- **[Přihlášení riziko](active-directory-conditional-access-conditions.md#sign-in-risk)**: Azure AD Identity Protection zjistí přihlášení rizika. Jak můžete omezit přístup, pokud zjištěné riziko přihlášení označuje objektu actor chybný? Co dělat, když chcete získat silnější důkaz, přihlášení skutečně provedl oprávněným uživatelem nebo vaše pochybnosti jsou dostatečně pevné i blokovat konkrétním uživatelům v přístupu k aplikaci?
 
-Mnoho zákazníků Intune použití podmíněného přístupu k zajištění, že pouze důvěryhodné zařízení mají přístup ke službám Office 365. To znamená, že mobilní zařízení jsou zaregistrovaná v Intune a splňovat požadavky zásad dodržování předpisů, a že jsou počítače s Windows připojený k doméně místní. Klíče zlepšování je, že není nutné nastavit stejné zásady pro každou služeb Office 365.  Když vytvoříte novou zásadu, nakonfigurujte cloudových aplikací na každý ze O365 aplikace, které chcete chránit pomocí podmíněného přístupu.
+- **[Síťové umístění](active-directory-conditional-access-locations.md)**: Azure AD je přístupná odkudkoli. Co dělat, když se provádí pokus o přístup ze síťové umístění, které není pod kontrolou oddělení IT? Pomocí kombinace uživatelského jména a hesla může být dostatečně dobrý pokusí ověření identity pro přístup k prostředkům z vaší podnikové sítě. Co dělat, když jste vyžádání silnější ověření identity pro přístup pokusí který se spouští z jiných neočekávané zemích nebo oblastech světa? Co když i chcete zablokovat přístup pokusí z určitých umístění?  
 
-### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Přepnutí do zařízení ve vlastnictví firmy k PŘINESTE si vlastní zařízení)
-Pokud chcete blokovat zaregistrované zařízení tak, že změníte vlastnictví zařízení z podnikové do osobního, můžete to provést pomocí podmíněného přístupu Azure Active Directory (AAD). Zásady podmíněného přístupu musíte nejprve vytvořit kde **blokovat přístup** je vybraný řízení přístupu **Grant** okno. Dále vytvořte **dynamické zařízení** skupiny nastavením **deviceOwnership** vlastnost **osobní**. Potom cílových výše zásad do nové skupiny.
+- **[Správa zařízení](active-directory-conditional-access-conditions.md#device-platforms)**: ve službě Azure AD, uživatelé můžou používat cloudové aplikace z široké škály zařízení, včetně mobilních a také osobní zařízení. Co dělat, když potřebují tento pokus přístupu by měly být jenom pomocí zařízení, které spravuje vaše IT oddělení provádět uživatele? Co dělat, když chcete i zablokovat určité typy formuláře přístup k zařízením v cloudových aplikací ve vašem prostředí? 
+
+- **[Klientská aplikace](active-directory-conditional-access-conditions.md#client-apps)**: v současné době můžete získat přístup k mnoha cloudových aplikací pomocí různých typů aplikací jako jsou webové aplikace, mobilní aplikace nebo aplikace klasické pracovní plochy. Pokus o přístup jak postupovat, pokud se provádí pomocí typ aplikace klienta, který způsobuje, že známé problémy? Co když potřebujete zařízení, které spravuje vaše IT oddělení pro určité typy aplikací? 
+
+Tyto otázky a odpovědi související představují obvyklé scénáře přístupu podmíněného přístupu Azure AD. Podmíněný přístup je funkce služby Azure Active Directory, která umožňuje zpracovávat scénáře přístup přístup na základě zásad.
+
+
+## <a name="conditional-access-policies"></a>Zásady podmíněného přístupu
+
+Zásady podmíněného přístupu je definice scénářem přístup pomocí následujícího vzorce:
+
+![Řízení](./media/active-directory-conditional-access-azure-portal/10.png)
+
+**Udělejte to** definuje odpověď vaše zásady. Je důležité si uvědomit, že cílem zásad podmíněného přístupu není k udělení přístupu k cloudové aplikace. Ve službě Azure AD udělení přístupu do cloudových aplikací je předmětem přiřazení uživatele. Se zásadami podmíněného přístupu, řízení jak oprávněným uživatelům (uživatelů, kteří mají udělen přístup ke cloudové aplikaci) můžete získat přístup k aplikacím cloudu pro určité podmínky. V odpovědi vynutit další požadavky, jako je vícefaktorové ověřování, spravované zařízení a další. V kontextu podmíněného přístupu Azure AD se nazývají požadavky, které vynucuje zásady řízení přístupu. Ve formuláři nejvíc omezující zásady může blokovat přístup. Další informace najdete v tématu [přístup k ovládacím prvkům v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-controls.md).
+     
+
+**V takovém případě** definuje důvod aktivován vaší zásady. Z tohoto důvodu je charakterizovaná skupinu podmínek, které byly splněny. V Azure AD podmíněný přístup podmínek dvě přiřazení důležitou úlohu:
+
+- **[Uživatelé](active-directory-conditional-access-conditions.md#users-and-groups)**: provádění pokus o přístupu uživatele (**kdo**). 
+
+- **[Cloudových aplikací](active-directory-conditional-access-conditions.md#cloud-apps)**: cíle pokus o přístup (**co**).    
+
+Tyto dvě podmínky jsou povinné v zásadách podmíněného přístupu. Kromě dvě povinné podmínky můžete použít také další podmínky, které popisují, jak se provádí pokus o přístup. Běžných příkladů používají mobilní zařízení nebo umístění, které jsou mimo podnikovou síť. Další informace najdete v tématu [podmínky v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-conditions.md).   
+
+Kombinace podmínky s ovládacími prvky přístup představuje zásady podmíněného přístupu. 
+
+![Řízení](./media/active-directory-conditional-access-azure-portal/51.png)
+
+Pomocí podmíněného přístupu Azure AD, můžete určit, jak Autorizovaní uživatelé můžou používat vaše cloudové aplikace. Cílem zásad podmíněného přístupu je vynutit ovládací prvky další přístup při pokusu o přístup cloudové aplikace, které vycházejí z jak se provádí pokus o přístup.
+
+Jednou z výhod použití o přístupu na základě zásad k ochraně přístup k vaší cloudové aplikace je, že můžete spustit konceptu požadavky zásad pro vaše prostředí pomocí strukturu uvedených v tomto článku bez obav o technickou implementaci. 
+
+
 
 ## <a name="next-steps"></a>Další postup
 
-- Pokud chcete vědět, jak konfigurovat zásadu podmíněného přístupu, najdete v článku [Začínáme s podmíněným přístupem v Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Pokud chcete vědět více o:
+    - Podmínky, najdete v části [podmínky v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-conditions.md).
+
+    - Přístup k ovládacím prvkům najdete v tématu [přístup k ovládacím prvkům v Azure Active Directory podmíněného přístupu](active-directory-conditional-access-controls.md).
+
+- Pokud chcete získat nějaké zkušenosti s konfigurace zásad podmíněného přístupu najdete v tématu [Začínáme s podmíněným přístupem v Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Pokud jste připraveni ke konfiguraci zásad podmíněného přístupu pro prostředí, najdete v článku [osvědčené postupy pro podmíněný přístup v Azure Active Directory](active-directory-conditional-access-best-practices.md). 

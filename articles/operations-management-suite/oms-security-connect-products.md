@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Připojení produktů zabezpečení k Operations Management Suite (OMS) 
 Tento dokument vám pomůže připojit vaše produkty zabezpečení k řešení Zabezpečení a audit pro OMS. Jsou podporovány následující zdroje:
@@ -95,7 +95,7 @@ Na počítači agenta se události musí odesílat z démona syslog na místní 
 
 ## <a name="reviewing-collected-security-events"></a>Kontrola shromážděných událostí zabezpečení
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Po dokončení konfigurace se události zabezpečení začnou ingestovat řešením Zabezpečení OMS. Pokud chcete tyto události vizualizovat, otevřete Hledání v protokolu, do vyhledávacího pole zadejte příkaz *Type=CommonSecurityLog* a stiskněte klávesu ENTER. Následující příklad ukazuje výsledek tohoto příkazu. Všimněte si, že v tomto případě Zabezpečení OMS už ingestovalo protokoly zabezpečení od více dodavatelů:
    

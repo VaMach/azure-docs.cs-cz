@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 6cc7035e798ef72f69958a7536a741f80939d4fe
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -44,7 +44,7 @@ Můžete implementovat několik virtuálních sítí v rámci každé Azure [př
 - Můžete použít Azure překlad nebo zadejte vlastní server DNS, používané prostředky ve virtuální síti. Další informace o překladu názvů ve virtuálních sítích najdete v tématu [překlad názvů pro prostředky ve virtuálních sítích](virtual-networks-name-resolution-for-vms-and-role-instances.md) článku.
 
 ## <a name = "internet"></a>Internetová komunikace
-Všechny prostředky ve virtuální síti komunikovat odchozí k Internetu. Ve výchozím nastavení je privátní IP adresu prostředku zdroj síťová adresa přeložit (překládat pomocí SNAT) na veřejnou IP adresu vybraná infrastrukturu Azure. Další informace o odchozí připojení k Internetu, přečtěte si [pochopení odchozí připojení v Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) článku. Pokud chcete zabránit odchozí připojení k Internetu, můžete implementovat vlastní trasy nebo filtrování provozu.
+Všechny prostředky ve virtuální síti komunikovat odchozí k Internetu. Ve výchozím nastavení je privátní IP adresu prostředku zdroj síťová adresa přeložit (překládat pomocí SNAT) na veřejnou IP adresu vybraná infrastrukturu Azure. Další informace o odchozí připojení k Internetu, přečtěte si [pochopení odchozí připojení v Azure](..\load-balancer\load-balancer-outbound-connections.md) článku. Pokud chcete zabránit odchozí připojení k Internetu, můžete implementovat vlastní trasy nebo filtrování provozu.
 
 Pro komunikaci příchozí prostředky Azure z Internetu, nebo k Internetu bez překládat pomocí SNAT odchozí komunikaci, musí prostředek přiřazenou veřejnou adresu IP. Další informace o veřejné IP adresy, přečtěte si [veřejné IP adresy](virtual-network-public-ip-address.md) článku.
 
@@ -90,6 +90,6 @@ Nejčastější dotazy k virtuální síti Azure najdete v tématu [virtuální 
 
 ## <a name="next-steps"></a>Další kroky
 
-- Vytvoření vaší první virtuální síť a nasazení několik virtuálních počítačů do, pomocí kroků v [vytvoření vaší první virtuální síť](virtual-network-get-started-vnet-subnet.md).
+- Vytvoření vaší první virtuální síť a nasazení několik virtuálních počítačů do, pomocí kroků v [vytvoření vaší první virtuální síť](quick-create-portal.md).
 - Vytvořit připojení point-to-site k virtuální síti pomocí kroků v [konfigurace připojení typu point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Přečtěte si o některých dalších klíče [sítě možnosti](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.

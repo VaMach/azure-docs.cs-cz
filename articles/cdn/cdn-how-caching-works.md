@@ -1,5 +1,5 @@
 ---
-title: "Princip ukládání do mezipaměti v Azure Content Delivery Network | Microsoft Docs"
+title: "Průběh ukládání do mezipaměti | Microsoft Docs"
 description: "Ukládání do mezipaměti je procesu ukládání dat místně, tak, aby budoucí požadavky, data se dají zpřístupnit rychleji."
 services: cdn
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 638b105b4848d41b2755a4b153c13a77fb9ca08b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-caching-works"></a>Jak funguje ukládání do mezipaměti
 
-Tento článek obsahuje přehled obecné koncepty ukládání do mezipaměti a jak Azure Content Delivery Network (CDN) používá ukládání do mezipaměti ke zlepšení výkonu. Pokud vás zajímají další informace o tom, jak přizpůsobit chování ukládání do mezipaměti na koncový bod CDN, najdete v části [Azure CDN ovládacího prvku s ukládáním do mezipaměti pravidla chování ukládání do mezipaměti](cdn-caching-rules.md) a [řízení Azure CDN ukládání do mezipaměti chování řetězce dotazu](cdn-query-string.md).
+Tento článek obsahuje přehled obecné koncepty ukládání do mezipaměti a jak [Azure Content Delivery Network (CDN)](cdn-overview.md) používá ukládání do mezipaměti ke zlepšení výkonu. Pokud vás zajímají další informace o tom, jak přizpůsobit chování ukládání do mezipaměti na koncový bod CDN, najdete v části [Azure CDN ovládacího prvku s ukládáním do mezipaměti pravidla chování ukládání do mezipaměti](cdn-caching-rules.md) a [řízení Azure CDN ukládání do mezipaměti chování řetězce dotazu](cdn-query-string.md).
 
 ## <a name="introduction-to-caching"></a>Úvod k ukládání do mezipaměti
 
@@ -57,35 +57,39 @@ Ukládání do mezipaměti je nedílnou součástí s používáním název CDN 
 
 - Snižování zátěže, aby název CDN, ukládání do mezipaměti můžete snížit síťových přenosů a zatížení na původním serveru. Tím se snižuje náklady a prostředky požadavky aplikace, i když existuje velký počet uživatelů.
 
-Podobně jako webový prohlížeč, můžete ovládat, jak CDN ukládání do mezipaměti se provádí odesláním mezipaměti direktiva hlavičky. Direktiva mezipaměti hlavičky jsou hlavičky protokolu HTTP, které jsou obvykle přidávány na zdrojový server. I když většina tyto hlavičky byly původně navrženy pro adres ukládání do mezipaměti v prohlížečích klienta, je nyní také používají všechny zprostředkující mezipaměti, jako je například sítím CDN. Dvě hlavičky lze použít k definování mezipaměti aktuálnosti: `Cache-Control` a `Expires`. `Cache-Control`aktuálnější a má přednost před `Expires`, pokud obě neexistuje. Existují také dva typy hlaviček použít pro ověření (nazývané validátory): `ETag` a `Last-Modified`. `ETag`aktuálnější a má přednost před `Last-Modified`, pokud obě jsou definovány.  
+Podobně jako způsob implementace ukládání do mezipaměti ve webovém prohlížeči, můžete řídit způsob ukládání do mezipaměti se provádí v název CDN odesláním mezipaměti direktiva hlavičky. Direktiva mezipaměti hlavičky jsou hlavičky protokolu HTTP, které jsou obvykle přidávány na zdrojový server. I když většina tyto hlavičky byly původně navrženy pro adres ukládání do mezipaměti v prohlížečích klienta, je nyní také používají všechny zprostředkující mezipaměti, jako je například sítím CDN. 
+
+Dvě hlavičky lze použít k definování mezipaměti aktuálnosti: `Cache-Control` a `Expires`. `Cache-Control`aktuálnější a má přednost před `Expires`, pokud obě neexistuje. Existují také dva typy hlaviček použít pro ověření (nazývané validátory): `ETag` a `Last-Modified`. `ETag`aktuálnější a má přednost před `Last-Modified`, pokud obě jsou definovány.  
 
 ## <a name="cache-directive-headers"></a>Hlavičky Cache – direktiva
 
+> [!IMPORTANT]
+> Ve výchozím nastavení koncový bod Azure CDN, který je optimalizovaná pro DSA ignoruje mezipaměti direktiva hlavičky a obchází ukládání do mezipaměti. Můžete upravit způsob, jakým koncového bodu Azure CDN zpracovává tyto hlavičky pomocí CDN ukládání do mezipaměti pravidla povolení ukládání do mezipaměti. Další informace najdete v tématu [Azure CDN ovládacího prvku s ukládáním do mezipaměti pravidla chování ukládání do mezipaměti](cdn-caching-rules.md).
+
 Azure CDN podporuje následující hlavičky cache – direktiva protokolu HTTP, které definují sdílení mezipaměti a doba trvání mezipaměti: 
 
-`Cache-Control`  
+`Cache-Control`
 - Počínaje HTTP 1.1 umožnit webové vydavatelů větší kontrolu nad obsah a vyřešit omezení `Expires` záhlaví.
 - Přepsání `Expires` záhlaví, pokud ho a `Cache-Control` jsou definovány.
-- Pokud se používá v hlavičce žádosti: Ignorovat Azure CDN, ve výchozím nastavení.
-- Při použití v hlavičky odpovědi: Azure CDN ctí následující `Cache-Control` direktivy, když používá obecné webové doručení, stahování velkých souborů a obecné nebo video-na-demand streamování médií optimalizace:  
-   - `max-age`: Mezipaměti můžete ukládat obsah počtu sekund zadaného. Například, `Cache-Control: max-age=5`. Tato direktiva určuje maximální množství času, který obsah se považuje za čerstvý.
-   - `private`: Obsah je pro jednoho uživatele pouze; Neukládejte obsah, sdílené mezipaměti, jako je například CDN.
-   - `no-cache`: Uloží obsah do mezipaměti, ale musíte ověřit obsah pokaždé, když před jeho doručení z mezipaměti. Ekvivalentní `Cache-Control: max-age=0`.
-   - `no-store`: Nikdy mezipaměti obsahu. Odebrání obsahu, pokud byl dříve uložené.
+- Pokud se používá v hlavičce požadavku, `Cache-Control` je ignorován v Azure CDN, ve výchozím nastavení.
+- Při použití v hlavičky odpovědi, Azure CDN podporuje následující `Cache-Control` direktivy podle produktu: 
+   - **Azure CDN společnosti Verizon**: podporuje všechny `Cache-Control` direktivy. 
+   - **Azure CDN společnosti Akamai**: podporuje pouze následující `Cache-Control` direktivy; všechny další se ignorují: 
+      - `max-age`: Mezipaměti můžete ukládat obsah počtu sekund zadaného. Například, `Cache-Control: max-age=5`. Tato direktiva určuje maximální množství času, který obsah se považuje za čerstvý.
+      - `no-cache`: Uloží obsah do mezipaměti, ale ověřit obsah pokaždé, když před jeho doručení z mezipaměti. Ekvivalentní `Cache-Control: max-age=0`.
+      - `no-store`: Nikdy mezipaměti obsahu. Odebrání obsahu, pokud byl dříve uložené.
 
-`Expires` 
+`Expires`
 - Starší verze záhlaví zavedené v protokolu HTTP 1.0; podporované pro zpětné kompatibility.
 - Čas vypršení platnosti na základě data používá s přesnost pro sekundy. 
 - Podobně jako `Cache-Control: max-age`.
 - Použít, když `Cache-Control` neexistuje.
 
-`Pragma` 
-   - Ve výchozím nastavení není berou v úvahu Azure CDN.
+`Pragma`
+   - Ve výchozím nastavení není dodržení pomocí Azure CDN.
    - Starší verze záhlaví zavedené v protokolu HTTP 1.0; podporované pro zpětné kompatibility.
    - Použít jako hlavičku požadavku klienta následující direktivou: `no-cache`. Tato direktiva nastaví serveru k poskytování novou verzi prostředku.
    - `Pragma: no-cache`je ekvivalentní `Cache-Control: no-cache`.
-
-Ve výchozím nastavení ignorovat DSA optimalizace tyto hlavičky. Můžete upravit způsob, jakým Azure CDN zpracovává tyto hlavičky pomocí ukládání do mezipaměti pravidel CDN. Další informace najdete v tématu [Azure CDN ovládacího prvku s ukládáním do mezipaměti pravidla chování ukládání do mezipaměti](cdn-caching-rules.md).
 
 ## <a name="validators"></a>Validátory
 
@@ -107,26 +111,26 @@ Pokud mezipaměť je zastaralý, validátory mezipaměti HTTP používají k por
 
 Ne všechny prostředky do mezipaměti. Následující tabulka uvádí, jaké prostředky do mezipaměti, na základě typu odpovědi HTTP. Nelze uložit do mezipaměti zdrojů informací s odpovědí HTTP, které nesplňují všechny tyto podmínky. Pro **Azure CDN společnosti Verizon Premium** pouze stroj pravidel můžete přizpůsobit některé z těchto podmínek.
 
-|                   | Azure CDN společnosti Verizon | Azure CDN společnosti Akamai            |
+|                   | Azure CDN společnosti Verizon | Azure CDN from Akamai            |
 |------------------ |------------------------|----------------------------------|
 | Stavové kódy HTTP | 200                    | 200, 203, 300, 301, 302 a 401 |
 | Metoda HTTP       | GET                    | GET                              |
-| Velikost souboru         | 300 GB                 | <ul><li>Obecné webové doručení optimalizace: 1,8 GB</li> <li>Optimalizace streamování médií: 1,8 GB</li> <li>Optimalizace velkých souborů: 150 GB</li> |
+| Velikost souboru         | 300 GB                 | -Obecné webové doručení optimalizace: 1,8 GB<br />-Streamování médií optimalizace: 1,8 GB<br />-Optimalizace velkých souborů: 150 GB |
 
 ## <a name="default-caching-behavior"></a>Výchozí chování ukládání do mezipaměti
 
 Následující tabulka popisuje výchozí chování pro produkty Azure CDN a jejich optimalizace ukládání do mezipaměti.
 
-|                    | Verizon - obecné webové doručení | Verizon – akcelerace dynamických webů | Akamai - obecné webové doručení | Akamai - akcelerace dynamických webů | Akamai - stažení velkých souborů | Akamai - obecné nebo streamování na vyžádání video-on-demand média |
+|                    | Verizon - obecné webové doručení | Verizon – DSA | Akamai - obecné webové doručení | Akamai - DSA | Akamai - stažení velkých souborů | Akamai - obecné nebo VOD streamování médií |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Dodržet počátek**   | Ano    | Ne   | Ano | Ne | Ano | Ano |
-| **Doba trvání mezipaměti CDN** | 7 dní | Žádný | 7 dní | Žádný | 1 den | 1 rok |
+| **Doba trvání mezipaměti CDN** | 7 dní | Žádné | 7 dní | Žádný | 1 den | 1 rok |
 
 **Respektovat počátek**: Určuje, zda respektovat [podporované hlavičky cache – direktiva](#http-cache-directive-headers) Pokud existují v odpovědi HTTP ze zdrojového serveru.
 
 **Doba trvání mezipaměti CDN**: Určuje množství času, pro které se uloží do mezipaměti prostředek na Azure CDN. Ale pokud **respektovat počátek** Ano a odpovědi HTTP ze zdrojového serveru zahrnuje hlavičku cache – direktiva `Expires` nebo `Cache-Control: max-age`, doba trvání hodnota zadaná v hlavičce místo toho používá Azure CDN. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zjistěte, jak přizpůsobit a přepsat výchozí chování v CDN prostřednictvím ukládání do mezipaměti pravidla ukládání do mezipaměti, najdete v tématu [Azure CDN ovládacího prvku s ukládáním do mezipaměti pravidla chování ukládání do mezipaměti](cdn-caching-rules.md). 
 - Další informace o použití řetězce dotazu pro řízení chování ukládání do mezipaměti, najdete v tématu [řízení Azure CDN ukládání do mezipaměti chování řetězce dotazu](cdn-query-string.md).

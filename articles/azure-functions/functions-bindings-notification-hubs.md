@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: cbc22721bbe06fdc5a8a9026b113071e1616bcb8
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 6be75035247f05995949734cd4f4f0d934e30685
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Centra oznámení výstup vazby pro Azure Functions
 
@@ -278,7 +278,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 |**Typ** |neuvedeno| Musí být nastavena na "notificationHub". |
 |**směr** |neuvedeno| Musí být nastavena na "out". | 
-|**Jméno** |neuvedeno| Název proměnné používá v kódu funkce pro centra oznámení. |
+|**name** |neuvedeno| Název proměnné používá v kódu funkce pro centra oznámení. |
 |**tagExpression** |**TagExpression** | Výrazy značky umožňují určit doručit oznámení na sadu zařízení, která jste zaregistrovali k odběru oznámení, které odpovídají výrazu označení.  Další informace najdete v tématu [výrazy směrování a značky](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Název prostředku centra oznámení na portálu Azure. |
 |**připojení** | **ConnectionStringSetting** | Název nastavení aplikace, který obsahuje připojovací řetězec centra oznámení.  Připojovací řetězec musí být nastavena na *DefaultFullSharedAccessSignature* hodnotu pro vaše Centrum oznámení. V tématu [nastavení řetězce připojení](#connection-string-setup) dále v tomto článku.|
@@ -320,6 +320,12 @@ Připojovací řetězec k centru oznámení existující konfigurace:
 Název nastavení této aplikace je v nastavení výstupní vazba připojení v co *function.json* nebo atribut rozhraní .NET. Najdete v článku [konfigurační oddíl](#configuration) výše v tomto článku.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="exceptions-and-return-codes"></a>Výjimky a návratové kódy
+
+| Vazba | Referenční informace |
+|---|---|
+| Centrum oznámení | [Provozní příručka](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## <a name="next-steps"></a>Další postup
 

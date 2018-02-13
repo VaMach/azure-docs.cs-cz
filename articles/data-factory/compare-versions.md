@@ -1,5 +1,5 @@
 ---
-title: "Porovnání verzí 1 a 2 služby Azure Data Factory | Microsoft Docs"
+title: "Porovnání verzí 1 a 2 služby Azure Data Factory | Dokumentace Microsoftu"
 description: "Tento článek porovnává Azure Data Factory V1 a Azure Data Factory V2."
 services: data-factory
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Porovnání Azure Data Factory V1 a V2
 Tento článek porovnává verzi 1 a 2 Azure Data Factory. Úvodní informace o verzi 1 najdete v tématu [Úvod do Azure Data Factory](v1/data-factory-introduction.md). Úvodní informace o verzi 2 najdete v tématu [Úvod do Azure Data Factory (V2 – preview)](introduction.md).
@@ -86,7 +86,7 @@ Služba Azure-SSIS se používá k přesunutí úloh SSIS do cloudu, k vytvořen
 
 Azure-SSIS Integration Runtime je plně spravovaný cluster virtuálních počítačů Azure (uzlů) vyhrazených ke spouštění balíčků SSIS v cloudu. Po zřízení Azure-SSIS Integration Runtime můžete stejné nástroje, které jste použili k nasazení balíčků SSIS, použít i v místním prostředí SSIS. 
 
-K nasazení balíčků SSIS do tohoto modulu runtime v Azure můžete použít třeba SQL Server Data Tools nebo SQL Server Management Studio. Podrobné pokyny najdete v kurzu [Nasazení balíčků služby SSIS (SQL Server Integration Services) do Azure](tutorial-deploy-ssis-packages-azure.md). 
+K nasazení balíčků SSIS do tohoto modulu runtime v Azure můžete použít třeba SQL Server Data Tools nebo SQL Server Management Studio. Podrobné pokyny najdete v kurzu [Nasazení balíčků služby SSIS (SQL Server Integration Services) do Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Flexibilní plánování
 V Data Factory V2 nemusíte pro datové sady definovat plány dostupnosti. Můžete definovat aktivační prostředek, který může naplánovat kanály z paradigmatu plánovače hodin. Pokud chcete, aby byl plánovací a prováděcí model flexibilní, můžete kanálům předávat parametry aktivační událostí. 
@@ -128,7 +128,16 @@ Další informace najdete v tématu věnovaném [rozdílu mezi vlastní aktivito
 Sady SDK aktualizované pro verzi 2 nejsou zpětně kompatibilní s klienty verze 1. 
 
 ## <a name="authoring-experience"></a>Prostředí pro vytváření
-V Data Factory verze 1 můžete k vytváření kanálů ve službě Azure Portal použít Data Factory Editor. Data Factory verze 2 v současnosti podporuje jenom programové vytváření datových továren (například .NET SDK, REST API, PowerShell a Python). Podpora uživatelského rozhraní ještě není dostupná.  Data Factory V1 pro vytváření také podporuje SDK, REST a PowerShell.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure Portal | [Ano](quickstart-create-data-factory-portal.md) | [Ano](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Ano](quickstart-create-data-factory-powershell.md) | [Ano](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [Ano](quickstart-create-data-factory-dot-net.md) | [Ano](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST API | [Ano](quickstart-create-data-factory-rest-api.md) | [Ano](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK | [Ano](quickstart-create-data-factory-python.md) | Ne |
+| Šablona Resource Manageru | [Ano](quickstart-create-data-factory-resource-manager-template.md) | [Ano](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>Prostředí pro monitorování
 Ve V2 můžete k monitorování datových továren použít také [Azure Monitor](monitor-using-azure-monitor.md). Nové rutiny PowerShellu podporují monitorování prostředí [Integration Runtime](monitor-integration-runtime.md). Verze 1 i 2 podporují vizuální monitorování prostřednictvím monitorovací aplikace, kterou můžete spustit z webu Azure Portal.

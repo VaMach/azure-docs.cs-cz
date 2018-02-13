@@ -24,8 +24,6 @@
       href: tutorial-deploy-machine-learning.md
     - name: Nasazení služby Azure Functions
       href: tutorial-deploy-function.md
-    - name: Vytvoření nasazení IoT Edge s využitím rozšíření IoT pro Azure CLI 2.0
-      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Návody
   items:
     - name: Vytváření bran
@@ -34,6 +32,8 @@
           href: how-to-create-transparent-gateway.md
         - name: Brána Modbus
           href: deploy-modbus-gateway.md
+    - name: Použití rozšíření IoT pro Azure CLI 2.0
+      href: tutorial-create-deployment-with-cli-iot-extension.md
     - name: Škálované nasazení a monitorování
       href: how-to-deploy-monitor.md
     - name: Zřízení zařízení IoT Core
@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Ladění služby Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: Ukládání dat na hraničních zařízeních
+      href: sql-storage.md
     - name: Řešení potíží
       href: troubleshoot.md
 - name: Koncepty

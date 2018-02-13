@@ -4,7 +4,7 @@ description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Kurz: Azure Active Directory integrace s Grovo
 
@@ -64,7 +64,7 @@ Při konfiguraci integrace Grovo do služby Azure AD musíte přidat do seznamu 
 
 2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
 
-    ![Podnikové aplikace][2]
+    ![V okně podnikové aplikace][2]
     
 3. Chcete-li přidat novou aplikaci, klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
 
@@ -76,7 +76,7 @@ Při konfiguraci integrace Grovo do služby Azure AD musíte přidat do seznamu 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
 
-V této části můžete nakonfigurovat a otestovat Azure AD jednotné přihlašování s Grovo podle testovacího uživatele názvem "Britta Simon."
+V této části nakonfigurovat a otestovat Azure AD jednotné přihlašování s Grovo podle testovacího uživatele názvem "Britta Simon".
 
 Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v Grovo je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské v Grovo musí navázat.
 
@@ -112,7 +112,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     b. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4.  Zkontrolujte **zobrazit upřesňující nastavení adresy URL**, proveďte následující kroky:  
+4. Zkontrolujte **zobrazit upřesňující nastavení adresy URL**, proveďte následující krok:
 
     ![Grovo domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -121,39 +121,43 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     b. Pokud chcete nakonfigurovat aplikace **SP** iniciované režimu, proveďte následující kroky:
 
     ![Grovo domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
-
+    
     V **přihlásit na adrese URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
     > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte s skutečné přihlašovací identifikátor, adresa URL odpovědi, na adresu URL a předávací stavu. Obraťte se na [tým podpory Grovo](https://www.grovo.com/contact-us) k získání těchto hodnot.
  
-5. Aplikace Grovo očekává SAML kontrolní výrazy ve specifickém formátu. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z "**uživatelské atributy**" části na stránce integrace aplikace. Následující snímek obrazovky ukazuje příklad pro tento.
+5. Aplikace Grovo očekává SAML kontrolní výrazy ve specifickém formátu. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z "**uživatelské atributy**" části na stránce integrace aplikace. Je nutné namapovat **uživatelský identifikátor** s **user.mail** a nakonfigurovat další atributy, jak je znázorněno v následující snímek obrazovky.
     
-    ![Konfigurovat jednotné přihlašování v atributu](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
+    ![Konfigurovat jednotné přihlašování attb](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     
 6. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je znázorněno na obrázku a proveďte následující kroky:
     
     | Název atributu | Hodnota atributu |
     | ------------------- | -------------------- |    
-    | Jméno              | User.givenName |
-    | Příjmení               | User.Surname |
+    | Jméno          | user.givenname |
+    | Příjmení           | user.surname |
+    | E-mailová adresa       | user.mail    |
+    | Číslo zaměstnance          | User.EmployeeID |
 
     a. Klikněte na tlačítko **přidat atribut** otevřete **přidat atribut** dialogové okno.
 
-    ![Nakonfigurujte jeden atribut přihlášení](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+    ![Konfigurovat jednotné přihlašování přidat](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-    ![Nakonfigurujte jeden atribut přihlášení](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+    ![Konfigurace Addattb přihlášení](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
     b. V **název** textovému poli, zadejte název atributu, který je uvedený na příslušném řádku.
 
     c. Z **hodnotu** seznamu, zadejte hodnotu atributu, který je uvedený na příslušném řádku.
+
+    d. Ponechte **Namespace** prázdné.
     
-    d. Klikněte na tlačítko **OK**.
+    e. Klikněte na tlačítko **OK**.
 
 
 7. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
 
-    ![Stáhněte si certifikát rukopisu](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
 
 8. Klikněte na tlačítko **Uložit** tlačítko.
 
@@ -163,7 +167,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurace Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. V okně prohlížeče jiný web Přihlaste se k Grovo jako správce.
+10. V okně prohlížeče jiný web a přihlášení k Grovo jako správce.
 
 11. Přejděte na **správce** > **integrace**.
  
@@ -177,9 +181,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurace Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
 
-    a. V **Entity id** textovému poli, vložte hodnotu **SAML Entity ID** kterou jste zkopírovali z portálu Azure.
+    a. V **Entity id** textovému poli, vložte hodnotu **SAML Entity ID**, který jste zkopírovali z portálu Azure.
 
-    b. V **jednotné přihlašování na koncový bod služby** textovému poli, vložte hodnotu **SAML jeden přihlašování adresa URL služby** kterou jste zkopírovali z portálu Azure.
+    b. V **jednotné přihlašování na koncový bod služby** textovému poli, vložte hodnotu **SAML jeden přihlašování adresa URL služby**, který jste zkopírovali z portálu Azure.
 
     c. Vyberte **jednotné přihlašování na vazby koncového bodu služby** jako `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
     
@@ -265,7 +269,7 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 Když kliknete na dlaždici Grovo na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Grovo.
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

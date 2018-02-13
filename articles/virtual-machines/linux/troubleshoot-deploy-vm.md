@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 9a28d0573dd71238d0d91436cb49776b75b51a36
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3d0e9a43d9a3c9c770c4ab6159279db1d93f5134
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Problémy s nasazení Linux virtuálního počítače v Azure
 
@@ -92,7 +92,7 @@ V seznamu na Linux můžete najít na [Azure-Endorsed distribuce](endorsed-distr
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Můžete přidat existující klasické virtuální počítač na sadu dostupnosti
 
-Ano. Existující klasické virtuální počítač můžete přidat do nový nebo existující skupiny dostupnosti. Další informace najdete v části [přidat existující virtuální počítač do skupiny dostupnosti](../windows/classic/configure-availability.md#addmachine).
+Ano. Existující klasické virtuální počítač můžete přidat do nový nebo existující skupiny dostupnosti. Další informace najdete v části [přidat existující virtuální počítač do skupiny dostupnosti](../windows/classic/configure-availability-classic.md#addmachine).
 
 
 ## <a name="next-steps"></a>Další postup

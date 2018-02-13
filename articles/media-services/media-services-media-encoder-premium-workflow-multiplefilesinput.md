@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Použití více vstupní soubory a vlastnosti komponenty s kodér úrovně Premium
 ## <a name="overview"></a>Přehled
@@ -47,7 +47,7 @@ Konfigurace řetězec, který nastavit v kódování úloh používá dokument X
 
 Následuje kód C#, který čte konfigurační soubor XML ze souboru, jej aktualizovat s právo video název souboru a předává je na úlohu v rámci úlohy:
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -415,7 +415,7 @@ Vložte následující data XML. Je třeba zadat název souboru videa pro vstupn
 
 Je-li používat sadu .NET SDK k vytvoření a spuštění úlohy, tato data XML musí předat jako konfigurační řetězec.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
@@ -464,7 +464,7 @@ Ke kódování, postupujte podle těchto kroků:
 
 * K zakódovanému assetu bude obsahovat více jazyk zvukových stop a musí být tyto sleduje vybrat v Azure Media Player.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Představení Premium kódování v Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Jak používat kódování Premium ve službě Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Kódování obsahu na vyžádání pomocí Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)

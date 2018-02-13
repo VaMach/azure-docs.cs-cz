@@ -90,7 +90,6 @@
 ### [Seznámení s integrací protokolů Azure](security-azure-log-integration-overview.md)
 #### [Začínáme s integrací protokolů Azure](security-azure-log-integration-get-started.md)
 #### [Integrace protokolů auditu služby Azure Active Directory](security-azure-log-integration-ad.md)
-#### [Integrace výstrah služby Security Center](security-azure-log-integration-security-center.md)
 #### [Integrace protokolů se služby Key Vault pomocí Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Nejčastější dotazy](security-azure-log-integration-faq.md)
 

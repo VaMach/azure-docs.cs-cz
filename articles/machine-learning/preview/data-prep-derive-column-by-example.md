@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Odvození sloupec podle příkladu transformace
 
@@ -68,6 +68,10 @@ V rozšířeném režimu můžete přidat libovolný řádek jako řádek přík
 
 Uživatele můžete přepínat mezi **základní režimu** a **rozšířeném režimu** kliknutím na odkazy v editoru transformace.
 
+### <a name="transform-editor-send-feedback"></a>Transformace editor: váš názor
+
+Kliknutím na **odeslat názor** odkaz otevře **zpětné vazby** poskytl dialogové okno s pole komentáře naplněna příklady uživatele. Uživatel by měl zkontrolovat obsah pole komentáře a obsahují další podrobnosti, abychom tento problém pochopit. Pokud uživatel nechce sdílení dat s Microsoft, uživatel by měl odstranit data předem vyplněnou příklad před kliknutím na tlačítko **odeslat zpětnou vazbu** tlačítko. 
+
 ### <a name="editing-existing-transformation"></a>Úprava existující transformace
 
 Uživatele můžete upravit stávající **odvozena sloupec podle příkladu** transformace výběrem **upravit** možnost kroku transformace. Kliknutím na **upravit** otevře v editoru transformace **rozšířeném režimu**, a jsou zobrazeny všechny příklady, které byly poskytnuty během vytváření transformace.
@@ -85,16 +89,16 @@ Počet příklady, které byly požadované pro tento případ: 2
 
 |Vstup|Výstup|
 |:-----|:-----|
-|C:\Python35\Tools\pynche\TypeinViewer.PY|**TypeinViewer.py**|
+|C:\Python35\Tools\pynche\TypeinViewer.py|**TypeinViewer.py**|
 |C:\Python35\Tools\pynche\webcolors.txt|webcolors.txt|
 |C:\Python35\Tools\pynche\websafe.txt|websafe.txt|
-|C:\Python35\Tools\pynche\X\rgb.txt|RGB.txt|
+|C:\Python35\Tools\pynche\X\rgb.txt|rgb.txt|
 |C:\Python35\Tools\pynche\X\xlicense.txt|xlicense.txt|
-|C:\Python35\Tools\Scripts\2to3.PY|2to3.PY|
-|C:\Python35\Tools\Scripts\analyze_dxp.PY|**analyze_dxp.PY**|
-|C:\Python35\Tools\Scripts\byext.PY|byext.PY|
-|C:\Python35\Tools\Scripts\byteyears.PY|byteyears.PY|
-|C:\Python35\Tools\Scripts\checkappend.PY|checkappend.PY|
+|C:\Python35\Tools\Scripts\2to3.py|2to3.py|
+|C:\Python35\Tools\Scripts\analyze_dxp.py|**analyze_dxp.py**|
+|C:\Python35\Tools\Scripts\byext.py|byext.py|
+|C:\Python35\Tools\Scripts\byteyears.py|byteyears.py|
+|C:\Python35\Tools\Scripts\checkappend.py|checkappend.py|
 
 ### <a name="s2-case-manipulation-during-string-extraction"></a>S2. Case manipulace při extrakci řetězec
 
@@ -139,21 +143,21 @@ Počet příklady, které byly požadované pro tento případ: 1
 
 |Jméno|Střední počáteční|Příjmení|Výstup|
 |:-----|:-----|:-----|:-----|
-|Laquanda||Lohmann|Laquanda·· Lohmann|
-|Claudio|A|Chew|**Claudio· A· Chew**|
-|Jana Sarah|S|Smith|Sarah Jane· S· Smith|
-|Brandi||Blumenthal|Brandi·· Blumenthal|
-|Jesusita|R|Cesty|Jesusita· R· Cesty|
+|Laquanda||Lohmann|Laquanda··Lohmann|
+|Claudio|A|Chew|**Claudio·A·Chew**|
+|Sarah-Jane|S|Smith|Sarah-Jane·S·Smith|
+|Brandi||Blumenthal|Brandi··Blumenthal|
+|Jesusita|R|Cesty|Jesusita·R·Journey|
 |Hermina||Hults|Hermina·· Hults|
-|Dana Marie|W|Petr|Dana Marie· W· Petr|
-|Portoriku||Ropp|Rico·· Ropp|
-|Může Lauren||Fullmer|Lauren May·· Fullmer|
+|Anne-Marie|W|Petr|Anne-Marie·W·Jones|
+|Portoriku||Ropp|Rico··Ropp|
+|Může Lauren||Fullmer|Lauren-May··Fullmer|
 |Matolin|út|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie·· Adelman|
-|Jan Paul||Smith|Jan Paul·· Smith|
-|Skladbu|W|Staller|Song· W· Staller|
+|John-Paul||Smith|John-Paul··Smith|
+|Skladbu|W|Staller|Song·W·Staller|
 |Jill||Jefferies|Jill·· Jefferies|
-|Poskytnutá Ruby|M|Simmons|Ruby Grace· M· Simmons|
+|Poskytnutá Ruby|M|Simmons|Ruby-Grace·M·Simmons|
 
 ### <a name="s5-generating-initials"></a>S5. Generování iniciály
 
@@ -163,19 +167,19 @@ Počet příklady, které byly požadované pro tento případ: 2
 |:-----|:-----|
 |Laquanda Lohmann|**L.L.**|
 |Claudio Chew|C.C.|
-|Jana Sarah Smith|S.S.|
+|Sarah-Jane Smith|S.S.|
 |Brandi Blumenthal|B.B.|
 |Jesusita cesty|J.J.|
 |Hermina Hults|H.H.|
 |Dana Marie Petr|A.J.|
-|Portoriku Ropp|R.R.|
+|Rico Ropp|R.R.|
 |Může Lauren Fullmer|L.F.|
-|Matolin Maine|M. M.|
+|Matolin Maine|M.M.|
 |Angie Adelman|A.A.|
 |John Paul Smith|**J.S.**|
 |Skladbu Staller|S.S.|
 |Jill Jefferies|J.J.|
-|Simmons Ruby odkladu|R.S.|
+|Ruby-Grace Simmons|R.S.|
 
 
 ### <a name="s6-mapping-constant-values"></a>S6. Mapování konstantní hodnoty
@@ -186,11 +190,11 @@ Počet příklady, které byly požadované pro tento případ: 3
 |:-----|:-----:|
 |Muž|**0**|
 |Žena|**1**|
-|Neznámé|**2**|
+|Neznámý|**2**|
 |Žena|1|
 |Žena|1|
 |Muž|0|
-|Neznámé|2|
+|Neznámý|2|
 |Muž|0|
 |Žena|1|
 
@@ -286,28 +290,28 @@ Počet příklady, které byly požadované pro tento případ: 1
 
 Tyto části datum byly extrahovat pomocí různých podle příkladu transformace na stejné datové sady. Tučné řetězce představují příklady, které byly zadány v jejich odpovídajících transformaci.
 
-|Datum a čas|den v týdnu|Datum|Měsíc|Rok|Hodina|Minuta|Sekundu|
+|Datum a čas|den v týdnu|Datum|Měsíc|Rok|Hodina|Minuta|Sekunda|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-|31. ledna 2031 05:54:18|**Pátek**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
-|17. ledna 1990 13:32:01|St|17|Jan|1990|13|32|01|
-|. 2034 14 února 05:36:07|Út|14|Února|2034|5|36|07|
-|14. března 2002 13:16:16|Thu|14|Března|2002|13|16|16|
-|21. ledna 1985 05:44:43|MON|21|Jan|1985|5|44|**43**|
-|16. srpna 1985 01:11:56|Pátek|16|Srpna|1985|1|11|56|
-|20. prosince 2033 18:36:29|Út|20|DEC|2033|18|36|29|
-|16. července 1984 10:21:59|MON|16|Července|1984|10|21|59|
-|13. ledna 2038 10:59:36|St|13|Jan|2038|10|59|36|
-|14. srpna 1982 15:13:54|Ne|14|Srpna|1982|15|13|54|
-|22. listopadu 2030 08:18:08|Pátek|22|Listopadu|2030|8|18|08|
-|21. října 1997 08:42:58|Út|21|OCT|1997|8|42|58|
-|28. listopadu 2006 14:19:15|Út|28|Listopadu|2006|14|19|15|
-|29. dubna 2031 04:59:45|Út|29|Dubna|2031|4|59|45|
-|. 2032 29 ledna 02:38:36|Thu|29|Jan|2032|2|38|36|
-|11. pravděpodobně 2028 15:31:52|Thu|11|květen|2028|15|31|52|
-|15. července 1977 12:45:39|Pátek|15|Července|1977|12|45|39|
-|27. ledna 2029 05:55:41|Ne|27|Jan|2029|5|55|41|
-|03. března 2024 10:17:49|Sun|3|Března|2024|10|17|49|
-|14. dubna 2010 00:23:13|St|14|Dubna|2010|0|23|13|
+|31-Jan-2031 05:54:18|**Fri**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
+|17. ledna 1990 13:32:01|St|17|Led|1990|13|32|01|
+|. 2034 14 února 05:36:07|Út|14|Úno|2034|5|36|07|
+|14. března 2002 13:16:16|Čt|14|Bře|2002|13|16|16|
+|21-Jan-1985 05:44:43|Po|21|Led|1985|5|44|**43**|
+|16. srpna 1985 01:11:56|Pá|16|Srp|1985|1|11|56|
+|20. prosince 2033 18:36:29|Út|20|Pro|2033|18|36|29|
+|16. července 1984 10:21:59|Po|16|Čec|1984|10|21|59|
+|13. ledna 2038 10:59:36|St|13|Led|2038|10|59|36|
+|14. srpna 1982 15:13:54|So|14|Srp|1982|15|13|54|
+|22. listopadu 2030 08:18:08|Pá|22|Lis|2030|8|18|08|
+|21-Oct-1997 08:42:58|Út|21|Říj|1997|8|42|58|
+|28. listopadu 2006 14:19:15|Út|28|Lis|2006|14|19|15|
+|29-Apr-2031 04:59:45|Út|29|Dub|2031|4|59|45|
+|. 2032 29 ledna 02:38:36|Čt|29|Led|2032|2|38|36|
+|11. pravděpodobně 2028 15:31:52|Čt|11|Květen|2028|15|31|52|
+|15. července 1977 12:45:39|Pá|15|Čec|1977|12|45|39|
+|27-Jan-2029 05:55:41|So|27|Led|2029|5|55|41|
+|03. března 2024 10:17:49|Ne|3|Bře|2024|10|17|49|
+|14. dubna 2010 00:23:13|St|14|Dub|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Formátování kalendářních dat
 
@@ -315,26 +319,26 @@ Tato data formattings měla provést pomocí různých podle příkladu transfor
 
 |Datum a čas|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
-|31. ledna 2031 05:54:18|**1/31/2031**|**Pátek 31. ledna 2031**|**01312031 5:54**|**31/1/2031 5:54:00**|**OTÁZKA Č. 1 2031**|
+|31-Jan-2031 05:54:18|**1/31/2031**|**Pátek 31. ledna 2031**|**01312031 5:54**|**31/1/2031 5:54:00**|**Q1 2031**|
 |17. ledna 1990 13:32:01|1/17/1990|Středa 17. ledna 1990|01171990 13:32|17 1 1990:32 13: 00|OTÁZKA Č. 1 1990|
-|. 2034 14 února 05:36:07|2/14/2034|Úterý 14. února 2034|02142034 5:36|14/2 /. 2034 5:36:00|OTÁZKA Č. 1. 2034
-|14. března 2002 13:16:16|3/14/2002|Čtvrtek 14. března 2002|03142002 13:16|14/3/2002:16 13: 00|OTÁZKA Č. 1 2002
-|21. ledna 1985 05:44:43|1/21/1985|Pondělí 21. ledna 1985|01211985 5:44|21/1/1985 5:44:00|OTÁZKA Č. 1 1985
+|. 2034 14 února 05:36:07|2/14/2034|Úterý 14. února 2034|02142034 5:36|14/2 /. 2034 5:36:00|Q1 2034
+|14. března 2002 13:16:16|3/14/2002|Čtvrtek 14. března 2002|03142002 13:16|14/3/2002:16 13: 00|Q1 2002
+|21-Jan-1985 05:44:43|1/21/1985|Pondělí 21. ledna 1985|01211985 5:44|21/1/1985 5:44:00|OTÁZKA Č. 1 1985
 |16. srpna 1985 01:11:56|8/16/1985|Pátek 16 srpen 1985|08161985 1:11|16/8/1985 1:11:00|3. ČTVRTLETÍ 1985
-|20. prosince 2033 18:36:29|12/20/2033|Úterý 20 prosince 2033|12202033 18:36|20/12/2033 18:36:00|OTÁZKA Č. 4 2033
-|16. července 1984 10:21:59|7/16/1984|Pondělí 16. července 1984|07161984 10:21|16/7/1984 10:21 AM|3. ČTVRTLETÍ 1984
-|13. ledna 2038 10:59:36|1/13/2038|Středa 13. ledna 2038|01132038 10:59|13/1/2038 10:59 AM|OTÁZKA Č. 1 2038
+|20. prosince 2033 18:36:29|12/20/2033|Úterý 20 prosince 2033|12202033 18:36|20/12/2033 18:36:00|Q4 2033
+|16. července 1984 10:21:59|7/16/1984|Pondělí 16. července 1984|07161984 10:21|16/7/1984 10:21 AM|Q3 1984
+|13. ledna 2038 10:59:36|1/13/2038|Středa 13. ledna 2038|01132038 10:59|13/1/2038 10:59 AM|Q1 2038
 |14. srpna 1982 15:13:54|8/14/1982|Sobota 14 srpen 1982|08141982 15:13|8/14/1982 15:13:00|3. ČTVRTLETÍ 1982
-|22. listopadu 2030 08:18:08|11/22/2030|Pátek 22 listopadu 2030|11222030 8:18|22/11/2030 8:18:00|OTÁZKA Č. 4 2030
-|21. října 1997 08:42:58|10/21/1997|Úterý 21 říjen 1997|10211997 8:42|21/10/1997 8:42:00|OTÁZKA Č. 4 1997
-|28. listopadu 2006 14:19:15|11/28/2006|Úterý 28. listopadu 2006|11282006 14:19|28/11/2006 14:19:00|OTÁZKA Č. 4 2006
-|29. dubna 2031 04:59:45|4/29/2031|Úterý 29. dubna 2031|04292031 4:59|29/4 NEBO 2031 4:59:00|DOTAZ Č. 2. 2031
-|. 2032 29 ledna 02:38:36|1/29/2032|Čtvrtek 29. ledna 2032|01292032 2:38|29/1 /. 2032 2:38:00|OTÁZKA Č. 1. 2032
-|11. pravděpodobně 2028 15:31:52|5/11/2028|Čtvrtek 11 může 2028|05112028 15:31|11/5/2028 31 ČASU 15:|2028 DOTAZ Č. 2
+|22. listopadu 2030 08:18:08|11/22/2030|Pátek 22 listopadu 2030|11222030 8:18|22/11/2030 8:18:00|Q4 2030
+|21-Oct-1997 08:42:58|10/21/1997|Úterý 21 říjen 1997|10211997 8:42|21/10/1997 8:42:00|Q4 1997
+|28. listopadu 2006 14:19:15|11/28/2006|Úterý 28. listopadu 2006|11282006 14:19|28/11/2006 14:19:00|Q4 2006
+|29-Apr-2031 04:59:45|4/29/2031|Úterý 29. dubna 2031|04292031 4:59|29/4 NEBO 2031 4:59:00|Q2 2031
+|. 2032 29 ledna 02:38:36|1/29/2032|Čtvrtek 29. ledna 2032|01292032 2:38|29/1 /. 2032 2:38:00|Q1 2032
+|11. pravděpodobně 2028 15:31:52|5/11/2028|Čtvrtek 11 může 2028|05112028 15:31|11/5/2028 31 ČASU 15:|Q2 2028
 |15. července 1977 12:45:39|7/15/1977|Pátek 15. července 1977|07151977 12:45|15/7/1977 12:45 ODP.|3. ČTVRTLETÍ 1977
-|27. ledna 2029 05:55:41|1/27/2029|Sobota 27 leden 2029|01272029 5:55|27/1/2029 5:55:00|OTÁZKA Č. 1 2029
-|03. března 2024 10:17:49|3/3/2024|Neděle 3. března 2024|03032024 10:17|3, 3 NEBO 2024 10:17 AM|OTÁZKA Č. 1 2024
-|14. dubna 2010 00:23:13|4/14/2010|Středa 14 Duben 2010|04142010 0:23|4/14/2010 12:23:00|DOTAZ Č. 2 2010
+|27-Jan-2029 05:55:41|1/27/2029|Sobota 27 leden 2029|01272029 5:55|27/1/2029 5:55:00|Q1 2029
+|03. března 2024 10:17:49|3/3/2024|Neděle 3. března 2024|03032024 10:17|3, 3 NEBO 2024 10:17 AM|Q1 2024
+|14. dubna 2010 00:23:13|4/14/2010|Středa 14 Duben 2010|04142010 0:23|4/14/2010 12:23:00|Q2 2010
 
 
 ### <a name="d3-mapping-time-to-time-periods"></a>D3. Mapování času na dobu
@@ -343,26 +347,26 @@ Tato data a času na období mapování se provádí pomocí různých podle př
 
 |Datum a čas|Period(seconds)|Period(minutes)|Období (dvě hodiny)|Období (30 minut)|
 |-----:|-----:|-----:|-----:|-----:|
-|31. ledna 2031 05:54:18|**0-20**|**45-60**|**5: 00 - 7: 00**|**5:30-6:00**|
-|17. ledna 1990 13:32:01|**0-20**|30-45|13: 00 – 15: 00|13:30-14:00|
-|. 2034 14 února 05:36:07|0-20|30-45|5: 00 - 7: 00|5:30-6:00|
-|14. března 2002 13:16:16|0-20|15-30|13: 00 – 15: 00|13:00-13:30|
-|21. ledna 1985 05:44:43|40-60|30-45|5: 00 - 7: 00|5:30-6:00|
-|16. srpna 1985 01:11:56|40-60|0-15|1: 00 - 3: 00|1:00-1:30|
-|20. prosince 2033 18:36:29|20-40|30-45|17: 00 – 19: 00|18:30-19:00|
-|16. července 1984 10:21:59|40-60|15-30|9: 00 - 11 AM|10:00-10:30|
-|13. ledna 2038 10:59:36|20-40|45-60|9: 00 - 11 AM|10:30-11:00|
-|14. srpna 1982 15:13:54|40-60|0-15|15: 00 – 17: 00|15:00-15:30|
-|22. listopadu 2030 08:18:08|0-20|15-30|7: 00 - 9: 00|8:00-8:30|
-|21. října 1997 08:42:58|40-60|30-45|7: 00 - 9: 00|8:30-9:00|
-|28. listopadu 2006 14:19:15|0-20|15-30|13: 00 – 15: 00|14:00-14:30|
-|29. dubna 2031 04:59:45|40-60|45-60|3: 00 - 5: 00|4:30-5:00|
-|. 2032 29 ledna 02:38:36|20-40|30-45|1: 00 - 3: 00|2:30-3:00|
-|11. pravděpodobně 2028 15:31:52|40-60|30-45|15: 00 – 17: 00|15:30-16:00|
-|15. července 1977 12:45:39|20-40|45-60|11-1 HOD|12:30-13:00|
-|27. ledna 2029 05:55:41|40-60|45-60|5: 00 - 7: 00|5:30-6:00|
-|03. března 2024 10:17:49|40-60|15-30|9: 00 - 11 AM|10:00-10:30|
-|14. dubna 2010 00:23:13|0-20|15-30|23: 00 - 1: 00|0:00-0:30|
+|31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
+|17. ledna 1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
+|. 2034 14 února 05:36:07|0-20|30-45|5AM-7AM|5:30-6:00|
+|14. března 2002 13:16:16|0-20|15-30|1PM-3PM|13:00-13:30|
+|21-Jan-1985 05:44:43|40-60|30-45|5AM-7AM|5:30-6:00|
+|16. srpna 1985 01:11:56|40-60|0-15|1AM-3AM|1:00-1:30|
+|20. prosince 2033 18:36:29|20-40|30-45|5PM-7PM|18:30-19:00|
+|16. července 1984 10:21:59|40-60|15-30|9AM-11AM|10:00-10:30|
+|13. ledna 2038 10:59:36|20-40|45-60|9AM-11AM|10:30-11:00|
+|14. srpna 1982 15:13:54|40-60|0-15|3PM-5PM|15:00-15:30|
+|22. listopadu 2030 08:18:08|0-20|15-30|7AM-9AM|8:00-8:30|
+|21-Oct-1997 08:42:58|40-60|30-45|7AM-9AM|8:30-9:00|
+|28. listopadu 2006 14:19:15|0-20|15-30|1PM-3PM|14:00-14:30|
+|29-Apr-2031 04:59:45|40-60|45-60|3: 00 - 5: 00|4:30-5:00|
+|. 2032 29 ledna 02:38:36|20-40|30-45|1AM-3AM|2:30-3:00|
+|11. pravděpodobně 2028 15:31:52|40-60|30-45|3PM-5PM|15:30-16:00|
+|15. července 1977 12:45:39|20-40|45-60|11AM-1PM|12:30-13:00|
+|27-Jan-2029 05:55:41|40-60|45-60|5AM-7AM|5:30-6:00|
+|03. března 2024 10:17:49|40-60|15-30|9AM-11AM|10:00-10:30|
+|14. dubna 2010 00:23:13|0-20|15-30|11PM-1AM|0:00-0:30|
 
 ## <a name="examples-of-composite-transformations-by-example"></a>Příklady kompozitní transformace příklad
 

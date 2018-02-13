@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Nasazení aplikace Service Fabric typu kontejner pro Windows v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -79,24 +79,44 @@ Nakonfigurujte v kontejneru mapování portů na hostitele určením zásady `Po
 Úplný ukázkový soubor ApplicationManifest.xml najdete na konci tohoto článku.
 
 ## <a name="create-a-cluster"></a>Vytvoření clusteru
-Pokud chcete nasadit aplikaci do clusteru v Azure, můžete vytvořit vlastní cluster nebo použít party cluster.
+Pokud chcete nasadit aplikaci do clusteru v Azure, můžete se připojit k party clusteru nebo [vytvořit vlastní cluster v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k party clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric).  
+Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. Cluster používá jediný certifikát podepsaný svým držitelem (self-signed certificate) pro zabezpečení mezi uzly i mezi klientem a uzlem. 
 
-Informace o vytvoření vlastního clusteru najdete v tématu věnovaném [vytvoření clusteru Service Fabric v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Přihlaste se a [připojte se ke clusteru Windows](http://aka.ms/tryservicefabric). Stáhněte si certifikát PFX do počítače kliknutím na odkaz **PFX**. Certifikát a hodnota **Koncový bod připojení** použijete v následujících krocích.
 
-Poznamenejte si koncový bod připojení, který použijete v následujícím kroku.  
+![PFX a koncový bod připojení](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Na počítači s Windows nainstalujte PFX do úložiště certifikátů *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Zapamatujte si kryptografický otisk pro následující krok.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Nasazení aplikace do Azure pomocí sady Visual Studio
 Aplikace je teď připravená a přímo ze sady Visual Studio ji můžete nasadit do clusteru.
 
 V Průzkumníku řešení klikněte pravým tlačítkem na **MyFirstContainer** a zvolte **Publikovat**. Zobrazí se dialogové okno Publikovat.
 
-![Dialogové okno Publikovat](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Do pole **Koncový bod připojení** zkopírujte **Koncový bod připojení** ze stránky Party clusteru. Například, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klikněte na **Rozšířené parametry připojení** a vyplňte následující informace.  Hodnoty *FindValue* and *ServerCertThumbprint* musí odpovídat kryptografickému otisku certifikátu nainstalovanému v předchozím kroku. 
 
-Do pole **Koncový bod připojení** zadejte koncový bod připojení clusteru. Při registraci party clusteru se koncový bod připojení zobrazí v prohlížeči – například `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Klikněte na **Publikovat** a aplikace se nasadí.
+![Dialogové okno Publikovat](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Otevřete prohlížeč a přejděte na adresu http://winh1x87d1d.westus.cloudapp.azure.com:80. Měla by se zobrazit výchozí webová stránka služby IIS: ![Výchozí webová stránka služby IIS][iis-default]
+Klikněte na **Publikovat**.
+
+Každá aplikace v clusteru musí mít jedinečný název.  Party clustery jsou však veřejné a sdílené prostředí a může dojít ke konfliktu s již existující aplikací.  Pokud dojde ke konfliktu názvů, přejmenujte projekt sady Visual Studio a opakujte nasazení.
+
+Otevřete prohlížeč a přejděte na adresu http://zwin7fh14scd.westus.cloudapp.azure.com:80. Měla by se zobrazit výchozí webová stránka služby IIS: ![Výchozí webová stránka služby IIS][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Kompletní příklad manifestů služby a aplikace Service Fabric
 Tady jsou kompletní manifesty aplikace a služby použité v tomto rychlém startu.
@@ -167,6 +187,7 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto rychlém sta
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

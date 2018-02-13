@@ -2,17 +2,17 @@
 title: "Zřízení fondu Azure Batch ve virtuální síti | Microsoft Docs"
 description: "Fondu služby Batch můžete vytvořit ve virtuální síti, aby výpočetní uzly bezpečně komunikovat s ostatních virtuálních počítačů v síti, jako je například souborový server."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/16/2017
-ms.author: v-dotren
-ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 02/05/2018
+ms.author: danlep
+ms.openlocfilehash: 626319a458575d255af4c4f8de93fca542b48890
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Vytvoření fondu Azure Batch ve virtuální síti
 
@@ -65,9 +65,9 @@ Aby se zajistilo, že výpočetní uzly fondu Azure Batch fungovat ve virtuáln�
 
 Když přidáte trasy definované uživatelem, definujte trasy pro každou relaci předponu adresy Batch IP a nastavte **typ dalšího směrování** k **Internet**. Podívejte se na následující příklad:
 
-![Trasy definované uživatelem](./media/batch-virtual-network/user-defined-route.png)
+![Trasa definovaná uživatelem](./media/batch-virtual-network/user-defined-route.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Podrobnější přehled služby Batch, najdete v tématu [rozsáhlé paralelní vývoj výpočetní řešení pomocí služby Batch](batch-api-basics.md).
 - Další informace o vytváření trasy definované uživatelem, naleznete v části [vytvořit trasy definované uživatelem – portál Azure](../virtual-network/create-user-defined-route-portal.md).

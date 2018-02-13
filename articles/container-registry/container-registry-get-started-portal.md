@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Vytvoření registru kontejnerů pomocí webu Azure Portal
 
@@ -112,7 +112,7 @@ Pokud už ji nepotřebujete, odstraňte skupinu prostředků **myResourceGroup**
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto rychlém startu jste vytvořili službu Azure Container Registry pomocí Azure CLI. Pokud chcete používat službu Azure Container Registry se službou Azure Container Instances, přejděte na kurz služby Azure Container Instances.
+V tomto rychlém startu jste vytvořili službu Azure Container Registry pomocí webu Azure Portal. Pokud chcete používat službu Azure Container Registry se službou Azure Container Instances, přejděte na kurz služby Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Kurzy služby Azure Container Instances][container-instances-tutorial-prepare-app]

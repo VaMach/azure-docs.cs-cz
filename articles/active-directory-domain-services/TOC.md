@@ -28,6 +28,7 @@
 ## Správa spravované domény
 ### [Správa spravované domény](active-directory-ds-admin-guide-administer-domain.md)
 ### [Správa DNS ve spravované doméně](active-directory-ds-admin-guide-administer-dns.md)
+### [Kontrola stavu domény](active-directory-ds-check-health.md)
 ### Konfigurace zabezpečeného protokolu LDAP pro spravovanou doménu
 #### [Úloha 1: získání certifikátu pro protokol LDAPS](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Úloha 2: Export certifikátu protokolu LDAPS](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

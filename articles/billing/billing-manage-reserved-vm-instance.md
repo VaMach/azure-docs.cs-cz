@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Správa instancí vyhrazený virtuální počítač
 
@@ -75,6 +75,16 @@ Delegovat správu přístupu k rezervace:
 5.  Vyberte **přidat** > **Role** > **vlastníka** (nebo na jinou roli, pokud chcete udělit omezený přístup). 
 6. Zadejte e-mailovou adresu uživatele, kterého chcete přidat jako vlastníka. 
 7. Vyberte uživatele a pak vyberte **Uložit**.
+
+## <a name="next-steps"></a>Další postup
+Další informace o vyhrazenou instancí virtuálního počítače, naleznete v následujících článcích.
+
+- [Předem pro virtuální počítače s instancí vyhrazené virtuálních počítačů](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ušetřit peníze u virtuálních počítačů s vyhrazenou instancí virtuálního počítače](billing-save-compute-costs-reservations.md)
+- [Pochopit, jak se použije slevu vyhrazenou instanci virtuálního počítače](billing-understand-vm-reservation-charges.md)
+- [Pochopení vyhrazenou instanci využití pro vaše předplatné s průběžnými platbami](billing-understand-reserved-instance-usage.md)
+- [Pochopení vyhrazenou instanci využití pro podnikového zápisu](billing-understand-reserved-instance-usage-ea.md)
+- [Náklady na software Windows není součástí vyhrazené instance](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Potřebujete pomoct? Kontaktování podpory
 

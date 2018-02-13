@@ -63,6 +63,8 @@
       href: functions-cli-samples.md
 - name: Koncepty
   items:
+    - name: Porovnání 1.x a 2.x
+      href: functions-versions.md
     - name: Škálování a hostování
       href: functions-scale.md
     - name: Triggery a vazby
@@ -131,6 +133,8 @@
           href: functions-run-local.md
         - name: Vývoj sady Visual Studio
           href: functions-develop-vs.md
+        - name: Zpracování chyb
+          href: functions-bindings-error-pages.md
     - name: Nasazení
       items:
         - name: Průběžné nasazování
@@ -146,7 +150,7 @@
         - name: Správa aplikace funkcí
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Nastavení verze modulu runtime
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: Monitorování
       href: functions-monitoring.md
     - name: Integrace
@@ -175,7 +179,7 @@
           href: durable-functions-counter.md
         - name: Lidská interakce
           href: durable-functions-phone-verification.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Vazby
       items:
@@ -183,6 +187,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Externí soubor

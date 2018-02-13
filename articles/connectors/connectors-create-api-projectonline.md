@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1fc1dd5b9122a62bfb1810ff29f6a38900c9b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Začínáme s konektorem ProjectOnline
 Projekt Online je flexibilní řešení online pro správy portfolia projektů (stran za MINUTU) a každodenní práce od společnosti Microsoft. Doručují prostřednictvím Office 365, Projectu Online umožňuje organizacím rychle začít používat funkce správy výkonné projektu pro plánování, prioritu a správa projektů a investice portfolia projektů – téměř odkudkoli na téměř jakémkoliv zařízení.
 
-Můžete začít s vytvářením aplikace logiky teď najdete v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Můžete začít s vytvářením aplikace logiky teď najdete v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-projectonline"></a>Umožňuje vytvořit připojení k ProjectOnline
 Postup vytvoření aplikace logiky se ProjectOnline, musíte nejdřív vytvořit **připojení** pak zadejte podrobnosti pro následující vlastnosti: 
 
 | Vlastnost | Požaduje se | Popis |
 | --- | --- | --- |
-| Token |Ano |Zadejte přihlašovací údaje ProjectOnline |
+| Token |Ano |Zadejte přihlašovací údaje pro Project Online. |
 
 > [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 > 

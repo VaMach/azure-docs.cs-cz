@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrovat Azure MFA infrastrukturu sítě VPN pomocí rozšíření Network Policy Server pro Azure.
 
@@ -90,7 +90,7 @@ Tato část podrobně požadavky, které je třeba dokončit před MFA může in
 * Infrastruktura sítě VPN.
 * Role služby Síťové zásady a přístup
 * Licence Azure Multi-Factor Authentication
-* Software Windows serveru
+* Windows Server software
 * Knihovny
 * Azure Active Directory (Azure AD) synchronizované s místní služby Active Directory 
 * ID identifikátor GUID služby Azure Active Directory
@@ -106,11 +106,11 @@ Služba Síťové zásady a přístup poskytuje funkci serveru a klienta RADIUS.
 
 Informace o instalaci role Síťové zásady a přístup ke službě služby Windows Server 2012 nebo novější, najdete na [nainstalovat Server zásad stavu NAP](https://technet.microsoft.com/library/dd296890.aspx). Architektura NAP je zastaralá v Windows Server 2016. Popis osvědčené postupy pro server NPS, včetně doporučení k instalaci NPS na řadiči domény najdete v části [osvědčené postupy pro server NPS](https://technet.microsoft.com/library/cc771746).
 
-### <a name="azure-mfa-license"></a>Licence Azure MFA
+### <a name="azure-mfa-license"></a>Azure MFA License
 
 Licence je vyžadována pro Azure Multi-Factor Authentication, a je k dispozici prostřednictvím Azure AD Premium, Enterprise Mobility + Security nebo samostatné licence služby Multi-Factor Authentication. Na základě spotřeby licencí Azure MFA jako ověřování licencí vázaných na uživatele nebo nejsou kompatibilní s příponou serveru NPS. Další informace najdete v tématu [jak získat Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Pro účely testování můžete použít zkušební verzi předplatného.
 
-### <a name="windows-server-software"></a>Software Windows serveru
+### <a name="windows-server-software"></a>Windows Server software
 
 Rozšíření serveru NPS vyžaduje Windows Server 2008 R2 SP1 nebo novější s rolí Služba Síťové zásady a přístup nainstalovat. Se systémem Windows Server 2016 nebyly provedeny všechny kroky v této příručce.
 
@@ -186,7 +186,7 @@ Můžete použít standardní (založené na průvodci) nebo rozšířené možn
 
     ![Okno zadat skupiny uživatelů](./media/nps-extension-vpn/image7.png)
 
-9. Vyberte **Další**.
+9. Vyberte **Next** (Další).
 
 10. V **zadejte filtry IP adres** vyberte **Další**.
 
@@ -376,7 +376,7 @@ Chcete-li použít skript, poskytnout rozšíření vaše pověření pro správ
 
 1. Spusťte prostředí Windows PowerShell jako správce.
 
-2. Na příkazovém řádku prostředí PowerShell zadejte **cd c:\Program Files\Microsoft\AzureMfa\Config**a potom vyberte Enter.
+2. Na příkazovém řádku prostředí PowerShell zadejte **cd "c:\Program Files\Microsoft\AzureMfa\Config"**a potom vyberte Enter.
 
 3. Zadejte na příkazovém řádku další **.\AzureMfsNpsExtnConfigSetup.ps1**a potom vyberte Enter. Skript zkontroluje, zda je nainstalován modul Azure AD PowerShell. Pokud není nainstalována, skript nainstaluje modul pro vás.
  
@@ -398,7 +398,7 @@ Chcete-li použít skript, poskytnout rozšíření vaše pověření pro správ
 
 6. Restartujte server.
 
-### <a name="verify-the-configuration"></a>Zkontrolujte konfiguraci
+### <a name="verify-the-configuration"></a>Ověření konfigurace
 Pokud chcete ověřit konfiguraci, je potřeba vytvořit nové připojení VPN se serverem VPN. Po úspěšně jste zadali svoje přihlašovací údaje pro primární ověřování, čeká na připojení k síti VPN pro sekundární ověření úspěšné před připojení, jak je uvedeno níže. 
 
 ![Okno nastavení sítě VPN ve Windows](./media/nps-extension-vpn/image42.png)
@@ -458,5 +458,5 @@ Další informace najdete v tématu [vaší stávající infrastruktury pro serv
 
 [Brána vzdálené plochy Azure Multi-Factor Authentication Server pomocí protokolu RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
-[Integrace místních adresářů se službou Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
+[Integrace místních adresářů do služby Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
 

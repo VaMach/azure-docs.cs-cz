@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 446e39f57448cbc0cd9a6f93a388159d7eca5863
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Přihlaste se uživatelům v jedné aplikaci Microsoft Account a Azure Active Directory
 V minulosti bylo integrovat dvou samostatných systémech vývojáři aplikací podporují i osobní účty Microsoft a pracovní účty ze služby Azure Active Directory. Koncový bod v2.0 Azure Active Directory (Azure AD) představuje novou verzi ověřování rozhraní API, která zjednodušuje tento proces. Koncový bod v2.0 Azure AD umožňuje přihlášení z obou typů účty pomocí jednoho integrace. Aplikace, které používají koncového bodu Azure AD v2.0 můžete také používat rozhraní REST API z [Microsoft Graph API](https://graph.microsoft.io) pomocí buď typ účtu.
@@ -39,7 +39,7 @@ Další informace o co můžete dělat s koncovým bodem v2.0 Azure AD:
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 Další podrobné informace o platformě Azure AD v2.0 koncový bod:
 
 * [Azure AD v2.0 protokoly reference](active-directory-v2-protocols.md)
@@ -51,4 +51,4 @@ Další podrobné informace o platformě Azure AD v2.0 koncový bod:
 > [!NOTE]
 > Pokud potřebujete přihlásit pracovní a školní účty ze služby Azure Active Directory, začínat [Příručka pro vývojáře Azure AD](active-directory-developers-guide.md). Koncový bod v2.0 Azure AD je určená pro vývojáře, kteří explicitně se muset přihlásit osobní účty Microsoft.
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

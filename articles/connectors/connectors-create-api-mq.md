@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Připojit k serveru IBM MQ z aplikace logic apps pomocí konektoru MQ 
 
@@ -52,7 +52,7 @@ Konektor MQ zahrnuje následující akce. Neexistují žádné aktivační udál
 2. Zadejte **název**, jako je například MQTestApp, **předplatné**, **skupiny prostředků**, a **umístění** (použijte umístění, kde je nakonfigurované připojení k místní brána Data Gateway). Vyberte **připnout na řídicí panel**a vyberte **vytvořit**.  
 ![Vytvoření aplikace logiky](media/connectors-create-api-mq/Create_Logic_App.png)
 
-## <a name="add-a-trigger"></a>Přidat aktivační událost
+## <a name="add-a-trigger"></a>Přidat trigger
 
 > [!NOTE]
 > Konektor MQ nemá žádné aktivační události. Ano, používat jiný aktivační událost spusťte aplikaci logiky, jako **opakování** aktivační události. 
@@ -71,7 +71,7 @@ Konektor MQ zahrnuje následující akce. Neexistují žádné aktivační udál
     1. Vyberte **připojit prostřednictvím místní brána dat**a zadejte vlastnosti serveru MQ.  
     Pro **Server**, můžete zadat název serveru MQ nebo zadejte IP adresu následovaný dvojtečkou a číslo portu. 
     2. **Brány** rozevírací seznam obsahuje seznam všech existujících připojení brány, které byly nakonfigurovány. Vyberte bránu.
-    3. Vyberte **vytvořit** po dokončení. Připojení vypadá podobně jako následující:   
+    3. Po dokončení vyberte **Vytvořit**. Připojení vypadá podobně jako následující:   
     ![Vlastnosti připojení](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. Ve vlastnostech akce můžete:  
@@ -122,5 +122,5 @@ Pokud nejsou žádné zprávy ve frontě, když procházet nebo příjmu, selže
 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/mq/).
 
-## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
+## <a name="next-steps"></a>Další postup
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).

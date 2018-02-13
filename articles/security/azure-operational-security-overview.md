@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Přehled Azure provozního zabezpečení
 Zabezpečení provozu Azure se odkazuje na služby, ovládací prvky a funkce, které jsou k dispozici uživatelům pro ochranu svá data, aplikace a dalších prostředků ve službě Microsoft Azure. [Zabezpečení provozu Azure](https://docs.microsoft.com/azure/security/azure-operational-security) je rozhraní, které zahrnuje znalosti získaných prostřednictvím nejrůznějších možností, které jsou jedinečné pro společnosti Microsoft, včetně Microsoft SDL Security Development Lifecycle (), Microsoft Security Response Center program a hloubkové povědomí o povahu hrozeb kybernetického zabezpečení.
@@ -52,11 +52,11 @@ Základní funkce OMS poskytuje sada služeb, které běží v Azure. Každá sl
 ### <a name="automation"></a>Automation
 Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) poskytuje způsob, jak uživatelům možnost automatizace ruční, dlouhotrvajících, problematických a často se opakujících úloh, které se běžně provádějí v cloudovém a podnikovém prostředí. Šetří čas a zvyšuje spolehlivost běžných administrativních úloh a umí je dokonce naplánovat, aby se v pravidelných intervalech prováděly automaticky. Procesy můžete automatizovat pomocí runbooků nebo můžete automatizovat správu konfigurace pomocí DSC (požadovaný stav konfigurace).
 
-### <a name="backup"></a>Zálohování
+### <a name="backup"></a>Backup
 [Zálohování Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) je služba na základě Azure můžete zálohovat (nebo chránit) a obnovování vašich dat v cloudu Microsoft. Azure Backup nahrazuje současná řešení místního nebo odlehlého zálohování spolehlivým, bezpečným a cenově konkurenceschopným cloudovým řešením. Azure Backup nabízí několik komponent, které můžete stáhnout a nasadit na vhodném počítači, na serveru, nebo v cloudu. Nasazená komponenta nebo agent závisí na tom, co chcete chránit. Všechny komponenty služby Azure Backup (bez ohledu na to, jestli chráníte data v místním nebo cloudovém úložišti) je možné použít k zálohování dat do trezoru služby Recovery Services v Azure. Najdete v článku [tabulky Azure Backup součásti](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Obnovení lokality
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) poskytuje kontinuitu podnikových procesů tím, že orchestruje replikaci místních virtuálních a fyzických počítačů do Azure nebo do sekundární lokality. Pokud není vaše primární lokalita dostupná, proběhne převzetí služeb při selhání sekundárním umístěním, aby mohli uživatelé pokračovat v práci, a po obnovení funkce systémů proběhne navrácení služeb. detekce hrozeb inteligentního a efektivní.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) poskytuje kontinuitu podnikových procesů tím, že orchestruje replikaci místních virtuálních a fyzických počítačů do Azure nebo do sekundární lokality. Pokud není vaše primární lokalita dostupná, proběhne převzetí služeb při selhání sekundárním umístěním, aby mohli uživatelé pokračovat v práci, a po obnovení funkce systémů proběhne navrácení služeb. Použití Azure Security Center provést inteligentní a efektivní detekce hrozeb.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) je společnosti Microsoft komplexní Identity jako služby (IDaaS) řešení který:
@@ -154,7 +154,7 @@ Profesionálové zabývající vyspělá DevOps přijmout řadu následující p
 -   [Infrastruktura jako kód (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) postupem, který umožňuje automatizace a ověření vytvoření a rušením sítí a virtuálních počítačů pomáhají s doručováním hostování platformy zabezpečené, stabilní aplikace je.
 -   [Mikroslužeb](https://www.visualstudio.com/learn/what-are-microservices/) architektura je využít k izolaci případy obchodního použití do malých opakovaně použitelné služby.  Tato architektura umožňuje škálovatelnost a efektivitu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o řešení OMS zabezpečení a Audit, naleznete v následujících článcích:
 
 - [Služby Operations Management Suite | Zabezpečení a dodržování předpisů](https://www.microsoft.com/cloud-platform/security-and-compliance).

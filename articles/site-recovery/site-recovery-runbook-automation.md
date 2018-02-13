@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Přidání sad Azure Automation runbook do plánů obnovení
 V tomto článku jsme popisují, jak Azure Site Recovery integruje se službou Azure Automation můžete rozšířit plánu obnovení. Plány obnovení můžete orchestraci obnovení virtuálních počítačů, které jsou chráněné službou Site Recovery. Plány obnovení fungovat pro replikaci do sekundární cloudu i pro replikaci do Azure. Plány obnovení také pomoci zajistit, aby obnovení **přesné**, **repeatable**, a **automatizované**. Pokud jste převzetí služeb při selhání virtuálních počítačů do Azure, integraci s Azure Automation rozšiřuje plánu obnovení. Můžete ho spuštění sady runbook, které nabízí výkonné automatizace úloh.
 
-Pokud začínáte Azure Automation, můžete [zaregistrovat](https://azure.microsoft.com/services/automation/) a [stažení ukázkové skripty](https://azure.microsoft.com/documentation/scripts/). Další informace a další informace o orchestraci obnovení do Azure pomocí [plány obnovení](https://azure.microsoft.com/blog/?p=166264), najdete v části [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Pokud začínáte Azure Automation, můžete [zaregistrovat](https://azure.microsoft.com/services/automation/) a [stažení ukázkové skripty](https://azure.microsoft.com/documentation/scripts/). Další informace a další informace o orchestraci obnovení do Azure pomocí [plány obnovení](./site-recovery-create-recovery-plans.md), najdete v části [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 V tomto článku jsme popisují, jak můžete integrovat Azure Automation runbook do plánu obnovení. Příklady použít k automatizaci základní úlohy, které dříve vyžadovaly ruční zásah. Můžeme také popisují, jak převést obnovení několika kroky akce obnovení jedním kliknutím.
 
@@ -99,7 +99,7 @@ V tomto článku jsme popisují, jak můžete integrovat Azure Automation runboo
     | SubscriptionId |ID předplatného Azure, ve kterém byl vytvořen virtuální počítač. |
     | RoleName |Název virtuálního počítače Azure, který se obnovuje. |
     | CloudServiceName |Název služby cloudu Azure, ve kterém byl vytvořen virtuální počítač. |
-    | Název skupiny prostředků|Název skupiny prostředků Azure, ve kterém byl vytvořen virtuální počítač. |
+    | ResourceGroupName|Název skupiny prostředků Azure, ve kterém byl vytvořen virtuální počítač. |
     | RecoveryPointId|Časové razítko pro při obnovení virtuálního počítače. |
 
 * Zkontrolujte, zda má účet služby Automation následující moduly:
@@ -256,8 +256,10 @@ Další příklad najdete v následujícím videu. Ukazuje, jak obnovit dvouvrst
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
-## <a name="additional-resources"></a>Další zdroje
-* [Azure Automation spustit jako účet služby](../automation/automation-sec-configure-azure-runas-account.md)
+## <a name="additional-resources"></a>Další zdroje informací:
+* [Azure Automation spustit jako účet služby](../automation/automation-create-runas-account.md)
 * [Přehled Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "přehled Azure Automation.")
 * [Azure Automation ukázkové skripty](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "ukázkové skripty Azure Automation.")
+
+## <a name="next-steps"></a>Další postup
+[Další informace](site-recovery-failover.md) o spuštění převzetí služeb při selhání.

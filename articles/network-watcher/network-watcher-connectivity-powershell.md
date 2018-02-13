@@ -1,10 +1,10 @@
 ---
-title: "Zkontrolujte připojení s sledovací proces sítě Azure – prostředí PowerShell | Microsoft Docs"
-description: "Tato stránka vysvětluje, jak k testování připojení s sledovací proces sítě pomocí prostředí PowerShell"
+title: "Řešení potíží s připojení s sledovací proces sítě Azure – prostředí PowerShell | Microsoft Docs"
+description: "Naučte se používat připojení k řešení potíží s schopností sledovací proces sítě Azure pomocí prostředí PowerShell."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Zkontrolujte připojení s sledovací proces sítě Azure pomocí prostředí PowerShell
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Poradce při potížích připojení s sledovací proces sítě Azure pomocí prostředí PowerShell
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-connectivity-portal.md)
@@ -27,43 +27,15 @@ ms.lasthandoff: 12/21/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Rozhraní API Azure REST](network-watcher-connectivity-rest.md)
 
-Naučte se používat připojení k ověření, pokud lze navázat přímé připojení TCP z virtuálního počítače do daného koncového bodu.
+Další informace o použití připojení řešení Chcete-li ověřit, zda lze vytvořit přímé připojení TCP z virtuálního počítače do daného koncového bodu.
 
 ## <a name="before-you-begin"></a>Než začnete
 
-Tento článek předpokládá, že máte v následujících zdrojích informací:
-
-* Instance sledovací proces sítě v oblasti, které chcete zkontrolovat připojení.
-
-* Zkontrolujte připojení k virtuálním počítačům.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* Instance sledovací proces sítě v oblasti, kterou chcete vyřešte potíže připojením.
+* Virtuální počítače potíží s připojením s.
 
 > [!IMPORTANT]
-> Kontrola připojení vyžaduje rozšíření virtuálního počítače `AzureNetworkWatcherExtension`. Instalaci rozšíření na virtuální počítač s Windows najdete v článku [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Windows](../virtual-machines/windows/extensions-nwa.md) a u virtuálního počítače s Linuxem, navštivte [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Registrace funkce preview
-
-Připojení je aktuálně ve verzi public preview k použití této funkce, které musí být registrováno. Chcete-li to provést, spusťte následující ukázku v prostředí PowerShell:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Chcete-li ověřit, zda že byla registrace úspěšná, spusťte následující ukázku v prostředí Powershell:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-Pokud funkci byla správně zaregistrovány, by měl odpovídat následující výstup:
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
-```
+> Řešení potíží s připojení vyžaduje rozšíření virtuálního počítače `AzureNetworkWatcherExtension`. Instalaci rozšíření na virtuální počítač s Windows najdete v článku [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Windows](../virtual-machines/windows/extensions-nwa.md) a u virtuálního počítače s Linuxem, navštivte [rozšíření virtuálního počítače Azure sítě sledovacích procesů agenta pro Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Zkontrolujte připojení k virtuálnímu počítači
 
@@ -162,7 +134,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Ověření směrování problémy
 
-V příkladu ověří připojení mezi virtuálním počítačem a vzdálený koncový bod. Tento příklad vyžaduje, abyste měli sledovací proces sítě povolené v oblasti obsahující zdrojového virtuálního počítače.  
+Tento příklad zkontroluje připojení mezi virtuálním počítačem a vzdálený koncový bod. Tento příklad vyžaduje, abyste měli sledovací proces sítě povolené v oblasti obsahující zdrojového virtuálního počítače.  
 
 ### <a name="example"></a>Příklad:
 
@@ -279,7 +251,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Zkontrolujte připojení ke koncovému bodu úložiště
 
-Následující příklad Otestuje připojení z virtuálního počítače na účet úložiště blogu. Tento příklad vyžaduje, abyste měli sledovací proces sítě povolené v oblasti obsahující zdrojového virtuálního počítače.  
+Následující příklad ověří připojení z virtuálního počítače k účtu úložiště blogu. Tento příklad vyžaduje, abyste měli sledovací proces sítě povolené v oblasti obsahující zdrojového virtuálního počítače.  
 
 ### <a name="example"></a>Příklad:
 
@@ -301,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 Následujícím kódu json je spustit rutinu předchozí příklad odpověď. Jako cílové místo je dostupná, `ConnectionStatus` vlastnost zobrazuje jako **dostupné**.  Jsou k dispozici podrobnosti týkající se počet skoků potřebná k získání přístupu objektu blob storage a latenci.
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -330,24 +302,8 @@ Hops             : [
                    ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Najít, pokud určité provoz je povolený v nebo z virtuálního počítače navštivte stránky [zkontrolujte IP tok ověření](network-watcher-check-ip-flow-verify-portal.md)
+Zjistit, zda některé provoz může do nebo z virtuálního počítače navštivte stránky [zkontrolujte IP tok ověření](network-watcher-check-ip-flow-verify-portal.md).
 
 Pokud je blokován provoz a neměl by být, najdete v části [spravovat skupiny zabezpečení sítě](../virtual-network/virtual-network-manage-nsg-arm-portal.md) sledovat pravidla zabezpečení sítě skupiny a zabezpečení, které jsou definovány.
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

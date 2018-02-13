@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 48b4e5f2429ce2bd8a875b084694f83e467b5575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Znovu nasaďte virtuální počítač s Linuxem do nového uzlu Azure
 Pokud čelí potíží při řešení potíží s SSH nebo mohou pomoci přístup k aplikaci pro systém Linux virtuálního počítače (VM) v Azure, opětovného nasazení virtuálního počítače. Při opětovném nasazování virtuálního počítače, virtuální počítač přesune do nového uzlu v rámci infrastruktury Azure a pak ho znovu zapne. Možnosti konfigurace a přidružené prostředky zůstanou zachovány. Tento článek ukazuje, jak znovu nasadit virtuální počítač pomocí rozhraní příkazového řádku Azure nebo portálu Azure.
@@ -33,9 +33,9 @@ Můžete znovu nasadit virtuální počítač pomocí jedné z následujících 
 - [portál Azure Portal](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Použití Azure CLI 2.0
-Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se do vaší Azure účet pomocí [az přihlášení](/cli/azure/#login).
+Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se do vaší Azure účet pomocí [az přihlášení](/cli/azure/#az_login).
 
-Opětovné nasazení virtuálního počítače s [az virtuálního počítače znovu ho zaveďte](/cli/azure/vm#redeploy). Následující příklad opětovně nasadí virtuální počítač s názvem *Můjvp* ve skupině prostředků s názvem *myResourceGroup*:
+Opětovné nasazení virtuálního počítače s [az virtuálního počítače znovu ho zaveďte](/cli/azure/vm#az_vm_redeploy). Následující příklad opětovně nasadí virtuální počítač s názvem *Můjvp* ve skupině prostředků s názvem *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

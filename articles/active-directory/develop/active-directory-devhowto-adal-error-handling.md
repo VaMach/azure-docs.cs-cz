@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Chyba při zpracování osvědčené postupy pro klienty Azure Active Directory Authentication Library (ADAL)
 
@@ -58,8 +58,8 @@ Zásadně jsou dva případy AcquireTokenSilent chyb:
 
 Následující pokyny jsou uvedeny příklady pro zpracování ve spojení s ADAL metody chyb: 
 
-- acquireTokenSilentAsync(...)
-- acquireTokenSilentSync(...) 
+- acquireTokenSilentAsync(…)
+- acquireTokenSilentSync(…) 
 - [zastaralé] acquireTokenSilent(...)
 - [zastaralé] acquireTokenByRefreshToken(...) 
 
@@ -102,7 +102,7 @@ catch (AdalException e) {
 
 Následující pokyny jsou uvedeny příklady pro zpracování ve spojení s ADAL metody chyb: 
 
-- acquireTokenSilentSync(...)
+- acquireTokenSilentSync(…)
 - acquireTokenSilentAsync(...)
 - [zastaralé] acquireTokenSilent(...)
 
@@ -208,10 +208,10 @@ Zpracování chyb v nativních aplikací je možné definovat ve dvou případec
 
 Následující pokyny jsou uvedeny příklady pro zpracování ve spojení s všechny AcquireToken(...) tichý režim chyb ADAL metody *s výjimkou*: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
-- AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync(...,UserAssertion,...)   
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion,…)   
 
 Váš kód by být implementováno takto:
 
@@ -252,7 +252,7 @@ catch (AdalException e) {
 
 Následující pokyny jsou uvedeny příklady pro zpracování ve spojení s ADAL metody chyb: 
 
-- acquireToken(..., PromptBehavior.Never)
+- acquireToken(…, PromptBehavior.Never)
 
 Váš kód by být implementováno takto:
 
@@ -344,7 +344,7 @@ Pokud vytváříte webové aplikace .NET, která volá získá token pomocí aut
 
 Následující pokyny jsou uvedeny příklady pro zpracování ve spojení s ADAL metody chyb: 
 
-- AcquireTokenByAuthorizationCodeAsync(...)
+- AcquireTokenByAuthorizationCodeAsync(…)
 
 Váš kód by být implementováno takto:
 
@@ -413,10 +413,10 @@ Pro *všechny* scénáře pro služby aplikací, včetně on-behalf-of:
 
 Následující pokyny jsou uvedeny příklady pro zpracování ve spojení s ADAL metody chyb: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
-- AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync (..., UserAssertion,...)
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion, …)
 
 Váš kód by být implementováno takto:
 
@@ -441,7 +441,7 @@ Pro *on-behalf-of* scénáře pro služby aplikací.
 
 Následující pokyny jsou uvedeny příklady pro zpracování ve spojení s ADAL metody chyb: 
 
-- AcquireTokenAsync (..., UserAssertion,...)
+- AcquireTokenAsync(…, UserAssertion, …)
 
 Váš kód by být implementováno takto:
 
@@ -576,6 +576,7 @@ window.Logging = {
 
 Použijte následující k poskytnutí zpětné vazby a Pomozte nám vylepšit a utvářejí náš obsah části komentáře.
 
+[![Přihlaste se tlačítko][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ Použijte následující k poskytnutí zpětné vazby a Pomozte nám vylepšit a
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[! [Přihlašovací tlačítko] [AAD-přihlášení]] [AAD-Sign-In] [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

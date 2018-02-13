@@ -12,18 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Brána správy dat
 > [!NOTE]
 > Tento článek se týká verze 1 služby Data Factory, která je obecně dostupná (GA). Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [hostovanou na vlastním integrace runtime v verze 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Brána pro správu dat má nyní byl přejmenované jako Self-hosted integrace Runtime.  
 
 Brána pro správu dat je klientský agent, který je nutné nainstalovat v prostředí místní ke kopírování dat mezi úložišti dat cloudu a místně. Místní data podporovaných službou Data Factory úložiště jsou uvedeny v [podporované zdroje dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats) části.
 
@@ -139,10 +142,10 @@ Na úrovni podniková brána firewall je nutné nakonfigurovat následující do
 
 | Názvy domén | Porty | Popis |
 | --- | --- | --- |
-| *. servicebus.windows.net |443, 80 |Používá ke komunikaci s back-end služba pro přesun dat |
-| *. core.windows.net |443 |Použít pro kopírování připravený pomocí objektů Blob v Azure (Pokud je nakonfigurováno)|
-| *. frontend.clouddatahub.net |443 |Používá ke komunikaci s back-end služba pro přesun dat |
-| *. servicebus.windows.net |9350-9354, 5671 |Předávání přes volitelné service bus přes TCP používá Průvodce kopírováním |
+| *.servicebus.windows.net |443, 80 |Používá ke komunikaci s back-end služba pro přesun dat |
+| *.core.windows.net |443 |Použít pro kopírování připravený pomocí objektů Blob v Azure (Pokud je nakonfigurováno)|
+| *.frontend.clouddatahub.net |443 |Používá ke komunikaci s back-end služba pro přesun dat |
+| *.servicebus.windows.net |9350-9354, 5671 |Předávání přes volitelné service bus přes TCP používá Průvodce kopírováním |
 
 
 Na úrovni brány firewall systému Windows jsou obvykle povolené tyto Odchozí porty. Pokud není, můžete nakonfigurovat domén a porty odpovídajícím způsobem v počítači brány.
@@ -188,7 +191,7 @@ Brána pro správu dat hostitelská služba restartuje automaticky po uložení 
 Po Brány byl úspěšně registrován, pokud chcete zobrazit nebo aktualizovat nastavení proxy serveru, použijte Správce konfigurace brány pro správu dat.
 
 1. Spusťte **Správce konfigurace brány pro správu dat**.
-2. Přepnout **nastavení** kartě.
+2. Přepněte na kartu **Nastavení**.
 3. Klikněte na tlačítko **změnu** na odkaz v **server Proxy protokolu HTTP** části spustíte **nastavení proxy serveru HTTP** dialogové okno.  
 4. Po kliknutí **Další** tlačítko se zobrazí dialog s upozorněním žádostí o oprávnění k uložení nastavení proxy serveru a restartujte hostitelskou službu brány.
 
@@ -315,7 +318,7 @@ Domovská stránka umožňuje provést následující akce:
 * **Naplánovat aktualizace** v určitém čase dny.
 * Zobrazit datum, kdy byl brány **poslední aktualizace**.
 
-### <a name="settings-page"></a>Nastavení stránky
+### <a name="settings-page"></a>Stránka Nastavení
 Stránka nastavení umožňuje provádět následující akce:
 
 * Zobrazit, změnit a exportujte **certifikát** používá bránu. Tento certifikát se používá k šifrování přihlašovacích údajů zdroje dat.

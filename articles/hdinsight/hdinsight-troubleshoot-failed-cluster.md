@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Řešení potíží s pomalým nebo selhání clusteru HDInsight
+# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Řešení potíží s pomalým clusterem HDInsight nebo jeho selháním
 
 Pokud cluster služby HDInsight je pomalý nebo selhání s kódem chyby, máte několik možností pro řešení potíží. Pokud vaše úlohy trvá delší dobu, než se očekávalo, nebo pomalé odezvy se zobrazuje obecně, může být selhání proti proudu z clusteru, například služby, na kterých běží clusteru. Nejčastější příčinou těchto zpomalení je však dostatek škálování. Při vytváření nového clusteru HDInsight, vyberte odpovídající [velikostí virtuálních počítačů](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
@@ -87,7 +87,7 @@ Každý cluster HDInsight spoléhá na různé služby Azure a na open-source so
 
 Apache Ambari poskytuje správu a sledování clusteru HDInsight pomocí webového uživatelského rozhraní a rozhraní REST API. Ambari je obsažena v clusterech HDInsight se systémem Linux. Vyberte **řídicí panel clusteru** podokně na stránky portálu Azure HDInsight.  Vyberte **řídicí panel clusteru HDInsight** podokně otevřete uživatelské rozhraní Ambari, a zadejte přihlašovací údaje clusteru.  
 
-![Uživatelské rozhraní Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
 
 Otevřete seznam služby zobrazení, vyberte **zobrazení Ambari** na stránce portálu Azure.  Tento seznam závisí na které knihovny jsou nainstalovány. Může se zobrazit například správce front YARN, zobrazení Hive a zobrazení Tez.  Vyberte odkaz zobrazíte informace o služby a konfiguraci služby.
 
@@ -112,7 +112,7 @@ Pokud se setkáváte s zpomalení v clusteru, zvažte, restartování vašim slu
 
 Clustery HDInsight se skládají z různých typů uzlů systémem instancí virtuálního počítače. Každý uzel se dá sledovat vyčerpání prostředků, problémy se síťovým připojením a jiné problémy, které mohou být zpomaleny clusteru. Každý cluster obsahuje dva uzly head a většinu typů clusteru obsahovat kombinaci pracovního procesu a uzly okraj. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+Popis různých uzlech používá každý typ clusteru najdete v tématu [nastavit clusterů v HDInsight Hadoop, Spark, Kafka a dalšími](hdinsight-hadoop-provision-linux-clusters.md).
 
 Následující části popisují postup kontroly stavu každého uzlu a celkové clusteru.
 
@@ -134,7 +134,7 @@ $ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton
 
 Ambari zobrazí výstrahu zobrazující hostitele, na kterých je služba WebHCat dolů. Můžete zkusit zprovoznit službu WebHCat zpět restartováním služby na jeho hostitele.
 
-![Restartujte WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
+![Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
 
 Pokud WebHCat server stále nepochází, zkontrolujte v protokolu operations zprávy o selhání. Podrobné informace, zkontrolujte `stderr` a `stdout` soubory odkazuje na uzlu.
 
@@ -255,7 +255,7 @@ Výpisy haldy obsahovat snímek paměti aplikace, včetně hodnot proměnných v
 
 Clustery prostředí HDInsight jsou předem nakonfigurovaná s výchozím nastavením pro související služby, jako je například Hadoop, Hive, HBase a tak dále. V závislosti na typu clusteru, konfigurace hardwaru, jeho počet uzlů, typy úloh, kterou používáte a data, že pracujete s (a jak probíhá zpracování dat), budete muset optimalizovat konfiguraci.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+Podrobné pokyny k optimalizaci výkonu konfigurace pro většinu scénářů najdete v tématu [optimalizovat konfigurace clusteru pomocí Ambari](hdinsight-changing-configs-via-ambari.md). Při použití Spark, najdete v části [úlohy Spark optimalizace výkonu](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Krok 7: Reprodukujte selhání na jiný cluster
 

@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Pokud podmínka vyhodnocena jako aktivita v Azure Data Factory
-Pokud podmínky aktivity nabízí stejné funkce, která Pokud příkaz obsahuje v programovacích jazyků. Vyhodnotí sadu aktivit, pokud je podmínka vyhodnocena jako `true` a další sady aktivit, pokud je podmínka vyhodnocena jako `false`. 
+Aktivita podmínky If funguje stejně jako příkaz if v programovacích jazycích. Vyhodnotí sadu aktivit, když se podmínka vyhodnotí jako `true`, a jinou sadu aktivit, když se podmínka vyhodnotí jako `false`. 
 
 
 > [!NOTE]
@@ -76,7 +76,7 @@ výraz | Výraz, který se musí vyhodnotit na hodnotu true nebo false | Ano
 ifTrueActivities | Sada aktivit, které jsou spouštěny, když je výsledkem výrazu `true`. | Ano
 ifFalseActivities | Sada aktivit, které jsou spouštěny, když je výsledkem výrazu `false`. | Ano
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 Kanál v tomto příkladu kopíruje data ze vstupní složky do výstupní složky. Hodnota parametru kanálu je určen do výstupní složky: routeSelection. Pokud routeSelection hodnotu true, je k outputPath1 zkopírovat data. A pokud routeSelection hodnotu false, ale data se zkopírují do outputPath2. 
 
 > [!NOTE]
@@ -290,7 +290,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v části Další aktivity toku řízení podporovaných službou Data Factory: 
 
 - [Aktivita spuštění kanálu](control-flow-execute-pipeline-activity.md)

@@ -1,5 +1,5 @@
 ---
-title: "Přehled škálovacích sad virtuálních počítačů Azure | Microsoft Docs"
+title: "Přehled škálovacích sad virtuálních počítačů Azure | Dokumentace Microsoftu"
 description: "Přečtěte si podrobnosti o škálovacích sadách virtuálních počítačů Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co jsou škálovací sady virtuálních počítačů v Azure?
 Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů. Protože jsou všechny virtuální počítače ve škálovací sadě nakonfigurované stejně, podporují tyto sady skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. Umožňují snadněji budovat velkokapacitní služby s velkým výpočetním výkonem pro velké objemy dat a kontejnery úloh.
@@ -35,10 +35,7 @@ Více se o škálovacích sadách dozvíte také v těchto videích:
 ## <a name="creating-and-managing-scale-sets"></a>Vytváření a správa škálovacích sad
 Škálovací sadu můžete vytvořit na webu [Azure Portal](https://portal.azure.com) – vyberte položku **Nový** a zadejte text **škálovací** na vyhledávacím panelu. Ve výsledcích se objeví **Škálovací sada virtuálních počítačů**. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. Máte také možnost nastavit základní pravidla automatického škálování v závislosti na využití procesoru. Ke správě škálovací sady můžete použít Azure Portal, [rutiny Azure PowerShellu](virtual-machine-scale-sets-windows-manage.md) nebo Azure CLI 2.0.
 
-Škálovací sady je možné nasadit do [zóny dostupnosti](../availability-zones/az-overview.md).
-
-> [!NOTE]
-> V současné době škálovací sady virtuálních počítačů podporují nasazení pouze do jediné zóny dostupnosti. Nasazení do více zón se bude podporovat v budoucnu.
+Škálovací sady je možné nasadit napříč [zónami dostupnosti](virtual-machine-scale-sets-use-availability-zones.md).
 
 Škálovací sady můžete definovat a nasazovat pomocí šablon JSON a [rozhraní REST API](https://msdn.microsoft.com/library/mt589023.aspx), podobně jako jednotlivé virtuální počítače v Azure Resource Manageru. Proto můžete použít všechny standardní metody nasazení v Azure Resource Manageru. Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -52,7 +49,7 @@ Pokud chcete udržovat konstantní výkon aplikace, můžete automaticky zvyšov
 
 Jako základní pravidla automatického škálování můžete použít metriky výkonu hostitele, jako je využití procesoru nebo vstupně-výstupní operace disku. Metriky založené na hostiteli jsou dostupné automaticky, bez nutnosti spuštění dalších agentů nebo rozšíření, které byste museli instalovat a konfigurovat. Pravidla automatického škálování využívající metriky hostitele je možné vytvořit pomocí některého z následujících nástrojů:
 
-- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [portál Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -94,7 +91,7 @@ Pokud potřebujete zobrazit nebo upravit základní definici JSON prostředku Az
 Tato část uvádí některé typické scénáře použití škálovacích sad. Tyto scénáře využívají některé služby Azure vyšších úrovní (třeba Batch, Service Fabric nebo Container Service).
 
 * **Použití RDP nebo SSH k připojení k instancím škálovací sady:** Škálovací sada se vytvoří ve virtuální síti a jednotlivým virtuálním počítačům ve škálovací sadě se ve výchozím nastavení nebudou přidělovat veřejné IP adresy. Díky této zásadě se vyhnete nákladům a administrativní režii spojeným s přidělováním samostatných veřejných IP adres všem uzlům ve výpočetní síti. Pokud potřebujete přímá externí připojení k virtuálním počítačům škálovací sady, můžete nakonfigurovat, aby škálování sada automaticky přiřazovala novým virtuálním počítačům veřejné IP adresy. Případně se k virtuálním počítačům můžete připojit z jiných prostředků ve virtuální síti, kterým je možné přidělit veřejné IP adresy, jako jsou nástroje pro vyrovnávání zatížení nebo samostatné virtuální počítače. 
-* **Připojení k virtuálním počítačům pomocí pravidel pro překlad adres (NAT):** Můžete vytvořit veřejnou IP adresu, přiřadit ji k nástroji pro vyrovnávání zatížení a definovat fond příchozího překladu adres. Tímto způsobem namapujete porty u IP adresy na porty virtuálních počítačů ve škálovací sadě. Například:
+* **Připojení k virtuálním počítačům pomocí pravidel pro překlad adres (NAT):** Můžete vytvořit veřejnou IP adresu, přiřadit ji k nástroji pro vyrovnávání zatížení a definovat fond příchozího překladu adres. Tímto způsobem namapujete porty u IP adresy na porty virtuálních počítačů ve škálovací sadě. Příklad:
   
   | Zdroj | Zdrojový port | Cíl | Cílový port |
   | --- | --- | --- | --- |

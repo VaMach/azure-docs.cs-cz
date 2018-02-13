@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Postup nasazení služby Windows Hybrid Runbook Worker
 
@@ -50,14 +50,14 @@ Zkontrolujte následující informace ohledně [požadavky na hardware a softwar
 
 Proveďte následující kroky k automatizaci instalace a konfigurace role Windows hybridní pracovní proces.  
 
-1. Stažení *New-OnPremiseHybridWorker.ps1* skript z [Galerie prostředí PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) přímo v počítači s rolí hybridní pracovní proces Runbooku nebo z jiného počítače ve vašem prostředí a zkopírujte ho do pracovního procesu.  
+1. Stažení *New-OnPremiseHybridWorker.ps1* skript z [Galerie prostředí PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/) přímo v počítači s rolí hybridní pracovní proces Runbooku nebo z jiného počítače ve vašem prostředí a zkopírujte ho do pracovního procesu.  
 
     *New-OnPremiseHybridWorker.ps1* skriptu během provádění vyžaduje následující parametry:
 
   * *AutomationAccountName* (povinné) – název účtu Automation.  
   * *Název skupiny prostředků* (povinné) - název skupiny prostředků spojené s vaším účtem Automation.  
   * *HybridGroupName* (povinné) - název skupiny hybridní pracovní proces Runbooku, který zadáte jako cíl pro sady runbook, podporuje tento scénář. 
-  *  *ID předplatného* (povinné) – Id předplatného Azure, který váš účet automatizace je v.
+  *  *ID předplatného* (povinné) – ID předplatného Azure, který váš účet automatizace je v.
   *  *WorkspaceName* (volitelné) – název pracovního prostoru OMS.  Pokud nemáte pracovním prostorem OMS, skript se vytvoří a nakonfiguruje jeden.  
 
      > [!NOTE]
@@ -76,7 +76,7 @@ Proveďte následující kroky k automatizaci instalace a konfigurace role Windo
 
 4. Zobrazí se výzva k souhlas k instalaci **NuGet** a zobrazí se výzva k ověření pomocí přihlašovacích údajů Azure.<br><br> ![Spuštění skriptu New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. Po dokončení skriptu skupinám Hybrid Worker okna se zobrazí nové skupiny a počet členů, nebo pokud existující skupiny, se zvýší počet členů.  Můžete vybrat skupinu ze seznamu na **skupinám Hybrid Worker** a vyberte **hybridní pracovní procesy** dlaždici.  Na **hybridní pracovní procesy** okně uvidíte každého člena skupiny uvedené.  
+5. Po dokončení skriptu skupinám Hybrid Worker stránka se zobrazí nové skupiny a počet členů, nebo pokud existující skupiny, se zvýší počet členů.  Můžete vybrat skupinu ze seznamu na **skupinám Hybrid Worker** a vyberte **hybridní pracovní procesy** dlaždici.  Na **hybridní pracovní procesy** stránky, uvidíte každého člena skupiny uvedené.  
 
 ### <a name="manual-deployment"></a>Ruční nasazení 
 
@@ -113,13 +113,13 @@ Spusťte **Add-HybridRunbookWorker** rutiny pomocí následující syntaxe:
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-Můžete získat požadované informace o této rutině z **Správa klíčů** okno na portálu Azure.  Otevřete toto okno výběrem **klíče** možnost z **nastavení** okno ve vašem účtu Automation.
+Můžete získat požadované informace o této rutině z **Správa klíčů** na portálu Azure.  Otevřete tuto stránku výběrem **klíče** možnost z **nastavení** stránky ve vašem účtu Automation.
 
 ![Přehled hybridních služby Runbook Worker](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** je název skupinu hybridních pracovních procesů Runbook. Pokud tato skupina již existuje v účtu automation, je aktuální počítač přidán do ní.  Pokud již neexistuje, pak se přidá.
-* **Koncový bod** je **URL** pole **Správa klíčů** okno.
-* **Token** je **primární přístupový klíč** v **Správa klíčů** okno.  
+* **Koncový bod** je **URL** pole **Správa klíčů** stránky.
+* **Token** je **primární přístupový klíč** v **Správa klíčů** stránky.  
 
 Použití **-Verbose** přepínač s **Add-HybridRunbookWorker** získat podrobné informace o instalaci.
 
@@ -143,8 +143,8 @@ Hybridní pracovní proces Runbooku závisí na agenta Microsoft Monitoring Agen
 3. Služba Microsoft Monitoring Agent není spuštěna.  
     Jestliže není spuštěna služba Microsoft Monitoring Agent Windows, nebude hybridní pracovní proces Runbooku komunikaci se službou Azure Automation.  Ověřte agenta běží tak, že zadáte následující příkaz prostředí PowerShell: `get-service healthservice`.  Pokud je služba zastavená, zadejte následující příkaz v prostředí PowerShell spustit službu: `start-service healthservice`.  
 
-4. V **aplikace a Správce služby Logs\Operations** protokolu událostí, zobrazí události 4502 a obsahující EventMessage **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** s následující popis: *certifikát předložený službu <wsid>. oms.opinsights.azure.com nevydala certifikační autorita používaná pro služby Microsoft. Obraťte se na správce sítě a zjistěte, zda používají proxy server, který zabrání komunikace TLS/SSL. V článku KB3126513 obsahuje další informace o připojení k řešení potíží.*
-    Může být příčinou vašeho proxy serveru nebo síťové komunikace blockking brány firewall do služby Microsoft Azure.  Ověřte, zda že má počítač odchozí přístup k *.azure automation.net na porty 443.
+4. V **aplikace a Správce služby Logs\Operations** protokolu událostí se zobrazí události 4502 a EventMessage obsahující **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**s následující popis: *certifikát předložený službu \<wsid\>. oms.opinsights.azure.com nevydala certifikační autorita používaná pro služby společnosti Microsoft. Obraťte se na správce sítě a zjistěte, zda používají proxy server, který zabrání komunikace TLS/SSL. V článku KB3126513 obsahuje další informace o připojení k řešení potíží.*
+    Příčinou může být proxy serveru nebo síťové brány firewall blokuje komunikaci s Microsoft Azure.  Ověřte, zda že má počítač odchozí přístup k *.azure automation.net na porty 443.
 
 Protokoly se ukládají místně na každém hybridní pracovní proces na C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Můžete zkontrolovat, zda existují jakékoli upozornění nebo chybové události zapsané do **aplikace a služby Logs\Microsoft-SMA\Operations** a **aplikace a Správce služby Logs\Operations** protokolu událostí, které by signalizovat připojení nebo jiné problém ovlivňující registrace role Azure Automation nebo problém při provádění operací se Normální.  
 

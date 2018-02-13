@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Konfigurace koncových bodů služby virtuální sítě
 
@@ -67,7 +67,7 @@ Přihlaste se k Azure pomocí svého účtu Azure. Pokud účet Azure nemáte, m
 
 Nastavení | Hodnota
 ------- | -----
-Name (Název)    | myVnet
+Název    | myVnet
 Adresní prostor | 10.0.0.0/16
 Název podsítě|mySubnet
 Rozsah adres podsítě|10.0.0.0/24
@@ -75,7 +75,7 @@ Skupina prostředků|Ponechte vybranou možnost Vytvořit novou a zadejte název
 Umístění|Libovolná podporovaná oblast, například Austrálie – východ.
 Předplatné|Vyberte své předplatné.
 __Koncové body služby__|Povoleno
-__Služby__ | Vyberte jednu nebo všechny dostupné služby. V období Preview jsou podporované služby __Microsoft.Storage a Microsoft.Sql__.
+__Služby__ | Vyberte jednu nebo všechny dostupné služby. Podporované služby: __Microsoft.Storage a Microsoft.Sql__.
 
 Vyberte služby pro koncové body: ![Výběr služeb pro koncové body služby](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Výstup: 
-Name (Název) | ID | Typ
+Název | ID | Typ
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -387,7 +387,7 @@ Pokud chce uživatel svázat prostředky služeb Azure s virtuální sítí, mus
 
 Další informace o [předdefinovaných rolích](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) a přiřazení konkrétních oprávnění k [vlastním rolím](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-Virtuální sítě a prostředky služeb Azure můžou být ve stejném předplatném nebo v různých předplatných. Pokud jsou v různých předplatných, v tomto období Preview musí být prostředky ve stejném tenantovi Active Directory (AD).
+Virtuální sítě a prostředky služeb Azure můžou být ve stejném předplatném nebo v různých předplatných. Pokud jsou v různých předplatných, musí být prostředky ve stejném tenantovi Active Directory (AD).
 
 ## <a name="next-steps"></a>Další kroky
 

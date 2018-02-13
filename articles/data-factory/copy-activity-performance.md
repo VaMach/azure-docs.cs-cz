@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Zkopírujte aktivity výkonu a vyladění Průvodce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -191,8 +191,8 @@ Konfigurace **enableStaging** nastavení k určení, zda chcete data, která maj
 | Vlastnost | Popis | Výchozí hodnota | Požaduje se |
 | --- | --- | --- | --- |
 | **enableStaging** |Zadejte, zda chcete zkopírovat data prostřednictvím jako dočasné pracovní úložiště. |False |Ne |
-| **linkedServiceName** |Zadejte název [azurestorage](connector-azure-blob-storage.md#linked-service-properties) propojené služby, která odkazuje na instanci úložiště, který používáte jako dočasné pracovní úložiště. <br/><br/> Úložiště nelze použít s sdílený přístupový podpis načíst data do SQL Data Warehouse pomocí PolyBase. Můžete ji v jiných scénářích. |Není k dispozici |Ano, když **enableStaging** nastaven na hodnotu TRUE |
-| **Cesta** |Zadejte cestu úložiště objektů Blob, která má obsahovat pracovních dat. Pokud nezadáte cestu, služba vytvoří kontejner pro uložení dočasná data. <br/><br/> Zadejte cestu, pouze v případě, že používáte úložiště s sdílený přístupový podpis, nebo vyžadujete dočasná data v konkrétní umístění. |Není k dispozici |Ne |
+| **linkedServiceName** |Zadejte název [azurestorage](connector-azure-blob-storage.md#linked-service-properties) propojené služby, která odkazuje na instanci úložiště, který používáte jako dočasné pracovní úložiště. <br/><br/> Úložiště nelze použít s sdílený přístupový podpis načíst data do SQL Data Warehouse pomocí PolyBase. Můžete ji v jiných scénářích. |neuvedeno |Ano, když **enableStaging** nastaven na hodnotu TRUE |
+| **path** |Zadejte cestu úložiště objektů Blob, která má obsahovat pracovních dat. Pokud nezadáte cestu, služba vytvoří kontejner pro uložení dočasná data. <br/><br/> Zadejte cestu, pouze v případě, že používáte úložiště s sdílený přístupový podpis, nebo vyžadujete dočasná data v konkrétní umístění. |neuvedeno |Ne |
 | **enableCompression** |Určuje, zda data by měl být komprimují předtím, než je zkopírován do cílové. Toto nastavení snižuje objem přenášených dat. |False |Ne |
 
 Zde je ukázka definice aktivitou kopírování pomocí vlastnosti, které jsou popsané v předchozí tabulce:
@@ -247,7 +247,7 @@ Doporučujeme, aby je provést tyto kroky pro optimalizaci výkonu služby Data 
      * [Škálovatelnost vlastním hostováním integrace modulu Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Integrace s vlastním hostováním Runtime](#considerations-for-self-hosted-integration-runtime)
    * [Zdroj](#considerations-for-the-source)
-   * [Podřízený](#considerations-for-the-sink)
+   * [Sink](#considerations-for-the-sink)
    * [Serializace a deserializace](#considerations-for-serialization-and-deserialization)
    * [Komprese](#considerations-for-compression)
    * [Mapování sloupce](#considerations-for-column-mapping)
@@ -395,7 +395,7 @@ Tady je výkonu sledování a ladění odkazy pro některé podporované datové
 * Místní SQL Server: [monitorování a optimalizace výkonu](https://msdn.microsoft.com/library/ms189081.aspx)
 * Místní souborový server: [optimalizace výkonu pro souborové servery](https://msdn.microsoft.com/library/dn567661.aspx)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v aktivitě kopírování článcích:
 
 - [Kopie aktivity – přehled](copy-activity-overview.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Spravovat aplikace a služby jako prostředky Azure Resource Manager
 
@@ -66,7 +66,7 @@ Následující fragment kódu ukazuje různé druhy prostředků, které je mož
 1. Příprava pro nasazení šablony Resource Manageru vašeho clusteru. V tématu [vytvořit cluster Service Fabric pomocí Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) pro další informace o tomto.
 2. Vezměte v úvahu některé z aplikací, které plánujete nasadit v clusteru. Dochází k žádnému počítači, který bude vždy spuštěna, jiné aplikace může trvat, než se závislostí? Plánování pro nasazení žádné zásady správného řízení clusteru nebo instalační program aplikace? Tyto řazení aplikací se nejlépe spravují pomocí šablony Resource Manageru, jak je popsáno výše. 
 3. Jakmile budete mít započítáno na jaké aplikace mají být nasazeny tímto způsobem, aplikace nemusí být zabalené, metoda ZIP a put ve sdílené složce. Sdílené složky musí být přístupné přes koncový bod REST pro Azure Resource Manager využívat během nasazení.
-4. V šabloně Resource Manager, níže deklarace vašeho clusteru popisují vlastnosti pro každou aplikaci. Tyto vlastnosti zahrnují počet replik nebo instancí a všechny řetězy závislosti mezi prostředky (jinými aplikacemi nebo službami). Seznam vlastností, komplexní najdete v tématu [specifikace Swagger rozhraní API REST](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Poznámka: Tato metoda nenahrazuje aplikace nebo služba manifesty, ale spíš popisuje některé co je v nich jako součást clusteru šablony Resource Manageru. Zde je ukázka šablony, která zahrnuje nasazení bezstavové služby *Service1* a stavové služby *Service2* jako součást *Application1*:
+4. V šabloně Resource Manager, níže deklarace vašeho clusteru popisují vlastnosti pro každou aplikaci. Tyto vlastnosti zahrnují počet replik nebo instancí a všechny řetězy závislosti mezi prostředky (jinými aplikacemi nebo službami). Seznam vlastností, komplexní najdete v tématu [specifikace Swagger rozhraní API REST](https://aka.ms/sfrpswaggerspec). Poznámka: Tato metoda nenahrazuje aplikace nebo služba manifesty, ale spíš popisuje některé co je v nich jako součást clusteru šablony Resource Manageru. Zde je ukázka šablony, která zahrnuje nasazení bezstavové služby *Service1* a stavové služby *Service2* jako součást *Application1*:
 
   ```json
   {
@@ -77,62 +77,62 @@ Následující fragment kódu ukazuje různé druhy prostředků, které je mož
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },
@@ -263,7 +263,7 @@ Následující fragment kódu ukazuje různé druhy prostředků, které je mož
 Pokud váš cluster je již v provozu a získat některé aplikace, zda chcete spravovat jako správce prostředků prostředky jsou už nasazené, místo odebrání aplikací a jejich opětovného nasazení, můžete použít PUT volání pomocí stejné rozhraní API do mají aplikace potvrdí jako prostředky Resource Manager. 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Použití [Service Fabric rozhraní příkazového řádku](service-fabric-cli.md) nebo [prostředí PowerShell](service-fabric-deploy-remove-applications.md) nasazení dalších aplikací do clusteru. 
 * [Upgrade clusteru Service Fabric](service-fabric-cluster-upgrade.md)

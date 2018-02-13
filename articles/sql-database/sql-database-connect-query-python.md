@@ -15,15 +15,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/09/2017
 ms.author: carlrab
-ms.openlocfilehash: f7496c7b78449d5ceae861dc0daac607acdb1f84
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bb3396c95d884f0ad90e2d1c07209fecd87ece15
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Použití Pythonu k dotazování databáze SQL Azure
 
- Tento rychlý start ukazuje použití [Pythonu](https://python.org) pro připojení k databázi SQL Azure a použití příkazů jazyka Transact-SQL k dotazování dat.
+ Tento rychlý start ukazuje použití [Pythonu](https://python.org) pro připojení k databázi SQL Azure a použití příkazů jazyka Transact-SQL k dotazování dat. Další podrobnosti o sadě sdk najdete v naší [referenční](https://docs.microsoft.com/python/api/overview/azure/sql) dokumentaci, [příkladu](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) pyodbc a úložišti GitHub [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/).
 
 ## <a name="prerequisites"></a>Požadavky
 

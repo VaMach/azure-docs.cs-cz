@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes na kurz pro Azure – nasazení aplikace"
-description: "Kurz AKS – nasazení aplikace"
+title: "Kurz Kubernetes v Azure – Nasazení aplikace"
+description: "Kurz AKS – Nasazení aplikace"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,62 +9,62 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 33725eb64399f446ff540a36f702c80107958242
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Spuštění aplikace v Azure Container Service (AKS)
+# <a name="run-applications-in-azure-container-service-aks"></a>Spouštění aplikací ve službě Azure Container Service (AKS)
 
-V tomto kurzu součástí čtyři osm, vzorová aplikace je nasazený do clusteru s podporou Kubernetes. Dokončit krokům patří:
+V tomto kurzu, který je čtvrtou částí osmidílné série, se ukázková aplikace nasadí do clusteru Kubernetes. Mezi dokončené kroky patří:
 
 > [!div class="checklist"]
-> * Soubory manifestu Kubernetes aktualizace
+> * Aktualizace souborů manifestu Kubernetes
 > * Spuštění aplikace v Kubernetes
 > * Testování aplikace
 
-V následujících kurzech této aplikace je škálovat na více systémů, aktualizovat, a Operations Management Suite konfigurované pro monitorování Kubernetes clusteru.
+V dalších kurzech se u této aplikace horizontálně navýší kapacita, aktualizuje se a nakonfiguruje se Operations Management Suite pro monitorování clusteru Kubernetes.
 
-Tento kurz předpokládá základní znalosti o Kubernetes koncepty, podrobné informace o Kubernetes najdete [Kubernetes dokumentace][kubernetes-documentation].
+V tomto kurzu se předpokládá základní znalost konceptů Kubernetes. Podrobné informace o Kubernetes najdete v [dokumentaci ke Kubernetes][kubernetes-documentation].
 
 ## <a name="before-you-begin"></a>Než začnete
 
-V předchozí kurzy aplikace byla zabalené do kontejneru image, tuto bitovou kopii byl odeslán do registru kontejner Azure a Kubernetes cluster byla vytvořena. 
+V předchozích kurzech se aplikace zabalila do image kontejneru, tato image se odeslala do Azure Container Registry a vytvořil se cluster Kubernetes. 
 
-K dokončení tohoto kurzu, budete potřebovat předem vytvořené `azure-vote-all-in-one-redis.yaml` Kubernetes soubor manifestu. Tento soubor byl stažen se zdrojovým kódem aplikace v předchozí kurzu. Ověřte, že máte klonovat úložiště a že jste změnili adresáře do klonovaný úložišti.
+K dokončení tohoto kurzu potřebujete předem vytvořený soubor manifestu Kubernetes `azure-vote-all-in-one-redis.yaml`. Tento soubor se stáhnul se zdrojovým kódem aplikace v předchozí kurzu. Ověřte, že jste naklonovali úložiště a že jste změnili adresáře na klonované úložiště.
 
-Pokud se ještě provést tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image][aks-tutorial-prepare-app].
+Pokud jste tyto kroky neprovedli a chcete si je projít, vraťte se ke [kurzu 1 – Vytváření imagí kontejneru][aks-tutorial-prepare-app].
 
 ## <a name="update-manifest-file"></a>Aktualizace souboru manifestu
 
-V tomto kurzu jsou využívány Azure kontejneru registru (ACR) pro uložení image kontejneru. Než spustíte aplikaci, je třeba aktualizovat v souboru manifestu Kubernetes název ACR přihlášení serveru.
+V tomto kurzu se Azure Container Registry (ACR) používá k uložení image kontejneru. Před spuštěním aplikace je potřeba v souboru manifestu Kubernetes aktualizovat název přihlašovacího serveru ACR.
 
-Získat název ACR přihlášení serveru s [az acr seznamu] [ az-acr-list] příkaz.
+Název přihlašovacího serveru ACR získáte pomocí příkazu [az acr list][az-acr-list].
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Soubor manifestu musí být předem vytvořené s názvem serveru přihlášení `microsoft`. V každém textovém editoru otevřete soubor. V tomto příkladu je soubor otevřít s `vi`.
+V předem vytvořeném souboru manifestu se jako název přihlašovacího serveru používá `microsoft`. Otevřete tento soubor pomocí libovolného textového editoru. V tomto příkladu se soubor otevírá pomocí `vi`.
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Nahraďte `microsoft` s název ACR přihlášení serveru. Tato hodnota je nalezen na řádku **47** souboru manifestu.
+Místo `microsoft` použijte název přihlašovacího serveru ACR. Tuto hodnotu najdete na řádku **47** souboru manifestu.
 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
-Uložte a zavřete soubor.
+Uložte soubor a zavřete ho.
 
 ## <a name="deploy-application"></a>Nasazení aplikace
 
-Použití [kubectl vytvořit] [ kubectl-create] příkaz ke spuštění aplikace. Tento příkaz analyzuje souboru manifestu a vytváří objekty definované Kubernetes.
+Pomocí příkazu [kubectl create][kubectl-create] spusťte aplikaci. Tento příkaz analyzuje soubor manifestu a vytvoří definované objekty Kubernetes.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yaml
@@ -79,11 +79,11 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-application"></a>Testování aplikace
+## <a name="test-application"></a>Otestování aplikace
 
-A [Kubernetes služby] [ kubernetes-service] je vytvořen, který zpřístupňuje aplikace k Internetu. Tento proces může trvat několik minut. 
+Vytvoří se [služba Kubernetes][kubernetes-service], která zveřejní aplikaci na internetu. Tento proces může trvat několik minut. 
 
-Chcete-li sledovat průběh, použijte [kubectl získat služby] [ kubectl-get] s `--watch` argument.
+Pomocí příkazu [kubectl get service][kubectl-get] s argumentem `--watch` můžete sledovat průběh.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -101,23 +101,23 @@ Jakmile se stav adresy *EXTERNAL-IP* změní ze stavu *Probíhá* na hodnotu *IP
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-Informace o aplikaci, přejděte na externí IP adresu.
+Pokud se chcete na aplikaci podívat, přejděte na externí IP adresu.
 
 ![Obrázek clusteru Kubernetes v Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu aplikace Azure hlas nasazená do clusteru s podporou Kubernetes v AKS. Dokončené úkoly patří:  
+V tomto kurzu se aplikace Azure Vote nasadila do clusteru Kubernetes ve službě AKS. Mezi dokončené úlohy patří:  
 
 > [!div class="checklist"]
-> * Stáhnout soubory manifestu Kubernetes
-> * Spusťte aplikaci v Kubernetes
-> * Testování aplikace
+> * Stažení souborů manifestu Kubernetes
+> * Spuštění aplikace v Kubernetes
+> * Otestování aplikace
 
-Přechodu na v dalším kurzu se dozvíte o škálování Kubernetes aplikace a podpůrné infrastruktuře Kubernetes. 
+V dalším kurzu se dozvíte, jak škálovat aplikaci Kubernetes i příslušnou infrastrukturu Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Škálování Kubernetes aplikace a infrastrukturu][aks-tutorial-scale]
+> [Škálování aplikace a infrastruktury Kubernetes][aks-tutorial-scale]
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

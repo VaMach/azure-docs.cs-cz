@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Přehled služby Azure bez serveru s funkcí a Logic Apps
 
@@ -41,13 +41,13 @@ Pokud chcete rovnou začít používat Azure Functions, začněte tématem [Vytv
 
 Azure Logic Apps poskytuje způsob, jak zjednodušit a implementovat škálovatelné integrace a pracovních postupů v cloudu. Poskytuje vizuální návrhář modelu a automatizaci jako řadu kroků volat pracovní postup.  Existují [mnoho konektory](../connectors/apis-list.md) přes cloud a místní služby rychle připojení bez serveru aplikace pro jiná rozhraní API.  Aplikace logiky začíná triggerem (například „Když je přidán účet do aplikace Dynamics CRM“) a po jeho spuštění může začít mnoho kombinací akcí, převodů a podmíněné logiky.  Služba Logic Apps je je služba skvělou volbou při různých Azure Functions v procesu - Orchestrace, zejména v případě, že proces vyžaduje interakci s externím systému nebo rozhraní API.
 
-Chcete-li začít s Logic Apps, můžete začít s [vytvoření první aplikace logiky](logic-apps-create-a-logic-app.md).  Pokud hledáte další odborné informace o Logic Apps, přečtěte si téma [referenční informace pro vývojáře](logic-apps-workflow-actions-triggers.md).
+Chcete-li začít s Logic Apps, můžete začít s [vytvoření první aplikace logiky](quickstart-create-first-logic-app-workflow.md).  Pokud hledáte další odborné informace o Logic Apps, přečtěte si téma [referenční informace pro vývojáře](logic-apps-workflow-actions-triggers.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Jak můžete vytvořit a nasadit bez serveru aplikace v Azure?
 
 Azure poskytuje bohatou sadu nástrojů pro vývoj, nasazení a správu aplikací bez serveru.  Aplikace se dají vytvářet přímo na portálu Azure nebo s [tooling ze sady Visual Studio](logic-apps-serverless-get-started-vs.md).  Jakmile aplikace byla vytvořena, může být [nasadit okamžitě](logic-apps-create-deploy-template.md).  Azure poskytuje také monitorování pro aplikace, bez serveru.  Toto monitorování je přístupná z portálu Azure, prostřednictvím rozhraní API nebo sady SDK nebo pomocí integrovaného nástroje OMS a Application Insights.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Začínáme sestavení bez serveru aplikace v sadě Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Vytvořte zákazníka přehledný řídicí panel s bez serveru](logic-apps-scenario-social-serverless.md)

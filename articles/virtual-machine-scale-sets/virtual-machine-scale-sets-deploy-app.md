@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Nasazení aplikace na sady škálování virtuálního počítače
 Ke spuštění aplikací v instancích virtuálního počítače (VM) v sadě škálování, musíte nejprve nainstalovat součásti aplikace a požadované soubory. Tento článek představuje způsoby, jak vytvořit vlastní image virtuálního počítače pro instance v škálování nastavit nebo automatické spouštění skriptů instalace v existující instance virtuálních počítačů. Také zjistíte, jak spravovat aplikace nebo aktualizace operačního systému v rámci sady škálování.
@@ -43,11 +43,11 @@ Pokud chcete zkrátit configuration management a čas pro zřízení virtuální
 
 
 ## <a name="already-provisioned"></a>Instalace aplikace s rozšíření vlastních skriptů
-Rozšíření vlastních skriptů stahuje a spouští skripty na virtuálních počítačích Azure. Toto rozšíření je užitečné pro konfiguraci nasazení post, instalace softwaru nebo jakoukoli jinou konfiguraci, nebo úlohu správy. Skripty můžete stáhnout z úložiště Azure nebo Githubu, nebo zadaná k portálu Azure při spuštění rozšíření.
+Rozšíření vlastních skriptů stahuje a spouští skripty na virtuálních počítačích Azure. Toto rozšíření je užitečné pro konfiguraci po nasazení, instalaci softwaru nebo jakékoli jiné úlohy konfigurace nebo správy. Skripty si můžete stáhnout z úložiště Azure nebo z GitHubu, případně je za běhu rozšíření najdete na webu Azure Portal.
 
 Rozšíření vlastních skriptů se integruje s šablon Azure Resource Manageru a můžete také spustit pomocí rozhraní příkazového řádku Azure, PowerShell, portálu Azure nebo REST API pro virtuální počítač Azure. 
 
-Další informace najdete v tématu [rozšíření vlastních skriptů přehled](../virtual-machines/windows/extensions-customscript.md).
+Další informace najdete v tématu [Přehled rozšíření vlastních skriptů](../virtual-machines/windows/extensions-customscript.md).
 
 
 ### <a name="use-azure-powershell"></a>Použití Azure Powershell
@@ -91,10 +91,10 @@ Update-AzureRmVmss `
 Pokud je aktualizace zásad na škálovací sadu *ruční*, aktualizovat instancím virtuálních počítačů s [aktualizace AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Tato rutina platí konfigurace sady aktualizované škálování pro instance virtuálních počítačů a nainstaluje aplikace.
 
 
-### <a name="use-azure-cli-20"></a>Použití Azure CLI 2.0
+### <a name="use-azure-cli-20"></a>Use Azure CLI 2.0
 Použít rozšíření vlastních skriptů pomocí rozhraní příkazového řádku Azure, vytvořte soubor JSON, který definuje, jaké soubory k získání a příkazů pro spuštění. Tyto definice JSON lze opětovně použít napříč sadu nasazení použít konzistentní aplikace nainstaluje.
 
-V aktuálním prostředí, vytvořte soubor s názvem *customConfig.json* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadejte `sensible-editor cloudConfig.json` k vytvoření tohoto souboru a zobrazit seznam dostupných editory.
+V aktuálním prostředí, vytvořte soubor s názvem *customConfig.json* a vložte následující konfigurace. Soubor vytvořte například v Cloud Shellu, pokud nepracujete na místním počítači. Můžete použít libovolný editor, které chcete. Zadáním příkazu `sensible-editor cloudConfig.json` soubor vytvořte a zobrazte seznam editorů k dispozici.
 
 ```json
 {
@@ -103,7 +103,7 @@ V aktuálním prostředí, vytvořte soubor s názvem *customConfig.json* a vlo�
 }
 ```
 
-Použít konfiguraci rozšíření vlastních skriptů na instancím virtuálních počítačů ve vaší škálování s [az vmss rozšíření sady](/cli/azure/vmss/extension#set). Následující příklad se vztahuje *customConfig.json* konfigurace *myScaleSet* instance virtuálních počítačů ve skupině prostředků s názvem *myResourceGroup*. Zadejte vlastní názvy následujícím způsobem:
+Použít konfiguraci rozšíření vlastních skriptů na instancím virtuálních počítačů ve vaší škálování s [az vmss rozšíření sady](/cli/azure/vmss/extension#az_vmss_extension_set). Následující příklad se vztahuje *customConfig.json* konfigurace *myScaleSet* instance virtuálních počítačů ve skupině prostředků s názvem *myResourceGroup*. Zadejte vlastní názvy následujícím způsobem:
 
 ```azurecli
 az vmss extension set \
@@ -166,13 +166,13 @@ Pokud je aktualizace zásad na škálovací sadu *ruční*, aktualizovat instanc
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Instalace aplikace na virtuální počítače Linux s inicializací cloudu
-[Init cloudu](https://cloudinit.readthedocs.io/latest/) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Init cloudu běží během úvodního spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.
+[Cloud-init](https://cloudinit.readthedocs.io/latest/) je široce využívaným přístupem k přizpůsobení virtuálního počítače s Linuxem při jeho prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Vzhledem k tomu, že se cloud-init spustí během procesu prvotního spuštění, nevyžaduje použití vaší konfigurace žádné další kroky ani agenty.
 
 Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
 
 Další informace, včetně příklad *cloudu init.txt* souborů najdete v tématu [použít k přizpůsobení virtuálních počítačích Azure cloud init](../virtual-machines/linux/using-cloud-init.md).
 
-Pokud chcete vytvořit sadu škálování a použít soubor init cloudu, přidejte `--custom-data` parametru [vytvořit az vmss](/cli/azure/vmss#create) příkaz a zadejte název souboru init cloudu. Následující příklad vytvoří škálování nastavení s názvem *myScaleSet* v *myResourceGroup* a nakonfiguruje instance virtuálních počítačů se soubor s názvem *cloudu init.txt*. Zadejte vlastní názvy následujícím způsobem:
+Pokud chcete vytvořit sadu škálování a použít soubor init cloudu, přidejte `--custom-data` parametru [vytvořit az vmss](/cli/azure/vmss#az_vmss_create) příkaz a zadejte název souboru init cloudu. Následující příklad vytvoří škálování nastavení s názvem *myScaleSet* v *myResourceGroup* a nakonfiguruje instance virtuálních počítačů se soubor s názvem *cloudu init.txt*. Zadejte vlastní názvy následujícím způsobem:
 
 ```azurecli
 az vmss create \
@@ -222,5 +222,5 @@ Když jsou k dispozici nové verze operačního systému, můžete použít nebo
 Pokud používáte vlastní image virtuálního počítače s předinstalovaným aplikací, může integrovat kanál nasazení a vytvářet nové bitové kopie nasazení operačního systému upgrady v rámci škálovací sadu aktualizací aplikace. Tento přístup umožňuje kanálu, který má být vyzvednutí nejnovější sestavení aplikace, vytvořit a ověřit image virtuálního počítače a pak upgradovat instance virtuálních počítačů v sadě škálování. Pokud chcete spustit nasazení kanálu, který vytvoří a nasadí aplikaci aktualizace napříč vlastní Image virtuálních počítačů, můžete použít [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/), nebo [volaných](https://jenkins.io/) .
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Jak vytvořit a nasadit aplikace do vaší sady škálování, můžete zkontrolovat [přehled návrhu nastavení škálování](virtual-machine-scale-sets-design-overview.md). Další informace o tom, jak spravovat škálovací sadu najdete v tématu [použití Powershellu ke správě škálovací sadu](virtual-machine-scale-sets-windows-manage.md).

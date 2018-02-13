@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: bc57e54b051ff8831ba38e91ed682b8f5d868d46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopírování dat z Cassandra pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Pro Cassandra propojené služby jsou podporovány následující vlastnosti:
 | port |Port TCP, který používá Cassandra server naslouchat pro připojení klientů. |Ne (výchozí hodnota je 9042) |
 | authenticationType. | Typ ověřování používaný pro připojení k databázi Cassandra.<br/>Povolené hodnoty jsou: **základní**, a **anonymní**. |Ano |
 | uživatelské jméno |Zadejte uživatelské jméno pro uživatelský účet. |Ano, pokud authenticationType je nastaven na Basic. |
-| heslo |Zadejte heslo pro uživatelský účet. Toto pole můžete označte jako SecureString. |Ano, pokud authenticationType je nastaven na Basic. |
+| heslo |Zadejte heslo pro uživatelský účet. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano, pokud authenticationType je nastaven na Basic. |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
@@ -118,7 +118,7 @@ Ke zkopírování dat z Cassandra, nastavte vlastnost typu datové sady, která 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Cassandra zdroje.
@@ -173,10 +173,10 @@ Při kopírování dat z Cassandra, se používají následující mapování Ca
 |:--- |:--- |
 | ASCII |Řetězec |
 | BIGINT |Int64 |
-| OBJEKT BLOB |Byte] |
+| OBJEKT BLOB |Byte[] |
 | LOGICKÁ HODNOTA |Logická hodnota |
 | DECIMAL |Decimal |
-| DOUBLE |Double |
+| DOUBLE |Dvojitý |
 | PLOVOUCÍ DESETINNÁ ČÁRKA |Svobodný/svobodná |
 | INET |Řetězec |
 | INT |Int32 |
@@ -243,8 +243,8 @@ Následující tabulky popisují virtuální tabulky, které renormalize data ze
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
 **Tabulka "ExampleTable_vt_StringSet":**
 

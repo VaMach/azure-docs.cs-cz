@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 31758568f7ce916a4c242aad743bb4b0cb9b2d6e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9abd035b13a0d51c534eb8cac50c045012399a69
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronizace Azure AD Connect: rozšíření adresáře
 Rozšíření adresáře můžete rozšířit schéma ve službě Azure AD s vlastními atributy z místní služby Active Directory. Tato funkce umožňuje vytvářet obchodní aplikace, které využívají atributy nadále spravovat místní. Tyto atributy mohou být využívány prostřednictvím [rozšíření adresáře Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) nebo [Microsoft Graph](https://graph.microsoft.io/). Můžete zobrazit dostupné atributy pomocí [Azure AD Graph explorer](https://graphexplorer.azurewebsites.net/) a [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) v uvedeném pořadí.
@@ -44,10 +44,20 @@ Objekt ve službě Azure AD může mít až 100 atributů rozšíření adresá�
 Během instalace služby Azure AD Connect je zaregistrován aplikace, které jsou k dispozici tyto atributy. Můžete zobrazit tuto aplikaci na portálu Azure.  
 ![Aplikace rozšíření schématu](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
-Tyto atributy jsou nyní k dispozici prostřednictvím grafu:  
+Atributy mají předponu rozšíření\_{AppClientId}\_. AppClientId mají stejnou hodnotu pro všechny atributy v klientovi služby Azure AD.
+
+Tyto atributy jsou nyní k dispozici prostřednictvím **Azure AD Graph**:
+
+Můžeme dát dotaz na Azure AD Graph pomocí Průzkumníka Azure AD Graph: [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)
+
 ![Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-Atributy mají předponu rozšíření\_{AppClientId}\_. AppClientId mají stejnou hodnotu pro všechny atributy v klientovi služby Azure AD.
+Nebo pomocí **Microsoft Graph API**:
+
+Jsme můžete dotazovat Microsoft Graph API pomocí Průzkumníka Microsoft Graph: [https://developer.microsoft.com/en-us/graph/graph-explorer#](https://developer.microsoft.com/en-us/graph/graph-explorer#)
+
+>[!NOTE]
+> Je potřeba explicitně požádat o atribut, který se má vrátit. To lze provést výběrem explicitně atributy takto: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division pro další informace najdete v [Microsoft Graph: použijte parametry dotazu](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter)
 
 ## <a name="next-steps"></a>Další postup
 Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Osvědčené postupy načítání dat do služby Azure SQL Data Warehouse
 Doporučení a optimalizace výkonu pro načítání dat do služby Azure SQL Data Warehouse. 
@@ -31,7 +31,7 @@ Doporučení a optimalizace výkonu pro načítání dat do služby Azure SQL Da
 ## <a name="preparing-data-in-azure-storage"></a>Příprava dat v Azure Storage
 Vrstvu úložiště i datový sklad uložte společně do stejného umístění, abyste minimalizovali latenci.
 
-Při exportu dat do formátu souboru ORC může být počet textově náročných sloupců omezen na 50, aby se předešlo chybám v jazyce Java způsobeným nedostatkem paměti. Toto omezení můžete obejít tím, že importujete jen podmnožinu sloupců.
+Při exportu dat do formátu souboru ORC může dojít k chybám s nedostatkem paměti Java, pokud se zde nacházejí velké textové sloupce. Toto omezení můžete obejít tím, že importujete jen podmnožinu sloupců.
 
 Technologie PolyBase nedokáže načíst řádky, které obsahují více než 1 000 000 bajtů dat. Když vkládáte data do textových souborů v úložišti Azure Blob nebo ve službě Azure Data Lake Store, musí tyto soubory obsahovat méně než 1 000 000 bajtů dat. Toto omezení platí bez ohledu na schéma tabulky.
 
@@ -45,14 +45,22 @@ Největší rychlosti při načítání dosáhnete, když budete spouštět vžd
 
 Pokud chcete spouštět načítání s odpovídajícími výpočetními prostředky, vytvořte uživatele načítání vyhrazené pro spouštění načítání. Každého uživatele načítání přiřaďte ke konkrétní třídě prostředků. Pokud chcete spustit načítání, přihlaste se jako jeden z uživatelů načítání a pak spusťte načítání. Načítání se spustí s využitím třídy prostředků tohoto uživatele.  Tato metoda je jednodušší než se pokoušet o změnu třídy prostředků uživatele podle aktuálních potřeb třídy prostředků.
 
-Tento kód vytvoří uživatele načítání pro třídu prostředků staticrc20. Udělí uživateli oprávnění řídit databázi a pak přidá uživatele jako člena databázové role staticrc20. Pokud chcete spustit načítání s prostředky pro třídy prostředků staticRC20, stačí se přihlásit jako LoaderRC20 a spustit načítání. 
+### <a name="example-of-creating-a-loading-user"></a>Příklad vytvoření uživatele načítání
+Tento příklad vytvoří uživatele načítání pro třídu prostředků staticrc20. Prvním krokem je **připojení k předloze** a vytvoření přihlášení.
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+Připojte se k datovému skladu a vytvořte uživatele. Následující kód předpokládá, že jste připojeni k databázi mySampleDataWarehouse. Ukazuje způsob vytvoření uživatele jménem LoaderRC20 a udělení oprávnění k databázi. Poté přidá uživatele jako člena databázové role staticrc20.  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+Pokud chcete spustit načítání s prostředky pro třídy prostředků staticRC20, stačí se přihlásit jako LoaderRC20 a spustit načítání.
 
 Spouštějte načítání v rámci statických, a ne dynamických, tříd prostředků. Použití statických tříd prostředků zaručuje stejné prostředky bez ohledu na vaši [úroveň služby](performance-tiers.md#service-levels). Pokud použijete dynamickou třídu prostředků, budou se prostředky lišit v závislosti na vaší úrovni služby. V případě dynamických tříd znamená nižší úroveň služby, že pro vašeho uživatele načítání pravděpodobně musíte použít větší třídu prostředků.
 
@@ -60,7 +68,7 @@ Spouštějte načítání v rámci statických, a ne dynamických, tříd prost�
 
 Často je potřeba, aby data do datového skladu načítalo více uživatelů. Příkaz [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] vyžaduje k databázi oprávnění CONTROL.  Oprávnění CONTROL poskytuje přístup pro řízení ke všem schématům. Pravděpodobně ale nebudete chtít, aby všichni uživatelé, kteří načítají data, měli oprávnění CONTROL pro přístup ke všem schématům. K omezení oprávnění slouží příkaz DENY CONTROL.
 
-Představte si například schémata databáze schema_A pro oddělení A a schema_B pro oddělení B. Uživatelé databáze user_A a user_B budou uživateli pro načítání PolyBase v oddělení A, respektive oddělení B. Oba uživatelé mají k databázi udělená oprávnění CONTROL. Autoři schémat A a B teď schémata zamknou příkazem DENY:
+Představte si například schémata databáze schema_A pro oddělení A a schema_B pro oddělení B. Uživatelé databáze user_A a user_B budou uživateli pro načítání PolyBase v oddělení A, respektive oddělení B. Oba uživatelé mají k databázi udělená oprávnění CONTROL. Autoři schémat A a B nyní svá schémata uzamknou pomocí příkazu DENY:
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -124,7 +132,7 @@ Po migraci externích tabulek do nového zdroje dat proveďte následující či
 
 
 ## <a name="next-steps"></a>Další kroky
-Informace o monitorování procesu načítání najdete v tématu [Monitorování úlohy pomocí zobrazení dynamické správy](sql-data-warehouse-manage-monitor.md).
+Informace o monitorování datové zátěže najdete v tématu [Monitorování úlohy pomocí zobrazení dynamické správy](sql-data-warehouse-manage-monitor.md).
 
 
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instalace aplikací Hadoop jiných výrobců v Azure HDInsight
 
@@ -28,14 +28,14 @@ Zjistěte, jak nainstalovat aplikaci Hadoop třetích stran v Azure HDInsight. P
 
 Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight. Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými.  
 
-V seznamu follosing jsou publikované aplikace:
+V následujícím seznamu jsou publikované aplikace:
 
 * **Platforma Intelligence AtScale** změní na clusteru HDInsight serveru se Škálováním na více systémů OLAP. Aplikace umožňuje dotazu až miliardy řádků dat interaktivně pomocí nástroje BI z aplikace Microsoft Excel, PowerBI, Tableau softwaru pro QlikView.
 * **Obalového souboru CDAP pro HDInsight** poskytuje první integrace jednotnou platformu pro velké objemy dat, která snižuje čas do produkčního prostředí pro data aplikací a dat jezera 80 %. Tato aplikace podporuje pouze clustery Standard HBase 3.4.
 * **DATAIKU DDS v HDInsight** umožňuje Odborníci v oblasti dat na prototypu, vytvoření a nasazení vysoce specifických služeb, které transformace nezpracovaná data do zvládat obchodní předpovědi.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) nabízí analytikům interaktivní způsob zjišťování, analýzy a vizualizace výsledků v případě velkých objemů dat. Získávejte dalších zdroje dat snadněji, abyste mohli rychle zjišťovat nové vztahy a získávat potřebné odpovědi.
 * **H2O umělé Intelligence pro HDInsight (Beta)** H2O šumivého horních podporuje následující algoritmy distribuovaného: GLM, Naïve Bayes, distribuované náhodných doménové struktury, přechodu počítače zvyšovat skóre, hluboké Neuronové sítě, hluboké učení, K-means, PCA, zobecněn modely pořadí nízká, detekce anomálií a Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) je připravené pro podniky datový sklad, který používá technologii Apache Kylin a Apache Hadoop, umožňuje dílčí sekundu latence dotazu pro datovou sadu masivním měřítku a zjednodušuje analýza dat pro podnikoví uživatelé a analytici. 
+* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) je připravené pro podniky datového skladu, který používá technologii Apache Kylin a Apache Hadoop, poskytuje dílčí sekundu dotazování latence pro datovou sadu masivním měřítku a zjednodušuje analýza dat pro Podnikoví uživatelé a analytikům. 
 * **Příprava dat Paxata samoobslužných**
 * **SnapLogic Hadooplex** SnapLogic Hadooplex systémem HDInsight umožňuje zákazníkům přístup k podnikových statistik rychlejší zadáním přijímání dat samoobslužné služby a příprava z prakticky libovolný zdroj na Cloudová platforma Microsoft Azure.
 * **Serveru úloh Spark pro KNIME Spark vykonavatele** serveru úloh Spark pro KNIME Spark vykonavatele slouží k připojení ke clusterům HDInsight KNIME Analytics Platform.
@@ -50,7 +50,7 @@ Pokud chcete instalovat aplikace HDInsight na stávající cluster HDInsight, mu
 ## <a name="install-applications-to-existing-clusters"></a>Instalace aplikací do existujících clusterů
 Následující postup ukazuje, jak můžete instalovat aplikace HDInsight do existujícího clusteru HDInsight.
 
-**Pokud chcete instalovat aplikace HDInsight, postupujte následovně:**
+**Instalace aplikace HDInsight**
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce.
@@ -75,7 +75,7 @@ Během vytváření clusteru máte možnost instalace aplikací HDInsight. Běhe
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Zobrazení seznamu nainstalovaných aplikací HDInsight a jejich vlastností
 Portál zobrazuje seznam nainstalovaných aplikací HDInsight pro cluster a vlastnosti jednotlivých nainstalovaných aplikací.
 
-**Pokud chcete zobrazit seznam aplikací HDInsight a jejich vlastností, postupujte následovně:**
+**Seznam aplikací HDInsight a zobrazit vlastnosti**
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce. 
@@ -100,7 +100,7 @@ Přihlašovací údaje koncového bodu protokolu HTTP jsou přihlašovací údaj
 ## <a name="troubleshoot"></a>Řešení potíží
 Viz článek [Řešení potíží instalace](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md): naučit se nasazovat nepublikované aplikace HDInsight do HDInsight.
 * [Publikování aplikací HDInsight](hdinsight-apps-publish-applications.md): Zjistěte, jak publikovat vlastní aplikace HDInsight do obchodu Azure Marketplace.
 * [MSDN: Instalace aplikace HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Další informace jak definovat aplikace HDInsight.

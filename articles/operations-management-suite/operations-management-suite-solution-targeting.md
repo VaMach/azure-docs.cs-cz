@@ -1,6 +1,6 @@
 ---
-title: "Cílení na řešení v OMS | Microsoft Docs"
-description: "Cílení na řešení je funkce v Operations Management Suite (OMS), který vám umožní omezit na konkrétní sadu agentů řešení pro správu.  Tento článek popisuje, jak vytvořit konfiguraci oboru a použít ji k řešení."
+title: "Cílení na řešení pro správu v Azure | Microsoft Docs"
+description: "Cílení na řešení pro správu můžete omezit na konkrétní sadu agentů řešení pro správu.  Tento článek popisuje, jak vytvořit konfiguraci oboru a použít ji k řešení."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Pomocí řešení cílení v Operations Management Suite (OMS) do řešení pro správu oboru na konkrétní agenty (Preview)
-Když přidáte k OMS řešení, se automaticky nasadí ve výchozím nastavení všechny agenty systému Windows a Linux připojené k pracovní prostor analýzy protokolů.  Můžete spravovat vaše náklady a omezit množství dat vybraných pro řešení omezením na konkrétní sadu agenty.  Tento článek popisuje způsob použití **cílení na řešení** což je funkce OMS, která umožňuje použít obor pro vaše řešení.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Cílení na řešení pro správu v Azure (Preview)
+Když přidáte k předplatnému řešení pro správu, je automaticky nasadí ve výchozím nastavení všechny agenty systému Windows a Linux připojené k pracovní prostor analýzy protokolů.  Můžete spravovat vaše náklady a omezit množství dat vybraných pro řešení omezením na konkrétní sadu agenty.  Tento článek popisuje způsob použití **cílení na řešení** což je funkce, která umožňuje použít obor pro vaše řešení.
 
 ## <a name="how-to-target-a-solution"></a>Postupy pro řešení
-Existují tři kroky na cílení na řešení, jak je popsáno v následujících částech.  Všimněte si, že budete potřebovat na portálu OMS a webu Azure portal pro různé kroky.
+Existují tři kroky na cílení na řešení, jak je popsáno v následujících částech. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Vytvořit skupinu počítačů
@@ -72,6 +72,6 @@ Cílení na řešení nelze použít s následující řešení i když se vešl
 
 - Vyhodnocení stavu agenta
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o řešení pro správu včetně řešení, které jsou k dispozici pro instalaci ve vašem prostředí v [přidat Azure Log Analytics řešení pro správu do pracovního prostoru](../log-analytics/log-analytics-add-solutions.md).
 - Další informace o vytváření skupin počítačů v [skupiny počítačů v analýzy protokolů protokolu hledání](../log-analytics/log-analytics-computer-groups.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Začínáme s konektor Office 365 Outlook
 Konektor Office 365 Outlook umožňuje interakci s aplikací Outlook v Office 365. Pomocí tohoto konektoru můžete vytvořit, upravit a aktualizovat a položky kalendáře, kontaktů a také získat, odeslání a odpovědi k e-mailu.
@@ -37,7 +37,7 @@ Toto téma ukazuje, jak používat konektor Office 365 Outlook v aplikaci logiky
 > 
 > 
 
-Další informace o Logic Apps najdete v tématu [co jsou logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) a [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Další informace o Logic Apps najdete v tématu [co jsou logic apps](../logic-apps/logic-apps-overview.md) a [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-office-365"></a>Připojení k Office 365
 Než se aplikace logiky k jakékoli služby, nejprve vytvořit *připojení* ke službě. Připojení poskytuje připojení mezi aplikace logiky a jiné služby. Například pokud chcete připojit k Office 365 Outlook, musíte nejprve Office 365 *připojení*. Chcete-li vytvořit připojení, zadejte přihlašovací údaje, které standardně používáte k přístupu ke službě, který chcete připojit k. Proto s Office 365 Outlook, zadejte přihlašovací údaje k účtu služeb Office 365 k vytvoření připojení.
@@ -48,7 +48,7 @@ Než se aplikace logiky k jakékoli služby, nejprve vytvořit *připojení* ke 
 > 
 
 ## <a name="use-a-trigger"></a>Použít aktivační událost
-Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. Aktivační události "dotazování" službu v intervalem a frekvenci, který chcete. [Další informace o aktivační události](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. Aktivační události "dotazování" službu v intervalem a frekvenci, který chcete. [Další informace o aktivační události](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. V aplikaci logiky zadejte "office 365" získat seznam aktivačních událostí:  
    
@@ -69,7 +69,7 @@ Aktivační událost je událost, která můžete použít ke spuštění pracov
 4. **Uložit** změny (levém horním rohu panelu nástrojů). Aplikace logiky je uloženo a automaticky povolí.
 
 ## <a name="use-an-action"></a>Použít akci.
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Vyberte znaménko plus. Zobrazí několik možností: **přidat akci**, **přidat podmínku**, nebo jeden z **Další** možnosti.
    
@@ -95,5 +95,5 @@ Akce je operace prováděné definované v aplikaci logiky pracovního postupu. 
 Zobrazit všechny aktivační události a akce definované v swagger a také zobrazit žádné limity v [connector – podrobnosti](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Další kroky
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md). Prozkoumejte dalších dostupných konektorů v Logic Apps v našem [rozhraní API seznamu](apis-list.md).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Postup vytvoření virtuálního počítače systému SQL Server v prostředí Azure PowerShell
 
@@ -27,17 +27,17 @@ Tato příručka vysvětluje možnosti vytvoření virtuálních počítačů Wi
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-Tento rychlý start vyžaduje prostředí Azure PowerShell verze modulu 3,6 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Tento rychlý start vyžaduje modul Azure PowerShell verze 3.6 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="configure-your-subscription"></a>Konfigurovat předplatné
 
-1. Otevřete prostředí PowerShell a přístup k účtu Azure vytvořit spuštěním **Add-AzureRmAccount** příkaz.
+1. Otevřete PowerShell a navažte přístup ke svému účtu spuštěním příkazu **Add-AzureRmAccount**.
 
    ```PowerShell
    Add-AzureRmAccount
    ```
 
-1. Měli byste vidět obrazovky přihlášení k zadání pověření. Použijte stejnou e-mailu a heslo, které používáte pro přihlášení k portálu Azure.
+1. Měla by se objevit obrazovka pro zadání přihlašovacích údajů. Použijte stejný e-mail a heslo, pomocí kterých se přihlašujete na webu Azure Portal.
 
 ## <a name="define-image-variables"></a>Definování proměnné bitovou kopii
 Pro zjednodušení vytváření opakované použití a skript, začněte definováním počet proměnných. Podle svých potřeb, ale pozor omezení týkající se názvu délky a speciální znaky, při úpravě hodnoty poskytnuté pojmenování změně hodnot parametrů.
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Nastavit vlastnosti operačního systému pro virtuální počítač
-Nyní jsme připravení nastavit vlastnosti operačního systému virtuálního počítače s [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) vyžadují rutiny nastavte typ operačního systému jako Windows, [agenta virtuálního počítače](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) k instalaci, zadejte, že rutina umožňuje automatickou aktualizaci a nastavte název virtuálního počítače, název počítače a přihlašovacích údajů pomocí proměnné, které jste dříve inicializován.
+Nyní jsme připravení nastavit vlastnosti operačního systému virtuálního počítače s [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) vyžadují rutiny nastavte typ operačního systému jako Windows, [agenta virtuálního počítače](../agent-user-guide.md) k instalaci, zadejte, že rutina umožňuje automatickou aktualizaci a nastavte název virtuálního počítače, název počítače a přihlašovacích údajů pomocí proměnné, které jste dříve inicializován.
 
 Spusťte následující rutinu a nastavte vlastnosti operačního systému pro virtuální počítač.
 
@@ -295,7 +295,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
    -Skus $Sku -Version $Version
 ```
 
-## <a name="create-the-sql-vm"></a>Vytvoření virtuálního počítače SQL
+## <a name="create-the-sql-vm"></a>Vytvoření virtuálního počítače pro SQL
 Teď, když dokončíte kroky konfigurace, jste připraveni k vytvoření virtuálního počítače. Použití [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) rutiny k vytvoření virtuálního počítače pomocí proměnné, které jsme definovali.
 
 Spusťte následující rutinu k vytvoření virtuálního počítače.
@@ -307,10 +307,10 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 Při vytvoření virtuálního počítače.
 
 > [!NOTE]
-> Chybu o diagnostiky robota můžete ignorovat. Standardní účet úložiště je pro Diagnostika spouštění, vytvořit, protože zadaný účet úložiště pro disk virtuálního počítače je prémiový účet úložiště.
+> Chybu o Diagnostika spouštění můžete ignorovat. Standardní účet úložiště je pro Diagnostika spouštění, vytvořit, protože zadaný účet úložiště pro disk virtuálního počítače je prémiový účet úložiště.
 
-## <a name="install-the-sql-iaas-agent"></a>Nainstalujte agenta SQL Iaas
-Virtuální počítače systému SQL Server podporují funkce automatizované správy s [rozšíření agenta systému SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Instalace agenta na nový virtuální počítač, spusťte následující příkaz po jejím vytvoření.
+## <a name="install-the-sql-iaas-agent"></a>Instalace agenta SQL IaaS
+Virtuální počítače systému SQL Server podporují funkce automatizované správy s [rozšíření agenta systému SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Agenta na nově vytvořený virtuální počítač nainstalujete spuštěním následujícího příkazu.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -318,13 +318,13 @@ Virtuální počítače systému SQL Server podporují funkce automatizované sp
 
 ## <a name="remove-a-test-vm"></a>Odebrání testovacího virtuálního počítače
 
-Pokud se virtuální počítač provozovaný průběžně nepotřebujete, můžete vyhnout nepotřebné poplatky ji když není používán zastavuje. Následující příkaz zastaví virtuální počítač, ale ponechá ji k dispozici pro budoucí použití.
+Pokud nepotřebujete, aby virtuální počítač VM běžel nepřetržitě, můžete se vyhnout zbytečným poplatkům: když počítač nepoužíváte, zastavte ho. Následující příkaz zastaví virtuální počítač, ale ponechá ho k dispozici pro budoucí použití.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Můžete také trvale odstranit všechny prostředky přidružené k virtuálnímu počítači s **Remove-AzureRmResourceGroup** příkaz. Dojde k trvalému odstranění virtuálního počítače, takže použijte tento příkaz dát pozor.
+Můžete také trvale odstranit všechny prostředky přidružené k virtuálnímu počítači odstraněním příslušné skupiny prostředků na portálu příkazem **Remove-AzureRmResourceGroup**. Tím trvale odstraníte i virtuální počítač, proto tento příkaz používejte opatrně.
 
 ## <a name="example-script"></a>Ukázkový skript
 Následující skript obsahuje dokončení skriptu prostředí PowerShell pro účely tohoto kurzu. Se předpokládá, že máte již instalace předplatné Azure pro použití s **Add-AzureRmAccount** a **Select-AzureRmSubscription** příkazy.
@@ -394,7 +394,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po vytvoření virtuálního počítače, můžete:
 
 - Připojte k virtuálnímu počítači pomocí vzdálené plochy (RDP).

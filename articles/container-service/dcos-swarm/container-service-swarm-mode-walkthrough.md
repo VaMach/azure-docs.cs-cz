@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 5f325cf19afd5a5a42c09b49486c0c1d9ee15e5d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d56c0b466cec1df41fb86bbc89843e783513e9a4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="deploy-docker-ce-cluster"></a>Nasazení clusteru Docker CE
 
@@ -27,7 +27,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku 
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logická skupina, ve které se nasazují a spravují prostředky Azure.
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Skupina prostředků Azure je logická skupina, ve které se nasazují a spravují prostředky Azure.
 
 Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *ukwest*.
 
@@ -52,7 +52,7 @@ Výstup:
 
 ## <a name="create-docker-swarm-cluster"></a>Vytvoření clusteru Docker Swarm
 
-Vytvořte cluster Docker CE ve službě Azure Container Service pomocí příkazu [az acs create](/cli/azure/acs#create). 
+Vytvořte cluster Docker CE ve službě Azure Container Service pomocí příkazu [az acs create](/cli/azure/acs#az_acs_create). 
 
 Následující příklad vytvoří cluster *mySwarmCluster* s jedním hlavním linuxovým uzlem a třemi agentskými linuxovými uzly.
 
@@ -60,7 +60,7 @@ Následující příklad vytvoří cluster *mySwarmCluster* s jedním hlavním 
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-V některých případech, například s omezenou zkušební verzí, má předplatné Azure omezený přístup k prostředkům Azure. Pokud se nasazení nezdaří kvůli omezenému počtu dostupných jader, snižte výchozí počet agentů přidáním možnosti `--agent-count 1` do příkazu [az acs create](/cli/azure/acs#create). 
+V některých případech, například s omezenou zkušební verzí, má předplatné Azure omezený přístup k prostředkům Azure. Pokud se nasazení nezdaří kvůli omezenému počtu dostupných jader, snižte výchozí počet agentů přidáním možnosti `--agent-count 1` do příkazu [az acs create](/cli/azure/acs#az_acs_create). 
 
 Po několika minutách se příkaz dokončí a vrátí informace o clusteru ve formátu JSON.
 
@@ -110,7 +110,7 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    image: microsoft/azure-vote-front:redis-v1
+    image: microsoft/azure-vote-front:v1
     environment:
       REDIS: azure-vote-back
     ports:
@@ -141,7 +141,7 @@ Aplikace bude připravena, jakmile bude mít `CURRENT STATE` každé služby hod
 
 ```bash
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
-tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:redis-v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
+tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
 ```
 
@@ -152,7 +152,7 @@ Přejděte na plně kvalifikovaný název domény fondu agentských uzlů Swarm 
 ![Obrázek přechodu na aplikaci Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Odstranění clusteru
-Pokud už cluster nepotřebujete, můžete k odebrání skupiny prostředků, služby kontejneru a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete).
+Pokud už cluster nepotřebujete, můžete k odebrání skupiny prostředků, služby kontejneru a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -164,7 +164,7 @@ V tomto rychlém startu se k vytvoření služby Docker použily předem vytvoř
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto rychlém startu jste nasadili cluster Docker Swarm a do něj jste nasadili vícekontejnerovou aplikaci.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 829a03ddb8b7ed5901ba0f8f882477f7308fdb0e
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ff8fb061a5a5108e574860fa26d0d983ef5ffe99
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopírovat data do nebo ze systému souborů pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Pro soubor systému propojené služby jsou podporovány následující vlastnos
 | type | Vlastnost typu musí být nastavena na: **souborovém serveru**. | Ano |
 | hostitel | Určuje cestu kořenové složky, kterou chcete zkopírovat. Použít řídicí znak "\" pro speciální znaky v řetězci. V tématu [ukázka propojené definice služby a datovou sadu](#sample-linked-service-and-dataset-definitions) příklady. | Ano |
 | ID uživatele | Zadejte ID uživatele, který má přístup k serveru. | Ano |
-| heslo | Zadejte heslo pro uživatele (ID uživatele). Toto pole můžete označte jako SecureString. | Ano |
+| heslo | Zadejte heslo pro uživatele (ID uživatele). Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Ukázkové propojené služby a definice datové sady
@@ -135,7 +135,7 @@ Ke zkopírování dat z/do systému souborů, nastavte vlastnost typu datové sa
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností podporovaný zdroj systému souborů a jímky.
 

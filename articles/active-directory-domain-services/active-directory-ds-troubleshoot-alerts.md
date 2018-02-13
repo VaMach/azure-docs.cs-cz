@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Služba Azure AD Domain Services – řešení výstrah
 Tento článek obsahuje řešení problémů s příručky pro všechny výstrahy, které mohou nastat ve vaší spravované domény.
@@ -75,6 +75,11 @@ Chcete-li obnovit služby, postupujte takto:
 
 Než začnete, přečtěte si **privátní v4 adresní prostor IP adres** kapitoly [v tomto článku](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
+Počítače ve virtuální síti, může provádět požadavky prostředky Azure, které jsou v stejného rozsahu IP adres jako porty nakonfigurované pro podsíť. Ale vzhledem k tomu, že virtuální síť je konfigurována pro tento rozsah, v rámci virtuální sítě, budou směrovány tyto požadavky a nebude mít přístup k prostředkům určený web. To může vést k vést k neočekávaným chybám s Azure AD Domain Services.
+
+**Pokud jste vlastníkem rozsahu IP adres v Internetu, který je konfigurován ve virtuální síti, tuto výstrahu můžete ignorovat. Ale Azure AD Domain Services nelze potvrzovat [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] pomocí této konfigurace, protože může vést k neočekávaným chybám.**
+
+
 1. [Odstranit vaší spravované domény](active-directory-ds-disable-aadds.md) z adresáře.
 2. Opravte rozsah IP adres podsítě
   1. Přejděte na [stránky virtuální sítě na portálu Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
@@ -86,7 +91,7 @@ Než začnete, přečtěte si **privátní v4 adresní prostor IP adres** kapito
   7. Aktualizujte rozsah adres a uložte změny.
 3. Postupujte podle [průvodci získávání spuštění pomocí Azure AD Domain Services](active-directory-ds-getting-started.md) k opětovnému vytvoření vaší spravované domény. Ujistěte se, že vyberete virtuální síť s rozsah privátních IP adres.
 4. Připojení k doméně virtuální počítače do nové domény, postupujte podle [Tato příručka](active-directory-ds-admin-guide-join-windows-vm-portal.md).
-8. Zkontrolujte stav vaší domény ve dvou hodin k zajištění, že jste dokončili postup správně.
+8. Kvůli zajištění bezpečnosti výstrahu vyřešit, zkontrolujte stav vaší doméně dvou hodin.
 
 
 ## <a name="contact-us"></a>Kontaktujte nás

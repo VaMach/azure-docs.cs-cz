@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Přístup k diagnostickým protokolům pro Azure Data Lake Analytics
 
@@ -130,7 +130,7 @@ Zde je vzorového vstupu do formátu JSON žádost protokolu. Každý objekt blo
 
 #### <a name="request-log-schema"></a>Schéma požadavku protokolu
 
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | time |Řetězec |Časové razítko (ve formátu UTC) v protokolu |
 | resourceId |Řetězec |Identifikátor prostředku, který operace trvalo umístit na |
@@ -144,14 +144,14 @@ Zde je vzorového vstupu do formátu JSON žádost protokolu. Každý objekt blo
 
 #### <a name="request-log-properties-schema"></a>Schéma vlastnosti požadavku protokolu
 
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | HttpMethod |Řetězec |Metoda HTTP se používá pro operaci. Například získáte. |
 | Cesta |Řetězec |Cesta k operaci byla provedena na |
 | RequestContentLength |celá čísla |Délka obsahu požadavku HTTP |
-| clientRequestId |Řetězec |Identifikátor, který jedinečně identifikuje tuto žádost |
-| Čas spuštění |Řetězec |Čas, na které server přijal žádost |
-| čas ukončení |Řetězec |Čas, kdy server odeslal odpověď |
+| ClientRequestId |Řetězec |Identifikátor, který jedinečně identifikuje tuto žádost |
+| StartTime |Řetězec |Čas, na které server přijal žádost |
+| EndTime |Řetězec |Čas, kdy server odeslal odpověď |
 
 ### <a name="audit-logs"></a>Protokoly auditu
 
@@ -182,7 +182,7 @@ Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt 
 
 #### <a name="audit-log-schema"></a>Schéma protokolu auditu
 
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | time |Řetězec |Časové razítko (ve formátu UTC) v protokolu |
 | resourceId |Řetězec |Identifikátor prostředku, který operace trvalo umístit na |
@@ -200,14 +200,14 @@ Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt 
 
 #### <a name="audit-log-properties-schema"></a>Schéma vlastnosti protokolu auditu
 
-| Name (Název) | Typ | Popis |
+| Název | Typ | Popis |
 | --- | --- | --- |
 | JobId |Řetězec |ID přiřazené úlohy |
-| Název úlohy |Řetězec |Název, která byla poskytnuta pro úlohu |
+| JobName |Řetězec |Název, která byla poskytnuta pro úlohu |
 | JobRunTime |Řetězec |Modul runtime používá ke zpracování úlohy |
 | SubmitTime |Řetězec |Čas (v UTC), který úloha byla odeslána. |
-| Čas spuštění |Řetězec |Čas úlohy spuštění po odeslání (ve formátu UTC) |
-| čas ukončení |Řetězec |Čas ukončení úkolu |
+| StartTime |Řetězec |Čas úlohy spuštění po odeslání (ve formátu UTC) |
+| EndTime |Řetězec |Čas ukončení úkolu |
 | Paralelismus |Řetězec |Počet jednotek Data Lake Analytics požadovaný pro tuto úlohu při odesílání |
 
 > [!NOTE]
@@ -217,5 +217,5 @@ Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt 
 
 Azure Data Lake Analytics poskytuje vzorku o tom, jak zpracovávat a analyzovat data protokolu. Můžete najít ukázku najdete na adrese [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md)

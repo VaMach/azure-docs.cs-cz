@@ -146,6 +146,8 @@
           href: security-center-search.md
     - name: Integrace protokolů Azure
       href: security-center-integrating-alerts-with-log-integration.md
+    - name: Export dat do SIEM
+      href: security-center-export-data-to-siem.md
     - name: Scénáře
       items:
         - name: Reakce na incidenty
@@ -154,7 +156,7 @@
           href: security-center-using-recommendations.md
     - name: Řešení potíží
       href: security-center-troubleshooting-guide.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Rozhraní REST API
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'

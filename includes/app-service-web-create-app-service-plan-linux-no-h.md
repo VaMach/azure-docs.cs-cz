@@ -1,8 +1,8 @@
-V prostředí cloudu, vytvořte plán služby App Service ve skupině prostředků s [vytvořit plán aplikační služby az](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) příkaz.
+Ve službě Cloud Shell vytvořte pomocí příkazu [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) plán služby App Service ve skupině prostředků.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-Následující příklad vytvoří plán služby App Service s názvem `myAppServicePlan` v **standardní** cenová úroveň (`--sku S1`) a v kontejneru Linux (`--is-linux`).
+Následující příklad vytvoří plán služby App Service s názvem `myAppServicePlan` v cenové úrovni **Standard** (`--sku S1`) a v kontejneru Linuxu (`--is-linux`).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux

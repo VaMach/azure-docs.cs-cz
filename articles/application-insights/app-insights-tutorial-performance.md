@@ -1,6 +1,6 @@
 ---
-title: "Diagnostika problémů s výkonem pomocí služby Azure Application Insights | Microsoft Docs"
-description: "Kurz najít a diagnostikovat problémy s výkonem do vaší aplikace pomocí služby Azure Application Insights."
+title: "Diagnostika problémů s výkonem pomocí Azure Application Insights | Dokumentace Microsoftu"
+description: "Kurz popisující, jak v aplikaci vyhledat a diagnostikovat problémy s výkonem pomocí Azure Application Insights."
 services: application-insights
 keywords: 
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Najít a diagnostikovat problémy s výkonem pomocí služby Azure Application Insights
+# <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Vyhledání a diagnostika problémů s výkonem pomocí Azure Application Insights
 
-Azure Application Insights shromažďuje telemetrie z vaší aplikace a pomáhá analyzovat jeho operace a výkonu.  Tyto informace můžete použít k identifikaci problémů, které může být vyskytnou nebo k identifikaci vylepšení k aplikaci, která bude většina uživatelů dopad.  Tento kurz vás provede procesem Analýza výkonu součásti serveru vaší aplikace a perspektivy klienta.  Získáte informace o těchto tématech:
+Azure Application Insights shromažďuje telemetrii z vaší aplikace a pomáhá tak analyzovat její provoz a výkon.  Tyto informace můžete využít k identifikaci problémů, ke kterým může docházet, nebo k identifikaci zlepšení aplikace, která by měla největší dopad na uživatele.  Tento kurz vás provede procesem analýzy výkonu serverových komponent vaší aplikace i z pohledu uživatele.  Získáte informace o těchto tématech:
 
 > [!div class="checklist"]
-> * Identifikovat výkon operací na straně serveru
-> * Analýza operace serverů určit hlavní příčinu nízký výkon
-> * Určuje nejpomalejší klientské operace
-> * Analyzovat podrobnosti o pomocí dotazovacího jazyka pro zobrazení stránky
+> * Identifikace výkonu operací na straně serveru
+> * Analýza operací serveru a určení původní příčiny pomalého výkonu
+> * Identifikace nejpomalejších operací na straně klienta
+> * Analýza podrobností o zobrazení stránek pomocí dotazovacího jazyka
 
 
 ## <a name="prerequisites"></a>Požadavky
@@ -34,94 +34,102 @@ K provedení kroků v tomto kurzu je potřeba:
 - Nainstalovat [Visual Studio 2017](https://www.visualstudio.com/downloads/) s následujícími sadami funkcí:
     - Vývoj pro ASP.NET a web
     - Vývoj pro Azure
-- Nasazení aplikace .NET do Azure a [povolit Application Insights SDK](app-insights-asp-net.md).
-- [Povolit profileru Application Insights](app-insights-profiler.md#installation) pro vaši aplikaci.
+- Nasadit do Azure aplikaci .NET a [povolit sadu Application Insights SDK](app-insights-asp-net.md).
+- [Povolit Application Insights Profiler](app-insights-profiler.md#installation) pro vaši aplikaci.
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
-Přihlaste se k portálu Azure v [https://portal.azure.com](https://portal.azure.com).
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
+Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="identify-slow-server-operations"></a>Určuje operace, pomalé serveru
-Application Insights shromažďuje detaily výkonu pro různé operace v aplikaci.  Určením těchto operací s nejdelší dobou trvání můžete diagnostice potenciálních problémů nebo nejlépe cíle vaší pokračujícího vývoje se zlepší celkový výkon aplikace.
+## <a name="identify-slow-server-operations"></a>Identifikace pomalých operací serveru
+Application Insights shromažďuje podrobnosti o výkonu různých operací ve vaší aplikaci.  Díky identifikaci operací, které trvají nejdéle, můžete diagnostikovat potenciální problémy nebo lépe cílit probíhající vývoj a vylepšit tak celkový výkon aplikace.
 
-1. Vyberte **Application Insights** a potom vyberte své předplatné.  
-1. Otevřete **výkonu** panelu vyberte buď **výkonu** pod **prošetření** nabídky nebo klikněte na **doba odezvy serveru** grafu .
+1. Vyberte **Application Insights** a pak vyberte své předplatné.  
+1. Panel **Výkon** otevřete výběrem možnosti **Výkon** v nabídce **Prozkoumat** nebo kliknutím na graf **Doba odezvy serveru**.
 
     ![Výkon](media/app-insights-tutorial-performance/performance.png)
 
-2. **Výkonu** panel zobrazuje počet a průměrná doba trvání každou operaci pro aplikaci.  Tyto informace můžete použít k identifikaci tyto operace, že většina ovlivnily uživatele. V tomto příkladu **získat zákazníků nebo podrobnosti** a **domovské GET/Index** pravděpodobně kandidáty prozkoumat z důvodu jejich poměrně vysoké doba trvání a počet volání.  Jiné operace může být vyšší, ale měla zřídka volána, takže účinku jejich zlepšování byla minimální.  
+2. Na panelu **Výkon** se zobrazí počet a průměrná doba trvání jednotlivých operací aplikace.  Tyto informace můžete využít k identifikaci operací, které mají největší dopad na uživatele. V tomto příkladu jsou vzhledem k dlouhé době trvání a počtu volání vhodnými kandidáty na prošetření operace **GET Customers/Details** a **GET Home/Index**.  Jiné operace můžou mít delší dobu trvání, ale volají se jen zřídka, takže by jejich vylepšení mělo minimální vliv.  
 
-    ![Panelu výkon](media/app-insights-tutorial-performance/performance-blade.png)
+    ![Panel Výkon](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Graf zobrazuje aktuálně Průměrná doba všechny operace v čase.  Přidejte operace, které máte zájem tím, že je připnete do grafu.  Ukazuje to, že jsou některé vrcholů vhodné příčin.  Tato další izolujte snížením časový interval grafu.
+3. Graf aktuálně ukazuje průměrnou dobu trvání všech operací v průběhu času.  Připnutím na graf přidejte operace, které vás zajímají.  Ukazuje se, že by bylo vhodné prošetřit několik vrcholů.  Proveďte další izolaci zúžením časového okna grafu.
 
-    ![Operace PIN kódu](media/app-insights-tutorial-performance/pin-operations.png)
+    ![Připnutí operací](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Klikněte na tlačítko operace zobrazíte panelu její výkon na pravé straně. Ukazuje to distribuce doby trvání pro různé požadavky.  Uživatelé obvykle Všimněte si pomalý výkon v o půl sekundy, takže zmenší okno do požadavky přes 500 milisekund.  
+4.  Kliknutím na operaci zobrazíte na pravé straně její panel Výkon. Ten zobrazuje distribuci doby trvání různých požadavků.  Uživatelé si obvykle všimnou pomalého výkonu po přibližně půl sekundě, takže zužte okno na požadavky trvající déle než 500 milisekund.  
 
-    ![Doba trvání distribuce](media/app-insights-tutorial-performance/duration-distribution.png)
+    ![Distribuce doby trvání](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  V tomto příkladu vidíte, že velký počet požadavků trvá přes druhý ke zpracování. Zobrazí podrobnosti o této operaci kliknutím na **podrobnosti operace**.
+5.  V tomto příkladu vidíte, že zpracování velkého počtu požadavků trvá déle než sekundu. Podrobnosti o této operaci můžete zobrazit kliknutím na **Podrobnosti o operaci**.
 
     ![Podrobnosti o operaci](media/app-insights-tutorial-performance/operation-details.png)
 
-6.  Informace, které jste shromáždili dosavadní pouze potvrdí, že je nízký výkon, ale dělá málo získat příčiny.  **Profileru** pomáhá s tímto zobrazením skutečný kód, který byl spuštěn pro operaci a čas potřebný pro každý krok. Některé operace, nemusí mít trasování, protože profileru spouštěn pravidelně.  V průběhu času by měl mít dalších operacích trasování.  Chcete-li spustit profileru pro operaci, klikněte na tlačítko **profileru trasování**.
-5.  Trasování uvádí jednotlivé události pro každou operaci, můžete diagnostikou hlavní příčiny po dobu trvání celou operaci.  Klikněte na jednu z horní příklady, které mají nejdelší dobu trvání.
-6.  Klikněte na tlačítko **zobrazit aktivní trase** chcete zvýraznit konkrétní cestu události, které většinu podílet se na celkovou dobu trvání operace.  V tomto příkladu vidíte, že nejpomalejší volání je z *FabrikamFiberAzureStorage.GetStorageTableData* metoda. V části, která přebírá většinu času *CloudTable.CreateIfNotExist* metoda. Pokud tento řádek kódu se spustí pokaždé, když funkce volala, budou využívat zbytečným síťovým volání a prostředků procesoru. Nejlepší způsob, jak opravit kódu je uvést tento řádek do některé spuštění metoda, která pouze jednou pro spouštění. 
+    > [!NOTE]
+    Povolte [prostředí ve verzi Preview](app-insights-previews.md) Unified details: E2E Transaction Diagnostics (Sjednocené podrobnosti: Diagnostika transakcí E2E) a zobrazte veškerou související telemetrii na straně serveru, jako jsou požadavky, závislosti, výjimky, trasování, události atd., v jednom zobrazení na celou obrazovku. 
 
-    ![Podrobnosti o profileru](media/app-insights-tutorial-performance/profiler-details.png)
+    S povolenou verzí Preview můžete zobrazit čas strávený ve volání závislostí i případné chyby nebo výjimky v jednotném prostředí. V případě transakcí mezi komponentami vám graf Gantt společně s podoknem podrobností může pomoct rychle diagnostikovat komponentu, závislost nebo výjimku, která je původní příčinou. Můžete rozbalit dolní část a zobrazit časový průběh jakéhokoli trasování nebo událostí shromážděných pro vybranou operaci komponenty. [Další informace o novém prostředí](app-insights-transaction-diagnostics.md)  
 
-7.  **Výkonu Tip** v horní části obrazovky podporuje hodnocení, která nadměrné doba je z důvodu čekání.  Klikněte na tlačítko **čekání** odkaz pro dokumentaci o interpretaci různé typy událostí.
+    ![Diagnostika transakcí](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
 
-    ![Tip výkonu](media/app-insights-tutorial-performance/performance-tip.png)
 
-8.  Pro další analýzu, můžete kliknout na **stáhnout trasování ETL** stahování trasování v sadě Visual Studio.
+6.  Informace, které jste zatím shromáždili, pouze potvrzují pomalý výkon, ale téměř nijak nepomáhají dostat se k původní příčině.  **Profiler** vám s tím pomůže díky zobrazení skutečného kódu spuštěného pro příslušnou operaci a času, který zabraly jednotlivé kroky. Vzhledem k tomu, že se profiler spouští pravidelně, některé operace nemusejí mít trasování.  V průběhu času by trasování mělo mít více operací.  Pokud chcete pro operaci spustit profiler, klikněte na **Trasování Profileru**.
+5.  Trasování zobrazí pro každou operaci jednotlivé události, takže můžete diagnostikovat původní příčinu v průběhu celé operace.  Klikněte na jeden z horních příkladů s nejdelší dobou trvání.
+6.  Kliknutím na **Zobrazit kritickou cestu** zvýrazněte konkrétní cestu událostí, které se nejvíce podílejí na celkové době trvání operace.  V tomto příkladu vidíte, že nejpomalejší volání pochází z metody *FabrikamFiberAzureStorage.GetStorageTableData*. Částí, která trvá nejdéle, je metoda *CloudTable.CreateIfNotExist*. Pokud se tento řádek kódu provádí při každém volání funkce, budou se spotřebovávat zbytečná síťová volání a prostředky procesoru. Nejlepším způsobem, jak kód opravit, je vložit tento řádek do některé metody po spuštění, která se provede pouze jednou. 
 
-## <a name="use-analytics-data-for-server"></a>Pomocí analýzy dat pro server
-Application Insights Analytics poskytuje plnohodnotný dotazovací jazyk, který umožňuje analyzovat všechna data shromážděná pomocí Application Insights.  Můžete použít k provedení hloubkovou analýzu na data požadavku a výkonu.
+    ![Podrobnosti v profileru](media/app-insights-tutorial-performance/profiler-details.png)
 
-1. Vraťte na panelu podrobností operaci a klikněte na tlačítko Analytics.
+7.  **Tip k výkonu** v horní části obrazovky podporuje vyhodnocení, že důvodem nadměrné doby trvání je čekání.  Kliknutím na odkaz **čekáním** otevřete dokumentaci k interpretaci různých typů událostí.
+
+    ![Tip k výkonu](media/app-insights-tutorial-performance/performance-tip.png)
+
+8.  Pokud potřebujete další analýzu, můžete kliknout na **Stáhnout trasování .etl** a stáhnout trasování do sady Visual Studio.
+
+## <a name="use-analytics-data-for-server"></a>Použití analytických dat pro server
+Application Insights Analytics poskytuje bohatý dotazovací jazyk umožňující analýzu všech dat shromážděných službou Application Insights.  Můžete ho použít k provádění hloubkové analýzy dat o požadavcích a výkonu.
+
+1. Vraťte se na panel s podrobnostmi o operaci a klikněte na tlačítko Analytics.
 
     ![Tlačítko Analytics](media/app-insights-tutorial-performance/server-analytics-button.png)
 
-2. Analýza Statistika aplikace se otevře pomocí dotazu pro každou ze zobrazení panelu.  Tyto dotazy můžete spustit, jako jsou nebo je upravit pro vaše požadavky.  První dotaz zobrazí dobu trvání pro tuto operaci v čase.
+2. Na panelu se otevře Application Insights Analytics s dotazem pro každé zobrazení.  Tyto dotazy můžete spustit tak, jak jsou, nebo je upravit podle vlastních potřeb.  První dotaz zobrazí dobu trvání této operace v průběhu času.
 
-    ![Analýza](media/app-insights-tutorial-performance/server-analytics.png)
+    ![Analýzy](media/app-insights-tutorial-performance/server-analytics.png)
 
 
-## <a name="identify-slow-client-operations"></a>Identifikovat pomalé klientské operace
-Kromě určení procesů serveru za účelem optimalizace, Application Insights můžete analyzovat perspektivy prohlížeče klienta.  To může pomoct identifikovat potenciální vylepšení součásti klienta a i identifikují problémy se různé prohlížeče nebo jiné umístění.
+## <a name="identify-slow-client-operations"></a>Identifikace pomalých operací klienta
+Kromě identifikace procesů serveru, které je potřeba optimalizovat, dokáže Application Insights provádět analýzu i z pohledu klientských prohlížečů.  To vám může pomoct identifikovat potenciální vylepšení komponent klienta a dokonce i identifikovat problémy s různými prohlížeči nebo umístěními.
 
-1. Vyberte **prohlížeče** pod **prošetření** otevřete v prohlížeči souhrn.  To poskytuje přehled různých telemetries vaší aplikace z pohledu prohlížeče.
+1. V části **Prozkoumat** vyberte **Prohlížeč** a otevřete souhrn prohlížeče.  Ten poskytuje vizuální souhrn různých telemetrií vaší aplikace z pohledu prohlížeče.
 
     ![Souhrn prohlížeče](media/app-insights-tutorial-performance/browser-summary.png)
 
-2.  Přejděte dolů k položce **co jsou moje nejpomalejší stránky?**.  Ukazuje to seznam stránek v aplikaci, které jste pořídili nejdelší dobu klientům načíst.  Tyto informace můžete použít k určení priority tyto stránek, které mají nejvýraznější dopad na uživatele.
-3.  Klikněte na jednu stránek, otevřete **stránky zobrazení** panelu.  V příkladu **/FabrikamProd** stránka se zobrazuje nadměrné Průměrná doba trvání.  **Stránky zobrazení** panel poskytuje podrobnosti o této stránce, včetně rozpis rozsahů jinou dobu trvání.
+2.  Posuňte se dolů k části **Které moje stránky jsou nejpomalejší?**.  V této části se zobrazí seznam stránek ve vaší aplikaci, jejichž načtení trvalo klientům nejdéle.  Tyto informace můžete použít k určení priority stránek, které mají nejvýraznější dopad na uživatele.
+3.  Kliknutím na jednu ze stránek otevřete panel **Zobrazení stránky**.  V tomto příkladu ukazuje stránka **/FabrikamProd** nadměrnou průměrnou dobu trvání.  Panel **Zobrazení stránky** obsahuje podrobnosti o této stránce, včetně rozpisu různých rozsahů doby trvání.
 
     ![Zobrazení stránky](media/app-insights-tutorial-performance/page-view.png)
 
-4.  Klikněte na tlačítko pro dobu trvání nejvyšší zkontrolujte podrobnosti o tyto požadavky.  Klikněte na tlačítko jednotlivé žádosti k zobrazení podrobností žádosti stránku, včetně typu prohlížeče a jeho umístění klienta.  Tyto informace vám může pomoci při určování, zda jsou výkonu problémy související s konkrétní typy klientů.
+4.  Klikněte na nejdelší dobu trvání a prozkoumejte podrobnosti o příslušných požadavcích.  Pak klikněte na jednotlivý požadavek a zobrazte podrobnosti o klientovi požadujícím příslušnou stránku, včetně typu prohlížeče a jeho umístění.  Tyto informace vám můžou pomoct s určením, jestli neexistují problémy s výkonem souvisejíc s konkrétními typy klientů.
 
-    ![Podrobnosti požadavku](media/app-insights-tutorial-performance/request-details.png)
+    ![Podrobnosti o požadavku](media/app-insights-tutorial-performance/request-details.png)
 
-## <a name="use-analytics-data-for-client"></a>Pomocí analýzy dat pro klienta
-Například pro výkon serveru shromažďovat data Application Insights zpřístupní všech klientských dat pro hloubkovou analýzu pomocí Analytics.
+## <a name="use-analytics-data-for-client"></a>Použití analytických dat pro klienta
+Propojením shromážděných dat o výkonu serveru zpřístupňuje Application Insights veškerá data klientů pro hloubkovou analýzu pomocí Analytics.
 
-1. Vraťte se do prohlížeče, souhrn a klikněte na ikonu Analytics.
+1. Vraťte se do souhrnu prohlížeče a klikněte na ikonu Analytics.
 
-    ![Ikona analýzy](media/app-insights-tutorial-performance/client-analytics-icon.png)
+    ![Ikona Analytics](media/app-insights-tutorial-performance/client-analytics-icon.png)
 
-2. Analýza Statistika aplikace se otevře pomocí dotazu pro každou ze zobrazení panelu. První dotaz zobrazí dobu trvání pro různá zobrazení stránky průběhu času.
+2. Na panelu se otevře Application Insights Analytics s dotazem pro každé zobrazení. První dotaz zobrazí dobu trvání různých zobrazení stránek v průběhu času.
 
-    ![Analýza](media/app-insights-tutorial-performance/client-analytics.png)
+    ![Analýzy](media/app-insights-tutorial-performance/client-analytics.png)
 
-3.  Inteligentní diagnostiky je funkce Analýza statistiky aplikace, který identifikuje jedinečný vzorů v datech.  Po kliknutí na tlačítko inteligentní diagnostiky tečky v spojnicový graf, stejný dotaz běží bez záznamů, které způsobily anomálií.  Podrobnosti o tyto záznamy jsou uvedené v sekci komentáře dotazu, abyste mohli identifikovat vlastnosti zobrazení tyto stránek, které způsobují nadměrné doba trvání.
+3.  Inteligentní diagnostika je funkce Application Insights Analytics, která v datech identifikuje jedinečné vzory.  Když kliknete na tečku inteligentní diagnostiky ve spojnicovém grafu, spustí se stejný dotaz bez záznamů, které anomálii způsobily.  Podrobnosti o těchto záznamech se zobrazí v části dotazu s komentáři, takže můžete identifikovat vlastnosti zobrazení stránek, které způsobují nadměrnou dobu trvání.
 
-    ![Inteligentní diagnostiky](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
+    ![Inteligentní diagnostika](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když jste se naučili zjištění výjimky v době běhu, přechodu na v dalším kurzu se dozvíte, jak vytvářet oznámení v odpovědi na chyby.
+Nyní, když jste se naučili, jak identifikovat výjimky za běhu, přejděte k dalšímu kurzu, ve kterém zjistíte, jak jako reakci na chyby vytvářet upozornění.
 
 > [!div class="nextstepaction"]
-> [Výstraha na stav aplikací](app-insights-tutorial-alert.md)
+> [Upozornění na stav aplikace](app-insights-tutorial-alert.md)

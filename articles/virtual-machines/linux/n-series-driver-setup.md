@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalace ovladačů NVIDIA GPU v N-series virtuální počítače se systémem Linux
 
@@ -101,18 +101,21 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na základě centOS 7.3 nebo Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS nebo Red Hat Enterprise Linux 7.3 nebo 7.4
 
-1. Nainstalujte nejnovější integrační služby Linuxu pro Hyper-V.
+1. Aktualizujte jádra.
 
-  > [!IMPORTANT]
-  > Pokud jste nainstalovali bitovou kopii na základě CentOS HPC ve virtuálním počítači NC24r, přejděte ke kroku 3. Vzhledem k tomu, že Azure RDMA ovladače a integrační služby Linuxu jsou předem nainstalovaná v bitovou kopii prostředí HPC, by neměl být upgradovány LIS a jádra aktualizace jsou ve výchozím nastavení zakázané.
-  >
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
  
   cd LISISO
  
@@ -124,8 +127,6 @@ sudo reboot
 3. Připojení k virtuálnímu počítači a pokračujte v instalaci pomocí následujících příkazů:
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -162,20 +163,22 @@ Pokud je nainstalovaný ovladač, zobrazí se výstup podobný následujícímu.
 ![Stav zařízení NVIDIA](./media/n-series-driver-setup/smi.png)
 
 
-
 ## <a name="rdma-network-connectivity"></a>Připojení k síti RDMA
 
 Síťové připojení RDMA se dá nastavit na virtuálních počítačích podporující RDMA N-series, jako je NC24r nasazené ve stejné sadě dostupnosti. Síť RDMA podporuje rozhraní MPI (Message Passing) provozu pro aplikace spuštěné s Intel MPI 5.x nebo novější. Následují další požadavky:
 
 ### <a name="distributions"></a>Distribuce
 
-Nasazení podporující RDMA N-series virtuální počítače z jednoho z následujících bitových kopií v Azure Marketplace, která podporuje připojení RDMA:
+Nasazení podporující RDMA N-series virtuální počítače z bitové kopie v Azure Marketplace, která podporuje připojení RDMA na virtuálních počítačích N-series:
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS. Konfigurace ovladače RDMA na virtuálním počítači a zaregistrovat Intel ke stažení Intel MPI:
+* **Ubuntu 16.04 LTS** – konfigurace ovladače RDMA na virtuálním počítači a registrace s Intel ke stažení Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **Na základě centOS HPC** – na základě CentOS 7.3 HPC. RDMA ovladače a Intel MPI 5.1 jsou nainstalovány ve virtuálním počítači. 
+> [!NOTE]
+> Na základě centOS obrázky HPC není aktuálně vhodné pro připojení RDMA na virtuálních počítačích N-series. RDMA není podporována na nejnovější CentOS 7.4 jádra, která podporuje NVIDIA grafickými procesory.
+> 
+
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>Instalace ovladačů mřížky pro virtuální počítače vs
 
@@ -237,7 +240,7 @@ Instalace ovladačů NVIDIA mřížky na virtuálních počítačích vs, prove�
 9. Restartujte virtuální počítač a přejděte k ověření instalace.
 
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na základě centOS 7.3 nebo Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS nebo Red Hat Enterprise Linux 
 
 1. Aktualizace jádra a DKMS.
  
@@ -262,9 +265,9 @@ Instalace ovladačů NVIDIA mřížky na virtuálních počítačích vs, prove�
 3. Restartovat virtuální počítač, připojte se znovu a nainstalujte nejnovější integrační služby Linuxu pro Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
 
   cd LISISO
 
@@ -343,8 +346,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 Tento soubor nelze vyvolat jako kořenová na spouštěcí tak, že vytvoříte položku pro něj v `/etc/rc.d/rc3.d`.
 
 ## <a name="troubleshooting"></a>Řešení potíží
-
-* Je známý problém s ovladači CUDA na virtuálních počítačích Azure N-series systémem Ubuntu 16.04 LTS Linux jádra 4.4.0-75. Pokud provádíte upgrade ze starší verze jádra, upgradujte alespoň 4.4.0-77 verze jádra.
 
 * Můžete nastavit pomocí režimu trvalost `nvidia-smi` tak výstup příkazu je rychlejší, když potřebujete karty dotazu. Nastavení režimu trvalost, provést `nvidia-smi -pm 1`. Všimněte si, že pokud restartování virtuálního počítače s nastavením režimu Vyčkat. Vždy můžete skript režim provést při spuštění.
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Zápis dat do indexu Azure Search pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,7 +73,7 @@ Následující tabulka obsahuje popis elementy JSON, které jsou specifické pro
 | indexName | Název indexu Azure Search. Objekt pro vytváření dat vytvořit index. Index musí existovat ve službě Azure Search. | Ano |
 
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a různé zásady jsou dostupné pro všechny typy aktivit. Zatímco se každý typ aktivity lišit podle vlastnosti dostupné v rámci typeProperties oddílu. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
 
 Pro aktivitu kopírování, když je typ jímky **AzureSearchIndexSink**, následující vlastnosti jsou k dispozici v rámci typeProperties části:
@@ -104,7 +104,7 @@ Následující tabulka určuje, zda datového typu Azure Search je podporováno,
 | Řetězec | Ano |
 | Int32 | Ano |
 | Int64 | Ano |
-| Double | Ano |
+| Dvojitý | Ano |
 | Logická hodnota | Ano |
 | DataTimeOffset | Ano |
 | Pole řetězců | N |
@@ -292,7 +292,7 @@ Můžete také mapovat sloupců z datové sady zdroje na sloupce ze sady jímku 
 ## <a name="performance-and-tuning"></a>Výkon a ladění  
 Najdete v článku [výkonu kopie aktivity a vyladění průvodce](data-factory-copy-activity-performance.md) Další informace o klíčových faktorů, že dopad výkonu přesun dat (aktivita kopírování) a různé způsoby, jak optimalizovat ho.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Viz následující články:
 
 * [Kopie aktivity kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) podrobné pokyny pro vytvoření kanálu s aktivitou kopírování.

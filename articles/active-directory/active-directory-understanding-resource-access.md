@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.custom: it-pro;
-ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Principy přístupu k prostředkům v Azure
 
-Spustí se z hlediska fakturační řízení přístupu v Azure. Vlastník účtu Azure, navštivte stránky přístup [centra účtů Azure](https://account.windowsazure.com/subscriptions), je správce účtu (AA). Předplatné je kontejner pro fakturaci, ale také slouží jako hranice zabezpečení: každého předplatného se služby správce (SA), který můžete přidat, odebrat a úpravy prostředků v tomto předplatném Azure pomocí [portál Azure](https://portal.azure.com/). Výchozí SA nového předplatného je AA, ale AA změnit přidružení zabezpečení v centru účtů Azure.
+Spustí se z hlediska fakturační řízení přístupu v Azure. Vlastník účtu Azure, navštivte stránky přístup [centra účtů Azure](https://account.azure.com), je správce účtu (AA). Předplatné je kontejner pro fakturaci, ale také slouží jako hranice zabezpečení: každého předplatného se služby správce (SA), který můžete přidat, odebrat a úpravy prostředků v tomto předplatném Azure pomocí [portál Azure](https://portal.azure.com/). Výchozí SA nového předplatného je AA, ale AA změnit přidružení zabezpečení v centru účtů Azure.
 
 <br><br>![Účty Azure][1]
 

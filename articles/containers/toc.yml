@@ -51,12 +51,12 @@
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
         - name: Postup
           items:
-            - name: Vytvoření hostitele Docker
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/dockerextension'
-            - name: Použití Docker Machine
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-machine'
-            - name: Použití Docker Compose
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-compose-quickstart'
+            - name: Vytvoření aplikace typu kontejner ve Windows
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: Vytvoření aplikace typu kontejner v Linuxu
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: Kontejnerizace existující aplikace .NET
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
     - name: Kontejnery Windows
       href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
       items:
@@ -64,7 +64,7 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
         - name: Informace o kontejnerech Windows
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
-    - name: Odkaz
+    - name: Referenční informace
       items:
         - name: Azure Container Instances (az container)
           href: 'https://docs.microsoft.com/cli/azure/container'

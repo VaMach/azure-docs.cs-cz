@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z místního do Azure
 
@@ -54,7 +54,7 @@ Tento článek shrnuje podporované konfigurace a součásti služby Azure Site 
 
 **Nasazení** | **Podpora**
 --- | ---
-**Virtuální počítač VMware nebo fyzický server** | vSphere verze 6.5, 6.0, 5.5
+**Virtuální počítač VMware nebo fyzický server** | vSphere 6.5, 6.0, 5.5
 **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 s nejnovějšími aktualizacemi.<br></br>Pokud se používá SCVMM hostitelů Windows Server 2016 se mají spravovat nástrojem SCVMM 2016.
 
 
@@ -130,7 +130,7 @@ IPv4 | Ano | Ano
 IPv6 | Ne | Ne
 Statická IP adresa (Windows) | Ano | Ano
 Statická IP adresa (Linux) | Ano <br/><br/>Virtuální počítače jsou nakonfigurované na používání protokolu DHCP na navrácení služeb po obnovení  | Ne
-Více síťovými Kartami | Ano | Ano
+Multi-NIC | Ano | Ano
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Konfigurace sítě virtuálních počítačů Azure při selhání
 
@@ -138,9 +138,9 @@ Více síťovými Kartami | Ano | Ano
 --- | --- | ---
 ExpressRoute | Ano | Ano
 Interní nástroj pro vyrovnávání zatížení | Ano | Ano
-REŽIM MANAGEOUT | Ano | Ano
+ELB | Ano | Ano
 Traffic Manager | Ano | Ano
-Více síťovými Kartami | Ano | Ano
+Multi-NIC | Ano | Ano
 Rezervovaná IP adresa | Ano | Ano
 IPv4 | Ano | Ano
 Zachovat zdrojové IP adresy | Ano | Ano
@@ -154,9 +154,9 @@ Následující tabulka představuje souhrn podporu konfigurace úložiště v r�
 
 **Konfigurace** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
 --- | --- | --- | ---
-SYSTÉM SOUBORŮ NFS | Ano pro VMware<br/><br/> Ne pro fyzické servery | neuvedeno
+NFS | Ano pro VMware<br/><br/> Ne pro fyzické servery | neuvedeno
 SMB 3.0 | neuvedeno | Ano
-SÍŤ SAN (ISCSI) | Ano | Ano
+SAN (ISCSI) | Ano | Ano
 S více cestami (MPIO)<br></br>Testovány s: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pro CLARiiON | Ano | Ano
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Host nebo konfigurace úložiště fyzického serveru
@@ -166,10 +166,10 @@ S více cestami (MPIO)<br></br>Testovány s: Microsoft DSM, EMC PowerPath 5.7 SP
 VMDK | Ano | neuvedeno
 VHD/VHDX | neuvedeno | Ano
 Fin 2 virtuálních počítačů | neuvedeno | Ano
-ROZHRANÍM EFI/UEFI| Ne | Ano
+EFI/UEFI| Migrace do Azure pro Windows Server 2012 a vyšší. </br></br> ** Viz poznámka na konci v tabulce.  | Ano
 Sdílený disk clusteru | Ne | Ne
 Šifrované disku | Ne | Ne
-SYSTÉM SOUBORŮ NFS | Ne | neuvedeno
+NFS | Ne | neuvedeno
 SMB 3.0 | Ne | Ne
 RDM | Ano<br/><br/> Není k dispozici pro fyzické servery | neuvedeno
 Disk > 1 TB | Ano<br/><br/>Až 4095 GB | Ano<br/><br/>Až 4095 GB
@@ -180,6 +180,12 @@ Prostory úložiště | Ne | Ano
 Přidat nebo odebrat aktivní disku | Ne | Ne
 Vyloučení disku | Ano | Ano
 S více cestami (MPIO) | neuvedeno | Ano
+
+> [!NOTE]
+> ** Rozhraní UEFI spouštění virtuálních počítačů VMware nebo fyzické servery se systémem Windows Server 2012 nebo novější, se dají migrovat na Azure. Platí následující omezení.
+> - Pouze migrace do Azure. Navrácení služeb po obnovení k místní lokalitě VMware není podporována.
+> - Více než 4 oddíly jsou podporovány na disk operačního systému serveru.
+> - Vyžaduje verzi služby Azure Site Recovery Mobility 9.13 nebo novější.
 
 **Úložiště Azure** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
 --- | --- | ---
@@ -219,8 +225,8 @@ Site Recovery můžete nasadit za účelem replikace virtuálních počítačů 
 **Síťové adaptéry** | Několik adaptérů jsou podporovány. |
 **Sdílený virtuální pevný disk** | Nepodporuje se | Kontrola předpokladů se nezdaří, pokud není podporován
 **FC disku** | Nepodporuje se | Kontrola předpokladů se nezdaří, pokud není podporován
-**Formát pevného disku** | VIRTUÁLNÍ PEVNÝ DISK <br/><br/> VHDX | I když VHDX není aktuálně podporovaná v Azure, Site Recovery automaticky převede VHDX virtuálního pevného disku při selhání do Azure. Pokud selžou zpět na místní virtuální počítače nadále používat formát VHDX.
-**Nástroj BitLocker** | Nepodporuje se | Než začnete chránit virtuální počítač, musí se zakázat nástroj BitLocker.
+**Formát pevného disku** | VHD <br/><br/> VHDX | I když VHDX není aktuálně podporovaná v Azure, Site Recovery automaticky převede VHDX virtuálního pevného disku při selhání do Azure. Pokud selžou zpět na místní virtuální počítače nadále používat formát VHDX.
+**Bitlocker** | Nepodporuje se | Než začnete chránit virtuální počítač, musí se zakázat nástroj BitLocker.
 **Název virtuálního počítače.** | 1 až 63 znaků. Omezen na písmena, číslice a pomlčky. Název virtuálního počítače musí začínat a končit písmenem nebo číslicí. | Aktualizujte hodnotu ve vlastnostech virtuálního počítače ve službě Site Recovery.
 **Typ virtuálního počítače** | 1. generace<br/><br/> Generace 2 – Windows | Virtuální počítače generace 2 se typ disku operačního systému basic (která zahrnuje jednu nebo dvě datové svazky naformátované jako VHDX) a menší než 300 GB místa na disku jsou podporovány.<br></br>Virtuální počítače s Linuxem generace 2 nejsou podporované. [Další informace](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 

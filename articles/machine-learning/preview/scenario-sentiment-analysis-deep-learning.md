@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analýza postojích hloubkové Learning pomocí Azure Machine Learning
 
-Analýza postojích je dobře známé úloha ve sféře, zpracování přirozeného jazyka. Zadána sada texty cílem je určit postojích tohoto textu. Cílem tohoto řešení je použít CNTK jako back-end pro Keras (model úrovni knihovny, poskytuje základní stavební bloky pro vývoj hloubkové learning modely) a implementovat postojích analýzu z film recenze.
+Analýza postojích je dobře známé úloha ve sféře, zpracování přirozeného jazyka. Zadána sada texty cílem je určit postojích tohoto textu. Cílem tohoto řešení je použijte hloubkové Learning pro predikci postojích z film recenze.
 
 Řešení, které je umístěn v https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
@@ -67,8 +67,8 @@ Pořadí Hands-on Labs provádět řešení je následující:
 
 | Pořadí| Název souboru | Související soubory |
 |--|-----------|------|
-| 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt. |
-| 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py. |
+| 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
+| 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
 | 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization. |
 
 ## <a name="conclusion"></a>Závěr

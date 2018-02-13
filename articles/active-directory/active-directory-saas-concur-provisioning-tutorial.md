@@ -1,5 +1,5 @@
 ---
-title: 'Kurz: Azure Active Directory integrace s Concur | Microsoft Docs'
+title: "Kurz: Konfigurace Concur pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a Concur."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f39013785f000c7055aaa28f4c6f41998644cb6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 743d974c3711d5359cf7664c6a8709f7eaaeee20
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-concur-for-user-provisioning"></a>Kurz: Konfigurace vyústit pro zřizování uživatelů
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Kurz: Konfigurace Concur pro zřizování automatické uživatelů
 
 Cílem tohoto kurzu je tak, aby zobrazovalo kroky, které je třeba provést v Concur a Azure AD a automaticky zřizovat a zrušte zřízení uživatelských účtů ze služby Azure AD do Concur.
 
@@ -98,7 +98,7 @@ Z následujících důvodů by neměla provést tuto akci s profilem, které pou
 
 9. Nastavte **režimu zřizování** k **automatické**. 
  
-    ![Zřizování](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
 
 10. V části **přihlašovací údaje správce** zadejte **uživatelské jméno** a **heslo** vaše Concur správce.
 
@@ -118,7 +118,7 @@ Z následujících důvodů by neměla provést tuto akci s profilem, které pou
 
 Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet byly synchronizovány Concur Počkejte až 20 minut.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

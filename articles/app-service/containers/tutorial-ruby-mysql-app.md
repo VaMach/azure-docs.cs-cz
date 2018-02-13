@@ -1,67 +1,67 @@
 ---
-title: "Vytvoření webové aplikace Ruby a MySQL v Azure App Service v systému Linux | Microsoft Docs"
-description: "Další informace o získání Ruby aplikace v Azure, funguje připojení k databázi MySQL v Azure."
+title: "Vytvoření webové aplikace Ruby využívající databázi MySQL ve službě Azure App Service v Linuxu | Microsoft Docs"
+description: "Naučte se v Azure zprovoznit aplikaci Ruby s připojením k databázi MySQL v Azure."
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: 
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: nodejs
+ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 03b2b4e8f8827a08e1414512d848bd5bed48d674
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 951e66e47cf8fbe9d2cdf1606a8d63054bcada13
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace Ruby a MySQL v Azure App Service v systému Linux
+# <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace Ruby využívající databázi MySQL ve službě Azure App Service v Linuxu
 
-[App Service v Linuxu](app-service-linux-intro.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů s využitím operačního systému Linux. Tento kurz ukazuje, jak vytvořit Ruby webovou aplikaci a připojte ho k databázi MySQL. Jakmile budete hotovi, budete mít [Ruby, na které](http://rubyonrails.org/) aplikace běžící na App Service v systému Linux.
+[App Service v Linuxu](app-service-linux-intro.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů s využitím operačního systému Linux. Tento kurz předvádí postup při vytváření webové aplikace Ruby a jejím připojení k databázi MySQL. Po dokončení budete mít ve službě App Service v Linuxu spuštěnou aplikaci [Ruby on Rails](http://rubyonrails.org/).
 
-![Ruby, na které aplikaci spuštěnou ve službě Azure App Service](./media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
+![Aplikace Ruby on Rails spuštěná ve službě Azure App Service](./media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření databáze MySQL v Azure
-> * Připojení k MySQL Ruby, na které aplikace
-> * Nasazení aplikace do Azure
-> * Aktualizovat datový model a aplikaci znovu nasaďte
-> * Diagnostické protokoly datového proudu z Azure
-> * Spravovat aplikaci na portálu Azure
+> * Vytvořit databázi MySQL v Azure
+> * Připojit k databázi MySQL aplikaci Ruby on Rails
+> * Nasadit aplikaci do Azure
+> * Aktualizovat datový model a znovu nasadit aplikaci
+> * Streamovat diagnostické protokoly z Azure
+> * Spravovat aplikaci na webu Azure Portal
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
 * [Nainstalovat Git](https://git-scm.com/).
-* [Nainstalujte Ruby 2.3](https://www.ruby-lang.org/documentation/installation/)
-* [Nainstalujte Ruby, na které 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Instalace a spuštění MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+* [Nainstalovat jazyk Ruby 2.3](https://www.ruby-lang.org/documentation/installation/).
+* [Nainstalovat rámec Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html).
+* [Nainstalovat a spustit MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html). 
 
 ## <a name="prepare-local-mysql"></a>Příprava místního MySQL
 
-V tomto kroku vytvoříte databázi v místní server MySQL pro použití v tomto kurzu.
+V tomto kroku vytvoříte na místním serveru MySQL databázi, kterou budete v tomto kurzu používat.
 
 ### <a name="connect-to-local-mysql-server"></a>Připojení k místnímu serveru MySQL
 
-Okno terminálu připojte k místní server MySQL. Chcete-li spustit všechny příkazy v tomto kurzu můžete toto okno terminálu.
+V okně terminálu se připojte k místnímu serveru MySQL. Toto okno terminálu můžete používat ke spuštění všech příkazů v tomto kurzu.
 
 ```bash
 mysql -u root -p
 ```
 
-Pokud se zobrazí výzva k zadání hesla, zadejte heslo pro `root` účtu. Pokud si nepamatujete heslo kořenového účtu, najdete v části [MySQL: jak resetovat hesla kořenového](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Pokud se zobrazí výzva k zadání hesla, zadejte heslo k účtu `root`. Pokud si heslo ke kořenovému účtu nepamatujete, projděte si článek [MySQL: Resetování kořenového hesla](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-Pokud váš příkaz úspěšně proběhne, MySQL serveru běží. Pokud ne, ujistěte se, zda je místní server MySQL spuštěná pomocí následujících [kroky po instalaci MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Pokud se váš příkaz úspěšně provede, znamená to, že je váš server MySQL spuštěný. Pokud ne, provedením [kroků po instalaci MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) zkontrolujte, jestli je místní server MySQL spuštěný.
 
-Ukončení připojení k serveru zadáním `quit`.
+Ukončete připojení k serveru zadáním příkazu `quit`.
 
 ```sql
 quit
@@ -69,12 +69,12 @@ quit
 
 <a name="step2"></a>
 
-## <a name="create-a-ruby-on-rails-app-locally"></a>Vytvoření Ruby ve které aplikaci místně
-V tomto kroku získat Ruby, na které ukázkovou aplikaci, konfigurovat jeho připojení k databázi a spustit místně. 
+## <a name="create-a-ruby-on-rails-app-locally"></a>Vytvoření aplikace Ruby on Rails v místním prostředí
+V tomto kroku získáte ukázkovou aplikaci Ruby on Rails, nakonfigurujete její připojení k databázi a spustíte ji v místním prostředí. 
 
-### <a name="clone-the-sample"></a>Clone – ukázka
+### <a name="clone-the-sample"></a>Vytvoření klonu ukázky
 
-V okně terminálu `cd` do pracovního adresáře.
+V okně terminálu přejděte pomocí příkazu `cd` do pracovního adresáře.
 
 Ukázkové úložiště naklonujete spuštěním následujícího příkazu.
 
@@ -82,16 +82,16 @@ Ukázkové úložiště naklonujete spuštěním následujícího příkazu.
 git clone https://github.com/Azure-Samples/rubyrails-tasks.git
 ```
 
-`cd`do vašeho klonovaný adresáře. Nainstalujte požadované balíčky.
+Pomocí příkazu `cd` přejděte do naklonovaného adresáře. Nainstalujte požadované balíčky.
 
 ```bash
 cd rubyrails-tasks
 bundle install --path vendor/bundle
 ```
 
-### <a name="configure-mysql-connection"></a>Konfigurace připojení databáze MySQL
+### <a name="configure-mysql-connection"></a>Konfigurace připojení k MySQL
 
-V úložišti, otevřete _config/database.yml_ a zadat místní MySQL kořenové uživatelské jméno a heslo (řádku 13). Pokud jste nainstalovali MySQL pomocí nástroje, například [Homebrew](https://brew.sh/), pak přihlašovací údaje v souboru jsou již nastaven na výchozí hodnoty (což je `root` a prázdné heslo).
+V úložišti otevřete soubor _config/database.yml_ a zadejte uživatelské jméno a heslo místního kořenového uživatele MySQL (řádek 13). Pokud jste nainstalovali MySQL pomocí nástroje, jako je [Homebrew](https://brew.sh/), jsou už přihlašovací údaje v souboru nastavené na výchozí hodnoty (což je `root` a prázdné heslo).
 
 ```txt
 default: &default
@@ -103,9 +103,9 @@ default: &default
   socket: /tmp/mysql.sock
 ```
 
-### <a name="run-the-sample-locally"></a>Spustit ukázku místně
+### <a name="run-the-sample-locally"></a>Spuštění ukázky v místním prostředí
 
-Spustit [migrace které](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) k vytvoření tabulek aplikace potřebuje. Pokud chcete zjistit, které tabulky jsou vytvořené v byla migrace, vyhledejte v _db nebo migrovat_ adresáře v úložišti Git.
+Spusťte [migrace serveru Rails](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations), aby se vytvořily tabulky, které aplikace potřebuje. Pokud chcete zjistit, které tabulky migrace vytvářejí, podívejte se do adresáře _db/migrate_ v úložišti Git.
 
 ```bash
 rake db:create
@@ -118,33 +118,33 @@ Spusťte aplikaci.
 rails server
 ```
 
-V prohlížeči přejděte na `http://localhost:3000`. Na stránce přidáte několik úloh.
+V prohlížeči přejděte na `http://localhost:3000`. Na stránce přidejte několik úkolů.
 
-![Ruby, na které úspěšně připojí k MySQL](./media/tutorial-ruby-mysql-app/mysql-connect-success.png)
+![Aplikace Ruby on Rails se úspěšně připojí k MySQL](./media/tutorial-ruby-mysql-app/mysql-connect-success.png)
 
-Chcete-li zastavit, na které server, zadejte `Ctrl + C` v terminálu.
+Pokud chcete server Rails zastavit, zadejte do terminálu `Ctrl + C`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-mysql-in-azure"></a>Vytvoření databáze MySQL v Azure
 
-V tomto kroku vytvoříte databázi MySQL v [Azure Database pro databázi MySQL (Preview)](/azure/mysql). Později nakonfigurujte její na které aplikace pro připojení k této databázi.
+V tomto kroku vytvoříte v [Azure Database for MySQL (Preview)](/azure/mysql) databázi MySQL. Později nakonfigurujete aplikaci Ruby on Rails pro připojení k této databázi.
 
 ### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### <a name="create-a-mysql-server"></a>Vytvoření databáze MySQL serveru
+### <a name="create-a-mysql-server"></a>Vytvoření serveru MySQL
 
-Vytvoření serveru ve službě Azure Database pro databázi MySQL (Preview) pomocí [az mysql server vytvořit](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) příkaz.
+Pomocí příkazu [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) vytvořte v Azure Database for MySQL (Preview) server.
 
-V následujícím příkazu nahraďte název serveru MySQL, kde uvidíte  _&lt;mysql_server_name >_ zástupný symbol (platnými znaky jsou `a-z`, `0-9`, a `-`). Tento název je součástí názvu hostitele serveru MySQL (`<mysql_server_name>.mysql.database.azure.com`), musí být globálně jedinečný.
+V následujícím příkazu nahraďte zástupný text _&lt;mysql_server_name>_ názvem vašeho serveru MySQL (platné znaky jsou `a-z`, `0-9` a `-`). Tento název je součástí názvu hostitele serveru MySQL (`<mysql_server_name>.mysql.database.azure.com`) a musí být globálně jedinečný.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
-Při vytvoření serveru MySQL rozhraní příkazového řádku Azure obsahuje informace o podobně jako v následujícím příkladu:
+Po vytvoření serveru MySQL se v Azure CLI zobrazí podobné informace jako v následujícím příkladu:
 
 ```json
 {
@@ -161,44 +161,44 @@ Při vytvoření serveru MySQL rozhraní příkazového řádku Azure obsahuje i
 
 ### <a name="configure-server-firewall"></a>Konfigurace brány firewall serveru
 
-Vytvořte pravidlo brány firewall pro váš server MySQL a povolíte připojení klienta pomocí [az mysql pravidla brány firewall-vytvořit](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) příkaz.
+Pomocí příkazu [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) vytvořte pro svůj server MySQL pravidlo brány firewall umožňující klientská připojení.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
-> Azure databáze pro databázi MySQL (Preview) nepodporuje aktuálně omezení počtu připojení pouze ke službám Azure. Jak budou dynamicky přiřazovat IP adresy v Azure, je lepší povolit všechny IP adresy. Služba není ve verzi preview. Plánujeme lepší metody pro zabezpečení databáze.
+> Azure Database for MySQL (Preview) v současné době neomezuje připojení jenom na služby Azure. Jelikož se IP adresy v Azure přidělují dynamicky, je lepší povolit všechny IP adresy. Služba je ve verzi Preview. Plánujeme zavést lepší metody zabezpečení databáze.
 >
 
-### <a name="connect-to-production-mysql-server-locally"></a>Připojení k serveru pro produkční MySQL místně
+### <a name="connect-to-production-mysql-server-locally"></a>Místní připojení k produkčnímu serveru MySQL
 
-V okně terminálu připojte k serveru databáze MySQL v Azure. Použít hodnotu zadanou dříve pro  _&lt;mysql_server_name >_.
+V okně terminálu se připojte k serveru MySQL v Azure. U položky _&lt;mysql_server_name>_ použijte hodnotu, kterou jste zadali předtím.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
 ```
 
-Pokud budete vyzváni k zadání hesla, použijte _My5up3r$ tr0ngPa$ w0rd!_, který jste zadali při vytváření databázového serveru.
+Po zobrazení výzvy k zadání hesla použijte heslo _My5up3r$tr0ngPa$w0rd!_, které jste zadali při vytváření databázového serveru.
 
-### <a name="create-a-production-database"></a>Vytvoření provozní databáze
+### <a name="create-a-production-database"></a>Vytvoření produkční databáze
 
-Na `mysql` výzvu, vytvořit databázi.
+Po výzvě `mysql` vytvořte databázi.
 
 ```sql
 CREATE DATABASE sampledb;
 ```
 
-### <a name="create-a-user-with-permissions"></a>Vytvořit uživatele s oprávněními
+### <a name="create-a-user-with-permissions"></a>Vytvoření uživatele s oprávněními
 
-Vytvořte uživatele databáze názvem _railsappuser_ a pojmenujte ho všechna oprávnění `sampledb` databáze.
+Vytvořte uživatele databáze se jménem _railsappuser_ a přidělte mu všechna oprávnění k databázi `sampledb`.
 
 ```sql
 CREATE USER 'railsappuser' IDENTIFIED BY 'MySQLAzure2017'; 
 GRANT ALL PRIVILEGES ON sampledb.* TO 'railsappuser';
 ```
 
-Ukončení připojení k serveru zadáním `quit`.
+Ukončete připojení k serveru zadáním příkazu `quit`.
 
 ```sql
 quit
@@ -206,13 +206,13 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Připojení aplikace k Azure MySQL
 
-V tomto kroku připojíte Ruby, na které aplikace pro databázi MySQL, kterou jste vytvořili v Azure Database pro databázi MySQL (Preview).
+V tomto kroku připojíte aplikaci Ruby on Rails k databázi MySQL, kterou jste vytvořili v Azure Database for MySQL (Preview).
 
 <a name="devconfig"></a>
 
 ### <a name="configure-the-database-connection"></a>Konfigurace připojení k databázi
 
-V úložišti, otevřete _config/database.yml_. V dolní části souboru nahraďte následujícím kódem produkční proměnné. Pro  _&lt;mysql_server_name >_ zástupného symbolu, použijte název serveru databáze MySQL, který jste vytvořili.
+V úložišti otevřete soubor _config/database.yml_. Ve spodní části souboru nahraďte produkční proměnné následujícím kódem. Namísto zástupného textu _&lt;mysql_server_name>_ zadejte název serveru MySQL, který jste vytvořili.
 
 ```txt
 production:
@@ -228,10 +228,10 @@ production:
 Uložte změny.
 
 > [!NOTE]
-> `sslca` Přidána a ukazuje na stávající _.pem_ souboru v úložišti ukázka. Ve výchozím nastavení vynucuje Azure Database pro databázi MySQL připojení SSL od klientů. To `.pem` certifikát je, jak provedete připojení SSL k databázi Azure pro databázi MySQL. Další informace najdete v tématu [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
+> Přidá se položka `sslca` odkazující na existující soubor _.pem_ v úložišti ukázek. Ve výchozím nastavení vynucuje Azure Database for MySQL od klientů připojení SSL. Tento certifikát `.pem` umožňuje vytvořit připojení SSL k Azure Database for MySQL. Další informace najdete v tématu [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
 >
 
-### <a name="test-the-application-locally"></a>Testování aplikace místně
+### <a name="test-the-application-locally"></a>Testování aplikace v místním prostředí
 
 V místní terminálu nastavte následující proměnné prostředí:
 
@@ -242,65 +242,65 @@ export DB_USERNAME=railsappuser@<mysql_server_name>
 export DB_PASSWORD=MySQLAzure2017
 ```
 
-Spusťte migrace databáze které s provozním hodnoty, kterou jste právě nakonfigurovali k vytvoření tabulky v databázi MySQL v Azure Database pro databázi MySQL (Preview). 
+Spusťte migrace databáze Rails s produkčními hodnotami, které jste právě nakonfigurovali, aby se ve vaší databázi MySQL v Azure Database for MySQL (Preview) vytvořily tabulky. 
 
 ```bash
 rake db:migrate RAILS_ENV=production
 ```
 
-Při spuštění v produkčním prostředí, které aplikace musí předkompilovaných prostředky. Generovat požadované prostředky pomocí následujícího příkazu:
+Při spuštění v produkčním prostředí potřebuje aplikace Rails předkompilované prostředky. Požadované prostředky vygenerujte pomocí následujícího příkazu:
 
 ```bash
 rake assets:precompile
 ```
 
-Tajné klíče v provozním prostředí které také používá ke správě zabezpečení. Generovat tajný klíč.
+Produkční prostředí Rails také používá ke správě zabezpečení tajné kódy. Vygenerujte tajný klíč.
 
 ```bash
 rails secret
 ```
 
-Uložte tajný klíč do odpovídajících proměnné používané které produkčního prostředí. Pro usnadnění práce používáte stejný klíč pro obě proměnné.
+Uložte tajný klíč do odpovídajících proměnných používaných produkčním prostředím Rails. Pro jednoduchost použijte u obou proměnných stejný klíč.
 
 ```bash
 export RAILS_MASTER_KEY=<output_of_rails_secret>
 export SECRET_KEY_BASE=<output_of_rails_secret>
 ```
 
-Povolte které produkčního prostředí k obsluze souborů JavaScript a CSS.
+Povolte v produkčním prostředí Rails zpracování souborů JavaScript a CSS.
 
 ```bash
 export RAILS_SERVE_STATIC_FILES=true
 ```
 
-Spuštění ukázkové aplikace v provozním prostředí.
+Spusťte v produkčním prostředí ukázkovou aplikaci.
 
 ```bash
 rails server -e production
 ```
 
-Přejděte na `http://localhost:3000`. Pokud stránka načte bez chyb, Ruby, na které aplikace se připojuje k databázi MySQL v Azure.
+Přejděte na adresu `http://localhost:3000`. Pokud se stránka načte bez chyb, aplikace Ruby on Rails se v Azure připojuje k databázi MySQL.
 
-Na stránce přidáte několik úloh.
+Na stránce přidejte několik úkolů.
 
-![Ruby, na které se připojí úspěšně do Azure Database pro databázi MySQL (Preview)](./media/tutorial-ruby-mysql-app/azure-mysql-connect-success.png)
+![Aplikace Ruby on Rails se úspěšně připojí k Azure Database for MySQL (Preview)](./media/tutorial-ruby-mysql-app/azure-mysql-connect-success.png)
 
-Chcete-li zastavit, na které server, zadejte `Ctrl + C` v terminálu.
+Pokud chcete server Rails zastavit, zadejte do terminálu `Ctrl + C`.
 
-### <a name="commit-your-changes"></a>Potvrdit změny
+### <a name="commit-your-changes"></a>Potvrzení změn
 
-Spusťte následující příkazy Git potvrzení změny:
+Potvrďte provedené změny spuštěním následujících příkazů Gitu:
 
 ```bash
 git add .
 git commit -m "database.yml updates"
 ```
 
-Je připravená k nasazení aplikace.
+Vaše aplikace je připravená k nasazení.
 
 ## <a name="deploy-to-azure"></a>Nasazení do Azure
 
-V tomto kroku nasadíte aplikaci které MySQL připojení do služby Azure App Service.
+V tomto kroku nasadíte aplikaci Rails připojenou k MySQL do služby Azure App Service.
 
 ### <a name="configure-a-deployment-user"></a>Konfigurace uživatele nasazení
 
@@ -312,9 +312,9 @@ V tomto kroku nasadíte aplikaci které MySQL připojení do služby Azure App S
 
 ### <a name="create-a-web-app"></a>Vytvoření webové aplikace
 
-Ve službě Cloud Shell pomocí příkazu [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) vytvořte webovou aplikaci v plánu služby App Service `myAppServicePlan`. 
+Ve službě Cloud Shell pomocí příkazu [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) vytvořte v plánu služby App Service `myAppServicePlan` webovou aplikaci. 
 
-V následujícím příkladu nahraďte `<app_name>` globálně jedinečným názvem aplikace (platné znaky jsou `a-z`, `0-9` a `-`). Modul runtime je nastaven na `RUBY|2.3`, která nasadí [výchozí Ruby image](https://hub.docker.com/r/appsvc/ruby/). Pokud chcete zobrazit všechny podporované moduly runtime, spusťte příkaz [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
+V následujícím příkladu nahraďte `<app_name>` globálně jedinečným názvem aplikace (platné znaky jsou `a-z`, `0-9` a `-`). Modul runtime je nastavený na hodnotu `RUBY|2.3`, která nasadí [výchozí imagi Ruby](https://hub.docker.com/r/appsvc/ruby/). Pokud chcete zobrazit všechny podporované moduly runtime, spusťte příkaz [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "RUBY|2.3" --deployment-local-git
@@ -344,49 +344,49 @@ Vytvořili jste novou prázdnou webovou aplikaci s povoleným nasazením Gitu.
 > Adresa URL vzdáleného úložiště Git se zobrazuje ve vlastnosti `deploymentLocalGitUrl` ve formátu `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Tuto adresu URL si uložte, protože ji budete potřebovat později.
 >
 
-### <a name="configure-database-settings"></a>Konfiguruje nastavení databáze.
+### <a name="configure-database-settings"></a>Konfigurace nastavení databáze
 
-Ve službě App Service, můžete nastavit proměnné prostředí jako _nastavení aplikace_ pomocí [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkazu v prostředí cloudu.
+Ve službě App Service můžete nastavit proměnné prostředí jako _nastavení aplikace_ pomocí příkazu [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) v Cloud Shellu.
 
-Následující příkaz prostředí cloudu nakonfiguruje nastavení aplikace `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, a `DB_PASSWORD`. Nahraďte zástupné symboly  _&lt;appname >_ a  _&lt;mysql_server_name >_.
+Následující příkaz Cloud Shellu nakonfiguruje nastavení aplikace `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` a `DB_PASSWORD`. Nahraďte zástupné texty _&lt;appname>_ a _&lt;mysql_server_name>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017"
 ```
 
-### <a name="configure-rails-environment-variables"></a>Nakonfigurovat proměnné prostředí, které
+### <a name="configure-rails-environment-variables"></a>Konfigurace proměnných prostředí Rails
 
-V místní terminálu vygenerujte nový tajný klíč pro produkční prostředí které v Azure.
+V místním terminálu vygenerujte nový tajný klíč pro produkční prostředí Rails v Azure.
 
 ```bash
 rails secret
 ```
 
-Nakonfigurujte proměnné požadované pro které produkční prostředí.
+Nakonfigurujte proměnné vyžadované produkčním prostředím Rails.
 
-V následujícím příkazu cloudové prostředí, nahraďte dva  _&lt;output_of_rails_secret >_ zástupné symboly nový tajný klíč vygenerované v místní terminálu.
+V následujícím příkazu Cloud Shellu nahraďte oba zástupné texty _&lt;output_of_rails_secret>_ novým tajným klíčem, který jste vygenerovali v místním terminálu.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output_of_rails_secret>" SECRET_KEY_BASE="<output_of_rails_secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-`ASSETS_PRECOMPILE="true"`Určuje výchozí kontejner Ruby předkompilovat prostředky v každé nasazení Git.
+Nastavení `ASSETS_PRECOMPILE="true"` sdělí kontejneru Ruby, že se mají při každém nasazení z Gitu předkompilovat prostředky.
 
 ### <a name="push-to-azure-from-git"></a>Přenos z Gitu do Azure
 
-V místní terminálu přidejte do místního úložiště Git Azure vzdálené.
+V místním terminálu přidejte do místního úložiště Gitu vzdálené prostředí Azure.
 
 ```bash
 git remote add azure <paste_copied_url_here>
 ```
 
-Doručte do Azure vzdálené nasazení Ruby, na které aplikace. Zobrazí se výzva k zadání hesla, který jste zadali dříve v rámci vytváření nasazení uživatele.
+Nasdílením změn do vzdáleného prostředí Azure nasaďte aplikaci Ruby on Rails. Zobrazí se výzva k zadání hesla, které jste zadali dříve v rámci vytváření uživatele nasazení.
 
 ```bash
 git push azure master
 ```
 
-Během nasazení Azure App Service komunikuje s Gitem jejím průběhu.
+Během nasazení bude služba Azure App Service hlásit Gitu průběh nasazení.
 
 ```bash
 Counting objects: 3, done.
@@ -403,48 +403,48 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Přejděte do webové aplikace Azure
+### <a name="browse-to-the-azure-web-app"></a>Přechod do webové aplikace Azure
 
-Přejděte do `http://<app_name>.azurewebsites.net` a přidejte do seznamu několik úloh.
+Přejděte na adresu `http://<app_name>.azurewebsites.net` a přidejte do seznamu několik úkolů.
 
-![Ruby, na které aplikaci spuštěnou ve službě Azure App Service](./media/tutorial-ruby-mysql-app/ruby-mysql-in-azure.png)
+![Aplikace Ruby on Rails spuštěná ve službě Azure App Service](./media/tutorial-ruby-mysql-app/ruby-mysql-in-azure.png)
 
-Blahopřejeme, ve které aplikaci ve službě Azure App Service používáte Ruby se řízené daty.
+Blahopřejeme! Teď máte ve službě Azure App Service spuštěnou aplikaci Ruby on Rails založenou na datech.
 
-## <a name="update-model-locally-and-redeploy"></a>Aktualizace modelu místně a znovu nasaďte
+## <a name="update-model-locally-and-redeploy"></a>Místní aktualizace modelu a opětovné nasazení
 
-V tomto kroku provedete jednoduché změnu `task` datový model a webové aplikace a pak publikujte aktualizace do Azure.
+V tomto kroku provedete jednoduchou změnu datového modelu `task` a webové aplikace a potom tuto aktualizaci publikujete v Azure.
 
-Pro tento scénář úlohy upravit aplikaci tak, že můžete označit úlohu jako dokončenou.
+Pro scénář úkolů upravíte aplikaci tak, abyste mohli úkol označit jako dokončený.
 
-### <a name="add-a-column"></a>Přidat sloupec
+### <a name="add-a-column"></a>Přidání sloupce
 
-V terminálu přejděte do kořenového úložiště Git.
+V terminálu přejděte do kořenového adresáře úložiště Gitu.
 
-Generovat nové migrace, který přidává boolean sloupec s názvem `Done` k `Tasks` tabulky:
+Vytvořte novou migraci, která přidá do tabulky `Tasks` logický sloupec s názvem `Done`:
 
 ```bash
 rails generate migration add_Done_to_Tasks Done:boolean
 ```
 
-Tento příkaz generuje nový soubor migrace v _db nebo migrovat_ adresáře.
+Tento příkaz vygeneruje v adresáři _db/migrate_ nový soubor migrace.
 
 
-V terminálu spuštění migrace databáze které udělat změnu v místní databázi.
+V terminálu spusťte migrace databáze Rails, aby se změna provedla v místní databázi.
 
 ```bash
 rake db:migrate
 ```
 
-### <a name="update-application-logic"></a>Aktualizace aplikace logiky
+### <a name="update-application-logic"></a>Aktualizace logiky aplikace
 
-Otevřete *app/controllers/tasks_controller.rb* souboru. Na konci souboru vyhledejte následující řádek:
+Otevřete soubor *app/controllers/tasks_controller.rb*. Na konci souboru najdete následující řádek:
 
 ```rb
 params.require(:task).permit(:Description)
 ```
 
-Upravit tento řádek, aby zahrnovalo nové `Done` parametr.
+Tento řádek upravte tak, aby obsahoval nový parametr `Done`.
 
 ```rb
 params.require(:task).permit(:Description, :Done)
@@ -452,9 +452,9 @@ params.require(:task).permit(:Description, :Done)
 
 ### <a name="update-the-views"></a>Aktualizace zobrazení
 
-Otevřete *app/views/tasks/_form.html.erb* souboru, který je upravit formuláře.
+Otevřete soubor *app/views/tasks/_form.html.erb*, což je formulář pro úpravy.
 
-Vyhledejte řádek `<%=f.error_span(:Description) %>` a vložte následující kód pod ním:
+Najděte řádek `<%=f.error_span(:Description) %>` a přímo pod něj vložte následující kód:
 
 ```erb
 <%= f.label :Done, :class => 'control-label col-lg-2' %>
@@ -463,52 +463,52 @@ Vyhledejte řádek `<%=f.error_span(:Description) %>` a vložte následující k
 </div>
 ```
 
-Otevřete *app/views/tasks/show.html.erb* souboru, který je stránka zobrazení jedním záznamem. 
+Otevřete soubor *app/views/tasks/show.html.erb* což je stránka zobrazení s jedním záznamem. 
 
-Vyhledejte řádek `<dd><%= @task.Description %></dd>` a vložte následující kód pod ním:
+Najděte řádek `<dd><%= @task.Description %></dd>` a přímo pod něj vložte následující kód:
 
 ```erb
   <dt><strong><%= model_class.human_attribute_name(:Done) %>:</strong></dt>
   <dd><%= check_box "task", "Done", {:checked => @task.Done, :disabled => true}%></dd>
 ```
 
-Otevřete *app/views/tasks/index.html.erb* souboru, který je indexovou stránku pro všechny záznamy.
+Otevřete soubor *app/views/tasks/index.html.erb*, což je indexová stránka pro všechny záznamy.
 
-Vyhledejte řádek `<th><%= model_class.human_attribute_name(:Description) %></th>` a vložte následující kód pod ním:
+Najděte řádek `<th><%= model_class.human_attribute_name(:Description) %></th>` a přímo pod něj vložte následující kód:
 
 ```erb
 <th><%= model_class.human_attribute_name(:Done) %></th>
 ```
 
-Ve stejném souboru, vyhledejte řádek `<td><%= task.Description %></td>` a vložte následující kód pod ním:
+Ve stejném souboru najděte řádek `<td><%= task.Description %></td>` a přímo pod něj vložte následující kód:
 
 ```erb
 <td><%= check_box "task", "Done", {:checked => task.Done, :disabled => true} %></td>
 ```
 
-### <a name="test-the-changes-locally"></a>Testování, místně
+### <a name="test-the-changes-locally"></a>Místní test provedených změn
 
-V místní terminálu, které serverem.
+V místní terminálu spusťte server Rails.
 
 ```bash
 rails server
 ```
 
-Chcete-li zobrazit stav úlohy změnit, přejděte na `http://localhost:3000` a přidat nebo upravit položky.
+Pokud chcete vidět změnu stavu úkolu, přejděte na adresu `http://localhost:3000` a přidejte nebo upravte položky.
 
-![Přidání zaškrtnutím políčka úloh](./media/tutorial-ruby-mysql-app/complete-checkbox.png)
+![U úkolu přibylo zaškrtávací políčko](./media/tutorial-ruby-mysql-app/complete-checkbox.png)
 
-Chcete-li zastavit, na které server, zadejte `Ctrl + C` v terminálu.
+Pokud chcete server Rails zastavit, zadejte do terminálu `Ctrl + C`.
 
-### <a name="publish-changes-to-azure"></a>Publikování změn do Azure
+### <a name="publish-changes-to-azure"></a>Publikování změn v Azure
 
-V terminálu spusťte které migrace databáze pro produkční prostředí k provedení změn v databázi Azure.
+V terminálu spusťte migrace databáze Rails, aby produkční prostředí provedlo změnu v databázi Azure.
 
 ```bash
 rake db:migrate RAILS_ENV=production
 ```
 
-Potvrďte všechny změny v úložišti Git a potom odešlete změny kódu do Azure.
+Potvrďte všechny změny v Gitu a potom odešlete změny kódu do Azure.
 
 ```bash
 git add .
@@ -516,11 +516,11 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Jednou `git push` je dokončení, přejděte na webové aplikace Azure a testování nových funkcí.
+Po dokončení operace `git push` přejděte do webové aplikace Azure a vyzkoušejte nové funkce.
 
-![Model a databáze změny, které jsou publikovány do služby Azure](media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
+![Změny modelu a databáze publikované v Azure](media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
 
-Pokud jste přidali všechny úlohy, se uchovávají v databázi. Aktualizace schématu data ponechat stávající data beze změn.
+Pokud jste přidali nějaké úkoly, zůstanou v databázi. Aktualizace schématu dat nechávají existující data netknutá.
 
 ## <a name="manage-the-azure-web-app"></a>Správa webové aplikace Azure
 
@@ -530,9 +530,9 @@ V levé nabídce klikněte na **App Services** a pak klikněte na název vaší 
 
 ![Navigace portálem k webové aplikaci Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-Zobrazí se stránka s přehledem vaší webové aplikace. Zde můžete provádět základní správu úkoly, jako je zastavení, spuštění, restartování, procházet a delete.
+Zobrazí se stránka s přehledem vaší webové aplikace. Tady můžete provádět základní úkoly správy, jako je zastavení, spuštění, restartování, procházení a odstranění.
 
-V levé nabídce poskytuje stránky pro konfiguraci vaší aplikace.
+Levá nabídka obsahuje stránky pro konfiguraci vaší aplikace.
 
 ![Stránka služby App Service na webu Azure Portal](./media/tutorial-php-mysql-app/web-app-blade.png)
 
@@ -540,19 +540,19 @@ V levé nabídce poskytuje stránky pro konfiguraci vaší aplikace.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Vytvoření databáze MySQL v Azure
-> * Připojení k MySQL Ruby, na které aplikace
-> * Nasazení aplikace do Azure
-> * Aktualizovat datový model a aplikaci znovu nasaďte
-> * Diagnostické protokoly datového proudu z Azure
-> * Spravovat aplikaci na portálu Azure
+> * Vytvořit databázi MySQL v Azure
+> * Připojit k databázi MySQL aplikaci Ruby on Rails
+> * Nasadit aplikaci do Azure
+> * Aktualizovat datový model a znovu nasadit aplikaci
+> * Streamovat diagnostické protokoly z Azure
+> * Spravovat aplikaci na webu Azure Portal
 
-Přechodu na dalším kurzu se dozvíte, jak namapovat vlastní název DNS pro webovou aplikaci.
+V dalším kurzu se dozvíte, jak namapovat na webovou aplikaci vlastní název DNS.
 
 > [!div class="nextstepaction"]
 > [Mapování existujícího vlastního názvu DNS na Azure Web Apps](../app-service-web-tutorial-custom-domain.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Nastavení kompletní obměny klíčů a auditování ve službě Azure Key Vault
 ## <a name="introduction"></a>Úvod
@@ -186,7 +186,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <ap
 
 Potom vyberte **Runbooky** v rámci vaší instanci Azure Automation a potom vyberte **přidat Runbook**. Vyberte možnost **Rychle vytvořit**. Název vaší sady runbook a vyberte **prostředí PowerShell** jako typ runbooku. Máte možnost přidat její popis. Nakonec klikněte na **vytvořit**.
 
-![Vytvoření sady runbook](./media/keyvault-keyrotation/Create_Runbook.png)
+![Vytvoření runbooku](./media/keyvault-keyrotation/Create_Runbook.png)
 
 V podokně editor pro nový runbook vložte následující skript prostředí PowerShell:
 
@@ -416,7 +416,7 @@ Funkce je nyní připraven. Nezapomeňte přepnout zpět **vývoj** kartě a ulo
 ### <a name="azure-logic-app"></a>Azure logic Apps
 Dále musíte vytvořit aplikaci Azure logiku, která převezme události funkce je vkládání do fronty Service Bus, analyzuje obsah a odešle e-mailu na základě podmínky se shodoval.
 
-[Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md) přechodem na **nový > aplikace logiky**.
+[Vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md) přechodem na **nový > aplikace logiky**.
 
 Po vytvoření aplikace logiky, přejděte k němu a zvolte **upravit**. V editoru aplikace logiky, vyberte **frontou Service Bus** a zadejte svá pověření Service Bus pro připojení k frontě.
 

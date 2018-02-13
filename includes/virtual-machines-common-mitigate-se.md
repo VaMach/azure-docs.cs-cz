@@ -1,11 +1,17 @@
 
 
 
-**Poslední aktualizace dokumentů**: 12. ledna 3:00 PM PST.
+**Poslední aktualizace dokumentů**: 22. ledna 3:00 PM PST.
 
 Poslední zveřejnění [nová třída ohrožení zabezpečení procesoru](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) se označuje jako spekulativní provádění straně kanál útoky má za následek otázky z zákazníky, kteří potřebují další přehlednost.  
 
 Je chráněn infrastrukturu, která používá Azure a izoluje úloh zákazníka od sebe navzájem.  To znamená, spuštěné v Azure se zákazníci navzájem nelze napadnout vaší aplikace pomocí těchto chyb zabezpečení.
+
+> [!NOTE] 
+> Azure jejich zmírnění dříve oznámeny na 3 ledna 2018 jsou poškozena seznamu nedávných [aktualizované pokyny](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Na virtuální počítače zákazníka v důsledku této nové informace nebude žádná aktivita další údržby.
+>
+> Budeme nadále Aktualizujte tyto doporučené postupy, jak jsme dostávat aktualizace mikrokódu od dodavatelů hardwaru. Zkontrolujte zpět aktualizované pokyny.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Průběžná aktualizace operačních systémů
 
@@ -43,9 +49,6 @@ Pokud používáte systém Windows a hostování nedůvěryhodnými, měli byste
 ### <a name="linux"></a>Linux
 Pokud používáte Linux a hostování nedůvěryhodnými, měli byste také aktualizovat Linux na novější verzi, která implementuje izolace tabulky stránky jádra (KPTI), který odděluje tabulky stránky použít v jádru od těch náležící do prostoru uživatele. Tyto způsoby zmírnění vyžadují aktualizaci operační systém Linux a získáte od svého poskytovatele distribuce, pokud je k dispozici. Poskytovatel operačního systému lze zjistit, jestli jsou ochranu povolit nebo zakázat ve výchozím nastavení.
 
-
-
-Budeme nadále Aktualizujte tyto doporučené postupy, jak jsme dostávat aktualizace mikrokódu od dodavatelů hardwaru. Zkontrolujte zpět aktualizované pokyny.
 
 
 ## <a name="next-steps"></a>Další postup

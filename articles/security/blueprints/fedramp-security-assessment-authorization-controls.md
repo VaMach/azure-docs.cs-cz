@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Automation plán, podle kterého – Vyhodnocení zabezpečení a autorizace"
-description: "Webové aplikace pro FedRAMP - vyhodnocení zabezpečení a autorizace"
+title: "Zabezpečení Azure a hodnocení dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace – zabezpečení a autorizace"
+description: "FedRAMP webové aplikace automatizace - vyhodnocení zabezpečení a autorizace"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Vyhodnocení zabezpečení a autorizaci (CA)
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/23/2017
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
- ## <a name="nist-800-53-control-ca-2c"></a>NIST 800-53 řízení CA-2.c
+ ## <a name="nist-800-53-control-ca-2c"></a>NIST 800-53 Control CA-2.c
 
 #### <a name="security-assessments"></a>Posouzení zabezpečení
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Aplikační brána a sítě skupiny zabezpečení Azure se nasadí do omezit externí připojení k prostředkům nasadit pomocí tento plán, podle kterého Azure. Sady pravidel u skupin zabezpečení sítě jsou konfigurováni pomocí odepřít výchozí schéma. |
+| **Zákazníka** | Aplikační brána a sítě skupiny zabezpečení Azure se nasadí do omezit externí připojení k prostředkům nasadit pomocí tento plán. Sady pravidel u skupin zabezpečení sítě jsou konfigurováni pomocí odepřít výchozí schéma. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -337,7 +337,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="continuous-monitoring"></a>Nepřetržité monitorování
 
-**7.e certifikační Autority** Organizace sama vyvinula strategie nepřetržité monitorování a implementuje nepřetržité monitorování aplikace, která obsahuje korelace a analýzu informací souvisejících se zabezpečením vygenerovaných vyhodnocování a sledování.
+**CA-7.e** Organizace sama vyvinula strategie nepřetržité monitorování a implementuje nepřetržité monitorování aplikace, která obsahuje korelace a analýzu informací souvisejících se zabezpečením vygenerovaných vyhodnocování a sledování.
 
 **Odpovědnosti:**`Customer Only`
 

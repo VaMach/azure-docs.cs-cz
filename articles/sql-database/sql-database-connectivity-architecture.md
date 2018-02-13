@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/16/2018
+ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 8cf926bab45705802cfaca95973ec1071d8d175a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architektura připojení k databázi Azure SQL 
 
@@ -93,7 +93,7 @@ Následující tabulka uvádí primární a sekundární IP adresy brány Azure 
 | Západní USA 2 | 13.66.226.202  | |
 ||||
 
-\***Poznámka:** *východní USA 2* má také terciární IP adresu z `2.167.104.0`.
+\***Poznámka:** *východní USA 2* má také terciární IP adresu z `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Změnit zásady připojení databáze SQL Azure
 
@@ -185,7 +185,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Informace o tom, jak změnit zásady připojení Azure SQL Database pro databázi Azure SQL server najdete v tématu [vytvoření nebo aktualizace serveru připojení zásady pomocí rozhraní REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - Informace o chování Azure SQL Database připojení pro klienty, kteří používají ADO.NET 4.5 nebo novější verze najdete v tématu [porty nad rámec 1433 pro technologii ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).

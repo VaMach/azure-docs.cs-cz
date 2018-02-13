@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD na Windows Phone Začínáme
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -93,7 +93,7 @@ Základní princip za ADAL je, že vždy, když aplikace potřebuje přístupov�
 
 * Prvním krokem je k chybě při inicializaci aplikace `AuthenticationContext` -ADAL je primární třídou.  Toto je, kde je předat ADAL souřadnice musí komunikovat s Azure AD a určit, jak pro ukládání do mezipaměti tokenů.
 
-```C#
+```csharp
 public MainPage()
 {
     ...
@@ -105,7 +105,7 @@ public MainPage()
 
 * Nyní najít `Search(...)` metodu, která bude vyvolán při cliks uživatele "Vyhledat" tlačítko v uživatelském rozhraní aplikace.  Tato metoda vytváří požadavek GET na Azure AD Graph API k dotazu pro uživatele, jehož UPN začíná zadaný hledaný termín.  Pro dotaz na rozhraní Graph API, musíte zahrnout access_token v, ale `Authorization` hlavičky požadavku – to přichází ADAL.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
@@ -128,7 +128,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 * Pokud je nutné interaktivního ověřování, ADAL použije webové ověřování zprostředkovatele (soubor WAB) Windows Phone a [pokračování modelu](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) zobrazení Azure AD přihlašovací stránce.  Když se uživatel přihlásí, vaše aplikace musí předat ADAL výsledky WAB interakce.  To je jednoduché, implementace `ContinueWebAuthentication` rozhraní:
 
-```C#
+```csharp
 // This method is automatically invoked when the application
 // is reactivated after an authentication interaction through WebAuthenticationBroker.
 public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
@@ -141,7 +141,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 
 * Nyní je čas používat `AuthenticationResult` ADAL vrácená do vaší aplikace.  V `QueryGraph(...)` zpětné volání, připojte access_token jste získali na požadavek GET v hlavičce autorizace:
 
-```C#
+```csharp
 private async void QueryGraph(AuthenticationResult result)
 {
     if (result.Status != AuthenticationStatus.Success)
@@ -158,13 +158,13 @@ private async void QueryGraph(AuthenticationResult result)
 ```
 * Můžete také `AuthenticationResult` objekt, který chcete zobrazit informace o uživateli ve vaší aplikaci. V `QueryGraph(...)` metoda, použijte výsledek pro zobrazení ID uživatele na stránce:
 
-```C#
+```csharp
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 * Nakonec se přihlásit uživatele mimo aplikace také můžete ADAL.  Když uživatel klikne na tlačítko "Odhlásit", chceme, abyste ověřili, že další volání `AcquireTokenSilentAsync(...)` se nezdaří.  Pomocí knihovny ADAL to je stejně snadná jako vymazání mezipamětí tokenů:
 
-```C#
+```csharp
 private void SignOut()
 {
     // Clear session state from the token cache.

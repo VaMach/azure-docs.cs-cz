@@ -9,28 +9,30 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 429f5c9f939a802184a6513a63fb9115abf4b235
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimální dobou výpadku migrace do Azure Database pro databázi MySQL
-Můžete migrovat existující databázi MySQL do databáze Azure pro databázi MySQL pomocí společnosti Attunity replikace pro Microsoft Migrations, společně sponzorovaný, společné nabídky od společnosti Attunity a společnosti Microsoft, která je k dispozici společně se službou Azure databáze migrace na Ne Další náklady na zákazníků společnosti Microsoft. Replikovat společnosti Attunity pro Microsoft Migrations taky umožňuje minimální výpadek při migraci databáze a zdrojové databáze je stále provozní během procesu migrace.
+Můžete migrovat existující databázi MySQL do databáze Azure pro databázi MySQL pomocí společnosti Attunity replikace pro Migrations Microsoft. Společnosti Attunity replikace je společné nabídky od společnosti Attunity a společnosti Microsoft. Společně se službou migrace databáze Azure je zahrnuta bez dalších poplatků zákazníkům společnosti Microsoft. 
 
-Společnosti Attunity replikace je nástroj replikace dat, která umožňuje synchronizaci dat mezi různé zdroje a cíle, šíření skriptu pro vytváření schémat a data související s každou databázové tabulky. Replikovat společnosti Attunity nešířily všechny artefakty (například SP, triggery, funkce, atd.) nebo převést, například kód PL/SQL hostované v artefaktům T-SQL.
+Replikovat společnosti Attunity pomáhá minimalizovat prostoje během migrace databáze, a udržuje provozní v celém procesu zdrojové databáze.
+
+Společnosti Attunity replikace je nástroj replikace dat, která umožňuje synchronizaci dat mezi různé zdroje a cíle. Se rozšíří skriptu pro vytváření schémat a data související s každou databázové tabulky. Replikovat společnosti Attunity nešířily všechny artefakty (například SP, triggery, funkce a tak dále) nebo převést, například, kód PL/SQL, který je hostován v artefaktům T-SQL.
 
 > [!NOTE]
-> I když společnosti Attunity replikovat podporuje širokou škálu scénářů migrace, společnosti Attunity replikace pro Microsoft Migrations se zaměřuje na podporu pro určitou dílčí sadu párů zdroj a cíl.
+> I když společnosti Attunity replikovat podporuje širokou škálu scénářů migrace, se zaměřuje na podporu pro určitou dílčí sadu párů zdroj a cíl.
 
 Přehled procesu k provedení migrace minimální dobou výpadku zahrnuje:
 
-1. **Migrace schématu zdroje MySQL** k databázi Azure pro databázi MySQL pomocí [MySQL Workbench](https://www.mysql.com/products/workbench/).
+* **Migrace schématu zdroje MySQL** k databázi Azure pro databázi MySQL spravovaná služba databáze pomocí [MySQL Workbench](https://www.mysql.com/products/workbench/).
 
-2. **Nastavení počáteční zatížení a synchronizaci průběžné dat ze zdrojové databáze na cílovou databázi** pomocí společnosti Attunity replikace pro Migrations společnosti Microsoft. Díky tomu minimalizuje čas, který zdrojové databáze musí být nastavena jen pro čtení během přípravy k přepínač aplikace na cílovou databázi MySQL na Azure.
+* **Nastavení počáteční zatížení a synchronizaci průběžné dat ze zdrojové databáze na cílovou databázi** pomocí společnosti Attunity replikace pro Migrations společnosti Microsoft. Díky tomu minimalizuje čas, který zdrojové databáze musí být nastavena jen pro čtení během přípravy k přepínač aplikace na cílovou databázi MySQL na Azure.
 
-Další informace o společnosti Attunity replikace Microsoft Migrations nabídky zobrazte v následujících zdrojích informací:
- - Replikovat společnosti Attunity pro Microsoft Migrations [webové stránky](https://aka.ms/attunity-replicate).
- - [Stáhněte si](http://discover.attunity.com/download-replicate-microsoft-lp6657.html) společnosti Attunity replikace pro Microsoft migrace.
- - Replikovat společnosti Attunity [komunity](https://microsoft.attunity.com/), s úvodní příručku, kurzy a podporu.
- - Podrobné pokyny k používání společnosti Attunity k migraci z databáze MySQL do Azure Database pro databázi MySQL, najdete v tématu [příručka k migraci databáze](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).
+Další informace o společnosti Attunity replikace pro Microsoft Migrations nabídky najdete v následujících zdrojích informací:
+ - Přejděte na [společnosti Attunity replikace pro Microsoft Migrations](https://aka.ms/attunity-replicate) webovou stránku.
+ - Stáhněte si [společnosti Attunity replikace pro Microsoft migrace](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
+ - Přejděte na [společnosti Attunity replikovat komunity](https://aka.ms/attunity-community) úvodní příručku, kurzy a podporu.
+ - Podrobný návod k migraci databáze MySQL na Azure Database pro databázi MySQL pomocí společnosti Attunity replikace, najdete v článku [příručka k migraci databáze](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).

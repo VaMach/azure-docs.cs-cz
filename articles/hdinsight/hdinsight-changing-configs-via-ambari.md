@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Optimalizace konfigurace clusteru HDInsight pomocí Ambari
 
@@ -183,7 +183,7 @@ K dispozici komprese typy jsou:
 
 | Formát | Nástroj | Algoritmus | Přípona souboru | Rozdělitelné? |
 | -- | -- | -- | -- | -- |
-| GZIP | GZIP | DEFLATE | .gz | Ne |
+| Gzip | Gzip | DEFLATE | .gz | Ne |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ano |
 | LZO | Lzop | LZO | .lzo | Ano, pokud indexované |
 | Tenhle | neuvedeno | Tenhle | Tenhle | Ne |
@@ -234,7 +234,7 @@ Spekulativní provádění spouští počet duplicitní úlohy, aby bylo možné
 
 Spekulativní spuštění by neměl být zapnut pro dlouhotrvající úlohy MapReduce s velkým množstvím vstup.
 
-1. Chcete-li povolit spekulativní provádění, přejděte na podregistr **konfigurací** kartě a poté nastavte `hive.mapred.reduce.tasks.speculative.execution` parametr na hodnotu true. Výchozí hodnota je false.
+* Chcete-li povolit spekulativní provádění, přejděte na podregistr **konfigurací** kartě a poté nastavte `hive.mapred.reduce.tasks.speculative.execution` parametr na hodnotu true. Výchozí hodnota je false.
 
     ![Hive mapred snížit spekulativní spuštění úlohy](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -286,7 +286,7 @@ Další doporučení pro optimalizaci modul provádění Hive:
 
 | Nastavení | Doporučené | Výchozí HDInsight |
 | -- | -- | -- |
-| `hive.mapjoin.hybridgrace.hashtable` | Hodnotu true = bezpečnější, pomalejší; false = rychlejší | false (nepravda) |
+| `hive.mapjoin.hybridgrace.hashtable` | Hodnotu true = bezpečnější, pomalejší; false = rychlejší | nepravda |
 | `tez.am.resource.memory.mb` | Horní mez 4 GB pro většinu | Automaticky Laděná |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
@@ -456,7 +456,7 @@ Využití vyrovnávací paměti místní přidělení paměťového úložiště
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>Další informace najdete v tématech
+## <a name="next-steps"></a>Další postup
 
 * [Správa clusterů HDInsight pomocí Ambari webového uživatelského rozhraní](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

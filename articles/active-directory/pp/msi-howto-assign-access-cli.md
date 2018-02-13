@@ -3,7 +3,7 @@ title: "Postup pro přístup k přiřazený uživatelem MSI přiřadit prostřed
 description: "Podrobné pokyny pro přiřazení MSI přiřazený uživatelem na jeden prostředek, přístup k jiný prostředek, pomocí rozhraní příkazového řádku Azure."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 732fc1981bdf95e7548ea0ebe0ca8ece00f483ce
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 5bea41999f59fe8be7ae0a0bd5b726527beeddd5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Přiřadit přístup k přiřazený uživatelem identita spravované služby (MSI) prostředku, pomocí rozhraní příkazového řádku Azure
 
@@ -33,7 +33,7 @@ Po vytvoření MSI se přiřazený uživatelem, můžete zajistit přístup MSI 
 V tomto kurzu spustit příklady skriptu rozhraní příkazového řádku, máte dvě možnosti:
 
 - Použití [prostředí cloudu Azure](~/articles/cloud-shell/overview.md) z portálu Azure nebo prostřednictvím tlačítko "Zkuste ho", umístěný v pravém horním rohu každé blok kódu.
-- [Nainstalujte nejnovější verzi 2.0 rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 nebo novější) Pokud byste radši chtěli použít místní konzoly rozhraní příkazového řádku. Potom se přihlaste k Azure pomocí [az přihlášení](/cli/azure/#login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit přiřazený uživatelem MSI a virtuálních počítačů:
+- [Nainstalujte nejnovější verzi 2.0 rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 nebo novější) Pokud byste radši chtěli použít místní konzoly rozhraní příkazového řádku. Potom se přihlaste k Azure pomocí [az přihlášení](/cli/azure/#az_login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit přiřazený uživatelem MSI a virtuálních počítačů:
 
    ```azurecli
    az login

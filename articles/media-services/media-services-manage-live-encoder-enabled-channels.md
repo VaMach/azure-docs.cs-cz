@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Živé streamování využívající službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi
 ## <a name="overview"></a>Přehled
@@ -65,7 +65,7 @@ Následující tabulka uvádí přiřazení stavů kanálu k režimu fakturace.
 | Stav kanálu | Indikátory v uživatelském rozhraní portálu | Je fakturace? |
 | --- | --- | --- |
 | Spouštění |Spouštění |Ne (přechodný stav) |
-| Běžící (Spuštěno) |Připraveno (žádný běžící program)<br/>nebo<br/>Streamování (nejméně jeden běžící program) |ANO |
+| Běží |Připraveno (žádný běžící program)<br/>nebo<br/>Streamování (nejméně jeden běžící program) |ANO |
 | Zastavování |Zastavování |Ne (přechodný stav) |
 | Zastaveno |Zastaveno |Ne |
 
@@ -83,7 +83,7 @@ Následující diagram představuje živé streamování pracovního postupu kde
 Následující část představuje obecné kroky, které jsou součástí procesu vytváření běžných aplikací pro živé streamování.
 
 > [!NOTE]
-> V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete kanál běžel delší dobu, obraťte se na adrese amslived@Microsoft.com. Mějte na paměti, že je fakturace dopad pro kódování v reálném čase a měli pamatovat ponechat živého kanálu kódování ve stavu "Spuštění" je zpoplatněná hodinové poplatky.  Doporučuje se po dokončení náklady na velmi hodinové živé streamování události okamžitě zastavit spuštěný kanálů. 
+> V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Obraťte se na amslived@microsoft.com Pokud potřebujete kanál běžel delší. Mějte na paměti, že je fakturace dopad pro kódování v reálném čase a měli pamatovat ponechat živého kanálu kódování ve stavu "Spuštění" je zpoplatněná hodinové poplatky.  Doporučuje se po dokončení náklady na velmi hodinové živé streamování události okamžitě zastavit spuštěný kanálů. 
 > 
 > 
 
@@ -157,7 +157,7 @@ Aspekty:
     * Mono, stereofonním systémem, příkazu obklopit (5.1, 7.1)
   * Zvuk MPEG (vrstvy II a III) 
     
-    * Mono, stereofonním systémem
+    * Mono, Stereo
 * Doporučené všesměrové vysílání, které zahrnují kodéry:
   
   * Představte si komunikace Selenio ŠIF 1
@@ -181,7 +181,7 @@ Aspekty:
 * Balení ADTS styl MPEG-2
 * Doporučené kodéry patří:
 * Kodér Telestream Wirecast
-* Flash Media Encoder za provozu
+* Flash Media Live Encoder
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>Fragmentovaný soubor MP4 s jednou přenosovou rychlostí (technologie Smooth Streaming)
 Typický případ použití:
@@ -208,7 +208,7 @@ Můžete definovat IP adresy, které mají povoleno publikování videa tohoto k
 
 Pokud žádné IP adresy nezadáte a nedefinujete žádné pravidlo, nebude povolená žádná IP adresa. Pokud chcete povolit libovolnou IP adresy, vytvořte pravidlo a nastavte 0.0.0.0/0.
 
-## <a name="channel-preview"></a>Kanál preview
+## <a name="channel-preview"></a>Náhled kanálu
 ### <a name="preview-urls"></a>Adresy URL Preview
 Kanály zadejte koncový bod preview (URL náhledu), který používáte pro zobrazení náhledu a ověřit před další zpracování a doručení datového proudu.
 
@@ -240,7 +240,7 @@ Není platná možnost **Scte35** (povolené, jenom Pokud je protokol pro stream
 ### <a name="cea-708-closed-captions"></a>CEA 708 uzavřený titulky
 Volitelné příznak, který informuje za provozu kodér ignorovat všechna data titulky CEA 708 vložený příchozí video. Když příznak nastaven na hodnotu false (výchozí), kodér rozpozná a CEA 708 data znovu vložit do výstupní datové proudy videa.
 
-### <a name="video-stream"></a>Datový proud videa
+### <a name="video-stream"></a>Video Stream
 Volitelné. Popisuje vstupní datový proud videa. Pokud toto pole není zadán, je použita výchozí hodnota. Toto nastavení je povoleno pouze v případě, že vstupní datový proud protokolu nastavena na RTP (MPEG-TS).
 
 #### <a name="index"></a>Index
@@ -248,7 +248,7 @@ Index počítaný od nuly, který určuje, který vstupní video datový proud, 
 
 Výchozí hodnota je nula. Doporučujeme odeslat v jednom programu přenosový stream (SPTS). Pokud vstupní datový proud obsahuje více programy, za provozu kodér analyzuje Program Mapa tabulky (platba) ve vstupu, identifikuje vstupních hodnot, které mají název typu stream MPEG-2 Video nebo H.264 a uspořádá je v pořadí zadaném v platbě Index založený na nule pak umožňuje vyzvedne, až n tou položku tohoto uspořádání.
 
-### <a name="audio-stream"></a>Zvukový datový proud
+### <a name="audio-stream"></a>Audio Stream
 Volitelné. Popisuje vstupní datové proudy zvuk. Pokud toto pole nezadáte, použije výchozí hodnoty zadané. Toto nastavení je povoleno pouze v případě, že vstupní datový proud protokolu nastavena na RTP (MPEG-TS).
 
 #### <a name="index"></a>Index
@@ -262,18 +262,18 @@ Může být až 8 nastaví datový proud zvuku zadaná, pokud vstupem pro kanál
 ### <a id="preset"></a>Přednastavení systému
 Určuje přednastavení, které chcete použít kodérem za provozu v rámci tohoto kanálu. V současné době pouze povolená hodnota je **Default720p** (výchozí).
 
-Všimněte si, že pokud budete potřebovat vlastní přednastavení, měli byste požádat na adrese amslived@Microsoft.com.
+Všimněte si, že pokud budete potřebovat vlastní přednastavení, měli byste požádat amslived@microsoft.com.
 
 **Default720p** bude zakódovat video do následující vrstvy 7.
 
 #### <a name="output-video-stream"></a>Výstupní datový proud videa
-| Přenosovou rychlostí | Šířka | Výška | MaxFPS | Profil | Název výstupního datového proudu |
+| BitRate | Šířka | Výška | MaxFPS | Profil | Název výstupního datového proudu |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Vysoký |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Main |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Main |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Main |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Main |Video_384x216_550kbps |
+| 2200 |960 |540 |30 |Hlavní |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Hlavní |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Hlavní |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Hlavní |Video_384x216_550kbps |
 | 350 |340 |192 |30 |Směrný plán |Video_340x192_350kbps |
 | 200 |340 |192 |30 |Směrný plán |Video_340x192_200kbps |
 
@@ -357,14 +357,14 @@ Aktuální stav kanálu. Možné hodnoty:
 * **Spouštění**. Kanál se spouští. V tomto stavu nejsou povoleny žádné aktualizace ani streamování. Pokud dojde k chybě, kanál se vrátí do stavu Zastaveno.
 * **Spuštění**. Kanál dokáže zpracovávat živé streamy.
 * **Zastavení**. Kanál se zastavuje. V tomto stavu nejsou povolené žádné aktualizace ani streamování.
-* **Odstranění**. Kanál se odstraňuje. V tomto stavu nejsou povoleny žádné aktualizace ani streamování.
+* **Odstranění**. Kanál se odstraňuje. V tomto stavu nejsou povolené žádné aktualizace ani streamování.
 
 Následující tabulka uvádí přiřazení stavů kanálu k režimu fakturace. 
 
 | Stav kanálu | Indikátory v uživatelském rozhraní portálu | Fakturováno? |
 | --- | --- | --- |
 | Spouštění |Spouštění |Ne (přechodný stav) |
-| Běžící (Spuštěno) |Připraveno (žádný běžící program)<br/>nebo<br/>Streamování (nejméně jeden běžící program) |Ano |
+| Běží |Připraveno (žádný běžící program)<br/>nebo<br/>Streamování (nejméně jeden běžící program) |Ano |
 | Zastavování |Zastavování |Ne (přechodný stav) |
 | Zastaveno |Zastaveno |Ne |
 
@@ -381,7 +381,7 @@ Následující tabulka uvádí přiřazení stavů kanálu k režimu fakturace.
 * Ve výchozím nastavení můžete přidat pouze 5 kanály pro váš účet Media Services. Toto je doporučené kvóty na všechny nové účty. Další informace najdete v tématu [kvóty a omezení](media-services-quotas-and-limitations.md).
 * Vstupní protokol nemůžete změnit, když kanál nebo jeho přidružené programy běží. Pokud požadujete různé protokoly, vytvořte samostatné kanály pro každý vstupní protokol.
 * Se účtují pouze pokud je kanál v **systémem** stavu. Další informace najdete v části [to](media-services-manage-live-encoder-enabled-channels.md#states) části.
-* V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás prosím na adrese amslived@microsoft.com.
+* V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Obraťte se na amslived@microsoft.com Pokud potřebujete kanál běžel delší.
 * Zajistěte, aby tak, aby měl koncový bod streamování, ze kterého chcete Streamovat obsah v **systémem** stavu.
 * Při vložení vícejazyčných stop a provádění kódování v reálném čase s Azure, je podporován pouze protokol RTP pro vícejazyčné vstup. Můžete definovat až 8 zvukové datové proudy MPEG-2 TS pomocí přes protokol RTP. Příjem více zvukových stop s RTMP nebo technologie Smooth streaming není aktuálně podporováno. Při provádění kódování v reálném čase s [místní live kóduje](media-services-live-streaming-with-onprem-encoders.md), neexistuje žádné takové omezení, protože ať posílá AMS prostřednictvím kanálu předá bez dalšího zpracování.
 * Předvolby kódování používá pojem "maximální kmitočet" 30 snímků za sekundu. Pokud vstup je 60fps / 59.97i, Vstupní rámce jsou vyřazeny nebo deaktivuje-interlaced na 30/29,97 fps. Pokud vstup je 50fps/50i, Vstupní rámce jsou vyřazeny nebo deaktivuje-interlaced až 25 fps. Pokud vstupní 25 snímků za sekundu, zůstane výstup 25 snímků za sekundu.

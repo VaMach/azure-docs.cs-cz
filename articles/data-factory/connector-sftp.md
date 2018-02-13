@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 2cfeb212213088bb8d871e4c82daee559e4b36ff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 55379add493224770ca7e0e26fd607cd0a2cf892
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopírování dat ze serveru pomocí protokolu SFTP pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,13 +65,15 @@ Chcete-li základní ověřování použijte, nastavte vlastnost "authentication
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | userName | Uživatel, který má přístup k serveru pomocí protokolu SFTP. |Ano |
-| heslo | Heslo pro uživatele (uživatelské jméno). Toto pole můžete označte jako SecureString. | Ano |
+| heslo | Heslo pro uživatele (uživatelské jméno). Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 
 **Příklad:**
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -102,17 +104,19 @@ Chcete-li použít ověření veřejného klíče SSH, nastavte vlastnost "authe
 |:--- |:--- |:--- |
 | userName | Uživatel, který má přístup k serveru pomocí protokolu SFTP |Ano |
 | privateKeyPath | Zadejte absolutní cestu k souboru privátního klíče, který přístup integrace modulu Runtime. Platí jenom v případě, že je zadán vlastním hostováním typ integrace Runtime v "connectVia". | Zadejte buď `privateKeyPath` nebo `privateKeyContent`.  |
-| privateKeyContent | Kódováním base64, pomocí SSH privátní klíče obsahu. Privátní klíč SSH musí být ve formátu OpenSSH. Toto pole můžete označte jako SecureString. | Zadejte buď `privateKeyPath` nebo `privateKeyContent`. |
-| passPhrase | Zadejte průchodu fráze nebo hesla k dešifrování privátního klíče, pokud soubor klíče je chráněn heslo. Toto pole můžete označte jako SecureString. | Ano, pokud heslo je chráněný soubor privátního klíče. |
+| privateKeyContent | Kódováním base64, pomocí SSH privátní klíče obsahu. Privátní klíč SSH musí být ve formátu OpenSSH. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Zadejte buď `privateKeyPath` nebo `privateKeyContent`. |
+| passPhrase | Zadejte průchodu fráze nebo hesla k dešifrování privátního klíče, pokud soubor klíče je chráněn heslo. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano, pokud heslo je chráněný soubor privátního klíče. |
 
 > [!NOTE]
-> Pomocí protokolu SFTP konektor podporuje pouze klíč OpenSSH. Ujistěte se, že je váš soubor klíče ve správném formátu. Nástroj pro Putty můžete převést na formát OpenSSH .ppk.
+> Pomocí protokolu SFTP konektor podporuje klíč RSA/DSA OpenSSH. Ujistěte se, že obsah souboru klíče začíná "---BEGIN [RSA/DSA] PRIVÁTNÍ klíč,". Pokud soubor privátního klíče je soubor ve formátu ppk, použijte prosím Putty nástroj pro převod z .ppk OpenSSH formátu. 
 
 **Příklad 1: Ověření parametru SshPublicKey pomocí privátního klíče filePath**
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -139,7 +143,9 @@ Chcete-li použít ověření veřejného klíče SSH, nastavte vlastnost "authe
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -176,7 +182,7 @@ Ke zkopírování dat z protokolu SFTP, nastavte vlastnost typu datové sady, kt
 | type | Vlastnost typu datové sady musí být nastavena na: **sdílení souborů** |Ano |
 | folderPath | Cesta ke složce. Příklad: složku nebo podsložku / |Ano |
 | fileName | Zadejte název souboru do **folderPath** Pokud chcete zkopírovat z konkrétní soubor. Pokud nezadáte žádnou hodnotu pro tuto vlastnost, datová sada odkazuje na všechny soubory ve složce jako zdroj. |Ne |
-| fileFilter | Zadejte filtr pro umožňuje vybrat podmnožinu souborů v folderPath, nikoli všech souborů. Platí, pouze pokud není zadán název souboru. <br/><br/>Povolené zástupné znaky jsou: `*` (více znaků) a `?` (jeden znak).<br/>– Příklad 1:`"fileFilter": "*.log"`<br/>-Příklad 2:`"fileFilter": 2017-09-??.txt"` |Ne |
+| fileFilter | Zadejte filtr pro umožňuje vybrat podmnožinu souborů v folderPath, nikoli všech souborů. Platí, pouze pokud není zadán název souboru. <br/><br/>Povolené zástupné znaky jsou: `*` (více znaků) a `?` (jeden znak).<br/>– Příklad 1: `"fileFilter": "*.log"`<br/>-Příklad 2: `"fileFilter": 2017-09-??.txt"` |Ne |
 | Formát | Pokud chcete **zkopírujte soubory jako-je** mezi souborové úložiště (binární kopie), přeskočte část formátu v obou definice vstupní a výstupní datové sady.<br/><br/>Pokud chcete analyzovat soubory s konkrétním formátu, jsou podporovány následující typy souboru formátu: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Nastavte **typ** vlastnost pod formát na jednu z těchto hodnot. Další informace najdete v tématu [textovém formátu](supported-file-formats-and-compression-codecs.md#text-format), [formátu Json](supported-file-formats-and-compression-codecs.md#json-format), [Avro formát](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formátu](supported-file-formats-and-compression-codecs.md#orc-format), a [Parquet formát](supported-file-formats-and-compression-codecs.md#parquet-format) oddíly. |Ne (pouze pro scénář binární kopie) |
 | Komprese | Zadejte typ a úroveň komprese pro data. Další informace najdete v tématu [podporované formáty souborů a komprese kodeky](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Podporované typy jsou: **GZip**, **Deflate**, **BZip2**, a **ZipDeflate**.<br/>Jsou podporované úrovně: **Optimal** a **nejrychlejší**. |Ne |
 
@@ -184,7 +190,9 @@ Ke zkopírování dat z protokolu SFTP, nastavte vlastnost typu datové sady, kt
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SFTPDataset",
+    "type": "Datasets",
     "properties": {
         "type": "FileShare",
         "linkedServiceName":{
@@ -208,7 +216,7 @@ Ke zkopírování dat z protokolu SFTP, nastavte vlastnost typu datové sady, kt
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje SFTP zdroje.
 
@@ -254,5 +262,5 @@ Ke zkopírování dat z protokolu SFTP, nastavte typ zdroje v aktivitě kopírov
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

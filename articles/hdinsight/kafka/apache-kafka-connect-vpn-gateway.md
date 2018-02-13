@@ -13,13 +13,13 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Připojení k Kafka v HDInsight pomocí virtuální sítě Azure
 
@@ -47,7 +47,7 @@ HDInsight neumožňuje přímé připojení k Kafka prostřednictvím veřejnéh
 * Jednotlivé počítače připojte k virtuální síti pomocí klienta VPN a brány VPN. Chcete-li tuto konfiguraci, proveďte následující úlohy:
 
     1. Vytvořte virtuální síť.
-    2. Vytvořte bránu VPN, který používá konfiguraci point-to-site. Tato konfigurace poskytuje klienta VPN, který se dá nainstalovat na klienty se systémem Windows.
+    2. Vytvořte bránu VPN, který používá konfiguraci point-to-site. Tuto konfiguraci můžete použít s klienty systému Windows a systému MacOS.
     3. Nainstalujte Kafka v HDInsight do virtuální sítě.
     4. Nakonfigurujte Kafka pro inzerování IP. Tato konfigurace umožňuje klientům připojení pomocí IP adresy namísto názvů domény.
     5. Stáhnout a použít klienta VPN na vývojovém systému.
@@ -57,7 +57,7 @@ HDInsight neumožňuje přímé připojení k Kafka prostřednictvím veřejnéh
     > [!WARNING]
     > Tato konfigurace se doporučuje jenom pro účely vývoje z důvodu následující omezení:
     >
-    > * Každý klient musí připojit pomocí softwaru klienta VPN. Azure poskytuje jenom klienta se systémem Windows.
+    > * Každý klient musí připojit pomocí softwaru klienta VPN.
     > * Klienta VPN nesplňuje požadavky na rozlišení názvů k virtuální síti, je nutné použít ke komunikaci s Kafka adresování IP adres. Komunikaci IP vyžaduje další konfiguraci v clusteru Kafka.
 
 Další informace o používání HDInsight ve virtuální síti, najdete v části [rozšířit HDInsight pomocí virtuálních sítí Azure](../hdinsight-extend-hadoop-virtual-network.md).
@@ -232,22 +232,13 @@ Postupujte podle kroků v této části vytvořit následující konfiguraci:
         -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $defaultStorageKey `
         -DefaultStorageContainer $defaultContainerName `
+        -DisksPerWorkerNode 2 `
         -VirtualNetworkId $network.Id `
         -SubnetName $defaultSubnet.Id
     ```
 
   > [!WARNING]
   > Tento proces trvá přibližně 15 minut.
-
-8. K načtení adresu URL pro klienta VPN ve Windows pro virtuální síť, použijte následující rutinu:
-
-    ```powershell
-    Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
-        -VirtualNetworkGatewayName $vpnName `
-        -ProcessorArchitecture Amd64
-    ```
-
-    Pokud chcete stáhnout klienta VPN ve Windows, použijte identifikátor URI vrácené ve webovém prohlížeči.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Konfigurace Kafka pro inzerování IP
 
@@ -299,7 +290,7 @@ Ve výchozím nastavení Zookeeper vrátí název domény zprostředkovatelé Ka
 
 ### <a name="connect-to-the-vpn-gateway"></a>Připojení ke službě VPN gateway
 
-Pro připojení k bráně VPN z __klienta Windows__, použijte __připojit k Azure__ části [konfigurace připojení typu Point-to-Site](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) dokumentu.
+Pro připojení k bráně VPN, použijte __připojit k Azure__ části [konfigurace připojení typu Point-to-Site](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) dokumentu.
 
 ## <a id="python-client"></a>Příklad: Python klienta
 
@@ -375,7 +366,7 @@ K ověření připojení k Kafka, použijte následující postup k vytvoření 
 
     * Pokud máte __povolen překlad názvů pomocí vlastního serveru DNS__, nahraďte `kafka_broker` položek s uzly pracovního procesu plně kvalifikovaný název domény.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o používání HDInsight s virtuální sítě najdete v tématu [rozšíření Azure HDInsight pomocí Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md) dokumentu.
 

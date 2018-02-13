@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 97dca282bd7bbf00ce1d03899f6de0444a41163a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Podporované metriky s monitorováním Azure
 Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včetně grafů, je na portálu, k nim přistupovat pomocí rozhraní REST API nebo je dotazování pomocí prostředí PowerShell nebo rozhraní příkazového řádku. Níže je úplný seznam všech metriky aktuálně k dispozici s Azure monitorování metriky kanálu.
@@ -85,7 +85,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |UnauthorizedRequests|Požadavky neoprávněným brány|Počet|Celkem|Počet požadavků neoprávněným brány|Umístění, název hostitele|
 |FailedRequests|Požadavky na bránu|Počet|Celkem|Počet selhání v žádostech o brány|Umístění, název hostitele|
 |OtherRequests|Ostatní požadavky brány|Počet|Celkem|Počet požadavků na jiné brány|Umístění, název hostitele|
-|Doba trvání|Celková doba trvání brány požadavků|počet milisekund|Průměr|Celkové doby trvání z brány požadavků v milisekundách|Umístění, název hostitele|
+|Doba trvání|Celková doba trvání brány požadavků|Milisekundy|Průměr|Celkové doby trvání z brány požadavků v milisekundách|Umístění, název hostitele|
 |Kapacita|Kapacita (Preview)|Procento|Maximum|Metrika využití služby ApiManagement|Umístění|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
@@ -128,19 +128,19 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
 |connectedclients|Připojení klienti|Počet|Maximum||Žádné dimenze|
-|totalcommandsprocessed|Celkový počet operací|Počet|Celkem||Žádné dimenze|
-|mezipaměti|Přístupů k mezipaměti|Počet|Celkem||Žádné dimenze|
+|totalcommandsprocessed|Operace celkem|Počet|Celkem||Žádné dimenze|
+|mezipaměti|Přístupy do mezipaměti|Počet|Celkem||Žádné dimenze|
 |cachemisses|Neúspěšné přístupy do mezipaměti|Počet|Celkem||Žádné dimenze|
-|getcommands|Získá|Počet|Celkem||Žádné dimenze|
+|getcommands|Klíče Get|Počet|Celkem||Žádné dimenze|
 |setcommands|Sady|Počet|Celkem||Žádné dimenze|
-|evictedkeys|Vyřazené klíče|Počet|Celkem||Žádné dimenze|
+|evictedkeys|Vyloučené klíče|Počet|Celkem||Žádné dimenze|
 |totalkeys|Celkový počet klíčů|Počet|Maximum||Žádné dimenze|
-|expiredkeys|Vypršela platnost klíče|Počet|Celkem||Žádné dimenze|
+|expiredkeys|Prošlé klíče|Počet|Celkem||Žádné dimenze|
 |usedmemory|Použitá paměť|B|Maximum||Žádné dimenze|
 |usedmemoryRss|Použitá paměť RSS|B|Maximum||Žádné dimenze|
 |serverLoad|Zatížení serveru|Procento|Maximum||Žádné dimenze|
-|cacheWrite|Mezipaměť zápisu|BytesPerSecond|Maximum||Žádné dimenze|
-|cacheRead|Mezipaměti pro čtení|BytesPerSecond|Maximum||Žádné dimenze|
+|cacheWrite|Zápis do mezipaměti|BytesPerSecond|Maximum||Žádné dimenze|
+|cacheRead|Čtení z mezipaměti|BytesPerSecond|Maximum||Žádné dimenze|
 |percentProcessorTime|Procesor|Procento|Maximum||Žádné dimenze|
 |connectedclients0|Připojených klientů (horizontálního oddílu 0)|Počet|Maximum||Žádné dimenze|
 |totalcommandsprocessed0|Celkový počet operací (horizontálního oddílu 0)|Počet|Celkem||Žádné dimenze|
@@ -297,72 +297,72 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|Procento využití procesoru|Procento využití procesoru|Procento|Průměr|Procento přidělené výpočetní jednotky, které jsou aktuálně používán virtuálním počítačům.|Žádné dimenze|
-|Sítě v|Sítě v|B|Celkem|Počet bajtů přijatých virtuální počítače (příchozí provoz) na všech síťových rozhraní.|Žádné dimenze|
-|Sítě Out|Sítě Out|B|Celkem|Počet bajtů odhlašování na všech síťových rozhraní pomocí virtuální počítače (odchozí provoz).|Žádné dimenze|
-|Čtení z disku bajtů/s|Čtení disku|BytesPerSecond|Průměr|Průměrný počet bajtů přečtených z disku během období sledování.|Žádné dimenze|
-|Bajty zapisování na disk/s|Zápis disku|BytesPerSecond|Průměr|Průměrný počet bajtů zapsat na disk během období sledování.|Žádné dimenze|
-|Čtení z disku operace/s|Čtení z disku operace/s|CountPerSecond|Průměr|Čtení disku IOPS.|Žádné dimenze|
-|Operace zápisu disku/s|Operace zápisu disku/s|CountPerSecond|Průměr|Zápis disku IOPS.|Žádné dimenze|
+|Procento CPU|Procento CPU|Procento|Průměr|Procento přidělených výpočetních jednotek, které virtuální počítače aktuálně používají|Žádné dimenze|
+|Síťové vstupy|Síťové vstupy|B|Celkem|Počet bajtů přijatých virtuálními počítači na všech síťových rozhraních (příchozí provoz)|Žádné dimenze|
+|Síťové výstupy|Síťové výstupy|B|Celkem|Počet bajtů odchozích ze všech síťových rozhraní virtuálních počítačů (odchozí provoz)|Žádné dimenze|
+|Bajty čtení z disku/s|Čtení z disku|BytesPerSecond|Průměr|Průměrný počet bajtů přečtený z disku během období monitorování|Žádné dimenze|
+|Bajty zápisu na disk/s|Zápis na disk|BytesPerSecond|Průměr|Průměrný počet bajtů zapsaný na disk během období monitorování|Žádné dimenze|
+|Čtení z disku – operace/s|Čtení z disku – operace/s|CountPerSecond|Průměr|Čtení z disku – IOPS|Žádné dimenze|
+|Zápis na disk – operace/s|Zápis na disk – operace/s|CountPerSecond|Průměr|Zápis na disk – IOPS|Žádné dimenze|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|TotalCalls|Celkový počet volání|Počet|Celkem|Celkový počet volání.|Žádné dimenze|
-|SuccessfulCalls|Úspěšné volání|Počet|Celkem|Počet úspěšných volání.|Žádné dimenze|
-|TotalErrors|Celkový počet chyb|Počet|Celkem|Celkový počet volání s odpovědi na chybu (4xx kód odpovědi HTTP nebo 5xx).|Žádné dimenze|
-|BlockedCalls|Blokované volání|Počet|Celkem|Počet volání dané překročil míry nebo limit kvóty.|Žádné dimenze|
-|ServerErrors|Chyby serveru|Počet|Celkem|Počet volání s vnitřní chybou služby (5xx kód odpovědi HTTP).|Žádné dimenze|
-|ClientErrors|Chyby klienta|Počet|Celkem|Počet volání s chyba na straně klienta (4xx kód odpovědi HTTP).|Žádné dimenze|
-|DataIn|Data v|B|Celkem|Velikost příchozích dat v bajtech.|Žádné dimenze|
-|DataOut|Data|B|Celkem|Velikost odesílaných dat v bajtech.|Žádné dimenze|
-|Latence|Latence|Počet milisekund|Průměr|Latence v milisekundách.|Žádné dimenze|
-|CharactersTranslated|Znaky přeložit|Počet|Celkem|Celkový počet znaků v příchozí žádosti o text.|Žádné dimenze|
-|SpeechSessionDuration|Rozpoznávání řeči dobu trvání relace|Sekundy|Celkem|Celková doba trvání relace řeči v sekundách.|Žádné dimenze|
+|TotalCalls|Celkem volání|Počet|Celkem|Celkový počet volání|Žádné dimenze|
+|SuccessfulCalls|Úspěšná volání|Počet|Celkem|Počet úspěšných volání|Žádné dimenze|
+|TotalErrors|Celkem chyb|Počet|Celkem|Celkový počet volání s chybovou odpovědí (kód odpovědi HTTP 4xx nebo 5xx)|Žádné dimenze|
+|BlockedCalls|Blokovaná volání|Počet|Celkem|Počet volání nad limit vyplývající ze sazby nebo kvóty|Žádné dimenze|
+|ServerErrors|Chyby serveru|Počet|Celkem|Počet volání s vnitřní chybou služby (kód odpovědi HTTP 5xx)|Žádné dimenze|
+|ClientErrors|Chyby klientů|Počet|Celkem|Počet volání s chybou na straně klienta (kód odpovědi HTTP 4xx)|Žádné dimenze|
+|DataIn|Vstupní data|B|Celkem|Velikost příchozích dat v bajtech|Žádné dimenze|
+|DataOut|Výstupní data|B|Celkem|Velikost odchozích dat v bajtech|Žádné dimenze|
+|Latence|Latence|Počet milisekund|Průměr|Latence v milisekundách|Žádné dimenze|
+|CharactersTranslated|Přeložené znaky|Počet|Celkem|Celkový počet znaků v příchozí textové žádosti|Žádné dimenze|
+|SpeechSessionDuration|Doba trvání řečové relace|Sekundy|Celkem|Celková doba trvání řečové relace v sekundách|Žádné dimenze|
 |TotalTransactions|Celkový počet transakcí|Počet|Celkem|Celkový počet transakcí|Žádné dimenze|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|Procento využití procesoru|Procento využití procesoru|Procento|Průměr|Procento přidělené výpočetní jednotky, které jsou aktuálně používán virtuálním počítačům|Žádné dimenze|
-|Sítě v|Sítě v|B|Celkem|Počet bajtů přijatých virtuální počítače (příchozí provoz) na všech síťových rozhraních|Žádné dimenze|
-|Sítě Out|Sítě Out|B|Celkem|Počet bajtů odhlašování na všech síťových rozhraní pomocí virtuální počítače (odchozí provoz)|Žádné dimenze|
-|Bajty čtení disku|Bajty čtení disku|B|Celkem|Celkový počet bajtů přečtených z disku během období sledování|Žádné dimenze|
-|Bajty zápisu disku|Bajty zápisu disku|B|Celkem|Celkový počet bajtů zapsaných na disk během období sledování|Žádné dimenze|
-|Čtení z disku operace/s|Čtení z disku operace/s|CountPerSecond|Průměr|Čtení disku IOPS|Žádné dimenze|
-|Operace zápisu disku/s|Operace zápisu disku/s|CountPerSecond|Průměr|Zápis disku IOPS|Žádné dimenze|
-|Zbývající kredit procesoru|Zbývající kredit procesoru|Počet|Průměr|Celkový počet kredity, které jsou k dispozici pro rozšíření|Žádné dimenze|
-|Použít kredity procesoru|Použít kredity procesoru|Počet|Průměr|Celkový počet kredity, které zabírají virtuální počítač|Žádné dimenze|
+|Procento CPU|Procento CPU|Procento|Průměr|Procento přidělených výpočetních jednotek, které virtuální počítače aktuálně používají|Žádné dimenze|
+|Síťové vstupy|Síťové vstupy|B|Celkem|Počet bajtů přijatých virtuálními počítači na všech síťových rozhraních (příchozí provoz)|Žádné dimenze|
+|Síťové výstupy|Síťové výstupy|B|Celkem|Počet bajtů odchozích ze všech síťových rozhraní virtuálních počítačů (odchozí provoz)|Žádné dimenze|
+|Čtení z disku – bajty|Čtení z disku – bajty|B|Celkem|Celkový počet bajtů přečtený z disku během monitorování|Žádné dimenze|
+|Zápis na disk – bajty|Zápis na disk – bajty|B|Celkem|Celkový počet bajtů zapsaný na disk během monitorování|Žádné dimenze|
+|Čtení z disku – operace/s|Čtení z disku – operace/s|CountPerSecond|Průměr|Čtení z disku – IOPS|Žádné dimenze|
+|Zápis na disk – operace/s|Zápis na disk – operace/s|CountPerSecond|Průměr|Zápis na disk – IOPS|Žádné dimenze|
+|Zbývající kredity CPU|Zbývající kredity CPU|Počet|Průměr|Celkové množství kreditu, které se dá využít|Žádné dimenze|
+|Spotřebované kredity CPU|Spotřebované kredity CPU|Počet|Průměr|Celkové množství kreditu, které spotřeboval virtuální počítač|Žádné dimenze|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|Procento využití procesoru|Procento využití procesoru|Procento|Průměr|Procento přidělené výpočetní jednotky, které jsou aktuálně používán virtuálním počítačům|Žádné dimenze|
-|Sítě v|Sítě v|B|Celkem|Počet bajtů přijatých virtuální počítače (příchozí provoz) na všech síťových rozhraních|Žádné dimenze|
-|Sítě Out|Sítě Out|B|Celkem|Počet bajtů odhlašování na všech síťových rozhraní pomocí virtuální počítače (odchozí provoz)|Žádné dimenze|
-|Bajty čtení disku|Bajty čtení disku|B|Celkem|Celkový počet bajtů přečtených z disku během období sledování|Žádné dimenze|
-|Bajty zápisu disku|Bajty zápisu disku|B|Celkem|Celkový počet bajtů zapsaných na disk během období sledování|Žádné dimenze|
-|Čtení z disku operace/s|Čtení z disku operace/s|CountPerSecond|Průměr|Čtení disku IOPS|Žádné dimenze|
-|Operace zápisu disku/s|Operace zápisu disku/s|CountPerSecond|Průměr|Zápis disku IOPS|Žádné dimenze|
-|Zbývající kredit procesoru|Zbývající kredit procesoru|Počet|Průměr|Celkový počet kredity, které jsou k dispozici pro rozšíření|Žádné dimenze|
-|Použít kredity procesoru|Použít kredity procesoru|Počet|Průměr|Celkový počet kredity, které zabírají virtuální počítač|Žádné dimenze|
+|Procento CPU|Procento CPU|Procento|Průměr|Procento přidělených výpočetních jednotek, které virtuální počítače aktuálně používají|Žádné dimenze|
+|Síťové vstupy|Síťové vstupy|B|Celkem|Počet bajtů přijatých virtuálními počítači na všech síťových rozhraních (příchozí provoz)|Žádné dimenze|
+|Síťové výstupy|Síťové výstupy|B|Celkem|Počet bajtů odchozích ze všech síťových rozhraní virtuálních počítačů (odchozí provoz)|Žádné dimenze|
+|Čtení z disku – bajty|Čtení z disku – bajty|B|Celkem|Celkový počet bajtů přečtený z disku během monitorování|Žádné dimenze|
+|Zápis na disk – bajty|Zápis na disk – bajty|B|Celkem|Celkový počet bajtů zapsaný na disk během monitorování|Žádné dimenze|
+|Čtení z disku – operace/s|Čtení z disku – operace/s|CountPerSecond|Průměr|Čtení z disku – IOPS|Žádné dimenze|
+|Zápis na disk – operace/s|Zápis na disk – operace/s|CountPerSecond|Průměr|Zápis na disk – IOPS|Žádné dimenze|
+|Zbývající kredity CPU|Zbývající kredity CPU|Počet|Průměr|Celkové množství kreditu, které se dá využít|Žádné dimenze|
+|Spotřebované kredity CPU|Spotřebované kredity CPU|Počet|Průměr|Celkové množství kreditu, které spotřeboval virtuální počítač|Žádné dimenze|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|Procento využití procesoru|Procento využití procesoru|Procento|Průměr|Procento přidělené výpočetní jednotky, které jsou aktuálně používán virtuálním počítačům|Žádné dimenze|
-|Sítě v|Sítě v|B|Celkem|Počet bajtů přijatých virtuální počítače (příchozí provoz) na všech síťových rozhraních|Žádné dimenze|
-|Sítě Out|Sítě Out|B|Celkem|Počet bajtů odhlašování na všech síťových rozhraní pomocí virtuální počítače (odchozí provoz)|Žádné dimenze|
-|Bajty čtení disku|Bajty čtení disku|B|Celkem|Celkový počet bajtů přečtených z disku během období sledování|Žádné dimenze|
-|Bajty zápisu disku|Bajty zápisu disku|B|Celkem|Celkový počet bajtů zapsaných na disk během období sledování|Žádné dimenze|
-|Čtení z disku operace/s|Čtení z disku operace/s|CountPerSecond|Průměr|Čtení disku IOPS|Žádné dimenze|
-|Operace zápisu disku/s|Operace zápisu disku/s|CountPerSecond|Průměr|Zápis disku IOPS|Žádné dimenze|
-|Zbývající kredit procesoru|Zbývající kredit procesoru|Počet|Průměr|Celkový počet kredity, které jsou k dispozici pro rozšíření|Žádné dimenze|
-|Použít kredity procesoru|Použít kredity procesoru|Počet|Průměr|Celkový počet kredity, které zabírají virtuální počítač|Žádné dimenze|
+|Procento CPU|Procento CPU|Procento|Průměr|Procento přidělených výpočetních jednotek, které virtuální počítače aktuálně používají|Žádné dimenze|
+|Síťové vstupy|Síťové vstupy|B|Celkem|Počet bajtů přijatých virtuálními počítači na všech síťových rozhraních (příchozí provoz)|Žádné dimenze|
+|Síťové výstupy|Síťové výstupy|B|Celkem|Počet bajtů odchozích ze všech síťových rozhraní virtuálních počítačů (odchozí provoz)|Žádné dimenze|
+|Čtení z disku – bajty|Čtení z disku – bajty|B|Celkem|Celkový počet bajtů přečtený z disku během monitorování|Žádné dimenze|
+|Zápis na disk – bajty|Zápis na disk – bajty|B|Celkem|Celkový počet bajtů zapsaný na disk během monitorování|Žádné dimenze|
+|Čtení z disku – operace/s|Čtení z disku – operace/s|CountPerSecond|Průměr|Čtení z disku – IOPS|Žádné dimenze|
+|Zápis na disk – operace/s|Zápis na disk – operace/s|CountPerSecond|Průměr|Zápis na disk – IOPS|Žádné dimenze|
+|Zbývající kredity CPU|Zbývající kredity CPU|Počet|Průměr|Celkové množství kreditu, které se dá využít|Žádné dimenze|
+|Spotřebované kredity CPU|Spotřebované kredity CPU|Počet|Průměr|Celkové množství kreditu, které spotřeboval virtuální počítač|Žádné dimenze|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -403,8 +403,8 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|SuccessfulRuns|Úspěšné spuštění|Počet|Celkem|Počet úspěšně spustí.|Žádné dimenze|
-|FailedRuns|Spustí se nezdařilo|Počet|Celkem|Počet selhání spuštění.|Žádné dimenze|
+|SuccessfulRuns|Úspěšná spuštění|Počet|Celkem|Počet úspěšně spustí.|Žádné dimenze|
+|FailedRuns|Neúspěšná spuštění|Počet|Celkem|Počet selhání spuštění.|Žádné dimenze|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
@@ -433,10 +433,10 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
 |TotalStorage|Celkový počet úložiště|B|Maximum|Celkové množství dat uložených v účtu.|Žádné dimenze|
-|DataWritten|Data zapsaná|B|Celkem|Celkové množství dat, zapisuje na účet.|Žádné dimenze|
+|DataWritten|Zapsaná data|B|Celkem|Celkové množství dat, zapisuje na účet.|Žádné dimenze|
 |Přečtená data|Přečtená data|B|Celkem|Celkové množství dat číst z účtu.|Žádné dimenze|
-|WriteRequests|Požadavky na zápis|Počet|Celkem|Počet dat požadavků na zápis k účtu.|Žádné dimenze|
-|ReadRequests|Požadavky na čtení|Počet|Celkem|Počet data načíst požadavky na účet.|Žádné dimenze|
+|WriteRequests|Požadavků na zápis|Počet|Celkem|Počet dat požadavků na zápis k účtu.|Žádné dimenze|
+|ReadRequests|Požadavky pro čtení|Počet|Celkem|Počet data načíst požadavky na účet.|Žádné dimenze|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -485,15 +485,15 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |d2c.telemetry.egress.invalid|Neplatné zprávy|Počet|Celkem|Počet zpráv, které nejsou doručeny z důvodu nekompatibility s nástrojem koncový bod|Žádné dimenze|
 |d2c.telemetry.egress.Fallback|Zprávy odpovídající záložního stavu|Počet|Celkem|Počet zpráv zapsaných do záložního koncového bodu|Žádné dimenze|
 |d2c.endpoints.egress.eventHubs|Zpráv doručených do koncové body centra událostí|Počet|Celkem|Počet zpráv byla úspěšně zapsána do koncové body centra událostí|Žádné dimenze|
-|d2c.endpoints.latency.eventHubs|Latence zprávy pro koncové body centra událostí|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příchozí zprávy do koncového bodu centra událostí, v milisekundách|Žádné dimenze|
+|d2c.endpoints.latency.eventHubs|Latence zprávy pro koncové body centra událostí|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příchozí zprávy do koncového bodu centra událostí, v milisekundách|Žádné dimenze|
 |d2c.endpoints.egress.serviceBusQueues|Doručování zpráv do fronty Service Bus koncové body|Počet|Celkem|Počet zpráv byla úspěšně zapsána do koncových bodů frontou Service Bus|Žádné dimenze|
-|d2c.endpoints.latency.serviceBusQueues|Latence zprávy pro koncové body frontou Service Bus|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráv do fronty Service Bus koncový bod, v milisekundách|Žádné dimenze|
+|d2c.endpoints.latency.serviceBusQueues|Latence zprávy pro koncové body frontou Service Bus|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráv do fronty Service Bus koncový bod, v milisekundách|Žádné dimenze|
 |d2c.endpoints.egress.serviceBusTopics|Doručování zpráv do tématu Service Bus koncové body|Počet|Celkem|Počet zpráv byly úspěšně zapsána do tématu Service Bus koncové body|Žádné dimenze|
-|d2c.endpoints.latency.serviceBusTopics|Latence zprávy pro koncové body témata sběrnice|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příchozí zprávy do tématu Service Bus koncový bod, v milisekundách|Žádné dimenze|
+|d2c.endpoints.latency.serviceBusTopics|Latence zprávy pro koncové body témata sběrnice|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příchozí zprávy do tématu Service Bus koncový bod, v milisekundách|Žádné dimenze|
 |d2c.endpoints.egress.builtIn.events|Zpráv doručených do vestavěným koncovým bodem (zprávy nebo události)|Počet|Celkem|Počet zpráv byla úspěšně zapsána do vestavěným koncovým bodem (zprávy nebo události)|Žádné dimenze|
-|d2c.endpoints.latency.builtIn.events|Zpráva latence pro předdefinovaný koncový bod (zprávy nebo události)|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráva do vestavěným koncovým bodem (zprávy událostí), v milisekundách |Žádné dimenze|
+|d2c.endpoints.latency.builtIn.events|Zpráva latence pro předdefinovaný koncový bod (zprávy nebo události)|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráva do vestavěným koncovým bodem (zprávy událostí), v milisekundách |Žádné dimenze|
 |d2c.endpoints.egress.Storage|Zpráv doručených do koncové body úložiště|Počet|Celkem|Počet zpráv byla úspěšně zapsána do koncové body úložiště|Žádné dimenze|
-|d2c.endpoints.latency.Storage|Latence zprávy pro koncové body úložiště|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráva do koncový bod úložiště, v milisekundách|Žádné dimenze|
+|d2c.endpoints.latency.Storage|Latence zprávy pro koncové body úložiště|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráva do koncový bod úložiště, v milisekundách|Žádné dimenze|
 |d2c.endpoints.egress.Storage.bytes|Data zapsaná do úložiště|B|Celkem|Množství dat v bajtech, zapisovat do úložiště koncové body|Žádné dimenze|
 |d2c.endpoints.egress.Storage.BLOBS|Zapisovat do úložiště objektů BLOB|Počet|Celkem|Počet zapsána do koncové body úložiště objektů BLOB|Žádné dimenze|
 |d2c.Twin.Read.Success|Úspěšné twin čte ze zařízení|Počet|Celkem|Počet čtení všechny úspěšné twin spouštěná zařízení.|Žádné dimenze|
@@ -529,6 +529,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |jobs.Failed|Neúspěšné úlohy|Počet|Celkem|Počet všechny neúspěšné úlohy.|Žádné dimenze|
 |d2c.telemetry.ingress.sendThrottle|Počet omezení chyb|Počet|Celkem|Omezí počet omezení chyb z důvodu propustnost zařízení generovaný|Žádné dimenze|
 |dailyMessageQuotaUsed|Celkový počet zpráv, které používá|Počet|Průměr|Počet celkový počet zpráv v současné době používá. Toto je kumulativní hodnotu, která je nastaven na hodnotu nula v 00:00 UTC každý den.|Žádné dimenze|
+|deviceDataUsage|Celkový počet devicedata využití|Počet|Celkem|Bajtů přenesených do a z jakékoli zařízení připojené k platformě IotHub|Žádné dimenze|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -563,15 +564,15 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |d2c.telemetry.egress.invalid|Neplatné zprávy|Počet|Celkem|Počet zpráv, které nejsou doručeny z důvodu nekompatibility s nástrojem koncový bod|Žádné dimenze|
 |d2c.telemetry.egress.Fallback|Zprávy odpovídající záložního stavu|Počet|Celkem|Počet zpráv zapsaných do záložního koncového bodu|Žádné dimenze|
 |d2c.endpoints.egress.eventHubs|Zpráv doručených do koncové body centra událostí|Počet|Celkem|Počet zpráv byla úspěšně zapsána do koncové body centra událostí|Žádné dimenze|
-|d2c.endpoints.latency.eventHubs|Latence zprávy pro koncové body centra událostí|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příchozí zprávy do koncového bodu centra událostí, v milisekundách|Žádné dimenze|
+|d2c.endpoints.latency.eventHubs|Latence zprávy pro koncové body centra událostí|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příchozí zprávy do koncového bodu centra událostí, v milisekundách|Žádné dimenze|
 |d2c.endpoints.egress.serviceBusQueues|Doručování zpráv do fronty Service Bus koncové body|Počet|Celkem|Počet zpráv byla úspěšně zapsána do koncových bodů frontou Service Bus|Žádné dimenze|
-|d2c.endpoints.latency.serviceBusQueues|Latence zprávy pro koncové body frontou Service Bus|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráv do fronty Service Bus koncový bod, v milisekundách|Žádné dimenze|
+|d2c.endpoints.latency.serviceBusQueues|Latence zprávy pro koncové body frontou Service Bus|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráv do fronty Service Bus koncový bod, v milisekundách|Žádné dimenze|
 |d2c.endpoints.egress.serviceBusTopics|Doručování zpráv do tématu Service Bus koncové body|Počet|Celkem|Počet zpráv byly úspěšně zapsána do tématu Service Bus koncové body|Žádné dimenze|
-|d2c.endpoints.latency.serviceBusTopics|Latence zprávy pro koncové body témata sběrnice|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příchozí zprávy do tématu Service Bus koncový bod, v milisekundách|Žádné dimenze|
+|d2c.endpoints.latency.serviceBusTopics|Latence zprávy pro koncové body témata sběrnice|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příchozí zprávy do tématu Service Bus koncový bod, v milisekundách|Žádné dimenze|
 |d2c.endpoints.egress.builtIn.events|Zpráv doručených do vestavěným koncovým bodem (zprávy nebo události)|Počet|Celkem|Počet zpráv byla úspěšně zapsána do vestavěným koncovým bodem (zprávy nebo události)|Žádné dimenze|
-|d2c.endpoints.latency.builtIn.events|Zpráva latence pro předdefinovaný koncový bod (zprávy nebo události)|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráva do vestavěným koncovým bodem (zprávy událostí), v milisekundách |Žádné dimenze|
+|d2c.endpoints.latency.builtIn.events|Zpráva latence pro předdefinovaný koncový bod (zprávy nebo události)|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráva do vestavěným koncovým bodem (zprávy událostí), v milisekundách |Žádné dimenze|
 |d2c.endpoints.egress.Storage|Zpráv doručených do koncové body úložiště|Počet|Celkem|Počet zpráv byla úspěšně zapsána do koncové body úložiště|Žádné dimenze|
-|d2c.endpoints.latency.Storage|Latence zprávy pro koncové body úložiště|počet milisekund|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráva do koncový bod úložiště, v milisekundách|Žádné dimenze|
+|d2c.endpoints.latency.Storage|Latence zprávy pro koncové body úložiště|Milisekundy|Průměr|Průměrná latence mezi příchozí zprávy do služby IoT hub a příjem příchozích dat zpráva do koncový bod úložiště, v milisekundách|Žádné dimenze|
 |d2c.endpoints.egress.Storage.bytes|Data zapsaná do úložiště|B|Celkem|Množství dat v bajtech, zapisovat do úložiště koncové body|Žádné dimenze|
 |d2c.endpoints.egress.Storage.BLOBS|Zapisovat do úložiště objektů BLOB|Počet|Celkem|Počet zapsána do koncové body úložiště objektů BLOB|Žádné dimenze|
 |d2c.Twin.Read.Success|Úspěšné twin čte ze zařízení|Počet|Celkem|Počet čtení všechny úspěšné twin spouštěná zařízení.|Žádné dimenze|
@@ -616,105 +617,104 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |MongoRequestCharge|Mongo požadavek zdarma|Počet|Celkem|Jednotek žádosti mongo použití|GlobalDatabaseAccountName, DatabaseName, název_kolekce, oblast, CommandName, kód chyby|
 |MongoRequests|Mongo požadavky|Počet|Počet|Počet zpracovaných požadavků Mongo|GlobalDatabaseAccountName, DatabaseName, název_kolekce, oblast, CommandName, kód chyby|
 |TotalRequestUnits|Celkový požadavek jednotky|Počet|Celkem|Požadavku že využívat jednotky|GlobalDatabaseAccountName, DatabaseName, název_kolekce, oblast, StatusCode|
-|TotalRequests|Celkový počet požadavků|Počet|Počet|Počet zpracovaných požadavků|GlobalDatabaseAccountName, DatabaseName, název_kolekce, oblast, StatusCode|
+|TotalRequests|Požadavky celkem|Počet|Počet|Počet zpracovaných požadavků|GlobalDatabaseAccountName, DatabaseName, název_kolekce, oblast, StatusCode|
 
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Úspěšné požadavky (Preview)|Počet|Celkem|Úspěšné požadavky pro Microsoft.EventHub. (Preview)|entityName|
-|ServerErrors|Chyby serveru. (Preview)|Počet|Celkem|Chyby serveru pro Microsoft.EventHub. (Preview)|entityName|
-|UserErrors|Chyby uživatele. (Preview)|Počet|Celkem|Chyby uživatelského pro Microsoft.EventHub. (Preview)|entityName|
-|QuotaExceededErrors|Chyby k překročení kvóty. (Preview)|Počet|Celkem|Chyby překročena kvóta pro Microsoft.EventHub. (Preview)|entityName|
-|ThrottledRequests|Omezenému požadavků. (Preview)|Počet|Celkem|Omezenému požadavků pro Microsoft.EventHub. (Preview)|entityName|
-|IncomingRequests|Příchozí žádosti (Preview)|Počet|Celkem|Příchozí žádosti pro Microsoft.EventHub. (Preview)|entityName|
-|IncomingMessages|Příchozí zprávy (Preview)|Počet|Celkem|Příchozí zprávy pro Microsoft.EventHub. (Preview)|entityName|
-|OutgoingMessages|Odchozí zprávy (Preview)|Počet|Celkem|Odchozí zprávy pro Microsoft.EventHub. (Preview)|entityName|
-|IncomingBytes|Příchozí bajty. (Preview)|B|Celkem|Příchozí bajty pro Microsoft.EventHub. (Preview)|entityName|
-|OutgoingBytes|Odchozí bajty. (Preview)|B|Celkem|Odchozí bajty pro Microsoft.EventHub. (Preview)|entityName|
-|ActiveConnections|ActiveConnections (Preview)|Počet|Celkem|Celkový počet aktivních připojení pro Microsoft.EventHub. (Preview)|entityName|
-|ConnectionsOpened|Otevřít připojení. (Preview)|Počet|Celkem|Připojení pro Microsoft.EventHub otevřen. (Preview)|entityName|
-|ConnectionsClosed|Připojení bylo uzavřeno. (Preview)|Počet|Celkem|Zavřít pro Microsoft.EventHub připojení. (Preview)|entityName|
-|CaptureBacklog|Zaznamenejte nevyřízených položek. (Preview)|Počet|Celkem|Zaznamenejte nevyřízených položek pro Microsoft.EventHub. (Preview)|entityName|
-|CapturedMessages|Zachycené zprávy. (Preview)|Počet|Celkem|Zachycené zprávy pro Microsoft.EventHub. (Preview)|entityName|
-|CapturedBytes|Zaznamenané bajtů. (Preview)|B|Celkem|Pro Microsoft.EventHub zaznamenané bajtů. (Preview)|entityName|
-|INREQS|Příchozí žádosti|Počet|Celkem|Celkový počet příchozích odesílat požadavky pro obor názvů|Žádné dimenze|
-|SUCCREQ|Úspěšné požadavky|Počet|Celkem|Celkový počet úspěšných požadavků pro obor názvů|Žádné dimenze|
-|FAILREQ|Neúspěšné požadavky|Počet|Celkem|Celkový počet neúspěšných požadavků pro obor názvů|Žádné dimenze|
-|SVRBSY|Chyby zaneprázdněný server|Počet|Celkem|Celkový počet server zaneprázdněn chyby pro obor názvů|Žádné dimenze|
-|INTERR|Vnitřní chyby serveru|Počet|Celkem|Celkový počet vnitřní chyby serveru pro obor názvů|Žádné dimenze|
-|MISCERR|Další chyby|Počet|Celkem|Celkový počet neúspěšných požadavků pro obor názvů|Žádné dimenze|
+|SuccessfulRequests|Úspěšné požadavky (Preview)|Počet|Celkem|Úspěšné požadavky pro Microsoft.EventHub (Preview)|entityName|
+|ServerErrors|Chyby serveru (Preview)|Počet|Celkem|Chyby serveru pro Microsoft.EventHub (Preview)|entityName|
+|UserErrors|Chyby uživatele (Preview)|Počet|Celkem|Chyby uživatele pro Microsoft.EventHub (Preview)|entityName|
+|QuotaExceededErrors|Chyby překročení kvóty (Preview)|Počet|Celkem|Chyby překročení kvóty pro Microsoft.EventHub (Preview)|entityName|
+|ThrottledRequests|Omezené požadavky (Preview)|Počet|Celkem|Omezené požadavky pro Microsoft.EventHub (Preview)|entityName|
+|IncomingRequests|Příchozí žádosti (Preview)|Počet|Celkem|Příchozí požadavky pro Microsoft.EventHub (Preview)|entityName|
+|IncomingMessages|Příchozí zprávy (Preview)|Počet|Celkem|Příchozí zprávy pro Microsoft.EventHub (Preview)|entityName|
+|OutgoingMessages|Odchozí zprávy (Preview)|Počet|Celkem|Odchozí zprávy pro Microsoft.EventHub (Preview)|entityName|
+|IncomingBytes|Příchozí bajty (Preview)|B|Celkem|Příchozí bajty pro Microsoft.EventHub (Preview)|entityName|
+|OutgoingBytes|Odchozí bajty (Preview)|B|Celkem|Odchozí bajty pro Microsoft.EventHub (Preview)|entityName|
+|ActiveConnections|ActiveConnections (Preview)|Počet|Celkem|Celkový počet aktivních připojení pro Microsoft.EventHub (Preview)|entityName|
+|ConnectionsOpened|Otevřená připojení (Preview)|Počet|Celkem|Otevřená připojení pro Microsoft.EventHub (Preview)|entityName|
+|ConnectionsClosed|Ukončená připojení (Preview)|Počet|Celkem|Ukončená připojení pro Microsoft.EventHub (Preview)|entityName|
+|CaptureBacklog|Zachytit backlog (Preview)|Počet|Celkem|Zachytit backlog pro Microsoft.EventHub (Preview)|entityName|
+|CapturedMessages|Zachycené zprávy (Preview)|Počet|Celkem|Zachycené zprávy pro Microsoft.EventHub (Preview)|entityName|
+|CapturedBytes|Zachycené bajty (Preview)|B|Celkem|Zachycené bajty pro Microsoft.EventHub (Preview)|entityName|
+|INREQS|Příchozí požadavky|Počet|Celkem|Celkový počet příchozích žádostí o odeslání pro obor názvů|Žádné dimenze|
+|SUCCREQ|Úspěšné požadavky|Počet|Celkem|Celkový počet úspěšných žádostí pro obor názvů|Žádné dimenze|
+|FAILREQ|Neúspěšné požadavky|Počet|Celkem|Celkový počet neúspěšných žádostí pro obor názvů|Žádné dimenze|
+|SVRBSY|Chyby kvůli zaneprázdněnosti serveru|Počet|Celkem|Celkový počet chyb kvůli zaneprázdnění serveru pro obor názvů|Žádné dimenze|
+|INTERR|Vnitřní chyby serveru|Počet|Celkem|Celkový počet vnitřních chyb serveru pro obor názvů|Žádné dimenze|
+|MISCERR|Jiné chyby|Počet|Celkem|Celkový počet neúspěšných žádostí pro obor názvů|Žádné dimenze|
 |INMSGS|Příchozí zprávy (zastaralé)|Počet|Celkem|Celkový počet příchozích zpráv pro obor názvů. Tato metrika je zastaralý. Místo toho použijte metrika příchozí zprávy|Žádné dimenze|
 |EHINMSGS|Příchozí zprávy|Počet|Celkem|Celkový počet příchozích zpráv pro obor názvů|Žádné dimenze|
 |OUTMSGS|Odchozí zprávy (zastaralé)|Počet|Celkem|Celkový počet odchozích zpráv pro obor názvů. Tato metrika je zastaralý. Místo toho použijte metrika odchozích zpráv|Žádné dimenze|
 |EHOUTMSGS|Odchozí zprávy|Počet|Celkem|Celkový počet odchozích zpráv pro obor názvů|Žádné dimenze|
 |EHINMBS|Příchozí bajty (zastaralé)|B|Celkem|Události rozbočovače příchozí zprávy propustnost pro obor názvů. Tato metrika je zastaralý. Místo toho použijte metrika Příchozí bajty|Žádné dimenze|
-|EHINBYTES|Příchozí bajty|B|Celkem|Události rozbočovače příchozí zprávy propustnost pro obor názvů|Žádné dimenze|
+|EHINBYTES|Příchozí bajty|B|Celkem|Propustnost příchozích zpráv centra událostí pro obor názvů|Žádné dimenze|
 |EHOUTMBS|Odchozí bajty (zastaralé)|B|Celkem|Události rozbočovače odchozí zprávy propustnost pro obor názvů. Tato metrika je zastaralý. Místo toho použijte metrika Odchozí bajty|Žádné dimenze|
-|EHOUTBYTES|Odchozí bajty|B|Celkem|Události rozbočovače odchozí zprávy propustnost pro obor názvů|Žádné dimenze|
-|EHABL|Nevyřízené položky zpráv archivu|Počet|Celkem|Zprávy archivu centra událostí v nevyřízených položek pro obor názvů|Žádné dimenze|
-|EHAMSGS|Archivace zpráv|Počet|Celkem|Centra událostí archivované zprávy v oboru názvů|Žádné dimenze|
-|EHAMBS|Propustnost zpráv archivu|B|Celkem|Centra událostí archivovat propustnost zpráv v oboru názvů|Žádné dimenze|
+|EHOUTBYTES|Odchozí bajty|B|Celkem|Propustnost odchozích zpráv centra událostí pro obor názvů|Žádné dimenze|
+|EHABL|Archivovat zprávy backlogu|Počet|Celkem|Archivované zprávy centra událostí v backlogu pro obor názvů|Žádné dimenze|
+|EHAMSGS|Archivace zpráv|Počet|Celkem|Archivované zprávy centra událostí v oboru názvů|Žádné dimenze|
+|EHAMBS|Archivovat propustnost zpráv|B|Celkem|Propustnost archivovaných zpráv Centra událostí v oboru názvů|Žádné dimenze|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|ObservedMetricValue|Zjištěnými hodnota metriky|Počet|Průměr|Hodnota vypočítaného podle škálování při spuštění|MetricTriggerSource|
-|MetricThreshold|Metriky prahová hodnota|Počet|Průměr|Škálování nakonfigurovanou prahovou hodnotu při škálování došlo.|MetricTriggerRule|
-|ObservedCapacity|Zjištěnou kapacity|Počet|Průměr|Kapacitu hlášené chcete používat automatické škálování, když se provedla.|Žádné dimenze|
-|ScaleActionsInitiated|Akce škálování iniciované|Počet|Celkem|Směr operace škálování.|ScaleDirection|
+|ObservedMetricValue|Zjištěná hodnota metriky|Počet|Průměr|Hodnota vypočítaná automatickým škálováním při jeho spuštění|MetricTriggerSource|
+|MetricThreshold|Mezní hodnota metriky|Počet|Průměr|Konfigurovaná mezní hodnota automatického škálování, když se automatické škálování spustilo|MetricTriggerRule|
+|ObservedCapacity|Zjištěná kapacita|Počet|Průměr|Kapacita ohlášená automatickému škálování při jeho spuštění|Žádné dimenze|
+|ScaleActionsInitiated|Zahájené akce škálování|Počet|Celkem|Směr operace škálování|ScaleDirection|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+
+|Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
+|---|---|---|---|---|---|
+|ServiceApiHit|Celkem přístupů k rozhraní API služby|Počet|Počet, celkem|Celkový počet přístupů k rozhraní API služby|ActivityType, název aktivity ActivityName|
+|ServiceApiLatency|Celková latence rozhraní API služby|Milisekundy|Počet, průměr, Minimum, Maximum|Celková latence požadavků na rozhraní API služby|ActivityType, název aktivity ActivityName, StatusCode|
+|ServiceApiResult|Celkem výsledků rozhraní API služby|Počet|Počet, celkem|Celkový počet výsledků rozhraní API služby|ActivityType, název aktivity ActivityName, StatusCode|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|Latence|Latence|počet milisekund|Průměr|Doba volání API|OperationName, výsledek|
+|Latence|Latence|Milisekundy|Průměr|Doba volání API|OperationName, výsledek|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|RunsStarted|Spustí spuštění|Počet|Celkem|Počet pracovní postup spouští spuštěna.|Žádné dimenze|
-|RunsCompleted|Spustí byla dokončena|Počet|Celkem|Počet pracovní postup spouští dokončené.|Žádné dimenze|
-|RunsSucceeded|Spustí bylo úspěšné|Počet|Celkem|Počet pracovní postup spouští úspěšně.|Žádné dimenze|
-|RunsFailed|Spustí se nezdařilo|Počet|Celkem|Počet pracovní postup spouští se nezdařilo.|Žádné dimenze|
-|RunsCancelled|Spustí zrušena|Počet|Celkem|Počet pracovní postup spouští zrušené.|Žádné dimenze|
-|RunLatency|Spustit latence|Sekundy|Průměr|Spustí latence dokončené pracovního postupu.|Žádné dimenze|
-|RunSuccessLatency|Spustit latence úspěch|Sekundy|Průměr|Spustí latence úspěšně pracovního postupu.|Žádné dimenze|
-|RunThrottledEvents|Spustit omezenému události|Počet|Celkem|Počet akci pracovního postupu nebo aktivační událost omezení událostí.|Žádné dimenze|
-|RunFailurePercentage|Spustit procento selhání|Procento|Celkem|Procento pracovního postupu, spustí se nezdařilo.|Žádné dimenze|
-|ActionsStarted|Akce spustila |Počet|Celkem|Počet spuštění akce pracovního postupu.|Žádné dimenze|
-|ActionsCompleted|Akce |Počet|Celkem|Počet akce pracovního postupu byla dokončena.|Žádné dimenze|
-|ActionsSucceeded|Akce byla úspěšná |Počet|Celkem|Počet akce pracovního postupu byla úspěšná.|Žádné dimenze|
-|ActionsFailed|Akce se nezdařilo|Počet|Celkem|Počet akce pracovního postupu se nezdařilo.|Žádné dimenze|
-|ActionsSkipped|Akce přeskočena |Počet|Celkem|Počet akce pracovního postupu přeskočeno.|Žádné dimenze|
-|ActionLatency|Latence akce |Sekundy|Průměr|Latence akce dokončené pracovního postupu.|Žádné dimenze|
-|ActionSuccessLatency|Latence úspěch akce |Sekundy|Průměr|Latence akce úspěšně pracovního postupu.|Žádné dimenze|
-|ActionThrottledEvents|Akce omezení událostí|Počet|Celkem|Počet pracovního postupu akce omezeny události...|Žádné dimenze|
-|TriggersStarted|Spuštění aktivační události |Počet|Celkem|Počet aktivuje pracovní postup spuštění.|Žádné dimenze|
-|TriggersCompleted|Aktivace dokončena |Počet|Celkem|Počet aktivační události pracovního postupu byla dokončena.|Žádné dimenze|
-|TriggersSucceeded|Aktivační události bylo úspěšně dokončeno |Počet|Celkem|Počet aktivační události pracovního postupu byla úspěšná.|Žádné dimenze|
-|TriggersFailed|Aktivace se nezdařila |Počet|Celkem|Počet nezdařených z aktivačních událostí pracovního postupu.|Žádné dimenze|
-|TriggersSkipped|Aktivační události přeskočena|Počet|Celkem|Počet aktivuje pracovní postup přeskočeno.|Žádné dimenze|
-|TriggersFired|Aktivační události aktivováno |Počet|Celkem|Počet aktivuje pracovní postup aktivována.|Žádné dimenze|
-|TriggerLatency|Latence aktivační události |Sekundy|Průměr|Latence služby aktivačních událostí dokončené pracovního postupu.|Žádné dimenze|
-|TriggerFireLatency|Aktivační událost ještě efektivněji latence |Sekundy|Průměr|Latence aktivována aktivuje pracovní postup.|Žádné dimenze|
-|TriggerSuccessLatency|Aktivační událost úspěch latence |Sekundy|Průměr|Latence služby aktivačních událostí úspěšně pracovního postupu.|Žádné dimenze|
-|TriggerThrottledEvents|Aktivaci omezenému událostí|Počet|Celkem|Počet aktivační událost pracovního postupu omezení událostí.|Žádné dimenze|
-|BillableActionExecutions|Fakturovatelný akce spuštění|Počet|Celkem|Počet spuštěních akce pracovního postupu získávání účtují.|Žádné dimenze|
-|BillableTriggerExecutions|Fakturovatelný aktivační událost spuštění|Počet|Celkem|Počet spuštěních aktivační událost pracovního postupu získávání účtují.|Žádné dimenze|
-|TotalBillableExecutions|Celkový počet spuštěních fakturovatelného času|Počet|Celkem|Počet spuštěních pracovního postupu získávání účtují.|Žádné dimenze|
-
-## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
-
-|Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
-|---|---|---|---|---|---|
-|BytesSentRate|Odeslané bajty|Počet|Celkem|Počet bajtů odeslaných síťového rozhraní|Žádné dimenze|
-|BytesReceivedRate|Přijaté bajty|Počet|Celkem|Počet bajtů přijatých síťového rozhraní|Žádné dimenze|
-|PacketsSentRate|Odeslaných paketů|Počet|Celkem|Počet paketů odeslaných síťového rozhraní|Žádné dimenze|
-|PacketsReceivedRate|Obdržených paketů|Počet|Celkem|Počet paketů přijatých síťového rozhraní|Žádné dimenze|
+|RunsStarted|Spuštěné běhy|Počet|Celkem|Počet spuštěných běhů pracovního postupu.|Žádné dimenze|
+|RunsCompleted|Dokončené běhy|Počet|Celkem|Počet dokončených běhů pracovního postupu.|Žádné dimenze|
+|RunsSucceeded|Úspěšné běhy|Počet|Celkem|Počet úspěšných běhů pracovního postupu.|Žádné dimenze|
+|RunsFailed|Neúspěšné běhy|Počet|Celkem|Počet neúspěšných běhů pracovního postupu.|Žádné dimenze|
+|RunsCancelled|Zrušené běhy|Počet|Celkem|Počet zrušených běhů pracovního postupu.|Žádné dimenze|
+|RunLatency|Latence běhu|Sekundy|Průměr|Latence dokončených běhů pracovního postupu.|Žádné dimenze|
+|RunSuccessLatency|Latence úspěšných běhů|Sekundy|Průměr|Latence úspěšných běhů pracovního postupu.|Žádné dimenze|
+|RunThrottledEvents|Omezené události běhu|Počet|Celkem|Počet akcí pracovního postupu nebo omezených událostí triggeru.|Žádné dimenze|
+|RunFailurePercentage|Procento selhání spuštění|Procento|Celkem|Procento neúspěšných spuštění pracovních postupů|Žádné dimenze|
+|ActionsStarted|Spuštěné akce |Počet|Celkem|Počet spuštěných akcí pracovního postupu.|Žádné dimenze|
+|ActionsCompleted|Dokončené akce |Počet|Celkem|Počet dokončených akcí pracovního postupu.|Žádné dimenze|
+|ActionsSucceeded|Úspěšné akce |Počet|Celkem|Počet úspěšných akcí pracovního postupu.|Žádné dimenze|
+|ActionsFailed|Neúspěšné akce|Počet|Celkem|Počet neúspěšných akcí pracovního postupu.|Žádné dimenze|
+|ActionsSkipped|Vynechané akce |Počet|Celkem|Počet vynechaných akcí pracovního postupu.|Žádné dimenze|
+|ActionLatency|Latence akcí |Sekundy|Průměr|Latence dokončených akcí pracovního postupu.|Žádné dimenze|
+|ActionSuccessLatency|Latence úspěšných akcí |Sekundy|Průměr|Latence úspěšných akcí pracovního postupu.|Žádné dimenze|
+|ActionThrottledEvents|Omezené události akcí|Počet|Celkem|Počet omezených událostí akcí pracovního postupu.|Žádné dimenze|
+|TriggersStarted|Spuštěné triggery |Počet|Celkem|Počet spuštěných triggerů pracovního postupu.|Žádné dimenze|
+|TriggersCompleted|Dokončené triggery |Počet|Celkem|Počet dokončených triggerů pracovního postupu.|Žádné dimenze|
+|TriggersSucceeded|Úspěšné triggery |Počet|Celkem|Počet úspěšných triggerů pracovního postupu.|Žádné dimenze|
+|TriggersFailed|Neúspěšné triggery |Počet|Celkem|Počet neúspěšných triggerů pracovního postupu.|Žádné dimenze|
+|TriggersSkipped|Vynechané triggery|Počet|Celkem|Počet vynechaných triggerů pracovního postupu.|Žádné dimenze|
+|TriggersFired|Vyvolané triggery |Počet|Celkem|Počet aktivovaných triggerů pracovního postupu.|Žádné dimenze|
+|TriggerLatency|Latence triggeru |Sekundy|Průměr|Latence dokončených triggerů pracovního postupu.|Žádné dimenze|
+|TriggerFireLatency|Latence při vyvolání triggeru |Sekundy|Průměr|Latence aktivovaných triggerů pracovního postupu.|Žádné dimenze|
+|TriggerSuccessLatency|Latence úspěšného triggeru |Sekundy|Průměr|Latence úspěšných triggerů pracovního postupu.|Žádné dimenze|
+|TriggerThrottledEvents|Omezené události triggeru|Počet|Celkem|Počet omezených událostí triggeru pracovního postupu.|Žádné dimenze|
+|BillableActionExecutions|Fakturovatelné operace provedení akce|Počet|Celkem|Počet fakturovaných provedení akcí pracovního postupu|Žádné dimenze|
+|BillableTriggerExecutions|Fakturovatelné operace provedení aktivačních událostí|Počet|Celkem|Počet fakturovaných provedení aktivačních událostí pracovního postupu|Žádné dimenze|
+|TotalBillableExecutions|Fakturovatelné operace provedení celkem|Počet|Celkem|Počet fakturovaných provedení pracovního postupu|Žádné dimenze|
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
@@ -758,13 +758,6 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |PacketCount|Počet paketů|Počet|Celkem|Celkový počet paketů odeslaných v časovém období|Port, směr|
 |SynCount|Počet SYN|Počet|Celkem|Celkový počet paketů SYN přenášených v časovém období|Port, směr|
 
-## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
-
-|Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
-|---|---|---|---|---|---|
-|PacketsInDroppedVMProtection|Vynechané příchozí pakety pro ochranu virtuálního počítače|CountPerSecond|Průměr|Vynechané příchozí pakety pro ochranu virtuálního počítače|Žádné dimenze|
-|PacketsOutDroppedVMProtection|Odchozí pakety vyřadit pro ochranu virtuálního počítače|CountPerSecond|Průměr|Odchozí pakety vyřadit pro ochranu virtuálního počítače|Žádné dimenze|
-
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
@@ -801,86 +794,93 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|Registration.all|Registrace operací|Počet|Celkem|Počet všech operací úspěšnou registraci (vytváření dotazů aktualizace a odstranění). |Žádné dimenze|
-|Registration.Create|Registrace vytvoření operací|Počet|Celkem|Počet vytváření všech úspěšnou registraci.|Žádné dimenze|
-|Registration.Update|Operace aktualizace registrace|Počet|Celkem|Počet všech aktualizací úspěšnou registraci.|Žádné dimenze|
-|Registration.Get|Operace čtení registrace|Počet|Celkem|Počet všech dotazů úspěšnou registraci.|Žádné dimenze|
-|Registration.delete|Operace odstranění registrace|Počet|Celkem|Počet všech odstranění úspěšnou registraci.|Žádné dimenze|
-|příchozí|Příchozí zprávy|Počet|Celkem|Počet všech úspěšné odeslání volání rozhraní API. |Žádné dimenze|
-|Incoming.Scheduled|Naplánované nabízená oznámení odesílaná|Počet|Celkem|Naplánované nabízená oznámení zrušena|Žádné dimenze|
-|Incoming.Scheduled.Cancel|Naplánované nabízená oznámení zrušena|Počet|Celkem|Naplánované nabízená oznámení zrušena|Žádné dimenze|
-|Scheduled.Pending|Čekající naplánované oznámení|Počet|Celkem|Čekající naplánované oznámení|Žádné dimenze|
+|Registration.all|Registrace – operace|Počet|Celkem|Počet všech úspěšných operací s registrací (vytvoření, aktualizace, dotazy a odstranění) |Žádné dimenze|
+|Registration.Create|Registrace – vytvořit operace|Počet|Celkem|Počet všech úspěšných vytvoření registrací|Žádné dimenze|
+|Registration.Update|Registrace – aktualizovat operace|Počet|Celkem|Počet všech úspěšných aktualizací registrací|Žádné dimenze|
+|Registration.Get|Registrace – přečíst operace|Počet|Celkem|Počet všech úspěšných dotazů registrací|Žádné dimenze|
+|Registration.delete|Registrace – odstranit operace|Počet|Celkem|Počet všech úspěšných odstranění registrací|Žádné dimenze|
+|příchozí|Příchozí zprávy|Počet|Celkem|Počet všech úspěšných volání rozhraní API, pomocí kterých se odesílají data |Žádné dimenze|
+|Incoming.Scheduled|Odeslaná plánovaná nabízená oznámení|Počet|Celkem|Zrušená plánovaná nabízená oznámení|Žádné dimenze|
+|Incoming.Scheduled.Cancel|Zrušená plánovaná nabízená oznámení|Počet|Celkem|Zrušená plánovaná nabízená oznámení|Žádné dimenze|
+|Scheduled.Pending|Čekající plánovaná oznámení|Počet|Celkem|Čekající plánovaná oznámení|Žádné dimenze|
 |Installation.all|Operace správy instalace|Počet|Celkem|Operace správy instalace|Žádné dimenze|
-|Installation.Get|Získat operace instalace|Počet|Celkem|Získat operace instalace|Žádné dimenze|
+|Installation.Get|Operace získání instalace|Počet|Celkem|Operace získání instalace|Žádné dimenze|
 |Installation.upsert|Vytvořit nebo aktualizovat operace instalace|Počet|Celkem|Vytvořit nebo aktualizovat operace instalace|Žádné dimenze|
-|Installation.patch|Operace instalace opravy|Počet|Celkem|Operace instalace opravy|Žádné dimenze|
-|Installation.delete|Instalace operace odstranění|Počet|Celkem|Instalace operace odstranění|Žádné dimenze|
-|outgoing.allpns.Success|Úspěšné oznámení|Počet|Celkem|Počet všech úspěšné oznámení.|Žádné dimenze|
-|outgoing.allpns.invalidpayload|Datová část chyby|Počet|Celkem|Počet oznámení, které se nezdařila, protože systém PNS vrátil chybu chybná datová část.|Žádné dimenze|
-|outgoing.allpns.pnserror|Chyby systému externí oznámení|Počet|Celkem|Počet oznámení, které se nezdařila, protože došlo k potížím při komunikaci se Správou (nezahrnuje problémy ověřování).|Žádné dimenze|
-|outgoing.allpns.channelerror|Kanál chyby|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože kanál byla neplatná nejsou přidružené aplikace správné omezeny nebo jeho platnost.|Žádné dimenze|
-|outgoing.allpns.badorexpiredchannel|Chybný nebo vypršela její platnost kanál chyby|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože vypršela platnost, nebo neplatný kanál/token nebo registrationId v registraci.|Žádné dimenze|
-|outgoing.wns.Success|Úspěšné oznámení WNS|Počet|Celkem|Počet všech úspěšné oznámení.|Žádné dimenze|
-|outgoing.wns.invalidcredentials|Chyb autorizace WNS (Neplatné přihlašovací údaje)|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože systém PNS nebyl přijat zadané přihlašovací údaje nebo přihlašovací údaje jsou blokovány. (Windows Live nerozpoznal přihlašovací údaje).|Žádné dimenze|
-|outgoing.wns.badchannel|Chyba WNS chybný kanál|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože nebyla rozpoznána ChannelURI v registraci (WNS stav: 404 nebyl nalezen).|Žádné dimenze|
-|outgoing.wns.expiredchannel|WNS platnost Chyba kanálu|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože vypršela platnost ChannelURI (WNS stav: 410 Gone).|Žádné dimenze|
-|outgoing.wns.throttled|WNS omezeny oznámení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože WNS je omezení této aplikace (WNS stav: 406 Nepřijatelný).|Žádné dimenze|
-|outgoing.wns.tokenproviderunreachable|Chyb autorizace WNS (nedostupné)|Počet|Celkem|Windows Live není dostupný.|Žádné dimenze|
-|outgoing.wns.invalidtoken|Chyb autorizace WNS (neplatný Token)|Počet|Celkem|Zadaný pro WNS token není platný (WNS stav: 401 – Neověřeno).|Žádné dimenze|
-|outgoing.wns.wrongtoken|Chyb autorizace WNS (chybný Token)|Počet|Celkem|Zadaný pro WNS token je platný, ale pro jinou aplikaci (WNS stav: 403 Zakázáno). To může nastat, když ChannelURI v registraci souvisí s jinou aplikací. Zkontrolujte, jestli klientská aplikace je přidružená ke stejné aplikaci, jehož pověření se v centru oznámení.|Žádné dimenze|
-|outgoing.wns.invalidnotificationformat|Formát neplatný oznámení WNS|Počet|Celkem|Formát oznámení není platný (stav WNS: 400). Všimněte si, že WNS není odmítnout všechny neplatné datové části.|Žádné dimenze|
-|outgoing.wns.invalidnotificationsize|WNS Chyba neplatné velikosti oznámení|Počet|Celkem|Datová část oznámení je moc velký (WNS stav: 413).|Žádné dimenze|
-|outgoing.wns.channelthrottled|Kanál WNS omezení|Počet|Celkem|Oznámení byla vyřazena, protože se omezuje ChannelURI v registraci (hlavička odpovědi WNS: X-WNS-NotificationStatus:channelThrottled).|Žádné dimenze|
-|outgoing.wns.channeldisconnected|Kanál WNS odpojení|Počet|Celkem|Oznámení byla vyřazena, protože se omezuje ChannelURI v registraci (hlavička odpovědi WNS: X-WNS-DeviceConnectionStatus: odpojení).|Žádné dimenze|
-|outgoing.wns.dropped|WNS vyřadit oznámení|Počet|Celkem|Oznámení byla vyřazena, protože se omezuje ChannelURI v registraci (X-WNS-NotificationStatus: vynechaných, ale není X-WNS-DeviceConnectionStatus: odpojení).|Žádné dimenze|
-|outgoing.wns.pnserror|Chyby WNS|Počet|Celkem|Oznámení nejsou doručeny z důvodu chyby komunikace s WNS.|Žádné dimenze|
-|outgoing.wns.authenticationerror|Chyby ověřování WNS|Počet|Celkem|Oznámení nejsou doručeny z důvodu chyby komunikace s Windows Live neplatné přihlašovací údaje nebo chybný token.|Žádné dimenze|
-|outgoing.apns.Success|Úspěšné oznámení APNS|Počet|Celkem|Počet všech úspěšné oznámení.|Žádné dimenze|
-|outgoing.apns.invalidcredentials|Chyb autorizace služby APN|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože systém PNS nebyl přijat zadané přihlašovací údaje nebo přihlašovací údaje jsou blokovány.|Žádné dimenze|
-|outgoing.apns.badchannel|Chyba služby APN chybný kanál|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože token je neplatný (kód stavu služby APN: 8).|Žádné dimenze|
-|outgoing.apns.expiredchannel|APNS vypršela platnost Chyba kanálu|Počet|Celkem|Počet token, který došlo ke zrušení platnosti podle kanálu zpětné vazby služby APN.|Žádné dimenze|
-|outgoing.apns.invalidnotificationsize|APNS Chyba neplatné velikosti oznámení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože byla příliš velká datová část (APNS stavový kód: 7).|Žádné dimenze|
-|outgoing.apns.pnserror|Chyby služby APN|Počet|Celkem|Počet nabízených oznámení, která se nezdařila z důvodu chyb, komunikaci se službou APNS.|Žádné dimenze|
-|outgoing.gcm.Success|Úspěšné oznámení GCM|Počet|Celkem|Počet všech úspěšné oznámení.|Žádné dimenze|
-|outgoing.gcm.invalidcredentials|Chyb autorizace služby GCM (Neplatné přihlašovací údaje)|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože systém PNS nebyl přijat zadané přihlašovací údaje nebo přihlašovací údaje jsou blokovány.|Žádné dimenze|
-|outgoing.gcm.badchannel|Chyba GCM chybný kanál|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože nebyla rozpoznána registrationId v registraci (GCM výsledek: Neplatná registrační).|Žádné dimenze|
-|outgoing.gcm.expiredchannel|GCM platnost Chyba kanálu|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože platnost vypršela registrationId v registraci (GCM výsledek: NotRegistered).|Žádné dimenze|
-|outgoing.gcm.throttled|Omezení oznámení GCM|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože GCM omezuje tuto aplikaci (GCM stavový kód: 501-599 nebo výsledek: není k dispozici).|Žádné dimenze|
-|outgoing.gcm.invalidnotificationformat|Formát neplatný oznámení GCM|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože nebyla správně naformátována datové části (GCM výsledek: InvalidDataKey nebo InvalidTtl).|Žádné dimenze|
-|outgoing.gcm.invalidnotificationsize|GCM Chyba neplatné velikosti oznámení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože byla příliš velká datová část (GCM výsledek: MessageTooBig).|Žádné dimenze|
-|outgoing.gcm.wrongchannel|Chyba GCM nesprávné kanálu|Počet|Celkem|Počet oznámení, které se nezdařila, protože není přidružen k aktuální aplikaci registrationId v registraci (GCM výsledek: InvalidPackageName).|Žádné dimenze|
-|outgoing.gcm.pnserror|Chyby GCM|Počet|Celkem|Počet nabízených oznámení, která se nezdařila z důvodu chyb, komunikaci se službou GCM.|Žádné dimenze|
-|outgoing.gcm.authenticationerror|Chyby ověřování GCM|Počet|Celkem|Počet oznámení, které se nezdařila, protože systém PNS nebyl přijat zadaných pověření přihlašovací údaje jsou zablokované nebo ID odesílatele není správně nakonfigurována v aplikaci (GCM výsledek: MismatchedSenderId).|Žádné dimenze|
-|outgoing.mpns.Success|Úspěšné oznámení MPNS|Počet|Celkem|Počet všech úspěšné oznámení.|Žádné dimenze|
-|outgoing.mpns.invalidcredentials|Neplatné přihlašovací údaje MPNS|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože systém PNS nebyl přijat zadané přihlašovací údaje nebo přihlašovací údaje jsou blokovány.|Žádné dimenze|
-|outgoing.mpns.badchannel|Chyba MPNS chybný kanál|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože nebyla rozpoznána ChannelURI v registraci (MPNS stav: 404 nebyl nalezen).|Žádné dimenze|
-|outgoing.mpns.throttled|MPNS omezeny oznámení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože MPNS se omezení této aplikace (WNS MPNS: 406 Nepřijatelný).|Žádné dimenze|
-|outgoing.mpns.invalidnotificationformat|Formát neplatný oznámení MPNS|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože datová část oznámení byla příliš velká.|Žádné dimenze|
-|outgoing.mpns.channeldisconnected|Kanál MPNS odpojení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože byla odpojena ChannelURI v registraci (MPNS stav: 412 nebyl nalezen).|Žádné dimenze|
-|outgoing.mpns.dropped|MPNS vyřadit oznámení|Počet|Celkem|Počet oznámení, které byly vynechány podle MPNS (MPNS hlavičku odpovědi: X NotificationStatus: QueueFull nebo Suppressed).|Žádné dimenze|
-|outgoing.mpns.pnserror|Chyby MPNS|Počet|Celkem|Počet nabízených oznámení, která se nezdařilo z důvodu chyby komunikace se MPNS.|Žádné dimenze|
-|outgoing.mpns.authenticationerror|Chyby ověřování MPNS|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože systém PNS nebyl přijat zadané přihlašovací údaje nebo přihlašovací údaje jsou blokovány.|Žádné dimenze|
-|notificationhub.pushes|Všechny odchozí oznámení|Počet|Celkem|Všechny odchozí oznámení centra oznámení|Žádné dimenze|
-|Incoming.all.Requests|Všechny příchozí požadavky|Počet|Celkem|Celkový počet příchozích požadavků pro Centrum oznámení|Žádné dimenze|
-|Incoming.all.failedrequests|Všechny příchozí neúspěšné požadavky|Počet|Celkem|Celkový počet příchozích neúspěšných požadavků pro Centrum oznámení|Žádné dimenze|
+|Installation.patch|Opravit operace instalace|Počet|Celkem|Opravit operace instalace|Žádné dimenze|
+|Installation.delete|Operace odstranění instalace|Počet|Celkem|Operace odstranění instalace|Žádné dimenze|
+|outgoing.allpns.Success|Úspěšná oznámení|Počet|Celkem|Počet všech úspěšných oznámení|Žádné dimenze|
+|outgoing.allpns.invalidpayload|Chyby datové části|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože systém oznámení platformy vrátil chybu, která se týká chybné datové části|Žádné dimenze|
+|outgoing.allpns.pnserror|Chyby externího systému oznámení|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože při komunikaci se systémem oznámení platformy došlo k problému (nezahrnuje problémy s ověřováním)|Žádné dimenze|
+|outgoing.allpns.channelerror|Chyby kanálů|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože kanál nebyl platný nebo přidružený ke správné aplikaci, byl omezený, nebo jeho platnost vypršela|Žádné dimenze|
+|outgoing.allpns.badorexpiredchannel|Chyby – chybný kanál nebo vypršení časového limitu kanálu|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože v registraci vypršel nebo není platný kanál, token nebo ID registrace|Žádné dimenze|
+|outgoing.wns.Success|WNS – úspěšná oznámení|Počet|Celkem|Počet všech úspěšných oznámení|Žádné dimenze|
+|outgoing.wns.invalidcredentials|WNS – chyby autorizace (neplatné přihlašovací údaje)|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože systém oznámení platformy nepřijal poskytnuté přihlašovací údaje, nebo jsou přihlašovací údaje blokované (Windows Live nerozpoznal přihlašovací údaje).|Žádné dimenze|
+|outgoing.wns.badchannel|WNS – chyba špatného kanálu|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože se v registraci nerozpoznal parametr ChannelURI (stav Služby nabízených oznámení Windows: 404 Nenalezeno)|Žádné dimenze|
+|outgoing.wns.expiredchannel|WNS – chyba vypršení časového limitu kanálu|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože vypršela platnost parametru ChannelURI (stav Služby nabízených oznámení Windows: 410 Trvale není k dispozici)|Žádné dimenze|
+|outgoing.wns.throttled|WNS – omezená oznámení|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože Služba nabízených oznámení Windows omezuje tuto aplikaci (stav Služby nabízených oznámení Windows: 406 Nepřijatelný požadavek)|Žádné dimenze|
+|outgoing.wns.tokenproviderunreachable|WNS – chyby autorizace (nedostupné)|Počet|Celkem|Služby Windows Live nejsou dostupné.|Žádné dimenze|
+|outgoing.wns.invalidtoken|WNS – chyby autorizace (neplatný token)|Počet|Celkem|Token, který se poskytl Službě nabízených oznámení Windows, není platný (stav Služby nabízených oznámení Windows: 401 Neautorizováno).|Žádné dimenze|
+|outgoing.wns.wrongtoken|WNS – chyby autorizace (chybný token)|Počet|Celkem|Zadaný pro WNS token je platný, ale pro jinou aplikaci (WNS stav: 403 Zakázáno). To může nastat, když ChannelURI v registraci souvisí s jinou aplikací. Zkontrolujte, jestli klientská aplikace je přidružená ke stejné aplikaci, jehož pověření se v centru oznámení.|Žádné dimenze|
+|outgoing.wns.invalidnotificationformat|WNS – neplatný formát oznámení|Počet|Celkem|Formát oznámení není platný (stav WNS: 400). Všimněte si, že WNS není odmítnout všechny neplatné datové části.|Žádné dimenze|
+|outgoing.wns.invalidnotificationsize|WNS – chyba neplatné velikosti oznámení|Počet|Celkem|Datová část oznámení je moc velká (stav Služby nabízených oznámení Windows: 413).|Žádné dimenze|
+|outgoing.wns.channelthrottled|WNS – omezený kanál|Počet|Celkem|Oznámení se ignoruje, protože v registraci se omezuje parametr ChannelURI (hlavička odpovědi Služby nabízených oznámení Windows: X-WNS-NotificationStatus:channelThrottled).|Žádné dimenze|
+|outgoing.wns.channeldisconnected|WNS – odpojený kanál|Počet|Celkem|Oznámení se ignoruje, protože v registraci se omezuje parametr ChannelURI (hlavička odpovědi Služby nabízených oznámení Windows: X-WNS-DeviceConnectionStatus: disconnected).|Žádné dimenze|
+|outgoing.wns.dropped|WNS – vynechaná oznámení|Počet|Celkem|Oznámení se ignoruje, protože v registraci se omezuje parametr ChannelURI (X-WNS-NotificationStatus: dropped, ale ne X-WNS-DeviceConnectionStatus: disconnected).|Žádné dimenze|
+|outgoing.wns.pnserror|WNS – chyby|Počet|Celkem|Oznámení se nedoručilo kvůli chybám při komunikaci se Službou nabízených oznámení Windows.|Žádné dimenze|
+|outgoing.wns.authenticationerror|WNS – chyby ověřování|Počet|Celkem|Oznámení se nedoručilo kvůli chybám při komunikaci s Windows Live, neplatným přihlašovacím údajům, nebo chybnému tokenu.|Žádné dimenze|
+|outgoing.apns.Success|APNS – úspěšná oznámení|Počet|Celkem|Počet všech úspěšných oznámení|Žádné dimenze|
+|outgoing.apns.invalidcredentials|Chyby autorizace APNs|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože systém oznámení platformy nepřijal poskytnuté přihlašovací údaje, nebo jsou přihlašovací údaje blokované|Žádné dimenze|
+|outgoing.apns.badchannel|Chyba APNS – špatný kanál|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože token je neplatný (kód stavu APNs: 8)|Žádné dimenze|
+|outgoing.apns.expiredchannel|Chyba APNS – kanálu vypršel časový limit|Počet|Celkem|Počet tokenů, kterým kanál zpětné vazby APNs zrušil platnost|Žádné dimenze|
+|outgoing.apns.invalidnotificationsize|APNS – chyba neplatné velikosti oznámení|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože datová část byla moc velká (kód stavu APNs: 7)|Žádné dimenze|
+|outgoing.apns.pnserror|APNS – chyby|Počet|Celkem|Počet nabídek, které nebyly úspěšné kvůli chybám při komunikaci s APNs|Žádné dimenze|
+|outgoing.gcm.Success|GCM – úspěšná oznámení|Počet|Celkem|Počet všech úspěšných oznámení|Žádné dimenze|
+|outgoing.gcm.invalidcredentials|GCM – chyby autorizace (neplatné přihlašovací údaje)|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože systém oznámení platformy nepřijal poskytnuté přihlašovací údaje, nebo jsou přihlašovací údaje blokované|Žádné dimenze|
+|outgoing.gcm.badchannel|GCM – chyba špatného kanálu|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože se v registraci nerozpoznal parametr registrationId (výsledek GCM: Invalid Registration)|Žádné dimenze|
+|outgoing.gcm.expiredchannel|GCM – chyba vypršení časového limitu kanálu|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože vypršela platnost registrationId v registraci (výsledek GCM: NotRegistered)|Žádné dimenze|
+|outgoing.gcm.throttled|GCM – omezená oznámení|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože služba GCM omezila tuto aplikaci (kód stavu GCM: 501–599 nebo výsledek: Unavailable)|Žádné dimenze|
+|outgoing.gcm.invalidnotificationformat|GCM – neplatný formát oznámení|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože datová část neměla správný formát (výsledek GCM: InvalidDataKey nebo InvalidTtl)|Žádné dimenze|
+|outgoing.gcm.invalidnotificationsize|GCM – chyba neplatné velikosti oznámení|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože datová část byla moc velká (výsledek GCM: MessageTooBig)|Žádné dimenze|
+|outgoing.gcm.wrongchannel|GCM – chyba nesprávného kanálu|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože registrationId v registraci není přidružené k aktuální aplikaci (výsledek GCM: InvalidPackageName)|Žádné dimenze|
+|outgoing.gcm.pnserror|GCM – chyby|Počet|Celkem|Počet nabídek, které nebyly úspěšné kvůli chybám při komunikaci s GCM|Žádné dimenze|
+|outgoing.gcm.authenticationerror|Chyby ověřování GCM|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože systém oznámení platformy nepřijal poskytnuté přihlašovací údaje, nebo jsou přihlašovací údaje blokované, nebo v aplikaci není správně nakonfigurované SenderId (výsledek GCM: MismatchedSenderId)|Žádné dimenze|
+|outgoing.mpns.Success|MPNS – úspěšná oznámení|Počet|Celkem|Počet všech úspěšných oznámení|Žádné dimenze|
+|outgoing.mpns.invalidcredentials|MPNS – neplatné přihlašovací údaje|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože systém oznámení platformy nepřijal poskytnuté přihlašovací údaje, nebo jsou přihlašovací údaje blokované|Žádné dimenze|
+|outgoing.mpns.badchannel|MPNS – chyba špatného kanálu|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože se v registraci nerozpoznal parametr ChannelURI (stav MPNS: 404 Nenalezeno)|Žádné dimenze|
+|outgoing.mpns.throttled|MPNS – omezená oznámení|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože MPNS omezuje tuto aplikaci (WNS MPNS: 406 Nepřijatelný požadavek)|Žádné dimenze|
+|outgoing.mpns.invalidnotificationformat|MPNS – neplatný formát oznámení|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože datová část v oznámení byla moc velká|Žádné dimenze|
+|outgoing.mpns.channeldisconnected|MPNS – odpojený kanál|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože parametr ChannelURI v registraci byl odpojený (stav MPNS: 412 Nenalezeno)|Žádné dimenze|
+|outgoing.mpns.dropped|MPNS – vynechaná oznámení|Počet|Celkem|Počet nabídek, které služba MPNS ignorovala (hlavička odpovědi MPNS: X-NotificationStatus: QueueFull nebo Suppressed)|Žádné dimenze|
+|outgoing.mpns.pnserror|MPNS – chyby|Počet|Celkem|Počet nabídek, které nebyly úspěšné kvůli chybám při komunikaci s MPNS|Žádné dimenze|
+|outgoing.mpns.authenticationerror|MPNS – chyby ověřování|Počet|Celkem|Počet nabídek, které nebyly úspěšné, protože systém oznámení platformy nepřijal poskytnuté přihlašovací údaje, nebo jsou přihlašovací údaje blokované|Žádné dimenze|
+|notificationhub.pushes|Všechna odchozí oznámení|Počet|Celkem|Všechna odchozí oznámení centra oznámení|Žádné dimenze|
+|incoming.all.requests|Všechny příchozí požadavky|Počet|Celkem|Celkový počet příchozích požadavků pro centrum oznámení|Žádné dimenze|
+|incoming.all.failedrequests|Všechny neúspěšné příchozí požadavky|Počet|Celkem|Celkový počet neúspěšných příchozích požadavků pro centrum oznámení|Žádné dimenze|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
+|---|---|---|---|---|---|
+|QueryDuration|Doba trvání dotazu|Milisekundy|Průměr|Dotaz DAX doba trvání posledního intervalu|Žádné dimenze|
+|QueryPoolJobQueueLength|Vláken: Délka fronty úloh fondu dotazu|Počet|Průměr|Počet úloh ve frontě fondu vláken dotazu.|Žádné dimenze|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|ListenerConnections – úspěch|ListenerConnections – úspěch|Počet|Celkem|Úspěšné ListenerConnections pro Microsoft.Relay.|entityName|
-|ListenerConnections ClientError|ListenerConnections ClientError|Počet|Celkem|ClientError na ListenerConnections pro Microsoft.Relay.|entityName|
-|ListenerConnections ServerError|ListenerConnections ServerError|Počet|Celkem|ServerError na ListenerConnections pro Microsoft.Relay.|entityName|
-|SenderConnections – úspěch|SenderConnections – úspěch|Počet|Celkem|Úspěšné SenderConnections pro Microsoft.Relay.|entityName|
-|SenderConnections ClientError|SenderConnections ClientError|Počet|Celkem|ClientError na SenderConnections pro Microsoft.Relay.|entityName|
-|SenderConnections ServerError|SenderConnections ServerError|Počet|Celkem|ServerError na SenderConnections pro Microsoft.Relay.|entityName|
-|ListenerConnections TotalRequests|ListenerConnections TotalRequests|Počet|Celkem|Celkový počet ListenerConnections pro Microsoft.Relay.|entityName|
-|SenderConnections TotalRequests|SenderConnections TotalRequests|Počet|Celkem|Celkový počet požadavků SenderConnections pro Microsoft.Relay.|entityName|
-|ActiveConnections|ActiveConnections|Počet|Celkem|Celkový počet ActiveConnections pro Microsoft.Relay.|entityName|
-|ActiveListeners|ActiveListeners|Počet|Celkem|Celkový počet ActiveListeners pro Microsoft.Relay.|entityName|
-|BytesTransferred|BytesTransferred|Počet|Celkem|Celkový počet BytesTransferred pro Microsoft.Relay.|entityName|
-|ListenerDisconnects|ListenerDisconnects|Počet|Celkem|Celkový počet ListenerDisconnects pro Microsoft.Relay.|entityName|
-|SenderDisconnects|SenderDisconnects|Počet|Celkem|Celkový počet SenderDisconnects pro Microsoft.Relay.|entityName|
+|ListenerConnections-Success|ListenerConnections-Success|Počet|Celkem|Úspěšná připojení ListenerConnections pro Microsoft.Relay|entityName|
+|ListenerConnections-ClientError|ListenerConnections-ClientError|Počet|Celkem|ClientError v ListenerConnections pro Microsoft.Relay|entityName|
+|ListenerConnections-ServerError|ListenerConnections-ServerError|Počet|Celkem|ServerError na ListenerConnections pro Microsoft.Relay|entityName|
+|SenderConnections-Success|SenderConnections-Success|Počet|Celkem|Úspěšná připojení SenderConnections pro Microsoft.Relay|entityName|
+|SenderConnections-ClientError|SenderConnections-ClientError|Počet|Celkem|ClientError v SenderConnections pro Microsoft.Relay|entityName|
+|SenderConnections-ServerError|SenderConnections-ServerError|Počet|Celkem|ServerError na SenderConnections pro Microsoft.Relay|entityName|
+|ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Počet|Celkem|ListenerConnections celkem pro Microsoft.Relay|entityName|
+|SenderConnections-TotalRequests|SenderConnections-TotalRequests|Počet|Celkem|Celkem žádostí SenderConnections pro Microsoft.Relay|entityName|
+|ActiveConnections|ActiveConnections|Počet|Celkem|ActiveConnections celkem pro Microsoft.Relay|entityName|
+|ActiveListeners|ActiveListeners|Počet|Celkem|ActiveListeners celkem pro Microsoft.Relay|entityName|
+|BytesTransferred|BytesTransferred|Počet|Celkem|BytesTransferred celkem pro Microsoft.Relay|entityName|
+|ListenerDisconnects|ListenerDisconnects|Počet|Celkem|ListenerDisconnects celkem pro Microsoft.Relay|entityName|
+|SenderDisconnects|SenderDisconnects|Počet|Celkem|SenderDisconnects celkem pro Microsoft.Relay|entityName|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -888,24 +888,24 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |---|---|---|---|---|---|
 |SearchLatency|Latence vyhledávání|Sekundy|Průměr|Hledání Průměrná latence pro službu vyhledávání.|Žádné dimenze|
 |SearchQueriesPerSecond|Vyhledávací dotazy za sekundu|CountPerSecond|Průměr|Vyhledávací dotazy za sekundu pro službu vyhledávání.|Žádné dimenze|
-|ThrottledSearchQueriesPercentage|Procento omezenému vyhledávací dotazy|Procento|Průměr|Procento vyhledávací dotazy, které byly omezené pro službu vyhledávání.|Žádné dimenze|
+|ThrottledSearchQueriesPercentage|Procento omezených vyhledávacích dotazů|Procento|Průměr|Procento vyhledávací dotazy, které byly omezené pro službu vyhledávání.|Žádné dimenze|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
 |SuccessfulRequests|Úspěšné požadavky (Preview)|Počet|Celkem|Celkový počet úspěšných požadavků pro obor názvů (Preview)|entityName|
-|ServerErrors|Chyby serveru. (Preview)|Počet|Celkem|Chyby serveru pro Microsoft.ServiceBus. (Preview)|entityName|
-|UserErrors|Chyby uživatele. (Preview)|Počet|Celkem|Chyby uživatelského pro Microsoft.ServiceBus. (Preview)|entityName|
-|ThrottledRequests|Omezenému požadavků. (Preview)|Počet|Celkem|Omezenému požadavků pro Microsoft.ServiceBus. (Preview)|entityName|
-|IncomingRequests|Příchozí žádosti (Preview)|Počet|Celkem|Příchozí žádosti pro Microsoft.ServiceBus. (Preview)|entityName|
-|IncomingMessages|Příchozí zprávy (Preview)|Počet|Celkem|Příchozí zprávy pro Microsoft.ServiceBus. (Preview)|entityName|
-|OutgoingMessages|Odchozí zprávy (Preview)|Počet|Celkem|Odchozí zprávy pro Microsoft.ServiceBus. (Preview)|entityName|
-|ActiveConnections|ActiveConnections (Preview)|Počet|Celkem|Celkový počet aktivních připojení pro Microsoft.ServiceBus. (Preview)|entityName|
-|ConnectionsOpened|Otevřít připojení. (Preview)|Počet|Celkem|Připojení pro Microsoft.ServiceBus otevřen. (Preview)|entityName|
-|ConnectionsClosed|Připojení bylo uzavřeno. (Preview)|Počet|Celkem|Zavřít pro Microsoft.ServiceBus připojení. (Preview)|entityName|
-|CPUXNS|Využití procesoru na obor názvů|Procento|Maximum|Service bus premium obor názvů procesoru využití metrika|Žádné dimenze|
-|WSXNS|Velikost využití paměti na obor názvů|Procento|Maximum|Service bus premium obor názvů paměti využití metrika|Žádné dimenze|
+|ServerErrors|Chyby serveru (Preview)|Počet|Celkem|Chyby serveru pro Microsoft.ServiceBus (Preview)|entityName|
+|UserErrors|Chyby uživatele (Preview)|Počet|Celkem|Chyby uživatele pro Microsoft.ServiceBus (Preview)|entityName|
+|ThrottledRequests|Omezené požadavky (Preview)|Počet|Celkem|Omezené požadavky pro Microsoft.ServiceBus (Preview)|entityName|
+|IncomingRequests|Příchozí žádosti (Preview)|Počet|Celkem|Příchozí požadavky pro Microsoft.ServiceBus (Preview)|entityName|
+|IncomingMessages|Příchozí zprávy (Preview)|Počet|Celkem|Příchozí zprávy pro Microsoft.ServiceBus (Preview)|entityName|
+|OutgoingMessages|Odchozí zprávy (Preview)|Počet|Celkem|Odchozí zprávy pro Microsoft.ServiceBus (Preview)|entityName|
+|ActiveConnections|ActiveConnections (Preview)|Počet|Celkem|Celkový počet aktivních připojení pro Microsoft.ServiceBus (Preview)|entityName|
+|ConnectionsOpened|Otevřená připojení (Preview)|Počet|Celkem|Otevřená připojení pro Microsoft.ServiceBus (Preview)|entityName|
+|ConnectionsClosed|Ukončená připojení (Preview)|Počet|Celkem|Ukončená připojení pro Microsoft.ServiceBus (Preview)|entityName|
+|CPUXNS|Využití CPU na obor názvů|Procento|Maximum|Metrika využití procesoru v oboru názvů služby Service Bus na úrovni Premium |Žádné dimenze|
+|WSXNS|Využití paměti na obor názvů|Procento|Maximum|Metrika využití paměti v oboru názvů služby Service Bus na úrovni Premium |Žádné dimenze|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
@@ -937,23 +937,16 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
 |cpu_percent|Procento CPU|Procento|Průměr|Procento CPU|Žádné dimenze|
-|database_cpu_percent|Procento CPU|Procento|Průměr|Procento CPU|DatabaseResourceId|
 |physical_data_read_percent|Procento datových V/V|Procento|Průměr|Procento datových V/V|Žádné dimenze|
-|database_physical_data_read_percent|Procento datových V/V|Procento|Průměr|Procento datových V/V|DatabaseResourceId|
 |log_write_percent|Procento vstupně-výstupní operace protokolu|Procento|Průměr|Procento vstupně-výstupní operace protokolu|Žádné dimenze|
-|database_log_write_percent|Procento vstupně-výstupní operace protokolu|Procento|Průměr|Procento vstupně-výstupní operace protokolu|DatabaseResourceId|
 |dtu_consumption_percent|Procento DTU|Procento|Průměr|Procento DTU|Žádné dimenze|
-|database_dtu_consumption_percent|Procento DTU|Procento|Průměr|Procento DTU|DatabaseResourceId|
 |storage_percent|Procento úložiště|Procento|Průměr|Procento úložiště|Žádné dimenze|
 |workers_percent|Procento pracovních procesů|Procento|Průměr|Procento pracovních procesů|Žádné dimenze|
-|database_workers_percent|Procento pracovních procesů|Procento|Průměr|Procento pracovních procesů|DatabaseResourceId|
 |sessions_percent|Procento relací|Procento|Průměr|Procento relací|Žádné dimenze|
-|database_sessions_percent|Procento relací|Procento|Průměr|Procento relací|DatabaseResourceId|
 |eDTU_limit|omezení eDTU|Počet|Průměr|omezení eDTU|Žádné dimenze|
 |storage_limit|Limit úložiště|B|Průměr|Limit úložiště|Žádné dimenze|
 |eDTU_used|eDTU použít|Počet|Průměr|eDTU použít|Žádné dimenze|
 |storage_used|Využité úložiště|B|Průměr|Využité úložiště|Žádné dimenze|
-|database_storage_used|Využité úložiště|B|Průměr|Využité úložiště|DatabaseResourceId|
 |xtp_storage_percent|Procento úložiště OLTP v paměti|Procento|Průměr|Procento úložiště OLTP v paměti|Žádné dimenze|
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
@@ -961,77 +954,75 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|Procento DTU|Procento|Průměr|Procento DTU|ElasticPoolResourceId|
-|database_dtu_consumption_percent|Procento DTU|Procento|Průměr|Procento DTU|DatabaseResourceId ElasticPoolResourceId|
 |storage_used|Využité úložiště|B|Průměr|Využité úložiště|ElasticPoolResourceId|
-|database_storage_used|Využité úložiště|B|Průměr|Využité úložiště|DatabaseResourceId ElasticPoolResourceId|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts.
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|UsedCapacity|Využité kapacitě|B|Průměr|Účet používaný kapacity|Žádné dimenze|
-|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|Hodnota ResponseType, GeoType, ApiName|
-|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType ApiName|
-|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType ApiName|
-|SuccessServerLatency|Latence serveru úspěšné|počet milisekund|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Latence E2E úspěch|počet milisekund|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType ApiName|
-|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType ApiName|
+|UsedCapacity|Použitá kapacita|B|Průměr|Kapacita využitá účtem|Žádné dimenze|
+|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|ResponseType, GeoType, ApiName|
+|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType, ApiName|
+|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType, ApiName|
+|SuccessServerLatency|Latence serveru při úspěchu|Milisekundy|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType, ApiName|
+|SuccessE2ELatency|Celková latence při úspěchu|Milisekundy|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType, ApiName|
+|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType, ApiName|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|BlobCapacity|Objekt BLOB kapacity|B|Průměr|Velikost úložiště, které používá služba účtu úložiště objektů Blob v bajtech.|BlobType|
-|BlobCount|Počet objektů BLOB|Počet|Průměr|Počet objektů Blob v účtu úložiště služby objektů Blob.|BlobType|
-|ContainerCount|Počet kontejner objektů BLOB|Počet|Průměr|Počet kontejnerů v účtu úložiště služby objektů Blob.|Žádné dimenze|
-|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|Hodnota ResponseType, GeoType, ApiName|
-|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType ApiName|
-|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType ApiName|
-|SuccessServerLatency|Latence serveru úspěšné|počet milisekund|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Latence E2E úspěch|počet milisekund|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType ApiName|
-|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType ApiName|
+|BlobCapacity|Kapacita služby Blob|B|Průměr|Velikost úložiště využitá službou Blob účtu úložiště v bajtech|BlobType|
+|BlobCount|Počet objektů blob|Počet|Průměr|Počet objektů blob ve službě Blob účtu úložiště|BlobType|
+|ContainerCount|Počet kontejnerů služby Blob|Počet|Průměr|Počet kontejnerů ve službě Blob účtu úložiště|Žádné dimenze|
+|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|ResponseType, GeoType, ApiName|
+|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType, ApiName|
+|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType, ApiName|
+|SuccessServerLatency|Latence serveru při úspěchu|Milisekundy|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType, ApiName|
+|SuccessE2ELatency|Celková latence při úspěchu|Milisekundy|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType, ApiName|
+|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType, ApiName|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|TableCapacity|Tabulka kapacity|B|Průměr|Velikost úložiště používá účet úložiště služby Table v bajtech.|Žádné dimenze|
-|TableCount|Počet tabulky|Počet|Průměr|Počet tabulky v účtu úložiště služby Table.|Žádné dimenze|
-|TableEntityCount|Počet entit tabulky|Počet|Průměr|Počet entit tabulky v účtu úložiště služby Table.|Žádné dimenze|
-|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|Hodnota ResponseType, GeoType, ApiName|
-|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType ApiName|
-|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType ApiName|
-|SuccessServerLatency|Latence serveru úspěšné|počet milisekund|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Latence E2E úspěch|počet milisekund|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType ApiName|
-|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType ApiName|
+|TableCapacity|Kapacita služby Table|B|Průměr|Velikost úložiště využitá službou Table účtu úložiště v bajtech|Žádné dimenze|
+|TableCount|Počet tabulek|Počet|Průměr|Počet tabulek ve službě Table účtu úložiště|Žádné dimenze|
+|TableEntityCount|Počet entit tabulek|Počet|Průměr|Počet entit tabulek ve službě Table účtu úložiště|Žádné dimenze|
+|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|ResponseType, GeoType, ApiName|
+|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType, ApiName|
+|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType, ApiName|
+|SuccessServerLatency|Latence serveru při úspěchu|Milisekundy|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType, ApiName|
+|SuccessE2ELatency|Celková latence při úspěchu|Milisekundy|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType, ApiName|
+|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType, ApiName|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|QueueCapacity|Fronty kapacity|B|Průměr|Velikost úložiště, které používá služba účet úložiště fronty v bajtech.|Žádné dimenze|
-|QueueCount|Počet fronty|Počet|Průměr|Počet fronty v účtu úložiště služby front.|Žádné dimenze|
-|QueueMessageCount|Počet zpráv fronty|Počet|Průměr|Přibližný počet fronty zpráv v účtu úložiště služby front.|Žádné dimenze|
-|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|Hodnota ResponseType, GeoType, ApiName|
-|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType ApiName|
-|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType ApiName|
-|SuccessServerLatency|Latence serveru úspěšné|počet milisekund|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Latence E2E úspěch|počet milisekund|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType ApiName|
-|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType ApiName|
+|QueueCapacity|Kapacita služby Queue|B|Průměr|Velikost úložiště využitá službou Queue účtu úložiště v bajtech|Žádné dimenze|
+|QueueCount|Počet front|Počet|Průměr|Počet front ve službě Queue účtu úložiště|Žádné dimenze|
+|QueueMessageCount|Počet zpráv fronty|Počet|Průměr|Přibližný počet zpráv fronty ve službě Queue účtu úložiště|Žádné dimenze|
+|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|ResponseType, GeoType, ApiName|
+|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType, ApiName|
+|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType, ApiName|
+|SuccessServerLatency|Latence serveru při úspěchu|Milisekundy|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType, ApiName|
+|SuccessE2ELatency|Celková latence při úspěchu|Milisekundy|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType, ApiName|
+|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType, ApiName|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|FileCapacity|Soubor kapacity|B|Průměr|Velikost úložiště, které používá služba účet úložiště souboru v bajtech.|Žádné dimenze|
-|FileCount|Počet souborů|Počet|Průměr|Počet souborů v účtu úložiště služby souborů.|Žádné dimenze|
-|FileShareCount|Počet sdílené složky souborů|Počet|Průměr|Počet souborů sdílených složek v účtu úložiště služby souborů.|Žádné dimenze|
-|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|Hodnota ResponseType, GeoType, ApiName|
-|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType ApiName|
-|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType ApiName|
-|SuccessServerLatency|Latence serveru úspěšné|počet milisekund|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Latence E2E úspěch|počet milisekund|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType ApiName|
-|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType ApiName|
+|FileCapacity|Kapacita služby File|B|Průměr|Velikost úložiště využitá službou File účtu úložiště v bajtech|Žádné dimenze|
+|FileCount|Počet souborů|Počet|Průměr|Počet souborů ve službě File účtu úložiště|Žádné dimenze|
+|FileShareCount|Počet sdílených složek služby File|Počet|Průměr|Počet sdílených složek ve službě File účtu úložiště|Žádné dimenze|
+|Transakce|Transakce|Počet|Celkem|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje úspěšné i neúspěšné požadavky, jakož i požadavků, které vytváří chyby. Hodnota ResponseType dimenzi používejte pro počet jiný typ odpovědi.|ResponseType, GeoType, ApiName|
+|Příchozí přenos dat|Příchozí přenos dat|B|Celkem|Množství dat příjem příchozích dat v bajtech. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure.|GeoType, ApiName|
+|Výchozí přenos|Výchozí přenos|B|Celkem|Množství odchozí data v bajtech. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí.|GeoType, ApiName|
+|SuccessServerLatency|Latence serveru při úspěchu|Milisekundy|Průměr|Průměrná latence úložiště Azure používá ke zpracování v případě úspěšné žádosti v milisekundách. Tato hodnota nezahrnuje latenci sítě, zadaný v AverageE2ELatency.|GeoType, ApiName|
+|SuccessE2ELatency|Celková latence při úspěchu|Milisekundy|Průměr|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API, v milisekundách. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|GeoType, ApiName|
+|Dostupnost|Dostupnost|Procento|Průměr|Procento dostupnosti pro službu úložiště nebo zadaná operace rozhraní API. Dostupnost se vypočítává tak, že hodnota TotalBillableRequests dělení podle počtu příslušné požadavky, včetně těch, které vytváří neočekávaným chybám. Všechny neočekávaným chybám výsledkem je omezená dostupnost pro službu úložiště nebo zadaná operace rozhraní API.|GeoType, ApiName|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -1056,9 +1047,9 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |CpuPercentage|Procento procesoru|Procento|Průměr|Procento procesoru|Instance|
 |MemoryPercentage|Procento paměti|Procento|Průměr|Procento paměti|Instance|
 |DiskQueueLength|Délka fronty disku|Počet|Průměr|Délka fronty disku|Instance|
-|HttpQueueLength|Délka fronty http|Počet|Průměr|Délka fronty http|Instance|
-|BytesReceived|Data v|B|Celkem|Data v|Instance|
-|BytesSent|Data|B|Celkem|Data|Instance|
+|HttpQueueLength|Délka fronty HTTP|Počet|Průměr|Délka fronty HTTP|Instance|
+|BytesReceived|Vstupní data|B|Celkem|Vstupní data|Instance|
+|BytesSent|Výstupní data|B|Celkem|Výstupní data|Instance|
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (s výjimkou funkce)
 
@@ -1066,32 +1057,33 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |---|---|---|---|---|---|
 |CpuTime|Čas procesoru|Sekundy|Celkem|Čas procesoru|Instance|
 |Požadavky|Požadavky|Počet|Celkem|Požadavky|Instance|
-|BytesReceived|Data v|B|Celkem|Data v|Instance|
-|BytesSent|Data|B|Celkem|Data|Instance|
+|BytesReceived|Vstupní data|B|Celkem|Vstupní data|Instance|
+|BytesSent|Výstupní data|B|Celkem|Výstupní data|Instance|
 |Http101|HTTP 101|Počet|Celkem|HTTP 101|Instance|
-|Http2xx|Http 2xx|Počet|Celkem|Http 2xx|Instance|
-|Http3xx|Http 3xx|Počet|Celkem|Http 3xx|Instance|
+|Http2xx|HTTP 2xx|Počet|Celkem|HTTP 2xx|Instance|
+|Http3xx|HTTP 3xx|Počet|Celkem|HTTP 3xx|Instance|
 |Http401|HTTP 401|Počet|Celkem|HTTP 401|Instance|
 |Http403|HTTP 403|Počet|Celkem|HTTP 403|Instance|
 |Http404|HTTP 404|Počet|Celkem|HTTP 404|Instance|
 |Http406|HTTP 406|Počet|Celkem|HTTP 406|Instance|
-|Http4xx|Http 4xx|Počet|Celkem|Http 4xx|Instance|
-|Http5xx|Chyby protokolu HTTP serveru|Počet|Celkem|Chyby protokolu HTTP serveru|Instance|
-|MemoryWorkingSet|Paměť pracovní sady|B|Průměr|Paměť pracovní sady|Instance|
-|AverageMemoryWorkingSet|Průměrná paměti pracovní sady|B|Průměr|Průměrná paměti pracovní sady|Instance|
+|Http4xx|HTTP 4xx|Počet|Celkem|HTTP 4xx|Instance|
+|Http5xx|Chyby serveru HTTP|Počet|Celkem|Chyby serveru HTTP|Instance|
+|MemoryWorkingSet|Pracovní sada paměti|B|Průměr|Pracovní sada paměti|Instance|
+|AverageMemoryWorkingSet|Průměrná pracovní sada paměti|B|Průměr|Průměrná pracovní sada paměti|Instance|
 |AverageResponseTime|Průměrná doba odezvy|Sekundy|Průměr|Průměrná doba odezvy|Instance|
+|AppConnections|Připojení|Počet|Průměr|Připojení|Instance|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funkce)
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|BytesReceived|Data v|B|Celkem|Data v|Instance|
-|BytesSent|Data|B|Celkem|Data|Instance|
-|Http5xx|Chyby protokolu HTTP serveru|Počet|Celkem|Chyby protokolu HTTP serveru|Instance|
-|MemoryWorkingSet|Paměť pracovní sady|B|Průměr|Paměť pracovní sady|Instance|
-|AverageMemoryWorkingSet|Průměrná paměti pracovní sady|B|Průměr|Průměrná paměti pracovní sady|Instance|
-|FunctionExecutionUnits|Funkce spuštění jednotky|Počet|Celkem|Funkce spuštění jednotky|Instance|
-|FunctionExecutionCount|Počet provedení – funkce|Počet|Celkem|Počet provedení – funkce|Instance|
+|BytesReceived|Vstupní data|B|Celkem|Vstupní data|Instance|
+|BytesSent|Výstupní data|B|Celkem|Výstupní data|Instance|
+|Http5xx|Chyby serveru HTTP|Počet|Celkem|Chyby serveru HTTP|Instance|
+|MemoryWorkingSet|Pracovní sada paměti|B|Průměr|Pracovní sada paměti|Instance|
+|AverageMemoryWorkingSet|Průměrná pracovní sada paměti|B|Průměr|Průměrná pracovní sada paměti|Instance|
+|FunctionExecutionUnits|Jednotky provádění funkcí|Počet|Celkem|Jednotky provádění funkcí|Instance|
+|FunctionExecutionCount|Počet spuštění funkce|Počet|Celkem|Počet spuštění funkce|Instance|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1099,61 +1091,62 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |---|---|---|---|---|---|
 |CpuTime|Čas procesoru|Sekundy|Celkem|Čas procesoru|Instance|
 |Požadavky|Požadavky|Počet|Celkem|Požadavky|Instance|
-|BytesReceived|Data v|B|Celkem|Data v|Instance|
-|BytesSent|Data|B|Celkem|Data|Instance|
+|BytesReceived|Vstupní data|B|Celkem|Vstupní data|Instance|
+|BytesSent|Výstupní data|B|Celkem|Výstupní data|Instance|
 |Http101|HTTP 101|Počet|Celkem|HTTP 101|Instance|
-|Http2xx|Http 2xx|Počet|Celkem|Http 2xx|Instance|
-|Http3xx|Http 3xx|Počet|Celkem|Http 3xx|Instance|
+|Http2xx|HTTP 2xx|Počet|Celkem|HTTP 2xx|Instance|
+|Http3xx|HTTP 3xx|Počet|Celkem|HTTP 3xx|Instance|
 |Http401|HTTP 401|Počet|Celkem|HTTP 401|Instance|
 |Http403|HTTP 403|Počet|Celkem|HTTP 403|Instance|
 |Http404|HTTP 404|Počet|Celkem|HTTP 404|Instance|
 |Http406|HTTP 406|Počet|Celkem|HTTP 406|Instance|
-|Http4xx|Http 4xx|Počet|Celkem|Http 4xx|Instance|
-|Http5xx|Chyby protokolu HTTP serveru|Počet|Celkem|Chyby protokolu HTTP serveru|Instance|
-|MemoryWorkingSet|Paměť pracovní sady|B|Průměr|Paměť pracovní sady|Instance|
-|AverageMemoryWorkingSet|Průměrná paměti pracovní sady|B|Průměr|Průměrná paměti pracovní sady|Instance|
+|Http4xx|HTTP 4xx|Počet|Celkem|HTTP 4xx|Instance|
+|Http5xx|Chyby serveru HTTP|Počet|Celkem|Chyby serveru HTTP|Instance|
+|MemoryWorkingSet|Pracovní sada paměti|B|Průměr|Pracovní sada paměti|Instance|
+|AverageMemoryWorkingSet|Průměrná pracovní sada paměti|B|Průměr|Průměrná pracovní sada paměti|Instance|
 |AverageResponseTime|Průměrná doba odezvy|Sekundy|Průměr|Průměrná doba odezvy|Instance|
-|FunctionExecutionUnits|Funkce spuštění jednotky|Počet|Průměr|Funkce spuštění jednotky|Instance|
-|FunctionExecutionCount|Počet provedení – funkce|Počet|Průměr|Počet provedení – funkce|Instance|
+|FunctionExecutionUnits|Jednotky provádění funkcí|Počet|Celkem|Jednotky provádění funkcí|Instance|
+|FunctionExecutionCount|Počet spuštění funkce|Počet|Celkem|Počet spuštění funkce|Instance|
+|AppConnections|Připojení|Počet|Průměr|Připojení|Instance|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
 |Požadavky|Požadavky|Počet|Celkem|Požadavky|Instance|
-|BytesReceived|Data v|B|Celkem|Data v|Instance|
-|BytesSent|Data|B|Celkem|Data|Instance|
+|BytesReceived|Vstupní data|B|Celkem|Vstupní data|Instance|
+|BytesSent|Výstupní data|B|Celkem|Výstupní data|Instance|
 |Http101|HTTP 101|Počet|Celkem|HTTP 101|Instance|
-|Http2xx|Http 2xx|Počet|Celkem|Http 2xx|Instance|
-|Http3xx|Http 3xx|Počet|Celkem|Http 3xx|Instance|
+|Http2xx|HTTP 2xx|Počet|Celkem|HTTP 2xx|Instance|
+|Http3xx|HTTP 3xx|Počet|Celkem|HTTP 3xx|Instance|
 |Http401|HTTP 401|Počet|Celkem|HTTP 401|Instance|
 |Http403|HTTP 403|Počet|Celkem|HTTP 403|Instance|
 |Http404|HTTP 404|Počet|Celkem|HTTP 404|Instance|
 |Http406|HTTP 406|Počet|Celkem|HTTP 406|Instance|
-|Http4xx|Http 4xx|Počet|Celkem|Http 4xx|Instance|
-|Http5xx|Chyby protokolu HTTP serveru|Počet|Celkem|Chyby protokolu HTTP serveru|Instance|
+|Http4xx|HTTP 4xx|Počet|Celkem|HTTP 4xx|Instance|
+|Http5xx|Chyby serveru HTTP|Počet|Celkem|Chyby serveru HTTP|Instance|
 |AverageResponseTime|Průměrná doba odezvy|Sekundy|Průměr|Průměrná doba odezvy|Instance|
 |CpuPercentage|Procento procesoru|Procento|Průměr|Procento procesoru|Instance|
 |MemoryPercentage|Procento paměti|Procento|Průměr|Procento paměti|Instance|
 |DiskQueueLength|Délka fronty disku|Počet|Průměr|Délka fronty disku|Instance|
-|HttpQueueLength|Délka fronty http|Počet|Průměr|Délka fronty http|Instance|
-|ActiveRequests|Aktivních žádostí|Počet|Celkem|Aktivních žádostí|Instance|
-|TotalFrontEnds|Celkový počet front-end|Počet|Průměr|Celkový počet front-end|Instance|
-|SmallAppServicePlanInstances|Pracovníci plán krátkodobého používání aplikační služby|Počet|Průměr|Pracovníci plán krátkodobého používání aplikační služby|Instance|
-|MediumAppServicePlanInstances|Pracovníci plán střednědobého používání aplikační služby|Počet|Průměr|Pracovníci plán střednědobého používání aplikační služby|Instance|
-|LargeAppServicePlanInstances|Pracovníci plán používání aplikační služby|Počet|Průměr|Pracovníci plán používání aplikační služby|Instance|
+|HttpQueueLength|Délka fronty HTTP|Počet|Průměr|Délka fronty HTTP|Instance|
+|ActiveRequests|Aktivní požadavky|Počet|Celkem|Aktivní požadavky|Instance|
+|TotalFrontEnds|Celkový počet front-endů|Počet|Průměr|Celkový počet front-endů|Žádné dimenze|
+|SmallAppServicePlanInstances|Malé pracovní procesy plánu služby App Service|Počet|Průměr|Malé pracovní procesy plánu služby App Service|Žádné dimenze|
+|MediumAppServicePlanInstances|Střední pracovní procesy plánu služby App Service|Počet|Průměr|Střední pracovní procesy plánu služby App Service|Žádné dimenze|
+|LargeAppServicePlanInstances|Velké pracovní procesy plánu služby App Service|Počet|Průměr|Velké pracovní procesy plánu služby App Service|Žádné dimenze|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|Hodnoty WorkersTotal|Celkový počet pracovních procesů|Počet|Průměr|Celkový počet pracovních procesů|Instance|
-|WorkersAvailable|K dispozici pracovních procesů|Počet|Průměr|K dispozici pracovních procesů|Instance|
-|Workersused za|Použít pracovní procesy|Počet|Průměr|Použít pracovní procesy|Instance|
+|Hodnoty WorkersTotal|Celkový počet pracovních procesů|Počet|Průměr|Celkový počet pracovních procesů|Žádné dimenze|
+|WorkersAvailable|Dostupné pracovní procesy|Počet|Průměr|Dostupné pracovní procesy|Žádné dimenze|
+|Workersused za|Využité pracovní procesy|Počet|Průměr|Využité pracovní procesy|Žádné dimenze|
 |CpuPercentage|Procento procesoru|Procento|Průměr|Procento procesoru|Instance|
 |MemoryPercentage|Procento paměti|Procento|Průměr|Procento paměti|Instance|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Přečtěte si informace o metriky v Azure monitorování](monitoring-overview-metrics.md)
 * [Vytvářet upozornění na metriky](insights-receive-alert-notifications.md)
 * [Export metriky pro úložiště, centra událostí nebo analýzy protokolů](monitoring-overview-of-diagnostic-logs.md)

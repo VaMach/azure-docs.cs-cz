@@ -1,6 +1,6 @@
 ---
-title: "Automatizace FedRAMP Azure plán, podle kterého - vyhodnocení rizik"
-description: "Webové aplikace pro FedRAMP - vyhodnocení rizik"
+title: "Zabezpečení Azure a vyhodnocení rizik plán, podle kterého - FedRAMP webové aplikace automatizace – dodržování předpisů"
+description: "FedRAMP webové aplikace automatizace - vyhodnocení rizik"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Vyhodnocení rizik (RA)
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS zabezpečení a Audit řešení. Toto řešení poskytuje komplexní pohled postavení zabezpečení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Vyhodnocení směrného plánu vyhodnocuje sady klíčů registru, nastavení zásad auditu a nastavení zásad zabezpečení společně se doporučené hodnoty těchto nastavení společnosti Microsoft. Vyhodnocení aktualizací vyhodnocuje stav dostupné aktualizace na všechny nasazené virtuální počítače. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS zabezpečení a Audit řešení. Toto řešení poskytuje komplexní pohled postavení zabezpečení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Vyhodnocení směrného plánu vyhodnocuje sady klíčů registru, nastavení zásad auditu a nastavení zásad zabezpečení společně se doporučené hodnoty těchto nastavení společnosti Microsoft. Vyhodnocení aktualizací vyhodnocuje stav dostupné aktualizace na všechny nasazené virtuální počítače. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS zabezpečení a Audit řešení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Zjištěné problémy přiřazené hodnocení závažnosti. ID společné konfigurace – výčet (CCE) jsou k dispozici pro pravidla vyhodnocení směrného plánu.  |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS zabezpečení a Audit řešení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Zjištěné problémy přiřazené hodnocení závažnosti. ID společné konfigurace – výčet (CCE) jsou k dispozici pro pravidla vyhodnocení směrného plánu.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS zabezpečení a Audit řešení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Kritéria, kterými se tato řešení vyhodnocení se automaticky aktualizuje. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS zabezpečení a Audit řešení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Kritéria, kterými se tato řešení vyhodnocení se automaticky aktualizuje. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS zabezpečení a Audit řešení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Kritéria, kterými se tato řešení vyhodnocení se automaticky aktualizuje. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS zabezpečení a Audit řešení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Kritéria, kterými se tato řešení vyhodnocení se automaticky aktualizuje. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS zabezpečení a Audit řešení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Vyhodnocení aktualizací provede hodnocení před virtuálními počítači Windows a Linux. Vyhodnocení směrného plánu provede hodnocení pro virtuální počítače s Windows pomocí Microsoft vyvinul směrný plán podle odvětví osvědčené postupy. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS zabezpečení a Audit řešení. V rámci řešení jsou k dispozici dvě domény zabezpečení, vyhodnocení aktualizací a vyhodnocení směrného plánu. Vyhodnocení aktualizací provede hodnocení před virtuálními počítači Windows a Linux. Vyhodnocení směrného plánu provede hodnocení pro virtuální počítače s Windows pomocí Microsoft vyvinul směrný plán podle odvětví osvědčené postupy. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Služba Microsoft Monitoring Agent, který je konfigurován na virtuální počítače nasazené pomocí tento plán, podle kterého Azure, je nakonfigurovaná jako automatické služby s potřebnými oprávněními pro aktivit hodnocení. |
+| **Zákazníka** | Služba Microsoft Monitoring Agent, který je konfigurován na virtuální počítače nasazené pomocí tento plán, je nakonfigurovaná jako automatické služby s potřebnými oprávněními pro aktivit hodnocení. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS zabezpečení a Audit řešení. Toto řešení poskytuje komplexní pohled postavení zabezpečení. Řídicí panel zabezpečení a Audit poskytuje podrobný přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS zabezpečení a Audit řešení. Toto řešení poskytuje komplexní pohled postavení zabezpečení. Řídicí panel zabezpečení a Audit poskytuje podrobný přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |

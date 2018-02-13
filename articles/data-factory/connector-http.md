@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopírování dat z koncový bod HTTP pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ Nastavte vlastnost "authenticationType" na **základní**, **Digest**, nebo **Wi
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| Uživatelské jméno | Uživatelské jméno pro přístup k koncový bod HTTP. | Ano |
-| heslo | Heslo pro uživatele (uživatelské jméno). Toto pole můžete označte jako SecureString. | Ano |
+| userName | Uživatelské jméno pro přístup k koncový bod HTTP. | Ano |
+| heslo | Heslo pro uživatele (uživatelské jméno). Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 
 **Příklad**
 
@@ -99,8 +99,8 @@ Chcete-li použít ověřování ClientCertificate, nastavte vlastnost "authenti
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | embeddedCertData | Data certifikátu kódováním base64. | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
-| CertThumbprint | Kryptografický otisk certifikátu, který je nainstalován v úložišti certifikátů počítače Self-hosted integrace Runtime. Platí jenom v případě, že je zadán vlastním hostováním typ integrace Runtime v connectVia. | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
-| heslo | Heslo přidružené k certifikátu. Toto pole můžete označte jako SecureString. | Ne |
+| certThumbprint | Kryptografický otisk certifikátu, který je nainstalován v úložišti certifikátů počítače Self-hosted integrace Runtime. Platí jenom v případě, že je zadán vlastním hostováním typ integrace Runtime v connectVia. | Zadejte buď `embeddedCertData` nebo `certThumbprint`. |
+| heslo | Heslo přidružené k certifikátu. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ne |
 
 Pokud používáte "certThumbprint" pro ověřování a je certifikát nainstalován v osobním úložišti místního počítače, je třeba udělit oprávnění ke čtení modulu runtime Self-hosted integrace:
 
@@ -208,7 +208,7 @@ Ke zkopírování dat z protokolu HTTP, nastavte vlastnost typu datové sady, kt
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje zdroje pomocí protokolu HTTP.
 

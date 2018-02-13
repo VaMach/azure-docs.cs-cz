@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: Zadejte registrace a přihlášení k příjemce s účty služby Twitter.
-
-> [!NOTE]
-> Tato funkce je ve verzi preview.
-> 
 
 ## <a name="create-a-twitter-application"></a>Vytvořit aplikaci služby Twitter.
 Pokud chcete používat služby Twitter jako poskytovatel identit v Azure Active Directory (Azure AD) B2C, musíte vytvořit aplikaci služby Twitter a zadat se správné parametry. Twitter vývojářského účtu k tomu potřebujete. Pokud nemáte, můžete ho na získat [https://dev.twitter.com/](https://dev.twitter.com/).
@@ -46,3 +42,6 @@ Pokud chcete používat služby Twitter jako poskytovatel identit v Azure Active
 6. Klikněte na tlačítko **nastavení tohoto zprostředkovatele identity** a zadejte Twitteru **uživatelský klíč** pro **id klienta** a Twitteru **uživatelský tajný klíč** pro **tajný klíč klienta**.
 7. Klikněte na tlačítko **OK**a potom klikněte na **vytvořit** uložte konfiguraci služby Twitter.
 
+## <a name="next-steps"></a>Další postup
+
+Vytvořit nebo upravit [předdefinovaných zásad](active-directory-b2c-reference-policies.md) a přidejte Twitter jako zprostředkovatele identity.

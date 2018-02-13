@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Vyvolání MapReduce programy z objektu pro vytváření dat
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -186,7 +186,7 @@ Kanál v tomto příkladu má jenom jedna aktivita, která je typu: HDInsightMap
 | Vlastnost | Poznámky |
 |:--- |:--- |
 | type |Typ musí být nastavený na **HDInsightMapReduce**. |
-| Název třídy |Název třídy je: **wordcount** |
+| className |Název třídy je: **wordcount** |
 | jarFilePath |Cesta k soubor jar obsahující třídy. Pokud jste zkopírujte a vložte následující kód, nezapomeňte změnit název clusteru. |
 | jarLinkedService |Propojená služba, která obsahuje soubor jar Azure Storage. Tato propojená služba odkazuje na úložiště, které je přidružené ke clusteru HDInsight. |
 | Argumenty |Wordcount program přebírá dva argumenty, vstup a výstup. Vstupní soubor je soubor davinci.txt. |

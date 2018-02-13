@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Vytvoření clusterů HDInsight s Data Lake Store pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ V této části vytvoříte clusteru HDInsight s účty Data Lake Store jako vý
 
     ![Objekt služby přidat do clusteru HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "instanční objekt přidat do clusteru HDInsight")
 
-    - **Vyberte Data Lake Store účtu**: Vyberte existující účet Data Lake Store. Existující účet Data Lake Store je povinný.  V tématu [požadavky](#prereuisites).
+    - **Vyberte Data Lake Store účtu**: Vyberte existující účet Data Lake Store. Existující účet Data Lake Store je povinný.  V tématu [požadavky](#prerequisites).
     - **Kořenová cesta**: Zadejte cestu, kam mají ukládat soubory specifických pro cluster. Na na snímku obrazovky je __/clusterů/myhdiadlcluster/__, ve kterém __/clusterů__ složka musí existovat a vytvoří portálu *myhdicluster* složky.  *Myhdicluster* je název clusteru.
     - **Data Lake Store přístup**: Konfigurace přístupu mezi účtu Data Lake Store a HDInsight cluster. Pokyny najdete v tématu [přístup konfigurovat Data Lake Store](#configure-data-lake-store-access).
     - **Další účty úložiště**: účtů přidat účty úložiště Azure jako dodatečné úložiště pro cluster. Chcete-li přidat další úložiště Data Lake provádí tím, že při konfiguraci účtu Data Lake Store jako typ primárního úložiště clusteru oprávnění na data v další účty Data Lake Store. Viz [Konfigurace přístupu ke službě Data Lake Store](#configure-data-lake-store-access).

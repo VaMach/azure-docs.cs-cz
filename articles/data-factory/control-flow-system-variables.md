@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 274c003e0697ba08d010c3bf13724461a4b624ee
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: bdf1754226852145e9bf5597256339549f253071
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systémové proměnné podporovaných službou Azure Data Factory
 Tento článek popisuje systémové proměnné podporovaných službou Azure Data Factory. Tyto proměnné můžete použít ve výrazech při definování entit služby Data Factory. 
@@ -30,20 +30,20 @@ Tento článek popisuje systémové proměnné podporovaných službou Azure Dat
 
 | Název proměnné | Popis |
 | --- | --- |
-| @pipeline(). Objekt pro vytváření dat |Název objektu pro vytváření dat kanál spustit běží v rámci | 
-| @pipeline(). Kanál |Název kanálu |
-| @pipeline(). Identifikátor RunId | ID specifické kanálu spustit | 
-| @pipeline(). TriggerType | Typ aktivační událost, která volá kanálu (ruční, Scheduler) | 
-| @pipeline(). SpuštěcíID| ID aktivační události, která volá kanálu |
-| @pipeline(). Název aktivační události| Název aktivační události, která volá kanálu |
-| @pipeline(). TriggerTime| Čas, kdy aktivační událost, která volá kanálu. Čas aktivace je skutečný čas aktivní, nejsou naplánovaném čase. Například `13:20:08.0149599Z` je vrácena místo`13:20:00.00Z` |
+| @pipeline().DataFactory |Název objektu pro vytváření dat kanál spustit běží v rámci | 
+| @pipeline().Pipeline |Název kanálu |
+| @pipeline().RunId | ID specifické kanálu spustit | 
+| @pipeline().TriggerType | Typ aktivační událost, která volá kanálu (ruční, Scheduler) | 
+| @pipeline().TriggerId| ID aktivační události, která volá kanálu |
+| @pipeline().TriggerName| Název aktivační události, která volá kanálu |
+| @pipeline().TriggerTime| Čas, kdy aktivační událost, která volá kanálu. Čas aktivace je skutečný čas aktivní, nejsou naplánovaném čase. Například `13:20:08.0149599Z` je vrácena místo`13:20:00.00Z` |
 
 ## <a name="trigger-scope"></a>Obor aktivační události:
 
 | Název proměnné | Popis |
 | --- | --- |
-| aktivovat .scheduledTime) |Čas naplánovaného aktivační události k vyvolání kanálu spustit. Například pro aktivační událost, která aktivuje každých 5 minut, by vrátit tuto proměnnou `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` v uvedeném pořadí.|
-| aktivovat .startTime) |Čas, kdy aktivační událost **ve skutečnosti** aktivováno pro vyvolání kanálu spustit. Například pro aktivační událost, která aktivuje každých 5 minut, tato proměnná může vrátit přibližně toto `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` v uvedeném pořadí.|
+| trigger().scheduledTime |Čas naplánovaného aktivační události k vyvolání kanálu spustit. Například pro aktivační událost, která aktivuje každých 5 minut, by vrátit tuto proměnnou `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` v uvedeném pořadí.|
+| trigger().startTime |Čas, kdy aktivační událost **ve skutečnosti** aktivováno pro vyvolání kanálu spustit. Například pro aktivační událost, která aktivuje každých 5 minut, tato proměnná může vrátit přibližně toto `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` v uvedeném pořadí.|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Informace o tom, jak jsou tyto proměnné použít ve výrazech naleznete v tématu [výrazu jazyka & funkce](control-flow-expression-language-functions.md). 

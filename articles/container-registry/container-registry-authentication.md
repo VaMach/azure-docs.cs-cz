@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Ověření pomocí privátní registru kontejner Docker
 
@@ -45,7 +45,7 @@ Dostupné role jsou:
 
 Objekty služby povolit bezobslužných připojení k registru ve scénářích nabízení a vyžadování takto:
 
-  * *Čtečka*: nasazení kontejnerů z registru pro systémy orchestration včetně Kubernetes, DC/OS a Docker Swarm. Vám může také načítat z kontejneru registrech k související služby Azure, jako [AKS](../aks/index.yml), [služby App Service](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), a ostatní.
+  * *Čtečka*: nasazení kontejnerů z registru pro systémy orchestration včetně Kubernetes, DC/OS a Docker Swarm. Vám může také načítat z kontejneru registrech k související služby Azure, jako [AKS](../aks/index.yml), [služby App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), a ostatní.
 
   * *Přispěvatel*: průběžnou integraci a nasazení řešení jako Visual Studio Team Services (VSTS) nebo volaných, který vytvářet bitové kopie kontejneru a vložit je registru.
 
@@ -61,7 +61,9 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Po přihlášení, Docker ukládá do mezipaměti přihlašovací údaje, takže nemusíte pamatovat ID aplikace.
 
-V závislosti na verzi Docker instalaci, zobrazí upozornění zabezpečení doporučujeme použít `--password-stdin` parametr. Při jeho použití je mimo rámec tohoto článku, doporučujeme následující tento osvědčený postup. Další informace najdete v tématu [docker přihlášení](https://docs.docker.com/engine/reference/commandline/login/) příkaz odkaz.
+V závislosti na verzi Docker instalaci, zobrazí upozornění zabezpečení doporučujeme použít `--password-stdin` parametr. I když je jeho použití nad rámec tohoto článku, doporučujeme řídit se osvědčeným postupem. Další informace najdete v tématu [docker přihlášení](https://docs.docker.com/engine/reference/commandline/login/) příkaz odkaz.
+
+Další informace o používání objektu služby pro bezobslužných ověřování ACR, najdete v části [registru kontejner Azure ověřování s objekty služby](container-registry-auth-service-principal.md).
 
 ## <a name="admin-account"></a>Účet správce
 
@@ -71,7 +73,7 @@ Každý kontejner registru zahrnuje uživatelský účet správce, který je ve 
 > Účet správce je určená pro jednoho uživatele pro přístup k registru, především pro účely testování. Nedoporučujeme sdílení přihlašovací údaje účtu správce s více uživateli. Všichni uživatelé, ověřování pomocí účtu správce se zobrazí jako uživatel s jednotným nabízení a vyžadování přístup k registru. Změna nebo zakázání účtu zakáže přístup k registru pro všechny uživatele, kteří použít její přihlašovací údaje. Jednotlivé identity se doporučuje pro uživatele a objekty služby pro scénáře bez periferních zařízení.
 >
 
-Účet správce se s dvě hesla, které mohou vytvořit znovu. Dvě hesla umožňují udržování připojení k registru pomocí jedno heslo, zatímco si znovu vygenerujete druhý. Pokud je povolen účet správce, můžete předat uživatelské jméno a heslo buď `docker login` příkazu pro základní ověřování do registru. Například:
+Účet správce se s dvě hesla, které mohou vytvořit znovu. Dvě hesla umožňují udržování připojení k registru pomocí jedno heslo, zatímco si znovu vygenerujete druhý. Pokud je povolen účet správce, můžete předat uživatelské jméno a heslo buď `docker login` příkazu pro základní ověřování do registru. Příklad:
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1
@@ -89,7 +91,7 @@ Správce portálu Azure můžete povolit tak, že přejdete v registru Výběr *
 
 ![Povolit správce uživatelského rozhraní na portálu Azure][auth-portal-01]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Push vaší první image pomocí rozhraní příkazového řádku Azure](container-registry-get-started-azure-cli.md)
 

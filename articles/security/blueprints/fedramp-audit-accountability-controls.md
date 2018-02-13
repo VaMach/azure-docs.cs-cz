@@ -1,6 +1,6 @@
 ---
-title: "Plán, podle kterého FedRAMP Azure Automation - Audit a odpovědnosti za"
-description: "Webové aplikace pro FedRAMP - Audit a odpovědnosti za"
+title: "Zabezpečení Azure a dodržování předpisů plán, podle kterého - FedRAMP webové aplikace automatizace - Audit a odpovědnosti za"
+description: "FedRAMP webové aplikace automatizace - Audit a odpovědnosti za"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Audit a odpovědnosti za (AU)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Funkce auditu pro tento plán, podle kterého Azure zajišťuje monitorování Azure a službou analýzy protokolů v OMS. Monitorování Azure poskytuje podrobné auditování protokoly o činnosti spojené s nasazené prostředky. Tyto a protokoly na úrovni operačního systému jsou shromažďovány analýzy protokolů a uložená v úložišti OMS. Analýzy protokolů korelaci dat auditu mezi prostředky nasazené v tomhle řešení a je možné rozšířit na zákazníka nasazené webové aplikace. |
+| **Zákazníka** | Funkce auditu pro tento plán, podle kterého je poskytovaný Azure monitorování a služba analýzy protokolů v OMS. Monitorování Azure poskytuje podrobné auditování protokoly o činnosti spojené s nasazené prostředky. Tyto a protokoly na úrovni operačního systému jsou shromažďovány analýzy protokolů a uložená v úložišti OMS. Analýzy protokolů korelaci dat auditu mezi prostředky nasazené v tomhle řešení a je možné rozšířit na zákazníka nasazené webové aplikace. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Události Audituje tento plán, podle kterého Azure zahrnují informace o dostatečná k určení, kdy dojde k událostem, zdroj události, výsledek události a další podrobné informace, které podporuje šetření bezpečnostních incidentů. |
+| **Zákazníka** | Události Audituje tento plán, podle kterého zahrnují informace o dostatečná k určení, kdy dojde k událostem, zdroj události, výsledek události a další podrobné informace, které podporuje šetření bezpečnostních incidentů. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Události Audituje tento plán, podle kterého Azure zahrnují tyto auditované aktivita Azure protokoly pro nasazené prostředky, protokoly na úrovni operačního systému, služby Active Directory protokoly a protokoly systému SQL Server. Zákazníci mohou vyberte další události, které mají být auditovány zvláště potřebám. |
+| **Zákazníka** | Události Audituje tento plán, podle kterého zahrnují ty Audituje protokoly Azure aktivity pro nasazené prostředky, protokoly na úrovni operačního systému, služby Active Directory protokoly a protokoly systému SQL Server. Zákazníci mohou vyberte další události, které mají být auditovány zvláště potřebám. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure závisí na předdefinované auditu možnosti Azure, Windows Server a SQL Server. Tyto auditní záznamy auditu zachycení řešení s dostatečně podrobně, aby splňují požadavky tohoto ovládacího prvku. |
+| **Zákazníka** | Tento plán, podle kterého se spoléhá na funkce integrované auditu Azure, Windows Server a SQL Server. Tyto auditní záznamy auditu zachycení řešení s dostatečně podrobně, aby splňují požadavky tohoto ovládacího prvku. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Azure aktivity protokolu události použijte podrobné schéma, které obsahuje pole pro více než 20 typy informace o auditování. Kromě protokol aktivit nasadí tento plán, podle kterého Azure Log Analytics řešení v OMS, která podporuje různého typu zdroje dat, včetně protokoly systému Windows, Linux protokoly, Azure Diagnostics protokoly a protokoly zákazníka.  |
+| **Zákazníka** | Azure aktivity protokolu události použijte podrobné schéma, které obsahuje pole pro více než 20 typy informace o auditování. Kromě protokol aktivit tento plán, podle kterého nasadí řešení analýzy protokolů v OMS, která podporuje různého typu zdroje dat, včetně protokoly systému Windows, Linux protokoly, Azure Diagnostics protokoly a protokoly zákazníka.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny virtuální počítače nasazené pomocí této Azure plán, podle kterého jsou připojené k nasazené doméně služby Active Directory. Všechny virtuální počítače připojené k doméně implementovat zásady skupiny, které lze nakonfigurovat, aby centrálně spravovat konfiguraci operačního systému na úrovni auditování systému. |
+| **Zákazníka** | Všechny virtuální počítače nasazené pomocí tento plán, podle kterého jsou připojené k nasazené doméně služby Active Directory. Všechny virtuální počítače připojené k doméně implementovat zásady skupiny, které lze nakonfigurovat, aby centrálně spravovat konfiguraci operačního systému na úrovni auditování systému. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure přiděluje dostatečná kapacita úložiště pro záznamy auditu uchovávány po dobu jednoho roku. Všechny záznamy auditu jsou shromážděny prostřednictvím analýzy protokolů, který je nakonfigurovaný pro uchování jeden rok. |
+| **Zákazníka** | Tento plán, podle kterého přiděluje dostatečná kapacita úložiště pro záznamy auditu uchovávány po dobu jednoho roku. Všechny záznamy auditu jsou shromážděny prostřednictvím analýzy protokolů, který je nakonfigurovaný pro uchování jeden rok. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny záznamy auditu generované prostředky nasadit pomocí této Azure plán, podle kterého jsou shromažďovány analýzy protokolů a uchovávány po dobu jednoho roku. Přidělení úložiště pro toto úložiště záznamů auditu se přidělí dynamicky zajistit dostatečnou kapacitu je k dispozici. |
+| **Zákazníka** | Všechny záznamy auditu generované prostředky nasadit pomocí tento plán, podle kterého jsou shromažďovány analýzy protokolů a uchovávány po dobu jednoho roku. Přidělení úložiště pro toto úložiště záznamů auditu se přidělí dynamicky zajistit dostatečnou kapacitu je k dispozici. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Všechny záznamy auditu generované prostředky nasadit pomocí této Azure plán, podle kterého jsou shromažďovány analýzy protokolů a uchovávány po dobu jednoho roku. Přidělení úložiště pro toto úložiště záznamů auditu se přidělí dynamicky zajistit dostatečnou kapacitu je k dispozici. |
+| **Zákazníka** | Všechny záznamy auditu generované prostředky nasadit pomocí tento plán, podle kterého jsou shromažďovány analýzy protokolů a uchovávány po dobu jednoho roku. Přidělení úložiště pro toto úložiště záznamů auditu se přidělí dynamicky zajistit dostatečnou kapacitu je k dispozici. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řešení analýzy protokolů v OMS a centralizovat data auditu napříč nasazené prostředky, podpora situational sledování celé organizace. Zákazníci mohou pokusit k další integraci s jinými systémy analýzy protokolů. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řešení analýzy protokolů v OMS a centralizovat data auditu napříč nasazené prostředky, podpora situational sledování celé organizace. Zákazníci mohou pokusit k další integraci s jinými systémy analýzy protokolů. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řešení analýzy protokolů v OMS a centralizovat data auditu napříč nasazené prostředky, podpůrné centralizované kontrolní, analýzu a vytváření sestav. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řešení analýzy protokolů v OMS a centralizovat data auditu napříč nasazené prostředky, podpůrné centralizované kontrolní, analýzu a vytváření sestav. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure nasadí OMS zabezpečení a Audit řešení. Toto řešení poskytuje komplexní pohled postavení zabezpečení. Řídicí panel zabezpečení a Audit poskytuje podrobný přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS, integraci dat protokolu a ohrožení zabezpečení dat ze směrného plánu a oprava hodnocení. |
+| **Zákazníka** | Tento plán, podle kterého nasadí OMS zabezpečení a Audit řešení. Toto řešení poskytuje komplexní pohled postavení zabezpečení. Řídicí panel zabezpečení a Audit poskytuje podrobný přehled o stavu zabezpečení nasazené prostředky pomocí dat, které jsou k dispozici v nasazené řešení OMS, integraci dat protokolu a ohrožení zabezpečení dat ze směrného plánu a oprava hodnocení. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Virtuální počítače s Windows, které jsou nasazeny tento plán, podle kterého Azure implementovat oprávnění na úrovni operačního systému, které omezují akce, které může uživatel provést s ohledem informace o auditování. V rámci Azure uživatelé nebo skupiny uživatelů můžete přiřadit do rolí (například vlastník, Přispěvatel, čtečky nebo vlastní role) omezit akce, které jsou k dispozici s ohledem na všechny prostředky, nebo nasazení řešení, včetně analýzy protokolů.  |
+| **Zákazníka** | Virtuální počítače s Windows, které jsou nasazeny tento plán, podle kterého implementovat oprávnění na úrovni operačního systému, které omezují akce, které může uživatel provést s ohledem informace o auditování. V rámci Azure uživatelé nebo skupiny uživatelů můžete přiřadit do rolí (například vlastník, Přispěvatel, čtečky nebo vlastní role) omezit akce, které jsou k dispozici s ohledem na všechny prostředky, nebo nasazení řešení, včetně analýzy protokolů.  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řešení analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Po získání jsou data dostupná pro výstrahy, analýzu a export. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řešení analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Po získání jsou data dostupná pro výstrahy, analýzu a export. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řešení analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Když shromažďují analýzy protokolů nejsou změnit obsah a čas řazení záznamů auditu. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řešení analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Když shromažďují analýzy protokolů nejsou změnit obsah a čas řazení záznamů auditu. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje řešení analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Po získání jsou data dostupná pro výstrahy, analýzu a export. Log Analytics zahrnuje účinný dotazovací jazyk k extrakci dat uložených v úložišti. |
+| **Zákazníka** | Tento plán, podle kterého implementuje řešení analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Po získání jsou data dostupná pro výstrahy, analýzu a export. Log Analytics zahrnuje účinný dotazovací jazyk k extrakci dat uložených v úložišti. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Prostředky nasadit pomocí tento plán, podle kterého Azure pomocí interní systémové hodiny vygenerujte časová razítka pro záznamy auditu. |
+| **Zákazníka** | Nasazené pomocí tento plán, podle kterého prostředky pomocí interní systémové hodiny vygenerujte časová razítka pro záznamy auditu. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Prostředky nasadit pomocí tento plán, podle kterého Azure pomocí interní systémové hodiny vygenerujte časová razítka pro záznamy auditu. Časová razítka se zaznamenávají v čase UTC. |
+| **Zákazníka** | Nasazené pomocí tento plán, podle kterého prostředky pomocí interní systémové hodiny vygenerujte časová razítka pro záznamy auditu. Časová razítka se zaznamenávají v čase UTC. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Prostředky nasadit pomocí tento plán, podle kterého Azure pomocí interní systémové hodiny vygenerujte časová razítka pro záznamy auditu. Interní systémové hodiny jsou nakonfigurovány pro synchronizaci s zdrojem autoritativní času. |
+| **Zákazníka** | Nasazené pomocí tento plán, podle kterého prostředky pomocí interní systémové hodiny vygenerujte časová razítka pro záznamy auditu. Interní systémové hodiny jsou nakonfigurovány pro synchronizaci s zdrojem autoritativní času. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Prostředky nasadit pomocí tento plán, podle kterého Azure pomocí interní systémové hodiny vygenerujte časová razítka pro záznamy auditu. Interní systémové hodiny jsou nakonfigurovány pro synchronizaci s zdrojem autoritativní času. |
+| **Zákazníka** | Nasazené pomocí tento plán, podle kterého prostředky pomocí interní systémové hodiny vygenerujte časová razítka pro záznamy auditu. Interní systémové hodiny jsou nakonfigurovány pro synchronizaci s zdrojem autoritativní času. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Ovládací prvky logického přístupu slouží k ochraně nástroje v rámci tento plán, podle kterého Azure a informace o auditování před neoprávněným přístupem, úpravy a odstranění. Azure Active Directory vynucuje schválené logické přístup pomocí členství ve skupinách na základě rolí. Umožňuje zobrazit informace o auditování a používat nástroje auditování může být omezen na uživatele, kteří tato oprávnění vyžadují. |
+| **Zákazníka** | Ovládací prvky logického přístupu slouží k ochraně auditu informacím a nástrojům v rámci tento plán, podle kterého před neoprávněným přístupem, úpravy a odstranění. Azure Active Directory vynucuje schválené logické přístup pomocí členství ve skupinách na základě rolí. Umožňuje zobrazit informace o auditování a používat nástroje auditování může být omezen na uživatele, kteří tato oprávnění vyžadují. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje službu analýzy protokolů v OMS. Nasadit virtuální počítače a Azure diagnostics účty úložiště jsou připojené zdroje k analýze protokolů a zachovali samostatně z jejich původu. Data jsou shromažďována pomocí OMS v téměř v reálném čase. |
+| **Zákazníka** | Tento plán, podle kterého implementuje službu analýzy protokolů v OMS. Nasadit virtuální počítače a Azure diagnostics účty úložiště jsou připojené zdroje k analýze protokolů a zachovali samostatně z jejich původu. Data jsou shromažďována pomocí OMS v téměř v reálném čase. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje službu analýzy protokolů v OMS. Analýzy protokolů zajišťuje, že příchozích dat z důvěryhodného zdroje pomocí ověřování certifikátů a integrity dat pomocí ověřování Azure. |
+| **Zákazníka** | Tento plán, podle kterého implementuje službu analýzy protokolů v OMS. Analýzy protokolů zajišťuje, že příchozích dat z důvěryhodného zdroje pomocí ověřování certifikátů a integrity dat pomocí ověřování Azure. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Ovládací prvky logického přístupu slouží k ochraně nástroje v rámci tento plán, podle kterého Azure a informace o auditování před neoprávněným přístupem, úpravy a odstranění. Azure Active Directory vynucuje schválené logické přístup pomocí členství ve skupinách na základě rolí. Umožňuje zobrazit informace o auditování a používat nástroje auditování může být omezen na uživatele, kteří tato oprávnění vyžadují.
+| **Zákazníka** | Ovládací prvky logického přístupu slouží k ochraně auditu informacím a nástrojům v rámci tento plán, podle kterého před neoprávněným přístupem, úpravy a odstranění. Azure Active Directory vynucuje schválené logické přístup pomocí členství ve skupinách na základě rolí. Umožňuje zobrazit informace o auditování a používat nástroje auditování může být omezen na uživatele, kteří tato oprávnění vyžadují.
  |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Funkce auditu pro tento plán, podle kterého Azure zajišťuje monitorování Azure a službou analýzy protokolů v OMS. Monitorování Azure poskytuje podrobné auditování protokoly o činnosti spojené s nasazené prostředky. Tyto a protokoly na úrovni operačního systému jsou shromažďovány analýzy protokolů a uložená v úložišti OMS. Tyto protokoly obsahoval záznamy podrobné informace o systémových událostí a může pomoct chránit proti nepopiratelnosti. Navíc přístup k protokolování dat je omezen pomocí řízení přístupu na základě rolí, aby se zabránilo unauthored úpravy nebo odstranění dat protokolu. |
+| **Zákazníka** | Funkce auditu pro tento plán, podle kterého je poskytovaný Azure monitorování a služba analýzy protokolů v OMS. Monitorování Azure poskytuje podrobné auditování protokoly o činnosti spojené s nasazené prostředky. Tyto a protokoly na úrovni operačního systému jsou shromažďovány analýzy protokolů a uložená v úložišti OMS. Tyto protokoly obsahoval záznamy podrobné informace o systémových událostí a může pomoct chránit proti nepopiratelnosti. Navíc přístup k protokolování dat je omezen pomocí řízení přístupu na základě rolí, aby se zabránilo unauthored úpravy nebo odstranění dat protokolu. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje službu analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Jakmile se shromažďují, data uchovávat jeden rok za konfigurace analýzy protokolů. |
+| **Zákazníka** | Tento plán, podle kterého implementuje službu analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Jakmile se shromažďují, data uchovávat jeden rok za konfigurace analýzy protokolů. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Události Audituje tento plán, podle kterého Azure zahrnují tyto auditované aktivita Azure protokoly pro nasazené prostředky, protokoly na úrovni operačního systému, služby Active Directory protokoly a protokoly systému SQL Server. Zákazníci mohou vyberte další události, které mají být auditovány zvláště potřebám. |
+| **Zákazníka** | Události Audituje tento plán, podle kterého zahrnují ty Audituje protokoly Azure aktivity pro nasazené prostředky, protokoly na úrovni operačního systému, služby Active Directory protokoly a protokoly systému SQL Server. Zákazníci mohou vyberte další události, které mají být auditovány zvláště potřebám. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Přístup k provádění kontroly funkce je omezen pomocí řízení přístupu na základě role v rámci Azure a na úrovni operačního systému virtuálního počítače. Konfigurace událostí vybraná ověřovat prostředky nasadit pomocí této Azure plán, podle kterého se dá nakonfigurovat uživatelé s příslušnou autorizace na základě rolí. |
+| **Zákazníka** | Přístup k provádění kontroly funkce je omezen pomocí řízení přístupu na základě role v rámci Azure a na úrovni operačního systému virtuálního počítače. Konfigurace událostí vybraná ověřovat prostředky nasadit pomocí tento plán, podle kterého se dá nakonfigurovat uživatelé s příslušnou autorizace na základě rolí. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Události Audituje tento plán, podle kterého Azure zahrnují tyto auditované aktivita Azure protokoly pro nasazené prostředky, protokoly na úrovni operačního systému, služby Active Directory protokoly a protokoly systému SQL Server. Zákazníci mohou vyberte další události, které mají být auditovány zvláště potřebám. |
+| **Zákazníka** | Události Audituje tento plán, podle kterého zahrnují ty Audituje protokoly Azure aktivity pro nasazené prostředky, protokoly na úrovni operačního systému, služby Active Directory protokoly a protokoly systému SQL Server. Zákazníci mohou vyberte další události, které mají být auditovány zvláště potřebám. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Tento plán, podle kterého Azure implementuje službu analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Audit záznamů časová razítka nejsou změněna, proto záznam pro audit je korelační čas. |
+| **Zákazníka** | Tento plán, podle kterého implementuje službu analýzy protokolů v OMS. Analýzy protokolů pro zajišťuje služby monitorování OMS ve shromažďování dat ze spravované prostředky do centrální úložiště. Audit záznamů časová razítka nejsou změněna, proto záznam pro audit je korelační čas. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |
 
 
@@ -596,5 +596,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Zákazníka** | Přístup k provádění kontroly funkce je omezen pomocí řízení přístupu na základě role v rámci Azure a na úrovni operačního systému virtuálního počítače. Konfigurace událostí vybraná ověřovat prostředky nasadit pomocí této Azure plán, podle kterého se dá nakonfigurovat uživatelé s příslušnou autorizace na základě rolí. |
+| **Zákazníka** | Přístup k provádění kontroly funkce je omezen pomocí řízení přístupu na základě role v rámci Azure a na úrovni operačního systému virtuálního počítače. Konfigurace událostí vybraná ověřovat prostředky nasadit pomocí tento plán, podle kterého se dá nakonfigurovat uživatelé s příslušnou autorizace na základě rolí. |
 | **Zprostředkovatel (Microsoft Azure)** | Netýká se |

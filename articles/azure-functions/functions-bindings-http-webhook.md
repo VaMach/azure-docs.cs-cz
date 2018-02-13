@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure funkce protokolu HTTP a webhooku vazby
 
@@ -352,9 +352,6 @@ Zde je vazba dat v *function.json* souboru:
 Tady je kód jazyka JavaScript:
 
 ```javascript
-```
-
-```javascript
 module.exports = function (context, data) {
     context.log('GitHub WebHook triggered!', data.comment.body);
     context.res = { body: 'New GitHub comment: ' + data.comment.body };
@@ -388,7 +385,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|----------------------|
 | **Typ** | neuvedeno| Vyžaduje - musí být nastavena na `httpTrigger`. |
 | **směr** | neuvedeno| Vyžaduje - musí být nastavena na `in`. |
-| **Jméno** | neuvedeno| Požadovaná proměnná používá v kódu funkce pro požadavek nebo textu požadavku. |
+| **name** | neuvedeno| Požadovaná proměnná používá v kódu funkce pro požadavek nebo textu požadavku. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Určuje, co klíče, pokud existuje, musí být přítomen v požadavku k vyvolání funkce. Úroveň oprávnění může být jedna z následujících hodnot: <ul><li><code>anonymous</code>&mdash;Je vyžadován žádný klíč rozhraní API.</li><li><code>function</code>&mdash;Je požadován klíč rozhraní API specifických funkcí. Toto je výchozí hodnota, pokud žádný je k dispozici.</li><li><code>admin</code>&mdash;Je nezbytný hlavní klíč.</li></ul> Další informace najdete v části [autorizace klíče](#authorization-keys). |
 | **metody** |**Metody** | Pole metody HTTP, na které funkce odpoví. Pokud není zadaný, funkce odpoví na všechny metody HTTP. V tématu [přizpůsobit koncový bod http](#trigger---customize-the-http-endpoint). |
 | **trasy** | **Trasy** | Definuje šablonu trasy řízení, které žádosti o funkce odpoví adresy URL. Výchozí hodnota, pokud je zadaný žádný je `<functionname>`. Další informace najdete v tématu [přizpůsobit koncový bod http](#customize-the-http-endpoint). |
@@ -528,6 +525,12 @@ Autorizace Webhooku se zpracovává souborem komponentu příjemce webhooku sou�
 - **Řetězec dotazu**: Zprostředkovatel předá název klíče v `clientid` parametr řetězce dotazu, jako `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Hlavička požadavku**: Zprostředkovatel předá název klíče v `x-functions-clientid` záhlaví.
 
+## <a name="trigger---limits"></a>Aktivační událost – omezení
+
+Délka požadavku HTTP je omezená na 100 kB (102,400) a délky adres URL je omezena na 4 kB (4 096) bajtů. Tato omezení jsou určené `httpRuntime` element modulu runtime [souboru Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
+Pokud funkci, která používá triggeru protokolu HTTP není dokončena v rámci přibližně 2,5 minut, bude časový limit brány a vrátí chybu HTTP 502. Funkce bude nadále používat, ale nebude možné vrátit odpovědi HTTP. Pro dlouhodobé funkce doporučujeme dodržovat asynchronní vzory a vrátí se umístění, kde může odeslat příkaz ping stav žádosti. Informace o jak dlouho může spustit funkci najdete v tématu [škálování a hostování - spotřeba plánování](functions-scale.md#consumption-plan). 
+
 ## <a name="trigger---hostjson-properties"></a>Aktivační událost - host.json vlastnosti
 
 [Host.json](functions-host-json.md) soubor obsahuje nastavení, které řídí chování aktivace protokolu HTTP.
@@ -558,7 +561,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |---------|---------|
 | **Typ** |musí být nastavena na `http`. |
 | **směr** | musí být nastavena na `out`. |
-|**Jméno** | Název proměnné používá v kódu funkce pro odpověď. |
+|**name** | Název proměnné používá v kódu funkce pro odpověď. |
 
 ## <a name="output---usage"></a>Výstup – použití
 

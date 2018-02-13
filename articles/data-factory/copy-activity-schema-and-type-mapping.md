@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schéma mapování v aktivitě kopírování
 Tento článek popisuje, jak funguje Azure Data Factory aktivity kopírování schéma mapování a mapování datového typu od zdrojových dat za účelem jímky dat při kopírování dat provádění.
@@ -150,17 +150,17 @@ Můžete najít mapování mezi nativní typu dočasné typ v části "Mapován�
 
 Objekt pro vytváření dat podporuje následující typy průběžných dat: můžete zadat následující hodnoty plynoucí z poskytování informací o typu v [strukturu datové sady](concepts-datasets-linked-services.md#dataset-structure) konfigurace:
 
-* Byte]
+* Byte[]
 * Logická hodnota
-* Data a času
-* Datový typ DateTimeOffset
+* Datum a čas
+* Datetimeoffset
 * Decimal
-* Double
-* Identifikátor GUID
+* Dvojitý
+* Guid
 * Int16
 * Int32
 * Int64
-* Jeden
+* Svobodný/svobodná
 * Řetězec
 * Časový interval
 
@@ -186,7 +186,7 @@ V následující scénáře, "struktura" v datové sadě navržený:
 * Kopírování z dat obchodů s flexibilní schématu, například Azure Table nebo Cosmos DB (vstupní datové sady), zaručit očekávaná data (sloupce) kopírovány přes místo umožňují kopie aktivity odvození schématu na nejvyšší řádky při každé aktivity při spuštění.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v aktivitě kopírování článcích:
 
 - [Kopie aktivity – přehled](copy-activity-overview.md)

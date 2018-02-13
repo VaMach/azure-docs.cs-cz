@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 63bd33bf4e09b98aa53dcfec9fcc4a0109204952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Začínáme s konektorem OneDrive
 Připojte se ke Onedrivu spravovat vaše soubory, včetně nahrávání, získat, odstraňte soubory a další. 
@@ -32,7 +32,7 @@ S OneDrive můžete:
 
 Toto téma ukazuje, jak k používání konektoru OneDrive v aplikaci logiky a taky seznam triggery a akce.
 
-Další informace o Logic Apps najdete v tématu [co jsou logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) a [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Další informace o Logic Apps najdete v tématu [co jsou logic apps](../logic-apps/logic-apps-overview.md) a [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-onedrive"></a>Připojte se ke Onedrivu
 Než se aplikace logiky k jakékoli služby, nejprve vytvořit *připojení* ke službě. Připojení poskytuje připojení mezi aplikace logiky a jiné služby. Například pokud chcete připojit k Onedrivu, musíte nejdřív OneDrive *připojení*. Chcete-li vytvořit připojení, zadejte přihlašovací údaje, které standardně používáte k přístupu ke službě, který chcete připojit k. Ano s OneDrive, zadejte přihlašovací údaje ke svému účtu Onedrivu k vytvoření připojení.
@@ -43,7 +43,7 @@ Než se aplikace logiky k jakékoli služby, nejprve vytvořit *připojení* ke 
 > 
 
 ## <a name="use-a-trigger"></a>Použít aktivační událost
-Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. Aktivační události "dotazování" službu v intervalem a frekvenci, který chcete. [Další informace o aktivační události](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. Aktivační události "dotazování" službu v intervalem a frekvenci, který chcete. [Další informace o aktivační události](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. V aplikaci logiky zadejte "onedrive" získat seznam aktivačních událostí:  
    
@@ -63,7 +63,7 @@ Aktivační událost je událost, která můžete použít ke spuštění pracov
 4. **Uložit** změny (levém horním rohu panelu nástrojů). Aplikace logiky je uloženo a automaticky povolí.
 
 ## <a name="use-an-action"></a>Použít akci.
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Vyberte znaménko plus. Zobrazí několik možností: **přidat akci**, **přidat podmínku**, nebo jeden z **Další** možnosti.
    

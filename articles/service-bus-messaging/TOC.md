@@ -4,7 +4,7 @@
 ## [Architektura služby Service Bus](service-bus-architecture.md)
 ## [Nejčastější dotazy](service-bus-faq.md)
 
-# Začínáme
+# Šablony Rychlý start
 ## [Vytvoření oboru názvů](service-bus-create-namespace-portal.md)
 ## Použití front
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Sestavení vícevrstvé aplikace Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Postup
 ## Plánování a návrh
@@ -35,6 +34,7 @@
 ### [Zvládání výpadků a havárií](service-bus-outages-disasters.md)
 
 ## Vývoj
+### [Sestavení vícevrstvé aplikace Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Zpracování zpráv
 #### [Fronty, témata a odběry](service-bus-queues-topics-subscriptions.md)
 #### [Zprávy, datové části a serializace](service-bus-messages-payloads.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Použití Azure PowerShellu ke zřizování entit](service-bus-manage-with-ps.md)
 
-# Odkaz
+# Referenční informace
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

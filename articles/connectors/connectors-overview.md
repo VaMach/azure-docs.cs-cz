@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8f99bfa09847c01831a06efa8b94c1c0a89a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Použití konektorů v aplikaci logiky
 Konektorů poskytuje rychlý přístup k události, datům a akcím napříč služeb, protokoly a platformy.  Úplný seznam konektorů, které podporuje aplikace logiky můžete [je zde uveden](apis-list.md).  Konektory lze použít jako aktivační události nebo akce v aplikaci logiky a může vyžadovat nakonfigurované *připojení* použít (Příklad: autorizace účtu sítě Twitter. přístup k nebo post vaším jménem).
@@ -37,7 +37,7 @@ Pokud chcete integrovat službu nebo rozhraní API, které není ještě konekto
 Některé konektory obsahovat aktivační událost, to znamená událost z tohoto konektoru se aktivovat aplikaci logiky a předejte všechna data v rámci aktivační události.  Aktivační událost je vždy první krok v aplikaci logiky.  Oblíbených aktivační procedury patří operace, jako je:
 
 * Opakování - spouštět každou hodinu
-* Při přijetí požadavku HTTP
+* Kdy je přijal požadavek HTTP
 * Když je položka přidána do fronty
 * Při doručení e-mailu
 
@@ -56,7 +56,7 @@ Většina konektory musíte nakonfigurovat *připojení* než budete moci použ�
 Připojení lze zobrazit a spravovat v Azure kliknutím **Procházet** a výběrem **rozhraní API připojení**.  Z rozhraní API připojení prostředku můžete zobrazit, upravit, aktualizovat nebo znovu autorizovat, všechna připojení, které jste vytvořili.
 
 ## <a name="next-steps"></a>Další kroky
-* [Vytvoření první aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Vytvoření první aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Další běžné používá a příklady logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Začínáme s enterprise integrace triggery a akce](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

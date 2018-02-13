@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 799d444632b67788520be8a777ec656076022583
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Kódování zprávy EDIFACT pro Azure Logic Apps s Enterprise integračního balíčku
 
@@ -36,7 +36,7 @@ Tady je položky, které budete potřebovat:
 
 ## <a name="encode-edifact-messages"></a>Kódování zprávy EDIFACT
 
-1. [Vytvoření aplikace logiky](logic-apps-create-a-logic-app.md).
+1. [Vytvoření aplikace logiky](quickstart-create-first-logic-app-workflow.md).
 
 2. Konektor EDIFACT kódování zprávy nemá aktivačních událostí, proto musíte přidat aktivační událost pro spuštění aplikace logiky, jako je aktivační událost požadavku. V návrháři aplikace logiky přidejte aktivační událost a potom přidat akci do aplikace logiky.
 
@@ -96,6 +96,6 @@ Konektor kódování EDIFACT provádí tyto úlohy:
 ## <a name="view-swagger-file"></a>Soubor Swagger zobrazení
 Chcete-li zobrazit podrobnosti Swagger pro konektor EDIFACT, najdete v části [EDIFACT](/connectors/edifact/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace o integračního balíčku Enterprise](logic-apps-enterprise-integration-overview.md "Další informace o Enterprise integračního balíčku") 
 

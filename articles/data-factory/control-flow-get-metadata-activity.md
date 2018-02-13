@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Získání metadat aktivity v Azure Data Factory
 Aktivita GetMetadata slouží k načtení metadat jakýchkoli dat ve službě Azure Data Factory. Tato aktivita je podporována pouze pro datové továrny verze 2. Dá se v následujících scénářích:
@@ -96,10 +96,10 @@ GetMetaData – aktivita aktuálně můžete načíst následující typy inform
 
 Vlastnost | Popis | Povolené hodnoty | Požaduje se
 -------- | ----------- | -------------- | --------
-Seznam polí | Seznam typů požadované informace metadat.  | <ul><li>Velikost</li><li>Struktura</li><li>Změněno</li></ul> |    Ne<br/>Pokud je prázdný, vrátí aktivita všechny informace o 3 podporované metadat. 
-Datové sady | Referenční datová sada je jejichž metadat aktivity mají být načteny aktivitou GetMetaData –. <br/><br/>Je typ aktuálně podporovanou datovou sadu objektu Blob Azure. Jsou dvě dílčí vlastnosti: <ul><li><b>Název_odkazu</b>: odkaz na existující datovou sadu objektu Blob Azure</li><li><b>typ</b>: vzhledem k tomu, že se odkazuje datovou sadu, je typu "DatasetReference"</li></ul> |    <ul><li>Řetězec</li><li>DatasetReference</li></ul> | Ano
+Seznam polí | Seznam typů požadované informace metadat.  | <ul><li>velikost</li><li>Struktura</li><li>lastModified</li></ul> |    Ne<br/>Pokud je prázdný, vrátí aktivita všechny informace o 3 podporované metadat. 
+dataset | Referenční datová sada je jejichž metadat aktivity mají být načteny aktivitou GetMetaData –. <br/><br/>Je typ aktuálně podporovanou datovou sadu objektu Blob Azure. Jsou dvě dílčí vlastnosti: <ul><li><b>Název_odkazu</b>: odkaz na existující datovou sadu objektu Blob Azure</li><li><b>typ</b>: vzhledem k tomu, že se odkazuje datovou sadu, je typu "DatasetReference"</li></ul> |    <ul><li>Řetězec</li><li>DatasetReference</li></ul> | Ano
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Najdete v části Další aktivity toku řízení podporovaných službou Data Factory: 
 
 - [Aktivita spuštění kanálu](control-flow-execute-pipeline-activity.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Akce s Runbook služby automatizace z výsledků na vyhledávacím protokolu analýzy protokolů
 
@@ -30,7 +30,7 @@ Ve výsledku hledání protokolu v Azure Log Analytics můžete nyní vybrat **a
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Inicializace sady runbook z protokolu hledání
 
-Provést akci pro událost a zahájit sady runbook z výsledků hledání protokolu, začněte vytvořením hledání protokolů a z výsledků můžete vyvolat runbook na vyžádání.  Toho lze dosáhnout z protokolu funkce hledání v Azure nebo [portálu OMS](../log-analytics/log-analytics-log-searches.md).  V tomto příkladu jsme vyhledávání protokolu z portálu Azure s základní ukázka této funkce.
+Provést akci pro událost a zahájit sady runbook z výsledků hledání protokolu, začněte vytvořením hledání protokolů a z výsledků můžete vyvolat runbook na vyžádání.  Toho lze dosáhnout z protokolu vyhledávací funkce [portál Azure](../log-analytics/log-analytics-log-search-new.md).  V tomto příkladu jsme vyhledávání protokolu z portálu Azure s základní ukázka této funkce.
 
 1. Portál Azure, v nabídce centra klikněte na možnost **další služby** a vyberte **analýzy protokolů**.  
 2. V okně Log Analytics vyberte pracovní prostor analýzy protokolů a v okně prostoru vyberte **hledání protokolů**.  
@@ -46,7 +46,7 @@ Provést akci pro událost a zahájit sady runbook z výsledků hledání protok
 
 Pokud vyberete runbook, který byl nakonfigurován tak, aby se [volat z upozornění na analýzy protokolů](../automation/automation-invoke-runbook-from-omsla-alert.md), má vstupní parametr s názvem **WebhookData** tedy **objekt** typu.  Pokud vstupní parametr je povinný, potřebujete předat výsledky hledání v sadě runbook, takže ho převést řetězec ve formátu JSON na typ objektu, který umožňuje filtrovat konkrétní položky, které budete odkazovat v aktivity sady runbook.  To uděláte tak, že vyberete **hledání výsledek (objekt)** z rozevíracího seznamu.<br><br> ![Vyberte datový objekt Webhooku pro parametr sady runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Zkontrolujte [analýzy protokolů protokolu vyhledávání odkaz](log-analytics-search-reference.md) zobrazíte všechna pole hledání a omezující vlastnosti, které jsou k dispozici v analýzy protokolů.
-* Informace o tom, které má být vyvolán runbook služby automatizace automaticky, zkontrolujte [volání runbook služby automatizace Azure z výstrahu analýzy protokolů OMS](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Informace o tom, které má být vyvolán runbook služby automatizace automaticky, zkontrolujte [volání runbook služby automatizace Azure Log Analytics výstraze](../automation/automation-invoke-runbook-from-omsla-alert.md).  

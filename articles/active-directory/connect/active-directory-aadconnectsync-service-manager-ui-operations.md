@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91210edc3306b834cbd68f0f028845a7f36dd0b5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 309a4ca2d5ef929bb50ed899f24709c062d7db29
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Pomocí karty operace synchronizace Service Manager
 
@@ -34,7 +34,7 @@ V horní polovině ukazuje všechny běží v chronologickém pořadí. Ve vých
 
 | Status | Poznámka |
 | --- | --- |
-| ukončeno-* |Spuštění se nepodařilo dokončit. Například pokud vzdálený systém je vypnutý a nelze kontaktovat. |
+| ukončeno-\* |Spuštění se nepodařilo dokončit. Například pokud vzdálený systém je vypnutý a nelze kontaktovat. |
 | stopped-error-limit |Existuje více než 5 000 chyby. Spustit automaticky zastavila z důvodu velkého počtu chyb. |
 | dokončené -\*– chyby |Spustit dokončilo, ale nejsou chyby (méně než 5 000), které by se měly prozkoumat. |
 | dokončené -\*– upozornění |Spustit dokončena, ale některá data, není v očekávaném stavu. Pokud máte chyby, pak tato zpráva je obvykle jenom příznakem. Dokud nebude mít řešit chyby, by neměl prozkoumat upozornění. |

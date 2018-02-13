@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Dotazy týkající se služby Azure Backup
 Tento článek obsahuje odpovědi na časté otázky týkající se součástí Azure Backup. Některé odpovědi zahrnují odkazy na články obsahující komplexní informace. Můžete klást otázky týkající se Azure Backup kliknutím na **Komentáře** (napravo). Komentáře se zobrazují v dolní části tohoto článku. Pro komentáře je potřeba účet Livefyre. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ K rychlému procházení částmi tohoto článku použijte odkazy vpravo v čá
 Ano. Od září 2016 můžete vytvořit 25 trezorů služeb zotavení jedno předplatné. Můžete vytvořit až 25 trezorů služby Recovery Services pro každou podporovanou oblast služby Azure Backup na jedno předplatné. Pokud potřebujete další trezory, vytvořte další předplatné.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Je nějak omezený počet serverů nebo počítačů, které lze zaregistrovat k trezoru? <br/>
-Ano, k jednomu trezoru můžete zaregistrovat až 50 počítačů. Pro virtuální počítače Azure IaaS je limit 200 virtuálních počítačů na jeden trezor. Pokud potřebujete zaregistrovat víc počítačů, vytvořte nový trezor.
+Můžete zaregistrovat až 200 Azure virtuálních počítačů na jeden trezor. Pokud používáte MAB agenta můžete zaregistrovat až 50 MAB agentů na jeden trezor. A můžete zaregistrovat servery pro 50 serverů nebo DPM MAB do trezoru.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Pokud má moje organizace jeden trezor, jak mohu během obnovování dat izolovat data jednoho serveru od jiného?<br/>
 Všechny servery zaregistrované ke stejnému trezoru mohou obnovit data zálohovaná ostatními servery, *které používají stejné heslo* Máte-li servery, jejichž zálohovaná data chcete izolovat od ostatních serverů ve vaší organizaci, použijte pro tyto servery vyhrazené heslo. Například servery lidských zdrojů mohou používat jedno šifrovací heslo, účetní servery jiné a servery úložiště ještě jiné.
@@ -132,7 +132,8 @@ Následující tabulka vysvětluje, jak je určená velikost jednotlivých zdroj
 | Microsoft Exchange |Součet všech databází systému Exchange na zálohovaném serveru Exchange. |
 | BMR/Stav systému |Každá jednotlivá kopie BMR nebo stavu systému zálohovaného počítače. |
 
-Pro zálohování virtuálních počítačů Azure může mít každý virtuální počítač až 16 datových disků, každý z nich do velikosti 1 023 GB. 
+Pro zálohování virtuálních počítačů Azure každý virtuální počítač může mít až 16 datových disků s každý datový disk o velikosti 1 024 GB nebo méně. <br>
+Máme [privátní Preview verzi](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) pro podporu disků až 4 TB. 
 
 ## <a name="retention-policy-and-recovery-points"></a>Zásady uchovávání informací a body obnovení
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Je nějaký rozdíl mezi zásadami uchovávání informací pro DPM a Windows Server nebo klienta (tj. pro Windows Server bez DPM)?<br/>
@@ -161,6 +162,9 @@ Počet obnovení z Azure Backup není omezený.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Platí se za výchozí přenos z Azure při obnovování dat? <br/>
 Ne. Vaše obnovení jsou zdarma a výchozí přenos vám není účtován.
+
+### <a name="what-happens-when-i-change-my-backup-policy"></a>Co se stane, když změnit Moje zásady zálohování?
+Při použití nové zásady, plán a uchovávání nové zásady a pod ním. Pokud je rozšířeno uchování, stávajících bodů obnovení jsou označeny k jejich podle nové zásady. Pokud je snížen uchovávání, jsou označeny pro vyřazení v další úlohy čištění a následně odstranit.
 
 ## <a name="azure-backup-encryption"></a>Šifrování ve službě Azure Backup
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Jsou data odesílaná do Azure šifrovaná? <br/>

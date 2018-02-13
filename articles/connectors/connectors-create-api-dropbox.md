@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3fecdc33a08c82d9ad13226e75d0d704a5557f98
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Začínáme s konektorem Dropbox
 Připojení k Dropboxu ke správě souborů. Můžete provádět různé akce, jako je například nahrávání, aktualizovat, získání a odstranit soubory v Dropbox.
 
-Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/logic-apps-create-a-logic-app.md).
+Chcete-li použít [všechny konektory](apis-list.md), musíte nejprve vytvořit aplikaci logiky. Abyste mohli začít podle [vytvoření aplikace logiky teď](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-dropbox"></a>Připojení k Dropboxu
 Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připojení* ke službě. Připojení poskytuje připojení mezi aplikace logiky a jiné služby. Například, aby bylo možné připojit k Dropbox, musíte nejdřív Dropbox *připojení*. Vytvoření připojení, musíte zadat přihlašovací údaje, které standardně používáte k přístupu ke službě, který chcete připojit k. Ano v příkladu Dropbox, potřebovali byste přihlašovací údaje ke svému účtu Dropboxu k vytvoření připojení k Dropboxu. [Další informace o připojení]()
@@ -35,7 +35,7 @@ Než se aplikace logiky k jakékoli služby, musíte nejprve vytvořit *připoje
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Použít aktivační událost Dropbox
-Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Aktivační událost je událost, která můžete použít ke spuštění pracovního postupu definované v aplikaci logiky. [Další informace o aktivační události](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 V tomto příkladu použijeme **vytvoření souboru** aktivační události. Když dojde k této aktivační události, můžeme vám zavoláme **získat obsah souboru pomocí cesty** Dropbox akce. 
 
@@ -45,7 +45,7 @@ V tomto příkladu použijeme **vytvoření souboru** aktivační události. Kdy
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Pomocí akce Dropbox
-Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akce je operace prováděné definované v aplikaci logiky pracovního postupu. [Další informace o akcích](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Teď, když byla přidána aktivační událost, použijte následující postup přidání akce, která bude získat nový soubor obsahu.
 

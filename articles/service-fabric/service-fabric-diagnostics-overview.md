@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorovací a diagnostické pro Azure Service Fabric
 
@@ -136,5 +136,6 @@ Chcete-li přizpůsobit grafy, postupujte podle pokynů v [metriky v Microsoft A
 
 * Další informace o monitorování platformy a události Service Fabric nabízí pro vás na [úrovni událostí a protokolu generování platformy](service-fabric-diagnostics-event-generation-infra.md)
 * Začínáme s instrumentace aplikací, najdete v části [úrovně událostí a protokolu generování aplikace](service-fabric-diagnostics-event-generation-app.md)
-* Absolvovat kurz [monitorování a diagnostikovat aplikaci ASP.NET Core v Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* Projděte postup pro nastavení AI pro vaši aplikaci s [monitorování a diagnostikovat aplikaci ASP.NET Core v Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* Zjistěte, jak nastavit OMS analýzy protokolů pro monitorování kontejnery- [monitorování a Diagnostika pro Windows kontejnerů v Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md)
 

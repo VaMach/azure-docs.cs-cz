@@ -6,13 +6,15 @@
 
 # Začínáme
 ## [Pomocí portálu](data-lake-store-get-started-portal.md)
+## [Použití služby Data Lake Store v průzkumníku služby Storage](data-lake-store-in-storage-explorer.md)
 ## [Pomocí PowerShellu](data-lake-store-get-started-powershell.md)
 ## [Použití Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
 
 # Postup
 ## Načtení a přesun dat
-### [Pomocí služby Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Pomocí služby Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
+### [Použití služby Data Lake Store v průzkumníku služby Storage](data-lake-store-in-storage-explorer.md)
 ### [Pomocí AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Pomocí DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Pomocí Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -66,7 +68,7 @@
 ### [Přístup z virtuálních počítačů ve virtuální síti Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Použití se službou Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Použití s Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Použití se službou Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Použití se službou Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [Použití se službou Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Použití s Power BI](data-lake-store-power-bi.md)
 ### [Použití se službou Data Catalog](data-lake-store-with-data-catalog.md)

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Přesun dat z SAP HANA pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +60,12 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 
 Vlastnost | Popis | Povolené hodnoty | Požaduje se
 -------- | ----------- | -------------- | --------
-server | Název serveru, na kterém se nachází instance SAP HANA. Pokud váš server používá vlastní port, zadejte `server:port`. | Řetězec | Ano
+server | Název serveru, na kterém se nachází instance SAP HANA. Pokud váš server používá vlastní port, zadejte `server:port`. | řetězec | Ano
 authenticationType. | Typ ověřování. | Řetězec. "Základní" nebo "Systém Windows" | Ano 
-uživatelské jméno | Jméno uživatele, který má přístup k serveru SAP | Řetězec | Ano
-heslo | Heslo pro uživatele. | Řetězec | Ano
-gatewayName | Název brány, kterou služba Data Factory měla použít pro připojení k místní instanci SAP HANA. | Řetězec | Ano
-encryptedCredential | Řetězec šifrovaný přihlašovací údaj. | Řetězec | Ne
+uživatelské jméno | Jméno uživatele, který má přístup k serveru SAP | řetězec | Ano
+heslo | Heslo pro uživatele. | řetězec | Ano
+gatewayName | Název brány, kterou služba Data Factory měla použít pro připojení k místní instanci SAP HANA. | řetězec | Ano
+encryptedCredential | Řetězec šifrovaný přihlašovací údaj. | řetězec | Ne
 
 ## <a name="dataset-properties"></a>Vlastnosti datové sady
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování datové sady, najdete v článku [vytváření datových sad](data-factory-create-datasets.md) článku. Oddíly, jako je například struktura, dostupnost a zásad JSON datové sady jsou podobné pro všechny typy datovou sadu (Azure SQL Azure blob, tabulky Azure, atd.).
@@ -73,7 +73,7 @@ encryptedCredential | Řetězec šifrovaný přihlašovací údaj. | Řetězec |
 **Rámci typeProperties** oddílu se liší pro jednotlivé typy datovou sadu a informace o umístění dat v úložišti dat. Nejsou k dispozici žádné vlastnosti specifické pro typ podporované pro datovou sadu SAP HANA typu **RelationalTable**. 
 
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky, jsou zásady jsou dostupné pro všechny typy aktivit.
 
 Vzhledem k tomu, vlastnosti dostupné ve **rámci typeProperties** části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
@@ -288,19 +288,19 @@ TINYINT | Bajtů
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-SKUTEČNÉ | Jeden
-DOUBLE | Jeden
+SKUTEČNÉ | Svobodný/svobodná
+DOUBLE | Svobodný/svobodná
 DECIMAL | Decimal
 LOGICKÁ HODNOTA | Bajtů
 VARCHAR | Řetězec
 NVARCHAR | Řetězec
-DATOVÝ TYP CLOB | Byte]
+DATOVÝ TYP CLOB | Byte[]
 ALPHANUM | Řetězec
-OBJEKT BLOB | Byte]
-DATUM | Data a času
-ČAS | Časový interval
-ČASOVÉ RAZÍTKO | Data a času
-SECONDDATE | Data a času
+OBJEKT BLOB | Byte[]
+DATE (Datum) | Datum a čas
+ČAS | TimeSpan
+ČASOVÉ RAZÍTKO | Datum a čas
+SECONDDATE | Datum a čas
 
 ## <a name="known-limitations"></a>Známá omezení
 Při kopírování dat z SAP HANA existuje několik známá omezení:

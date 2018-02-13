@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d516ef578608a6cead3823585007cbd0636de24a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 04b8d2b8d7d84bd4c6b46507be5d597c03d9dbb0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Nastavit účtu pro dvoustupňové ověření
 Dvoustupňové ověření je na další bezpečnostní krok, který pomáhá chránit váš účet tak, že těžší jiní proniknout. Pokud přečtení tohoto článku pravděpodobně tu e-mailu ze svého pracovního nebo školního správce o službě Multi-Factor Authentication. Nebo možná pokusili přihlásit a zobrazí chybové hlášení výzvou k nastavení dalšího ověření zabezpečení. Pokud je to tento případ **nemůžete se přihlásit před dokončením procesu automatické registrace**.
@@ -43,7 +43,7 @@ První otázku v procesu registrace je, jak chcete, abychom vás kontaktovali. P
 
 | Způsob kontaktu | Popis |
 | --- | --- |
-| [Mobilní aplikace](#use-a-mobile-app-as-the-contact-method) |- **Přijímejte oznámení pro ověření.** Tato možnost odešle oznámení do aplikace Authenticator na tablet nebo smartphone. Zobrazit oznámení a pokud je oprávněné, vyberte **ověřit** v aplikaci. Vaše škola nebo pracoviště může vyžadovat zadání kódu PIN, než ověřování.<br>- **Použijte ověřovací kód.** V tomto režimu ověřovací aplikace generuje ověřovací kód, který aktualizuje každých 30 sekund. Zadejte aktuální ověřovací kód v rozhraní přihlášení.<br>Je k dispozici pro aplikaci Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), a [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Mobilní aplikace](#use-a-mobile-app-as-the-contact-method) |- **Přijímejte oznámení pro ověření.** Tato možnost odešle oznámení do aplikace Authenticator na tablet nebo smartphone. Zobrazit oznámení a pokud je oprávněné, vyberte **ověřit** v aplikaci. Vaše škola nebo pracoviště může vyžadovat zadání kódu PIN, než ověřování.<br>- **Použijte ověřovací kód.** V tomto režimu ověřovací aplikace generuje ověřovací kód, který aktualizuje každých 30 sekund. Zadejte aktuální ověřovací kód v rozhraní přihlášení.<br>Je k dispozici pro aplikaci Microsoft Authenticator [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), a [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Volání na mobilní telefon nebo text.](#use-your-mobile-phone-as-the-contact-method) |- **Telefonní hovor** umístí automatický hlasový hovor na telefonní číslo, které zadáte. Odpovězte volání a stisknutím klávesy # v klávesnici telefonu provede ověření.<br>- **Textová zpráva** ukončí textovou zprávu s ověřovacím kódem. Následující řádku v textu odpovědi na textovou zprávu nebo zadejte ověřovací kód zadat do rozhraní přihlášení. |
 | [Office telefonního hovoru](#use-your-office-phone-as-the-contact-method) |Umístí automatický hlasový hovor na telefonní číslo, které zadáte. Odpovězte hovor a stiskem tlačítka # na klávesnici telefonu provede ověření. |
 
@@ -67,7 +67,7 @@ Pomocí této metody vyžaduje instalaci ověřovací aplikaci na telefonu nebo 
    ![Pole pro zadání kódu PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Po dokončení zadání kódu PIN, vyberte **Zavřít**. Ověření v tomto okamžiku by měla být úspěšné.
-9. Doporučujeme, abyste zadali číslo svého mobilního telefonu v případě, že byste ztratili přístup k mobilní aplikaci. Vaší země z rozevíracího seznamu a zadejte své mobilní telefonní číslo do pole vedle názvu země. Vyberte **Další**.
+9. Doporučujeme, abyste zadali číslo svého mobilního telefonu v případě, že byste ztratili přístup k mobilní aplikaci. Vaší země z rozevíracího seznamu a zadejte své mobilní telefonní číslo do pole vedle názvu země. Vyberte **Next** (Další).
 10. V tomto okamžiku budete vyzváni k nastavení hesla aplikací pro neprohlížečové aplikace, jako je například Outlook 2010 nebo starší nebo nativní e-mailové aplikace na zařízení Apple. Je to proto, že některé aplikace nepodporují dvoustupňové ověřování. Pokud nepoužijete těchto aplikací, klikněte na tlačítko **provádí** a přeskočte zbytek postupu.
 11. Pokud používáte tyto aplikace, kopírování heslo aplikace zadat a vložte jej do vaší aplikace místo regulární heslo. Stejné heslo aplikace můžete použít pro více aplikací. Další informace najdete [pomoci s hesly aplikací].
 12. Klikněte na **Done** (Hotovo).
@@ -102,7 +102,7 @@ Pokud chcete přidat účet do mobilní aplikace ručně, místo použití čte�
 5. Pokud používáte tyto aplikace, kopírování heslo aplikace zadat a vložte jej do vaší aplikace místo regulární heslo. Stejné heslo aplikace můžete použít pro více aplikací. Další informace najdete v tématu [co jsou hesla aplikací](multi-factor-authentication-end-user-app-passwords.md).
 6. Klikněte na **Done** (Hotovo).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Změňte upřednostňované možnosti a [spravovat nastavení pro dvoustupňové ověření](multi-factor-authentication-end-user-manage-settings.md)
 * Nastavit [hesla aplikací](multi-factor-authentication-end-user-app-passwords.md) pro nativní zařízení s aplikací, které nepodporují dvoustupňové ověřování.
 * Podívejte se [aplikaci Microsoft Authenticator](microsoft-authenticator-app-how-to.md) fast, zabezpečení ověřování i v případě, že nemáte buňky služby.

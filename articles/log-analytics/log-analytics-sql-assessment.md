@@ -3,7 +3,7 @@ title: "Optimalizace prostředí systému SQL Server s nástrojem Azure Log Anal
 description: "S Azure Log Analytics můžete řešení kontroly stavu SQL pro vyhodnocení rizik a stavu prostředí v pravidelných intervalech."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.date: 01/19/2018
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalizace prostředí SQL s řešením kontroly stavu serveru SQL v analýzy protokolů
 
@@ -43,7 +43,7 @@ Když jste přidali řešení a posouzení je dokončené, souhrnné informace p
 
 * Kontrola stavu SQL řešení vyžaduje podporovanou verzi rozhraní .NET Framework 4 nainstalován na každý počítač, který má monitorování agenta MMA (Microsoft) nainstalována.  MMA agent používá System Center 2016 - Operations Manager a Operations Manager 2012 R2 a službu analýzy protokolů.  
 * Podporuje řešení systému SQL Server verze 2012, 2014 a 2016.
-* Pracovní prostor analýzy protokolů pro přidání SQL zkontrolujte stav řešení z Azure marketplace na portálu Azure.  Abyste mohli nainstalovat řešení, musíte být správce nebo Přispěvatel v rámci předplatného Azure. 
+* Pracovní prostor analýzy protokolů pro přidání SQL zkontrolujte stav řešení z Azure marketplace na portálu Azure.  Abyste mohli nainstalovat řešení, musíte být správce nebo Přispěvatel v rámci předplatného Azure.
 
   > [!NOTE]
   > Po přidání řešení, soubor AdvisorAssessment.exe je přidán na servery s agenty. Konfigurační data je čtení a pak se odešle službě Analýza protokolů v cloudu pro zpracování. Logika se použije pro přijatá data a cloudové služby zaznamenává data.
@@ -61,12 +61,12 @@ Agent na serveru SQL Server, které sestavy ke skupině pro správu nástroje Op
 Pokud je nástrojem Operations Manager serveru SQL Server, musíte nakonfigurovat Operations Manager účet Spustit jako. V tématu [účty nástroje Operations Manager spustit jako pro analýzy protokolů](#operations-manager-run-as-accounts-for-log-analytics) níže Další informace.
 
 ## <a name="sql-health-check-data-collection-details"></a>Kontrola stavu SQL podrobnosti kolekce dat
-Kontrola stavu SQL shromažďuje data z následujících zdrojů pomocí agenta, který jste povolili: 
+Kontrola stavu SQL shromažďuje data z následujících zdrojů pomocí agenta, který jste povolili:
 
-* Windows Management Instrumentation (WMI) 
-* Registru 
+* Windows Management Instrumentation (WMI)
+* Registr
 * Čítače výkonu
-* Výsledky zobrazení dynamické správy SQL Server 
+* Výsledky zobrazení dynamické správy SQL Server
 
 Data jsou shromažďována na serveru SQL a předávat k analýze protokolů každých sedm dní.
 
@@ -163,18 +163,18 @@ Než v analýzy protokolů můžete použít řešení pro vyhodnocení, musíte
 Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a potom přejít k podrobnostem doporučení.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Proveďte opravné akce a zobrazit doporučení pro oblastí zájmu
-1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
+1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com).
 2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
-3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **portálu OMS** dlaždici.  
-4. Na **přehled** klikněte na tlačítko **SQL stavu zkontrolujte** dlaždici. 
+3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **přehled** dlaždici.  
+4. Na **přehled** klikněte na tlačítko **SQL stavu zkontrolujte** dlaždici.
 5. Na **kontroly stavu** zkontrolujte souhrnné informace v jednom z okna oblasti fokus a pak klikněte na jednu zobrazíte doporučení pro tuto oblast fokus.
 6. Na všech stránkách oblasti fokus můžete zobrazit seřazený podle priority doporučení, která se pro vaše prostředí. Klikněte na tlačítko doporučení v části **vliv na objekty** Chcete-li zobrazit podrobnosti, proč se provádí doporučení.<br><br> ![Obrázek kontroly stavu SQL doporučení](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Můžete provést nápravné akce navržený v **doporučované akce**. Když položka vyřeší, bude záznam novější vyhodnocování které doporučené akce provedené a zvýší se vaše skóre dodržování předpisů. Opravené položky se zobrazí jako **předán objekty**.
 
 ## <a name="ignore-recommendations"></a>Ignorovat doporučení
-Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový soubor, který OMS použije k zabránění doporučení ze storu ve výsledky hodnocení.
+Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový soubor, který analýzy protokolů použije k zabránění doporučení ze storu ve výsledky hodnocení.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>K identifikaci doporučení, které se budou ignorovat.
 1. Na stránce pracovní prostor analýzy protokolů pro vaši vybranou pracovní prostor na portálu Azure, klikněte na tlačítko **hledání protokolů** dlaždici.
@@ -245,7 +245,7 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 
 * Se shromažďují následující typy dat:
   * ROZHRANÍ WMI
-  * Registru
+  * Registr
   * Čítače výkonu
   * Zobrazení dynamické správy SQL (DMV).
 
@@ -265,5 +265,5 @@ Pokud máte doporučení, které chcete ignorovat, můžete vytvořit textový s
 
 * Ano, najdete v části [ignorovat doporučení](#ignore-recommendations) část výše.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [V protokolech Hledat](log-analytics-log-searches.md) se dozvíte, jak analyzovat doporučení a podrobné údaje o kontrolu stavu SQL.

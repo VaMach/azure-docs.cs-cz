@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/05/2017
+ms.date: 2/5/2018
 ms.author: chackdan
-ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 720bb83c9d8540549852ce78ee1709f8c8717348
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric typů uzlů a virtuálního počítače sady škálování
 Sady škálování virtuálního počítače jsou prostředek výpočtů Azure. Můžete nasazovat a spravovat kolekci jako sada virtuálních počítačů sady škálování. Nastavte samostatnou škálování nastavit pro každý typ uzlu, který definujete v clusteru služby Azure Service Fabric. Můžete nezávisle škálovat každý typ uzlu nahoru nebo dolů, mají různé sady porty otevřít a použít jiný kapacity metriky.
@@ -35,7 +35,7 @@ Při změně měřítka si sadu škálování, je vytvořena nová instance. Ná
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Měřítko mapy typy uzlů nastavte nástroje pro vyrovnávání zatížení a škálování sady
 Pokud nasadíte cluster v portálu Azure nebo použít šablony Azure Resource Manageru ukázkový, jsou uvedeny všechny prostředky ve skupině prostředků. Můžete zobrazit nástroje pro vyrovnávání zatížení pro každý typ uzel nebo sada škálování. Název služby Vyrovnávání zatížení používá následující formát: **LB -&lt;název typu uzlu&gt;**. Příkladem je LB-sfcluster4doc-0, jak je znázorněno na následujícím obrázku:
 
-![Zdroje][Resources]
+![Zdroje a prostředky][Resources]
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Vzdálené připojení k instanci sady škálování virtuálního počítače nebo uzlu clusteru
 Nastavte samostatný škálování nastavit pro každý typ uzlu, který jste definovali v clusteru. Typy uzlů můžete nezávisle škálovat nahoru nebo dolů. Také můžete použít různé identifikátory SKU virtuálních počítačů. Na rozdíl od jedné instance virtuálních počítačů instancí sady škálování nemají své vlastní virtuální IP adresy. To může být náročné, když hledáte adresu IP a port, který můžete použít vzdálené připojení ke konkrétní instanci.
 
@@ -137,7 +137,7 @@ Chcete-li změnit heslo pro všechny uzly určitý typ uzlu, proveďte následuj
     Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Najdete v článku [Přehled funkce "Nasazení odkudkoli" a porovnání s Azure spravované clustery](service-fabric-deploy-anywhere.md).
 * Další informace o [clusteru zabezpečení](service-fabric-cluster-security.md).
 * Další informace o [Service Fabric SDK a Začínáme](service-fabric-get-started.md).

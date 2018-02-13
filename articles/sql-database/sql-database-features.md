@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/25/2017
+ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: a15c23683a3334328720e8ae4369b2495f9613de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-features"></a>Funkce služby Azure SQL Database
 
@@ -35,10 +35,10 @@ Pokračujeme v přidávání funkcí do Azure SQL Database. Doporučujeme vám p
 V následující tabulce jsou uvedeny hlavní funkce systému SQL Server a poskytuje informace o tom, zda každý konkrétní funkce je podporovaná a obsahuje odkazy na další informace o funkci. Pokud chcete při migraci z existujícího databázového řešení vzít v úvahu odlišnosti jazyka Transact-SQL, přečtěte si [řešení rozdílů jazyka Transact-SQL během migrace na službu SQL Database](sql-database-transact-sql-information.md).
 
 
-| **Funkce serveru SQL** | **Podporované služby Azure SQL Database** | 
+| **SQL Server Feature** | **Podporované služby Azure SQL Database** | 
 | --- | --- |  
 | [Funkce Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Ano – viz [úložiště certifikátů](sql-database-always-encrypted.md) a [Key vault](sql-database-always-encrypted-azure-key-vault.md)|
-| [Skupiny dostupnosti AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Zajištění vysoké dostupnosti je součástí každé databázi. Zotavení po havárii je popsána v [přehled kontinuity podnikových procesů s Azure SQL Database](sql-database-geo-replication-overview.md) |
+| [Skupiny dostupnosti AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Zajištění vysoké dostupnosti je součástí každé databázi. V tématu [vysokou dostupnost a Azure SQL Database](sql-database-high-availability.md). Zotavení po havárii je popsána v [přehled kontinuity podnikových procesů s Azure SQL Database](sql-database-geo-replication-overview.md) |
 | [Připojit databázi](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Ne |
 | [Aplikační role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Ano |
 |[Auditování](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Ano](sql-database-auditing.md)|
@@ -77,7 +77,7 @@ V následující tabulce jsou uvedeny hlavní funkce systému SQL Server a posky
 | [Rozšířené události](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Některé - najdete v části [rozšířené události v databázi SQL](sql-database-xevent-db-diff-from-svr.md) |
 | [Rozšířené uložené procedury](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Ne |
 | [Soubory a skupiny souborů](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Pouze skupiny primární soubor |
-| [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Ne |
+| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Ne |
 | [Fulltextové vyhledávání](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | Dělení textu třetích stran nejsou podporovány. |
 | [Functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | Většina - jednotlivých funkcí najdete v části |
 | [Zpracování grafu](/sql/relational-databases/graphs/sql-graph-overview) | Ano |
@@ -109,8 +109,8 @@ V následující tabulce jsou uvedeny hlavní funkce systému SQL Server a posky
 | [Agent SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Ne – najdete v části [elastické úlohy](sql-database-elastic-jobs-getting-started.md) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | V tématu [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Auditování SQL serveru](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Ne – najdete v části [auditování databáze SQL](sql-database-auditing.md) |
-| [SQL Server Integration Services (služby SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ano – najdete v části [navýšení a shift SQL Server Integration Services zatížení do cloudu.](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) |
-| [Prostředí PowerShell pro Server SQL](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ano |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ano – najdete v části [navýšení a shift SQL Server Integration Services zatížení do cloudu.](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) |
+| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ano |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Ne – najdete v části [rozšířené události](sql-database-xevent-db-diff-from-svr.md) |
 | [Replikace SQL serveru](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Jenom předplatitelé transakční replikace a replikace snímků](sql-database-cloud-migrate.md) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Ne |
@@ -127,7 +127,7 @@ V následující tabulce jsou uvedeny hlavní funkce systému SQL Server a posky
 | [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Zajištění vysoké dostupnosti je součástí každé databázi. Zotavení po havárii je popsána v [přehled kontinuity podnikových procesů s Azure SQL Database](sql-database-geo-replication-overview.md) |
 | [Indexy XML](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Ano |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Informace o službě Azure SQL Database najdete v tématu [Co je SQL Database?](sql-database-technical-overview.md)
 - Informace o podpoře a odlišnostech jazyka Transact-SQL najdete v tématu [řešícím odlišnosti jazyka Transact-SQL během migrace na službu SQL Database](sql-database-transact-sql-information.md).

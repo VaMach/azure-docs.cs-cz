@@ -38,7 +38,7 @@ Je možné vytvořit opakovaně použitelný obsah, který bude zahrnutý v jedn
 Všechny články v tomto úložišti využívají formát Markdown specifický pro GitHub.  Tady je seznam informačních materiálů.
 
 * [Základy markdownu](https://help.github.com/articles/markdown-basics/)
-* ["Tahák" k markdownu tisknutelná](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+* ["Tahák" k markdownu tisknutelná](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 
 ## <a name="labels"></a>Popisky

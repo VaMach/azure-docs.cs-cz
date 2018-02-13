@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: a27c3555f36560f8c945d997a15e98a42e1e5d4c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Řízení přístupu k IoT Hubu
 
@@ -72,7 +72,7 @@ Další informace o tom, jak vytvořit a používat tokeny zabezpečení najdete
 
 Každý podporovaný protokol, například MQTT AMQP nebo HTTPS, je určena k přenosu tokeny různými způsoby.
 
-Při použití MQTT, připojení paketu má ID zařízení jako ClientId, {iothubhostname} / {deviceId} v poli uživatelské jméno a do pole pro heslo tokenu SAS. {iothubhostname} by měla být úplná CName služby IoT hub (například contoso.azure-devices.net).
+Při použití MQTT, paket CONNECT má deviceId jako ClientId, `{iothubhostname}/{deviceId}` v poli uživatelské jméno a do pole pro heslo tokenu SAS. `{iothubhostname}`by měla být úplná CName služby IoT hub (například contoso.azure-devices.net).
 
 Při použití [AMQP][lnk-amqp], podporuje IoT Hub [SASL prostý] [ lnk-sasl-plain] a [AMQP deklarace identity – zabezpečení na základě-] [ lnk-cbs].
 
@@ -193,7 +193,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 Funkce v jazyce C# pro vygenerování tokenu zabezpečení jsou:
 
-```C#
+```csharp
 using System;
 using System.Globalization;
 using System.Net;

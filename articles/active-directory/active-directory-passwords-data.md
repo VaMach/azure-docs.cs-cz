@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Nasazení bez nutnosti registrace koncového uživatele pro vytvoření nového hesla
 
@@ -31,6 +31,8 @@ K nasazení služby Azure Active Directory (Azure AD) samoobslužné resetován�
 Fungovalo správně, musí být telefonních čísel ve formátu *+ CountryCode PhoneNumber*, například 4255551234 + 1.
 
 > [!NOTE]
+> Je potřeba mezeru mezi kód země a telefonní číslo.
+>
 > Resetování hesla nepodporuje telefonní klapky. I ve formátu 12345 4255551234 + 1 X jsou rozšíření odebrat před uvedením volání.
 
 ## <a name="fields-populated"></a>Pole se vyplní
@@ -42,6 +44,11 @@ Pokud použijete výchozí nastavení v Azure AD Connect, budou vytvořeny násl
 | telephoneNumber | Telefon do kanceláře | Jiný telefon |
 | mobilní | Mobilní telefon | Telefon |
 
+Dokud uživatel potvrdí svá data ověřování se mohou objevit tato pole prázdná.
+
+Globální správce, můžete nastavit ručně kontaktní informace o ověřování pro uživatele, jak je zobrazen na následujícím snímku obrazovky.
+
+![Obraťte se na][Contact]
 
 ## <a name="security-questions-and-answers"></a>Bezpečnostní otázky a odpovědi
 
@@ -152,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
 * [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)
 * [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Globální správci můžete upravit kontaktní informace pro ověřování uživatele"

@@ -3,7 +3,7 @@ title: "Práce s sdílené složce snímků (preview) | Microsoft Docs"
 description: "Sdílené složky snímků je jen pro čtení verze Azure Files sdílené složky, která je provedená v bodě v čase, jako způsob, jak zálohovat sdílenou složku."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Práce s sdílené složce snímků (preview)
 Sdílenou složku snímku (preview) je jen pro čtení verze Azure Files sdílené složky, která je provedená v bodě v čase. Po vytvoření snímku sdílené složky ji můžete číst, kopírovat, nebo odstranit, ale nedojde ke změně. Sdílenou složku snímku poskytuje způsob, jak zálohovat sdílenou složku, jak se objevuje v časovém okamžiku. 
@@ -246,7 +246,46 @@ Ve výstupu uvidíte, že obsah stažený soubor a jeho vlastnosti jsou stejné 
 }
 ```
 
+<<<<<<< HEAD
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Sdílenou složku snímku operací v prostředí Azure PowerShell
+Můžete použít Azure Powershell provádět stejné operace jako je například seznam sdílené složky snímků, procházení obsahu snímku sdílené složky, obnovení nebo stahování souborů ze sdílené složky snímku nebo odstranění sdílené složky snímků.
+
+#### <a name="list-share-snapshots"></a>Snímky sdílené položky seznamu
+
+Lze zadat seznam konkrétní sdílenou složku pomocí snímků sdílené složky`Get-AzureStorageShare`
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>Procházet snímky sdílené složky
+Může také procházet do konkrétní sdílenou složku snímku na serveru obsahu pomocí `Get-AzureStorageFile` s hodnotou `-Share` odkazující na konkrétní snímku
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>Obnovení ze sdílené složky snímků
+
+Soubor můžete obnovit pomocí kopírování nebo stažení souboru ze sdílené složky snímek pomocí `Get-AzureStorageFileContent` příkaz
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+
+## <a name="delete-azure-files-share-snapshot"></a>Odstranit snímek sdílené složky Azure Files
+=======
 ## <a name="delete-a-share-snapshot"></a>Odstranit snímek sdílené složky
+>>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Snímky sdílené složky můžete odstranit pomocí portálu Azure, PowerShell, rozhraní příkazového řádku, REST API nebo všechny sady SDK úložiště. Následující části popisují postup odstranění sdílené složky snímků pomocí portálu Azure, rozhraní příkazového řádku a prostředí PowerShell.
 
@@ -294,6 +333,6 @@ Remove-AzureStorageShare -Share $snapshot
 
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Přehled snímku](storage-snapshots-files.md)
 * [Snímek – nejčastější dotazy](storage-files-faq.md)

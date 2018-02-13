@@ -3,8 +3,8 @@ title: "Spravovat mezipaměť Redis systému Azure pomocí Azure Powershellu | M
 description: "Zjistěte, jak k provádění úloh správy pro Azure Redis Cache pomocí Azure PowerShell."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Spravovat mezipaměť Redis systému Azure pomocí Azure Powershellu
 > [!div class="op_single_selector"]
@@ -81,8 +81,8 @@ nebo
 
 K vytvoření mezipaměti se v cloudu Azure Government, použijte jednu z následujících umístění.
 
-* Vláda USA Virginia
-* Iowa vláda USA
+* USGov (Virginie)
+* USGov (Iowa)
 
 Další informace o Cloud vlády Azure najdete v tématu [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) a [Průvodce pro vývojáře k Microsoft Azure Government](../azure-government-developer-guide.md).
 
@@ -126,7 +126,7 @@ Následující tabulka obsahuje vlastnosti a popisy pro běžně používané pa
 | --- | --- | --- |
 | Název |Název mezipaměti | |
 | Umístění |Umístění mezipaměti | |
-| Název skupiny prostředků |Název skupiny prostředků, ve kterém k vytvoření mezipaměti | |
+| ResourceGroupName |Název skupiny prostředků, ve kterém k vytvoření mezipaměti | |
 | Velikost |Velikost mezipaměti. Platné hodnoty jsou: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1GB |
 | ShardCount |Počet horizontálních oddílů vytvořit při vytváření cache ve verzi premium s povoleným clusteringem. Platné hodnoty jsou: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | Skladová jednotka (SKU) |Určuje skladová položka mezipaměti. Platné hodnoty jsou: Basic, Standard a Premium |Standard |
@@ -136,22 +136,22 @@ Následující tabulka obsahuje vlastnosti a popisy pro běžně používané pa
 | StaticIP |Při hostování vaší mezipaměti ve virtuální síti, určuje jedinečnou IP adresu v mezipaměti v podsíti. Pokud není zadaná, jeden z podsítě vybrali za vás. | |
 | Podsíť |Při hostování vaší mezipaměti ve virtuální síti, určuje název podsítě, ve které chcete nasadit do mezipaměti. | |
 | VirtualNetwork |Při hostování vaší mezipaměti ve virtuální síti, určuje ID prostředku sítě vnet, ve které chcete nasadit do mezipaměti. | |
-| Typ_klíče. |Určuje, které přístupový klíč se znovu vygenerovat při obnovování přístupové klíče. Platné hodnoty jsou: primární, sekundární | |
+| KeyType |Určuje, které přístupový klíč se znovu vygenerovat při obnovování přístupové klíče. Platné hodnoty jsou: primární, sekundární | |
 
 ### <a name="redisconfiguration-properties"></a>Vlastnosti RedisConfiguration
 | Vlastnost | Popis | Cenové úrovně |
 | --- | --- | --- |
-| Povolit zálohování RDB |Jestli [trvalosti dat Redis](cache-how-to-premium-persistence.md) je povoleno |Pouze Premium |
+| rdb-backup-enabled |Jestli [trvalosti dat Redis](cache-how-to-premium-persistence.md) je povoleno |Pouze Premium |
 | RDB úložiště připojovacího řetězce |Připojovací řetězec k účtu úložiště pro [trvalosti dat Redis](cache-how-to-premium-persistence.md) |Pouze Premium |
-| četnost záloh RDB |Četnost záloh pro [trvalosti dat Redis](cache-how-to-premium-persistence.md) |Pouze Premium |
+| rdb-backup-frequency |Četnost záloh pro [trvalosti dat Redis](cache-how-to-premium-persistence.md) |Pouze Premium |
 | vyhrazené maxmemory |Nakonfiguruje [paměti vyhrazené](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) pro procesy bez ukládání do mezipaměti |Standard a Premium |
 | maxmemory zásady |Nakonfiguruje [zásady vyřazení](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) mezipaměti |Všechny cenové úrovně |
 | oznámení události keyspace |Nakonfiguruje [oznámení keyspace](cache-configure.md#keyspace-notifications-advanced-settings) |Standard a Premium |
-| Hodnota hash-max-ziplist – položky |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
-| max-ziplist hodnota hash |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
-| set-max-intset – položky |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
-| zset-max-ziplist – položky |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
-| zset-max-ziplist – hodnota |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
+| hash-max-ziplist-entries |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
+| hash-max-ziplist-value |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
+| set-max-intset-entries |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
+| zset-max-ziplist-entries |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
+| zset-max-ziplist-value |Nakonfiguruje [optimalizace paměti](http://redis.io/topics/memory-optimization) pro malé agregační datové typy |Standard a Premium |
 | databáze |Konfiguruje počet databází. Tuto vlastnost lze nastavit pouze při vytváření mezipaměti. |Standard a Premium |
 
 ## <a name="to-create-a-redis-cache"></a>K vytvoření mezipaměti Redis
@@ -776,7 +776,7 @@ Následující příkaz restartuje oba uzly zadané mezipaměti.
         -Force
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o používání prostředí Windows PowerShell s Azure, najdete v následujících zdrojích informací:
 
 * [Azure Redis Cache rutiny dokumentaci na webu MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)

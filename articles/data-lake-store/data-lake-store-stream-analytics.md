@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Streamování dat z Azure Storage Blob do služby Data Lake Store pomocí Azure Stream Analytics
 V tomto článku se dozvíte, jak používat Azure Data Lake Store jako výstup pro úlohu služby Azure Stream Analytics. Tento článek ukazuje jednoduchého scénáře, který čte data z objektu blob Azure Storage (vstup) a zapisuje data do Data Lake Store (výstup).
@@ -120,5 +120,5 @@ Začněte vytvořením úlohy služby Stream Analytics, který obsahuje vstupní
 
     V podokně Průzkumník dat, Všimněte si, že je výstup zapsán do cesty ke složce uvedeného v Data Lake Store nastavení výstupu (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Vytvoření clusteru HDInsight používat Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

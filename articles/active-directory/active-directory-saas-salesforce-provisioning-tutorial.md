@@ -1,5 +1,5 @@
 ---
-title: 'Kurz: Azure Active Directory integrace s Salesforce | Microsoft Docs'
+title: "Kurz: Konfigurace služby Salesforce pro zřizování automatické uživatelů s Azure Active Directory | Microsoft Docs"
 description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a služby Salesforce."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Kurz: Konfigurace služby Salesforce pro zřizování automatické uživatelů
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Kurz: Konfigurace služby Salesforce pro zřizování automatické uživatelů
 
 Cílem tohoto kurzu je zobrazit kroky potřebné k provedení v Salesforce a Azure AD pro automatické zřizování a deaktivace zřízení uživatelských účtů ze služby Azure AD do služby Salesforce.
 
@@ -105,9 +105,9 @@ Cílem této části se popisují postup povolení zřizování uživatelů slu�
 
 18. Klikněte na tlačítko **uložit.**
 
-Tím se spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené do služby Salesforce v části Uživatelé a skupiny. Všimněte si, že počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci Salesforce.
+Tím se spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené do služby Salesforce v části Uživatelé a skupiny. Všimněte si, že počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 40 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení protokoly aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci Salesforce.
 
-Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet umístění byl synchronizován do služby Salesforce Počkejte až 20 minut.
+Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Další zdroje informací:
 

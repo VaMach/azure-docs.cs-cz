@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/24/2018
 ms.author: billmath
-ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: eaa9995430833c0c087ed0d4044f6c41d254e3ff
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure předávací ověřování služby Active Directory: Technické podrobné informace
 Tento článek je základní informace o službě Azure Active directory (Azure AD) předávací ověřování funguje. Přímý technické a informace o zabezpečení najdete v tématu [deep Dive informace o zabezpečení](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) článku.
@@ -31,7 +31,7 @@ Když se uživatel pokusí přihlásit k aplikaci zabezpečené službou Azure A
 2. Pokud již není přihlášený uživatel, bude uživatel přesměrován do služby Azure AD **přihlášení uživatele** stránky.
 3. Uživatel zadá své uživatelské jméno a heslo na stránku pro přihlášení Azure AD a vybere **přihlášení** tlačítko.
 4. Azure AD, obdrží požadavek na přihlášení, umístí uživatelského jména a hesla (šifrované pomocí veřejného klíče) ve frontě.
-5. Agent ověřování místní načte uživatelské jméno a heslo šifrované z fronty. Všimněte si, že Agent nemá často dotazování na požadavky z fronty, ale načte požadavky přes připojení předem zavedené trvalá.
+5. Agent ověřování místní načte uživatelské jméno a heslo šifrované z fronty. Všimněte si, že Agent nemá často dotazování na požadavky z fronty, ale načte požadavky přes předem zavedené trvalé připojení.
 6. Agent dešifruje heslo pomocí jeho privátní klíč.
 7. Agent ověří uživatelské jméno a heslo pro službu Active Directory pomocí standardních API systému Windows, který je podobný mechanismus pro jaké Active Directory Federation Services (AD FS) používá. Uživatelské jméno může být buď místní výchozí uživatelské jméno, obvykle `userPrincipalName`, nebo jiný atribut, které jsou nakonfigurované v Azure AD Connect (označované jako `Alternate ID`).
 8. Místní řadič domény služby Active Directory (DC) vyhodnotí žádost a vrátí odpovídající odpověď (úspěch, chyba, platnost hesla nebo uzamčení uživatele) k agentovi.

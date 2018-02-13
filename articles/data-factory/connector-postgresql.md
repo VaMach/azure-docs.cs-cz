@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ce2d20a31db1fc5aaa21d9d26e9fb280ef1716f9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Kopírování dat z PostgreSQL pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,9 +58,9 @@ Pro PostgreSQL propojené služby jsou podporovány následující vlastnosti:
 | type | Vlastnost typu musí být nastavena na: **PostgreSql** | Ano |
 | server | Název serveru PostgreSQL. |Ano |
 | databáze | Název databáze PostgreSQL. |Ano |
-| Schéma | Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
+| schema | Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
 | uživatelské jméno | Zadejte uživatelské jméno pro připojení k databázi PostgreSQL. |Ano |
-| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole můžete označte jako SecureString. |Ano |
+| heslo | Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Modul Runtime Self-hosted integrace se vyžaduje, jak je uvedeno v [požadavky](#prerequisites). |Ano |
 
 **Příklad:**
@@ -115,7 +115,7 @@ Ke zkopírování dat z PostgreSQL, nastavte vlastnost typu datové sady, která
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které jsou podporovány zdrojem PostgreSQL.
 
@@ -173,7 +173,7 @@ Při kopírování dat z PostgreSQL, se používají následující mapování P
 | `bigint` | `int8` | `Int64` |
 | `bigserial` | `serial8` | `Int64` |
 | `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | ' varbit |Byte [], řetězec. |
+| `bit varying [ (n) ]` | `varbit |Byte[], String` |
 | `boolean` | `bool` | `Boolean` |
 | `box` | | `Byte[], String` | &nbsp;
 | `bytea` | | `Byte[], String` |&nbsp;
@@ -189,7 +189,7 @@ Při kopírování dat z PostgreSQL, se používají následující mapování P
 | `intarry` | |`String` |&nbsp;
 | `int4range` | |`String` |&nbsp;
 | `int8range` | |`String` |&nbsp;
-| `integer` | ' int, int4 |Int32. |
+| `integer` | ' int, int4 |Int32` |
 | `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
 | `json` | | `String` |&nbsp;
 | `jsonb` | | `Byte[]` |&nbsp;

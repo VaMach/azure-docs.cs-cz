@@ -7,7 +7,7 @@ Následující příklad používá nástroj cURL k odeslání požadavku, kter�
 Nahraďte `<deployment_user>` zástupný symbol uživatelské jméno přihlašovací údaje nasazení. Po zobrazení výzvy cURL, zadejte heslo. Zjistěte, jak nastavit přihlašovací údaje nasazení pro aplikace, najdete v tématu [nastavit a resetovat přihlašovací údaje individuální](../articles/app-service/app-service-deployment-credentials.md#userscope).   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
 Tento požadavek se aktivuje nabízené nasazení z odeslaného souboru ZIP. Aktuální a starší nasazení můžete zkontrolovat pomocí https://<app_name>.scm.azurewebsites.net/api/deployments koncového bodu, jak je znázorněno v následujícím příkladu cURL. Znovu, nahraďte `<app_name>` s názvem vaší aplikace a `<deployment_user>` uživatelským jménem přihlašovací údaje nasazení.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 3652e80c20c425570ba90a1f3ce7a3035762a34d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure metriky předávání v programu Sledování Azure (preview)
 
@@ -84,7 +84,7 @@ Předávání přes Azure podporuje následující dimenze pro metriky v Azure m
 | ------------------- | ----------------- |
 |entityName| Předávání přes Azure podporuje entit pro zasílání zpráv v rámci oboru názvů.|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Najdete v článku [Přehled monitorování Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

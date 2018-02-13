@@ -1,5 +1,5 @@
 ---
-title: "Partnerské vztahy virtuálních sítí v Azure | Microsoft Docs"
+title: "Partnerské vztahy virtuálních sítí v Azure | Dokumentace Microsoftu"
 description: "Seznamte se s partnerskými vztahy virtuálních sítí v Azure."
 services: virtual-network
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="virtual-network-peering"></a>Partnerské vztahy virtuálních sítí
 
@@ -35,7 +35,7 @@ Mezi výhody použití partnerských vztahů virtuálních sítí patří:
 
 ## <a name="requirements-constraints"></a>Požadavky a omezení
 
-* Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Vytváření partnerských vztahů virtuálních sítí v různých oblastech je aktuálně ve verzi Preview v oblastech USA – středozápad, Střední Kanada a USA – západ 2. Před vytvořením partnerského vztahu virtuálních sítí v různých oblastech musíte nejprve [zaregistrovat své předplatné](virtual-network-create-peering.md#register) pro verzi Preview. Pokud nedokončíte registraci verze Preview, nebude pokus o vytvoření partnerského vztahu virtuálních sítí v různých oblastech úspěšný.
+* Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Virtuální sítě partnerských vztahů v různých oblastech je v současné době ve verzi Preview pro oblasti USA – středozápad, Střední Kanada, USA – západ 2, Korea – jih, Velká Británie – jih, Velká Británie – západ, Východní Kanada, Indie – jih, Indie – střed a Indie – západ. Před vytvořením partnerského vztahu virtuálních sítí v různých oblastech musíte nejprve [zaregistrovat své předplatné](virtual-network-create-peering.md#register) pro verzi Preview. Pokud nedokončíte registraci verze Preview, nebude pokus o vytvoření partnerského vztahu virtuálních sítí v různých oblastech úspěšný.
     > [!WARNING]
     > Partnerské vztahy virtuálních sítí vytvořené mezi oblastmi nemusí dosahovat stejné úrovně dostupnosti a spolehlivosti jako partnerské vztahy ve verzi všeobecné dostupnosti. Partnerské vztahy virtuálních sítí můžou mít omezené možnosti a nemusí být dostupné ve všech oblastech Azure. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -94,7 +94,7 @@ Pokud jste například navazovali partnerský vztah mezi virtuálními sítěmi 
 |Virtuální síť|Model nasazení|Role|Oprávnění|
 |---|---|---|---|
 |moje_virtuální_síť_A|Resource Manager|[Přispěvatel sítě](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classic|[Přispěvatel klasických sítí](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Není k dispozici|
+| |Classic|[Přispěvatel klasických sítí](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|neuvedeno|
 |moje_virtuální_síť_B|Resource Manager|[Přispěvatel sítě](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classic|[Přispěvatel klasických sítí](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 

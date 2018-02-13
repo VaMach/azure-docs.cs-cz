@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: d18f5f9e75cd815b7f9622498f16624cf375d6bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7ad53c7cfc49958abbe6200a892ba4e0c24c434c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Používání značek k uspořádání prostředků Azure
 
@@ -26,7 +26,113 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
+V příkladech v tomto článku vyžadují verze 3.0 nebo novější prostředí Azure PowerShell. Pokud nemáte verze 3.0 nebo novější, [aktualizujte verzi](/powershell/azureps-cmdlets-docs/) pomocí Galerie prostředí PowerShell nebo webové platformy.
+
+Pokud chcete zobrazit existující značky pro *skupinu prostředků*, použijte:
+
+```powershell
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```
+
+Výstup tohoto skriptu bude v následujícím formátu:
+
+```powershell
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
+```
+
+Pokud chcete zobrazit existující značky pro *prostředek s konkrétním ID prostředku*, použijte:
+
+```powershell
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
+```
+
+Nebo, pokud chcete zobrazit existující značky pro *prostředek se zadaným názvem a skupinou prostředků*, použijte:
+
+```powershell
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```
+
+Pokud chcete získat *skupiny prostředků s konkrétní značkou*, použijte:
+
+```powershell
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
+```
+
+Pokud chcete získat *prostředky s konkrétní značkou*, použijte:
+
+```powershell
+(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+```
+
+Pokaždé, když použijete značky na prostředek nebo skupinu prostředků, přepíšete pro daný prostředek nebo skupinu prostředků existující značky. Proto je nutné použít jiný přístup na základě toho, jestli prostředek nebo skupina prostředků má existující značky.
+
+Pokud chcete přidat značky ke *skupině prostředků bez existujících značek*, použijte:
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+Pokud chcete přidat značky ke *skupině prostředků s existujícími značkami*, načtěte existující značky, přidejte novou značku a znovu tyto značky použijte:
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+Pokud chcete přidat značky k *prostředku bez existujících značek*, použijte:
+
+```powershell
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
+```
+
+Pokud chcete přidat značky k *prostředku s existujícími značkami*, použijte:
+
+```powershell
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r.tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
+```
+
+Pokud chcete použít všechny značky ze skupiny prostředků na prostředky a *nezachovat existující značky u prostředků*, použijte tento skript:
+
+```powershell
+$groups = Get-AzureRmResourceGroup
+foreach ($g in $groups)
+{
+    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+}
+```
+
+Pokud chcete použít všechny značky ze skupiny prostředků na prostředky a *zachovat existující značky u prostředků, které nejsou duplikáty*, použijte tento skript:
+
+```powershell
+$group = Get-AzureRmResourceGroup "examplegroup"
+if ($group.Tags -ne $null) {
+    $resources = $group | Find-AzureRmResource
+    foreach ($r in $resources)
+    {
+        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        foreach ($key in $group.Tags.Keys)
+        {
+            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+        }
+        $resourcetags += $group.Tags
+        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+    }
+}
+```
+
+Pokud chcete odebrat všechny značky, předejte prázdnou zatřiďovací tabulku:
+
+```powershell
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
+```
+
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -147,9 +253,9 @@ Když si stáhnete použití sdíleného svazku clusteru pro služby, které pod
 
 ![Najdete v části značky k fakturaci](./media/resource-group-using-tags/billing_csv.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-* Pomocí vlastních zásad, můžete použít omezení a pravidla týkající se vašeho předplatného. Zásady, které definujete může vyžadovat, že všechny prostředky obsahovat hodnotu pro konkrétní značku. Další informace najdete v tématu [co je Azure zásad?](../azure-policy/azure-policy-introduction.md).
+* Pomocí vlastních zásad, můžete použít omezení a pravidla týkající se vašeho předplatného. Zásady, které definujete může vyžadovat, že všechny prostředky obsahovat hodnotu pro konkrétní značku. Další informace najdete v tématu [Co je Azure Policy?](../azure-policy/azure-policy-introduction.md).
 * Úvod do pomocí Azure PowerShell, pokud nasazujete prostředky, najdete v části [použití Azure Powershellu s Azure Resource Manager](powershell-azure-resource-manager.md).
 * Úvod do používání rozhraní příkazového řádku Azure, pokud nasazujete prostředky, najdete v části [pomocí rozhraní příkazového řádku Azure CLI pro Mac, Linux a Windows pomocí Azure Resource Manageru](xplat-cli-azure-resource-manager.md).
 * Úvod do portálu, najdete v části [použití portálu Azure ke správě prostředků Azure](resource-group-portal.md).  

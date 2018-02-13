@@ -3,7 +3,7 @@ title: "Řízení přístupu na základě role se zbytkem – Azure AD | Microso
 description: "Správa řízení přístupu na základě rolí pomocí rozhraní REST API"
 services: active-directory
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
-ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: rolyon
+ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Správa řízení přístupu na základě rolí pomocí rozhraní REST API
 > [!div class="op_single_selector"]
@@ -438,9 +438,9 @@ Tělo žádosti zadejte hodnoty v následujícím formátu:
 | --- | --- | --- | --- |
 | jméno |Ano |Řetězec |Identifikátor GUID vlastní role. |
 | properties.roleName |Ano |Řetězec |Zobrazovaný název vlastní role. Maximální velikost 128 znaků. |
-| Properties.Description |Ne |Řetězec |Popis vlastní role. Maximální velikost 1024 znaků. |
-| Properties.Type |Ano |Řetězec |Nastavte na "CustomRole." |
-| Properties.Permissions.Actions |Ano |řetězec] |Pole řetězců akce zadání operace udělit pomocí vlastní role. |
+| properties.description |Ne |Řetězec |Popis vlastní role. Maximální velikost 1024 znaků. |
+| properties.type |Ano |Řetězec |Nastavte na "CustomRole." |
+| properties.permissions.actions |Ano |řetězec] |Pole řetězců akce zadání operace udělit pomocí vlastní role. |
 | properties.permissions.notActions |Ne |řetězec] |Pole řetězců akce zadání operace, které chcete vyloučit z operace udělit pomocí vlastní role. |
 | properties.assignableScopes |Ano |řetězec] |Pole obory, kde můžete použít vlastní role. |
 
@@ -541,9 +541,9 @@ Tělo žádosti zadejte hodnoty v následujícím formátu:
 | --- | --- | --- | --- |
 | jméno |Ano |Řetězec |Identifikátor GUID vlastní role. |
 | properties.roleName |Ano |Řetězec |Zobrazovaný název aktualizované vlastní role. |
-| Properties.Description |Ne |Řetězec |Popis aktualizované vlastní role. |
-| Properties.Type |Ano |Řetězec |Nastavte na "CustomRole." |
-| Properties.Permissions.Actions |Ano |řetězec] |Pole řetězců akce zadání operací, u kterých aktualizované vlastní role uděluje přístup. |
+| properties.description |Ne |Řetězec |Popis aktualizované vlastní role. |
+| properties.type |Ano |Řetězec |Nastavte na "CustomRole." |
+| properties.permissions.actions |Ano |řetězec] |Pole řetězců akce zadání operací, u kterých aktualizované vlastní role uděluje přístup. |
 | properties.permissions.notActions |Ne |řetězec] |Pole určující operace, které chcete vyloučit z operací, které aktualizované vlastní role uděluje řetězce akce. |
 | properties.assignableScopes |Ano |řetězec] |Pole obory, ve kterých lze použít aktualizované vlastní role. |
 
@@ -647,6 +647,6 @@ Stavový kód: 200
 
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Plánování kapacity pro role serveru služby Azure App Service v Azure zásobníku
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
 Pokud chcete zřídit připravené produkční nasazení služby Azure App Service v zásobníku Azure, je nutné naplánovat kapacitu očekáváte, že systému pro podporu.  Zde je návod minimální počet instancí a výpočetní jednotky SKU byste měli použít pro všechna produkční nasazení.
 
@@ -28,8 +29,8 @@ Můžete naplánovat strategie kapacity služby App Service pomocí těchto poky
 
 | Role serveru služby App Service | Minimální doporučená počet instancí | Doporučené výpočetní SKU|
 | --- | --- | --- |
-| Řadiče | 2 | A1 |
-| Front-endu | 2 | A1 |
+| Kontroler | 2 | A1 |
+| Front-end | 2 | A1 |
 | Správa | 2 | A3 |
 | Vydavatel | 2 | A1 |
 | Pracovníci web - sdílené | 2 | A1 |
@@ -97,6 +98,6 @@ V produkčním prostředí role souborového serveru narazí náročné diskové
 - cluster souborových serverů
 - Zařízení NAS (Network Attached Storage) Další informace najdete v tématu [zřídit souborový server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Před zahájením práce s App Service v Azure zásobníku](azure-stack-app-service-before-you-get-started.md)

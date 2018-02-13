@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření řešení správy v OMS | Microsoft Docs"
-description: "Řešení pro správu rozšířit funkce služby Operations Management Suite (OMS) tím, že poskytuje scénářů zabalené správy, které zákazníci mohou přidat do jejich pracovním prostorem OMS.  Tento článek poskytuje podrobné informace o tom, jak můžete vytvořit řešení správy, který se má použít ve svém vlastním prostředí nebo k dispozici pro vaše zákazníky."
+title: "Vytvoření řešení správy v Azure | Microsoft Docs"
+description: "Řešení pro správu zahrnují scénářů zabalené správy v Azure, které zákazníci mohou přidat jejich pracovní prostor analýzy protokolů.  Tento článek poskytuje podrobné informace o tom, jak můžete vytvořit řešení správy, který se má použít ve svém vlastním prostředí nebo k dispozici pro vaše zákazníky."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0f5d42292c8e885491aed55ada129f05cb3bcd35
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Návrh a vytvoření řešení správy v Operations Management Suite (OMS) (Preview)
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Návrh a vytvoření řešení správy v Azure (Preview)
 > [!NOTE]
-> Toto je předběžná dokumentace pro vytváření řešení pro správu v OMS, které jsou aktuálně ve verzi preview. Žádné schéma popsané níže se mohou změnit.
+> Toto je předběžná dokumentace k vytvoření řešení pro správu v Azure, které jsou aktuálně ve verzi preview. Žádné schéma popsané níže se mohou změnit.
 
-[Řešení pro správu](operations-management-suite-solutions.md) rozšířit funkce služby Operations Management Suite (OMS) tím, že poskytuje scénářů zabalené správy, které zákazníci mohou přidat do jejich pracovním prostorem OMS.  Tento článek představuje základní proces návrh a vytvoření řešení správy, který je vhodný pro nejběžnější požadavky.  Pokud začínáte vytváření řešení pro správu můžete tento proces použijte jako výchozí bod a pak využít koncepty pro složitější řešení jako momentální vašim požadavkům.
+[Řešení pro správu](operations-management-suite-solutions.md) zadejte scénářů zabalené správy, které zákazníci mohou přidat do své pracovní prostor analýzy protokolů.  Tento článek představuje základní proces návrh a vytvoření řešení správy, který je vhodný pro nejběžnější požadavky.  Pokud začínáte vytváření řešení pro správu můžete tento proces použijte jako výchozí bod a pak využít koncepty pro složitější řešení jako momentální vašim požadavkům.
 
 ## <a name="what-is-a-management-solution"></a>Co je řešení pro správu?
 
-Řešení pro správu obsahovat OMS a prostředky Azure, které spolupracují v zájmu dosažení určitého scénáře monitorování.  Jsou implementovány jako [Správa prostředků šablony](../azure-resource-manager/resource-manager-template-walkthrough.md) obsahující podrobnosti o tom, jak nainstalovat a nakonfigurovat jejich obsažených prostředků při instalaci řešení.
+Řešení pro správu obsahovat prostředky Azure, které spolupracují v zájmu dosažení scénář konkrétní správy.  Jsou implementovány jako [Správa prostředků šablony](../azure-resource-manager/resource-manager-template-walkthrough.md) obsahující podrobnosti o tom, jak nainstalovat a nakonfigurovat jejich obsažených prostředků při instalaci řešení.
 
 Základní strategie je spustit řešení pro správu podle budovy jednotlivých součástí v prostředí Azure.  Jakmile máte funkce funguje správně, potom můžete spustit do balení [soubor řešení správy](operations-management-suite-solutions-solution-file.md). 
 
@@ -37,7 +37,7 @@ Základní strategie je spustit řešení pro správu podle budovy jednotlivých
 ## <a name="design-your-solution"></a>Navrhněte svoje řešení
 Nejběžnější vzor jako řešení pro správu je znázorněno v následujícím diagramu.  Různé součásti v tomto vzoru se zabývá níže.
 
-![Přehled řešení OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
+![Přehled řešení správy](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Zdroje dat
@@ -80,7 +80,7 @@ Po dokončení a testovat řešení, vám může být k dispozici zákazníkům 
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Zjistěte, jak [vytvořte soubor řešení](operations-management-suite-solutions-solution-file.md) řešení pro správu.
 * Další podrobnosti o [šablon pro tvorbu Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md).
 * Hledání [šablon Azure rychlý Start](https://azure.microsoft.com/documentation/templates) ukázky různých šablonách Resource Manager.

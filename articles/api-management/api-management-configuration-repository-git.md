@@ -6,25 +6,22 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: mattfarm
-ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Uložte a konfiguraci konfigurace služby API Management pomocí Git
-> 
-> 
 
-Každá instance služby API Management udržuje databázi konfigurace, která obsahuje informace o konfiguraci a metadat pro instanci služby. Změna nastavení na portálu vydavatele, pomocí rutiny prostředí PowerShell nebo volání rozhraní REST API, můžete provedeny změny v instanci služby. Kromě těchto metod můžete také spravovat konfigurace instance služby pomocí Git, například povolení scénářů správy služby:
+Každá instance služby API Management udržuje databázi konfigurace, která obsahuje informace o konfiguraci a metadat pro instanci služby. Změna nastavení na portálu Azure, pomocí rutiny prostředí PowerShell nebo volání rozhraní REST API, můžete provedeny změny v instanci služby. Kromě těchto metod můžete také spravovat konfigurace instance služby pomocí Git, například povolení scénářů správy služby:
 
 * Konfigurace správy verzí - stažení a uložení různých verzích konfigurace služby
 * Hromadné změny konfigurace – provádět změny více částí konfigurace služby v místním úložišti a integrovat změny zpět na server s jedinou operací.
@@ -34,7 +31,7 @@ Následující diagram ukazuje přehled různé způsoby, jak nakonfigurovat ins
 
 ![Konfigurace Git][api-management-git-configure]
 
-Když provedete změny služby pomocí portálu vydavatele, rutiny prostředí PowerShell nebo rozhraní REST API, kterou spravujete vaší služby konfigurace databáze pomocí `https://{name}.management.azure-api.net` koncový bod, jak je znázorněno na pravé straně diagramu. Levé straně diagram znázorňuje, jak můžete spravovat konfiguraci služby pomocí Git a úložiště Git pro vaši službu na `https://{name}.scm.azure-api.net`.
+Když provedete změny služby pomocí portálu Azure, rutiny prostředí PowerShell nebo rozhraní REST API, kterou spravujete vaší služby konfigurace databáze pomocí `https://{name}.management.azure-api.net` koncový bod, jak je znázorněno na pravé straně diagramu. Levé straně diagram znázorňuje, jak můžete spravovat konfiguraci služby pomocí Git a úložiště Git pro vaši službu na `https://{name}.scm.azure-api.net`.
 
 Následující kroky poskytují přehled správy pomocí Git instanci služby API Management.
 
@@ -47,11 +44,8 @@ Následující kroky poskytují přehled správy pomocí Git instanci služby AP
 Tento článek popisuje, jak povolit a používat Git ke správě konfigurace služby a poskytuje odkaz pro soubory a složky do úložiště Git.
 
 ## <a name="access-git-configuration-in-your-service"></a>Konfigurace přístupu Git ve službě
-Můžete rychle zobrazit stav konfigurace Git zobrazením ikonu Git v pravém horním rohu na portálu vydavatele. V tomto příkladu označuje stavovou zprávu, která jsou neuložené změny do úložiště. Je to proto, že konfigurační databázi služby API Management ještě nebyl uložen do úložiště.
 
-![Stav Git][api-management-git-icon-enable]
-
-Zobrazit a konfigurovat nastavení konfigurace Git, můžete buď klikněte na ikonu Git, nebo klikněte na tlačítko **zabezpečení** nabídky a přejděte do **konfigurace úložiště** kartě.
+Pokud chcete zobrazit a konfigurovat nastavení konfigurace Git, můžete kliknout na **zabezpečení** nabídky a přejděte do **konfigurace úložiště** kartě.
 
 ![Povolit GIT][api-management-enable-git]
 
@@ -63,43 +57,30 @@ Zobrazit a konfigurovat nastavení konfigurace Git, můžete buď klikněte na i
 Informace o povolení nebo zakázání Git přístup pomocí rozhraní REST API najdete v tématu [povolit nebo zakázat Git přístup pomocí rozhraní REST API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Chcete-li uložit konfiguraci služby do úložiště Git
-Prvním krokem před klonováním úložiště je uložit aktuální stav konfigurace služby do úložiště. Klikněte na tlačítko **uložit konfiguraci úložiště**.
 
-![Uložte konfiguraci][api-management-save-configuration]
+Prvním krokem před klonováním úložiště je uložit aktuální stav konfigurace služby do úložiště. Klikněte na tlačítko **uložit do úložiště**.
 
 Všechny požadované změny provádějte na potvrzovací obrazovce a klepněte na tlačítko **Ok** uložit.
 
-![Uložte konfiguraci][api-management-save-configuration-confirm]
-
 Po chvíli konfiguraci uložit, a stav konfigurace úložiště, ve kterém se zobrazí, včetně datum a čas poslední změny konfigurace a poslední synchronizace mezi konfiguraci služby a úložiště.
-
-![Stav konfigurace][api-management-configuration-status]
 
 Po konfiguraci je uložen do úložiště, můžete klonovat.
 
 Informace o provedení této operace pomocí rozhraní REST API najdete v tématu [potvrzení konfigurace snímek pomocí rozhraní REST API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Klonování úložiště do místního počítače
-Klonovat úložiště, musíte adresu URL úložiště, uživatelské jméno a heslo. Uživatelské jméno a adresa URL se zobrazí v horní části **konfigurace úložiště** kartě.
 
-![Klonu Git][api-management-configuration-git-clone]
-
-Heslo je vygenerován v dolní části **konfigurace úložiště** kartě.
-
-![Generovat heslo][api-management-generate-password]
-
-Vygenerovat heslo, nejdřív ověřte, že **vypršení platnosti** je nastavená na požadované vypršení platnosti datum a čas a potom klikněte na **vygenerovat Token**.
-
-![Heslo][api-management-password]
+Klonovat úložiště, musíte adresu URL úložiště, uživatelské jméno a heslo. Chcete-li získat uživatelské jméno a další přihlašovací údaje, klikněte na **přístupu k pověřením** v horní části stránky.  
+ 
+Vygenerovat heslo, nejdřív ověřte, že **vypršení platnosti** je nastavená na požadované vypršení platnosti datum a čas a potom klikněte na **generování**.
 
 > [!IMPORTANT]
 > Toto heslo si poznamenejte. Jakmile tuto stránku opustíte heslo se znovu nezobrazí.
 > 
-> 
 
 Následující příklady použít nástroj Git Bash z [Git pro Windows](http://www.git-scm.com/downloads) ale můžete použít jakýkoli Git nástroj, který jste se seznámili s.
 
-Otevřete svůj nástroj Git do požadované složky a spusťte následující příkaz klonovat úložiště git do místního počítače, pomocí příkazu poskytované portálu vydavatele.
+Otevřete svůj nástroj Git do požadované složky a spusťte následující příkaz klonovat úložiště git do místního počítače, pomocí příkazu poskytované portálu Azure.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
@@ -116,7 +97,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 Pokud to poskytuje k chybě, zkuste URL kódování heslo část příkazu. Jeden rychlý způsob, jak to udělat je otevřete Visual Studio a vydejte následující příkaz v **hodnot proměnných**. Chcete-li otevřít **hodnot proměnných**, otevřete jakékoli řešení nebo produktu project v sadě Visual Studio (nebo vytvořte novou prázdnou konzolovou aplikaci) a zvolte **Windows**, **Immediate** z **ladění** nabídky.
 
 ```
-?System.NetWebUtility.UrlEncode("password from publisher portal")
+?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Použijte zakódované heslo společně s vaše uživatelské jméno a úložiště umístění k vytvoření příkazu git.
@@ -128,7 +109,8 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 Jakmile je klonovat úložiště můžete zobrazit a pracovat v místním systému souborů. Další informace najdete v tématu [souborů a složek struktury odkaz místní úložiště Git](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Chcete-li aktualizovat místní úložiště s nejnovější konfigurací instance služby
-Pokud provedete změny instanci služby API Management na portálu vydavatele nebo pomocí rozhraní REST API, musíte uložit tyto změny do úložiště než budete moct aktualizovat místní úložiště s nejnovější změny. Chcete-li to provést, klikněte na tlačítko **uložit konfiguraci úložiště** na **konfigurace úložiště** v portálu vydavatele a potom vydat příkaz v místním úložišti.
+
+Pokud provedete změny instanci služby API Management v portálu Azure nebo pomocí rozhraní REST API, musíte uložit tyto změny do úložiště než budete moct aktualizovat místní úložiště s nejnovější změny. Chcete-li to provést, klikněte na tlačítko **uložit konfiguraci úložiště** na **konfigurace úložiště** v portálu Azure a potom vydat příkaz v místním úložišti.
 
 ```
 git pull
@@ -155,13 +137,13 @@ git push
 ```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>K nasazení změny konfigurace služby v instanci služby API Management
-Jakmile jsou místní změny potvrzeny a instaluje do úložiště serveru, můžete nasadit instanci služby API Management.
 
-![Nasazení][api-management-configuration-deploy]
+Jakmile jsou místní změny potvrzeny a instaluje do úložiště serveru, můžete nasadit instanci služby API Management.
 
 Informace o provedení této operace pomocí rozhraní REST API najdete v tématu [nasazení Git změny konfigurační databáze pomocí rozhraní REST API](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Odkaz struktury souborů a složek místní úložiště Git
+
 Soubory a složky v úložišti místní git obsahovat informace o konfiguraci o instanci služby.
 
 | Položka | Popis |
@@ -179,9 +161,9 @@ Každé složky může obsahovat jeden nebo více souborů a v některých pří
 | Typ souboru | Účel |
 | --- | --- |
 | JSON |Informace o konfiguraci o odpovídající entity |
-| HTML |Popisy o entitě, často zobrazeny v portálu pro vývojáře |
+| html |Popisy o entitě, často zobrazeny v portálu pro vývojáře |
 | xml |Příkazy zásad |
-| šablon stylů CSS |Šablony stylů pro přizpůsobení portálu pro vývojáře |
+| css |Šablony stylů pro přizpůsobení portálu pro vývojáře |
 
 Tyto soubory lze vytvořit, odstranit, upravit a spravovat v místním systému souborů a nasazení změn zpět do instanci služby API Management.
 
@@ -192,7 +174,6 @@ Tyto soubory lze vytvořit, odstranit, upravit a spravovat v místním systému 
 > * Předplatná
 > * Vlastnosti
 > * Vývojáře portálu entity než styly
-> 
 > 
 
 ### <a name="root-api-management-folder"></a>Kořenová složka api management
@@ -223,8 +204,6 @@ První čtyři nastavení (`RegistrationEnabled`, `UserRegistrationTerms`, `User
 | UserRegistrationTermsEnabled |**Zobrazit podmínky použití na přihlašovací stránce** zaškrtávací políčko |
 | UserRegistrationTermsConsentRequired |**Vyžadovat souhlas** zaškrtávací políčko |
 
-![Nastavení identity][api-management-identity-settings]
-
 Nastavení další čtyři (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, a `DelegationValidationKey`) mapování na následující nastavení na **delegování** ve **zabezpečení** části.
 
 | Nastavení delegování | Se mapuje na |
@@ -233,8 +212,6 @@ Nastavení další čtyři (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubs
 | DelegationUrl |**Adresa URL koncového bodu delegování** textbox |
 | DelegatedSubscriptionEnabled |**Delegovat odběru produktů** zaškrtávací políčko |
 | DelegationValidationKey |**Delegovat ověřovací klíč** textbox |
-
-![Nastavení delegování][api-management-delegation-settings]
 
 Nastavení konečného `$ref-policy`, se mapuje na soubor globální zásady příkazy pro instanci služby.
 
@@ -277,21 +254,15 @@ Nastavení konečného `$ref-policy`, se mapuje na soubor globální zásady př
 * `<template name>\configuration.json`-Toto je konfigurace pro e-mailové šablony.
 * `<template name>\body.html`-Toto je text šablony e-mailu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Informace o jiných způsobech spravovat instanci služby najdete v tématu:
 
 * Spravovat instanci služby pomocí následující rutiny prostředí PowerShell
   * [Referenční informace k rutinám PowerShellu pro nasazení služeb](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Správa služeb referenční informace o rutinách prostředí PowerShell](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* Spravovat instanci služby na portálu vydavatele
-  * [Správa vašeho prvního rozhraní API](import-and-publish.md)
 * Spravovat instanci služby pomocí rozhraní REST API
   * [Referenční dokumentace rozhraní API REST API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## <a name="watch-a-video-overview"></a>Podívejte se na video s přehledem
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]
-> 
-> 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png

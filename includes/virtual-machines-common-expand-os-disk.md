@@ -8,6 +8,9 @@ Při vytváření nového virtuálního počítače (VM) ve skupině prostředk�
 > Azure má dva různé modely nasazení pro vytváření prostředků a práci s nimi: Resource Manager a Classic. Tento článek se týká použití modelu Resource Manager. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager.
 > 
 > 
+> [!WARNING]
+> Změna velikosti disku operačního systému virtuálním počítači Azure způsobí, že k restartování.
+>
 
 ## <a name="resize-the-os-drive"></a>Změna velikosti jednotky operačního systému
 V tomto článku provedeme změnu velikosti jednotky operačního systému pomocí modulů Resource Manageru v [Azure PowerShellu](/powershell/azureps-cmdlets-docs). Ukážeme Změna velikosti disku operačního systému pro Unamanged a spravované disky vzhledem k tomu, že přístup ke změně velikosti disků, na které se liší oba typy disku.

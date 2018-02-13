@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1afb1980f5056482d94aef80d076c8b31d29e7a6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopírování dat do indexu Azure Search pomocí Azure Data Factory
 
@@ -36,7 +36,7 @@ Jakékoli úložiště podporované zdroje dat může kopírovat data do indexu 
 
 ## <a name="getting-started"></a>Začínáme
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Následující části obsahují podrobnosti o vlastnosti, které se používají k definování entit služby Data Factory, které jsou specifické pro konektor Azure Search.
 
@@ -48,7 +48,7 @@ Pro službu Azure Search propojené jsou podporovány následující vlastnosti:
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **AzureSearch** | Ano |
 | Adresa URL | Adresa URL pro službu Azure Search. | Ano |
-| key | Klíč správce pro službu Azure Search. Toto pole můžete označte jako SecureString. | Ano |
+| key | Klíč správce pro službu Azure Search. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 > [!IMPORTANT]
@@ -105,7 +105,7 @@ Chcete-li kopírovat data do Azure Search, nastavte vlastnost type datové sady,
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností, které podporuje Azure Search zdroje.
 
@@ -175,7 +175,7 @@ Následující tabulka určuje, zda datového typu Azure Search je podporováno,
 | Řetězec | Ano |
 | Int32 | Ano |
 | Int64 | Ano |
-| Double | Ano |
+| Dvojitý | Ano |
 | Logická hodnota | Ano |
 | DataTimeOffset | Ano |
 | Pole řetězců | N |

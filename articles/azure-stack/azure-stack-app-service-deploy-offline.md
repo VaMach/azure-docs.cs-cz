@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Přidání poskytovatele prostředků služby App Service pro odpojené prostředí Azure zásobníku zabezpečeným službou AD FS
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
 Podle pokynů v tomto článku, můžete nainstalovat [zprostředkovatele prostředků služby App Service](azure-stack-app-service-overview.md) do prostředí Azure zásobníku, které je:
 - není připojen k Internetu
@@ -98,7 +99,7 @@ Abyste mohli nasadit služby App Service v odpojeném prostředí, musíte nejd�
 
     | Box | Příklad názvu souboru certifikátu |
     | --- | --- |
-    | **Soubor certifikátu protokolu SSL výchozí služby App Service** | \_. appservice.local.AzureStack.external.pfx |
+    | **Soubor certifikátu protokolu SSL výchozí služby App Service** | \_.appservice.local.AzureStack.external.pfx |
     | **Soubor certifikátu SSL služby App Service API** | api.appservice.local.AzureStack.external.pfx |
     | **Soubor certifikátu SSL služby vydavatele aplikace** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -114,12 +115,12 @@ Abyste mohli nasadit služby App Service v odpojeném prostředí, musíte nejd�
 
      > [!NOTE]
      > Pro nasazení v produkčním prostředí, následující pokyny v [kapacitní plánování rolí serveru služby Azure App Service v Azure zásobníku](azure-stack-app-service-capacity-planning.md).
-     > 
+     >
      >
 
     | Role | Minimální instancí | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
-    | Řadiče | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Spravuje a udržuje stav cloudové služby App Service. |
+    | Kontroler | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Spravuje a udržuje stav cloudové služby App Service. |
     | Správa | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Spravuje koncových bodů aplikace služby Azure Resource Manageru a rozhraní API, portálu rozšíření (správce, klienta funkce portálu.) a službu data. Pro podporu převzetí služeb při selhání, vyšší doporučenou instancí 2. |
     | Vydavatel | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Publikuje obsahu prostřednictvím FTP a webové nasazení. |
     | FrontEnd | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Směruje požadavky na aplikace služby App Service. |
@@ -197,7 +198,7 @@ Od verze třetí technical preview k vytvoření webové rozhraní API a Azure f
 
 3. Pokud jste nasadili také poskytovatele prostředků systému SQL Server, můžete nasadit na web DNN z Marketplace. Když se zobrazí výzva k parametry databáze, zvolte databázi v počítači se systémem SQL Server, který je připojený ke zprostředkovateli prostředků.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Můžete také zkusit dalších [platforma jako služba (PaaS) služby](azure-stack-tools-paas-services.md).
 

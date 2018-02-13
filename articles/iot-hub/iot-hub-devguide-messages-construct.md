@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Vytvoření a čtení zpráv služby IoT Hub
 
@@ -28,7 +28,7 @@ Pro podporu bezproblémové vzájemná funkční spolupráce mezi protokoly, def
 * Sadu *vlastnosti aplikace*. Slovník vlastnosti řetězce, které aplikace můžete definovat a přístup, aniž by museli deserializaci textu zprávy. IoT Hub nikdy upravuje tyto vlastnosti.
 * Neprůhledné binární text.
 
-Názvy a hodnoty vlastností mohou obsahovat pouze alfanumerické znaky ASCII, plus ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` při můžete:  
+Názvy a hodnoty vlastností mohou obsahovat pouze alfanumerické znaky ASCII, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` při můžete:  
 
 * Odesílání zpráv typu zařízení cloud pomocí protokolu HTTPS.
 * Odesílání zpráv typu cloud zařízení.
@@ -61,7 +61,7 @@ IoT Hub měří velikost zprávy způsobem, bez ohledu na protokol, vzhledem k t
 
 Názvy a hodnoty vlastností jsou omezeny na znaky ASCII, takže délka řetězce rovná velikost v bajtech.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Informace o omezení velikosti zpráv v centru IoT najdete v tématu [IoT Hub kvót a omezování][lnk-quotas].
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorování a Správa kanálů služby Azure Data Factory pomocí portálu Azure a prostředí PowerShell
 > [!div class="op_single_selector"]
@@ -114,7 +114,7 @@ Dvojitým kliknutím **OutputBlobTable** v **Diagram**, zobrazí se všechny dat
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Ověřování platnosti</td><td>Probíhá ověřování.</td>
+<td rowspan="2">Probíhá zpracování.</td><td>Ověřování platnosti</td><td>Probíhá ověřování.</td>
 </tr>
 <td>-</td>
 <td>Řez se zpracovává.</td>
@@ -369,7 +369,7 @@ Následující tabulka obsahuje seznam dostupné operace a stavy (a dílčí sta
 | Název operace | Status | Podřízený stav |
 | --- | --- | --- |
 | RunStarted |Spuštěno |Spouštění |
-| RunFinished |Nemohl / bylo úspěšné |FailedResourceAllocation<br/><br/>Úspěch<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/>< zrušena<br/><br/>FailedValidation<br/><br/>opuštění |
+| RunFinished |Nemohl / bylo úspěšné |FailedResourceAllocation<br/><br/>Úspěch<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/>< zrušena<br/><br/>FailedValidation<br/><br/>Abandoned |
 | OnDemandClusterCreateStarted |Spuštěno | |
 | OnDemandClusterCreateSuccessful |Úspěch | |
 | OnDemandClusterDeleted |Úspěch | |

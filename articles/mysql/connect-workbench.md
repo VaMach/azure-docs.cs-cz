@@ -6,15 +6,15 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 4214b80dc4c5db644d5a05f942907c86f292fe18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 01/24/2018
+ms.openlocfilehash: 89ccd30abfb6f25563ceb4493514c3d102ea37fe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: Připojení a dotazování dat pomocí aplikace MySQL Workbench
 Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for MySQL pomocí aplikace MySQL Workbench. 
@@ -69,7 +69,8 @@ Připojení k serveru Azure MySQL pomocí nástroje s grafickým uživatelským 
         Otevře se nová karta SQL s prázdným editorem, do kterého můžete zadávat dotazy.
     
         > [!NOTE]
-        > Ve výchozím nastavení se na serveru Azure Database for MySQL vyžaduje a vynucuje zabezpečení připojení protokolem SSL. Přestože aplikace MySQL Workbench obvykle pro připojení k serveru nevyžaduje žádnou další konfiguraci s certifikáty SSL, doporučujeme vytvořit vazbu certifikace SSL CA s aplikací MySQL Workbench. Další informace o stažení certifikace a vytvoření její vazby najdete v tématu [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](./howto-configure-ssl.md).  Pokud potřebujete SSL zakázat, přejděte na web Azure Portal, klikněte na stránku Zabezpečení připojení a deaktivujte přepínací tlačítko Vynutit připojení SSL.
+        > Ve výchozím nastavení se na serveru Azure Database for MySQL vyžaduje a vynucuje zabezpečení připojení protokolem SSL. Přestože aplikace MySQL Workbench obvykle pro připojení k serveru nevyžaduje žádnou další konfiguraci s certifikáty SSL, doporučujeme vytvořit vazbu certifikace SSL CA s aplikací MySQL Workbench. Další informace o stažení certifikace a vytvoření její vazby najdete v tématu [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](./howto-configure-ssl.md).  
+        > Pokud potřebujete SSL zakázat, přejděte na web Azure Portal, klikněte na stránku Zabezpečení připojení a deaktivujte přepínací tlačítko Vynutit připojení SSL. Pokud chcete v MySQL Workbench zakázat možnost SSL, na domovské stránce řídicího panelu upravte připojení (ikona montážního klíče) a na kartě SSL připojení nastavte **Použít SSL** na hodnotu **Ne**. Pokud je nastavení SSL špatně nakonfigurováno, můžete obdržet chybovou zprávu „Lost connection to MySQL server at 'reading final connect information', system error: 0“ (Došlo ke ztrátě spojení se serverem MySQL při akci čtení finálních informací o připojení, systémová chyba: 0).
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Vytvoření tabulky, vložení dat, načtení dat, aktualizace dat a odstranění dat
 1. Pro ilustraci nějakých ukázkových dat zkopírujte vzorový kód SQL a vložte ho do prázdné karty SQL.

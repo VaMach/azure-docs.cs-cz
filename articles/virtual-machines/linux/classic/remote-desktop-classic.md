@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 65098dbad2cfb2de1f2e5156fbcc3d6477311867
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72c814aece7626b19cefccb18e1b90f8c44d7f57
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Použití Vzdálené plochy pro připojení k virtuálnímu počítači Microsoft Azure s Linuxem
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Tyto pokyny vám poskytne odpověď! Pomůže k instalaci a konfiguraci xrdp na 
 Nástroj xrdp je serveru RDP s otevřeným zdrojem, která umožňuje připojit Linux server pomocí vzdálené plochy z počítače s Windows. RDP má lepší výkon než VNC (Computing virtuální sítě). VNC vykreslí pomocí grafiky JPEG kvality a může být pomalé, zatímco RDP je rychlý a jasný.
 
 > [!NOTE]
-> Již musí mít virtuální počítač Microsoft Azure s Linuxem. Vytvoření a nastavení virtuálního počítače s Linuxem najdete v tématu [kurzu virtuální počítač Azure s Linuxem](createportal.md).
+> Již musí mít virtuální počítač Microsoft Azure s Linuxem. Vytvoření a nastavení virtuálního počítače s Linuxem najdete v tématu [kurzu virtuální počítač Azure s Linuxem](createportal-classic.md).
 > 
 > 
 

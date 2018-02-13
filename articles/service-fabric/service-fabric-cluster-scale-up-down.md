@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Škálování clusteru Service Fabric v nebo pomocí pravidel automatického škálování
 Sady škálování virtuálního počítače se Azure výpočtový prostředek, který můžete použít k nasazení a správě kolekci jako sada virtuálních počítačů. Každý typ uzlu, který je definován v clusteru Service Fabric je nastavený jako samostatnou sadu škálování virtuálního počítače. Každý typ uzlu můžete škálovat v nebo na nezávisle, mají různé sady otevřené porty a může mít různé kapacity metriky. Další informace o jeho [nodetypes Service Fabric](service-fabric-cluster-nodetypes.md) dokumentu. Vzhledem k tomu, že Service Fabric typy uzlů v clusteru jsou tvořeny sady škálování virtuálního počítače v back-end, budete muset nastavit pravidla pro automatické škálování pro každý uzel typu nebo virtuální počítač škálovací sadu.
@@ -91,7 +91,7 @@ Musíte provést následující kroky jeden virtuální počítač instance sou�
 4. Opakujte kroky 1 až 3 podle potřeby, ale nikdy snižovat počet instancí v primárním uzlu typy menší než co zaručuje úroveň spolehlivosti. Odkazovat na [informace o spolehlivosti vrstev zde](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Chování můžete pozorovat v Service Fabric Exploreru
-Při škálování cluster Service Fabric Explorer se projeví počet uzlů (instancí sady škálování virtuálního počítače), které jsou součástí clusteru.  Při změně měřítka však se cluster dolů můžete zobrazí instance odebrané uzlu nebo virtuální počítač zobrazí stav v pořádku, pokud zavoláte [odebrat ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) s názvem příslušné uzlu.   
+Při škálování cluster Service Fabric Explorer se projeví počet uzlů (instancí sady škálování virtuálního počítače), které jsou součástí clusteru.  Při změně měřítka však se cluster dolů můžete zobrazí instance odebrané uzlu nebo virtuální počítač zobrazí stav v pořádku, pokud zavoláte [odebrat ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) s názvem příslušné uzlu.   
 
 Následuje vysvětlení tohoto chování.
 
@@ -109,7 +109,7 @@ Odkazovat na [podrobnosti o sem úrovně odolnosti](service-fabric-cluster-capac
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si následující také další informace o plánování kapacity clusteru, upgradu clusteru a rozdělení do oddílů služby:
 
 * [Plánování kapacity vašeho clusteru](service-fabric-cluster-capacity.md)

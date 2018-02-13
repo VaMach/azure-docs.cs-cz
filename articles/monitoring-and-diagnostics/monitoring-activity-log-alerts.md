@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Vytvořit aktivitu protokolu výstrahy
 
 ## <a name="overview"></a>Přehled
 Výstrahy protokolu aktivit jsou výstrahy, které aktivovat při výskytu nové aktivity protokolu události, která odpovídá podmínkám uvedeném ve výstraze. Jsou prostředky Azure, takže je lze vytvořit pomocí šablony Azure Resource Manager. Také mohou být vytvořeny, aktualizovat nebo odstranit na portálu Azure. Tento článek představuje koncepty za aktivitu protokolu výstrahy. Ji pak ukazuje, jak nastavit výstrahy na aktivity protokolu události pomocí portálu Azure.
+
+> [!NOTE]
+
+>  [Výstrahy (Preview)](monitoring-overview-unified-alerts.md) aktuálně nabízí vylepšené prostředí při vytváření a správě protokoly aktivity.  [Další informace](monitoring-activity-log-alerts-new-experience.md).
 
 Obvykle můžete vytvořit aktivitu protokolu výstrahy pro příjem oznámení při:
 
@@ -43,15 +47,13 @@ Můžete nakonfigurovat výstrahu protokolu aktivity podle libovolné vlastnosti
 - **Stav**: stav události, obvykle spuštění, se nezdařilo nebo bylo úspěšné.
 - **Událost iniciovaná**: také známé jako "volající." E-mailovou adresu nebo identifikátor Azure Active Directory uživatele, který provádí operaci.
 
->[!NOTE]
->Zadejte alespoň dvě z předchozí kritéria v výstrahy, s jedním probíhá kategorii. Nelze vytvořit výstrahu, která aktivuje pokaždé, když dojde k vytvoření události v protokolech aktivity.
->
->
+> [!NOTE]
+> Pokud kategorie "správce", zadejte alespoň jeden z předchozí kritéria v upozornění. Nelze vytvořit výstrahu, která aktivuje pokaždé, když dojde k vytvoření události v protokolech aktivity.
 
 Když se aktivuje výstrahu protokolu aktivit, používá skupinu akcí ke generování akcí nebo oznámení. Skupinu akcí je opakovaně použitelné sadu příjemců oznámení, jako je například e-mailové adresy, adresy URL webhooku nebo SMS telefonních čísel. Příjemci lze odkazovat z více výstrah a centralizovat skupiny vaší kanály oznámení. Když definujete výstrahu protokolu aktivit, máte dvě možnosti. Můžete:
 
-* Použijte existující skupinu akce v protokolu upozornění aktivity. 
-* Vytvořte novou skupinu akce. 
+* Použijte existující skupinu akce v protokolu upozornění aktivity.
+* Vytvořte novou skupinu akce.
 
 Další informace o skupinách akce najdete v tématu [vytvořit a spravovat skupiny akce na portálu Azure](monitoring-action-groups.md).
 
@@ -121,7 +123,7 @@ Po vytvoření výstrahy, je viditelný v části výstrahy monitorování okna.
 * Odstraňte ji.
 * Zakázat nebo povolit, pokud chcete dočasně zastavit nebo obnovit příjem oznámení pro výstrahy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Získat [přehled výstrah](monitoring-overview-alerts.md).
 - Další informace o [omezení rychlosti oznámení](monitoring-alerts-rate-limiting.md).
 - Zkontrolujte [schéma výstrahy webhooku protokolu činnosti](monitoring-activity-log-alerts-webhook.md).

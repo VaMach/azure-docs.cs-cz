@@ -1,7 +1,7 @@
 ---
 title: "Vytvořit a registrovat SOAP konektory - Azure Logic Apps | Microsoft Docs"
-description: "Nastavení protokolu SOAP konektory pro použití v Azure Logic Apps"
-author: divyaswarnkar
+description: "Nastavení konektorů SOAP pro použití v Azure Logic Apps"
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,161 +13,161 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: LADocs; estfan
+ms.openlocfilehash: 031762e5639fc52e0b0a6a5bf8d12db25da25e12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Vytvořit a registrovat SOAP konektory v Azure Logic Apps
 
-K integraci služby SOAP ve svých pracovních postupech aplikace logiky, můžete vytvořit a registrovat vlastní konektor objekt přístup protokolu SOAP (Simple) pomocí webové služby popis Language (WSDL) popisující služby SOAP. Konektory SOAP fungují jako předem konektory, abyste je mohli používat stejným způsobem jako ostatní konektory ve vašich logic apps.
+Pokud chcete v pracovních postupech svých aplikací logiky integrovat služby SOAP, můžete vytvořit a zaregistrovat vlastní konektor SOAP (Simple Object Access Protocol) s využitím jazyka WSDL (Web Services Description Language) popisujícího vaši službu SOAP. Konektory SOAP fungují jako předem připravené konektory, takže je ve svých aplikacích logiky můžete používat stejným způsobem jako jiné konektory.
 
 
 ## <a name="prerequisites"></a>Požadavky
 
-Chcete-li zaregistrovat vaše SOAP konektoru, je třeba tyto položky:
+K registraci konektoru SOAP potřebujete následující položky:
 
-* Předplatné Azure. Pokud nemáte předplatné, můžete začít s [bezplatný účet Azure](https://azure.microsoft.com/free/). Jinak, zaregistrujte si [předplatné s průběžnými platbami](https://azure.microsoft.com/pricing/purchase-options/).
+* Předplatné Azure. Pokud předplatné nemáte, můžete začít s [bezplatným účtem Azure](https://azure.microsoft.com/free/). Jinak si můžete zaregistrovat [předplatné s průběžnými platbami](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Libovolnou položku zde:
-  * Adresu URL WSDL, který definuje služby protokolu SOAP a rozhraní API
-  * Soubor WSDL, který definuje služby protokolu SOAP a rozhraní API
+* Jakoukoli z těchto položek:
+  * Adresa URL k souboru WSDL, který definuje vaši službu SOAP a rozhraní API.
+  * Soubor WSDL, který definuje vaši službu SOAP a rozhraní API.
 
-  V tomto kurzu použijete našem příkladu [objednávky SOAP služby](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl).
+  Pro účely tohoto kurzu můžete použít naši ukázkovou [službu SOAP pro objednávky](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl).
 
-* Volitelné: Obrázek, který chcete použít jako ikona pro vaše vlastní konektor
+* Volitelné: Obrázek, který se použije jako ikona pro váš vlastní konektor.
 
 
-## <a name="1-create-your-connector"></a>1. Vytvoření vašeho konektoru
+## <a name="1-create-your-connector"></a>1. Vytvoření konektoru
 
-1. Na portálu Azure v hlavní nabídce Azure, zvolte **nový**. Do vyhledávacího pole zadejte "konektor aplikace logiky" jako filtr a stiskněte klávesu Enter.
+1. Na webu Azure Portal v hlavní nabídce Azure zvolte **Nový**. Do vyhledávacího pole zadejte jako filtr „konektor Logic Apps“ a stiskněte Enter.
 
-   ![Nové, vyhledejte "konektor aplikace logiky"](./media/logic-apps-soap-connector-create-register/create-logic-apps-connector.png)
+   ![Nový, hledání řetězce „konektor Logic Apps“](./media/logic-apps-soap-connector-create-register/create-logic-apps-connector.png)
 
-2. V seznamu výsledků vyberte **konektor aplikace logiky** > **vytvořit**.
+2. Ze seznamu výsledků zvolte **Konektor Logic Apps** > **Vytvořit**.
 
    ![Vytvoření konektoru Logic Apps](./media/logic-apps-soap-connector-create-register/choose-logic-apps-connector.png)
 
-3. Zadejte podrobnosti pro registraci vaší konektor, jak je popsáno v tabulce. Až budete hotoví, zvolte **připnout na řídicí panel** > **vytvořit**.
+3. Zadejte podrobnosti pro registraci konektoru, jak je popsáno v této tabulce. Až budete hotovi, zvolte **Připnout na řídicí panel** > **Vytvořit**.
 
-   ![Podrobnosti o vlastní konektor aplikaci logiky](./media/logic-apps-soap-connector-create-register/logic-apps-soap-connector-details.png)
+   ![Podrobnosti o vlastním konektoru Logic Apps](./media/logic-apps-soap-connector-create-register/logic-apps-soap-connector-details.png)
 
    | Vlastnost | Navrhovaná hodnota | Popis | 
    | -------- | --------------- | ----------- | 
-   | **Název** | *název konektoru protokolu SOAP* | Zadejte název vašeho konektoru. | 
-   | **Předplatné** | *Název předplatného Azure* | Vyberte předplatné Azure. | 
-   | **Skupina prostředků** | *Azure--název skupiny prostředků –* | Vytvořte nebo vyberte skupiny Azure pro uspořádání prostředků Azure. | 
-   | **Umístění** | *nasazení oblast* | Vyberte oblast nasazení pro vaše konektor. | 
+   | **Název** | *název_konektoru_SOAP* | Zadejte název vašeho konektoru. | 
+   | **Předplatné** | *název_předplatného_Azure* | Vyberte své předplatné Azure. | 
+   | **Skupina prostředků** | *název_skupiny_prostředků_Azure* | Vytvořte nebo vyberte skupinu Azure pro uspořádání vašich prostředků Azure. | 
+   | **Umístění** | *oblast_nasazení* | Vyberte pro konektor oblast nasazení. | 
    |||| 
 
-   Po Azure nasadí vašeho konektoru, v nabídce konektor logiku aplikace se automaticky otevře. 
-   V opačném případě vyberte konektor vaše protokolu soap z řídicího panelu Azure.
+   Jakmile Azure nasadí váš konektor, automaticky se otevře nabídka konektoru Logic Apps. 
+   Pokud ne, zvolte svůj konektor SOAP z řídicího panelu Azure.
 
-## <a name="2-define-your-connector"></a>2. Zadejte vaše konektoru
+## <a name="2-define-your-connector"></a>2. Definice konektoru
 
-Nyní zadejte WSDL soubor nebo adresa URL pro vytvoření vašeho konektoru, ověřování, které vaše konektor používá, a akce a aktivačních událostí, které poskytuje vaší konektor protokolu soap
+Teď zadejte soubor WSDL nebo adresu URL k souboru WSDL pro vytvoření vašeho konektoru, typ ověřování, který váš konektor používá, a akce a triggery, které váš konektor SOAP poskytuje.
 
 
-### <a name="2a-specify-the-wsdl-file-or-url-for-your-connector"></a>2a. Zadejte soubor WSDL nebo adresa URL pro váš konektor
+### <a name="2a-specify-the-wsdl-file-or-url-for-your-connector"></a>2a. Zadání souboru WSDL nebo adresy URL k souboru WSDL pro váš konektor
 
-1. V nabídce vašeho konektoru, pokud již není vybrána, vyberte **konektor aplikace logiky**. Na panelu nástrojů vyberte **upravit**.
+1. V nabídce vašeho konektoru zvolte možnost **Konektor Logic Apps**, pokud ještě není vybraná. Na panelu nástrojů zvolte **Upravit**.
 
    ![Upravit vlastní konektor](./media/logic-apps-soap-connector-create-register/edit-soap-connector.png)
 
-2. Zvolte **Obecné** tak, aby vytváření můžete zadat podrobnosti v těchto tabulkách, zabezpečení a definování akcí a aktivačních událostí pro vaše konektor protokolu SOAP.
+2. Zvolte **Obecné**, abyste mohli zadat podrobnosti uvedené v následujících tabulkách pro vytvoření, zabezpečení a definici akcí a triggerů pro váš konektor SOAP.
 
-   1. Pro **vlastní konektory**, vyberte **SOAP** pro vaše **koncový bod rozhraní API** můžou poskytovat WSDL soubor, který popisuje rozhraní API.
+   1. V části **Vlastní konektory** vyberte **SOAP** pro váš **Koncový bod rozhraní API**, abyste mohli zadat soubor WSDL, který popisuje vaše rozhraní API.
 
-      ![Zadejte soubor WSDL pro vaše rozhraní API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
+      ![Zadání souboru WSDL pro vaše rozhraní API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
 
       | Možnost | Formát |Popis | 
       | ------ | ------ | ----------- | 
-      | **Nahrát WSDL ze souboru** | *Soubor WSDL* | Přejděte do umístění souboru WSDL a vyberte tento soubor. | 
-      | **Nahrát WSDL z adresy URL** | http://*cestu do wsdl souboru* | Zadejte adresu URL k souboru WSDL vaší služby. | 
-      | **SOAP ostatními** |   | Transformuje rozhraní API v protokolu SOAP služby do rozhraní REST API. | 
+      | **Nahrání WSDL ze souboru** | *soubor_WSDL* | Přejděte do umístění vašeho souboru WSDL a vyberte tento soubor. | 
+      | **Nahrání WSDL z adresy URL** | http://*cesta_k_souboru_WSDL* | Zadejte adresu URL souboru WSDL vaší služby. | 
+      | **Ze SOAP do REST** |   | Transformujte rozhraní API ve službě SOAP na rozhraní REST API. | 
       |||| 
 
-   2. Pro **obecné informace**, nahrajte ikonu pro vaše konektor. 
-   Obvykle **popis**, **hostitele**, a **základní adresa URL** pole se vyplní automaticky ze souboru WSDL. 
-   Ale pokud nejsou, přidejte tyto informace, jak je popsáno v tabulce a zvolte **pokračovat**. 
+   2. V části **Obecné informace** nahrajte ikonu pro váš konektor. 
+   Do polí **Popis**, **Hostitel** a **Základní adresa URL** se obvykle automaticky vyplní údaje z vašeho souboru WSDL. 
+   Pokud ne, přidejte tyto informace tak, jak je popsáno v tabulce, a zvolte **Pokračovat**. 
 
       ![Podrobnosti o konektoru](./media/logic-apps-soap-connector-create-register/add-general-details.png)
 
       | Možnost nebo nastavení | Formát | Popis | 
       | ----------------- | ------ | ----------- | 
-      | **Nahrajte ikonu** | *PNG-or-JPG-File-under-1-MB* | Ikona, která představuje váš konektoru <p>Barva: Pokud možno bílé logo na barvu pozadí. <p>Dimenze: Logo ~ 160 pixelů uvnitř čtverce 230 pixelů | 
-      | **Barva pozadí ikonu** | *Ikona brand – barva hexadecimální kódu* | <p>Barva za vaše ikonu, která odpovídá barvu pozadí v souboru ikonu. <p>Formát: šestnáctkové. Například #007ee5 představuje modrou barvu. | 
-      | **Popis** | *Popis konektoru* | Zadejte krátký popis pro vaše konektor. | 
-      | **Hostitele** | *konektor hostitele* | Zadejte domény hostitele služby SOAP. | 
-      | **Základní adresu URL** | *konektor – základní – adresa URL* | Zadejte základní adresu URL služby SOAP. | 
+      | **Nahrát ikonu** | *soubor_png_nebo_jpg_menší_než_1_MB* | Ikona představující váš konektor. <p>Barva: Pokud možno bílé logo na barevném pozadí. <p>Rozměry: Logo o velikosti přibližně 160 pixelů uvnitř čtverce o velikosti 230 pixelů. | 
+      | **Barva pozadí ikony** | *šestnáctkový_kód_barvy_značky_v_ikoně* | <p>Barva pozadí vaší ikony, která odpovídá barvě pozadí v souboru vaší ikony. <p>Formát: Šestnáctkový. Například kód #007ee5 představuje modrou barvu. | 
+      | **Popis** | *popis_konektoru* | Zadejte krátký popis vašeho konektoru. | 
+      | **Hostitel** | *hostitel_konektoru* | Zadejte doménu hostitele vaší služby SOAP. | 
+      | **Základní adresa URL** | *základní_adresa_URL_konektoru* | Zadejte základní adresu URL vaší služby SOAP. | 
       |||| 
 
-### <a name="2b-describe-the-authentication-that-your-connector-uses"></a>2b. Popisují ověřování, které používá vaše konektoru
+### <a name="2b-describe-the-authentication-that-your-connector-uses"></a>2b. Popis ověřování, které váš konektor využívá
 
-1. Teď zvolte **zabezpečení** , můžete zkontrolovat nebo popisují ověřování, které používá vaše konektor. Ověřování je zajištěno správně toku identity vašich uživatelů mezi službou a všechny klienty.
+1. Teď zvolte **Zabezpečení**, abyste mohli zkontrolovat nebo popsat ověřování, které váš konektor využívá. Ověřování zajišťuje tok identit vašich uživatelů odpovídajícím způsobem mezi vaší službou a všemi klienty.
 
-   Ve výchozím vaše konektoru na **typ ověřování** je nastaven na **bez ověřování**.
+   Ve výchozím nastavení je **Typ ověřování** vašeho konektoru nastavený na **Bez ověřování**.
    
    ![Typ ověřování](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
 
-   Chcete-li změnit typ ověřování, zvolte **upravit**. Můžete vybrat **základní ověřování**. Pokud chcete použít parametr popisky než výchozí hodnoty, aktualizovat je v části **popisek parametru**.
+   Pokud chcete změnit typ ověřování, zvolte **Upravit**. Můžete vybrat **Základní ověřování**. Pokud chcete použít jiné popisky parametrů než výchozí hodnoty, aktualizujte je v části **Popisek parametru**.
 
    ![Základní ověřování](./media/logic-apps-soap-connector-create-register/security.png)
 
    
-2. Chcete-li uložit vaše konektoru po zadání informace o zabezpečení v horní části stránky, zvolte **aktualizovat konektor**, zvolte **pokračovat**. 
+2. Pokud chcete po zadání informací o zabezpečení svůj konektor uložit, v horní části stránky zvolte **Aktualizovat konektor** a pak **Pokračovat**. 
 
-### <a name="2c-review-update-or-define-actions-and-triggers-for-your-connector"></a>2c. Zkontrolujte, aktualizovat nebo zadejte akce a aktivačních událostí pro vaše konektoru
+### <a name="2c-review-update-or-define-actions-and-triggers-for-your-connector"></a>2c. Kontrola, aktualizace nebo definice akcí a triggerů pro konektor
 
-1. Teď zvolte **definice** , můžete zkontrolovat, upravit nebo definovat nové akce a aktivační události, které uživatelé mohou přidávat do svých pracovních postupů.
+1. Teď zvolte **Definice**, abyste mohli zkontrolovat, upravit nebo definovat nové akce a triggery, které uživatelé můžou přidávat do svých pracovních postupů.
 
-   Akce a aktivační události jsou založené na operace definované v souboru WSDL, které automaticky vyplnit **definice** stránky a zahrnout hodnoty požadavku a odpovědi. Takže pokud potřebných operací se již v tomto poli, můžete přejít na další krok v procesu registrace bez provedení změn na této stránce.
+   Akce a triggery vycházejí z operací definovaných ve vašem souboru WSDL, kterými se automaticky vyplní stránka **Definice**, včetně hodnot požadavků a odpovědí. Takže pokud se už tady zobrazí požadované informace, můžete přejít k dalšímu kroku procesu registrace bez provádění změn na této stránce.
 
    ![Definice konektoru](./media/logic-apps-soap-connector-create-register/definition.png)
 
 2. Případně, pokud chcete upravit existující akce a aktivační události nebo přidat nové, [pokračovat v těchto krocích](logic-apps-custom-connector-register.md#add-action-or-trigger).
 
 
-## <a name="3-finish-creating-your-connector"></a>3. Vytvoření vašeho konektoru
+## <a name="3-finish-creating-your-connector"></a>3. Dokončení vytváření konektoru
 
-Až budete připraveni, zvolte **aktualizace konektor** abyste mohli nasadit vaší konektor. 
+Až budete připraveni, zvolte **Aktualizovat konektor**, abyste mohli svůj konektor nasadit. 
 
-Blahopřejeme! Teď při vytváření aplikace logiky můžete najít vaše konektor v návrháři aplikace logiky a přidejte tento konektor do aplikace logiky.
+Blahopřejeme! Při vytváření aplikace logiky teď můžete svůj konektor vyhledat v Návrháři pro Logic Apps a přidat ho do své aplikace logiky.
 
-![V návrháři aplikace logiky najít váš konektoru](./media/logic-apps-soap-connector-create-register/soap-connector-created.png)
+![Vyhledání konektoru v Návrháři pro Logic Apps](./media/logic-apps-soap-connector-create-register/soap-connector-created.png)
 
-## <a name="share-your-connector-with-other-logic-apps-users"></a>Sdílet vaše konektor s jinými uživateli Logic Apps
+## <a name="share-your-connector-with-other-logic-apps-users"></a>Sdílení konektoru s ostatními uživateli Logic Apps
 
-Registrovaná, ale necertifikované vlastní konektory fungovat jako konektorů spravovaných společností Microsoft, ale jsou viditelné a dostupné *pouze* konektoru autora a uživatelé, kteří mají stejné klienta Azure Active Directory a předplatné Azure pro logic apps v oblasti, kde jsou tyto aplikace nasazené. I když sdílení je volitelný a může mít scénáře, ve které chcete sdílet vaše konektory s dalšími uživateli. 
+Zaregistrované, ale necertifikované vlastní konektory fungují podobně jako konektory spravované Microsoftem, ale jsou viditelné a dostupné *pouze* pro autora konektoru a uživatele se stejným tenantem Azure Active Directory a předplatným Azure pro aplikace logiky v oblasti, ve které jsou tyto aplikace nasazené. I když sdílení není povinné, v některých situacích chcete sdílet vaše konektory s dalšími uživateli. 
 
 > [!IMPORTANT]
-> Pokud sdílíte konektor, jiné můžou začít závisí na konektor. 
-> ***Odstraněním vašeho konektoru odstraníte všechna připojení pro tento konektor.***
+> Pokud sdílíte konektor, ostatní na něm můžou začít být závislí. 
+> ***Odstraněním konektoru dojde k odstranění všech připojení k tomuto konektoru.***
  
 Sdílet vaše konektor s externími uživateli mimo tyto hranice, například se všemi uživateli Logic Apps, [odeslání vašeho konektoru pro certifikaci Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>Nejčastější dotazy
 
-**Otázka:** je SOAP konektor všeobecně dostupná (GA)? </br>
-**Odpověď:** SOAP connector je v **Preview**, a služba GA ještě není.
+**Otázka:** Je konektor SOAP obecně dostupný? </br>
+**Odpověď:** Konektor SOAP je ve verzi **Preview** a zatím není obecně dostupnou službou.
 
-**Otázka:** existují žádné omezení a známé problémy pro konektor SOAP? </br>
-**Odpověď:** Ano, najdete v části [omezení konektor protokolu SOAP a známé problémy](../api-management/api-management-api-import-restrictions.md#wsdl).
+**Otázka:** Existují nějaká omezení a známé problémy související s konektorem SOAP? </br>
+**Odpověď:** Ano, viz [Omezení a známé problémy související s konektorem SOAP](../api-management/api-management-api-import-restrictions.md#wsdl).
 
-**Otázka:** je nějak omezený pro vlastní konektory? </br>
-**Odpověď:** Ano najdete v tématu [vlastní konektor omezuje zde](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
+**Otázka:** Existují nějaká omezení pro vlastní konektory? </br>
+**Odpověď:** Ano, viz [omezení vlastních konektorů](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
 
 ## <a name="get-support"></a>Získat podporu
 
-* Obraťte se na podporu vývoje a registrace nebo na žádost o funkce, které nejsou k dispozici v Průvodci registrací [ condevhelp@microsoft.com ](mailto:condevhelp@microsoft.com). Microsoft sleduje tento účet pro vývojáře otázky a problémy a směruje je do příslušné team.
+* Pokud potřebujete podporu k vývoji a registraci nebo pokud chcete požádat o funkce, které nejsou dostupné v průvodci registrací, kontaktujte [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com). Microsoft v tomto účtu monitoruje dotazy a problémy vývojářů a směruje je odpovídajícím týmům.
 
-* Požádejte nebo odpovědi na otázky, nebo najdete, co dělají jiných uživatelů Azure Logic Apps, naleznete [fórum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Klást otázky, odpovídat na ně a poučit se ze zkušeností jiných uživatelů Azure Logic Apps můžete ve [fóru Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* K vylepšení Logic Apps, hlasovat o nebo odeslání nápadů na [web pro zasílání názorů uživatele Logic Apps](http://aka.ms/logicapps-wish). 
+* Pokud chcete pomoci při vylepšování Logic Apps, hlasujte nebo zanechte své nápady na [webu zpětné vazby uživatelů Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Volitelné: Certifikovat vašeho konektoru](../logic-apps/custom-connector-submit-certification.md)
-* [Vlastní konektor – nejčastější dotazy](../logic-apps/custom-connector-faq.md)
+* [Nejčastější dotazy k vlastním konektorům](../logic-apps/custom-connector-faq.md)

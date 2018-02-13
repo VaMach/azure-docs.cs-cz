@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Úroveň kompatibility pro úlohy Azure Stream Analytics
  
@@ -57,7 +57,10 @@ V úroveň kompatibility 1.1 byly zavedeny následující hlavní změny:
   * **předchozí verze:** na malá písmena při zpracování modulu Azure Stream Analytics se změnily názvy polí. 
 
   * **aktuální verze:** rozlišování je trvalá pro názvy polí, když se zpracovávají modulem Azure Stream Analytics. 
- 
+
+  > [!NOTE] 
+  > Zachování rozlišování ještě není k dispozici pro datový proud analytické úlohy, které jsou hostované pomocí prostředí hraniční. Názvy všech polí v důsledku toho se převedou na malá písmena, pokud vaše úlohy je hostována na okraj. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **předchozí verze:** příkazu CREATE TABLE není filtrování událostí s NaN (není a-Number. Například Infinity, - Infinity) ve sloupci FLOAT typu, protože jsou mimo rozsah zdokumentovaných pro tato čísla.

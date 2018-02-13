@@ -3,7 +3,7 @@ title: "Kapacitu a výkon řešení v Azure Log Analytics | Microsoft Docs"
 description: "Použijte řešení kapacitu a výkon v analýzy protokolů vám pomohou pochopit kapacitu serverů Hyper-V."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Plánování kapacity virtuálního počítače technologie Hyper-V s řešením kapacitu a výkon (Preview)
 
@@ -47,7 +47,7 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 |---|---|---|
 | [Agenti systému Windows](log-analytics-windows-agent.md) | Ano | Řešení shromažďuje informace kapacitu a výkon data z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne    | Řešení neshromažďuje data informace kapacitu a výkon od agentů přímé Linux.|
-| [Skupiny správy nástroje SCOM](log-analytics-om-agents.md) | Ano |Řešení shromažďuje údaje o kapacitu a výkon od agentů v připojené skupině pro správu SCOM. Přímé připojení z agenta nástroje SCOM k OMS se nevyžaduje. Data se přesměrovávají ze skupiny pro správu do úložiště OMS.|
+| [Skupiny správy nástroje SCOM](log-analytics-om-agents.md) | Ano |Řešení shromažďuje údaje o kapacitu a výkon od agentů v připojené skupině pro správu SCOM. Přímé připojení z agenta nástroje SCOM k analýze protokolů se nevyžaduje.|
 | [Účet služby Azure Storage](log-analytics-azure-storage.md) | Ne | Úložiště Azure nezahrnuje data kapacitu a výkon.|
 
 ## <a name="prerequisites"></a>Požadavky
@@ -59,11 +59,11 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 
 Proveďte následující krok a přidejte kapacitu a výkon řešení do pracovního prostoru.
 
-- Přidat kapacitu a výkon řešení do pracovního prostoru OMS pomocí procesu popsaného v tématu [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md).
+- Přidat kapacitu a výkon řešení do pracovního prostoru analýzy protokolů pomocí procesu popsaného v tématu [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Sady Management Pack
 
-Pokud skupinu správy nástroje SCOM propojen s vaším pracovním prostorem OMS, pak následující sady management Pack bude nainstalována v aplikaci SCOM při přidání tohoto řešení. Není potřeba žádná konfigurace ani údržba těchto sad Management Pack.
+Pokud skupinu správy nástroje SCOM je připojen do pracovního prostoru analýzy protokolů, pak následující sady management Pack bude nainstalována v aplikaci SCOM při přidání tohoto řešení. Není potřeba žádná konfigurace ani údržba těchto sad Management Pack.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
@@ -144,5 +144,5 @@ Následující tabulka obsahuje ukázkový protokol hledání pro kapacitu a vý
 | Rozdělení nízkou celkovou latenci mezi všechny sdílené svazky clusteru | Výkonu &#124; kde ObjectName == "Kapacitu a výkon" a (název_čítače == "Latenci pro čtení sdíleného svazku clusteru" nebo název_čítače == "CSV zápisu latence") &#124; shrnout AggregatedValue = avg(CounterValue) podle bin (TimeGenerated, 1 hod), název_čítače, InstanceName |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Použití [hledání přihlásit analýzy protokolů](log-analytics-log-searches.md) na podrobnější data kapacitu a výkon.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Začínáme s Docker a vytvářené definovat a spuštění aplikace s více kontejnerů v Azure
 S [vytvářené](http://github.com/docker/compose), používáte k definování aplikace, který se skládá z několika kontejnerů Docker jednoduchý textový soubor. Pak začne pracovat aplikace v jednom příkaz, který nemá všechno k nasazení prostředí definované. Jako příklad Tento článek ukazuje, jak rychle nastavit blog WordPress pomocí MariaDB SQL database na virtuálního počítače s Ubuntu back-end. Můžete taky vytvořit složitější aplikace můžete nastavit.
@@ -32,15 +32,15 @@ Pokud používáte rozšíření virtuálního počítače Docker, virtuální p
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Vytvořit hostitele Docker s Azure CLI 2.0
-Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login).
+Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#az_login).
 
-Nejprve vytvořte skupinu prostředků pro vaše prostředí Docker s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* umístění:
+Nejprve vytvořte skupinu prostředků pro vaše prostředí Docker s [vytvořit skupinu az](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-V dalším kroku nasaďte virtuální počítač s [vytvořit nasazení skupiny az](/cli/azure/group/deployment#create) obsahující rozšíření virtuálního počítače Azure Docker z [této šablony Azure Resource Manageru na Githubu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Po zobrazení výzvy zadejte své vlastní jedinečné hodnoty pro *newStorageAccountName*, *adminUsername*, *adminPassword*, a *dnsNameForPublicIP*:
+V dalším kroku nasaďte virtuální počítač s [vytvořit nasazení skupiny az](/cli/azure/group/deployment#az_group_deployment_create) obsahující rozšíření virtuálního počítače Azure Docker z [této šablony Azure Resource Manageru na Githubu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Po zobrazení výzvy zadejte své vlastní jedinečné hodnoty pro *newStorageAccountName*, *adminUsername*, *adminPassword*, a *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -51,7 +51,7 @@ Jak dlouho trvá několik minut na dokončení nasazení.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Ověřte, zda je nainstalován Compose
-Chcete-li zobrazit podrobnosti o virtuálního počítače, včetně názvu DNS, použijte [az virtuálních počítačů zobrazit](/cli/azure/vm#show):
+Chcete-li zobrazit podrobnosti o virtuálního počítače, včetně názvu DNS, použijte [az virtuálních počítačů zobrazit](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -137,7 +137,7 @@ Nyní můžete připojit k WordPress přímo na virtuálním počítači na port
 
 ![WordPress úvodní obrazovka][wordpress_start]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Přejděte na [uživatelská příručka k rozšíření virtuálního počítače Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) další možnosti konfigurace Docker a vytvářené v Docker virtuálního počítače. Jednou z možností je například umístění souboru yml vytvářené (převést na JSON) přímo v konfiguraci rozšíření Docker virtuálního počítače.
 * Podívejte se [tvoří reference k příkazovému řádku](http://docs.docker.com/compose/reference/) a [uživatelská příručka](http://docs.docker.com/compose/) Další příklady vytváření a nasazování aplikací pro službu kontejneru.
 * Pomocí šablony Azure Resource Manager, buď vaše vlastní nebo jeden podílí z [komunity](https://azure.microsoft.com/documentation/templates/), k nasazení virtuálního počítače Azure s Docker a nastavit vytvářené aplikace. Například [nasazení blog WordPress pomocí Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) šablona používá Docker a skládání s back-end databáze MySQL na virtuálního počítače s Ubuntu rychle nasadit WordPress.

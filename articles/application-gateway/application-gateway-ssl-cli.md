@@ -1,194 +1,179 @@
 ---
-title: "Konfigurovat přesměrování zpracování SSL - Azure Application Gateway - Azure CLI 2.0 | Microsoft Docs"
-description: "Tento článek poskytuje pokyny pro vytvoření služby application gateway pomocí protokolu SSL, přesměrování zpracování úloh pomocí Azure CLI 2.0"
-documentationcenter: na
+title: "Vytvoření služby application gateway s ukončení protokolu SSL - rozhraní příkazového řádku Azure | Microsoft Docs"
+description: "Zjistěte, jak přidat certifikát pro ukončení protokolu SSL pomocí Azure CLI a vytvoření služby application gateway."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 01/18/2018
 ms.author: davidmu
-ms.openlocfilehash: 4bdca33dae2ce52fdeccdae9a67abb6667593f9d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Konfigurace aplikační brány pro přesměrování zpracování SSL pomocí Azure CLI 2.0
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Vytvoření služby application gateway s ukončení protokolu SSL pomocí Azure CLI
 
-> [!div class="op_single_selector"]
-> * [portál Azure Portal](application-gateway-ssl-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
-> * [Azure classic PowerShell](application-gateway-ssl.md)
-> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
+Rozhraní příkazového řádku Azure můžete použít k vytvoření [Aplikační brána](application-gateway-introduction.md) s certifikátem pro [ukončení protokolu SSL](application-gateway-backend-ssl.md) používající [škálovací sadu virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pro back-end serverů. V tomto příkladu byly sadou škálování obsahuje dvě instance virtuálních počítačů, které jsou přidány do fondu back-end výchozí aplikační brány.
 
-Služba Azure Application Gateway se dá nakonfigurovat k ukončení relace Secure Sockets Layer (SSL) v bráně, vyhnete se tak nákladným úlohám dešifrování SSL na webové serverové farmě. Přesměrování zpracování SSL zjednodušuje i správy certifikátů na serveru front-end.
+V tomto článku se dozvíte, jak:
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Předpoklad: Instalace rozhraní příkazového řádku Azure 2.0
+> [!div class="checklist"]
+> * Vytvořit certifikát podepsaný svým držitelem
+> * Nastavení sítě
+> * Vytvoření služby application gateway s certifikátem
+> * Vytvoření škálování virtuálních počítačů, nastavit výchozí fond back-end
 
-Chcete-li provést kroky v tomto článku, je potřeba [nainstalovat rozhraní příkazového řádku Azure pro Mac, Linux a Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-## <a name="required-components"></a>Požadované součásti
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-* **Fond back-end serverů**: seznam IP adres back-end serverů. Uvedené IP adresy by měly patřit do podsítě virtuální sítě nebo by měla být veřejné IP adresy nebo virtuální IP adresy (VIP).
-* **Nastavení fondu back-end serverů**: každý fond má nastavení, jako je port, protokol a spřažení na základě souboru cookie. Tato nastavení se vážou na fond a používají se na všechny servery v rámci fondu.
-* **Front-end port**: Tento port je veřejný port, který se otevírá ve službě application gateway. Když datový přenos dorazí na tento port, přesměruje se na některý back-end server.
-* **Naslouchací proces**: naslouchací proces má front-end port, protokol (Http nebo Https; tato nastavení jsou malá a velká písmena) a název certifikátu SSL (Pokud se konfiguruje přesměrování zpracování SSL).
-* **Pravidlo**: pravidlo váže naslouchací proces a fond back-end serverů a definuje, kterému fondu back-end serverů směrovat provoz při volání příslušného naslouchacího procesu. V tuhle chvíli se podporuje jenom *základní* pravidlo. *Základní* pravidlo je distribuce zatížení pomocí kruhového dotazování.
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít rozhraní příkazového řádku Azure ve verzi 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-**Další poznámky ke konfiguraci**
+## <a name="create-a-self-signed-certificate"></a>Vytvořit certifikát podepsaný svým držitelem
 
-Pro konfiguraci certifikátů SSL by se měl změnit protokol v **HttpListener** na *Https* (rozlišování velkých a malých písmen). Přidat **SslCertificate** element **HttpListener** s hodnotou proměnné nakonfigurovanou pro certifikát SSL. Front-end port se musí aktualizovat na **443**.
-
-**Chcete-li povolit spřažení na základě souborů cookie**: můžete nakonfigurovat služby application gateway zajistit, že žádost od klientské relace vždy směrovala na stejný virtuální počítač ve webové farmě. K tomu, vložte soubor cookie relace, který umožňuje bráně řízení provozu odpovídajícím způsobem. Když chcete povolit spřažení na základě souboru cookie, nastavte **CookieBasedAffinity** na *Povoleno* v elementu **BackendHttpSettings**.
-
-## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a>Konfigurovat přesměrování zpracování SSL na existující aplikační brány
-
-Zadejte následující příkazy ke konfiguraci přesměrování zpracování SSL existující aplikační brány:
+Pro použití v provozním prostředí Importujte platný certifikát podepsaný službou důvěryhodného zprostředkovatele. V tomto kurzu vytvoříte certifikát podepsaný svým držitelem a pomocí příkazu openssl souboru pfx.
 
 ```azurecli-interactive
-#!/bin/bash
-
-# Create a new front end port to be used for SSL
-az network application-gateway frontend-port create \
-  --name sslport \
-  --port 443 \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Upload the .pfx certificate for SSL offload
-az network application-gateway ssl-cert create \
-  --name "newcert" \
-  --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
-  --cert-password P@ssw0rd \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new listener referencing the port and certificate created earlier
-az network application-gateway http-listener create \
-  --frontend-ip "appGatewayFrontendIP" \
-  --frontend-port sslport  \
-  --name sslListener \
-  --ssl-cert newcert \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new back-end pool to be used
-az network application-gateway address-pool create \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG" \
-  --name "appGatewayBackendPool2" \
-  --servers 10.0.0.7 10.0.0.8
-
-# Create a new back-end HTTP settings using the new probe
-az network application-gateway http-settings create \
-  --name "settings2" \
-  --port 80 \
-  --cookie-based-affinity Enabled \
-  --protocol "Http" \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new rule linking the listener to the back-end pool
-az network application-gateway rule create \
-  --name "rule2" \
-  --rule-type Basic \
-  --http-settings settings2 \
-  --http-listener ssllistener \
-  --address-pool temp1 \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
-## <a name="create-an-application-gateway-with-ssl-offload"></a>Vytvoření služby application gateway s přesměrování zpracování SSL
-
-Následující příklad vytvoří aplikační brány s přesměrování zpracování SSL. Certifikát a heslo certifikátu musí být aktualizovány na platný privátní klíč.
+Zadejte hodnoty, které dávají smysl pro svůj certifikát. Můžete přijmout výchozí hodnoty.
 
 ```azurecli-interactive
-#!/bin/bash
+openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
+```
 
-# Creates an application gateway with SSL offload
+Zadejte heslo pro certifikát. V tomto příkladu *Azure123456!* se používá.
+
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+
+Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Vytvoření skupiny prostředků pomocí [vytvořit skupinu az](/cli/azure/group#create).
+
+Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroupAG* v *eastus* umístění.
+
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
+```
+
+## <a name="create-network-resources"></a>Vytvoření síťové prostředky
+
+Vytvořit virtuální síť s názvem *myVNet* a podsíť s názvem *myAGSubnet* pomocí [vytvoření sítě vnet az](/cli/azure/network/vnet#az_net). Poté můžete přidat podsíť s názvem *myBackendSubnet* to vyžaduje back-end serverů pomocí [az sítě vnet podsíť vytváření](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Vytvoření veřejné IP adresy s názvem *myAGPublicIPAddress* pomocí [vytvoření veřejné sítě az-ip](/cli/azure/public-ip#az_network_public_ip_create).
+
+```azurecli-interactive
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
+
+## <a name="create-the-application-gateway"></a>Vytvoření služby Application Gateway
+
+Můžete použít [az brány aplikace-vytvořit](/cli/azure/application-gateway#create) k vytvoření aplikační brány. Při vytváření služby application gateway pomocí Azure CLI, je třeba zadat informace o konfiguraci, například kapacitu, sku a nastavení HTTP. 
+
+Službu application gateway je přiřazena k *myAGSubnet* a *myAGPublicIPAddress* kterou jste vytvořili. V tomto příkladu přidružíte certifikát, který jste vytvořili a jeho heslo při vytváření služby application gateway. 
+
+```azurecli-interactive
 az network application-gateway create \
-  --name "AdatumAppGateway3" \
-  --location "eastus" \
-  --resource-group "AdatumAppGatewayRG2" \
-  --vnet-name "AdatumAppGatewayVNET2" \
-  --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
-  --cert-password P@ssw0rd \
-  --vnet-address-prefix "10.0.0.0/16" \
-  --subnet "Appgatewaysubnet" \
-  --subnet-address-prefix "10.0.0.0/28" \
-  --frontend-port 443 \
-  --servers "10.0.0.5 10.0.0.4" \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGsubnet \
   --capacity 2 \
-  --sku "Standard_Small" \
-  --http-settings-cookie-based-affinity "Enabled" \
-  --http-settings-protocol "Http" \
-  --frontend-port "80" \
-  --routing-rule-type "Basic" \
-  --http-settings-port "80" \
-  --public-ip-address "pip" \
-  --public-ip-address-allocation "dynamic"
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 443 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress \
+  --cert-file appgwcert.pfx \
+  --cert-password "Azure123456!"
+
 ```
 
-## <a name="get-an-application-gateway-dns-name"></a>Získat název DNS brány aplikace
+ Ho může trvat několik minut pro službu application gateway, který se má vytvořit. Po vytvoření služby application gateway se zobrazí tyto nové funkce:
 
-Po vytvoření brány je dalším krokem je konfigurace front-endu pro komunikaci.  Aplikační brána vyžaduje dynamicky přiřazené název DNS, při použití veřejnou IP adresu, která není popisný. Zajistěte, aby koncoví uživatelé mohou dosáhl aplikační bránu, můžete záznam CNAME přejděte na veřejný koncový bod služby application gateway. Další informace najdete v tématu [konfigurace vlastního názvu domény pro v Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+- *appGatewayBackendPool* -aplikační brány musí mít alespoň jeden fond adres back-end.
+- *appGatewayBackendHttpSettings* -Určuje, že port 80 a protokol HTTP se používá pro komunikaci.
+- *appGatewayHttpListener* -přidružený naslouchací proces výchozí *appGatewayBackendPool*.
+- *appGatewayFrontendIP* -přiřadí *myAGPublicIPAddress* k *appGatewayHttpListener*.
+- *rule1 New* – výchozí směrování pravidlo, které souvisí s *appGatewayHttpListener*.
 
-Pokud chcete konfigurovat alias, načíst podrobnosti o aplikační brány a její přidružené IP a DNS název pomocí **PublicIPAddress** element připojený k službě application gateway. Použijte službu application gateway název DNS vytvořit záznam CNAME, který ukazuje dva webové aplikace k tomuto názvu DNS. Nedoporučujeme použití záznamů A protože VIP můžete změnit na restartovat aplikační brány.
+## <a name="create-a-virtual-machine-scale-set"></a>Vytvoření sady škálování virtuálního počítače
 
+V tomto příkladu vytvoříte škálovací sadu virtuálních počítačů, která poskytuje servery pro výchozí fond back-end v aplikační brány. Jsou virtuální počítače ve škálovací sadě přidružené *myBackendSubnet* a *appGatewayBackendPool*. Chcete-li vytvořit měřítko nastavte, můžete použít [vytvořit az vmss](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
-az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+az vmss create \
+  --name myvmss \
+  --resource-group myResourceGroupAG \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --admin-password Azure123456! \
+  --instance-count 2 \
+  --vnet-name myVNet \
+  --subnet myBackendSubnet \
+  --vm-sku Standard_DS2 \
+  --upgrade-policy-mode Automatic \
+  --app-gateway myAppGateway \
+  --backend-pool-name appGatewayBackendPool
 ```
 
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
+### <a name="install-nginx"></a>Instalace serveru NGINX
+
+```azurecli-interactive
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group myResourceGroupAG \
+  --vmss-name myvmss \
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="test-the-application-gateway"></a>Testování služby application gateway
 
-Pokud chcete provést konfiguraci aplikační brány pro použití s nástrojem pro vyrovnávání zatížení pro vnitřní naleznete v části [vytvoření aplikační brány s nástrojem pro vyrovnávání zatížení pro vnitřní](application-gateway-ilb.md).
+Chcete-li získat veřejnou IP adresu brány, aplikace, můžete použít [az sítě veřejné ip zobrazit](/cli/azure/network/public-ip#az_network_public_ip_show). Zkopírujte veřejnou IP adresu a pak ji vložit do panelu Adresa prohlížeče.
 
-Další informace o možnostech obecně Vyrovnávání zatížení najdete v tématu:
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
 
-* [Nástroj pro vyrovnávání zatížení Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+![Upozornění zabezpečení](./media/application-gateway-ssl-cli/application-gateway-secure.png)
+
+Chcete-li přijímat upozornění, pokud použijete certifikát podepsaný svým držitelem zabezpečení, vyberte **podrobnosti** a potom **přejděte na webovou stránku**. Následně se zobrazí váš zabezpečený web NGINX, jak je znázorněno v následujícím příkladu:
+
+![Otestovat základní adresu URL v aplikační brány](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
+
+## <a name="next-steps"></a>Další postup
+
+V tomto kurzu jste se naučili:
+
+> [!div class="checklist"]
+> * Vytvořit certifikát podepsaný svým držitelem
+> * Nastavení sítě
+> * Vytvoření služby application gateway s certifikátem
+> * Vytvoření škálování virtuálních počítačů, nastavit výchozí fond back-end
+
+Další informace o aplikačních bran a jejich přidružené prostředky, i nadále články s návody.

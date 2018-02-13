@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cb7183cbec1c3efafe58f4508042d329be5dcecf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scénář Azure Automation – automatizace odebrání skupin prostředků
 Mnoho zákazníků vytváří více než jednu skupinu prostředků. Některé mohou sloužit ke správě produkčních aplikací, jiné mohou sloužit jako vývojové, testovací nebo přípravné prostředí. Automatizace nasazení těchto prostředků je jedna věc, ale možnost vyřadit skupinu prostředků z provozu jediným kliknutím něco úplně jiného. Tuto běžnou úlohu správy můžete zjednodušit pomocí Azure Automation. To je užitečné v případě, že pracujete s předplatným Azure, které má nastavený limit útraty prostřednictvím členské nabídky, jako je například MSDN nebo program Microsoft Partner Network Cloud Essentials.
@@ -37,7 +37,7 @@ Pro tento runbook jsou definované tyto vstupní parametry:
 
 | Parametr | Popis |
 | --- | --- |
-| NameFilter (povinný) |Zadává filtr názvů pro omezení skupin prostředků, které máte v úmyslu odstranit. Můžete předat několik hodnot ve formě seznamu odděleného čárkami.<br>Ve filtru se nerozlišují velká a malá písmena. Filtru odpovídá libovolná skupina prostředků, která obsahuje zadaný řetězec. |
+| NameFilter (povinný) |Zadává filtr názvů pro omezení skupin prostředků, které máte v úmyslu odstranit. Můžete předat několik hodnot ve formě seznamu odděleného čárkami.<br>Filtr není velká a malá písmena a odpovídá libovolné skupině prostředků, který obsahuje řetězec. |
 | PreviewMode (volitelný) |Spustí runbook, aby bylo vidět, které skupiny prostředků se odstraní, ale neprovede žádnou akci.<br>Výchozí hodnota je **true**, která pomáhá zabránit nechtěnému odstranění jedné nebo několika skupin prostředků předaných do runbooku. |
 
 ## <a name="install-and-configure-this-scenario"></a>Instalace a konfigurace tohoto scénáře
@@ -48,19 +48,19 @@ Tento runbook se ověřuje pomocí [účtu Spustit v Azure jako](automation-sec-
 Po stažení můžete tento runbook naimportovat pomocí postupu uvedeného v tématu [Postupy importování runbooků](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Po úspěšném dokončení importu do účtu Automation můžete runbook publikovat.
 
 ## <a name="using-the-runbook"></a>Použití runbooku
-Následující kroky vás provedou spuštěním této sady runbook a pomohou vám seznámit se s tím, jak funguje. V tomto příkladu budete tento runbook pouze testovat a nebudete odstraňovat žádné skupiny prostředků.  
+Následující postup vás provede procesem spuštění této sady runbook a nápovědy, které jste se seznámili s jak to funguje. Testování sady runbook v tomto příkladu, ve skutečnosti není odstraníte skupinu prostředků.  
 
 1. Na webu Azure Portal otevřete svůj účet Automation a klikněte na **Runbooky**.
 2. Vyberte runbook **Remove-ResourceGroup** a klikněte na **Spustit**.
-3. Po spuštění runbooku se otevře okno **Spustit runbook** a můžete nakonfigurovat parametry. Zadejte názvy skupin prostředků ve vašem předplatném, které můžete použít pro testování a které by při náhodném odstranění nezpůsobily žádné potíže.<br> ![Parametry Remove-ResouceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. Při spuštění sady runbook **spuštění Runbooku** otevře se stránka a můžete nastavit parametry. Zadejte názvy skupin prostředků v rámci vašeho předplatného, můžete použít pro testování a způsobí, že není škodu Pokud náhodou smazala.
 
    > [!NOTE]
-   > Zkontrolujte, že možnost **Previewmode** je nastavená na **true**, abyste zabránili odstranění vybraných skupin prostředků.  **Poznámka**: Tento runbook neodebere skupinu prostředků obsahující účet Automation, který spouští tento runbook.  
+   > Zkontrolujte, že možnost **Previewmode** je nastavená na **true**, abyste zabránili odstranění vybraných skupin prostředků. Tato sada runbook neodebere skupinu prostředků, která obsahuje účet Automation, kterým je spuštěn tento runbook.  
    >
    >
-4. Po dokončení konfigurace hodnot všech parametrů klikněte na **OK**. Runbook se zařadí do fronty pro spuštění.  
+1. Po dokončení konfigurace hodnot všech parametrů klikněte na **OK**. Runbook se zařadí do fronty pro spuštění.  
 
-Pokud chcete zobrazit podrobné informace o úloze runbooku **Remove-ResourceGroup** na webu Azure Portal, vyberte v runbooku **Úlohy**. V souhrnu úlohy se zobrazí vstupní parametry a výstupní datový proud a také obecné informace o příslušné úloze a případné výjimky, které nastaly.<br> ![Stav úlohy runbooku Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png)
+Chcete-li zobrazit podrobnosti o **Remove-ResourceGroup** úlohy sady runbook na portálu Azure v části **prostředků**, vyberte **úlohy** v sadě runbook. Vyberte úkol, který chcete zobrazit. V souhrnu úlohy se zobrazí vstupní parametry a výstupní datový proud a také obecné informace o příslušné úloze a případné výjimky, které nastaly.<br> ![Stav úlohy runbooku Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png)
 
 **Souhrn úlohy** zahrnuje zprávy z datových proudů výstupu, upozornění a chyb. Pokud chcete zobrazit podrobné výsledky spuštění runbooku, vyberte **Výstup**.<br> ![Výsledky výstupu runbooku Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 

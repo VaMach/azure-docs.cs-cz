@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/10/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Stažení oprav hotfix
 
@@ -27,7 +27,7 @@ Provedením následujících kroků si stáhněte aktualizace softwaru z Katalog
 
 Provedením následujících kroků nainstalujte a ověřte opravy hotfix běžného režimu. Pokud jste je již nainstalovali pomocí portálu Azure Classic, přeskočte k [instalaci a ověření oprav hotfix režimu údržby](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. Pokud chcete nainstalovat opravy hotfix, v konzole sériového portu zařízení StorSimple spusťte rozhraní Windows PowerShell. Postupujte podle podrobných pokynů v článku [Připojení ke konzole sériového portu pomocí klienta PuTTy](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Na příkazovém řádku stiskněte **Enter**.
+1. Pokud chcete nainstalovat opravy hotfix, v konzole sériového portu zařízení StorSimple spusťte rozhraní Windows PowerShell. Postupujte podle podrobných pokynů v článku [Připojení ke konzole sériového portu pomocí klienta PuTTy](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Na příkazovém řádku stiskněte **Enter**.
 2. Vyberte **Možnost 1** a přihlaste se k zařízení s úplným přístupem. Doporučujeme opravu hotfix nejprve nainstalovat na pasivním kontroleru.
 3. Pokud chcete nainstalovat opravu hotfix, na příkazovém řádku zadejte:
    

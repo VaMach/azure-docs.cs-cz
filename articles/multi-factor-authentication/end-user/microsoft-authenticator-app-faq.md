@@ -15,17 +15,17 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 073b8adfcbe5fdcc2a6d1dba820a1101fac83218
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Aplikace Microsoft Authenticator – nejčastější dotazy
 
 Tento článek obsahuje odpovědi na běžné otázky, které obdržíme o aplikaci Microsoft Authenticator. Pokud nevidíte odpověď na svoji otázku, přejděte k [fórum aplikace Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Máme také jiné – nejčastější dotazy o konkrétní funkci v aplikaci [přihlásit pomocí vašeho telefonu – nejčastější dotazy](microsoft-authenticator-app-phone-signin-faq.md).
 
-Aplikace Microsoft Authenticator nahradit aplikaci Azure Authenticator a je doporučenou aplikaci, když používáte Azure Multi-Factor Authentication. Je k dispozici pro aplikaci Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), a [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Aplikace Microsoft Authenticator nahradit aplikaci Azure Authenticator a je doporučenou aplikaci, když používáte Azure Multi-Factor Authentication. Je k dispozici pro aplikaci Microsoft Authenticator [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), a [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
@@ -100,7 +100,7 @@ Nemáte k odemknutí zařízení ke schválení žádosti o ověření, protože
 
 Na ikonu zámku označuje, že je zařízení zaregistrované ve službě Azure AD a zaregistrované k účtu. Registrace zařízení pro systém iOS probíhá při registraci s Microsoft Intune.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 ### <a name="contact-us"></a>Kontaktujte nás
 Pokud jste v tomto poli, chceme váš názor. Přejděte na [fórum aplikace Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) vystavte tady svůj dotaz a získat pomoc od komunity nebo nechte komentář na této stránce.

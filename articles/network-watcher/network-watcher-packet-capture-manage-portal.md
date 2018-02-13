@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Spravovat zachycení paketů s sledovací proces sítě Azure pomocí portálu
 
@@ -61,7 +61,10 @@ Přejděte na [portál Azure](https://portal.azure.com) a klikněte na tlačítk
 Přehled stránka obsahuje že seznam všech paketů zaznamená, který neexistuje bez ohledu na stav.
 
 > [!NOTE]
-> Zachytáváním paketů vyžaduje připojení k účtu úložiště přes port 443.
+> Zachytáváním paketů vyžaduje následující připojování.
+> * Odchozí připojení k účtu úložiště přes port 443.
+> * Příchozí a odchozí připojení k 169.254.169.254
+> * Příchozí a odchozí připojení k 168.63.129.16
 
 ![obrazovka Přehled zachytávání paketů][1]
 
@@ -80,10 +83,11 @@ Vlastnosti, které lze definovat na zachytáváním paketů jsou:
 
 **Zachycení konfigurace**
 
+- **Místní cesta** – místní cesta na virtuálním počítači, kde je uložena zachytáváním paketů (platná pouze tehdy, když **[soubor]** je vybraný). Je nutné zadat platnou cestu. Pokud používáte virtuální počítač s Linuxem, cesta musí začínat znakem / var / zaznamená.
 - **Účet úložiště** -Určuje, pokud se zachytáváním paketů je uložen v účtu úložiště.
 - **Soubor** -Určuje, pokud se zachytáváním paketů se místně uloží na virtuálním počítači.
 - **Účty úložiště** – vybraný účet úložiště se zachytáváním paketů v uložit. Výchozí umístění je id name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription účtu https://{storage} /resourcegroups/ {název počítače name}/providers/microsoft.compute/virtualmachines/{virtual skupiny prostředků} / {RR} / {MM} / {DD} / {HH} packetcapture__{MM}_CAP _ {XXX} {SS}. (Aktivní, pouze pokud **úložiště** je vybraná)
-- **Cesta k souboru místní** -místní cestu na virtuální počítač uložit zachytáváním paketů. (Aktivní, pouze pokud **soubor** je vybraný). Je nutné zadat platnou cestu
+- **Cesta k souboru místní** -místní cestu na virtuální počítač uložit zachytáváním paketů. (Aktivní, pouze pokud **soubor** je vybraný). Je nutné zadat platnou cestu. Pro virtuální počítač s Linuxem, musí cesta začínat */var/zaznamená*.
 - **Maximální počet bajtů paketu** – počet bajtů z jednotlivých paketů, které jsou zachyceny, všechny bajty zachyceny, pokud je ponecháno prázdné.
 - **Maximální počet bajtů za relace** – celkový počet bajtů, které jsou zachyceny, hodnota v případě dosažení Zastaví zachytávání paketů.
 - **Časový limit (sekundy)** -nastaví časový limit pro zachytávání paketů zastavit. Výchozí hodnota je 18000 sekund.
@@ -134,7 +138,7 @@ Pokud je zadaný účet úložiště, soubory zachytávání paketů ukládají 
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Informace o automatizaci paketu zachytává se virtuální počítač výstrahy zobrazením [vytvořit zaznamenání výstrahy spouštěná paketu](network-watcher-alert-triggered-packet-capture.md)
 

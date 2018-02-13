@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Vizuální sledování Azure data Factory
 Azure Data Factory je cloudová služba pro integraci dat umožňující vytváření pracovních postupů řízených daty v cloudu za účelem orchestrace a automatizace přesunu a transformace dat. Pomocí služby Azure Data Factory můžete vytvářet a plánovat pracovní postupy řízené daty (nazývané kanály) se schopností ingestovat data z různorodých úložišť dat, zpracovat a transformovat tato data pomocí výpočetních služeb, jako je Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics a Azure Machine Learning, a publikovat výstupní data do úložišť dat, jako je Azure SQL Data Warehouse, aby je mohly využívat aplikace business intelligence (BI).
@@ -29,15 +29,16 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Monitorování kanálů v2 objekt pro vytváření dat
 
-1. Přihlaste se k [portál Azure](https://portal.azure.com/).
-2. Přejděte do okna objekt pro vytváření dat vytvořený na portálu Azure a klikněte na dlaždici, monitorování a správa'. Tím se spustí ADF v2 visual monitorováním.
+1. Spusťte **Microsoft Edge** nebo **Google Chrome** webového prohlížeče. V současné době uživatelského rozhraní objektu pro vytváření dat je podporována pouze pro webové prohlížeče Microsoft Edge a Google Chrome.
+2. Přihlaste se k [portál Azure](https://portal.azure.com/).
+3. Přejděte do okna objekt pro vytváření dat vytvořený na portálu Azure a klikněte na dlaždici, monitorování a správa'. Tím se spustí ADF v2 visual monitorováním.
 
 ## <a name="list-view-monitoring"></a>Zobrazení seznamu monitorování
 
-Monitorování kanálu a aktivity spouští s rozhraním zobrazení jednoduchých seznamů. Je spuštěn se zobrazí v prohlížeči místní časové pásmo. Můžete změnit časové pásmo a všech datových polí čas přichyceno k vybranému časovému pásmu.  
+Monitorování kanálu a aktivity spouští s rozhraním zobrazení jednoduchých seznamů. Všechna spuštění se zobrazují v místním časovém pásmu prohlížeče. Časové pásmo je možné změnit. Všechna pole data a času se potom přizpůsobí vybranému časovému pásmu.  
 
 #### <a name="monitoring-pipeline-runs"></a>Spustí monitorování kanálu
-Zobrazení seznamu ji na každý kanál spustit pro objekt pro vytváření datových kanálů v2. Zahrnuté sloupce:
+Zobrazení seznamu předvádí jednotlivá spuštění pro kanály Data Factory v2. Zahrnuté sloupce:
 
 | **Název sloupce** | **Popis** |
 | --- | --- |
@@ -45,16 +46,16 @@ Zobrazení seznamu ji na každý kanál spustit pro objekt pro vytváření dato
 | Akce | Chcete-li zobrazit běh aktivit je jedné akce. |
 | Spustit počáteční | Kanál spustit počáteční datum a čas (MM/DD/RRRR HH: mm: SS dop. / odp.) |
 | Doba trvání | Doba běhu (hh: mm:) |
-| Aktivované | Ruční aktivaci plánu aktivační události |
+| Inicializoval | Ruční aktivaci plánu aktivační události |
 | Status | Chyba, byly úspěšné, v průběhu |
 | Parametry | Kanál spustit parametry (název, hodnotu páry) |
 | Chyba | Kanál spustit chyby (Pokud nebo any) |
-| ID spuštění | ID spuštění kanálu |
+| ID běhu | ID spuštění kanálu |
 
-![Spustí monitorování kanálu](media/monitor-visually/pipeline-runs.png)
+![Monitorování spuštění kanálu](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Spustí monitorování aktivity
-Zobrazení seznamu ji spustí aktivita odpovídající každý kanál spustit. Klikněte na tlačítko **aktivita spuštěna** ikonu pod **"Akce"** sloupce k zobrazení aktivity spouští pro každý kanál spustit. Zahrnuté sloupce:
+Zobrazení seznamu předvádí spuštění aktivit odpovídající jednotlivým spuštěním kanálu. Klikněte na tlačítko **aktivita spuštěna** ikonu pod **"Akce"** sloupce k zobrazení aktivity spouští pro každý kanál spustit. Zahrnuté sloupce:
 
 | **Název sloupce** | **Popis** |
 | --- | --- |
@@ -67,17 +68,17 @@ Zobrazení seznamu ji spustí aktivita odpovídající každý kanál spustit. K
 | Výstup | Pole JSON s popisem výstupů aktivity |
 | Chyba | Aktivity při spuštění chyby (Pokud nebo any) |
 
-![Spustí monitorování aktivity](media/monitor-visually/activity-runs.png)
+![Monitorování spuštění aktivit](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
-> Je třeba kliknout na **'Aktualizujte'** ikonu na horní k aktualizaci seznamu kanálu a aktivita běží. Automatická aktualizace se aktuálně nepodporuje.
+> Je třeba kliknout na **'Aktualizujte'** ikonu na horní k aktualizaci seznamu kanálu a aktivita běží. Automatická aktualizace se v tuto chvíli nepodporuje.
 >
 
 ![Obnovení](media/monitor-visually/refresh.png)
 
 ## <a name="features"></a>Funkce
 
-#### <a name="rich-ordering-and-filtering"></a>Bohaté řazení a filtrování
+#### <a name="rich-ordering-and-filtering"></a>Bohaté možnosti uspořádání a filtrování
 
 Pořadí kanálu se spustí v desc/asc spustit Start a filtr kanálu se spustí následující sloupce:
 
@@ -89,10 +90,10 @@ Pořadí kanálu se spustí v desc/asc spustit Start a filtr kanálu se spustí 
 
 ![Filtr](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-to-list-view"></a>Přidat nebo odebrat sloupce k zobrazení seznamu
+#### <a name="addremove-columns-to-list-view"></a>Přidání nebo odebrání sloupců v zobrazení seznamu
 Klikněte pravým tlačítkem na hlavičku zobrazení seznamu a vyberte sloupce, které se má zobrazit v zobrazení seznamu
 
-![sloupce](media/monitor-visually/columns.png)
+![Sloupce](media/monitor-visually/columns.png)
 
 #### <a name="reorder-column-widths-in-list-view"></a>Změna pořadí šířku sloupců v zobrazení seznamu
 Zvýšení a snižte šířku sloupců v zobrazení seznamu jednoduše ukazatele myši na záhlaví sloupce
@@ -112,6 +113,6 @@ Klikněte na ikonu 'zpětnou vazbu, sdělte nám svůj názor na různých funkc
 
 ![Váš názor](media/monitor-visually/feedback.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tématu [monitorování a Správa kanálů prostřednictvím kódu programu](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) článku se dozvíte o monitorování a Správa kanálů

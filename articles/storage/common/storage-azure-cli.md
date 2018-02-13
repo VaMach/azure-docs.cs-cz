@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 509c702054961c9d9fa525242ce0542059e32d81
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Použití Azure CLI 2.0 s Azure Storage
 
@@ -176,7 +176,7 @@ Done
 
 ## <a name="manage-storage-accounts"></a>Správa účtů úložiště
 
-### <a name="create-a-new-storage-account"></a>Vytvořit nový účet úložiště
+### <a name="create-a-new-storage-account"></a>Vytvoření nového účtu úložiště
 Pokud chcete vyzkoušet službu Azure Storage, potřebujete účet úložiště. Můžete vytvořit nový účet úložiště Azure, po dokončení konfigurace počítače pro [připojení k vašemu předplatnému](#connect-to-your-azure-subscription).
 
 ```azurecli
@@ -196,6 +196,7 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Nastavení proměnných prostředí výchozí účet úložiště Azure
 Můžete mít více účtů úložiště ve vašem předplatném Azure. Vyberte jednu z nich chcete použít pro žádné další příkazy, můžete nastavit tyto proměnné prostředí:
@@ -268,7 +269,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 
-Seznam objektů BLOB v kontejneru s [az úložiště objektů blob seznamu](/cli/azure/storage/blob#list) příkaz.
+Seznam objektů BLOB v kontejneru s [az úložiště objektů blob seznamu](/cli/azure/storage/blob#az_storage_blob_list) příkaz.
 
 ```azurecli
 az storage blob list \
@@ -509,7 +510,7 @@ Ukázkový výstup
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Tady jsou některé další zdroje informací o další informace o práci s Azure CLI 2.0.
 
 * [Začínáme s Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)

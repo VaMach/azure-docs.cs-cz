@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2017
+ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurace vynuceného tunelování pomocí modelu nasazení Azure Resource Manageru
 
@@ -123,15 +123,22 @@ Nainstalujte nejnovější verzi rutin PowerShellu pro Azure Resource Manager. D
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Vytvoření brány s výchozí web. Tento krok trvá delší dobu, někdy 45 minut nebo déle, protože jsou vytvoření a konfiguraci brány.<br> **- GatewayDefaultSite** je parametr rutiny, která umožňuje vynucené konfigurace směrování fungovat, takže postará nakonfigurovat toto nastavení správně. Pokud se zobrazí chyby ValidateSet týkající se hodnota GatewaySKU, ověřte, zda jste nainstalovali [nejnovější verzi rutin prostředí PowerShell](#before). Nejnovější verzi rutin prostředí PowerShell s hodnotami novou ověřené pro nejnovější SKU brány.
+6. Vytvořte bránu virtuální sítě. Tento krok trvá delší dobu, někdy 45 minut nebo déle, protože jsou vytvoření a konfiguraci brány. Pokud se zobrazí chyby ValidateSet týkající se hodnota GatewaySKU, ověřte, zda jste nainstalovali [nejnovější verzi rutin prostředí PowerShell](#before). Nejnovější verzi rutin prostředí PowerShell s hodnotami novou ověřené pro nejnovější SKU brány.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
   $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
-  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -GatewayDefaultSite $lng1 -EnableBgp $false
+  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $false
   ```
-7. Vytvořit připojení Site-to-Site VPN.
+7. Přiřadíte výchozí web bránu virtuální sítě. **- GatewayDefaultSite** je parametr rutiny, která umožňuje vynucené konfigurace směrování fungovat, takže postará nakonfigurovat toto nastavení správně. 
+
+  ```powershell
+  $LocalGateway = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling"
+  $VirtualGateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
+  Set-AzureRmVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $LocalGateway -VirtualNetworkGateway $VirtualGateway
+  ```
+8. Vytvořit připojení Site-to-Site VPN.
 
   ```powershell
   $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Odeslat oznámení do testovacího prostředí v Azure DevTest Labs
 
@@ -47,6 +47,13 @@ Funkce oznámení je určen pro použití pro dočasné oznámení.  Oznámení 
 
 1. Chcete-li vytvořit zprávu pro uživatele v tomto testovacím prostředí, nastavte **povoleno** k **Ano**.
 
+1. Můžete zadat **datum vypršení platnosti** zadat datum a čas, po jejímž uplynutí je už zobrazovat oznámení uživatelům. Pokud nezadáte datum vypršení platnosti, zůstane oznámení, dokud ji zakázat.
+
+   > [!NOTE]
+   > Po vypršení platnosti oznámení, je už nebude zobrazovat uživatelům, ale stále existuje v **testovacím oznámení** podokně. Můžete provést úpravy ji a znovu povolte ho znovu aktivovat.
+   >
+   >
+
 1. Zadejte **nadpis oznámení** a **text oznámení**.
 
    Název může být maximálně 100 znaků a se zobrazí uživatele na stránku přehled v prostředí. Pokud uživatel vybere nadpis, text oznámení se zobrazí.
@@ -58,7 +65,7 @@ Funkce oznámení je určen pro použití pro dočasné oznámení.  Oznámení 
 
 1. Vyberte **Uložit** po odesíláním sdělení.
 
-Pokud již nechcete zobrazit tato oznámení uživatelům prostředí, vraťte se do **testovacím oznámení** stránky a nastavte **povoleno** k **ne**.
+Pokud již nechcete zobrazit tato oznámení uživatelům prostředí, vraťte se do **testovacím oznámení** stránky a nastavte **povoleno** k **ne**. Pokud jste zadali datum vypršení platnosti, oznámení bude automaticky v zakázaná, data a času.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Kroky pro uživatele k zobrazení oznámení
 

@@ -3,8 +3,8 @@ title: "Azure Redis Cache – nejčastější dotazy | Microsoft Docs"
 description: "Další odpovědi na časté otázky, vzory a osvědčené postupy pro Azure Redis Cache"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Nejčastější dotazy k Azure Redis Cache
 Další odpovědi na časté otázky, vzorce a osvědčené postupy pro Azure Redis Cache.
@@ -31,7 +31,7 @@ Pokud váš dotaz není zde uvedeno, dejte nám vědět, a pomůžeme vám nají
 * Pokud chcete, aby se žádosti o funkci, můžete odeslat požadavky a nápady, jak [Azure Redis Cache User Voice](https://feedback.azure.com/forums/169382-cache).
 * Můžete také odeslat e-mailu na nás na adrese [externí zpětnou vazbu mezipaměti Azure](mailto:azurecache@microsoft.com).
 
-## <a name="azure-redis-cache-basics"></a>Základy služby Azure Redis Cache
+## <a name="azure-redis-cache-basics"></a>Azure Redis Cache basics
 Nejčastější dotazy v této části se věnují některé základní informace o Azure Redis Cache.
 
 * [Co je Azure Redis Cache?](#what-is-azure-redis-cache)
@@ -119,36 +119,36 @@ Níže jsou faktory pro výběr nabídku mezipaměti.
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Azure Redis Cache výkonu
-Následující tabulka uvádí maximální šířka pásma hodnotami zjištěnými při testování různých velikostí Standard a Premium ukládá do mezipaměti pomocí `redis-benchmark.exe` z virtuálního počítače Iaas na koncový bod Azure Redis Cache. 
+Následující tabulka uvádí maximální šířka pásma hodnotami zjištěnými při testování různých velikostí Standard a Premium ukládá do mezipaměti pomocí `redis-benchmark.exe` z virtuálního počítače Iaas na koncový bod Azure Redis Cache. Pro SSL propustnost redis-srovnávacího testu se používá s stunnel pro připojení ke koncovému bodu Azure Redis Cache.
 
 >[!NOTE] 
 >Tyto hodnoty se nezaručuje a neexistuje žádný SLA pro tyto čísla, ale musí být typické. By se měly načíst otestovat vlastní aplikaci k určení velikosti mezipaměti správné pro vaši aplikaci.
->
+>Tato čísla může změnit, protože pravidelně zanesení novější výsledky.
 >
 
 Z této tabulky jsme kreslení následující závěry:
 
-* Propustnost, pro které mají stejnou velikost mezipaměti je vyšší ve vrstvě | Premium porovnání na plán úrovně Standard. Například s 6 GB mezipaměti, je propustnost P1 180 000 RPS porovnání 49,000 pro C3.
+* Propustnost, pro které mají stejnou velikost mezipaměti je vyšší ve vrstvě | Premium porovnání na plán úrovně Standard. Například s 6 GB mezipaměti, je propustnost P1 180 000 RPS ve srovnání se 100 000 pro C3.
 * S Redisem clustering propustnost zvyšuje lineárně zvýšit počet horizontálních oddílů (uzlů) v clusteru. Například pokud vytvoříte cluster P4 10 horizontálními oddíly, pak k dispozici propustnost je 400,000 * 10 = 4 miliony RPS.
 * Propustnost pro větší velikosti klíče je vyšší ve vrstvě | Premium porovnání na plán úrovně Standard.
 
-| Cenová úroveň | Velikost | Procesorová jádra | Dostupná šířka pásma | Velikost hodnoty 1 KB |
-| --- | --- | --- | --- | --- |
-| **Standardní mezipaměti velikosti** | | |**Megabity za sekundu (Mb/s) nebo megabajtů za sekundu (MB/s)** |**Počet požadavků za sekundu (RPS)** |
-| C0 |250 MB |Shared |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2,5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62.5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150,000 |
-| **Velikost mezipaměti Premium** | |**Jader procesoru na horizontální oddíl** | **Megabity za sekundu (Mb/s) nebo megabajtů za sekundu (MB/s)** |**Počet požadavků za sekundu (RPS), na horizontální oddíl** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400 000 |
+| Cenová úroveň | Velikost | Procesorová jádra | Dostupná šířka pásma | Velikost hodnoty 1 KB | Velikost hodnoty 1 KB |
+| --- | --- | --- | --- | --- | --- |
+| **Standardní mezipaměti velikosti** | | |**Megabity za sekundu (Mb/s) nebo megabajtů za sekundu (MB/s)** |**Požadavky na druhý bez SSL (RPS)** |**Požadavky na druhý protokol SSL (RPS)** |
+| C0 |250 MB |Shared |100 / 12.5 |15,000 |7,500 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| **Velikost mezipaměti Premium** | |**Jader procesoru na horizontální oddíl** | **Megabity za sekundu (Mb/s) nebo megabajtů za sekundu (MB/s)** |**Počet požadavků za druhé (RPS) bez SSL, na horizontální oddíl** |**Požadavky na druhý protokol SSL (RPS), na horizontální oddíl** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P4 |53 GB |8 |6,000 / 750 |400 000 |373,000 |
 
-Pokyny ke stahování nástroje Redis jako `redis-benchmark.exe`, najdete v článku [jak můžete spouštět příkazy Redis?](#cache-commands) části.
+Pokyny k nastavení stunnel nebo stahování nástroje Redis jako `redis-benchmark.exe`, najdete v článku [jak můžete spouštět příkazy Redis?](#cache-commands) části.
 
 <a name="cache-region"></a>
 
@@ -165,10 +165,10 @@ Ano, Azure Redis Cache je dostupná v cloudu Azure Government, Čína cloudu Azu
 
 | Cloud   | Přípona DNS pro Redis            |
 |---------|---------------------------------|
-| Veřejné  | *. redis.cache.windows.net       |
-| Vláda USA  | *. redis.cache.usgovcloudapi.net |
-| Německo | *. redis.cache.cloudapi.de       |
-| Čína   | *. redis.cache.chinacloudapi.cn  |
+| Veřejné  | *.redis.cache.windows.net       |
+| Vláda USA  | *.redis.cache.usgovcloudapi.net |
+| Německo | *.redis.cache.cloudapi.de       |
+| Čína   | *.redis.cache.chinacloudapi.cn  |
 
 Další informace o informace týkající se použití Azure Redis Cache s ostatních cloudů najdete v následujících tématech.
 
@@ -201,7 +201,7 @@ Výchozí hodnoty klienta jsou obvykle dostatečná. Můžete upřesnit možnost
   * Používala jedna instance ConnectionMultiplexer pro aplikaci. LazyConnection můžete použít k vytvoření jediné instance, který je vrácen vlastností připojení, jak je znázorněno v [připojení k mezipaměti pomocí třídy ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Nastavte `ConnectionMultiplexer.ClientName` vlastnost, která má jedinečný název instance aplikace k diagnostickým účelům.
   * Použití více `ConnectionMultiplexer` instance pro vlastní úlohy.
-      * Tento model můžete provést, pokud máte různých zatížení ve vaší aplikaci. Například:
+      * Tento model můžete provést, pokud máte různých zatížení ve vaší aplikaci. Příklad:
       * Můžete mít jednu multiplexor pro práci s velké klíče.
       * Můžete mít jednu multiplexor pro práci s malé klíče.
       * Můžete nastavit různé hodnoty pro vypršení časových limitů připojení a logika opakovaných pokusů pro každou ConnectionMultiplexer, který používáte.

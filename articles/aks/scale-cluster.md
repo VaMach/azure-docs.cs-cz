@@ -1,47 +1,39 @@
 ---
-title: "Škálování clusteru Azure Container Service (AKS) | Dokumentace Microsoftu"
+title: "Škálování clusteru Azure Container Service (AKS)"
 description: "Škálujte cluster Azure Container Service (AKS)."
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, Containers, Microservices, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: b2fa3ebb7a22b9d19678d45cc50806627ab80e90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>Škálování clusteru Azure Container Service (AKS)
 
-Cluster AKS je možné snadno škálovat na různý počet uzlů.  Vyberte požadovaný počet uzlů a spusťte příkaz `az aks scale`.  Během vertikálního snižování kapacity jsou uzly pečlivě [uzavřené a vyprázdněné](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), aby se minimalizovalo přerušení spuštěných aplikací.  Během vertikálního navyšování kapacity `az`příkaz čeká na označení uzlů`Ready` clusterem Kubernetes.
+Cluster AKS je možné snadno škálovat na různý počet uzlů.  Vyberte požadovaný počet uzlů a spusťte příkaz `az aks scale`.  Při zvětšení velikosti, uzly budou pečlivě [cordoned a k nečekaně] [ kubernetes-drain] minimalizovat přerušení spuštěných aplikací.  Během vertikálního navyšování kapacity `az`příkaz čeká na označení uzlů`Ready` clusterem Kubernetes.
 
 ## <a name="scale-the-cluster-nodes"></a>Škálování uzlů clusteru
 
-Uzly clusteru můžete škálovat pomocí příkazu `az aks scale`. Následující příklad škáluje cluster *myK8SCluster* na jediný uzel.
+Uzly clusteru můžete škálovat pomocí příkazu `az aks scale`. Následující příklad škáluje cluster s názvem *myAKSCluster* do jednoho uzlu.
 
 ```azurecli-interactive
-az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
+az aks scale --name myAKSCluster --resource-group myResourceGroup --node-count 1
 ```
 
 Výstup:
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -56,7 +48,7 @@ Výstup:
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
@@ -91,9 +83,15 @@ Výstup:
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o nasazení a správě AKS najdete v kurzech AKS.
 
 > [!div class="nextstepaction"]
-> [Kurz AKS](./tutorial-kubernetes-prepare-app.md)
+> [Kurz AKS][aks-tutorial]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

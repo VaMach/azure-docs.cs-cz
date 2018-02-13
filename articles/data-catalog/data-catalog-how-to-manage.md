@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 7e0d416c58dced89623a28038e804e8002f0341a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a4b2b5734bf8bfbbc45a65b02362d1fa37b1a87
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Spravovat datové prostředky v Azure Data Catalog
 ## <a name="introduction"></a>Úvod
@@ -44,7 +44,7 @@ Pokud vlastní datový prostředek v katalogu Data Catalog, jenom uživatelé, k
 >
 >
 
-### <a name="take-ownership"></a>Přebírat vlastnictví
+### <a name="take-ownership"></a>Převzít vlastnictví
 Uživatelé mohou převzít vlastnictví datových prostředků tak, že vyberete **převzít vlastnictví** možnost na portálu katalogu Data Catalog. Žádné speciální oprávnění jsou vyžadována k převzetí vlastnictví prostředek bez přiřazeného vlastnictví data. Každý uživatel může převzít vlastnictví prostředek bez přiřazeného vlastnictví data.
 
 ### <a name="add-owners-and-co-owners"></a>Přidat vlastníků a spoluvlastníci

@@ -2,23 +2,17 @@
 title: "Nastavit zotavení po havárii do Azure pro fyzický místní servery s Azure Site Recovery | Microsoft Docs"
 description: "Zjistěte, jak nastavit zotavení po havárii do Azure pro místní systém Windows a Linux serverů se službou Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 805f6946-c6da-491f-980e-bf724bebdf0b
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 01e582cb789e402496c920e4a8fe27d5c6848531
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Nastavit zotavení po havárii do Azure pro místní fyzických serverů
 
@@ -64,7 +58,7 @@ Ujistěte se, že váš účet Azure má oprávnění pro replikaci virtuálníc
 
 ### <a name="set-up-an-azure-network"></a>Nastavení sítě Azure
 
-Nastavení [síť Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Nastavení [síť Azure](../virtual-network/quick-create-portal.md).
 
 - Virtuální počítače Azure jsou umístěny v této síti, když jste vytvořili po převzetí služeb při selhání.
 - Síť musí být ve stejné oblasti jako trezor služeb zotavení
@@ -142,7 +136,7 @@ Vyberte a ověřte cílové prostředky.
 2. Zadejte model nasazení cíl.
 3. Site Recovery zkontroluje, že máte minimálně jednu kompatibilní síť a účet úložiště Azure.
 
-   ![cíl](./media/tutorial-physical-to-azure/network-storage.png)
+   ![Cíl](./media/tutorial-physical-to-azure/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Vytvoření zásady replikace
@@ -181,6 +175,6 @@ Povolení replikace pro každý server.
 
 Ke sledování serverů, které přidáte, můžete zkontrolovat, čas poslední zjištěné u nich **konfigurační servery** > **poslední obraťte se na**. Chcete-li přidat počítače bez čekání naplánovaný čas zjišťování, zvýrazněte konfigurační server (nemáte klikněte na něj) a klikněte na tlačítko **aktualizovat**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Spuštění postupu zotavení po havárii](tutorial-dr-drill-azure.md)

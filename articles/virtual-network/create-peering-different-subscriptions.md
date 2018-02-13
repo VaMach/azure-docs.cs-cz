@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 89ecd5ac2b8816e4efc5f8bf37dd7390bbf39ae8
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0686e3fe129abcdcecc5870f7384dd68271e7b3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Vytvoření virtuální sítě partnerský vztah – Resource Manager, různých předplatných 
 
@@ -31,7 +31,7 @@ Postup vytvoření virtuální sítě partnerského vztahu se liší v závislos
 |--------- |---------|
 |[I Resource Manager](virtual-network-create-peering.md) |stejné|
 |[Jeden Resource Manager, jeden classic](create-peering-different-deployment-models.md) |stejné|
-|[Jeden Resource Manager, jeden classic](create-peering-different-deployment-models-subscriptions.md) |Různé|
+|[Jeden Resource Manager, jeden classic](create-peering-different-deployment-models-subscriptions.md) |Odlišné|
 
 Virtuální síť partnerský vztah nelze vytvořit mezi dvěma virtuálními sítěmi nasazené prostřednictvím modelu nasazení classic. Pokud potřebujete připojení virtuální sítě, které byly obě vytvořené pomocí modelu nasazení classic, můžete použít Azure [brány VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) připojení virtuální sítě. 
 
@@ -46,7 +46,7 @@ Tento kurz používá různé účty pro každé předplatné. Pokud používát
 1. Přihlaste se k [portál Azure](https://portal.azure.com) jako uživatele. Účet, ke kterému se přihlásíte, musí mít potřebná oprávnění k vytvoření virtuální sítě partnerského vztahu. Najdete v článku [oprávnění](#permissions) tohoto článku podrobnosti.
 2. Klikněte na tlačítko **+ nový**, klikněte na tlačítko **sítě**, pak klikněte na tlačítko **virtuální síť**.
 3. V **vytvořit virtuální síť** okno, zadejte, nebo vyberte hodnoty pro následující nastavení a potom klikněte na tlačítko **vytvořit**:
-    - **Název**: *myVnetA*
+    - **Name**: *myVnetA*
     - **Adresní prostor**: *10.0.0.0/16*
     - **Název podsítě**: *výchozí*
     - **Rozsah adres podsítě**: *10.0.0.0/24*
@@ -80,7 +80,7 @@ Tento kurz používá různé účty pro každé předplatné. Pokud používát
 19. V **myVnetA** okno, které se zobrazí, klikněte na tlačítko **partnerských vztahů** ze seznamu svislé možností na levé straně okna.
 20. V **myVnetA - partnerských vztahů** okno, které se zobrazily, klikněte na tlačítko **+ přidat**
 21. V **partnerský vztah přidat** okno, které se zobrazí, zadejte, nebo vyberte následující možnosti a potom klikněte na tlačítko **OK**:
-     - **Název**: *myVnetAToMyVnetB*
+     - **Name**: *myVnetAToMyVnetB*
      - **Virtuální síť modelu nasazení**: vyberte **Resource Manager**.
      - **Vím Moje ID prostředku**: Zaškrtněte toto políčko.
      - **ID prostředku**: Zadejte ID prostředku z kroku 14.
@@ -303,7 +303,7 @@ Po dokončení tohoto kurzu, můžete chtít odstranit z prostředků, které js
 5. Odhlaste se z portálu jako uživatele a přihlaste se jako b.
 6. Dokončete kroky 2 až 4 pro myResourceGroupB.
 
-### <a name="delete-cli"></a>Rozhraní příkazového řádku Azure
+### <a name="delete-cli"></a>Azure CLI
 
 1. Přihlaste se k Azure jako uživatele a spusťte následující příkaz:
 
@@ -317,7 +317,7 @@ Po dokončení tohoto kurzu, můžete chtít odstranit z prostředků, které js
     az group delete --name myResourceGroupB --yes
     ```
 
-### <a name="delete-powershell"></a>Prostředí PowerShell
+### <a name="delete-powershell"></a>PowerShell
 
 1. Přihlaste se k Azure jako uživatele a spusťte následující příkaz:
 
@@ -334,9 +334,7 @@ Po dokončení tohoto kurzu, můžete chtít odstranit z prostředků, které js
 
 ## <a name="register"></a>Registrace pro partnerského vztahu preview globální virtuální sítě
 
-Schopnost peer virtuální sítě v různých oblastech je aktuálně ve verzi preview. Možnost je dostupná omezená sada oblastí (na začátku USA – Západ střední, Střední Kanada a USA – západ 2). Virtuální síť partnerských vztahů vytvořit mezi virtuálními sítěmi v různých oblastech nemusí mít stejnou úroveň dostupnost a spolehlivost jako partnerský vztah mezi virtuálními sítěmi ve stejné oblasti. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
-
-Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné zaregistrovat verzi Preview, pomocí následujících kroků (v rámci předplatného je každá virtuální síť chcete rovnocenných počítačů v) pomocí prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure:
+Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Partnerský vztah virtuální sítě v různých oblastech je aktuálně ve verzi preview. V tématu [aktualizace virtuální sítě](https://azure.microsoft.com/en-us/updates/?product=virtual-network) pro dostupné oblasti. Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné zaregistrovat verzi Preview, pomocí následujících kroků (v rámci předplatného je každá virtuální síť chcete rovnocenných počítačů v) pomocí prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -382,7 +380,7 @@ Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné z
 
     Neprovádějte kroky v části šablony portálu, rozhraní příkazového řádku Azure, PowerShell nebo správce prostředků tohoto článku, dokud **RegistrationState** výstupu se zobrazí po zadání příkazu předchozí je **registrovaná**  pro oba odběry.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Důkladně Seznamte se s důležité [partnerského vztahu omezení virtuální sítě a chování](virtual-network-manage-peering.md#requirements-and-constraints) před vytvořením virtuální sítě partnerský vztah pro produkční použití.
 - Další informace o všech [partnerského vztahu nastavení virtuální sítě](virtual-network-manage-peering.md#create-a-peering).

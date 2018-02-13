@@ -3,7 +3,7 @@ title: "Propojit řešení dat v Log Analytics | Microsoft Docs"
 description: "Data kabelové sítě je konsolidované sítě a výkon data z počítačů s agenty OMS, včetně nástroje Operations Manager a agenti připojená k systému Windows. Data sítě spolu s daty protokolu ke korelaci data."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: magoedte;banders
-ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: magoedte
+ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Řešení přenosu dat 2.0 (Preview) v analýzy protokolů
 
@@ -115,7 +115,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| **Verze operačního systému** | **Verze jádra** |
+| Verze operačního systému | Verze jádra |
 | --- | --- |
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -124,7 +124,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| **Verze operačního systému** | **Verze jádra** |
+| Verze operačního systému | Verze jádra |
 | --- | --- |
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -138,7 +138,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 
-| **Verze operačního systému** | **Verze jádra** |
+| Verze operačního systému | Verze jádra |
 | --- | --- |
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -149,7 +149,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 
-| **Verze operačního systému** | **Verze jádra** |
+| Verze operačního systému | Verze jádra |
 | --- | --- |
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -159,7 +159,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| **Verze operačního systému** | **Verze jádra** |
+| Verze operačního systému | Verze jádra |
 | --- | --- |
 | 5.8 | Oracle 2.6.32-300 (UEK R1) |
 | 5.9 | Oracle 2.6.39-300 (UEK R2) |
@@ -170,7 +170,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 
-| **Verze operačního systému** | **Verze jádra** |
+| Verze operačního systému | Verze jádra |
 | --- | --- |
 | 11 | 2.6.27 |
 | 11 SP1 | 2.6.32 |
@@ -180,7 +180,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 #### <a name="suse-linux-10"></a>SUSE Linux 10
 
-| **Verze operačního systému** | **Verze jádra** |
+| Verze operačního systému | Verze jádra |
 | --- | --- |
 | 10 SP4 | 2.6.16.60 |
 
@@ -209,7 +209,7 @@ Je závislost Agent nainstalován v počítačích se systémem Windows prostře
 Použijte následující kroky pro instalaci agenta závislost na každém počítači se systémem Windows:
 
 1. Nainstalovat agenta OMS kroků v [shromažďovat data z počítače se systémem Windows hostované ve vašem prostředí](log-analytics-windows-agent.md).
-2. Stáhnout agenta pro Windows závislostí pomocí odkazu v předchozí části a spusťte jej pomocí následujícího příkazu:`InstallDependencyAgent-Windows.exe`
+2. Stáhnout agenta pro Windows závislostí pomocí odkazu v předchozí části a spusťte jej pomocí následujícího příkazu: `InstallDependencyAgent-Windows.exe`
 3. Postupujte podle pokynů průvodce k instalaci agenta.
 4. Pokud Agent služby Dependency se nepodaří spustit, zkontrolujte protokoly podrobné informace o chybě. Pro agenty se systémem Windows k adresáři protokolu není %Programfiles%\Microsoft Agent\logs závislostí.
 
@@ -252,7 +252,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Soubory pro agenta závislosti jsou umístěny v adresáři pro následující:
 
-| **Soubory** | **Umístění** |
+| Soubory | **Umístění** |
 | --- | --- |
 | Soubory jádra | /OPT/Microsoft/Dependency-Agent |
 | Soubory protokolu | /var/OPT/Microsoft/Dependency-Agent/log |
@@ -364,7 +364,7 @@ Sada management pack je s názvem Microsoft.IntelligencePacks.ApplicationDepende
 
 ## <a name="using-the-solution"></a>Použití řešení
 
-**Instalace a konfigurace řešení**
+Instalace a konfigurace řešení
 
 Použijte následující informace k instalaci a konfiguraci řešení.
 
@@ -387,7 +387,7 @@ Na portálu OMS, klikněte **přenosu dat 2.0** dlaždici otevřete řídicí pa
 | Místní podsítě | Zobrazuje počet místní podsítě, které byly zjištěny agenty.  Klikněte na číslo ke spuštění protokolu vyhledejte <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> , obsahuje seznam všech podsítí s počet bajtů odeslaných přes každé z nich. Klikněte na podsíť v seznamu ke spuštění vyhledávání protokolu vrátí celkový počet bajtů odeslaných přes podsíť. |
 | Protokoly na úrovni aplikace | Zobrazuje počet protokoly na úrovni aplikace používána, při zjištění agenty. Klikněte na číslo ke spuštění protokolu vyhledejte <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Klikněte na protokol spuštění vyhledávání protokolu vrátí celkový počet bajtů odeslaných pomocí protokolu. |
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Řídicí panel přenosu dat](./media/log-analytics-wire-data/wire-data-dash.png)
 
@@ -413,7 +413,7 @@ Je také užitečné vědět, pokud je provozu protokolu zvýšením nebo sníž
 
 Data kabelové sítě shromažďuje metadata o síťovém provozu pomocí agentů, které jste povolili. Každý agent odesílá data o každých 15 sekund.
 
-## <a name="output-data"></a>výstupní data
+## <a name="output-data"></a>Výstupní data
 
 Záznam s typem _WireData_ se vytvoří pro každý typ vstupní data. WireData záznamy mají vlastnosti zobrazené v následující tabulce:
 

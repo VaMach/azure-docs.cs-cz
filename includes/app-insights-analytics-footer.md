@@ -1,5 +1,5 @@
 
-## <a name="analytics"></a>Analýza
+## <a name="analytics"></a>Analýzy
 * [Přehled](../articles/application-insights/app-insights-analytics.md)
 * [Prohlídka analýz](../articles/application-insights/app-insights-analytics-tour.md)
   * Začněte tady. Kurz zabývající se hlavními funkcemi.

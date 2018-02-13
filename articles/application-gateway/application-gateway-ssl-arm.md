@@ -1,273 +1,275 @@
 ---
-title: "Konfigurovat přesměrování zpracování SSL - Azure Application Gateway - prostředí PowerShell | Microsoft Docs"
-description: "Tento článek poskytuje pokyny pro vytvoření služby application gateway pomocí protokolu SSL, přesměrování zpracování úloh pomocí Azure Resource Manager"
-documentationcenter: na
+title: "Vytvoření služby application gateway s ukončení protokolu SSL - prostředí Azure PowerShell | Microsoft Docs"
+description: "Zjistěte, jak přidat certifikát pro ukončení protokolu SSL pomocí Azure PowerShell a vytvoření služby application gateway."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 3c3681e0-f928-4682-9d97-567f8e278e13
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: ee48ca45ae0d337b5b919dbbb28341caf8af0d45
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 4972597e8e2db36be47c86b9aa1e592d94d4c2fe
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Konfigurace aplikační brány pro přesměrování zpracování SSL pomocí Azure Resource Manageru
+# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Vytvoření služby application gateway s ukončení protokolu SSL pomocí Azure PowerShell
 
-> [!div class="op_single_selector"]
-> * [portál Azure Portal](application-gateway-ssl-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
-> * [Azure classic PowerShell](application-gateway-ssl.md)
-> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
+Prostředí Azure PowerShell můžete použít k vytvoření [Aplikační brána](application-gateway-introduction.md) s certifikátem pro [ukončení protokolu SSL](application-gateway-backend-ssl.md) používající [škálovací sadu virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pro back-end serverů. V tomto příkladu byly sadou škálování obsahuje dvě instance virtuálních počítačů, které jsou přidány do fondu back-end výchozí aplikační brány. 
 
-Služba Azure Application Gateway se dá nakonfigurovat k ukončení relace Secure Sockets Layer (SSL) v bráně, vyhnete se tak nákladným úlohám dešifrování SSL na webové serverové farmě. Přesměrování zpracování SSL zjednodušuje i nastavení a správu front-end serverů webových aplikací.
+V tomto článku se dozvíte, jak:
 
-## <a name="before-you-begin"></a>Než začnete
+> [!div class="checklist"]
+> * Vytvořit certifikát podepsaný svým držitelem
+> * Nastavení sítě
+> * Vytvoření služby application gateway s certifikátem
+> * Vytvoření škálování virtuálních počítačů, nastavit výchozí fond back-end
 
-1. Nainstalujte nejnovější verzi rutin prostředí Azure PowerShell pomocí instalační služby webové platformy. Nejnovější verzi můžete stáhnout a nainstalovat v části **Windows PowerShell** na stránce [Položky ke stažení](https://azure.microsoft.com/downloads/).
-2. Vytvořte virtuální síť a podsíť pro aplikační bránu. Ujistěte se, že žádné virtuální počítače nebo cloudová nasazení nepoužívají podsíť. Služba Application Gateway musí být sama o sobě v podsíti virtuální sítě.
-3. Servery, které nakonfigurujete pro použití služby application gateway, musí existovat nebo mít své koncové body vytvořené ve virtuální síti nebo s veřejnou IP adresu nebo virtuální adresy IP (VIP) přiřazené.
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-## <a name="what-is-required-to-create-an-application-gateway"></a>Co je potřeba k vytvoření služby Application Gateway?
+Tento kurz vyžaduje modul Azure PowerShell verze 3.6 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps). Pokud používáte PowerShell místně, je také potřeba spustit příkaz `Login-AzureRmAccount` pro vytvoření připojení k Azure.
 
-* **Fond back-end serverů**: seznam IP adres back-end serverů. Uvedené IP adresy by měly patřit do podsítě virtuální sítě nebo by měla být veřejné IP Adrese nebo VIP.
-* **Nastavení fondu back-end serverů**: každý fond má nastavení, jako je port, protokol a spřažení na základě souboru cookie. Tato nastavení se vážou na fond a používají se na všechny servery v rámci fondu.
-* **Front-end port**: Tento port je veřejný port, který se otevírá ve službě application gateway. Když datový přenos dorazí na tento port, přesměruje se na některý back-end server.
-* **Naslouchací proces**: naslouchací proces má front-end port, protokol (Http nebo Https; tato nastavení jsou malá a velká písmena) a název certifikátu SSL (Pokud se konfiguruje přesměrování zpracování SSL).
-* **Pravidlo**: pravidlo váže naslouchací proces a fond back-end serverů a definuje, kterému fondu back-end serverů směrovat provoz při volání příslušného naslouchacího procesu. V tuhle chvíli se podporuje jenom *základní* pravidlo. *Základní* pravidlo je distribuce zatížení pomocí kruhového dotazování.
+## <a name="create-a-self-signed-certificate"></a>Vytvořit certifikát podepsaný svým držitelem
 
-**Další poznámky ke konfiguraci**
+Pro použití v provozním prostředí Importujte platný certifikát podepsaný službou důvěryhodného zprostředkovatele. V tomto kurzu vytvoříte certifikát podepsaný svým držitelem pomocí [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Můžete použít [Export PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) s kryptografickým otiskem, který byl vrácen do souboru pfx exportovat z certifikátu.
 
-Pro konfiguraci certifikátů SSL by se měl změnit protokol v **HttpListener** na **Https** (rozlišování velkých a malých písmen). Přidat **SslCertificate** element **HttpListener** s hodnotou proměnné nakonfigurovanou pro certifikát SSL. Front-end port se musí aktualizovat na **443**.
+```powershell
+New-SelfSignedCertificate `
+  -certstorelocation cert:\localmachine\my `
+  -dnsname www.contoso.com
+```
 
-**Chcete-li povolit spřažení na základě souborů cookie**: můžete nakonfigurovat služby application gateway zajistit, že žádost od klientské relace vždy směrovala na stejný virtuální počítač ve webové farmě. K tomu, vložte soubor cookie relace, který umožňuje bráně řízení provozu odpovídajícím způsobem. Když chcete povolit spřažení na základě souboru cookie, nastavte **CookieBasedAffinity** na **Povoleno** v elementu **BackendHttpSettings**.
+Měli byste vidět něco podobného jako tento výsledek:
+
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
+
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
+```
+
+Kryptografický otisk použijte k vytvoření souboru pfx:
+
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+Export-PfxCertificate `
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
+  -FilePath c:\appgwcert.pfx `
+  -Password $pwd
+```
+
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+
+Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Vytvořte skupinu prostředků Azure s názvem *myResourceGroupAG* s [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+```
+
+## <a name="create-network-resources"></a>Vytvoření síťové prostředky
+
+Nakonfigurujte podsítě s názvem *myBackendSubnet* a *myAGSubnet* pomocí [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Vytvořit virtuální síť s názvem *myVNet* pomocí [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) s konfigurací podsítě. A nakonec vytvořte veřejnou IP adresu s názvem *myAGPublicIPAddress* pomocí [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Tyto prostředky se používají k poskytování síťové připojení k službě application gateway a její přidružené prostředky.
+
+```powershell
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
+```
 
 ## <a name="create-an-application-gateway"></a>Vytvoření služby Application Gateway
 
-Rozdíl mezi použitím modelu nasazení Azure classic a Azure Resource Manager je pořadí, ve kterém vytvoříte aplikační bránu a položky, které musí být nakonfigurované.
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Vytvoření konfigurace protokolu IP a port front-endu
 
-S Resource Managerem se všechny součásti služby application gateway se konfigurovat individuálně a potom se spojí dohromady a vytvoří prostředek aplikační brány.
-
-Tady jsou kroky, které se musí udělat k vytvoření aplikační brány:
-
-1. [Vytvořte skupinu prostředků pro Resource Manager](#create-a-resource-group-for-resource-manager)
-2. [Vytvoření virtuální sítě, podsítě a veřejné IP adresy pro službu application gateway](#create-virtual-network-subnet-and-public-IP-for-the-application-gateway)
-3. [Vytvoření objektu konfigurace služby application gateway](#create-an-application-gateway-configuration-object)
-4. [Vytvořte prostředek aplikační brány](#create-an-application-gateway-resource)
-
-## <a name="create-a-resource-group-for-resource-manager"></a>Vytvoření skupiny prostředků pro Resource Manager
-
-Ujistěte se, že jste přepnuli režim prostředí PowerShell tak, aby se mohly použít rutiny Azure Resource Manageru. Další informace najdete v tématu [Použití prostředí Windows PowerShell s Resource Managerem](../powershell-azure-resource-manager.md).
-
-   1. Zadejte následující příkaz:
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-   2. Zkontrolujte předplatná pro příslušný účet, zadejte následující příkazy:
-
-   ```powershell
-   Get-AzureRmSubscription
-   ```
-
-   Zobrazí se výzva k ověření pomocí přihlašovacích údajů.
-
-   3. Chcete-li zvolit, která z vašich předplatných Azure používat, zadejte následující příkaz:
-
-   ```powershell
-   Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-   ```
-
-   4. Pokud chcete vytvořit skupinu prostředků, zadejte následující příkaz. (Tento krok přeskočte, pokud používáte některou ze stávajících skupin prostředků.)
-
-   ```powershell
-   New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
-   ```
-
-Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. Toto nastavení slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Ujistěte se, že všechny příkazy k vytvoření služby application gateway používají stejnou skupinu prostředků.
-
-V předchozím příkladu jsme vytvořili skupinu prostředků s názvem **appgw-RG** a umístění je **západní USA**.
-
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Vytvořte virtuální síť a podsíť pro aplikační bránu
-
-Následující příklad ukazuje, jak vytvořit virtuální síť pomocí Resource Managera:
-
-   1. Zadejte následující příkaz:
-
-   ```powershell
-   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-   ```
-
-   Tato ukázka přiřadí rozsah adres **10.0.0.0/24** do proměnné podsítě, který se má použít k vytvoření virtuální sítě.
-
-   2. Zadejte následující příkaz:
-
-   ```powershell
-   $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-   ```
-
-   Tato ukázka vytvoří virtuální síť s názvem **appgwvnet** ve skupině prostředků **appgw-rg** pro **západní USA** oblasti s použitím předponu **10.0.0.0/16** s podsítí **10.0.0.0/24**.
-
-   3. Zadejte následující příkaz:
-
-   ```powershell
-   $subnet = $vnet.Subnets[0]
-   ```
-
-   Tato ukázka se přiřadí objekt podsítě k proměnné **$subnet** pro další kroky.
-
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Vytvoření veřejné IP adresy pro front-end konfiguraci
-
-Pro vytvoření veřejné IP adresy pro front-end konfiguraci, zadejte následující příkaz:
+Přidružení *myAGSubnet* aplikace brány pomocí dříve vytvořeného [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Přiřadit *myAGPublicIPAddress* do aplikace pomocí brány [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$subnet=$vnet.Subnets[0]
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 443
 ```
 
-Tato ukázka vytvoří prostředek veřejné IP **adresy publicIP01** ve skupině prostředků **appgw-rg** pro **západní USA** oblast.
+### <a name="create-the-backend-pool-and-settings"></a>Vytvoření fondu back-end a nastavení
 
-## <a name="create-an-application-gateway-configuration-object"></a>Vytvoření objektu konfigurace služby Application Gateway
-
-   1. K vytvoření objektu konfigurace aplikační brány, zadejte následující příkaz:
-
-   ```powershell
-   $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-   ```
-
-   Tato ukázka vytvoří konfigurace IP aplikační brány s názvem **gatewayIP01**. Při spuštění služby Application Gateway, vybere IP adresa z nakonfigurované podsítě a směruje síťový provoz na IP adresy ve fondu back-end IP adres. Uvědomte si, že každá instance vyžaduje jednu IP adresu.
-
-   2. Zadejte následující příkaz:
-
-   ```powershell
-   $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
-   ```
-
-   Tato ukázka konfiguruje fond back-end IP adres s názvem **pool01** s IP adresami **134.170.185.46**, **134.170.188.221**, a **134.170.185.50** . Jsou to IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Nahraďte IP adresy z předchozího příkladu IP adresami koncových bodů vaší webové aplikace.
-
-   3. Zadejte následující příkaz:
-
-   ```powershell
-   $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
-   ```
-
-   Tato ukázka nakonfiguruje nastavení brány aplikace **poolsetting01** síťový provoz Vyrovnávání zatížení ve fondu back-end.
-
-   4. Zadejte následující příkaz:
-
-   ```powershell
-   $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
-   ```
-
-   Tato ukázka se nakonfiguruje port front-end IP s názvem **frontendport01** pro koncový bod veřejné IP adresy.
-
-   5. Zadejte následující příkaz:
-
-   ```powershell
-   $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password "<password>"
-   ```
-
-   Tímto vzorovým kódem se nakonfiguruje certifikát používaný pro připojení SSL. Certifikát musí být ve formátu PFX a heslo musí mít délku 4 až 12 znaků.
-
-   6. Zadejte následující příkaz:
-
-   ```powershell
-   $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-   ```
-
-   Tato ukázka vytvoří konfiguraci front-end IP adresy s názvem **fipconfig01** a přidruží veřejnou IP adresu s konfigurací front-end IP adresy.
-
-   7. Zadejte následující příkaz:
-
-   ```powershell
-   $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
-   ```
-
-   Tato ukázka vytvoří naslouchací proces s názvem **listener01** a přiřadí front-end port ke konfiguraci front-end IP adresy a certifikát.
-
-   8. Zadejte následující příkaz:
-
-   ```powershell
-   $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-   ```
-
-   Tento příklad vytvoří pravidlo směrování pro vyrovnávání zatížení s názvem **rule01** které konfiguruje chování nástroje pro vyrovnávání zatížení.
-
-   9. Zadejte následující příkaz:
-
-   ```powershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-   ```
-
-   Tímto vzorovým kódem se nakonfiguruje velikost instance aplikační brány.
-
-   > [!NOTE]
-   > Výchozí hodnota pro **InstanceCount** je **2**, přičemž maximální hodnota je 10. Výchozí hodnota pro **GatewaySize** je **střední**. Můžete si vybrat mezi hodnotami Standard_Small (Standardní_malá), Standard_Medium (Standardní_střední) a Standard_Large (Standardní_velká).
-
-   10. Zadejte následující příkaz:
-
-   ```powershell
-   $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
-   ```
-
-   Tento krok definuje zásady protokolu SSL pro použití ve službě application gateway. Další informace najdete v tématu [verze zásad konfigurace protokolu SSL a šifrovací sady ve Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
-
-## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Vytvořte aplikační bránu pomocí New-AzureApplicationGateway
-
-Zadejte následující příkaz:
+Vytvořit fond back-end s názvem *appGatewayBackendPool* pro aplikace pomocí brány [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Nakonfigurujte nastavení fondu back-end pomocí [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-Tato ukázka se vytvoří aplikační brána se všemi položkami konfigurace z předchozích kroků. V příkladu se Aplikační brána nazývá **appgwtest**.
+### <a name="create-the-default-listener-and-rule"></a>Vytvořte naslouchací proces výchozí a pravidla
 
-## <a name="get-the-application-gateway-dns-name"></a>Získat název DNS brány aplikace
+Naslouchací proces je nutný pro povolení služby application gateway pro směrování provozu správně do fondu back-end. V tomto příkladu vytvoříte základní naslouchací proces, který čeká na provoz HTTPS na adresy URL kořenového adresáře. 
 
-Po vytvoření brány je dalším krokem je konfigurace front-endu pro komunikaci. Aplikační brána vyžaduje dynamicky přiřazené název DNS, při použití veřejnou IP adresu, která není popisný. Zajistěte, aby koncoví uživatelé mohou dosáhl aplikační bránu, můžete záznam CNAME přejděte na veřejný koncový bod služby application gateway. Další informace najdete v tématu [konfigurace vlastního názvu domény v Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
-
-Název DNS brány aplikace získáte načtení podrobností o aplikační brány a její přidružené název IP a DNS pomocí **PublicIPAddress** element připojený k službě application gateway. Použijte službu application gateway název DNS vytvořit záznam CNAME, který ukazuje dva webové aplikace k tomuto názvu DNS. Jsme nemáte doporučujeme použití záznamů A, protože virtuální IP adresu můžete změnit na restartovat aplikační brány.
-
+Vytvoření certifikátu pomocí objektu [New-AzureRmApplicationGatewaySslCertificate](/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) a poté vytvořit naslouchací proces s názvem *mydefaultListener* pomocí [ Nové AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) s front-endová konfigurace, front-endový port a certifikát, který jste předtím vytvořili. Pravidlo je vyžadována pro naslouchací proces vědět, kterému fondu back-end pro příchozí provoz. Vytvořte základní pravidlo s názvem *rule1 New* pomocí [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+$pwd = ConvertTo-SecureString `
+  -String "Azure123456!" `
+  -Force `
+  -AsPlainText
+$cert = New-AzureRmApplicationGatewaySslCertificate `
+  -Name "appgwcert" `
+  -CertificateFile "c:\appgwcert.pfx" `
+  -Password $pwd
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name mydefaultListener `
+  -Protocol Https `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport `
+  -SslCertificate $cert
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 ```
 
+### <a name="create-the-application-gateway-with-the-certificate"></a>Vytvoření aplikační brány s certifikátem
+
+Teď, když jste vytvořili nezbytné doprovodné materiály, zadejte parametry pro službu application gateway s názvem *myAppGateway* pomocí [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)a pak vytvořit pomocí [ Nový-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) s certifikátem.
+
+### <a name="create-the-application-gateway"></a>Vytvoření služby Application Gateway
+
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku `
+  -SslCertificates $cert
 ```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
+
+## <a name="create-a-virtual-machine-scale-set"></a>Vytvoření sady škálování virtuálního počítače
+
+V tomto příkladu vytvoříte škálování virtuálních počítačů, nastavit zajistit servery pro tento fond back-end v aplikační brány. Můžete přiřadit měřítka nastaven fond back-end při konfiguraci nastavení IP adresy.
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name myVmssIPConfig `
+  -SubnetId $vnet.Subnets[1].Id `
+  -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
+$vmssConfig = New-AzureRmVmssConfig `
+  -Location eastus `
+  -SkuCapacity 2 `
+  -SkuName Standard_DS2 `
+  -UpgradePolicyMode Automatic
+Set-AzureRmVmssStorageProfile $vmssConfig `
+  -ImageReferencePublisher MicrosoftWindowsServer `
+  -ImageReferenceOffer WindowsServer `
+  -ImageReferenceSku 2016-Datacenter `
+  -ImageReferenceVersion latest
+Set-AzureRmVmssOsProfile $vmssConfig `
+  -AdminUsername azureuser `
+  -AdminPassword "Azure123456!" `
+  -ComputerNamePrefix myvmss
+Add-AzureRmVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name myVmssNetConfig `
+  -Primary $true `
+  -IPConfiguration $ipConfig
+New-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmssConfig
 ```
 
-## <a name="next-steps"></a>Další kroky
+### <a name="install-iis"></a>Instalace služby IIS
 
-Pokud chcete provést konfiguraci aplikační brány pro použití s nástrojem pro vyrovnávání zatížení pro vnitřní naleznete v části [vytvoření aplikační brány s nástrojem pro vyrovnávání zatížení pro vnitřní](application-gateway-ilb.md).
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
+Update-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmss
+```
 
-Další informace o službě Vyrovnávání zatížení možnosti obecně naleznete v tématu:
+## <a name="test-the-application-gateway"></a>Testování služby application gateway
 
-* [Nástroj pro vyrovnávání zatížení Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+Můžete použít [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) získat veřejnou IP adresu aplikační brány. Zkopírujte veřejnou IP adresu a pak ji vložit do panelu Adresa prohlížeče.
+
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+```
+
+![Upozornění zabezpečení](./media/application-gateway-ssl-arm/application-gateway-secure.png)
+
+Chcete-li přijímat upozornění, pokud použijete certifikát podepsaný svým držitelem zabezpečení, vyberte **podrobnosti** a potom **přejděte na webovou stránku**. Zabezpečené webu služby IIS se následně zobrazí jako v následujícím příkladu:
+
+![Otestovat základní adresu URL v aplikační brány](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
+
+## <a name="next-steps"></a>Další postup
+
+V tomto kurzu jste se naučili:
+
+> [!div class="checklist"]
+> * Vytvořit certifikát podepsaný svým držitelem
+> * Nastavení sítě
+> * Vytvoření služby application gateway s certifikátem
+> * Vytvoření škálování virtuálních počítačů, nastavit výchozí fond back-end
+
+Další informace o aplikačních bran a jejich přidružené prostředky, i nadále články s návody.

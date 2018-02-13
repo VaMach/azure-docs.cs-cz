@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 485a3eb5c5d04d1540482245d088c48645704465
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Výstupy část v šablonách Azure Resource Manager
 V části výstupy zadejte hodnoty, které jsou vráceny z nasazení. Například může vrátit identifikátor URI pro přístup k prostředkům nasazené.
@@ -56,6 +56,8 @@ Můžete například nastavit IP adresu zařízení na Vyrovnávání zatížen�
     "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
+
+Nelze použít `reference` funkce v části výstupy [vnořené šablony](resource-group-linked-templates.md#link-or-nest-a-template). K návratu hodnot pro prostředek nasazené v šabloně vnořené, převeďte na šablonu propojené vnořené šablony.
 
 ## <a name="available-properties"></a>Dostupné vlastnosti
 
@@ -103,7 +105,7 @@ Pokud používáte šablonu pro vytvoření veřejné IP adresy, zahrnout oddíl
 |[Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Odkazy na předchozí šablony. Při vytváření nástroje pro vyrovnávání zatížení, používá ID prostředku ve výstupu. |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Hotové šablony pro mnoho různých typů řešení najdete na stránce [Šablony Azure pro rychlý start](https://azure.microsoft.com/documentation/templates/).
 * Podrobnosti o funkcích, které můžete použít z v rámci šablon najdete v tématu [funkce šablon Azure Resource Manager](resource-group-template-functions.md).
 * Pokud chcete kombinovat několik šablon během nasazení, přečtěte si téma [použití propojených šablon s Azure Resource Manager](resource-group-linked-templates.md).

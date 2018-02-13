@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformace dat pomocí Pig aktivity v Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -88,13 +88,13 @@ Aktivita HDInsight Pig v datové továrně [kanálu](data-factory-create-pipelin
 | description |Text popisující, co se používá aktivitu pro |Ne |
 | type |HDinsightPig |Ano |
 | Vstupy |Jeden nebo více vstupů spotřebovávané aktivitou Pig |Ne |
-| Výstupy |Jeden nebo více výstupů produkované aktivitou Pig |Ano |
+| výstupy |Jeden nebo více výstupů produkované aktivitou Pig |Ano |
 | linkedServiceName |Referenční dokumentace ke clusteru HDInsight registrován jako propojené služby v datové továrně |Ano |
-| Skript |Zadejte vložený skript Pig |Ne |
+| skript |Zadejte vložený skript Pig |Ne |
 | cestu ke skriptu |Uložte skript Pig v Azure blob storage a zadejte cestu k souboru. Pomocí vlastnosti 'skript' nebo 'scriptPath'. Obě nelze použít společně. Název souboru je malá a velká písmena. |Ne |
 | definuje |Zadejte parametry dvojic klíč/hodnota pro odkazování v rámci skript Pig |Ne |
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 Zvažte příklad herní protokolů analýzy, kam chcete identifikovat čas strávený hráči, hraní her spuštění ve vaší společnosti.
 
 Následující příklad herní protokolu je soubor oddělených čárkou (,). Obsahuje následující pole – ProfileID, SessionStart, doba trvání, SrcIPAddress a GameType.

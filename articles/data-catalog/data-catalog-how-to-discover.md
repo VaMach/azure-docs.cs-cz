@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 7c2a1d61bc13ba1cde404e2b732933d2d314e3e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2db429860e6e3a60211c993bebfecbca98d67fd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Tom, jak zjišťovat zdroje dat v Azure Data Catalog
 ## <a name="introduction"></a>Úvod
@@ -37,7 +37,7 @@ Pomocí kombinace vyhledávání a filtrování, můžete rychle procházet zdro
 ## <a name="search-syntax"></a>Syntaxe služby Search
 I když výchozí textové vyhledávání je jednoduché a intuitivní, můžete taky syntaxe vyhledávání katalogu Data Catalog pro větší kontrolu nad výsledky hledání. Hledání v katalogu dat podporuje následující techniky:
 
-| Technika | Použití | Příklad |
+| Technika | Použití | Příklad: |
 | --- | --- | --- |
 | Základní hledání |Základní vyhledávání, který používá jeden nebo více výrazů vyhledávání. Výsledky jsou všechny prostředky, které odpovídají všechny vlastnosti s jednou nebo více výrazů uvedených. |`sales data` |
 | Zkoumání vlastnosti |Vrátí pouze zdroje dat kde hledaný termín shoduje se zadanou vlastnost. |`name:finance` |
@@ -64,5 +64,5 @@ Ve výchozím zobrazení vedle sebe, obsahuje každou dlaždici zobrazí ve výs
 ## <a name="summary"></a>Souhrn
 Protože registraci zdroje dat pomocí katalogu Data Catalog kopie strukturální a popisný metadat ze zdroje dat do katalogu služby, zdroj dat vyhledatelné a pochopitelné jednodušší. Poté, co jste registrováni zdroj dat, můžete zjistit pomocí filtrování a vyhledávání z portálu pro katalog Data Catalog.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Podrobné informace o tom, jak zjistit zdroje dat najdete v tématu [Začínáme s Azure Data Catalog](data-catalog-get-started.md).

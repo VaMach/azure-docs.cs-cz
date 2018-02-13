@@ -15,11 +15,11 @@ ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 0d293833b97b2a65d5377eef668696cb73ee3bd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1532054a9463d710685d3f865d2e26ee7ff5014f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Začínáme s aplikací Microsoft Authenticator
 Aplikace Microsoft Authenticator poskytuje další úroveň zabezpečení v pracovní nebo školní účet (například bsimon@contoso.com) nebo účtu Microsoft (například bsimon@outlook.com).
@@ -42,7 +42,7 @@ Pro osobní účet budete muset nastavit dvoustupňové ověřování pro sebe. 
 Můžete taky Microsoft Authenticator s účty jiných společností než Microsoft. Tato funkce se volání něco jiného než dvoustupňové ověření, ale musí být schopen najít v části zabezpečení nebo nastavení přihlášení.
 
 ## <a name="install-the-app"></a>Nainstalujte aplikaci
-Je k dispozici pro aplikaci Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), a [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Je k dispozici pro aplikaci Microsoft Authenticator [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), a [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="add-accounts-to-the-app"></a>Přidejte účty do aplikace
 U každého účtu, který chcete přidat do aplikace Microsoft Authenticator použijte jednu z následujících postupů:
@@ -100,7 +100,7 @@ Pro nastavení pro Microsoft Authenticator Touch ID, musíte dokončit výzvy no
 
 Z tohoto bodu dál, když budete vyzváni k ověření vaše přihlášení, vyberte přijaté nabízených oznámení a kontrolovat otisk prstu místo zadávání svůj PIN kód.
 
-![Nabízená oznámení](./media/authenticator-app-how-to/touchid2.png)
+![Nabízené oznámení](./media/authenticator-app-how-to/touchid2.png)
 
 ## <a name="use-the-app-when-you-sign-in"></a>Použití aplikace při přihlášení
 

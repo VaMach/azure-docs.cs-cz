@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Nahrání souborů s centrem IoT
 
@@ -96,7 +96,7 @@ Následující referenční témata poskytují další informace o nahrávání 
 
 ## <a name="file-upload-notifications"></a>Oznámení o odeslání souboru
 
-Volitelně když zařízení oznámí IoT Hub, nahrávaný je dokončena, IoT Hub můžete vygenerovat zprávu oznámení, která obsahuje umístění a jeho název souboru.
+Volitelně můžete při zařízení oznámí IoT Hub, nahrávaný je dokončena, IoT Hub vygeneruje zprávu oznámení, která obsahuje umístění a jeho název souboru.
 
 Jak je popsáno v [koncové body][lnk-endpoints], IoT Hub zajišťuje oznámení o odeslání souboru prostřednictvím koncového bodu služby přístupem (**/messages/servicebound/fileuploadnotifications**) jako zprávy. Sémantika receive pro oznámení o odeslání souboru je stejný jako u zprávy typu cloud zařízení a mít stejný [životní cyklus zpráv][lnk-lifecycle]. Každou zprávu, získán z koncového bodu oznámení nahrávání souboru je záznam JSON s následujícími vlastnostmi:
 
@@ -143,7 +143,7 @@ Další témata referenční příručka vývojáře IoT Hub patří:
 * [IoT Hub dotazovací jazyk] [ lnk-query] popisuje dotazovací jazyk, můžete použít k načtení informací ze služby IoT Hub o úlohách a dvojčata zařízení.
 * [Podpora IoT Hub MQTT] [ lnk-devguide-mqtt] poskytuje další informace o podpoře služby IoT Hub pro protokol MQTT.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Nyní jste se naučili Postup nahrání souborů ze zařízení pomocí služby IoT Hub, může zajímat v následujících tématech Příručka vývojáře IoT Hub:
 
@@ -153,7 +153,7 @@ Nyní jste se naučili Postup nahrání souborů ze zařízení pomocí služby 
 * [Volání metody přímé na zařízení][lnk-devguide-directmethods]
 * [Plánování úloh na několika zařízeních][lnk-devguide-jobs]
 
-Pokud chcete vyzkoušet některé konceptů popsaných v tomto článku, může zajímat v následujícím kurzu IoT Hub:
+Můžete vyzkoušet na některé z konceptů popsaných v tomto článku, najdete v následujícím kurzu IoT Hub:
 
 * [Postup nahrání souborů ze zařízení do cloudu s centrem IoT][lnk-fileupload-tutorial]
 

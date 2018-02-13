@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Události zabezpečení mřížky a ověřování 
 
@@ -24,7 +24,7 @@ Azure mřížky událostí má tři typy ověřování:
 
 ## <a name="webhook-event-delivery"></a>Události Webhooku doručení
 
-Webhook má jedna řada způsobů pro příjem událostí v reálném čase z Azure událostí mřížky. Pokaždé, když je připraven k dodání novou událost, události Webhooku mřížky doplňuje do nakonfigurovaný koncový bod HTTP s událostí v textu požadavku HTTP.
+Webhook má jedna řada způsobů pro příjem událostí v reálném čase z Azure událostí mřížky. Pokaždé, když je připraven k dodání novou událost, odešle Webhooku mřížky událostí nakonfigurovaný koncový bod HTTP s událostí v textu požadavku HTTP.
 
 Při registraci svůj vlastní koncový bod Webhooku s událostí mřížky, odešle požadavek POST s kódem jednoduché ověření aby bylo možné prokázat vlastnictví koncový bod. Vaše aplikace musí odpovídat tak, že odezva zpět ověřovacího kódu. Událost mřížky nejsou poskytovány události Webhooku koncových bodů, které nebyly předány ověření.
 
@@ -46,7 +46,9 @@ V následujícím příkladu je uveden příklad SubscriptionValidationEvent:
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-  "eventTime": "2017-08-06T22:09:30.740323Z"
+  "eventTime": "2018-01-25T22:12:19.4556811Z",
+  "metadataVersion": "1",
+  "dataVersion": "1"
 }]
 ```
 
@@ -234,6 +236,6 @@ Pokud chcete přiřadit role pro uživatele, použijte:
 az role assignment create --assignee <user name> --role "<name of role>"
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Úvod k mřížce událostí, naleznete v části [o mřížky událostí](overview.md)

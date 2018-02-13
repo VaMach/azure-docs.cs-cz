@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorování a Správa kanálů služby Azure Data Factory pomocí monitorování a správy aplikace
 > [!div class="op_single_selector"]
@@ -189,7 +189,7 @@ Okna aktivity může být v jednom z následujících stavů:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Ověřování platnosti</td><td>Probíhá ověřování.</td>
+<td rowspan="2">Probíhá zpracování.</td><td>Ověřování platnosti</td><td>Probíhá ověřování.</td>
 </tr>
 <td>-</td>
 <td>Okna aktivity je zpracovávána.</td>
@@ -326,7 +326,7 @@ Následující tabulka obsahuje seznam dostupných událostí a stavy (a dílč�
 | --- | --- | --- |
 | Aktivity při spuštění Začínáme |Spuštěno |Spouštění |
 | Aktivity při spuštění bylo dokončeno |Úspěch |Úspěch |
-| Aktivity při spuštění bylo dokončeno |Neúspěch |Přidělení prostředků se nezdařilo<br/><br/>Spuštění se nezdařilo<br/><br/>Vypršení časového limitu<br/><br/>Ověření se nezdařilo<br/><br/>opuštění |
+| Aktivity při spuštění bylo dokončeno |Neúspěch |Přidělení prostředků se nezdařilo<br/><br/>Spuštění se nezdařilo<br/><br/>Vypršení časového limitu<br/><br/>Ověření se nezdařilo<br/><br/>Abandoned |
 | Vytvoření clusteru HDI na vyžádání Začínáme |Spuštěno |-|
 | Clusteru HDI na vyžádání úspěšně vytvořena. |Úspěch |-|
 | Odstranit clusteru HDI na vyžádání |Úspěch |-|

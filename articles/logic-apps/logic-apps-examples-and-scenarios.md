@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Běžné scénáře, příklady, kurzy a návody pro Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) vám pomůže orchestraci a integrují různé služby tím, že poskytuje [100 + připravené k použití konektorů](../connectors/apis-list.md), rozsahu z místní SQL Server nebo SAP ke kognitivní službám společnosti Microsoft. Služba Logic Apps je "bez serveru", takže není nutné se obávat škálování nebo instance. Všechny, které musíte udělat, je definice pracovního postupu se aktivační událost a akcí, které provádí pracovní postup. Základní platformě zpracovává škálování, dostupnosti a výkonu. Služba Logic Apps je zvláště užitečná pro případy použití a scénáře, kde je potřeba koordinovat více akcí mezi několika systémy.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) vám pomůže orchestraci a integrují různé služby tím, že poskytuje [100 + připravené k použití konektorů](../connectors/apis-list.md), rozsahu z místní SQL Server nebo SAP ke kognitivní službám společnosti Microsoft. Služba Logic Apps je "bez serveru", takže není nutné se obávat škálování nebo instance. Všechny, které musíte udělat, je definice pracovního postupu se aktivační událost a akcí, které provádí pracovní postup. Základní platformě zpracovává škálování, dostupnosti a výkonu. Služba Logic Apps je zvláště užitečná pro případy použití a scénáře, kde je potřeba koordinovat více akcí mezi několika systémy.
 
-Můžete získat další informace o mnoho vzory a možnosti, [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) podporuje, tady jsou běžných příkladů a scénářů.
+Můžete získat další informace o mnoho vzory a možnosti, [Azure Logic Apps](../logic-apps/logic-apps-overview.md) podporuje, tady jsou běžných příkladů a scénářů.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Oblíbené výchozí body pro pracovní postupy aplikace logiky
 
-Začíná každou aplikaci logiky [ *aktivační událost*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)a jenom jedna aktivační událost, která spustí pracovní postup aplikace logiky a předá u všech dat v rámci této aktivační události. Několik konektorů poskytuje triggery, které mají tyto typy:
+Začíná každou aplikaci logiky [ *aktivační událost*](../logic-apps/logic-apps-overview.md#logic-app-concepts)a jenom jedna aktivační událost, která spustí pracovní postup aplikace logiky a předá u všech dat v rámci této aktivační události. Několik konektorů poskytuje triggery, které mají tyto typy:
 
 * *Cyklického dotazování aktivační události*: pravidelně kontroluje koncového bodu služby pro nová data. Jestliže existuje nová data, aktivační události vytvoří a spustí novou instanci pracovního postupu s daty jako vstup.
 
@@ -105,7 +105,7 @@ Aplikace logiky také nabízí integraci s mnoha služeb, jako jsou funkce Azure
 
 * [Dokument White Paper: Enterprise začátku do konce případu vedení integrace se službami Azure, jako jsou aplikace logiky](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Definice pracovního postupu vytvořit pomocí jazyka pro definici pracovního postupu](../logic-apps/logic-apps-author-definitions.md)
 * [Zpracování chyb a výjimek v aplikacích logiky](../logic-apps/logic-apps-exception-handling.md)

@@ -251,6 +251,8 @@
           href: ../workloads/sap/get-started.md
         - name: Cluster MATLAB
           href: matlab-mdcs-cluster.md
+        - name: Visual Studio
+          href: using-visual-studio-vm.md
         - name: Vysokovýkonné výpočetní prostředí (HPC)
           href: hpcpack-cluster-options.md
           items:
@@ -286,6 +288,8 @@
           href: convert-disk-storage.md
         - name: Migrace na Storage úrovně Premium s Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Vyhledání nepřipojených disků
+          href: find-unattached-disks.md
         - name: Použití úložiště souborů
           href: mount-azure-file-storage.md
         - name: Nasazení disků pomocí šablony
@@ -418,7 +422,9 @@
           href: performance-diagnostics-vm-extension.md
         - name: Použití vnořené virtualizace
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Odkaz
+        - name: Instalace agenta virtuálního počítače v offline režimu
+          href: install-vm-agent-offline.md
+- name: Referenční informace
   items:
     - name: Azure CLI
       href: /cli/azure/vm

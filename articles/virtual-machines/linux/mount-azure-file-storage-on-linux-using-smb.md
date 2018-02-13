@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Připojení Azure File storage na virtuální počítače s Linuxem pomocí protokolu SMB
 
@@ -67,7 +67,7 @@ Přesunutí souborů z virtuálního počítače připojení protokolu SMB, kter
 
 Pro tento podrobný návod jsme vytvořte součásti potřebné nejprve vytvořit sdílenou složku úložiště a pak připojte prostřednictvím protokolu SMB na virtuální počítač s Linuxem.
 
-1. Vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create) pro sdílené složky.
+1. Vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create) pro sdílené složky.
 
     Chcete-li vytvořit skupinu prostředků s názvem `myResourceGroup` v umístění "Západní USA", pomocí následujícího příkladu:
 
@@ -75,7 +75,7 @@ Pro tento podrobný návod jsme vytvořte součásti potřebné nejprve vytvoři
     az group create --name myResourceGroup --location westus
     ```
 
-2. Vytvoření účtu úložiště Azure s [vytvořit účet úložiště az](/cli/azure/storage/account#create) ukládat soubory.
+2. Vytvoření účtu úložiště Azure s [vytvořit účet úložiště az](/cli/azure/storage/account#az_storage_account_create) ukládat soubory.
 
     Chcete-li vytvořit účet úložiště s názvem můj_účet_úložiště pomocí úložiště Standard_LRS SKU, použijte následující příklad:
 
@@ -90,7 +90,7 @@ Pro tento podrobný návod jsme vytvořte součásti potřebné nejprve vytvoři
 
     Když vytvoříte účet úložiště, klíče účtu jsou vytvořeny v párech, aby se mohou otáčet bez výpadku služby. Když přepnete na druhý klíč v páru, můžete vytvořit nový pár klíčů. Nových klíčů účtu úložiště se vytváří vždy v párech, a že jste vždy k dispozici alespoň jeden nepoužívané klíč účtu úložiště připravené přepnout do.
 
-    Zobrazit klíče účtu úložiště s [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#list). Účet úložiště klíčů pro pojmenované `mystorageaccount` jsou uvedené v následujícím příkladu:
+    Zobrazit klíče účtu úložiště s [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#az_storage_account_keys_list). Účet úložiště klíčů pro pojmenované `mystorageaccount` jsou uvedené v následujícím příkladu:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ Pro tento podrobný návod jsme vytvořte součásti potřebné nejprve vytvoři
 
 4. Vytvořte sdílenou složku úložiště.
 
-    Sdílenou složku úložiště obsahuje sdílené složky SMB s [vytvořit sdílenou složku úložiště az](/cli/azure/storage/share#create). Kvóta je vždy vyjádřené v gigabajtech (GB). Předejte jí jeden z klíčů z předchozí `az storage account keys list` příkaz. Vytvořte sdílenou složku s názvem mystorageshare s kvótou 10 GB s použitím v následujícím příkladu:
+    Sdílenou složku úložiště obsahuje sdílené složky SMB s [vytvořit sdílenou složku úložiště az](/cli/azure/storage/share#az_storage_share_create). Kvóta je vždy vyjádřené v gigabajtech (GB). Předejte jí jeden z klíčů z předchozí `az storage account keys list` příkaz. Vytvořte sdílenou složku s názvem mystorageshare s kvótou 10 GB s použitím v následujícím příkladu:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,10 +137,10 @@ Pro tento podrobný návod jsme vytvořte součásti potřebné nejprve vytvoři
     Po restartování virtuálního počítače s Linuxem, je při vypnutí nepřipojené připojené sdílenou složku SMB. Pro opětovné připojení do sdílené složky protokolu SMB na spuštění, přidejte řádek na Linux /etc/fstab. Linux používá soubor fstab zobrazte seznam systémů souborů, které je potřeba připojit během spouštění. Přidání sdílené složky SMB zajistí, že sdílené složky úložiště bude trvale připojeného souboru systém pro virtuální počítač s Linuxem. Přidání úložiště File sdílená složka SMB na nový virtuální počítač je možné, pokud používáte cloudové init.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Přizpůsobení virtuálního počítače s Linuxem během vytváření pomocí init cloudu](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Přidání disku do virtuálního počítače s Linuxem](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

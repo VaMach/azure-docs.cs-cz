@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopírování dat z DB2 pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,10 +67,10 @@ Pro DB2 propojené služby jsou podporovány následující vlastnosti:
 | type | Vlastnost typu musí být nastavena na: **Db2** | Ano |
 | server |Název serveru DB2. |Ano |
 | databáze |Název databáze DB2. |Ano |
-| Schéma |Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
+| schema |Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
 | authenticationType. |Typ ověřování používaný pro připojení k databázi DB2.<br/>Povolená hodnota je: **základní**. |Ano |
 | uživatelské jméno |Zadejte uživatelské jméno pro připojení k databázi DB2. |Ano |
-| heslo |Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole můžete označte jako SecureString. |Ano |
+| heslo |Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
@@ -126,7 +126,7 @@ Ke zkopírování dat z DB2, nastavte vlastnost typu datové sady, která **Rela
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje zdroj DB2.
 
@@ -178,8 +178,8 @@ Při kopírování dat z DB2, se používají následující mapování z DB2 da
 | Typ databáze DB2 | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binární hodnota |Byte] |
-| Objekt blob |Byte] |
+| Binární hodnota |Byte[] |
+| Objekt blob |Byte[] |
 | Char |Řetězec |
 | Datový typ CLOB |Řetězec |
 | Datum |Datum a čas |
@@ -187,22 +187,22 @@ Při kopírování dat z DB2, se používají následující mapování z DB2 da
 | DbClob |Řetězec |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Double |Double |
-| Plovoucí desetinná čárka |Double |
+| Dvojitý |Dvojitý |
+| Plovoucí desetinná čárka |Dvojitý |
 | Obrázek |Řetězec |
 | Integer |Int32 |
-| LongVarBinary |Byte] |
+| LongVarBinary |Byte[] |
 | LongVarChar |Řetězec |
 | LongVarGraphic |Řetězec |
 | číselné |Decimal |
 | Real |Svobodný/svobodná |
 | SmallInt |Int16 |
-| Čas |Časový interval |
+| Čas |TimeSpan |
 | Časové razítko |Datum a čas |
-| VarBinary |Byte] |
+| VarBinary |Byte[] |
 | VarChar |Řetězec |
 | VarGraphic |Řetězec |
-| XML |Byte] |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Další postup

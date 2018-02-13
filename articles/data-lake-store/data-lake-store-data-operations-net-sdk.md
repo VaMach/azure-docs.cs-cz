@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: a5d446986f810993d65c7e73eb95eeb2283c39a3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2b4c6128d9b50f200a40c8d96faede1e80fbee9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Operace systému souborů v Azure Data Lake Store pomocí sady .NET SDK
 > [!div class="op_single_selector"]
@@ -50,9 +50,9 @@ Ukázka kódu, která je k dispozici [na GitHubu](https://github.com/Azure-Sampl
    | --- | --- |
    | Kategorie |Šablony/Visual C#/Windows |
    | Šablona |Konzolová aplikace |
-   | Name (Název) |VytvořeníAplikaceADL |
+   | Název |VytvořeníAplikaceADL |
 
-4. Kliknutím na tlačítko **OK** vytvořte projekt.
+4. Projekt vytvoříte kliknutím na **OK**.
 
 5. Přidejte do projektu balíčky NuGet.
 
@@ -85,7 +85,7 @@ Ukázka kódu, která je k dispozici [na GitHubu](https://github.com/Azure-Sampl
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
             }
         }
 

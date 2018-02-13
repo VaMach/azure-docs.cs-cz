@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Vytvoření virtuální sítě pomocí rozhraní příkazového řádku Azure
 
@@ -45,9 +45,9 @@ Můžete také vytvořit virtuální síť pomocí Resource Manager pomocí jin�
 
 Pokud chcete vytvořit virtuální síť pomocí rozhraní příkazového řádku Azure, proveďte následující kroky:
 
-1. Instalace a konfigurace nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login).
+1. Instalace a konfigurace nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#az_login).
 
-2. Vytvořte skupinu prostředků pro virtuální síť s použitím [vytvořit skupinu az](/cli/azure/group#create) s `--name` a `--location` argumenty:
+2. Vytvořte skupinu prostředků pro virtuální síť s použitím [vytvořit skupinu az](/cli/azure/group#az_group_create) s `--name` a `--location` argumenty:
 
     ```azurecli
     az group create --name TestRG --location centralus
@@ -184,7 +184,7 @@ Pokud chcete vytvořit virtuální síť pomocí rozhraní příkazového řádk
         FrontEnd  192.168.1.0/24  Succeeded
         BackEnd   192.168.2.0/24  Succeeded
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zjistěte, jak připojit:
 

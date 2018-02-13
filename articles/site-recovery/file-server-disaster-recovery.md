@@ -9,14 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 779ec70a3b45a0ac3e766c956aac94932d4d126b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Chránit souborový Server pomocí Azure Site Recovery 
 
@@ -32,7 +32,7 @@ Cílem soubor otevřený distribuované sdílení systému je a poskytuje prost�
 
 Následující topologie znázorňuje prostředí souborový Server s DFSR implementována.
                 
-![DFSR architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
+![dfsr-architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 Několik souborových serverů v výše uvedený odkaz, označuje jako členové, aktivně podílet na replikaci souborů mezi replikační skupiny. Obsah v replikované složce bude k dispozici pro všechny klienty odesílání požadavků na jednu z členů, i v případě jednoho z členů přechod do stavu offline.
 
@@ -64,7 +64,7 @@ Následující diagram poskytuje vizuální reprezentaci zaměřené na usnadně
 
 ### <a name="site-recovery-support"></a>Podpora pro obnovení lokality
 Site Recovery replikace je nezávislá na aplikace, budou doporučení uvedená tady platí pro následující scénáře:
-| Zdroj    |Sekundární lokality    |Do Azure
+| Zdroj    |Sekundární lokality    |To Azure
 |---------|---------|---------|
 |Azure| -|Ano|
 |Hyper-V|   Ano |Ano

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Nejčastější dotazy
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/03/2018
 * [Cloudové služby v Azure](app-insights-cloudservices.md)
 * [Servery aplikace spuštěné v Docker](app-insights-docker.md)
 * [Jednostránkové webové aplikace](app-insights-javascript.md)
-* [Služby SharePoint](app-insights-sharepoint.md)
+* [Sharepoint](app-insights-sharepoint.md)
 * [Aplikace na ploše systému Windows](app-insights-windows-desktop.md)
 * [Jiné platformy](app-insights-platforms.md)
 
@@ -68,8 +68,8 @@ Podrobnosti závisí na typu projektu. Pro webovou aplikaci:
 
 * Přidá tyto soubory do projektu:
 
-  * Soubor ApplicationInsights.config.
-  * AI.js
+  * ApplicationInsights.config.
+  * ai.js
 * Nainstaluje tyto balíčky NuGet:
 
   * *Application Insights API* – základní rozhraní API
@@ -82,7 +82,7 @@ Podrobnosti závisí na typu projektu. Pro webovou aplikaci:
 * Vloží položky do:
 
   * Soubor web.config
-  * souboru Packages.config je.
+  * packages.config
 * (Nové projekty pouze – pokud jste [přidat službu Application Insights do existujícího projektu][start], budete muset udělat to ručně.) Fragmenty kódu vloží do kódu klienta a serveru k chybě při inicializaci je s ID prostředku Application Insights. V aplikaci MVC, například kód je vložen do stránky předlohy Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Jak upgradovat ze starší verze sady SDK?
@@ -152,7 +152,7 @@ Podívejte se na [uchovávání dat a ochrana osobních údajů][data].
 
 To je možné, pokud kód odešle taková data. Může také dojít, pokud obsahovat PII variables v trasování zásobníku. Váš vývojový tým musí provést hodnocení rizik může zajistit správné zpracování PII. [Další informace o uchovávání dat a ochrany osobních údajů](app-insights-data-retention-privacy.md).
 
-Poslední oktet webovou adresu klienta je vždycky nastavený na hodnotu 0 po přijímání portálem.
+**Všechny** oktety webovou adresu klienta jsou vždy nastavená na 0, po geografické umístění atributy jsou prohledávat.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Moje iKey je viditelná ve zdroji webové stránky. 
 

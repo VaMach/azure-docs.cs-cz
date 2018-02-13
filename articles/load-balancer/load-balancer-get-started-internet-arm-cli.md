@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření internetového nástroje pro vyrovnávání zatížení – rozhraní příkazového řádku Azure | Dokumentace Microsoftu"
-description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v Resource Manageru pomocí rozhraní příkazového řádku Azure"
+title: "Vytvoření veřejného nástroje pro vyrovnávání zatížení – Azure CLI | Dokumentace Microsoftu"
+description: "Naučte se vytvářet veřejný nástroj pro vyrovnávání zatížení pomocí Azure CLI"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8baf065a7aac0a38624197f8f6a1f6a84aaab2a8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Vytvoření internetového nástroje pro vyrovnávání zatížení pomocí Azure CLI
+# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Vytvoření veřejného nástroje pro vyrovnávání zatížení pomocí Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-Tento článek se týká modelu nasazení Resource Manager. Případně [zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení pomocí modelu nasazení Classic](load-balancer-get-started-internet-classic-portal.md).
+Tento článek se týká modelu nasazení Resource Manager. Případně [zjistěte, jak vytvořit veřejný nástroj pro vyrovnávání zatížení pomocí modelu nasazení Classic](load-balancer-get-started-internet-classic-portal.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-using-the-azure-cli"></a>Nasazení řešení pomocí rozhraní příkazového řádku Azure
 
-Následující postup ukazuje, jak vytvořit internetový nástroj pro vyrovnávání zatížení pomocí Azure Resource Manageru s rozhraním příkazového řádku. S Azure Resource Managerem se jednotlivé prostředky vytvoří a nakonfigurují zvlášť, následně se spojí dohromady a vytvoří prostředek.
+Následující postup ukazuje, jak vytvořit veřejný nástroj pro vyrovnávání zatížení pomocí Azure Resource Manageru s rozhraním příkazového řádku. S Azure Resource Managerem se jednotlivé prostředky vytvoří a nakonfigurují zvlášť, následně se spojí dohromady a vytvoří prostředek.
 
 Pokud chcete nasadit nástroj pro vyrovnávání zatížení, je nutné vytvořit a nakonfigurovat následující objekty:
 

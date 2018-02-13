@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Běžné požadavky pro nasazení OpenShift v Azure
 
@@ -52,14 +52,14 @@ Tato příručka popisuje, jak vytvořit artefakty související s požadavky.
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 ## <a name="sign-in-to-azure"></a>Přihlášení k Azure 
-Přihlaste se k předplatnému Azure s [az přihlášení](/cli/azure/#login) příkazů a postupujte podle na obrazovce pokynů nebo klikněte na **vyzkoušet** používat cloudové prostředí.
+Přihlaste se k předplatnému Azure s [az přihlášení](/cli/azure/#az_login) příkazů a postupujte podle na obrazovce pokynů nebo klikněte na **vyzkoušet** používat cloudové prostředí.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Použijte skupinu prostředků vyhrazené pro hostování trezoru klíčů. Tato skupina je oddělené od skupiny prostředků, do kterého prostředků clusteru OpenShift nasazení. 
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Použijte skupinu prostředků vyhrazené pro hostování trezoru klíčů. Tato skupina je oddělené od skupiny prostředků, do kterého prostředků clusteru OpenShift nasazení. 
 
 Následující příklad vytvoří skupinu prostředků s názvem *keyvaultrg* v *eastus* umístění:
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Vytvořte trezor klíčů
-Vytvoření trezoru klíčů pro ukládání klíčů SSH pro cluster s [vytvořit az keyvault](/cli/azure/keyvault#create) příkaz. Název trezoru klíčů musí být globálně jedinečný.
+Vytvoření trezoru klíčů pro ukládání klíčů SSH pro cluster s [vytvořit az keyvault](/cli/azure/keyvault#az_keyvault_create) příkaz. Název trezoru klíčů musí být globálně jedinečný.
 
 Následující příklad vytvoří trezoru klíčů s názvem *keyvault* v *keyvaultrg* skupiny prostředků:
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Vytvoření instančního objektu 
 OpenShift komunikuje s Azure pomocí uživatelského jména a hesla nebo hlavní název služby. Objektu zabezpečení služby Azure je identita zabezpečení, která můžete použít s aplikací, služeb a automatizace nástroje, například OpenShift. Můžete řídit a definovat oprávnění, které operace můžete provádět objektu služby v Azure. Pokud chcete zvýšit zabezpečení nad rámec právě poskytnutí uživatelského jména a hesla, tento příklad vytvoří základní služby hlavní.
 
-Vytvoření služby hlavní s [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac) a přihlašovací údaje, které potřebuje OpenShift výstup.
+Vytvoření služby hlavní s [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) a přihlašovací údaje, které potřebuje OpenShift výstup.
 
 Následující příklad vytvoří službu objektu zabezpečení a přiřadí ji k skupinu prostředků s názvem myResourceGroup oprávnění přispěvatele. Pokud používáte Windows, spouštění ```az group show --name myResourceGroup --query id``` samostatně a použít výstup ke kanálu možnost--obory.
 

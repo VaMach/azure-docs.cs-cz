@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 22bc237d551214997cc21a489c3c4aa20a5fcbd3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopírování dat z Amazon Redshift pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +61,7 @@ Pro službu Amazon Redshift propojené služby jsou podporovány následující 
 | port |Číslo portu TCP, který používá server Amazon Redshift naslouchat pro připojení klientů. |Ne, výchozí hodnota je 5439 |
 | databáze |Název databáze Amazon Redshift. |Ano |
 | uživatelské jméno |Jméno uživatele, který má přístup k databázi. |Ano |
-| heslo |Heslo pro uživatelský účet. Toto pole můžete označte jako SecureString. |Ano |
+| heslo |Heslo pro uživatelský účet. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
@@ -118,7 +118,7 @@ Ke zkopírování dat z Amazon Redshift, nastavte vlastnost typu datové sady, k
 }
 ```
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 
 Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Amazon Redshift zdroje.
 
@@ -217,7 +217,7 @@ Při kopírování dat z Amazon Redshift, se používají následující mapová
 | CHAR – |Řetězec |
 | DATE (Datum) |Datum a čas |
 | DECIMAL |Decimal |
-| DVOJITÁ PŘESNOST |Double |
+| DVOJITÁ PŘESNOST |Dvojitý |
 | CELÉ ČÍSLO |Int32 |
 | SKUTEČNÉ |Svobodný/svobodná |
 | SMALLINT |Int16 |

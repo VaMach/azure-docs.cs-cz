@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Sloučení sloupců podle příkladu transformace
 Tato transformace umožňuje uživateli přidat nový sloupec kombinací hodnoty z více sloupců. Uživatele můžete určit oddělovač nebo příklady kombinované hodnoty k provedení této transformace. Když uživatel obsahuje příklady kombinaci, transformaci používá stejný **podle příkladu** modul, který se používá v **odvozena sloupec podle příkladu** transformace.
@@ -37,6 +37,10 @@ Výběr **oddělovače** pod **kombinovat sloupce podle** umožňuje uživateli 
 Výběr **příklady** pod **kombinovat sloupce podle** umožňuje uživateli příklady kombinované hodnoty. Ke zvýšení úrovně řádek jako příklad, dvakrát klikněte na řádky v mřížce. Zadejte očekávaný výstup do textového pole proti propagovaných řádek. Na kartě z **oddělovače** textové pole k zobrazení náhledu na výsledky v data gird. Stiskněte klávesu **OK** potvrzení pro transformaci. 
 
 Uživatele můžete přepínat mezi **základní režimu** a **rozšířeném režimu** kliknutím na odkazy v editoru transformace.
+
+### <a name="transform-editor-send-feedback"></a>Transformace editor: váš názor
+
+Kliknutím na **odeslat názor** odkaz otevře **zpětné vazby** poskytl dialogové okno s pole komentáře naplněna příklady uživatele. Uživatel by měl zkontrolovat obsah pole komentáře a obsahují další podrobnosti, abychom tento problém pochopit. Pokud uživatel nechce sdílení dat s Microsoft, uživatel by měl odstranit data předem vyplněnou příklad před kliknutím na tlačítko **odeslat zpětnou vazbu** tlačítko. 
 
 ### <a name="editing-existing-transformation"></a>Úprava existující transformace
 
@@ -62,14 +66,14 @@ Středník a mezerou se používá jako oddělovač v tomto příkladu se zkombi
 
 Hodnota v **tučné** byla poskytnuta jako příklad.
 
-|Datum|Měsíc|Rok|Hodina|Minuta|Sekundu|Kombinovaná sloupce|
+|Datum|Měsíc|Rok|Hodina|Minuta|Sekunda|Kombinovaná sloupce|
 |:----|:----|:----|:----|:----|:----|:----|
-|13|OCT|2016|15|01|23|**13. října 2016 15:01:23 PDT**|
-|16|OCT|2016|16|22|33|16. října 2016 15:01:33 PDT|
-|17|OCT|2016|12|43|12|17. října 2016 15:01:12 PDT|
-|12|Listopadu|2016|14|22|44|12. listopadu 2016 15:01:44 PDT|
-|23|Listopadu|2016|01|52|45|23. listopadu 2016 15:01:45 PDT|
-|16|Jan|2017|22|34|56|16. ledna 2016 15:01:56 PDT|
-|23|Března|2017|01|55|25|23. března 2016 15:01:25 PDT|
-|16|Dubna|2017|11|34|36|16. dubna 2016 15:01:36 PDT|
+|13|Říj|2016|15|01|23|**13. října 2016 15:01:23 PDT**|
+|16|Říj|2016|16|22|33|16. října 2016 15:01:33 PDT|
+|17|Říj|2016|12|43|12|17. října 2016 15:01:12 PDT|
+|12|Lis|2016|14|22|44|12. listopadu 2016 15:01:44 PDT|
+|23|Lis|2016|01|52|45|23. listopadu 2016 15:01:45 PDT|
+|16|Led|2017|22|34|56|16. ledna 2016 15:01:56 PDT|
+|23|Bře|2017|01|55|25|23. března 2016 15:01:25 PDT|
+|16|Dub|2017|11|34|36|16. dubna 2016 15:01:36 PDT|
 

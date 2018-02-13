@@ -31,7 +31,7 @@
       href: how-to-use-map-control.md
     - name: Postup při hledání adresy
       href: how-to-search-for-address.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Funkční rozhraní API
       href: 'https://docs.microsoft.com/rest/api/location-based-services/'
@@ -46,7 +46,7 @@
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Fórum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/location-based-services'
     - name: Cenová kalkulačka

@@ -117,6 +117,7 @@
 ### [Konfigurace místních kodérů pro použití s cloudovým kodérem](media-services-live-encoders-overview.md)
 #### [Kodér Elemental Live](media-services-configure-elemental-live-encoder.md)
 #### [Kodér FMLE](media-services-configure-fmle-live-encoder.md)
+#### [Kodér Haivision KB](media-services-configure-kb-live-encoder.md)
 #### [Kodér NewTek TriCaster](media-services-configure-tricaster-live-encoder.md)
 #### [Kodér Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Zpracování dlouhotrvajících operací](media-services-dotnet-long-operations.md)
@@ -170,6 +171,7 @@
 #### [Názorný postup práce s Face Redactorem](media-services-redactor-walkthrough.md)
 ### [Zpracování pomocí miniatur videí](media-services-video-summarization.md)
 ### [Zpracování pomocí technologie OCR](media-services-video-optical-character-recognition.md)
+### [Zpracování pomocí Content Moderatoru](media-services-content-moderation.md)
 
 ## [Konfigurace telemetrie](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

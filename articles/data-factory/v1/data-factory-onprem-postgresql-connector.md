@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Přesun dat z PostgreSQL pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,7 @@ Vytvoření kanálu s aktivitou kopírování, který přesouvá data z úloži�
 
 - Nejjednodušší způsob, jak vytvořit kanál je použití **Průvodce kopírováním**. V tématu [kurz: vytvoření kanálu pomocí Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md) podrobný rychlé vytvoření kanálu pomocí Průvodce kopírováním data. 
 - Tyto nástroje můžete taky vytvořit kanál: 
-    - portál Azure
+    - Azure Portal
     - Visual Studio
     - Azure PowerShell
     - Šablona Azure Resource Manageru
@@ -77,8 +77,8 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | --- | --- | --- |
 | type |Vlastnost typu musí být nastavena na: **OnPremisesPostgreSql** |Ano |
 | server |Název serveru PostgreSQL. |Ano |
-| Databáze |Název databáze PostgreSQL. |Ano |
-| Schéma |Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
+| databáze |Název databáze PostgreSQL. |Ano |
+| schema |Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
 | authenticationType. |Typ ověřování používaný pro připojení k databázi PostgreSQL. Možné hodnoty jsou: anonymní, základní a systému Windows. |Ano |
 | uživatelské jméno |Pokud používáte ověřování Basic nebo Windows, zadejte uživatelské jméno. |Ne |
 | heslo |Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. |Ne |
@@ -93,7 +93,7 @@ V rámci typeProperties části se liší pro jednotlivé typy datovou sadu a po
 | --- | --- | --- |
 | tableName |Název tabulky instance databáze PostgreSQL, kterou propojená služba odkazuje. TableName rozlišuje velká a malá písmena. |Ne (Pokud **dotazu** z **RelationalSource** je zadána) |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vzhledem k tomu, vlastnosti dostupné v rámci typeProperties části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.
@@ -307,12 +307,12 @@ Při přesunu dat na PostgreSQL, se používají následující mapování z typ
 
 | Typ databáze PostgreSQL | PostgresSQL aliasy | Typ rozhraní .NET framework |
 | --- | --- | --- |
-| abstime | |Data a času | &nbsp;
+| abstime | |Datum a čas | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(ne)] | |Byte [] řetězec | &nbsp;
 | bit různých [(ne)] |varbit |Byte [] řetězec |
-| Logická hodnota |BOOL |Logická hodnota |
+| Boolean |BOOL |Logická hodnota |
 | Pole | |Byte [] řetězec |&nbsp;
 | bytea | |Byte [] řetězec |&nbsp;
 | znak [(ne)] |char [(ne)] |Řetězec |
@@ -320,32 +320,32 @@ Při přesunu dat na PostgreSQL, se používají následující mapování z typ
 | CID | |Řetězec |&nbsp;
 | CIDR | |Řetězec |&nbsp;
 | kruhu. | |Byte [] řetězec |&nbsp;
-| Datum | |Data a času |&nbsp;
+| datum | |Datum a čas |&nbsp;
 | DateRange | |Řetězec |&nbsp;
-| Dvojitá přesnost |FLOAT8 |Double |
+| Dvojitá přesnost |FLOAT8 |Dvojitý |
 | inet | |Byte [] řetězec |&nbsp;
 | intarry | |Řetězec |&nbsp;
 | int4range | |Řetězec |&nbsp;
 | int8range | |Řetězec |&nbsp;
-| celé číslo |int, int4 |Int32 |
+| integer |int, int4 |Int32 |
 | Interval [pole] [(p)] | |Časový interval |&nbsp;
-| JSON | |Řetězec |&nbsp;
-| jsonb | |Byte] |&nbsp;
+| json | |Řetězec |&nbsp;
+| jsonb | |Byte[] |&nbsp;
 | řádek | |Byte [] řetězec |&nbsp;
 | lseg | |Byte [] řetězec |&nbsp;
 | macaddr | |Byte [] řetězec |&nbsp;
-| peníze | |Decimal |&nbsp;
-| číselný [(p, s)] |Decimal [(p, s)] |Decimal |
+| money | |Decimal |&nbsp;
+| číselný [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Řetězec |&nbsp;
 | OID | |Int32 |&nbsp;
-| Cesta | |Byte [] řetězec |&nbsp;
+| path | |Byte [] řetězec |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | bod | |Byte [] řetězec |&nbsp;
 | mnohoúhelníku | |Byte [] řetězec |&nbsp;
-| skutečné |FLOAT4 |Jeden |
+| skutečné |FLOAT4 |Svobodný/svobodná |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| Sériového portu |serial4 |Int32 |
+| sériové |serial4 |Int32 |
 | Text | |Řetězec |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Mapování zdroje jímky sloupců

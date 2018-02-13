@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Jak používat balírna k vytvoření bitové kopie virtuálních počítačů Linux v Azure
 Každý virtuální počítač (VM) v Azure je vytvořený z image, která definuje distribuci systému Linux a verzi operačního systému. Bitové kopie může zahrnovat předinstalované aplikace a konfigurace. Azure Marketplace poskytuje celou řadu imagí první a třetí strany pro aplikaci v prostředích a nejběžnější distribuce, nebo můžete vytvořit vlastní vlastních bitových kopií přizpůsobit svým potřebám. Tento článek popisuje, jak používat nástroj open source [balírna](https://www.packer.io/) definovat a vytvářet vlastní bitové kopie v Azure.
@@ -28,7 +28,7 @@ Každý virtuální počítač (VM) v Azure je vytvořený z image, která defin
 ## <a name="create-azure-resource-group"></a>Vytvoření skupiny prostředků Azure.
 Během procesu vytváření balírna vytvoří dočasný prostředky Azure, jako sestavuje zdrojového virtuálního počítače. Když Pokud chcete zachytit tohoto zdrojového virtuálního počítače pro použití jako bitovou kopii, je nutné zadat skupinu prostředků. Výstup z procesu sestavení balírna je uložený v této skupině prostředků.
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* umístění:
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -54,7 +54,7 @@ Příklad výstupu z předchozích příkazů vypadá takto:
 }
 ```
 
-K ověření do Azure, musíte také získat svoje ID předplatného Azure s [az účet zobrazit](/cli/azure/account#show):
+K ověření do Azure, musíte také získat svoje ID předplatného Azure s [az účet zobrazit](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -71,9 +71,9 @@ Vytvořte soubor s názvem *ubuntu.json* a vložte následující obsah. Zadejte
 | Parametr                           | Kde můžete získat |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | První řádek výstupu z `az ad sp` vytvoření příkazu - *appId* |
-| *tajný klíč client_secret*                     | Druhý řádek výstupu z `az ad sp` vytvoření příkazu - *heslo* |
+| *client_secret*                     | Druhý řádek výstupu z `az ad sp` vytvoření příkazu - *heslo* |
 | *tenant_id*                         | Třetí řádek výstupu z `az ad sp` vytvoření příkazu - *klienta* |
-| *ID_ODBĚRU*                   | Výstup z `az account show` příkaz |
+| *subscription_id*                   | Výstup z `az account show` příkaz |
 | *managed_image_resource_group_name* | Název skupiny prostředků, kterou jste vytvořili v prvním kroku |
 | *managed_image_name*                | Název bitové kopie spravovaného disku, který je vytvořen |
 
@@ -200,7 +200,7 @@ Jak dlouho trvá několik minut, než balírna k vytvoření virtuálního poč�
 
 
 ## <a name="create-vm-from-azure-image"></a>Vytvoření virtuálního počítače z Azure Image
-Nyní můžete vytvořit virtuální počítač z bitové kopie s [vytvořit virtuální počítač az](/cli/azure/vm#create). Určuje obrázek, který jste vytvořili pomocí `--image` parametr. Následující příklad vytvoří virtuální počítač s názvem *Můjvp* z *myPackerImage* a generuje klíče SSH, pokud už neexistují:
+Nyní můžete vytvořit virtuální počítač z bitové kopie s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create). Určuje obrázek, který jste vytvořili pomocí `--image` parametr. Následující příklad vytvoří virtuální počítač s názvem *Můjvp* z *myPackerImage* a generuje klíče SSH, pokud už neexistují:
 
 ```azurecli
 az vm create \
@@ -223,12 +223,12 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Testovací virtuální počítač a NGINX
-Nyní můžete otevřít webový prohlížeč a zadejte `http://publicIpAddress` na panelu Adresa. Zadejte vlastní veřejná IP adresa z virtuálního počítače vytvořit proces. Výchozí NGINX stránky se zobrazí jako v následujícím příkladu:
+Nyní můžete otevřít webový prohlížeč a zadejte `http://publicIpAddress` na panelu Adresa. Zadejte vlastní veřejnou IP adresu získanou při vytváření virtuálního počítače. Výchozí NGINX stránky se zobrazí jako v následujícím příkladu:
 
 ![Výchozí web NGINX](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto příkladu jste použili balírna k vytvoření image virtuálního počítače s NGINX již nainstalován. Můžete tuto bitovou kopii virtuálního počítače spolu s existující pracovní postupy nasazení, například k nasazení vaší aplikace na virtuální počítače vytvořené z bitové kopie s Ansible, Chef nebo Puppet.
 
 Další příklad šablony balírna pro ostatní distribucích systému Linux, najdete v části [toto úložiště GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

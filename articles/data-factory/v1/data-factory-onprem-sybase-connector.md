@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 19a51c7456df698fa682fdecf1487730e282de19
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Přesun dat z databáze Sybase pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ Vyžaduje se brána, i když je databáze Sybase hostované ve virtuálním poč
 > V tématu [potíží brány](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) tipy k řešení potíží s připojení nebo brány související s problémy.
 
 ## <a name="supported-versions-and-installation"></a>Podporované verze a instalaci
-Pro bránu pro správu dat pro připojení k databázi Sybase, je potřeba nainstalovat [zprostředkovatele dat pro databázi Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 nebo vyšší ve stejném systému jako brána pro správu dat. Sybase verze 16 a vyšší je podporovaná.
+Pro bránu pro správu dat pro připojení k databázi Sybase, je potřeba nainstalovat [zprostředkovatele dat pro databázi Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 nebo vyšší ve stejném systému jako brána pro správu dat. 
+
+SAP Sybase SQL odkudkoli (ASA) verze 16 a vyšší je podporováno; IQ a App Service Environment nejsou podporovány.
 
 ## <a name="getting-started"></a>Začínáme
 Vytvoření kanálu s aktivitou kopírování, který přesouvá data z úložiště místní Cassandra data pomocí různých nástrojů nebo rozhraní API. 
@@ -67,8 +69,8 @@ Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro
 | --- | --- | --- |
 | type |Vlastnost typu musí být nastavena na: **OnPremisesSybase** |Ano |
 | server |Název serveru databáze Sybase. |Ano |
-| Databáze |Název databáze Sybase. |Ano |
-| Schéma |Název schématu v databázi. |Ne |
+| databáze |Název databáze Sybase. |Ano |
+| schema |Název schématu v databázi. |Ne |
 | authenticationType. |Typ ověřování používaný pro připojení k databázi Sybase. Možné hodnoty jsou: anonymní, základní a systému Windows. |Ano |
 | uživatelské jméno |Pokud používáte ověřování Basic nebo Windows, zadejte uživatelské jméno. |Ne |
 | heslo |Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. |Ne |
@@ -83,7 +85,7 @@ V rámci typeProperties části se liší pro jednotlivé typy datovou sadu a po
 | --- | --- | --- |
 | tableName |Název tabulky instance databáze Sybase na kterou odkazuje propojená služba. |Ne (Pokud **dotazu** z **RelationalSource** je zadána) |
 
-## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+## <a name="copy-activity-properties"></a>Vlastnosti aktivity kopírování
 Úplný seznam oddílů & vlastnosti, které jsou k dispozici pro definování aktivit najdete v tématu [vytváření kanálů](data-factory-create-pipelines.md) článku. Vlastnosti, například název, popis, vstupní a výstupní tabulky a zásad jsou dostupné pro všechny typy aktivit.
 
 Vzhledem k tomu, vlastnosti dostupné v rámci typeProperties části aktivity se liší podle každý typ aktivity. Pro aktivitu kopírování budou lišit v závislosti na typech zdrojů a jímky.

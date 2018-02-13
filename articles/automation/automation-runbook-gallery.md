@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerie Runbooků a modulů pro Azure Automation.
 Místo vytvoření vlastní sady runbook a modulů ve službě Azure Automation, můžete zpřístupnit různé scénáře, které jste již vytvořili společností Microsoft a komunitou.  Můžete použít tyto scénáře bez jakýchkoli úprav nebo můžete používat jako výchozí bod a je upravit pro vaše konkrétní požadavky.
@@ -37,11 +37,8 @@ Lze importovat pouze přímo z Galerie sady Runbook pomocí portálu Azure. Nelz
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Chcete-li importovat sady runbook z Galerie sady Runbook pomocí portálu Azure
 1. Na webu Azure Portal otevřete účet Automation.
-2. Kliknutím na dlaždici **Runbooky** otevřete seznam runbooků.
-3. Klikněte na tlačítko **procházet galerii** tlačítko.
-   
-    ![Galerie tlačítko Procházet](media/automation-runbook-gallery/browse-gallery-button.png)
-4. Vyhledejte položku Galerie a vybrat zobrazíte její podrobnosti.
+2. V části **automatizace procesu**, klikněte na **Galerie sady Runbook**
+3. Vyhledejte položku Galerie a vybrat zobrazíte její podrobnosti. Na levé straně můžete zadat parametry další vyhledávání pro vydavatele a typu.
    
     ![Procházet galerii](media/automation-runbook-gallery/browse-gallery.png)
 5. Klikněte na **zobrazení zdroje projektu** zobrazíte položky v [centra skriptů TechNet](http://gallery.technet.microsoft.com/).
@@ -94,14 +91,8 @@ Moduly prostředí PowerShell obsahují rutiny, které můžete použít ve vaš
    
     ![Podrobnosti o modulu prostředí PowerShell](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. Nainstalovat modul přímo do Azure Automation, klikněte na **Import** tlačítko.
-   
-    ![Tlačítko Import modulu](media/automation-runbook-gallery/module-import-button.png)
 8. Po kliknutí na tlačítko Importovat na **importovat** podokně se zobrazí název modulu, který chcete importovat. Pokud jsou nainstalovány všechny závislosti, **OK** se aktivuje tlačítko. Pokud jsou chybějících závislostí, je třeba importovat ty před importováním tohoto modulu.
-9. Klikněte na tlačítko **OK** Import modulu. Zatímco Azure Automation importuje modul ke svému účtu, extrahuje metadata o modulu a rutiny.
-   
-    ![Import modulu stránky](media/automation-runbook-gallery/module-import-blade.png)
-   
-    Může to trvat několik minut vzhledem k tomu, že každá aktivita musí být rozbalena.
+9. Na **importovat** klikněte na **OK** k importu modulu. Zatímco Azure Automation importuje modul ke svému účtu, extrahuje metadata o modulu a rutiny. Může to trvat několik minut vzhledem k tomu, že každá aktivita musí být rozbalena.
 10. Po dokončení zobrazí počáteční oznámení se nasazuje modul a jiné oznámení.
 11. Po importu modulu uvidíte dostupných aktivit a její prostředky v runboocích a konfigurace požadovaného stavu můžete použít.
 

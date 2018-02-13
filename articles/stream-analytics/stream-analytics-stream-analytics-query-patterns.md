@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Dotaz příkladů běžných vzorů využití Stream Analytics
 ## <a name="introduction"></a>Úvod
@@ -31,14 +31,14 @@ Například váhy car pochází na vstupního datového proudu jako řetězce a 
 
 **Vstup**:
 
-| Ujistěte se | Čas | Váha |
+| Make | Čas | Váha |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
 
 **Výstup**:
 
-| Ujistěte se | Váha |
+| Make | Váha |
 | --- | --- |
 | Honda |3000 |
 
@@ -61,18 +61,18 @@ Například zkontrolujte, že výsledek vrátí desky licencí, které se začí
 
 **Vstup**:
 
-| Ujistěte se | LicensePlate | Čas |
+| Make | LicensePlate | Čas |
 | --- | --- | --- |
-| Honda |ABC 123 |2015-01-01T00:00:01.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC 369 |2015-01-01T00:00:03.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Výstup**:
 
-| Ujistěte se | LicensePlate | Čas |
+| Make | LicensePlate | Čas |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC 369 |2015-01-01T00:00:03.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Řešení**:
 
@@ -91,7 +91,7 @@ Zadejte například, že řetězec popis Ujistěte se, kolik aut stejného byla 
 
 **Vstup**:
 
-| Ujistěte se | Čas |
+| Make | Čas |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -126,7 +126,7 @@ Například analyzovat data pro upozornění na základě prahové hodnoty a arc
 
 **Vstup**:
 
-| Ujistěte se | Čas |
+| Make | Čas |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -136,7 +136,7 @@ Například analyzovat data pro upozornění na základě prahové hodnoty a arc
 
 **Output1**:
 
-| Ujistěte se | Čas |
+| Make | Čas |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -146,7 +146,7 @@ Například analyzovat data pro upozornění na základě prahové hodnoty a arc
 
 **Output2**:
 
-| Ujistěte se | Čas | Počet |
+| Make | Čas | Počet |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -178,7 +178,7 @@ První dotazu je průchozí dat jsme dostali výstupu, který jsme pojmenovali *
 Druhý dotaz nemá některé jednoduché agregace a filtrování a odesílá výsledky na příjem dat výstrah systém.
 
 Všimněte si, že můžete také znovu použít výsledky běžných výrazech tabulky (odkazu Cte) (například **WITH** příkazy) ve více příkazů výstup. Tato možnost má výhodu v podobě otevírání méně uživatelům vstupního zdroje.
-Například: 
+Příklad: 
 
     WITH AllRedCars AS (
         SELECT
@@ -197,7 +197,7 @@ Například kolik jedinečný díky automobilů předána stánek projedou v okn
 
 **Vstup**:
 
-| Ujistěte se | Čas |
+| Make | Čas |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -207,7 +207,7 @@ Například kolik jedinečný díky automobilů předána stánek projedou v okn
 
 **Výstup:**
 
-| Počet | Čas |
+| CountMake | Čas |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -233,14 +233,14 @@ Předchozí car na cestách projedou je třeba vytvořit stejný jako aktuální
 
 **Vstup**:
 
-| Ujistěte se | Čas |
+| Make | Čas |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Výstup**:
 
-| Ujistěte se | Čas |
+| Make | Čas |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -261,7 +261,7 @@ Předchozí car na cestách projedou je třeba vytvořit stejný jako aktuální
 
 **Vstup**:
 
-| LicensePlate | Ujistěte se | Čas |
+| LicensePlate | Make | Čas |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -273,7 +273,7 @@ Předchozí car na cestách projedou je třeba vytvořit stejný jako aktuální
 
 **Výstup**:
 
-| LicensePlate | Ujistěte se | Čas |
+| LicensePlate | Make | Čas |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -291,7 +291,7 @@ Předchozí car na cestách projedou je třeba vytvořit stejný jako aktuální
 
 Teď umožňuje změnit problém a najít první auto konkrétní značky v intervalu každých 10 minut.
 
-| LicensePlate | Ujistěte se | Čas |
+| LicensePlate | Make | Čas |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -315,7 +315,7 @@ Teď umožňuje změnit problém a najít první auto konkrétní značky v inte
 
 **Vstup**:
 
-| LicensePlate | Ujistěte se | Čas |
+| LicensePlate | Make | Čas |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -327,7 +327,7 @@ Teď umožňuje změnit problém a najít první auto konkrétní značky v inte
 
 **Výstup**:
 
-| LicensePlate | Ujistěte se | Čas |
+| LicensePlate | Make | Čas |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -361,18 +361,18 @@ Například 2 po sobě jdoucích aut ze stejné zkontrolujte zadali silniční p
 
 **Vstup**:
 
-| Ujistěte se | LicensePlate | Čas |
+| Make | LicensePlate | Čas |
 | --- | --- | --- |
-| Honda |ABC 123 |2015-01-01T00:00:01.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
-| Honda |GHI 345 |2015-01-01T00:00:04.0000000Z |
+| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
+| Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Výstup**:
 
-| Ujistěte se | Čas | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Make | Čas | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
-| Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC 123 |2015-01-01T00:00:01.0000000Z |
+| Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
 **Řešení**:
 
@@ -397,7 +397,7 @@ Například 2 po sobě jdoucích aut ze stejné zkontrolujte zadali silniční p
 | Uživatel | Funkce | Událost | Čas |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Konec |2015-01-01T00:00:08.0000000Z |
 
 **Výstup**:  
 
@@ -423,7 +423,7 @@ Předpokládejme například, že chyby výsledkem všechny aut, které mají ne
 
 **Vstup**:
 
-| Ujistěte se | Čas | Váha |
+| Make | Čas | Váha |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -469,7 +469,7 @@ Například generovat událost každých 5 sekund, která generuje sestavy napos
 
 **Vstup**:
 
-| T | hodnota |
+| t | hodnota |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -480,7 +480,7 @@ Například generovat událost každých 5 sekund, která generuje sestavy napos
 
 **Výstup (prvních 10 řádků)**:
 
-| windowend | lastevent.t | lastevent.Value |
+| windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -508,7 +508,7 @@ Například generovat událost každých 5 sekund, která generuje sestavy napos
 ## <a name="get-help"></a>Podpora
 Pro další pomoc, vyzkoušejte naše [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Úvod do služby Azure Stream Analytics](stream-analytics-introduction.md)
 * [Začínáme používat službu Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Škálování služby Stream Analytics](stream-analytics-scale-jobs.md)

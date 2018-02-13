@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Přidání prostředky Azure Automation OMS řešení pro správu (Preview)
 > [!NOTE]
@@ -40,7 +40,7 @@ Tento článek předpokládá, že jste již obeznámeni s následujícími info
 - Postup [vytváření šablon Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Účet Automation
-Všechny prostředky ve službě Azure Automation jsou součástí [účet Automation](../automation/automation-security-overview.md#automation-account-overview).  Jak je popsáno v [OMS pracovní prostor a účet Automation](operations-management-suite-solutions.md#oms-workspace-and-automation-account) účet Automation není zahrnutý v řešení pro správu, ale musí existovat před instalací řešení.  Pokud není k dispozici, se nezdaří instalace řešení.
+Všechny prostředky ve službě Azure Automation jsou součástí [účet Automation](../automation/automation-security-overview.md#automation-account-overview).  Jak je popsáno v [OMS pracovní prostor a účet Automation](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) účet Automation není zahrnutý v řešení pro správu, ale musí existovat před instalací řešení.  Pokud není k dispozici, se nezdaří instalace řešení.
 
 Název každého prostředku automatizace obsahuje název svůj účet Automation.  To se provádí v řešení s **accountName** parametr jako v následujícím příkladu runbook prostředku.
 
@@ -171,7 +171,7 @@ Vlastnosti přihlašovacích údajů prostředky jsou popsané v následující 
 
 | Vlastnost | Popis |
 |:--- |:--- |
-| Uživatelské jméno |Uživatelské jméno pro přihlašovací údaje. |
+| userName |Uživatelské jméno pro přihlašovací údaje. |
 | heslo |Heslo pro přihlašovací údaje. |
 
 
@@ -201,8 +201,8 @@ Vlastnosti pro plán prostředky jsou popsány v následující tabulce.
 |:--- |:--- |
 | description |Volitelný popis pro plán. |
 | startTime |Určuje počáteční čas plánu jako objekt data a času. Řetězec lze zadat, pokud je možné ji převést na platný datový typ DateTime. |
-| Hodnotu IsEnabled |Určuje, zda je povoleno plán. |
-| interval |Typ intervalu pro plán.<br><br>Den<br>Hodina |
+| isEnabled |Určuje, zda je povoleno plán. |
+| interval |Typ intervalu pro plán.<br><br>den<br>hodina |
 | frequency |Četnost plán by měl fire počtu dnů nebo hodin. |
 
 Plány musí mít počáteční čas s hodnotou větší než aktuální čas.  Tuto hodnotu nelze poskytnout proměnné, vzhledem k tomu, že by měla mít žádný způsob, jak zjistit, kdy se bude nainstalována.
@@ -279,12 +279,12 @@ Vlastnosti pro proměnné prostředky jsou popsány v následující tabulce.
 
 Pokud jste nastavili počáteční hodnotu pro proměnnou, musí být nakonfigurované jako správného datového typu.  Následující tabulka obsahuje různé datové typy, které jsou povolené a jejich syntaxi.  Všimněte si, že se hodnoty ve formátu JSON očekává vždycky být uzavřena v uvozovkách s žádné speciální znaky v rámci uvozovky.  Například by být řetězcová hodnota určena řetězec v uvozovkách (pomocí řídicí znak (\\)) číselnou hodnotu by zadán s jednu sadu uvozovky.
 
-| Datový typ | Popis | Příklad | Přeloží na |
+| Typ dat | Popis | Příklad: | Přeloží na |
 |:--|:--|:--|:--|
-| Řetězec   | Vložte hodnotu do dvojitých uvozovek.  | "\"Hello, world\"" | "Hello, world" |
+| řetězec   | Vložte hodnotu do dvojitých uvozovek.  | "\"Hello, world\"" | "Hello, world" |
 | číselné  | Číselná hodnota se jednoduchých uvozovkách.| "64" | 64 |
-| Logická hodnota  | **Hodnota TRUE,** nebo **false** v uvozovkách.  Všimněte si, že tato hodnota musí být malými písmeny. | "true" | Hodnota TRUE |
-| Data a času | Hodnota serializovaná data.<br>Můžete použít rutinu ConvertTo-Json v prostředí PowerShell k vygenerování této hodnoty pro konkrétní datum.<br>Příklad: get datum "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Boolean  | **Hodnota TRUE,** nebo **false** v uvozovkách.  Všimněte si, že tato hodnota musí být malými písmeny. | "true" | true (pravda) |
+| datetime | Hodnota serializovaná data.<br>Můžete použít rutinu ConvertTo-Json v prostředí PowerShell k vygenerování této hodnoty pro konkrétní datum.<br>Příklad: get datum "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduly
 Řešení pro správu není nutné definovat [globální moduly](../automation/automation-integration-modules.md) použít ve vašich sadách runbook, protože se budou vždy k dispozici ve vašem účtu Automation.  Musíte zahrnout prostředku pro ostatní moduly používané vaší sady runbook.
@@ -649,5 +649,5 @@ Příklad používá [standardní řešení parametry](operations-management-sui
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Přidat zobrazení do řešení](operations-management-suite-solutions-resources-views.md) k vizualizaci shromážděná data.

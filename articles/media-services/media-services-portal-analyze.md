@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analýza médií s využitím webu Azure Portal
 > [!NOTE]
-> K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
 ## <a name="overview"></a>Přehled
 Azure Media Services Analytics je kolekce řečových a vizuálních komponent (na škálování enterprise, dodržování předpisů, zabezpečení a globální reach), které usnadňují organizacím a podnikům umožňují k získání prakticky uplatnitelných informací ze svých videosouborů. Podrobnější přehled Azure Media Services Analytics najdete v článku [to](media-services-analytics-overview.md) tématu. 
 
-Toto téma popisuje postupy zpracování médií s procesory médií Media Analytics (sad Management Pack) pomocí portálu Azure. MP Media Analytics vytvářejí soubory MP4 nebo soubory JSON. Pokud procesor médií vytvořil soubor MP4, můžete ho progresivně stahovat. Pokud procesor médií vytvořil soubor JSON, můžete ho stáhnout z úložiště objektů blob v Azure. 
+Toto téma popisuje postupy zpracování médií s procesory médií Media Analytics (sad Management Pack) pomocí portálu Azure. MP Media Analytics vytvářejí soubory MP4 nebo soubory JSON. Pokud procesor médií vytvořil soubor MP4, progresivně stáhněte soubor. Pokud procesor médií vytvořil soubor JSON, můžete soubor stáhnout z Azure blob storage. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Vyberte asset, který chcete analyzovat
 1. Na webu [Azure Portal](https://portal.azure.com/) zvolte účet Azure Media Services.
@@ -45,7 +45,7 @@ Toto téma popisuje postupy zpracování médií s procesory médií Media Analy
 5. Stiskněte klávesu **vytvořit** spuštění a úlohy.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-**Azure Media Indexer** procesor médií umožňuje vytvoření mediálních souborů a obsah s možností vyhledávání, jakož i generovat uzavřené titulků sleduje. Tato část obsahuje některé údaje o možnostech, které můžete zadat pro tento bod.
+**Azure Media Indexer** procesor médií umožňuje vytvoření mediálních souborů a obsah s možností vyhledávání, jakož i generovat uzavřené titulků sleduje. Tato část obsahuje některé údaje o možnostech, které zadáte pro tento bod.
 
 ![Analýza videa](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -74,7 +74,7 @@ Popisný název, který umožňuje identifikovat úlohu. [To](media-services-por
 Popisný název, který umožňuje identifikovat obsah výstup. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse je na sadu Management Pack vytvoří smooth vypršelo čas videa z první, kdo nebo akce fotoaparát obsah.  Další informace najdete v [tomto](media-services-hyperlapse-content.md) tématu. Tato část obsahuje některé údaje o možnostech, které můžete zadat pro tento bod.
+Azure Media Hyperlapse je na sadu Management Pack vytvoří smooth vypršelo čas videa z první, kdo nebo akce fotoaparát obsah.  Další informace najdete v [tomto](media-services-hyperlapse-content.md) tématu. Tato část obsahuje některé údaje o možnostech, které zadáte pro tento bod.
 
 ![Analýza videa](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -135,11 +135,21 @@ Popisný název, který umožňuje identifikovat úlohu. [To](media-services-por
 ### <a name="output-file"></a>Výstupní soubor
 Popisný název, který umožňuje identifikovat obsah výstup. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="azure-media-content-moderator"></a>Azure Media obsahu moderátora
+Tento procesor pomáhá rozpoznat potenciální obsah pro dospělé a zájem v videa. Procesor automaticky rozpozná snímky a klíčových snímků na videu. Skóre klíčových snímků pro možné obsah pro dospělé nebo zájem a navrhne recenze podle výchozí prahové hodnoty. Podrobné informace a příklady naleznete v tématu [pomocí Azure Media obsahu moderátora na střední videa](media-services-content-moderation.md)
+
+![Střední videa](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>Verze 
+Použijte "2.0".
+
+### <a name="mode"></a>Mode
+Ignorovat verze 2.0 `Mode` nastavení.
+
+## <a name="next-steps"></a>Další postup
 Zobrazení Media Services kurzů.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

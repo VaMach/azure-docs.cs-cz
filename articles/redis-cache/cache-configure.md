@@ -3,8 +3,8 @@ title: Postup konfigurace Azure Redis Cache | Microsoft Docs
 description: "Rady pro pochopení výchozí konfiguraci Redis pro Azure Redis Cache a informace o konfiguraci vaší instance služby Azure Redis Cache"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Postup konfigurace Azure Redis Cache
 Toto téma popisuje, jak zkontrolovat a aktualizovat konfiguraci pro vaše instance služby Azure Redis Cache a obsahuje výchozí konfiguraci serveru Redis pro instance služby Azure Redis Cache.
@@ -45,7 +45,7 @@ Můžete zobrazit a nakonfigurovat následující nastavení pomocí **prostřed
 * [Nastavení](#settings)
     * [Přístupové klávesy](#access-keys)
     * [Upřesnit nastavení](#advanced-settings)
-    * [Advisor mezipaměti redis](#redis-cache-advisor)
+    * [Redis Cache Advisor](#redis-cache-advisor)
     * [Škálování](#scale)
     * [Velikost clusteru redis](#cluster-size)
     * [Trvalosti dat redis](#redis-data-persistence)
@@ -57,7 +57,7 @@ Můžete zobrazit a nakonfigurovat následující nastavení pomocí **prostřed
     * [Zámky.](#locks)
     * [Skriptu pro automatizaci](#automation-script)
 * [Správa](#administration)
-    * [Umožňuje importovat data](#importexport)
+    * [Import dat](#importexport)
     * [Export dat](#importexport)
     * [Restartování](#reboot)
 * [Monitorování](#monitoring)
@@ -97,7 +97,7 @@ Klikněte na tlačítko **Diagnostikujte a řešení problémů** poskytované s
 
 * [Přístupové klávesy](#access-keys)
 * [Upřesnit nastavení](#advanced-settings)
-* [Advisor mezipaměti redis](#redis-cache-advisor)
+* [Redis Cache Advisor](#redis-cache-advisor)
 * [Škálování](#scale)
 * [Velikost clusteru redis](#cluster-size)
 * [Trvalosti dat redis](#redis-data-persistence)
@@ -170,7 +170,7 @@ Další informace najdete v tématu [Redis oznámení Keyspace](http://redis.io/
 
 
 <a name="recommendations"></a>
-## <a name="redis-cache-advisor"></a>Advisor mezipaměti redis
+## <a name="redis-cache-advisor"></a>Redis Cache Advisor
 **Redis Cache Advisor** zobrazuje doporučení pro mezipaměť. Během normálních operací zobrazí se žádná doporučení. 
 
 ![Doporučení](./media/cache-configure/redis-cache-no-recommendations.png)
@@ -222,7 +222,7 @@ Chcete-li změnit velikost clusteru, posuvníkem nebo zadejte číslo mezi 1 a 1
 > 
 
 
-### <a name="redis-data-persistence"></a>Trvalosti dat redis
+### <a name="redis-data-persistence"></a>Trvalost dat Redis
 Klikněte na tlačítko **trvalosti dat Redis** povolit, zakázat nebo konfigurace trvalosti dat pro mezipaměť premium. Azure Redis Cache nabízí buď pomocí trvalosti Redis [RDB trvalost](cache-how-to-premium-persistence.md#configure-rdb-persistence) nebo [AOF trvalost](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Další informace najdete v tématu [postup konfigurace trvalosti pro mezipaměť Azure Redis Cache Premium](cache-how-to-premium-persistence.md).
@@ -290,7 +290,7 @@ Klikněte na tlačítko **vlastnosti** zobrazíte informace o mezipaměti, včet
 ### <a name="locks"></a>Zámky
 **Zamkne** části umožňuje zamknout předplatné, skupinu prostředků nebo prostředek zabránit ostatním uživatelům ve vaší organizaci neúmyslnému odstranění nebo úprava důležitých prostředků. Další informace najdete v tématu [Zamknutí prostředků pomocí Azure Resource Manageru](../azure-resource-manager/resource-group-lock-resources.md).
 
-### <a name="automation-script"></a>Skriptu pro automatizaci
+### <a name="automation-script"></a>Automatizační skript
 
 Klikněte na tlačítko **skriptu pro automatizaci** sestavení a exportovat šablonu vaše nasazené prostředky pro budoucí nasazení. Další informace o práci se šablonami najdete v tématu [nasazení prostředků pomocí šablony Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -299,7 +299,7 @@ Nastavení v **správy** části umožňují provádět následující úlohy sp
 
 ![Správa](./media/cache-configure/redis-cache-administration.png)
 
-* [Umožňuje importovat data](#importexport)
+* [Import dat](#importexport)
 * [Export dat](#importexport)
 * [Restartování](#reboot)
 
@@ -343,7 +343,7 @@ Restartovat jeden nebo více uzlů svojí mezipaměti, vyberte požadovaný uzel
 * [Pravidla výstrah](#alert-rules)
 * [Diagnostika](#diagnostics)
 
-### <a name="redis-metrics"></a>Metriky pro redis
+### <a name="redis-metrics"></a>Metrika mezipaměti Redis
 Klikněte na tlačítko **Redis metriky** k [metriky zobrazit](cache-how-to-monitor.md#view-cache-metrics) ke svojí mezipaměti.
 
 ### <a name="alert-rules"></a>Pravidla výstrah
@@ -362,7 +362,7 @@ Ve výchozím nastavení, mezipaměti metriky v Azure monitorování jsou [uchov
 ## <a name="support--troubleshooting-settings"></a>Podporovat & řešení potíží s nastavení
 Nastavení v **podpory a řešení potíží s** části poskytují možnosti pro řešení problémů s mezipamětí.
 
-![Podpora + řešení potíží](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Podpora a řešení potíží](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Stav prostředků](#resource-health)
 * [Nová žádost o podporu](#new-support-request)
@@ -512,6 +512,6 @@ Mezipaměti můžete přesunout do nového předplatného kliknutím **přesunou
 
 Informace o přesun prostředků z jedné skupiny prostředků do jiné a z jedno předplatné do druhého, najdete v části [přesunutím prostředků do nové skupiny prostředků nebo předplatného](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o práci s příkazy Redis najdete v tématu [jak můžete spouštět příkazy Redis?](cache-faq.md#how-can-i-run-redis-commands)
 

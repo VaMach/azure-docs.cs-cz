@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Ukázky centra událostí 
 
@@ -45,7 +45,7 @@ Následující ukázky ukazují, jak odesílat a přijímat události pomocí [k
 
 [Začít pracovat s Event Processor Host přijetí](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) ukázka je aplikace konzoly .NET Core, která přijímá zprávy z centra událostí pomocí Event Processor Host.
 
-## <a name="net-framework"></a>Rozhraní .NET framework   
+## <a name="net-framework"></a>.NET Framework   
 
 Tyto ukázky demonstrují různým funkcím služby Azure Event Hubs, cílení [rozhraní .NET Framework – knihovna](/dotnet/framework/index).
  
@@ -61,15 +61,11 @@ Tyto ukázky demonstrují různým funkcím služby Azure Event Hubs, cílení [
 
 [Horizontální navýšení kapacity zpracování událostí](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) příklad ukazuje způsob použití [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) distribuovat zatížení spotřeby Event Hubs datového proudu. Ukazuje, jak implementovat **EventProcessor** a **EventProcessorFactory** objektů ke správě datového proudu událostí. 
 
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Získání dat z SQL do centra událostí
-
-[Dat stahování SQL](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) příklad ukazuje postup vyžádá data z tabulky SQL a poslat ho do centra událostí, použít jako vstup v příjem dat analytických aplikací.
-
 ### <a name="pull-web-data-into-an-event-hub"></a>Získání dat webové do centra událostí 
 
 [Importovat data z webu](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) příklad ukazuje, jak načítat data z veřejné informační kanály (například ministerstva dopravy na provoz informace informační kanál) a poslat ho do centra událostí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o rozhraní .NET Framework verze když přejdete na následujících odkazech:
 

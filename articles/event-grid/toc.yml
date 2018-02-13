@@ -10,6 +10,8 @@
   items:
     - name: Směrování událostí služby Blob Storage – Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Směrování událostí služby Blob Storage – PowerShell
+      href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Vytvoření vlastní události – Azure CLI
       href: custom-event-quickstart.md
     - name: Vytvoření vlastní události – Azure PowerShell
@@ -36,11 +38,15 @@
   items:
     - name: Streamování dat z Event Hubs do datového skladu
       href: event-grid-event-hubs-integration.md
+    - name: Odesílání oznámení o událostech služby IoT Hub
+      href: publish-iot-hub-events-to-logic-apps.md
+    - name: Publikování ve vlastním tématu
+      href: post-to-custom-topic.md
     - name: Šablony pro odběry událostí
       href: event-subscription-template.md
     - name: Monitorování doručování událostí
       href: monitor-event-delivery.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Azure CLI
       href: /cli/azure/eventgrid
@@ -48,6 +54,8 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
+    - name: Sady SDK
+      href: sdk-overview.md
     - name: Schéma předplatného
       href: subscription-creation-schema.md
     - name: Schéma událostí
@@ -59,6 +67,8 @@
           href: event-schema-blob-storage.md
         - name: Event Hubs
           href: event-schema-event-hubs.md
+        - name: IoT Hub
+          href: event-schema-iot-hub.md
         - name: Skupiny prostředků
           href: event-schema-resource-groups.md
 - name: Zdroje a prostředky

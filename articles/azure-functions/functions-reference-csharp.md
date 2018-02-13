@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5a4fc57606b0cf09f8d20710e3c83637283014ba
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure funkcí jazyka C# skript (.csx) referenční informace pro vývojáře
 
@@ -124,7 +124,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-Pomocí sdílenou *.csx* souboru je běžný vzor, pokud chcete na typově thet data předávají mezi funkcí podle pomocí objektů POCO objektu. V následujícím příkladu zjednodušené služby triggeru protokolu HTTP a aktivační události fronty sdílet objektů POCO objekt s názvem `Order` na typově pořadí dat:
+Pomocí sdílenou *.csx* souboru je běžný vzor, pokud chcete na typově data předávají mezi funkcí podle pomocí objektů POCO objektu. V následujícím příkladu zjednodušené služby triggeru protokolu HTTP a aktivační události fronty sdílet objektů POCO objekt s názvem `Order` na typově pořadí dat:
 
 Příklad *run.csx* pro triggeru protokolu HTTP:
 
@@ -248,7 +248,7 @@ public static void Run(string myBlob, TraceWriter log)
 > [!NOTE]
 > Informace o novější rozhraní protokolování, který můžete použít místo `TraceWriter`, najdete v části [zápisu protokolů v C# funkce](functions-monitoring.md#write-logs-in-c-functions) v **monitorování Azure Functions** článku.
 
-## <a name="async"></a>Asynchronní
+## <a name="async"></a>Async
 
 Chcete-li funkci asynchronní, použijte `async` – klíčové slovo a vraťte se `Task` objektu.
 
@@ -258,7 +258,7 @@ public async static Task ProcessQueueMessageAsync(
         Stream blobInput,
         Stream blobOutput)
 {
-    await blobInput.CopyToAsync(blobOutput, 4096, token);
+    await blobInput.CopyToAsync(blobOutput, 4096);
 }
 ```
 

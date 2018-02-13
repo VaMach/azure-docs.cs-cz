@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: a897a97b9a1e259f5994a27b974eb5183fd1194b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 602b868073da6bd1f64099c0f344c9b492abaff0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="remove-azure-automation-hybrid-runbook-workers"></a>Odeberte služby Azure Automation Hybrid Runbook Worker
+# <a name="remove-azure-automation-hybrid-runbook-workers"></a>Odebrání funkce Hybrid Runbook Worker služby Azure Automation
 
-Můžeš 
+Funkce hybridní pracovní proces Runbooku automatizace Azure umožňuje spuštění sad runbook přímo na počítači, který hostuje roli a s prostředky v prostředí pro správu těchto místních prostředků. Tento článek vás provede kroky k odebrání hybridního pracovního procesu na místní počítač.
 
 ## <a name="removing-hybrid-runbook-worker"></a>Odebrání hybridní pracovní proces Runbooku
 
@@ -40,8 +40,8 @@ Jeden nebo více procesy Hybrid Runbook Worker můžete odebrat ze skupiny nebo 
 Odebrat skupinu, je nutné nejprve odebrat hybridní pracovní proces Runbooku z každý počítač, který je členem skupiny postupem uvedena výše a potom proveďte následující kroky k odebrání skupiny.  
 
 1. Otevřete účet Automation na portálu Azure.
-1. Vyberte **skupinám Hybrid Worker** dlaždici a v **skupinám Hybrid Worker** okně vyberte skupinu, do které chcete odstranit.  Po výběru konkrétní skupinu **skupinu hybridních pracovních procesů** zobrazí se okno Vlastnosti.<br> ![Skupina hybridních pracovních procesů Runbook okno](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
-1. V okně Vlastnosti pro vybranou skupinu, klikněte na **odstranit**.  Zobrazí se zpráva s žádostí o potvrzení této akce vyberte **Ano** Opravdu chcete pokračovat.<br> ![Dialogové okno potvrzení odstranění skupiny](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Dokončení tohoto procesu může trvat několik sekund a průběh zpracování můžete sledovat prostřednictvím možnosti nabídky **Oznámení**. 
+1. V části **automatizace procesu** vyberte **skupinám Hybrid Worker**. Vyberte skupinu, kterou chcete odstranit.  Po výběru konkrétní skupinu **skupinu hybridních pracovních procesů** zobrazí se okno Vlastnosti.<br> ![Skupina hybridních pracovních procesů Runbook okno](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
+2. V okně Vlastnosti pro vybranou skupinu, klikněte na **odstranit**.  Zobrazí se zpráva s žádostí o potvrzení této akce vyberte **Ano** Opravdu chcete pokračovat.<br> ![Dialogové okno potvrzení odstranění skupiny](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Dokončení tohoto procesu může trvat několik sekund a průběh zpracování můžete sledovat prostřednictvím možnosti nabídky **Oznámení**. 
 
 ## <a name="next-steps"></a>Další kroky
 

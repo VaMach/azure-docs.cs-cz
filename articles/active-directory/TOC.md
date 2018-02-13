@@ -83,6 +83,7 @@
 #### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrace uživatelů mezi licencemi produktů](active-directory-licensing-group-product-migration.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 #### [Příklady Azure PowerShellu pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 #### [Referenční informace k produktům a plánům služeb v Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
@@ -176,6 +177,16 @@
 ##### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [Zřizování a rušení zřízení uživatelů pro aplikace SaaS](active-directory-saas-app-provisioning.md)
+#### [Kurzy integrace aplikací](active-directory-saas-tutorial-list.md)
+#### [Automatizace zřizování pro aplikace s podporou SCIM](active-directory-scim-provisioning.md)
+#### [Přizpůsobení mapování atributů](active-directory-saas-customizing-attribute-mappings.md)
+#### [Zápis výrazů pro mapování atributů](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Použití filtrů oborů](active-directory-saas-scoping-filters.md)
+#### [Sestavy pro automatické zřizování uživatelů](active-directory-saas-provisioning-reporting.md)
+#### [Řešení potíží se zřizováním uživatelů](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Vzdálený přístup k aplikací s App Proxy](active-directory-application-proxy-get-started.md)
 #### Začínáme
@@ -190,8 +201,6 @@
 ##### [Konektory](application-proxy-understand-connectors.md)
 ##### [Zabezpečení](application-proxy-security-considerations.md)
 ##### [Sítě](application-proxy-network-topology-considerations.md)
-
-
 ##### [Upgrade z TMG nebo UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Pokročilá konfigurace
@@ -202,6 +211,8 @@
 ##### [Bezobslužná instalace](active-directory-application-proxy-silent-installation.md)
 ##### [Vlastní domovská stránka](application-proxy-office365-app-launcher.md)
 ##### [Převod vložených odkazů](application-proxy-link-translation.md)
+##### [Aplikace se zástupnými znaky](active-directory-application-proxy-wildcard.md)
+
 #### Názorné postupy publikování
 ##### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -219,7 +230,7 @@
 #### [Pokročilé podepisování certifikátů pro aplikace SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Skrytí aplikace v uživatelském prostředí](active-directory-coreapps-hide-third-party-app.md)
 ### [Konfigurace automatického zrychlení přihlašování pomocí zásad HRD](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migrace aplikací AD FS do Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
 #### [Přístup s jednotným přihlašováním](active-directory-appssoaccess-whatis.md)
 #### [Certifikáty pro jednotné přihlašování](active-directory-sso-certs.md)
@@ -264,7 +275,8 @@
 
 ## Delegování přístupu k prostředkům
 ### [Role správce](active-directory-assign-admin-roles-azure-portal.md)
-#### [Přiřazení rolí správce](active-directory-users-assign-role-azure-portal.md)
+#### [Přiřazení role správce uživateli](active-directory-users-assign-role-azure-portal.md)
+#### [Porovnání oprávnění pro členy a uživatele typu host](users-default-permissions.md)
 ### [Jednotky pro správu](active-directory-administrative-units-management.md)
 ### [Konfigurace životnosti tokenů](active-directory-configurable-token-lifetimes.md)
 ### [Správa účtů pro správu pro nouzový přístup](active-directory-admin-manage-emergency-access-accounts.md)
@@ -282,8 +294,9 @@
 
 ## Zabezpečení identit
 ### [Podmíněný přístup](active-directory-conditional-access-azure-portal.md)
-#### [Ovládací prvky](active-directory-conditional-access-controls.md)
+#### [Podmínky](active-directory-conditional-access-conditions.md)
 #### [Podmínka umístění](active-directory-conditional-access-locations.md)
+#### [Ovládací prvky](active-directory-conditional-access-controls.md)
 #### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Vysvětlení zásad zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md)
@@ -321,8 +334,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Integrace ostatních služeb s Azure AD]()
-### [Povolení integrace LinkedIn](linkedin-integration.md)
+## Integrace ostatních služeb s Azure AD
+### [Integrace LinkedInu s Azure AD](linkedin-integration.md)
 
 ## [Nasazení AD DS na virtuálních počítačích Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory na virtuálních počítačích Azure](active-directory-deploying-ws-ad-guidelines.md)

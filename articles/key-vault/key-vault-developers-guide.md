@@ -2,18 +2,18 @@
 title: "Příručka pro vývojáře Azure Key Vault"
 description: "Vývojáři mohou spravovat kryptografické klíče v rámci prostředí Microsoft Azure pomocí Azure Key Vault."
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: bruceper
-ms.openlocfilehash: 30b6bd694eba43a9c46f02404e7fdc0e936e9755
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: alleonar
+ms.openlocfilehash: 68a08f1f6e8036b9ca966e8d9596c09f2b2ccf81
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-developers-guide"></a>Příručka pro vývojáře Azure Key Vault
 
@@ -98,7 +98,7 @@ V Node.js jsou oddělené rozhraní API pro správu Key Vault a objekt Key Vault
 
 [Knihovny Azure Key Vault pro jazyk Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
 
-#### <a name="azure-cli-2"></a>Rozhraní příkazového řádku Azure 2
+#### <a name="azure-cli-2"></a>Azure CLI 2
 
 [Azure CLI pro trezor klíčů](https://docs.microsoft.com/cli/azure/keyvault)
 

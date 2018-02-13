@@ -2,23 +2,17 @@
 title: "Plánování kapacity a škálování replikace VMware do Azure s Azure Site Recovery | Microsoft Docs"
 description: "Použijte tento článek k plánování kapacity a škálování při replikaci virtuálních počítačů VMware do Azure s Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: rayne
-ms.openlocfilehash: 0f4d82d450a6ca2e73c68452a409f300841dbf32
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Plánování kapacity a škálování pro replikaci VMware s Azure Site Recovery
 
@@ -38,7 +32,7 @@ Shromážděte informace o prostředí replikace spuštěním [Azure Site Recove
 
 ## <a name="size-recommendations-for-the-configuration-server"></a>Velikost doporučení pro konfigurační server
 
-**VYUŽITÍ PROCESORU** | **Paměť** | **Velikost disku mezipaměti** | **Míry změny dat** | **Chráněné počítače**
+**CPU** | **Paměť** | **Velikost disku mezipaměti** | **Míry změny dat** | **Chráněné počítače**
 --- | --- | --- | --- | ---
 8 Vcpu (2 sockets * @ 2,5 GHz [GHz] 4 jádra) | 16 GB | 300 GB | 500 GB nebo méně | Replikovat počítače méně než 100.
 12 Vcpu (2 sockets * @ 2,5 GHz 6 jader) | 18 GB | 600 GB | 500 GB až 1 TB | Replikovat mezi 100 150 počítačů.
@@ -140,6 +134,6 @@ Pokud máte škálování mimo nasazení nad 200 zdrojového počítače, nebo m
 3. V **vyberte cílový procesový server**, vyberte nový procesový server, kterou chcete použít a potom vyberte virtuální počítače, které server, bude zpracovávat. Klikněte na ikonu informace získat informace o serveru. Pomoc při provádění načíst rozhodnutí, se zobrazí průměrnou prostor, který je potřeba k replikaci každý vybraný virtuální počítač na nový procesový server. Kliknutím na značku zaškrtnutí zahájíte replikace pro nový procesový server.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Stažení a spuštění [Azure Site Recovery nasazení plánovače](https://aka.ms/asr-deployment-planner)

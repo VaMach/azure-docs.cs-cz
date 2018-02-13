@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 9ad07f1760b69385a2ab9070d212e03381aa22be
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-box-connector"></a>Začínáme s konektorem pole
 Připojit k pole a vytvářet soubory, odstraňte soubory a další. Pole můžete:
@@ -28,7 +28,7 @@ Připojit k pole a vytvářet soubory, odstraňte soubory a další. Pole může
 * Aktivační události použijte, pokud soubor se vytvoří nebo aktualizuje.
 * Pomocí akcí, které kopírování souboru, odstraňte soubor a další. Tyto akce se odpověď a pak proveďte výstup k dispozici pro další akce. Například při změně souboru na pole, můžete tento soubor a e-mailu pomocí Office 365.
 
-Můžete začít s vytvářením aplikace logiky teď najdete v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Můžete začít s vytvářením aplikace logiky teď najdete v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connector-specific-details"></a>Podrobnosti o konkrétní konektor
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Pomocí tunelového propojení SSH pro přístup k webovému uživatelskému rozhraní Ambari, JobHistory, NameNode, Oozie a jiným webovým uživatelská rozhraní
 
@@ -56,7 +56,7 @@ Pokud pomocí akcí skriptů přizpůsobení vašeho clusteru, vyžadují jakék
     > Podpora proxy SOCKS součástí systému Windows nepodporuje SOCKS5 a nefunguje s kroky v tomto dokumentu. Následující prohlížeče závisí na nastavení proxy serveru systému Windows a aktuálně nefungují s kroky v tomto dokumentu:
     >
     > * Microsoft Edge
-    > * Aplikace Microsoft Internet Explorer
+    > * Microsoft Internet Explorer
     >
     > Google Chrome také závisí na nastavení proxy serveru systému Windows. Můžete však nainstalovat rozšíření, které podporují SOCKS5. Doporučujeme, abyste [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
@@ -146,7 +146,7 @@ Po vytvoření clusteru ověřte, že jste z webu Ambari přístup webové služ
    > [!NOTE]
    > Všimněte si adresu URL pro tuto stránku; by měl vypadat přibližně **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/clusteru**. Tento identifikátor URI interní plně kvalifikovaný název domény (FQDN) je pomocí uzlu a je k dispozici pouze při používání tunelového propojení SSH.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste se naučili postup vytvoření a používání tunelového propojení SSH, najdete v následujícím dokumentu pro další způsoby použití Ambari:
 

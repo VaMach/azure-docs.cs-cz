@@ -3,9 +3,9 @@ title: "Použít virtuální počítač s Linuxem přiřazený uživatelem MSI p
 description: "Kurz vás provede procesem pomocí User-Assigned spravované služby Identity (MSI) na virtuální počítač s Linuxem, přístup k Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 350b20dbff306221fbedd069ef378f11e2ec1415
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Používat přiřazený uživatelem spravované služby Identity (MSI) na virtuální počítač s Linuxem, pro přístup k Azure Resource Manager
 
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 MSI poskytuje kódu s přístupový token k ověření na prostředek rozhraní API, které podporují ověřování Azure AD. V tomto kurzu váš kód přistupuje k rozhraní API služby Azure Resource Manager. 
 
-Váš kód mohli dostat k rozhraní API, když, budete muset udělit MSI identity přístup k prostředku ve službě Správce prostředků Azure. V tomto případě skupině prostředků, ve kterém se nachází virtuální počítač. Nezapomeňte nahradit `<CLIENT ID>`, `<SUBSCRIPTION ID>`, a `<RESOURCE GROUP>` hodnoty parametrů s vlastními hodnotami. Nahraďte `<CLIENT ID>` s `clientId` vlastnost vrácený `az identity create` v [vytvořit instalační služby MSI přiřazený uživatelem](#create-a-user-assigned-msi): 
+Váš kód mohli dostat k rozhraní API, když, budete muset udělit MSI identity přístup k prostředku ve službě Správce prostředků Azure. V tomto případě skupině prostředků, ve kterém se nachází virtuální počítač. Aktualizujte hodnoty pro `<SUBSCRIPTION ID>` a `<RESOURCE GROUP>` jako vhodné pro vaše prostředí. Kromě toho nahradit `<MSI PRINCIPALID>` s `principalId` vlastnost vrácený `az identity create` v [vytvořit instalační služby MSI přiřazený uživatelem](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 Odpověď obsahuje podrobné informace o přiřazení role vytvořený, podobně jako v následujícím příkladu:

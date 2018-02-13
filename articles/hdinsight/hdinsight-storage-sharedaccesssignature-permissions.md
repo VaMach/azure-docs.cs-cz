@@ -4,7 +4,7 @@ description: "Naučte se používat sdílené přístupové podpisy omezit HDIns
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Použití Azure sdílené přístupové podpisy úložiště omezit přístup k datům v HDInsight
 
@@ -204,7 +204,7 @@ Pokud máte existující cluster založený na Linuxu, můžete přidat SAS k **
 
 4. Rozbalte **vlastní základní site** oddíl a potom přejděte na koncové a vyberte **přidat vlastnost...**  odkaz. Použijte následující hodnoty pro **klíč** a **hodnotu** pole:
 
-   * **Klíč**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
+   * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Hodnota**: SAS vrácený jazyka C# nebo Python aplikace byla spuštěna dříve
 
      Nahraďte **CONTAINERNAME** s název kontejneru, který jste použili k aplikaci C# nebo SAS. Nahraďte **STORAGEACCOUNTNAME** názvem účtu úložiště, který jste použili.
@@ -216,7 +216,7 @@ Pokud máte existující cluster založený na Linuxu, můžete přidat SAS k **
    > [!IMPORTANT]
    > Změna se projeví až po restartování několik služeb.
 
-6. V Ambari webového uživatelského rozhraní, vyberte **HDFS** ze seznamu na levé straně a potom vyberte **restartujte všechny** z **služby akce** rozevíracím seznamu na pravé straně. Po zobrazení výzvy vyberte **zapnout režim údržby** a pak vyberte __Conform restartujte všechny ".
+6. V Ambari webového uživatelského rozhraní, vyberte **HDFS** ze seznamu na levé straně a potom vyberte **restartujte všechny vliv** z **služby akce** rozevíracím seznamu na pravé straně. Po zobrazení výzvy vyberte __odpovídat restartujte všechny__.
 
     Tento postup opakujte pro MapReduce2 a YARN.
 
@@ -300,7 +300,7 @@ Po připojení ke clusteru pomocí následujících kroků ověřte, můžete na
 * Musí obsahovat alespoň jeden jiný než alfanumerický znak
 * Musí obsahovat aspoň jedno velké nebo malé písmeno.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste se naučili postup přidání úložiště omezený přístup ke svému clusteru HDInsight, se naučíte další způsoby, jak pracovat s daty v clusteru:
 

@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Poradce při potížích začátku do konce pomocí metrik Azure Storage a protokolování, AzCopy a Message Analyzer
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Začátku do konce řešení potíží s použitím metrik Azure Storage a protokolování, AzCopy a Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 Diagnostika a řešení potíží se klíče dovednosti pro vytváření a podpora klientských aplikací s Microsoft Azure Storage. Z důvodu distribuovaná povaha aplikaci Azure může být složitější než v tradiční prostředích diagnostice a řešení potíží s chybami a problémy s výkonem.
@@ -37,9 +37,7 @@ V tomto kurzu poskytuje praktické zkoumání scénáře řešení potíží za�
   * **Protokolování úložiště** protokoluje každý požadavek do služby Azure Storage na straně serveru protokolu. Protokol sleduje podrobná data pro každý požadavek, včetně operaci provést, stav operace a informace o latenci. V tématu [úložiště analýzy protokolů formátu](/rest/api/storageservices/Storage-Analytics-Log-Format) Další informace o požadavku a odpovědi data, která jsou zapsána do protokolů analytika úložiště.
 
 > [!NOTE]
-> Účty úložiště s typem replikace z Zónově redundantní úložiště (ZRS) nemají metriky nebo možnosti protokolování v tuto chvíli povolena. 
-> 
-> 
+> Účty úložiště s typem replikace Zónově redundantní úložiště (ZRS) podporují metrik a protokolování. ZRS klasické účty nepodporují metriky nebo protokolování. Další informace o ZRS, najdete v části [Zónově redundantní úložiště](storage-redundancy.md#zone-redundant-storage). 
 
 * **Portál Azure**. Můžete nakonfigurovat protokolování a metriky pro svůj účet úložiště [portál Azure](https://portal.azure.com). Můžete také zobrazit grafy, které ukazují, jak se vaše aplikace provádí v čase a konfigurovat výstrahy pro upozornění, pokud aplikace provede odlišně, než se očekávalo příslušné metriky.
   
@@ -100,7 +98,7 @@ Ke konfiguraci účtu pomocí protokolování a metriky pro úložiště [portá
 > 
 > 
 
-**Pomocí prostředí PowerShell**
+**Via PowerShell**
 
 Začínáme s prostředí PowerShell pro Azure, najdete v tématu [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
 
@@ -351,21 +349,21 @@ Teď, když jste obeznámeni s používáním Message Analyzer k analýze dat pr
 | --- | --- | --- |
 | Neočekávané zpoždění při doručování zpráv ve frontě |AzureStorageClientDotNetV4.Description obsahuje "Bude opakován operace se nezdařila." |Klient |
 | Zvýšení HTTP PercentThrottlingError |HTTP. Response.StatusCode == 500 &#124; &#124; HTTP. Response.StatusCode == 503 |Síť |
-| Nárůst PercentTimeoutError |HTTP. Response.StatusCode == 500 |Síť |
-| Nárůst PercentTimeoutError (všechny) |* StatusCode == 500 |Všechny |
-| Nárůst PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level < 2 |Klient |
-| HTTP 403 (zakázáno) zprávy |HTTP. Response.StatusCode == 403 |Síť |
-| HTTP 404 (Nenalezeno) zprávy |HTTP. Response.StatusCode == 404 |Síť |
-| 404 (všechny) |* StatusCode == 404 |Všechny |
+| Nárůst PercentTimeoutError |HTTP.Response.StatusCode   == 500 |Síť |
+| Nárůst PercentTimeoutError (všechny) |* StatusCode == 500 |Vše |
+| Nárůst PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Klient |
+| HTTP 403 (zakázáno) zprávy |HTTP.Response.StatusCode   == 403 |Síť |
+| HTTP 404 (Nenalezeno) zprávy |HTTP.Response.StatusCode   == 404 |Síť |
+| 404 (všechny) |* StatusCode == 404 |Vše |
 | Sdíleného přístupového podpisu (SAS) autorizace problém |AzureStorageLog.RequestStatus == "SASAuthorizationError" |Síť |
-| HTTP 409 (konflikt) zprávy |HTTP. Response.StatusCode == 409 |Síť |
-| 409 (všechny) |* StatusCode == 409 |Všechny |
+| HTTP 409 (konflikt) zprávy |HTTP.Response.StatusCode   == 409 |Síť |
+| 409 (všechny) |* StatusCode == 409 |Vše |
 | Nízká PercentSuccess nebo analytics položky protokolu mít operací s stav transakce ClientOtherErrors |AzureStorageLog.RequestStatus == "ClientOtherError" |Server |
 | Nagle upozornění |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) a (AzureStorageLog.RequestPacketSize < 1460) a (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Server |
-| Doba v protokolech serveru a sítě |#Timestamp > = 2014-10-20T16:36:38 a #Timestamp < = 2014-10-20T16:36:39 |Server sítě |
+| Doba v protokolech serveru a sítě |#Timestamp > = 2014-10-20T16:36:38 a #Timestamp < = 2014-10-20T16:36:39 |Server, Network |
 | Rozsah čas v protokolech serveru |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 a AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Server |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o odstraňování potíží začátku do konce scénáře ve službě Azure Storage naleznete v následujících zdrojích:
 
 * [Monitorování, Diagnostika a řešení potíží s Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)

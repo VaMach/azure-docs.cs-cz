@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 9fc7f2e05d0f02081dd438c515a201025ccb8a4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Vytvoření webové aplikace .NET Core ve službě App Service v Linuxu
 
@@ -32,7 +32,9 @@ ms.lasthandoff: 12/19/2017
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux.
+Postup v tomto článku můžete použít v případě počítačů se systémem Mac, Windows nebo Linux.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -40,8 +42,6 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 * <a href="https://git-scm.com/" target="_blank">Nainstalovat Git</a>.
 * <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Nainstalovat sadu .NET Core SDK 1.1</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-app-locally"></a>Místní vytvoření aplikace
 
@@ -99,6 +99,8 @@ Přejděte do vaší nově vytvořené webové aplikace. Nahraďte _&lt;app name
 http://<app name>.azurewebsites.net
 ```
 
+Vaše nová webová aplikace by měla vypadat takto:
+
 ![Prázdná stránka webové aplikace](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
@@ -140,11 +142,11 @@ V prohlížeči zadejte adresu nasazené aplikace.
 http://<app_name>.azurewebsites.net
 ```
 
-Vzorový kód Node.js je spuštěný ve webové aplikaci s použitím integrované image.
+Vzorový kód .NET Core je spuštěný ve webové aplikaci s použitím integrované image.
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Blahopřejeme!** Nasadili jste svoji první aplikaci Node.js do služby App Service v Linuxu.
+**Blahopřejeme!** Nasadili jste svoji první aplikaci .NET Core do služby App Service v Linuxu.
 
 ## <a name="update-and-redeploy-the-code"></a>Aktualizace a opětovné nasazení kódu
 

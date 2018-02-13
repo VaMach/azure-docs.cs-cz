@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1a4c69427e0fa38e9206e2720c4746c97d922df1
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>Vytvoření škálovací sady virtuálních počítačů pomocí Azure PowerShellu
 Škálovací sada virtuálních počítačů umožňuje nasadit a spravovat sadu identických virtuálních počítačů s automatickým škálováním. Všechny virtuální počítače ve škálovací sadě můžete škálovat ručně nebo můžete definovat pravidla pro automatické škálování podle využití prostředků, například podle požadavků na CPU a paměť nebo podle provozu. V tomto článku Rychlý start vytvoříte škálovací sadu virtuálních počítačů pomocí Azure PowerShellu. Škálovací sadu můžete vytvořit také pomocí [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) nebo webu [Azure Portal](virtual-machine-scale-sets-create-portal.md).
@@ -120,7 +120,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## <a name="create-a-scale-set"></a>Vytvoření škálovací sady
-Teď vytvořte škálovací sadu virtuálních počítačů pomocí rutiny [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). Následující příklad vytvoří škálovací sadu *myScaleSet*, která používá image platformy *Windows Server 2016 Datacenter*. Objekt *vmssConfig* vytvoří 2 instance virtuálních počítačů v oblasti Východní USA s přihlašovacími údaji zadanými v proměnných *adminUsername* a *securePassword*. Následujícím způsobem zadejte vlastní přihlašovací údaje a vytvořte škálovací sadu:
+Teď vytvořte škálovací sadu virtuálních počítačů pomocí rutiny [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Následující příklad vytvoří škálovací sadu *myScaleSet*, která používá image platformy *Windows Server 2016 Datacenter*. Objekt *vmssConfig* vytvoří 2 instance virtuálních počítačů v oblasti Východní USA s přihlašovacími údaji zadanými v proměnných *adminUsername* a *securePassword*. Následujícím způsobem zadejte vlastní přihlašovací údaje a vytvořte škálovací sadu:
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances

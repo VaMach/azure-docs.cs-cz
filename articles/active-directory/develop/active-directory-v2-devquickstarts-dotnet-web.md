@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Přidání přihlašování do webové aplikace .NET MVC
 S koncovým bodem v2.0 můžete rychle přidat ověřování do vaší webové aplikace s podporou pro oba osobní účty Microsoft a pracovní nebo školní účty.  V aplikacích ASP.NET web můžete to provést pomocí middlewaru OWIN společnosti Microsoft, zahrnutá v rozhraní .NET Framework 4.5.
@@ -64,7 +64,7 @@ Zde nakonfigurujeme middleware OWIN pro použití ověřovacího protokolu OpenI
 3. Přidání "Třídy pro spuštění OWIN" do projektu názvem `Startup.cs` správné, klikněte na projekt--> **přidat** --> **nová položka** --> vyhledejte "OWIN".  Middleware OWIN při spuštění vaší aplikace vyvolá metodu `Configuration(...)`.
 4. Změňte deklaraci třídy k `public partial class Startup` -již implementovali jsme součástí této třídy pro vás v jiném souboru.  V `Configuration(...)` metoda, zkontrolujte zavolá ConfigureAuth(...) nastavení ověřování pro webovou aplikaci  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -81,7 +81,7 @@ Zde nakonfigurujeme middleware OWIN pro použití ověřovacího protokolu OpenI
 
 5. Otevřete soubor `App_Start\Startup.Auth.cs` a implementovat `ConfigureAuth(...)` metoda.  Parametry, zadejte v `OpenIdConnectAuthenticationOptions` bude sloužit jako souřadnice pro vaši aplikaci komunikovat s Azure AD.  Také budete muset nastavit ověřování souborů Cookie – používá soubory cookie pod pozadí, middleware OpenID Connect.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -118,7 +118,7 @@ Aplikace je nyní správně nakonfigurováno pro komunikaci s koncovým bodem v2
 
 - Můžete použít autorizovat značky v řadičích tak, aby vyžadovala přihlášení tohoto uživatele před přístupem k určité stránky.  Otevřete `Controllers\HomeController.cs`a přidejte `[Authorize]` značka, které je o kontroleru.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -127,7 +127,7 @@ Aplikace je nyní správně nakonfigurováno pro komunikaci s koncovým bodem v2
 
 - Můžete taky OWIN přímo vydání žádosti o ověření z vašeho kódu.  Otevřete `Controllers\AccountController.cs`.  V SignIn() a SignOut() akce vydejte OpenID Connect výzvy a odhlášení požadavků, v uvedeném pořadí.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -178,7 +178,7 @@ Při ověřování uživatelů s OpenID Connect, vrátí koncový bod v2.0 poža
 
 - Otevřete soubor `Controllers\HomeController.cs`.  Dostanete deklaracích identity uživatele v řadičích prostřednictvím `ClaimsPrincipal.Current` zaregistrovaný objekt zabezpečení.
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -205,7 +205,7 @@ Pro srovnání je hotová ukázka (bez vašich hodnot nastavení) [je k dispozic
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní se můžete přesunout na pokročilejší témata.  Můžete se pokusit:
 
 [Zabezpečení webového rozhraní API se koncový bod v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)

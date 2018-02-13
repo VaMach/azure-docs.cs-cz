@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Přehled služby Azure standardní nástroje pro vyrovnávání zatížení (preview)
 
 Standardní SKU pro vyrovnávání zatížení Azure a veřejné IP standardní SKU společně umožňují vytvořit vysoce škálovatelného a spolehlivého architektury. Aplikace, které používají standardní nástroje pro vyrovnávání zatížení můžete využít nové funkce. S nízkou latencí a vysokou propustnost a měřítko jsou k dispozici pro miliony toků pro všechny aplikace, TCP a UDP.
 
 >[!NOTE]
-> Standardní SKU pro vyrovnávání zatížení je aktuálně ve verzi preview. Verzi Preview funkci nemusí mít stejnou úroveň dostupnost a spolehlivost jako verze funkce, které jsou obecné dostupnosti. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Použít obecně dostupná [základní SKU služby Vyrovnávání zatížení](load-balancer-overview.md) pro vaše produkční služby. Funkce, které jsou spojeny s touto verzí preview [dostupnost zóny](https://aka.ms/availabilityzones), a [HA porty](https://aka.ms/haports), vyžadují samostatné registrace v tuto chvíli. Postupujte podle příslušných pokynů pro registraci pro tyto funkce, kromě registrace do služby pro vyrovnávání zatížení [standardní preview](#preview-sign-up).
+> Standardní SKU pro vyrovnávání zatížení je aktuálně ve verzi preview. Verzi Preview funkci nemusí mít stejnou úroveň dostupnost a spolehlivost jako verze funkce, které jsou obecné dostupnosti. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Použít obecně dostupná [základní SKU služby Vyrovnávání zatížení](load-balancer-overview.md) pro vaše produkční služby. Použít [dostupnost zóny Preview](https://aka.ms/availabilityzones) s touto verzí Preview vyžaduje [samostatné registrace](https://aka.ms/availabilityzones), kromě registrace do služby pro vyrovnávání zatížení [standardní preview](#preview-sign-up).
 
 ## <a name="why-use-load-balancer-standard"></a>Proč používat standardní nástroje pro vyrovnávání zatížení?
 
@@ -72,8 +72,8 @@ Standardní nástroje pro vyrovnávání zatížení poskytuje nové vícerozmě
 | --- | --- |
 | Dostupnost virtuálních IP adres | Standardní nástroje pro vyrovnávání zatížení vykonává nepřetržitě cesty data z v rámci oblasti na front-endu úplně se zásobníkem SDN, který podporuje virtuální počítač nástroje pro vyrovnávání zatížení. Také v pořádku instancí zůstanou, následuje měření stejnou cestu jako Vyrovnávání zatížení sítě provoz vaší aplikace. Také ověřuje cestu datům, která je používána zákazníky. Měření neviditelná do vaší aplikace a nebudou v konfliktu s dalšími operacemi.|
 | Dostupnost vyhrazené IP adresy | Standardní nástroje pro vyrovnávání zatížení používá distribuované stavu zjišťování služby, která monitoruje stav váš koncový bod aplikace podle nastavení konfigurace. Tato metrika poskytuje agregaci nebo na koncový bod filtrované zobrazení každé jednotlivé instance koncového bodu nástroji pro vyrovnávání zatížení fondu.  Uvidíte, jak nástroj pro vyrovnávání zatížení zobrazení stavu aplikace podle vašeho Konfigurace testu stavu.
-| SYN paketů | Standardní nástroje pro vyrovnávání zatížení nepodporuje ukončit připojení TCP nebo interakci s TCP nebo UDP paketů toky. Toky a jejich metodou handshake jsou vždy mezi zdrojovým a instance virtuálního počítače. Chcete-li lépe vyřešit vaše scénáře protokolu TCP, je nutné používat SYN pakety zjistit, kolik připojení TCP se pokusy. Metrika hlásí počet paketů TCP SYN, které byly přijaty. Metrika mohou také představovat klientů, které se pokoušejí o navázání připojení k službě.|
-| Překládat pomocí SNAT připojení | Standardní nástroje pro vyrovnávání zatížení hlásí počet odchozí připojení, které jsou masqueraded front-end veřejné IP adresy. Překládat pomocí SNAT porty jsou vyčerpatelným prostředků. Tato metrika mohou poskytnout údaj o tom, jak výraznou je vaše aplikace spoléhat na překládat pomocí SNAT pro odchozí připojení původu.|
+| SYN paketů | Standardní nástroje pro vyrovnávání zatížení nepodporuje ukončit připojení TCP nebo interakci s TCP nebo UDP paketů toky. Toky a jejich metodou handshake jsou vždy mezi zdrojovým a instance virtuálního počítače. Chcete-li lépe vyřešit vaše scénáře protokolu TCP, je nutné používat SYN čítače pakety zjistit, kolik připojení TCP se pokusy. Metrika hlásí počet paketů TCP SYN, které byly přijaty.|
+| Překládat pomocí SNAT připojení | Standardní nástroje pro vyrovnávání zatížení hlásí počet odchozí toky, které jsou masqueraded front-end veřejné IP adresy. Překládat pomocí SNAT porty jsou vyčerpatelným prostředků. Tato metrika mohou poskytnout údaj o tom, jak výraznou je vaše aplikace spoléhat na překládat pomocí SNAT pro odchozí toky původu.  Čítače pro úspěšné i neúspěšné odchozí toky překládat pomocí SNAT hlášení a slouží k řešení potíží a pochopení stavu odchozích toků.|
 | Čítače bajtů | Standardní nástroje pro vyrovnávání zatížení sestavy dat zpracovaných za front-endu.|
 | Čítače paketů | Standardní nástroje pro vyrovnávání zatížení hlásí paketů zpracovaných za front-endu.|
 
@@ -217,7 +217,7 @@ Při použití odchozí připojení s zónově redundantní front-end, připojen
 
 Nového algoritmu v standardní nástroje pro vyrovnávání zatížení preallocates překládat pomocí SNAT porty na síťový adaptér každého virtuálního počítače. Pokud síťový adaptér je přidán do fondu, překládat pomocí SNAT porty jsou souhrnů ještě neumístěných na základě velikosti fondu. V následující tabulce jsou uvedeny preallocations port pro šest úrovně velikostí fond back-end:
 
-| Velikost fondu (instance virtuálních počítačů) | Předběžně přidělené překládat pomocí SNAT portu |
+| Velikost fondu (instance virtuálních počítačů) | Předběžně přidělené počet portů překládat pomocí SNAT |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
@@ -325,13 +325,11 @@ SKU nejsou měnitelný. Postupujte podle kroků v této části přesunuty z jed
 
 ## <a name="region-availability"></a>Dostupnost v oblastech
 
-Standardní nástroje pro vyrovnávání zatížení je aktuálně k dispozici v těchto oblastech:
-- Východní USA 2
-- Střed USA
-- Severní Evropa
-- Západní střed USA
-- Západní Evropa
-- Jihovýchodní Asie
+Standardní nástroje pro vyrovnávání zatížení je aktuálně k dispozici ve všech oblastech veřejného cloudu.
+
+>[!IMPORTANT]
+> Krátké době přístup do oblasti mimo počáteční spuštění oblastí (východní USA 2, střed USA, Severní Evropa, Západ střední USA, západní Evropa, jihovýchodní Asie) vyžaduje registraci předplatného další funkce (AllowLBPreviewWave2 a AllowLBPreviewWave3).  [Postupujte podle těchto kroků](#additionalpreviewregions). Proveďte prosím všechny z nich i v případě, že jste dříve zaregistrovali k AllowLBPreview již.
+> Tento požadavek se odeberou v následujících týdnech.
 
 ## <a name="sku-service-limits-and-abilities"></a>Omezení služby SKU a možnosti
 
@@ -349,7 +347,7 @@ Následující tabulka porovnává omezení a dalo základní nástroje pro vyro
 | Dostupnost virtuálních IP adres  | Nepodporuje se | Dostupné |
 | Rychlé IP Mobility | Nepodporuje se | Dostupné |
 |Scénáře dostupnosti zóny | Pouze oblastmi | Oblastmi, Zónově redundantní, Vyrovnávání zatížení mezi zóny |
-| Odchozí překládat pomocí SNAT algoritmus | Na vyžádání | Souhrnů ještě neumístěných |
+| Odchozí překládat pomocí SNAT algoritmus | On-demand | Souhrnů ještě neumístěných |
 | Odchozí překládat pomocí SNAT front-end výběr | Nejde konfigurovat více kandidáty | Volitelné konfigurace pro snížení kandidáty |
 | Skupina zabezpečení sítě | Volitelné na síťový adaptér a podsítě | Požaduje se |
 
@@ -369,7 +367,12 @@ Následující tabulka porovnává omezení a dalo veřejné IP Basic a standard
 K účasti ve verzi preview pro standardní SKU pro vyrovnávání zatížení a doprovodné veřejné IP standardní SKU, zaregistrujte své předplatné.  Probíhá registrace vaše předplatné vám umožňuje přístup z prostředí PowerShell nebo Azure CLI 2.0. Pokud chcete zaregistrovat, proveďte následující kroky:
 
 >[!NOTE]
->Registrace funkci standardní nástroje pro vyrovnávání zatížení může trvat až jednu hodinu, globálně začnou platit. Pokud chcete použít zatížení vyrovnávání standardní s [dostupnost zóny](https://aka.ms/availabilityzones) a [HA porty](https://aka.ms/haports), samostatné registrace je vyžadována pro tyto funkce Preview. Postupujte podle příslušných pokynů pro registraci pro tyto funkce.
+>Registrace funkci standardní nástroje pro vyrovnávání zatížení může trvat až jednu hodinu, globálně začnou platit. Pokud chcete použít zatížení vyrovnávání standardní s [dostupnost zóny](https://aka.ms/availabilityzones), [samostatné registrace](https://aka.ms/availabilityzones) je vyžadován AZ ve verzi Preview.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> Pro krátké době přístup k oblasti mimo počáteční spuštění oblastí (východní USA 2, střed USA, Severní Evropa, Západ střední USA, západní Evropa, jihovýchodní Asie) vyžadují registraci předplatného další funkce (AllowLBPreviewWave2 a AllowLBPreviewWave3).  Následující postup bylo upraveno, aby další předplatné funkce povolit. Proveďte prosím všechny z nich i v případě, že jste dříve zaregistrovali k AllowLBPreview již. Tento požadavek se odeberou v následujících týdnech.
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>Přihlásit pomocí Azure CLI 2.0
 
@@ -377,15 +380,19 @@ K účasti ve verzi preview pro standardní SKU pro vyrovnávání zatížení a
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. Operace může trvat až 10 minut. Můžete zkontrolovat stav operace pomocí následujícího příkazu:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    Pokračujte k dalšímu kroku, když se stav registrace funkce vrátí "Registrovaná":
+    Pokračujte k dalšímu kroku, když se stav registrace funkce vrátí "Registrovaná" pro každou z výše uvedených funkcí předplatného. Příklad:
    
     ```json
     {
@@ -398,28 +405,33 @@ K účasti ve verzi preview pro standardní SKU pro vyrovnávání zatížení a
     }
     ```
     
-3. Proveďte registraci ve verzi preview opakováním registrace předplatného s poskytovatelem prostředků:
+4. Proveďte registraci ve verzi preview opakováním registrace předplatného s poskytovatelem prostředků:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>Zaregistrujte si pomocí prostředí PowerShell
 
 1. Zaregistrujte funkci zprostředkovatele:
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. Operace může trvat až 10 minut. Můžete zkontrolovat stav operace pomocí následujícího příkazu:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    Pokračujte k dalšímu kroku, když se stav registrace funkce vrátí "Registrovaná":
-   
+  Pokračujte k dalšímu kroku, když se stav registrace funkce vrátí "Registrovaná" pro každou z výše uvedených funkcí předplatného. Příklad:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ Tato omezení platí v době preview a se mohou změnit:
 - Protokol IPv6 není podporován.
 - V kontextu dostupnosti zón front-endu není měnitelný z oblastmi na zónově redundantní a naopak. Po front-endu je vytvořen jako zónově redundantní, zůstane zónově redundantní. Po front-endu je vytvořen jako oblastmi, zůstane oblastmi.
 - V kontextu dostupnosti zóny nelze z jedné zóny na jiný přesunout oblastmi veřejnou IP adresu.
+- [Azure monitorování výstrah](../monitoring-and-diagnostics/monitoring-overview-alerts.md) nejsou podporovány v tuto chvíli.
+- Portál zatím nepodporuje rozšířené preview oblasti.  Použijte nástroje klienta, například šablony, Azure CLI 2.0 nebo prostředí PowerShell jako alternativní řešení.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o [základní nástroje pro vyrovnávání zatížení](load-balancer-overview.md).
 - Další informace o [dostupnost zóny](../availability-zones/az-overview.md).
+- Další informace o [skupin zabezpečení sítě](../virtual-network/virtual-networks-nsg.md).
 - Přečtěte si o některých dalších klíče [sítě možnosti](../networking/networking-overview.md) v Azure.
-
+- Další informace o [metriky, které jsou zveřejněné](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) v [Azure monitorování](../monitoring-and-diagnostics/monitoring-overview.md).

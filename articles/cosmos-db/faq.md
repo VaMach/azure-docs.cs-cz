@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Nejčastější dotazy k Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Základy Azure Cosmos DB
@@ -257,7 +257,7 @@ Na stránce připojovací řetězec na portálu Azure můžete získat připojov
 Informace o nastavení konfigurace najdete v tématu [možnosti Azure Cosmos DB](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). Některá nastavení jsou zpracovávány o CreateCloudTableClient metoda a dalších pomocí souboru app.config v sekci appSettings klientské aplikace.
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Existují změny pro zákazníky, kteří používají je stávající úložiště Azure Table sady SDK?
-Žádné Neexistují žádné změny pro existující nebo nové zákazníky, kteří používají je stávající úložiště Azure Table sady SDK. 
+Žádné. Neexistují žádné změny pro existující nebo nové zákazníky, kteří používají je stávající úložiště Azure Table sady SDK. 
 
 ### <a name="how-do-i-view-table-data-that-is-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Zobrazení tabulky dat, které jsou uložené v Azure Cosmos DB pro použití s rozhraním API pro tabulku? 
 Na portálu Azure můžete procházet data. Můžete také použít kódu rozhraní API tabulky nebo uvedené v další odpovědí nástroje. 
@@ -391,7 +391,7 @@ Ano, můžete na portálu Azure Cosmos DB škálování podokně škálování p
 Ano, pokud TableThroughput prostřednictvím app.config nepotlačí a nepoužívejte kontejner předem vytvořené v Azure Cosmos DB, služba vytvoří tabulku s propustností 400.
  
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Je k dispozici žádné změně ceny pro stávající zákazníky služby Azure Table storage?
-Žádné Neexistuje žádná změna v ceny pro stávající zákazníky služby úložiště Azure Table. 
+Žádné. Neexistuje žádná změna v ceny pro stávající zákazníky služby úložiště Azure Table. 
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Výpočtu ceny pro rozhraní API tabulky 
 Cena závisí na přidělené TableThroughput. 

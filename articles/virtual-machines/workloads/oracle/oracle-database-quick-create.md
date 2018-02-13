@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f760165fa8a93bbb7646539af748b647fe63bba
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Vytvoření databáze Oracle na virtuálním počítači Azure
 
@@ -33,7 +33,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku 
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
 
 Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
 
-Chcete-li vytvořit virtuální počítač (VM), použijte [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz. 
+Chcete-li vytvořit virtuální počítač (VM), použijte [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) příkaz. 
 
 Následující příklad vytvoří virtuální počítač `myVM`. Pokud už neexistují v umístění klíče výchozí klíče SSH, vytvoří se také. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  
 
@@ -270,7 +270,7 @@ Oracle database ve výchozím nastavení není spustit automaticky při restarto
 
 Poslední úloha je konfigurace některé externí koncové body. Nastavit skupinu zabezpečení sítě Azure, který chrání virtuální počítač, ukončete nejprve relace SSH ve virtuálním počítači (by měl mít byla spuštěna z SSH při restartování v předchozím kroku). 
 
-1.  Otevření koncového bodu, který používáte pro přístup k databázi Oracle vzdáleně, vytvořte skupinu zabezpečení sítě pravidlo s [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#create) následujícím způsobem: 
+1.  Otevření koncového bodu, který používáte pro přístup k databázi Oracle vzdáleně, vytvořte skupinu zabezpečení sítě pravidlo s [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) následujícím způsobem: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -282,7 +282,7 @@ Poslední úloha je konfigurace některé externí koncové body. Nastavit skupi
         --destination-port-range 1521
     ```
 
-2.  Otevření koncového bodu, který používáte pro přístup k Oracle EM Express vzdáleně, vytvořit skupinu zabezpečení sítě pravidlo s [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#create) následujícím způsobem:
+2.  Otevření koncového bodu, který používáte pro přístup k Oracle EM Express vzdáleně, vytvořit skupinu zabezpečení sítě pravidlo s [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) následujícím způsobem:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -294,7 +294,7 @@ Poslední úloha je konfigurace některé externí koncové body. Nastavit skupi
         --destination-port-range 5502
     ```
 
-3. V případě potřeby získat veřejnou IP adresu vašeho virtuálního počítače znovu s [az sítě veřejné ip zobrazit](/cli/azure/network/public-ip#show) následujícím způsobem:
+3. V případě potřeby získat veřejnou IP adresu vašeho virtuálního počítače znovu s [az sítě veřejné ip zobrazit](/cli/azure/network/public-ip#az_network_public_ip_show) následujícím způsobem:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -316,13 +316,13 @@ Se můžete přihlásit pomocí **SYS** účtu a zkontrolujte, zda **jako sysdba
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Po dokončení zkoumat první databáze Oracle na Azure a virtuální počítač již nepotřebujete, můžete použít [odstranění skupiny az](/cli/azure/group#delete) příkaz, který má odeberte skupinu zdrojů, virtuální počítač, a všechny související prostředky.
+Po dokončení zkoumat první databáze Oracle na Azure a virtuální počítač již nepotřebujete, můžete použít [odstranění skupiny az](/cli/azure/group#az_group_delete) příkaz, který má odeberte skupinu zdrojů, virtuální počítač, a všechny související prostředky.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o dalších [Oracle řešení v Azure](oracle-considerations.md). 
 

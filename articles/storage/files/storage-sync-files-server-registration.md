@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Spravovat registrované servery se synchronizací souboru Azure (preview)
 Azure File Sync (Preview) umožňuje centralizovat sdílené složky organizace ve službě Soubory Azure bez ztráty flexibility, výkonu a kompatibility místního souborového serveru. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
@@ -42,6 +42,26 @@ K registraci serveru se službou Sync úložiště, musíte nejdřív připravit
 
     > [!Note]  
     > Doporučujeme používat nejnovější verze modulu AzureRM PowerShell registrace nebo odregistrace serveru. Pokud balíček AzureRM byl dříve nainstalován na tomto serveru (a verze prostředí PowerShell na tomto serveru je 5.* nebo vyšší), můžete použít `Update-Module` rutiny tento balíček aktualizace. 
+* Pokud využíváte proxy serveru sítě ve vašem prostředí, nakonfigurujte nastavení proxy serveru na serveru pro synchronizaci agenta využívat.
+    1. Určení vaší proxy IP adresu a číslo portu
+    2. Upravte tyto dva soubory:
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. Přidejte řádky na obrázku 1 (pod této části) v části /System.ServiceModel ve výše uvedených dvou souborech změna 127.0.0.1:8888 na správnou IP adresu (nahraďte 127.0.0.1) a správné číslo portu (nahraďte 8888):
+    4. Nastavte nastavení proxy serveru WinHTTP prostřednictvím příkazového řádku:
+        * Zobrazit proxy server: Zobrazit netsh winhttp proxy
+        * Nastavení proxy serveru: netsh winhttp nastavit proxy 127.0.0.1:8888
+        * Resetování proxy server: resetování netsh winhttp proxy
+        * Pokud je instalační program po dokončení instalace agenta, potom restartujte naše agenta synchronizace: filesyncsvc net stop
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Registraci serveru se službou Sync úložiště
 Před použitím serveru jako *koncový bod serveru* v souboru synchronizace služby Azure *skupiny synchronizace*, musí být zaregistrovaný u *úložiště synchronizační služba*. Server se dají registrovat jenom s jeden synchronizační služby úložiště v čase.

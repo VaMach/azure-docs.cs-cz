@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Vytvoření databáze grafu pomocí Javy a webu Azure Portal
 
@@ -129,13 +129,19 @@ Teď se vraťte na portál Azure, kde najdete informace o připojení, a zkop�
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Na webu Azure Portal pomocí tlačítka pro kopírování zkopírujte PRIMÁRNÍ KLÍČ a vložte ho místo `$masterKey$` v části `password: $masterKey$`.
+3. V `endpoint` změňte `graphs` na `gremlin.cosmosdb`. (Pokud jste účet databáze grafů vytvořili před 20. prosincem 2017, neprovádějte žádné změny hodnoty koncového bodu a pokračujte dalším krokem.)
+
+    Hodnota koncového bodu by teď měla vypadat takto:
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. Na webu Azure Portal pomocí tlačítka pro kopírování zkopírujte PRIMÁRNÍ KLÍČ a vložte ho místo `$masterKey$` v části `password: $masterKey$`.
 
     Řádek 4 souboru remote.yaml by teď měl vypadat nějak takto: 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Změňte řádek 3 souboru remote.yaml z
+5. Změňte řádek 3 souboru remote.yaml z
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -143,7 +149,7 @@ Teď se vraťte na portál Azure, kde najdete informace o připojení, a zkop�
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Uložte soubor remote.yaml.
+6. Uložte soubor remote.yaml.
 
 ## <a name="run-the-console-app"></a>Spuštění aplikace konzoly
 

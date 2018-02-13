@@ -3,9 +3,9 @@ title: "Azure Disk Encryption pro systém Windows a virtuálních počítačů L
 description: "Tento článek obsahuje přehled Microsoft Azure Disk Encryption pro systém Windows a virtuálních počítačů IaaS Linux."
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: TomSh
+author: DevTiw
+manager: avibm
+editor: barclayn
 ms.assetid: d3fac8bb-4829-405e-8701-fa7229fb1725
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
-ms.author: kakhan
-ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption pro systém Windows a virtuálních počítačů Linux IaaS
 Microsoft Azure se důrazně zaměřuje na zajištění ochrany osobních údajů, suverenity data a umožňuje vám řízení vaší Azure hostované data prostřednictvím řadu pokročilých technologiích k šifrování, řídit a spravovat šifrovací klíče, řízení a audit přístupu k datům. To poskytuje Azure zákazníkům flexibilitu zvolit si řešení, které nejlépe vyhovuje potřebám své firmy. V tomto dokumentu jsme vás seznámí s nové řešení technologie "Azure Disk Encryption pro systém Windows a Linux IaaS virtuálního počítače je" k ochraně a ochranu dat, aby splňovaly vaše organizace zabezpečení a dodržování předpisů závazky. Dokumentu poskytuje podrobné pokyny k použití funkcí Azure disk encryption, včetně Podporované scénáře a uživatel dojde.
@@ -145,7 +145,7 @@ Než povolíte Azure Disk Encryption na virtuálních počítačích Azure IaaS 
 
 | Distribuce systému Linux | Verze | Typ svazku podporovaný pro šifrování|
 | --- | --- |--- |
-| Ubuntu | 16.04. DENNĚ LTS | Disk operačního systému a dat |
+| Ubuntu | 16.04-DAILY-LTS | Disk operačního systému a dat |
 | Ubuntu | 14.04.5-DAILY-LTS | Disk operačního systému a dat |
 | Ubuntu | 12.10 | Datový disk |
 | Ubuntu | 12.04 | Datový disk |
@@ -156,7 +156,7 @@ Než povolíte Azure Disk Encryption na virtuálních počítačích Azure IaaS 
 | RHEL | 6.8 | Disk operačního systému a dat |
 | RHEL | 6.7 | Datový disk |
 | CentOS | 7.3 | Disk operačního systému a dat |
-| CentOS | 7.2N | Disk operačního systému a dat |
+| CentOS | 7.2n | Disk operačního systému a dat |
 | CentOS | 6.8 | Disk operačního systému a dat |
 | CentOS | 7.1 | Datový disk |
 | CentOS | 7.0 | Datový disk |
@@ -380,7 +380,7 @@ Abyste pochopili, některé z běžných podmínek používá tuto technologii, 
 | Azure AD | Azure AD je [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Účet Azure AD je předpokladem pro ověřování, ukládání a načítání tajné klíče z trezoru klíčů. |
 | Azure Key Vault | Key Vault je služba kryptografické klíče správy, která je založena na moduly ověřit Federal Information Processing Standards FIPS hardwarového zabezpečení, které v zájmu ochrany kryptografické klíče a tajné klíče citlivé. Další informace najdete v tématu [Key Vault](https://azure.microsoft.com/services/key-vault/) dokumentaci. |
 | ARM | Azure Resource Manager |
-| Nástroj BitLocker |[Nástroj BitLocker](https://technet.microsoft.com/library/hh831713.aspx) je rozpoznána odvětví Windows svazku šifrovací technologie, která slouží k povolení šifrování disku na virtuální počítače IaaS Windows. |
+| BitLocker |[Nástroj BitLocker](https://technet.microsoft.com/library/hh831713.aspx) je rozpoznána odvětví Windows svazku šifrovací technologie, která slouží k povolení šifrování disku na virtuální počítače IaaS Windows. |
 | BEK | Nástroj BitLocker šifrovací klíče se používají k šifrování spouštěcí svazek operačního systému a datové svazky. Klíče Bitlockeru chráněna jako tajných klíčů v trezoru klíčů. |
 | Rozhraní příkazového řádku | V tématu [rozhraní příkazového řádku Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) je podsystém systémem Linux, transparentní-šifrování disku, který slouží k povolení šifrování disku na virtuální počítače IaaS Linux. |
@@ -599,7 +599,7 @@ V následující tabulce jsou uvedeny parametry šablony Resource Manageru pro e
 | volumeType | Typ svazku, který operace šifrování. Platné podporované hodnoty jsou _OS_ nebo _všechny_ (distribucích systému Linux najdete v tématu podporované a jejich verze pro operační systém a datové disky v dřívější části prerequisiteis). |
 | sequenceVersion | Pořadí verze operace nástroje BitLocker. Toto číslo verze zvýší pokaždé, když se operace šifrování disku provádí na stejného virtuálního počítače. |
 | vmName | Název virtuálního počítače, který operace šifrování je třeba provést na. |
-| přístupové heslo | Zadejte silné heslo jako datový šifrovací klíč. |
+| passPhrase | Zadejte silné heslo jako datový šifrovací klíč. |
 
 > [!NOTE]
 > _KeyEncryptionKeyURL_ je volitelný parametr. Můžete zahrnout vlastní KEK na další chránit datový šifrovací klíč (heslo tajný klíč) v trezoru klíčů.
@@ -889,7 +889,7 @@ Můžete sledovat průběh šifrování OS třemi způsoby:
 
 * Přihlaste se k virtuálnímu počítači pomocí protokolu SSH a získat rozšíření protokolu z:
 
-    /var/log/Azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
+    /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
  Doporučujeme vám, že není přihlášení k virtuálnímu počítači v průběhu šifrování operačního systému. Zkopírujte protokoly jenom v případě, že tyto dvě metody se nezdařilo.
 

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d72094fb34c73e511b1003be25594a1dedddb1e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Vytvoření virtuálního počítače s Linuxem z vlastní disk s 2.0 rozhraní příkazového řádku Azure
 
@@ -35,7 +35,7 @@ Máte dvě možnosti:
 
 ## <a name="quick-commands"></a>Rychlé příkazy
 
-Při vytváření nového virtuálního počítače pomocí [az virtuální počítač vytvořit](/cli/azure/vm#create) z přizpůsobené nebo specializované disku můžete **připojit** disku (– připojit disk operačního systému) místo zadávání vlastního nebo marketplace image (--bitové kopie). Následující příklad vytvoří virtuální počítač s názvem *Můjvp* pomocí spravovaného disku s názvem *myManagedDisk* vytvořené z vaší vlastní virtuální pevný disk:
+Při vytváření nového virtuálního počítače pomocí [az virtuální počítač vytvořit](/cli/azure/vm#az_vm_create) z přizpůsobené nebo specializované disku můžete **připojit** disku (– připojit disk operačního systému) místo zadávání vlastního nebo marketplace image (--bitové kopie). Následující příklad vytvoří virtuální počítač s názvem *Můjvp* pomocí spravovaného disku s názvem *myManagedDisk* vytvořené z vaší vlastní virtuální pevný disk:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -56,7 +56,7 @@ Chcete-li provést následující kroky, je třeba:
 > 
 
 
-* Ujistěte se, že máte nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#login).
+* Ujistěte se, že máte nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#az_login).
 
 V následujících příkladech nahraďte názvy parametrů příklad vlastní hodnoty. Názvy parametrů příklad zahrnuté *myResourceGroup*, *můj_účet_úložiště*, a *mydisks*.
 
@@ -87,7 +87,7 @@ Můžete nahrát vlastní virtuální pevný disk, ke které máte spuštěné v
 
 ### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Před nahráním váš vlastní disk a vytváření virtuálních počítačů, musíte nejprve vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create).
+Před nahráním váš vlastní disk a vytváření virtuálních počítačů, musíte nejprve vytvořit skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create).
 
 Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* umístění: [disky spravované Azure – přehled](../windows/managed-disks-overview.md)
 ```azurecli
@@ -98,7 +98,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>vytvořit účet úložiště
 
-Vytvoření účtu úložiště vlastní disk a virtuální počítače s [vytvořit účet úložiště az](/cli/azure/storage/account#create). 
+Vytvoření účtu úložiště vlastní disk a virtuální počítače s [vytvořit účet úložiště az](/cli/azure/storage/account#az_storage_account_create). 
 
 Následující příklad vytvoří účet úložiště s názvem *můj_účet_úložiště* ve skupině prostředků vytvořili:
 
@@ -112,7 +112,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>Vypsat klíče účtu úložiště
-Vygeneruje Azure dva 512bitové přístupové klíče pro každý účet úložiště. Tyto přístupové klíče se používají při ověřování k účtu úložiště, jako je provádění operace zápisu. Další informace o [Správa přístupu k úložišti zde](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Zobrazit přístupové klíče s [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#list).
+Vygeneruje Azure dva 512bitové přístupové klíče pro každý účet úložiště. Tyto přístupové klíče se používají při ověřování k účtu úložiště, jako je provádění operace zápisu. Další informace o [Správa přístupu k úložišti zde](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Zobrazit přístupové klíče s [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Zobrazte přístupové klíče pro účet úložiště, který jste vytvořili:
 
@@ -136,7 +136,7 @@ info:    storage account keys list command OK
 Poznamenejte si **key1** jako použije k interakci se svým účtem úložiště v dalších krocích.
 
 ### <a name="create-a-storage-container"></a>Vytvoření kontejneru úložiště
-V stejným způsobem, který vytvoříte různé adresáře, které logicky uspořádat do místního systému souborů můžete vytvořit kontejnery v účtu úložiště pro uspořádání vaše disky. Účet úložiště může obsahovat libovolný počet kontejnerů. Vytvořit kontejner s [vytvořit kontejner úložiště az](/cli/azure/storage/container#create).
+V stejným způsobem, který vytvoříte různé adresáře, které logicky uspořádat do místního systému souborů můžete vytvořit kontejnery v účtu úložiště pro uspořádání vaše disky. Účet úložiště může obsahovat libovolný počet kontejnerů. Vytvořit kontejner s [vytvořit kontejner úložiště az](/cli/azure/storage/container#az_storage_container_create).
 
 Následující příklad vytvoří kontejner s názvem *mydisks*:
 
@@ -147,7 +147,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>Nahrání virtuálního pevného disku
-Teď nahrát vlastní disk s [az úložiště objektů blob nahrávání](/cli/azure/storage/blob#upload). Nahrání a ukládat vlastní disk jako objekt blob stránky.
+Teď nahrát vlastní disk s [az úložiště objektů blob nahrávání](/cli/azure/storage/blob#az_storage_blob_upload). Nahrání a ukládat vlastní disk jako objekt blob stránky.
 
 Zadejte přístupový klíč, kontejner, který jste vytvořili v předchozím kroku a pak cestu k vlastní disku v místním počítači:
 
@@ -164,7 +164,7 @@ Nahrání virtuálního pevného disku, může chvíli trvat.
 ### <a name="create-a-managed-disk"></a>Vytvoření spravovaného disku
 
 
-Vytvoření spravovaného disku z virtuálního pevného disku pomocí [vytvoření disku az](/cli/azure/disk#create). Následující příklad vytvoří spravované disk s názvem *myManagedDisk* z virtuálního pevného disku, který jste nahráli k účtu s názvem úložiště a kontejneru:
+Vytvoření spravovaného disku z virtuálního pevného disku pomocí [vytvoření disku az](/cli/azure/disk#az_disk_create). Následující příklad vytvoří spravované disk s názvem *myManagedDisk* z virtuálního pevného disku, který jste nahráli k účtu s názvem úložiště a kontejneru:
 
 ```azurecli
 az disk create \
@@ -210,7 +210,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Vytvořte virtuální počítač.
 
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create) a připojte (--připojit disk operačního systému) spravovaných disk jako disk operačního systému. Následující příklad vytvoří virtuální počítač s názvem *myNewVM* pomocí spravovaného disku vytvořené z vaší nahraný virtuální pevný disk:
+Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) a připojte (--připojit disk operačního systému) spravovaných disk jako disk operačního systému. Následující příklad vytvoří virtuální počítač s názvem *myNewVM* pomocí spravovaného disku vytvořené z vaší nahraný virtuální pevný disk:
 
 ```azurecli
 az vm create \
@@ -223,6 +223,6 @@ az vm create \
 
 Nyní byste měli mít k SSH do virtuálního počítače pomocí přihlašovacích údajů, ze zdrojového virtuálního počítače. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po připravené a nahrát vlastní virtuální disk, si můžete přečíst více o [pomocí Resource Manageru a šablony](../../azure-resource-manager/resource-group-overview.md). Můžete také chtít [přidat datový disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) na nové virtuální počítače. Pokud máte aplikace spuštěné na vaše virtuální počítače, které potřebujete získat přístup, je nutné [otevřete porty a koncové body](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

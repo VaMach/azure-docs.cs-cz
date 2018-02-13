@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datové sady ve službě Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ Následující tabulka popisuje vlastnosti v výše uvedený kód JSON:
 | type |Typ datové sady. Zadejte jeden z typů podporovaných službou Data Factory (například: AzureBlob, AzureSqlTable). <br/><br/>Podrobnosti najdete v tématu [typ sady](#Type). |Ano |Není k dispozici |
 | Struktura |Schéma datové sady.<br/><br/>Podrobnosti najdete v tématu [strukturu datové sady](#Structure). |Ne |Není k dispozici |
 | typeProperties | Vlastnosti typu se liší pro jednotlivé typy (například: Azure Blob, tabulka Azure SQL). Podrobnosti o svých vlastnostech a podporované typy najdete v tématu [typ sady](#Type). |Ano |Není k dispozici |
-| external | Logický příznak k určení, zda datové sady je explicitně produkovaný kanálu objekt pro vytváření dat nebo ne. Není-li vstupní datové sady pro aktivitu v kanálu aktuální, tento příznak nastavte na hodnotu true. Tento příznak nastavte na hodnotu true pro vstupní datové sady první aktivitu v kanálu.  |Ne |False |
+| external | Logický příznak k určení, zda datové sady je explicitně produkovaný kanálu objekt pro vytváření dat nebo ne. Není-li vstupní datové sady pro aktivitu v kanálu aktuální, tento příznak nastavte na hodnotu true. Tento příznak nastavte na hodnotu true pro vstupní datové sady první aktivitu v kanálu.  |Ne |nepravda |
 | dostupnosti | Definuje okna pro zpracování (například hodinové nebo denní) nebo řezů model pro produkční datovou sadu. Jednotlivé jednotky data využívat a vyprodukované spuštění aktivity se nazývá datový řez. Pokud dostupnosti výstupní datové je nastavena na hodnotu denně (frekvenci - den, interval - 1), řez se vytvoří každý den. <br/><br/>Podrobnosti najdete v tématu [datovou sadu dostupnosti](#Availability). <br/><br/>Podrobnosti na datovou sadu řezů modelu najdete v tématu [plánování a provádění](data-factory-scheduling-and-execution.md) článku. |Ano |Není k dispozici |
 | policy |Definuje kritéria nebo podmínku, musíte splnit řezy datovou sadu. <br/><br/>Podrobnosti najdete v tématu [datovou sadu zásad](#Policy) části. |Ne |Není k dispozici |
 
@@ -286,7 +286,7 @@ Tyto datové sady je každý měsíc a vytváří 3. v každém měsíci v 8:00 
 | Název zásady | Popis | Použít | Požaduje se | Výchozí |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Ověří, jestli data v **úložiště objektů Azure Blob** splňuje požadavky na minimální velikost (v megabajtech). |Azure Blob Storage |Ne |Není k dispozici |
-| minimumRows |Ověří, jestli data v **Azure SQL database** nebo **tabulky Azure** obsahuje minimální počet řádků. |<ul><li>Databáze SQL Azure</li><li>Tabulky Azure</li></ul> |Ne |Není k dispozici |
+| minimumRows |Ověří, jestli data v **Azure SQL database** nebo **tabulky Azure** obsahuje minimální počet řádků. |<ul><li>Databáze SQL Azure</li><li>Tabulka Azure</li></ul> |Ne |Není k dispozici |
 
 #### <a name="examples"></a>Příklady
 **minimumSizeMB:**
@@ -319,10 +319,10 @@ Externích datových sad, jsou ty, které nejsou spuštěné kanálu v datové t
 
 Pokud datové sady je vytvářen službou Data Factory, by měl být označen jako **externí**. Toto nastavení se obvykle platí pro vstupy první aktivitu v kanálu, pokud se používá aktivitu nebo řetězení kanálu.
 
-| Name (Název) | Popis | Požaduje se | Výchozí hodnota |
+| Název | Popis | Požaduje se | Výchozí hodnota |
 | --- | --- | --- | --- |
 | dataDelay |Doba zpoždění kontroly na dostupnost externích dat pro danou řez. Můžete například zpoždění hodinové kontroly pomocí tohoto nastavení.<br/><br/>Toto nastavení platí jenom pro aktuální čas.  Například pokud je 1:00 PM hned teď a tato hodnota je 10 minut, ověření se spustí: 10: 00.<br/><br/>Všimněte si, že toto nastavení neovlivňuje řezy v minulosti. Řezy s **řez koncový čas** + **dataDelay** < **nyní** jsou zpracovávány bez jakéhokoli zpoždění.<br/><br/>Časy větší než 23:59 hodin by měl být určena pomocí `day.hours:minutes:seconds` formátu. Například pokud chcete zadat 24 hodin, nepoužívejte 24:00:00. Místo toho použijte 1.00:00:00. Pokud používáte 24:00:00, bude považován za 24 dní (24.00:00:00). 1 den a 4 hodiny zadejte 1:04:00:00. |Ne |0 |
-| RetryInterval |Doba čekání mezi selhání a další pokus. Toto nastavení platí pro aktuální čas. Pokud předchozí zkuste se nezdařila, je dalším pokusu o po **retryInterval** období. <br/><br/>Pokud je 1:00 PM nyní, můžeme začít prvního pokusu. Pokud doba trvání dokončení první kontrola ověření je 1 minuta a operace se nezdařila, další pokus proběhne v 1:00 + 1 min (doba trvání) + 1min (interval opakování) = 1:02 PM. <br/><br/>Řezy v minulosti není k dispozici žádné zpoždění není. Opakovaném dojde okamžitě. |Ne |00:01:00 (1 min) |
+| retryInterval |Doba čekání mezi selhání a další pokus. Toto nastavení platí pro aktuální čas. Pokud předchozí zkuste se nezdařila, je dalším pokusu o po **retryInterval** období. <br/><br/>Pokud je 1:00 PM nyní, můžeme začít prvního pokusu. Pokud doba trvání dokončení první kontrola ověření je 1 minuta a operace se nezdařila, další pokus proběhne v 1:00 + 1 min (doba trvání) + 1min (interval opakování) = 1:02 PM. <br/><br/>Řezy v minulosti není k dispozici žádné zpoždění není. Opakovaném dojde okamžitě. |Ne |00:01:00 (1 min) |
 | retryTimeout |Časový limit pro jednotlivé pokusy o opakování.<br/><br/>Pokud je tato vlastnost nastavená na 10 minut, by se během deseti minut dokončit ověření. Pokud trvá déle než 10 minut, aby k ověření, opakovaném časového limitu.<br/><br/>Pokud všechny pokusy o ověření časový limit řez je označen jako **TimedOut**. |Ne |00:10:00 (10 minut) |
 | maximumRetry |Stanovený počet zkontrolujte dostupnost externí data. Maximální povolená hodnota je 10. |Ne |3 |
 
@@ -331,7 +331,7 @@ Pokud datové sady je vytvářen službou Data Factory, by měl být označen ja
 Datové sady můžete vytvořit pomocí jedné z těchto nástrojů nebo sady SDK: 
 
 - Průvodce kopírováním 
-- portál Azure
+- Azure Portal
 - Visual Studio
 - PowerShell
 - Šablona Azure Resource Manageru
@@ -448,6 +448,6 @@ Můžete vytvořit datové sady, které jsou omezená na kanálu pomocí **datov
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o kanály najdete v tématu [vytvořit kanály](data-factory-create-pipelines.md). 
 - Další informace o tom, jak jsou naplánované kanálů a jsou prováděny najdete v tématu [plánování a provádění v Azure Data Factory](data-factory-scheduling-and-execution.md). 

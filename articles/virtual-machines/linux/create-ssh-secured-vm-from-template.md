@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7bd5b8c0534a51c6b6c9e8871be513194d38788
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 2750bed40707872bb120a7cb7130d8be01aabf7d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Jak vytvořit virtuální počítač s Linuxem pomocí šablony Azure Resource Manager
 Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem (VM) pomocí šablony Azure Resource Manager a Azure CLI 2.0. K provedení těchto kroků můžete také využít [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
-Následující příklad vytvoří virtuální počítač z [této šablony Azure Resource Manageru](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) s [vytvořit nasazení skupiny az](/cli/azure/group/deployment#create). Je povoleno pouze ověřování SSH. Po zobrazení výzvy zadejte hodnotu vlastní veřejný klíč SSH, jako je například obsah *~/.ssh/id_rsa.pub*. Pokud potřebujete vytvořit dvojici klíčů SSH, přečtěte si [postup vytvoření a používání dvojici klíčů SSH pro virtuální počítače s Linuxem v Azure](mac-create-ssh-keys.md).
+Následující příklad vytvoří virtuální počítač z [této šablony Azure Resource Manageru](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) s [vytvořit nasazení skupiny az](/cli/azure/group/deployment#az_group_deployment_create). Je povoleno pouze ověřování SSH. Po zobrazení výzvy zadejte hodnotu vlastní veřejný klíč SSH, jako je například obsah *~/.ssh/id_rsa.pub*. Pokud potřebujete vytvořit dvojici klíčů SSH, přečtěte si [postup vytvoření a používání dvojici klíčů SSH pro virtuální počítače s Linuxem v Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -49,7 +49,7 @@ V předchozím příkladu zadat šablonu uložené v Githubu. Můžete také st�
 
 
 ## <a name="connect-to-virtual-machine"></a>Připojení k virtuálnímu počítači
-Chcete-li SSH k virtuálnímu počítači, získat veřejnou IP adresu s [az virtuálních počítačů zobrazit](/cli/azure/vm#show):
+Chcete-li SSH k virtuálnímu počítači, získat veřejnou IP adresu s [az virtuálních počítačů zobrazit](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -66,5 +66,5 @@ Pak můžete SSH pro virtuální počítač jako normální. Zadejte vlastní ve
 ssh azureuser@<ipAddress>
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto příkladu jste vytvořili základní virtuální počítač s Linuxem. Pro další šablony správce prostředků, které zahrnují aplikační architektury nebo vytvořit složitější prostředí, přejděte [galerii šablon Azure rychlý Start](https://azure.microsoft.com/documentation/templates/).

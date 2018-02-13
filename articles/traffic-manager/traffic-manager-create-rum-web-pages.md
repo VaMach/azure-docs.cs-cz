@@ -4,7 +4,7 @@ description: "Nastavení webové stránky k odeslání reálného měření uži
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Postup odesílání reálného měření uživatele k pomocí webových stránek programem Azure Traffic Manager
 
@@ -61,7 +61,7 @@ Po získání RUMU klíč, dalším krokem je pro vložení této zkopírovaný 
 1.  V textovém editoru otevřete stránku HTML
 2.  Vložte kód JavaScript měl zkopírovali v předchozím kroku do části textu HTML (zkopírovaný kódu je na řádku 8 & 9, viz obrázek 3).
  
-    ![Vložení kódu jazyka Javascript do webové stránky pro reálného měření uživatele](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Vložení kódu jazyka Javascript do webové stránky pro reálného měření uživatele](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Obrázek 3: Jednoduchý HTML s vložený JavaScript reálného měření uživatele**
 
@@ -69,7 +69,7 @@ Po získání RUMU klíč, dalším krokem je pro vložení této zkopírovaný 
 4. Další čas, který je vykreslen tuto stránku ve webovém prohlížeči, je stažena JavaScript odkazuje a skript spustí měření a vytváření sestav operations.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o [reálného měření uživatele](traffic-manager-rum-overview.md)
 - Další informace [fungování Traffic Manager](traffic-manager-overview.md)
 - Další informace o [metody směrování provozu](traffic-manager-routing-methods.md) podporované nástrojem Traffic Manager

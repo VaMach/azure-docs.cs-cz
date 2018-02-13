@@ -1,4 +1,5 @@
 - name: Dokumentace k vědeckému zpracování týmových dat
+  href: index.yml
 - name: Přehled
   href: overview.md
 - name: Životní cyklus

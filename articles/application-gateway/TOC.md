@@ -13,37 +13,50 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Omezení služby](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Začínáme
-## Vytvoření služby Application Gateway
-### [Azure Portal](application-gateway-create-gateway-portal.md)
-### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-### [Šablona Resource Manageru](application-gateway-create-gateway-arm-template.md)
-### [Azure CLI](application-gateway-create-gateway-cli.md)
+## [portál Azure Portal](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [Azure CLI](application-gateway-create-gateway-cli.md)
 # Postup
+## Vytvoření aplikační brány s VMSS
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [Azure CLI](tutorial-create-vmss-cli.md)
+## [Použití šablony](application-gateway-create-gateway-arm-template.md)
 ## Konfigurace firewallu webových aplikací
-### [Azure Portal](application-gateway-web-application-firewall-portal.md)
+### [portál Azure Portal](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
 ### [Azure CLI](application-gateway-web-application-firewall-cli.md)
 ## Přizpůsobení pravidel firewallu webových aplikací
-### [Azure Portal](application-gateway-customize-waf-rules-portal.md)
+### [portál Azure Portal](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 ## Konfigurace SSL
-### [Azure Portal](application-gateway-ssl-portal.md)
+### [portál Azure Portal](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [Azure CLI](application-gateway-ssl-cli.md)
 ### [Zásady protokolu SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Konfigurace směrování na základě cest URL
-### [Azure Portal](application-gateway-create-url-route-portal.md)
+### [portál Azure Portal](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [Azure CLI](application-gateway-create-url-route-cli.md)
 ## Konfigurace hostování několika webů
-### [Azure Portal](application-gateway-create-multisite-portal.md)
+### [portál Azure Portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Konfigurace přesměrování
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
+## Konfigurace externího přesměrování
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## Konfigurace interního přesměrování
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## Konfigurace přesměrování HTTP na HTTPS
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
+## Konfigurace přesměrování URL
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## Konfigurace webových aplikací jako členů back-endového fondu
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurace sond stavu
-### [Azure Portal](application-gateway-create-probe-portal.md)
+### [portál Azure Portal](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Integrace služby Azure Security Center](application-gateway-integration-security-center.md)
 ## [Kombinace služeb pro vyrovnávání zatížení](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)

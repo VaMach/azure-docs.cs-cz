@@ -4,7 +4,7 @@ description: "Jak zobrazit aplikace, která podporuje jednotné přihlašování
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mtillman
+manager: mbaldwin
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,86 +12,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 0c324829469b9babe6608480204bd46691f84228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb09aa8f8e22ad6fbda6a490d251c500bedf3ee
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Výpis aplikace v galerii aplikací Azure Active Directory
-Aplikace, která podporuje jednotné přihlašování s Azure Active Directory na seznam [Galerie Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), aplikace se nejdřív musí implementovat jednu z následujících režimů integrace:
 
-* **OpenID Connect** -přímá integrace s Azure AD pomocí OpenID Connect pro ověřování a Azure AD souhlas rozhraní API pro konfiguraci. Pokud právě začínáte integrační a aplikace nepodporuje SAML, jedná se o doporučujeme režim.
-* **SAML** – aplikace již má možnost konfigurace poskytovatelů identit třetích stran pomocí protokolu SAML.
 
-Požadavky na výpis pro oba režimy jsou níže.
+##  <a name="what-is-azure-ad-app-gallery"></a>Co je Galerie aplikací Azure AD?
 
-## <a name="openid-connect-integration"></a>OpenID Connect integrace
-K integraci aplikace s Azure AD, následující [vývojáře pokyny](active-directory-authentication-scenarios.md). Potom dokončete níže uvedené otázky a poslat waadpartners@microsoft.com.
+Azure AD je Cloudová služba Identity. [Galerie aplikace Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) je běžné úložiště, kde jsou všechny konektory aplikace publikována pro jednotné přihlašování a zřizování uživatelů. Podívejte se pro různé konektory aplikací SaaS, které jsou publikovány zde vzájemné zákazníkům, kteří používají Azure AD jako zprostředkovatele Identity. Správce IT přidá konektor z Galerie aplikací a konfiguruje a použít jej pro jednotné přihlašování a zřizování. Azure AD podporuje všechny hlavní federační protokoly jako SAML 2.0, OpenID Connect, OAuth a WS-Fed pro jednotné přihlašování. 
 
-* Zadejte přihlašovací údaje k účtu nebo testovacím klientem s vaší aplikací, které je možné otestovat integrace tým služby Azure AD.  
-* Poskytnout pokyny jak tým Azure AD přihlášení a připojit instanci Azure AD k aplikaci pomocí [framework souhlasu Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
-* Zadejte jakékoli další pokyny potřebné pro tento tým služby Azure AD k testování jednotné přihlašování s vaší aplikací. 
-* Zadejte následující informace:
+## <a name="what-are-the-benefits-of-listing-the-application-in-the-gallery"></a>Jaké jsou výhody uvedení aplikace v galerii?
 
-> Název společnosti:
-> 
-> Web společnosti:
-> 
-> Název aplikace:
-> 
-> Popis aplikace (limit 200 znaků):
-> 
-> Web Application (informativní):
-> 
-> Web podpory Technical aplikace nebo kontaktní údaje:
-> 
-> ID aplikace, jak je znázorněno v podrobností o aplikaci v https://portal.azure.com:
-> 
-> Adresa URL aplikace poskytovateli kde Zákazníci moct zaregistrovat a/nebo zakoupit aplikace:
-> 
-> Vyberte až tři kategorie pro aplikace uvedené v části (pro Azure Active Directory Marketplace naleznete kategorie k dispozici v):
-> 
-> Připojte malé ikony aplikace (soubor PNG, 45px podle 45px, plná barva pozadí):
-> 
-> Připojte velkých ikon aplikace (soubor PNG, 215px podle 215px, plná barva pozadí):
-> 
-> Připojte Logo aplikace (soubor PNG, 150px podle 122px, průhlednou barvu pozadí):
-> 
-> 
+*  Poskytovat nejlepší možný jeden přihlašování zákazníků.
 
-## <a name="saml-integration"></a>Integrace SAML
-Jakékoli aplikaci, která podporuje SAML 2.0 umožňuje integraci přímo se klient služby Azure AD pomocí [těchto pokynů můžete přidat vlastní aplikaci](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Jakmile testování, svoji integraci aplikace funguje s Azure AD, poslat následující informace, které < mailto:waadpartners@microsoft.com >.
+*  Jednoduché a minimální konfigurace aplikace.
 
-* Zadejte přihlašovací údaje k účtu nebo testovacím klientem s vaší aplikací, které je možné otestovat integrace tým služby Azure AD.  
-* Zadejte adresy přihlašování SAML, URL vystavitele (entity ID) a adresa URL odpovědi (služba assertion příjemce) hodnoty pro vaši aplikaci, jak je popsáno [zde](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Pokud tyto hodnoty se obvykle poskytují jako součást souboru metadat SAML, potom odešlete, také.
-* Zadejte stručný popis, jak nakonfigurovat Azure AD jako zprostředkovatele identity do vaší aplikace pomocí SAML 2.0. Pokud vaše aplikace podporuje konfiguraci Azure AD jako zprostředkovatele identity prostřednictvím samoobslužný portál pro správu, potom ověřte, zda pověření výše uvedeného, zahrnují možnost nastavit tuto možnost.
-* Zadejte následující informace:
+*  Zákazníci můžete hledat aplikace a najít v galerii. 
 
-> Název společnosti:
-> 
-> Web společnosti:
-> 
-> Název aplikace:
-> 
-> Popis aplikace (limit 200 znaků):
-> 
-> Web Application (informativní):
-> 
-> Web podpory Technical aplikace nebo kontaktní údaje:
-> 
-> Adresa URL aplikace poskytovateli kde Zákazníci moct zaregistrovat a/nebo zakoupit aplikace:
-> 
-> Vyberte maximálně tři kategorie pro aplikace uvedené v části (kategorie k dispozici, najdete v tématu [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
-> 
-> Připojte malé ikony aplikace (soubor PNG, 45px podle 45px, plná barva pozadí):
-> 
-> Připojte velkých ikon aplikace (soubor PNG, 215px podle 215px, plná barva pozadí):
-> 
-> Připojte Logo aplikace (soubor PNG, 150px podle 122px, průhlednou barvu pozadí):
-> 
-> 
+*  Každý zákazník pomocí této integrace bez ohledu na Azure AD SKU Free, Basic nebo Premium.
+
+*  Krok v kroku konfigurace kurzu vzájemné zákazníků.
+
+*  Povolte zřizování uživatelů pro stejnou aplikaci používáte SCIM.
+
+
+##  <a name="what-are-the-pre-requisites"></a>Jaké jsou požadavky?
+
+Pro zobrazení seznamu aplikace v galerii Azure AD, nejprve aplikace musí implementovat jednoho z protokolů federační podporovaný službou Azure AD. Přečtěte si podmínky a ujednání galerii aplikací Azure AD odsud. Pokud používáte: 
+
+*   **OpenID Connect** – vytvoření víceklientské aplikace ve službě Azure AD a implementaci [framework souhlasu Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) pro vaši aplikaci. Poslat žádost o přihlášení k běžné koncový bod, tak, aby každý zákazník může poskytnout souhlas k aplikaci. Můžete řídit přístup uživatelů zákazníka na základě ID klienta a uživatele (UPN) přijaté v tokenu. Při integraci aplikace s Azure AD, postupujte podle [vývojáře pokyny](active-directory-authentication-scenarios.md).
+
+*   **SAML 2.0 nebo WS-Fed** – aplikace by měl mít schopnost provést integraci SAML/WS-Fed jednotné přihlašování v režimu SP nebo deklarací identity. Jakékoli aplikaci, která podporuje SAML 2.0, můžete přímo integrovat klient služby Azure AD pomocí [pokyny k přidání vlastní aplikace](../active-directory-saas-custom-apps.md).
+
+*   **Heslo jednotného přihlašování k** – vytvoření webové aplikace, který má přihlašovací stránku HTML konfigurace [založené na heslech jednotné přihlašování](../active-directory-appssoaccess-whatis.md). Jednotné přihlašování založené na heslech, také označuje jako heslo vaulting, můžete spravovat přístup uživatelů a hesla k webovým aplikacím, které nepodporují federaci identit. Je také užitečné v případech, kdy je potřeba několik uživatelé sdílet jeden účet, například k účtům aplikace sociálních médií vaší organizace. 
+
+## <a name="process-for-submitting-the-request-in-the-portal"></a>Proces odesílání požadavku na portálu
+
+Jakmile testování, svoji integraci aplikace funguje s Azure AD, budete muset odeslat žádost o přístup na našem [aplikace sítě portál](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Pokud máte účet Office 365, který můžete použít k přihlášení k tomuto portálu jinak, použijte ID služeb Microsoft (Live ID, Outlook, Hotmail atd) k přihlášení. Zobrazí následující stránka požádat o přístup. Zadejte do textového pole obchodního oprávnění a klikněte na **požádat o přístup**. Náš tým bude zkontrolujte všechny podrobnosti a získáte přístup odpovídajícím způsobem. Potom můžete přihlásit na portál a odeslat žádost o podrobné pro aplikaci.
+
+Pokud jste čelí jakýkoli problém týkající se přístupu, obraťte se na [týmu Integrace Azure AD jednotného přihlašování k](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+![Žádost o přístup na portál služby SharePoint](./media/active-directory-app-gallery-listing/accessrequest.png)
+
+## <a name="timelines"></a>Časové osy
+    
+*   Proces výpis SAML 2.0 a WS-Fed aplikaci do Galerie - **7 – 10 pracovních dnů**
+
+   ![Časová osa uvedení aplikace saml do Galerie](./media/active-directory-app-gallery-listing/timeline.png)
+
+*   Proces výpis OpenID Connect aplikace do Galerie - **2 až 5 pracovních dní**
+
+   ![Časová osa uvedení aplikace saml do Galerie](./media/active-directory-app-gallery-listing/timeline2.png)
+
+## <a name="escalations"></a>Eskalací
+
+Pro všechny eskalací vyřadit e-mail na [týmu Integrace Azure AD jednotného přihlašování k](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) a jsme se vám ozvat co nejdříve.
 

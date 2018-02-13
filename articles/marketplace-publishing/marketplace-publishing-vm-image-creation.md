@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Průvodce pro vytvoření bitové kopie virtuálního počítače pro Azure Marketplace
 Tento článek **kroku 2**, vás provede procesem přípravy virtuálních pevných disků (VHD), které nasadíte do Azure Marketplace. Virtuální pevné disky jsou základ pro vaše SKU. Proces se liší v závislosti na tom, jestli tím SKU systémem Linux nebo systému Windows. Tento článek se týká obou scénářů. Tento postup lze provést paralelně s [vytváření účtů a registrace][link-acct-creation].
@@ -28,7 +28,7 @@ V této části se dozvíte k definování nabídky a jejich přidružené SKU.
 
 Nabídka je „nadřazený objekt“ všech skladových jednotek příslušné nabídky. Nabídek může být víc. Je jenom na vás, jak se rozhodnete svoje nabídky strukturovat. Když se nabídka převede do přípravy, převede se se všemi příslušnými skladovými jednotkami. Pečlivě zvažte vaše identifikátory SKU, protože se budou viditelné v adrese URL:
 
-* Azure.com: http://azure.microsoft.com/marketplace/partners/ {PartnerNamespace} / {OfferIdentifier}-{SKUidentifier}
+* Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 * Portál Azure preview: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
 
 SKU je komerční název image virtuálního počítače. Image virtuálního počítače obsahuje disk jeden operační systém a nula nebo více datových disků. Jde prakticky o kompletní profil úložiště pro virtuální počítač. Jeden virtuální pevný disk je potřeba na disk. Data i prázdné disky se vyžaduje virtuální pevný disk, který se má vytvořit.
@@ -58,7 +58,7 @@ Po přidání nabídku, musíte definovat a identifikaci vaší SKU. Můžete m�
 3. Pokud používáte skladové jednotky založené na Windows, přejděte na navrhované odkazy, kde získáte schválené verze Windows Serveru.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Vytvoření virtuálního pevného disku kompatibilní s Azure (systémem Linux)
-Tato část se zaměřuje na osvědčené postupy pro vytváření bitové kopie virtuálních počítačů na bázi systému Linux pro Azure Marketplace. Podrobný postup najdete v následující dokumentaci: [vytváření a odesílání virtuální pevný Disk, který obsahuje operační systém Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Tato část se zaměřuje na osvědčené postupy pro vytváření bitové kopie virtuálních počítačů na bázi systému Linux pro Azure Marketplace. Podrobný postup najdete v následující dokumentaci: [vytvořit vlastní image virtuálního počítače s Linuxem](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Vytvoření virtuálního pevného disku kompatibilní s Azure (založené na Windows)
 Tato část se zaměřuje na postup vytvoření SKU, založené na Windows serveru pro Azure Marketplace.
@@ -69,8 +69,8 @@ Operační systém virtuálního pevného disku pro bitové kopie virtuálního 
 Chcete-li začít, vytvoření virtuálního počítače z jednoho z následujících bitových kopií, nachází na [portálu Microsoft Azure][link-azure-portal]:
 
 * Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [standardní][link-sql-2014-std], [webové] [ link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [standardní][link-sql-2012-std], [webové] [ link-sql-2012-web])
+* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
+* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
 
 Tyto odkazy se dají najít i na Portálu publikování na stránce skladové jednotky.
 
@@ -118,6 +118,9 @@ Z portálu Microsoft Azure můžete vytvořit virtuální počítač na základ�
 Důrazně doporučujeme vývoji svůj disk VHD v cloudu pomocí protokolu RDP (Remote Desktop). Připojit k protokolu RDP s uživatelské jméno a heslo zadané při zřizování.
 
 > [!IMPORTANT]
+> **Nepoužívejte disky spravované.** Virtuální počítač použité k jejich vývoji virtuálního pevného disku do cloudu nesmí být založené na discích spravovaných jako aktuálně nepodporuje vytvoření bitové kopie z nich.
+> Vytvoření virtuálního počítače v volitelná funkce změn na výchozí hodnoty pro disky spravovat.
+
 > Pokud vyvíjíte svůj disk VHD najdete v části místní (což nedoporučujeme), [vytváření bitové kopie virtuálního počítače místní](marketplace-publishing-vm-image-creation-on-premise.md). Stahování svůj disk VHD není nutný, pokud vyvíjíte v cloudu.
 >
 >
@@ -510,19 +513,19 @@ Po vytvoření nabídku a SKU, měli byste zadat podrobnosti bitové kopie, kter
 
 ## <a name="common-sas-url-issues--fixes"></a>Běžné problémy SAS URL & opravy
 
-|Problém|Zpráva o selhání|Oprava|Dokumentace k propojení|
+|Problém|Zpráva o selhání|Napravit|Dokumentace k propojení|
 |---|---|---|---|
-|Chyba při kopírování bitové kopie - "?" nebyl nalezen v adrese url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS.|Aktualizace, pomocí SAS adresa Url, které se doporučuje nástroje|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Chyba při kopírování bitové kopie - parametry "st" a "se" není v adrese url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS.|Aktualizovat adresu Url SAS s počátečním a koncovým datem na něm|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Chyba při kopírování bitové kopie - "sp = rl" není v adrese url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS|Aktualizovat adresu Url SAS s oprávněními nastavenými jako "Číst" a "seznamu|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Chyba při kopírování bitové kopie - SAS url obsahovat prázdné znaky v názvu virtuálního pevného disku|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS.|Aktualizujte adresu Url SAS, bez mezer|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Chyba při kopírování bitové kopie – Chyba autorizace adres Url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob kvůli chybě autorizace|Znovu vygenerovat adresu SAS Url|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Chyba při kopírování bitové kopie – adresa Url SAS "st" a "se" parametry nemají specifikace úplné data a času|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout objektů blob z důvodu nesprávné SAS adresa Url |Parametry Start SAS adresa Url a koncové datum ("st", "se") musí mít specifikace úplné datum a čas, jako je například 11-02-2017T00:00:00Z a ne jen data nebo zkrácení verze po dobu. Je možné setkat tento scénář pomocí Azure CLI 2.0 (az příkaz). Nezapomeňte zadat specifikace úplné datum a čas a znovu je obnovovat SAS adresa Url.|[https://Azure.microsoft.com/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Chyba při kopírování bitové kopie - "?" nebyl nalezen v adrese url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS.|Aktualizace, pomocí SAS adresa Url, které se doporučuje nástroje|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Chyba při kopírování bitové kopie - parametry "st" a "se" není v adrese url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS.|Aktualizovat adresu Url SAS s počátečním a koncovým datem na něm|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Chyba při kopírování bitové kopie - "sp = rl" není v adrese url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS|Aktualizovat adresu Url SAS s oprávněními nastavenými jako "Číst" a "seznamu|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Chyba při kopírování bitové kopie - SAS url obsahovat prázdné znaky v názvu virtuálního pevného disku|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS.|Aktualizujte adresu Url SAS, bez mezer|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Chyba při kopírování bitové kopie – Chyba autorizace adres Url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob kvůli chybě autorizace|Znovu vygenerovat adresu SAS Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Chyba při kopírování bitové kopie – adresa Url SAS "st" a "se" parametry nemají specifikace úplné data a času|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout objektů blob z důvodu nesprávné SAS adresa Url |Parametry Start SAS adresa Url a koncové datum ("st", "se") musí mít specifikace úplné datum a čas, jako je například 11-02-2017T00:00:00Z a ne jen data nebo zkrácení verze po dobu. Je možné setkat tento scénář pomocí Azure CLI 2.0 (az příkaz). Nezapomeňte zadat specifikace úplné datum a čas a znovu je obnovovat SAS adresa Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Další krok
 Jakmile jste hotovi s podrobnostmi SKU, můžete přesunout dál [marketing vodítko obsahu Azure Marketplace][link-pushstaging]. V tomto kroku procesu publikování zadáte marketing obsahu, ceny a jiné informace, které jsou potřebné před **krok 3: testování virtuální počítač v pracovní nabízejí**, kde můžete testovat různé scénáře případ použití před nasazením nabídnout Azure Marketplace pro veřejné viditelnost a nákup.  
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Začínáme: postup publikování nabídky pro Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png

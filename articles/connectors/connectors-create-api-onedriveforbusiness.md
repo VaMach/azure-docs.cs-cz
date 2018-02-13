@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 783d6a640d9626508bcabc5f991dc5b6fc22eaf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bd447b59e8fd3573dad26ae6600e4b5c9cb7a7e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Začínáme s Onedrivu pro firmy konektoru
 Připojte k Onedrivu pro firmy a správa souborů. Můžete provádět různé akce, jako je například nahrávání, aktualizace, získání a odstranění na soubory.
 
-Můžete začít s vytvářením aplikace logiky teď najdete v tématu [vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md).
+Můžete začít s vytvářením aplikace logiky teď najdete v tématu [vytvoření aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Umožňuje vytvořit připojení k Onedrivu pro firmy
 K vytvoření aplikace logiky s Onedrivem pro firmy, musíte nejdřív vytvořit **připojení** pak zadejte podrobnosti pro následující vlastnosti:
 
 | Vlastnost | Požaduje se | Popis |
 | --- | --- | --- |
-| Token |Ano |Zadejte OneDrive pro firmy pověření |
+| Token |Ano |Zadat přihlašovací údaje k OneDrivu pro firmy |
 
 Po vytvoření připojení, můžete ke spouštění akcí a naslouchat aktivační události popsané v tomto článku.
 
