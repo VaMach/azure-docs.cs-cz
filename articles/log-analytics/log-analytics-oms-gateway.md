@@ -1,9 +1,9 @@
 ---
 title: "Připojení počítače k OMS pomocí brány OMS | Microsoft Docs"
-description: "Připojte zařízení spravovaná OMS a nástroje Operations Manager monitorované počítače s bránou OMS k odesílání dat do služby OMS, když nemají přístup k Internetu."
+description: "Připojení zařízení a nástroje Operations Manager monitorované počítače s bránou OMS k odesílání dat do Azure Automation a analýzy protokolů služby, když nemají přístup k Internetu."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/10/2018
+ms.author: magoedte
+ms.openlocfilehash: 7ada626adc33e2689a3ba807aabb16ba56194243
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Počítače bez připojení k Internetu připojit k OMS pomocí brány OMS
 
-Tento dokument popisuje, jak vaše OMS řízená a System Center Operations Manager monitorované počítače může odesílat data do služby OMS při nemají přístup k Internetu. Bránu OMS, což je předat dál proxy protokolu HTTP, podporující tunelování HTTP pomocí příkazu HTTP připojení, můžete shromažďovat data a odeslat do služby OMS jejich jménem.  
+Tento dokument popisuje, jak vaše systémy spravované pomocí agentů a počítače monitorované aplikace System Center Operations Manager může odesílat data do služby OMS při nemají přístup k Internetu. Bránu OMS, což je předat dál proxy protokolu HTTP, podporující tunelování HTTP pomocí příkazu HTTP připojení, můžete shromažďovat data a odeslat do služby OMS jejich jménem.  
 
 Podporuje OMS brána:
 
 * Procesy služby Azure Automation Hybrid Runbook Worker  
-* Počítače se systémem Windows pomocí Microsoft Monitoring Agent přímo připojené k pracovnímu prostoru OMS
-* Počítače se systémem Linux s agentem OMS pro Linux přímo připojené k pracovnímu prostoru OMS  
-* System Center Operations Manager 2012 SP1 s kumulativní aktualizací 7, Operations Manager 2012 R2 s UR3 nebo Operations Manager 2016 skupiny pro správu, integrované s OMS.  
+* Počítače se systémem Windows pomocí Microsoft Monitoring Agent přímo připojené k pracovní prostor analýzy protokolů
+* Počítače se systémem Linux s agentem OMS pro Linux přímo připojené k pracovní prostor analýzy protokolů  
+* System Center Operations Manager 2012 SP1 s kumulativní aktualizací 7 nebo Operations Manager 2012 R2 UR3, Operations Manager 2016 a skupiny pro správu nástroje Operations Manager verze 1801 integrované s OMS.  
 
 Pokud vaše zásady zabezpečení IT neumožňují počítačů ve vaší síti pro připojení k Internetu, jako je například bod zařízení POS (POS) nebo serverech podporujících IT služeb, ale je potřeba je připojit k OMS spravovat a monitorovat je, může být nakonfigurován pro komunikaci přímo s bránou OMS přijímat konfigurace a předávání dat jejich jménem.  Pokud jsou tyto počítače nakonfigurované s agentem OMS k přímému připojení k pracovnímu prostoru OMS, všechny počítače se místo toho komunikovat s branou OMS.  Brána přenáší data z agentů do OMS přímo, nebudou analyzované žádné dat během přenosu.
 
@@ -54,9 +54,9 @@ Následující diagram znázorňuje tok dat ze skupiny pro správu nástroje Ope
 Při určování počítač spustit bránu OMS, tento počítač musí mít následující:
 
 * Windows 10, Windows 8.1, Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
 * Rozhraní .net framework 4.5
-* Minimálně 4 jádra procesoru a 8 GB paměti 
+* Minimálně 4 jádra procesoru a 8 GB paměti
 
 ### <a name="language-availability"></a>Jazyk dostupnosti
 
@@ -64,23 +64,31 @@ Bránu OMS je k dispozici v těchto jazycích:
 
 - Čínština (zjednodušená)
 - Čínština (tradiční)
-- čeština
-- holandština
+- Čeština
+- Holandština
 - Angličtina
-- francouzština
-- němčina
-- maďarština
+- Francouzština
+- Němčina
+- Maďarština
 - italština
-- japonština
-- korejština
+- Japonština
+- Korejština
 - polština
 - Portugalština (Brazílie)
-- Portugalština (Portugalsko)
+- portugalština (Portugalsko)
 - ruština
 - Španělština (mezinárodní)
 
 ### <a name="supported-encryption-protocols"></a>Šifrování podporovaných protokolů
 Bránu OMS podporuje pouze zabezpečení TLS (Transport Layer) 1.0, 1.1 a 1.2.  Nepodporuje Secure Sockets Layer (SSL).
+
+### <a name="supported-number-of-agent-connections"></a>Podporované počet připojení agenta
+V následující tabulce označuje podporovaný počet agentů komunikaci se serverem brány.  Tato podpora je založena na agentech odesílání ~ 200KB dat každých 6 sekund. Datový svazek na jednoho agenta testována je přibližně 2.7GB za den.
+
+|brána |Asi počet agentů podporováno|  
+|--------|----------------------------------|  
+|-Procesoru: Intel XEON E5 procesoru 2660 v3 @ 2.6GHz 2 jádra<br> -Paměť: 4 GB<br> -Šířku pásma sítě: 1 GB/s| 600|  
+|-Procesoru: Intel XEON E5 procesoru 2660 v3 @ 2.6GHz, 4 jádra<br> -Paměť: 8 GB<br> -Šířku pásma sítě: 1 GB/s| 1000|  
 
 ## <a name="download-the-oms-gateway"></a>Stáhněte bránu OMS
 
@@ -104,7 +112,7 @@ Existují tři způsoby, jak získat nejnovější verzi souboru instalačního 
 Pokud chcete nainstalovat bránu, proveďte následující kroky.  Pokud jste nainstalovali předchozí verze, dříve se označovaly jako *Log Analytics předávání*, se upgraduje na tuto verzi.  
 
 1. V cílové složce poklikejte na **OMS Gateway.msi**.
-2. Na **úvodní** klikněte na tlačítko **Další**.<br><br> ![Průvodce instalací brány](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
+2. Na **úvodní** stránce klikněte na **Další**.<br><br> ![Průvodce instalací brány](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br>
 3. Na **licenční smlouvy** vyberte **s podmínkami licenční smlouvy souhlasím** souhlas s se smlouvou EULA, a potom klikněte na **Další**.
 4. Na **Port a proxy adres** stránky:
    1. Zadejte číslo portu TCP, který se má použít pro bránu. Instalační program nakonfiguruje příchozí pravidlo s tímto číslem portu v bráně Windows firewall.  Výchozí hodnota je 8080.
@@ -116,20 +124,20 @@ Pokud chcete nainstalovat bránu, proveďte následující kroky.  Pokud jste na
 7. Na **připravené k instalaci** klikněte na tlačítko **nainstalovat**. Řízení uživatelských účtů, může se objevit požadavku na oprávnění k instalaci. Pokud ano, klikněte na tlačítko **Ano**.
 8. Po dokončení instalace klikněte na tlačítko **Dokončit**. Můžete ověřit, že je služba je spuštěna tak, že otevřete modul snap-in services.msc a ověřte, zda **OMS brány** se zobrazí v seznamu služeb a jeho stav se **systémem**.<br><br> ![Services – OMS brány](./media/log-analytics-oms-gateway/gateway-service.png)  
 
-## <a name="configure-network-load-balancing"></a>Konfigurace služby Vyrovnávání zatížení sítě 
+## <a name="configure-network-load-balancing"></a>Konfigurace služby Vyrovnávání zatížení sítě
 Můžete nakonfigurovat bránu pro vysokou dostupnost, pomocí služby Vyrovnávání zatížení sítě (NLB) pomocí Microsoft Network Load Balancing (NLB) nebo nástroje pro vyrovnávání zatížení založené na hardwaru.  Nástroje pro vyrovnávání zatížení spravuje přenosy přesměrováním požadované připojení ze serverů pro správu OMS agentů nebo Operations Manager mezi jeho uzlů. Pokud jeden server brány ocitne mimo provoz, provoz se přesměruje na jiných uzlech.
 
 Další informace o návrhu a nasazení clusteru služby Vyrovnávání zatížení sítě systému Windows Server 2016 najdete v tématu [Vyrovnávání zatížení sítě](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Následující kroky popisují postup konfigurace clusteru služby Vyrovnávání zatížení sítě společnosti Microsoft.  
 
 1.  Přihlaste do Windows serveru, který je členem clusteru vyrovnávání zatížení sítě k účtu správce.  
 2.  Ve Správci serveru otevřete Správce vyrovnávání zatížení sítě, klikněte na tlačítko **nástroje**a potom klikněte na **Správce vyrovnávání zatížení sítě**.
-3. Pro připojení serveru brány OMS s nainstalovaným agentem monitorování společnosti Microsoft, klikněte pravým tlačítkem na IP adresu clusteru a pak klikněte na tlačítko **přidat hostitele do clusteru**.<br><br> ![Zatížení sítě vyrovnávání Manager – přidání hostitele do clusteru](./media/log-analytics-oms-gateway/nlb02.png)<br> 
-4. Zadejte IP adresu serveru brány, kterému se chcete připojit.<br><br> ![Sítě Správce vyrovnávání zatížení – přidání hostitele do clusteru: připojení](./media/log-analytics-oms-gateway/nlb03.png) 
-    
+3. Pro připojení serveru brány OMS s nainstalovaným agentem monitorování společnosti Microsoft, klikněte pravým tlačítkem na IP adresu clusteru a pak klikněte na tlačítko **přidat hostitele do clusteru**.<br><br> ![Zatížení sítě vyrovnávání Manager – přidání hostitele do clusteru](./media/log-analytics-oms-gateway/nlb02.png)<br>
+4. Zadejte IP adresu serveru brány, kterému se chcete připojit.<br><br> ![Sítě Správce vyrovnávání zatížení – přidání hostitele do clusteru: připojení](./media/log-analytics-oms-gateway/nlb03.png)
+
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Konfigurace agenta OMS a skupiny pro správu nástroje Operations Manager
 Následující část obsahuje kroky pro konfiguraci přímo připojené OMS agentů, skupinu pro správu nástroje Operations Manager nebo procesy Azure Automation Hybrid Runbook Worker s bránou OMS ke komunikaci s OMS.  
 
-Abyste pochopili požadavky a kroky k instalaci agenta OMS na počítačích s Windows přímého připojení k OMS, najdete v části [počítače se systémem Windows se připojit k OMS](log-analytics-windows-agent.md) nebo Linux počítačů najdete v tématu [počítače se systémem Linux připojit k OMS](log-analytics-linux-agents.md). 
+Abyste pochopili požadavky a kroky k instalaci agenta OMS na počítačích s Windows přímého připojení k OMS, najdete v části [počítače se systémem Windows se připojit k OMS](log-analytics-windows-agents.md) nebo Linux počítačů najdete v tématu [počítače se systémem Linux připojit k OMS](log-analytics-linux-agents.md).
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Konfigurace agenta OMS a nástroje Operations Manager pro použití brány OMS jako proxy server
 
@@ -148,26 +156,26 @@ Pro použití brány na podporu nástroje Operations Manager, musíte mít:
 > Pokud nezadáte hodnotu pro bránu, prázdné hodnoty odesílají na všechny agenty.
 
 
-1. Otevřete konzolu nástroje Operations Manager a v části **Operations Management Suite**, klikněte na tlačítko **připojení** a pak klikněte na **nakonfigurovat Proxy Server**.<br><br> ![Nástroje Operations Manager – nakonfigurujte Proxy Server](./media/log-analytics-oms-gateway/scom01.png)<br> 
-2. Vyberte **používat proxy server pro přístup k službě Operations Management Suite** a poté zadejte IP adresu serveru brány OMS nebo virtuální IP adresy služby NLB. Ujistěte se, že začínáte s `http://` předponu.<br><br> ![Nástroj Operations Manager – adresu proxy serveru.](./media/log-analytics-oms-gateway/scom02.png)<br> 
+1. Otevřete konzolu nástroje Operations Manager a v části **Operations Management Suite**, klikněte na tlačítko **připojení** a pak klikněte na **nakonfigurovat Proxy Server**.<br><br> ![Nástroje Operations Manager – nakonfigurujte Proxy Server](./media/log-analytics-oms-gateway/scom01.png)<br>
+2. Vyberte **používat proxy server pro přístup k službě Operations Management Suite** a poté zadejte IP adresu serveru brány OMS nebo virtuální IP adresy služby NLB. Ujistěte se, že začínáte s `http://` předponu.<br><br> ![Nástroj Operations Manager – adresu proxy serveru.](./media/log-analytics-oms-gateway/scom02.png)<br>
 3. Klikněte na **Dokončit**. Váš server nástroje Operations Manager je připojený k vaším pracovním prostorem OMS.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Konfigurace nástroje Operations Manager – konkrétní agenty použít proxy server
 V prostředích velká nebo složitá pouze můžete použít server brány OMS konkrétních serverů (nebo skupiny).  Pro tyto servery nelze aktualizovat agenta nástroje Operations Manager přímo, protože tato hodnota se přepíše globální hodnotou pro skupinu pro správu.  Místo toho je třeba přepsat pravidlo použít tyto hodnoty.
 
-> [!NOTE] 
+> [!NOTE]
 > Tento stejný postup konfigurace lze použít k povolení použití více serverů brány OMS ve vašem prostředí.  Může například vyžadovat konkrétní servery brány OMS ho zadat na základě podle oblasti.
 
 1. Otevřete konzolu nástroje Operations Manager a vyberte **vytváření** pracovního prostoru.  
-2. V pracovním prostoru vytváření obsahu, vyberte **pravidla** a klikněte na **oboru** tlačítka na panelu nástrojů nástroje Operations Manager. Pokud toto tlačítko není k dispozici, zkontrolujte, že máte vybrán objekt, a nikoliv složka, v podokně monitorování. **Obor objektů sady Management Pack** dialogové okno zobrazí seznam běžných cílové třídy, skupiny nebo objekty. 
+2. V pracovním prostoru vytváření obsahu, vyberte **pravidla** a klikněte na **oboru** tlačítka na panelu nástrojů nástroje Operations Manager. Pokud toto tlačítko není k dispozici, zkontrolujte, že máte vybrán objekt, a nikoliv složka, v podokně monitorování. **Obor objektů sady Management Pack** dialogové okno zobrazí seznam běžných cílové třídy, skupiny nebo objekty.
 3. Typ **služba Health Service** v **vyhledejte** pole a vyberte ho ze seznamu.  Klikněte na **OK**.  
 4. Vyhledejte pravidlo **pravidlo nastavení proxy serveru Advisor** a nástrojů kontroly Operations console klikněte na **přepsání** a pak přejděte na **přepsat Rule\For konkrétní objekt třídy: Služba Health Service**  a vybrat konkrétní objekt ze seznamu.  Volitelně můžete vytvořit vlastní skupiny obsahující objektu stavu služby ze serverů, který chcete použít pro toto přepsání a pak použít přepsání do této skupiny.
 5. V **vlastnosti přepsání** dialogové okno, kliknutím na toto políčko zaškrtněte v **přepsat** vedle sloupce **WebProxyAddress** parametr.  V **hodnotu přepsání** pole, zadejte adresu URL pro zajištění serveru brány OMS jste začínající `http://` předponu.
    >[!NOTE]
    > Není nutné k povolení pravidla, jak je již spravován automaticky přepsáním obsažené v sadě Microsoft System Center Advisor zabezpečené referenční Override management pack cílení na Microsoft System Center Advisor monitorování skupiny serverů.
-   > 
-6. Buď vyberte sadu management pack z **vyberte cílovou sadu management pack** seznamu nebo vytvořte novou sadu management pack kliknutím **nový**. 
-7. Po dokončení změny klikněte na tlačítko **OK**. 
+   >
+6. Buď vyberte sadu management pack z **vyberte cílovou sadu management pack** seznamu nebo vytvořte novou sadu management pack kliknutím **nový**.
+7. Po dokončení změny klikněte na tlačítko **OK**.
 
 ### <a name="configure-for-automation-hybrid-workers"></a>Konfigurace pro automatizaci hybridní pracovní procesy
 Pokud máte automatizace procesů Hybrid Runbook Worker ve vašem prostředí, zadejte následující kroky ručně, dočasné řešení konfigurace brány, které je podporují.
@@ -183,9 +191,9 @@ Pomocí následující tabulky Identifikujte adresu URL pro každé umístění:
 
 **Úloha adresy URL služby dat za běhu**
 
-| **location** | **ADRESA URL** |
+| **location** | **Adresa URL** |
 | --- | --- |
-| Střed USA – sever |ncus-jobruntimedata produkčnímu su1.azure-automation.net |
+| Střed USA – sever |ncus-jobruntimedata-prod-su1.azure-automation.net |
 | Západní Evropa |we-jobruntimedata-prod-su1.azure-automation.net |
 | Střed USA – jih |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Východní USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
@@ -198,23 +206,23 @@ Pomocí následující tabulky Identifikujte adresu URL pro každé umístění:
 
 **Adresy URL služby agenta**
 
-| **location** | **ADRESA URL** |
+| **location** | **Adresa URL** |
 | --- | --- |
-| Střed USA – sever |ncus-agentservice produkčnímu 1.azure-automation.net |
-| Západní Evropa |budeme agentservice produkčnímu 1.azure-automation.net |
-| Střed USA – jih |scus-agentservice produkčnímu 1.azure-automation.net |
-| Východní USA 2 |eus2-agentservice produkčnímu 1.azure-automation.net |
-| Střední Kanada |kopie – agentservice produkčnímu 1.azure-automation.net |
-| Severní Evropa |Ne – agentservice produkčnímu 1.azure-automation.net |
-| Jihovýchodní Asie |SEA-agentservice produkčnímu 1.azure-automation.net |
-| Střed Indie |CID-agentservice produkčnímu 1.azure-automation.net |
-| Japonsko |JPE-agentservice produkčnímu 1.azure-automation.net |
-| Austrálie |App Service Environment agentservice produkčnímu 1.azure-automation.net |
+| Střed USA – sever |ncus-agentservice-prod-1.azure-automation.net |
+| Západní Evropa |we-agentservice-prod-1.azure-automation.net |
+| Střed USA – jih |scus-agentservice-prod-1.azure-automation.net |
+| Východní USA 2 |eus2-agentservice-prod-1.azure-automation.net |
+| Střední Kanada |cc-agentservice-prod-1.azure-automation.net |
+| Severní Evropa |ne-agentservice-prod-1.azure-automation.net |
+| Jihovýchodní Asie |sea-agentservice-prod-1.azure-automation.net |
+| Střed Indie |cid-agentservice-prod-1.azure-automation.net |
+| Japonsko |jpe-agentservice-prod-1.azure-automation.net |
+| Austrálie |ase-agentservice-prod-1.azure-automation.net |
 
 Pokud váš počítač je registrován jako hybridní pracovní proces Runbooku automaticky pro opravy pomocí řešení správy aktualizací, postupujte takto:
 
 1. Adresy URL služby modulu Runtime Data úlohy přidáte do seznamu hostitelů povolené na bráně OMS. Příklad: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-2. Restartujte službu OMS brány pomocí následující rutiny prostředí PowerShell:`Restart-Service OMSGatewayService`
+2. Restartujte službu OMS brány pomocí následující rutiny prostředí PowerShell: `Restart-Service OMSGatewayService`
 
 Pokud váš počítač je pomocí rutiny registrace hybridní pracovní proces Runbooku na zahrnuté do Azure Automation, postupujte podle těchto kroků:
 
@@ -228,19 +236,19 @@ Rutiny můžete dokončit úkoly, které jsou potřeba aktualizovat nastavení k
 
 1. Nainstalujte bránu OMS (MSI).
 2. Otevřete okno konzoly prostředí PowerShell.
-3. Chcete-li importovat modul, zadejte tento příkaz:`Import-Module OMSGateway`
+3. Chcete-li importovat modul, zadejte tento příkaz: `Import-Module OMSGateway`
 4. Pokud k žádné chybě došlo v předchozím kroku, modul byl úspěšně importován a použít rutiny. Typ`Get-Module OMSGateway`
 5. Když provedete změny pomocí rutin, ujistěte se, restartujte službu brány.
 
 Modul nebyl importován, pokud dojde k chybě v kroku 3. K chybě může dojít, když nelze nalézt modul prostředí PowerShell. Najdete ho v instalační cestě pro bránu: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
 
-| **Rutiny** | **Parametry** | **Popis** | **Příklad** |
+| **Cmdlet** | **Parametry** | **Popis** | **Příklad** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Klíč |Získá konfiguraci této služby |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Klíč (povinné) <br> Hodnota |Změny konfigurace služby |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Získá adresu proxy serveru (nadřazený) předávání |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adresa<br> Uživatelské jméno<br> Heslo |Nastaví adresy (a přihlašovacích údajů) předávání přes proxy (nadřazený) |1. Nastavení proxy serveru pro předávání a přihlašovací údaje:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Nastavte předávání přes proxy server, který nevyžaduje ověření:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Zrušte zaškrtnutí políčka předávání nastavení proxy serveru:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |Získá aktuálně povolené hostitele (pouze místně nakonfigurované povolené hostitele, nezahrnuje automaticky stažené povolené hostitele) |`Get-OMSGatewayAllowedHost` | 
+| `Set-OMSGatewayRelayProxy` |Adresa<br> Uživatelské jméno<br> Heslo |Nastaví adresy (a přihlašovacích údajů) předávání přes proxy (nadřazený) |1. Nastavení proxy serveru pro předávání a přihlašovací údaje:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Nastavte předávání přes proxy server, který nevyžaduje ověření: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Zrušte zaškrtnutí políčka předávání nastavení proxy serveru:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |Získá aktuálně povolené hostitele (pouze místně nakonfigurované povolené hostitele, nezahrnuje automaticky stažené povolené hostitele) |`Get-OMSGatewayAllowedHost` |
 | `Add-OMSGatewayAllowedHost` |Hostitel (povinné) |Přidá hostitele do seznamu povolených |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Hostitel (povinné) |Odebere hostitele ze seznamu povolených |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
 | `Add-OMSGatewayAllowedClientCertificate` |Předmět (povinné) |Přidá certifikát klienta může seznam povolených položek |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
@@ -289,7 +297,5 @@ Požádat o pomoc, klikněte na symbol otazník v pravém horním rohu portálu 
 
 ![Nová žádost o podporu](./media/log-analytics-oms-gateway/support.png)
 
-Můžete také ponechat zpětnou vazbu o OMS nebo analýzy protokolů v [fóru pro zpětnou vazbu Microsoft Azure](https://feedback.azure.com/forums/267889).
-
-## <a name="next-steps"></a>Další kroky
-* [Přidat zdroje dat](log-analytics-data-sources.md) pro shromažďování dat z připojené zdroje v pracovním prostoru analýzy protokolů a uložte ho do úložiště analýzy protokolů.
+## <a name="next-steps"></a>Další postup
+[Přidat zdroje dat](log-analytics-data-sources.md) pro shromažďování dat z připojení zdrojů a uložte ji do pracovního prostoru analýzy protokolů.

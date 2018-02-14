@@ -3,7 +3,7 @@ title: "Kontejner monitorování řešení v Azure Log Analytics | Microsoft Doc
 description: "Řešení monitorování kontejneru v analýzy protokolů umožňuje zobrazení a správa Docker a Windows hostitele kontejneru na jednom místě."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Řešení monitorování kontejneru v analýzy protokolů
 
@@ -356,7 +356,7 @@ Můžete vytvořit omsagent DaemonSets s nebo bez tajných klíčů.
         KEY:    88 bytes
         ```
 
-    5. Vytvoření vaší omsagent démon set spuštěním``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Vytvoření vaší omsagent démon set spuštěním ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
 
 2. Ověřte, zda DaemonSet agenta OMS je spuštěna, podobný následujícímu:
 
@@ -400,10 +400,10 @@ Pro Windows Kubernetes pomocí skriptu pro generování souboru yaml tajné klí
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Vytvoření vaší omsagent démon set spuštěním``` kubectl create -f omsagentsecret.yaml ```
+    3. Vytvoření vaší omsagent démon set spuštěním ``` kubectl create -f omsagentsecret.yaml ```
     4. Pokud chcete zkontrolovat, spusťte následující:
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -418,16 +418,16 @@ Pro Windows Kubernetes pomocí skriptu pro generování souboru yaml tajné klí
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
-    5. Vytvoření vaší omsagent démon set spuštěním```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. Vytvoření vaší omsagent démon set spuštěním ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. Ověřte, zda DaemonSet agenta OMS je spuštěna, podobný následujícímu:
 
@@ -437,12 +437,12 @@ Pro Windows Kubernetes pomocí skriptu pro generování souboru yaml tajné klí
     omsagent   1         1         <none>          1h
     ```
 
-3. Instalace agenta v pracovním uzlu, který se systémem Windows, postupujte podle kroků v části [instalace a konfigurace hostitelů Windows kontejneru](#install-and-configure-windows-container-hosts). 
+3. Instalace agenta v pracovním uzlu, který se systémem Windows, postupujte podle kroků v části [instalace a konfigurace hostitelů Windows kontejneru](#install-and-configure-windows-container-hosts).
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Použití Helm nasazení agenta OMS na Linux Kubernetes 
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Použití Helm nasazení agenta OMS na Linux Kubernetes
 Abyste mohli použít helm nasazení agenta OMS na vašem prostředí Linux Kubernetes, proveďte následující kroky.
 
-1. Vytvoření vaší omsagent démon set spuštěním```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. Vytvoření vaší omsagent démon set spuštěním ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. Výsledky bude vypadat nějak takto:
 
     ```
@@ -607,7 +607,7 @@ Analýzy protokolů označí kontejneru jako **se nezdařilo** Pokud byl ukonče
    ![kontejnery stavu](./media/log-analytics-containers/containers-log-search.png)
 3. Klikněte na tlačítko agregovaná hodnota selhání kontejnery zobrazíte další informace. Rozbalte položku **zobrazit další** zobrazíte ID obrázku.  
    ![Neúspěšné kontejnery](./media/log-analytics-containers/containers-state-failed.png)  
-4. Potom zadejte následující příkaz v vyhledávací dotaz. `Type=ContainerInventory <ImageID>`Chcete-li zobrazit podrobnosti o bitovou kopii například velikost bitové kopie a počet zastaven a k selhání bitové kopie.  
+4. Potom zadejte následující příkaz v vyhledávací dotaz. `Type=ContainerInventory <ImageID>` Chcete-li zobrazit podrobnosti o bitovou kopii například velikost bitové kopie a počet zastaven a k selhání bitové kopie.  
    ![Neúspěšné kontejnery](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Hledání protokoly pro kontejner dat
@@ -625,7 +625,7 @@ Pokud se řešení potíží s konkrétní chyby, může pomoct zobrazíte, kde 
 
 
 ### <a name="to-search-logs-for-container-data"></a>K vyhledání protokoly pro kontejner dat
-* Vyberte obrázek, který znáte selhával a najít v souborech protokolů chyb pro ni. Začněte tím, že název kontejneru, který běží této bitové kopie s hledání **ContainerInventory** vyhledávání. Například vyhledejte`Type=ContainerInventory ubuntu Failed`  
+* Vyberte obrázek, který znáte selhával a najít v souborech protokolů chyb pro ni. Začněte tím, že název kontejneru, který běží této bitové kopie s hledání **ContainerInventory** vyhledávání. Například vyhledejte `Type=ContainerInventory ubuntu Failed`  
     ![Hledat kontejnery Ubuntu](./media/log-analytics-containers/search-ubuntu.png)
 
   Název kontejneru Další **název**a vyhledejte tyto protokoly. V tomto příkladu je to `Type=ContainerLog cranky_stonebreaker`.

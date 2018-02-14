@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Začínáme s auditem databáze SQL
 Auditování databáze SQL Azure sleduje události databáze a zápisu, které mají auditu přihlášení účtu úložiště Azure. Auditování také:
@@ -39,8 +39,10 @@ Můžete použít auditování databáze SQL pro:
 
 Můžete nakonfigurovat auditování pro různé typy událostí kategorie, jak je popsáno v [nastavit auditování pro databázi](#subheading-2) části.
 
-Protokoly auditu se zapisují do úložiště objektů Blob v Azure na vaše předplatné Azure.
-
+> [!IMPORTANT]
+> Protokoly auditu se zapisují do **doplňovacích objektů blob** v úložišti objektů Blob v Azure na vaše předplatné Azure.
+>
+> **Úložiště ve virtuální síti** právě **nepodporuje**.
 
 ## <a id="subheading-8"></a>Definovat úroveň serveru oproti auditování zásady na úrovni databáze
 
@@ -66,7 +68,7 @@ Následující část popisuje konfigurace auditování pomocí portálu Azure.
 1. Přejděte na [portál Azure](https://portal.azure.com).
 2. Přejděte na **nastavení** okno chcete auditovat serveru SQL database nebo SQL Server. V **nastavení** vyberte **auditování a detekce hrozeb**.
 
-    <a id="auditing-screenshot"></a>![Navigačním podokně][1]
+    <a id="auditing-screenshot"></a>![Navigační podokno][1]
 3. Pokud chcete nastavit zásady auditu serveru, můžete vybrat **zobrazit nastavení serveru** odkaz v okně auditování databáze. Můžete pak zobrazit nebo upravit nastavení auditování serveru. Zásady auditu serveru platí pro všechny stávající a nově vytvořené databáze na tomto serveru.
 
     ![Navigační podokno][2]
@@ -79,8 +81,8 @@ Následující část popisuje konfigurace auditování pomocí portálu Azure.
    >[!TIP]
    >K plnému využití mimo auditování šablon sestav, použijte stejný účet úložiště pro všechny auditování databáze.
 
-    <a id="storage-screenshot"></a>![Navigačním podokně][4]
-6. Pokud chcete přizpůsobit auditované události, můžete k tomu pomocí prostředí PowerShell nebo rozhraní REST API. 
+    <a id="storage-screenshot"></a>![Navigační podokno][4]
+6. Pokud chcete přizpůsobit auditované události, můžete k tomu pomocí prostředí PowerShell nebo rozhraní REST API.
 7. Po dokončení konfigurace nastavení auditování, můžete zapnout funkci nové detekce hrozeb a konfigurovat výstrahy zabezpečení e-mailů. Pokud používáte detekce hrozeb, obdržíte proaktivní výstrahy na nezvyklé databázové aktivity, které může znamenat potenciální bezpečnostní hrozby. Další informace najdete v tématu [Začínáme s detekce hrozeb](sql-database-threat-detection-get-started.md).
 8. Klikněte na **Uložit**.
 

@@ -1,6 +1,6 @@
 ---
-title: "Přehled funkcí databází SQL Azure | Dokumentace Microsoftu"
-description: "Na této stránce je k dispozici přehled logických serverů a databází služby Azure SQL Database a matice na podporu funkcí s odkazy na všechny uvedené funkce."
+title: "Porovnání funkcí Azure SQL Database | Microsoft Docs"
+description: "Tento článek obsahuje porovnání funkcí systému SQL Server a databáze SQL Azure a zobrazí rozdíly mezi nimi."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: dc9a7fa0a7fa0e029f71510cc516496ed12a6274
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-sql-database-features"></a>Funkce služby Azure SQL Database
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Porovnání funkcí: Azure SQL Database a SQL Server 
 
 Azure SQL Database sdílí společný kód základní s SQL serverem a na úrovni databáze podporuje většinu stejné funkce. Hlavní funkce rozdíly mezi Azure SQL Database a SQL Server jsou na úrovni instance. 
 

@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2fc2b07189994206c8465ed24374489eefd45966
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Kurz: Konfigurace síti na pracovišti ve službě Facebook pro zřizování automatické uživatelů
 
 Tento kurz popisuje kroky nutné automaticky zřizovat a deaktivace zřízení uživatelských účtů z Azure Active Directory (Azure AD) k síti na pracovišti ve službě Facebook.
+
+>[!NOTE]
+>Tento kurz popisuje spojnice postavená na službu zřizování uživatele Azure AD. Důležité podrobnosti o jaké této služby, jak to funguje a nejčastější dotazy, najdete v tématu [automatizace zřizování uživatelů a rušení zajištění pro aplikace SaaS ve službě Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
