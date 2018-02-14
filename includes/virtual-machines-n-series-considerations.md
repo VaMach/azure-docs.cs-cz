@@ -4,9 +4,7 @@
 
 * N-series virtuálních počítačů lze nasadit pouze v modelu nasazení Resource Manager.
 
-* Při vytváření virtuálních počítačů N-series, pomocí webu Azure portal na **Základy** vyberte **typ disku virtuálního počítače** z **HDD**. Zvolte dostupné velikosti N-series v **velikost** okně klikněte na tlačítko **zobrazit všechny**.
-
-* NC a virtuální počítače vs nepodporují disky virtuálních počítačů, které jsou zajišťované Azure Premium storage.
+* N-series virtuálních počítačů se liší v typ podporují pro jejich disky úložiště Azure. NC a virtuální počítače vs podporují jenom disky virtuálních počítačů, které jsou zajišťované pomocí standardní úložiště disku (HDD). NCv2 ND a NCv3 (Náhled) virtuálních počítačů pouze podporu virtuálních počítačů disky, které jsou zajišťované pomocí disku úložiště Premium (SSD).
 
 * Pokud chcete nasadit víc než několik virtuálních počítačů N-series, zvažte průběžnými platbami předplatné nebo jiné možnosti nákupu. Pokud používáte [bezplatný účet Azure](https://azure.microsoft.com/free/), můžete použít pouze omezený počet výpočetních jader Azure.
 
