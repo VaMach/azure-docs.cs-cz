@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cef7fc282edc7396a0f26dab98ea7f1087315b23
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Najít data pomocí protokolu hledání v analýzy protokolů
 
@@ -39,7 +39,7 @@ Jsme budete začínat jednoduchý, praktické příklady a potom stavět na je, 
 Poté, co jste obeznámeni s vyhledávání techniky, můžete zkontrolovat [analýzy protokolů protokolu vyhledávání odkaz](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Použití základní filtrů
-První věc, kterou potřebujete vědět, je, že první část vyhledávání dotazu před spuštěním "|" znak svislé čáry znak, je vždy *filtru*. Můžete si ho představit jako klauzule WHERE v TSQL – Určuje *co* podmnožinu dat vyžádání mimo og pracovní prostor analýzy. Hledání v úložišti dat je z velké části o zadání charakteristiky data, která mají být extrahovány, takže je přirozené dotazu by začínat klauzuli WHERE.
+První věc, kterou potřebujete vědět, je, že první část vyhledávání dotazu před spuštěním "|" znak svislé čáry znak, je vždy *filtru*. Můžete si ho představit jako klauzule WHERE v TSQL – Určuje *co* podmnožinu dat mimo pracovní prostor analýzy protokolů pro vyžádání obsahu. Hledání v úložišti dat je z velké části o zadání charakteristiky data, která mají být extrahovány, takže je přirozené dotazu by začínat klauzuli WHERE.
 
 Nejzákladnější filtry, které můžete použít jsou *klíčová slova*, jako je například "Chyba" nebo "časový limit nebo název počítače. Tyto typy dotazů jednoduché obecně vrátí různých tvarů dat v rámci stejné sadu výsledků dotazu. Je to proto analýzy protokolů má jiný *typy* dat v systému.
 
@@ -62,13 +62,13 @@ Pokud ano, typ = výkonu záznamy mají pole s názvem "název_čítače, a pak 
 Tím získáte pouze data výkonu kde název čítače výkonu je "% času procesoru".
 
 ### <a name="to-search-for-processor-time-performance-data"></a>K vyhledání údaje o výkonu času procesoru
-* Do pole vyhledávání dotazu zadejte`Type=Perf CounterName="% Processor Time"`
+* Do pole vyhledávání dotazu zadejte `Type=Perf CounterName="% Processor Time"`
 
 Můžete také vybrat určité a použít **InstanceName = _ "Celkem"** v dotazu, který je čítačů výkonu systému Windows. Můžete také vybrat omezující vlastnost a jiné **: hodnota pole**. Filtr se automaticky přidá do filtru na panelu dotazů. To vidíte na následujícím obrázku. Zobrazuje kde klikněte na tlačítko Přidat **InstanceName: "_Total"** na dotaz, aniž by museli zadávat nic.
 
 ![omezující vlastnost vyhledávání](./media/log-analytics-log-searches/oms-search-facet.png)
 
-Stává dotazu`Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
+Stává dotazu `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 V tomto příkladu nemusíte určit **typ = výkonu** získat k těmto výsledkům. Vzhledem k tomu, že pole název_čítače a InstanceName existovat pouze pro záznamy typu = výkonu, dotaz je dost konkrétní, aby vrátí stejné výsledky jako déle, předchozí:
 
@@ -82,7 +82,7 @@ Například dotaz `Type=Event EventLog="Windows PowerShell"` je stejný jako `Ty
 
 Implicitní operátor AND můžete snadno vrátit explicitně pomocí operátoru NOT. Příklad:
 
-`Type:Event NOT(EventLog:"Windows PowerShell")`nebo jeho ekvivalent `Type=Event EventLog!="Windows PowerShell"` vrátí všechny události z všechny protokoly, které nejsou v prostředí Windows PowerShell protokolu.
+`Type:Event NOT(EventLog:"Windows PowerShell")` nebo jeho ekvivalent `Type=Event EventLog!="Windows PowerShell"` vrátí všechny události z všechny protokoly, které nejsou v prostředí Windows PowerShell protokolu.
 
 Nebo můžete například použít jiné logický operátor 'Nebo'. Následující dotaz vrátí záznamy, pro které protokolu událostí buď systém nebo aplikace.
 
@@ -168,7 +168,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Hledání s použitím logický operátor
-* Do pole vyhledávání dotazu zadejte`EventLog=System TimeGenerated>NOW-24HOURS`  
+* Do pole vyhledávání dotazu zadejte `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![hledání s logická hodnota](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 I když můžete řídit časový interval graficky a většina časy, můžete chtít udělat, existují výhody včetně filtr času přímo do dotazu. Například to vyhovující postup pomocí řídicích panelů, kde můžete přepsat čas pro každou dlaždici, bez ohledu na to *globální* selektor čas na stránce řídicího panelu. Další informace najdete v tématu [čas záleží na řídicím panelu](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -254,7 +254,7 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>Hledání s použitím horní
-* Do pole vyhledávání dotazu zadejte`Type=Event EventID=600 | Top 1`   
+* Do pole vyhledávání dotazu zadejte `Type=Event EventID=600 | Top 1`   
     ![horní vyhledávání](./media/log-analytics-log-searches/oms-search-top.png)
 
 Na předchozím obrázku jsou záznamy 358 tisíc s ID události = 600. Pole, omezující vlastnosti a filtry na levé straně vždy zobrazovat informace o výsledky vrácené *podle části filtru* dotazu, která je součástí před všechny znakem. **Výsledky** podokně pouze vrátí poslední 1 výsledek, protože v ukázkovém příkazu ve tvaru a transformovat výsledky.
@@ -309,7 +309,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>Hledání s použitím míru count
-* Do pole vyhledávání dotazu zadejte`Type=Event | Measure count() by EventID`
+* Do pole vyhledávání dotazu zadejte `Type=Event | Measure count() by EventID`
 * Připojit `| Select EventID` na konec dotazu.
 * Nakonec připojit `| Sort EventID asc` na konec dotazu.
 

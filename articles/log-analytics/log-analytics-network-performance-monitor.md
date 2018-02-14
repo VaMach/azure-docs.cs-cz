@@ -3,7 +3,7 @@ title: "Síťová řešení pro sledování výkonu v Azure Log Analytics | Micr
 description: "Sledování výkonu sítě v Azure Log Analytics vám pomůže s monitorováním výkonu vaší sítě-in téměř real-bránu ke zjištění a vyhledejte síťové kritické body."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
-ms.author: banders
-ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 5fc2477e566fdea76294b62a738c0e18facbe629
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Síťová řešení pro sledování výkonu v analýzy protokolů
 
 ![Symbol sledování výkonu sítě](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
-Tento dokument popisuje, jak nastavit a používání řešení monitorování výkonu sítě v analýzy protokolů, které vám pomůže s monitorováním výkonu vaší sítě-in téměř real-bránu ke zjištění a vyhledejte sítě kritické body. Pomocí tohoto řešení pro sledování výkonu sítě může sledovat ztrátě a čekací doba mezi dvěma sítěmi, podsítě nebo servery. Sledování výkonu sítě zjistí problémy se síťovým jako blackholing provoz, směrování chyb a problémů, které metody monitorování konvenční sítě nejsou schopna zjistit. Sledování výkonu sítě generuje výstrahy a upozorní jak a kdy je nedodržení prahovou hodnotu pro síťové propojení. Tyto prahové hodnoty je možné zjistit automaticky systém nebo můžete nakonfigurovat, aby uživatelé používali vlastní pravidla výstrah. Sledování výkonu sítě zajišťuje možno včas zjistit problémy s výkonem sítě a lokalizováno zdroj problému na určitém segmentu sítě nebo zařízení.
+Tento dokument popisuje, jak nastavit a použijte nástroj Sledování výkonu sítě řešení v analýzy protokolů, které umožňuje sledovat výkon vaší sítě v blízkosti real-bránu ke zjištění a vyhledejte kritická místa výkonu sítě. Pomocí tohoto řešení pro sledování výkonu sítě může sledovat ztrátě a čekací doba mezi dvěma sítěmi, podsítě nebo servery. Sledování výkonu sítě zjistí problémy se síťovým jako blackholing provoz, směrování chyb a problémů, které metody monitorování konvenční sítě nejsou schopna zjistit. Sledování výkonu sítě generuje výstrahy a upozorní jak a kdy je nedodržení prahovou hodnotu pro síťové propojení. Tyto prahové hodnoty je možné zjistit automaticky systém nebo můžete nakonfigurovat, aby uživatelé používali vlastní pravidla výstrah. Sledování výkonu sítě zajišťuje možno včas zjistit problémy s výkonem sítě a lokalizováno zdroj problému na určitém segmentu sítě nebo zařízení.
 
-Můžete zjistit problémy se síťovým s řídicí panel řešení, která zobrazuje souhrnné informace o vaší síti, včetně poslední události stavu sítě, není v pořádku síťová propojení a propojení podsítí, se kterým se setkávají ztráta paketů vysoké a latenci. Vám může procházení do síťové propojení, chcete-li zobrazit aktuální stav propojení podsítí, jakož i-uzly odkazy. Můžete také zobrazit Historický trend ztrátě a latence na síť, podsíť a na úrovni mezi uzly. Můžete zjistit problémy přechodný síťový zobrazením historických trendů grafy pro ztráta paketů a latence a vyhledejte síťové kritických bodů na mapě topologie. Interaktivní topologie graf vám umožňuje vizualizovat tras do segmentu směrování sítě a určete zdroj problému. Třeba dalších řešení můžete použít vyhledávání protokolu pro různé požadavky na analytics vytvořit vlastní sestavy založené na data shromažďovaná společností sledování výkonu sítě.
+Můžete zjistit problémy se síťovým s řídicí panel řešení. Zobrazí souhrnné informace o vaší síti, včetně poslední události stavu sítě, není v pořádku síťová propojení a propojení podsítí, se kterým se setkávají ztráta paketů vysoké a latenci. Můžete k podrobnostem do síťové propojení, chcete-li zobrazit aktuální stav propojení podsítí, jakož i-uzly odkazy. Můžete také zobrazit Historický trend ztrátě a latence na síť, podsíť a na úrovni mezi uzly. Můžete zjistit problémy přechodný síťový zobrazením historických trendů grafy pro ztráta paketů a latence a vyhledejte síťové kritických bodů na mapě topologie. Interaktivní topologie graf vám umožňuje vizualizovat tras do segmentu směrování sítě a určete zdroj problému. Třeba dalších řešení můžete použít vyhledávání protokolu pro různé požadavky na analytics vytvořit vlastní sestavy založené na data shromažďovaná společností sledování výkonu sítě.
 
 Toto řešení využívá syntetické transakce jako primární mechanismus ke zjištění chyb sítě. Ano můžete použít bez ohledu na dodavatele nebo model specifické síťové zařízení. Funguje napříč místními cloudu (IaaS) a hybridní prostředí. Řešení automaticky rozpozná síťové topologie a různé tras ve vaší síti.
 
@@ -36,12 +36,12 @@ Monitorování produkty typickou síťovou soustředit na monitorování stavu s
 Pokud chcete monitorovat kvalitu síťové připojení mezi jejich kritickým úlohám, sítě, datových centrech nebo lokalitách office a pak je můžete použít řešení monitorování výkonu síťového samostatně pro sledování stavu připojení mezi:
 
 * víc datových centrech nebo office lokalit, které jsou připojené pomocí veřejné nebo soukromé síti
-* kritickým úlohám, které jsou spuštěné obchodních aplikací
+* kritickým úlohám, které běží-obchodní aplikace
 * veřejné služby cloudového jako Microsoft Azure nebo Amazon Web Services (AWS) a místní sítě, pokud máte IaaS (VM) k dispozici a budete mít brány konfigurován, aby umožňoval komunikaci mezi místními sítěmi a sítěmi cloudu
 * Při použití Express Route Azure a místní sítě
 
 ### <a name="using-the-solution-with-other-networking-tools"></a>Řešení pomocí jiné síťové nástroje
-Pokud chcete monitorovat řádek obchodní aplikace, můžete jako doprovodné řešení k jiné síti nástroje řešení monitorování výkonu sítě. Pomalé síti může vést k pomalé aplikace a sledování výkonu sítě může vám pomůže prozkoumat problémy s výkonem aplikace, které jsou způsobeny základní problémům se sítí. Protože řešení nevyžaduje žádné přístup k síťovým zařízením, nemusí správce aplikací závisí na síťové tým k zadání informací o síti jak ovlivňuje aplikace.
+Pokud chcete monitorování-obchodní aplikace, můžete jako doprovodné řešení k jiné síti nástroje řešení monitorování výkonu sítě. Pomalé síti může vést k pomalé aplikace a sledování výkonu sítě může vám pomůže prozkoumat problémy s výkonem aplikace, které jsou způsobeny základní problémům se sítí. Protože řešení nevyžaduje žádné přístup k síťovým zařízením, nemusí správce aplikací závisí na síťové tým k zadání informací o síti jak ovlivňuje aplikace.
 
 Navíc pokud již investovat do jiné sítě, nástroje pro sledování, pak řešení můžete doplnit tyto nástroje protože většina tradiční řešení pro monitorování sítě neposkytuje přehledy metriky výkonu začátku do konce sítě jako ztrátě a latenci.  Sledování výkonu sítě řešení může pomoct této mezeru.
 
@@ -49,7 +49,7 @@ Navíc pokud již investovat do jiné sítě, nástroje pro sledování, pak ře
 Použijte k instalaci agentů na základní procesy [počítače se systémem Windows se připojit k analýze protokolů](log-analytics-windows-agent.md) a [připojení nástroje Operations Manager k analýze protokolů](log-analytics-om-agents.md).
 
 > [!NOTE]
-> Budete muset nainstalovat aspoň 2 agenty, abyste měli dostatek dat ke zjišťování a monitorování síťových prostředků. V opačném řešení zůstane v konfiguraci stavu, dokud instalaci a konfiguraci dalších agentů.
+> Potřebujete-li k dispozici dostatek dat. ke zjišťování a monitorování síťových prostředků, nainstalujte aspoň 2 agenty. Jinak hodnota řešení zůstane v konfiguraci stavu, dokud nenainstalujete a nakonfigurovat další agenty.
 >
 >
 
@@ -60,7 +60,7 @@ Pokud si nejste jistí o topologii sítě, nainstalujte agenty na serverech s kr
 
 Agenti monitorují připojení k síti (odkazy) mezi hostiteli – není hostitelů sami. Tím, že ke sledování síťového propojení, je nutné nainstalovat agenty na oba koncové body tento odkaz.
 
-### <a name="configure-agents"></a>Konfigurace agentů
+### <a name="configure-agents"></a>Konfigurovat agenty
 
 Pokud máte v úmyslu používat protokol ICMP pro syntetické transakce, budete muset povolit následující pravidla brány firewall pro spolehlivě využitím ICMP:
 
@@ -74,7 +74,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 ```
 
 
-Pokud máte v úmyslu použít protokol TCP, je třeba otevřít porty brány firewall pro počítače, aby mohl komunikovat agenty. Je třeba stažení a spuštění [skript prostředí PowerShell EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) bez parametrů v okně prostředí PowerShell s oprávněními správce.
+Pokud máte v úmyslu použít protokol TCP, budete muset otevřít porty brány firewall pro počítače, aby mohl komunikovat agenty. Stažení a spuštění [skript prostředí PowerShell EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) bez parametrů v okně prostředí PowerShell s oprávněními správce.
 
 Tento skript vytvoří klíčům registru požadovaným nástroj Sledování výkonu sítě a vytvoří pravidla brány firewall systému Windows povolit agentů k vytvoření připojení TCP mezi sebou. Klíče registru vytvořený skript také určete, zda protokoly pro ladění a cesta k souboru protokoly protokolu. Definuje také agent TCP port používaný pro komunikaci. Hodnoty pro tyto klíče se nastaví automaticky ve skriptu, takže byste neměli měnit ručně tyto klíče.
 
@@ -93,18 +93,18 @@ Použijte následující informace k instalaci a konfiguraci řešení.
     >Agenti pro operační systémy Windows server podporují TCP a ICMP jako protokoly pro syntetické transakce. Agenti pro klientské operační systémy Windows, ale podporují pouze ICMP jako protokol pro syntetické transakce.
 
 2. Přidat řešení monitorování výkonu sítě do pracovního prostoru z [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) nebo pomocí procesu popsaného v tématu [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md).<br><br> ![Symbol sledování výkonu sítě](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
-3. V portálu OMS, zobrazí se nová dlaždice s názvem **sledování výkonu sítě** se zprávou *řešení vyžaduje další konfiguraci*. Klikněte na dlaždici navigaci na **nasazení** a vyberte protokol, který se používat pro vytváření syntetické transakce pro sledování sítě.  Zkontrolujte [vyberte správné protokol ICMP nebo TCP](#choose-the-right-protocol-icmp-or-tcp) si můžete vybrat správný protokol vhodné pro vaši síť.<br><br> ![řešení vyžaduje protokol](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
+3. Na portálu OMS se zobrazí nová dlaždice s názvem **sledování výkonu sítě** se zprávou *řešení vyžaduje další konfiguraci*. Klikněte na dlaždici navigaci na **nasazení** a vyberte protokol, který se používat pro vytváření syntetické transakce pro sledování sítě.  Zkontrolujte [vyberte správné protokol ICMP nebo TCP](#choose-the-right-protocol-icmp-or-tcp) si můžete vybrat správný protokol vhodné pro vaši síť.<br><br> ![řešení vyžaduje protokol](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-4. Po výběru protokol bude přesměrován na **OMS přehled** stránky. Při řešení agreguje data z vaší sítě, dlaždice přehledu monitorování výkonu sítě se zobrazí zpráva s oznámením *probíhající agregace dat*.<br><br> ![řešení je agregování dat](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
-5. Jakmile data se shromažďují a indexované, dlaždice přehledu se změnit a znamenat, že je potřeba provést další konfiguraci.<br><br> ![dlaždice řešení vyžaduje další konfiguraci.](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
-6. Klikněte na dlaždici a zahájit konfiguraci řešení podle kroků dole.
+4. Po výběru protokol, budete přesměrováni **OMS přehled** stránky. Při řešení agreguje data z vaší sítě, dlaždice přehledu monitorování výkonu síťového zobrazí zprávu s oznámením *probíhající agregace dat*.<br><br> ![řešení je agregování dat](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. Jakmile data se shromažďují a indexované, dlaždice přehledu změny se indikovat, že je potřeba provést další konfiguraci.<br><br> ![dlaždice řešení vyžaduje další konfiguraci.](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. Klikněte na dlaždici a zahájit konfiguraci řešení pomocí následujících kroků.
 
 ### <a name="create-new-networks"></a>Vytvořit nové sítě
 Síť v nástroji Sledování výkonu sítě je logický kontejner pro podsítě. Můžete vytvořit síť s popisným názvem a do ní přidejte podsítě podle obchodní logiky. Například můžete vytvořit síť s názvem *Londýn* a přidejte všechny podsítě ve vašem datovém centru Londýn, nebo síť s názvem *ContosoFrontEnd* a přidejte všechny podsítě obsluhující front-endu vaší aplikace s názvem Contoso k této síti.
-Na stránce konfigurace se zobrazí síť s názvem **výchozí** na kartě sítě. Pokud jste nevytvořili žádné sítě, všechny automaticky zjistit podsítě jsou umístěny v síti výchozí.
+Na stránce konfigurace zobrazí síť s názvem **výchozí** na kartě sítě. Pokud jste nevytvořili žádné sítě, všechny automaticky zjistit podsítě jsou umístěny v síti výchozí.
 Vždy, když vytvoříte síť, přidáte podsíť a této podsíti se odebere z výchozí sítí. Pokud odstraníte síť, všechny jeho podsítě se automaticky vrátí k výchozí síti.
 Proto výchozí sítí slouží jako kontejner pro všechny podsítě, které nejsou obsaženy v síti žádné uživatelem definované. Nelze upravit nebo odstranit výchozí sítí. Vždy zůstává v systému. Ale můžete vytvořit tolik vlastní sítě podle potřeby.
-Ve většině případů podsítí ve vaší organizaci budou uspořádané do víc než jedna síť a je třeba vytvořit jednu nebo více sítí, které chcete seskupit podsítě podle obchodní logiky
+Ve většině případů podsítí ve vaší organizaci jsou uspořádány do více než jedna síť a je třeba vytvořit jednu nebo více sítí, které chcete seskupit podsítě podle obchodní logiky
 
 #### <a name="to-create-a-new-network"></a>Chcete-li vytvořit nové sítě
 1. Klikněte na tlačítko **sítě přidat** a pak zadejte název sítě a popis.
@@ -116,7 +116,7 @@ Po uložení konfigurace poprvé, řešení spustí shromažďování paketu ztr
 
 ![probíhající agregace dat](./media/log-analytics-network-performance-monitor/npm-aggregation.png)
 
-Když odeslal data, se zobrazí data zobrazující dlaždice aktualizovat nástroj Sledování výkonu sítě.
+Při odeslal data, se na dlaždici monitorování výkonu síťového aktualizuje zobrazující data.
 
 ![Dlaždice monitorování výkonu sítě](./media/log-analytics-network-performance-monitor/npm-tile.png)
 
@@ -130,7 +130,7 @@ Všechny podsítě, kde byl nainstalován alespoň jeden agent jsou uvedeny na *
 #### <a name="to-enable-or-disable-monitoring-for-particular-subnetworks"></a>Pokud chcete povolit nebo zakázat monitorování pro konkrétní podsítě
 1. Vyberte nebo zaškrtněte políčko vedle položky **podsítí ID** a potom ověřte, že **použijte pro monitorování** je vybrané nebo nezaškrtnuté, podle potřeby. Můžete zaškrtněte nebo zrušte více podsítí. Pokud je zakázáno, nejsou monitorována podsítě jako agenti se aktualizují na zastavení otestováním jiné agenty.
 2. Vyberte uzly, které chcete monitorovat pro konkrétní podsíť podsítí výběrem ze seznamu a přesun požadované uzly mezi seznamy obsahující sledována a sledované uzly.
-   Můžete přidat vlastní **popis** do podsítí, pokud chcete.
+   Můžete přidat vlastní **popis** do podsítě.
 3. Klikněte na tlačítko **Uložit** konfiguraci uložíte.<br><br> ![Upravit podsíť](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### <a name="choose-nodes-to-monitor"></a>Zvolte uzlů k monitorování
@@ -142,13 +142,14 @@ Všechny uzly, které nemá agenta nainstalovaného na jejich jsou uvedeny v **u
 3. Klikněte na **Uložit**.<br><br> ![Povolit monitorování uzlu](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>Sada pravidel monitorování
-Sledování výkonu sítě generuje události stavu, když je prahová hodnota výkonu síťové připojení mezi 2 podsítě nebo mezi 2 sítě nedodržení. Tyto prahové hodnoty je možné zjistit automaticky systém nebo můžete zadat vlastní prahové hodnoty.
-Systém automaticky vytvoří výchozí pravidlo, které generuje událost stavu vždy, když ke ztrátě nebo latenci mezi žádném páru síť nebo podsíť odkazy narušení prahovou hodnotu naučili systému. To pomáhá monitorovat infrastrukturu sítě, dokud jste nevytvořili žádné pravidla monitorování explicitně řešení. Pokud je povoleno výchozí pravidlo, všechny uzly syntetické transakce poslat všechny další uzly, které jste povolili pro monitorování. Výchozí pravidlo je užitečné v případě malé sítě, například v případě, kdy máte malý počet serverů se systémem mikroslužbu a chcete zajistit o všechny servery s připojením k sobě navzájem.
+Sledování výkonu sítě generuje události stavu, když je prahová hodnota výkonu síťové připojení mezi dvěma podsítěmi nebo mezi dvěma sítěmi porušena. Tyto prahové hodnoty je možné zjistit automaticky systém nebo můžete zadat vlastní prahové hodnoty.
+
+Systém automaticky vytvoří výchozí pravidlo. Pravidlo vygeneruje událost stavu vždy, když ke ztrátě nebo latenci mezi žádném páru propojení sítě nebo podsítí poruší prahovou hodnotu naučili systému. To pomáhá monitorovat infrastrukturu sítě, dokud jste nevytvořili žádné pravidla monitorování explicitně řešení. Pokud je povoleno výchozí pravidlo, všechny uzly syntetické transakce poslat všechny další uzly, které jste povolili pro monitorování. Výchozí pravidlo je užitečné pro malé sítě. Například ve scénáři, kde máte malý počet serverů se systémem mikroslužbu a chcete zajistit, že všechny servery mít připojení k sobě navzájem.
 
 >[!NOTE]
->Důrazně doporučujeme zakázat výchozí pravidlo a vytvořit vlastní pravidla monitorování, zejména v případě rozsáhlých sítí, kde používáte velký počet uzlů pro monitorování. Tím se sníží přenosy dat vytvářené řešení, tak k uspořádání monitorování sítě.
+>Důrazně doporučujeme zakázat výchozí pravidlo a vytvořit vlastní pravidla monitorování, zejména v případě rozsáhlých sítí, kde používáte velký počet uzlů pro monitorování. Tím se snižuje přenosy dat vytvářené řešení, tak k uspořádání monitorování sítě.
 
-Vytvořte vlastní pravidla monitorování podle obchodní logiky. Například pokud chcete sledovat výkon připojení k síti 2 office lokalit na sídlo organizace, pak všechny podsítě v office web1 v síti O1, jsou podsítě v office site2 v síti O2 a skupiny jsou podsítě v sídlo organizace v síti vytvořte H. monitorování pravidla: 1 mezi O1 a H a dalších až O2 H. 2
+Vytvořte vlastní pravidla monitorování podle obchodní logiky. Například pokud chcete monitorovat výkon síťové připojení dvou lokalit office k ústředí, pak skupiny jsou podsítě v office web1 v síti O1, jsou podsítě v office site2 v síti O2 a všechny podsítě v sídlo organizace v síti H. Vytvořte dvě pravidla: 1 mezi O1 a H a dalších až O2 H. monitorování
 
 
 #### <a name="to-create-custom-monitoring-rules"></a>Chcete-li vytvořit vlastní pravidla monitorování
@@ -190,8 +191,9 @@ Konfigurace pravidel brány firewall na počítačích s Windows, ale budete mus
 Naproti tomu ICMP nefunguje pomocí portu. Ve většině scénářů organizace ICMP je povolen přenos přes bránu firewall umožňují použijte nástroj Diagnostika sítě jako nástroj Ping. Takže pokud jeden počítač z jiné, může odeslat příkaz Ping, můžete použít protokol ICMP bez nutnosti ruční konfigurace brány firewall.
 
 > [!NOTE]
-> Některé brány firewall může blokovat ICMP, což může vést k opakování přenosu výsledkem velké množství událostí v systému správy informace a událostí zabezpečení. Zajistěte, aby nebyl blokován protokol, který zvolíte, brány firewall sítě nebo NSG, jinak NPM nebude schopen monitorovat segmentu sítě.  Z toho důvodu doporučujeme použít TCP pro sledování. ICMP využít ve scénářích kde nemůžete se použití protokolu TCP, jako např. kdy:
-> * Používáte uzly na základě klienta systému Windows, protože nezpracovaná sockets TCP nejsou povoleny v klientovi Windows
+> Některé brány firewall může blokovat ICMP, což může vést k opakování přenosu výsledkem velké množství událostí v systému správy informace a událostí zabezpečení. Zajistěte, aby nebyl blokován protokol, který zvolíte, brány firewall sítě nebo NSG, jinak NPM nebude schopen monitorovat segmentu sítě.  Z toho důvodu doporučujeme použít TCP pro sledování.
+> ICMP využít ve scénářích kde nemůžete se použití protokolu TCP, jako např. kdy:
+> * Vzhledem k tomu, že nezpracovaná sockets TCP nejsou povoleny v klientovi Windows používáte uzlů na základě klienta Windows
 > * Brána firewall vaší sítě nebo NSG blokuje TCP
 
 
@@ -208,7 +210,7 @@ I když výchozí pravidlo používá určitý protokol, můžete vytvořit nov�
 
 
 ## <a name="data-collection-details"></a>Podrobnosti kolekce dat
-Sledování výkonu sítě používá TCP SYN. SYNACK ACK handshake paketů při výběru TCP a odpověď odezvy ICMP ODEZVU protokolu ICMP při výběru jako protokol ICMP ke shromažďování informací ztrátě a latenci. Příkaz Traceroute slouží také k získání informací o topologii.
+Sledování výkonu sítě používá TCP SYN. SYNACK ACK handshake paketů při výběru TCP a odpověď odezvy ICMP při výběru jako protokol ICMP ke shromažďování informací ztrátě a latenci. Příkaz Traceroute slouží také k získání informací o topologii.
 
 Následující tabulka uvádí metody shromažďování dat a další podrobnosti o tom, jak se údaje pro sledování výkonu sítě.
 
@@ -216,7 +218,7 @@ Následující tabulka uvádí metody shromažďování dat a další podrobnost
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |TCP metodou handshake/ODEZVU protokolu ICMP každých 5 sekund, data odeslána každé 3 minuty |
 
-Toto řešení využívá k posouzení stavu sítě syntetické transakce. OMS agenty nainstalované v různých bodu v síťových paketů TCP exchange nebo odezvu protokolu ICMP (v závislosti na protokol vybraná pro monitorování) sebou. V procesu agenty další operace round-trip čas a paket ztrátě případných. Každý agent pravidelně provádí taky trasování cesty a jiné agenty pro najít všechny různé trasy v síti, která musí být testována. Na základě těchto dat můžete agenty odvodit latence sítě a obrázků ke ztrátě paketů. Testy jsou opakovat každých pět sekund a data se shromažďují pro dobu 3 minut pomocí agentů před nahráním do služby analýzy protokolů.
+Toto řešení využívá k posouzení stavu sítě syntetické transakce. Agenti OMS nainstalovaný na různých místech v síťových paketů TCP exchange nebo odezvu protokolu ICMP (v závislosti na protokol vybraná pro monitorování) sebou. V procesu agenty další operace round-trip čas a paket ztrátě případných. Každý agent pravidelně provádí taky trasování cesty a jiné agenty pro najít všechny různé trasy v síti, která musí být testována. Na základě těchto dat můžete agenty odvodit latence sítě a obrázků ke ztrátě paketů. Testy jsou opakovat každých pět sekund a data se shromažďují pro dobu 3 minut pomocí agentů před nahráním do služby analýzy protokolů.
 
 > [!NOTE]
 > I když agenti komunikaci mezi sebou často, generují velký objem síťového provozu není při provádění testů. Agenti spoléhat jenom na pakety handshake TCP SYN. SYNACK ACK k určení ztrátě a čekací doba – žádná data, které se vyměňují paketů. Během tohoto procesu agenty vzájemně komunikovat pouze v případě potřeby a komunikační topologie agenta je optimalizována pro snížení síťový provoz.
@@ -232,24 +234,24 @@ Poté, co jste povolili nástroj Sledování výkonu sítě řešení, dlaždice
 ![Dlaždice monitorování výkonu sítě](./media/log-analytics-network-performance-monitor/npm-tile.png)
 
 ### <a name="network-performance-monitor-solution-dashboard"></a>Řídicí panel řešení pro sledování výkonu sítě
-**Shrnutí sítě** okno se zobrazí souhrn sítě spolu s jejich relativní velikost. Následují dlaždice zobrazuje celkový počet propojení sítě, podsítě odkazy a cesty v systému (cesta obsahuje IP adresy dva hostitele s agenty a všech segmentů směrování mezi nimi).
+**Shrnutí sítě** oblasti zobrazuje souhrnné údaje o sítě spolu s jejich relativní velikost. Následují dlaždice zobrazuje celkový počet propojení sítě, podsítě odkazy a cesty v systému (cesta obsahuje IP adresy dva hostitele s agenty a všech segmentů směrování mezi nimi).
 
-**Události stavu sítě horní** okno obsahuje seznam nejaktuálnějších událostí, stavu a výstrahy v systému a čas, vzhledem k tomu, že událost byla aktivní. Událost stavu nebo výstraha je vygenerována vždy, když je ztráta paketů nebo latenci sítě nebo podsítí odkazu překročí určitou prahovou hodnotu.
+**Události stavu sítě horní** oblasti obsahuje seznam nejaktuálnějších událostí, stavu a výstrahy v systému a čas, vzhledem k tomu, že událost byla aktivní. Událost stavu nebo výstraha je vygenerována vždy, když je ztráta paketů nebo latenci sítě nebo podsítí odkazu překročí určitou prahovou hodnotu.
 
-**Horní není v pořádku síťová propojení** okno zobrazuje seznam není v pořádku síťová propojení. Jedná se o sítě odkazy, které mají jednu nebo více událostí nežádoucí stavu pro ně v tuto chvíli.
+**Horní není v pořádku síťová propojení** oblasti zobrazuje seznam není v pořádku síťová propojení. Toto jsou síťové spojení, která mají jedné nebo více událostí nežádoucí stavu pro ně v tuto chvíli.
 
-**Horní propojení podsítí s nejvíce ztrátou** a **propojení podsítí s nejvíce latencí** oken zobrazit propojení nejvyšší podsítí ve ztráta paketů a top propojení podsítí s latencí v uvedeném pořadí. Na určitých síťová propojení může očekává vysokou latencí nebo určitou část ztráta paketů. Tyto odkazy zobrazí v horní deset seznamy, ale nejsou označen jako chybný.
+**Horní propojení podsítí s nejvíce ztrátou** a **propojení podsítí s nejvíce latencí** oblastí zobrazit propojení nejvyšší podsítí ve ztráta paketů a top propojení podsítí s latencí v uvedeném pořadí. Na určitých síťová propojení může očekává vysokou latencí nebo určitou část ztráta paketů. Tyto odkazy zobrazí v horní deset seznamy, ale nejsou označen jako chybný.
 
-**Běžné dotazy** okno obsahuje sadu vyhledávací dotazy, které načíst monitorování dat přímo nezpracovaná sítě. Tyto dotazy můžete použít jako východisko pro vytvoření vlastní dotazy pro vytváření přizpůsobených sestav.
+**Běžné dotazy** oblast obsahuje sadu vyhledávací dotazy, které načíst monitorování dat přímo nezpracovaná sítě. Tyto dotazy můžete použít jako východisko pro vytvoření vlastní dotazy pro vytváření přizpůsobených sestav.
 
 ![Řídicí panel monitorování výkonu sítě](./media/log-analytics-network-performance-monitor/npm-dash01.png)
 
-### <a name="drill-down-for-depth"></a>Procházení pro hloubku
-Můžete kliknout na různých odkazy na řídicí panel řešení k podrobnostem hlubší do všech oblastí zájmu. Například pokud se zobrazí výstraha nebo není v pořádku síťové propojení se zobrazují na řídicím panelu, můžete můžete kliknutím na prošetřily. Budete přesměrováni na stránku, která uvádí všechna propojení podsítí pro konkrétní síťové propojení. Bude moct zobrazit stav, latence a ztráta stav každé propojení podsítí a rychle zjistěte jaké propojení podsítí jsou příčinou problému. Poté můžete kliknout na **zobrazení uzlu odkazy** zobrazíte všechny odkazy na uzlu odkazu podsíť není v pořádku. Potom můžete zobrazit jednotlivé uzly – odkazy a odkazy uzlů ve špatném stavu.
+### <a name="drill-down-for-depth"></a>procházení hloubka
+Můžete kliknout na různých odkazy na řídicí panel řešení přejdete dolů hlubší do všech oblastí zájmu. Například pokud se zobrazí výstraha nebo není v pořádku síťové propojení se zobrazují na řídicím panelu, můžete můžete kliknutím na prošetřily. Přejdete na stránku, která uvádí všechna propojení podsítí pro konkrétní síťové propojení. Budete moci zobrazit stav, latence a ztráta stav každé propojení podsítí a rychle zjistěte jaké propojení podsítí jsou příčinou problému. Poté můžete kliknout na **zobrazení uzlu odkazy** zobrazíte všechny odkazy na uzlu odkazu podsíť není v pořádku. Potom můžete zobrazit jednotlivé uzly – odkazy a odkazy uzlů ve špatném stavu.
 
 Můžete kliknout na **zobrazení topologie** zobrazíte topologii směrování směrování trasy mezi zdrojovým a cílovým uzly. Není v pořádku směrování nebo směrování se zobrazí červeně, aby mohli rychle identifikovat problém pro konkrétní části sítě.
 
-![procházení dat](./media/log-analytics-network-performance-monitor/npm-drill.png)
+![data k podrobnostem](./media/log-analytics-network-performance-monitor/npm-drill.png)
 
 ### <a name="network-state-recorder"></a>Zapisovač stavu sítě
 
@@ -258,7 +260,7 @@ Každé zobrazení zobrazí snímek stavu vaší sítě na určitém místě v �
 ![stav sítě](./media/log-analytics-network-performance-monitor/network-state.png)
 
 #### <a name="trend-charts"></a>Grafy trendů
-V každé úrovni, kterou jste procházení, uvidíte trend ztrátě a latence pro síťové propojení. Grafy trendů jsou také k dispozici pro podsítí a uzel odkazy. Časový interval pro rozhraní graph k vykreslení pomocí ovládacího prvku čas v horní části grafu, můžete změnit.
+Na každé úrovni, který můžete procházet uvidíte trend ztrátě a latence pro síťové propojení. Grafy trendů jsou také k dispozici pro podsítí a uzel odkazy. Časový interval pro rozhraní graph k vykreslení pomocí ovládacího prvku čas v horní části grafu, můžete změnit.
 
 Grafy trendů zobrazit Historický přehled výkonu síťového propojení. Některé problémy s sítě jsou přechodné ve své podstatě a bude obtížné zachytit pouze na základě aktuálního stavu sítě. Je to proto, že problémy můžete rychle surface a zmizí před nikým oznámení, jenom na objevit znova později v čase. Tyto přechodné problémy může být složité pro správce aplikace také protože ty problémy často prostor jako nevysvětlitelné zvyšování doba odezvy aplikace, i když plynulejší se zobrazují všechny součásti aplikace.
 
@@ -267,11 +269,11 @@ Tyto druhy problémů můžete snadno zjistit prohlížením graf trendů, kde s
 ![Graf trendů](./media/log-analytics-network-performance-monitor/npm-trend.png)
 
 #### <a name="hop-by-hop-topology-map"></a>Topologie směrování směrování mapy
-Sledování výkonu sítě zobrazuje topologii směrování směrování trasy mezi dvěma uzly na mapě interaktivní topologie. Mapy topologie můžete zobrazit výběrem uzlu odkazu a potom kliknutím na **zobrazení topologie**. Můžete také zobrazit mapy topologie kliknutím **cesty** dlaždici na řídicím panelu. Když kliknete na tlačítko **cesty** na řídicím panelu, budete muset z panelu vlevo vyberte zdrojový a cílový uzel a potom klikněte na **výkresu** k vykreslení trasy mezi dvěma uzly.
+Sledování výkonu sítě zobrazuje topologii směrování směrování trasy mezi dvěma uzly na mapě interaktivní topologie. Mapy topologie můžete zobrazit výběrem uzlu odkazu a potom kliknutím na **zobrazení topologie**. Můžete také zobrazit mapy topologie kliknutím **cesty** dlaždici na řídicím panelu. Když kliknete na tlačítko **cesty** na řídicím panelu, budete muset vybrat zdrojové a cílové uzly v levém panelu a pak klikněte na **výkresu** k vykreslení trasy mezi dvěma uzly.
 
 Topologie mapa zobrazuje, kolik trasy jsou mezi dva uzly a co cesty trvat datových paketů. Kritické body sítě jsou označen červeně na mapě topologie. Chyba síťové připojení nebo chyba síťové zařízení, můžete vyhledat prohlížením red barevnou elementy na mapě topologie.
 
-Když kliknete na uzel nebo hover nad ním na mapě topologie, se zobrazí vlastnosti uzlu jako plně kvalifikovaný název domény a IP adresa. Klikněte na tlačítko směrování, pokud chcete zobrazit, že je IP adresa. Můžete filtrovat pomocí filtrů v podokně Akce sbalitelné konkrétní trasy. A také zjednodušit síťové topologie skrytím střední směrování pomocí posuvníku v podokně Akce. Můžete zvětšení nebo mimo mapy topologie pomocí kolečko myši.
+Když kliknete na uzel nebo hover nad ním na mapě topologie, zobrazí se vlastnosti uzlu jako plně kvalifikovaný název domény a IP adresa. Klikněte na tlačítko směrování zobrazíte jeho IP adresu. Můžete filtrovat pomocí filtrů v podokně Akce sbalitelné konkrétní trasy. A také zjednodušit síťové topologie skrytím střední směrování pomocí posuvníku v podokně Akce. Můžete zvětšení nebo mimo mapy topologie pomocí kolečko myši.
 
 Upozorňujeme, že topologie, zobrazí se v mapě je topologie vrstvy 3 a neobsahuje vrstvy 2 zařízení a připojení.
 
@@ -283,17 +285,17 @@ Sledování výkonu sítě je schopna nalézt problémových míst v síti bez p
 Tento přístup je užitečné pro určení problémových míst v síti, kdy přístup k směrování není k dispozici, protože není třeba žádná data, shromáždit ze síťových zařízení, jako jsou směrovače nebo přepínače. To je také užitečné, pokud směrování mezi dva uzly nejsou v administrativní řízení. Přesměrování může být například směrovače poskytovatele internetových služeb.
 
 ### <a name="log-analytics-search"></a>Hledání analýzy protokolů
-Všechna data, která je graficky zveřejněné prostřednictvím řídicího panelu monitorování výkonu sítě a procházení stránek je také k dispozici nativně v analýzy protokolů hledání. Můžete zadávat dotazy na data pomocí dotazovacího jazyka pro vyhledávání a export dat do aplikace Excel nebo PowerBI vytvořit vlastní sestavy. **Běžné dotazy** okno v řídicím panelu obsahuje některé užitečné dotazy, které můžete použít jako výchozí bod pro vytvoření vlastní dotazy a sestavy.
+Všechna data, která je k dispozici graficky prostřednictvím řídicího panelu monitorování výkonu sítě a rozbalení stránky je také k dispozici nativně v analýzy protokolů hledání. Můžete zadávat dotazy na data pomocí dotazovacího jazyka pro vyhledávání a export dat do aplikace Excel nebo PowerBI vytvořit vlastní sestavy. **Běžné dotazy** oblasti v řídicím panelu má některá užitečná dotazy, které můžete použít jako výchozí bod pro vytvoření vlastní dotazy a sestavy.
 
 ![vyhledávací dotazy](./media/log-analytics-network-performance-monitor/npm-queries.png)
 
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>Zjistěte základní příčinu stavu výstrahy
 Teď, když jste si přečetli o sledování výkonu sítě, podíváme se na jednoduchý vyšetřování příčiny stavu události.
 
-1. Na stránce Přehled získáte rychlý snímek stavu sítě pomocí sledování **sledování výkonu sítě** dlaždici. Všimněte si, že mimo odkazy 6 podsítě monitorovány, jsou 2 není v pořádku. To zaručuje, šetření. Klikněte na dlaždici zobrazení řídicího panelu řešení.<br><br> ![Dlaždice monitorování výkonu sítě](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
-2. Následující příklad obrázek můžete si všimnout, že existuje událost stavu síťového propojení, která není v pořádku. Rozhodnete zkoumat problém a klikněte na **DMZ2 DMZ1** síťové propojení a zjistěte, kořenu problému.<br><br> ![Příklad odkazu není v pořádku sítě](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
-3. Na stránce podrobností se zobrazí všechna propojení podsítí v **DMZ2 DMZ1** síťového propojení. Můžete si všimnout, že pro obě podsítí odkazy, latence překročila prahovou hodnotu, což není v pořádku síťové propojení. Zobrazí se také latence trendy podsítí odkazy. Můžete použít volbu čas ovládacího prvku grafu a zaměřit se na požadované časové rozmezí. Najdete v průběhu dne, kdy latence bylo dosaženo jeho ve špičce. Je možné později článek vyhledat v protokolech pro toto časové období můžete prozkoumat problém. Klikněte na tlačítko **zobrazení uzlu odkazy** k podrobnostem Další.<br><br> ![Příklad odkazy podsíť není v pořádku](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
-4. Podobně jako na předchozí stránku, na stránce podrobností pro konkrétní podsítí propojení uvedeny dolů jeho základní uzlu odkazy. Můžete provádět akce podobně jako zde, stejně jako v předchozím kroku. Klikněte na tlačítko **zobrazení topologie** zobrazíte topologie mezi 2 uzly.<br><br> ![Příklad propojení uzlů ve špatném stavu](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+1. Na stránce Přehled získáte rychlý snímek stavu sítě pomocí sledování **sledování výkonu sítě** dlaždici. Všimněte si, že mimo propojení 6 podsítí, který je monitorován, jsou 2 není v pořádku. To zaručuje, šetření. Klikněte na dlaždici zobrazení řídicího panelu řešení.<br><br> ![Dlaždice monitorování výkonu sítě](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. Na následujícím obrázku Všimněte si, že existuje událost stavu síťového propojení, která není v pořádku. Rozhodnete zkoumat problém a klikněte na **DMZ2 DMZ1** síťové propojení a zjistěte, kořenu problému.<br><br> ![Příklad odkazu není v pořádku sítě](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. Rozbalení stránka zobrazuje všechna propojení podsítí v **DMZ2 DMZ1** síťového propojení. Jste si všimli, že pro obě podsítí odkazy, latence překročila prahovou hodnotu, což není v pořádku síťové propojení. Zobrazí se také latence trendy podsítí odkazy. Můžete použít volbu čas ovládacího prvku grafu a zaměřit se na požadované časové rozmezí. Najdete v průběhu dne, kdy latence bylo dosaženo jeho ve špičce. Je možné později článek vyhledat v protokolech pro toto časové období můžete prozkoumat problém. Klikněte na tlačítko **zobrazení uzlu odkazy** k podrobnostem.<br><br> ![Příklad odkazy podsíť není v pořádku](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
+4. Podobně jako na předchozí stránku, rozbalení stránky pro konkrétní podsítí propojení uvádí dolů jeho základní uzlu odkazy. Můžete provádět akce podobně jako zde, stejně jako v předchozím kroku. Klikněte na tlačítko **zobrazení topologie** zobrazíte topologie mezi 2 uzly.<br><br> ![Příklad propojení uzlů ve špatném stavu](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
 5. Všechny cesty mezi 2 vybrané uzly jsou zobrazeny v mapě topologie. Můžete vizualizovat topologii směrování směrování trasy mezi dvěma uzly na mapě topologie. Poskytuje přehledné informace o tom, kolik tras mezi dva uzly a co cesty trvá datových paketů. Kritické body sítě jsou označeny červenou barvu. Chyba síťové připojení nebo chyba síťové zařízení, můžete vyhledat prohlížením red barevnou elementy na mapě topologie.<br><br> ![Příklad zobrazení není v pořádku topologie](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. Mohou být zjišťovány ztrátu, latenci a počet skoků v každá cesta **akce** podokně. Posuvník slouží k zobrazení podrobností o těchto cestách není v pořádku.  Pomocí filtrů můžete vybrat cesty s směrování není v pořádku, aby se vykreslí topologie pro pouze vybrané cesty. Kolečko myši můžete zvětšit nebo zmenšit mapy topologie.
 
@@ -302,7 +304,7 @@ Teď, když jste si přečetli o sledování výkonu sítě, podíváme se na je
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 
 - **UserVoice** -účtováním pro sledování výkonu sítě funkce, které chcete, abychom mohli pracovat na vašich nápadů. Navštivte naše [stránku UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
-- **Připojení k naší kohorty** -zajímají nás vždy nutnosti připojení k naší kohorty nové zákazníky. V rámci ho budete využívat nové funkce a Pomozte nám vylepšit sledování výkonu sítě. Pokud vás zajímá připojení, vyplnění to [rychlé průzkum](https://aka.ms/npmcohort).
+- **Připojení k naší kohorty** -zajímají nás vždy nutnosti připojení k naší kohorty nové zákazníky. V rámci ho využívat nové funkce a Pomozte nám vylepšit sledování výkonu sítě. Pokud vás zajímá připojení, vyplnění to [rychlé průzkum](https://aka.ms/npmcohort).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [V protokolech Hledat](log-analytics-log-searches.md) zobrazíte podrobné sítě záznamů dat výkonu.
