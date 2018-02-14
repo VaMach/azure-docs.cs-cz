@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Používání databází MySQL v zásobníku Microsoft Azure
 
@@ -88,7 +88,7 @@ Systémový účet musí mít následující oprávnění:
 
     - V DependencyFilesLocalPath existuje pouze jeden certifikát souboru.
     
-    - Název souboru nesmí obsahovat žádné speciální znaky.
+    - Název souboru nesmí obsahovat žádné speciální znaky ani mezery.
 
 
 5. Otevřete **nové** konzolu prostředí PowerShell se zvýšenými oprávněními (správce). Pak přejděte do adresáře, které jste extrahovali soubory. Použijte nové okno se pokud chcete vyhnout potížím, které by mohly nastat z nesprávné modulů prostředí PowerShell, které jsou již načtena v systému.
@@ -165,7 +165,7 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechce
 
 | Název parametru | Popis | Komentář nebo výchozí hodnotu |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegované koncový bod. | _Požadované_ |
+| CloudAdminCredential | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegované koncový bod. | _Požadované_ |
 | **AzCredential** | Přihlašovací údaje pro účet správce služby Azure zásobníku. Pomocí stejných přihlašovacích údajů, které jste použili pro nasazení Azure zásobníku. | _Požadované_ |
 | **VMLocalCredential** | Přihlašovací údaje pro účet místního správce MySQL zprostředkovatele prostředků virtuálních počítačů. | _Požadované_ |
 | **PrivilegedEndpoint** | IP adresa nebo název DNS privilegované koncového bodu. |  _Požadované_ |
@@ -174,7 +174,7 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechce
 | **MaxRetryCount** | Počet přístupů, které chcete opakovat každé operace, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy, v sekundách. | 120 |
 | **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky k). | Ne |
-| **Režim DebugMode** | Brání automatické čištění při selhání. | Ne |
+| Režim DebugMode | Brání automatické čištění při selhání. | Ne |
 | **AcceptLicense** | Přeskočí řádku tak, aby přijímal GPL licence.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
@@ -328,7 +328,7 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud to neuděláte, ne
 
 | Název parametru | Popis | Komentář nebo výchozí hodnotu |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegované koncový bod. | _Požadované_ |
+| CloudAdminCredential | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegované koncový bod. | _Požadované_ |
 | **AzCredential** | Přihlašovací údaje pro účet správce služby Azure zásobníku. Pomocí stejných přihlašovacích údajů jako používat pro nasazování Azure zásobníku. | _Požadované_ |
 | **VMLocalCredential** |Přihlašovací údaje pro účet místního správce zprostředkovatele prostředků SQL virtuálních počítačů. | _Požadované_ |
 | **PrivilegedEndpoint** | IP adresa nebo název DNS privilegované koncového bodu. |  _Požadované_ |
@@ -337,7 +337,7 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud to neuděláte, ne
 | **MaxRetryCount** | Počet přístupů, které chcete opakovat každé operace, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy, v sekundách. | 120 |
 | **Odinstalace** | Odeberte zprostředkovatele prostředků a všechny přidružené prostředky (viz následující poznámky k). | Ne |
-| **Režim DebugMode** | Brání automatické čištění při selhání. | Ne |
+| Režim DebugMode | Brání automatické čištění při selhání. | Ne |
 | **AcceptLicense** | Přeskočí řádku tak, aby přijímal GPL licence.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Odeberte adaptér zprostředkovatele prostředků MySQL
