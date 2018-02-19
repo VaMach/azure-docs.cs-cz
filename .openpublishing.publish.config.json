@@ -82,6 +82,11 @@
       }
     },
     {
+      "path_to_root": "azure-docs-json-samples",
+      "url": "https://github.com/Azure/azure-docs-json-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-mediaservices-integration",
       "url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
       "branch": "master",
