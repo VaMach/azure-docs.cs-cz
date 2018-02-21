@@ -1,10 +1,10 @@
 ---
 title: "Vytvoření a instalace souborů konfigurace klienta P2S VPN pro ověření certifikátu Azure: prostředí PowerShell: Azure | Microsoft Docs"
-description: "Tento článek vám pomůže vytvořit a instalovat soubory konfigurace klienta VPN pro připojení Point-to-Site, která používá ověřování certifikátem."
+description: "Vytvořit a nainstalovat systém Windows a Mac OS X VPN soubory konfigurace klienta pro P2S ověření certifikátu."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Vytvoření a instalace souborů konfigurace klienta VPN pro nativní Azure certifikát ověřování P2S konfigurace
+# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Vytvoření a instalace VPN konfigurace Point-to-Site ověřování certifikátu klienta konfigurační soubory pro nativní Azure
 
 Soubory konfigurace klienta VPN jsou obsaženy v souboru zip. Konfigurační soubory, zadejte požadované nastavení pro nativní klient systému Windows nebo Mac IKEv2 VPN pro připojení k virtuální síti přes připojení Point-to-Site, která používá ověřování certifikátem. nativní Azure.
 
@@ -117,3 +117,5 @@ Klikněte na tlačítko **přidat** k importu.
 ## <a name="next-steps"></a>Další kroky
 
 Vrátit do článku do [dokončit konfiguraci P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
+
+Informace o odstraňování potíží P2S [připojení point-to-site řešení potíží s Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

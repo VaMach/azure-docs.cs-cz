@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 7fec71f621ffeff2fc42a5a9464ae9011b2e2fee
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 2/12/2018
+ms.openlocfilehash: 253cf9a47f04cf551ce8abee216477dedb54a53b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Databáze Azure pro pravidla brány firewall serveru PostgreSQL
 Azure databázi PostgreSQL serverová brána firewall brání veškerý přístup k databázovému serveru, dokud je určit, které počítače mají oprávnění. Brána firewall uděluje přístup k serveru na základě původní IP adresy každého požadavku.
@@ -32,6 +32,15 @@ Pravidla brány firewall na úrovni serveru platí pro všechny databáze na dat
 Pokud IP adresa požadavku není v rámci rozsahů určených v žádné z pravidel brány firewall na úrovni serveru, požadavek na připojení se nezdaří.
 Například pokud vaše aplikace připojí k ovladač JDBC pro PostgreSQL, se může zobrazit tato chyba při pokusu připojit se, když brána firewall blokuje připojení.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: závažná: žádné pg\_hba.conf položka pro uživatele "adminuser" hostitel "123.45.67.890", databáze "postgresql", SSL
+
+## <a name="connecting-from-azure"></a>Připojení z Azure
+Povolit aplikacím z Azure se připojit k vaší databázi Azure pro PostgreSQL server, musí být povoleno Azure připojení. Například k hostování aplikace Azure Web Apps nebo aplikaci, která běží ve virtuálním počítači Azure nebo pro připojení z brány správy dat Azure Data Factory. Prostředky se nemusíte být ve stejné virtuální síti (VNet) nebo skupinu prostředků pro pravidlo brány firewall povolit těchto připojení. Když se aplikace z Azure pokusí připojit k vašemu databázovému serveru, brána firewall ověří, zda jsou povolená připojení Azure. Existuje několik metod, které chcete povolit tyto typy připojení. Nastavení brány firewall s počáteční i koncovou adresou odpovídající 0.0.0.0 znamená, že jsou tato připojení povolená. Alternativně můžete nastavit **povolit přístup ke službám Azure** možnost k **ON** na portálu ze **zabezpečení připojení** podokně a stiskněte klávesu **Uložit**. Pokud pokus o připojení není povolena, požadavek nebylo dosaženo databáze Azure pro PostgreSQL server.
+
+> [!IMPORTANT]
+> Touto možností se brána firewall nakonfiguruje tak, aby povolovala všechna připojení z Azure, včetně připojení z předplatných ostatních zákazníků. Když vyberete tuto možnost, ujistěte se, že vaše přihlašovací a uživatelská oprávnění omezují přístup pouze na autorizované uživatele.
+> 
+
+![Povolit přístup ke službám Azure konfigurovat na portálu](media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Programová správa pravidel brány firewall
 Kromě portálu Azure lze spravovat pravidla brány firewall programově pomocí rozhraní příkazového řádku Azure.
@@ -53,7 +62,7 @@ Například pomocí klienta JDBC, může objevit následující chyba.
 
 * Získat statické IP adresy místo pro klientské počítače a poté přidejte statickou IP adresu jako pravidlo brány firewall.
 
-## <a name="next-steps"></a>Další kroky
-Články týkající se vytváření pravidel brány firewall na úrovni serveru najdete v části:
-* [Vytvářet a spravovat databáze Azure pro pravidla brány firewall PostgreSQL pomocí portálu Azure](howto-manage-firewall-using-portal.md).
-* [Vytvářet a spravovat databáze Azure pro pravidla brány firewall PostgreSQL pomocí rozhraní příkazového řádku Azure](howto-manage-firewall-using-cli.md).
+## <a name="next-steps"></a>Další postup
+Články o vytvoření pravidla brány firewall serveru úroveň a databáze naleznete na stránce:
+* [Vytvářet a spravovat databáze Azure pro pravidla brány firewall PostgreSQL pomocí portálu Azure](howto-manage-firewall-using-portal.md)
+* [Vytvářet a spravovat databáze Azure pro pravidla brány firewall PostgreSQL pomocí rozhraní příkazového řádku Azure](howto-manage-firewall-using-cli.md)

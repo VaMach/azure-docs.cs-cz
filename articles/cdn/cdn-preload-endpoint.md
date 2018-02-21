@@ -4,7 +4,7 @@ description: "Zjistěte, jak předem načíst obsah uložený v mezipaměti na k
 services: cdn
 documentationcenter: 
 author: dksimpson
-manager: erikre
+manager: akucer
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
@@ -12,23 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/12/2018
 ms.author: mazha
-ms.openlocfilehash: acd6eae12ff338c64cc8879aa8c27b226e3d2f84
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e00205ddcaab277029d7185d0158a64818d0d49b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Předběžné načtení prostředků v koncovém bodu Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Ve výchozím nastavení jsou prostředky do mezipaměti jenom v případě, že jsou vyžádané. První žádost od každou oblast v důsledku toho může trvat déle než následné žádosti. Důvodem je, protože servery edge nebyly dosud do mezipaměti obsah a potřebujete předat požadavek na původní server. Pomocí předběžné načtení obsahu, se můžete vyhnout tento první podle latence.
-
-Kromě zajištění lepší zkušeností zákazníků, předem načítání vaše prostředky uložené v mezipaměti může také přinést snížení síťový provoz na původním serveru.
+Ve výchozím nastavení jsou prostředky do mezipaměti jenom v případě, že jste požadovali. Protože servery edge nebyly dosud do mezipaměti obsah a potřebujete předat požadavek na původní server, může trvat déle než následné žádosti první požadavek z každé oblasti. Abyste se vyhnuli tento první podle latence, předem načíst vaše prostředky. Kromě zajištění lepší zkušeností zákazníků, předem načítání vaše prostředky uložené v mezipaměti může snížit síťový provoz na původním serveru.
 
 > [!NOTE]
-> Předběžné načítání prostředků je užitečné pro velké události nebo obsah, který současně dostupné pro velký počet uživatelů, jako je nová verze film nebo aktualizace softwaru.
+> Předběžné načítání prostředků je užitečné pro velké události nebo obsah, který současně dostupný pro mnoho uživatelů, jako je nová verze film nebo aktualizace softwaru.
 > 
 > 
 
@@ -48,13 +46,13 @@ Tento kurz vás provede předběžné načítání obsahu v mezipaměti na všec
 4. Pro **cestu obsahu**, zadejte úplnou cestu každý prostředek, který chcete načíst (například `/pictures/kitten.png`).
    
    > [!TIP]
-   > Další **cestu obsahu** textová pole se zobrazí po spuštění zadávat text, který vám umožní sestavit seznam více prostředků. Pokud chcete odstranit prostředky ze seznamu, vyberte tlačítko se třemi tečkami (...) a pak vyberte **odstranit**.
+   > Po spuštění zadáním textu, další **cestu obsahu** textová pole se zobrazí umožňují vytvořit seznam více prostředků. Pokud chcete odstranit prostředky ze seznamu, vyberte tlačítko se třemi tečkami (...) a pak vyberte **odstranit**.
    > 
    > Každá cesta obsahu musí být relativní adresa URL, která odpovídá následující [regulární výrazy](https://msdn.microsoft.com/library/az24scfc.aspx):  
-   > - Načíst cestu k souboru jedním: `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
-   > - Načtěte jeden soubor s řetězec dotazu:`@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";` 
+   > - Načte cestu k jednoho souboru: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Načtěte jeden soubor s řetězec dotazu: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
-   > Každý prostředek musí mít svůj vlastní cesta. Není k dispozici žádná funkce zástupných znaků pro předběžné načítání prostředků.
+   > Protože každý asset musí mít svůj vlastní cesta, není žádná funkce zástupných znaků pro předběžné načítání prostředků.
    > 
    > 
    
@@ -63,7 +61,7 @@ Tento kurz vás provede předběžné načítání obsahu v mezipaměti na všec
    
 
 > [!NOTE]
-> Existuje omezení 10 zatížení požadavků za minutu za profil CDN. 50 cest pro souběžné lze současně zpracovávat. Každá cesta může mít délku cesty 1024 znaků.
+> Existuje limit 10 zatížení požadavků za minutu za profil CDN a 50 cest pro souběžné lze současně zpracovávat. Každá cesta může mít délku cesty 1024 znaků.
 > 
 > 
 

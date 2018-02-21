@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Předpověď sentimentu Twitter s word vkládaných pomocí procesu Team dat vědecké účely
 
@@ -131,7 +131,7 @@ Posledním krokem je nasazení modelu předpovědi vyškolení postojích k webo
 
 ![Řídicí panel Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Další informace o procesu operationalization najdete v tématu [nasazení Azure Machine Learning model jako webovou službu](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+Další informace o procesu operationalization najdete v tématu [nasazení Azure Machine Learning model jako webovou službu](../preview/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Závěr
 
@@ -140,11 +140,11 @@ V tomto článku jste zjistili, jak k natrénování modelu vložení aplikace w
 
 ## <a name="references"></a>Odkazy
 
-* [Proces Team dat vědecké účely](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
+* [Vědecké zpracování týmových dat](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Jak používat tým datové vědy procesu (TDSP) v Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Šablony projektů TDSP pro Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../preview/index.yml)
 * [USA příjem sady dat z úložiště UCI ML](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Rozpoznávání biolékařského entity pomocí TDSP šablon](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
-* [Mikolov Tomáši, a další. "Distribuované reprezentace slova a slovní spojení a jejich Compositionality. Posune v neuronové informace systémy pro zpracování." 2013.](https://arxiv.org/abs/1310.4546)
-* [Hmotný dlouhodobý, Duyu, a další. "Učení postojích konkrétní Word vložení pro klasifikaci postojích Twitter." SEZNAM ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)
+* [Rozpoznávání biolékařského entity pomocí TDSP šablon](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Mikolov, Tomas, et al. "Distribuované reprezentace slova a slovní spojení a jejich Compositionality. Posune v neuronové informace systémy pro zpracování." 2013.](https://arxiv.org/abs/1310.4546)
+* [Hmotný dlouhodobý, Duyu, a další. "Učení postojích konkrétní Word vložení pro klasifikaci postojích Twitter." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

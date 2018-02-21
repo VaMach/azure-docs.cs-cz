@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 832cb92f07696ac5ea4df74467899adcc0de0903
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 64c08400c39013f2bfc5bcc57eb21839ad69490b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Vytvoření virtuální sítě s připojením VPN typu Site-to-Site pomocí rozhraní příkazového řádku
 
@@ -86,7 +86,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3. Vytvoření virtuální sítě
 
-Pokud ještě nemáte virtuální síť, vytvořte ji pomocí příkazu [az network vnet create](/cli/azure/network/vnet#create). Při vytváření virtuální sítě ověřte, že se zadané adresní prostory nepřekrývají s adresními prostory ve vaší místní síti.
+Pokud ještě nemáte virtuální síť, vytvořte ji pomocí příkazu [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Při vytváření virtuální sítě ověřte, že se zadané adresní prostory nepřekrývají s adresními prostory ve vaší místní síti.
 
 >[!NOTE]
 >Aby se tato virtuální síť připojila k místnímu umístění, budete se muset domluvit se správcem vaší místní sítě a vyčlenit rozsah IP adres, který můžete použít speciálně pro tuto virtuální síť. V opačném případě pokud existuje duplicitní rozsah adres na obou stranách připojení VPN, provoz se nebude správně směrovat.
@@ -107,7 +107,7 @@ Pro tuto konfiguraci potřebujete také podsíť brány. Brána virtuální sít
 
 Velikost podsítě brány, kterou zadáte, závisí na konfiguraci brány VPN, kterou chcete vytvořit. I když je možné vytvořit podsíť brány s minimální velikostí /29, doporučujeme vytvořit větší podsíť, která pojme více adres, tzn. vybrat velikost /27 nebo /28. Použitím větší podsítě brány zajistíte dostatek IP adres pro případné další konfigurace.
 
-Pomocí příkazu [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) vytvořte podsíť brány.
+Pomocí příkazu [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) vytvořte podsíť brány.
 
 ```azurecli
 az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
@@ -122,7 +122,7 @@ Použijte následující hodnoty:
 * *--gateway-ip-address* je IP adresa vašeho místního zařízení VPN. Zařízení VPN nesmí být umístěné za překladem adres (NAT).
 * *--local-address-prefixes* jsou vaše místní adresní prostory.
 
-Pomocí příkazu [az network local-gateway create](/cli/azure/network/local-gateway#create) přidejte bránu místní sítě s několika předponami adres:
+Pomocí příkazu [az network local-gateway create](/cli/azure/network/local-gateway#az_network_local_gateway_create) přidejte bránu místní sítě s několika předponami adres:
 
 ```azurecli
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
@@ -132,7 +132,7 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 
 Brána VPN musí mít veřejnou IP adresu. Nejprve si vyžádáte prostředek IP adresy a pak na něj budete odkazovat při vytváření brány virtuální sítě. IP adresa se dynamicky přiřadí k prostředku po vytvoření brány VPN. Služba VPN Gateway aktuálně podporuje pouze *dynamické* přidělení veřejné IP adresy. Nemůžete si vyžádat statické přiřazení IP adresy. To ale neznamená, že se IP adresa po přiřazení k vaší bráně VPN bude měnit. Veřejná IP adresa se změní pouze v případě odstranění a nového vytvoření brány. V případě změny velikosti, resetování nebo jiné operace údržby/upgradu vaší brány VPN se nezmění.
 
-Pomocí příkazu [az network public-ip create](/cli/azure/network/public-ip#create) si vyžádejte dynamickou veřejnou IP adresu.
+Pomocí příkazu [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) si vyžádejte dynamickou veřejnou IP adresu.
 
 ```azurecli
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
@@ -148,7 +148,7 @@ Použijte následující hodnoty:
 * Hodnota *--vpn-type* může být *RouteBased* (v některé dokumentaci nazývaná Dynamická brána), nebo *PolicyBased* (v některé dokumentaci nazývaná Statická brána). Toto nastavení závisí na konkrétních požadavcích zařízení, ke kterému se připojujete. Další informace o typech bran VPN najdete v tématu [Informace o nastavení konfigurace služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Vyberte SKU brány, kterou chcete použít. Pro určité skladové jednotky (SKU) platí omezení konfigurace. Další informace najdete v části [Skladové jednotky (SKU) brány](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-Vytvořte bránu VPN pomocí příkazu [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create). Pokud tento příkaz spustíte s použitím parametru --no-wait, nezobrazí se žádná zpětná vazba ani výstup. Tento parametr umožňuje bránu vytvořit na pozadí. Vytvoření brány trvá přibližně 45 minut.
+Vytvořte bránu VPN pomocí příkazu [az network vnet-gateway create](/cli/azure/network/vnet-gateway#az_network_vnet_gateway_create). Pokud tento příkaz spustíte s použitím parametru --no-wait, nezobrazí se žádná zpětná vazba ani výstup. Tento parametr umožňuje bránu vytvořit na pozadí. Vytvoření brány trvá přibližně 45 minut.
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
@@ -159,7 +159,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 Připojení Site-to-Site k místní síti vyžadují zařízení VPN. V tomto kroku nakonfigurujete zařízení VPN. Při konfiguraci zařízení VPN potřebujete následující:
 
 - Sdílený klíč. Jedná se o stejný sdílený klíč, který zadáváte při vytváření připojení VPN Site-to-Site. V našich ukázkách používáme základní sdílený klíč. Doporučujeme, abyste pro použití vygenerovali složitější klíč.
-- Veřejnou IP adresu vaší brány virtuální sítě. Veřejnou IP adresu můžete zobrazit pomocí webu Azure Portal, PowerShellu nebo rozhraní příkazového řádku. Pokud chcete zjistit veřejnou IP adresu brány virtuální sítě, použijte příkaz [az network public-ip list](/cli/azure/network/public-ip#list). Pro snadné čtení je výstup formátovaný, aby zobrazil seznam veřejných IP adres ve formátu tabulky.
+- Veřejnou IP adresu vaší brány virtuální sítě. Veřejnou IP adresu můžete zobrazit pomocí webu Azure Portal, PowerShellu nebo rozhraní příkazového řádku. Pokud chcete zjistit veřejnou IP adresu brány virtuální sítě, použijte příkaz [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list). Pro snadné čtení je výstup formátovaný, aby zobrazil seznam veřejných IP adres ve formátu tabulky.
 
   ```azurecli
   az network public-ip list --resource-group TestRG1 --output table
@@ -173,7 +173,7 @@ Připojení Site-to-Site k místní síti vyžadují zařízení VPN. V tomto kr
 
 Vytvořte připojení VPN typu Site-to-Site mezi bránou virtuální sítě a místním zařízením VPN. Věnujte zvláštní pozornost hodnotě sdíleného klíče, která se musí shodovat s hodnotou sdíleného klíče nakonfigurovanou pro zařízení VPN.
 
-Vytvořte připojení pomocí příkazu [az network vpn-connection create](/cli/azure/network/vpn-connection#create).
+Vytvořte připojení pomocí příkazu [az network vpn-connection create](/cli/azure/network/vpn-connection#az_network_vpn_connection_create).
 
 ```azurecli
 az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 1db3fef17e24022bff59665558f4a354f8c37d1d
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 74f926743713bfd71eb524fdc2794cd7e187166e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Poznámky k verzi agenta Azure File Sync
 Azure File Sync (Preview) umožňuje centralizovat sdílené složky organizace ve službě Soubory Azure bez ztráty flexibility, výkonu a kompatibility místního souborového serveru. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
@@ -30,7 +30,8 @@ Azure File Sync podporuje následující verze:
 
 | Číslo verze agenta | Datum vydání | Platnost do |
 |----------------------|--------------|------------------|
-| 1.1.0.0 | 26. 9. 2017 | Aktuální verze |
+| 2.0.11.0 | 2018-02-08 | Aktuální verze |
+| 1.1.0.0 | 26. 9. 2017 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Zásady aktualizace agenta Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

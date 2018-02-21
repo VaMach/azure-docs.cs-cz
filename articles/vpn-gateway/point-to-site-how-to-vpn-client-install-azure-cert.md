@@ -1,10 +1,10 @@
 ---
 title: "Nainstalovat certifikát klienta P2S | Azure"
-description: "Tento článek vám pomůže nainstalovat certifikát klienta pro P2S ověření certifikátu."
+description: "Nainstalujte certifikát klienta Mac nebo Windows pro P2S ověření certifikátu."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager, azure-service-management
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/24/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc0cc37794ef291c9d27b094211b38cec90da55c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de98201b65f5531f334aded1056f622cecb6e190
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Nainstalovat certifikát klienta pro připojení ověřování Azure certifikát Point-to-Site
 
@@ -43,7 +43,7 @@ Klienti Mac VPN jsou podporovány pouze modelu nasazení Resource Manager. Někt
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokračujte kroky konfigurace Point-to-Site.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Odesílání dat k analýze protokolů s rozhraním API týkající se kolekce dat protokolu HTTP (verze public preview)
 Tento článek ukazuje, jak používat rozhraní API sady kolekcí dat protokolu HTTP k odesílání dat k analýze protokolů z klienta pro REST API.  Popisuje, jak formátu data shromažďovaná společností skriptu nebo aplikaci, její zahrnutí do žádost a mít této žádosti autorizovat analýzy protokolů.  Příklady jsou uvedené pro prostředí PowerShell, C# a Python.
@@ -49,7 +49,7 @@ Chcete-li použít rozhraní API sady kolekcí dat protokolu HTTP, vytvořte po�
 ### <a name="request-uri-parameters"></a>Parametry identifikátoru URI požadavku
 | Parametr | Popis |
 |:--- |:--- |
-| CustomerID |Jedinečný identifikátor pro pracovní prostor Microsoft Operations Management Suite. |
+| CustomerID |Jedinečný identifikátor pro pracovní prostor analýzy protokolů. |
 | Prostředek |Název prostředku rozhraní API: / api/protokoly. |
 | Verze rozhraní API |Verze rozhraní API používat s touto žádostí. V současné době je 2016-04-01. |
 
@@ -70,7 +70,7 @@ Tady je formát pro hlavičku autorizace:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* je jedinečný identifikátor pro pracovní prostor služby Operations Management Suite. *Podpis* je [Hash-based ověřování kódu metoda HMAC (Message)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) , se vytvářejí na základě požadavku a potom vypočítaného pomocí [algoritmus SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Potom můžete zakódovat je pomocí kódování Base64.
+*WorkspaceID* je jedinečný identifikátor pro pracovní prostor analýzy protokolů. *Podpis* je [Hash-based ověřování kódu metoda HMAC (Message)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) , se vytvářejí na základě požadavku a potom vypočítaného pomocí [algoritmus SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Potom můžete zakódovat je pomocí kódování Base64.
 
 Použijte tento formát ke kódování **SharedKey** podpis řetězec:
 
@@ -187,7 +187,7 @@ Tato tabulka uvádí kompletní sadu stavové kódy, které může vrátit služ
 | 400 |Nesprávná žádost |UnsupportedContentType |Typ obsahu, který nebyl nastaven na **application/json**. |
 | 403 |Zakázáno |InvalidAuthorization |Službě se nepodařilo ověřit žádost. Ověření platnosti připojení ID a klíč pracovního prostoru. |
 | 404 |Nenalezené | | Buď je zadaná adresa URL nesprávná nebo požadavku je příliš velký. |
-| 429 |Příliš mnoho žádostí | | Služba dochází k velkému počtu data z účtu. Opakujte požadavek později. |
+| 429 |Příliš mnoho požadavků | | Služba dochází k velkému počtu data z účtu. Opakujte požadavek později. |
 | 500 |Vnitřní chyba serveru |UnspecifiedError |Služba zjistila vnitřní chybu. Opakujte žádost. |
 | 503 |Služba není dostupná |ServiceUnavailable |Služba je momentálně nedostupný a nepřijímá požadavky. Opakujte žádost. |
 
@@ -204,7 +204,8 @@ V následujících částech najdete ukázky postup odesílání dat do kolekce 
 
 Pro každý vzorek proveďte tyto kroky nastavit proměnné pro hlavičku autorizace:
 
-1. Na portálu služby Operations Management Suite, vyberte **nastavení** dlaždici a potom vyberte **připojené zdroje** kartě.
+1. Na portálu Azure vyhledejte pracovní prostor analýzy protokolů.
+2. Vyberte **upřesňující nastavení** a potom **připojené zdroje**.
 2. Napravo od **ID pracovního prostoru**, vyberte ikonu kopírování a vložte ID jako hodnotu **ID zákazníka** proměnné.
 3. Napravo od **primární klíč**, vyberte ikonu kopírování a vložte ID jako hodnotu **sdílený klíč** proměnné.
 
@@ -311,7 +312,7 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Log Analytics workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -389,7 +390,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

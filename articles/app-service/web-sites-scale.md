@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>Škálování aplikace v Azure
 
 > [!NOTE]
-> Nové **PremiumV2** vrstvy vám dává rychlejších procesorů, úložiště SSD a dvakrát poměr paměti jádra než existující cenové úrovně. Škálování až **PremiumV2** vrstvy, najdete v části [konfigurace PremiumV2 úroveň služby App Service](app-service-configure-premium-tier.md).
+> Nové **PremiumV2** vrstvy získáte rychlejších procesorů, úložiště SSD a zdvojnásobí paměti jádra poměr existující cenové úrovně. S výhodou, výkon může ušetřit peníze při spuštění aplikace na méně instancí. Škálování až **PremiumV2** vrstvy, najdete v části [konfigurace PremiumV2 úroveň služby App Service](app-service-configure-premium-tier.md).
 >
 
 Tento článek ukazuje, jak škálování aplikace v Azure App Service. Existují dva pracovní postupy pro škálování, škálování nahoru a škálování a tento článek vysvětluje rozšiřování škálování využívajících pracovního postupu.
 
 * [Vertikální navýšení kapacity](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): získat další procesoru, paměti, místa na disku a speciálních funkcí, jako vyhrazené virtuální počítače (VM), vlastní domény a certifikáty, přípravné sloty, automatické škálování a další. Škálovat změnou cenové úrovně plánu služby App Service, který je součástí vaší aplikace.
 * [Horizontální navýšení kapacity](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): zvyšte počet instancí virtuálního počítače, které spuštění aplikace.
-  Můžete škálovat na až 20 instance, v závislosti na cenovou úroveň. [Prostředí App Service](environment/intro.md) v **izolovaná** další vrstvy zvyšuje spočítat Škálováním na více systémů na 100 instance. Další informace o škálování najdete v tématu [ruční nebo automatické škálování počtu instancí](../monitoring-and-diagnostics/insights-how-to-scale.md). Existuje můžete zjistit, jak používat automatické škálování, což je pro škálování počtu instancí automaticky na základě předdefinovaných pravidel a plány.
+  Můžete škálovat na až 20 instance, v závislosti na cenovou úroveň. [Prostředí App Service](environment/intro.md) v **izolovaná** další vrstvy zvyšuje spočítat Škálováním na více systémů na 100 instance. Další informace o škálování najdete v tématu [ruční nebo automatické škálování počtu instancí](../monitoring-and-diagnostics/insights-how-to-scale.md). Zde můžete zjistit, jak používat automatické škálování, což je pro škálování počtu instancí automaticky na základě předdefinovaných pravidel a plány.
 
 Nastavení škálování trvat jenom sekund použít a vliv na všechny aplikace ve vaší [plán služby App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-Změna kódu nebo znovu nasadit aplikace nevyžadují.
+Budou měnit kód nebo znovu nasadit aplikace nevyžadují.
 
 Informace o cenách a funkce jednotlivých plány služby App Service najdete v tématu [podrobnosti o cenách na aplikaci služby](https://azure.microsoft.com/pricing/details/web-sites/).  
 
@@ -82,14 +82,9 @@ Pokud vaše aplikace závisí na jiné služby, například Azure SQL Database n
 Podrobné informace, jako je například velikosti virtuálních počítačů u jednotlivých cenových úrovní najdete v části [podrobnosti o cenách na aplikaci služby](https://azure.microsoft.com/pricing/details/web-sites/).
 Tabulku omezení služby, kvóty a omezení a podporovaných funkcích v jednotlivých vrstvách, najdete v části [omezení služby App Service](../azure-subscription-service-limits.md#app-service-limits).
 
-> [!NOTE]
-> Pokud chcete začít pracovat s Azure App Service, ještě než si zaregistrujete účet Azure, přejděte na [vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/) kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci ve službě App Service. Je vyžadována žádná platební karta a bez jakýchkoli závazků.
-> 
-> 
-
 <a name="Next Steps"></a>
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Informace o cenách, podpory a smlouvy o úrovni služeb získáte pomocí následujících odkazů:
   
     [Podrobnosti o cenách přenos dat](https://azure.microsoft.com/pricing/details/data-transfers/)

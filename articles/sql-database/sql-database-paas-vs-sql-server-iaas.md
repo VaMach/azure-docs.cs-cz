@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 436166fcb0fa9103c6b702b63d93a0b222d536d0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4a0fbb2a1f468493e5b22b12518be42fdd9d5ce6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Volba cloudového řešení systému SQL Server: Azure SQL (PaaS) Database nebo SQL Server na virtuálních počítačích Azure (IaaS)
 Azure nabízí pro hostování úloh SQL Serveru v Microsoft Azure dvě možnosti:
@@ -80,7 +80,7 @@ Ať už jste začínající společnost, která nemá mnoho peněz, nebo tým v 
 #### <a name="billing-and-licensing-basics"></a>Základy fakturace a licencování
 **SQL Database** je zákazníkům prodávána jako služba, nikoli s licencí.  [SQL Server na virtuálních počítačích Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) je prodáván se zahrnutou licencí, za kterou platíte po minutách. Máte-li stávající licenci, můžete ji také použít.  
 
-V současné době je **SQL Database** k dispozici v několika cenových úrovních služeb, přičemž všechny z nich se účtují hodinově s pevnou sazbou na základě cenové úrovně služby a výkonu, které jste zvolili. Kromě toho se vám účtuje odchozí přenos přes internet podle běžných [sazeb za přenos dat](https://azure.microsoft.com/pricing/details/data-transfers/). Cenové úrovně služeb Basic, Standard, Premium a Premium RS jsou navržené tak, aby umožňovaly dosahovat předvídatelného výkonu s více úrovněmi výkonu podle požadavků vaší aplikace ve špičce. Podle potřeby můžete mezi cenovými a výkonými úrovněmi služeb přecházet, abyste zohlednili měnící se potřeby vaší aplikace z hlediska propustnosti. Pokud má vaše databáze velký objem transakcí a musí zajišťovat podporu pro více souběžných uživatelů, doporučujeme využívat cenovou úroveň služeb Premium. Nejnovější informace o aktuálně podporovaných cenových úrovních služeb najdete v tématu [Cenové úrovně služby Azure SQL Database](sql-database-service-tiers.md). Můžete také vytvořit [elastické fondy](sql-database-elastic-pool.md), které umožňují sdílení prostředků výkonu mezi různými instancemi databáze.
+V současné době je **SQL Database** k dispozici v několika cenových úrovních služeb, přičemž všechny z nich se účtují hodinově s pevnou sazbou na základě cenové úrovně služby a výkonu, které jste zvolili. Kromě toho se vám účtuje odchozí přenos přes internet podle běžných [sazeb za přenos dat](https://azure.microsoft.com/pricing/details/data-transfers/). Cenové úrovně služeb Basic, Standard a Premium jsou navržené tak, aby umožňovaly dosahovat předvídatelného výkonu s více úrovněmi výkonu podle požadavků vaší aplikace ve špičce. Podle potřeby můžete mezi cenovými a výkonými úrovněmi služeb přecházet, abyste zohlednili měnící se potřeby vaší aplikace z hlediska propustnosti. Pokud má vaše databáze velký objem transakcí a musí zajišťovat podporu pro více souběžných uživatelů, doporučujeme využívat cenovou úroveň služeb Premium. Nejnovější informace o aktuálně podporovaných cenových úrovních služeb najdete v tématu [Cenové úrovně služby Azure SQL Database](sql-database-service-tiers.md). Můžete také vytvořit [elastické fondy](sql-database-elastic-pool.md), které umožňují sdílení prostředků výkonu mezi různými instancemi databáze.
 
 V případě **SQL Database** je databázový software konfigurován, opravován a upgradován automaticky společností Microsoft, což snižuje náklady na správu. Kromě toho vám [integrované funkce zálohování](sql-database-automated-backups.md) pomůžou dosáhnout výrazných úspor nákladů, hlavně v případě, že máte velký počet databází.
 
@@ -118,7 +118,7 @@ V případě systému **SQL Server na virtuálních počítačích Azure** máte
 ### <a name="service-level-agreement-sla"></a>Smlouvy o úrovni služeb (SLA)
 Pro řadu IT oddělení je nejvyšší prioritou plnit povinnosti z hlediska garantované doby provozuschopnosti vyplývající ze Smlouvy o úrovni služeb (SLA). V této části se podíváme na to, jaká smlouva SLA se vztahuje na každou z možností hostování databáze.
 
-Pro **SQL Database** s cenovou úrovní služeb Basic, Standard, Premium a Premium RS Premium poskytuje Microsoft smlouvu SLA s dostupností 99,99 %. Nejnovější informace najdete v tématu věnovaném [Smlouvám o úrovni služeb (SLA)](https://azure.microsoft.com/support/legal/sla/sql-database/). Nejnovější informace o cenových úrovních služby SQL Database a podporovaných plánech kontinuity podnikových procesů najdete v tématu [Úrovně služeb](sql-database-service-tiers.md).
+Pro **SQL Database** s cenovou úrovní služeb Basic, Standard a Premium poskytuje Microsoft smlouvu SLA s dostupností 99,99 %. Nejnovější informace najdete v tématu věnovaném [Smlouvám o úrovni služeb (SLA)](https://azure.microsoft.com/support/legal/sla/sql-database/). Nejnovější informace o cenových úrovních služby SQL Database a podporovaných plánech kontinuity podnikových procesů najdete v tématu [Úrovně služeb](sql-database-service-tiers.md).
 
 Pro **SQL Server běžící na virtuálních počítačích Azure** poskytuje Microsoft smlouvu SLA s dostupností 99,95 %, která se vztahuje pouze na virtuální počítač. Tato smlouva SLA nepokrývá procesy (například SQL Server) běžící na virtuálním počítači a vyžaduje, abyste v rámci skupiny dostupnosti hostovali minimálně dvě instance virtuálních počítačů. Nejnovější informace najdete v tématu věnovaném smlouvám [SLA k virtuálním počítačům](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Pro vysokou dostupnost (HA – High Availability) databází v rámci virtuálních počítačů musíte nakonfigurovat jednu z podporovaných možností vysoké dostupnosti SQL Serveru, jako jsou například [skupiny dostupnosti AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Používání podporované možnosti vysoké dostupnosti neposkytuje další SLA, ale umožňuje dosáhnout více než 99.99% dostupnosti databáze.
 
@@ -140,7 +140,7 @@ Tento článek se věnoval SQL Database a SQL Serveru na virtuálních počíta�
 * Máte stávající místní aplikace, které chcete migrovat nebo rozšířit do cloudu, nebo pokud chcete vytvořit podnikové aplikace, které jsou větší než 4 TB. Tento přístup přináší výhody v podobě 100% kompatibility jazyka SQL, velké kapacity databáze, plné kontroly nad systémem SQL Server a Windows a zabezpečené tunelové propojení s místními aplikacemi. Tento přístup minimalizuje náklady na vývoj a úpravy stávajících aplikací.
 * Máte stávající prostředky IT a zvládnete zajistit použití dílčích oprav, zálohování a vysokou dostupnost databáze. Všimněte si, že některé automatizované funkce tyto operace značně zjednodušují. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Pokud začínáte se službou SQL Database, přečtěte si téma [První Azure SQL Database](sql-database-get-started-portal.md).
 * Viz [SQL Database – ceny](https://azure.microsoft.com/pricing/details/sql-database/)
 * Informace o tom, jak začít s SQL Serverem na virtuálních počítačích Azure, najdete v tématu věnovaném [zřízení virtuálního počítače s SQL Serverem v Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md).

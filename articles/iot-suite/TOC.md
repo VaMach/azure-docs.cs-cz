@@ -17,6 +17,7 @@
 #### [Oprávnění na webu azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Seznámení s řešením vzdáleného monitorování](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Připojte Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Připojení MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Použití jazyka C
 ###### [Simulovaná data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Použití reálných senzorů](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,7 +77,7 @@
 ## Propojená továrna
 ### [Nasazení brány pro propojenou továrnu](iot-suite-connected-factory-gateway-deployment.md)
 ### [Přizpůsobení propojené továrny](iot-suite-connected-factory-customize.md)
-### [Použití vydavatele OPC pro propojenou továrnu](iot-suite-connected-factory-publisher.md)
+### [Použití vydavatele OPC pro propojenou továrnu](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Konfigurace propojené továrny](iot-suite-connected-factory-configure.md)
 ## [Oprávnění na webu azureiotsuite.com](iot-suite-permissions.md)
 

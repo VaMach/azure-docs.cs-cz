@@ -1,10 +1,10 @@
 ---
 title: "Připojení klasické virtuální sítě k virtuálním sítím Azure Resource Manager: portál | Microsoft Docs"
-description: "Naučte se vytvořit připojení VPN mezi klasické virtuální sítě a virtuální sítě Resource Manager pomocí brány sítě VPN a portálu"
+description: "Vytvoření připojení VPN mezi klasické virtuální sítě a virtuální sítě Resource Manager pomocí brány sítě VPN a portálu"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Připojit virtuální sítě z různé modely nasazení pomocí portálu
 
@@ -33,7 +33,7 @@ Tento článek ukazuje, jak se připojit virtuální sítě classic do Resource 
 
 Připojení klasické virtuální sítě k virtuální síti Resource Manager je podobné propojení virtuální sítě do umístění místního webu. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE. Můžete vytvořit připojení mezi virtuální sítě, které jsou v různých předplatných a v různých oblastech. Virtuální sítě, které už máte připojení k místní sítě, můžete také připojit, pokud je brány, které byly nakonfigurovány k dynamické nebo založené na trasách. Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku. 
 
-Pokud vaše virtuální sítě jsou ve stejné oblasti, můžete místo toho zvažte připojení pomocí virtuální sítě partnerský vztah. Partnerské vztahy virtuálních sítí nepoužívají bránu VPN. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md). 
+Pokud ještě není bránu virtuální sítě a nechcete, aby si ji vytvořit, můžete místo toho zvažte připojení vaší virtuální sítě pomocí virtuální sítě partnerský vztah. Partnerské vztahy virtuálních sítí nepoužívají bránu VPN. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Než začnete
 
@@ -69,7 +69,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
 Název brány virtuální sítě = RMGateway <br>
 Typ brány sítě VPN = <br>
 Typ sítě VPN = trasové <br>
-Skladová položka = VpnGw1 <br>
+SKU = VpnGw1 <br>
 Umístění = východní USA <br>
 Virtuální sítě = RMVNet <br> (přidružte bránu VPN do této virtuální sítě) První konfigurace protokolu IP = rmgwpip <br> (veřejná IP adresa brány) Brána místní sítě = ClassicVNetLocal <br>
 Název připojení = RMtoClassic
@@ -95,7 +95,7 @@ Pokud nemáte klasické virtuální síti a jsou spuštěné tyto kroky jako cvi
 
 Pokud již máte virtuální síť, brána sítě VPN, ověřte, zda brána dynamické. Pokud je statická, musíte nejprve odstranit bránu VPN dřív než přejdete k [nakonfigurovat místní lokality](#local).
 
-1. Otevřete [portál Azure](https://ms.portal.azure.com) a přihlaste se pomocí účtu Azure.
+1. Otevřete [Azure Portal](https://ms.portal.azure.com) a přihlaste se pomocí svého účtu Azure.
 2. Klikněte na tlačítko **+ vytvořit prostředek** chcete otevřít stránku 'New'.
 3. V poli "vyhledávání na webu marketplace, zadejte"Virtuální sítě". Pokud místo toho vyberte sítě -> virtuální sítě, nebude získáte možnost vytvoření klasické virtuální sítě.
 4. Vyhledejte "virtuální sítě, ze seznamu vrácených a klikněte na něj chcete otevřít stránku virtuální sítě. 
@@ -168,7 +168,7 @@ Před vytvořením brány virtuální sítě, musíte nejprve vytvořit podsíť
 * Název brány virtuální sítě = RMGateway <br>
 * Typ brány sítě VPN = <br>
 * Typ sítě VPN = trasové <br>
-* Skladová položka = VpnGw1 <br>
+* SKU = VpnGw1 <br>
 * Umístění = východní USA <br>
 * Virtuální sítě = RMVNet <br>
 * První konfigurace protokolu IP = rmgwpip <br>
@@ -196,16 +196,16 @@ V této části nahraďte zástupný symbol IP adresu, kterou jste použili při
 2. Na stránce pro vaši virtuální síť, klikněte na **přehled**.
 3. V **připojení k síti VPN** klikněte na název vaší místní sítě na obrázku.
 
-    ![Připojení VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "připojení k síti VPN")
+  ![Připojení VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "připojení k síti VPN")
 4. Na **připojení Site-to-site VPN** klikněte na název lokality.
 
-    ![Název lokality](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "název místního webu")
+  ![Název lokality](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "název místního webu")
 5. Na stránce připojení místní lokality, klikněte na název místní lokalitě. Chcete-li otevřít **místní lokality** stránky.
 
-    ![Otevřete místní site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "otevřete místní lokality")
+  ![Otevřete místní site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "otevřete místní lokality")
 6. Na **místní lokality** stránky, nahraďte **IP adresa brány VPN** s IP adresou brány Resource Manager.
 
-    ![Adresa ip brány](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "IP adresa brány")
+  ![Adresa ip brány](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "IP adresa brány")
 7. Klikněte na tlačítko **OK** aktualizovat IP adresu.
 
 ## <a name="RMtoclassic"></a>Oddíl 4 – vytvoření Resource Manager classic připojení
@@ -223,34 +223,46 @@ V těchto kroků můžete nakonfigurovat připojení z virtuální sítě Resour
 9. Vytvoření **sdílený klíč**. Tento klíč se také používá pro připojení, které vytvořit z klasické virtuální sítě pro virtuální sítě Resource Manageru. Můžete vygenerovat klíč nebo si ho vymyslet. V našem příkladu používáme 'abc123', ale můžete (a měli) používáte něco složitější.
 10. Klikněte na tlačítko **OK** k vytvoření připojení.
 
-##<a name="classictoRM"></a>Část 5 – Vytvoření klasického správce prostředků připojení
+## <a name="classictoRM"></a>Část 5 – Vytvoření klasického správce prostředků připojení
 
 V těchto kroků můžete nakonfigurovat připojení z klasické virtuální sítě do virtuální sítě Resource Manager. Tyto kroky vyžadují prostředí PowerShell. Toto připojení nelze vytvořit na portálu. Zajistěte, aby byly staženy a nainstalovány classic (SM) i rutiny prostředí PowerShell Resource Manager (RM).
 
 ### <a name="1-connect-to-your-azure-account"></a>1. Připojení k účtu Azure
 
-Otevřete konzolu prostředí PowerShell se zvýšenými oprávněními a přihlaste se k účtu Azure. Následující rutiny zobrazí výzvu pro přihlašovací údaje pro účet Azure. Po přihlášení, se stáhnou nastavení svého účtu, aby byly k dispozici pro prostředí Azure PowerShell.
+Otevřete konzolu prostředí PowerShell se zvýšenými oprávněními a přihlaste se k účtu Azure. Po přihlášení, se stáhnou nastavení svého účtu, aby byly k dispozici pro prostředí Azure PowerShell. Následující rutina vás vyzve k zadání přihlašovací údaje pro účet Azure pro model nasazení Resource Manager:
 
 ```powershell
 Login-AzureRmAccount
 ```
-   
-Získání seznamu předplatné Azure, pokud máte více než jedno předplatné.
+
+Načtěte seznam předplatných Azure.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Určete předplatné, které chcete použít. 
+Pokud máte více než jedno předplatné, určete předplatné, které chcete použít.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 ```
 
-Přidání účtu Azure classic rutiny prostředí PowerShell (SM) používat. Uděláte to tak, můžete použít následující příkaz:
+Přihlaste se dále používat classic rutin prostředí PowerShell (správou služeb). Použijte následující příkaz pro přidání účtu Azure pro model nasazení classic:
 
 ```powershell
 Add-AzureAccount
+```
+
+Získejte seznam předplatných. Tento krok může být nutné při přidávání rutiny pro správu služby, v závislosti na modulu Azure nainstalovat.
+
+```powershell
+Get-AzureSubscription
+```
+
+Pokud máte více než jedno předplatné, určete předplatné, které chcete použít.
+
+```powershell
+Select-AzureSubscription -SubscriptionName "Name of subscription"
 ```
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Zobrazit hodnoty souboru konfigurace sítě

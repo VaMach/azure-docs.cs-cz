@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="_Toc395783175"></a>Sestavení webové aplikace Node.js využívající službu Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -97,307 +97,317 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
 
 ### <a name="create-the-model"></a>Vytvoření modelu
 1. V adresáři projektu vytvořte nový adresář s názvem **models** ve stejném adresáři jako soubor package.json.
-2. V adresáři **models** vytvořte nový soubor s názvem **taskDao.js**. Tento soubor bude obsahovat model pro úkoly vytvořené v aplikaci.
-3. Ve stejném adresáři **models** vytvořte jiný soubor s názvem **docdbUtils.js**. V tomto souboru bude obsažen užitečný, opakovaně použitelný kód, který budeme používat v celé aplikaci. 
-4. Do **docdbUtils.js** zkopírujte následující kód.
-   
-        var DocumentDBClient = require('documentdb').DocumentClient;
-   
-        var DocDBUtils = {
-            getOrCreateDatabase: function (client, databaseId, callback) {
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id= @id',
-                    parameters: [{
-                        name: '@id',
-                        value: databaseId
-                    }]
-                };
-   
-                client.queryDatabases(querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        if (results.length === 0) {
-                            var databaseSpec = {
-                                id: databaseId
-                            };
-   
-                            client.createDatabase(databaseSpec, function (err, created) {
-                                callback(null, created);
-                            });
-   
-                        } else {
-                            callback(null, results[0]);
-                        }
-                    }
-                });
-            },
-   
-            getOrCreateCollection: function (client, databaseLink, collectionId, callback) {
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id=@id',
-                    parameters: [{
-                        name: '@id',
-                        value: collectionId
-                    }]
-                };               
-   
-                client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {        
-                        if (results.length === 0) {
-                            var collectionSpec = {
-                                id: collectionId
-                            };
-   
-                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
-                                callback(null, created);
-                            });
-   
-                        } else {
-                            callback(null, results[0]);
-                        }
-                    }
-                });
-            }
+2. V **modely** adresáře, vytvořte nový soubor s názvem **úloh model.js**. Tento soubor bude obsahovat model pro úkoly vytvořené v aplikaci.
+3. Ve stejném **modely** adresáře, vytvořte další nový soubor s názvem **cosmosdb manager.js**. V tomto souboru bude obsažen užitečný, opakovaně použitelný kód, který budeme používat v celé aplikaci. 
+4. Zkopírujte následující kód do **cosmosdb manager.js**
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+
+    module.exports = {
+    getOrCreateDatabase: (client, databaseId, callback) => {
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id = @id',
+        parameters: [{ name: '@id', value: databaseId }]
         };
-   
-        module.exports = DocDBUtils;
-   
-5. Uložte a zavřete soubor **docdbUtils.js**.
-6. Na začátek souboru **taskDao.js** přidejte následující kód, který odkazuje na **DocumentDBClient** a **docdbUtils.js**, které jsme vytvořili výše:
-   
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var docdbUtils = require('./docdbUtils');
-7. Dále přidáte kód, který definuje export objektu Task. Ten má na starosti inicializaci objektu Task a nastavení databáze a kolekce dokumentů, které budeme používat.
-   
-        function TaskDao(documentDBClient, databaseId, collectionId) {
-          this.client = documentDBClient;
-          this.databaseId = databaseId;
-          this.collectionId = collectionId;
-   
-          this.database = null;
-          this.collection = null;
+
+        client.queryDatabases(querySpec).toArray((err, results) => {
+        if (err) {
+            callback(err);
+        } else {
+            if (results.length === 0) {
+            let databaseSpec = { id: databaseId };
+            client.createDatabase(databaseSpec, (err, created) => {
+                callback(null, created);
+            });
+            } else {
+            callback(null, results[0]);
+            }
         }
-   
-        module.exports = TaskDao;
-8. Dále přidejte následující kód, který definuje další metody objektu Task. Ty umožňují pracovat s daty uloženými ve službě Azure Cosmos.
-   
-        TaskDao.prototype = {
-            init: function (callback) {
-                var self = this;
-   
-                docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
-                    if (err) {
-                        callback(err);
-                    } else {
-                        self.database = db;
-                        docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
-                            if (err) {
-                                callback(err);
-   
-                            } else {
-                                self.collection = coll;
-                            }
-                        });
-                    }
-                });
-            },
-   
-            find: function (querySpec, callback) {
-                var self = this;
-   
-                self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, results);
-                    }
-                });
-            },
-   
-            addItem: function (item, callback) {
-                var self = this;
-   
-                item.date = Date.now();
-                item.completed = false;
-   
-                self.client.createDocument(self.collection._self, item, function (err, doc) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, doc);
-                    }
-                });
-            },
-   
-            updateItem: function (itemId, callback) {
-                var self = this;
-   
-                self.getItem(itemId, function (err, doc) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        doc.completed = true;
-   
-                        self.client.replaceDocument(doc._self, doc, function (err, replaced) {
-                            if (err) {
-                                callback(err);
-   
-                            } else {
-                                callback(null, replaced);
-                            }
-                        });
-                    }
-                });
-            },
-   
-            getItem: function (itemId, callback) {
-                var self = this;
-   
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id = @id',
-                    parameters: [{
-                        name: '@id',
-                        value: itemId
-                    }]
-                };
-   
-                self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, results[0]);
-                    }
-                });
-            }
+        });
+    },
+
+    getOrCreateCollection: (client, databaseLink, collectionId, callback) => {
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id=@id',
+        parameters: [{ name: '@id', value: collectionId }]
         };
-9. Uložte a zavřete soubor **taskDao.js**. 
+
+        client.queryCollections(databaseLink, querySpec).toArray((err, results) => {
+        if (err) {
+            callback(err);
+        } else {
+            if (results.length === 0) {
+            let collectionSpec = { id: collectionId };
+            client.createCollection(databaseLink, collectionSpec, (err, created) => {
+                callback(null, created);
+            });
+            } else {
+            callback(null, results[0]);
+            }
+        }
+        });
+    }
+    };
+    ```
+5. Uložte a zavřete **cosmosdb manager.js** souboru.
+6. Na začátku **úloh model.js** soubor, přidejte následující kód tak, aby odkazovaly **DocumentDBClient** a **cosmosdb manager.js** jsme vytvořili výše: 
+
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./docdbUtils');
+    ```
+7. Dále přidáte kód, který definuje export objektu Task. Ten má na starosti inicializaci objektu Task a nastavení databáze a kolekce dokumentů, které budeme používat.  
+
+    ```nodejs
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+      this.client = documentDBClient;
+      this.databaseId = databaseId;
+      this.collectionId = collectionId;
+   
+      this.database = null;
+      this.collection = null;
+    }
+   
+    module.exports = TaskModel;
+    ```
+8. Dále přidejte následující kód, který definuje další metody objektu Task. Ty umožňují pracovat s daty uloženými ve službě Azure Cosmos.
+
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./cosmosdb-manager');
+
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+    this.client = documentDBClient;
+    this.databaseId = databaseId;
+    this.collectionId = collectionId;
+
+    this.database = null;
+    this.collection = null;
+    }
+
+    TaskModel.prototype = {
+    init: function(callback) {
+        let self = this;
+
+        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db) {
+        if (err) {
+            callback(err);
+        } else {
+            self.database = db;
+            docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll) {
+            if (err) {
+                callback(err);
+            } else {
+                self.collection = coll;
+            }
+            });
+        }
+        });
+    },
+
+    find: function(querySpec, callback) {
+        let self = this;
+
+        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, results);
+        }
+        });
+    },
+
+    addItem: function(item, callback) {
+        let self = this;
+
+        item.date = Date.now();
+        item.completed = false;
+
+        self.client.createDocument(self.collection._self, item, function(err, doc) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, doc);
+        }
+        });
+    },
+
+    updateItem: function(itemId, callback) {
+        let self = this;
+
+        self.getItem(itemId, function(err, doc) {
+        if (err) {
+            callback(err);
+        } else {
+            doc.completed = true;
+
+            self.client.replaceDocument(doc._self, doc, function(err, replaced) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, replaced);
+            }
+            });
+        }
+        });
+    },
+
+    getItem: function(itemId, callback) {
+        let self = this;
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id = @id',
+        parameters: [{ name: '@id', value: itemId }]
+        };
+
+        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, results[0]);
+        }
+        });
+    }
+    };
+
+    module.exports = TaskModel;
+    ```
+9. Uložte a zavřete **úloh model.js** souboru. 
 
 ### <a name="create-the-controller"></a>Vytvoření kontroleru
 1. V adresáři **routes** projektu vytvořte nový soubor s názvem **tasklist.js**. 
 2. Do souboru **tasklist.js** přidejte následující kód: Tento kód načte moduly DocumentDBClient a async, které budou používány v souboru **tasklist.js**. Také v něm je definována funkce **TaskList**, která přijímá instanci objektu **Task** definovaného dříve:
    
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var async = require('async');
-   
-        function TaskList(taskDao) {
-          this.taskDao = taskDao;
-        }
-   
-        module.exports = TaskList;
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let async = require('async');
+
+    function TaskList(taskModel) {
+    this.taskModel = taskModel;
+    }
+
+    module.exports = TaskList;
+    ```
 3. Dále do souboru **tasklist.js** přidejte metody **showTasks, addTask** a **completeTask**:
    
-        TaskList.prototype = {
-            showTasks: function (req, res) {
-                var self = this;
-   
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.completed=@completed',
-                    parameters: [{
-                        name: '@completed',
-                        value: false
-                    }]
-                };
-   
-                self.taskDao.find(querySpec, function (err, items) {
-                    if (err) {
-                        throw (err);
-                    }
-   
-                    res.render('index', {
-                        title: 'My ToDo List ',
-                        tasks: items
-                    });
-                });
-            },
-   
-            addTask: function (req, res) {
-                var self = this;
-                var item = req.body;
-   
-                self.taskDao.addItem(item, function (err) {
-                    if (err) {
-                        throw (err);
-                    }
-   
-                    res.redirect('/');
-                });
-            },
-   
-            completeTask: function (req, res) {
-                var self = this;
-                var completedTasks = Object.keys(req.body);
-   
-                async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-                    self.taskDao.updateItem(completedTask, function (err) {
-                        if (err) {
-                            callback(err);
-                        } else {
-                            callback(null);
-                        }
-                    });
-                }, function goHome(err) {
-                    if (err) {
-                        throw err;
-                    } else {
-                        res.redirect('/');
-                    }
-                });
+   ```nodejs
+    TaskList.prototype = {
+    showTasks: function(req, res) {
+        let self = this;
+
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.completed=@completed',
+        parameters: [
+            {
+            name: '@completed',
+            value: false
             }
+        ]
         };
+
+        self.taskModel.find(querySpec, function(err, items) {
+        if (err) {
+            throw err;
+        }
+
+        res.render('index', {
+            title: 'My ToDo List ',
+            tasks: items
+        });
+        });
+    },
+
+    addTask: function(req, res) {
+        let self = this;
+        let item = req.body;
+
+        self.taskModel.addItem(item, function(err) {
+        if (err) {
+            throw err;
+        }
+
+        res.redirect('/');
+        });
+    },
+
+    completeTask: function(req, res) {
+        let self = this;
+        let completedTasks = Object.keys(req.body);
+
+        async.forEach(
+        completedTasks,
+        function taskIterator(completedTask, callback) {
+            self.taskModel.updateItem(completedTask, function(err) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null);
+            }
+            });
+        },
+        function goHome(err) {
+            if (err) {
+            throw err;
+            } else {
+            res.redirect('/');
+            }
+        }
+        );
+    }
+    };
+    ```        
 4. Uložte a zavřete soubor **tasklist.js**.
 
 ### <a name="add-configjs"></a>Přidání souboru config.js
 1. V adresáři projektu vytvořte nový soubor s názvem **config.js**.
 2. Do souboru **config.js** přidejte následující: Tento kód definuje nastavení konfigurace a hodnoty, které aplikace potřebuje.
    
-        var config = {}
+    ```nodejs
+    let config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-        config.databaseId = "ToDoList";
-        config.collectionId = "Items";
+    config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.databaseId = "ToDoList";
+    config.collectionId = "Items";
    
-        module.exports = config;
+    module.exports = config;
+    ```
 3. V **config.js** souboru, aktualizujte hodnoty HOST a AUTH_KEY na hodnoty zjištěné v na stránce klíčů účtu Azure Cosmos DB [portálu Microsoft Azure](https://portal.azure.com).
 4. Uložte a zavřete soubor **config.js**.
 
 ### <a name="modify-appjs"></a>Úprava souboru app.js
 1. V adresáři projektu otevřete soubor **app.js**. Tento soubor byl vytvořen již dříve, při vytváření webové aplikace Express.
-2. Do horní části souboru **app.js** přidejte následující kód.
+2. Přidejte následující kód do horní části **app.js**:
    
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var config = require('./config');
-        var TaskList = require('./routes/tasklist');
-        var TaskDao = require('./models/taskDao');
+    ```nodejs
+    var DocumentDBClient = require('documentdb').DocumentClient;
+    var config = require('./config');
+    var TaskList = require('./routes/tasklist');
+    var TaskModel = require('./models/taskModel');
+    ```
 3. Tento kód definuje konfigurační soubor, který se má použít, a načte z něj do proměnných hodnoty, které brzy využijeme.
 4. Nahraďte v souboru **app.js** následující dva řádky:
    
-        app.use('/', index);
-        app.use('/users', users); 
+    ```nodejs
+    app.use('/', index);
+    app.use('/users', users); 
+    ```
    
-      následujícím fragmentem kódu:
+    následujícím fragmentem kódu:
    
-        var docDbClient = new DocumentDBClient(config.host, {
-            masterKey: config.authKey
-        });
-        var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
-        var taskList = new TaskList(taskDao);
-        taskDao.init();
+    ```nodejs
+    let docDbClient = new DocumentDBClient(config.host, {
+        masterKey: config.authKey
+    });
+    let taskModel = new TaskModel(docDbClient, config.databaseId, config.collectionId);
+    let taskList = new TaskList(taskModel);
+    taskModel.init();
    
-        app.get('/', taskList.showTasks.bind(taskList));
-        app.post('/addtask', taskList.addTask.bind(taskList));
-        app.post('/completetask', taskList.completeTask.bind(taskList));
-        app.set('view engine', 'jade');
-5. Tyto řádky definují novou instanci objektu **TaskDao** s novým připojením ke službě Azure Cosmos DB (pomocí hodnot přečtených ze souboru **config.js**), inicializují objekt úkolů a svážou akce formuláře s metodami kontroleru **TaskList**. 
+    app.get('/', taskList.showTasks.bind(taskList));
+    app.post('/addtask', taskList.addTask.bind(taskList));
+    app.post('/completetask', taskList.completeTask.bind(taskList));
+    app.set('view engine', 'jade');
+    ```
+5. Tyto řádky definují novou instanci třídy Naše **TaskModel** objektu s novým připojením k databázi Cosmos Azure (pomocí hodnot přečtených ze **config.js**), inicializují objekt úkolů a svážou akce formuláře s metody pro naše **TaskList** řadiče. 
 6. Nakonec soubor **app.js** uložte a zavřete a jsme téměř hotovi.
 
 ## <a name="_Toc395783181"></a>Krok 5: Vytvoření uživatelského rozhraní

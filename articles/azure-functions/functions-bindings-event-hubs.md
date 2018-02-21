@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs vazby pro Azure Functions
 
@@ -49,7 +49,7 @@ Když je funkce nejdřív povolené, je pouze 1 instancí funkce. Umožňuje vol
 
 * **Přidat 1 další instanci funkce** -logika škálování Azure Functions Určuje, že Function_0 má více zpráv, než může zpracovat, takže je vytvořena nová instance, Function_1,. Event Hubs zjistí, že novou instanci EPH se pokouší číst zprávy typu. Event Hubs se spustí vyrovnávání oddíly napříč instancemi EPH zatížení, například oddíly 0-4 jsou přiřazeny k Function_0 a oddíly 5-9 jsou přiřazeny k Function_1. 
 
-* **Přidat N funkce více instancí** -logiku škálování Azure Functions zjistí, že Function_0 a Function_1 více zpráv, než se může zpracovat. Změní měřítko znovu n Function_2..., kde N je větší než paritions centra událostí. Služba Event Hubs načte vyrovnávat oddíly ve Function_0... 9 instancí.
+* **Přidat N funkce více instancí** -logiku škálování Azure Functions zjistí, že Function_0 a Function_1 více zpráv, než se může zpracovat. Změní měřítko znovu n Function_2..., kde N je větší než oddíly centra událostí. Služba Event Hubs načte vyrovnávat oddíly ve Function_0... 9 instancí.
 
 Pro aktuální Azure Functions jedinečné škálování logiku je skutečnost, že N je větší než počet oddílů. To slouží k zajistěte, aby vždy instancí EPH snadno dostupné, jakmile budou k dispozici od dalších instancí rychle získat zámek na oddíly. Uživatelům se účtují poplatky za prostředky používá, když instance funkce provede a pro tento předimenzování poplatky neúčtujeme.
 
@@ -220,11 +220,11 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | musí být nastavena na `eventHubTrigger`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
-|**směr** | neuvedeno | musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
+|**Směr** | neuvedeno | musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
 |**name** | neuvedeno | Název proměnné, která představuje položku událostí v kódu funkce. | 
 |**path** |**EventHubName** | Název centra událostí. | 
 |**consumerGroup** |**ConsumerGroup** | Volitelná vlastnost, která nastavuje [skupiny příjemců](../event-hubs/event-hubs-features.md#event-consumers) používá přihlásit k odběru událostí v centru. Pokud tento parametr vynechán, `$Default` skupina uživatelů slouží. | 
-|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec k Centru událostí oboru názvů. Zkopírujte tento připojovací řetězec kliknutím **informace o připojení** tlačítko pro *obor názvů*, ne samotný centra událostí. Tento připojovací řetězec musí mít alespoň oprávnění ke čtení pro aktivační událost.|
+|**Připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec k Centru událostí oboru názvů. Zkopírujte tento připojovací řetězec kliknutím **informace o připojení** tlačítko pro *obor názvů*, ne samotný centra událostí. Tento připojovací řetězec musí mít alespoň oprávnění ke čtení pro aktivační událost.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -393,10 +393,10 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | Musí být nastavena na "eventHub". |
-|**směr** | neuvedeno | Musí být nastavena na "out". Tento parametr je nastaven automaticky při vytvoření vazby na portálu Azure. |
+|**Směr** | neuvedeno | Musí být nastavena na "out". Tento parametr je nastaven automaticky při vytvoření vazby na portálu Azure. |
 |**name** | neuvedeno | Název proměnné používá v kódu funkce, která představuje událost. | 
 |**path** |**EventHubName** | Název centra událostí. | 
-|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec k Centru událostí oboru názvů. Zkopírujte tento připojovací řetězec kliknutím **informace o připojení** tlačítko pro *obor názvů*, ne samotný centra událostí. Tento připojovací řetězec musí mít oprávnění pro odesílání k odeslání zprávy do datového proudu událostí.|
+|**Připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec k Centru událostí oboru názvů. Zkopírujte tento připojovací řetězec kliknutím **informace o připojení** tlačítko pro *obor názvů*, ne samotný centra událostí. Tento připojovací řetězec musí mít oprávnění pro odesílání k odeslání zprávy do datového proudu událostí.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -404,7 +404,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 V jazyce C# a C# skript, odesílání zpráv pomocí parametru metody `out string paramName`. V jazyce C# skript `paramName` je hodnota zadaná v `name` vlastnost *function.json*. Zápis více zpráv, můžete použít `ICollector<string>` nebo `IAsyncCollector<string>` místě `out string`.
 
-V jazyce JavaScript, přístup k výstupu událostí pomocí `context.bindings.<name>`. `<name>`Hodnota zadaná v `name` vlastnost *function.json*.
+V jazyce JavaScript, přístup k výstupu událostí pomocí `context.bindings.<name>`. `<name>` Hodnota zadaná v `name` vlastnost *function.json*.
 
 ## <a name="exceptions-and-return-codes"></a>Výjimky a návratové kódy
 

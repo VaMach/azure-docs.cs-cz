@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 007b530cd7a14f063ae4f86d18daa9742c6655c2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Podpora rozhraní API MongoDB pro MongoDB funkce a syntaxe
 
-Azure Cosmos DB je globálně distribuované databáze více modelu služby společnosti Microsoft. Může komunikovat s rozhraním API databázi MongoDB do některého z klienta s otevřeným zdrojem MongoDB [ovladače](https://docs.mongodb.org/ecosystem/drivers). Rozhraní API MongoDB umožňuje použití existujících ovladačů klienta tak, že se MongoDB [propojit protokol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Může komunikovat s rozhraním API databázi MongoDB do některého z klienta s otevřeným zdrojem MongoDB [ovladače](https://docs.mongodb.org/ecosystem/drivers). Rozhraní API MongoDB umožňuje použití existujících ovladačů klienta tak, že se MongoDB [propojit protokol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Pomocí rozhraní API služby Azure DB Cosmos MongoDB, můžete využívat výhod API MongoDB jste zvyklí, se všechny funkce enterprise Azure Cosmos DB: [globální distribuční](distribute-data-globally.md), [automatického dělení](partition-data.md), dostupnost a latence záruky automatické indexování každé pole, šifrování v rest, zálohování a mnoho dalšího.
 
@@ -36,13 +36,13 @@ Rozhraní API MongoDB DB Cosmos Azure poskytuje komplexní podporu pro jazykové
 Azure Cosmos DB podporuje následující databáze příkazy ke všem účtům rozhraní API MongoDB. 
 
 ### <a name="query-and-write-operation-commands"></a>Příkazy pro operaci dotazu a zápisu
-- Odstranit
+- odstraňovat
 - Najít
 - findAndModify
 - getLastError
 - getMore
 - Vložení
-- Aktualizace
+- update
 
 ### <a name="authentication-commands"></a>Příkazy ověřování
 - odhlásit
@@ -59,7 +59,7 @@ Azure Cosmos DB podporuje následující databáze příkazy ke všem účtům r
 - listIndexes
 - dropIndexes
 - ConnectionStatus
-- Opětovná indexace
+- reIndex
 
 ### <a name="diagnostics-commands"></a>Příkazy diagnostiky
 - buildInfo
@@ -77,7 +77,7 @@ Azure Cosmos DB podporuje kanál agregace ve verzi public preview. Najdete v čl
 
 ### <a name="aggregation-commands"></a>Příkazy agregace
 - agregace
-- Počet
+- počet
 - Odlišné
 
 ### <a name="aggregation-stages"></a>Agregace fázích
@@ -212,7 +212,7 @@ Podporuje následující operátory odpovídající příkladů jeho použití. 
 }
 ```
 
-Operátor | Příklad |
+Operátor | Příklad: |
 --- | --- |
 $eq | ``` { "Volcano Name": { $eq: "Rainier" } } ``` |  | -
 $gt | ``` { "Elevation": { $gt: 4000 } } ``` |  | -
@@ -237,10 +237,37 @@ V dotazech $regex povolit ukotvené vlevo výrazy indexu vyhledávání. Však p
 Pokud je potřeba zahrnout '$' nebo ' |', je vhodné vytvořit dotazy, regex dva (nebo více). Například uděleno následující původní dotaz: ```find({x:{$regex: /^abc$/})```, musí být upraven následujícím způsobem: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 První část použije index omezit výsledky vyhledávání na tyto dokumenty počínaje ^ abc a druhá část bude odpovídat přesně položky. Na panelu operátor ' |' funguje jako funkce "nebo" - dotaz ```find({x:{$regex: /^abc|^def/})``` odpovídá whin dokumenty, které pole 'x' má hodnotu, která začíná "abc" nebo "def". Abyste mohli využívat indexu, se doporučuje rozdělit na dvě různé dotazy, které jsou připojené k $ nebo – operátor dotazu: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### <a name="update-operators"></a>Aktualizace operátory
+
+#### <a name="field-update-operators"></a>Pole aktualizace operátory
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $nenastavené
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>Pole aktualizace operátory
+- $addToSet
+- $pop
+- $pullAll
+- $pull (Poznámka: není podporováno $pull s podmínkou)
+- $pushAll
+- $push
+- $Každý
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>Operátor bitového aktualizace
+- $bit
 
 ### <a name="geospatial-operators"></a>Geoprostorové operátory
 
-Operátor | Příklad 
+Operátor | Příklad: 
 --- | --- |
 $geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Ano
 $geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ano
@@ -256,13 +283,13 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 ## <a name="additional-operators"></a>Další operátory
 
-Operátor | Příklad | Poznámky 
+Operátor | Příklad: | Poznámky 
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` | 
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Není podporováno. Místo toho použijte $regex 
+$text |  | Nepodporuje se. Místo toho použijte $regex 
 
 ### <a name="methods"></a>Metody
 
@@ -270,9 +297,9 @@ Podporovány jsou následující metody:
 
 #### <a name="cursor-methods"></a>Kurzor metody
 
-Metoda | Příklad | Poznámky 
+Metoda | Příklad: | Poznámky 
 --- | --- | --- |
-Cursor.Sort() | ```cursor.sort({ "Elevation": -1 })``` | Získat nebyla vrácena dokumenty bez klíč řazení
+cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Získat nebyla vrácena dokumenty bez klíč řazení
 
 ## <a name="unique-indexes"></a>Jedinečné indexy
 
@@ -292,11 +319,11 @@ Azure Cosmos DB zatím nepodporuje uživatelů a rolí. Řízení přístupu na 
 
 Azure Cosmos DB podporuje automatické, nativní replikace na nejnižší vrstvy. Tato logika je rozšířeno na zajistit také s nízkou latencí, globální replikace. Azure Cosmos DB nepodporuje příkazy ruční replikace.
 
-## <a name="sharding"></a>Horizontálního dělení
+## <a name="sharding"></a>Sharding
 
 Azure Cosmos DB podporuje automatické, serverový horizontálního dělení. Azure Cosmos DB nepodporuje příkazy ruční horizontálního dělení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zjistěte, jak [použít Studio 3T](mongodb-mongochef.md) pomocí rozhraní API pro databázi MongoDB.
 - Zjistěte, jak [použít Robo 3T](mongodb-robomongo.md) pomocí rozhraní API pro databázi MongoDB.

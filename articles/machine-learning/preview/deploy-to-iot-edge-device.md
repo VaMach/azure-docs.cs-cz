@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e33ff3fdc38b5aca6bbaef2c1ac6888217797541
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Model Azure Machine Learning nasadit do Azure IoT hraniční zařízení
 
 Všechny modely Azure Machine Learning kontejnerizované jako na základě Docker webové služby, můžete spustit také na Azure IoT hraniční zařízení. Další skripty a pokyny najdete v [AI nástrojů pro Azure IoT Edge](http://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Zprovoznit model
-Váš model zprovoznit podle pokynů v [nasazení služby webové Model Azure Machine Learning Management](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy) vytvoření bitové kopie Docker se svým modelem.
+Váš model zprovoznit podle pokynů v [nasazení služby webové Model Azure Machine Learning Management](model-management-service-deploy.md) vytvoření bitové kopie Docker se svým modelem.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Nasazení do Azure IoT Edge
 Azure IoT Edge přesune cloudu analýzy a vlastní obchodní logiku do zařízení. Všechny modely Machine Learning můžete spustit na IoT hraniční zařízení. V dokumentaci k nastavení IoT hraniční zařízení a vytváření nasazení naleznete na [aka.ms/azure-iot-edge-doc](https://aka.ms/azure-iot-edge-doc).

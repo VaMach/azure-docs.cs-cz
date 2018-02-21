@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ed06b869f1c8fb98d8b70693723b1a0fee3605fc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Zásady omezení přístupu služby API Management
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="AccessRestrictionPolicies"></a>Zásady omezení přístupu  
+##  <a name="AccessRestrictionPolicies"></a> Zásady omezení přístupu  
   
 -   [Kontrola HTTP záhlaví](api-management-access-restriction-policies.md#CheckHTTPHeader) -vynucuje existence nebo hodnoty hlavičky protokolu HTTP.  
 -   [Omezení četnosti volání podle předplatného](api-management-access-restriction-policies.md#LimitCallRate) -špičky využití brání rozhraní API omezením četnosti volání, na základě za předplatné.  
@@ -33,7 +33,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 -   [Nastavení kvóty využití podle klíče](#SetUsageQuotaByKey) -umožňuje vynucovat obnovitelných nebo doba života volání svazku nebo šířky pásma kvótu, na základě na klíč.  
 -   [Ověření JWT](api-management-access-restriction-policies.md#ValidateJWT) -vynucuje existence a platnosti token JWT extrahovány ze zadaného záhlaví HTTP nebo parametr zadaný dotaz.  
   
-##  <a name="CheckHTTPHeader"></a>Zkontrolujte hlavičky protokolu HTTP  
+##  <a name="CheckHTTPHeader"></a> Zkontrolujte hlavičky protokolu HTTP  
  Použití `check-header` zásady vynutit, aby požadavek má zadanou hlavičku HTTP. Volitelně můžete zkontrolovat zda záhlaví obsahuje konkrétní hodnotu nebo zkontrolujte rozsah povolených hodnot. Pokud kontrola selže, zásady ukončí zpracování žádosti a vrátí stav kód a chybová zpráva HTTP určena v zásadách.  
   
 ### <a name="policy-statement"></a>Prohlášení o zásadách  
@@ -76,7 +76,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 -   **Zásady obory:** globální, produktu, rozhraní API, operace  
   
-##  <a name="LimitCallRate"></a>Omezení četnosti volání podle předplatného  
+##  <a name="LimitCallRate"></a> Omezení četnosti volání podle předplatného  
  `rate-limit` Zásada brání API nárazovým zvýšením požadavků na základě předplatného za omezením četnosti volání na zadaný počet za zadané časové období. Když se aktivuje tuto zásadu volající obdrží `429 Too Many Requests` stavový kód odpovědi.  
   
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 -   **Zásady obory:** produktu  
   
-##  <a name="LimitCallRateByKey"></a>Omezení četnosti volání podle klíče  
+##  <a name="LimitCallRateByKey"></a> Omezení četnosti volání podle klíče  
  `rate-limit-by-key` Zásada brání API nárazovým zvýšením požadavků na základě za klíč omezením četnosti volání na zadaný počet za zadané časové období. Klíč může mít hodnotu libovolný řetězec a se většinou poskytuje pomocí výrazů zásad. Volitelné Přírůstek podmínku můžete přidat k určení, které požadavky mělo být započítáno směrem limit. Když se aktivuje tuto zásadu volající obdrží `429 Too Many Requests` stavový kód odpovědi.  
   
  Další informace a příklady těchto zásad najdete v tématu [pokročilé omezování požadavků pomocí Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -189,7 +189,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 -   **Zásady obory:** globální, produktu, rozhraní API, operace  
   
-##  <a name="RestrictCallerIPs"></a>Omezit volající IP adresy  
+##  <a name="RestrictCallerIPs"></a> Omezit volající IP adresy  
  `ip-filter` Zásad filtry (umožňuje nebo zakazuje) volání z konkrétní IP adresy a rozsahy adres.  
   
 ### <a name="policy-statement"></a>Prohlášení o zásadách  
@@ -231,7 +231,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 -   **Části zásady:** příchozí  
 -   **Zásady obory:** globální, produktu, rozhraní API, operace  
   
-##  <a name="SetUsageQuota"></a>Nastavení kvóty využití podle předplatného  
+##  <a name="SetUsageQuota"></a> Nastavení kvóty využití podle předplatného  
  `quota` Zásady vynucují obnovitelných nebo doba života volání svazku nebo šířky pásma kvótu, na základě za předplatné.  
   
 > [!IMPORTANT]
@@ -286,7 +286,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 -   **Části zásady:** příchozí  
 -   **Zásady obory:** produktu  
   
-##  <a name="SetUsageQuotaByKey"></a>Nastavení kvóty využití podle klíče  
+##  <a name="SetUsageQuotaByKey"></a> Nastavení kvóty využití podle klíče  
  `quota-by-key` Zásady vynucují obnovitelných nebo doba života volání svazku nebo šířky pásma kvótu, na základě na klíč. Klíč může mít hodnotu libovolný řetězec a se většinou poskytuje pomocí výrazů zásad. Volitelné Přírůstek podmínku můžete přidat k určení, které požadavky mělo být započítáno směrem kvótu.  
   
  Další informace a příklady těchto zásad najdete v tématu [pokročilé omezování požadavků pomocí Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -346,11 +346,11 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 -   **Části zásady:** příchozí  
 -   **Zásady obory:** globální, produktu, rozhraní API, operace  
   
-##  <a name="ValidateJWT"></a>Ověřit token JWT  
+##  <a name="ValidateJWT"></a> Ověřit token JWT  
  `validate-jwt` Zásady vynucují existence a platnosti token JWT extrahovat z buď zadané hlavičky protokolu HTTP nebo parametr zadaný dotaz.  
   
 > [!IMPORTANT]
->  `validate-jwt` Zásad vyžaduje, aby `exp` není registrovaný deklarace inlcuded v tokenu JWT, pokud `require-expiration-time` atribut je zadán a nastavený na `false`.  
+>  `validate-jwt` Zásad vyžaduje, aby `exp` registrované deklarace identity je součástí JWT token, pokud `require-expiration-time` atribut je zadán a nastavený na `false`.  
 > `validate-jwt` Zásad podporuje HS256 a RS256 podpisový algoritmy. Pro HS256 klíč je třeba zadat vložené v rámci zásady v podobě kódováním base64. RS256 klíč má zajistit prostřednictvím koncového bodu Open ID konfigurace.  
   
 ### <a name="policy-statement"></a>Prohlášení o zásadách  
@@ -502,7 +502,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 |failed-validation-httpcode|Kód stavu HTTP vrátit, pokud není položka JWT projít ověřením.|Ne|401|  
 |header-name|Název záhlaví HTTP, která uchovává token.|Buď `header-name` nebo `query-paremeter-name` musí být zadaný; ale ne pomocí obou.|neuvedeno|  
 |id|`id` Atributu u `key` element umožňuje zadejte řetězec, který bude odpovídat proti `kid` deklarací identity v tokenu (pokud existuje) a zjistěte, příslušný klíč k ověření podpisu.|Ne|neuvedeno|  
-|Shoda|`match` Atributu u `claim` element určuje, zda každá hodnota deklarace identity v zásady musí být přítomen v tokenu pro ověření úspěšné. Možné hodnoty:<br /><br /> -                          `all`-Každá hodnota deklarace identity v zásady musí být v tokenu pro ověření úspěšné.<br /><br /> -                          `any`-Hodnota nejméně jedna deklarace identity musí být přítomen v tokenu pro ověření úspěšné.|Ne|all|  
+|Shoda|`match` Atributu u `claim` element určuje, zda každá hodnota deklarace identity v zásady musí být přítomen v tokenu pro ověření úspěšné. Možné hodnoty:<br /><br /> -                          `all` -Každá hodnota deklarace identity v zásady musí být v tokenu pro ověření úspěšné.<br /><br /> -                          `any` -Hodnota nejméně jedna deklarace identity musí být přítomen v tokenu pro ověření úspěšné.|Ne|all|  
 |query-paremeter-name|Název parametr dotazu tokenem.|Buď `header-name` nebo `query-paremeter-name` musí být zadaný; ale ne pomocí obou.|neuvedeno|  
 |požadovat čas vypršení platnosti|Logická hodnota. Určuje, zda deklaraci identity vypršení platnosti je vyžadováno v tokenu.|Ne|true (pravda)|
 |require-scheme|Název tokenu scheme, například "Nosiče". Když tento atribut nastavený, zásady zajistí, že zadané schéma je k dispozici v Hodnota hlavičky ověřování.|Ne|neuvedeno|
