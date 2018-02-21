@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Postup při vytváření vývojové infrastruktury ve virtuálním počítači s Linuxem v Azure pomocí Jenkinse, GitHubu a Dockeru
 K automatizaci fázi sestavení a testování v rámci vývoje aplikace můžete použít kanál průběžné integrace a nasazení (CI/CD). V tomto kurzu vytvoříte kanál CI/CD na virtuálním počítači Azure a také se naučíte:
@@ -68,13 +68,13 @@ runcmd:
   - service jenkins restart
 ```
 
-Než budete moct vytvořit virtuální počítač, vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků *myResourceGroupJenkins* v umístění *eastus*:
+Než budete moct vytvořit virtuální počítač, vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků *myResourceGroupJenkins* v umístění *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Teď pomocí příkazu [az vm create](/cli/azure/vm#create) vytvořte virtuální počítač. Pomocí parametru `--custom-data` předejte svůj konfigurační soubor cloud-init. Zadejte úplnou cestu k souboru *cloud-init-jenkins.txt*, pokud jste ho uložili mimo aktuální pracovní adresář.
+Teď pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create) vytvořte virtuální počítač. Pomocí parametru `--custom-data` předejte svůj konfigurační soubor cloud-init. Zadejte úplnou cestu k souboru *cloud-init-jenkins.txt*, pokud jste ho uložili mimo aktuální pracovní adresář.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -87,7 +87,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Vytvoření a konfigurace virtuálního počítače trvá několik minut.
 
-Pokud chcete ve virtuálním počítači povolit webový provoz, pomocí příkazu [az vm open-port](/cli/azure/vm#open-port) otevřete port *8080* pro provoz Jenkinse a port *1337* pro aplikaci Node.js používanou ke spouštění ukázkové aplikace:
+Pokud chcete ve virtuálním počítači povolit webový provoz, pomocí příkazu [az vm open-port](/cli/azure/vm#az_vm_open_port) otevřete port *8080* pro provoz Jenkinse a port *1337* pro aplikaci Node.js používanou ke spouštění ukázkové aplikace:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001

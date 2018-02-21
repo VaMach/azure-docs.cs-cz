@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Instanční objekty se službou Azure Container Service (AKS)
 
@@ -35,7 +35,7 @@ Při nasazování clusteru AKS pomocí příkazu `az aks create` máte možnost 
 V následujícím příkladu se vytvoří cluster AKS, a protože není zadaný existující instanční objekt, vytvoří se pro cluster nový instanční objekt. Pro dokončení této operace musí mít váš účet příslušná práva k vytvoření instančního objektu.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Použití existujícího instančního objektu
@@ -67,7 +67,7 @@ Výstup je podobný tomuto. Poznamenejte si hodnoty `appId` a `password`. Tyto h
 Pokud chcete použít předem vytvořený instanční objekt, zadejte `appId` a `password` jako hodnoty argumentů příkazu `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 Pokud nasazujete cluster AKS pomocí webu Azure Portal, zadejte ve formuláři konfigurace clusteru AKS hodnotu `appId` do pole **ID klienta instančního objektu** a hodnotu `password` do pole **Tajný kód klienta instančního objektu**.

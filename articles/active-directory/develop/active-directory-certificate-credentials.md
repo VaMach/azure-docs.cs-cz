@@ -41,7 +41,7 @@ Vypočítat kontrolní výraz, budete pravděpodobně chtít použít jednu z da
 
 | Parametr |  Poznámka |
 | --- | --- | --- |
-| `aud` | Cílová skupina: By měla být  **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token ** |
+| `aud` | Cílová skupina: By měla být **https://login.microsoftonline.com/*tenant_Id* /oauth2/token** |
 | `exp` | Datum vypršení platnosti: datum vypršení platnosti tokenu. Čas je reprezentován jako počet sekund od 1. ledna 1970 (pod hodnotou 1970-01-01T0:0:0Z) UTC až do okamžiku vypršení platnosti tokenu.|
 | `iss` | Vystavitel: by měla být client_id (Id aplikace služby klienta) |
 | `jti` | Identifikátor GUID: JWT ID |
