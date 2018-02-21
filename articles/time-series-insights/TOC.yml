@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Zmírnění omezování
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Vysvětlení uchovávání dat
+      href: time-series-insights-concepts-retention.md
     - name: Diagnostika a řešení potíží
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Vývoj
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Připojení ke službě IoT Hub
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Konfigurace uchovávání dat
+      href: time-series-insights-how-to-configure-retention.md
     - name: Vytvoření referenční sady dat
       href: time-series-insights-add-reference-data-set.md
     - name: Odesílání událostí

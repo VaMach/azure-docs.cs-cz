@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Omezení prostředků Azure SQL Database
 
@@ -53,7 +53,7 @@ Délka trvání celého procesu vertikálního navyšování kapacity závisí n
 
 * Pokud provádíte upgrade na vyšší úroveň výkonu a vrstvu služby, maximální velikost databáze se nezvyšuje, pokud je explicitně zadat větší velikost (maxsize).
 * Přejít na starší verzi databáze, databáze používá prostor musí být menší než maximální povolená velikost úroveň cílové služby a výkonu. 
-* Když přechod na starší verzi z **Premium** nebo **Premium RS** k **standardní** vrstvy, náklady na úložiště navíc platí v případě, že oba (1) maximální velikost databáze je podporována v cíl úroveň výkonu a (2) překračuje maximální velikost úložiště zahrnuté množství na úroveň výkonu cílové. Například pokud databázi P1 a maximální velikost 500 GB je downsized k S3, pak náklady na úložiště navíc platí od S3 podporuje maximální velikost 500 GB a jeho součástí úložiště je pouze 250 GB. Ano velikost úložiště je 500 GB – 250 GB = 250 GB. Ceny navíc úložiště, najdete v části [SQL Database – ceny](https://azure.microsoft.com/pricing/details/sql-database/). Pokud skutečná velikost využitého místa je menší než množství součástí úložiště, pak tato zpoplatněné se vyhnout snížením maximální velikost databáze na zahrnuté množství. 
+* Když přechod na starší verzi z **Premium** k **standardní** vrstvy, náklady na úložiště navíc platí v případě, že (1) je maximální velikost databáze je podporována v úroveň výkonu cílové i (2) je maximální velikost překračuje úložiště zahrnuté množství na úroveň výkonu cílové. Například pokud databázi P1 a maximální velikost 500 GB je downsized k S3, pak náklady na úložiště navíc platí od S3 podporuje maximální velikost 500 GB a jeho součástí úložiště je pouze 250 GB. Ano velikost úložiště je 500 GB – 250 GB = 250 GB. Ceny navíc úložiště, najdete v části [SQL Database – ceny](https://azure.microsoft.com/pricing/details/sql-database/). Pokud skutečná velikost využitého místa je menší než množství součástí úložiště, pak tato zpoplatněné se vyhnout snížením maximální velikost databáze na zahrnuté množství. 
 * Při upgradování databáze s [geografická replikace](sql-database-geo-replication-portal.md) povoleno, upgradujte její sekundární databáze úrovně požadovaný výkon před upgradem primární databáze (Obecné pokyny). Při upgradu na jiný, upgrade sekundární databázi nejprve je vyžadováno.
 * Když přechod na starší verzi databáze s [geografická replikace](sql-database-geo-replication-portal.md) povoleno, starší verzi její primární databáze k vrstvě požadovaný výkon před snížením sekundární databáze (Obecné pokyny). Při přechod na starší verzi na jinou edici, přechod na starší verzi primární databáze nejprve je vyžadováno.
 * Nabídky služeb pro obnovení se u různých úrovní služeb liší. Pokud jsou Downgrade k **základní** vrstvy, není obdobím uchovávání záloh – viz [zálohy databáze SQL Azure](sql-database-automated-backups.md).
@@ -111,6 +111,10 @@ Můžete zvýšit nebo snížit fondu elastické databáze podle prostředků vy
 - Obecně platí, doba trvání, chcete-li změnit minimální počet jednotek Edtu na databázi nebo max Edtu na databázi je pět minut nebo méně.
 - Při downsizing fondu, musí být menší než maximální povolená velikost cílové služby vrstvy a fond Edtu fondu používá místo.
 - Pokud změny měřítka fondu, náklady na úložiště navíc platí v případě, že cílový fond podporuje (1) je maximální velikost fondu úložiště, a (2) je maximální velikost úložiště přesahuje úložiště zahrnuté množství cílový fond. Například pokud 100 eDTU a maximální velikost 100 GB standardní fond je downsized na 50 eDTU standardní fond, pak náklady na úložiště navíc platí vzhledem k tomu, že cílový fond podporuje maximální velikost 100 GB a jeho součástí úložiště je jenom 50 GB. Velikost úložiště, takže je 100 GB – 50 GB = 50 GB. Ceny navíc úložiště, najdete v části [SQL Database – ceny](https://azure.microsoft.com/pricing/details/sql-database/). Pokud skutečná velikost využitého místa je menší než množství součástí úložiště, pak tato zpoplatněné se vyhnout snížením maximální velikost databáze na zahrnuté množství. 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Jaký je maximální počet serverů a databází?
+
+Maximální počet serverů za předplatné na oblast je 21. Maximální počet databází na serveru je 5 000. Jsou to analýza velikosti zavedených experimentálně podle datové části Doporučené omezení, analýzy kolekce logické hlavní telemetrie a několik další aspekty. Můžete požádat na tato omezení překročí zadaný zůstat v rámci svojí kvóty DTU. Jak velká počet databází a servery, je problém, který se setkají kolekce statistik prostředků v logické hlavní a kolizí na operace správy. Tyto problémy nejsou závažné; zvýší se latence.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Co se stane, když se dosáhne databáze a limitů elastického fondu prostředků?
 

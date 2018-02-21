@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-network-security-overview"></a>Přehled zabezpečení sítě Azure
 Microsoft Azure obsahuje robustní síťové infrastruktury pro podporu aplikací a služeb požadavky na připojení. Připojení k síti je možné mezi prostředky, které jsou umístěné v Azure, mezi místními a Azure hostovaným prostředkům a do a z Internetu a Azure.
@@ -41,7 +41,7 @@ Třeba virtuální počítače připojení k síti. Pro podporu tohoto požadavk
 
 Další informace:
 
-* [Přehled virtuálních sítí](../virtual-network/virtual-networks-overview.md)
+* [Přehled služby Virtual Network](../virtual-network/virtual-networks-overview.md)
 
 
 ## <a name="network-access-control"></a>Řízení přístupu k síti
@@ -217,7 +217,7 @@ Pro interní překlad adres máte dvě možnosti:
 
 Další informace:
 
-* [Přehled virtuálních sítí](../virtual-network/virtual-networks-overview.md)
+* [Přehled služby Virtual Network](../virtual-network/virtual-networks-overview.md)
 * [Správa serverů DNS používaných virtuální síť (VNet)](../virtual-network/virtual-network-manage-network.md#dns-servers)
 
 Pro externí překlad DNS máte dvě možnosti:

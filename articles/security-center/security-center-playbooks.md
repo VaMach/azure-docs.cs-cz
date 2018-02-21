@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook zabezpečení v Azure Security Center (Preview)
 Tento dokument vám pomůže reagovat na problémy související se zabezpečením pomocí playbooků zabezpečení v Azure Security Center.
@@ -35,7 +35,7 @@ Pokud chcete ve službě Security Center vytvořit nový playbook zabezpečení,
 1.  Otevřete řídicí panel **Security Center**.
 2.  V části **Automatizace a orchestrace** v levém podokně klikněte na **Playbooky (Preview)**.
 
-    ![Aplikace logiky](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![Aplikace logiky](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. Na stránce **Security Center – Playbooky (Preview)** klikněte na tlačítko **Přidat**.
 

@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 6fede727a36b0f3243975bf23df2ef53baf1b15c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 630e6e22bb41c777a043a7e6580239e254db9f1f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-2---december-2017"></a>Sprint 2 – prosinec 2017 
 
 #### <a name="version-number-01171115263"></a>Číslo verze: 0.1.1711.15263
 
->Zde je, jak můžete [najít číslo verze](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Zde je, jak můžete [najít číslo verze](known-issues-and-troubleshooting-guide.md).
 
 Vítá vás třetí aktualizace Azure Machine Learning Workbench. Tato aktualizace obsahuje vylepšení v aplikaci workbench, rozhraní příkazového řádku (CLI) a back endové služby. Děkujeme pro odesílání úsměvy a frowns. Řadu následující aktualizace jsou vytvářeny jako přímý výsledky váš názor. 
 
 ## <a name="notable-new-features"></a>Upozorňují na důležité nové funkce
-- [Podpora pro SQL Server a databázi SQL Azure jako zdroj dat](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Podpora pro SQL Server a databázi SQL Azure jako zdroj dat](data-prep-appendix2-supported-data-sources.md#types) 
 - [Hloubkové Learning na Spark s podporou GPU pomocí MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [Všechny kontejnery AML jsou kompatibilní s Azure IoT hraniční zařízení po nasazení (žádné další kroky požadované)](http://aka.ms/aml-iot-edge-blog)
 - Seznam registrovaných modelu a podrobnosti zobrazení k dispozici portál Azure
@@ -56,7 +56,7 @@ Následuje seznam podrobné aktualizací v oblasti Azure Machine Learning v tét
 
 - Vylepšení výkonu při doporučujeme edge případech zkontrolujte v transformaci 'odvozena sloupec podle příkladu.
 
-- [Podpora pro SQL Server a databázi SQL Azure jako zdroj dat](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Podpora pro SQL Server a databázi SQL Azure jako zdroj dat](data-prep-appendix2-supported-data-sources.md#types) 
 
 ![Obrázek vytvoříte nový zdroj dat serveru SQL](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ Teď můžete vytvářet a přístup k remotedocker nebo clusteru cíli typu vý
 
 - Můžete připravit tento cíl výpočetní a použít jej pro spuštění a Azure ML Workbench budou používat tento klíč pro ověřování.  
 
-Další informace o vytváření výpočetní cíle, najdete v části [konfigurace služby Azure Machine Learning experimentování](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration)
+Další informace o vytváření výpočetní cíle, najdete v části [konfigurace služby Azure Machine Learning experimentování](experimentation-service-configuration.md)
 
 ### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools pro AI
 - Přidání podpory pro [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
@@ -115,5 +115,5 @@ Další informace o vytváření výpočetní cíle, najdete v části [konfigur
 ## <a name="breaking-changes"></a>NEJNOVĚJŠÍ ZMĚNY
 - Povýší `--type` přepínač ve `az ml computetarget attach` na dílčí příkaz. 
 
-    - `az ml computetarget attach --type remotedocker`je nyní`az ml computetarget attach remotedocker`
-    - `az ml computetarget attach --type cluster`je nyní`az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker` je nyní `az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster` je nyní `az ml computetarget attach cluster`

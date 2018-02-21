@@ -1,10 +1,10 @@
 ---
 title: "Připojení počítače k virtuální síti pomocí ověřování Point-to-Site a protokolu RADIUS: prostředí PowerShell | Azure"
-description: "Bezpečně připojení počítače k službě Azure Virtual Network vytvořením připojení brány VPN Point-to-Site, která používá ověřování pomocí protokolu RADIUS."
+description: "Zabezpečené připojení klientů systému Windows a Mac OS X k virtuální netowrk pomocí ověřování P2S a protokolu RADIUS."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 13ae129eefb717f22db25ab29232fe1efe69a8ce
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurace připojení typu Point-to-Site k virtuální síti pomocí ověřování protokolu RADIUS: prostředí PowerShell
 
@@ -235,6 +235,8 @@ V dialogovém okně Síť vyhledejte klientský profil, který chcete použít, 
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
   ```
+
+K vyřešení připojení P2S najdete v tématu [připojení point-to-site řešení potíží s Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 
 ## <a name="connectVM"></a>Připojení k virtuálnímu počítači
 

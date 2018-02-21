@@ -84,26 +84,10 @@ sql-database-elastic-pool.md
 | Maximální velikost úložiště na databázi (GB) * | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Omezení elastického fondu Premium RS
-
-| Počet eDTU na fond | **125** | **250** | **500** | **1000** |
-|:---|---:|---:|---:| ---: | ---: | 
-| Zahrnuté úložiště na jeden fond (GB) | 250 | 500 | 750 | 750 |
-| Maximální počet možností úložiště na jeden fond (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Maximální počet OLTP v paměti úložiště na jeden fond (GB) | 1 | 2 | 4 | 10 |
-| Maximální počet databází pro každý fond | 50 | 100 | 100 | 100 |
-| Maximální počet souběžných pracovních procesů (požadavků) na fond | 200 | 400 | 800 | 1600 |
-| Maximální počet souběžných přihlášení na fond | 200 | 400 | 800 | 1600 |
-| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 |
-| Možnosti min Edtu na databázi | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1 000 |
-| Možnosti Max Edtu na databázi | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1 000 | 
-| Maximální velikost úložiště na databázi (GB) * | 1024 | 1024 | 1024 | 1024 | 
-||||||||
-
 > [!IMPORTANT]
 > \* Velikosti úložiště větší než velikost zahrnutého úložiště jsou ve verzi Preview a účtují se za ně další poplatky. Podrobnosti najdete v tématu [SQL Database stránce s cenami](https://azure.microsoft.com/pricing/details/sql-database/). Úložiště velikosti větší než velikost zahrnuté úložiště jsou ve verzi preview a poplatkům použít. Podrobnosti najdete v tématu [SQL Database stránce s cenami](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \*Ve vrstvě | Premium je více než 1 TB úložiště aktuálně k dispozici v následujících oblastech: Austrálie – východ, Austrálie – jihovýchod, Střední Kanada, Východní Kanada, Francie centrální, Německo centrální Japonsko – východ, centrální Korejská – Jih, střed USA – jih východní Asie, nám East2 , Západ USA, Virginia verze pro státní správu USA a západní Evropa. 
+> \* Ve vrstvě | Premium je více než 1 TB úložiště aktuálně k dispozici v následujících oblastech: Austrálie – východ, Austrálie – jihovýchod, Střední Kanada, Východní Kanada, Francie centrální, Německo centrální Japonsko – východ, centrální Korejská – Jih, střed USA – jih východní Asie, nám East2 , Západ USA, Virginia verze pro státní správu USA a západní Evropa. 
 >
->\*\*Minimální nebo maximální počet jednotek Edtu na databázi počínaje na 200 Edtu a vyšší **standardní** fondy jsou ve verzi preview.
+>\*\* Minimální nebo maximální počet jednotek Edtu na databázi počínaje na 200 Edtu a vyšší **standardní** fondy jsou ve verzi preview.
 >

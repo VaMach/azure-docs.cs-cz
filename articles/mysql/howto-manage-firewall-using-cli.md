@@ -9,21 +9,19 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 01/18/2018
-ms.openlocfilehash: 1738fdd85391135357d34fefa878538866f21b91
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.date: 02/12/2018
+ms.openlocfilehash: 77254d91bcfa7cbd6070e3baeb98fd7cc5ad44cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Vytvářet a spravovat databáze Azure pro pravidla brány firewall MySQL pomocí rozhraní příkazového řádku Azure
 Pravidla brány firewall na úrovni serveru umožňují správcům řídit přístup k databázi Azure pro Server databáze MySQL z konkrétní IP adresu nebo rozsah IP adres. Pomocí vhodného rozhraní příkazového řádku Azure, můžete vytvořit, aktualizovat, odstranit, seznamu a zobrazit pravidla brány firewall ke správě serveru. Přehled informací o Azure databáze MySQL brány firewall, najdete v článku [databáze Azure pro pravidla brány firewall serveru MySQL](./concepts-firewall-rules.md)
 
 ## <a name="prerequisites"></a>Požadavky
 * [Instalace rozhraní příkazového řádku Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* Instalace Azure Python SDK for PostgreSQL a MySQL služby.
-* Nainstalujte součást příkazového řádku Azure CLI pro služby PostgreSQL a databáze MySQL.
-* Vytvoření databáze Azure pro server databáze MySQL.
+* [Azure databáze MySQL server a databáze](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Příkazy pravidlo brány firewall:
 **Az mysql pravidla brány firewall-** příkaz z příkazového řádku Azure slouží k vytvoření, odstranění, seznam, zobrazit a aktualizovat pravidla brány firewall.
@@ -62,27 +60,27 @@ Tento příkaz vypíše kódu pro použití v dalším kroku.
    Poznámka: v seznamu, který je třeba zadat server MySQL pro práci na atribut názvu. V případě potřeby potvrďte podrobnosti pro tento server a ujistěte se, že je správně pomocí atribut názvu. Použití [az mysql serveru zobrazit](/cli/azure/mysql/server#az_mysql_server_show) příkaz.
 
    ```azurecli-interactive
-   az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
+   az mysql server show --resource-group myResourceGroup --name mydemoserver
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Seznam pravidel brány firewall v databázi Azure pro Server databáze MySQL 
 Pomocí názvu serveru a název skupiny prostředků, seznamu existující pravidla brány firewall serveru na serveru. Použití [az mysql server brány firewall seznamu](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_list) příkaz.  Všimněte si, že je atribut název serveru zadaný v **– server** přepínače a nikoli v **– název** přepínače. 
 ```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mysqlserver4demo
+az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver
 ```
 Výstup obsahuje pravidla, pokud existuje, ve formátu JSON formátu (ve výchozím nastavení). Můžete použít **– výstupní tabulku** přepínače k vypsání výsledků v přehlednějším tvaru tabulky.
 ```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mysqlserver4demo --output table
+az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver --output table
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mysql-server"></a>Vytvořte pravidlo brány firewall v databázi Azure pro Server databáze MySQL
 Pomocí Azure MySQL název serveru a název skupiny prostředků, vytvořte nové pravidlo brány firewall na serveru. Použití [vytvoření brány firewall serveru mysql az](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) příkaz. Zadejte název pravidla a také počáteční IP adresa a koncovou IP (pro poskytování přístupu k rozsahu IP adres) pro pravidlo.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
+az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 
 Povolit přístup pro jednu IP adresu, zadejte stejnou IP adresu jako počáteční IP a koncové IP adresy, jako v následujícím příkladu.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
+az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
 
 Povolit aplikacím z Azure IP adres se připojit k vaší databázi Azure pro server databáze MySQL, zadejte IP adresu 0.0.0.0 jako počáteční IP a koncové IP adresy, jako v následujícím příkladu.
@@ -100,7 +98,7 @@ Po úspěšné vytvářet každý příkaz výstup uvádí podrobnosti o pravidl
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Aktualizace databáze Azure pravidlo brány firewall pro server databáze MySQL 
 Pomocí Azure MySQL název serveru a název skupiny prostředků, aktualizujte existující pravidlo brány firewall na serveru. Použití [az mysql server brány firewall aktualizace](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update) příkaz. Zadejte název existující pravidla brány firewall jako vstup, jakož i spuštění IP adresy a koncové IP atributů k aktualizaci.
 ```azurecli-interactive
-az mysql server firewall-rule update --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
+az mysql server firewall-rule update --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
 Po úspěšné výstupu příkazu jsou uvedeny podrobnosti o pravidlo brány firewall, které byly aktualizovány, ve formátu JSON (ve výchozím nastavení). Pokud dojde k selhání, ukazuje výstup text chybové zprávy.
 
@@ -110,14 +108,14 @@ Po úspěšné výstupu příkazu jsou uvedeny podrobnosti o pravidlo brány fir
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Zobrazit brány firewall podrobnosti pravidla na databázi Azure pro Server databáze MySQL
 Pomocí Azure MySQL název serveru a název skupiny prostředků, zobrazit existující brány firewall pravidla podrobnosti ze serveru. Použití [az mysql server brány firewall zobrazit](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_show) příkaz. Zadejte název existující pravidla brány firewall jako vstup.
 ```azurecli-interactive
-az mysql server firewall-rule show --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1
+az mysql server firewall-rule show --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
 ```
 Po úspěšné výstupu příkazu jsou uvedeny podrobnosti o pravidlo brány firewall, které jste zadali, ve formátu JSON (ve výchozím nastavení). Pokud dojde k selhání, ukazuje výstup text chybové zprávy.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mysql-server"></a>Odstranit pravidlo brány firewall databáze Azure pro Server databáze MySQL
 Pomocí Azure MySQL název serveru a název skupiny prostředků, odeberte existující pravidlo brány firewall ze serveru. Použití [odstranit az mysql serverová brána firewall](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_delete) příkaz. Zadejte název existující pravidlo brány firewall.
 ```azurecli-interactive
-az mysql server firewall-rule delete --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1
+az mysql server firewall-rule delete --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
 ```
 Po úspěšné neexistuje žádný výstup. Při selhání zobrazí text chybové zprávy.
 

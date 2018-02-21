@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 12/14/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2c179c3b0704a6e88d718ba9f102e71c0ee1d6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Spravovat prostředky pro jednu databázi v databázi SQL Azure
 
@@ -85,8 +85,8 @@ Nastavení nebo změna úrovně služeb databáze Azure SQL, úrovně výkonu a 
 | --- | --- |
 |[Vytvoření databáze (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Vytvoří novou databázi. Musíte být připojení k hlavní databázi a vytvořte novou databázi.|
 | [Příkaz ALTER DATABASE (databáze Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Upravuje Azure SQL database. |
-|[Sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Vrátí edition (vrstva služby), cíl služby (cenové úrovně) a název elastického fondu, pokud existuje, pro databázi Azure SQL nebo Azure SQL Data Warehouse. Pokud přihlášení k hlavní databázi serveru Azure SQL Database, vrátí informace na všechny databáze. Pro Azure SQL Data Warehouse musí být připojen k hlavní databázi.|
-|[Sys.database_usage (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Uvádí počet, typ a doba trvání databází na serveru Azure SQL Database.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Vrátí edition (vrstva služby), cíl služby (cenové úrovně) a název elastického fondu, pokud existuje, pro databázi Azure SQL nebo Azure SQL Data Warehouse. Pokud přihlášení k hlavní databázi serveru Azure SQL Database, vrátí informace na všechny databáze. Pro Azure SQL Data Warehouse musí být připojen k hlavní databázi.|
+|[sys.database_usage (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Uvádí počet, typ a doba trvání databází na serveru Azure SQL Database.|
 
 Následující příklad ukazuje maximální velikost pro databázi se změnit pomocí příkazu ALTER DATABASE:
 
@@ -113,7 +113,7 @@ Nastavit nebo změnit databáze Azure SQL úrovně služeb, úrovně výkonu a m
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o úrovních služeb, úrovně výkonu a objemy úložiště, najdete v tématu [úrovních služeb](sql-database-service-tiers.md).
 - Další informace o elastické fondy najdete v tématu [elastické fondy](sql-database-elastic-pool.md).

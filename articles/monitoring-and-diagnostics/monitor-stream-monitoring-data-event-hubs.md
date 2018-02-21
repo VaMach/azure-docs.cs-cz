@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2018
+ms.date: 2/13/2018
 ms.author: johnkem
-ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Monitorování data do centra událostí pro používání pomocí externího nástroje Azure datového proudu
 
@@ -93,7 +93,9 @@ Aplikace data monitorování vyžaduje, že kódu je instrumentovány pomocí sa
 Směrování monitorování data do centra událostí s monitorováním Azure umožňuje snadnou integraci s partnera SIEM a nástrojů pro monitorování. Většina nástrojů vyžadují určitá oprávnění k předplatnému Azure číst data z centra událostí a připojovací řetězec centra událostí. Tady je seznam nástrojů se službou Azure monitorování integrace doplňovat:
 
 * **IBM QRadar** -Microsoft Azure DSM a Microsoft Azure Event Hub protokolu jsou k dispozici ke stažení [webu podpory IBM](http://www.ibm.com/support). Můžete [Další informace o integraci s Azure zde](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
-* **Splunk** - [rozšíření monitorování Azure pro Splunk](https://splunkbase.splunk.com/app/3534/) je k dispozici v Splunkbase a open source projektu. [Dokumentace je zde](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+* **Splunk** – v závislosti na nastavení Splunk existují dva přístupy:
+    1. [Rozšíření monitorování Azure pro Splunk](https://splunkbase.splunk.com/app/3534/) je k dispozici v Splunkbase a open source projektu. [Dokumentace je zde](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+    2. Pokud nemůžete nainstalovat doplněk v instanci Splunk (např. Pokud pomocí proxy serveru nebo v cloudu Splunk spuštěna), může předávat tyto události do kolekce událostí Splunk HTTP pomocí [tuto funkci, která se spustí pomocí nové zprávy v Centru událostí](https://github.com/sebastus/AzureFunctionForSplunkVS).
 * **SumoLogic** – pokyny pro nastavení SumoLogic ke zpracování dat z centra událostí jsou [zde k dispozici](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>Další kroky

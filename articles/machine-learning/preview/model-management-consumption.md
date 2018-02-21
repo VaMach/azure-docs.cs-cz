@@ -10,26 +10,26 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="consuming-web-services"></a>Využívání webových služeb
-Jakmile nasadíte model jako webovou službu v reálném čase, můžete odeslat data a získat předpovědi z mnoha různých platforem a aplikace. Webovou službu v reálném čase zpřístupňuje rozhraní REST API pro získání předpovědi. K webové službě ve formátu jednoho nebo více řádků získat jeden nebo více předpovědi v okamžiku může odesílat data.
+Jakmile nasadíte model jako webovou službu v reálném čase, můžete odeslat data a získat předpovědi z mnoha různých platforem a aplikace. Webovou službu v reálném čase zpřístupňuje rozhraní REST API pro získání předpovědi. K webové službě ve formátu jednoho nebo více řádků získat jeden nebo více předpovědi současně může odesílat data.
 
-Pomocí [Azure Machine Learning webové služby](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), externí aplikací synchronně komunikuje s prediktivního modelu tím, že volání HTTP POST na adresu URL služby. Chcete-li volání webové služby, klientská aplikace musí určovat klíč rozhraní API, která se vytvoří při nasazení předpovědi a ukládat data požadavku do textu požadavku POST.
+Pomocí [Azure Machine Learning webové služby](model-management-service-deploy.md), externí aplikací synchronně komunikuje s prediktivního modelu tím, že volání HTTP POST na adresu URL služby. Chcete-li volání webové služby, klientská aplikace musí určovat klíč rozhraní API, která se vytvoří při nasazení předpovědi a ukládat data požadavku do textu požadavku POST.
 
 Všimněte si, že klíče rozhraní API jsou k dispozici pouze v režimu nasazení clusteru. Místní webové služby není nutné klíče.
 
 ## <a name="service-deployment-options"></a>Možnosti nasazení služby
-Azure Machine Learning webové služby se dá nasadit clustery cloudové pro produkční a testovací scénáře a místní pracovní stanice pomocí modulu docker. Funkce prediktivního modelu v obou případech zůstává stejná. Nasazení clusteru na základě poskytuje škálovatelné a původce řešení podle kontejneru služby Azure, zatímco místní nasazení lze použít pro ladění. 
+Azure Machine Learning webové služby se dá nasadit clustery založené na cloudu pro produkční a testovací scénáře a místní pracovní stanice pomocí modulu docker. Funkce prediktivního modelu v obou případech zůstává stejná. Nasazení na základě clusteru poskytuje škálovatelné a původce řešení podle kontejneru služby Azure, zatímco místní nasazení lze použít pro ladění. 
 
 Rozhraní příkazového řádku pro Azure Machine Learning a rozhraní API poskytuje pohodlné příkazy pro vytváření a správu výpočetní prostředí pro nasazení služby pomocí ```az ml env``` možnost. 
 
 ## <a name="list-deployed-services-and-images"></a>Zobrazit seznam nasazení služeb a obrázků
-Můžete vytvořit seznam aktuálně nasazené služby a imagí Dockeru pomocí rozhraní příkazového řádku příkaz ```az ml service list realtime -o table```. Upozorňujeme, že tento příkaz vždy funguje v kontextu aktuálního výpočetního prostředí a nezobrazí služeb, které jsou nasazeny v prostředí, které není nastavena jako aktuální. Nastavení použití prostředí ```az ml env set```. 
+Můžete vytvořit seznam aktuálně nasazené služby a imagí Dockeru pomocí rozhraní příkazového řádku příkaz ```az ml service list realtime -o table```. Všimněte si, že tento příkaz lze použít vždy v kontextu aktuálního výpočetního prostředí. Služby, které jsou nasazeny nezobrazí v prostředí, které není nastavena jako aktuální. Nastavení použití prostředí ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Získat informace o služby
 Po úspěšném nasazení webové služby použijte následující příkaz získat adresu URL služby a další podrobnosti pro volání koncový bod služby. 
@@ -40,7 +40,7 @@ az ml service usage realtime -i <service name>
 
 Tento příkaz vypíše adresu URL služby, hlavičky požadované žádosti, adresy URL swaggeru a vzorová data pro volání služby, pokud byl v době nasazení schématu rozhraní API služby.
 
-Bez skládání žádost HTTP zadáním příkazu ukázkové rozhraní příkazového řádku s vstupních dat můžete testovat službu přímo z rozhraní příkazového řádku:
+Bez skládání požadavku HTTP, zadáním příkazu ukázkové rozhraní příkazového řádku s vstupních dat můžete testovat službu přímo z rozhraní příkazového řádku:
 
 ```
 az ml service run realtime -i <service name> -d "Your input data"
@@ -55,13 +55,13 @@ az ml service keys realtime -i <web service id>
 Při vytváření požadavku HTTP, používá se v hlavičce autorizace: "Autorizace": "nosiče <key>"
 
 ## <a name="get-the-service-swagger-description"></a>Získání popisu služby Swagger
-Pokud byl schématu rozhraní API služby koncový bod služby by vystavit dokumentem Swagger v ```http://<ip>/api/v1/service/<service name>/swagger.json```. Dokumentu Swagger slouží k automatickému generování klienta služby a prozkoumat očekávané vstupních dat a další podrobnosti o službě.
+Pokud byl schématu rozhraní API služby, koncový bod služby by vystavit dokumentem Swagger v ```http://<ip>/api/v1/service/<service name>/swagger.json```. Dokumentu Swagger slouží k automatickému generování klienta služby a prozkoumat očekávané vstupních dat a další podrobnosti o službě.
 
 ## <a name="get-service-logs"></a>Získání protokolů služby
 K pochopení chování služby a diagnostice problémů, existuje několik způsobů získat protokoly služby:
 - Rozhraní příkazového řádku příkaz ```az ml service logs realtime -i <service id>```. Tento příkaz lze použít v clusteru i místní režimy.
 - Pokud v nasazení bylo povoleno protokolování služby, protokoly služby zašle také AppInsight. Rozhraní příkazového řádku příkaz ```az ml service usage realtime -i <service id>``` zobrazuje AppInsight adresu URL. Všimněte si, že protokol AppInsight může zpožděn 2 až 5 minut.
-- Protokoly clusteru je možné zobrazit pomocí konzoly Kubernetes, která je připojena při nastavení aktuální prostředí clusteru s```az ml env set```
+- Protokoly clusteru je možné zobrazit pomocí konzoly Kubernetes, která je připojena při nastavení aktuální prostředí clusteru s ```az ml env set```
 - Místní docker protokoly jsou k dispozici prostřednictvím protokoly modulu docker, když je služba spuštěná místně.
 
 ## <a name="call-the-service-using-c"></a>Volání služby pomocí jazyka C#

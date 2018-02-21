@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 50a7b645749284b952e5fe5e37475f0760184845
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Úvod do Azure Cosmos DB: rozhraní API pro MongoDB
 
@@ -43,7 +43,10 @@ Azure Cosmos DB databází lze použít jako úložiště dat pro aplikace napsa
 
 | Azure Cosmos DB výchozí úroveň konzistence |   Rozhraní API mongo (3.4) |
 |---|---|
-|Relace| Nahodilé |
+|Nahodilé| Nahodilé |
+|Konzistentní předpona| Závěrečné s konzistentní pořadí |
+|Relace| Závěrečné s konzistentní pořadí |
+|Omezená neaktuálnost| Silné |
 | Silné | Silné |
 
 **Automatické indexování**: ve výchozím nastavení, Azure Cosmos DB automaticky indexuje všechny vlastnosti v rámci dokumenty ve vaší MongoDB databáze a nemá očekávat nebo nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Kromě toho funkce jedinečný index umožňuje omezení jedinečnosti na všechna pole dokumentu, které už jsou indexované automaticky v Azure Cosmos DB.

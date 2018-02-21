@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Postup odesílání reálného měření uživatele k pomocí webových stránek programem Azure Traffic Manager
 
@@ -65,7 +65,7 @@ Po získání RUMU klíč, dalším krokem je pro vložení této zkopírovaný 
 
     **Obrázek 3: Jednoduchý HTML s vložený JavaScript reálného měření uživatele**
 
-3.  Uložte soubor HTML
+3.  Uložte soubor HTML a hostitele ho na webový server připojení k Internetu. 
 4. Další čas, který je vykreslen tuto stránku ve webovém prohlížeči, je stažena JavaScript odkazuje a skript spustí měření a vytváření sestav operations.
 
 

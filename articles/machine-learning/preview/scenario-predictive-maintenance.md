@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Prediktivní údržby scénářem z reálného prostředí.
 
-Dopad výpadek neplánovanou zařízení může být škodlivé pro všechny firmy. Je důležité k proto zachovat pole zařízení spuštěné, aby mohl maximalizovat využití a výkonu a současně minimalizujete její nákladná, neplánované výpadky. Časná identifikaci problémů může pomoci přidělení prostředků omezené údržby v nákladově efektivní způsob, jak a vylepšení kvality a zadat řetězec procesy. 
+Dopad výpadek neplánovanou zařízení může být škodlivé pro všechny firmy. To je důležité mít pole zařízení systémem Pokud chcete maximalizovat využití a výkonu a pomocí minimalizace nákladná, mimo plánované výpadky. Časná identifikaci problémů může pomoci přidělení prostředků omezené údržby v nákladově efektivní způsob, jak a vylepšení kvality a zadat řetězec procesy. 
 
 Jsou zde popsány v tomto scénáři relativně [rozsáhlých datových sad simulované](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) vás provede projektu vědecké účely prediktivní údržby dat z přijímání dat funkci analýzy, vytváření modelů a operationalization modelu a nasazení. Kód pro celý proces je napsán v poznámkové bloky Jupyter pomocí PySpark v rámci Azure ML Workbench. Nasazení konečné modelu provádět předpovědi selhání zařízení v reálném čase pomocí Azure Machine Learning modelu správy.   
 
 ## <a name="link-to-the-gallery-github-repository"></a>Propojit s úložišti GitHub Galerie
 
-Toto je odkaz na veřejné úložiště GitHub: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+Toto je odkaz na veřejné úložiště GitHub pro problém sestavy a příspěvky: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>Přehled případu použití
@@ -40,7 +40,7 @@ Obchodního problému pro toto simulované dat je k předvídání problémy př
 
 * [Účet Azure](https://azure.microsoft.com/en-us/free/) (bezplatné zkušební verze jsou k dispozici).
 * Nainstalovaná kopie produktu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) následující [rychlé spuštění Průvodce instalací](./quickstart-installation.md) k instalaci programu a vytvořit pracovní prostor.
-* Azure Machine Learning Operationalization vyžaduje prostředí pro místní nasazení a [modelu účet pro správu](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning Operationalization vyžaduje prostředí pro místní nasazení a [modelu účet pro správu](model-management-overview.md)
 
 V tomto příkladu můžete spustit na jakýkoli kontext výpočetní AML Workbench. Však doporučujeme používat ji s minimálně 16 GB paměti. V tomto scénáři byl vytvořen a otestovali na počítač s Windows 10 běží vzdálené standard DS4_V2 [datové vědy virtuálního počítače pro Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
@@ -52,8 +52,8 @@ Vytvořte nový projekt v tomto příkladu jako šablona:
 1.  Otevřete Azure Machine Learning Workbench
 2.  Na **projekty** klikněte na tlačítko  **+**  přihlásit a vybrat **nový projekt**
 3.  V **vytvořit nový projekt** podokně, vyplňte informace pro nový projekt
-4.  V **šablony projektů vyhledávání** vyhledávacího pole zadejte "Prediktivní Údržba" a vyberte šablonu
-5.  Klikněte na **Vytvořit**
+4.  V **šablony projektů vyhledávání** vyhledávacího pole zadejte "Prediktivní Údržba", vyberte **prediktivní údržby** šablony
+5.  Klikněte **vytvořit** tlačítko
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>Příprava cílového výpočetní server poznámkového bloku
 
@@ -113,9 +113,9 @@ Obsah pro tento scénář je k dispozici na [úložiště GitHub](https://github
 
 [`Code\4_operationalization.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): Pomocí poslední modelu uložit na místní disk (jádro poznámkového bloku Jupyter), tento poznámkový blok sestavení komponenty pro nasazení modelu do Azure webové služby. Úplné provozní prostředky jsou zkomprimovanou do `o16n.zip` soubor uložený v jiném kontejneru objektů blob v Azure. Soubor ZIP obsahuje:
 
-* `service_schema.json`Soubor definice schématu pro nasazení. 
-* `pdmscore.py`Funkce init() a run() vyžadované Azure webovou službou
-* `pdmrfull.model`Adresář definice modelu.
+* `service_schema.json` Soubor definice schématu pro nasazení. 
+* `pdmscore.py` Funkce init() a run() vyžadované Azure webovou službou
+* `pdmrfull.model` Adresář definice modelu.
     
  Poznámkového bloku testy funkce s definicí modelu před zabalení operationalization prostředky pro nasazení. Pokyny pro nasazení jsou zahrnuty na konci poznámkového bloku.
 
@@ -125,13 +125,15 @@ Tento scénář nabízí čtečky přehled o tom, jak sestavit řešení predikt
 
 ## <a name="references"></a>Odkazy
 
-Tento případ použití dříve vyvinula ve více platformách:
+Další příklady případu použití prediktivní údržby nejsou k dispozici v mnoha různých platforem:
 
 * [Šablona řešení prediktivní údržby](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Průvodce modelováním prediktivní údržby](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Prediktivní údržby modelování příručce, která je pomocí služby SQL Server R](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Prediktivní údržby modelování Poznámkový blok průvodce Python](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Prediktivní údržby pomocí PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Přímý učení pro prediktivní údržby](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Další postup
 

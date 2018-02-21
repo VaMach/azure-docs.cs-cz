@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
-ms.translationtype: MT
+ms.openlocfilehash: 56cc2a82e7957e677f96c638f7e3e903a3b717e1
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Použít službu Microsoft Azure Import/Export k přenosu dat do úložiště Azure.
 V tomto článku jsme poskytují podrobné pokyny k používání služby Azure Import/Export bezpečně přenést velké objemy dat do úložiště objektů Blob v Azure a Azure Files jednotkami přenosů disku pro datové centrum Azure. Tato služba slouží také k přenosu dat ze služby Azure storage na jednotky pevného disku a dodávat místní servery. Buď do úložiště objektů Blob v Azure nebo Azure Files můžete importovat data z jednoho disku interní disků SATA. 
@@ -299,7 +299,7 @@ Jestliže doplníte jednotky do Azure, platíte náklady na přesouvání poskyt
 
 **Cena za transakci**
 
-Při importu dat do Azure Storage neexistují žádné cena za transakci. Standardní výstupní poplatky se dají použít při exportu dat z úložiště objektů Blob. Další informace o cena za transakci, v [přenos dat se ceny.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Při importu dat do Azure Storage neexistují žádné cena za transakci kromě standardního úložiště cena za transakci. Standardní výstupní poplatky se dají použít při exportu dat z úložiště objektů Blob. Další informace o cena za transakci, v [přenos dat se ceny.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 

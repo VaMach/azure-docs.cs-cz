@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Prozkoumejte Java protokolů trasování ve službě Application Insights
 Pokud používáte Logback nebo Log4J (verze 1.2 nebo v2.0) pro trasování, může mít vaše protokoly trasování automaticky odešlou do Application Insights, kde vám umožní zkoumat a hledat v nich.
 
 ## <a name="install-the-java-sdk"></a>Nainstalujte Java SDK
 
-Nainstalujte [Application Insights SDK pro jazyk Java][java], pokud ještě neudělali.
-
-(Pokud nechcete, aby pro sledování požadavků HTTP, můžete vynechat většinu konfiguračního souboru .xml, ale musí obsahovat alespoň `InstrumentationKey` elementu. Měli byste také zavolat `new TelemetryClient()` k chybě při inicializaci sady SDK.)
-
+Postupujte podle pokynů k instalaci [Application Insights SDK pro jazyk Java][java], pokud ještě neudělali.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Do projektu přidejte knihovny protokolování
 *Zvolte vhodný způsob pro váš projekt.*
@@ -101,13 +98,14 @@ Pak obnovte závislosti projektu, k získání stažených binárních souborů.
 ```
 
 #### <a name="otherwise-"></a>V opačném případě...
-Stažení a extrakci odpovídající appender a pak přidejte příslušnou knihovnu do projektu:
+Postupujte podle pokynů ručně instalovat Application Insights Java SDK, stažení jar pro příslušné appender (po posuzování na stránce Centrální Maven klikněte na odkaz "jar" v části stažení) a přidejte stažené appender jar do projektu.
 
 | Protokoly | Ke stažení | Knihovna |
 | --- | --- | --- |
-| Logback |[SDK Logback appender](https://aka.ms/xt62a4) |applicationinsights. protokolování logback |
-| Log4J v2.0 |[SDK Log4J v2 appender](https://aka.ms/qypznq) |applicationinsights. protokolování log4j2 |
-| Log4j v1.2 |[SDK Log4J v1.2 appender](https://aka.ms/ky9cbo) |applicationinsights. protokolování log4j1_2 |
+| Logback |[Logback appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[Log4J v1.2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Přidat appender do vašeho rozhraní protokolování
 Chcete-li spustit načtení trasování, sloučení relevantní fragment kódu do konfiguračního souboru Log4J nebo Logback: 
@@ -128,7 +126,7 @@ Chcete-li spustit načtení trasování, sloučení relevantní fragment kódu d
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -158,9 +156,11 @@ Appenders Application Insights může být odkaz žádné nakonfigurované proto
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Prozkoumat vaše trasování v portálu služby Application Insights
 Nyní, když jste nakonfigurovali projekt k odeslání trasování do Application Insights, můžete zobrazit a vyhledávat tyto trasování v portálu služby Application Insights [vyhledávání] [ diagnostic] okno.
 
+Výjimky neodeslali prostřednictvím protokolovacích nástrojů se zobrazí na portálu jako Telemetrie výjimek.
+
 ![Otevřete vyhledávání v portálu služby Application Insights](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Diagnostické vyhledávání][diagnostic]
 
 <!--Link references-->

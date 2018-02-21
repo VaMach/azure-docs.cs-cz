@@ -1,10 +1,10 @@
 ---
 title: "Vytvoření a instalace souborů konfigurace klienta VPN pro připojení P2S RADIUS: prostředí PowerShell: Azure | Microsoft Docs"
-description: "Tento článek vám pomůže vytvořit soubor konfigurace klienta VPN pro připojení Point-to-Site, které používají ověřování pomocí protokolu RADIUS."
+description: "Vytvoření klienta Windows a Mac OS X, Linux VPN konfigurační soubory pro připojení, které používají ověřování pomocí protokolu RADIUS."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fb83bda50535dc002120ee4621cd4c8df71c141c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ce914d2fd0472855ad7a17bf64ae43a76ceb5743
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Vytvoření a instalace souborů konfigurace klienta VPN pro ověřování pomocí protokolu RADIUS P2S
 
-Připojení k virtuální síti přes Point-to-Site, musíte nakonfigurovat klientské zařízení, ze kterého budete připojovat. RADIUS server poskytuje několik možností ověřování: ověřování uživatelského jména a hesla, ověřování pomocí certifikátu, jakož i jiné typy ověřování. Konfigurace klienta VPN se liší pro jednotlivé typy ověřování. Ke konfiguraci klienta VPN, je použít klienta konfigurační soubory, které obsahují požadovaná nastavení. Tento článek vám pomůže vytvořit a instalovat konfigurace klienta VPN pro typ ověřování RADIUS, který chcete použít.
+Připojení k virtuální síti přes Point-to-Site, musíte nakonfigurovat klientské zařízení, ze kterého budete připojovat. Můžete vytvořit připojení k síti VPN P2S z Windows, Mac OSX a Linux klientských zařízení. Při použití ověřování pomocí protokolu RADIUS, existuje několik možností ověřování: ověřování uživatelského jména a hesla, ověřování pomocí certifikátu, jakož i jiné typy ověřování. Konfigurace klienta VPN se liší pro jednotlivé typy ověřování. Ke konfiguraci klienta VPN, je použít klienta konfigurační soubory, které obsahují požadovaná nastavení. Tento článek vám pomůže vytvořit a instalovat konfigurace klienta VPN pro typ ověřování RADIUS, který chcete použít.
 
-### <a name="workflow"></a>Pracovní postup
+Pracovní postup konfigurace ověřování P2S RADIUS vypadá takto:
 
 1. [Nastaví bránu Azure VPN pro připojení P2S](point-to-site-how-to-radius-ps.md).
 2. [Nastavit server RADIUS pro ověřování](point-to-site-how-to-radius-ps.md#radius). 
@@ -36,6 +36,8 @@ Připojení k virtuální síti přes Point-to-Site, musíte nakonfigurovat klie
 >Je-li vygenerovat profil konfigurace klienta VPN, jako je například protokol typ sítě VPN nebo typ ověřování, se změny v konfiguraci Point-to-Site VPN musí vygenerovat a nainstalujte nové konfigurace klienta VPN v zařízeních uživatele.
 >
 >
+
+Pokud chcete použít v částech v tomto článku, nejprve rozhodnout, jaký typ ověřování, kterou chcete použít: uživatelské jméno a heslo, certifikát nebo další typy ověřování. V každém oddílu jsou kroky pro Windows, Mac OS X a Linux (nyní k dispozici omezená kroky).
 
 ## <a name="adeap"></a>Ověřování uživatelského jména a hesla
 
@@ -121,7 +123,7 @@ Pomocí následujícího postupu můžete nakonfigurovat Nativní klient VPN ve 
 
 Podle následujících pokynů byly vytvořeny pomocí strongSwan 5.5.1 na Ubuntu 17.0.4. Skutečné obrazovky se může lišit v závislosti na vaší verzí systémů Linux a strongSwan.
 
-1. Otevřete **Terminálové** k instalaci **strongSwan** a jeho správce sítě tak, že spustíte následující příkaz. Pokud se zobrazí chyba týkající se "libcharon navíc-modulů plug-in", nahraďte ji metodou "strongswan-plugin-eap-mschapv2".
+1. Otevřete **Terminálové** k instalaci **strongSwan** a jeho správce sítě spuštěním příkazu v příkladu. Pokud se zobrazí chyba týkající se "libcharon navíc-modulů plug-in", nahraďte ji metodou "strongswan-plugin-eap-mschapv2".
 
   ```Terminal
   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -251,3 +253,5 @@ Chcete používat různá ověřovací typu (například OTP) a ne uživatelské
 ## <a name="next-steps"></a>Další postup
 
 Vrátit do článku do [dokončit konfiguraci P2S](point-to-site-how-to-radius-ps.md).
+
+Informace o odstraňování potíží P2S [připojení point-to-site řešení potíží s Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

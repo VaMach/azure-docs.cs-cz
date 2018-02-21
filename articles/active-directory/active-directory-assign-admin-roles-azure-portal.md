@@ -6,21 +6,20 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro;
-ms.openlocfilehash: de26452dfb32438ef56fa0c9a31a24b05987b48c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: it-pro
+ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Přiřazení rolí správce v Azure Active Directory
 
@@ -55,7 +54,7 @@ Následující role správce jsou k dispozici:
 
 * **Správce služby Exchange**: uživatelé s touto rolí mají globální oprávnění v rámci Microsoft Exchange Online, když se služba nachází. Další informace v [role Správce služeb Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Globální správce nebo správce společnosti**: uživatelé s touto rolí mají přístup ke všem funkcím pro správu v Azure Active Directory, stejně jako služby, které vytvořit federaci s Azure Active Directory, jako je Exchange Online, SharePoint Online a Online Skype pro firmy. Osoba, která se zaregistruje klienta Azure Active Directory se změní na globálního správce. Jenom globální správci můžete přiřadit další role správců. Ve vaší společnosti může být více než jeden globální správce. Globální správci můžete resetovat heslo pro všechny uživatele a všechny ostatní správce.
+* **Globální správce nebo správce společnosti**: uživatelé s touto rolí mají přístup ke všem funkcím pro správu v Azure Active Directory, stejně jako služby, které vytvořit federaci s Azure Active Directory, jako je Exchange Online, SharePoint Online, a Online Skype pro firmy. Osoba, která se zaregistruje klienta Azure Active Directory se změní na globálního správce. Jenom globální správci můžete přiřadit další role správců. Ve vaší společnosti může být více než jeden globální správce. Globální správci můžete resetovat heslo pro všechny uživatele a všechny ostatní správce.
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API a Azure AD PowerShell je tato role označený "Správce společnosti". Je "Globální správce" v [portál Azure](https://portal.azure.com).
@@ -64,7 +63,7 @@ Následující role správce jsou k dispozici:
 
 * **Pozvání hosta odeslal**: uživatelům v této roli můžete spravovat pozvánek uživatele Azure Active Directory s B2B hosta uživatelské nastavení "Členy můžete pozvat" je nastavena na Ne. Další informace o spolupráci B2B v [spolupráce o Azure AD s B2B ve verzi preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Neobsahuje žádné další oprávnění.
 
-<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
+* **Správce informačních Protection (preview)**: uživatelé s touto rolí mají uživatelská práva pouze ve službě Azure Information Protection. Jejich nejsou udělena práva uživatele v Centru pro ochranu Identity, Privileged Identity Management, stavu služby Office 365 monitorování, nebo zabezpečení Office 365 a centru dodržování předpisů. Můžete nakonfigurovat popisky zásad Azure Information Protection, správě ochrany šablon a aktivujte ochranu.
 
 * **Správce služby Intune**: uživatelé s touto rolí mají globální oprávnění v rámci Microsoft Intune Online, když se služba nachází. Kromě toho tato role zahrnuje schopnost spravovat uživatele a zařízení, aby bylo možné přidružit zásady, a také vytvářet a spravovat skupiny.
 
@@ -87,9 +86,9 @@ Následující role správce jsou k dispozici:
 
 * **Sestavy čtečky**: uživatelé k této roli mohou zobrazit využití generování sestav dat a řídicí panel sestavy v Centru pro správu Office 365 a kontext přijetí pack v PowerBI. Kromě toho role poskytuje přístup k přihlašování sestavy a aktivity ve službě Azure AD a vykazování dat vrácených Microsoft Graph API. Uživatel přiřazený k roli čtečky sestavy můžete přístup pouze relevantní využití a přijetí metriky. Nemají žádné oprávnění správce pro konfiguraci nastavení nebo přístupu, kterou centra pro správu konkrétní produkt jako je Exchange. 
 
-* **Správce zabezpečení**: uživatelé s touto rolí mají všechna oprávnění jen pro čtení čtečky role zabezpečení a možnosti správy konfigurace pro služby související se zabezpečením: Azure Active Directory Identity Protection, Azure Information Protection, Privileged Identity Management a zabezpečení Office 365 a centru dodržování předpisů. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Správce zabezpečení**: uživatelé s touto rolí mají všechna oprávnění jen pro čtení čtečky role zabezpečení a možnosti správy konfigurace pro služby související se zabezpečením: Azure Active Directory Identity Protection, Azure Information Protection, Správa privilegovaných identit a zabezpečení Office 365 a centru dodržování předpisů. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Zabezpečení čtečky**: uživatelé s touto rolí mají globální přístup jen pro čtení, včetně všech informací v Azure Active Directory, ochrany identit, Privileged Identity Management, a také možnost číst Azure Active Directory přihlášení sestavy a protokoly auditu. Role uděluje také oprávnění jen pro čtení v centru dodržování předpisů a zabezpečení Office 365. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Zabezpečení čtečky**: uživatelé s touto rolí mají globální přístup jen pro čtení, včetně všech informací v Azure Active Directory, ochrany identit, Privileged Identity Management, jakož i možnost číst Azure Active Directory přihlášení sestavy a protokoly auditu. Role uděluje také oprávnění jen pro čtení v centru dodržování předpisů a zabezpečení Office 365. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Správce podpory služeb**: uživatelé s touto rolí můžete otevřít žádosti o podporu se společností Microsoft pro služby Azure a Office 365 a zobrazení řídicího panelu služby a zpráva center na portálu Azure a portálu pro správu Office 365. Další informace v [role Správce služeb Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -128,11 +127,10 @@ Následující role správce jsou k dispozici:
 | --- | --- |
 | <p>Zobrazení informací o společnosti a uživatele</p><p>Spravovat lístky žádostí o podporu Office</p><p>Změna hesla pro uživatele a další technickou podporu správci</p>|<p>Provádět operace fakturace a nákupu produktů Office</p><p>Vytvoření a Správa zobrazení uživatele</p><p>Vytvářet, upravovat a odstraňovat uživatele a skupiny a spravovat uživatelské licence</p><p>Spravovat domény</p><p>Spravovat informace o společnosti</p><p>Delegovat role správců jiným uživatelům</p><p>Používat synchronizaci adresářů</p><p>Zobrazení sestav</p>|
 
-<!--### Information Protection Administrator 
-In | Can do
+### <a name="information-protection-administrator-preview"></a>Správce informačních Protection (preview)
+V | Můžete provést
 -------- | ---------
-Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
-Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
+Azure Information Protection | <li>Konfigurace nastavení a popisky v zásadách globální a oboru<li>Konfigurovat a spravovat šablony ochrany<li>Aktivace nebo deaktivace ochrany--
  
 ### <a name="reports-reader"></a>Čtečka sestavy 
 Můžete provést | Nelze provést

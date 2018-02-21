@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastických fondů pomáhají spravovat a škálování více databází Azure SQL
 
@@ -171,7 +170,7 @@ Služba SQL Database vyhodnocuje historii využití a doporučí použití jedno
 
 Doporučení fondu zahrnuje:
 
-- Cenovou úroveň pro fond (Basic, Standard, Premium nebo Premium RS)
+- cenovou úroveň pro fond (Basic, Standard nebo Premium),
 - vhodnou hodnotu **POOL eDTU** (označovanou také jako Max eDTU pro fond),
 - hodnoty **eDTU MAX** a **eDTU MIN** pro každou databázi,
 - seznam doporučených databází pro fond.
@@ -201,7 +200,7 @@ Následující obrázek znázorňuje příklad elastickém fondu. Zobrazení zah
 
 Můžete přejít na konkrétní fond zobrazíte jeho využití prostředků. Ve výchozím nastavení je fond konfigurována pro zobrazení využití úložiště a eDTU za poslední hodinu. Graf lze konfigurovat zobrazíte jiné metriky v různých časových oken. Klikněte **využití prostředků** grafu v části **elastického fondu monitorování** zobrazíte podrobné zobrazení zadaný metrik přes zadané časové okno.
 
-![Monitorování elastického fondu](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
+![Sledování elastického fondu](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
 ![Metriky stránky](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
@@ -223,7 +222,7 @@ Na **upravit graf** formuláře, můžete vybrat časové rozmezí (po hodině, 
 
 Jednotlivé databáze je možné monitorovat také pro potenciální problémy. V části **elastické databáze monitorování**, je graf, který zobrazí metriky pro pět databáze. Ve výchozím nastavení grafu zobrazí top 5 databáze ve fondu podle využití eDTU průměrná za poslední hodinu. 
 
-![Monitorování elastického fondu](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
+![Sledování elastického fondu](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
 Klikněte **využití eDTU pro databáze za poslední hodinu** pod **elastické databáze monitorování**. Tím se otevře **využití prostředků databáze** a poskytuje podrobný přehled o využití databáze ve fondu. Pomocí mřížky v dolní části stránky, můžete vybrat všechny databáze ve fondu se mají zobrazit jeho použití v grafu (až 5 databáze). Můžete taky přizpůsobit okno metriky a času zobrazené v grafu kliknutím **upravit graf**.
 
@@ -274,7 +273,7 @@ Můžete přidat nebo odebrat databáze z existující fond. Databáze může b�
 
 ![Klikněte na tlačítko Přidat do fondu](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-![Vyberte databáze pro přidání](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+![Vyberte databáze, které chcete přidat.](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
 ![Přidání čekající fondu](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
@@ -302,7 +301,7 @@ Pokud chcete vytvořit a spravovat fondy elastické databáze SQL Azure PowerShe
 
 | Rutina | Popis |
 | --- | --- |
-|[Nový AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Vytvoří fond elastické databáze na logický SQL server.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Vytvoří fond elastické databáze na logický SQL server.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Získá elastické fondy a jejich hodnoty vlastností na logický SQL server.|
 |[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Upraví vlastnosti fondu elastické databáze na logický SQL server. Například použít **StorageMB** vlastnost změnit maximální úložiště elastického fondu.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Odstraní fond elastické databáze na logický SQL server.|
@@ -346,9 +345,9 @@ Vytvoření a přesunutí databází v rámci existující elastické fondy nebo
 | --- | --- |
 |[Vytvoření databáze (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Vytvoří novou databázi v existující fond nebo jedné databáze. Musíte být připojení k hlavní databázi a vytvořte novou databázi.|
 | [Příkaz ALTER DATABASE (databáze Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Přesun databáze do, mimo nebo mezi elastické fondy.|
-|[ODPOJENÍ databáze (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Odstraní databázi.|
-|[Sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Vrátí statistiku využití prostředků pro všechny fondy elastické databáze v logický server. Pro každý fond elastické databáze je jeden řádek pro každou 15 sekundu reporting okno (čtyři řádky za minutu). To zahrnuje využití procesoru, vstupně-výstupní operace, protokolu, spotřebu úložiště a souběžných požadavku nebo relace využití všech databází ve fondu.|
-|[Sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Vrátí edition (vrstva služby), cíl služby (cenové úrovně) a název elastického fondu, pokud existuje, pro databázi Azure SQL nebo Azure SQL Data Warehouse. Pokud přihlášení k hlavní databázi serveru Azure SQL Database, vrátí informace na všechny databáze. Pro Azure SQL Data Warehouse musí být připojen k hlavní databázi.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Odstraní databázi.|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Vrátí statistiku využití prostředků pro všechny fondy elastické databáze v logický server. Pro každý fond elastické databáze je jeden řádek pro každou 15 sekundu reporting okno (čtyři řádky za minutu). To zahrnuje využití procesoru, vstupně-výstupní operace, protokolu, spotřebu úložiště a souběžných požadavku nebo relace využití všech databází ve fondu.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Vrátí edition (vrstva služby), cíl služby (cenové úrovně) a název elastického fondu, pokud existuje, pro databázi Azure SQL nebo Azure SQL Data Warehouse. Pokud přihlášení k hlavní databázi serveru Azure SQL Database, vrátí informace na všechny databáze. Pro Azure SQL Data Warehouse musí být připojen k hlavní databázi.|
 
 ## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>Správa elastické fondy a databází pomocí rozhraní REST API
 
@@ -375,7 +374,7 @@ Vytvoření a správa Elastická databáze SQL pomocí fondy tyto požadavky RES
 |[Databáze - seznamu serverem](/rest/api/sql/databases/listbyserver)|Vrátí seznam databází na serveru.|
 |[Databáze - aktualizace](/rest/api/sql/databases/update)|Aktualizuje existující databázi.|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Video najdete v tématu [Microsoft Virtual Academy video kurzu na možnostech elastické databáze SQL Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Další informace o návrhových schématech aplikací SaaS využívajících elastické fondy najdete v tématu [Návrhová schémata pro víceklientské aplikace SaaS využívající službu Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).

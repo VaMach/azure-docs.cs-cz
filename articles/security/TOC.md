@@ -17,8 +17,9 @@
 ### [Technické možnosti zabezpečení](azure-security-technical-capabilities.md)
 ### [Zásady správného řízení v Azure](governance-in-azure.md)
 ### [Šifrování dat v klidovém stavu](azure-security-encryption-atrest.md)
-### Plány architektury
-#### [Dodržování předpisů – PCI DSS](./blueprints/payment-processing-blueprint.md)
+### Plány zabezpečení a dodržování předpisů v Azure
+#### PCI DSS
+##### [Zpracování plateb v prostředích kompatibilních s PCI DSS](./blueprints/payment-processing-blueprint.md)
 ##### [Přehled požadavků](./blueprints/pci-dss-requirements-overview.md)
 ##### [Požadavek 1 – brány firewall](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [Požadavek 2 – hesla](./blueprints/pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Požadavek 10 – monitorování](./blueprints/pci-dss-requirement-10-monitoring.md)
 ##### [Požadavek 11 – testování](./blueprints/pci-dss-requirement-11-testing.md)
 ##### [Požadavek 12 – zásady](./blueprints/pci-dss-requirement-12-policy.md)
-#### [Dodržování předpisů – FedRAMP](./blueprints/fedramp.md)
+#### FedRAMP
+##### [Automatizace webových aplikací](./blueprints/fedramp.md)
 ##### [Přehled ovládacích prvků zabezpečení](./blueprints/fedramp-controls-overview.md)
 ##### [Řízení přístupu](./blueprints/fedramp-access-controls.md)
 ##### [Audit a zodpovědnost](./blueprints/fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Ochrana systémů a komunikací](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [Integrita systémů a informací](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [Získávání systémů a služeb](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [Dodržování předpisů – oficiální pro Spojené království](./blueprints/uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Třístupňová automatizace webových aplikací](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Přehled](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Přehled principů](./blueprints/uk-official-three-tier-applications-principles-overview.md)
-#### Dodržování předpisů – finanční služby
+#### Finanční služby
 ##### [Finanční služby pro regulované úlohy](./blueprints/financial-services-regulated-workloads.md)
 
 # Začínáme

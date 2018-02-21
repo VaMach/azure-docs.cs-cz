@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Spuštění úlohy vědecké účely dat: zkoumání, modelování a nasazení
 
@@ -25,10 +25,10 @@ ms.lasthandoff: 11/30/2017
 
 - [Azure Machine Learning](../preview/index.yml)
 - [SQL Server službou ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
-- [Server Microsoft Machine Learning](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a>Zkoumání 
+## 1. <a name='DataQualityReportUtility-1'></a> Zkoumání 
 
 Vědecký pracovník dat můžete provádět zkoumání a vytváření sestav v mnoha různými způsoby: pomocí knihoven nebo balíčků, které jsou k dispozici pro jazyk Python (například matplotlib) nebo s R (ggplot nebo mřížky, např.). Datových vědců můžete přizpůsobit podle potřeby zkoumání dat u konkrétních scénářů takový kód. Požadavky pro práci s strukturovaných dat se liší, pro Nestrukturovaná data, jako je například textu nebo obrázků. 
 
@@ -43,7 +43,7 @@ Tento na základě markdownu R nebo Python na základě poznámkového bloku ná
 V tomto okamžiku nástroj funguje pouze v datových rámců v paměti. Soubor YAML je potřeba zadat parametry sadu dat má být zkoumána. Další informace najdete v tématu [IDEAR v TDSP datové vědy nástroje](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a>Modelování
+## 2. <a name='ModelingUtility-2'></a> Modelování
 
 Existuje řada sad nástrojů a balíčky pro modely školení v různých jazycích. Datových vědců by měl klidně použití, která ever ty jsou nevyhovuje, tak dlouho, dokud pro příslušný obchodní byly splněny faktory ovlivňující výkon, pokud jde o přesnost a latence použít případy a produkčních scénářích.
 
@@ -78,9 +78,9 @@ Po které se sestavily více modelů, obvykle potřebujete mít systém pro regi
 1. [Azure Machine Learning - modelu služby správy](../preview/index.yml)
 2. [ModelDB od MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL seerver jako systém správy modelu](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Server Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a>Nasazení
+## 3. <a name='Deployment-3'></a>nasazení
 
 Produkční nasazení umožňuje modelu pro hraje aktivní roli v podniku. Predikce z nasazené modelu lze použít pro obchodních rozhodnutí.
 
@@ -88,9 +88,9 @@ Produkční nasazení umožňuje modelu pro hraje aktivní roli v podniku. Predi
 Existují různé přístupy a platformy pro modely uvedení do produkčního prostředí. Tady je několik možností:
 
 
-- [Model nasazení v nástroji Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Model nasazení v nástroji Azure Machine Learning](../preview/model-management-overview.md)
 - [Nasazení modelu v systému SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Server Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >
 >
@@ -105,7 +105,7 @@ Poznámka: Pro nasazení pomocí Azure Machine Learning Studio, najdete v část
 Když více modelů v produkčním prostředí, může být užitečné k provedení [A / B testování](https://en.wikipedia.org/wiki/A/B_testing) k porovnání výkonu modelů. 
 
  
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Sledovat průběh datové vědy projekty](track-progress.md) ukazuje, jak vědecký pracovník dat můžete sledovat průběh projektu vědecké účely data.
  

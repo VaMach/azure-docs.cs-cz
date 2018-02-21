@@ -117,12 +117,11 @@
 ### [Analýza úloh](analyze-your-workload.md)
 
 ## Horizontální navýšení kapacity
-### [Správa výpočetních služeb – REST API](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automatizace výpočetních úrovní](manage-compute-with-azure-functions.md)
 
 
 # Referenční informace
-
 
 ## T-SQL
 ### [Úplný přehled](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [Příkazy SQL DW](sql-data-warehouse-reference-tsql-statements.md)
 ## [Systémová zobrazení](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Rutiny PowerShellu](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [Rozhraní REST API](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=databases)

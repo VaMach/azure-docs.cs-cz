@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognózování úloh serveru s terabajty dat
 
@@ -51,7 +51,7 @@ Požadavky na spuštění v tomto příkladu jsou následující:
 * Windows 10 (podle pokynů v tomto příkladu jsou obvykle stejné systémů systému macOS).
 * Na datové vědě virtuálního počítače (DSVM) pro Linux (Ubuntu), pokud možno v oblasti Východ USA, kde vyhledá data. Můžete zřídit DSVM Ubuntu pomocí následujících [tyto pokyny](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Můžete také zjistit [tento rychlý Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Doporučujeme použít virtuální počítač s minimálně 8 jader a 32 GB paměti. 
 
-Postupujte podle [instrukce](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) na povolení přístupu bez sudoer ve virtuálním počítači pro AML Workbench.  Můžete použít [ověřování na základě klíčů SSH pro vytváření a používání virtuálních počítačů v AML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). V tomto příkladu používáme heslo pro přístup k virtuálnímu počítači.  V následující tabulce uložte s DSVM informace o dalších krocích:
+Postupujte podle [instrukce](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) na povolení přístupu bez sudoer ve virtuálním počítači pro AML Workbench.  Můžete použít [ověřování na základě klíčů SSH pro vytváření a používání virtuálních počítačů v AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). V tomto příkladu používáme heslo pro přístup k virtuálnímu počítači.  V následující tabulce uložte s DSVM informace o dalších krocích:
 
  Název pole| Hodnota |  
  |------------|------|
@@ -71,7 +71,7 @@ DSVM IP adresa | xxx|
  Heslo   | xxx|
 
 
-* Účet úložiště Azure. Můžete postupovat podle [tyto pokyny](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) k jeho vytvoření. Navíc vytvoření kontejnerů dva privátní objektů blob s názvy `fullmodel` a `onemonthmodel` v rámci tohoto účtu úložiště. Účet úložiště se používá pro uložení výsledků zprostředkující výpočetní a modelů strojového učení. Je nutné klíč účtu úložiště název a přístup můžete vyzkoušet na tomto příkladu. Uložte s informace o účtu úložiště Azure pro pozdější kroky v následující tabulce:
+* Účet služby Azure Storage. Můžete postupovat podle [tyto pokyny](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) k jeho vytvoření. Navíc vytvoření kontejnerů dva privátní objektů blob s názvy `fullmodel` a `onemonthmodel` v rámci tohoto účtu úložiště. Účet úložiště se používá pro uložení výsledků zprostředkující výpočetní a modelů strojového učení. Je nutné klíč účtu úložiště název a přístup můžete vyzkoušet na tomto příkladu. Uložte s informace o účtu úložiště Azure pro pozdější kroky v následující tabulce:
 
  Název pole| Hodnota |  
  |------------|------|
@@ -104,17 +104,17 @@ Celkové velikosti dat je přibližně 1 TB. Každý soubor je přibližně 1 �
 1  | `SessionStart` | Datum a čas |    Čas spuštění relace
 2  |`SessionEnd`    | Datum a čas | Čas ukončení relace
 3 |`ConcurrentConnectionCounts` | Integer | Počet souběžných připojení
-4 | `MbytesTransferred` | Double | Normalizovaný data přenesená v megabajtech
+4 | `MbytesTransferred` | Dvojitý | Normalizovaný data přenesená v megabajtech
 5 | `ServiceGrade` | Integer |  Úrovni služby pro relaci
 6 | `HTTP1` | Integer|  Relace používá HTTP1 nebo HTTP2
 7 |`ServerType` | Integer   |Typ serveru
-8 |`SubService_1_Load` | Double |   Zatížení subservice 1
-9 | `SubService_2_Load` | Double |  Zatížení subservice 2
-10 | `SubService_3_Load` | Double |     Zatížení subservice 3
-11 |`SubService_4_Load` | Double |  Zatížení subservice 4
-12 | `SubService_5_Load`| Double |      Zatížení subservice 5
-13 |`SecureBytes_Load`  | Double | Zabezpečené bajtů zatížení
-14 |`TotalLoad` | Double | Celkový počet zatížení na serveru
+8 |`SubService_1_Load` | Dvojitý |   Zatížení subservice 1
+9 | `SubService_2_Load` | Dvojitý |  Zatížení subservice 2
+10 | `SubService_3_Load` | Dvojitý |     Zatížení subservice 3
+11 |`SubService_4_Load` | Dvojitý |  Zatížení subservice 4
+12 | `SubService_5_Load`| Dvojitý |      Zatížení subservice 5
+13 |`SecureBytes_Load`  | Dvojitý | Zabezpečené bajtů zatížení
+14 |`TotalLoad` | Dvojitý | Celkový počet zatížení na serveru
 15 |`ClientIP` | Řetězec|    IP adresa klienta
 16 |`ServerIP` | Řetězec|    IP adresa serveru
 
@@ -225,7 +225,7 @@ Příprava prostředí projektu spuštěním:
 ```az ml experiment prepare -c dockerdsvm```
 
 
-S `PrepareEnvironment` nastaven na hodnotu true, Machine Learning Workbench vytvoří běhové prostředí vždy, když odeslání úlohy. `Config/conda_dependencies.yml`a `Config/dsvm_spark_dependencies.yml` obsahovat přizpůsobení běhové prostředí. Úpravou tyto dva soubory YMAL můžete upravit vždy Conda závislosti, Spark konfigurace a závislosti Spark. V tomto příkladu jsme přidali `azure-storage` a `azure-ml-api-sdk` jako další balíčky Python v `Config/conda_dependencies.yml`. Jsme přidali i `spark.default.parallelism`, `spark.executor.instances`, a `spark.executor.cores` v `Config/dsvm_spark_dependencies.yml`. 
+S `PrepareEnvironment` nastaven na hodnotu true, Machine Learning Workbench vytvoří běhové prostředí vždy, když odeslání úlohy. `Config/conda_dependencies.yml` a `Config/dsvm_spark_dependencies.yml` obsahovat přizpůsobení běhové prostředí. Úpravou tyto dva soubory YMAL můžete upravit vždy Conda závislosti, Spark konfigurace a závislosti Spark. V tomto příkladu jsme přidali `azure-storage` a `azure-ml-api-sdk` jako další balíčky Python v `Config/conda_dependencies.yml`. Jsme přidali i `spark.default.parallelism`, `spark.executor.instances`, a `spark.executor.cores` v `Config/dsvm_spark_dependencies.yml`. 
 
 #####  <a name="2-data-preparation-and-feature-engineering-on-dsvm-docker"></a>2. Příprava dat a funkce inženýrství na DSVM Docker
 
@@ -330,7 +330,7 @@ Na pravém bočním panelu nástroje Workbench, přejděte do **spustí** zobraz
 
 V této části zprovoznit model, který jste vytvořili v předchozích krocích jako webovou službu. Můžete také další informace o použití webovou službu pro předpověď zatížení. Pomocí rozhraní příkazového řádku operationalization počítač jazyk (CLIs) do balíčku kódu a závislosti jako imagí Dockeru a k publikování modelu jako kontejnerizované webovou službu.
 
-Příkazovém řádku v nástroji Machine Learning Workbench můžete použít ke spuštění CLIs.  Můžete taky spustit CLIs na Ubuntu Linux podle [Průvodce instalací](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+Příkazovém řádku v nástroji Machine Learning Workbench můžete použít ke spuštění CLIs.  Můžete taky spustit CLIs na Ubuntu Linux podle [Průvodce instalací](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > Ve všech následujících příkazů nahraďte všechny proměnné argument jeho skutečnou hodnotu. Trvá asi 40 minut na dokončení této části.
@@ -416,7 +416,7 @@ Vyberte jedinečný řetězec jako prostředí pro operationalization. Tady pou�
 
 8. Škálování webové služby. 
 
-   Další informace najdete v tématu [postup škálování operationalization v clusteru Azure Container Service](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   Další informace najdete v tématu [postup škálování operationalization v clusteru Azure Container Service](how-to-scale-clusters.md).
  
 
 ## <a name="next-steps"></a>Další postup

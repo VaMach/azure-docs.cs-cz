@@ -33,14 +33,22 @@
   items:
     - name: Nasazení skupin více kontejnerů
       href: container-instances-multi-container-group.md
-    - name: Zachování data s Azure Files
-      href: container-instances-mounting-azure-files-volume.md
     - name: Nasazení ze služby Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Spouštění kontejnerizovaných úloh
       href: container-instances-restart-policy.md
     - name: Řešení potíží s nasazeními
       href: container-instances-troubleshooting.md
+    - name: Konfigurace svazků s daty
+      items:
+        - name: Soubory Azure
+          href: container-instances-volume-azure-files.md
+        - name: emptyDir
+          href: container-instances-volume-emptydir.md
+        - name: gitRepo
+          href: container-instances-volume-gitrepo.md
+        - name: Tajný kód
+          href: container-instances-volume-secret.md
 - name: Referenční informace
   items:
     - name: Azure CLI

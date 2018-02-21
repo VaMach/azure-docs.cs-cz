@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ladění výkonu v Azure SQL Database
 
@@ -34,7 +34,7 @@ Tyto jsou ruční metody, protože je potřeba rozhodnout se, jak [úrovních sl
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Zvýšení úrovně výkonu databáze
 
-Azure SQL Database nabízí čtyři [úrovních služeb](sql-database-service-tiers.md) ze kterých si můžete vybrat: Basic, Standard, Premium a Premium RS (výkonu se měří v jednotky propustnosti databáze, nebo [Dtu](sql-database-what-is-a-dtu.md). Každé úrovni služeb výhradně izoluje prostředky, můžete použít SQL database a zaručuje, předvídatelný výkon této úrovně služeb. V tomto článku jsme nabízí pokyny, které vám pomohou vybrat úroveň služby pro aplikaci. Můžeme také popisují způsoby, abyste mohli vyladit aplikace k plnému využití z databáze SQL Azure.
+Azure SQL Database nabízí čtyři [úrovních služeb](sql-database-service-tiers.md) ze kterých si můžete vybrat: Basic, Standard a Premium (výkonu se měří v jednotky propustnosti databáze, nebo [Dtu](sql-database-what-is-a-dtu.md). Každé úrovni služeb výhradně izoluje prostředky, můžete použít SQL database a zaručuje, předvídatelný výkon této úrovně služeb. V tomto článku jsme nabízí pokyny, které vám pomohou vybrat úroveň služby pro aplikaci. Můžeme také popisují způsoby, abyste mohli vyladit aplikace k plnému využití z databáze SQL Azure.
 
 > [!NOTE]
 > Tento článek se zaměřuje na pokyny výkonu pro izolované databáze ve službě Azure SQL Database. Pokyny výkonu související s elastické fondy najdete v tématu [cenové a výkonové požadavky pro elastické fondy](sql-database-elastic-pool-guidance.md). Upozorňujeme ale, můžete použít řadu vyladění doporučení v tomto článku pro databáze v elastickém fondu a získejte výhody podobné výkonu.
@@ -49,7 +49,6 @@ Azure SQL Database nabízí čtyři [úrovních služeb](sql-database-service-ti
   * **Zátěž ve špičce vysokou**. Aplikaci, která vyžaduje významné CPU, paměť či vstupní a výstupní (I/O) k dokončení operace vyžaduje úroveň vyhrazené a vysoce výkonné. Operace databáze známé využívat několik jader procesoru po delší dobu, je třeba kandidátem na úroveň služeb Premium.
   * **Mnoha souběžnými požadavky**. Některé databáze aplikace služby mnoho souběžných žádostí, například když obsluhuje web, který má intenzivní provoz. Úrovně Basic a Standard úrovně služeb omezit počet souběžných požadavků na databázi. Aplikace, které vyžadují více připojení bude muset zvolit příslušné rezervace velikost pro zpracování maximální počet potřebných požadavků.
   * **Nízká latence**. Některé aplikace potřebují zaručit minimální včas odpověď z databáze. Pokud konkrétní uložená procedura je volána v rámci širší operace zákazníka, bude pravděpodobně potřeba mít návratový z tohoto volání v milisekundách více než 20, 99 procent času. Tento typ aplikace výhody z úroveň služeb Premium, abyste měli jistotu, že je k dispozici požadované výpočetní výkon.
-* **Premium RS**: vrstvy RS Premium je určená pro úlohy náročné na vstupně-výstupní operace, které nevyžadují zaručuje nejvyšší dostupnost. Mezi příklady patří testování vysoce výkonné úlohy, nebo analytické úlohy, kde databáze není systému záznamu.
 
 Úrovně služby, které potřebujete pro vaši databázi SQL, závisí na požadavky na zatížení ve špičce Každá dimenze prostředků. Některé aplikace využívat trivial množství jediný zdroj, ale mají významný požadavky na jiné prostředky.
 
@@ -276,7 +275,7 @@ Některé aplikace jsou náročné na zápis. V některých případech můžete
 ### <a name="application-tier-caching"></a>Ukládání do mezipaměti aplikační vrstvy
 Některé databázových aplikací mít úlohy náročné na čtení. Ukládání do mezipaměti vrstvy může vést ke snížení zatížení databáze a může potenciálně snížit úroveň výkonu, které jsou potřebné k podpoře databáze pomocí Azure SQL Database. S [Azure Redis Cache](https://azure.microsoft.com/services/cache/), pokud máte úlohy náročné na čtení, můžete číst data jednou (nebo případně jednou za aplikační vrstvy počítače, v závislosti na tom, jak je nakonfigurovaná) a potom tato data mimo vaší databázi SQL. Toto je způsob, jak snížit zatížení databáze (procesoru a čtení vstupně-výstupních operací), ale není vliv na transakční konzistence, protože data se načten z mezipaměti může být synchronizována s daty v databázi. V mnoha aplikacích určité úrovně, ke kterému je přijatelné, není, platí pro všechny úlohy. Všechny požadavky aplikace byste měli plně rozumět před implementací strategie pro ukládání do mezipaměti aplikační vrstvy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o úrovních služeb najdete v tématu [výkon a možnosti databáze SQL](sql-database-service-tiers.md)
 * Další informace o elastické fondy najdete v tématu [co je Azure elastickém fondu?](sql-database-elastic-pool.md)
 * Informace o výkonu a Elastická fondy najdete v tématu [při vzít v úvahu fondu elastické databáze](sql-database-elastic-pool-guidance.md)

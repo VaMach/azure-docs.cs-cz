@@ -1,10 +1,10 @@
 ---
 title: "Generování a exportování certifikátů pro Point-to-Site: prostředí PowerShell: Azure | Microsoft Docs"
-description: "Tento článek obsahuje kroky k vytvoření certifikátu podepsaného svým držitelem kořenové, exportujte veřejný klíč a generovat klientské certifikáty pomocí prostředí PowerShell na Windows 10 nebo Windows Server 2016."
+description: "Vytvořit certifikát podepsaný svým držitelem kořenové, exportujte veřejný klíč a generovat klientské certifikáty pomocí prostředí PowerShell na Windows 10 nebo Windows Server 2016."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Generování a exportování certifikátů pro připojení Point-to-Site pomocí prostředí PowerShell na Windows 10 nebo Windows Server 2016
 
@@ -137,3 +137,5 @@ V konfiguraci Point-to-Site pokračujte.
 
 * Pro **Resource Manager** postup nasazení modelu najdete v tématu [P2S konfigurace ověřování pomocí certifikátů nativní Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Pro **classic** postup nasazení modelu najdete v tématu [konfigurace připojení typu Point-to-Site VPN do virtuální sítě (klasické)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+P2S řešení potíží s informace najdete v tématu [připojení point-to-site řešení potíží s Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

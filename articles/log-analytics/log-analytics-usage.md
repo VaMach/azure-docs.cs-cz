@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analýza využití dat v Log Analytics
 Log Analytics obsahuje informace o objemu shromážděných dat, systémech odesílajících data a různých typech odesílaných dat.  Pomocí řídicího panelu **Využití Log Analytics** můžete zobrazit objem dat odesílaných do služby Log Analytics. Řídicí panel ukazuje, kolik dat shromažďují jednotlivá řešení a kolik dat odesílají vaše počítače.
@@ -36,7 +36,9 @@ Log Analytics obsahuje informace o objemu shromážděných dat, systémech odes
 - Nabídky
     - Uzly Insight and Analytics
     - Uzly Automation and Control
-    - Uzly zabezpečení
+    - Uzly zabezpečení  
+- Výkon
+    - Čas potřebný k shromáždění a indexaci dat  
 - Seznam dotazů
 
 ![řídicí panel využití](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Kliknutím na **Zobrazit všechno...** zobrazte úplný seznam počítačů odes
 
 Použijte [cílení na řešení](../operations-management-suite/operations-management-suite-solution-targeting.md) a shromažďujte data pouze z požadované skupiny počítačů.
 
-## <a name="check-if-there-is-ingestion-latency"></a>Kontrola existence latence příjmu dat
-V případě Log Analytics se s příjmem shromážděných dat pojí předpokládaná latence.  Absolutní čas mezi indexací dat a jejich dostupností pro vyhledávání může být nepředvídatelný. Řídicí panel dříve obsahoval graf výkonu, který ukazoval čas potřebný k shromáždění a indexaci dat, ale se zavedením nového dotazovacího jazyka jsme tento graf dočasně odebrali.  Jako dočasné řešení než vydáme aktualizované metriky latence příjmu dat je možné k přibližnému určení latence pro jednotlivé typy dat použít následující dotaz.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> Dotaz na latenci příjmu dat nezobrazuje historickou latenci a vrací pouze výsledky pro aktuální čas.  Hodnota *TimeGenerated* se v případě protokolů se společným schématem vyplní v agentovi a v případě vlastních protokolů se vyplní v koncovém bodu shromažďování.  
->
 
 ## <a name="next-steps"></a>Další kroky
 * V tématu [Prohledávání protokolů v Log Analytics](log-analytics-log-searches.md) zjistíte, jak používat jazyk vyhledávání. Pomocí vyhledávacích dotazů můžete na datech o využití provádět další analýzy.

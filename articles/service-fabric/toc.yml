@@ -93,6 +93,8 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Životní cyklus replik a instancí
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Životní cyklus Reliable Services – C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Životní cyklus Reliable Services – Java
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: Dostupnost služeb
           href: service-fabric-availability-services.md
-        - name: Životní cyklus replik a instancí
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Rekonfigurace
           href: service-fabric-concepts-reconfiguration.md
         - name: Komunikace služeb

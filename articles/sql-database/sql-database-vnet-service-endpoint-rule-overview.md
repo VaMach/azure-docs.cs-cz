@@ -4,7 +4,7 @@ description: "Podsíť označte jako koncový bod služby virtuální sítě. Po
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/05/2018
+ms.date: 02/13/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 90c9aeac46240466bc28cf4c32bb5ff7ef443455
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Použít koncové body služby virtuální sítě a pravidla pro databázi SQL Azure
 
@@ -144,6 +144,12 @@ Pro databázi SQL Azure funkci pravidla virtuální sítě má následující om
     - [Site-to-Site (S2S) virtuální privátní sítě (VPN)][vpn-gateway-indexmd-608y]
     - Místní prostřednictvím [ExpressRoute][expressroute-indexmd-744v]
 
+#### <a name="considerations-when-using-service-endpoints"></a>Informace týkající se použití koncové body služby
+Pokud používáte koncové body služby pro databázi SQL Azure, projděte si následující aspekty:
+
+- **Odchozí do veřejných IP adres Azure SQL Database je požadována**: skupiny zabezpečení sítě (Nsg) musí být otevřené pro IP adresy databáze SQL Azure umožňující připojení. Můžete to provést pomocí NSG [služby značky](../virtual-network/security-overview.md#service-tags) pro databázi SQL Azure.
+- **Azure databáze PostgreSQL a MySQL nejsou podporovány**: koncové body služby nejsou podporovány pro databázi Azure pro PostgreSQL nebo MySQL. Povolování koncových bodů služby SQL Database bude přerušení připojení k těmto službám. Máme zmírnění dopadů pro tento; Obraťte se na  *dmalik@microsoft.com* .
+
 #### <a name="expressroute"></a>ExpressRoute
 
 Pokud vaše síť připojená k síti Azure prostřednictvím použití [ExpressRoute][expressroute-indexmd-744v], každý okruh je nakonfigurován s dvě veřejné IP adresy v Microsoft Edge. Dvě IP adresy se používají k připojení k Microsoft Services, například do služby Azure Storage, pomocí veřejného partnerského vztahu Azure.
@@ -171,6 +177,8 @@ Editoru dotazů databáze SQL Azure je nasazen na virtuálních počítačů v A
 #### <a name="table-auditing"></a>Tabulka auditování
 V současné době jsou dva způsoby, jak povolit auditování ve vaší databázi SQL. Auditování tabulka selže po povolení koncové body služby na serveru SQL Azure. Zmírnění dopadů tady je přesunout do auditování objektů Blob.
 
+#### <a name="impact-on-data-sync"></a>Dopad na synchronizaci dat
+Azure SQLDB má funkce synchronizace dat, která se připojuje k vaší databáze pomocí IP adresy Azure. Při použití koncové body služby, je pravděpodobné, že se vypne **povolit všechny služby Azure** přístup ke svému logickému serveru. Tím dojde k přerušení funkce synchronizace Data.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Dopad pomocí koncových bodů služby virtuální síť s Azure storage
 
@@ -178,7 +186,7 @@ V současné době jsou dva způsoby, jak povolit auditování ve vaší databá
 Pokud se rozhodnete tuto funkci používat s účtem úložiště, který používá Azure SQL Server, můžete spustit na problémy. Následuje seznam a diskuzi o Azure SQLDB funkce, které jsou ovlivněny to.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase se běžně používá k načtení dat do Azure SQLDW z úložiště účtů. Pokud účet úložiště, který se načítání dat z omezuje přístup pouze na sadu podsítí virtuální sítě, dojde k přerušení připojení k z PolyBase k účtu.
+PolyBase se běžně používá k načtení dat do Azure SQLDW z úložiště účtů. Pokud účet úložiště, který se načítání dat z omezuje přístup pouze na sadu podsítí virtuální sítě, dojde k přerušení připojení k z PolyBase k účtu. Je zmírnění dopadů pro tento; Obraťte se na  *dmalik@microsoft.com*  Další informace.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Objekt Blob Azure SQLDB auditování
 Auditování objektů BLOB doručí protokolů auditu na účtu úložiště. Pokud tento účet úložiště používá funkce koncové body služby ECYKLACI dojde k přerušení připojení z Azure SQLDB k účtu úložiště.

@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definic Azure Policy
 
@@ -262,6 +262,7 @@ Vlastnost aliasy používáte pro přístup k vlastnosti specifické pro typ pro
 | Microsoft.Compute/virtualMachines/imageVersion | Nastavte verzi image platformy nebo marketplace image použitá k vytvoření virtuálního počítače. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Nastavte identifikátor URI virtuálního pevného disku. |
 | Microsoft.Compute/virtualMachines/sku.name | Nastavení velikosti virtuálního počítače. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Nastaví dostupnost nastavit id pro virtuální počítač. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -332,6 +333,7 @@ Vlastnost aliasy používáte pro přístup k vlastnosti specifické pro typ pro
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Nastavte, jestli služba šifruje data, jak je uložen v úložišti služby souboru. |
 | Microsoft.Storage/storageAccounts/sku.name | Název SKU nastavte. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Nastavte, aby umožňovala pouze provoz https pro službu úložiště. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Zkontrolujte, zda je povoleno koncový bod služby virtuální sítě. |
 
 ## <a name="initiatives"></a>Iniciativy
 

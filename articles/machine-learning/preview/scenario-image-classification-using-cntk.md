@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Pomocí Azure Machine Learning Workbench klasifikace bitové kopie
 
@@ -54,7 +54,7 @@ Požadavky na spuštění v tomto příkladu jsou následující:
 4. Vyhrazené GPU není nutné provést školení SVM část 1, ale je potřeba pro upřesnění z DNN popsané v části 2. Chybí silné grafického procesoru, chcete cvičení na více grafickými procesory nebo nemají počítače s Windows, můžete použít Azure hloubkové Learning virtuální počítač s operačním systémem Windows. V tématu [sem](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) průvodce kliknutím 1 nasazení. Po nasazení připojit k virtuálnímu počítači prostřednictvím připojení ke vzdálené ploše, nainstalujte Workbench existuje a spouštění kódu místně z virtuálního počítače.
 5. Různé knihovny Python, jako je například OpenCV je potřeba nainstalovat. Klikněte na tlačítko *spusťte příkazový řádek* z *souboru* nabídky na Workbench a spusťte následující příkazy pro instalaci tyto závislosti:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`Po stažení OpenCV wheel z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (přesný název souboru a verze můžete změnit)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` Po stažení OpenCV wheel z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (přesný název souboru a verze můžete změnit)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -81,7 +81,7 @@ Provedením těchto kroků vytvoří strukturu projektu vidíte níže. Adresá�
 
   Složka| Popis
   ---|---
-  aml_config /|                           Adresář, který obsahuje konfigurační soubory, které Azure Machine Learning Workbench
+  aml_config/|                           Adresář, který obsahuje konfigurační soubory, které Azure Machine Learning Workbench
   knihovny nebo|                              Adresář, který obsahuje všechny podpůrné funkce Python a Jupyter
   poznámkové bloky /|                              Adresář, který obsahuje všechny poznámkové bloky
   prostředky nebo|                              Adresář obsahující všechny prostředky (pro příklad adresy url způsobem obrázků)
@@ -193,7 +193,7 @@ Nakonec poznámkového bloku `showResults.py` zajišťuje procházení testovac�
 ### <a name="step-6-deployment"></a>Krok 6: nasazení
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Vyškolení systému lze nyní publikovat jako rozhraní REST API. Nasazení je vysvětleno v poznámkovém bloku `deploy.ipynb`a podle funkcionalitu v rámci nástroje Azure Machine Learning Workbench (Nezapomeňte nastavit jako jádra jádra místní projektu s názvem "PROJECTNAME místní"). Viz také části vynikající nasazení [IRIS kurzu](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) pro další nasazení související informace.
+Vyškolení systému lze nyní publikovat jako rozhraní REST API. Nasazení je vysvětleno v poznámkovém bloku `deploy.ipynb`a podle funkcionalitu v rámci nástroje Azure Machine Learning Workbench (Nezapomeňte nastavit jako jádra jádra místní projektu s názvem "PROJECTNAME místní"). Viz také části vynikající nasazení [IRIS kurzu](tutorial-classifying-iris-part-3.md) pro další nasazení související informace.
 
 Po nasazení webové služby je možné volat pomocí skriptu `6_callWebservice.py`. Všimněte si, že IP adresa (místní nebo v cloudu) webové služby je třeba nejprve nastavit ve skriptu. Poznámkového bloku `deploy.ipynb` vysvětluje, jak najít tuto IP adresu.
 
@@ -228,7 +228,7 @@ Jak je vidět v výkresu níže, přesnost pomocí DNN upřesnění zadané sady
 
 ### <a name="run-history-tracking"></a>Spustit sledování historie
 
-Úložiště Azure Machine Learning Workbench historii jednotlivých spustit v Azure k porovnání dvou nebo více testů, které jsou povolit i týdnů od sebe. To je podrobně vysvětleny v [Iris kurzu](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). Také je znázorněno v následující snímky obrazovky, které jsme porovnání dvou spuštění skriptu `5_evaluate.py`, pomocí buď DNN upřesnění tedy `classifier = "dnn"`(spuštění číslo 148) nebo SVM cvičení to znamená, `classifier = "svm"` (spuštění číslo 150).
+Úložiště Azure Machine Learning Workbench historii jednotlivých spustit v Azure k porovnání dvou nebo více testů, které jsou povolit i týdnů od sebe. To je podrobně vysvětleny v [Iris kurzu](tutorial-classifying-iris-part-2.md). Také je znázorněno v následující snímky obrazovky, které jsme porovnání dvou spuštění skriptu `5_evaluate.py`, pomocí buď DNN upřesnění tedy `classifier = "dnn"`(spuštění číslo 148) nebo SVM cvičení to znamená, `classifier = "svm"` (spuštění číslo 150).
 
 Na snímku obrazovky první upřesnění DNN vede k lepší přesnostmi než SVM školení pro všechny třídy. Druhý snímek obrazovky ukazuje všechny metriky, které jsou sledovány, včetně toho, co byl třídění. Toto sledování se provádí ve skriptu `5_evaluate.py` voláním Azure Machine Learning Workbench protokolovacího nástroje. Kromě toho skript navíc šetří ROC křivky a přehlednosti matice do *výstupy* složky. To *výstupy* složka je speciální v, že jeho obsah je také sleduje funkci historie Workbench a proto výstupních souborů je přístupný kdykoli bez ohledu na to, jestli máte místní kopie přepsán.
 

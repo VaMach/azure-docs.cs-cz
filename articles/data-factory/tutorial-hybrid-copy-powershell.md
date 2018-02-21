@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 221af59c211cc6ce0471718908db1544ca2d75ed
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a2abe0733f52c1e032a718fd8f870c3ec9686a41
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kurz: Kopírování dat z místní databáze SQL Serveru do úložiště objektů blob v Azure
 V tomto kurzu použijete Azure PowerShell k vytvoření kanálu datové továrny, který kopíruje data z místní databáze SQL Serveru do úložiště objektů blob v Azure. Vytvoříte a použijete místní prostředí Integration Runtime, které přesouvá data mezi místním a cloudovým úložištěm dat. 
@@ -202,6 +202,9 @@ V této části vytvoříte místní prostředí Integration Runtime a přidruž
 
 2. Vytvořte místní prostředí Integration Runtime. 
 
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ``` 
     Zde je ukázkový výstup:
 
     ```json
@@ -210,7 +213,7 @@ V této části vytvoříte místní prostředí Integration Runtime a přidruž
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
 
 3. Pokud chcete načíst stav vytvořeného prostředí Integration Runtime, spusťte následující příkaz:

@@ -1,3 +1,26 @@
+---
+title: "Stream Analytics: Odhalování podvodů v reálném čase | Microsoft Docs"
+description: "Naučte se vytvářet řešení zjišťování podvodů v reálném čase pomocí služby Stream Analytics. Pomocí centra událostí ke zpracování událostí v reálném čase."
+keywords: "detekce anomálií, odhalování podvodů, detekce anomálií v reálném čase."
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Začněte používat Azure Stream Analytics: odhalování podvodů v reálném čase
 
 V tomto kurzu poskytuje začátku do konce obrázek o tom, jak používat Azure Stream Analytics. Získáte informace o těchto tématech: 
@@ -126,7 +149,7 @@ Než začnete TelcoGenerator aplikace, musíte ho nakonfigurovat tak, aby se bud
 
 Některá pole klíče, které budete používat v této aplikaci zjišťování podvodů v reálném čase jsou následující:
 
-|**Záznam**|**Definice**|
+|**záznam**|Definice|
 |----------|--------------|
 |`CallrecTime`|Časové razítko pro volání počáteční čas. |
 |`SwitchNum`|Přepínač telefonní používaná k připojení volání. V tomto příkladu přepínače jsou řetězce, které představují země původu (USA, Čína, UK, Německu nebo Austrálie). |
@@ -385,7 +408,7 @@ Ale pokud s tím budete hotovi a nepotřebujete prostředky, které jste vytvoř
 
 Pro další pomoc, vyzkoušejte naše [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Můžete pokračovat v tomto kurzu se v následujícím článku:
 

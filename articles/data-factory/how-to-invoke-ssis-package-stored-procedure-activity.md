@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ee7da3bc4579ad5415977e42ad48e9e06a7e4253
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Vyvolání balíčku služby SSIS pomocí aktivity uložené procedury v Azure Data Factory
 Tento článek popisuje, jak má být vyvolán balíčku služby SSIS z kanál služby Azure Data Factory pomocí aktivity uložené procedury. 
@@ -76,7 +76,7 @@ V tomto kroku použijete rozhraní Data Factory vytvořit kanál. Přidání akt
 1. Na stránku Začínáme, klikněte na **vytvořit kanál**: 
 
     ![Stránka Začínáme](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. V **aktivity** sada nástrojů, rozbalte položku **SQL Database**a přetáhněte jej **uloženou proceduru** aktivity na plochu návrháře kanálu. 
+2. V **aktivity** sada nástrojů, rozbalte položku **Obecné**a přetáhněte jej **uloženou proceduru** aktivity na plochu návrháře kanálu. 
 
     ![Aktivita uložené procedury a přetažení](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. V okně vlastnosti aktivity uložené procedury přepnout **účet SQL** a klikněte na **+ nový**. Vytvoříte připojení k databázi Azure SQL, který je hostitelem katalogu služby SSIS (SSIDB databáze). 
@@ -95,11 +95,12 @@ V tomto kroku použijete rozhraní Data Factory vytvořit kanál. Přidání akt
         ![Propojená služba Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. V okně vlastností přepnout **uloženou proceduru** kartě z **účet SQL** kartě a proveďte následující kroky: 
 
-    1. Pro **název uložené procedury** pole, zadejte `sp_executesql`. 
-    2. Klikněte na tlačítko **+ nový** v **uložené procedury parametry** části. 
-    3. Pro **název** parametru, zadejte **příkazu Insert**. 
-    4. Pro **typ** parametru, zadejte **řetězec**. 
-    5. Pro **hodnota** parametru, zadejte následujícího dotazu SQL:
+    1. Vyberte **Upravit**. 
+    2. Pro **název uložené procedury** pole, zadejte `sp_executesql`. 
+    3. Klikněte na tlačítko **+ nový** v **uložené procedury parametry** části. 
+    4. Pro **název** parametru, zadejte **příkazu Insert**. 
+    5. Pro **typ** parametru, zadejte **řetězec**. 
+    6. Pro **hodnota** parametru, zadejte následujícího dotazu SQL:
 
         V příkazu jazyka SQL, zadejte správné hodnoty pro **název_složky**, **název_projektu**, a **název_balíčku** parametry. 
 
@@ -121,7 +122,8 @@ V této části se aktivuje spuštění kanálu a jeho sledování.
 1. Chcete-li aktivovat kanálu spustit, klikněte na tlačítko **aktivační událost** na panelu nástrojů a klikněte na tlačítko **nyní spustit**. 
 
     ![Aktivovat](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Vlevo přepněte na kartu **Monitorování**. Zobrazí kanálu spustit a její stav se společně s dalšími informacemi (například čas spuštění spuštění). Pokud chcete zobrazení aktualizovat, klikněte na **Aktualizovat**.
+2. V **spustit kanál** vyberte **Dokončit**. 
+3. Vlevo přepněte na kartu **Monitorování**. Zobrazí kanálu spustit a její stav se společně s dalšími informacemi (například čas spuštění spuštění). Pokud chcete zobrazení aktualizovat, klikněte na **Aktualizovat**.
 
     ![Spuštění kanálu](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Klikněte na odkaz **Zobrazit spuštění aktivit** ve sloupci **Akce**. Zobrazí jenom jedna aktivita spustit, protože kanál obsahuje pouze jednu aktivitu (aktivita uložené procedury).
