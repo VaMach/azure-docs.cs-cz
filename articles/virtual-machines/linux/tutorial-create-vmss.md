@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření sady škálování virtuálního počítače pro Linux v Azure | Microsoft Docs"
-description: "Vytvoření a nasazení vysoce dostupné aplikace na virtuální počítače s Linuxem pomocí škálovací sadu virtuálních počítačů"
+title: "Vytvoření škálovací sady virtuálních počítačů pro Linux v Azure | Microsoft Docs"
+description: "Vytvoření vysoce dostupné aplikace a její nasazení na virtuální počítač s Linuxem s využitím škálovací sady virtuálních počítačů"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -15,42 +15,42 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 263983017e08dcc9a8e614c159ef5afaaf1d924e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Vytvořit sadu škálování virtuálního počítače a nasazení vysoce dostupné aplikace v systému Linux
-Škálovací sadu virtuálních počítačů můžete nasadit a spravovat sadu identické, automatické škálování virtuálních počítačů. Můžete škálovat počet virtuálních počítačů v sadě škálování ručně, nebo definovat pravidla pro automatické škálování podle využití prostředků, jako je například CPU, paměť vyžádání či síťový provoz. V tomto kurzu nasadíte škálování virtuálních počítačů, nastavte v Azure. Získáte informace o těchto tématech:
+# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Vytvoření škálovací sady virtuálních počítačů a nasazení vysoce dostupné aplikace v Linuxu
+Škálovací sada virtuálních počítačů umožňuje nasadit a spravovat sadu identických virtuálních počítačů s automatickým škálováním. Všechny virtuální počítače ve škálovací sadě můžete škálovat ručně nebo můžete definovat pravidla pro automatické škálování podle využití prostředků, například podle požadavků na CPU a paměť nebo podle provozu. V tomto kurzu nasadíte škálovací sadu virtuálních počítačů v Azure. Získáte informace o těchto tématech:
 
 > [!div class="checklist"]
-> * Použít k vytvoření aplikace škálovat init cloudu
-> * Vytvoření sady škálování virtuálního počítače
-> * Zvýšení nebo snížení počtu instancí v sadě škálování
-> * Vytvoření pravidel škálování
-> * Zobrazit informace o připojení pro instance škálovací sady
+> * Použití cloud-init k vytvoření aplikace určené ke škálování
+> * Vytvoření škálovací sady virtuálních počítačů
+> * Zvýšení nebo snížení počtu instancí ve škálovací sadě
+> * Vytvoření pravidel automatického škálování
+> * Zobrazení informací o připojení instancí škálovací sady
 > * Použití datových disků ve škálovací sadě
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze 2.0.22 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít Azure CLI ve verzi 2.0.22 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="scale-set-overview"></a>Přehled sady škálování
-Škálovací sadu virtuálních počítačů můžete nasadit a spravovat sadu identické, automatické škálování virtuálních počítačů. Virtuální počítače ve škálovací sadě jsou rozmístěny v doménách selhání a aktualizace logiku v jednom nebo více *umístění skupiny*. Toto jsou skupiny podobně nakonfigurovaných virtuálních počítačů, podobně jako [skupiny dostupnosti](tutorial-availability-sets.md).
+## <a name="scale-set-overview"></a>Přehled škálovací sady
+Škálovací sada virtuálních počítačů umožňuje nasadit a spravovat sadu identických virtuálních počítačů s automatickým škálováním. Virtuální počítače ve škálovací sadě se distribuují napříč logickými doménami selhání a aktualizačními doménami v jedné nebo více *skupinách umístění*. To jsou skupiny podobně nakonfigurovaných virtuálních počítačů, podobně jako [skupiny dostupnosti](tutorial-availability-sets.md).
 
-Podle potřeby ve škálovací sadě virtuálních počítačů vytvořeny. Můžete definovat pravidla škálování řídit, jak a kdy se přidají nebo odeberou ze sady škálování virtuálních počítačů. Tato pravidla můžete spustit na základě metriky například zatížení procesoru, využití paměti nebo síťový provoz.
+Virtuální počítače se ve škálovací sadě vytvářejí podle potřeby. Pro řízení, jak a kdy se virtuální počítače přidávají do škálovací sady nebo se z ní odebírají, definujete pravidla automatického škálování. Tato pravidla se můžou aktivovat na základě metrik, jako jsou zatížení procesoru, využití paměti nebo síťový provoz.
 
-Pokud používáte image platformy Azure sadách škálování podporu až 1 000 virtuálních počítačů. Pro úlohy s významné instalace nebo požadavky přizpůsobení virtuálního počítače, můžete chtít [vytvořit vlastní image virtuálního počítače](tutorial-custom-images.md). Můžete vytvořit až 300 virtuálních počítačů v škálování nastavit při použití vlastní image.
+Škálovací sady podporují až 1 000 virtuálních počítačů, pokud použijete image platformy Azure. Pro úlohy se značnými požadavky na instalaci nebo přizpůsobení virtuálních počítačů možná budete chtít [vytvořit vlastní image virtuálního počítače](tutorial-custom-images.md). Pokud použijete vlastní image, můžete ve škálovací sadě vytvořit až 300 virtuálních počítačů.
 
 
-## <a name="create-an-app-to-scale"></a>Vytvoření aplikace pro škálování
-Pro použití v provozním prostředí, můžete chtít [vytvořit vlastní image virtuálního počítače](tutorial-custom-images.md) , který obsahuje aplikace nainstalována a nakonfigurována. V tomto kurzu umožňuje přizpůsobit virtuální počítače na při prvním spuštění rychle zobrazit nastavení v akci škálování.
+## <a name="create-an-app-to-scale"></a>Vytvoření aplikace určené ke škálování
+Pro produkční použití možná budete chtít [vytvořit vlastní image virtuálního počítače](tutorial-custom-images.md) obsahující vaši nainstalovanou a nakonfigurovanou aplikaci. Pro účely tohoto kurzu přizpůsobíme virtuální počítače při prvním spuštění, abychom rychle viděli škálovací sadu v akci.
 
-V předchozích kurzu jste se dozvěděli [postup přizpůsobení virtuální počítač s Linuxem na při prvním spuštění](tutorial-automate-vm-deployment.md) s inicializací cloudu. Konfiguračního souboru stejné cloudové init můžete použít k instalaci NGINX a spuštění jednoduchou aplikaci Node.js "Zdravím svět". 
+V předchozím kurzu jste zjistili, [jak přizpůsobit virtuální počítač s Linuxem při prvním spuštění](tutorial-automate-vm-deployment.md) pomocí cloud-init. Stejný konfigurační soubor cloud-init můžete použít k instalaci serveru NGINX a spuštění jednoduché aplikace Hello World v Node.js. 
 
-V aktuálním prostředí, vytvořte soubor s názvem *cloudu init.txt* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Zadejte `sensible-editor cloud-init.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
+V aktuálním prostředí vytvořte soubor *cloud-init.txt* a vložte do něj následující konfiguraci. Soubor vytvořte například v Cloud Shellu, pokud nepracujete na místním počítači. Zadáním příkazu `sensible-editor cloud-init.txt` soubor vytvořte a zobrazte seznam editorů k dispozici. Ujistěte se, že se celý soubor cloud-init zkopíroval správně, zejména první řádek:
 
 ```yaml
 #cloud-config
@@ -95,14 +95,14 @@ runcmd:
 ```
 
 
-## <a name="create-a-scale-set"></a>Vytvoření sady škálování
-Před vytvořením sady škálování, vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroupScaleSet* v *eastus* umístění:
+## <a name="create-a-scale-set"></a>Vytvoření škálovací sady
+Než vytvoříte škálovací sadu, vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků *myResourceGroupScaleSet* v umístění *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Nyní vytvoří škálování virtuálního počítače s [vytvořit az vmss](/cli/azure/vmss#create). Následující příklad vytvoří škálování nastavení s názvem *myScaleSet*, použije cloudu init soubor pro přizpůsobení virtuálního počítače a generuje klíče SSH, pokud neexistují:
+Teď vytvořte škálovací sadu virtuálních počítačů pomocí příkazu [az vmss create](/cli/azure/vmss#az_vmss_create). Následující příklad vytvoří škálovací sadu *myScaleSet*, pomocí souboru cloud-init přizpůsobí virtuální počítač a vygeneruje klíče SSH, pokud ještě neexistují:
 
 ```azurecli-interactive 
 az vmss create \
@@ -115,13 +115,13 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-Trvá několik minut vytvořit a nakonfigurovat všechny škálovací sadu prostředků a virtuálních počítačů. Existují úlohy na pozadí, které dál běžet po rozhraní příkazového řádku Azure se vrátíte do řádku. To může být jiná několik minut, než může aplikaci používat.
+Vytvoření a konfigurace všech prostředků škálovací sady a virtuálních počítačů trvá několik minut. Jakmile vás Azure CLI vrátí na příkazový řádek, na pozadí stále poběží úlohy. Může trvat dalších několik minut, než k aplikaci budete mít přístup.
 
 
-## <a name="allow-web-traffic"></a>Povolit webový provoz
-Nástroj pro vyrovnávání zatížení byl vytvořen automaticky jako součást sady škálování virtuálního počítače. Nástroje pro vyrovnávání zatížení rozděluje zatížení mezi sadu definované virtuálních počítačů pomocí pravidla nástroje pro vyrovnávání zatížení. Další informace o konceptech služby Vyrovnávání zatížení a konfiguraci v dalším kurzu [postup vyrovnávat zatížení virtuálních počítačů v Azure](tutorial-load-balancer.md).
+## <a name="allow-web-traffic"></a>Povolení webového provozu
+Jako součást škálovací sady virtuálních počítačů se automaticky vytvořil nástroj pro vyrovnávání zatížení. Nástroj pro vyrovnávání zatížení s využitím pravidel nástroje pro vyrovnávání zatížení distribuuje provoz mezi sadu definovaných virtuálních počítačů. Další informace o konceptech a konfiguraci nástroje pro vyrovnávání zatížení najdete v dalším kurzu [Vyrovnávání zatížení virtuálních počítačů v Azure](tutorial-load-balancer.md).
 
-Pokud chcete povolit přenosy k dosažení webové aplikace, vytvořte pravidlo s [vytvořit pravidlo vyrovnáváním zatížení sítě az](/cli/azure/network/lb/rule#create). Následující příklad vytvoří pravidlo s názvem *myLoadBalancerRuleWeb*:
+Pokud chcete webové aplikaci povolit příjem provozu, vytvořte pravidlo pomocí příkazu [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). Následující příklad vytvoří pravidlo *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Testování aplikace
-Chcete-li aplikace Node.js najdete na webu získat veřejnou IP adresu nástroj pro vyrovnávání zatížení s [az sítě veřejné ip zobrazit](/cli/azure/network/public-ip#show). Následující příklad, získá IP adresu pro *myScaleSetLBPublicIP* vytvořené jako součást sady škálování:
+Pokud chcete zobrazit svou aplikaci Node.js na webu, získejte veřejnou IP adresu vašeho nástroje pro vyrovnávání zatížení pomocí příkazu [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Následující příklad získá IP adresu *myScaleSetLBPublicIP* vytvořenou jako součást škálovací sady:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -146,18 +146,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Zadejte veřejnou IP adresu ve webovém prohlížeči. Aplikace se zobrazí, včetně názvu hostitele virtuálního počítače, který nástroje pro vyrovnávání zatížení distribuován provoz:
+Zadejte veřejnou IP adresu do webového prohlížeče. Zobrazí se aplikace, včetně názvu hostitele virtuálního počítače, do kterého nástroj pro vyrovnávání zatížení distribuoval provoz:
 
-![Spuštěné aplikace Node.js](./media/tutorial-create-vmss/running-nodejs-app.png)
+![Spuštěná aplikace Node.js](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Sad v akci škálování najdete můžete můžete vynutit aktualizujte webový prohlížeč zobrazit nástroje pro vyrovnávání zatížení provoz distribuovat mezi všechny virtuální počítače používající vaši aplikaci.
+Pokud chcete vidět škálovací sadu v akci, můžete vynutit aktualizaci webového prohlížeče a zobrazit distribuci provozu nástrojem pro vyrovnávání zatížení mezi všechny virtuální počítače, na kterých je vaše aplikace spuštěná.
 
 
 ## <a name="management-tasks"></a>Úlohy správy
-V průběhu cyklu škálovací sady můžete spustit jeden nebo více úloh správy. Kromě toho můžete vytvořit skripty, které automatizují různé úlohy životního cyklu. Azure CLI 2.0 poskytuje rychlý způsob, jak provést tyto úlohy. Tady jsou několik běžných úloh.
+V průběhu životního cyklu škálovací sady možná budete potřebovat spustit jednu nebo více úloh správy. Kromě toho možná budete chtít vytvořit skripty pro automatizaci různých úloh souvisejících s životním cyklem. Azure CLI 2.0 nabízí rychlý způsob, jak tyto úlohy provést. Tady je několik běžných úloh.
 
-### <a name="view-vms-in-a-scale-set"></a>Zobrazení virtuální počítače ve škálovací sadě
-Chcete-li zobrazit seznam virtuálních počítačů spuštěných ve škálovací sadě, použijte [az vmss seznamu instance](/cli/azure/vmss#list-instances) následujícím způsobem:
+### <a name="view-vms-in-a-scale-set"></a>Zobrazení virtuálních počítačů ve škálovací sadě
+Pokud chcete zobrazit seznam virtuálních počítačů spuštěných ve vaší škálovací sadě, použijte příkaz [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) následujícím způsobem:
 
 ```azurecli-interactive 
 az vmss list-instances \
@@ -176,8 +176,8 @@ Výstup se podobá následujícímu příkladu:
 ```
 
 
-### <a name="increase-or-decrease-vm-instances"></a>Zvýšení nebo snížení instance virtuálních počítačů
-Pokud chcete zobrazit počet instancí, které máte aktuálně v sadě škálování, použijte [az vmss zobrazit](/cli/azure/vmss#show) a dotazovat se na *sku.capacity*:
+### <a name="increase-or-decrease-vm-instances"></a>Navýšení nebo snížení počtu instancí virtuálních počítačů
+Pokud chcete zobrazit počet instancí, které aktuálně máte ve škálovací sadě, použijte příkaz [az vmss show](/cli/azure/vmss#az_vmss_show) s dotazem na *sku.capacity*:
 
 ```azurecli-interactive 
 az vmss show \
@@ -187,7 +187,7 @@ az vmss show \
     --output table
 ```
 
-Potom můžete ručně zvýšení nebo snížení počtu virtuálních počítačů v sad s škálování [az vmss škálování](/cli/azure/vmss#scale). Následující příklad nastaví počet virtuálních počítačů ve vaší škálování nastavena na *3*:
+Pak můžete ručně navýšit nebo snížit počet virtuálních počítačů ve škálovací sadě pomocí příkazu [az vmss scale](/cli/azure/vmss#az_vmss_scale). Následující příklad nastaví počet virtuálních počítačů ve vaší škálovací sadě na *3*:
 
 ```azurecli-interactive 
 az vmss scale \
@@ -198,7 +198,7 @@ az vmss scale \
 
 
 ### <a name="configure-autoscale-rules"></a>Konfigurace pravidel automatického škálování
-Místo ručně škálování počtu instancí ve vaší škálovací sady, můžete definovat pravidla pro automatické škálování. Tato pravidla monitorovat instance ve škálovací sadě a reagují odpovídajícím způsobem na základě metriky a prahové hodnoty, které definujete. Následující příklad škáluje se počet instancí jedním při průměrné zatížení procesoru je větší než 60 % během období 5 minut. Pokud průměrná zatížení procesoru pak klesne pod 30 % během období 5 minut, jsou škálovat instance v jednou instancí. Vaše ID odběru slouží k vytvoření prostředku identifikátory URI pro různé měřítka součástí sady. K vytvoření pravidla s [vytvořit nastavení automatického škálování monitorování az](/cli/azure/monitor/autoscale-settings#create), zkopírujte a vložte následující příkaz profil škálování:
+Místo ručního škálování počtu instancí ve škálovací sadě můžete definovat pravidla automatického škálování. Tato pravidla monitorují instance ve vaší škálovací sadě a reagují odpovídajícím způsobem na základě metrik a prahových hodnot, které nadefinujete. Následující příklad horizontálně navýší kapacitu zvýšením počtu instancí o jednu v případě, že je průměrné zatížení procesoru vyšší než 60 % po dobu 5 minut. Pokud se pak průměrné zatížení procesoru sníží pod 30 % po dobu 5 minut, horizontálně se sníží kapacita snížením počtu instancí o jednu. K vytvoření identifikátorů URI prostředků pro různé komponenty škálovací sady se používá vaše ID předplatného. Pokud chcete vytvářet pravidla pomocí příkazu [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create), zkopírujte a vložte následující profil příkazu pro automatické škálování:
 
 ```azurecli-interactive 
 sub=$(az account show --query id -o tsv)
@@ -267,11 +267,11 @@ az monitor autoscale-settings create \
     }'
 ```
 
-Pokud chcete znovu použít profil škálování, můžete vytvořit soubor JSON (JavaScript Object Notation) a předat to `az monitor autoscale-settings create` s `--parameters @autoscale.json` parametr. Další návrhu informace o použití automatického škálování, najdete v části [škálování osvědčené postupy](/azure/architecture/best-practices/auto-scaling).
+Pokud chcete profil automatického škálování používat opakovaně, můžete vytvořit soubor JSON (JavaScript Object Notation) a předat ho do příkazu `az monitor autoscale-settings create` v parametru `--parameters @autoscale.json`. Další informace o návrhu v souvislosti s používáním automatického škálování najdete v [osvědčených postupech pro automatické škálování](/azure/architecture/best-practices/auto-scaling).
 
 
 ### <a name="get-connection-info"></a>Získání informací o připojení
-Chcete-li získat informace o připojení o virtuální počítače ve škálovací sady, použijte [az vmss seznamu--připojení-informace o instanci](/cli/azure/vmss#list-instance-connection-info). Tento příkaz vypíše veřejnou IP adresu a port pro každý virtuální počítač, který umožňuje připojit pomocí protokolu SSH:
+Pokud chcete získat informace o připojení virtuálních počítačů ve škálovací sadě, použijte příkaz [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). Tento příkaz pro všechny virtuální počítače vypíše veřejnou IP adresu a port, pomocí kterých se k nim můžete připojit přes SSH:
 
 ```azurecli-interactive 
 az vmss list-instance-connection-info \
@@ -280,11 +280,11 @@ az vmss list-instance-connection-info \
 ```
 
 
-## <a name="use-data-disks-with-scale-sets"></a>Použití datových disků s sady škálování
-Můžete vytvořit a používat datových disků s sady škálování. V předchozích kurzu jste se dozvěděli, jak [disky spravovat Azure](tutorial-manage-disks.md) , popisuje osvědčené postupy a vylepšení výkonu pro vytváření aplikací na datové disky, nikoli disk operačního systému.
+## <a name="use-data-disks-with-scale-sets"></a>Použití datových disků se škálovacími sadami
+Můžete vytvořit datové disky a použít je se škálovacími sadami. V předchozím kurzu jste zjistili, jak [spravovat disky Azure](tutorial-manage-disks.md), a seznámili jste se s osvědčenými postupy a vylepšeními výkonu pro sestavování aplikací na datových discích místo disku s operačním systémem.
 
-### <a name="create-scale-set-with-data-disks"></a>Vytvořit sadu škálování s datovými disky
-Chcete-li vytvořit sadu škálování a připojte datových disků, přidejte `--data-disk-sizes-gb` parametru [az vmss vytvořit](/cli/azure/vmss#create) příkaz. Následující příklad vytvoří škálování s *50*Gb dat disků připojených ke každé instanci:
+### <a name="create-scale-set-with-data-disks"></a>Vytvoření škálovací sady s datovými disky
+Pokud chcete vytvořit škálovací sadu a připojit k ní datové disky, přidejte do příkazu [az vmss create](/cli/azure/vmss#az_vmss_create) parametr `--data-disk-sizes-gb`. Následující příklad vytvoří škálovací sadu s *50GB* datovým diskem připojeným ke každé instanci:
 
 ```azurecli-interactive 
 az vmss create \
@@ -298,10 +298,10 @@ az vmss create \
     --data-disk-sizes-gb 50
 ```
 
-Při odebrání instance ze sady škálování, budou odebrány také všechny připojené datových disků.
+Při odebírání instancí ze škálovací sady se odeberou také všechny připojené datové disky.
 
-### <a name="add-data-disks"></a>Přidat datových disků
-Chcete-li přidat datový disk k instancím ve škálovací sadě, použijte [připojit az vmss disk](/cli/azure/vmss/disk#attach). Následující příklad přidá *50*GB místa na disku k jednotlivým instancím:
+### <a name="add-data-disks"></a>Použití datových disků
+Pokud chcete k instancím ve škálovací sadě přidat datový disk, použijte příkaz [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). Následující příklad přidá ke každé instanci *50*GB disk:
 
 ```azurecli-interactive 
 az vmss disk attach \
@@ -311,8 +311,8 @@ az vmss disk attach \
     --lun 2
 ```
 
-### <a name="detach-data-disks"></a>Odpojit datových disků
-Chcete-li odebrat datový disk k instancím ve škálovací sadě, použijte [odpojit az vmss disk](/cli/azure/vmss/disk#detach). Následující příklad odebere datový disk na logické jednotce *2* z každé instance:
+### <a name="detach-data-disks"></a>Odpojení datových disků
+Pokud chcete z instancí ve škálovací sadě odebrat datový disk, použijte příkaz [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). Následující příklad z každé instance odebere datový disk na logické jednotce *2*:
 
 ```azurecli-interactive 
 az vmss disk detach \
@@ -322,18 +322,18 @@ az vmss disk detach \
 ```
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste vytvořili škálovací sadu virtuálních počítačů. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
-> * Použít k vytvoření aplikace škálovat init cloudu
-> * Vytvoření sady škálování virtuálního počítače
-> * Zvýšení nebo snížení počtu instancí v sadě škálování
-> * Vytvoření pravidel škálování
-> * Zobrazit informace o připojení pro instance škálovací sady
+> * Použití cloud-init k vytvoření aplikace určené ke škálování
+> * Vytvoření škálovací sady virtuálních počítačů
+> * Zvýšení nebo snížení počtu instancí ve škálovací sadě
+> * Vytvoření pravidel automatického škálování
+> * Zobrazení informací o připojení instancí škálovací sady
 > * Použití datových disků ve škálovací sadě
 
-Přechodu na v dalším kurzu se dozvíte další informace o konceptech pro virtuální počítače Vyrovnávání zatížení.
+Přejděte k dalšímu kurzu, kde najdete další informace o konceptech vyrovnávání zatížení virtuálních počítačů.
 
 > [!div class="nextstepaction"]
-> [Vyrovnávat zatížení virtuálních počítačů](tutorial-load-balancer.md)
+> [Vyrovnání zatížení virtuálních počítačů](tutorial-load-balancer.md)

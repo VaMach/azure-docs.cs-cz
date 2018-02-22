@@ -2,24 +2,18 @@
 title: "Rychlý start Azure – Přenos objektů do a z úložiště objektů blob v Azure pomocí Node.js | Dokumentace Microsoftu"
 description: "Rychle se naučíte, jak přenášet objekty do a z úložiště objektů blob v Azure pomocí Node.js."
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Přenos objektů do a z úložiště objektů blob v Azure pomocí Node.js
 
@@ -109,9 +103,9 @@ Dále si projdeme vzorový kód, abyste pochopili, jak funguje.
 
 ### <a name="get-references-to-the-storage-objects"></a>Získání odkazů na objekty úložiště
 
-První věc, kterou je potřeba udělat, je vytvořit odkaz na `BlobService` sloužící k přístupu k úložišti objektů blob a jeho správě. Tyto objekty se vzájemně využívají a každý z nich je využívaný dalším objektem v seznamu.
+První věc, kterou je potřeba udělat, je vytvořit odkaz na objekt **BlobService** sloužící k přístupu k úložišti objektů blob a jeho správě. Tyto objekty se vzájemně využívají a každý z nich je využívaný dalším objektem v seznamu.
 
-* Vytvořte instanci objektu **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)**, která odkazuje na službu Blob ve vašem účtu úložiště.
+* Vytvořte instanci objektu [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor), která odkazuje na službu Blob ve vašem účtu úložiště.
 
 * Vytvořte nový kontejner a pak nastavte oprávnění ke kontejneru tak, aby objekty blob byly veřejné a přístupné přes pouhou adresu URL. Název kontejneru začíná na **quickstartcontainer-**.
 
@@ -199,4 +193,4 @@ V tomto rychlém startu jste zjistili, jak přenášet soubory mezi místním di
 > [!div class="nextstepaction"]
 > [Operace s úložištěm objektů blob – postupy](storage-nodejs-how-to-use-blob-storage.md)
 
-Další informace o Průzkumníku služby Storage a objektech blob najdete v tématu [Správa prostředků úložiště objektů blob v Azure pomocí Průzkumníka služby Storage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Referenční informace k Node.js pro službu Azure Storage najdete v [balíčku azure-storage](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).

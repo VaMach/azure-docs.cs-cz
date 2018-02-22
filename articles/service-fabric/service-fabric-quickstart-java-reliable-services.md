@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aec4db684a9067e1dee424f2c0e05e3674f84d1a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-java-application"></a>Vytvoření aplikace v Javě
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu mikroslužeb a kontejnerů. 
 
-Tento rychlý start ukazuje, jak nasadit první aplikaci v Javě do Service Fabric pomocí integrovaného vývojového prostředí (IDE) Eclipse na vývojovém počítači s Linuxem. Až budete hotovi, budete mít hlasovací aplikaci s webovým front-endem v Javě, která ukládá výsledky hlasování do stavové back-endové služby v clusteru.
+Tento rychlý start ukazuje, jak nasadit první aplikaci v Javě do Service Fabric pomocí integrovaného vývojového prostředí (IDE) Eclipse na vývojovém počítači s Linuxem. Až budete hotovi, budete mít hlasovací aplikaci s webovým front-endem v Javě, která ukládá výsledky hlasování do stavové back-end služby v clusteru.
 
 ![Snímek obrazovky aplikace](./media/service-fabric-quickstart-java/votingapp.png)
 
@@ -79,16 +79,42 @@ Teď můžete přidat sadu možností hlasování a začít přijímat hlasy. Ap
 ## <a name="deploy-the-application-to-azure"></a>Nasazení aplikace v Azure
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Nastavení clusteru Azure Service Fabric
-Pokud chcete nasadit aplikaci do clusteru v Azure, vytvořte vlastní cluster nebo použijte Party Cluster.
+Pokud chcete nasadit aplikaci do clusteru v Azure, vytvořte si vlastní cluster.
 
 Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Jsou provozované týmem Service Fabric a kdokoli na nich může nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k Party Clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
+
+K provádění operací správy na zabezpečeném Party Clusteru můžete použít Service Fabric Explorer, rozhraní příkazového řádku nebo PowerShell. Pokud chcete použít Service Fabric Explorer, budete muset z webu Party Clusteru stáhnout soubor PFX a importovat certifikát do svého úložiště certifikátů (Windows nebo Mac) nebo do samotného prohlížeče (Ubuntu). K certifikátům podepsaným svým držitelem z Party Clusteru není žádné heslo. 
+
+Pokud chcete provádět operace správy pomocí PowerShellu nebo rozhraní příkazového řádku, budete potřebovat soubor PFX (PowerShell) nebo PEM (rozhraní příkazového řádku). Pokud chcete převést soubor PFX na soubor PEM, spusťte následující příkaz:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Informace o vytvoření vlastního clusteru najdete v tématu věnovaném [vytvoření clusteru Service Fabric v Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> Webová front-end služba je nakonfigurovaná k naslouchání příchozímu provozu na portu 8080. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte Party Cluster, je tento port otevřený.
+> Služba Spring Bot je nakonfigurovaná k naslouchání příchozímu provozu na portu 8080. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte Party Cluster, je tento port otevřený.
 >
 
+### <a name="add-certificate-information-to-your-application"></a>Přidání informací o certifikátu do aplikace
+
+Vzhledem k tomu, že aplikace používá programovací modely Service Fabric, je potřeba do ní přidat kryptografický otisk certifikátu. 
+
+1. Při spouštění aplikace na zabezpečeném clusteru budete muset mít kryptografický otisk certifikátu v souboru ```Voting/VotingApplication/ApplicationManiest.xml```. Spuštěním následujícího příkazu extrahujte kryptografický otisk certifikátu.
+
+    ```bash
+    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    ```
+
+2. V souboru ```Voting/VotingApplication/ApplicationManiest.xml``` přidejte pod značku **ApplicationManifest** následující fragment kódu. **X509FindValue** by měl být kryptografický otisk z předchozího kroku (bez středníků). 
+
+    ```xml
+    <Certificates>
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+    </Certificates>   
+    ```
+    
 ### <a name="deploy-the-application-using-eclipse"></a>Nasazení aplikace pomocí Eclipse
 Když jsou teď aplikace i cluster připravené, můžete aplikaci nasadit do clusteru přímo z Eclipse.
 
@@ -100,8 +126,8 @@ Když jsou teď aplikace i cluster připravené, můžete aplikaci nasadit do cl
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
@@ -121,7 +147,7 @@ Nástroj Service Fabric Explorer běží na všech clusterech Service Fabric a j
 
 Pokud chcete škálovat webovou front-end službu, proveďte následující kroky:
 
-1. Otevřete ve vašem clusteru Service Fabric Explorer – například `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+1. Otevřete ve vašem clusteru Service Fabric Explorer – například `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Ve stromovém zobrazení klikněte na tři tečky vedle uzlu **fabric:/Voting/VotingWeb** a zvolte **Škálovat službu**.
 
     ![Service Fabric Explorer – škálování služby](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
@@ -144,7 +170,7 @@ V tomto rychlém startu jste se naučili:
 > * Používat Eclipse jako nástroj pro aplikace Service Fabric v Javě.
 > * Nasazovat aplikace v Javě do místního clusteru. 
 > * Nasazovat aplikace v Javě do clusteru v Azure.
-> * Škálovat aplikaci na více instancí napříč několika uzly.
+> * Škálování aplikace na více instancí napříč několika uzly
 
 * Další informace o [službách ladění v Javě s použitím Eclipse](service-fabric-debugging-your-application-java.md)
 * Další informace o [nastavení průběžné integrace a nasazování pomocí Jenkinse](service-fabric-cicd-your-linux-applications-with-jenkins.md)

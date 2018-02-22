@@ -3,8 +3,8 @@ title: "Nabídka služeb v zásobníku Azure | Microsoft Docs"
 description: "Jako operátor cloudu můžete nabízet služby pro vaše uživatele."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: erikje
-ms.openlocfilehash: 7a54771d99f2719fcc345496b152a5d3acc02121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Přehled nabídky služeb v Azure zásobníku
 
@@ -42,6 +43,6 @@ Pokud už plánujete vaší nabídky, uvědomte si následující body:
 
 **Delegovaná zprostředkovatelé**: ostatním uživatelům můžete udělit možnost vytvoření nabídky ve vašem prostředí. Například pokud jste poskytovatel služeb, můžete [delegovat](azure-stack-delegated-provider.md) tato schopnost váš prodejce. Nebo, pokud jste v organizaci, můžete delegovat na ostatní rozdělení pobočky.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace o nabídky, plánů, kvóty a odběry](azure-stack-plan-offer-quota-overview.md)
 

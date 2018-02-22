@@ -3,8 +3,8 @@ title: "Vytvoření připojení site-to-site VPN mezi dvěma virtuálními sít�
 description: "Podrobný postup, který správce cloudu používá k vytvoření připojení site-to-site VPN mezi dvěma prostředími Azure zásobníku Development Kit jeden uzel."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Vytvoření připojení site-to-site VPN mezi dvěma virtuálními sítěmi v různých prostředích Azure zásobníku Development Kit
 ## <a name="overview"></a>Přehled
@@ -52,7 +53,7 @@ Následující tabulka shrnuje konfiguraci sítě pro obě prostředí Azure zá
 |---------|---------|---------|
 |Název virtuální sítě     |VNET-01|VNET-02 |
 |Adresní prostor virtuální sítě |10.0.10.0/23|10.0.20.0/23|
-|Název podsítě     |Podsíť-01|Podsíť-02|
+|Název podsítě     |Subnet-01|Subnet-02|
 |Rozsah adres podsítě|10.0.10.0/24 |10.0.20.0/24 |
 |Podsíť brány     |10.0.11.0/24|10.0.21.0/24|
 |Externí adresu BGPNAT     |         |         |
@@ -167,7 +168,7 @@ Pro ověření dat, který se přenáší prostřednictvím připojení VPN, mus
 5. Zadejte platné uživatelské jméno a heslo. Tento účet používáte k přihlášení k virtuálnímu počítači po jeho vytvoření.
 6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění**a potom vyberte **OK**.
 7. Na **velikost** okno pro tuto instanci vybrat velikost virtuálního počítače a pak vyberte **vyberte**.
-8. Na **nastavení** okno, přijměte výchozí hodnoty. Ujistěte se, že **VNET-01** virtuální síť je vybrána. Ověřte, že podsíť je nastavena na **10.0.10.0/24**. Potom vyberte **OK**.
+8. Na **nastavení** okno, přijměte výchozí hodnoty. Ujistěte se, že **VNET-01** virtuální síť je vybrána. Ověřte, že podsíť je nastavena na **10.0.10.0/24**. Pak vyberte **OK**.
 9. Na **Souhrn** okno, zkontrolujte nastavení a potom vyberte **OK**.
 
 
@@ -311,7 +312,7 @@ Pokud chcete konfigurovat připojení k síti VPN, musíte vytvořit statickou t
 
 4. Opakujte tento postup u POC2.
 
-## <a name="test-the-connection"></a>Otestování připojení
+## <a name="test-the-connection"></a>Otestovat připojení
 Teď, když připojení site-to-site je třeba ověřit, získáte provoz přes něj. Chcete-li ověřit, přihlaste se do jednoho z virtuálních počítačů, které jste vytvořili v prostředí Azure zásobníku Development Kit. Pak odeslat příkaz ping virtuální počítač, který jste vytvořili v druhém prostředí. 
 
 Aby odesílat provoz prostřednictvím připojení site-to-site, ujistěte se, příkazem ping otestovat adresu přímé IP (DIP) virtuálního počítače ve vzdálené podsíti, není VIP. K tomuto účelu najít adresu vyhrazené IP adresy na druhém konci připojení. Uložte adresu pro pozdější použití.
@@ -365,4 +366,4 @@ Pokud chcete vědět, kolik dat prochází připojení site-to-site, tyto inform
 2. Přejděte na **všechny prostředky**a pak vyberte **POC2 POC1** připojení. **Připojení** se zobrazí.
 4. Na **připojení** okno, statistiku **Data v** a **Data** zobrazí. Na následujícím snímku obrazovky jsou velké počty přičítat přenos dalších souborů. Měli byste vidět některé nenulové hodnoty.
    
-    ![Data vstup a výstup](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![Vstupní a výstupní data](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

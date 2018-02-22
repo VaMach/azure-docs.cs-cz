@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/21/2018
+ms.date: 02/05/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 experiment: 
-ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
+ms.openlocfilehash: 9c038b1330bdd9ee0c922b98158c45f3c7b797ae
 ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
@@ -39,9 +39,7 @@ Přihlaste se k webu Azure Portal na adrese <http://portal.azure.com> pomocí sv
 
 K hostování provádění funkcí musíte mít aplikaci Function App. Aplikace Function App umožňuje seskupit funkce jako logickou jednotku pro snadnější správu, nasazování a sdílení prostředků. 
 
-[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal-experiment.md)]
 
 Dál vytvoříte v nové aplikaci Function App funkci.
 

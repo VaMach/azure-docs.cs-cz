@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Spuštění ukázky interaktivního hledání v mapách pomocí Azure Location Based Services (Preview)
 
-Tento článek předvádí možnosti služeb Azure Location Based Services (Preview) nebo zkráceně LBS na příkladu interaktivního hledání s využitím map Azure. Také vás provede základními kroky k vytvoření vlastního účtu LBS a získání klíče účtu pro použití v ukázkové webové aplikaci. 
+Tento článek předvádí možnosti služeb Azure Location Based Services (LBS) na příkladu interaktivního hledání s využitím map Azure. Také vás provede základními kroky k vytvoření vlastního účtu LBS a získání klíče účtu pro použití v ukázkové webové aplikaci. 
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 

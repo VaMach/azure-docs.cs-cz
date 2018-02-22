@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Nasazení aplikace do Party Clusteru v Azure
 Tento kurz představuje druhý díl série kurzů a ukáže vám, jak nasadit aplikaci Azure Service Fabric do Party Clusteru v Azure.
@@ -59,14 +59,33 @@ Pokud chcete, můžete místo Party Clusteru použít vlastní cluster.  Front-e
 > [!NOTE]
 > Party Clustery nejsou zabezpečené, takže vaše aplikace a všechna data, která do nich umístíte, můžou vidět jiní uživatelé. Nenasazujte nic, co nechcete ukazovat ostatním. Nezapomeňte si přečíst všechny podrobnosti v našich podmínkách použití.
 
+Přihlaste se a [připojte se ke clusteru Windows](http://aka.ms/tryservicefabric). Stáhněte si certifikát PFX do počítače kliknutím na odkaz **PFX**. Certifikát a hodnota **Koncový bod připojení** použijete v následujících krocích.
+
+![PFX a koncový bod připojení](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Na počítači s Windows nainstalujte PFX do úložiště certifikátů *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Nasazení aplikace do Azure
 Aplikace je teď připravená a vy ji můžete přímo ze sady Visual Studio nasadit do Party Clusteru.
 
-1. V Průzkumníku řešení klikněte pravým tlačítkem na **Voting** a zvolte **Publikovat**.
+1. V Průzkumníku řešení klikněte pravým tlačítkem na **Voting** a zvolte **Publikovat**. 
 
-    ![Dialogové okno Publikovat](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Dialogové okno Publikovat](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Do pole **Koncový bod připojení** zadejte koncový bod připojení Party Clusteru a klikněte na **Publikovat**.
+2. Do pole **Koncový bod připojení** zkopírujte **Koncový bod připojení** ze stránky Party clusteru. Například, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klikněte na **Rozšířené parametry připojení** a vyplňte následující informace.  Hodnoty *FindValue* and *ServerCertThumbprint* musí odpovídat kryptografickému otisku certifikátu nainstalovanému v předchozím kroku. Klikněte na **Publikovat**. 
 
     Po dokončení publikování by mělo být možné odeslat do aplikace požadavek z prohlížeče.
 
@@ -81,9 +100,9 @@ Service Fabric Explorer je grafické uživatelské rozhraní, které umožňuje 
 
 Odebrání aplikace z Party Clusteru:
 
-1. Přejděte do rozhraní Service Fabric Explorer pomocí odkazu uvedeného na registrační stránce Party Clusteru. Příklad: http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Přejděte do rozhraní Service Fabric Explorer pomocí odkazu uvedeného na registrační stránce Party Clusteru. Například https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. V rozhraní Service Fabric Explorer přejděte v zobrazení stromu na levé straně na uzel **fabric://Voting**.
+2. V Service Fabric Exploreru přejděte v zobrazení stromu na levé straně do uzlu **fabric:/Voting**.
 
 3. V pravém podokně **Essentials** klikněte na tlačítko **Akce** a vyberte **Odstranit aplikaci**. Potvrďte odstranění instance aplikace, při kterém dojde k odebrání instance naší aplikace spuštěné v clusteru.
 

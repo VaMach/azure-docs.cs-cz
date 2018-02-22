@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Nasazení aplikace Azure Service Fabric typu kontejner pro Linux v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -34,50 +34,47 @@ V tomto rychlém startu se naučíte:
 > * Škálování a převzetí služeb při selhání kontejnerů v Service Fabric
 
 ## <a name="prerequisite"></a>Požadavek
-Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, ujistěte se, že používáte Azure CLI verze 2.0.4 nebo novější. Pokud chcete zjistit verzi, spusťte příkaz az --version. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+2. Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, ujistěte se, že používáte Azure CLI verze 2.0.4 nebo novější. Pokud chcete zjistit verzi, spusťte příkaz az --version. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Získání balíčku aplikace
 K nasazení kontejnerů do Service Fabric potřebujete sadu souborů manifestu (definice aplikace), které popisují jednotlivé kontejnery a aplikaci.
 
 Ve službě Cloud Shell naklonujte kopii definice aplikace pomocí příkazu git.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>Nasazení aplikace v Azure
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Nasazení kontejnerů do clusteru Service Fabric v Azure
-Pokud chcete nasadit aplikaci do clusteru v Azure, použijte vlastní cluster nebo cluster Party.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Nastavení clusteru Azure Service Fabric
+Pokud chcete nasadit aplikaci do clusteru v Azure, vytvořte si vlastní cluster.
 
-> [!Note]
-> Aplikace se musí nasadit do clusteru v Azure, a ne do clusteru Service Fabric na místním počítači pro vývoj. 
->
+Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Jsou provozované týmem Service Fabric a kdokoli na nich může nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k Party Clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
 
-Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Jsou udržované týmem Service Fabric a kdokoli na nich může nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k clusteru Party, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
+K provádění operací správy na zabezpečeném Party Clusteru můžete použít Service Fabric Explorer, rozhraní příkazového řádku nebo PowerShell. Pokud chcete použít Service Fabric Explorer, budete muset z webu Party Clusteru stáhnout soubor PFX a importovat certifikát do svého úložiště certifikátů (Windows nebo Mac) nebo do samotného prohlížeče (Ubuntu). K certifikátům podepsaným svým držitelem z Party Clusteru není žádné heslo. 
+
+Pokud chcete provádět operace správy pomocí PowerShellu nebo rozhraní příkazového řádku, budete potřebovat soubor PFX (PowerShell) nebo PEM (rozhraní příkazového řádku). Pokud chcete převést soubor PFX na soubor PEM, spusťte následující příkaz:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Informace o vytvoření vlastního clusteru najdete v tématu věnovaném [vytvoření clusteru Service Fabric v Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> Webová front-end služba je nakonfigurovaná k naslouchání příchozímu provozu na portu 80. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte cluster Party, je tento port otevřený.
+> Webová front-end služba je nakonfigurovaná k naslouchání příchozímu provozu na portu 80. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte Party Cluster, je tento port otevřený.
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Install rozhraní příkazového řádku služby Service Fabric a připojení ke clusteru
-Nainstalujte ve svém prostředí rozhraní příkazového řádku [Service Fabric CLI (sfctl)](service-fabric-cli.md).
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Připojte se pomocí Azure CLI ke clusteru Service Fabric v Azure. Koncový bod je koncový bod správy vašeho clusteru, například `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Připojte se pomocí Azure CLI ke clusteru Service Fabric v Azure. Koncový bod je koncový bod správy vašeho clusteru, například `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>Nasazení aplikace Service Fabric 
@@ -86,13 +83,13 @@ Kontejnerové aplikace Service Fabric je možné nasadit pomocí popsaného bal�
 #### <a name="deploy-using-service-fabric-application-package"></a>Nasazení pomocí balíčku aplikace Service Fabric
 Pomocí instalačního skriptu, poskytnutého ke zkopírování definice hlasovací aplikace do clusteru, zaregistrujte typ aplikace a vytvořte její instanci.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>Nasazení aplikace pomocí Docker Compose
 K nasazení a instalaci aplikace v clusteru Service Fabric s využitím nástroje Docker Compose použijte následující příkaz.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Sledování stavu zabezpečení v Azure Security Center
 Tento článek vám pomůže s využíváním možností v Azure Security Center ke sledování dodržování zásad.
@@ -87,6 +87,13 @@ Pokud chcete zobrazit podrobnosti o doporučení, klikněte na název chybějíc
 > [!NOTE]
 > Bezpečnostní doporučení uvedená tady jsou stejná jako v možnosti **Doporučení**. Další informace o tom, jak řešit doporučení, najdete v článku [Implementace doporučení zabezpečení v Azure Security Center](security-center-recommendations.md). Týká se to nejen virtuálních počítačů a počítačů, ale také všech prostředků, které jsou k dispozici na dlaždici **Resource Health**.
 >
+
+#### <a name="unmonitored-vms"></a>Nemonitorované virtuální počítače
+Virtuální počítač je nemonitorovaný službou Security Center v případě, že na něm není spuštěné rozšíření Microsoft Monitoring Agent. Na virtuálním počítači už může být nainstalovaný místní agent, například přímý agent OMS nebo agent SCOM. Virtuální počítače s těmito agenty se identifikují jako nemonitorované, protože Security Center tyto agenty plně nepodporuje. Pokud chcete naplno využívat všechny schopnosti služby Security Center, potřebujete rozšíření Microsoft Monitoring Agent.
+
+Rozšíření můžete na nemonitorovaný virtuální počítač nainstalovat k již nainstalovanému místnímu agentu. Nakonfigurujte oba agenty stejným způsobem a připojte je ke stejnému pracovnímu prostoru. Tím umožníte službě Security Center pracovat s rozšířením Microsoft Monitoring Agent a shromažďovat data.  Pokyny k instalaci rozšíření Microsoft Monitoring Agent najdete v tématu popisujícím [povolení rozšíření virtuálního počítače](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+
+Další informace o důvodech, proč se službě Security Center nedaří úspěšně monitorovat virtuální počítače a počítače inicializované pro automatické zřizování, najdete v tématu popisujícím [problémy s monitorováním stavu agenta](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
 
 #### <a name="vms--computers-section"></a>Část virtuálních počítačů a počítačů
 Část virtuálních počítačů a počítačů poskytuje přehled doporučení pro všechny virtuální počítače a počítače. Každý sloupec představuje jednu sadu doporučení, jak ukazuje následující snímek obrazovky:

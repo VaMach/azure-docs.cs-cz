@@ -1,6 +1,6 @@
 ---
 title: "Kopírování dat z SQL Serveru do úložiště objektů blob pomocí Azure Data Factory | Dokumentace Microsoftu"
-description: "Zjistěte, jak kopírovat data z místního úložiště dat do cloudu Azure s využitím místního prostředí Integration Runtime ve službě Azure Data Factory."
+description: "Zjistěte, jak kopírovat data z místního úložiště dat do cloudu s využitím místního prostředí Integration Runtime ve službě Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ced708febe848d4555429b78c0227a35b7f0c79f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kurz: Kopírování dat z místní databáze SQL Serveru do úložiště objektů blob v Azure
-V tomto kurzu pomocí uživatelského rozhraní služby Azure Data Factory vytvoříte kanál datové továrny, který kopíruje data z místní databáze SQL Serveru do úložiště objektů blob v Azure. Vytvoříte a použijete místní prostředí Integration Runtime, které přesouvá data mezi místním a cloudovým úložištěm dat. 
+# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kopírování dat z místní databáze SQL Serveru do úložiště objektů blob v Azure
+V tomto kurzu pomocí uživatelského rozhraní služby Azure Data Factory vytvoříte kanál datové továrny, který kopíruje data z místní databáze SQL Serveru do úložiště objektů blob v Azure. Vytvoříte a použijete místní prostředí Integration Runtime, které přesouvá data mezi místním a cloudovým úložištěm dat.
 
 > [!NOTE]
-> Tento článek se týká verze 2 služby Azure Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Tento článek se týká verze 2 služby Azure Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, která je obecně dostupná, přečtěte si [dokumentaci ke službě Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Tento článek neposkytuje podrobný úvod do služby Data Factory. Další informace najdete v tématu [Úvod do Azure Data Factory](introduction.md). 
+> Tento článek neposkytuje podrobný úvod do služby Data Factory. Další informace najdete v tématu [Seznámení se službou Data Factory](introduction.md). 
 
 V tomto kurzu budete provádět následující kroky:
 
@@ -45,17 +45,16 @@ Pokud ještě nemáte předplatné Azure, [vytvořte si bezplatný účet](https
 ### <a name="azure-roles"></a>Role Azure
 Pro vytvoření instancí datové továrny musí mít uživatelský účet, který použijete pro přihlášení k Azure, přiřazenou roli *přispěvatel* nebo *vlastník* předplatného Azure nebo musí být jeho *správcem*. 
 
-Pokud chcete zobrazit oprávnění, která v předplatném máte, přejděte na web Azure Portal, v pravém horním rohu vyberte své uživatelské jméno a pak vyberte **Oprávnění**. Pokud máte přístup k několika předplatným, vyberte odpovídající předplatné. Ukázku pokynů pro přidání uživatele k roli najdete v článku věnovaném [přidání rolí](../billing/billing-add-change-azure-subscription-administrator.md).
+Pokud chcete zobrazit oprávnění, která v předplatném máte, přejděte na web Azure Portal. V pravém horním rohu vyberte své uživatelské jméno a pak vyberte **Oprávnění**. Pokud máte přístup k několika předplatným, vyberte odpovídající předplatné. Ukázku pokynů pro přidání uživatele k roli najdete v tématu věnovaném [přidávání rolí](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 a 2017
-V tomto kurzu použijete místní databázi SQL Serveru jako *zdrojové* úložiště dat. Kanál v datové továrně, který vytvoříte v tomto kurzu, kopíruje data z této místní databáze SQL Serveru (zdroj) do úložiště objektů blob v Azure (jímka). Ve své databázi SQL Serveru pak vytvoříte tabulku **emp** a vložíte do ní několik ukázkových záznamů. 
+V tomto kurzu použijete místní databázi SQL Serveru jako *zdrojové* úložiště dat. Kanál v datové továrně, který vytvoříte v tomto kurzu, kopíruje data z této místní databáze SQL Serveru (zdroj) do úložiště objektů blob (jímka). Ve své databázi SQL Serveru pak vytvoříte tabulku **emp** a vložíte do ní několik ukázkových záznamů. 
 
 1. Spusťte aplikaci SQL Server Management Studio. Pokud na vašem počítači ještě není nainstalovaná, přejděte na stránku pro [stažení aplikace SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
 
 2. Pomocí svých přihlašovacích údajů se přihlaste ke své instanci SQL Serveru. 
 
 3. Vytvořte ukázkovou databázi. Ve stromovém zobrazení klikněte pravým tlačítkem na **Databáze** a pak vyberte **Nová databáze**. 
- 
 4. V okně **Nová databáze** zadejte název databáze a pak vyberte **OK**. 
 
 5. Vytvořte tabulku **emp** a vložte do ní nějaká ukázková data spuštěním následujícího skriptu dotazu proti databázi:
@@ -77,41 +76,41 @@ V tomto kurzu použijete místní databázi SQL Serveru jako *zdrojové* úloži
 6. Ve stromovém zobrazení klikněte pravým tlačítkem na databázi, kterou jste vytvořili, a pak vyberte **Nový dotaz**.
 
 ### <a name="azure-storage-account"></a>Účet služby Azure Storage
-V tomto kurzu použijete účet úložiště Azure (konkrétně úložiště objektů blob v Azure) pro obecné účely jako cílové úložiště dat nebo úložiště dat jímky. Pokud nemáte účet úložiště Azure pro obecné účely, přečtěte si téma [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account). Kanál v datové továrně, který vytvoříte v tomto kurzu, kopíruje data z místní databáze SQL Serveru (zdroj) do tohoto úložiště objektů blob v Azure (jímka). 
+V tomto kurzu použijete účet úložiště Azure (konkrétně úložiště objektů blob) pro obecné účely jako cílové úložiště dat nebo úložiště dat jímky. Pokud nemáte účet úložiště Azure pro obecné účely, přečtěte si téma [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account). Kanál v datové továrně, který vytvoříte v tomto kurzu, kopíruje data z místní databáze SQL Serveru (zdroj) do úložiště objektů blob (jímka). 
 
-#### <a name="get-storage-account-name-and-account-key"></a>Získání názvu a klíče účtu úložiště
-V tomto kurzu použijete název a klíč svého účtu úložiště Azure. Získejte název a klíč vašeho účtu úložiště pomocí následujícího postupu: 
+#### <a name="get-the-storage-account-name-and-account-key"></a>Získání názvu a klíče účtu úložiště
+V tomto kurzu použijete název a klíč svého účtu úložiště. Název a klíč svého účtu úložiště získáte pomocí následujícího postupu: 
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) pomocí svého uživatelského jména a hesla Azure. 
 
-2. V levém podokně vyberte **Další služby**, proveďte filtrování pomocí klíčového slova **úložiště** a pak vyberte **Účty úložiště**.
+2. V levém podokně vyberte **Další služby**. Proveďte filtrování pomocí klíčového slova **úložiště** a pak vyberte **Účty úložiště**.
 
-    ![Vyhledání účtu úložiště](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![Vyhledávání účtu úložiště](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
 
-3. V seznamu účtů úložiště vyfiltrujte váš účet úložiště (pokud je to potřeba) a pak vyberte váš účet úložiště. 
+3. V seznamu účtů úložiště v případě potřeby vyfiltrujte váš účet úložiště. Pak vyberte svůj účet úložiště. 
 
 4. V okně **Účet úložiště** vyberte **Přístupové klíče**.
 
-    ![Získání názvu a klíče účtu úložiště](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
+    ![Přístupové klíče](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 5. Zkopírujte hodnoty polí **Název účtu úložiště** a **klíč1** a vložte je do Poznámkového bloku nebo jiného editoru pro pozdější použití v rámci kurzu. 
 
 #### <a name="create-the-adftutorial-container"></a>Vytvoření kontejneru adftutorial 
-V této části vytvoříte ve svém úložišti objektů blob v Azure kontejner objektů blob s názvem **adftutorial**. 
+V této části vytvoříte ve svém úložišti objektů blob kontejner objektů blob **adftutorial**. 
 
-1. V okně **Účet úložiště** přepněte na **Přehled** a pak vyberte **Objekty blob**. 
+1. V okně **Účet úložiště** přejděte do části **Přehled** a pak vyberte **Objekty blob**. 
 
     ![Výběr možnosti Objekty blob](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
 2. V okně **Služba Blob** vyberte **Kontejner**. 
 
-    ![Tlačítko pro přidání kontejneru](media/tutorial-hybrid-copy-powershell/add-container-button.png)
+    ![Tlačítko Kontejner](media/tutorial-hybrid-copy-powershell/add-container-button.png)
 
-3. V okně **Nový kontejner** do pole **Název** zadejte **adftutorial** a pak vyberte **OK**. 
+3. V okně **Nový kontejner** v části **Název** zadejte **adftutorial**. Pak vyberte **OK**. 
 
-    ![Zadání názvu kontejneru](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    ![Okno Nový kontejner](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
-4. V seznamu kontejnerů vyberte **adftutorial**.  
+4. V seznamu kontejnerů vyberte **adftutorial**.
 
     ![Výběr kontejneru](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
@@ -121,154 +120,169 @@ V této části vytvoříte ve svém úložišti objektů blob v Azure kontejner
 
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
-V tomto kroku vytvoříte datovou továrnu a spustíte uživatelské rozhraní služby Azure Data Factory, ve kterém vytvoříte v této datové továrně kanál. 
+V tomto kroku vytvoříte datovou továrnu a spustíte uživatelské rozhraní služby Data Factory, ve kterém v této datové továrně vytvoříte kanál. 
 
-1. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
+1. Otevřete webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelského rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.
+2. V nabídce vlevo vyberte **Nový** > **Data a analýzy** > **Datová továrna**.
    
-   ![Nový -> Objekt pro vytváření dat](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
-2. Na stránce **Nová datová továrna** jako **název** zadejte **ADFTutorialDataFactory**. 
+   ![Vytvoření nové datové továrny](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
+3. Na stránce **Nová datová továrna** v části **Název** zadejte **ADFTutorialDataFactory**. 
       
      ![Stránka Nová datová továrna](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
  
-   Název objektu pro vytváření dat Azure musí být **globálně jedinečný**. Pokud se zobrazí následující chyba pole názvu, změňte název datové továrny (například na vaše_jméno_ADFTutorialDataFactory). Pravidla pojmenování artefaktů služby Data Factory najdete v článku [Data Factory – pravidla pojmenování](naming-rules.md).
+   Název datové továrny musí být *globálně jedinečný*. Pokud se u pole s názvem zobrazí následující chybová zpráva, změňte název datové továrny (třeba na váš_název_ADFTutorialDataFactory). Pravidla pro přiřazování názvů artefaktům služby Data Factory najdete v tématu [Data Factory – pravidla pojmenování](naming-rules.md).
   
-     ![Stránka Nová datová továrna](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
-3. Vyberte své **předplatné** Azure, ve kterém chcete vytvořit datovou továrnu. 
-4. Pro **Skupinu prostředků** proveďte jeden z následujících kroků:
+   ![Název nové datové továrny](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
+4. Vyberte **předplatné** Azure, v rámci kterého chcete datovou továrnu vytvořit.
+5. U položky **Skupina prostředků** proveďte jeden z následujících kroků:
      
-      - Vyberte **Použít existující** a z rozevíracího seznamu vyberte existující skupinu prostředků. 
-      - Vyberte **Vytvořit novou** a zadejte název skupiny prostředků.   
-         
-        Informace o skupinách prostředků najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Jako **verzi** vyberte **V2 (Preview)**.
-5. Vyberte **umístění** pro objekt pro vytváření dat. V rozevíracím seznamu se zobrazí pouze podporovaná umístění. Úložiště dat (Azure Storage, Azure SQL Database atd.) a výpočetní prostředí (HDInsight atd.) používané datovou továrnou mohou být v jiných oblastech.
-6. Zaškrtněte **Připnout na řídicí panel**.     
-7. Klikněte na možnost **Vytvořit**.      
-8. Na řídicím panelu vidíte následující dlaždice se statusem: **Nasazování datové továrny**. 
+      - Vyberte **Použít existující** a z rozevíracího seznamu vyberte existující skupinu prostředků.
 
-    ![nasazování dlaždice datové továrny](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
-9. Po vytvoření se zobrazí stránka **Datová továrna**, jak je znázorněno na obrázku.
+      - Vyberte **Vytvořit novou** a zadejte název skupiny prostředků.
+         
+    Informace o skupinách prostředků najdete v tématu [Použití skupin prostředků ke správě prostředků Azure](../azure-resource-manager/resource-group-overview.md).
+6. V části **Verze** vyberte **V2 (Preview)**.
+7. V části **Umístění** vyberte umístění datové továrny. V rozevíracím seznamu se zobrazí pouze podporovaná umístění. Úložiště dat (například služby Storage a SQL Database) a výpočetní prostředí (například Azure HDInsight) používané datovou továrnou můžou být v jiných oblastech.
+8. Zaškrtněte **Připnout na řídicí panel**. 
+9. Vyberte **Vytvořit**.
+10. Na řídicím panelu se zobrazí následující dlaždice se stavem **Nasazování datové továrny**:
+
+    ![Dlaždice Nasazování datové továrny](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
+11. Po vytvoření se zobrazí stránka **Datová továrna**, jak je znázorněno na obrázku:
    
-   ![Domovská stránka objektu pro vytváření dat](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
-10. Kliknutím na dlaždici **Vytvořit a monitorovat** otevřete na samostatné kartě uživatelské rozhraní služby Azure Data Factory. 
+    ![Domovská stránka objektu pro vytváření dat](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
+12. Výběrem dlaždice **Vytvořit a monitorovat** otevřete na samostatné kartě uživatelské rozhraní služby Data Factory. 
 
 
 ## <a name="create-a-pipeline"></a>Vytvoření kanálu
 
-1. Na stránce **Začínáme** klikněte na **Vytvořit kanál**. Automaticky se pro vás vytvoří kanál. Kanál se zobrazí ve stromovém zobrazení a otevře se jeho editor. 
+1. Na stránce **Začínáme** vyberte **Vytvořit kanál**. Automaticky se pro vás vytvoří kanál. Kanál se zobrazí ve stromovém zobrazení a otevře se jeho editor. 
 
    ![Stránka Začínáme](./media/tutorial-hybrid-copy-portal/get-started-page.png)
-2. Na kartě **Obecné** v dolní části okna **Vlastnosti** jako **Název** zadejte **SQLServerToBlobPipeline**.
+2. Do pole **Název** na kartě **Obecné** v dolní části okna **Vlastnosti** zadejte **SQLServerToBlobPipeline**.
 
    ![Název kanálu](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
-2. Na panelu nástrojů **Aktivity** rozbalte **Tok dat** a přetáhněte aktivitu **Kopírování** na plochu návrháře kanálu. Nastavte název aktivity na **CopySqlServerToAzureBlobActivity**.
+3. Na panelu nástrojů **Aktivity** rozbalte **Tok dat**. Přetáhněte aktivitu **Kopírování** na plochu návrháře kanálu. Nastavte název aktivity na **CopySqlServerToAzureBlobActivity**.
 
    ![Název aktivity](./media/tutorial-hybrid-copy-portal/copy-activity-name.png)
-3. V okně Vlastnosti přepněte na kartu **Zdroj** a klikněte na **+ Nový**.
+4. V okně **Vlastnosti** přejděte na kartu **Zdroj** a vyberte **+ Nový**.
 
-   ![Nová zdrojová datová sada – tlačítko](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
-4. V okně **Nová datová sada** vyhledejte **SQL Server**, vyberte **SQL Server** a klikněte na **Dokončit**. Zobrazí se nová karta s názvem **SqlServerTable1**. Datová sada **SqlServerTable1** se zobrazí také ve stromovém zobrazení na levé straně. 
+   ![Karta Zdroj](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
+5. V okně **Nová datová sada** vyhledejte **SQL Server**. Vyberte **SQL Server** a pak **Dokončit**. Zobrazí se nová karta s názvem **SqlServerTable1**. Datová sada **SqlServerTable1** se také zobrazí ve stromovém zobrazení na levé straně. 
 
    ![Výběr SQL Serveru](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
-5. Na kartě **Obecné** v okně Vlastnosti jako **Název** zadejte **SqlServerDataset**.
+6. Do pole **Název** na kartě **Obecné** v dolní části okna **Vlastnosti** zadejte **SqlServerDataset**.
     
-   ![Zdrojová datová sada – název](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
-6. Přepněte na kartu **Připojení** a klikněte na **+ Nové**. V tomto kroku vytvoříte připojení ke zdrojovému úložišti dat (databáze SQL Serveru). 
+   ![Název zdrojové datové sady](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
+7. Přejděte na kartu **Připojení** a vyberte **+ Nové**. V tomto kroku vytvoříte připojení ke zdrojovému úložišti dat (databáze SQL Serveru). 
 
-   ![Zdrojová datová sada – tlačítko Nové připojení](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
-7. V okně **Nová propojená služba** klikněte na **Nové prostředí Integration Runtime**. V této části vytvoříte místní prostředí Integration Runtime a přidružíte ho k místnímu počítači s databází SQL Serveru. Místní prostředí Integration Runtime je komponenta, která kopíruje data z databáze SQL Serveru ve vašem počítači do úložiště objektů blob v Azure. 
+   ![Připojení ke zdrojové datové sadě](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
+8. V okně **Nová propojená služba** vyberte **Nové prostředí Integration Runtime**. V této části vytvoříte místní prostředí Integration Runtime a přidružíte ho k místnímu počítači s databází SQL Serveru. Místní prostředí Integration Runtime je komponenta, která kopíruje data z databáze SQL Serveru na vašem počítači do úložiště objektů blob. 
 
    ![Nové prostředí Integration Runtime](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
-8. V okně **Instalace prostředí Integration Runtime** vyberte **Privátní síť** a klikněte na **Další**. 
+9. V okně **Instalace prostředí Integration Runtime** vyberte **Privátní síť** a pak **Další**. 
 
    ![Výběr privátní sítě](./media/tutorial-hybrid-copy-portal/select-private-network.png)
-9. Zadejte název prostředí Integration Runtime a klikněte na **Další**.  
+10. Zadejte název prostředí Integration Runtime a vyberte **Další**.
     
-   ![Prostředí Integration Runtime – název](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
-10. Klikněte na text **Kliknutím sem spustíte expresní instalaci pro tento počítač** v části **Možnost 1: Expresní instalace**. 
+    ![Název prostředí Integration Runtime](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+11. V části **Možnost 1: Expresní instalace** vyberte **Kliknutím sem spustíte expresní instalaci pro tento počítač**. 
 
-   ![Kliknutí na odkaz na expresní instalaci](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
-11. V okně **Expresní instalace Integration Runtime (v místním prostředí)** klikněte na **Zavřít**. 
+    ![Odkaz na expresní instalaci](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+12. V okně **Expresní instalace prostředí Integration Runtime (v místním prostředí)** vyberte **Zavřít**. 
 
-   ![Instalace prostředí Integration Runtime – úspěch](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. V okně **Instalace prostředí Integration Runtime** ve webovém prohlížeči klikněte na **Dokončit**. 
+    ![Expresní instalace prostředí Integration Runtime (v místním prostředí)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
+13. V okně **Instalace prostředí Integration Runtime** ve webovém prohlížeči vyberte **Dokončit**. 
 
-   ![Instalace prostředí Integration Runtime – dokončení](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
-13. V okně **Nová propojená služba** proveďte následující kroky:
+    ![Instalace prostředí Integration Runtime](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
+14. V okně **Nová propojená služba** proveďte následující kroky:
 
-    1. Jako **Název** zadejte **SqlServerLinkedService**.
-    2. Ověřte, že se místní prostředí Integration Runtime, které jste vytvořili dříve, zobrazí v části **Připojení prostřednictvím prostředí Integration Runtime**.
-    3. Jako **Název serveru** zadejte název vašeho SQL Serveru. 
-    4. Do pole **Název databáze** zadejte název databáze s tabulkou **emp**. 
-    5. Vyberte odpovídající **typ ověřování**, který má služba Data Factory používat pro připojení k vaší databázi SQL Serveru. 
-    6. Zadejte **uživatelské jméno** a **heslo**. Pokud v názvu uživatelského účtu nebo serveru potřebujete použít zpětné lomítko (\\), vložte před něj řídicí znak (\\). Použijte například *mydomain\\\\myuser*. 
-    7. Klikněte na **Test připojení**. Proveďte tento krok, abyste potvrdili, že se služba Data Factory může připojit k vaší databázi SQL Serveru pomocí místního prostředí Integration Runtime, které jste vytvořili. 
-    8. Pokud chcete propojenou službu uložit, klikněte na **Uložit**.
+    a. V části **Název** zadejte **SqlServerLinkedService**.
 
-       ![Propojená služba SQL Serveru – nastavení](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
-14. Měli byste se vrátit do okna s otevřenou zdrojovou datovou sadou. V části **Připojení** v okně **Vlastnosti** proveďte následující kroky: 
+    b. Ověřte, že se v části **Připojení prostřednictvím prostředí Integration Runtime** zobrazí místní prostředí Integration Runtime, které jste vytvořili dříve.
 
-    1. Ověřte, že se jako **Propojená služba** zobrazuje **SqlServerLinkedService**. 
-    2. Jako **Tabulka** vyberte **[dbo].[emp]**.
+    c. V části **Název serveru** zadejte název vaší instance SQL Serveru. 
 
-        ![Zdrojová datová sada – informace o připojení](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
-15. Přepněte na kartu s kanálem SQLServerToBlobPipeline (nebo) klikněte na kanál **SQLServerToBlobPipeline** ve stromovém zobrazení. 
+    d. V části **Název databáze** zadejte název databáze s tabulkou **emp**.
+
+    e. V části **Typ ověřování** vyberte odpovídající typ ověřování, který má služba Data Factory používat pro připojení k vaší databázi SQL Serveru.
+
+    f. V částech **Uživatelské jméno** a **Heslo** zadejte uživatelské jméno a heslo. Pokud v názvu uživatelského účtu nebo serveru potřebujete použít zpětné lomítko (\\), vložte před něj řídicí znak (\\). Použijte například *mydomain\\\\myuser*.
+
+    g. Vyberte **Test připojení**. Provedením tohoto kroku potvrdíte, že se služba Data Factory může připojit k vaší databázi SQL Serveru pomocí místního prostředí Integration Runtime, které jste vytvořili.
+
+    h. Pokud chcete propojenou službu uložit, vyberte **Uložit**.
+
+       ![Nastavení nové propojené služby](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
+15. Měli byste se vrátit do okna s otevřenou zdrojovou datovou sadou. Na kartě **Připojení** v okně **Vlastnosti** proveďte následující kroky: 
+
+    a. Ověřte, že se v části **Propojená služba** zobrazí **SqlServerLinkedService**.
+
+    b. V části **Tabulka** vyberte **[dbo].[emp]**.
+
+    ![Informace o připojení zdrojové datové sady](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
+16. Přejděte na kartu s kanálem **SQLServerToBlobPipeline** nebo vyberte kanál **SQLServerToBlobPipeline** ve stromovém zobrazení. 
 
     ![Karta Kanál](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
-16. V okně **Vlastnosti** přepněte na kartu **Jímka** a klikněte na **+ Nová**. 
+17. Přejděte na kartu **Jímka** v dolní části okna **Vlastnosti** a vyberte **+ Nová**. 
 
-    ![Datová sada jímky – tlačítko Nová](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
-17. V okně **Nová datová sada** vyberte **Azure Blob Storage** a klikněte na **Dokončit**. Otevře se nová karta pro tuto datovou sadu. Datová sada se zobrazí také ve stromovém zobrazení. 
+    ![Karta Jímka](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
+18. V okně **Nová datová sada** vyberte **Azure Blob Storage**. Pak vyberte **Dokončit**. Otevře se nová karta pro tuto datovou sadu. Datová sada se zobrazí také ve stromovém zobrazení. 
 
-    ![Výběr služby Azure Blob Storage](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
-18. Jako **Název** zadejte **AzureBlobDataset**.
+    ![Výběr služby Blob Storage](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+19. V části **Název** zadejte **AzureBlobDataset**.
 
-    ![Datová sada jímky – název](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
-19. V okně **Vlastnosti** přepněte na kartu **Připojení** a v části **Propojená služba** klikněte na **+ Nová**. 
+    ![Název datové sady jímky](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
+20. Přejděte na kartu **Připojení** v dolní části okna **Vlastnosti**. Vedle možnosti **Propojená služba** vyberte **+ Nová**. 
 
-    ![Nová propojená služba – tlačítko](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
-20. V okně **Nová propojená služba** proveďte následující kroky:
+    ![Tlačítko Nová propojená služba](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
+21. V okně **Nová propojená služba** proveďte následující kroky:
 
-    1. Jako **Název** zadejte **AzureStorageLinkedService**.
-    2. Jako **Název účtu úložiště** vyberte svůj účet úložiště Azure. 
-    3. Otestujte připojení k vašemu účtu úložiště Azure kliknutím na **Test připojení**.
-    4. Klikněte na **Uložit**.
+    a. V části **Název** zadejte **AzureStorageLinkedService**.
 
-        ![Propojená služba Azure Storage – nastavení](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
-21.  Měli byste se vrátit do okna s otevřenou datovou sadou jímky. Na kartě **Připojení** proveďte následující kroky: 
+    b. V části **Název účtu úložiště** vyberte svůj účet úložiště.
 
-        1. Ověřte, že jako **Propojená služba** je vybraná služba **AzureStorageLinkedService**.
-        2. Do části **složka** v **cestě k souboru** zadejte **adftutorial/fromonprem**. Pokud výstupní složka v kontejneru adftutorial neexistuje, služba Data Factory ji automaticky vytvoří.
-        3. Do části **název souboru** v **cestě k souboru** zadejte `@CONCAT(pipeline().RunId, '.txt')`.
+    c. Pokud chcete otestovat připojení k vašemu účtu úložiště, vyberte **Test připojení**.
 
-            ![Datová sada jímky – připojení](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
-22. Přepněte na kartu s otevřeným kanálem (nebo) klikněte na **kanál** ve **stromovém zobrazení**. Ověřte, že jako **Datová sada jímky** je vybraná datová sada **AzureBlobDataset**. 
+    d. Vyberte **Uložit**.
 
-    ![Vybraná datová sada jímky ](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
-23. Pokud chcete ověřit nastavení kanálu, klikněte na Ověřit na panelu nástrojů pro kanál. Zavřete **sestavu ověření kanálu** kliknutím na **X** v pravém rohu. 
+    ![Nastavení propojené služby Storage](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
+22.  Měli byste se vrátit do okna s otevřenou datovou sadou jímky. Na kartě **Připojení** proveďte následující kroky: 
+
+        a. Ověřte, že je v části **Propojená služba** vybraná služba **AzureStorageLinkedService**.
+
+        b. Do části **složka** v **cestě k souboru** zadejte **adftutorial/fromonprem**. Pokud výstupní složka v kontejneru adftutorial neexistuje, služba Data Factory ji automaticky vytvoří.
+
+        c. Do části **název souboru** v **cestě k souboru** zadejte `@CONCAT(pipeline().RunId, '.txt')`.
+
+     ![Připojení k datové sadě jímky](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+23. Přejděte na kartu s otevřeným kanálem nebo vyberte kanál ve stromovém zobrazení. Ověřte, že je v části **Datová sada jímky** vybraná datová sada **AzureBlobDataset**. 
+
+    ![Vybraná datová sada jímky](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+24. Pokud chcete ověřit nastavení kanálu, vyberte **Ověřit** na panelu nástrojů pro kanál. Pokud chcete **Sestavu ověření kanálu** zavřít, vyberte **Zavřít**. 
 
     ![Ověření kanálu](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
-1. Publikujte entity, které jste vytvořili ve službě Azure Data Factory, kliknutím na **Publikovat**.
+25. Pokud chcete vytvořené entity publikovat do služby Data Factory, vyberte **Publikovat vše**.
 
     ![Tlačítko Publikovat](./media/tutorial-hybrid-copy-portal/publish-button.png)
-24. Počkejte, dokud se nezobrazí překryvné okno **Publikování proběhlo úspěšně**. Stav publikování můžete také zkontrolovat kliknutím na odkaz **Zobrazit oznámení** na levé straně. Zavřete okno oznámení kliknutím na **X**. 
+26. Počkejte, dokud se nezobrazí překryvné okno **Publikování proběhlo úspěšně**. Pokud chcete zkontrolovat stav publikování, vyberte odkaz **Zobrazit oznámení** na levé straně. Pokud chcete okno oznámení zavřít, vyberte **Zavřít**. 
 
     ![Publikování proběhlo úspěšně](./media/tutorial-hybrid-copy-portal/publishing-succeeded.png)
     
 
 ## <a name="trigger-a-pipeline-run"></a>Aktivace spuštění kanálu
-Klikněte na **Aktivační událost** na panelu nástrojů pro kanál a pak klikněte na **Aktivovat**.
+Na panelu nástrojů pro kanál vyberte **Aktivační událost** a pak vyberte **Aktivovat**.
 
-![Aktivovat](./media/tutorial-hybrid-copy-portal/trigger-now.png)
+![Aktivace spuštění kanálu](./media/tutorial-hybrid-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorování spuštění kanálu
 
-1. Přepněte na kartu **Monitorování**. Zobrazí se kanál, který jste ručně aktivovali v předchozím kroku. 
+1. Přejděte na kartu **Monitorování**. Zobrazí se kanál, který jste ručně aktivovali v předchozím kroku. 
 
-    ![Spuštění kanálu](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-2. Pokud chcete zobrazit spuštění aktivit související se spuštěním kanálu, klikněte na odkaz **Zobrazit spuštění aktivit** ve sloupci **Akce**. Zobrazí se pouze spuštění aktivit, protože kanál obsahuje pouze jednu aktivitu. Pokud chcete zobrazit podrobnosti o operaci kopírování, klikněte na odkaz **Podrobnosti** (ikona brýlí) ve sloupci **Akce**. Zpět na zobrazení spuštění kanálu můžete přepnout kliknutím na **Kanály** v horní části.
+    ![Monitorování spuštění kanálu](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
+2. Pokud chcete zobrazit spuštění aktivit související se spuštěním kanálu, vyberte odkaz **Zobrazit spuštění aktivit** ve sloupci **Akce**. Zobrazí se pouze spuštění aktivit, protože kanál obsahuje pouze jednu aktivitu. Pokud chcete zobrazit podrobnosti o operaci kopírování, vyberte odkaz **Podrobnosti** (ikona brýlí) ve sloupci **Akce**. Pokud chcete přejít zpátky k zobrazení **Spuštění kanálu**, vyberte **Kanály** v horní části.
 
-    ![Spuštění aktivit](./media/tutorial-hybrid-copy-portal/activity-runs.png)
+    ![Monitorování spuštění aktivit](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>Ověření výstupu
 Kanál v kontejneru objektů blob `adftutorial` automaticky vytvoří výstupní složku *fromonprem*. Zkontrolujte, že výstupní složka obsahuje soubor *dbo.emp.txt*. 
@@ -283,20 +297,20 @@ Kanál v kontejneru objektů blob `adftutorial` automaticky vytvoří výstupní
 
 
 ## <a name="next-steps"></a>Další kroky
-Kanál v této ukázce kopíruje data z jednoho umístění do jiného v úložišti objektů blob v Azure. Naučili jste se tyto postupy:
+Kanál v této ukázce kopíruje data z jednoho umístění do jiného v úložišti objektů blob. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
 > * Vytvoření datové továrny
 > * Vytvořte místní prostředí Integration Runtime.
-> * Vytvoření propojených služeb SQL Server a Azure Storage 
-> * Vytvoření datových sad SQL Serveru a Azure Blob
+> * Vytvoření propojených služeb SQL Server a Storage 
+> * Vytvoření datových sad SQL Serveru a úložiště objektů blob
 > * Vytvoření kanálu s aktivitou kopírování pro přesun dat
 > * Zahájení spuštění kanálu
 > * Monitorování spuštění kanálu
 
 Seznam úložišť dat podporovaných službou Data Factory najdete v tématu popisujícím [podporovaná úložiště dat](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Pokud se chcete dozvědět víc o hromadném kopírování dat ze zdroje do cíle, přejděte k následujícímu kurzu:
+Pokud se chcete dozvědět, jak hromadně kopírovat data ze zdroje do cíle, přejděte k následujícímu kurzu:
 
 > [!div class="nextstepaction"]
 >[Hromadné kopírování dat](tutorial-bulk-copy-portal.md)

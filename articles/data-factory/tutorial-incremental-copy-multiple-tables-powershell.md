@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Přírůstkové načtení dat z více tabulek v SQL Serveru do databáze Azure SQL
 V tomto kurzu vytvoříte Azure Data Factory s kanálem, který načítá rozdílová data z několika tabulek v místním SQL Serveru do databáze Azure SQL.    
@@ -110,7 +110,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>Vytvoření cílových tabulek v databázi SQL
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Vytvoření cílových tabulek v databázi SQL Azure
 1. Otevřete SQL Server Management Studio a připojte se k databázi SQL Serveru.
 
 2. V **Průzkumníku serveru** klikněte pravým tlačítkem na databázi a zvolte **Nový dotaz**.
@@ -133,7 +133,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Vytvoření další tabulky v databázi SQL pro ukládání hodnoty horní meze
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Vytvoření další tabulky v databázi SQL Azure pro ukládání hodnoty horní meze
 1. Spuštěním následujícího příkazu SQL na databázi SQL vytvořte tabulku s názvem `watermarktable` pro uložení hodnoty meze: 
     
     ```sql
@@ -155,7 +155,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Vytvoření uložené procedury v databázi SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Vytvoření uložené procedury v databázi SQL Azure 
 
 Spuštěním následujícího příkazu vytvořte v databázi SQL uloženou proceduru. Tato uložená procedura aktualizuje hodnotu meze po každém spuštění kanálu. 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Vytvoření datových typů a dalších uložených procedur
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Vytvoření datových typů a dalších uložených procedur v databázi SQL Azure
 Spuštěním následujícího dotazu vytvořte v databázi SQL dvě uložené procedury a dva datové typy. Slouží ke slučování dat ze zdrojových tabulek do cílových tabulek.
 
 ```sql

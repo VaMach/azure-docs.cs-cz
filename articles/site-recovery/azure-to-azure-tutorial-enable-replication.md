@@ -1,182 +1,179 @@
 ---
-title: "Nastavit zotavení po havárii pro virtuální počítače Azure sekundární oblasti Azure s Azure Site Recovery (Preview)"
-description: "Zjistěte, jak nastavit zotavení po havárii pro virtuální počítače Azure do jiné oblasti Azure, pomocí služby Azure Site Recovery."
+title: "Nastavení zotavení po havárii pro virtuální počítače Azure do sekundární oblasti Azure pomocí Azure Site Recovery (Preview)"
+description: "Zjistěte, jak nastavit zotavení po havárii pro virtuální počítače Azure do jiné oblasti Azure pomocí služby Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 9d8d5f1019b1db255c7aa6937c6d3eebed363378
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Nastavit zotavení po havárii pro virtuální počítače Azure sekundární oblasti Azure (Preview)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Nastavení zotavení po havárii pro virtuální počítače Azure do sekundární oblasti Azure (Preview)
 
-[Azure Site Recovery](site-recovery-overview.md) služby přispívá ke strategie zotavení po havárii správy a Orchestrace replikace, převzetí služeb při selhání a navrácení služeb po obnovení místního počítače a virtuální počítače Azure (VM).
+Služba [Azure Site Recovery](site-recovery-overview.md) přispívá ke strategii zotavení po havárii tím, že spravuje a orchestruje replikaci, převzetí služeb při selhání a navrácení služeb po obnovení pro místní počítače a virtuální počítače Azure.
 
-V tomto kurzu se dozvíte, jak nastavit zotavení po havárii sekundární oblasti Azure pro virtuální počítače Azure. V tomto kurzu se naučíte:
+V tomto kurzu se dozvíte, jak nastavit zotavení po havárii do sekundární oblasti Azure pro virtuální počítače Azure. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Vytvoření trezoru Služeb zotavení
-> * Ověřte nastavení cílového prostředku
-> * Nastavit odchozí přístup pro virtuální počítače
-> * Povolení replikace pro virtuální počítač
+> * Ověření nastavení cílových prostředků
+> * Nastavení odchozího přístupu pro virtuální počítače
+> * Povolení replikace virtuálního počítače
 
 ## <a name="prerequisites"></a>Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
-- Ujistěte se, že rozumíte [scénář architektura a komponenty](concepts-azure-to-azure-architecture.md).
-- Zkontrolujte [podporu požadavků](site-recovery-support-matrix-azure-to-azure.md) pro všechny součásti.
+- Ujistěte se, že rozumíte [komponentám a architektuře řešení](concepts-azure-to-azure-architecture.md).
+- Zkontrolujte [požadavky na podporu](site-recovery-support-matrix-azure-to-azure.md) pro všechny komponenty.
 
 ## <a name="create-a-vault"></a>Vytvoření trezoru
 
-Vytvořte trezor nejprve v libovolné oblasti, s výjimkou oblasti zdroje.
+Vytvořte trezor v libovolné oblasti, s výjimkou zdrojové oblasti.
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) > **Recovery Services**.
 2. Klikněte na **Nový** > **Monitorování a správa** > **Backup a Site Recovery**.
-3. Do pole **Název** zadejte popisný název pro identifikaci trezoru. Pokud máte více než jedno předplatné, vyberte příslušný.
-4. Vytvořte skupinu prostředků nebo vyberte nějaký existující. Zadejte oblast Azure. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-5. Chcete-li rychle získat přístup k úložišti z řídicího panelu, klikněte na tlačítko **připnout na řídicí panel** a pak klikněte na **vytvořit**.
+3. Do pole **Název** zadejte popisný název pro identifikaci trezoru. Pokud máte více předplatných, vyberte příslušné předplatné.
+4. Vytvořte skupinu prostředků nebo vyberte existující. Zadejte oblast Azure. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+5. Pokud chcete mít možnost rychle se dostat k trezoru z řídicího panelu, klikněte na **Připnout na řídicí panel** a pak klikněte na **Vytvořit**.
 
    ![Nový trezor](./media/azure-to-azure-tutorial-enable-replication/new-vault-settings.png)
 
-   Nový trezor se přidá do **řídicí panel** pod **všechny prostředky**a v hlavním **trezory služeb zotavení** stránky.
+   Nový trezor se přidá na **Řídicí panel** do části **Všechny prostředky** a na hlavní stránku **Trezory služby Recovery Services**.
 
-## <a name="verify-target-resources"></a>Zkontrolujte cílové prostředky
+## <a name="verify-target-resources"></a>Ověření cílových prostředků
 
-1. Ověřte, že vaše předplatné Azure umožňuje vytvářet virtuální počítače v cílová oblast pro obnovení po havárii. Obraťte se na podporu, aby umožnil požadované kvótu.
+1. Ověřte, že vám předplatné Azure umožňuje vytvářet virtuální počítače v cílové oblasti sloužící k zotavení po havárii. O povolení požadované kvóty požádejte podporu.
 
-2. Zajistěte, aby že vaše předplatné nemá dostatek prostředků pro podporu virtuálních počítačů s velikostí, které odpovídají zdrojové virtuální počítače. Site Recovery vybere stejnou velikost nebo nejbližší možné velikost pro cílový počítač.
+2. Zkontrolujte, že máte v rámci předplatného k dispozici dostatek prostředků pro podporu virtuálních počítačů s takovými velikostmi, které odpovídají velikostem zdrojových virtuálních počítačů. Site Recovery vybere pro cílový virtuální počítač stejnou nebo nejbližší možnou velikost.
 
 ## <a name="configure-outbound-network-connectivity"></a>Konfigurace odchozího síťového připojení
 
-Site Recovery k fungovat podle očekávání budete muset provést některé změny v odchozí síťové připojení z virtuálních počítačů, které chcete replikovat.
+Aby služba Site Recovery fungovala podle očekávání, je potřeba provést několik změn v možnostech odchozího síťového připojení z virtuálních počítačů, které chcete replikovat.
 
-- Site Recovery nepodporuje použití proxy služby ověřování pro připojení k síti ovládacího prvku.
-- Pokud máte proxy služby ověřování, nelze povolit replikaci.
+- Site Recovery nepodporuje řízení síťového připojení pomocí ověřovacího proxy serveru.
+- Pokud máte ověřovací proxy server, replikaci není možné povolit.
 
 ### <a name="outbound-connectivity-for-urls"></a>Odchozí připojení pro adresy URL
 
-Pokud používáte proxy server brány firewall založená na adresu URL k řízení odchozí připojení, povolí přístup k následujícím adresám URL používá Site Recovery.
+Pokud k řízení odchozího připojení používáte proxy server brány firewall založený na adresách URL, povolte přístup k následujícím adresám URL, které používá Site Recovery.
 
-| **ADRESA URL** | **Podrobnosti** |
+| **Adresa URL** | **Podrobnosti** |
 | ------- | ----------- |
-| *.blob.core.windows.net | Umožňuje zápis z virtuálního počítače k účtu úložiště mezipaměti v oblasti zdroj dat. |
-| Login.microsoftonline.com | Poskytuje autorizaci a ověřování adresy URL služby Site Recovery. |
-| *.hypervrecoverymanager.windowsazure.com | Umožňuje virtuálnímu počítači komunikovat se službou Site Recovery. |
-| *. servicebus.windows.net | Umožňuje virtuálních počítačů k zápisu monitorování Site Recovery a diagnostická data. |
+| *.blob.core.windows.net | Umožňuje zápis dat z virtuálního počítače do účtu úložiště mezipaměti ve zdrojové oblasti. |
+| login.microsoftonline.com | Zajišťuje autorizaci a ověřování pro adresy URL služby Site Recovery. |
+| *.hypervrecoverymanager.windowsazure.com | Umožňuje komunikaci virtuálního počítače se službou Site Recovery. |
+| *.servicebus.windows.net | Umožňuje virtuálnímu počítači zapisovat data monitorování a diagnostiky Site Recovery. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Odchozí připojení pro rozsahy IP adres
 
-Při použití jakékoli založenou na protokolu IP brány firewall, proxy serveru nebo pravidla NSG k řízení odchozí připojení, musí být seznam povolených adres následující rozsahy IP adres. Seznam rozsahů stáhněte z následujících odkazů:
+Při použití proxy serveru, pravidel NSG nebo brány firewall založených na IP adresách k řízení odchozího připojení je potřeba přidat na seznam povolených následující rozsahy IP adres. Seznam rozsahů si můžete stáhnout na následujících odkazech:
 
-  - [Rozsahy Datacenter IP Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Rozsahy Azure Datacenter IP v Německu s Windows](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Windows Azure Datacenter IP rozsahy v Číně](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Rozsahy IP adres datacentra Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
+  - [Rozsahy IP adres datacentra Windows Azure v Německu](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
+  - [Rozsahy IP adres datacentra Windows Azure v Číně](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [Adresy URL a rozsahy IP adres pro Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-  - [Koncový bod služby Site Recovery IP adres](https://aka.ms/site-recovery-public-ips)
+  - [IP adresy koncových bodů služby Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Využijte tyto seznamy pro konfiguraci ovládacích prvků přístupu k síti ve vaší síti. Můžete to použít [skriptu](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) k vytvoření požadované pravidla NSG.
+Pomocí těchto seznamů ve své síti nakonfigurujte řízení přístupu k sítím. Požadovaná pravidla NSG můžete vytvořit pomocí tohoto [skriptu](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
-## <a name="verify-azure-vm-certificates"></a>Ověření certifikátů virtuálního počítače Azure
+## <a name="verify-azure-vm-certificates"></a>Ověření certifikátů virtuálních počítačů Azure
 
-Zkontrolujte, zda všechny nejnovější kořenové certifikáty jsou k dispozici v systému Windows nebo je chcete replikovat virtuální počítače s Linuxem. Pokud nejsou nejnovější kořenové certifikáty, virtuální počítač nelze zaregistrovaný Site Recovery náležitý omezení zabezpečení.
+Zkontrolujte, jestli jsou na virtuálních počítačích s Windows nebo Linuxem, které chcete replikovat, všechny nejnovější kořenové certifikáty. Pokud tam nejnovější kořenové certifikáty nejsou, nepůjde příslušný virtuální počítač kvůli omezením zabezpečení zaregistrovat ve službě Site Recovery.
 
-- Pro virtuální počítače Windows nainstalujte všechny nejnovější aktualizace systému Windows na virtuální počítač tak, aby byly všechny důvěryhodných kořenových certifikátů na počítači. V odpojeném prostředí postupujte podle standardní Windows Update a procesy aktualizace certifikátů pro vaši organizaci.
+- U virtuálních počítačů s Windows zajistíte přítomnost všech důvěryhodných kořenových certifikátů tím, že na ně nainstalujete všechny nejnovější aktualizace Windows. V odpojeném prostředí dodržujte při aktualizaci Windows a certifikátů standardní postupy uplatňované ve vaší organizaci.
 
-- Pro virtuální počítače s Linuxem využijte tohoto vodítka poskytované vaší Linux distributora, chcete-li získat nejnovější důvěryhodných kořenových certifikátů a seznam odvolaných certifikátů ve virtuálním počítači.
+- U virtuálních počítačů s Linuxem postupujte při získávání nejnovějších důvěryhodných kořenových certifikátů a seznamu odvolaných certifikátů na virtuálním počítači podle pokynů, které jste dostali od distributora Linuxu.
 
-## <a name="set-permissions-on-the-account"></a>Nastavení oprávnění pro účet
+## <a name="set-permissions-on-the-account"></a>Nastavení oprávnění k účtu
 
-Azure Site Recovery poskytuje tři předdefinovaných rolí k řízení operace správy Site Recovery.
+Azure Site Recovery poskytuje pro řízení operací správy Site Recovery tři předdefinované role.
 
-- **Lokality obnovení Přispěvatel** – tato role má všechna oprávnění vyžadovaná ke správě operací Azure Site Recovery v trezoru služeb zotavení. Uživatel k této roli, ale nelze vytvořit nebo odstranit trezor služeb zotavení nebo přiřadit přístupová práva ostatním uživatelům. Tato role je nejvhodnější pro správce obnovení po havárii, kteří můžete povolit a spravovat zotavení po havárii aplikace nebo celé organizace.
+- **Přispěvatel Site Recovery** – Tato role má všechna oprávnění potřebná ke správě operací Azure Site Recovery v trezoru služby Recovery Services. Uživatel s touto rolí však nemůže vytvořit ani odstranit trezor služby Recovery Services ani přiřadit přístup jiným uživatelům. Tato role je nejvhodnější pro správce zotavení po havárii, kteří můžou povolit a spravovat zotavení po havárii pro aplikace nebo celé organizace.
 
-- **Operátor obnovení lokality** – tato role nemá oprávnění ke spuštění a převzetí služeb při selhání a navrácení služeb po obnovení operations manager. K této roli uživatele nelze povolit nebo zakázat replikaci, vytvořit nebo odstranit trezory, zaregistrujte novou infrastrukturu nebo přiřadit přístupová práva jiným uživatelům. Tato role je nejvhodnější pro operátor obnovení po havárii, kdo může převzít virtuální počítače nebo aplikace při pokyn vlastníci aplikace a správci IT. Po vyřešení po havárii, operátor zotavení po Havárii můžete znovu aktivujte ochranu a navrácení služeb po obnovení virtuálních počítačů.
+- **Operátor Site Recovery** – Tato role má oprávnění provádět a spravovat operace převzetí služeb při selhání a navrácení služeb po obnovení. Uživatel s touto rolí nemůže povolit ani zakázat replikaci, vytvářet ani odstraňovat trezory, registrovat novou infrastrukturu ani přiřadit přístupová práva jiným uživatelům. Tato role je nejvhodnější pro operátory zotavení po havárii, kteří můžou na pokyn vlastníků aplikací nebo správců IT provést převzetí služeb při selhání virtuálních počítačů nebo aplikací. Po vyřešení havárie může operátor zotavení po havárii znovu nastavit ochranu a navrátit služby po obnovení virtuálních počítačů.
 
-- **Lokality obnovení čtečky** – tato role nemá oprávnění k zobrazení všech operací správy Site Recovery. Tato role je nejvhodnější pro monitorování vedení IT, který můžete sledovat aktuální stav ochrany a zvýšení lístky žádostí o podporu.
+- **Čtenář Site Recovery** – Tato role má oprávnění zobrazit všechny operace správy Site Recovery. Tato role je nejvhodnější pro vedoucí monitorování IT, kteří můžou monitorovat aktuální stav ochrany a vydávat lístky podpory.
 
-Další informace na [předdefinované role Azure RBAC](../active-directory/role-based-access-built-in-roles.md)
+Další informace o [předdefinovaných rolích Azure RBAC](../active-directory/role-based-access-built-in-roles.md)
 
 ## <a name="enable-replication"></a>Povolení replikace
 
-### <a name="select-the-source"></a>Vyberte zdroj
+### <a name="select-the-source"></a>Výběr zdroje
 
-1. V trezory služeb zotavení, klikněte na název trezoru > **+ replikovat**.
-2. V **zdroj**, vyberte **Azure - PREVIEW**.
-3. V **umístění zdroje**, vyberte zdroj oblast Azure, kde vaše virtuální počítače jsou aktuálně spuštěné.
-4. Vyberte **modelu nasazení virtuálního počítače Azure** pro virtuální počítače: **Resource Manager** nebo **Classic**.
-5. Vyberte **zdrojové skupiny prostředků** pro správce prostředků virtuálních počítačů, nebo **Cloudová služba** pro klasické virtuální počítače.
+1. V trezorech služby Recovery Services klikněte na název trezoru > **+ Replikovat**.
+2. Jako **Zdroj** vyberte **Azure – PREVIEW**.
+3. Jako **Zdrojové umístění** vyberte zdrojovou oblast Azure, kde máte virtuální počítače aktuálně spuštěné.
+4. Vyberte pro virtuální počítače **Model nasazení virtuálních počítačů Azure**: **Resource Manager** nebo **Classic**.
+5. Vyberte **zdrojovou skupinu prostředků** pro virtuální počítače Resource Manageru nebo **cloudovou službu** pro virtuální počítače Classic.
 6. Kliknutím na **OK** uložte nastavení.
 
-### <a name="select-the-vms"></a>Vyberte virtuální počítače
+### <a name="select-the-vms"></a>Výběr virtuálních počítačů
 
-Site Recovery načte seznam virtuálních počítačů spojené s předplatného a skupiny nebo cloudové služby prostředků.
+Site Recovery načte seznam virtuálních počítačů přidružených k předplatnému a skupinu prostředků nebo cloudovou službu.
 
-1. V **virtuální počítače**, vyberte virtuální počítače, které chcete replikovat.
+1. V části **Virtuální počítače** vyberte virtuální počítače, které chcete replikovat.
 2. Klikněte na **OK**.
 
 ### <a name="configure-replication-settings"></a>Konfigurace nastavení replikace
 
-Site Recovery vytvoří výchozí nastavení a zásady replikace pro cílová oblast. Můžete změnit nastavení podle svých požadavků.
+Site Recovery vytvoří výchozí nastavení a zásady replikace pro cílovou oblast. Nastavení můžete na základě vašich požadavků změnit.
 
-1. Klikněte na tlačítko **nastavení** zobrazíte nastavení cíle a replikace.
-2. Chcete-li přepsat výchozí nastavení cíl, klikněte na tlačítko **přizpůsobit** vedle **skupinu prostředků, sítě, úložiště a skupiny dostupnosti**.
+1. Kliknutím na **Nastavení** zobrazte nastavení cíle a replikace.
+2. Pokud chcete přepsat výchozí nastavení cíle, klikněte na **Přizpůsobit** vedle textu **Skupina prostředků, síť, úložiště a skupiny dostupnosti**.
 
   ![Konfigurace nastavení](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
-- **Cílové umístění**: cílová oblast pro obnovení po havárii. Doporučujeme vám, že cílové umístění odpovídá umístění trezoru Site Recovery.
+- **Cílové umístění:** Cílové umístění, které se použije pro zotavení po havárii. Doporučujeme, aby cílové umístění odpovídalo umístění trezoru Site Recovery.
 
-- **Cílová skupina prostředků**: skupinu prostředků cílová oblast, která obsahuje virtuální počítače Azure po převzetí služeb při selhání. Ve výchozím nastavení Site Recovery vytvoří novou skupinu prostředků v cílové oblasti s příponou "Automatické obnovení systému".
+- **Cílová skupina prostředků:** Skupina prostředků v cílové oblasti, která bude obsahovat virtuální počítače Azure po převzetí služeb při selhání. Ve výchozím nastavení vytvoří Site Recovery v cílové oblasti novou skupinu prostředků s příponou asr.
 
-- **Cílová virtuální síť**: síť v oblasti cíl, že jsou virtuální počítače umístěné po převzetí služeb při selhání.
-  Ve výchozím nastavení Site Recovery vytvoří nové virtuální sítě (a podsítě) v oblasti cíl s příponou "Automatické obnovení systému".
+- **Cílová virtuální síť:** Síť v cílové oblasti, ve které budou virtuální počítače po převzetí služeb při selhání.
+  Ve výchozím nastavení vytvoří Site Recovery v cílové oblasti novou virtuální síť (a podsítě) s příponou asr.
 
-- **Účty úložiště mezipaměti**: Site Recovery používá účet úložiště v oblasti zdroje. Změny zdrojové virtuální počítače odešlou k tomuto účtu před replikace do cílového umístění.
+- **Účty úložiště mezipaměti:** Site Recovery používá účet úložiště ve zdrojové oblasti. Do tohoto účtu se odešlou změny zdrojových virtuálních počítačů před replikací o cílového umístění.
 
-- **Cíl účty úložiště**: ve výchozím nastavení, Site Recovery vytvoří nový účet úložiště v cílová oblast pro zrcadlení zdrojový účet úložiště virtuálního počítače.
+- **Cílové účty úložiště:** Ve výchozím nastavení vytvoří Site Recovery v cílové oblasti nový účet úložiště zrcadlící účet úložiště zdrojového virtuálního počítače.
 
-- **Cílové skupiny dostupnosti**: ve výchozím nastavení vytvoří Site Recovery novou skupinou dostupnosti ve cílová oblast s příponou "Automatické obnovení systému". Skupiny dostupnosti můžete přidat pouze pokud virtuální počítače jsou součástí sady v oblasti zdroje.
+- **Cílové skupiny dostupnosti:** Ve výchozím nastavení vytvoří Site Recovery v cílové oblasti novou skupinu dostupnosti s příponou asr. Skupiny dostupnosti můžete přidávat pouze v případě, že jsou virtuální počítače ve zdrojové oblasti součástí sady.
 
-Chcete-li přepsat výchozí nastavení zásady replikace, klikněte na tlačítko **přizpůsobit** vedle **zásady replikace**.  
+Pokud chcete přepsat výchozí nastavení zásad replikace, klikněte na **Přizpůsobit** vedle textu **Zásady replikace**.  
 
-- **Název zásady replikace**: název zásady.
+- **Název zásady replikace:** Název zásady.
 
-- **Uchování bodu obnovení**: ve výchozím nastavení, Site Recovery zachová body obnovení po dobu 24 hodin. Můžete nakonfigurovat hodnotu v rozmezí 1 až 72 hodin.
+- **Uchovávání bodu obnovení:** Ve výchozím nastavení uchovává Site Recovery body obnovení po dobu 24 hodin. Můžete nakonfigurovat hodnotu v rozmezí 1 až 72 hodin.
 
-- **Frekvence snímkování konzistentní aplikace vzhledem**: ve výchozím nastavení, Site Recovery vytváří konzistentní snímek každé 4 hodiny. Můžete nakonfigurovat libovolnou hodnotu mezi 1 a 12 hodin. Snímky konzistentní s aplikací je v okamžiku snímek dat aplikací ve virtuálním počítači. Služby Stínová kopie svazku (VSS) zajišťuje, že aplikace ve virtuálním počítači budou při pořízení snímku v konzistentním stavu.
+- **Frekvence pořizování snímků konzistentních vzhledem k aplikacím:** Ve výchozím nastavení pořizuje Site Recovery snímek konzistentní vzhledem k aplikacím každé 4 hodiny. Můžete nakonfigurovat jakoukoli hodnotu v rozmezí 1 až 12 hodin. Snímek konzistentní vzhledem k aplikacím je snímek dat aplikací ve virtuálním počítači v daném okamžiku. Služba Stínová kopie svazku (VSS) zajišťuje, že aplikace na virtuálním počítači budou při pořízení snímku v konzistentním stavu.
 
-- **Replikační skupina**: Pokud aplikace potřebuje více virtuálních počítačů konzistence napříč virtuálními počítači, můžete vytvořit skupiny replikace pro ty virtuální počítače. Ve výchozím nastavení vybrané virtuální počítače nejsou součástí žádné skupiny replikace.
+- **Replikační skupina:** Pokud vaše aplikace vyžaduje konzistenci napříč několika virtuálními počítači, můžete pro tyto virtuální počítače vytvořit replikační skupinu. Ve výchozím nastavení nejsou vybrané virtuální počítače součástí žádné replikační skupiny.
 
-  Klikněte na tlačítko **přizpůsobit** vedle **zásady replikace** a pak vyberte **Ano** konzistenci pro více virtuálních počítačů, aby virtuální počítače součástí replikační skupiny. Můžete vytvořit novou skupinu replikace nebo použijte existující replikační skupiny. Vyberte virtuální počítače jako součást replikační skupiny a klikněte na tlačítko **OK**.
-
-> [!IMPORTANT]
-  Všechny počítače v replikační skupině budou mít sdílené body obnovení zhroutí konzistentní a konzistentní při převzetí služeb při selhání. Povolení konzistence více virtuálních počítačů může ovlivnit výkon pracovního vytížení a musí používat pouze v případě, že počítače běží stejné zatížení a potřebujete konzistenci mezi více počítačů.
+  Pokud chcete virtuální počítače zahrnout do replikační skupiny, klikněte na **Přizpůsobit** vedle textu **Zásady replikace** a pak vyberte **Ano** u možnosti konzistence napříč několika virtuálními počítači. Můžete vytvořit novou replikační skupinu nebo použít existující. Vyberte virtuální počítače, které mají být součástí replikační skupiny, a klikněte na **OK**.
 
 > [!IMPORTANT]
-  Po povolení konzistence pro víc Virtuálních počítačů v replikační skupině vzájemně komunikovat přes port 20004. Ujistěte se, že neexistuje žádné zařízení brány firewall interní komunikaci mezi virtuálními počítači přes port 20004 blokování. Pokud chcete virtuální počítače s Linuxem jako součást skupiny replikace, zajistěte, aby že odchozí přenosy na portu 20004 je otevřen ručně podle pokynů na konkrétní verzi systému Linux.
+  Všechny počítače v replikační skupině budou mít v případě převzetí služeb při selhání sdílené body obnovení konzistentní pro případ chyby a konzistentní vzhledem k aplikacím. Povolení konzistence napříč několika virtuálními počítači může mít vliv na výkon úloh a mělo by se použít pouze v případě, že je na počítačích spuštěná stejná úloha a potřebujete konzistenci napříč několika počítači.
 
-### <a name="track-replication-status"></a>Sledovat stav replikace
+> [!IMPORTANT]
+  Pokud povolíte konzistenci napříč několika virtuálními počítači, budou spolu počítače v replikační skupině komunikovat přes port 20004. Ujistěte se, že žádné zařízení brány firewall neblokuje interní komunikaci mezi virtuálními počítači přes port 20004. Pokud chcete do replikační skupiny zahrnout virtuální počítače s Linuxem, nezapomeňte ručně otevřít odchozí provoz na portu 20004 podle pokynů ke konkrétní verzi Linuxu.
 
-1. V **nastavení**, klikněte na tlačítko **aktualizovat** a získat nejnovější stav.
+### <a name="track-replication-status"></a>Sledování stavu replikace
 
-2. Můžete sledovat průběh **povolení ochrany** úlohy v **nastavení** > **úlohy** > **úlohy Site Recovery**.
+1. V **Nastavení** klikněte na **Aktualizovat**, abyste získali nejnovější stav.
 
-3. V **nastavení** > **replikované položky**, můžete zobrazit stav virtuálních počítačů a probíhá počáteční replikace. Klikněte na virtuální počítač můžete rozbalit jeho nastavení.
+2. Průběh úlohy **Povolení ochrany** můžete sledovat v části **Nastavení** > **Úlohy** > **Úlohy Site Recovery**.
 
-## <a name="next-steps"></a>Další postup
+3. V části **Nastavení** > **Replikované položky** můžete zobrazit stav virtuálních počítačů a průběh počáteční replikace. Kliknutím na virtuální počítač přejdete k podrobnostem o jeho nastavení.
 
-V tomto kurzu jste nakonfigurovali zotavení po havárii pro virtuální počítač Azure. Dalším krokem je konfigurace.
+## <a name="next-steps"></a>Další kroky
+
+V tomto kurzu jste pro virtuální počítač Azure nakonfigurovali zotavení po havárii. Dalším krokem je test vaší konfigurace.
 
 > [!div class="nextstepaction"]
 > [Spuštění postupu zotavení po havárii](azure-to-azure-tutorial-dr-drill.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"></a>Informace o funkci Mobile Apps v Azure App Service
 Azure App Service nabízí plně spravovanou [platformu jako službu](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) pro profesionální vývojáře. Tato služba přináší bohatou sadu možností pro webové, mobilní a integrační scénáře. 
@@ -38,21 +38,21 @@ S funkcí Mobile Apps můžete:
 ## <a name="mobile-apps-features"></a>Funkce Mobile Apps
 Pro vývoj mobilních řešení využívajících cloud jsou důležité následující funkce:
 
-* **Ověřování a autorizace:** Vyberte si z neustále se rozšiřujícího seznamu zprostředkovatelů identity, mezi které patří Azure Active Directory pro podnikové ověřování i poskytovatelé služeb sociálních sítí, jako je Facebook, Google, Twitter a účty Microsoft. Funkce Mobile Apps nabízí službu OAuth 2.0 pro každého zprostředkovatele. Můžete také integrovat sadu SDK pro daného zprostředkovatele, aby se zajistila specifická funkcionalita.
+* **Ověřování a autorizace:** Podpora zprostředkovatelů identity, mezi které patří Azure Active Directory pro podnikové ověřování i poskytovatelé služeb sociálních sítí, jako je Facebook, Google, Twitter a účty Microsoft. Funkce Mobile Apps nabízí službu OAuth 2.0 pro každého zprostředkovatele. Můžete také integrovat sadu SDK pro daného zprostředkovatele, aby se zajistila specifická funkcionalita.
 
-    Projděte si další informace o našich [funkcích ověřování].
+    Projděte si další informace o [funkcích ověřování].
 
 * **Přístup k datům:** Funkce Mobile Apps poskytuje zdroj dat OData verze 3, který skvěle funguje s mobilními zařízeními a je propojený se službou Azure SQL Database nebo místním SQL Serverem. Protože tato služba může být založena na rozhraní Entity Framework, můžete ji snadno integrovat s jinými poskytovateli dat NoSQL i SQL, včetně [Azure Table Storage], MongoDB, [Azure Cosmos DB] a poskytovateli rozhraní API pro SaaS, jako je Office 365 a Salesforce.com.
 
-* **Offline synchronizace:** Naše klientské sady SDK usnadňují vytváření robustních aplikací s rychlou odezvou, které pracují s offline datovou sadou. Tuto datovou sadu můžete automaticky synchronizovat s daty back-end, včetně podpory řešení konfliktů.
+* **Offline synchronizace:** Klientské sady SDK usnadňují vytváření robustních mobilních aplikací s rychlou odezvou, které pracují s offline datovou sadou. Tuto datovou sadu můžete automaticky synchronizovat s daty back-end, včetně podpory řešení konfliktů.
 
-  Projděte si další informace o našich [datových funkcích].
+  Projděte si další informace o [datových funkcích].
 
-* **Nabízená oznámení:** Naše klientské sady SDK se hladce integrují s registračními funkcemi služby Azure Notification Hubs, takže můžete současně zasílat nabízená oznámení milionům uživatelů.
+* **Nabízená oznámení:** Klientské sady SDK se hladce integrují s registračními funkcemi služby Azure Notification Hubs, takže můžete současně zasílat nabízená oznámení milionům uživatelů.
 
-  Projděte si další informace o našich [funkcích pro nabízená oznámení].
+  Projděte si další informace o [funkcích pro nabízená oznámení].
 
-* **Klientské sady SDK:** Poskytujeme kompletní paletu klientských sad SDK, které zahrnují nativní vývoj ([iOS], [Android] a [Windows]), multiplatformní vývoj ([Xamarin.iOS a Xamarin.Android], [Xamarin.Forms]) a vývoj hybridních aplikací ([Apache Cordova]). Všechny klientské sady SDK jsou k dispozici s licencí MIT a jsou open source.
+* **Klientské sady SDK:** K dispozici je kompletní paleta klientských sad SDK, které zahrnují nativní vývoj ([iOS], [Android] a [Windows]), multiplatformní vývoj ([Xamarin.iOS a Xamarin.Android], [Xamarin.Forms]) a vývoj hybridních aplikací ([Apache Cordova]). Všechny klientské sady SDK jsou k dispozici s licencí MIT a jako open-source.
 
 ## <a name="azure-app-service-features"></a>Funkce Azure App Service
 U systémů pro mobilní zařízení v provozním prostředí jsou užitečné následující funkce platformy:
@@ -65,7 +65,7 @@ U systémů pro mobilní zařízení v provozním prostředí jsou užitečné n
 
   Projděte si další informace o [přípravná prostředí].
 
-* **Průběžné nasazování:** App Service umožňuje integraci s běžnými systémy správy zdrojového kódu (SCM), takže můžete automaticky nasadit novou verzi back-endu formou větvení tohoto systému.
+* **Průběžné nasazování:** App Service umožňuje integraci s běžnými systémy _správy zdrojového kódu_ (SCM), které umožňují jednoduché nasazení nové verze back-endu.
 
   Projděte si další informace o [možnostech nasazení](../app-service/app-service-deploy-local-git.md).
 
@@ -73,7 +73,7 @@ U systémů pro mobilní zařízení v provozním prostředí jsou užitečné n
 
   Projděte si další informace pro [hybridní připojení], [virtuální sítě] a [ExpressRoute].
 
-* **Izolovaná a vyhrazená prostředí:** App Service je možné spustit v plně izolovaném a vyhrazeném prostředí pro zabezpečené spouštění aplikací Azure App Service ve velkém měřítku. Toto prostředí je ideální pro úlohy aplikací vyžadující velké škálování, izolaci nebo zabezpečený přístup k síti.
+* **Izolovaná a vyhrazená prostředí:** Pro zabezpečené spouštění aplikací Azure App Service je možné App Service spustit v plně izolovaném a vyhrazeném prostředí. Toto prostředí je ideální pro úlohy aplikací vyžadující velké škálování, izolaci nebo zabezpečený přístup k síti.
 
   Projděte si další informace o [prostředích App Service].
 

@@ -3,8 +3,8 @@ title: "Přehled plán, nabídka, kvóty a předplatné Azure zásobníku | Micr
 description: "Jako operátor cloudu chcete pochopit plány, nabídky, kvóty a předplatná Azure zásobníku."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
-ms.author: erikje
-ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Přehled plánů, nabídek, kvót a předplatných
 
@@ -55,7 +56,7 @@ Kvóty lze nakonfigurovat podle oblasti. Plán obsahující výpočetní služby
 
 Při vytváření nabídky, Správce služeb můžete zahrnout základního plánu. Tyto základní plány jsou zahrnuté ve výchozím nastavení, pokud se uživatel přihlásí na tuto nabídku. Pokud se uživatel přihlásí, kterým mají přístup všichni zprostředkovatelé prostředků zadaný v těchto plánech základní (s odpovídající kvóty).
 
-### <a name="add-on-plans"></a>Rozšíření schémat
+### <a name="add-on-plans"></a>Doplňkové plány
 
 Můžete zahrnout také plány volitelné rozšíření nabídku. Plány rozšíření nejsou zahrnuté ve výchozím nastavení v rámci předplatného. Rozšíření plány jsou další plány (s kvóty) k dispozici v nabídku, můžete k jejich odběry přidat odběratele. Například můžete nabízet základní plán s prostředků omezené zkušební verzi a plán rozšíření s více značné prostředky pro zákazníky, kteří se rozhodnete přijmout službu.
 
@@ -75,6 +76,6 @@ Předplatné je, jak uživatelé přistupovat k vaší nabídky. Pokud jste Azur
 
 Výchozí zprostředkovatel předplatné se automaticky vytvoří při nasazení Azure zásobníku Development Kit. Toto předplatné slouží ke správě Azure zásobníku, nasadit další zprostředkovatelé prostředků a vytvořte plány a nabízí pro uživatele. Zabezpečení a licencování z důvodů by neměl lze použít ke spuštění úloh zákazníka a aplikace. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Vytvoření plánu](azure-stack-create-plan.md)

@@ -2,18 +2,18 @@
 title: "Rychlý start Azure – Přenos objektů do a z úložiště objektů blob v Azure pomocí Javy | Dokumentace Microsoftu"
 description: "Rychle se naučíte, jak přenášet objekty do a z úložiště objektů blob v Azure pomocí Javy."
 author: roygara
-manager: timlt
+manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.author: v-rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 5676cef446de7a68d3d8fd1a3b6833a5de184ea1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Přenos objektů do a z úložiště objektů blob v Azure pomocí Javy
 
@@ -96,7 +96,7 @@ Dále si projdeme vzorový kód, abyste pochopili, jak funguje.
 
 První věc, kterou je potřeba udělat, je vytvořit odkazy na objekty sloužící k přístupu k úložišti objektů blob a jeho správě. Tyto objekty se vzájemně využívají a každý z nich je využívaný dalším objektem v seznamu.
 
-* Vytvořte instanci objektu **CloudStorageAccount**, která odkazuje na [účet úložiště](/java/api/com.microsoft.azure.management.storage._storage_account).
+* Vytvořte instanci objektu [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account), která odkazuje na účet úložiště.
 
     Objekt **CloudStorageAccount** je reprezentace vašeho účtu úložiště a umožňuje nastavení a přístup k vlastnostem účtu úložiště prostřednictvím kódu programu. Pomocí objektu **CloudStorageAccount** můžete vytvořit instanci objektu **CloudBlobClient**, která je nezbytná pro přístup ke službě Blob.
 
@@ -104,9 +104,9 @@ První věc, kterou je potřeba udělat, je vytvořit odkazy na objekty slouží
 
     **CloudBlobClient** poskytuje přístupový bod ke službě Blob a díky tomu umožňuje nastavení a přístup k vlastnostem úložiště objektů blob prostřednictvím kódu programu. Pomocí objektu **CloudBlobClient** můžete vytvořit instanci objektu **CloudBlobContainer**, která je nezbytná pro vytváření kontejnerů.
 
-* Vytvořte instanci objektu **CloudBlobContainer**, která představuje [kontejner](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container), ke kterému přistupujete. Kontejnery slouží k uspořádání objektů blob podobně jako složky na počítači k uspořádání souborů.    
+* Vytvořte instanci objektu [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container), která představuje kontejner, ke kterému přistupujete. Kontejnery slouží k uspořádání objektů blob podobně jako složky na počítači k uspořádání souborů.    
 
-    Jakmile budete mít **CloudBlobContainer**, můžete vytvořit instanci objektu **CloudBlockBlob**, která odkazuje na konkrétní [objekt blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob), který vás zajímá, a provést operaci nahrání, stažení, kopírování atd.
+    Jakmile budete mít **CloudBlobContainer**, můžete vytvořit instanci objektu [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob), která odkazuje na konkrétní objekt blob, který vás zajímá, a provést operaci nahrání, stažení, kopírování atd.
 
 > [!IMPORTANT]
 > Názvy kontejnerů musí být malými písmeny. Další informace o pojmenování kontejnerů a objektů blob najdete v tématu [Názvy kontejnerů, objektů blob a metadat a odkazování na ně](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -115,7 +115,7 @@ První věc, kterou je potřeba udělat, je vytvořit odkazy na objekty slouží
 
 V této části vytvoříte instance objektů, vytvoříte nový kontejner a pak nastavíte oprávnění ke kontejneru tak, aby objekty blob byly veřejné a přístupné přes pouhou adresu URL. Kontejner má název **quickstartblobs**. 
 
-Tento příklad používá **CreateIfNotExists**, protože chceme při každém spuštění ukázky vytvořit nový kontejner. V produkčním prostředí, kde používáte stejný kontejner v celé aplikaci, je lepší volat **CreateIfNotExists** pouze jednou. Případně můžete kontejner vytvořit předem, abyste ho nemuseli vytvářet v kódu.
+Tento příklad používá [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists), protože chceme při každém spuštění ukázky vytvořit nový kontejner. V produkčním prostředí, kde používáte stejný kontejner v celé aplikaci, je lepší volat **CreateIfNotExists** pouze jednou. Případně můžete kontejner vytvořit předem, abyste ho nemuseli vytvářet v kódu.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -152,9 +152,9 @@ System.out.println("Uploading the sample file ");
 blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
-V případě úložiště objektů blob existuje několik [metod nahrání](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob), které můžete použít. Například pokud máte řetězec, můžete místo metody Upload použít metodu UploadText. 
+V případě úložiště objektů blob můžete k nahrání použít několik metod, včetně metod [upload](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload), [uploadBlock](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock), [uploadFullBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob), [uploadStandardBlobTier](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier) a [uploadText](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext). Například pokud máte řetězec, můžete místo metody Upload použít metodu UploadText. 
 
-Objekty blob bloku můžou být jakýmkoli typem textového nebo binárního souboru. Objekty blob stránky se používají hlavně pro soubory VHD využívané virtuálními počítači IaaS. Doplňovací objekty blob se používají k protokolování, například když chcete zapisovat do souboru a pak přidávat další informace. Většina objektů uložených v úložišti objektů blob je objekty blob bloku.
+Objekty blob bloku můžou být jakýmkoli typem textového nebo binárního souboru. Objekty blob stránky se používají hlavně pro soubory VHD využívané virtuálními počítači IaaS. Doplňovací objekty blob se používají k protokolování, například když chcete zapisovat do souboru a pak přidávat další informace. Většina objektů blob ukládaných do úložiště jsou typu blok.
 
 ### <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 
@@ -211,3 +211,5 @@ V tomto rychlém startu jste zjistili, jak přenášet soubory mezi místním di
 > [Operace s úložištěm objektů blob – postupy](storage-java-how-to-use-blob-storage.md)
 
 Další informace o Průzkumníku služby Storage a objektech blob najdete v tématu [Správa prostředků úložiště objektů blob v Azure pomocí Průzkumníka služby Storage](../../vs-azure-tools-storage-explorer-blobs.md).
+
+Další ukázky v Javě najdete v tématu [Ukázky služby Azure Storage s použitím Javy](../common/storage-samples-java.md).

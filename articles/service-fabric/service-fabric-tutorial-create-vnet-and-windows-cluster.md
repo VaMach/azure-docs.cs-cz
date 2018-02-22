@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9ce834e1eea8202f026a859c85067faef7ab7e0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Nasazení clusteru Service Fabric s Windows do virtuální sítě Azure
 Tento kurz je první částí série. Naučíte se nasadit cluster Service Fabric s Windows do [virtuální sítě Azure](../virtual-network/virtual-networks-overview.md) a [skupiny zabezpečení sítě](../virtual-network/virtual-networks-nsg.md) s použitím PowerShellu a šablony. Po dokončení budete mít v cloudu spuštěný cluster, do kterého budete moct nasazovat aplikace.  Pokud chcete vytvořit cluster s Linuxem pomocí Azure CLI, přečtěte si téma [Vytvoření zabezpečeného clusteru s Linuxem v Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -93,7 +93,7 @@ Cluster s Windows je nasazen s následujícími charakteristikami:
 - koncový bod brány HTTP: 19080 (možnost konfigurace v parametrech šablony)
 
 ### <a name="azure-load-balancer"></a>Nástroj pro vyrovnávání zatížení Azure
-Nasazení nástroje pro vyrovnávání zatížení a nastavení testů a pravidel se provádí pro následující porty:
+Nasazení nástroje pro vyrovnávání zatížení a nastavení sond a pravidel se provádí pro následující porty:
 - koncový bod připojení klienta: 19000
 - koncový bod brány HTTP: 19080 
 - port aplikací: 80

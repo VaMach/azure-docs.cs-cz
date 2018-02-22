@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: b29147a37f9a90fc80e16b350ac9b91daac1d7f2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-Konfigurace ExpressRoute a současně existujících připojení VPN typu Site-to-Site má několik výhod. Můžete nakonfigurovat VPN typu Site-to-Site jako zabezpečenou cestu převzetí služeb při selhání pro ExressRoute, nebo použít VPN typu Site-to-Site pro připojení k webům, které nejsou připojené prostřednictvím ExpressRoute. V tomto článku nabízíme postupy konfigurace pro oba scénáře. Tento článek se týká modelu nasazení Resource Manager a používá PowerShell. Tato konfigurace není k dispozici na webu Azure Portal.
+Konfigurace ExpressRoute a současně existujících připojení VPN typu Site-to-Site má několik výhod. Můžete nakonfigurovat síť VPN typu Site-to-Site jako zabezpečenou cestu převzetí služeb při selhání pro ExpressRoute, nebo použít sítě VPN typu Site-to-Site pro připojení k webům, které nejsou připojené prostřednictvím ExpressRoute. V tomto článku nabízíme postupy konfigurace pro oba scénáře. Tento článek se týká modelu nasazení Resource Manager a používá PowerShell. Tato konfigurace není k dispozici na webu Azure Portal.
 
 > [!IMPORTANT]
 > Než budete postupovat podle dál uvedených pokynů, musí být předem nakonfigurované okruhy ExpressRoute. Než budete pokračovat, zkontrolujte, že jste provedli postupy pro [vytvoření okruhu ExpressRoute](expressroute-howto-circuit-arm.md) a [konfiguraci směrování](expressroute-howto-routing-arm.md).

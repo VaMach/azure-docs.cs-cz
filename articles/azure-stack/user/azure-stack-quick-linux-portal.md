@@ -7,14 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Vytvoření virtuální počítač s Linuxem pomocí portálu Azure zásobníku
 
@@ -59,7 +59,7 @@ Přihlaste se k portálu Azure zásobníku. Na adresu na portálu Azure zásobn�
 
 ## <a name="create-the-virtual-machine"></a>Vytvoření virtuálního počítače
 
-1. Klikněte **nový** v levém horním rohu na portálu Azure zásobníku nalezeno tlačítko.
+1. Klikněte na tlačítko **vytvořit prostředek** v levém horním rohu na portálu Azure zásobníku.
 
 2. Vyberte **Compute** a potom vyberte **Ubuntu Server 16.04 LTS**.
 3. Klikněte na možnost **Vytvořit**.
@@ -119,7 +119,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. P
 1. Na virtuálním počítači **přehled** klikněte na název **skupiny prostředků**.
 2. Vyberte **skupinu zabezpečení sítě** pro virtuální počítač. NSG můžete identifikovat pomocí sloupce **Typ**. 
 3. V levé nabídce v části **nastavení**, klikněte na tlačítko **příchozí pravidla zabezpečení**.
-4. Klikněte na tlačítko **Přidat**.
+4. Klikněte na tlačítko **Add** (Přidat).
 5. Do pole **Název** zadejte **http**. Zkontrolujte, že **Rozsah portů** je nastavený na 80 a **Akce** je nastavená na **Povolit**. 
 6. Klikněte na **OK**.
 
@@ -137,7 +137,7 @@ Otevřete webový prohlížeč a přejděte do ```http://<public IP address>```.
 
 Pokud už je nepotřebujete, odstraňte skupinu prostředků, virtuální počítač a všechny související prostředky. To pokud chcete udělat, vyberte skupinu prostředků ze strany virtuálního počítače a klikněte na tlačítko **odstranit**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V této úvodní jste nasazení jednoduché virtuální počítač s Linuxem, pravidla skupiny zabezpečení sítě a instalaci webového serveru. Další informace o virtuálních počítačích Azure zásobníku, nadále [důležité informace pro virtuální počítače v Azure zásobníku](azure-stack-vm-considerations.md).
 

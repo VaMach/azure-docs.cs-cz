@@ -3,8 +3,8 @@ title: "Před nasazením služby App Service v zásobníku Azure | Microsoft Doc
 description: "Kroky k dokončení před nasazením služby App Service v Azure zásobníku"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: cdeec60b4935fda58e2657a215826d8355c81664
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: 27f0255c023382a14368915b0d19a49d133154d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Před zahájením práce s App Service v Azure zásobníku
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
@@ -193,7 +194,7 @@ net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 
 Vzdálená správa systému Windows fungovat správně musíte přidat FileShareOwners skupiny do místní skupiny Administrators.
 
-#### <a name="active-directory"></a>Active Directory
+#### <a name="active-directory"></a>Adresář služby Active Directory
 
 Na souborovém serveru nebo na všech souborových serverů, který funguje jako uzel clusteru s podporou převzetí služeb při selhání, spusťte na příkazovém řádku se zvýšenými oprávněními následující příkazy. Nahraďte hodnotu pro `<DOMAIN>` s názvem domény, který chcete použít.
 
@@ -214,7 +215,7 @@ net localgroup Administrators FileShareOwners /add
 
 Na příkazovém řádku se zvýšenými oprávněními spusťte následující příkazy, na souborovém serveru nebo na uzlu clusteru převzetí služeb při selhání, což je aktuální vlastník prostředku clusteru. Nahraďte hodnoty kurzívou hodnoty, které jsou specifické pro vaše prostředí.
 
-#### <a name="active-directory"></a>Active Directory
+#### <a name="active-directory"></a>Adresář služby Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=C:\WebSites
