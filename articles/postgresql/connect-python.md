@@ -1,5 +1,5 @@
 ---
-title: "Připojení k Azure Database for PostgreSQL z Pythonu | Dokumentace Microsoftu"
+title: "Připojení k Azure Database for PostgreSQL z Pythonu | Microsoft Docs"
 description: "V tomto rychlém startu najdete vzorový kód Pythonu, který můžete použít k připojení a dotazování dat ze služby Azure Database for PostgreSQL."
 services: postgresql
 author: SaloniSonpal
@@ -11,14 +11,14 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Použití Pythonu k připojení a dotazování dat
-Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí [Pythonu](https://python.org). Předvádí také použití příkazů jazyka SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem macOS, Ubuntu Linux a Windows. Kroky v tomto článku předpokládají, že máte zkušenosti s vývojem pomocí Pythonu a teprve začínáte pracovat se službou Azure Database for PostgreSQL.
+Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí [Pythonu](https://python.org). Předvádí také použití příkazů jazyka SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem macOS, Ubuntu Linux a Windows. Kroky v tomto článku předpokládají, že máte zkušenosti s vývojem pomocí Pythonu a teprve začínáte pracovat se službou Azure Database for PostgreSQL. Další podrobnosti o sadě SDK najdete v dokumentaci [Knihovny Azure PostgreSQL pro Python – reference k sadě SDK](/python/api/overview/azure/postgresql) a v [ukázce psycopg](http://initd.org/psycopg/docs/usage.html).
 
 ## <a name="prerequisites"></a>Požadavky
 Tento rychlý start využívá jako výchozí bod prostředky vytvořené v některém z těchto průvodců:
@@ -50,11 +50,11 @@ Nainstalujte balíček [psycopg2](http://initd.org/psycopg/docs/install.html) um
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for PostgreSQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. V nabídce vlevo na webu Azure Portal klikněte na **Všechny prostředky** a vyhledejte **mypgserver-20170401** (server, který jste vytvořili).
+2. V nabídce vlevo na portálu Azure Portal klikněte na **Všechny prostředky** a vyhledejte **mypgserver-20170401** (server, který jste vytvořili).
 3. Klikněte na název serveru **mypgserver-20170401**.
 4. Vyberte stránku **Přehled** serveru a potom si poznamenejte **Název serveru** a **Přihlašovací jméno správce serveru**.
- ![Azure Database for PostgreSQL – přihlášení správce serveru](./media/connect-python/1-connection-string.png)
-5. Pokud zapomenete přihlašovací údaje k serveru, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby resetovat heslo.
+ ![Azure Database for PostgreSQL – přihlašovací jméno správce serveru](./media/connect-python/1-connection-string.png)
+5. Pokud zapomenete přihlašovací údaje pro váš server, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby obnovit heslo.
 
 ## <a name="how-to-run-python-code"></a>Spuštění kódu Pythonu
 Tento článek obsahuje celkem čtyři vzorové kódy, z nichž každý provádí konkrétní funkci. Následující pokyny uvádějí, jak vytvořit textový soubor, vložit do něj blok kódu a pak ho uložit, abyste ho mohli spustit později. Nezapomeňte vytvořit čtyři samostatné soubory – pro každý blok kódu jeden.

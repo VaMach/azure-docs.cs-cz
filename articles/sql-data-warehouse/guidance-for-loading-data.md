@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Osvědčené postupy načítání dat do služby Azure SQL Data Warehouse
 Doporučení a optimalizace výkonu pro načítání dat do služby Azure SQL Data Warehouse. 
@@ -120,15 +120,19 @@ Osvědčeným postupem zabezpečení je pravidelně měnit přístupový klíč 
 
 Obměna klíčů účtu služby Azure Storage:
 
-1. Vytvořte přihlašovací údaje v oboru druhé databáze, které vycházejí ze sekundárního přístupového klíče k úložišti.
-2. Vytvořte s použitím těchto nových přihlašovacích údajů druhý externí zdroj dat.
-3. Odstraňte externí tabulky a znovu je vytvořte tak, aby odkazovaly na nový externí zdroj dat. 
+Pro každý účet úložiště, jehož klíč se změnil, vydejte příkaz [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-Po migraci externích tabulek do nového zdroje dat proveďte následující čisticí úlohy:
+Příklad:
 
-1. Odstraňte první externí zdroj dat.
-2. Odstraňte přihlašovací údaje v oboru první databáze, které vycházejí z primárního přístupového klíče k úložišti.
-3. Přihlaste se do Azure a znovu vygenerujte primární přístupový klíč, aby byl připravený na další obměnu.
+Původní klíč je vytvořený.
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Proveďte otočení klíče 1 do klíče 2.
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+V příslušných externích zdrojích dat se nevyžadují žádné další změny.
 
 
 ## <a name="next-steps"></a>Další kroky

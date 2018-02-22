@@ -1,6 +1,6 @@
 ---
-title: "Kurz sady dostupnosti pro virtuální počítače Windows v Azure | Microsoft Docs"
-description: "Další informace o skupiny dostupnosti pro virtuální počítače Windows v Azure."
+title: "Kurz ke skupinám dostupnosti pro virtuální počítače s Windows v Azure | Microsoft Docs"
+description: "Seznamte se se skupinami dostupnosti pro virtuální počítače s Windows v Azure."
 documentationcenter: 
 services: virtual-machines-windows
 author: cynthn
@@ -12,41 +12,43 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 10/05/2017
+ms.topic: tutorial
+ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2345b434a51b768793c2dea4587dc0a49ab35b70
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Jak používat skupiny dostupnosti
 
-V tomto kurzu zjistěte, jak zvýšit dostupnost a spolehlivost řešení virtuálního počítače v Azure pomocí funkce názvem skupiny dostupnosti. Skupiny dostupnosti Ujistěte se, že virtuálních počítačů nasadit v Azure jsou rozmístěny v několika izolované hardware do uzlů v clusteru. To zajišťuje, že pokud dojde selhání hardwaru nebo softwaru v rámci Azure, má vliv pouze dílčí sadu virtuálních počítačů a že celkového řešení zůstávají dostupné a funkční. 
+V tomto kurzu zjistíte, jak zvýšit dostupnost a spolehlivost svých řešení, která využívají virtuální počítače v Azure, pomocí funkce označované jako skupiny dostupnosti. Skupiny dostupnosti zajišťují distribuci virtuálních počítačů nasazených v Azure napříč několika izolovanými hardwarovými uzly v clusteru. To zajišťuje, že pokud dojde k selhání hardwaru nebo softwaru v rámci Azure, ovlivní to pouze dílčí část vašich virtuálních počítačů a vaše celkové řešení zůstane dostupné a funkční. 
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Vytvoření skupiny dostupnosti
-> * Vytvoření virtuálního počítače v nastavení dostupnosti
-> * Zkontrolujte dostupné velikosti virtuálních počítačů
-> * Zkontrolujte Azure Advisor
+> * Vytvoření virtuálního počítače ve skupině dostupnosti
+> * Kontrola dostupných velikostí virtuálních počítačů
+> * Kontrola Azure Advisoru
 
-Tento kurz vyžaduje modul Azure PowerShell verze 3.6 nebo novější. Verzi zjistíte spuštěním příkazu ` Get-Module -ListAvailable AzureRM`. Pokud potřebujete upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-## <a name="availability-set-overview"></a>Přehled sady dostupnosti
+Pokud se rozhodnete nainstalovat a používat PowerShell místně, musíte použít modul Azure PowerShell verze 5.3 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps). Pokud používáte PowerShell místně, je také potřeba spustit příkaz `Login-AzureRmAccount` pro vytvoření připojení k Azure. 
 
-Skupiny dostupnosti je logické seskupení funkci, která můžete použít v Azure k zajištění, že prostředky virtuálních počítačů, které umístíte v něm jsou od sebe navzájem oddělené, když jsou nasazeny v rámci datového centra Azure. Azure zajistí, že virtuální počítače umístíte do skupiny dostupnosti spustit více fyzických serverů, výpočetní stojany, jednotky úložiště a síťové přepínače. Pokud dojde k selhání Azure softwaru nebo hardwaru, má vliv pouze podmnožinu virtuální počítače a celkové aplikace zůstává až a nadále k dispozici pro vaše zákazníky. Skupiny dostupnosti jsou nezbytné funkce, pokud chcete vytvářet spolehlivé cloudové řešení.
+## <a name="availability-set-overview"></a>Přehled skupiny dostupnosti
 
-Pojďme typické řešení virtuálních počítačů na základě kterých může mít 4 front-end webové servery a používat 2 back-end virtuální počítače, které jsou hostiteli databáze. S Azure, by chcete definovat dvě sady dostupnosti před nasazením virtuálních počítačů: jednu sadu dostupnosti pro webovou vrstvu a jednu sadu dostupnosti pro databázové vrstvy. Když vytvoříte nový virtuální počítač, pak můžete vytvořit skupinu dostupnosti jako parametr k virtuálnímu počítači az příkaz, a Azure automaticky zajistí, aby virtuální počítače, vytvořte v rámci sady k dispozici jsou izolovány napříč několika prostředcích fyzický hardware. Pokud fyzický hardware, který webový Server nebo virtuální počítače databáze serveru běží na problém, víte, že ostatní instance webového serveru a databáze virtuální počítače zůstat spuštěné, protože jsou na jiný hardware.
+Skupina dostupnosti je funkce logického seskupení, pomocí které můžete v Azure zajistit, že prostředky virtuálních počítačů, které do ní umístíte, jsou při nasazení v datacentru Azure od sebe navzájem izolované. Azure zajišťuje, že virtuální počítače, které umístíte do skupiny dostupnosti, se budou spouštět napříč několika fyzickými servery, výpočetními racky, jednotkami úložiště a síťovými přepínači. Pokud dojde k selhání hardwaru nebo softwaru Azure, ovlivní to pouze dílčí část vašich virtuálních počítačů a váš výpočetní systém zůstane v provozu a bude pro zákazníky dál dostupný. Skupiny dostupnosti představují základní funkci pro vytváření spolehlivých cloudových řešení.
 
-Použijte skupiny dostupnosti, pokud chcete nasadit spolehlivé řešení založená na virtuálních počítačů v Azure.
+Představte si běžné řešení založené na virtuálních počítačích, ve kterém máte čtyři front-endové webové servery a používáte dva back-endové virtuální počítače, které hostují databázi. Pokud používáte Azure, před nasazením virtuálních počítačů byste měli definovat dvě skupiny dostupnosti: jednu skupinu dostupnosti pro webovou vrstvu a jednu skupinu dostupnosti pro databázovou vrstvu. Při vytváření nového virtuálního počítače pak můžete zadat skupinu dostupnosti jako parametr příkazu az vm create a Azure automaticky zajistí izolaci virtuálních počítačů vytvořených v rámci skupiny dostupnosti napříč několika fyzickými hardwarovými prostředky. Pokud dojde k problému s fyzickým hardwarem, na kterém běží virtuální počítače s webovým nebo databázovým serverem, máte jistotu, že ostatní instance virtuálních počítačů s webovým serverem a databází zůstanou spuštěné, protože jsou na jiném hardwaru.
+
+Skupiny dostupnosti použijte v případě, že chcete v Azure nasadit spolehlivá řešení založená na virtuálních počítačích.
 
 ## <a name="create-an-availability-set"></a>Vytvoření skupiny dostupnosti
 
-Můžete vytvořit pomocí sadu dostupnosti [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). V tomto příkladu jsme nastavit počet aktualizací a chyby domén v *2* pro skupinu dostupnosti s názvem *myAvailabilitySet* v *myResourceGroupAvailability* Skupina prostředků.
+Skupinu dostupnosti můžete vytvořit pomocí příkazu [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). V tomto příkladu nastavíme počet aktualizačních domén i domén selhání na *2* pro skupinu dostupnosti *myAvailabilitySet* ve skupině prostředků *myResourceGroupAvailability*.
 
 Vytvořte skupinu prostředků.
 
@@ -54,144 +56,70 @@ Vytvořte skupinu prostředků.
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
-Vytvoření spravované dostupnosti nastavit pomocí [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) s **- sku zarovnán** parametr.
+Vytvořte spravovanou skupinu dostupnosti pomocí příkazu [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) s parametrem `-sku aligned`.
 
 ```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
-   -Location EastUS `
-   -Name myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability `
-   -sku aligned `
+   -Location "EastUS" `
+   -Name "myAvailabilitySet" `
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -Sku aligned `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
 
-## <a name="create-vms-inside-an-availability-set"></a>Vytvořit virtuální počítače uvnitř skupiny dostupnosti
+## <a name="create-vms-inside-an-availability-set"></a>Vytvoření virtuálních počítačů ve skupině dostupnosti
+Virtuální počítače je nutné vytvořit ve skupině dostupnosti, abyste měli jistotu, že jsou správně distribuované napříč hardwarem. Existující virtuální počítač není možné přidat do vytvořené skupiny dostupnosti. 
 
-Virtuální počítače musí být vytvořen v rámci skupinu dostupnosti a ujistěte se, že jsou správně rozmístěny v hardwaru. Nelze přidat existující virtuální počítač po vytvoření sadu dostupnosti. 
+Hardware ve vybraném umístění je rozdělený do několika aktualizačních domén a domén selhání. **Aktualizační doména** je skupina virtuálních počítačů a podřízeného fyzického hardwaru, který je možné současně restartovat. Virtuální počítače v jedné **doméně selhání** sdílejí společné úložiště a také zdroj napájení a síťový přepínač. 
 
-Hardware v umístění je rozděleno v několika aktualizace domén a domén selhání. **Aktualizace domény** je skupina virtuální počítače a základní fyzický hardware, který může být restartován ve stejnou dobu. Virtuální počítače ve stejné **doména selhání** sdílejí společné úložiště, jakož i běžné zdroje a sítě vypínač. 
+Když vytváříte virtuální počítač příkazem [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm), pomocí parametru `-AvailabilitySetName` specifikujte název dané skupiny dostupnosti.
 
-Při vytváření konfigurace virtuálního počítače pomocí [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) použijete `-AvailabilitySetId` parametru určete ID skupiny dostupnosti.
-
-Vytvořte dva virtuální počítače s [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ve dostupnosti nastavit.
+Nejdřív pomocí rutiny [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) nastavte uživatelské jméno a heslo správce virtuálního počítače:
 
 ```azurepowershell-interactive
-$availabilitySet = Get-AzureRmAvailabilitySet `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Name myAvailabilitySet
-
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-    
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -Location eastus `
-    -Name myNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAvailability `
-    -SecurityRules $nsgRuleRDP
-    
-# Apply the network security group to a subnet
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -VirtualNetwork $vnet `
-    -Name mySubnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-
-# Update the virtual network
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-
-for ($i=1; $i -le 2; $i++)
-{
-   $pip = New-AzureRmPublicIpAddress `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name "mypublicdns$(Get-Random)" `
-        -AllocationMethod Static `
-        -IdleTimeoutInMinutes 4
-
-   $nic = New-AzureRmNetworkInterface `
-        -Name myNic$i `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -SubnetId $vnet.Subnets[0].Id `
-        -PublicIpAddressId $pip.Id `
-        -NetworkSecurityGroupId $nsg.Id
-
-   # Here is where we specify the availability set
-   $vm = New-AzureRmVMConfig `
-        -VMName myVM$i `
-        -VMSize Standard_D1 `
-        -AvailabilitySetId $availabilitySet.Id
-
-   $vm = Set-AzureRmVMOperatingSystem `
-        -ComputerName myVM$i `
-        -Credential $cred `
-        -VM $vm `
-        -Windows `
-        -EnableAutoUpdate `
-        -ProvisionVMAgent
-   $vm = Set-AzureRmVMSourceImage `
-        -VM $vm `
-        -PublisherName MicrosoftWindowsServer `
-        -Offer WindowsServer `
-        -Skus 2016-Datacenter `
-        -Version latest
-   $vm = Set-AzureRmVMOSDisk `
-        -VM $vm `
-        -Name myOsDisk$i `
-        -DiskSizeInGB 128 `
-        -CreateOption FromImage `
-        -Caching ReadWrite
-   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-   New-AzureRmVM `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -VM $vm
-}
-
+$cred = Get-Credential
 ```
 
-Trvá několik minut vytvořit a nakonfigurovat oba virtuální počítače. Po dokončení, budete mít dva virtuální počítače distribuované ve základní hardware. 
+Teď ve skupině dostupně vytvořte pomocí příkazu [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) dva virtuální počítače.
 
-Pokud se podíváte na skupinu dostupnosti na portálu tak, že přejdete na skupiny prostředků > myResourceGroupAvailability > myAvailabilitySet, měli byste najdete v části Jak virtuální počítače distribuované ve 2 odolnost a aktualizaci domény.
+```azurepowershell-interactive
+for ($i=1; $i -le 2; $i++)
+{
+    New-AzureRmVm `
+        -ResourceGroupName "myResourceGroupAvailability" `
+        -Name "myVM$i" `
+        -Location "East US" `
+        -VirtualNetworkName "myVnet" `
+        -SubnetName "mySubnet" `
+        -SecurityGroupName "myNetworkSecurityGroup" `
+        -PublicIpAddressName "myPublicIpAddress$i" `
+        -AvailabilitySetName "myAvailabilitySet" `
+        -Credential $cred
+}
+```
 
-![Na portálu pro sadu dostupnosti](./media/tutorial-availability-sets/fd-ud.png)
+Parametr `-AsJob` vytvoří virtuální počítač jako úlohu na pozadí, takže budete mít k dispozici příkazový řádek PowerShellu. Podrobnosti úloh na pozadí můžete zobrazit pomocí rutiny `Job`. Vytvoření a konfigurace obou virtuálních počítačů bude trvat několik minut. Po dokončení budete mít dva virtuální počítače distribuované napříč základním hardwarem. 
 
-## <a name="check-for-available-vm-sizes"></a>Zkontrolujte dostupné velikosti virtuálních počítačů 
+Pokud se na skupinu dostupnosti podíváte na portálu v části Skupiny dostupnosti > myResourceGroupAvailability > myAvailabilitySet, měli byste vidět, jak se virtuální počítače distribuují napříč dvěma doménami selhání a aktualizačními doménami.
 
-Můžete přidat další virtuální počítače pro skupinu dostupnosti později, ale musíte vědět, jaké velikosti virtuálních počítačů jsou k dispozici na hardware. Použití [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) seznam všech dostupných velikostí na hardwaru clusteru pro skupinu dostupnosti.
+![Skupina dostupnosti na portálu](./media/tutorial-availability-sets/fd-ud.png)
+
+## <a name="check-for-available-vm-sizes"></a>Kontrola dostupných velikostí virtuálních počítačů 
+
+Později můžete do skupiny dostupnosti přidat další virtuální počítače, potřebujete ale vědět, jaké velikosti virtuálních počítačů jsou na konkrétním hardwaru k dispozici. Pomocí příkazu [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) získáte výpis všech dostupných velikostí na hardwarovém clusteru pro skupinu dostupnosti.
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize `
-   -AvailabilitySetName myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability  
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -AvailabilitySetName "myAvailabilitySet"
 ```
 
-## <a name="check-azure-advisor"></a>Zkontrolujte Azure Advisor 
+## <a name="check-azure-advisor"></a>Kontrola Azure Advisoru 
 
-Azure Advisor také můžete získat další informace o způsobů, jak zlepšit dostupnost virtuálních počítačů. Azure Advisor pomáhá dodržujte doporučené postupy, chcete-li optimalizovat nasazení Azure. Ho analyzuje konfigurace prostředků a telemetrii využití a pak doporučuje řešení, které vám pomůžou líp finanční efektivita, výkon, vysokou dostupnost a zabezpečení vašich prostředků Azure.
+Další informace o tom, jak zlepšit dostupnost vašich virtuálních počítačů, vám nabídne i služba Azure Advisor. Azure Advisor pomáhá dodržovat osvědčené postupy pro optimalizaci nasazení Azure. Analyzuje konfiguraci vašich prostředků a telemetrii jejich využívání a následně doporučí řešení, která zlepší finanční úspornost, výkon, dostupnost a zabezpečení vašich prostředků Azure.
 
-Přihlaste se k [portál Azure](https://portal.azure.com), vyberte **další služby**a typ **Advisor**. Řídicí panel Advisor zobrazuje přizpůsobené doporučení pro vybrané předplatné. Další informace najdete v tématu [Začínáme s Azure Advisor](../../advisor/advisor-get-started.md).
+Přihlaste se na [Azure Portal](https://portal.azure.com), vyberte **Další služby** a zadejte **Advisor**. Řídicí panel služby Advisor zobrazí řešení vytvořená na míru vybranému předplatnému. Další informace najdete v tématu [Začínáme se službou Azure Advisor](../../advisor/advisor-get-started.md).
 
 
 ## <a name="next-steps"></a>Další kroky
@@ -200,11 +128,11 @@ V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
 > * Vytvoření skupiny dostupnosti
-> * Vytvoření virtuálního počítače v nastavení dostupnosti
-> * Zkontrolujte dostupné velikosti virtuálních počítačů
-> * Zkontrolujte Azure Advisor
+> * Vytvoření virtuálního počítače ve skupině dostupnosti
+> * Kontrola dostupných velikostí virtuálních počítačů
+> * Kontrola Azure Advisoru
 
-Přechodu na v dalším kurzu se dozvíte o sady škálování virtuálního počítače.
+V dalším kurzu najdete informace o škálovacích sadách virtuálních počítačů.
 
 > [!div class="nextstepaction"]
 > [Vytvoření škálovací sady virtuálních počítačů](tutorial-create-vmss.md)

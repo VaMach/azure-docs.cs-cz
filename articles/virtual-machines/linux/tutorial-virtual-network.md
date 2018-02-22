@@ -1,6 +1,6 @@
 ---
 title: "Virtuální sítě Azure a virtuální počítače s Linuxem | Microsoft Docs"
-description: "Kurz – Správa virtuálních sítí Azure a virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI"
+description: "Kurz – Správa virtuálních sítí Azure a virtuálních počítačů s Linuxem pomocí Azure CLI"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: cce0cebc4a31cd78dd7c0c73424e1b674134d360
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Správa virtuálních sítí Azure a virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI
+# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Správa virtuálních sítí Azure a virtuálních počítačů s Linuxem pomocí Azure CLI
 
-Virtuální počítače Azure pomocí Azure sítě pro vnitřní a vnější síťovou komunikaci. Tento kurz vás provede nasazením dva virtuální počítače a konfigurace Azure sítě pro tyto virtuální počítače. V příkladech v tomto kurzu předpokládá, že virtuální počítače hostují webové aplikace s databáze back-end, ale není v tomto kurzu nasazené aplikace. V tomto kurzu se naučíte:
+Virtuální počítače Azure používají pro interní i externí síťovou komunikaci sítě Azure. Tento kurz vás provede nasazením dvou virtuálních počítačů a konfigurací sítě Azure pro tyto virtuální počítače. Příklady v tomto kurzu předpokládají, že virtuální počítače hostují webovou aplikaci s back-endovou databází, ale aplikace se v tomto kurzu nenasazuje. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Vytvoření virtuální sítě a podsítě
 > * Vytvoření veřejné IP adresy
-> * Vytvoření virtuálního počítače s front-endu
+> * Vytvoření front-endového virtuálního počítače
 > * Zabezpečení provozu sítě
-> * Vytvoření virtuálního počítače s back-end
+> * Vytvoření back-endového virtuálního počítače
 
-Při dokončení tohoto kurzu, zobrazí se tyto prostředky vytvořené:
+Při práci na tomto kurzu vytvoříte tyto prostředky:
 
 ![Virtuální síť se dvěma podsítěmi](./media/tutorial-virtual-network/networktutorial.png)
 
-- *myVNet* -virtuální síť, která virtuální počítače používat ke komunikaci s sebe navzájem a Internetem.
-- *myFrontendSubnet* -podsítě v *myVNet* používá front-endové prostředky.
-- *myPublicIPAddress* -veřejnou IP adresu použitou pro přístup k *myFrontendVM* z Internetu.
-- *myFrontentNic* -síťové rozhraní používá *myFrontendVM* ke komunikaci s *myBackendVM*.
-- *myFrontendVM* -virtuálního počítače používá ke komunikaci mezi Internetu a *myBackendVM*.
-- *myBackendNSG* -skupina zabezpečení sítě, které řídí komunikaci mezi *myFrontendVM* a *myBackendVM*.
-- *myBackendSubnet* -podsíť k *myBackendNSG* a používané prostředky back-end.
-- *myBackendNic* -síťové rozhraní používá *myBackendVM* ke komunikaci s *myFrontendVM*.
-- *myBackendVM* -virtuální počítač, který používá port 22 a 3306 ke komunikaci s *myFrontendVM*.
+- *myVNet* – virtuální síť, kterou virtuální počítače používají ke komunikaci mezi sebou a internetem.
+- *myFrontendSubnet* – podsíť ve virtuální síti *myVNet*, kterou používají front-endové prostředky.
+- *myPublicIPAddress* – veřejná IP adresa, pomocí které se můžete z internetu připojit k virtuálnímu počítači *myFrontendVM*.
+- *myFrontentNic* – síťové rozhraní, které virtuální počítač *myFrontendVM* používá ke komunikaci s virtuálním počítačem *myBackendVM*.
+- *myFrontendVM* – virtuální počítač, pomocí kterého můžete komunikovat mezi internetem a virtuálním počítačem *myBackendVM*.
+- *myBackendNSG* – skupina zabezpečení sítě, která řídí komunikaci mezi virtuálními počítači *myFrontendVM* a *myBackendVM*.
+- *myBackendSubnet* – podsíť přidružená ke skupině zabezpečení sítě *myBackendNSG*, kterou používají back-endové prostředky.
+- *myBackendNic* – síťové rozhraní, které virtuální počítač *myBackendVM* používá ke komunikaci s virtuálním počítačem *myFrontendVM*.
+- *myBackendVM* – virtuální počítač, který používá porty 22 a 3306 ke komunikaci s virtuálním počítačem *myFrontendVM*.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a místně používat rozhraní příkazového řádku, musíte mít Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="vm-networking-overview"></a>Přehled sítě virtuálních počítačů
+## <a name="vm-networking-overview"></a>Přehled sítí virtuálních počítačů
 
-Virtuální sítě Azure povolit zabezpečené sítě připojení mezi virtuálními počítači, internet a jinými službami Azure, jako je například Azure SQL database. Virtuální sítě jsou rozdělit do logických segmenty označují jako podsítě. Podsítě se používají k řízení toku sítě a jako hranice zabezpečení. Při nasazování virtuálního počítače, obvykle zahrnuje rozhraní virtuální sítě, který je připojen k podsíti.
+Virtuální sítě Azure umožňují zabezpečená síťová připojení mezi virtuálními počítači, internetem a dalšími službami Azure, jako je Databáze SQL Azure. Virtuální sítě se skládají z logických segmentů zvaných podsítě. Podsítě se používají k řízení toku sítě a jako hranice zabezpečení. Když nasazujete virtuální počítač, obvykle zahrnuje virtuální síťové rozhraní, které je připojené k podsíti.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Vytvoření virtuální sítě a podsítě
 
-V tomto kurzu se vytvoří jedné virtuální sítě se dvěma podsítěmi. Podsíť front-end pro hostování webové aplikace a podsíť back-end pro hostování databázový server.
+V tomto kurzu vytvoříte virtuální síť se dvěma podsítěmi. Front-endovou podsíť k hostování webové aplikace a back-endovou podsíť pro hostování databázového serveru.
 
-Než bude možné vytvořit virtuální síť, vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myRGNetwork* v eastus umístění.
+Před vytvořením virtuální sítě vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků *myRGNetwork* v umístění eastus (USA – východ).
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>Vytvoření virtuální sítě
 
-Použití [vytvoření sítě vnet az](/cli/azure/network/vnet#create) příkaz pro vytvoření virtuální sítě. V tomto příkladu je název sítě *mvVNet* a předponu adresy z *10.0.0.0/16*. Podsíť je vytvořen také s názvem *myFrontendSubnet* a předponu *10.0.1.0/24*. Později v tomto kurzu je front-end virtuálního počítače připojené k této podsíti. 
+Pomocí příkazu [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) vytvořte virtuální síť. V tomto příkladu se síť jmenuje *myVNet* a má předponu adresy *10.0.0.0/16*. Vytvoří se také podsíť s názvem *myFrontendSubnet* a předponou *10.0.1.0/24*. Později v tomto kurzu se k této síti připojí front-endový virtuální počítač. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>Vytvoření podsítě
 
-Novou podsíť je přidaný do virtuální sítě pomocí [az sítě vnet podsíť vytváření](/cli/azure/network/vnet/subnet#create) příkaz. V tomto příkladu je název podsítě *myBackendSubnet* a předponu adresy z *10.0.2.0/24*. Tato podsíť se používá u všech služeb back-end.
+Novou podsíť přidáte k virtuální síti pomocí příkazu [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). V tomto příkladu se podsíť jmenuje *myBackendSubnet* a má předponu adresy *10.0.2.0/24*. Tato podsíť se používá se všemi back-endovými službami.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -91,31 +91,31 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-V tomto okamžiku síť byla vytvořil a rozdělena na dvě podsítě, jeden pro front-endové služby a jinou pro back endové služby. V další části jsou virtuální počítače vytvořené a připojené k tyto podsítě.
+Nyní jste vytvořili síť rozdělenou do dvou podsítí – jedné pro front-endové služby a druhé pro back-endové služby. V další části vytvoříme virtuální počítače a připojíme je k těmto podsítím.
 
 ## <a name="create-a-public-ip-address"></a>Vytvoření veřejné IP adresy
 
-Veřejná IP adresa umožňuje prostředků Azure bude přístupný na Internetu. Metoda přidělení veřejné IP adresy můžete konfigurovat jako dynamické nebo statické. Ve výchozím nastavení se přidělí dynamicky veřejnou IP adresu. Dynamické IP adresy vydávají, když virtuální počítač je navrácena. To způsobí, že IP adresa, chcete-li změnit během všechny operace, která zahrnuje navrácení virtuálních počítačů.
+Veřejná IP adresa umožňuje připojení k prostředkům Azure z internetu. Metodu přidělování veřejné IP adresy je možné nakonfigurovat dynamicky nebo staticky. Ve výchozím nastavení se veřejná IP adresa přiděluje dynamicky. Dynamické IP adresy se vydávají při zrušení přidělení virtuálního počítače. Toto chování znamená, že se IP adresa změní při libovolné operaci, která zahrnuje zrušení přidělení virtuálního počítače.
 
-Statický, které zajišťuje, že IP adresa zůstane i během deallocated stavu přiřazené k virtuálnímu počítači, může být nastavena metoda přidělení. Pokud používáte staticky přidělená adresa IP, nelze zadat IP adresu. Místo toho je přidělen z fondu adres k dispozici.
+Metodu přidělování je možné nastavit staticky, což zajistí, že IP adresa zůstane virtuálnímu počítači přidělená i ve stavu zrušeného přidělení. Když používáte staticky přidělenou IP adresu, není ji možné určit. Místo toho se přiděluje z fondu dostupných adres.
 
 ```azurecli-interactive
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-Při vytváření virtuálního počítače s [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz, je dynamický metodu přidělení výchozí veřejnou IP adresu. Při vytváření virtuálního počítače pomocí [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz, zahrnout `--public-ip-address-allocation static` argument přiřadit statickou veřejnou IP adresu. Tato operace není ukázáno v tomto kurzu, ale v další části se změní dynamicky přidělené IP adresy na staticky přidělené adresy. 
+Když vytváříte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create), výchozí metoda přidělování veřejné IP adresy je dynamická. Pokud chcete při vytváření virtuálního počítače pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create) přidělit statickou veřejnou IP adresu, použijte argument `--public-ip-address-allocation static`. Tato operace sice není v tomto kurzu ukázaná, ale v další části je ukázaná změna z dynamicky přidělené IP adresy na staticky přidělenou adresu. 
 
-### <a name="change-allocation-method"></a>Změnit přidělení – metoda
+### <a name="change-allocation-method"></a>Změna metody přidělování
 
-Metoda přidělení IP adres se dá změnit pomocí [aktualizace veřejné ip sítě az](/cli/azure/network/public-ip#update) příkaz. V tomto příkladu metoda přidělení IP adresy front-endu virtuálního počítače se změní na statické.
+Metodu přidělování IP adresy je možné změnit pomocí příkazu [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). V tomto příkladu se metoda přidělování IP adresy front-endového virtuálního počítače mění na statickou.
 
-Nejprve zrušit přidělení virtuálního počítače.
+Nejprve zrušte přidělení virtuálního počítače.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Použití [aktualizace veřejné ip sítě az](/cli/azure/network/public-ip#update) příkaz k aktualizaci metoda přidělení. V takovém případě `--allocation-method` je nastavena na *statické*.
+Příkazem [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) aktualizujte metodu přidělení. V tomto příkladu se parametr `--allocation-method` nastaví na hodnotu *static*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -127,13 +127,13 @@ Spusťte virtuální počítač.
 az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 ```
 
-### <a name="no-public-ip-address"></a>Žádné veřejnou IP adresu
+### <a name="no-public-ip-address"></a>Žádná veřejná IP adresa
 
-Virtuální počítač se často, nemusí být přístupné přes internet. Chcete-li vytvořit virtuální počítač bez veřejnou IP adresu, použijte `--public-ip-address ""` argument s prázdnou sadu dvojité uvozovky. Tato konfigurace je ukázán později v tomto kurzu.
+U virtuálního počítače často není potřeba, aby byl přístupný z internetu. Pokud chcete vytvořit virtuální počítač bez veřejné IP adresy, použijte argument `--public-ip-address ""` s prázdnou sadou dvojitých uvozovek. Ukázku této konfigurace uvidíte později v tomto kurzu.
 
-## <a name="create-a-front-end-vm"></a>Vytvoření virtuálního počítače s front-endu
+## <a name="create-a-front-end-vm"></a>Vytvoření front-endového virtuálního počítače
 
-Použití [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz pro vytvoření virtuálního počítače s názvem *myFrontendVM* pomocí *myPublicIPAddress*.
+Pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create) a adresy *myPublicIPAddress* vytvořte virtuální počítač s názvem *myFrontendVM*.
 
 ```azurecli-interactive 
 az vm create \
@@ -149,35 +149,35 @@ az vm create \
 
 ## <a name="secure-network-traffic"></a>Zabezpečení provozu sítě
 
-Skupina zabezpečení sítě (NSG) obsahuje seznam pravidel zabezpečení, která prostředkům připojeným k virtuálním sítím Azure povolují nebo odpírají síťový provoz. Skupiny Nsg můžou být přidružena k podsítě nebo jednotlivých síťových rozhraní. Když skupinu NSG je spojen s síťovým rozhraním, bude se vztahovat jenom přidružený virtuální počítač. Pokud je skupina zabezpečení sítě přidružená k podsíti, pravidla se vztahují na všechny prostředky, které jsou připojené k příslušné podsíti. 
+Skupina zabezpečení sítě (NSG) obsahuje seznam pravidel zabezpečení, která prostředkům připojeným k virtuálním sítím Azure povolují nebo odpírají síťový provoz. Skupinu zabezpečení sítě můžete přidružit k podsítím nebo jednotlivým síťovým rozhraním. Pokud skupinu zabezpečení sítě přidružíte k síťovému rozhraní, bude se vztahovat pouze k přidruženému virtuálnímu počítači. Pokud je skupina zabezpečení sítě přidružená k podsíti, pravidla se vztahují na všechny prostředky, které jsou připojené k příslušné podsíti. 
 
 ### <a name="network-security-group-rules"></a>Pravidla skupiny zabezpečení sítě
 
-Pravidla NSG definovat síťové porty, přes které provoz povolený nebo zakázaný. Pravidla mohou obsahovat zdrojové a cílové rozsahy IP adres, tak, aby je řízen provoz mezi konkrétní systémy nebo podsítě. Pravidla NSG také zahrnovat prioritu (mezi 1 – a 4096). Pravidla jsou vyhodnocovány v pořadí podle priority. Pravidlo s prioritou 100 vyhodnotí před pravidlo s prioritou 200.
+Pravidla skupiny zabezpečení sítě definují síťové porty, které provoz buď povolují, nebo zakazují. Pravidla mohou zahrnovat zdrojové a cílové rozsahy IP adres, aby se provoz řídil mezi určitými systémy nebo podsítěmi. Pravidla skupiny zabezpečení sítě také obsahují prioritu (1–4096). Pravidla se vyhodnocují v pořadí podle priority. Pravidlo s prioritou 100 se vyhodnotí před pravidlem s prioritou 200.
 
 Všechny skupiny NSG obsahují sadu výchozích pravidel. Výchozí pravidla se nedají odstranit, ale protože je jim přiřazená nejnižší priorita, dají se přepsat pravidly, která vytvoříte.
 
-Výchozí pravidla pro skupiny Nsg jsou:
+Výchozí pravidla skupin zabezpečení sítě jsou následující:
 
-- **Virtuální síť** – provoz pocházející a ukončování ve virtuální síti je povolena v příchozí a odchozí.
-- **Internet** – odchozí provoz je povolený, ale jsou blokovány příchozí přenosy.
-- **Nástroj pro vyrovnávání zatížení** – nástroj pro vyrovnávání zatížení povolit Azure testovat stav virtuálních počítačů a instancí rolí. Pokud nepoužíváte skupinu s vyrovnáváním zatížení, můžete přepsat toto pravidlo.
+- **Virtuální síť** – provoz směřující z virtuální sítě a do ní je povolený v příchozím i odchozím směru.
+- **Internet** – odchozí provoz je povolený, ale příchozí provoz se blokuje.
+- **Nástroj pro vyrovnávání zatížení** – umožňuje nástroji pro vyrovnávání zatížení Azure testovat stav virtuálních počítačů a instancí rolí. Pokud sadu s vyrovnáváním zatížení nepoužíváte, můžete toto pravidlo přepsat.
 
-### <a name="create-network-security-groups"></a>Vytvoření skupiny zabezpečení sítě
+### <a name="create-network-security-groups"></a>Vytvoření skupin zabezpečení sítě
 
-Lze vytvořit skupinu zabezpečení sítě ve stejnou dobu jako virtuální počítač pomocí [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz. Když to uděláte, se NSG k rozhraní sítě virtuálních počítačů a automaticky vytvořit, aby povolovala přenosy na portu je pravidlo NSG *22* z jakéhokoli zdroje. V tomto kurzu front-end NSG se automaticky vytvořené s front-endu virtuálního počítače. Pravidlo NSG se také automaticky vytvořenou pro port 22. 
+Skupinu zabezpečení sítě je možné vytvořit zároveň s virtuálním počítačem pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create). Když to tak uděláte, skupina zabezpečení sítě se přidruží k síťovému rozhraní virtuálních počítačů a automaticky se vytvoří pravidlo skupiny zabezpečení sítě, které na portu *22* umožní provoz z libovolného zdroje. Dříve v tomto kurzu se společně s front-endovým virtuálním počítačem automaticky vytvořila front-endová skupina zabezpečení sítě. Automaticky se u ní také vytvořilo pravidlo pro port 22. 
 
-V některých případech může být užitečné předem vytvořit skupinu NSG, například když by neměly být vytvářeny výchozí pravidla pro SSH, nebo když by mělo být připojeno NSG k podsíti. 
+V některých případech může být užitečné vytvořit skupinu zabezpečení sítě předem – například když by se neměla vytvářet výchozí pravidla SSH nebo když by se skupina zabezpečení sítě měla připojit k podsíti. 
 
-Použití [vytvořit az sítě nsg](/cli/azure/network/nsg#create) příkazu vytvořte skupinu zabezpečení sítě.
+Skupinu zabezpečení sítě vytvoříte pomocí příkazu [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG
 ```
 
-Místo přidružení skupiny NSG k síťové rozhraní, je přidružená k podsíti. V této konfiguraci dědí žádné virtuální počítače, který je připojen k podsíti pravidla NSG.
+Místo přidružení k síťovému rozhraní se přidruží k podsíti. Libovolný virtuální počítač, který je v této konfiguraci přidružený k podsíti, získá pravidla skupiny zabezpečení sítě.
 
-Aktualizovat existující podsíť s názvem *myBackendSubnet* se nová skupina NSG.
+Existující podsíť s názvem *myBackendSubnet* aktualizujte novou skupinou zabezpečení sítě.
 
 ```azurecli-interactive 
 az network vnet subnet update \
@@ -187,11 +187,11 @@ az network vnet subnet update \
   --network-security-group myBackendNSG
 ```
 
-### <a name="secure-incoming-traffic"></a>Zabezpečené příchozí provoz
+### <a name="secure-incoming-traffic"></a>Zabezpečení příchozího provozu
 
-V okamžiku vytvoření front-endu virtuálního počítače bylo pravidlo NSG vytvořeno povolit příchozí přenosy na portu 22. Toto pravidlo umožňuje připojení SSH pro virtuální počítač. V tomto příkladu má být povoleno přenosy na portu *80*. Tato konfigurace umožňuje webovou aplikaci nelze přistupovat ve virtuálním počítači.
+V okamžiku vytvoření front-endového virtuálního počítače se vytvořilo pravidlo skupiny zabezpečení sítě, které umožňuje příchozí provoz na portu 22. Toto pravidlo umožňuje připojení SSH k virtuálnímu počítači. V tomto příkladu by měl být provoz umožněn i na portu *80*. Tato konfigurace umožňuje přistupovat k webové aplikaci z virtuálního počítače.
 
-Použití [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#create) příkaz k vytvoření pravidla pro port *80*.
+Pomocí příkazu [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) vytvořte pravidlo pro port *80*.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -208,17 +208,17 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-Front-endu virtuálního počítače je k dispozici pouze na portu *22* a port *80*. Všechny ostatní příchozí přenosy je blokováno v skupinu zabezpečení sítě. Může být užitečné k vizualizaci konfigurace pravidel NSG. Konfigurace pravidla NSG se vraťte [az sítě pravidlo seznamu](/cli/azure/network/nsg/rule#list) příkaz. 
+Front-endový virtuální počítač je přístupný pouze na portech *22* a *80*. Veškerý ostatní příchozí provoz je skupinou zabezpečení sítě zablokovaný. Někdy může být užitečné si konfigurace pravidla skupiny zabezpečení sítě vizualizovat. Konfiguraci pravidla skupiny zabezpečení sítě vrátíte pomocí příkazu [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
 ```
 
-### <a name="secure-vm-to-vm-traffic"></a>Zabezpečený virtuální počítač k přenosy virtuálních počítačů
+### <a name="secure-vm-to-vm-traffic"></a>Zabezpečení virtuálního počítače vůči provozu virtuálních počítačů
 
-Pravidla skupiny zabezpečení sítě můžete také použít mezi virtuálními počítači. V tomto příkladu musí front-end virtuálních počítačů komunikovat s back-end virtuálního počítače na portu *22* a *3306*. Tato konfigurace umožňuje připojení SSH z front-endu virtuálního počítače a také povolit aplikace front-endu virtuálního počítače ke komunikaci s databází MySQL back-end. Všechny ostatní přenosy by se zablokovat mezi virtuálními počítači front-end a back-end.
+Pravidla skupiny zabezpečení sítě je možné použít i mezi virtuálními počítači. V tomto příkladu potřebuje front-endový virtuální počítač komunikovat s back-endovým virtuálním počítačem na portech *22* a *3306*. Tato konfigurace umožňuje připojení SSH z front-endového virtuálního počítače a také umožňuje aplikaci na front-endovém virtuálním počítači komunikovat s back-endovou databází MySQL. Veškerý ostatní provoz by měl být mezi front-endovými a back-endovými virtuálním počítači blokovaný.
 
-Použití [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#create) příkaz k vytvoření pravidla pro port 22. Všimněte si, že `--source-address-prefix` argument určuje hodnotu *10.0.1.0/24*. Tato konfigurace zajistí, že jsou povoleny pouze přenosy z podsítě front-endu prostřednictvím NSG.
+Pomocí příkazu [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) vytvořte pravidlo pro port 22. Všimněte si, že argument `--source-address-prefix` určuje hodnotu *10.0.1.0/24*. Tato konfigurace zajistí, že skrz skupinu zabezpečení sítě projde pouze provoz z front-endové podsítě.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -235,7 +235,7 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-Teď můžete přidáte pravidlo pro provoz MySQL na portu 3306.
+Teď přidejte pravidlo pro provoz databáze MySQL na portu 3306.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -252,7 +252,7 @@ az network nsg rule create \
   --destination-port-range "3306"
 ```
 
-Navíc vzhledem k tomu, že skupiny Nsg výchozí pravidlo povolující veškerý provoz mezi virtuálními počítači ve stejné virtuální síti, lze vytvořit pravidlo pro skupiny Nsg back-end zablokovat veškerý provoz. Všimněte si zde, že `--priority` je zadána hodnota *300*, která je nižší tohoto pravidla NSG i MySQL. Tato konfigurace zajistí, že provoz SSH a MySQL stále může prostřednictvím NSG.
+Vzhledem k tomu, že skupiny zabezpečení sítě mají výchozí pravidlo, které umožňuje veškerý provoz mezi virtuálními počítači v rámci stejné virtuální sítě, můžete nakonec vytvořit pravidlo pro back-endové skupiny zabezpečení sítě, které zablokuje veškerý provoz. Všimněte si, že parametr `--priority` má hodnotu *300*, která je nižší než pravidla skupiny zabezpečení sítě i databáze MySQL. Tato konfigurace zajistí, že provoz SSH a MySQL bude nadále skrz skupinu zabezpečení sítě možný.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -269,9 +269,9 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-## <a name="create-back-end-vm"></a>Vytvoření virtuálního počítače s back-end
+## <a name="create-back-end-vm"></a>Vytvoření back-endového virtuálního počítače
 
-Teď vytvořte virtuální počítač, který je připojen k *myBackendSubnet*. Všimněte si, že `--nsg` argument má hodnotu prázdný dvojité uvozovky. Skupina NSG nemusí být vytvořen s virtuálním Počítačem. Virtuální počítač je připojený k podsíti back-end, který je chráněn s předem vytvořené NSG back-end. Tato skupina NSG se vztahuje na virtuální počítač. Také si zde všimnout, který `--public-ip-address` argument má hodnotu prázdný dvojité uvozovky. Tato konfigurace vytvoří virtuální počítač bez veřejnou IP adresu. 
+Nyní vytvořte virtuální počítač, který je připojený k podsíti *myBackendSubnet*. Všimněte si, že argument `--nsg` má hodnotu prázdných dvojitých uvozovek. Skupinu zabezpečení sítě není potřeba s tímto virtuálním počítačem vytvářet. Tento virtuální počítač je připojený k back-endové podsíti, která je chráněná dříve vytvořenou back-endovou skupinou zabezpečení sítě. Tato skupina zabezpečení sítě se vztahuje i na tento virtuální počítač. Všimněte si také, že i argument `--public-ip-address` má hodnotu prázdných dvojitých uvozovek. Tato konfigurace vytvoří virtuální počítač bez veřejné IP adresy. 
 
 ```azurecli-interactive 
 az vm create \
@@ -285,24 +285,24 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Virtuální počítač back-end je k dispozici pouze na portu *22* a port *3306* z podsítě front-endu. Všechny ostatní příchozí přenosy je blokováno v skupinu zabezpečení sítě. Může být užitečné k vizualizaci konfigurace pravidel NSG. Konfigurace pravidla NSG se vraťte [az sítě pravidlo seznamu](/cli/azure/network/nsg/rule#list) příkaz. 
+Back-endový virtuální počítač je přístupný pouze na portech *22* a *3306* z front-endové podsítě. Veškerý ostatní příchozí provoz je skupinou zabezpečení sítě zablokovaný. Někdy může být užitečné si konfigurace pravidla skupiny zabezpečení sítě vizualizovat. Konfiguraci pravidla skupiny zabezpečení sítě vrátíte pomocí příkazu [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste vytvořili a zabezpečené sítě v souvislosti s virtuálními počítači Azure. Naučili jste se tyto postupy:
+V tomto kurzu jste v souvislosti s virtuálními počítači vytvořili a zabezpečené sítě Azure. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
 > * Vytvoření virtuální sítě a podsítě
 > * Vytvoření veřejné IP adresy
-> * Vytvoření virtuálního počítače s front-endu
+> * Vytvoření front-endového virtuálního počítače
 > * Zabezpečení provozu sítě
-> * Vytvoření virtuálního počítače s back-end
+> * Vytvoření back-endového virtuálního počítače
 
-Přechodu na v dalším kurzu se dozvíte o zabezpečení dat na virtuální počítače pomocí zálohování Azure. 
+Přejděte na další kurs, abyste se dozvěděli o zabezpečení dat na virtuálních počítačích pomocí služby Azure Backup. 
 
 > [!div class="nextstepaction"]
-> [Zálohovat virtuální počítače s Linuxem v Azure](./tutorial-backup-vms.md)
+> [Záloha virtuálních počítačů s Linuxem v Azure](./tutorial-backup-vms.md)

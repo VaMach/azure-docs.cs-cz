@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Vytvoření služby Azure Container Registry pomocí PowerShellu
 
@@ -21,7 +21,7 @@ Azure Container Registry je spravovaná služba registru kontejnerů Dockeru slo
 
 Tento rychlý start vyžaduje modul Azure PowerShell verze 3.6 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Je také nutné mít Docker nainstalovaný místně. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli systému [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) nebo [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Je také nutné mít Docker nainstalovaný místně. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli [Macu][docker-mac] nebo systému [Windows][docker-windows] či [Linux][docker-linux].
 
 ## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
@@ -57,13 +57,13 @@ Před odesíláním a vyžadováním imagí kontejnerů se musíte přihlásit k
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Potom se pomocí příkazu [docker login](https://docs.docker.com/engine/reference/commandline/login/) přihlaste k instanci ACR.
+Potom se pomocí příkazu [docker login][docker-login] přihlaste k instanci ACR.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-Příkaz po dokončení vrátí zprávu Login Succeeded (Přihlášení proběhlo úspěšně).
+Příkaz po dokončení vrátí zprávu `Login Succeeded` (Přihlášení bylo úspěšné). Může se zobrazit také upozornění zabezpečení doporučující použití parametru `--password-stdin`. I když je jeho použití nad rámec tohoto článku, doporučujeme řídit se osvědčeným postupem. Další informace najdete v referenčních informacích k příkazu [docker login][docker-login].
 
 ## <a name="push-image-to-acr"></a>Nasdílení image do služby ACR
 
@@ -79,13 +79,13 @@ Image musí být označená pomocí názvu přihlašovacího serveru ACR. Spušt
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Označte image pomocí příkazu [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Nahraďte *acrLoginServer* názvem přihlašovacího serveru vaší instance ACR.
+Označte image pomocí příkazu [docker tag][docker-tag]. Nahraďte *acrLoginServer* názvem přihlašovacího serveru vaší instance ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Nakonec pomocí příkazu [docker push](https://docs.docker.com/engine/reference/commandline/push/) nasdílejte image do instance ACR. Nahraďte *acrLoginServer* názvem přihlašovacího serveru vaší instance ACR.
+Nakonec pomocí příkazu [docker push][docker-push] nasdílejte image do instance ACR. Nahraďte *acrLoginServer* názvem přihlašovacího serveru vaší instance ACR.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -105,3 +105,11 @@ V tomto rychlém startu jste vytvořili službu Azure Container Registry pomocí
 
 > [!div class="nextstepaction"]
 > [Kurz služby Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

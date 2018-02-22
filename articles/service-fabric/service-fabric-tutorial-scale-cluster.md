@@ -1,6 +1,6 @@
 ---
-title: "Škálování clusteru služby Azure Service Fabric | Microsoft Docs"
-description: "Naučte se rychle škálování clusteru Service Fabric."
+title: "Škálování clusteru Azure Service Fabric | Microsoft Docs"
+description: "Naučte se rychle škálovat cluster Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -12,43 +12,43 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Škálování clusteru Service Fabric
 
-V tomto kurzu je součástí dvě řady a ukazuje, jak můžete škálovat vaše existující cluster v a. Po dokončení, budete vědět, jak škálování clusteru a jak vyčistit všechny prostředky, zbývá.
+Tento kurz je druhou částí série a ukazuje, jak můžete škálovat existující cluster a horizontálně navýšit nebo snížit jeho kapacitu. Po dokončení budete vědět, jak škálovat cluster a jak vyčistit všechny zbylé prostředky.
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Přečtěte si počet uzlů clusteru
-> * Přidat uzly clusteru (škálování)
-> * Odebrání uzlů clusteru (měřítka v)
+> * Číst počet uzlů clusteru
+> * Přidat uzly clusteru (horizontálně navýšit kapacitu)
+> * Odebrat uzly clusteru (horizontálně snížit kapacitu)
 
-V této série kurzu zjistíte, jak:
+V této sérii kurzů se naučíte:
 > [!div class="checklist"]
-> * Vytvoření zabezpečeného [clusteru se systémem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [Linux clusteru](service-fabric-tutorial-create-vnet-and-linux-cluster.md) v Azure pomocí šablony
-> * Škálování clusteru příchozí nebo odchozí
-> * [Upgrade clusteru modul runtime](service-fabric-tutorial-upgrade-cluster.md)
-> * [Nasazení správy rozhraní API pomocí Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * Vytvoření zabezpečeného [clusteru s Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [clusteru s Linuxem](service-fabric-tutorial-create-vnet-and-linux-cluster.md) v Azure pomocí šablony
+> * Horizontální snížení nebo navýšení kapacity clusteru
+> * [Upgrade modulu runtime clusteru](service-fabric-tutorial-upgrade-cluster.md)
+> * [Nasazení API Managementu se Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Požadavky
-Před zahájením tohoto kurzu:
-- Pokud nemáte předplatné Azure, vytvořte [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Nainstalujte [prostředí Azure Powershell verze modulu 4.1 nebo vyšší](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) nebo [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Vytvoření zabezpečeného [clusteru se systémem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [Linux clusteru](service-fabric-tutorial-create-vnet-and-linux-cluster.md) v Azure
-- Pokud nasadíte clusteru se systémem Windows, nastavení vývojového prostředí systému Windows. Nainstalujte [Visual Studio 2017](http://www.visualstudio.com) a **Azure development**, **ASP.NET a webové vývoj**, a **vývoj pro různé platformy .NET Core**úlohy.  Potom nastavit [vývojové prostředí .NET](service-fabric-get-started.md).
-- Pokud nasadíte Linux cluster, nastavit vývojové prostředí Java na [Linux](service-fabric-get-started-linux.md) nebo [systému MacOS](service-fabric-get-started-mac.md).  Nainstalujte [služby Fabric rozhraní příkazového řádku](service-fabric-cli.md). 
+Než začnete s tímto kurzem:
+- Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Nainstalujte [modul Azure PowerShellu verze 4.1 nebo vyšší](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) nebo [Azure CLI 2.0](/cli/azure/install-azure-cli).
+- Vytvořte zabezpečený [cluster s Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [cluster s Linuxem](service-fabric-tutorial-create-vnet-and-linux-cluster.md) v Azure.
+- Pokud nasadíte cluster s Windows, nastavte vývojové prostředí ve Windows. Nainstalujte sadu [Visual Studio 2017](http://www.visualstudio.com) a sady funkcí **Vývoj pro Azure**, **Vývoj pro ASP.NET a web** a **Vývoj multiplatformních aplikací pomocí rozhraní .NET Core**.  Potom nastavte [vývojové prostředí .NET](service-fabric-get-started.md).
+- Pokud nasadíte cluster s Linuxem, nastavte vývojové prostředí Java v [Linuxu](service-fabric-get-started-linux.md) nebo [MacOS](service-fabric-get-started-mac.md).  Nainstalujte [Service Fabric CLI](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Přihlášení k Azure
-Přihlaste se ke svému účtu Azure vyberte předplatné, před spuštěním příkazů Azure.
+Před spouštěním příkazů Azure se přihlaste ke svému účtu Azure a vyberte své předplatné.
 
 ```powershell
 Login-AzureRmAccount
@@ -63,9 +63,9 @@ az account set --subscription <guid>
 
 ## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
 
-Úspěšné dokončení této části kurzu, budete muset připojit ke clusteru Service Fabric a sady škálování virtuálního počítače (který je hostitelem clusteru). Sady škálování virtuálního počítače je prostředků Azure, který je hostitelem Service Fabric v Azure.
+Pokud chcete úspěšně udělat tuto část kurzu, budete se muset připojit ke clusteru Service Fabric i ke škálovací sadě virtuálních počítačů (která je hostitelem clusteru). Škálovací sada virtuálních počítačů je prostředek Azure, který je hostitelem služby Service Fabric v Azure.
 
-Jakmile se připojíte ke clusteru, můžete ho dotazovat informace. Další informace o jaké uzly clusteru je vědoma, můžete použít clusteru. Připojování ke clusteru následující kód používá stejný certifikát, který byl vytvořen v první části Tato řada. Nezapomeňte nastavit `$endpoint` a `$thumbprint` proměnné, které chcete svoje hodnoty.
+Jakmile se připojíte ke clusteru, můžete se ho dotazovat na informace. Můžete se pomocí clusteru dozvědět, jakých uzlů si je cluster vědom. Připojení ke clusteru v následujícím kódu používá stejný certifikát, který byl vytvořen v první části této série. Nezapomeňte nastavit proměnné `$endpoint` a `$thumbprint` na svoje hodnoty.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -85,20 +85,20 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Teď, když jste připojení, můžete příkaz získat stav každého uzlu v clusteru. Pro prostředí PowerShell, použijte `Get-ServiceFabricClusterHealth` příkaz a pro **sfctl** použít s příkaz.
+Teď, když jste připojení, můžete pomocí příkazu získat stav každého uzlu v clusteru. Pro PowerShell použijte příkaz `Get-ServiceFabricClusterHealth` a pro **sfctl** použijte příkaz `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Horizontální navýšení kapacity
 
-Škálovat, přidáte do sady škálování více instancí virtuálního počítače. Tyto instance budou uzly, které používá Service Fabric. Service Fabric vědět, kdy byly sadou škálování má více instancí přidán (škálování) a odpovědí automaticky. Následující kód získá škálování nastavit podle názvu a zvýší **kapacity** měřítka nastavit o 1.
+Při horizontálním navyšování kapacity přidáte do škálovací sady více instancí virtuálních počítačů. Tyto instance se stanou uzly, které bude Service Fabric používat. Service Fabric to pozná, když se do škálovací sady přidají další instance (díky horizontálnímu navýšení kapacity), a automaticky zareaguje. Následující kód načte škálovací sadu podle názvu a zvýší její **kapacitu** o 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
-Tento kód nastaví kapacitu 6.
+Tento kód nastaví kapacitu na 6.
 
 ```azurecli
 # Get the name of the node with
@@ -108,46 +108,47 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
-## <a name="scale-in"></a>Škálování v
+## <a name="scale-in"></a>Horizontální snížení kapacity
 
-Nastavení velikosti v je stejný jako škálování, s výjimkou použití nižší **kapacity** hodnotu. Při změně měřítka v sadě škálování, je třeba odebrat instancí virtuálního počítače ze sady škálování. Za normálních okolností Service Fabric neví, co se stalo a domnívá, že se ztratilo uzlu. Service Fabric hlásí stav není v pořádku pro cluster. Pokud chcete zabránit této špatný stav, musí informovat service fabric očekáváte, že uzel zmizí.
+Horizontální snížení kapacity je stejné jako horizontální zvýšení kapacity. Jediný rozdíl je, že použijete nižší hodnotu **kapacity**. Když horizontálně snížíte kapacitu škálovací sady, odeberete instance virtuálních počítačů ze škálovací sady. Za normálních okolností Service Fabric nepozná, co se stalo, a domnívá se, že se uzel ztratil. Service Fabric pak hlásí, že stav clusteru není v pořádku. Pokud chcete tomuto nežádoucímu stavu zabránit, musíte Service Fabric informovat, že očekáváte, že uzel zmizí.
 
-### <a name="remove-the-service-fabric-node"></a>Odebrat uzel service fabric
+### <a name="remove-the-service-fabric-node"></a>Odebrání uzlu Service Fabric
 
 > [!NOTE]
-> Tato část se vztahuje pouze na *bronzová* odolnost vrstvy. Další informace o odolnosti najdete v tématu [plánování kapacity clusteru Service Fabric][durability].
+> Tato část se vztahuje jenom na *bronzovou* úroveň odolnosti. Další informace o odolnosti najdete v článku [Plánování kapacity clusteru Service Fabric][durability].
 
-Při změně měřítka ve škálovací sadě virtuálních počítačů, sad (ve většině případů) škálování odebere instanci virtuálního počítače, který byl naposledy vytvořen. Proto musíte k nalezení shody, poslední vytvořit uzel topologie fabric service. Tento poslední uzel můžete najít biggest kontrolou `NodeInstanceId` hodnotu vlastnosti na uzlech fabric service. Příklady kódu níže řazení podle uzlu instance a vrátí podrobnosti o instanci s největší hodnotou id. 
+Když horizontálně snížíte kapacitu škálovací sady virtuálních počítačů, sada (ve většině případů) odebere instanci virtuálního počítače, který byl vytvořen naposledy. Proto musíte najít odpovídající, naposledy vytvořený uzel Service Fabric. Tento poslední uzel můžete najít kontrolou největší hodnoty vlastnosti `NodeInstanceId` na uzlech Service Fabric. Příklady kódu níže jsou seřazené podle instance uzlu a vrátí podrobnosti o instanci s největší hodnotou ID. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
-Service fabric cluster je potřeba vědět, že tento uzel se odeberou. Existují tři kroky, které je třeba provést:
+Cluster Service Fabric potřebuje vědět, že tento uzel se odebere. Musíte provést tři kroky:
 
-1. Zakážete uzlu, takže už je replikace pro data.  
-Prostředí PowerShell:`Disable-ServiceFabricNode`  
-sfcli:`sfctl node disable`
+1. Zakázat uzel, aby už nefungoval jako replika pro data.  
+PowerShell: `Disable-ServiceFabricNode`  
+sfcli: `sfctl node disable`
 
-2. Zastavení uzlu tak, aby řádně ukončení modulu runtime service fabric a aplikace obdrží žádost o ukončení.  
-Prostředí PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
-sfcli:`sfctl node transition --node-transition-type Stop`
+2. Zastavit uzel tak, aby se řádně ukončil provoz Service Fabricu a vaše aplikace obdržela žádost o ukončení.  
+PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
+sfcli: `sfctl node transition --node-transition-type Stop`
 
-2. Odebrání uzlu z clusteru.  
-Prostředí PowerShell:`Remove-ServiceFabricNodeState`  
-sfcli:`sfctl node remove-state`
+2. Odebrat uzel z clusteru.  
+PowerShell: `Remove-ServiceFabricNodeState`  
+sfcli: `sfctl node remove-state`
 
-Jakmile tyto tři kroky se používají k uzlu, může být odebrán ze sady škálování. Pokud používáte vrstvy jakékoli odolnost kromě [bronzová][durability], tyto kroky se provádějí v případě měřítka nastavit instanci je odebrán.
+Jakmile na uzel aplikujete tyto tři kroky, může se odebrat ze škálovací sady. Pokud používáte nějakou jinou úroveň odolnosti než [bronzovou][durability], tyto kroky se provedou za vás při odebrání instance škálovací sady.
 
-Následující blok kódu získá poslední vytvořený uzel, zakáže, zastaví a odstraní uzel z clusteru.
+Následující blok kódu získá poslední vytvořený uzel a zakáže ho, zastaví a odebere z clusteru.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-V **sfctl** kódu níže, tento příkaz slouží k získání **název uzlu** a **id instance uzlu** hodnoty uzlu poslední vytvořit:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+V kódu **sfctl** níže slouží následující příkaz k získání hodnoty **node-name** posledního vytvořeného uzlu: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -216,19 +217,19 @@ sfctl node remove-state --node-name _nt1vm_5
 ```
 
 > [!TIP]
-> Použijte následující **sfctl** dotazy a zkontrolujte stav každého kroku
+> Pomocí následujících dotazů **sfctl** můžete zkontrolovat stav každého kroku.
 >
-> **Zkontrolujte stav deaktivace**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> **Kontrola stavu deaktivace**  
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Zkontrolujte stav stop**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> **Kontrola stavu zastavení**  
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 
-### <a name="scale-in-the-scale-set"></a>Škálování v sadě škálování
+### <a name="scale-in-the-scale-set"></a>Horizontální snížení kapacity škálovací sady
 
-Teď, když uzel fabric service byl odebrán z clusteru, je možné rozšířit škálovací sadu virtuálních počítačů v. V následujícím příkladu je 1 snížit kapacitu sada škálování.
+Teď, když je uzel Service Fabric odebraný z clusteru, je možné horizontálně snížit kapacitu škálovací sady virtuálních počítačů. V následujícím příkladu je kapacita škálovací sady snížená o 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
@@ -237,7 +238,7 @@ $scaleset.Sku.Capacity -= 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-Tento kód nastaví kapacitu 5.
+Tento kód nastaví kapacitu na 5.
 
 ```azurecli
 # Get the name of the node with
@@ -253,13 +254,13 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Přečtěte si počet uzlů clusteru
-> * Přidat uzly clusteru (škálování)
-> * Odebrání uzlů clusteru (měřítka v)
+> * Číst počet uzlů clusteru
+> * Přidat uzly clusteru (horizontálně navýšit kapacitu)
+> * Odebrat uzly clusteru (horizontálně snížit kapacitu)
 
 
-V dalším kroku přechodu na následující kurzu se dozvíte, jak upgradovat runtime clusteru.
+Dále se v následujícím kurzu dozvíte, jak upgradovat modul runtime clusteru.
 > [!div class="nextstepaction"]
-> [Upgrade clusteru modul runtime](service-fabric-tutorial-upgrade-cluster.md)
+> [Upgrade modulu runtime clusteru](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

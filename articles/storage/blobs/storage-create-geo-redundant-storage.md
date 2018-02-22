@@ -1,6 +1,6 @@
 ---
-title: "Nastavit data aplikací jako vysoce dostupný v Azure | Microsoft Docs"
-description: "Geograficky redundantní úložiště s přístupem pro čtení pomocí vysoce zpřístupnit data aplikací"
+title: "Zajištění vysoké dostupnosti dat aplikací v Azure | Microsoft Docs"
+description: "Zajištění vysoké dostupnosti dat aplikací pomocí geograficky redundantního úložiště jen pro čtení"
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -9,39 +9,48 @@ editor:
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/23/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Zajistit vysokou dostupnost s Azure storage data aplikací
+# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Zajištění vysoké dostupnosti dat aplikací pomocí úložiště Azure
 
-V tomto kurzu je součástí, jednu z řady. V tomto kurzu se dozvíte, jak chcete nastavit vysokou dostupnost v Azure data aplikací. Jakmile budete hotovi, máte základní konzolovou aplikaci .NET, která odešle a načte objekt blob [čtení geograficky redundantní](../common/storage-redundancy.md#read-access-geo-redundant-storage) účet úložiště (RA-GRS). RA-GRS funguje tak, že replikace transakce z primárního na sekundární oblast. Tento proces replikace zaručuje, že data v sekundární oblasti jsou nakonec byl konzistentní. Aplikace používá [jistič](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) vzor k určení kterému koncovému bodu se připojit k. Aplikace se při selhání se simuluje přepne do sekundárního koncového bodu.
+Tento kurz je první částí série, která ukazuje, jak zajistit vysokou dostupnost dat aplikací v Azure. Po dokončení budete mít konzolovou aplikaci, která nahraje a načte objekt blob na účet [geograficky redundantního úložiště jen pro čtení](../common/storage-redundancy.md#read-access-geo-redundant-storage). Geograficky redundantní účet úložiště jen pro čtení funguje tak, že replikuje transakce z primární oblasti do sekundární. Tento proces replikace zaručuje, že data v sekundární oblasti jsou nakonec konzistentní. Aplikace používá vzor [jističe](/azure/architecture/patterns/circuit-breaker) k určení koncového bodu, ke kterému se připojit. Aplikace se při simulaci chyby přepne do sekundárního koncového bodu.
 
-V rámci jedna řada, zjistíte, jak:
+V první části této série se naučíte:
 
 > [!div class="checklist"]
-> * vytvořit účet úložiště
-> * Stažení ukázky
-> * Nastavení připojovacího řetězce
-> * Spuštěním konzolové aplikace
+> * Vytvořit účet úložiště
+> * Stáhnout ukázku
+> * Nastavit připojovací řetězec
+> * Spustit konzolovou aplikaci
 
 ## <a name="prerequisites"></a>Požadavky
 
-K provedení kroků v tomto kurzu je potřeba:
-
+Pro absolvování tohoto kurzu potřebujete:
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 * Nainstalovat [Visual Studio 2017](https://www.visualstudio.com/downloads/) s následujícími sadami funkcí:
   - **Azure – vývoj**
 
-  ![Vývoj pro Azure (v části Web a Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
+  ![Azure – vývoj (v části Web a cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* Stáhněte a nainstalujte [Fiddler](https://www.telerik.com/download/fiddler)
+* (Volitelné) Stáhnout a nainstalovat [Fiddler](https://www.telerik.com/download/fiddler)
+ 
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+* Nainstalovat [Python](https://www.python.org/downloads/)
+* Stáhnout a nainstalovat [sadu SDK služby Azure Storage pro Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* (Volitelné) Stáhnout a nainstalovat [Fiddler](https://www.telerik.com/download/fiddler)
+
+---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,72 +58,97 @@ K provedení kroků v tomto kurzu je potřeba:
 
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>vytvořit účet úložiště
+## <a name="create-a-storage-account"></a>Vytvoření účtu úložiště
 
-Účet úložiště poskytuje jedinečný obor názvů pro ukládání a přístup k vaší datové objekty Azure storage.
+Účet služby Storage poskytuje jedinečný obor názvů pro ukládání datových objektů Azure Storage a přístup k nim.
 
-Postupujte podle těchto kroků můžete vytvořit účet geograficky redundantní úložiště s přístupem pro čtení:
+Podle těchto kroků můžete vytvořit účet geograficky redundantního úložiště jen pro čtení:
 
-1. Vyberte **nový** nalezeno tlačítko v levém horním rohu portálu Azure.
+1. Vyberte tlačítko **Nový** v levém horním rohu portálu Azure Portal.
 
-2. Vyberte **úložiště** z **nový** a vyberte **účet úložiště – objekt blob, soubor, tabulka, fronta** pod **doporučený**.
-3. Vyplňte formulář účet úložiště s následující informace, jak ukazuje následující obrázek a vyberte **vytvořit**:
+2. Na stránce **Nový** vyberte **Storage** a v části **Doporučené** vyberte **Účet úložiště – objekt blob, soubor, tabulka, fronta**.
+3. Vyplňte formulář účtu úložiště následujícími informacemi, jak ukazuje následující obrázek, a vyberte **Vytvořit**:
 
    | Nastavení       | Navrhovaná hodnota | Popis |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Název** | můj_účet_úložiště | Jedinečnou hodnotu pro váš účet úložiště |
-   | **Model nasazení** | Resource Manager  | Správce prostředků obsahuje nejnovější funkce.|
-   | **Typ účtu** | Obecné účely | Podrobnosti o typech účtů najdete v tématu [typy účtů úložiště](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Výkon** | Standard | Ukázkový scénář stačí Standard. |
-   | **Replikace**| Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS) | To je nezbytné pro ukázku pracovat. |
-   |**Požadované zabezpečení přenosu** | Zakázáno| Zabezpečení přenosu se pro tento scénář nevyžaduje. |
-   |**Předplatné** | Vaše předplatné |Podrobnosti o vašich předplatných najdete v tématu [Předplatná](https://account.windowsazure.com/Subscriptions). |
-   |**Skupina prostředků** | myResourceGroup |Platné názvy skupin prostředků najdete v tématu [Pravidla a omezení pojmenování](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   |**Umístění** | Východ USA | Vyberte umístění. |
+   | **Název** | mystorageaccount | Jedinečná hodnota pro váš účet úložiště |
+   | **Model nasazení** | Resource Manager  | Resource Manager obsahuje nejnovější funkce.|
+   | **Druh účtu** | Obecné účely | Podrobnosti o typech účtů najdete v tématu [Typy účtů úložiště](../common/storage-introduction.md#types-of-storage-accounts). |
+   | **Výkon** | Standard | Pro ukázkový scénář stačí Standard. |
+   | **Replikace**| Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS) | To je nezbytné, aby ukázka fungovala. |
+   |**Vyžádání bezpečného přenosu** | Zakázáno| Zabezpečený přenos se pro tento scénář nevyžaduje. |
+   |**Předplatné** | Vaše předplatné |Podrobnosti o svých předplatných najdete v tématu [Předplatná](https://account.windowsazure.com/Subscriptions). |
+   |**ResourceGroup** | myResourceGroup |Platné názvy skupin prostředků najdete v tématu [Pravidla a omezení pojmenování](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   |**Umístění** | Východ USA | Zvolte umístění. |
 
-![Vytvořit účet úložiště](media/storage-create-geo-redundant-storage/figure1.png)
+![Vytvoření účtu úložiště](media/storage-create-geo-redundant-storage/figure1.png)
 
 ## <a name="download-the-sample"></a>Stažení ukázky
 
-[Stáhněte si ukázkový projekt](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip).
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-Extrahování (rozbalte) storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip souboru.
-Obsahuje ukázkový projekt konzolové aplikace.
-
-## <a name="set-the-connection-string"></a>Nastavení připojovacího řetězce
-
-V aplikaci je potřeba zadat připojovací řetězec pro váš účet úložiště. Doporučujeme uložit tento připojovací řetězec v rámci proměnné prostředí v místním počítači spuštění aplikace. Proveďte jeden z příkladů níže v závislosti na operačním systému vytvořte proměnnou prostředí.
-
-Na portálu Azure přejděte do účtu úložiště. Vyberte **přístupové klíče** pod **nastavení** ve vašem účtu úložiště. Kopírování **připojovací řetězec** z primární nebo sekundární klíč. Nahraďte \<yourconnectionstring\> s samotný připojovací řetězec spuštěním jednoho z následujících příkazů podle operačního systému. Tento příkaz uloží proměnné prostředí v místním počítači. V systému Windows, není dostupná, dokud nebude znovu načíst proměnnou prostředí **příkazového řádku** nebo prostředí používáte. Nahraďte  **\<storageConnectionString\>**  následující ukázka:
-
-### <a name="linux"></a>Linux
+[Stáhněte si ukázkový projekt](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) a extrahujte (rozbalte) soubor storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Můžete také použít [git](https://git-scm.com/) a stáhnout si kopii aplikace do vývojového prostředí. Ukázkový projekt obsahuje konzolovou aplikaci.
 
 ```bash
-export storageconnectionstring=<yourconnectionstring>
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
 
-### <a name="windows"></a>Windows
+[Stáhněte si ukázkový projekt](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) a extrahujte (rozbalte) soubor storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Můžete také použít [git](https://git-scm.com/) a stáhnout si kopii aplikace do vývojového prostředí. Ukázkový projekt obsahuje základní aplikaci Pythonu.
 
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
+```bash
+git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
+---
 
-![soubor konfigurace aplikace](media/storage-create-geo-redundant-storage/figure2.png)
 
-## <a name="run-the-console-application"></a>Spuštěním konzolové aplikace
+## <a name="set-the-connection-string"></a>Nastavit připojovací řetězec
 
-V sadě Visual Studio, stiskněte klávesu **F5** nebo vyberte **spustit** spustit ladění aplikace. Visual studio automaticky obnovení chybějících balíčků NuGet pokud nakonfigurovaný, přejděte k [instalace a přeinstalace balíčky se obnovení balíčku](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) Další informace.
+V aplikaci je potřeba zadat připojovací řetězec pro váš účet úložiště. Doporučujeme uložit tento připojovací řetězec do proměnné prostředí v místním počítači, na kterém aplikaci spouštíte. V závislosti na operačním systém vytvořte proměnnou prostředí pomocí jednoho z následujících příkladů.
 
-Spustí okno konzoly a začne aplikace spuštěna. Aplikace odešle **HelloWorld.png** bitovou kopii z řešení k účtu úložiště. Aplikace zkontroluje, aby bitovou kopii replikoval na sekundární koncový bod RA-GRS. Poté zahájí stahování obrázku až 999 x. Každý pro čtení je reprezentována **P** nebo **S**. Kde **P** představuje primární koncový bod a **S** reprezentuje sekundární koncový bod.
+Na portálu Azure Portal přejděte k účtu úložiště. V části **Nastavení** v účtu úložiště vyberte **Přístupové klíče**. Zkopírujte **připojovací řetězec** z primárního nebo sekundárního klíče. Nahraďte \<yourconnectionstring\> skutečným připojovacím řetězcem pomocí spuštění jednoho z následujících příkazů podle vašeho operačního systému. Tento příkaz uloží proměnnou prostředí v místním počítači. Ve Windows tato proměnná prostředí není dostupná, dokud se znovu nenačte **příkazový řádek** nebo používané prostředí. Nahraďte **\<storageConnectionString\>** v následujícím příkladu:
 
-![Konzolové aplikace spuštěná](media/storage-create-geo-redundant-storage/figure3.png)
+# <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
+export storageconnectionstring=\<yourconnectionstring\> 
 
-V ukázkovém kódu `RunCircuitBreakerAsync` úloh v `Program.cs` souboru se používá ke stahování bitovou kopii pomocí účtu úložiště [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) metoda. Před stahování [informacím OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) je definována. Kontext operace definuje obslužné rutiny událostí, které budou spuštěny po úspěšném dokončení stahování nebo pokud stahování selže a je opakování.
+# <a name="windows-tabwindows"></a>[Windows] (#tab/windows) 
+setx storageconnectionstring "\<yourconnectionstring\>"
 
-### <a name="retry-event-handler"></a>Opakujte obslužné rutiny události
+---
 
-`OperationContextRetrying` Obslužné rutiny události je volána, když stažení bitové kopie selže a je nastavený na opakujte. Pokud se dosáhne maximálního počtu opakování pokusů, které jsou definovány v aplikaci, [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) požadavku se změní na `SecondaryOnly`. Toto nastavení vynutí se aplikace pokusí stáhnout bitovou kopii z sekundární koncový bod. Tato konfigurace snižuje čas potřebný k požadují bitovou kopii jako primární koncový bod není opakovat po neomezenou dobu.
 
+## <a name="run-the-console-application"></a>Spustit konzolovou aplikaci
+
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+V sadě Visual Studio stiskněte klávesu **F5** nebo vyberte **Spustit**, aby se spustilo ladění aplikace. Visual Studio automaticky obnoví chybějící balíčky NuGet, pokud jsou nakonfigurované. Přejděte na článek [Instalace a přeinstalace balíčků pomocí obnovení balíčků](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview), kde se dozvíte další informace.
+
+Spustí se okno konzoly a aplikace začne běžet. Aplikace nahraje obrázek **HelloWorld.png** z řešení na účet úložiště. Aplikace zkontroluje, jestli se obrázek replikoval na sekundární koncový bod geograficky redundantního úložiště jen pro čtení (RA-GRS). Potom začne stahovat obrázek až 999x. Každé přečtení představuje **P** nebo **S**. **P** představuje primární koncový bod a **S** představuje sekundární koncový bod.
+
+![Spuštěná konzolová aplikace](media/storage-create-geo-redundant-storage/figure3.png)
+
+Ve vzorovém kódu slouží úloha `RunCircuitBreakerAsync` v souboru `Program.cs` ke stažení obrázku z účtu úložiště pomocí metody [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet). Před stažením se definuje [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Kontext operace definuje obslužné rutiny událostí, které se spustí po úspěšném stažení nebo pokud se stažení nepovede a opakuje se.
+
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+Pokud chcete aplikaci spustit na terminálu nebo v příkazovém řádku, přejděte do adresáře **circuitbreaker.py** a potom zadejte `python circuitbreaker.py`. Aplikace nahraje obrázek **HelloWorld.png** z řešení na účet úložiště. Aplikace zkontroluje, jestli se obrázek replikoval na sekundární koncový bod geograficky redundantního úložiště jen pro čtení (RA-GRS). Potom začne stahovat obrázek až 999x. Každé přečtení představuje **P** nebo **S**. **P** představuje primární koncový bod a **S** představuje sekundární koncový bod.
+
+![Spuštěná konzolová aplikace](media/storage-create-geo-redundant-storage/figure3.png)
+
+Ve vzorovém kódu slouží metoda `run_circuit_breaker` v souboru `circuitbreaker.py` ke stažení obrázku z účtu úložiště pomocí metody [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html). 
+
+Funkce opakování pro objekt Storage je nastavená na zásadu lineárního opakování. Funkce opakování určuje, jestli se má opakovat žádost, a určuje, kolik sekund se má čekat před opakováním žádosti. Nastavte hodnotu **retry\_to\_secondary** na true, pokud by se žádost měla opakovat na sekundární koncový bod v případě, že původní žádost na primární byla neúspěšná. V ukázkové aplikaci je vlastní zásada opakování definovaná ve funkci `retry_callback` objektu úložiště.
+ 
+Před stažením se definuje funkce [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) a [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) objektu Service. Tyto funkce definují obslužné rutiny událostí, které se spustí po úspěšném stažení nebo pokud se stažení nepovede a opakuje se.  
+
+---
+
+### <a name="retry-event-handler"></a>Obslužná rutina události opakování
+
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
+Obslužná rutina události `OperationContextRetrying` se volá, když se obrázek nepodaří stáhnout a je nastavená na opakování. Pokud se dosáhne maximálního počtu opakování, který je definovaný v aplikaci, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) žádosti se změní na `SecondaryOnly`. Toto nastavení přinutí aplikaci, aby se pokusila stáhnout obrázek ze sekundárního koncového bodu. Tato konfigurace snižuje čas potřebný k vyžádání obrázku, protože opakování pro primární koncový bod není neomezené.
+
+Ve vzorovém kódu slouží úloha `RunCircuitBreakerAsync` v souboru `Program.cs` ke stažení obrázku z účtu úložiště pomocí metody [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Před stažením se definuje [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Kontext operace definuje obslužné rutiny událostí, které se spustí po úspěšném stažení nebo pokud se stažení nepovede a opakuje se.
+ 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -139,10 +173,37 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-### <a name="request-completed-event-handler"></a>Dokončit žádost o obslužnou rutinu události
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+Obslužná rutina události `retry_callback` se volá, když se obrázek nepodaří stáhnout a je nastavená na opakování. Pokud se dosáhne maximálního počtu opakování, který je definovaný v aplikaci, [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) žádosti se změní na `SECONDARY`. Toto nastavení přinutí aplikaci, aby se pokusila stáhnout obrázek ze sekundárního koncového bodu. Tato konfigurace snižuje čas potřebný k vyžádání obrázku, protože opakování pro primární koncový bod není neomezené.  
 
-`OperationContextRequestCompleted` Obslužné rutiny události je volána po úspěšné stažení bitové kopie. Pokud aplikace používá sekundární koncový bod, aplikace budou nadále používat tento koncový bod až 20 x. Po dobu 20, aplikace sady [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) zpět na `PrimaryThenSecondary` a opakuje primární koncový bod. Pokud je požadavek úspěšné, aplikace bude číst z primární koncový bod.
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
 
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+---
+
+
+### <a name="request-completed-event-handler"></a>Obslužná rutina události provedené žádosti
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
+Obslužná rutina události `OperationContextRequestCompleted` se volá, když se obrázek podaří stáhnout. Pokud aplikace používá sekundární koncový bod, použije ho dále až 20x. Po 20 opakováních aplikace nastaví [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) zpět na `PrimaryThenSecondary` a zkusí znovu primární koncový bod. Pokud je žádost úspěšná, bude aplikace dále číst z primárního koncového bodu.
+ 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -160,17 +221,36 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-## <a name="next-steps"></a>Další postup
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
 
-V rámci jedna řada jste se dozvěděli o tom, jak aplikaci vysokou dostupností s účty úložiště RA-GRS, jako například:
+Obslužná rutina události `response_callback` se volá, když se obrázek podaří stáhnout. Pokud aplikace používá sekundární koncový bod, použije ho dále až 20x. Po 20 opakováních aplikace nastaví [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) zpět na `PRIMARY` a zkusí znovu primární koncový bod. Pokud je žádost úspěšná, bude aplikace dále číst z primárního koncového bodu.
+
+```python
+def response_callback(response):
+    global secondary_read_count
+    if blob_client.location_mode == LocationMode.SECONDARY:
+
+        # You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
+        # then switch back to the primary and see if it is available now.
+        secondary_read_count += 1
+        if secondary_read_count >= secondary_threshold:
+            blob_client.location_mode = LocationMode.PRIMARY
+            secondary_read_count = 0
+```
+
+---
+
+## <a name="next-steps"></a>Další kroky
+
+V první části série jste se dozvěděli o tom, jak zajistit vysokou dostupnost aplikace pomocí účtů geograficky redundantního úložiště jen pro čtení, například jak:
 
 > [!div class="checklist"]
-> * vytvořit účet úložiště
-> * Stažení ukázky
-> * Nastavení připojovacího řetězce
-> * Spuštěním konzolové aplikace
+> * Vytvořit účet úložiště
+> * Stáhnout ukázku
+> * Nastavit připojovací řetězec
+> * Spustit konzolovou aplikaci
 
-Přechodu na druhé části série se dozvíte, jak vynutit aplikace pomocí sekundárního koncového bodu RA-GRS a nasimulujte selhání.
+Přejděte k druhé části série, kde se dozvíte, jak simulovat selhání a přinutit aplikaci použít sekundární koncový bod geograficky redundantního účtu úložiště jen pro čtení.
 
 > [!div class="nextstepaction"]
-> [Simulace selhání připojení ke koncovému bodu vašeho primárního úložiště](storage-simulate-failure-ragrs-account-app.md)
+> [Simulace selhání v připojení k primárnímu koncovému bodu úložiště](storage-simulate-failure-ragrs-account-app.md)

@@ -1,5 +1,5 @@
 ---
-title: "Co je služba Azure SQL Database? | Dokumenty Microsoft"
+title: "Co je služba Azure SQL Database? | Microsoft Docs"
 description: "Přečtěte si základní informace o službě SQL Database – technické podrobnosti a možností cloudového systému pro správu relačních databází (RDBMS) společnosti Microsoft."
 keywords: "představení sql,úvod do sql,co je sql database"
 services: sql-database
@@ -9,19 +9,19 @@ manager: jhubbard
 editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview, mvc
+ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 12/13/2017
+ms.date: 02/12/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: f1aff50a97114ea7e221b4461e375d763a161fa6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co je služba Azure SQL Database? 
 
@@ -31,6 +31,9 @@ SQL Database sdílí základ kódu s [databázovým strojem Microsoft SQL Server
 
 - **[Plány Azure do budoucna pro službu SQL Database:](https://azure.microsoft.com/roadmap/?category=databases)** Místo, kde můžete zjistit, co je nového a co se právě chystá. 
 - **[Blog o službě Azure SQL Database:](https://azure.microsoft.com/blog/topics/database)** Místo, kde členové produktového týmu SQL Serveru píší o novinkách a funkcích služby SQL Database. 
+
+> [!IMPORTANT]
+> Rozdíly mezi funkcemi služeb SQL Database a SQL Server jsou popsané v článku o [funkcích SQL](sql-database-features.md). 
 
 SQL Database nabízí předvídatelný výkon na několika úrovních služeb, které poskytují dynamickou škálovatelnost bez přerušení provozu, integrovanou inteligentní optimalizaci, globální škálovatelnost a dostupnost a pokročilé možnosti zabezpečení – to vše téměř bez nutnosti jakékoli správy. Díky těmto možnostem se můžete zaměřit na rychlý vývoj aplikací a zkrácení doby dodání produktu na trh, namísto vynakládání prostředků a drahocenného času na správu virtuálních počítačů a infrastruktury. SQL Database je aktuálně v 38 datových centrech po celém světě a další datová centra se pravidelně přidávají, což vám umožňuje provozovat databázi v datovém centru ve vaší blízkosti.
 
@@ -44,7 +47,7 @@ Ve službě SQL Database je každá databáze izolovaná od všech ostatních a 
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Úprava výkonu a škálování bez výpadků
 
-SQL Database podporuje databázové úlohy od zcela nenáročných až po velmi náročné díky tomu, že nabízí čtyři úrovně služeb: Basic, Standard, Premium a Premium RS. S nízkými měsíčními náklady můžete sestavit svou první aplikaci s malou izolovanou databází a později ručně nebo programově změnit úroveň služby, aby splňovala požadavky vašeho řešení. Můžete upravit úroveň výkonu bez přerušení provozu aplikace a bez dopadu na vaše zákazníky. Dynamická škálovatelnost umožňuje databázím transparentně reagovat na rychle se měnící požadavky na prostředky a vy díky tomu platíte pouze za prostředky, které potřebujete, když je potřebujete.
+SQL Database podporuje databázové úlohy od zcela nenáročných až po velmi náročné tím, že nabízí následující úrovně služeb: Basic, Standard a Premium. S nízkými měsíčními náklady můžete sestavit svou první aplikaci s malou izolovanou databází a později ručně nebo programově změnit úroveň služby, aby splňovala požadavky vašeho řešení. Můžete upravit úroveň výkonu bez přerušení provozu aplikace a bez dopadu na vaše zákazníky. Dynamická škálovatelnost umožňuje databázím transparentně reagovat na rychle se měnící požadavky na prostředky a vy díky tomu platíte pouze za prostředky, které potřebujete, když je potřebujete.
 
    ![škálování](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
@@ -165,7 +168,7 @@ SQL Database podporuje vytváření aplikací pomocí Pythonu, Javy, Node.js, PH
 
 - Tyto rychlé starty vám pomůžou začít:
 
-  - [Vytvoření databáze SQL na webu Azure Portal](sql-database-get-started-portal.md)  
+  - [Vytvoření databáze SQL na portálu Azure Portal](sql-database-get-started-portal.md)  
   - [Vytvoření databáze SQL pomocí Azure CLI](sql-database-get-started-cli.md)
   - [Vytvoření databáze SQL pomocí PowerShellu](sql-database-get-started-powershell.md)
 

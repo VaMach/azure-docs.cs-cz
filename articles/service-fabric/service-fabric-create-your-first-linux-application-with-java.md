@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření aplikace Azure Service Fabric Reliable Actors v Javě v Linuxu | Dokumentace Microsoftu"
+title: "Vytvoření aplikace Azure Service Fabric Reliable Actors v Javě v Linuxu | Microsoft Docs"
 description: "Zjistěte, jak za pět minut vytvořit a nasadit aplikaci Service Fabric Reliable Actors v Javě."
 services: service-fabric
 documentationcenter: java
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: afa7f569853df15a5d52e38f476665e34781acfd
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Vytvoření první aplikace Service Fabric Reliable Actors v Javě v Linuxu
 > [!div class="op_single_selector"]
@@ -31,24 +31,12 @@ ms.lasthandoff: 01/20/2018
 Tento rychlý start vám pomůže během několika minut vytvořit první aplikaci Azure Service Fabric v Javě v linuxovém vývojovém prostředí.  Až budete hotovi, budete mít jednoduchou jednoúčelovou aplikaci v Javě spuštěnou v místním vývojovém clusteru.  
 
 ## <a name="prerequisites"></a>Požadavky
-Než začnete, nainstalujte sadu Service SDK a Service Fabric CLI a nastavte vývojový cluster ve svém [linuxovém vývojovém prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového vývojového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
+Než začnete, nainstalujte sadu Service Fabric SDK, Service Fabric CLI a Yeoman a nastavte ve svém [linuxovém vývojovém prostředí](service-fabric-get-started-linux.md) vývojové prostředí Java a vývojový cluster. Pokud používáte Mac OS X, můžete k [nastavit vývojové prostředí na Macu pomocí Dockeru](service-fabric-get-started-mac.md).
 
 Nainstalujte také [Service Fabric CLI](service-fabric-cli.md).
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>Instalace a nastavení generátorů pro Javu
-Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric Java z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman pro Javu.
-1. Instalace nodejs a NPM na počítači
-
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
-2. Instalace generátoru šablon [Yeoman](http://yeoman.io/) na počítač z NPM
-
-  ```bash
-  sudo npm install -g yo
-  ```
-3. Instalace generátoru aplikací v Javě Service Fabric Yeoman z NPM
+Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric Java z terminálu pomocí generátoru šablon Yeoman.  Pokud ještě nemáte nainstalovaný Yeoman, přečtěte si pokyny k jeho nastavení v článku [Service Fabric – Začínáme s Linuxem](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables). Spuštěním následujícího příkazu nainstalujte generátor šablon Service Fabric Yeoman pro Javu.
 
   ```bash
   sudo npm install -g generator-azuresfjava
@@ -199,12 +187,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="build-the-application"></a>Sestavení aplikace
 Šablony Service Fabric Yeoman zahrnují skript sestavení pro [Gradle](https://gradle.org/), který můžete použít k sestavení aplikace z terminálu.
-Závislosti Service Fabric Java se získávají z Mavenu. Chcete-li sestavovat aplikace Service Fabric Java a pracovat s nimi, musíte zajistit, že máte nainstalovanou sadu JDK a Gradle. Pokud ještě nejsou instalované, můžete nainstalovat sadu JDK(openjdk-8-jdk) a Gradle spuštěním následujícího kódu:
-
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+Závislosti Service Fabric Java se získávají z Mavenu. Pokud chcete sestavovat aplikace Service Fabric Java a pracovat s nimi, musíte zajistit, že máte nainstalovanou sadu JDK a Gradle. Pokud tyto součásti nemáte nainstalované, přečtěte si pokyny k jejich nastavení v článku [Service Fabric – Začínáme s Linuxem](service-fabric-get-started-linux.md#set-up-java-development).
 
 Pokud chcete sestavit a zabalit aplikaci, spusťte následující:
 
@@ -347,9 +330,6 @@ Podpora na úrovni systému pro Service Fabric, která komunikuje s modulem runt
       compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
-
-## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migrace starých aplikací Service Fabric Java pro použití s Mavenem
-Nedávno jsme přesunuli knihovny Service Fabric Java ze sady Service Fabric Java SDK do úložiště Maven. Zatímco nové aplikace, které vygenerujete pomocí Yeomanu nebo Eclipse, vygenerují nejnovější aktualizované projekty (které budou moct pracovat s Mavenem), můžete vaše stávající bezstavové aplikace nebo aplikace objektu actor v Javě pro Service Fabric, které dřív používali sadu Service Fabric Java SDK, aktualizovat tak, aby používaly závislosti Service Fabric Java z Mavenu. Abyste zajistili fungování starších aplikací s Mavenem, postupujte podle kroků uvedených [tady](service-fabric-migrate-old-javaapp-to-use-maven.md).
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -1,5 +1,5 @@
 ---
-title: "Použití SSH se systémem Hadoop – Azure HDInsight | Dokumentace Microsoftu"
+title: "Použití SSH se systémem Hadoop – Azure HDInsight | Microsoft Docs"
 description: "Pro přístup k systému HDInsight můžete použít Secure Shell (SSH). V tomto dokumentu najdete informace o připojení ke službě HDInsight pomocí příkazů SSH a SCP z klientů se systémem Windows, Linux, Unix nebo macOS."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1a1fbac1eb4c529ea89f0f4c72b3317718ac45ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Připojení k HDInsightu (Hadoop) pomocí protokolu SSH
 
@@ -62,6 +62,8 @@ Microsoft Windows ve výchozím nastavení neinstaluje žádné klienty SSH. Kli
     > Pokud po povolení této funkce nejsou v PowerShellu dostupné příkazy `ssh` a `scp`, odhlaste se a znovu se přihlaste.
 
 * [Bash na Ubuntu ve Windows 10:](https://msdn.microsoft.com/commandline/wsl/about) Příkazy `ssh` a `scp` jsou dostupné prostřednictvím Bashe na příkazovém řádku Windows.
+
+* [Klient OpenSSH (beta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Toto je volitelná funkce představená v aktualizaci Windows 10 Fall Creators Update.
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md): Balíček Cloud Shell přináší prostředí Bashe v prohlížeči a nabízí `ssh`, `scp` a další běžné linuxové příkazy.
 
@@ -104,7 +106,7 @@ Během procesu vytváření klíčů se zobrazí výzva k zadání informací, t
 
 | Metoda vytvoření | Jak použít veřejný klíč |
 | ------- | ------- |
-| **Azure Portal** | Zrušte zaškrtnutí políčka __Použít stejné heslo jako pro přihlášení ke clusteru__ a potom jako typ ověřování SSH vyberte __Veřejný klíč__. Nakonec vyberte soubor veřejného klíče nebo vložte testový obsah tohoto souboru do pole __Veřejný klíč SSH__.</br>![Dialogové okno Veřejný klíč SSH při vytváření clusteru HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| **portál Azure Portal** | Zrušte zaškrtnutí políčka __Použít stejné heslo jako pro přihlášení ke clusteru__ a potom jako typ ověřování SSH vyberte __Veřejný klíč__. Nakonec vyberte soubor veřejného klíče nebo vložte testový obsah tohoto souboru do pole __Veřejný klíč SSH__.</br>![Dialogové okno Veřejný klíč SSH při vytváření clusteru HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | **Azure PowerShell** | Použijte parametr `-SshPublicKey` rutiny `New-AzureRmHdinsightCluster` a obsah veřejného klíče předejte jako řetězec.|
 | **Azure CLI 1.0** | Použijte parametr `--sshPublicKey` příkazu `azure hdinsight cluster create` a obsah veřejného klíče předejte jako řetězec. |
 | **Šablona Resource Manageru** | Příklad použití klíčů SSH s využití šablony najdete v části věnované [nasazení HDInsightu v Linuxu pomocí klíče SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). Element `publicKeys` v souboru [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) slouží při vytváření clusteru k předání klíčů do Azure. |
@@ -120,7 +122,7 @@ Během procesu vytváření klíčů se zobrazí výzva k zadání informací, t
 
 | Metoda vytvoření | Jak zadat heslo |
 | --------------- | ---------------- |
-| **Azure Portal** | Ve výchozím nastavení má uživatelský účet SSH stejné heslo jako účet pro přihlášení ke clusteru. Pokud chcete použít jiné heslo, zrušte zaškrtnutí políčka __Použít stejné heslo jako pro přihlášení ke clusteru__ a potom do pole __Heslo SSH__ zadejte požadované heslo.</br>![Dialogové okno Heslo SSH při vytváření clusteru HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| **portál Azure Portal** | Ve výchozím nastavení má uživatelský účet SSH stejné heslo jako účet pro přihlášení ke clusteru. Pokud chcete použít jiné heslo, zrušte zaškrtnutí políčka __Použít stejné heslo jako pro přihlášení ke clusteru__ a potom do pole __Heslo SSH__ zadejte požadované heslo.</br>![Dialogové okno Heslo SSH při vytváření clusteru HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | **Azure PowerShell** | Použijte parametr `--SshCredential` rutiny `New-AzureRmHdinsightCluster` a předejte objekt `PSCredential`, který obsahuje heslo a jméno uživatelského účtu SSH. |
 | **Azure CLI 1.0** | Použijte parametr `--sshPassword` příkazu `azure hdinsight cluster create` a zadejte hodnotu hesla. |
 | **Šablona Resource Manageru** | Příklad použití hesla s využitím šablony najdete v části věnované [nasazení HDInsightu v Linuxu pomocí hesla SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). Element `linuxOperatingSystemProfile` v souboru [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) slouží při vytváření clusteru k předání hesla a názvu učtu SSH do Azure.|

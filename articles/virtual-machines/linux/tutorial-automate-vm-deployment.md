@@ -1,6 +1,6 @@
 ---
-title: "Přizpůsobení virtuálního počítače s Linuxem na při prvním spuštění v Azure | Microsoft Docs"
-description: "Další informace o použití cloudu init a Key Vault pro virtuální počítače s Linuxem customze při prvním spuštění v Azure"
+title: "Přizpůsobení virtuálního počítače s Linuxem při prvním spuštění v Azure | Microsoft Docs"
+description: "Zjistěte, jak používat cloud-init a Key Vault k přizpůsobení virtuálních počítačům s Linuxem při jejich prvním spuštění v Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,49 +16,49 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Postup přizpůsobení virtuální počítač s Linuxem na při prvním spuštění
-V předchozích kurzu jste se dozvěděli, jak chcete SSH pro virtuální počítač (VM) a ručně nainstalujte NGINX. Pokud chcete vytvořit virtuální počítače rychlý a konzistentním způsobem, je obvykle potřeby nějaký způsob automatizace. Běžný postup přizpůsobení virtuálního počítače při prvním spuštění počítače se má používat [cloudu init](https://cloudinit.readthedocs.io). V tomto kurzu se naučíte:
+# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Přizpůsobení virtuálního počítače s Linuxem při prvním spuštění
+V předchozím kurzu jste se dozvěděli, jak se přes SSH připojit k virtuálnímu počítači a ručně nainstalovat server NGINX. Pokud chcete vytvářet virtuální počítače rychle a konzistentně, zřejmě uvítáte nějakou formu automatizace. Běžný postup k přizpůsobení virtuálního počítače při prvním spuštění je použití nástroje [cloud-init](https://cloudinit.readthedocs.io). V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvořte soubor konfigurace cloudu init
-> * Vytvořit virtuální počítač, který používá soubor init cloudu
-> * Zobrazit spuštěné aplikaci Node.js, po vytvoření virtuálního počítače
-> * Pomocí Key Vault bezpečně uložit certifikáty
-> * Automatizovat zabezpečená nasazení NGINX s inicializací cloudu
+> * Vytvoření konfiguračního souboru cloud-init
+> * Vytvoření virtuálního počítače, který používá soubor cloud-init
+> * Zobrazení spuštěné aplikace Node.js po vytvoření virtuálního počítače
+> * Bezpečné uložení certifikátů ve službě Key Vault
+> * Automatizace zabezpečeného nasazení serveru NGINX s nástrojem cloud-init
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).  
+Pokud se rozhodnete nainstalovat a místně používat rozhraní příkazového řádku, musíte mít Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).  
 
 
 
 ## <a name="cloud-init-overview"></a>Přehled Cloud-init
-[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Init cloudu běží během úvodního spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.
+[Cloud-init](https://cloudinit.readthedocs.io) je široce využívaným přístupem k přizpůsobení virtuálního počítače s Linuxem při jeho prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Vzhledem k tomu, že se cloud-init spustí během procesu prvotního spuštění, nevyžaduje použití vaší konfigurace žádné další kroky ani agenty.
 
-Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
+Cloud-init navíc funguje v různých distribucích. K instalaci balíčku tak například nepoužijete **apt-get install** ani **yum install**. Místo toho můžete definovat seznam balíčků pro instalaci. Cloud-init automaticky použije nativní nástroj pro správu balíčků pro zvolenou distribuci.
 
-Pracujeme s našimi partnery získat cloudu init zahrnuté a práci v bitové kopie, které poskytují do Azure. Následující tabulka popisuje aktuální dostupnosti cloudu init Image platformy Azure:
+S našimi partnery spolupracujeme na začlenění nástroje cloud-init, aby fungoval v imagích, které pro Azure poskytují. Následující tabulka popisuje aktuální dostupnost cloudu-init pro image platformy Azure:
 
 | Alias | Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |nejnovější |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |nejnovější |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |nejnovější |
 | CoreOS |CoreOS |CoreOS |Stable |nejnovější |
-| | OpenLogic | CentOS | 7 CI | nejnovější |
-| | RedHat | RHEL | 7 NEZPRACOVANÁ POLOŽEK KONFIGURACE | nejnovější
+| | OpenLogic | CentOS | 7-CI | nejnovější |
+| | RedHat | RHEL | 7-RAW-CI | nejnovější
 
 
-## <a name="create-cloud-init-config-file"></a>Vytvoření cloudové init konfiguračního souboru
-Informace o cloudu init v akci, vytvořte virtuální počítač, který nainstaluje NGINX a spustí jednoduchý "zdravím svět" aplikace Node.js. Následující konfigurace cloudu init nainstaluje požadované balíčky, vytvoří aplikace Node.js, potom inicializaci a spuštění aplikace.
+## <a name="create-cloud-init-config-file"></a>Vytvoření konfiguračního souboru cloud-init
+Pokud chcete cloud-init vidět v praxi, vytvořte virtuální počítač, který nainstaluje server NGINX a spustí jednoduchou aplikaci v Node.js s názvem Hello World. Následující konfigurace cloud-init nainstaluje požadované balíčky, vytvoří aplikaci Node.js a poté ji inicializuje a spustí.
 
-V aktuálním prostředí, vytvořte soubor s názvem *cloudu init.txt* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadejte `sensible-editor cloud-init.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
+V aktuálním prostředí vytvořte soubor *cloud-init.txt* a vložte do něj následující konfiguraci. Soubor vytvořte například v Cloud Shellu, pokud nepracujete na místním počítači. Můžete použít libovolný editor podle svojí volby. Zadáním příkazu `sensible-editor cloud-init.txt` soubor vytvořte a zobrazte seznam editorů k dispozici. Ujistěte se, že se celý soubor cloud-init zkopíroval správně, zejména první řádek:
 
 ```yaml
 #cloud-config
@@ -102,16 +102,16 @@ runcmd:
   - nodejs index.js
 ```
 
-Další informace o možnostech konfigurace cloudu init najdete v tématu [příklady konfigurace cloudu init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
+Další informace o možnostech konfigurace nástroje cloud-init najdete v [příkladech konfigurace cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
-Před vytvořením virtuálního počítače, vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroupAutomate* v *eastus* umístění:
+Než budete moct vytvořit virtuální počítač, vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). V následujícím příkladu se v umístění *eastus* vytvoří skupina prostředků *myResourceGroupAutomate*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create). Použití `--custom-data` parametr předávat do cloudu init konfiguračního souboru. Zadejte úplnou cestu k *cloudu init.txt* konfigurace, pokud jste uložili soubor mimo pracovní adresář existuje. Následující příklad vytvoří virtuální počítač s názvem *myAutomatedVM*:
+Teď pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create) vytvořte virtuální počítač. Pomocí parametru `--custom-data` předejte svůj konfigurační soubor cloud-init. Pokud jste konfigurační soubor *cloud-init.txt* uložili mimo aktuální pracovní adresář, zadejte úplnou cestu k němu. V následujícím příkladu se vytvoří virtuální počítač *myAutomatedVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,34 +123,34 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Trvá několik minut pro virtuální počítač, který se má vytvořit, balíčky určené k instalaci a aplikaci spusťte. Existují úlohy na pozadí, které dál běžet po rozhraní příkazového řádku Azure se vrátíte do řádku. To může být jiná několik minut, než může aplikaci používat. Po vytvoření virtuálního počítače, poznamenejte si `publicIpAddress` zobrazí pomocí rozhraní příkazového řádku Azure. Tato adresa se používá pro přístup k aplikaci Node.js pomocí webového prohlížeče.
+Vytvoření virtuálního počítače, instalace balíčků a spuštění aplikace trvá několik minut. Když vás Azure CLI vrátí na příkazový řádek, na pozadí stále poběží úlohy. Než k aplikaci budete mít přístup, může to ještě několik minut trvat. Po vytvoření virtuálního počítače si poznamenejte hodnotu `publicIpAddress` zobrazenou v Azure CLI. Tato adresa slouží k přístupu k aplikaci v Node.js přes webový prohlížeč.
 
-Povolit webový provoz připojit virtuální počítač, otevřete port 80 z Internetu s [az virtuálních počítačů open-port](/cli/azure/vm#open-port):
+Pokud chcete umožnit přístup k virtuálnímu počítači webovému provozu, otevřete port 80 z internetu pomocí příkazu [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
-## <a name="test-web-app"></a>Test webové aplikace
-Nyní můžete otevřít webový prohlížeč a zadejte *http://<publicIpAddress>*  na panelu Adresa. Zadejte vlastní veřejná IP adresa z virtuálního počítače vytvořit proces. Aplikace Node.js se zobrazí jako v následujícím příkladu:
+## <a name="test-web-app"></a>Otestování webové aplikace
+Teď můžete otevřít webový prohlížeč a do adresního řádku zadat *http://<publicIpAddress>*. Zadejte vlastní veřejnou IP adresu získanou při vytváření virtuálního počítače. Zobrazí se aplikace Node.js, jak je vidět v následujícím příkladu:
 
-![Zobrazení spuštěných NGINX lokality](./media/tutorial-automate-vm-deployment/nginx.png)
+![Zobrazení spuštěného webu NGINX](./media/tutorial-automate-vm-deployment/nginx.png)
 
 
-## <a name="inject-certificates-from-key-vault"></a>Vložit certifikáty z Key Vault
-Této volitelné části ukazuje, jak můžete bezpečně uložit certifikáty v Azure Key Vault a vložit je při nasazení virtuálního počítače. Místo použití vlastní image, která obsahuje certifikáty zaručená v, tento proces zajišťuje, že nejaktuálnější certifikáty jsou aplikován na virtuální počítač při prvním spuštění počítače. Během procesu certifikát nikdy opustí platformy Azure nebo je vystaven ve skriptu, historie příkazového řádku nebo šablony.
+## <a name="inject-certificates-from-key-vault"></a>Vložení certifikátů ze služby Key Vault
+V této volitelné části se dozvíte, jak můžete bezpečně uložit certifikáty ve službě Azure Key Vault a během nasazení virtuálního počítače je do něj vložit. Na rozdíl od použití vlastní image zahrnující integrované certifikáty zajišťuje tento proces, že se do virtuálního počítače při prvním spuštění vloží nejaktuálnější certifikáty. Během celého procesu certifikát neopustí platformu Azure ani se nezveřejní v žádném skriptu, historii příkazového řádku ani šabloně.
 
-Azure Key Vault chrání kryptografické klíče a tajné klíče, jako je například certifikáty nebo hesla. Key Vault pomáhá zjednodušit proces správy klíčů a zajišťuje vám kontrolu nad klíči, které k přístupu a šifrování vaše data. Tento scénář jsou uvedené některé pojmy Key Vault, jak vytvořit a používat certifikát, ale není vyčerpávající přehled o tom, jak používat Key Vault.
+Azure Key Vault chrání kryptografické klíče a tajné kódy, jako jsou certifikáty a hesla. Key Vault pomáhá zjednodušit proces správy klíčů a zajišťuje vám kontrolu nad klíči, které se používají k přístupu a šifrování dat. Tento scénář využívá některé klíčové prvky služby Key Vault k vytvoření a používání certifikátu. Není to ale vyčerpávající příručka, jak Key Vault používat.
 
-Následující kroky ukazují, jak můžete:
+Následující postupy vám ukážou:
 
-- Vytvoření Azure Key Vault
-- Generovat nebo nahrajte certifikát do služby Key Vault
-- Vytvoření tajného klíče z certifikátu se vložit v pro virtuální počítač
-- Vytvoření virtuálního počítače a vložit certifikátu
+- Vytvoření služby Azure Key Vault
+- Generování nebo nahrání certifikátu do služby Key Vault
+- Vytvoření tajného klíče z certifikátu k vložení do virtuálního počítače
+- Vytvoření virtuálního počítače a vložení certifikátu
 
-### <a name="create-an-azure-key-vault"></a>Vytvoření Azure Key Vault
-Nejprve vytvořte Key Vault s [vytvořit az keyvault](/cli/azure/keyvault#create) a povolit pro použití při nasazení virtuálního počítače. Každý Key Vault vyžaduje jedinečný název a musí být všechny malá písmena. Nahraďte *mykeyvault* v následujícím příkladu se svůj vlastní jedinečný název pro Key Vault:
+### <a name="create-an-azure-key-vault"></a>Vytvoření služby Azure Key Vault
+Nejdřív pomocí příkazu [az keyvault create](/cli/azure/keyvault#az_keyvault_create) vytvořte službu Key Vault a povolte její použití při nasazování virtuálního počítače. Každá služba Key Vault vyžaduje jedinečný název, který by měl být malými písmeny. Řetězec *mykeyvault* v následujícím příkladu nahraďte vlastním jedinečným názvem služby Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=mykeyvault
@@ -160,8 +160,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-### <a name="generate-certificate-and-store-in-key-vault"></a>Vygenerování certifikátu a uložit v Key Vault
-Pro použití v provozním prostředí, měli byste importovat platný certifikát podepsaný službou důvěryhodného zprostředkovatele s [import certifikátu keyvault az](/cli/azure/keyvault/certificate#import). V tomto kurzu následující příklad ukazuje, jak můžete vygenerovat certifikát podepsaný svým držitelem s [vytvoření certifikátu keyvault az](/cli/azure/keyvault/certificate#create) používající výchozí zásady certifikátu:
+### <a name="generate-certificate-and-store-in-key-vault"></a>Vygenerování certifikátu a jeho uložení do služby Key Vault
+V případě použití v produkčním prostředí byste měli importovat platný certifikát podepsaný důvěryhodným poskytovatelem pomocí příkazu [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Pro účely tohoto kurzu následující příklad ukazuje, jak můžete pomocí příkazu [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) vygenerovat certifikát podepsaný svým držitelem, který využívá výchozí zásady certifikátu:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -171,8 +171,8 @@ az keyvault certificate create \
 ```
 
 
-### <a name="prepare-certificate-for-use-with-vm"></a>Příprava certifikátu pro použití s virtuálním Počítačem.
-K použití certifikátu během virtuálního počítače vytvořit proces, získat číslo ID vašeho certifikátu s [az keyvault verze sdíleného tajného klíče seznam-](/cli/azure/keyvault/secret#list-versions). Virtuální počítač, musí certifikát v určitém formátu vložit na spuštění, takže převést certifikát s [az virtuálních počítačů formát secret](/cli/azure/vm#format-secret). Následující příklad přiřadí proměnné pro snadné použití v dalších krocích výstup z těchto příkazů:
+### <a name="prepare-certificate-for-use-with-vm"></a>Příprava certifikátu k použití na virtuálním počítači
+Pokud chcete certifikát použít během procesu vytváření virtuálního počítače, získejte ID vašeho certifikátu pomocí příkazu [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). Certifikát je do virtuálního počítače nutné při spuštění vložit v určitém formátu, proto jej převeďte pomocí příkazu [az vm format-secret](/cli/azure/vm#az_vm_format_secret). Z důvodu snadnějšího použití v dalších krocích přiřadí následující příklad výstup těchto příkazů do proměnných:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -183,10 +183,10 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
 
-### <a name="create-cloud-init-config-to-secure-nginx"></a>Vytvoření konfigurace cloudu init zabezpečit NGINX
-Když vytvoříte virtuální počítač, certifikáty a klíče jsou uložené v chráněného */var/lib/příkazwaagent/* adresáře. K automatizaci certifikát se přidává do virtuálního počítače a konfigurace NGINX, můžete použít aktualizované cloudu init konfigurace z předchozího příkladu.
+### <a name="create-cloud-init-config-to-secure-nginx"></a>Vytvoření konfigurace cloud-init pro zabezpečení serveru NGINX
+Při vytváření virtuálního počítače se certifikáty a klíče uloží do chráněného adresáře */var/lib/waagent/*. K automatizaci přidání certifikátu do virtuálního počítače a konfigurace serveru NGINX můžete použít aktualizovanou konfiguraci cloud-init z předchozího příkladu.
 
-Vytvořte soubor s názvem *cloudu. init secured.txt* a vložte následující konfigurace. Znovu Pokud používáte cloudové prostředí, vytvořte konfigurační soubor cloudu init tam a není na místním počítači. Použití `sensible-editor cloud-init-secured.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
+Vytvořte soubor *cloud-init-secured.txt* a vložte do něj následující konfiguraci: Opět platí, že pokud používáte prostředí Cloud Shell, je třeba vytvořit konfigurační soubor cloud-init v něm, ne na místním počítači. Příkazem `sensible-editor cloud-init-secured.txt` soubor vytvořte a zobrazte seznam dostupných editorů. Ujistěte se, že se celý soubor cloud-init zkopíroval správně, zejména první řádek:
 
 ```yaml
 #cloud-config
@@ -238,7 +238,7 @@ runcmd:
 ```
 
 ### <a name="create-secure-vm"></a>Vytvoření zabezpečeného virtuálního počítače
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create). Data certifikátu je vložili z trezoru klíčů `--secrets` parametr. Jako v předchozím příkladu můžete předat také v konfiguraci cloudu init s `--custom-data` parametr:
+Teď pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create) vytvořte virtuální počítač. Data certifikátu ze služby Key Vault se vloží pomocí parametru `--secrets`. Jako v předchozím příkladu můžete pomocí parametru `--custom-data` předat konfiguraci cloud-init:
 
 ```azurecli-interactive 
 az vm create \
@@ -251,9 +251,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Trvá několik minut pro virtuální počítač, který se má vytvořit, balíčky určené k instalaci a aplikaci spusťte. Existují úlohy na pozadí, které dál běžet po rozhraní příkazového řádku Azure se vrátíte do řádku. To může být jiná několik minut, než může aplikaci používat. Po vytvoření virtuálního počítače, poznamenejte si `publicIpAddress` zobrazí pomocí rozhraní příkazového řádku Azure. Tato adresa se používá pro přístup k aplikaci Node.js pomocí webového prohlížeče.
+Vytvoření virtuálního počítače, instalace balíčků a spuštění aplikace trvá několik minut. Když vás Azure CLI vrátí na příkazový řádek, na pozadí stále poběží úlohy. Než k aplikaci budete mít přístup, může to ještě několik minut trvat. Po vytvoření virtuálního počítače si poznamenejte hodnotu `publicIpAddress` zobrazenou v Azure CLI. Tato adresa slouží k přístupu k aplikaci v Node.js přes webový prohlížeč.
 
-Povolit zabezpečený webový provoz připojit virtuální počítač, otevřete port 443 z Internetu s [az virtuálních počítačů open-port](/cli/azure/vm#open-port):
+Pokud chcete pro přístup k virtuálnímu počítači povolit zabezpečený webový provoz, otevřete port 443 z internetu pomocí příkazu [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -262,27 +262,27 @@ az vm open-port \
     --port 443
 ```
 
-### <a name="test-secure-web-app"></a>Testování zabezpečení webové aplikace
-Nyní můžete otevřít webový prohlížeč a zadejte *https://<publicIpAddress>*  na panelu Adresa. Zadejte vlastní veřejná IP adresa z virtuálního počítače vytvořit proces. Pokud použijete certifikát podepsaný svým držitelem, přijměte upozornění zabezpečení:
+### <a name="test-secure-web-app"></a>Testování zabezpečené webové aplikace
+Nyní můžete otevřít webový prohlížeč a do adresního řádku zadat *https://<publicIpAddress>*. Zadejte vlastní veřejnou IP adresu získanou při vytváření virtuálního počítače. Pokud jste použili certifikát podepsaný svým držitelem, přijměte upozornění zabezpečení:
 
-![Přijetí upozornění zabezpečení webového prohlížeče](./media/tutorial-automate-vm-deployment/browser-warning.png)
+![Přijetí upozornění zabezpečení ve webovém prohlížeči](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
-Zabezpečené NGINX lokality a Node.js aplikace se potom zobrazí jako v následujícím příkladu:
+Následně se zobrazí váš zabezpečený web NGINX a aplikace v Node.js, jak je vidět v následujícím příkladu:
 
-![Zobrazit spuštěná zabezpečené NGINX Web](./media/tutorial-automate-vm-deployment/secured-nginx.png)
+![Zobrazení spuštěného zabezpečeného webu NGINX](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Další kroky
-V tomto kurzu jste nakonfigurovali virtuální počítače při prvním spuštění počítače s inicializací cloudu. Naučili jste se tyto postupy:
+V tomto kurzu jste nakonfigurovali virtuální počítače při prvním spuštění pomocí nástroje cloud-init. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
-> * Vytvořte soubor konfigurace cloudu init
-> * Vytvořit virtuální počítač, který používá soubor init cloudu
-> * Zobrazit spuštěné aplikaci Node.js, po vytvoření virtuálního počítače
-> * Pomocí Key Vault bezpečně uložit certifikáty
-> * Automatizovat zabezpečená nasazení NGINX s inicializací cloudu
+> * Vytvoření konfiguračního souboru cloud-init
+> * Vytvoření virtuálního počítače, který používá soubor cloud-init
+> * Zobrazení spuštěné aplikace Node.js po vytvoření virtuálního počítače
+> * Bezpečné uložení certifikátů ve službě Key Vault
+> * Automatizace zabezpečeného nasazení serveru NGINX s nástrojem cloud-init
 
-Přechodu na v dalším kurzu se dozvíte, jak vytvořit vlastní Image virtuálních počítačů.
+V dalším kurzu se dozvíte, jak vytvořit vlastní image virtuálních počítačů.
 
 > [!div class="nextstepaction"]
 > [Vytváření vlastních imagí virtuálních počítačů](./tutorial-custom-images.md)

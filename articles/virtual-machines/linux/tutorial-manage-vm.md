@@ -1,6 +1,6 @@
 ---
-title: "Vytvářet a spravovat virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure | Microsoft Docs"
-description: "Kurz – vytvářet a spravovat virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI"
+title: "Vytváření a správa virtuálních počítačů s Linuxem pomocí Azure CLI | Microsoft Docs"
+description: "Kurz – Vytváření a správa virtuálních počítačů s Linuxem pomocí Azure CLI"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Vytvářet a spravovat virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI
+# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Vytváření a správa virtuálních počítačů s Linuxem pomocí Azure CLI
 
-Virtuální počítače Azure, zadejte plně konfigurovatelné a flexibilní výpočetního prostředí. Tento kurz se zaměřuje na základní virtuální počítač Azure nasazení položky například vyberete velikost virtuálního počítače, výběr image virtuálního počítače a nasazení virtuálního počítače. Získáte informace o těchto tématech:
+Virtuální počítače Azure poskytují plně konfigurovatelné a flexibilní výpočetní prostředí. Tento kurz se zaměřuje na základní kroky při nasazování virtuálních počítačů, jako jsou výběr velikosti virtuálního počítače, výběr image virtuálního počítače a nasazení virtuálního počítače. Získáte informace o těchto tématech:
 
 > [!div class="checklist"]
-> * Vytvořit a připojit k virtuálnímu počítači
-> * Vyberte a použijte Image virtuálních počítačů
-> * Zobrazení a používání určité velikosti virtuálních počítačů
+> * Vytvoření a připojení virtuálního počítače
+> * Výběr a použití imagí virtuálních počítačů
+> * Zobrazení a použití specifických velikostí virtuálních počítačů
 > * Změna velikosti virtuálního počítače
-> * Zobrazení a pochopit stav virtuálního počítače
+> * Zobrazení a pochopení stavu virtuálního počítače
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a místně používat rozhraní příkazového řádku, musíte mít Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-resource-group"></a>Vytvoření skupiny prostředků
 
 Vytvořte skupinu prostředků pomocí příkazu [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
-Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Před virtuálního počítače je třeba vytvořit skupinu prostředků. V tomto příkladu skupinu prostředků s názvem *myResourceGroupVM* je vytvořen v *eastus* oblast. 
+Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Skupina prostředků musí být vytvořená už před vytvořením virtuálního počítače. V tomto příkladu se vytvoří skupina prostředků s názvem *myResourceGroupVM* v oblasti *eastus*. 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
 ```
 
-Skupina prostředků je zadána při vytváření nebo úpravách virtuálního počítače, které jsou viditelné v rámci tohoto kurzu.
+Skupinu prostředků je třeba zadat při vytváření nebo úpravách virtuálního počítače, což uvidíte dále v tomto kurzu.
 
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
 
-Vytvoření virtuálního počítače s [vytvořit virtuální počítač az](https://docs.microsoft.com/cli/azure/vm#az_vm_create) příkaz. 
+Vytvořte virtuální počítač pomocí příkazu [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
-Při vytváření virtuálního počítače, jsou k dispozici jako jsou bitové kopie operačního systému, přihlašovací údaje velikost a správu disku několik možností. V tomto příkladu se vytvoří virtuální počítač s názvem *Můjvp* systémem Ubuntu Server. 
+Při vytváření virtuálního počítače je k dispozici několik možností, jako jsou image operačního systému, velikost disku a přihlašovací údaje pro správu. V tomto příkladu se vytvoří virtuální počítač s názvem *myVM*, na kterém poběží Ubuntu Server. 
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-To může trvat několik minut pro vytvoření virtuálního počítače. Po vytvoření virtuálního počítače Azure CLI výstupy informace o virtuálním počítači. Poznamenejte si `publicIpAddress`, tuto adresu můžete použít pro přístup k virtuálnímu počítači... 
+Vytvoření virtuálního počítače může několik minut trvat. Po vytvoření virtuálního počítače o něm Azure CLI vypíše informace. Poznamenejte si hodnotu `publicIpAddress`. Pomocí této adresy je možné získat přístup k virtuálnímu počítači. 
 
 ```azurecli-interactive 
 {
@@ -75,31 +75,31 @@ To může trvat několik minut pro vytvoření virtuálního počítače. Po vyt
 }
 ```
 
-## <a name="connect-to-vm"></a>Připojit k virtuálnímu počítači
+## <a name="connect-to-vm"></a>Připojení k virtuálnímu počítači
 
-Nyní můžete připojit k virtuálnímu počítači pomocí protokolu SSH v prostředí cloudu Azure nebo z místního počítače. Nahraďte na příkladu IP adresu `publicIpAddress` si poznamenali v předchozím kroku.
+Nyní se můžete k virtuálnímu počítači připojit pomocí protokolu SSH ve službě Azure Cloud Shell nebo z místního počítače. Ukázkovou IP adresu nahraďte hodnotou `publicIpAddress`, kterou jste si poznamenali v předchozím kroku.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Po přihlášení k virtuálnímu počítači, můžete nainstalovat a nakonfigurovat aplikace. Po dokončení zavřete relace SSH jako za normálních okolností:
+Po přihlášení k virtuálnímu počítači můžete nainstalovat a nakonfigurovat aplikace. Po dokončení zavřete relaci SSH obvyklým způsobem:
 
 ```bash
 exit
 ```
 
-## <a name="understand-vm-images"></a>Pochopení Image virtuálních počítačů
+## <a name="understand-vm-images"></a>Vysvětlení imagí virtuálních počítačů
 
-Azure marketplace obsahuje celou řadu imagí, které lze použít k vytvoření virtuálních počítačů. V předchozích krocích byl vytvořen virtuální počítač pomocí Ubuntu obrázku. V tomto kroku rozhraní příkazového řádku Azure se používá pro vyhledávání na webu marketplace CentOS bitové kopie, které se pak použije k nasazení druhého virtuálního počítače.  
+Azure Marketplace obsahuje celou řadu imagí, které jde využít k vytváření virtuálních počítačů. V předchozích krocích jsme vytvořili virtuální počítač pomocí image Ubuntu. V tomto kroku pomocí Azure CLI vyhledáme na webu Marketplace image CentOS, kterou pak použijeme k nasazení druhého virtuálního počítače.  
 
-Pokud chcete zobrazit seznam nejvíc běžně používané bitové kopie, použijte [seznamu obrázků virtuálních počítačů az](/cli/azure/vm/image#list) příkaz.
+Pokud chcete zobrazit seznam nejčastěji používaných imagí, použijte příkaz [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
 ```azurecli-interactive 
 az vm image list --output table
 ```
 
-Výstup příkazu vrátí nejoblíbenější Image virtuálních počítačů v Azure.
+Příkaz vrátí nejoblíbenější image virtuálních počítačů v Azure.
 
 ```bash
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -117,13 +117,13 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-Úplný seznam můžete zobrazit tak, že přidáte `--all` argument. Seznam obrázků lze také filtrovat podle `--publisher` nebo `–-offer`. V tomto příkladu seznam je filtrovaný pro všechny Image s nabídku odpovídající *CentOS*. 
+Úplný seznam můžete zobrazit tak, že přidáte argument `--all`. Seznam imagí je také možné filtrovat podle parametrů `--publisher` nebo `–-offer`. V tomto příkladu se v seznamu vyfiltrují všechny image, jejichž nabídka (parametr offer) je *CentOS*. 
 
 ```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
 ```
 
-Částečné výstup:
+Částečný výstup:
 
 ```azurecli-interactive 
 Offer             Publisher         Sku   Urn                                     Version
@@ -136,39 +136,39 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-K nasazení virtuálního počítače pomocí konkrétní image, poznamenejte si hodnotu v *Urn* sloupce. Při zadávání bitovou kopii, číslo verze bitové kopie lze nahradit "nejnovější", který vybere nejnovější verzi rozdělení. V tomto příkladu `--image` argument slouží k určení nejnovější verze CentOS 6.5 image.  
+Pokud chcete nasadit virtuální počítače pomocí konkrétní image, poznamenejte si hodnotu ve sloupci *Urn*. Při zadávání image můžete její číslo verze nahradit klíčovým slovem latest. To zajistí, aby se vybrala nejnovější verze dané distribuce. V tomto příkladu pomocí argumentu `--image` určíme nejnovější verzi image CentOS 6.5.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
-## <a name="understand-vm-sizes"></a>Pochopení velikosti virtuálních počítačů
+## <a name="understand-vm-sizes"></a>Vysvětlení velikostí virtuálních počítačů
 
-Velikost virtuálního počítače určuje množství výpočetní prostředky, jako je například procesoru, grafického procesoru a paměti, které jsou k dispozici pro virtuální počítač. Virtuální počítače musí být dimenzovány správně očekávané pracovní zátěže. Hodnota se zvyšuje zatížení, můžete ke změně velikosti existujícího virtuálního počítače.
+Velikost virtuálního počítače určuje množství výpočetních prostředků, jako jsou procesor, grafický procesor a paměť, které jsou pro virtuální počítač k dispozici. Velikost virtuálních počítačů je třeba správně určit podle očekávané pracovní zátěže. Pokud se pracovní zátěž zvýší, je možné velikost existujícího virtuálního počítače změnit.
 
 ### <a name="vm-sizes"></a>Velikosti virtuálních počítačů
 
-V následující tabulce velikostí rozděluje do případy použití.  
+V následující tabulce jsou velikosti rozdělené podle způsobů použití.  
 
 | Typ                     | Velikosti           |    Popis       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Obecné účely](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0 7| Vyrovnáváním procesoru do paměti. Ideální pro vývoj / testování a malé a střední řešení aplikacím a datům.  |
-| [Optimalizované z hlediska výpočetních služeb](sizes-compute.md)   | Služby FS, F             | Vysoké využití procesoru do paměti. Je vhodný pro střední provoz aplikace, síťových zařízení a dávkových procesů.        |
-| [Optimalizované z hlediska paměti](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Vysoká paměti na core. Výborně hodí pro relačních databází, středních a velkých mezipaměti a analýzy v paměti.                 |
+| [Obecné účely](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Vyvážený poměr procesorů k paměti. Ideální pro vývoj nebo testování a pro malé až střední řešení aplikací a dat.  |
+| [Optimalizované z hlediska výpočetních služeb](sizes-compute.md)   | Fs, F             | Vysoký poměr procesorů k paměti. Vhodné pro aplikace se středním provozem, síťová zařízení a dávkové procesy.        |
+| [Optimalizované z hlediska paměti](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Vysoký poměr paměti k jádrům. Velmi vhodné pro relační databáze, střední a velké mezipaměti a analýzu v paměti.                 |
 | [Optimalizované z hlediska úložiště](../virtual-machines-windows-sizes-storage.md)      | Ls                | Vysoká propustnost disku a V/V. Ideální pro databáze NoSQL, SQL a velké objemy dat.                                                         |
-| [GPU](sizes-gpu.md)          | VS, NC            | Specializované virtuální počítače cílené pro velkou grafické vykreslování a úpravy videa.       |
-| [Vysoký výkon](sizes-hpc.md) | H, A8 11          | Naše nejúčinnějších procesoru virtuálních počítačů s volitelné vysokou propustností síťová rozhraní (počítače RDMA). 
+| [GPU](sizes-gpu.md)          | NV, NC            | Specializované virtuální počítače určené pro náročné vykreslování grafiky a úpravy videa.       |
+| [Vysoký výkon](sizes-hpc.md) | H, A8-11          | Naše procesorově nejvýkonnější virtuální počítače s volitelnými síťovými rozhraními s vysokou propustností (RDMA). 
 
 
-### <a name="find-available-vm-sizes"></a>Najít dostupných velikostí virtuálních počítačů
+### <a name="find-available-vm-sizes"></a>Zjištění dostupných velikostí virtuálních počítačů
 
-Pokud chcete zobrazit seznam velikostí virtuálních počítačů v určité oblasti, použijte [seznam velikosti virtuálních počítačů az](/cli/azure/vm#list-sizes) příkaz. 
+Pokud chcete zobrazit seznam velikostí virtuálních počítačů dostupných v konkrétní oblasti, použijte příkaz [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
 ```
 
-Částečné výstup:
+Částečný výstup:
 
 ```azurecli-interactive 
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
@@ -191,9 +191,9 @@ az vm list-sizes --location eastus --output table
                 16         57344  Standard_A7                           8           1047552                  619520
 ```
 
-### <a name="create-vm-with-specific-size"></a>Vytvoření virtuálního počítače s určitou velikost
+### <a name="create-vm-with-specific-size"></a>Vytvoření virtuálního počítače s konkrétní velikostí
 
-V předchozím příkladu vytvoření virtuálního počítače s velikostí nebylo zadáno, výsledkem je výchozí velikost. Velikost virtuálního počítače lze vybrat pomocí čas vytvoření [vytvořit virtuální počítač az](/cli/azure/vm#create) a `--size` argument. 
+V předchozím příkladu vytvoření virtuálního počítače jsme nezadali velikost, takže se použila výchozí velikost. Velikost virtuálního počítače je možné při vytváření vybrat pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create) a argumentu `--size`. 
 
 ```azurecli-interactive 
 az vm create \
@@ -206,60 +206,60 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Změna velikosti virtuálního počítače
 
-Po nasazení virtuálního počítače, můžete změnit velikost můžete zvýšit nebo snížit přidělení prostředků. Zobrazí aktuální velikost virtuálního počítače s [az virtuálních počítačů zobrazit](/cli/azure/vm#show):
+Po nasazení virtuálního počítače můžete jeho velikost změnit, čímž se zvýší nebo sníží přidělení prostředků. Aktuální velikost virtuálního počítače je možné zobrazit pomocí příkazu [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Před změnou velikosti virtuálního počítače, zkontrolujte, jestli požadovaná velikost je dostupná v aktuálním Azure clusteru. [Az virtuálních počítačů seznamu-virtuálních počítačů-změny velikosti options](/cli/azure/vm#list-vm-resize-options) příkaz vrátí seznam velikostí. 
+Před změnou velikosti virtuálního počítače zkontrolujte, jestli je požadovaná velikost dostupná v aktuálním clusteru Azure. Seznam velikostí můžete získat pomocí příkazu [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options). 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Pokud požadovaná velikost je k dispozici, virtuální počítač velikost lze změnit ze stavu na zapnuté, ale po restartu během operace. Použití [změnit velikost virtuálního počítače az]( /cli/azure/vm#resize) příkaz k provedení změna.
+Pokud je požadovaná velikost dostupná, dá se velikost virtuálního počítače změnit i za provozu, ale během této operace se bude vyžadovat restartování. Ke změně velikosti použijte příkaz [az vm resize]( /cli/azure/vm#az_vm_resize).
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Pokud požadovaná velikost není v aktuální clusteru, musí být navrácena, než dojde k operace změny velikosti virtuálního počítače. Použití [az OM deallocate]( /cli/azure/vm#deallocate) příkaz k zastavení a zrušit přidělení virtuálního počítače. Poznámka: Pokud virtuální počítač je zapnutý zpět, může odeberou všechna data na dočasné disku. Veřejná IP adresa se také změní, pokud se používá statickou IP adresu. 
+Pokud požadovaná velikost není v aktuálním clusteru, je třeba napřed zrušit přidělení virtuálního počítače, aby mohla změna velikosti proběhnout. K zastavení a zrušení přidělení virtuálního počítače použijte příkaz [az vm deallocate]( /cli/azure/vm#az_vm_deallocate). Upozorňujeme, že až se virtuální počítač zase zapne, můžou na něm být odebraná všechna data na dočasném disku. Změní se také jeho veřejná IP adresa, pokud nepoužíváte statickou IP adresu. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-Jakmile navrácena, může dojít, změnu velikosti. 
+Po zrušení přidělení může proběhnout změna velikosti. 
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
-Po změny velikosti můžete spustit virtuální počítač.
+Po změně velikosti se může virtuální počítač zase spustit.
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
-## <a name="vm-power-states"></a>Stavy spotřeby virtuálních počítačů
+## <a name="vm-power-states"></a>Stavy napájení virtuálního počítače
 
-Virtuální počítač Azure může mít jednu z mnoha snížené spotřeby energie. Tento stav představuje aktuální stav virtuálního počítače z hlediska hypervisoru. 
+Virtuální počítač Azure může mít jeden z mnoha stavů napájení. Tento stav představuje aktuální stav virtuálního počítače z pohledu hypervisoru. 
 
-### <a name="power-states"></a>Stavy spotřeby.
+### <a name="power-states"></a>Stavy napájení
 
 | Stav napájení | Popis
 |----|----|
-| Spouštění | Označuje, že virtuální počítač se spouští. |
-| Běžící (Spuštěno) | Určuje, zda je virtuální počítač spuštěn. |
-| Zastavování | Označuje, že je zastavení virtuálního počítače. | 
-| Zastaveno | Označuje, že virtuální počítač je zastavená. Virtuální počítače v zastaveném stavu stále toho vám být účtovány poplatky za výpočty.  |
-| Rušení přidělování | Označuje, že virtuální počítač je navrácena. |
-| Zrušeno | Označuje, že virtuální počítač je odebrán z hypervisor, ale stále k dispozici v rovině řízení. Virtuální počítače ve stavu Deallocated nevznikají poplatky za výpočty. |
-| - | Označuje, že stav napájení virtuálního počítače neznámý. |
+| Spouštění | Označuje, že virtuální počítač se právě spouští. |
+| Spuštěno | Označuje, že virtuální počítač běží (je spuštěný). |
+| Zastavování | Označuje, že virtuální počítač se právě zastavuje. | 
+| Zastaveno | Označuje, že virtuální počítač je zastavený. Poplatky za výpočetní výkon se účtují i za virtuální počítače v zastaveném stavu.  |
+| Rušení přidělení | Označuje, že se právě ruší přidělení virtuálního počítače. |
+| Přidělení zrušeno | Označuje, že virtuální počítač je odebraný z hypervisoru, ale stále je dostupný v rovině řízení. Za virtuální počítače ve stavu zrušeného přidělení se poplatky za výpočetní výkon neúčtují. |
+| - | Označuje, že stav napájení virtuálního počítače není známý. |
 
-### <a name="find-power-state"></a>Najít stav napájení
+### <a name="find-power-state"></a>Zjištění stavu napájení
 
-Chcete-li načíst stav konkrétní virtuální počítač, použijte [az virtuální počítač získat zobrazení instance](/cli/azure/vm#get-instance-view) příkaz. Je nutné zadat platný název pro virtuální počítač a skupinu prostředků. 
+Pokud chcete zjistit stav konkrétního virtuálního počítače, použijte příkaz [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Nezapomeňte zadat platný název virtuálního počítače a skupiny prostředků. 
 
 ```azurecli-interactive 
 az vm get-instance-view \
@@ -278,23 +278,23 @@ PowerState/running  VM running       Info
 
 ## <a name="management-tasks"></a>Úlohy správy
 
-Během životního cyklu virtuálního počítače můžete spustit úlohy správy, jako je například spuštění, zastavení nebo odstranění virtuálního počítače. Kromě toho můžete vytvořit skripty pro automatizaci úloh opakovaných nebo komplexní. Použití Azure CLI, mnoho běžné úlohy správy lze spustit z příkazového řádku nebo ve skriptech. 
+Během životního cyklu virtuálního počítače možná budete potřebovat provádět úlohy správy, jako jsou spuštění, zastavení nebo odstranění virtuálního počítače. Možná také budete chtít vytvořit skripty pro automatizaci opakovaných nebo komplexních úloh. Pomocí Azure CLI se dá mnoho běžných úloh správy spustit z příkazového řádku nebo ve skriptech. 
 
-### <a name="get-ip-address"></a>Získat IP adresu
+### <a name="get-ip-address"></a>Zjištění IP adresy
 
-Tento příkaz vrátí privátní a veřejné IP adresy virtuálního počítače.  
+Tento příkaz vrátí privátní a veřejnou IP adresu virtuálního počítače.  
 
 ```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
-### <a name="stop-virtual-machine"></a>Zastavit virtuální počítač
+### <a name="stop-virtual-machine"></a>Zastavení virtuálního počítače
 
 ```azurecli-interactive 
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
-### <a name="start-virtual-machine"></a>Spustit virtuální počítač
+### <a name="start-virtual-machine"></a>Spuštění virtuálního počítače
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
@@ -302,7 +302,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>Odstranění skupiny prostředků
 
-Odstranění skupiny prostředků se také odstraní všechny prostředky obsažené v rámci, například virtuálních počítačů, virtuální sítě a disku. `--no-wait` Parametr vrátí ovládacího prvku do příkazového řádku bez čekání na dokončení operace. `--yes` Parametr potvrdí, že chcete odstranit prostředkům bez další dotazy Uděláte to tak.
+Odstraněním skupiny prostředků se také odstraní všechny prostředky v ní obsažené, například virtuální počítač, virtuální síť a disk. Parametr `--no-wait` vrátí řízení na příkazový řádek bez čekání na dokončení operace. Parametr `--yes` potvrdí, že chcete prostředky odstranit, aniž by se na to zobrazoval další dotaz.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes
@@ -310,16 +310,16 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste se dozvěděli o základní vytvoření virtuálního počítače a správy, jako například:
+V tomto kurzu jste se dozvěděli o základních úkolech při vytváření a správě virtuálních počítačů, jako jsou:
 
 > [!div class="checklist"]
-> * Vytvořit a připojit k virtuálnímu počítači
-> * Vyberte a použijte Image virtuálních počítačů
-> * Zobrazení a používání určité velikosti virtuálních počítačů
+> * Vytvoření a připojení virtuálního počítače
+> * Výběr a použití imagí virtuálních počítačů
+> * Zobrazení a použití specifických velikostí virtuálních počítačů
 > * Změna velikosti virtuálního počítače
-> * Zobrazení a pochopit stav virtuálního počítače
+> * Zobrazení a pochopení stavu virtuálního počítače
 
-Přechodu na v dalším kurzu se dozvíte o disky virtuálních počítačů.  
+V dalším kurzu se dozvíte něco o discích virtuálních počítačů.  
 
 > [!div class="nextstepaction"]
-> [Vytvoření a správa virtuálních počítačů disky](./tutorial-manage-disks.md)
+> [Vytvoření a správa disků virtuálního počítače](./tutorial-manage-disks.md)

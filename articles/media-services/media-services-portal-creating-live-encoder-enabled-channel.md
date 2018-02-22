@@ -1,6 +1,6 @@
 ---
-title: "Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal | Dokumentace Microsoftu"
-description: "Tento kurz vás provede kroky k vytvoření kanálu, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi pomocí webu Azure Portal."
+title: "Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí portálu Azure Portal | Microsoft Docs"
+description: "Tento kurz vás provede kroky k vytvoření kanálu, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi pomocí portálu Azure Portal."
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d19f48d99d0be9d2702060be04cf29a30290a001
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí portálu Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -39,7 +39,7 @@ Tento kurz vás provede kroky k vytvoření **kanálu**, který přijímá datov
 Následující část představuje obecné kroky, které jsou součástí procesu vytváření běžných aplikací pro živé streamování.
 
 > [!NOTE]
-> V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás prosím na adrese amslived@microsoft.com.
+> V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás na adrese amslived@microsoft.com.
 > 
 > 
 
@@ -74,12 +74,12 @@ V tomto kurzu budeme Azure Portal používat k provádění následujících úl
 K dokončení kurzu potřebujete následující:
 
 * K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. 
-  Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+  Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Vytvoření účtu](media-services-portal-create-account.md).
 * Webová kamera a kodér, který dokáže odesílat živý datový proud s jednou přenosovou rychlostí.
 
 ## <a name="create-a-channel"></a>Vytvoření kanálu
-1. Na webu [Azure Portal](https://portal.azure.com/) vyberte Media Services a klikněte na název účtu Media Services.
+1. Na portálu [Azure Portal](https://portal.azure.com/) vyberte Media Services a klikněte na název účtu Media Services.
 2. Vyberte **Živé streamování**.
 3. Vyberte **Vytvořit vlastní**. Tato možnost vám umožní vytvořit kanál, který má povolené kódování v reálném čase.
    
@@ -108,7 +108,7 @@ K dokončení kurzu potřebujete následující:
 6. Na kartě **Náhled** použijte na náhled omezení IP adres.
 7. Na kartě **Kódování** zadejte předvolbu kódování. 
    
-    Momentálně je dostupná jenom jedna možnost: **Výchozí 720 p**. Chcete-li zadat vlastní předvolbu, otevřete lístek podpory společnosti Microsoft. Poté zadejte název vytvořené předvolby. 
+    Momentálně je dostupná jenom jedna možnost: **Výchozí 720 p**. Pokud chcete zadat vlastní předvolbu, otevřete lístek podpory společnosti Microsoft. Poté zadejte název vytvořené předvolby. 
 
 > [!NOTE]
 > V současné době může spuštění kanálu trvat až 30 minut. Resetování kanálu může trvat až 5 minut.
@@ -172,7 +172,7 @@ Publikovanou událost můžete sledovat na stránce **Živá událost**.
 Pokud kliknete na tlačítko **Zrušit streamování**, zastaví se všechny živé události. 
 
 ## <a name="watch-the-event"></a>Sledování události
-Pokud chcete sledovat událost, klikněte na tlačítko **Sledovat** na webu Azure Portal nebo zkopírujte adresu URL streamování a použijte přehrávač dle svého výběru. 
+Pokud chcete sledovat událost, klikněte na tlačítko **Sledovat** na portálu Azure Portal nebo zkopírujte adresu URL streamování a použijte přehrávač dle svého výběru. 
 
 ![Vytvořeno](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
@@ -188,12 +188,12 @@ Pokud jste dokončili streamování událostí a chcete dříve zřízené prost
 ## <a name="view-archived-content"></a>Zobrazení archivovaného obsahu
 I po zastavení a odstranění události můžou uživatelé streamovat archivovaný obsah jako video na vyžádání, a to tak dlouho, dokud asset neodstraníte. Asset nemůžete odstranit, pokud ho událost používá. Nejdřív odstraňte událost. 
 
-Chcete-li spravovat prostředky, vyberte **Nastavení** a klikněte na **Prostředky**.
+Pokud chcete spravovat prostředky, vyberte **Nastavení** a klikněte na **Prostředky**.
 
 ![Prostředky](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Požadavky
-* V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás prosím na adrese amslived@microsoft.com.
+* V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás na adrese amslived@microsoft.com.
 * Zkontrolujte, že koncový bod streamování, ze kterého chcete streamovat obsah, je ve stavu **Spuštěno**.
 
 ## <a name="next-step"></a>Další krok

@@ -1,5 +1,5 @@
 ---
-title: "Diagnostika problémů s výkonem pomocí Azure Application Insights | Dokumentace Microsoftu"
+title: "Diagnostika problémů s výkonem pomocí Azure Application Insights | Microsoft Docs"
 description: "Kurz popisující, jak v aplikaci vyhledat a diagnostikovat problémy s výkonem pomocí Azure Application Insights."
 services: application-insights
 keywords: 
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Vyhledání a diagnostika problémů s výkonem pomocí Azure Application Insights
 
@@ -34,11 +34,11 @@ K provedení kroků v tomto kurzu je potřeba:
 - Nainstalovat [Visual Studio 2017](https://www.visualstudio.com/downloads/) s následujícími sadami funkcí:
     - Vývoj pro ASP.NET a web
     - Vývoj pro Azure
-- Nasadit do Azure aplikaci .NET a [povolit sadu Application Insights SDK](app-insights-asp-net.md).
+- Nasadit aplikaci .NET do Azure a [povolit sadu Application Insights SDK](app-insights-asp-net.md).
 - [Povolit Application Insights Profiler](app-insights-profiler.md#installation) pro vaši aplikaci.
 
 ## <a name="log-in-to-azure"></a>Přihlášení k Azure
-Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com).
+Přihlaste se k portálu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Identifikace pomalých operací serveru
 Application Insights shromažďuje podrobnosti o výkonu různých operací ve vaší aplikaci.  Díky identifikaci operací, které trvají nejdéle, můžete diagnostikovat potenciální problémy nebo lépe cílit probíhající vývoj a vylepšit tak celkový výkon aplikace.

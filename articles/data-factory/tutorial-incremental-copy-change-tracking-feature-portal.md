@@ -1,5 +1,5 @@
 ---
-title: "Přírůstkové kopírování dat pomocí technologie Change Tracking a Azure Data Factory | Dokumentace Microsoftu"
+title: "Přírůstkové kopírování dat pomocí technologie Change Tracking a Azure Data Factory | Microsoft Docs"
 description: "V tomto kurzu vytvoříte kanál Azure Data Factory, který přírůstkově kopíruje rozdílová data z několika tabulek v místní databázi SQL Serveru do databáze Azure SQL. "
 services: data-factory
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Přírůstkové kopírování dat z Azure SQL Database do Azure Blob Storage s využitím informací sledování změn 
 V tomto kurzu vytvoříte datovou továrnu Azure s kanálem, který načítá rozdílová data na základě **sledování změn** ve zdrojové databázi Azure SQL do úložiště objektů blob Azure.  
@@ -151,6 +151,7 @@ Nainstalujte nejnovější moduly Azure PowerShellu podle pokynů v tématu [Ins
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
+1. Spusťte webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelské rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.
 1. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ V tomto kroku vytvoříte kanál s následujícími aktivitami a pravidelně ho 
 2. Zobrazí se nová karta, na které můžete kanál konfigurovat. Kanál se zobrazí také ve stromovém zobrazení. V okně **Vlastnosti** změňte název kanálu na **IncrementalCopyPipeline**.
 
     ![Název kanálu](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. Na panelu nástrojů **Aktivity** rozbalte **SQL Database** a přetáhněte aktivitu **Vyhledávání** na plochu návrháře kanálu. Nastavte název aktivity na **LookupLastChangeTrackingVersionActivity**. Tato aktivita získá verzi sledování změn použitou v poslední operaci kopírování uložené v tabulce **table_store_ChangeTracking_version**.
+3. V sadě nástrojů **Aktivity** rozbalte **Obecné** a přetáhněte aktivitu **Vyhledávání** na plochu návrháře kanálu. Nastavte název aktivity na **LookupLastChangeTrackingVersionActivity**. Tato aktivita získá verzi sledování změn použitou v poslední operaci kopírování uložené v tabulce **table_store_ChangeTracking_version**.
 
     ![Aktivita vyhledávání – název](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. V okně **Vlastnosti** přepněte na kartu **Nastavení** a jako **Zdrojová datová sada** zadejte **ChangeTrackingDataset**. 
@@ -408,12 +409,13 @@ V tomto kroku vytvoříte kanál s následujícími aktivitami a pravidelně ho 
     ![Aktivita Uložená procedura – účet SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Přepněte na kartu **Uložená procedura** a proveďte následující kroky: 
 
-    1. Jako **Název uložené procedury** zadejte **Update_ChangeTracking_Version**.  
-    2. V části **Parametry uložené procedury** pomocí tlačítka **+ Nový** přidejte následující dva parametry:
+    1. Jako **Název uložené procedury** vyberte **Update_ChangeTracking_Version**.  
+    2. Vyberte **Importovat parametr**. 
+    3. V části **Parametry uložené procedury** zadejte následující hodnoty parametrů: 
 
         | Název | Typ | Hodnota | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Řetězec | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Aktivita Uložená procedura – parametry](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ V tomto kroku vytvoříte kanál s následujícími aktivitami a pravidelně ho 
 15. Klikněte na **Ověřit** na panelu nástrojů. Ověřte, že se nezobrazí žádné chyby ověření. Zavřete okno **Sestava ověření kanálu** kliknutím na **>>**. 
 
     ![Tlačítko Ověřit](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Kliknutím na tlačítko **Publikovat** publikujte entity (propojené služby, datové sady a kanály) do služby Data Factory. Počkejte, dokud se nezobrazí zpráva **Publikování proběhlo úspěšně**. 
+16.  Kliknutím na tlačítko **Publikovat vše** publikujte entity (propojené služby, datové sady a kanály) do služby Data Factory. Počkejte, dokud se nezobrazí zpráva **Publikování proběhlo úspěšně**. 
 
         ![Tlačítko Publikovat](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Spuštění kanálu přírůstkového kopírování
-Klikněte na **Aktivační událost** na panelu nástrojů pro kanál a pak klikněte na **Aktivovat**. 
+1. Klikněte na **Aktivační událost** na panelu nástrojů pro kanál a pak klikněte na **Aktivovat**. 
 
-![Nabídka Aktivovat](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Nabídka Aktivovat](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. V okně **Spuštění kanálu** vyberte **Dokončit**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorování kanálu přírůstkového kopírování
 1. Klikněte na kartu **Monitorování** na levé straně. V seznamu se zobrazí spuštění kanálu a jeho stav. Pokud chcete seznam aktualizovat, klikněte na **Aktualizovat**. Pomocí odkazů ve sloupci **Akce** můžete zobrazit spuštění aktivit související se spuštěním kanálu nebo spustit kanál znovu. 
