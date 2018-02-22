@@ -39,6 +39,8 @@
       href: log-analytics-faq.md
     - name: Využití dat
       href: log-analytics-usage.md
+    - name: Zabezpečení dat
+      href: log-analytics-data-security.md
     - name: Správa přístupu
       href: log-analytics-manage-access.md
     - name: Monitorování hybridních prostředí
