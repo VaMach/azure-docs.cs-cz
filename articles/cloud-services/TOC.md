@@ -20,13 +20,10 @@
 #### [Blob Storage a propojené služby](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Queue Storage a propojené služby](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table Storage a propojené služby](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Konfigurace balíčků pro nepřetržité sestavování a nasazování
-#### [TFS a týmové sestavení](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurace pravidel přenosů pro roli](cloud-services-enable-communication-role-instances.md)
 ### [Zpracování událostí životního cyklu cloudových služeb](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Použití Twilia k telefonování (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Konfigurace úloh při spuštění
 #### [Vytvoření úloh při spuštění](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Ukládání a zobrazení diagnostických dat v Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Trasování cloudové služby pomocí diagnostiky](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Odesílání diagnostických dat do App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Řešení potíží
 ### Ladění 
-#### [Povolení vzdáleného ladění s průběžným doručováním](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Možnosti pro cloudovou službu](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Místní cloudová služba s využitím sady Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Publikovaná cloudová služba s využitím sady Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

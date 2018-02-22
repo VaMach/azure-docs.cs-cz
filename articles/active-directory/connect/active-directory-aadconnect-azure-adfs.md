@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Nasazení služby AD FS (Active Directory Federation Service) v Azure
 Služby AD FS nabízí zjednodušené možnosti zabezpečené federace identit a jednotného přihlašování na webu (SSO). Federace pomocí Azure AD nebo O365 uživatelům umožňuje ověřování pomocí místních přihlašovacích údajů a přístup ke všem prostředkům v cloudu. V důsledku toho je důležité mít vysoce dostupnou infrastrukturu služby AD FS, která zajistí přístup k místním prostředkům i k prostředkům v cloudu. Nasazení služby AD FS v Azure může zajistit požadovanou vysokou dostupnost při minimálním úsilí.
@@ -354,7 +354,7 @@ Při nasazování této šablony můžete použít stávající virtuální sí�
 * [Internetový nástroj pro vyrovnávání zatížení](https://aka.ms/Azure/ILB/Internet)
 * [Účty úložiště](https://aka.ms/Azure/Storage)
 * [Virtuální sítě Azure](https://aka.ms/Azure/VNet)
-* [Služba AD FS a odkazy na proxy webové aplikace](http://aka.ms/ADFSLinks) 
+* [Služba AD FS a odkazy na proxy webové aplikace](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>Další kroky
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)

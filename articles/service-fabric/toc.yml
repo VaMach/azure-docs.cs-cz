@@ -529,7 +529,11 @@
         - name: Připojení k zabezpečenému clusteru
           href: service-fabric-connect-to-secure-cluster.md
         - name: Oprava uzlů clusteru
-          href: service-fabric-patch-orchestration-application.md
+          items:
+            - name: Windows
+              href: service-fabric-patch-orchestration-application.md
+            - name: Linux
+              href: service-fabric-patch-orchestration-application-linux.md
     - name: Monitorování a diagnóza
       items:
         - name: OMS
@@ -599,7 +603,7 @@
     - name: Postup výuky
       href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
     - name: Fórum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric'
     - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Cenová kalkulačka
