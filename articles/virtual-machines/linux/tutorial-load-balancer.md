@@ -1,6 +1,6 @@
 ---
-title: "Jak načíst vyvážit virtuální počítače s Linuxem v Azure | Microsoft Docs"
-description: "Další informace o použití nástroje pro vyrovnávání zatížení Azure k vytvoření vysoce dostupné a zabezpečené aplikace napříč tři virtuální počítače s Linuxem"
+title: "Vyrovnávání zatížení virtuálních počítačů s Linuxem v Azure | Microsoft Docs"
+description: "Zjistěte, jak pomocí nástroje pro vyrovnávání zatížení Azure vytvořit vysoce dostupnou a zabezpečenou aplikaci na třech virtuálních počítačích s Linuxem."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,50 +16,50 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Jak načíst vyvážit virtuální počítače s Linuxem v Azure k vytvoření vysoce dostupné aplikace
-Vyrovnávání zatížení poskytuje vyšší úroveň dostupnosti rozloží příchozí žádosti napříč více virtuálních počítačů. V tomto kurzu informace o různé součásti nástroje pro vyrovnávání zatížení Azure, které distribuci přenosů a zajištění vysoké dostupnosti. Získáte informace o těchto tématech:
+# <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Vyrovnávání zatížení virtuálních počítačů s Linuxem v Azure za účelem vytvoření vysoce dostupné aplikace
+Vyrovnávání zatížení zajišťuje vyšší úroveň dostupnosti tím, že rozprostírá příchozí požadavky na více virtuálních počítačů. V tomto kurzu se seznámíte s různými komponentami nástroje pro vyrovnávání zatížení Azure, které distribuují provoz a zajišťují vysokou dostupnost. Získáte informace o těchto tématech:
 
 > [!div class="checklist"]
-> * Vytvoření pro vyrovnávání zatížení Azure
-> * Vytvoření stavu sondu nástroje pro vyrovnávání zatížení.
-> * Vytvoření pravidla pro provoz nástroj pro vyrovnávání zatížení
-> * Pomocí cloud init můžete vytvořit základní aplikaci Node.js
-> * Vytváření virtuálních počítačů a připojit ke službě Vyrovnávání zatížení
-> * Zobrazit nástroj pro vyrovnávání zatížení v akci
-> * Přidání a odebrání virtuálních počítačů z pro vyrovnávání zatížení
+> * Vytvoření nástroje pro vyrovnávání zatížení Azure
+> * Vytvoření sondy stavu nástroje pro vyrovnávání zatížení
+> * Vytvoření pravidel provozu pro nástroj pro vyrovnávání zatížení
+> * Vytvoření základní aplikace Node.js pomocí cloud-init
+> * Vytvoření virtuálních počítačů a jejich připojení k nástroji pro vyrovnávání zatížení
+> * Zobrazení nástroje pro vyrovnávání zatížení v akci
+> * Přidání virtuálních počítačů do nástroje pro vyrovnávání zatížení nebo jejich odebrání
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a místně používat rozhraní příkazového řádku, musíte mít Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="azure-load-balancer-overview"></a>Přehled nástroje pro vyrovnávání zatížení Azure
-K nástroji pro vyrovnávání zatížení Azure je Vyrovnávání zatížení vrstvy 4 (TCP, UDP), která poskytuje vysokou dostupnost distribucí příchozí provoz mezi virtuálními počítači v pořádku. Sondu stavu nástroje pro vyrovnávání zatížení monitoruje zadaný port pro každý virtuální počítač a distribuuje jenom přenosy na provozní virtuální počítač.
+Nástroj pro vyrovnávání zatížení Azure je nástroj pro vyrovnávání zatížení úrovně 4 (TCP, UDP), který poskytuje vysokou dostupnost díky distribuci příchozího provozu mezi virtuální počítače v dobrém stavu. Sonda stavu nástroje pro vyrovnávání zatížení na všech virtuálních počítačích monitoruje daný port a distribuuje provoz pouze do virtuálních počítačů, které jsou v provozu.
 
-Můžete definovat na front-endové konfiguraci protokolu IP, která obsahuje jeden nebo více veřejné IP adresy. Tuto konfiguraci front-end IP adresy umožňuje Vyrovnávání zatížení a aplikace přístupné přes Internet. 
+Nadefinujete konfiguraci front-end IP adres, která obsahuje jednu nebo více veřejných IP adres. Tato konfigurace front-end IP adres povoluje přístup k vašemu nástroji pro vyrovnávání zatížení a vašim aplikacím přes internet. 
 
-Virtuální počítače připojit k nástroji pro vyrovnávání zatížení pomocí jejich virtuální síťová karta (NIC). K distribuci provoz na virtuální počítače, fond back-end adres obsahuje IP adresy virtuální (NIC) připojené ke službě Vyrovnávání zatížení.
+Virtuální počítače se k nástroji pro vyrovnávání zatížení připojují pomocí své virtuální síťové karty. Za účelem distribuce provozu do virtuálních počítačů obsahuje fond back-end adres IP adresy virtuálních síťových karet připojených k nástroji pro vyrovnávání zatížení.
 
-Pokud chcete řídit tok přenosů dat, definujete pravidla nástroje pro vyrovnávání zatížení pro určité porty a protokoly, které jsou mapovány na virtuální počítače.
+Pro řízení toku provozu definujete pravidla nástroje pro vyrovnávání zatížení pro konkrétní porty a protokoly, které se mapují na vaše virtuální počítače.
 
-Pokud jste postupovali podle předchozích kurzu [vytvořit škálovací sadu virtuálních počítačů](tutorial-create-vmss.md), nástroj pro vyrovnávání zatížení pro vás vytvořil. Všechny tyto součásti byly nakonfigurovány pro vás v rámci sady škálování.
+Pokud jste postupovali podle předchozího kurzu věnovaného [vytvoření škálovací sady virtuálních počítačů](tutorial-create-vmss.md), nástroj pro vyrovnávání zatížení už se pro vás vytvořil. Všechny tyto komponenty se pro vás nakonfigurovaly jako součást škálovací sady.
 
 
-## <a name="create-azure-load-balancer"></a>Vytvořit nástroj pro vyrovnávání zatížení Azure
-Tato část podrobně popisuje, jak můžete vytvořit a nakonfigurovat jednotlivé komponenty služby Vyrovnávání zatížení. Než bude možné vytvořit nástroj pro vyrovnávání zatížení, vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroupLoadBalancer* v *eastus* umístění:
+## <a name="create-azure-load-balancer"></a>Vytvoření nástroje pro vyrovnávání zatížení Azure
+Tato část podrobně popisuje vytvoření a konfiguraci jednotlivých komponent nástroje pro vyrovnávání zatížení. Než budete vytvoříte nástroj pro vyrovnávání zatížení, vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků *myResourceGroupLoadBalancer* v umístění *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Vytvoření veřejné IP adresy
-Pro přístup k vaší aplikace v síti Internet, musíte nástroj pro vyrovnávání zatížení veřejnou IP adresu. Vytvoření veřejné IP adresy s [vytvoření veřejné sítě az-ip](/cli/azure/network/public-ip#create). Následující příklad vytvoří veřejnou IP adresu s názvem *myPublicIP* v *myResourceGroupLoadBalancer* skupiny prostředků:
+Pokud chcete mít k aplikaci přístup přes internet, potřebujete pro nástroj pro vyrovnávání zatížení veřejnou IP adresu. Vytvořte veřejnou IP adresu pomocí příkazu [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). Následující příklad vytvoří veřejnou IP adresu *myPublicIP* ve skupině prostředků *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -68,7 +68,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>Vytvoření nástroje pro vyrovnávání zatížení
-Vytvořit nástroj pro vyrovnávání zatížení s [az sítě lb vytvořit](/cli/azure/network/lb#create). Následující příklad vytvoří nástroj pro vyrovnávání zatížení s názvem *myLoadBalancer* a přiřadí *myPublicIP* ke konfiguraci front-end IP adresy:
+Vytvořte nástroj pro vyrovnávání zatížení pomocí příkazu [az network lb create](/cli/azure/network/lb#az_network_lb_create). Následující příklad vytvoří nástroj pro vyrovnávání zatížení *myLoadBalancer* a přiřadí adresu *myPublicIP* ke konfiguraci front-end IP adres:
 
 ```azurecli-interactive 
 az network lb create \
@@ -79,12 +79,12 @@ az network lb create \
     --public-ip-address myPublicIP
 ```
 
-### <a name="create-a-health-probe"></a>Vytvoření test stavu
-Povolit službu Vyrovnávání zatížení k monitorování stavu aplikace, použijte Test stavu. Test stavu dynamicky přidá nebo odebere virtuálních počítačů z otočení nástroje pro vyrovnávání zatížení, podle jejich reakce na kontroly stavu. Ve výchozím nastavení odeberou se virtuální počítač z distribuce nástroje pro vyrovnávání zatížení po dvě po sobě jdoucích selhání v intervalech 15 sekund. Můžete vytvořit test stavu na základě protokolu nebo na stránce Kontrola specifickém stavu pro vaši aplikaci. 
+### <a name="create-a-health-probe"></a>Vytvoření sondy stavu
+Pokud chcete nástroji pro vyrovnávání zatížení povolit monitorování stavu vaší aplikace, použijte sondu stavu. Sonda stavu dynamicky přidává virtuální počítače do oběhu nástroje pro vyrovnávání zatížení nebo je z něj odebírá na základě jejich reakce na kontroly stavu. Ve výchozím nastavení se virtuální počítač odebere z distribuce nástroje pro vyrovnávání zatížení po dvou selháních po sobě v 15sekundových intervalech. Sondu stavu můžete vytvořit na základě protokolu nebo konkrétní stránky kontroly stavu pro vaši aplikaci. 
 
-Následující příklad vytvoří sondou TCP. Můžete také vytvořit vlastní sondy HTTP pro další kontroly podrobné stavu. Pokud používáte vlastní sondu HTTP, musíte vytvořit stránka pro kontrolu stavu, jako například *healthcheck.js*. Sondy musí vrátit **HTTP 200 OK** odpovědi pro vyrovnávání zatížení na hostiteli mějte otočení.
+Následující příklad vytvoří sondu protokolu TCP. Pokud potřebujete jemněji odstupňované kontroly stavu, můžete vytvářet i vlastní sondy protokolu HTTP. Pokud použijete vlastní sondu protokolu HTTP, musíte vytvořit stránku kontroly stavu, například *healthcheck.js*. Aby nástroj pro vyrovnávání zatížení udržel hostitele v oběhu, musí sonda vracet odpověď **HTTP 200 OK**.
 
-K vytvoření stavu sondou TCP, použijete [vytvoření testu vyrovnáváním zatížení sítě az](/cli/azure/network/lb/probe#create). Následující příklad vytvoří kontrolu stavu s názvem *myHealthProbe*:
+Sondu stavu protokolu TCP vytvoříte pomocí příkazu [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). Následující příklad vytvoří sondu stavu *myHealthProbe*:
 
 ```azurecli-interactive 
 az network lb probe create \
@@ -95,10 +95,10 @@ az network lb probe create \
     --port 80
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Vytvořit pravidlo Vyrovnávání zatížení.
-Pravidlo Vyrovnávání zatížení se používá k definování, jak se provoz rozděluje k virtuálním počítačům. Můžete definovat front-endové konfiguraci protokolu IP pro příchozí provoz a fond back-end IP příjem provozu, společně s požadovaný zdrojový a cílový port. Pokud chcete mít jistotu, že virtuální počítače pouze v pořádku přijímat přenosy, také definovat test stavu použít.
+### <a name="create-a-load-balancer-rule"></a>Vytvoření pravidla nástroje pro vyrovnávání zatížení
+Pravidlo nástroje pro vyrovnávání zatížení slouží k definici způsobu distribuce provozu do virtuálních počítačů. Nadefinujete konfiguraci front-end IP adres pro příchozí provoz, fond back-end IP adres pro příjem provozu a také požadovaný zdrojový a cílový port. Abyste zajistili, že provoz budou přijímat pouze virtuální počítače, které jsou v pořádku, nadefinujete také sondu stavu, která se má použít.
 
-Vytvořit pravidlo Vyrovnávání zatížení s [vytvořit pravidlo vyrovnáváním zatížení sítě az](/cli/azure/network/lb/rule#create). Následující příklad vytvoří pravidlo s názvem *myLoadBalancerRule*, používá *myHealthProbe* test stavu a zůstatky přenosy na portu *80*:
+Vytvořte pravidlo nástroje pro vyrovnávání zatížení pomocí příkazu [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). Následující příklad vytvoří pravidlo *myLoadBalancerRule*, použije sondu stavu *myHealthProbe* a nastaví vyrovnávání provozu na portu *80*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -115,10 +115,10 @@ az network lb rule create \
 
 
 ## <a name="configure-virtual-network"></a>Konfigurace virtuální sítě
-Před nasazením některé virtuální počítače a nástroj pro vyrovnávání můžete otestovat, vytvořte doprovodné materiály virtuální sítě. Další informace o virtuálních sítích najdete v tématu [spravovat virtuální sítě Azure](tutorial-virtual-network.md) kurzu.
+Než nasadíte několik virtuálních počítačů a budete moci otestovat svůj nástroj pro vyrovnávání zatížení, vytvořte podpůrné prostředky virtuální sítě. Další informace o virtuálních sítích najdete v kurzu [Správa virtuálních sítí Azure](tutorial-virtual-network.md).
 
-### <a name="create-network-resources"></a>Vytvoření síťové prostředky
-Vytvoření virtuální sítě s [vytvoření sítě vnet az](/cli/azure/network/vnet#create). Následující příklad vytvoří virtuální síť s názvem *myVnet* s podsítí s názvem *mySubnet*:
+### <a name="create-network-resources"></a>Vytvoření síťových prostředků
+Vytvořte virtuální síť pomocí příkazu [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Následující příklad vytvoří virtuální síť *myVnet* s podsítí *mySubnet*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -127,7 +127,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-Chcete-li přidat skupinu zabezpečení sítě, je použít [vytvořit az sítě nsg](/cli/azure/network/nsg#create). Následující příklad vytvoří skupinu zabezpečení sítě s názvem *myNetworkSecurityGroup*:
+Skupinu zabezpečení sítě přidáte pomocí příkazu [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). Následující příklad vytvoří skupinu zabezpečení sítě *myNetworkSecurityGroup*:
 
 ```azurecli-interactive 
 az network nsg create \
@@ -135,7 +135,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Vytvoření pravidla skupiny zabezpečení sítě s [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#create). Následující příklad vytvoří pravidlo skupiny zabezpečení sítě s názvem *myNetworkSecurityGroupRule*:
+Vytvořte pravidlo skupiny zabezpečení sítě pomocí příkazu [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Následující příklad vytvoří pravidlo skupiny zabezpečení sítě *myNetworkSecurityGroupRule*:
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -147,7 +147,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Virtuální síťové adaptéry jsou vytvořeny pomocí [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#create). Následující příklad vytvoří tři virtuálních síťových karet. (Jeden virtuální síťovou kartu pro každý virtuální počítač vytvoříte pro vaši aplikaci v následujících krocích). Můžete kdykoli vytvořit další virtuální síťové karty a virtuální počítače a jejich přidání do Vyrovnávání zatížení:
+Virtuální síťové karty se vytvářejí pomocí příkazu [az network nic create](/cli/azure/network/nic#az_network_nic_create). Následující příklad vytvoří tři virtuální síťové karty. (Jednu virtuální síťovou kartu pro každý virtuální počítač, který pro svou aplikaci vytvoříte v následujících krocích). Kdykoli můžete vytvořit další virtuální síťové karty a virtuální počítače a přidat je do nástroje pro vyrovnávání zatížení:
 
 ```bash
 for i in `seq 1 3`; do
@@ -162,15 +162,15 @@ for i in `seq 1 3`; do
 done
 ```
 
-Když se vytváří všechny tři virtuální síťové karty, pokračujte k dalšímu kroku
+Po vytvoření všech tří virtuálních síťových karet pokračujte k dalšímu kroku.
 
 
-## <a name="create-virtual-machines"></a>Vytváření virtuálních počítačů
+## <a name="create-virtual-machines"></a>Vytvoření virtuálních počítačů
 
-### <a name="create-cloud-init-config"></a>Vytvoření konfigurace cloudu init
-V předchozích kurz [postup přizpůsobení virtuální počítač s Linuxem na při prvním spuštění](tutorial-automate-vm-deployment.md), jste se dozvěděli, jak automatizovat přizpůsobení virtuálního počítače s inicializací cloudu. Konfiguračního souboru stejné cloudové init můžete použít k instalaci NGINX a spuštění jednoduchý "zdravím svět" aplikace Node.js v dalším kroku. Chcete-li zobrazit nástroje pro vyrovnávání zatížení v akci na konci tohoto kurzu máte přístup k této jednoduchou aplikaci ve webovém prohlížeči.
+### <a name="create-cloud-init-config"></a>Vytvoření konfigurace cloud-init
+V předchozím kurzu týkajícím se [postupu přizpůsobení virtuálního počítače s Linuxem při prvním spuštění](tutorial-automate-vm-deployment.md), jste se dozvěděli, jak automatizovat přizpůsobení virtuálního počítače s prostředím cloud-init. Stejný konfigurační soubor cloud-init můžete použít k instalaci serveru NGINX a spuštění jednoduché aplikace Hello World v Node.js v dalším kroku. Pokud chcete vidět nástroj pro vyrovnávání zatížení v akci, na konci tohoto kurzu otevřete tuto jednoduchou aplikaci ve webovém prohlížeči.
 
-V aktuálním prostředí, vytvořte soubor s názvem *cloudu init.txt* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Zadejte `sensible-editor cloud-init.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
+V aktuálním prostředí vytvořte soubor *cloud-init.txt* a vložte do něj následující konfiguraci. Soubor vytvořte například v Cloud Shellu, pokud nepracujete na místním počítači. Zadáním příkazu `sensible-editor cloud-init.txt` soubor vytvořte a zobrazte seznam editorů k dispozici. Ujistěte se, že se celý soubor cloud-init zkopíroval správně, zejména první řádek:
 
 ```yaml
 #cloud-config
@@ -214,10 +214,10 @@ runcmd:
   - nodejs index.js
 ```
 
-### <a name="create-virtual-machines"></a>Vytváření virtuálních počítačů
-Pokud chcete zvýšit vysokou dostupnost vaší aplikace, umístíte virtuální počítače v nastavení dostupnosti. Další informace o nastavení dostupnosti, najdete v předchozí [vytváření vysoce dostupných virtuálních počítačů](tutorial-availability-sets.md) kurzu.
+### <a name="create-virtual-machines"></a>Vytvoření virtuálních počítačů
+Pokud chcete zlepšit vysokou dostupnost aplikace, umístěte své virtuální počítače do skupiny dostupnosti. Další informace o skupinách dostupnosti najdete v předchozím kurzu [Vytváření vysoce dostupných virtuálních počítačů](tutorial-availability-sets.md).
 
-Vytvořit sadu s dostupnosti [az virtuálních počítačů sady dostupnosti. vytváření](/cli/azure/vm/availability-set#create). Následující příklad vytvoří sadu s názvem dostupnosti *myAvailabilitySet*:
+Vytvořte skupinu dostupnosti pomocí příkazu [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). Následující příklad vytvoří skupinu dostupnosti *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -225,7 +225,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Nyní můžete vytvořit virtuálních počítačů s [vytvořit virtuální počítač az](/cli/azure/vm#create). Následující příklad vytvoří tři virtuální počítače a generuje klíče SSH, pokud už neexistují:
+Teď můžete vytvořit virtuální počítače pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create). Následující příklad vytvoří tři virtuální počítače a vygeneruje klíče SSH, pokud ještě neexistují:
 
 ```bash
 for i in `seq 1 3`; do
@@ -242,11 +242,11 @@ for i in `seq 1 3`; do
 done
 ```
 
-Existují úlohy na pozadí, které dál běžet po rozhraní příkazového řádku Azure se vrátíte do řádku. `--no-wait` Parametr nečeká všechny na dokončení úlohy. To může být jiná několik minut, než může aplikaci používat. Test stavu nástroje pro vyrovnávání zatížení automaticky rozpozná, když aplikace běží na každém virtuálním počítači. Jakmile aplikace běží, spustí se pravidlo Vyrovnávání zatížení k distribuci přenosů.
+Jakmile vás Azure CLI vrátí na příkazový řádek, na pozadí stále poběží úlohy. Parametr `--no-wait` znamená, že se nečeká na dokončení všech úloh. Může trvat dalších několik minut, než k aplikaci budete mít přístup. Sonda stavu nástroje pro vyrovnávání zatížení automaticky rozpozná, jakmile bude aplikace spuštěná na všech virtuálních počítačích. Jakmile bude aplikace spuštěná, pravidlo nástroje pro vyrovnávání zatížení začne distribuovat provoz.
 
 
-## <a name="test-load-balancer"></a>Nástroj pro vyrovnávání zatížení testu
-Získat veřejnou IP adresu nástroj pro vyrovnávání zatížení s [az sítě veřejné ip zobrazit](/cli/azure/network/public-ip#show). Následující příklad, získá IP adresu pro *myPublicIP* vytvořili dříve:
+## <a name="test-load-balancer"></a>Test nástroje pro vyrovnávání zatížení
+Získejte veřejnou IP adresu svého nástroje pro vyrovnávání zatížení pomocí příkazu [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Následující příklad získá dříve vytvořenou IP adresu *myPublicIP*:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -256,18 +256,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Potom můžete zadat veřejnou IP adresu v do webového prohlížeče. Mějte na paměti, – trvá několik minut pro virtuální počítače bude připravená, před spuštěním nástroje pro vyrovnávání zatížení softwaru k distribuci přenosů na ně. Aplikace se zobrazí, včetně názvu hostitele virtuálního počítače, který nástroje pro vyrovnávání zatížení distribuován provoz jako v následujícím příkladu:
+Veřejnou IP adresu pak můžete zadat do webového prohlížeče. Nezapomeňte, že příprava virtuálních počítačů několik minut trvá, a až pak do nich začne nástroj pro vyrovnávání zatížení distribuovat provoz. Zobrazí se aplikace, včetně názvu hostitele virtuálního počítače, do kterého nástroj pro vyrovnávání zatížení distribuoval provoz, jako v následujícím příkladu:
 
-![Spuštěné aplikace Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
+![Spuštěná aplikace Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
-Nástroje pro vyrovnávání zatížení provoz distribuovat mezi všechny tři virtuální počítače spuštěné aplikace najdete můžete můžete vynutit obnovení webového prohlížeče.
+Pokud chcete zobrazit distribuci provozu nástrojem pro vyrovnávání zatížení mezi všechny virtuální počítače, na kterých je vaše aplikace spuštěná, můžete vynutit aktualizaci webového prohlížeče.
 
 
 ## <a name="add-and-remove-vms"></a>Přidání a odebrání virtuálních počítačů
-Potřebujete provést údržbu na virtuální počítače používající vaši aplikaci, například při instalaci aktualizace operačního systému. Jak nakládat s zvýšení provozu do vaší aplikace, musíte pro přidání dalších virtuálních počítačů. V této části se dozvíte, jak odebrat nebo přidat virtuální počítač z nástroje pro vyrovnávání zatížení.
+Na virtuálních počítačích, na kterých je vaše aplikace spuštěná, možná budete potřebovat provést údržbu, například nainstalovat aktualizace operačního systému. Abyste si poradili se zvýšením provozu do vaší aplikace, možná budete muset přidat další virtuální počítače. V této části se dozvíte, jak z nástroje pro vyrovnávání zatížení odebrat virtuální počítač nebo ho do něj přidat.
 
-### <a name="remove-a-vm-from-the-load-balancer"></a>Odebrat virtuální počítač z nástroje pro vyrovnávání zatížení
-Virtuální počítač můžete odebrat z fondu adres back-end s [odebrat az sítě síťový adaptér ip-config fond adres](/cli/azure/network/nic/ip-config/address-pool#remove). Následující příklad odebere virtuální síťový adaptér pro **Můjvp2** z *myLoadBalancer*:
+### <a name="remove-a-vm-from-the-load-balancer"></a>Odebrání virtuálního počítače z nástroje pro vyrovnávání zatížení
+Virtuální počítač můžete odebrat z fondu back-end adres pomocí příkazu [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove). Následující příklad odebere virtuální síťovou kartu virtuálního počítače **myVM2** z nástroje pro vyrovnávání zatížení *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool remove \
@@ -278,9 +278,9 @@ az network nic ip-config address-pool remove \
     --address-pool myBackEndPool 
 ```
 
-Zobrazit nástroje pro vyrovnávání zatížení provoz distribuovat mezi zbývající dva virtuální počítače používající vaši aplikaci je můžete vynutit obnovení webového prohlížeče. Nyní můžete provést údržbu na virtuální počítač, jako je instalace aktualizací operačního systému nebo provádění restartování virtuálního počítače.
+Pokud chcete zobrazit distribuci provozu nástrojem pro vyrovnávání zatížení mezi zbývající dva virtuální počítače, na kterých je vaše aplikace spuštěná, můžete vynutit aktualizaci webového prohlížeče. Teď můžete na virtuálním počítači provést údržbu, například nainstalovat aktualizace operačního systému nebo provést restartování virtuálního počítače.
 
-Chcete-li zobrazit seznam virtuálních počítačů s virtuální síťové adaptéry připojené ke službě Vyrovnávání zatížení, použijte [az sítě lb fond adres zobrazit](/cli/azure/network/lb/address-pool#show). Dotazování a filtrovat podle ID virtuálního síťového adaptéru následujícím způsobem:
+Pokud chcete zobrazit seznam virtuálních počítačů s virtuálními síťovými kartami připojenými k nástroji pro vyrovnávání zatížení, použijte příkaz [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show). Následujícím způsobem zadejte dotaz s filtrem podle ID virtuální síťové karty:
 
 ```azurecli-interactive
 az network lb address-pool show \
@@ -291,15 +291,15 @@ az network lb address-pool show \
     --output tsv | cut -f4
 ```
 
-Výstup bude vypadat v následujícím příkladu, který ukazuje, že virtuální síťový adaptér pro virtuální počítač 2 je už součástí fondu adres back-end:
+Výstup bude podobný jako v následujícím příkladu, který ukazuje, že virtuální síťová karta virtuálního počítače 2 už není součástí fondu back-end adres:
 
 ```bash
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
 ```
 
-### <a name="add-a-vm-to-the-load-balancer"></a>Přidat virtuální počítač ke službě Vyrovnávání zatížení
-Po provedení údržby virtuálních počítačů, nebo pokud potřebujete rozšířit kapacitu, můžete přidat virtuální počítač do fondu adres back-end s [az sítě síťový adaptér ip-config fond adres přidat](/cli/azure/network/nic/ip-config/address-pool#add). Následující příklad přidá virtuální síťovou kartu pro **Můjvp2** k *myLoadBalancer*:
+### <a name="add-a-vm-to-the-load-balancer"></a>Přidání virtuálního počítače do nástroje pro vyrovnávání zatížení
+Po provedení údržby virtuálního počítače, nebo pokud potřebujete rozšířit kapacitu, můžete přidat virtuální počítač do fondu back-end adres pomocí příkazu [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add). Následující příklad přidá virtuální síťovou kartu virtuálního počítače **myVM2** do nástroje pro vyrovnávání zatížení *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool add \
@@ -310,22 +310,22 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-Chcete-li ověřit, že virtuální síťový adaptér je připojený k fondu adres back-end, použijte [az sítě lb fond adres zobrazit](/cli/azure/network/lb/address-pool#show) znovu z předchozího kroku.
+Pokud chcete ověřit připojení virtuální síťové karty k fondu back-end adres, znovu použijte příkaz [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) z předchozího kroku.
 
 
 ## <a name="next-steps"></a>Další kroky
-V tomto kurzu jste vytvořili pro vyrovnávání zatížení a je připojený virtuální počítače. Naučili jste se tyto postupy:
+V tomto kurzu jste vytvořili nástroj pro vyrovnávání zatížení a připojili jste k němu virtuální počítače. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
-> * Vytvoření pro vyrovnávání zatížení Azure
-> * Vytvoření stavu sondu nástroje pro vyrovnávání zatížení.
-> * Vytvoření pravidla pro provoz nástroj pro vyrovnávání zatížení
-> * Pomocí cloud init můžete vytvořit základní aplikaci Node.js
-> * Vytváření virtuálních počítačů a připojit ke službě Vyrovnávání zatížení
-> * Zobrazit nástroj pro vyrovnávání zatížení v akci
-> * Přidání a odebrání virtuálních počítačů z pro vyrovnávání zatížení
+> * Vytvoření nástroje pro vyrovnávání zatížení Azure
+> * Vytvoření sondy stavu nástroje pro vyrovnávání zatížení
+> * Vytvoření pravidel provozu pro nástroj pro vyrovnávání zatížení
+> * Vytvoření základní aplikace Node.js pomocí cloud-init
+> * Vytvoření virtuálních počítačů a jejich připojení k nástroji pro vyrovnávání zatížení
+> * Zobrazení nástroje pro vyrovnávání zatížení v akci
+> * Přidání virtuálních počítačů do nástroje pro vyrovnávání zatížení nebo jejich odebrání
 
-Přechodu na v dalším kurzu se dozvíte informace o komponentách virtuální síť Azure.
+Přejděte k dalšímu kurzu, kde najdete další informace o komponentách virtuální sítě Azure.
 
 > [!div class="nextstepaction"]
 > [Správa virtuálních počítačů a virtuálních sítí](tutorial-virtual-network.md)

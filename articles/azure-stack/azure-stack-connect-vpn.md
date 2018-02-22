@@ -3,8 +3,8 @@ title: "Připojit zásobník Azure do Azure pomocí sítě VPN"
 description: "Postup připojení virtuální sítě v Azure zásobníku virtuálních sítí v Azure pomocí sítě VPN."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 16cc1962eb72ac219adc8483f38cecf41a4296c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Připojit zásobník Azure do Azure pomocí sítě VPN
 
@@ -40,7 +41,7 @@ K dokončení konfigurace připojení, zkontrolujte, zda že máte následujíc�
 ## <a name="network-example-values-table"></a>Tabulka hodnot příklad sítě
 V tabulce hodnoty příklad sítě jsou ukázkové hodnoty, které se používají v tomto článku. Můžete použít tyto hodnoty, nebo můžete se podívat do mají lépe pochopit, příklady v tomto článku.
 
-**Tabulka hodnot příklad sítě**
+Tabulka hodnot příklad sítě
 |   |Azure Stack|Azure|
 |---------|---------|---------|
 |Název virtuální sítě     |Azs-VNet|AzureVNet |
@@ -206,11 +207,11 @@ Pro ověření dat, který se přenáší prostřednictvím připojení VPN, mus
 5. Zadejte platné uživatelské jméno a heslo. Tento účet používáte k přihlášení k virtuálnímu počítači po jeho vytvoření.
 6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění**a potom vyberte **OK**.
 7. Na **velikost** části pro tuto instanci, vyberte velikost virtuálního počítače a potom vyberte **vyberte**.
-8. Na **nastavení** část, přijměte výchozí hodnoty. Ujistěte se, že **Azs-VNet** virtuální síť je vybrána. Ověřte, že podsíť je nastavena na **10.1.0.0/24**. Potom vyberte **OK**.
+8. Na **nastavení** část, přijměte výchozí hodnoty. Ujistěte se, že **Azs-VNet** virtuální síť je vybrána. Ověřte, že podsíť je nastavena na **10.1.0.0/24**. Pak vyberte **OK**.
 9. Na **Souhrn** část, zkontrolujte nastavení a pak vyberte **OK**.
 
 
-## <a name="test-the-connection"></a>Otestování připojení
+## <a name="test-the-connection"></a>Otestovat připojení
 Teď, když připojení site-to-site je třeba ověřit, získáte provoz přes něj. K ověření, přihlaste se do jednoho z virtuálních počítačů, které jste vytvořili v zásobníku Azure. Pak odeslat příkaz ping virtuální počítač, který jste vytvořili v Azure. 
 
 Abyste měli jistotu, že je přenos odesílat přes připojení site-to-site, odeslat příkaz ping na přímé IP (DIP) adresu virtuálního počítače ve vzdálené podsíti, není VIP. K tomuto účelu najít adresu vyhrazené IP adresy na druhém konci připojení. Uložte adresu pro pozdější použití.

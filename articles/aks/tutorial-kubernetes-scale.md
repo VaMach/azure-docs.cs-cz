@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes na kurz pro Azure – škálování aplikace"
-description: "Kurz AKS – škálování aplikace"
+title: "Kurz Kubernetes v Azure – Škálování aplikace"
+description: "Kurz AKS – Škálování aplikace"
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,39 +9,39 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 993a8b71b29952394a2ab6a2bdddd0fc5fd241ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Škálování aplikací v Azure Container Service (AKS)
+# <a name="scale-application-in-azure-container-service-aks"></a>Škálování aplikace ve službě Azure Container Service (AKS)
 
-Pokud jste byli po kurzů k, máte funkční Kubernetes cluster v AKS a nasadit aplikaci Azure hlasování.
+Pokud jste postupovali podle kurzů, máte funkční cluster Kubernetes ve službě AKS a nasadili jste aplikaci Azure Vote.
 
-V tomto kurzu, součástí pět osm, škálovat pracovními stanicemi soustředěnými kolem v aplikaci a zkuste to pod automatické škálování. Můžete také zjistěte, jak se škálovat počet uzlů virtuálního počítače Azure, chcete-li změnit kapacity clusteru pro hostování úloh. Dokončené úkoly patří:
+V tomto kurzu, který je pátou částí osmidílné série, budete škálovat pody v této aplikaci a vyzkoušíte si jejich automatické škálování. Naučíte se také, jak škálovat počet uzlů virtuálního počítače Azure, aby se změnila kapacita clusteru pro hostování úloh. Mezi dokončené úlohy patří:
 
 > [!div class="checklist"]
-> * Škálování Kubernetes Azure uzly
-> * Ruční škálování pracovními stanicemi soustředěnými kolem Kubernetes
-> * Konfigurace automatického škálování pracovními stanicemi soustředěnými kolem spuštění aplikace front-endu
+> * Škálování uzlů Azure Kubernetes
+> * Ruční škálování podů Kubernetes
+> * Konfigurace automatického škálování podů, ve kterých běží front-end aplikace
 
-V následujících kurzech hlas Azure bude aktualizována a Operations Management Suite konfigurované pro monitorování Kubernetes clusteru.
+V dalších kurzech se aktualizuje aplikace Azure Vote a konfiguruje Operations Management Suite pro monitorování clusteru Kubernetes.
 
 ## <a name="before-you-begin"></a>Než začnete
 
-V předchozích kurzy byla aplikace zabalené do kontejneru image, tento image nahrané do registru kontejner Azure a cluster Kubernetes vytvořit. Aplikace pak byl na Kubernetes clusteru spusťte.
+V předchozích kurzech se aplikace zabalila do image kontejneru, tato image se odeslala do Azure Container Registry a vytvořil se cluster Kubernetes. Aplikace se potom spustila v tomto clusteru Kubernetes.
 
-Pokud se ještě provést tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image][aks-tutorial-prepare-app].
+Pokud jste tyto kroky neprovedli a chcete si je projít, vraťte se ke [kurzu 1 – Vytváření imagí kontejneru][aks-tutorial-prepare-app].
 
-## <a name="scale-aks-nodes"></a>Škálování AKS uzly
+## <a name="scale-aks-nodes"></a>Škálování uzlů AKS
 
-Pokud jste vytvořili Kubernetes clusteru pomocí příkazů v předchozí kurzu, má jeden uzel. Počet uzlů můžete upravit ručně, pokud máte v plánu více nebo méně kontejneru zatížení v clusteru.
+Pokud jste cluster Kubernetes vytvořili pomocí příkazů v předchozím kurzu, má jeden uzel. Pokud ve vašem clusteru plánujete více nebo méně úloh kontejneru, můžete počet uzlů upravit ručně.
 
-Následující příklad zvyšuje počet uzlů na tři v Kubernetes clusteru s názvem *myK8sCluster*. Příkaz trvá několik minut na dokončení.
+Následující příklad zvýší počet uzlů v clusteru Kubernetes s názvem *myAKSCluster* na tři. Dokončení tohoto příkazu trvá několik minut.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
 Výstup je podobný tomuto:
@@ -52,7 +52,7 @@ Výstup je podobný tomuto:
     "count": 3,
     "dnsPrefix": null,
     "fqdn": null,
-    "name": "myK8sCluster",
+    "name": "myAKSCluster",
     "osDiskSizeGb": null,
     "osType": "Linux",
     "ports": null,
@@ -62,9 +62,9 @@ Výstup je podobný tomuto:
   }
 ```
 
-## <a name="manually-scale-pods"></a>Ručně škálovat, pracovními stanicemi soustředěnými kolem
+## <a name="manually-scale-pods"></a>Ruční škálování podů
 
-Proto úplně, Azure hlas front-endu a Redis instance byly nasazené, každý s jednu repliku. Pokud chcete ověřit, spusťte [kubectl získat] [ kubectl-get] příkaz.
+Doposud máme nasazený front-end Azure Vote a instanci Redis, oboje s jedinou replikou. K ověření spusťte příkaz [kubectl get][kubectl-get].
 
 ```azurecli
 kubectl get pods
@@ -78,13 +78,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Ručně změnit počet pracovními stanicemi soustředěnými kolem v `azure-vote-front` nasazení pomocí [kubectl škálování] [ kubectl-scale] příkaz. Tento příklad zvyšuje počet 5.
+Ručně změňte počet podů v nasazení `azure-vote-front` pomocí příkazu [kubectl scale][kubectl-scale]. Tento příklad zvýší jejich počet na 5.
 
 ```azurecli
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Spustit [kubectl získat pracovními stanicemi soustředěnými kolem] [ kubectl-get] k ověření, že Kubernetes vytváří pracovními stanicemi soustředěnými kolem. Za minutu další pracovními stanicemi soustředěnými kolem běží:
+Spuštěním příkazu [kubectl get pods][kubectl-get] ověřte, že Kubernetes vytváří tyto pody. Asi za minutu budou další pody spuštěné:
 
 ```azurecli
 kubectl get pods
@@ -102,11 +102,11 @@ azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
 azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
-## <a name="autoscale-pods"></a>Pracovními stanicemi soustředěnými kolem škálování
+## <a name="autoscale-pods"></a>Automatické škálování podů
 
-Podporuje Kubernetes [automatické škálování vodorovné pod] [ kubernetes-hpa] upravit počet pracovními stanicemi soustředěnými kolem v nasazení v závislosti na využití procesoru nebo jiné vybrat metriky.
+Kubernetes podporuje [horizontální automatické škálování podů][kubernetes-hpa] pro úpravu počtu podů v nasazení v závislosti na využití procesoru nebo jiné vybrané metrice.
 
-Pokud chcete použít autoscaler, musí mít vaše pracovními stanicemi soustředěnými kolem procesoru požadavky a omezení definovaná. V `azure-vote-front` nasazení, front-end kontejneru požadavky 0,25 procesor limit 0,5 procesoru. Nastavení vypadat podobně jako:
+Aby bylo možné použít modul automatického škálování, pody musí mít definovaná omezení a požadavky na procesor. V nasazení `azure-vote-front` kontejner front-endu vyžaduje 0,25 CPU s limitem 0,5 CPU. Nastavení vypadá takto:
 
 ```YAML
 resources:
@@ -116,14 +116,14 @@ resources:
      cpu: 500m
 ```
 
-Následující příklad používá [kubectl škálování] [ kubectl-autoscale] příkaz pro škálování počtu pracovními stanicemi soustředěnými kolem v `azure-vote-front` nasazení. Sem pokud využití procesoru přesahuje 50 %, autoscaler zvyšuje pracovními stanicemi soustředěnými kolem maximálně 10.
+Následující příklad využívá příkaz [kubectl autoscale][kubectl-autoscale] k automatickému škálování počtu podů v nasazení `azure-vote-front`. Pokud tady využití procesoru přesáhne 50 %, modul automatického škálování zvýší počet podů na maximálně 10.
 
 
 ```azurecli
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Pokud chcete zobrazit stav autoscaler, spusťte následující příkaz:
+Spuštěním následujícího příkazu zobrazíte stav modulu automatického škálování:
 
 ```azurecli
 kubectl get hpa
@@ -136,18 +136,18 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Po několika minutách, s minimálním zatížením hlas Azure aplikace a snižuje počet replik pod automaticky na 3.
+Po několika minutách se díky minimálnímu zatížení aplikace Azure Vote počet replik podů automaticky sníží na 3.
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu použít v clusteru Kubernetes různé funkce škálování. Úlohy popsané součástí:
+V tomto kurzu jste v clusteru Kubernetes využili různé funkce škálování. Mezi probírané úlohy patří:
 
 > [!div class="checklist"]
-> * Ruční škálování pracovními stanicemi soustředěnými kolem Kubernetes
-> * Konfigurace automatického škálování pracovními stanicemi soustředěnými kolem spuštění aplikace front-endu
-> * Škálování Kubernetes Azure uzly
+> * Ruční škálování podů Kubernetes
+> * Konfigurace automatického škálování podů, ve kterých běží front-end aplikace
+> * Škálování uzlů Azure Kubernetes
 
-Přechodu na v dalším kurzu se dozvíte o aktualizaci aplikace v Kubernetes.
+Přejděte k dalšímu kurzu, kde se seznámíte s aktualizací aplikace v Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Aktualizace aplikace v Kubernetes][aks-tutorial-update-app]

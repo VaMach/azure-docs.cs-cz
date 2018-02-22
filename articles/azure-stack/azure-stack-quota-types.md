@@ -3,8 +3,8 @@ title: "Typy kvót v zásobníku Azure | Microsoft Docs"
 description: "Projděte si různé kvóty typy, které jsou dostupné pro služby a prostředky v Azure zásobníku."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
-ms.author: erikje
-ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Typy kvót v Azure zásobníku
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 10/25/2017
 2. Vyberte službu s kvótu, kterou chcete zobrazit.
 3. Klikněte na tlačítko **kvóty**a vyberte kvóty, které chcete zobrazit.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace o plánech, nabídky a kvóty.](azure-stack-plan-offer-quota-overview.md)
 
 [Vytvoření kvóty při vytváření plánu.](azure-stack-create-plan.md)

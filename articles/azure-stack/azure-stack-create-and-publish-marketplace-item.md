@@ -3,8 +3,8 @@ title: "Vytvoření a publikování v Azure zásobníku položku Marketplace. | 
 description: "Vytvoření a publikování v Azure zásobníku položku Marketplace."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Vytvoření a publikování položky Marketplace
 
@@ -72,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="publish-a-marketplace-item"></a>Zveřejnění položky Marketplace
 1. Pomocí prostředí PowerShell nebo Azure Storage Explorer pro nahrání vaší položku Marketplace (.azpkg) do úložiště objektů Blob Azure. Můžete nahrát do místního úložiště zásobník Azure nebo nahrát do Azure Storage. (Je dočasné umístění balíčku.) Ujistěte se, že objekt blob je veřejně přístupná.
 2. Na virtuálním počítači klienta v prostředí Microsoft Azure zásobníku Ujistěte se, zda relace prostředí PowerShell nastavená pomocí svých přihlašovacích údajů správce služby. Najdete pokyny, jak ověřovat prostředí PowerShell v zásobníku Azure v [nasazení šablony v prostředí PowerShell](user/azure-stack-deploy-template-powershell.md).
-3. Použití **přidat AzureRMGalleryItem** rutiny prostředí PowerShell pro publikování do zásobníku Azure položku Marketplace. Například:
+3. Použití **přidat AzureRMGalleryItem** rutiny prostředí PowerShell pro publikování do zásobníku Azure položku Marketplace. Příklad:
    
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
@@ -100,16 +101,16 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="reference-marketplace-item-manifestjson"></a>– Referenční informace: Manifest.json položky Marketplace
 ### <a name="identity-information"></a>Informace o identitě
-| Name (Název) | Požaduje se | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| Name (Název) |X |Řetězec |[A-Za-z0-9] + | |
-| Vydavatel |X |Řetězec |[A-Za-z0-9] + | |
+| Název |X |Řetězec |[A-Za-z0-9]+ | |
+| Vydavatel |X |Řetězec |[A-Za-z0-9]+ | |
 | Verze |X |Řetězec |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
-| Name (Název) | Požaduje se | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| displayName |X |Řetězec |Doporučení 80 znaků |Na portálu nemusí řádně zobrazit název položky, pokud je delší než 80 znaků. |
+| DisplayName |X |Řetězec |Doporučení 80 znaků |Na portálu nemusí řádně zobrazit název položky, pokud je delší než 80 znaků. |
 | PublisherDisplayName |X |Řetězec |Doporučení 30 znaků |Na portálu nemusí řádně zobrazit název vydavatele, pokud je delší než 30 znaků. |
 | PublisherLegalName |X |Řetězec |Maximálně 256 znaků | |
 | Souhrn |X |Řetězec |60 až 100 znaků. | |
@@ -119,13 +120,13 @@ ms.lasthandoff: 10/11/2017
 ### <a name="images"></a>Image
 Na webu Marketplace používá následující ikony:
 
-| Name (Název) | Šířka | Výška | Poznámky |
+| Název | Šířka | Výška | Poznámky |
 | --- | --- | --- | --- |
 | Široké |255 px |115 px |Vždy vyžadován |
-| Dlouhodobé používání |115 px |115 px |Vždy vyžadován |
-| Střednědobé používání |90 px |90 px |Vždy vyžadován |
-| Krátkodobé používání |40 px |40 px |Vždy vyžadován |
-| snímek obrazovky |533 px |32 px |Nepovinné |
+| Velké |115 px |115 px |Vždy vyžadován |
+| Střední |90 px |90 px |Vždy vyžadován |
+| Malé |40 px |40 px |Vždy vyžadován |
+| Snímek obrazovky |533 px |32 px |Nepovinné |
 
 ### <a name="categories"></a>Kategorie
 Každá položka Marketplace by měl označené kategorie, která určuje, kde se položka zobrazí na portálu uživatelského rozhraní. Vyberte jednu z existující kategorie v Azure zásobníku (výpočetní, Data + úložiště, atd.) nebo zvolit nové.
@@ -133,17 +134,17 @@ Každá položka Marketplace by měl označené kategorie, která určuje, kde s
 ### <a name="links"></a>Odkazy
 Každá položka Marketplace může zahrnovat různé odkazy na další obsah. Odkazy jsou zadané jako seznam názvů a identifikátory URI.
 
-| Name (Název) | Požaduje se | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| displayName |X |Řetězec |Nesmí být delší než 64 znaků. | |
-| identifikátor URI |X |IDENTIFIKÁTOR URI | | |
+| DisplayName |X |Řetězec |Nesmí být delší než 64 znaků. | |
+| URI |X |URI | | |
 
 ### <a name="additional-properties"></a>Další vlastnosti
 Kromě předchozích metadata může poskytovat autoři Marketplace. data pár vlastní klíč/hodnota v následující podobě:
 
-| Name (Název) | Požaduje se | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| displayName |X |Řetězec |Maximální povolenou délku 25 znaků | |
+| DisplayName |X |Řetězec |Maximální povolenou délku 25 znaků | |
 | Hodnota |X |Řetězec |Maximálně 30 znaků | |
 
 ### <a name="html-sanitization"></a>Čištění HTML

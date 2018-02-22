@@ -133,7 +133,7 @@ Po vytvoření vaší služby ASE se v názvu domény zobrazí doména, kterou j
 Vaše služba ASE s interním nástrojem pro vyrovnávání zatížení potřebuje platný certifikát SSL. Použijte interní certifikační autority, kupte si certifikát od externího vystavitele nebo použijte certifikát podepsaný svým držitelem. Bez ohledu na zdroj certifikátu SSL musí být správně nakonfigurované následující atributy certifikátu:
 
 * **Předmět:** Tento atribut musí být nastavený na hodnotu *.vase-zdejsi-korenova-domena.
-* **Alternativní název předmětu:** Tento atribut musí obsahovat hodnotu **.vase-zdejsi-korenova-domena* i **.scm.vase-zdejsi-korenova-domena*. Připojení SSL k webu SCM/Kudu spojenému s každou aplikací používá adresu ve formátu *nazev-vasi-aplikace.scm.vase-zdejsi-korenova-domena*.
+* **Alternativní název předmětu**: Tento atribut musí obsahovat hodnotu **.vase-zdejsi-korenova-domena* i **.scm.vase-zdejsi-korenova-domena*. Připojení SSL k webu SCM/Kudu spojenému s každou aplikací používá adresu ve formátu *nazev-vasi-aplikace.scm.vase-zdejsi-korenova-domena*.
 
 Převeďte/uložte certifikát SSL jako soubor .pfx. Soubor .pfx musí obsahovat všechny zprostředkující a kořenové certifikáty. Zabezpečte ho pomocí hesla.
 

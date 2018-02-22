@@ -3,8 +3,8 @@ title: "Použijte sadu nástrojů Marketplace vytvoření a publikování polož
 description: "Zjistěte, jak rychle vytvořit položky marketplace s publikování Toolkit"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Přidat publikování nástroji položky marketplace.
 Přidání svůj obsah do [Azure Marketplace zásobníku](azure-stack-marketplace.md) zpřístupní řešení pro vás i vaši klienti pro nasazení.  Sada nástrojů Marketplace vytvoří soubory balíčků Azure Marketplace (.azpkg) na základě šablony správce prostředků Azure IaaS nebo rozšíření virtuálního počítače.  Sada nástrojů Marketplace můžete použít také k publikování .azpkg soubory vytvořené pomocí nástroje nebo pomocí [ruční](azure-stack-create-and-publish-marketplace-item.md) kroky.  Toto téma vás provede stažení nástroje, vytvoření položky marketplace na základě šablony virtuálního počítače a poté publikujete daná položka pro Azure Marketplace zásobníku.     
@@ -72,7 +73,7 @@ V této části publikujete položku marketplace. vaše Azure Marketplace zásob
     
     |Pole|Popis|
     |-----|-----|
-    | Jméno správce služby | Účet správce služby.  Příklad:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Jméno správce služby | Účet správce služby.  Příklad:  ServiceAdmin@mydomain.onmicrosoft.com |
     | Heslo | Heslo pro účet správce služby. |
     | Koncový bod rozhraní API | Koncový bod Azure zásobník Azure Resource Manager.  Příklad: management.local.azurestack.external |
 2.  Klikněte na tlačítko **publikovat** a zobrazí se protokol publikování.
@@ -91,7 +92,7 @@ Zahrnuje sadu nástrojů Marketplace *solution.parameters.ps1* můžete použít
 | ikona .png 40 x 40 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | ikona .png 90 x 90 | ![](./media/azure-stack-marketplace-publisher/image2.png) |
 | ikona .png 115 x 115 | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| ikona .png 255 x 115 | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| 255x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
 | 533 x 324 .png miniaturu | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 

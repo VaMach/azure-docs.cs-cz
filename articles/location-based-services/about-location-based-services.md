@@ -5,18 +5,18 @@ services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/28/2017
+ms.date: 02/05/2017
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Úvod do služeb Azure Location Based Services (Preview)
 Azure Location Based Services je portfolio geoprostorových služeb, mezi které patří rozhraní API pro mapy, vyhledávání, trasy, provoz a časová pásma. Portfolio služeb odpovídajících standardu Azure OneAPI umožňuje používat známé nástroje pro vývojáře k rychlému vývoji a škálování komponent, které integrují informace o poloze do vašich řešení v Azure. Azure Location Based Services poskytuje vývojářům ze všech odvětví výkonné geoprostorové funkce společně s čerstvými mapovými daty, které jsou nezbytné k zajištění geografického kontextu pro webové a mobilní aplikace. Azure Location Based Services je sada rozhraní odpovídajících standardu Azure One API doplněná o webové řízení v JavaScriptu pro zajištění snadného, flexibilního a přenositelného vývoje napříč různými médii. 
@@ -65,7 +65,8 @@ Služby Azure Location Based Services jsou navržené pro mobilní aplikace a je
 
 Služby Azure Location Based Services používá schéma ověřování na základě klíčů, takže přístup ke služby je otázkou přechodu na web [Azure Portal](http://portal.azure.com) a vytvoření účtu Azure Location Based Services. V účtu budou pro vás předem vygenerované dva klíče. Při zahájení integrace těchto polohových služeb do vaší aplikace můžete v požadavcích na službu Azure Location Based Services použít kterýkoli z obou klíčů.
 
-**Vztah ke službě Mapy Bing** – Upozorňujeme, že služby Azure Location Based Services popsané v tomto dokumentu se liší od těch, které poskytuje služba Mapy Bing.  Přestože tyto dvě služby sdílejí velmi podobné funkce, jsou rozdílné a vzájemně nesouvisejí.  Dostupnost této nové služby, která se bude spravovat samostatně, neovlivní plány nebo nabídku produktů Mapy Bing.
+## <a name="relationship-with-bing-maps"></a>Vztah ke službě Mapy Bing
+Služby Azure Location Based Services popsané v tomto dokumentu se liší od těch, které poskytuje služba Mapy Bing.  Přestože tyto dvě služby sdílejí velmi podobné funkce, jsou rozdílné a vzájemně nesouvisejí.  Dostupnost této nové služby, která se bude spravovat samostatně, neovlivní plány nebo nabídku produktů Mapy Bing.
 
 Cílem společnosti Microsoft je poskytnout komunitě vývojářů s ohledem na služby zjišťování polohy možnost volby.  Dál uvádíme stručné informace pro vývojáře, které služby jsou vhodné pro různé případy použití a zákaznické situace.  Upozorňujeme, že tyto informace se aktuálně vztahují na Azure LBS ve fázi Public Preview a budou se aktualizovat, jakmile tato služba v roce 2018 přejde do fáze obecné dostupnosti.
 
@@ -79,7 +80,7 @@ Cílem společnosti Microsoft je poskytnout komunitě vývojářů s ohledem na 
 | Obsah map | Postačují standardní mapy povrchu. | Vyžadují se satelitní mapy, letecké mapy a obrázky ulic. |
 | Základní zdroj map | Upřednostňují se mapovací data TomTom. | Upřednostňují se mapovací data HERE. |
 
-Vytvořte si účet [Azure Location Based Services](http://aka.ms/azurelbsportal) ještě dnes!
+Zaregistrujte si účet [Azure Location Based Services ještě dnes](http://aka.ms/azurelbsportal).
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 9e0b0efdf28e6d8b99d1cdf702dd0698ad87da7b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: abb5fd4953709198f6071bbdd4a1dc86900f0183
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Zřízení prostředí Azure SSIS Integration Runtime pomocí uživatelského rozhraní služby Azure Data Factory
 Tento kurz obsahuje postup pro zřízení prostředí Azure-SSIS Integration Runtime (IR) ve službě Azure Data Factory pomocí webu Azure Portal. Následně můžete pomocí SQL Server Data Tools nebo aplikace SQL Server Management Studio do tohoto modulu runtime v Azure nasadit balíčky SSIS (SQL Server Integration Services). Informace o konceptu prostředí Azure-SSIS IR najdete v [přehledu prostředí Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -26,7 +26,7 @@ V tomto kurzu provedete následující kroky:
 
 > [!div class="checklist"]
 > * Vytvoření datové továrny
-> * Vytvoření a spuštění prostředí Azure-SSIS Integration Runtime
+> * Zřízení prostředí Azure-SSIS Integration Runtime
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, která je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -41,8 +41,9 @@ V tomto kurzu provedete následující kroky:
  
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).    
-2. Vyberte **Nový** v nabídce vlevo, vyberte **Data a analýzy** a pak vyberte **Datová továrna**. 
+1. Spusťte webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelské rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.
+2. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).    
+3. Vyberte **Nový** v nabídce vlevo, vyberte **Data a analýzy** a pak vyberte **Datová továrna**. 
    
    ![Výběr datové továrny v podokně Nový](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. Na stránce **Nová datová továrna** zadejte do pole **Název** text **MyAzureSsisDataFactory**. 
@@ -69,7 +70,7 @@ V tomto kurzu provedete následující kroky:
 11. Po vytvoření se zobrazí stránka **Datová továrna**.
    
    ![Domovská stránka datové továrny](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Kliknutím na dlaždici **Monitorovat a spravovat** otevřete na samostatné kartě uživatelské rozhraní služby Data Factory. 
+12. Výběrem dlaždice **Vytvořit a monitorovat** otevřete na samostatné kartě uživatelské rozhraní služby Data Factory. 
 
 ## <a name="provision-an-azure-ssis-integration-runtime"></a>Zřízení prostředí Azure-SSIS Integration Runtime
 
@@ -160,7 +161,7 @@ V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
 > * Vytvoření datové továrny
-> * Vytvoření a spuštění prostředí Azure-SSIS Integration Runtime
+> * Zřízení prostředí Azure-SSIS Integration Runtime
 
 Pokud se chcete dozvědět o kopírování dat z místního prostředí do cloudu, přejděte k následujícímu kurzu: 
 

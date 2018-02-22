@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Hledání okolních bodů zájmu s použitím Azure Location Based Services
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Hledání okolních bodů zájmu s použitím Azure Location Based Services
 
 Tento kurz ukazuje, jak nastavit účet s Azure Location Based Services a pak pomocí poskytnutých rozhraní API vyhledat bod zájmu. V tomto kurzu se naučíte:
 
@@ -30,7 +30,7 @@ Tento kurz ukazuje, jak nastavit účet s Azure Location Based Services a pak po
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-# <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>

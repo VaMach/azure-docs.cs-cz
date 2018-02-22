@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Vytvoření první aplikace Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -40,10 +40,18 @@ Service Fabric nabízí nástroje pro generování uživatelského rozhraní, kt
 
 1. Instalace nodejs a NPM na počítači
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (podpora Service Fabric ve verzi Preview)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. Instalace generátoru šablon [Yeoman](http://yeoman.io/) na počítač z NPM
 
   ```bash
@@ -118,11 +126,6 @@ Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba ne
 Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, proveďte následující kroky:
 1. Změňte adresář na kořenovou složku stávající aplikace.  Například `cd ~/YeomanSamples/MyApplication`, pokud `MyApplication` je aplikace vytvořená pomocí Yeomanu.
 2. Spusťte `yo azuresfcsharp:AddService`.
-
-## <a name="migrating-from-projectjson-to-csproj"></a>Migrace z project.json na .csproj
-1. Spuštění „dotnet migrate“ v kořenovém adresáři projektu provede migraci všech souborů project.json na formát csproj.
-2. V souborech projektu příslušně aktualizujte odkazy projektu na soubory csproj.
-3. V souboru build.sh aktualizujte názvy souborů projektu na soubory csproj.
 
 ## <a name="next-steps"></a>Další kroky
 
