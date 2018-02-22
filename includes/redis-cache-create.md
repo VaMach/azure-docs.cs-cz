@@ -1,4 +1,4 @@
-Pokud chcete vytvořit mezipaměť, přihlaste se nejdříve k webu [Azure Portal](https://portal.azure.com), klikněte na **Nový**,  > **Databáze** > **Mezipaměť Redis**.
+Chcete-li vytvořit mezipaměť, nejdřív přihlásit k [portál Azure](https://portal.azure.com)a klikněte na tlačítko **vytvořit prostředek** > **databáze** > **Redis Cache** .
 
 > [!NOTE]
 > Pokud účet Azure nemáte, můžete si během několika minut [vytvořit bezplatný účet Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
@@ -16,12 +16,12 @@ Pokud chcete vytvořit mezipaměť, přihlaste se nejdříve k webu [Azure Porta
 > 
 > 
 
-V okně **Nová mezipaměť Redis** zadejte požadovanou konfiguraci mezipaměti.
+V **nová mezipaměť Redis**, zadejte požadovanou konfiguraci mezipaměti.
 
 ![Vytvoření mezipaměti](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * Do pole **Název DNS** zadejte jedinečný název mezipaměti, kterou chcete použít pro koncový bod mezipaměti. Název mezipaměti musí být řetězec o délce 1 až 63 znaků a smí obsahovat jenom čísla, písmena a znak `-`. Název mezipaměti nesmí začínat ani končit znakem `-` a po sobě jdoucí znaky `-` nejsou platné.
-* V rozevíracím seznamu **Předplatné** vyberte požadované předplatné, se kterým chcete mezipaměť používat. Pokud má váš účet jenom jedno předplatné, vybere se automaticky a rozevírací seznam **Předplatné** se nezobrazí.
+* V rozevíracím seznamu **Předplatné** vyberte požadované předplatné, se kterým chcete mezipaměť používat. Pokud má váš účet jenom jedno předplatné, je automaticky vybrán a **předplatné** rozevíracího seznamu nezobrazí.
 * V části **Skupina prostředků** vyberte nebo vytvořte skupinu prostředků pro mezipaměť. Další informace najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../articles/azure-resource-manager/resource-group-overview.md). 
 * K určení zeměpisného umístění, ve kterém se mezipaměť hostuje, použijte **Umístění**. K zajištění nejlepšího výkonu Microsoft důrazně doporučuje vytvoření mezipaměti ve stejné oblasti, kde se už nachází klientská aplikace mezipaměti.
 * K výběru požadované velikosti a funkcí mezipaměti použijte možnost **Cenová úroveň**.
