@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Práce s řešení pro správu v Azure (Preview)
 > [!NOTE]
@@ -36,7 +36,7 @@ Existuje více metod pro vyhledání a instalace řešení pro správu, jak je p
 Řešení pro správu od společnosti Microsoft a důvěryhodným partnerům může být nainstalována v Azure Marketplace na portálu Azure.
 
 1. Přihlaste se k webu Azure Portal.
-2. V levém podokně vyberte **další služby**.
+2. V levém podokně vyberte **všechny služby**.
 3. Buď přejděte dolů k položce **řešení** nebo typ *řešení* do **filtru** dialogové okno.
 4. Klikněte **+ přidat** tlačítko.
 5. Vyhledejte řešení, která vás zajímá buď procházením, kliknutím na **filtru** tlačítko nebo zadáním v **vyhledávání Everthing** pole.
@@ -92,7 +92,7 @@ Můžete ověřit propojení mezi pracovní prostor analýzy protokolů a účtu
 Chcete-li zobrazit řešení pro správu v pracovní prostory přidružený k vašemu předplatnému Azure se používá následující postup.
 
 1. Přihlaste se k webu Azure Portal.
-2. V levém podokně vyberte **další služby**.
+2. V levém podokně vyberte **všechny služby**.
 3. Buď přejděte dolů k položce **řešení** nebo typ *řešení* do **filtru** dialogové okno.
 4. Objeví se řešení, které jsou nainstalovány ve všech vašich pracovních prostorů.
 

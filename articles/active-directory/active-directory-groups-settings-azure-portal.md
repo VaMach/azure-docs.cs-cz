@@ -16,18 +16,18 @@ ms.date: 08/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 8f1013419f7e54f5760636f169635b84c8bd118e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c569bde2a480ff191dd3079f3ca93a7400cadb3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Spravovat nastavení pro skupinu v Azure Active Directory
 Tento článek vysvětluje, jak změnit nastavení pro skupinu v Azure Active Directory (Azure AD).
 
 ## <a name="how-do-i-find-and-change-the-settings"></a>Jak najít a změnit nastavení?
 1. Přihlaste se k [centru pro správu Azure AD](https://aad.portal.azure.com) pomocí účtu, který má k adresáři oprávnění globálního správce.
-2. Vyberte **další služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
+2. Vyberte **všechny služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
 
    ![Otevírání uživatelů a skupin okno](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. Na **uživatelů a skupin** vyberte **všechny skupiny**.
@@ -41,7 +41,7 @@ Tento článek vysvětluje, jak změnit nastavení pro skupinu v Azure Active Di
 
    ![Ukládají se změny vlastnosti](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Následující články poskytují další informace o službě Azure Active Directory.
 
 * [Zobrazení existujících skupin](active-directory-groups-view-azure-portal.md)

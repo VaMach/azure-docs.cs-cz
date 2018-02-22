@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Použít Spark MLlib sestavení machine learning aplikací a analýza datové sady
 
@@ -79,9 +79,9 @@ V následujících krocích vyvinout model zobrazíte trvá na úspěch nebo sel
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Vytvoření vstupní dataframe
-Můžeme použít `sqlContext` k provádění transformací na strukturovaná data. První úlohou je načíst ukázková data ((**Food_Inspections1.csv**)) do Spark SQL *dataframe*.
+Můžete použít `sqlContext` k provádění transformací na strukturovaná data. První úlohou je načíst ukázková data ((**Food_Inspections1.csv**)) do Spark SQL *dataframe*.
 
-1. Protože nezpracovaná data ve formátu CSV, je potřeba použít Spark kontext pro každý řádek souboru pro vyžádání obsahu do paměti jako nestrukturovaných text; potom použít jazyka Python sdíleného svazku clusteru knihovnu analyzovat každý řádek zvlášť.
+1. Protože nezpracovaná data ve formátu CSV, budete muset použít kontext Spark na každý řádek souboru pro vyžádání obsahu do paměti jako nestrukturovaných text; potom použít jazyka Python sdíleného svazku clusteru knihovnu analyzovat každý řádek zvlášť.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ Můžeme použít `sqlContext` k provádění transformací na strukturovaná da
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Jako RDD máme teď soubor CSV.  Zjistit schéma dat načteme z RDD jeden řádek.
+1. Nyní máte soubor CSV jako RDD.  Zjistit schéma data načíst z RDD jeden řádek.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ Můžeme použít `sqlContext` k provádění transformací na strukturovaná da
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. Tento výstup nám poskytuje základní přehled o schéma vstupní soubor. Obsahuje název každé zařízení, typ zařízení, adresu, data z kontroly a umístění, mimo jiné. Umožňuje vybrat několik sloupců, které jsou užitečné pro naše prediktivní analýzy a výsledky jsou seskupeny dataframe, který jsme potom použít k vytvoření dočasné tabulky.
+1. Tento výstup nám poskytuje základní přehled o schéma vstupní soubor. Obsahuje název každé zařízení, typ zařízení, adresu, data z kontroly a umístění, mimo jiné. Umožňuje vybrat několik sloupců, které jsou užitečné pro naše prediktivní analýzy a výsledky jsou seskupeny dataframe, který pak použijete k vytvoření dočasné tabulky.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -130,7 +130,7 @@ Můžeme použít `sqlContext` k provádění transformací na strukturovaná da
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Nyní je k dispozici *dataframe*, `df` na kterém jsme můžete provádět analýzy. Máme také volání dočasné tabulky **CountResults**. Jsme zahrnuli čtyři sloupce zájem o dataframe: **id**, **název**, **výsledky**, a **porušení**.
+1. Nyní máte *dataframe*, `df` na které můžete provádět analýzy. Máte také volání dočasné tabulky **CountResults**. Jsme zahrnuli čtyři sloupce zájem o dataframe: **id**, **název**, **výsledky**, a **porušení**.
 
     Pojďme malé ukázkové dat:
 
@@ -172,7 +172,7 @@ Můžeme použít `sqlContext` k provádění transformací na strukturovaná da
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. Rychlé vizualizace pomůžete nám důvod informace o distribuci tyto výstupy. Připravili jsme data v dočasné tabulce **CountResults**. Spuštěním následujícího dotazu SQL s tabulkou získat lepší pochopení, jak jsou distribuovány výsledky.
+1. Rychlé vizualizace pomůžete nám důvod informace o distribuci tyto výstupy. Již máte data v dočasné tabulce **CountResults**. Spuštěním následujícího dotazu SQL s tabulkou získat lepší pochopení, jak jsou distribuovány výsledky.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -203,12 +203,12 @@ Můžeme použít `sqlContext` k provádění transformací na strukturovaná da
 
    * Obchodní není umístěný.
    * Chyba
-   * Předat
+   * Úspěch
    * PSS s podmínky
    * Mimo firmy
 
-     Dejte nám vyvinout model, který lze snadno uhodnout výsledek kontroly potravin zadané porušení zásad. Vzhledem k tomu, že logistic regression je metoda binární klasifikace, má smysl seskupovat naše data do dvou kategorií: **nezdaří** a **předat**. "Předat s podmínky" je stále průchodu, takže když jsme trénování modelu, jsme vezměte v úvahu oba výsledky ekvivalentní. Data s jinými výsledky ("Obchodní není umístěný" nebo "mimo firemní") nejsou užitečné, proto jsme odebrat z našich trénovací sady. Toto musí být v pořádku, vzhledem k tomu, že tyto dvě kategorie tvoří velmi malá část tohoto výsledky přesto.
-1. Dejte nám pokračujte a převést naše stávající dataframe (`df`) do nového dataframe, kde je každý kontroly reprezentován jako pár porušení popisek. V našem případě štítek z `0.0` představuje selhání, popisek `1.0` představuje úspěšné a popisek `-1.0` představuje některé výsledky kromě těchto dvou. Jsme odfiltrovat jiných výsledků při výpočtu nové datové rámce.
+     Dejte nám vyvinout model, který lze snadno uhodnout výsledek kontroly potravin zadané porušení zásad. Vzhledem k tomu, že logistic regression je metoda binární klasifikace, má smysl seskupovat naše data do dvou kategorií: **nezdaří** a **předat**. "Předat s podmínky" je stále průchodu, takže když jste trénování modelu, byste zvážit dva výsledky ekvivalentní. Data s jinými výsledky ("Obchodní není umístěný" nebo "mimo firemní") jsou užitečné, není proto odebrat z našich trénovací sady. Toto musí být v pořádku, vzhledem k tomu, že tyto dvě kategorie tvoří velmi malá část tohoto výsledky přesto.
+1. Dejte nám pokračujte a převést naše stávající dataframe (`df`) do nového dataframe, kde je každý kontroly reprezentován jako pár porušení popisek. V našem případě štítek z `0.0` představuje selhání, popisek `1.0` představuje úspěšné a popisek `-1.0` představuje některé výsledky kromě těchto dvou. Můžete filtrovat jiných výsledků při výpočtu nové rámečku data.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ Můžeme použít `sqlContext` k provádění transformací na strukturovaná da
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Vytvoření modelu logistic regression ze vstupní dataframe
-Naše poslední je s popiskem data převést do formátu, který lze analyzovat pomocí logistic regression. Vstup logistic regresní algoritmus musí být sadu *popisek funkce vector páry*, kde je "funkce vector" vektor čísel představující vstupní bod. Ano musíme převést sloupci "porušení", který je částečně strukturovaných a obsahuje mnoho komentáře v prostém textu, na pole reálná čísla, které je počítač by mohl snadno porozumíte.
+Naše poslední je s popiskem data převést do formátu, který lze analyzovat pomocí logistic regression. Vstup logistic regresní algoritmus musí být sadu *popisek funkce vector páry*, kde je "funkce vector" vektor čísel představující vstupní bod. Ano budete muset převést sloupci "porušení", který je částečně strukturovaných a obsahuje mnoho komentáře v prostém textu, na pole reálná čísla, které je počítač by mohl snadno porozumíte.
 
 Jeden standardní strojového učení přístup pro zpracování přirozeného jazyka je přiřadit všech jedinečných slov "index" a poté předat vektor strojového učení algoritmu tak, aby každý index hodnota obsahuje relativní četnost dané slovo v textovém řetězci.
 
-MLlib poskytuje snadný způsob, jak provést tuto operaci. Nejprve "tokenizaci" každé porušení řetězec k získání jednotlivých slov v každé řetězec. Poté použijte `HashingTF` k převedení každou sadu tokeny do funkce vektor, který může být předána do algoritmus logistic regression vytvořit model. Můžeme provést všechny tyto kroky v pořadí pomocí "kanál".
+MLlib poskytuje snadný způsob, jak provést tuto operaci. Nejprve "tokenizaci" každé porušení řetězec k získání jednotlivých slov v každé řetězec. Poté použijte `HashingTF` k převedení každou sadu tokeny do funkce vektor, který může být předána do algoritmus logistic regression vytvořit model. Všechny tyto kroky proveďte v pořadí pomocí "kanál".
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,7 +247,7 @@ MLlib poskytuje snadný způsob, jak provést tuto operaci. Nejprve "tokenizaci"
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Vyhodnocení modelu na samostatné testovací datové sady
-Můžeme použít model, který jsme vytvořili dříve do *předpovědi* co výsledky kontrol nové budou, podle porušení zásad, která měla dodržen. Jsme natrénovali tento model na datovou sadu **Food_Inspections1.csv**. Dejte nám použít druhý datovou sadu, **Food_Inspections2.csv**do *vyhodnotit* sílu tento model na nová data. Druhé sadě dat (**Food_Inspections2.csv**) by už měla být ve výchozím kontejneru úložiště přidružen ke clusteru.
+Můžete použít model, který jste vytvořili dříve do *předpovědi* co výsledky kontrol nové budou, podle porušení zásad, která měla dodržen. Cvičení tento model na datovou sadu **Food_Inspections1.csv**. Dejte nám použít druhý datovou sadu, **Food_Inspections2.csv**do *vyhodnotit* sílu tento model na nová data. Druhé sadě dat (**Food_Inspections2.csv**) by už měla být ve výchozím kontejneru úložiště přidružen ke clusteru.
 
 1. Následující fragment vytváří nové dataframe, **predictionsDf** obsahující předpovědi generované modelu. Fragment vytváří také dočasné tabulky nazývané **předpovědi** podle dataframe.
 
@@ -279,7 +279,7 @@ Můžeme použít model, který jsme vytvořili dříve do *předpovědi* co vý
         predictionsDf.take(1)
 
    Není předpovědi pro první položku v sadě dat testu.
-1. `model.transform()` Metoda používá stejný transformace žádná nová data se stejným schématem a přicházejí na předpovědi jak klasifikovat data. Provedeme jednoduchý statistikami získat představu o jak přesný byly naše předpovědi:
+1. `model.transform()` Metoda používá stejný transformace žádná nová data se stejným schématem a přicházejí na předpovědi jak klasifikovat data. Můžete provést některé jednoduché statistiky získat představu o jak přesný byly naše předpovědi:
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -301,9 +301,9 @@ Můžeme použít model, který jsme vytvořili dříve do *předpovědi* co vý
     Pomocí Spark logistic regression nám poskytuje model přesné vztahu mezi popisy porušení v angličtině a zda se daný obchodní úspěch nebo selhání kontroly potravin.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Vytvoření vizuální reprezentace předpovědi
-Jsme můžete nyní vytvořit konečné vizualizace nám pomáhají důvod o výsledcích tento test.
+Poslední vizualizace a pomoci tak můžete vytvořit nyní důvod o výsledcích tento test.
 
-1. Začneme extrahováním různých předpovědi a výsledky z **předpovědi** dočasné tabulky vytvořili dříve. Následující dotazy oddělit výstup jako *true_positive*, *false_positive*, *true_negative*, a *false_negative*. V následující dotazy jsme vypnout vizualizaci pomocí `-q` a také uložte si výstup (s použitím `-o`) jako dataframes, který lze potom použít s `%%local` magic.
+1. Spuštění extrahováním různých předpovědi a výsledky z **předpovědi** dočasné tabulky vytvořili dříve. Následující dotazy oddělit výstup jako *true_positive*, *false_positive*, *true_negative*, a *false_negative*. V následující dotazy vypnete vizualizaci pomocí `-q` a také uložte si výstup (s použitím `-o`) jako dataframes, který lze potom použít s `%%local` magic.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -343,7 +343,6 @@ Po dokončení spuštění aplikace byste měli vypínat poznámkového bloku k 
 ### <a name="scenarios"></a>Scénáře
 * [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](apache-spark-use-bi-tools.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight pro analýzu teploty v budově pomocí dat HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](apache-spark-eventhub-streaming.md)
 * [Analýza protokolu webu pomocí Sparku v HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Vytvoření a spouštění aplikací

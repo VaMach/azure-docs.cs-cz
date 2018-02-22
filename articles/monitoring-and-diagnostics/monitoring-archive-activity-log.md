@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0e3a5b84f57eac96249430fa1c2c4cc076c2926a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiv protokol činnosti Azure
 V tomto článku jsme ukazují, jak pomocí portálu Azure, rutiny prostředí PowerShell nebo rozhraní příkazového řádku a platformy pro archivaci vaše [ **protokol činnosti Azure** ](monitoring-overview-activity-logs.md) v účtu úložiště. Tato možnost je užitečná, pokud chcete uchovat déle, než 90 dní (s plnou kontrolu nad zásady uchovávání informací) pro audit, statické analýzy nebo zálohování aktivity protokolu. Pokud potřebujete události uchovávány 90 dnů nebo méně není nutné nastavit archivace na účet úložiště, protože aktivity protokolu události se zachovají v platformy Azure za 90 dnů bez povolení archivace.
@@ -30,7 +30,7 @@ Než začnete, budete muset [vytvořit účet úložiště](../storage/common/st
 K archivaci protokolu aktivit pomocí kteréhokoli z následujících metod, můžete nastavit **profil protokolu** pro předplatné. Profil protokolu definuje typ události, které jsou uložené nebo prostřednictvím datového proudu a výstupy – úložiště účet nebo události rozbočovače. Definuje také zásady uchovávání informací (počet dní, které chcete zachovat) pro události, které jsou uložené v účtu úložiště. Pokud zásady uchovávání informací je nastaven na hodnotu nula, události jsou uloženy po neomezenou dobu. Jinak to je možné nastavit na jakoukoli hodnotu od 1 do 2147483647. Zásady uchovávání informací jsou použité denní, takže na konci za den (UTC), protokoly dnem, který je teď nad rámec uchovávání se zásada odstraní. Například pokud jste měli zásady uchovávání informací jeden den, od začátku dnešní den protokoly z včerejšek před den by odstraněn. [Další informace o protokolu profily zde](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Archivovat protokol aktivit pomocí portálu
-1. Na portálu, klikněte **protokol aktivit** na levé straně navigační odkaz. Pokud nevidíte odkaz pro protokol aktivit, klikněte na tlačítko **více služeb** nejprve odkaz.
+1. Na portálu, klikněte **protokol aktivit** na levé straně navigační odkaz. Pokud nevidíte odkaz pro protokol aktivit, klikněte **všechny služby** první odkaz.
    
     ![Přejděte do okna Protokol aktivit](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. V horní části okna klikněte na tlačítko **exportovat**.
@@ -76,7 +76,7 @@ Jakmile jste nastavili archivace, kontejner úložiště bude vytvořen v účtu
 
 Například může být název objektu blob:
 
-> insights-Operational-Logs/Name=default/resourceId=/Subscriptions/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.JSON
+> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 > 
 > 
 
@@ -163,7 +163,7 @@ V souboru PT1H.json se ukládají všechny události v poli "záznamy" následuj
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Stáhnout objekty BLOB pro analýzu](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Datový proud protokolu aktivit do centra událostí](monitoring-stream-activity-logs-event-hubs.md)
 * [Další informace o protokolu aktivit](monitoring-overview-activity-logs.md)

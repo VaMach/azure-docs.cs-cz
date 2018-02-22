@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: ff6c14ced42385d81f3c42b4b4bf1fd06464c0d1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Rychlý úvod: Škálovat výpočetní v Azure SQL Data Warehouse v prostředí PowerShell
 
-Škálování výpočetní kapacity v Azure SQL Data Warehouse v prostředí PowerShell. Škálování výpočetní pro lepší výkon, nebo určený počet číslic zpět výpočetní abyste ušetřili náklady. 
+Škálování výpočetní kapacity v Azure SQL Data Warehouse v prostředí PowerShell. [Škálovat výpočetní](sql-data-warehouse-manage-compute-overview.md) pro lepší výkon, nebo určený počet číslic zpět výpočetní abyste ušetřili náklady. 
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -67,7 +67,7 @@ Postupujte podle těchto kroků se najít informace o umístění pro datový sk
 4. Poznamenejte si název datového skladu, který se použije jako název databáze. Také poznamenejte si název serveru a skupině prostředků. Budete používat v pozastavit a obnovit příkazy.
 5. Pokud je server foo.database.windows.net, použijte pouze první část jako název serveru v rutin prostředí PowerShell. Na předchozím obrázku je úplný název serveru NovyServer 20171113.database.windows.net. Používáme **NovyServer 20171113** jako název serveru ve výsledcích rutiny Powershellu.
 
-## <a name="scale-compute"></a>Škálování výpočetní kapacity
+## <a name="scale-compute"></a>Škálování výpočetního výkonu
 
 V SQL Data Warehouse můžete zvýšit nebo snížit výpočetní prostředky úpravou jednotky datového skladu. [Vytvořit a připojit - portál](create-data-warehouse-portal.md) vytvořit **mySampleDataWarehouse** a inicializovat se 400 Dwu. Následující kroky upravit Dwu pro **mySampleDataWarehouse**.
 

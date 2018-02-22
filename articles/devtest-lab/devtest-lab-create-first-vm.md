@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: v-craic
-ms.openlocfilehash: c807789dc2b47fe3632fc4ecf597904d8b0bbf6f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 95fc017e64ac5c8a31be93790f53eb7fefa8f69a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Vytvoření vaší první virtuální počítač v testovacím prostředí v Azure DevTest Labs
 
@@ -28,7 +28,7 @@ Tento kurz vás provede procesem přidání vaší první virtuální počítač
 
 ## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Postup pro přidání do testovacího prostředí v Azure DevTest Labs vašeho prvního virtuálního počítače
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+1. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 1. Ze seznamu labs vyberte testovací prostředí, ve kterém chcete vytvořit virtuální počítač.  
 1. V tomto prostředí **přehled** vyberte **+ přidat**.  
 

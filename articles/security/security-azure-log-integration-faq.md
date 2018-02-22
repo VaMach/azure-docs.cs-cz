@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Integrace Azure protokolu – nejčastější dotazy
-Tento článek obsahuje odpovědi na nejčastější dotazy (FAQ) informace o integraci Azure protokolu. 
+
+Tento článek obsahuje odpovědi na nejčastější dotazy (FAQ) informace o integraci Azure protokolu.
+
+>[!IMPORTANT]
+>Upřednostňovanou metodou pro integraci Azure protokoly se pomocí svého dodavatele SIEM Azure monitorování konektoru a následující tyto [pokyny](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Ale pokud dodavatele SIEM neposkytuje konektor k monitorování Azure, bude pravděpodobně možné použít protokol integrace se službou Azure jako dočasné řešení (je-li vašeho systému SIEM podporován protokol integrace se službou Azure) dokud takové connector je k dispozici.
 
 Integrace se službou Azure protokolu je služba operačního systému Windows, která můžete integrovat do vaší místní zabezpečení informací a událostí (SIEM) systémy správy nezpracovaná protokoly z vašich prostředků Azure. Tato integrace poskytuje jednotný řídicí panel pro všechny vaše prostředky, místně nebo v cloudu. Můžete pak agregace, korelovat, analyzovat a výstrahy zabezpečení události související s vašimi aplikacemi.
 
@@ -34,20 +38,20 @@ Ano. Není nijak zpoplatněn pro software protokolu integrace se službou Azure.
 Je aktuálně k dispozici v komerčních Azure a Azure Government a není k dispozici v Číně nebo v Německu.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Jak lze zobrazit účty úložiště, ze kterých je integrace se službou Azure protokolu stahování protokolů virtuálního počítače Azure?
-Spusťte příkaz **azlog zdrojového seznamu**.
+Spusťte příkaz **AzLog zdrojového seznamu**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Jak poznám, které předplatné protokoly protokolu integrace se službou Azure jsou z?
 
-V případě protokoly auditu, které jsou umístěny v **AzureResourcemanagerJson** adresáře, předplatné ID je v názvu protokolového souboru. To platí také pro protokoly v **AzureSecurityCenterJson** složky. Například:
+V případě protokoly auditu, které jsou umístěny v **AzureResourcemanagerJson** adresáře, předplatné ID je v názvu protokolového souboru. To platí také pro protokoly v **AzureSecurityCenterJson** složky. Příklad:
 
-20170407T070805_2768037.0000000023. **1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Protokoly auditu Azure Active Directory zahrnují ID klienta v rámci názvu.
 
 Diagnostické protokoly, které se načítají z centra událostí nebudou obsahovat ID předplatného v rámci názvu. Místo toho obsahují popisný název zadaný jako součást vytvoření zdroje události rozbočovače. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Jak můžete aktualizovat konfiguraci proxy serveru?
-Pokud vaše nastavení proxy serveru přímo neumožňuje přístup k úložišti Azure, otevřete **AZLOG. SOUBOR EXE. KONFIGURACE** souboru v **c:\Program Files\Microsoft Azure protokolu integrace**. Aktualizace souboru **defaultProxy –** oddíl s adresu proxy serveru v organizaci. Po dokončení aktualizace zastavit a spustit službu pomocí příkazů **net stop azlog** a **net start azlog**.
+Pokud vaše nastavení proxy serveru přímo neumožňuje přístup k úložišti Azure, otevřete **AZLOG. SOUBOR EXE. KONFIGURACE** souboru v **c:\Program Files\Microsoft Azure protokolu integrace**. Aktualizace souboru **defaultProxy –** oddíl s adresu proxy serveru v organizaci. Po dokončení aktualizace zastavit a spustit službu pomocí příkazů **net stop AzLog** a **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ Událost XML má následující metadata, včetně ID předplatného:
 ![Událost XML][1]
 
 ## <a name="error-messages"></a>Chybové zprávy
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Při spuštění příkazu **azlog createazureid**, proč se zobrazí chybová zpráva?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Při spuštění příkazu ```AzLog createazureid```, proč se zobrazí chybová zpráva?
 Chyba:
 
   *Nepodařilo se vytvořit aplikaci AAD - klienta 72f988bf-86f1-41af-91ab-2d7cd011db37-důvod = "Zakázáno" - zpráva = "Dostatečná oprávnění k dokončení operace."*

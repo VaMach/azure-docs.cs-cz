@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;chackdan;maburlik
+ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Vytvoření clusteru s podporou samostatné systémem Windows Server
 Azure Service Fabric můžete použít k vytvoření clusterů Service Fabric na všechny virtuální počítače nebo počítače se systémem Windows Server. To znamená, můžete nasazovat a spouštět aplikace Service Fabric v jakémkoli prostředí, které obsahuje sadu vzájemně propojena počítačů Windows serveru, je-li jej v místním nebo se všechny poskytovatele cloudových služeb. Service Fabric nabízí instalační balíček k vytvoření clusterů Service Fabric se nazývá samostatný balíček Windows Server.
@@ -136,7 +136,7 @@ Teď můžete připojit ke clusteru pomocí Service Fabric Exploreru buď přím
 Můžete přidávat nebo odebírat uzly do clusteru Service Fabric samostatné, podle potřeb organizace změnu. V tématu [přidávat nebo odebírat uzly do clusteru Service Fabric samostatné](service-fabric-cluster-windows-server-add-remove-nodes.md) podrobné pokyny.
 
 <a id="removecluster" name="removecluster_anchor"></a>
-## <a name="remove-a-cluster"></a>Odebrat cluster
+## <a name="remove-a-cluster"></a>Odebrání clusteru
 Chcete-li cluster odebrat, spusťte skript *RemoveServiceFabricCluster.ps1* prostředí PowerShell ze složky balíčku a předejte mu cestu ke konfiguračnímu souboru JSON. Volitelně můžete určit umístění pro protokol odstranění.
 
 Tento skript můžete spustit na jakýkoli počítač, který má práva správce pro všechny počítače, které jsou označeny jako uzly v souboru konfigurace clusteru. Na počítač, který tento skript je spuštěn na nemá být součástí clusteru.
@@ -193,7 +193,7 @@ Zakázat telemetrii, přidejte následující *vlastnosti* v souboru config clus
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Nasazení a odebírat aplikace pomocí prostředí PowerShell](service-fabric-deploy-remove-applications.md)
 * [Nastavení konfigurace pro samostatný cluster Windows](service-fabric-cluster-manifest.md)
 * [Přidávat nebo odebírat uzly do clusteru s podporou samostatné Service Fabric](service-fabric-cluster-windows-server-add-remove-nodes.md)

@@ -1,30 +1,12 @@
----
-title: "Kódy chyb SQL - Chyba připojení databáze | Microsoft Docs"
-description: "Další informace o kódy chyb SQL pro klientské aplikace SQL Database, například běžných chyb připojení databáze, problémů kopie databáze a obecné chyby. "
-keywords: "Kód chyby SQL, sql přístup, Chyba připojení databáze, kódy chyb sql"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
-ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ ---
+Title: kódy chyb SQL - Chyba připojení databáze | Popis Microsoft Docs: "Další informace o kódy chyb SQL pro klientské aplikace SQL Database, například běžných chyb připojení databáze, problémů kopie databáze a obecné chyby. "klíčová slova: Chyba připojení, kód chyby sql, přístup sql, databáze služby kódy chyby systému sql: documentationcenter databáze sql:" Autor: stevestein manager: jhubbard editor: "
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Kódy chyb SQL pro klientské aplikace SQL Database: Databáze chyb připojení a další problémy
 
-V tomto článku jsou uvedeny kódy chyb SQL pro klientské aplikace SQL Database, včetně chyb připojení databáze, přechodné chyby (také nazývané přechodných), prostředků zásad správného řízení chyb, problémů kopie databáze, elastický fond a dalších chyb. Většina kategorie jsou konkrétní do Azure SQL Database a nevztahují na Microsoft SQL Server.
+V tomto článku jsou uvedeny kódy chyb SQL pro klientské aplikace SQL Database, včetně chyb připojení databáze, přechodné chyby (také nazývané přechodných), prostředků zásad správného řízení chyb, problémů kopie databáze, elastický fond a dalších chyb. Většina kategorie jsou konkrétní do Azure SQL Database a nevztahují na Microsoft SQL Server. Viz také [systému chybové zprávy](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>K chybám připojení databáze, přechodné chyby a dalších dočasné chyb
 Následující tabulka obsahuje kódy chyb SQL pro chyby ztrátě připojení a jiné přechodné chyby, které se můžete setkat, když se aplikace pokusí o přístup k databázi SQL. Získání Začínáme kurzy o tom, jak připojit k databázi SQL Azure, najdete v části [připojení k databázi SQL Azure](sql-database-libraries.md).
@@ -37,7 +19,7 @@ Důrazně doporučujeme, aby váš klientský program má logika opakovaných po
 Chyby přechodná chyba se obvykle manifest jako jeden z následujících chybových zpráv z klientských programů:
 
 * Databáze &lt;%{db_name/&gt; na serveru &lt;Azure_instance&gt; není aktuálně k dispozici. Opakujte pokus o připojení později. Pokud potíže potrvají, obraťte se na zákaznickou podporu a poskytněte ID trasování relace &lt;session_id&gt;
-* Databáze &lt;%{db_name/&gt; na serveru &lt;Azure_instance&gt; není aktuálně k dispozici. Opakujte pokus o připojení později. Pokud potíže potrvají, obraťte se na zákaznickou podporu a poskytněte ID trasování relace &lt;session_id&gt;. (Microsoft SQL Server, chyba: 40613)
+* Databáze &lt;%{db_name/&gt; na serveru &lt;Azure_instance&gt; není aktuálně k dispozici. Opakujte pokus o připojení později. Pokud potíže potrvají, obraťte se na zákaznickou podporu a poskytněte ID trasování relace &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * Existující připojení bylo vzdáleným hostitelem nuceně uzavřeno.
 * System.Data.Entity.Core.EntityCommandExecutionException: Při provádění definice příkazu došlo k chybě. Viz vnitřní výjimka podrobnosti. ---> System.Data.SqlClient.SqlException: úrovni přenosu došlo k chybě při příjmu výsledků ze serveru. (Zprostředkovatel: zprostředkovatele relací, chyba: 19 – fyzické připojení není použitelná)
 * Pokus o připojení k sekundární databázi se nezdařila, protože databáze je právě reconfguration a je zaneprázdněný, použití nové stránky při uprostřed aktivní transakce na primární databáze. 
@@ -83,7 +65,7 @@ Při kopírování databáze Azure SQL Database může být zjištěny následuj
 | 40571 |16 |Kopírování databáze se nezdařilo z důvodu vnitřní chyby. Vyřaďte cílovou databázi a zkuste to znovu později. |
 
 ## <a name="resource-governance-errors"></a>Chyby zásad správného řízení zdrojů
-Tyto chyby jsou způsobeny nadměrnému využití prostředků při práci s Azure SQL Database. Například:
+Tyto chyby jsou způsobeny nadměrnému využití prostředků při práci s Azure SQL Database. Příklad:
 
 * Transakce byla otevřena příliš dlouho.
 * Transakce je příliš mnoho zámky.
@@ -125,7 +107,7 @@ K vytváření a používání elastické fondy se vztahují k následujícím c
 | 40868 |EX_USER |Na databázi maximální počet jednotek DTU nesmí překročit (%d) pro úroveň služby "%. * ls'. |Maximální počet jednotek DTU na databázi; úrovně služby elastického fondu. |Došlo k pokusu o nastavení maximální počet jednotek DTU na databázi překračuje podporovaný limit. | Zvažte použití úrovně služby elastického fondu, který podporuje požadované nastavení. |
 | 40870 |EX_USER |Minimální počet jednotek DTU na databázi nesmí překročit (%d) pro úroveň služby "%. * ls'. |Minimální počet jednotek DTU na databázi; úrovně služby elastického fondu. |Došlo k pokusu o nastavení minimální počet jednotek DTU na databázi překračuje podporovaný limit. | Zvažte použití úrovně služby elastického fondu, který podporuje požadované nastavení. |
 | 40873 |EX_USER |Počet databází (%d) a minimální počet jednotek DTU na databázi (%d) nemůže překročit počet jednotek Dtu elastického fondu (%d). |Počet databází v elastickém fondu; Minimální počet jednotek DTU na databázi; Počet jednotek Dtu elastického fondu. |Probíhá pokus o zadejte minimální počet jednotek DTU pro databáze v elastickém fondu, která překračuje počet jednotek Dtu elastického fondu. | Zvažte zvýšení počet jednotek Dtu elastického fondu nebo snížit minimální počet jednotek DTU na databázi nebo snížení počtu databází v elastickém fondu. |
-| 40877 |EX_USER |Fondu elastické databáze nelze odstranit, pokud neobsahuje žádné databáze. |Žádný |Elastický fond obsahuje jednu nebo více databází a proto nelze odstranit. |Chcete-li odstranit ho odeberte databáze z elastického fondu. |
+| 40877 |EX_USER |Fondu elastické databáze nelze odstranit, pokud neobsahuje žádné databáze. |Žádné |Elastický fond obsahuje jednu nebo více databází a proto nelze odstranit. |Chcete-li odstranit ho odeberte databáze z elastického fondu. |
 | 40881 |EX_USER |Elastický fond se %. * ls' bylo dosaženo limitu počtu databáze.  Limit počtu databáze pro elastický fond nesmí překročit (%d) pro elastický fond se (%d) Dtu. |Název elastického fondu; limit počtu databázi elastického fondu; Edtu pro fond zdrojů. |Probíhá pokus o vytvoření nebo přidat databáze do pružného fondu, pokud byl dosažen limit počtu databázi elastického fondu. | Zvažte zvýšení limitu databáze zvýšit počet jednotek Dtu elastického fondu pokud je to možné, nebo odebrat z fondu elastické databáze. |
 | 40889 |EX_USER |Počet jednotek Dtu nebo limit úložiště elastického fondu. %. * ls' nelze zmenšit, vzhledem k tomu, které by poskytují dostatek úložného prostoru pro jeho databáze. |Název elastického fondu. |Probíhá pokus o snížit limit úložiště elastického fondu pod jeho využití úložiště. | Zvažte snížení využití úložiště jednotlivých databází v elastickém fondu nebo odebrat databáze z fondu, abyste mohli snížit jeho Dtu nebo limit úložiště. |
 | 40891 |EX_USER |Minimální počet jednotek DTU na databázi (%d) nemůže být delší než maximální počet jednotek DTU na databázi (%d). |Minimální počet jednotek DTU na databázi; Maximální počet jednotek DTU na databázi. |Došlo k pokusu o nastavení minimální počet jednotek DTU na databázi vyšší než maximální počet jednotek DTU na databázi. |Zajistěte, aby že minimální počet jednotek DTU na databáze není delší než maximální počet jednotek DTU na databázi. |
@@ -209,7 +191,7 @@ Následující chyby nespadají do všech předchozích kategorií.
 | 45168 |16 |V systému SQL Azure je zatížen a umísťuje horní limit na souběžných operací DB CRUD pro jeden server (například vytvořit databázi). Server určený v chybové zprávě byla překročena maximální počet souběžných připojení. Zkuste to znovu později. |
 | 45169 |16 |V systému SQL azure je zatížení a je umístění horní limit počtu souběžných serveru operace CRUD pro v rámci jednoho předplatného (například vytvořit serveru). Předplatné zadané v chybové zprávě byla překročena maximální počet souběžných připojení a žádost byla odepřena. Zkuste to znovu později. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Přečtěte si informace o [funkce databáze Azure SQL](sql-database-features.md).
 * Přečtěte si informace o [úrovních služeb](sql-database-service-tiers.md).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z místního do Azure
 
@@ -72,17 +72,17 @@ Následující tabulka shrnuje podporu pro replikované operačního systému v 
 
 >[!NOTE]
 >
-> \*Windows Server 2016 Nano Server není podporována.
+> \* Windows Server 2016 Nano Server není podporována.
 >
 > Na Linuxových distribucích jsou podporovány pouze uložené jádra, které jsou součástí verzi nebo aktualizaci podverze rozdělení.
 >
 > Upgrady mezi hlavní verze Linux rozdělení na Azure Site Recovery chráněný virtuální počítač VMware nebo fyzický server není podporováno. Při upgradu operačního systému přes hlavní verze (například CentOS 6.* k CentOS 7.*), zakažte replikaci pro počítač, upgrade operačního systému na počítači a potom povolit replikaci znovu.
-> 
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Podporované verze Ubuntu jádra pro VMware nebo fyzické servery
 
-**Verze** | **Verze služby mobility** | **Verze jádra** |
+**Verze** | **Verze služby mobility** | Verze jádra |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic k 3.13.0-121-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic k 3.13.0-128-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-91-generic |
@@ -134,7 +134,7 @@ Multi-NIC | Ano | Ano
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Konfigurace sítě virtuálních počítačů Azure při selhání
 
-**Síť Azure** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
+Síť Azure | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Ano | Ano
 Interní nástroj pro vyrovnávání zatížení | Ano | Ano
@@ -166,7 +166,7 @@ S více cestami (MPIO)<br></br>Testovány s: Microsoft DSM, EMC PowerPath 5.7 SP
 VMDK | Ano | neuvedeno
 VHD/VHDX | neuvedeno | Ano
 Fin 2 virtuálních počítačů | neuvedeno | Ano
-EFI/UEFI| Migrace do Azure pro Windows Server 2012 a vyšší. </br></br> ** Viz poznámka na konci v tabulce.  | Ano
+EFI/UEFI| Migrace do Azure pro Windows Server 2012 a novější VMware pouze ve virtuálních počítačích. </br></br> ** Viz poznámka na konci v tabulce.  | Ano
 Sdílený disk clusteru | Ne | Ne
 Šifrované disku | Ne | Ne
 NFS | Ne | neuvedeno
@@ -182,10 +182,11 @@ Vyloučení disku | Ano | Ano
 S více cestami (MPIO) | neuvedeno | Ano
 
 > [!NOTE]
-> ** Rozhraní UEFI spouštění virtuálních počítačů VMware nebo fyzické servery se systémem Windows Server 2012 nebo novější, se dají migrovat na Azure. Platí následující omezení.
+> ** Rozhraní UEFI spouštění virtuálních počítačů VMware s Windows serverem 2012 nebo novější, se dají migrovat na Azure. Platí následující omezení.
 > - Pouze migrace do Azure. Navrácení služeb po obnovení k místní lokalitě VMware není podporována.
 > - Více než 4 oddíly jsou podporovány na disk operačního systému serveru.
 > - Vyžaduje verzi služby Azure Site Recovery Mobility 9.13 nebo novější.
+> - Není podporováno pro fyzických serverů.
 
 **Úložiště Azure** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
 --- | --- | ---
@@ -214,20 +215,20 @@ Managed Disks | Ano | Ano<br/><br/>Navrácení služeb po obnovení místně z v
 
 Site Recovery můžete nasadit za účelem replikace virtuálních počítačů a fyzických serverů s jakýmkoli operačním systémem podporovaným v Azure. To zahrnuje většinu verzí systému Windows a Linux. Místní, že virtuální počítače, které chcete replikovat, musí odpovídat následující požadavky pro Azure při replikaci do Azure.
 
-**Entity** | **Požadavky** | **Podrobnosti**
+**Entity** | Požadavky | **Podrobnosti**
 --- | --- | ---
 **Hostovaný operační systém** | Technologie Hyper-V na Azure replikaci: Site Recovery podporuje všechny operační systémy, které jsou [nepodporuje v Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Pro fyzický server replikace a VMware: Zkontrolujte Windows a Linux [požadavky](site-recovery-vmware-to-azure-classic.md) | Kontrola předpokladů se nezdaří, pokud není podporován.
 **Architektura operačního systému hosta** | 64 bitů | Kontrola předpokladů se nezdaří, pokud není podporován
-**Velikost disku operačního systému** | Pokud replikujete až 2048 GB **virtuální počítače VMware nebo fyzických serverů do Azure**.<br/><br/>Až 2048 GB pro **technologie Hyper-V generace 1** virtuálních počítačů.<br/><br/>Až 300 GB pro **virtuálních počítačů technologie Hyper-V generace 2**.  | Kontrola předpokladů se nezdaří, pokud není podporován
-**Počet disků operačního systému** | 1 | Kontrola předpokladů se nezdaří, pokud není podporován.
+**Velikost disku s operačním systémem** | Pokud replikujete až 2048 GB **virtuální počítače VMware nebo fyzických serverů do Azure**.<br/><br/>Až 2048 GB pro **technologie Hyper-V generace 1** virtuálních počítačů.<br/><br/>Až 300 GB pro **virtuálních počítačů technologie Hyper-V generace 2**.  | Kontrola předpokladů se nezdaří, pokud není podporován
+**Počet disků s operačním systémem** | 1 | Kontrola předpokladů se nezdaří, pokud není podporován.
 **Počet datových disků** | Pokud 64 nebo méně replikujete **virtuálních počítačů VMware do Azure**; 16 nebo méně Pokud replikujete **virtuálních počítačů Hyper-V do Azure** | Kontrola předpokladů se nezdaří, pokud není podporován
-**Velikost datového disku virtuálního pevného disku** | Až 4095 GB | Kontrola předpokladů se nezdaří, pokud není podporován
-**Síťové adaptéry** | Několik adaptérů jsou podporovány. |
+**Velikost datového virtuálního pevného disku** | Až 4 095 GB | Kontrola předpokladů se nezdaří, pokud není podporován
+**Síťové adaptéry** | Podporuje se více adaptérů |
 **Sdílený virtuální pevný disk** | Nepodporuje se | Kontrola předpokladů se nezdaří, pokud není podporován
-**FC disku** | Nepodporuje se | Kontrola předpokladů se nezdaří, pokud není podporován
-**Formát pevného disku** | VHD <br/><br/> VHDX | I když VHDX není aktuálně podporovaná v Azure, Site Recovery automaticky převede VHDX virtuálního pevného disku při selhání do Azure. Pokud selžou zpět na místní virtuální počítače nadále používat formát VHDX.
+**Disk FC** | Nepodporuje se | Kontrola předpokladů se nezdaří, pokud není podporován
+**Formát pevného disku** | VHD <br/><br/> VHDX | Přestože Azure v současné době formát VHDX nepodporuje, Site Recovery při převzetí služeb při selhání do Azure automaticky převede formát VHDX na VHD. Pokud selžou zpět na místní virtuální počítače nadále používat formát VHDX.
 **Bitlocker** | Nepodporuje se | Než začnete chránit virtuální počítač, musí se zakázat nástroj BitLocker.
-**Název virtuálního počítače.** | 1 až 63 znaků. Omezen na písmena, číslice a pomlčky. Název virtuálního počítače musí začínat a končit písmenem nebo číslicí. | Aktualizujte hodnotu ve vlastnostech virtuálního počítače ve službě Site Recovery.
+**Název virtuálního počítače** | 1 až 63 znaků. Pouze písmena, číslice a pomlčky. Název virtuálního počítače musí začínat a končit písmenem nebo číslicí. | Aktualizujte hodnotu ve vlastnostech virtuálního počítače ve službě Site Recovery.
 **Typ virtuálního počítače** | 1. generace<br/><br/> Generace 2 – Windows | Virtuální počítače generace 2 se typ disku operačního systému basic (která zahrnuje jednu nebo dvě datové svazky naformátované jako VHDX) a menší než 300 GB místa na disku jsou podporovány.<br></br>Virtuální počítače s Linuxem generace 2 nejsou podporované. [Další informace](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="support-for-recovery-services-vault-actions"></a>Podpora pro akce trezoru služeb zotavení
@@ -240,7 +241,7 @@ Přesunout úložiště, sítě, virtuální počítače Azure mezi skupinami pr
 
 ## <a name="support-for-provider-and-agent"></a>Podpora pro zprostředkovatel a Agent
 
-**Název** | **Popis** | **Nejnovější verzi** | **Podrobnosti**
+**Název** | **Popis** | **nejnovější verzi** | **Podrobnosti**
 --- | --- | --- | --- | ---
 **Zprostředkovatele Azure Site Recovery** | Koordinuje komunikaci mezi místními servery a Azure <br/><br/> Nainstalovat na místní servery nástroje Virtual Machine Manager nebo na servery Hyper-V, pokud neexistuje žádný server nástroje Virtual Machine Manager | 5.1.2700.1 (k dispozici z portálu) | [Nejnovější funkce a opravy](https://aka.ms/latest_asr_updates)
 **Azure Site Recovery sjednocený instalační program (VMware do Azure)** | Koordinuje komunikaci mezi místními servery VMware a Azure <br/><br/> Nainstalovat na místní servery VMware | 9.12.4653.1 (k dispozici z portálu) | [Nejnovější funkce a opravy](https://aka.ms/latest_asr_updates)

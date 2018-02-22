@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 350b20dbff306221fbedd069ef378f11e2ec1415
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 7013cb48738d4dccb328728fe1e47b3f43bff4f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Používat přiřazený uživatelem spravované služby Identity (MSI) na virtuální počítač s Linuxem, pro přístup k Azure Resource Manager
 
@@ -55,7 +55,7 @@ Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://p
 
 Pro tento kurz je nejprve vytvořit nový virtuální počítač s Linuxem. Můžete se také rozhodnout použít existující virtuální počítač.
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Klikněte na tlačítko **vytvořit prostředek** v levém horním rohu portálu Azure.
 2. Vyberte **Compute** a potom vyberte **Ubuntu Server 16.04 LTS**.
 3. Zadejte informace o virtuálním počítači. Pro **typ ověřování**, vyberte **veřejný klíč SSH** nebo **heslo**. Vytvořené pověření umožňují přihlášení k virtuálnímu počítači.
 

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Omezení prostředí cloudu Azure
 
@@ -33,7 +33,6 @@ Na počítač, který obsahuje vaše cloudové prostředí relace je dočasný a
 * S použitím připojené úložiště, pouze změny v rámci `clouddrive` adresáře jsou nastavené jako trvalé. V Bash vaše `$Home` adresáře je také jako trvalý.
 * Sdílené složky Azure může být připojen pouze z uvnitř vaší [přiřazené oblast](persisting-shell-storage.md#mount-a-new-clouddrive).
   * V Bash, spusťte `env` najít vaší oblasti nastavit jako `ACC_LOCATION`.
-* Soubory Azure podporuje pouze místně redundantního úložiště a účty geograficky redundantní úložiště.
 
 ### <a name="browser-support"></a>Podpora prohlížeče
 
@@ -55,18 +54,11 @@ Cloudové prostředí je určen pro případy použití interaktivní. V důsled
 
 ### <a name="user-permissions"></a>Uživatelská oprávnění
 
-Máte nastavená oprávnění jako běžní uživatelé bez přístupu sudo. Všechny instalace mimo vaší `$Home` adresáře není trvalý.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB omezenými oprávněními
-Některé příkazy v rámci `clouddrive` adresář, jako třeba `git clone`, ještě nemá příslušná oprávnění pro čtení/zápisu určitých souborů. Jestli jste nedosáhli tento problém, zkuste to znovu z vaší `$Home` adresář, který nemá omezení protokolu SMB.
+Máte nastavená oprávnění jako běžní uživatelé bez přístupu sudo. Všechny instalace mimo vaší `$Home` nebo `clouddrive` adresáře není trvalý.
 
 ### <a name="editing-bashrc"></a>Úpravy .bashrc
 
-Proveďte opatrní při úpravě .bashrc, tak může způsobit neočekávané chyby v prostředí cloudu.
-
-### <a name="bashhistory"></a>.bash_history
-
-Historii bash příkazy může být nekonzistentní z důvodu narušení relace prostředí cloudu nebo souběžných relací.
+Proveďte opatrní při úpravě .bashrc, tak může způsobit neočekávané chyby s Bash v prostředí cloudu.
 
 ## <a name="powershell-limitations"></a>Omezení prostředí PowerShell
 

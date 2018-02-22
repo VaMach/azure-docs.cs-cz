@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Uživatelská příručka k přípravě dat 
 Azure Machine Learning Data přípravy prostředí nabízí spoustu bohaté funkce. Tento článek obsahuje informace o části nejhlubší prostředí.
@@ -89,7 +89,7 @@ Chcete-li rozvětvit:
 4. Po **podmínky**, vyberte **vytvořit toku dat obsahující řádky filtrované Out** Chcete-li rozvětvit sady do nové toku dat bez zobrazení výsledků.
 
 
-Tento postup se často používá k oddělení se sada dat, která vyžaduje další přípravy. Poté, co jste wrangle forked datovou sadu, je běžné slučování dat s do sady výsledků v původní datový tok. Pokud chcete provést sloučení (zpětného operace rozvětvení), použijte jednu z následujících akcí:
+Tento postup se často používá k oddělení se sada dat, která vyžaduje další přípravy. Poté, co jste připravili forked datovou sadu, je běžné slučování dat s do sady výsledků v původní datový tok. Pokud chcete provést sloučení (zpětného operace rozvětvení), použijte jednu z následujících akcí:
 
 - **Připojit řádky**. Sloučit dva nebo více toků dat svisle (row-wise). 
 - **Připojit sloupce**. Sloučit dva nebo více toků dat vodorovně (column-wise).

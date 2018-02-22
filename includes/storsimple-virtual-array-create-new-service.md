@@ -2,7 +2,7 @@
 
 1.  Pomocí přihlašovacích údajů k účtu Microsoft se přihlaste na webu Azure Portal na této adrese URL: <https://portal.azure.com/>. Pokud nasazení zařízení na portál Government, přihlaste se na: <https://portal.azure.us/>
 
-2.  Na portálu Azure klikněte na tlačítko **+ nový** &gt; **úložiště** &gt; **virtuální řady StorSimple**.
+2.  Na portálu Azure klikněte na tlačítko **+ vytvořit prostředek** &gt; **úložiště** &gt; **virtuální řady StorSimple**.
 
     ![Vytvoření nové služby](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

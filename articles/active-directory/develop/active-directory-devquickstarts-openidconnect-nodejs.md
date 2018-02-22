@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Začínáme se službou Azure AD Node.js webové aplikace
 Tady používáme Passport:
@@ -48,14 +48,14 @@ Dokončená aplikace je k dispozici na konci tohoto kurzu také.
 
 2. V nabídce v horní části stránky vyberte svůj účet. V části **Directory** vyberte klienta služby Active Directory, kde chcete registrace vaší aplikace.
 
-3. Vyberte **více služeb** v nabídce na levé straně obrazovky a pak vyberte **Azure Active Directory**.
+3. Vyberte **všechny služby** v nabídce na levé straně obrazovky a pak vyberte **Azure Active Directory**.
 
 4. Vyberte **registrace aplikace**a potom vyberte **přidat**.
 
 5. Postupujte podle výzev a vytvořte **webové aplikace** nebo **WebAPI**.
   * **Název** aplikace popisuje vaší aplikace pro uživatele.
 
-  * **Přihlašovací adresa URL** je základní adresu URL aplikace.  Kostru je výchozí hodnota je ' http://localhost: 3000/auth/openid nebo vrátit hodnotu.
+  * **Přihlašovací adresa URL** je základní adresu URL aplikace.  Výchozí hodnota kostru je `http://localhost:3000/auth/openid/return`.
 
 6. Po registraci, Azure AD přiřadí vaší aplikace ID jedinečný aplikace. Je třeba tuto hodnotu v následujících částech, zkopírujte jej ze stránky aplikace.
 7. Z **nastavení** -> **vlastnosti** stránky pro aplikace, aktualizujte identifikátor ID URI aplikace. **Identifikátor ID URI aplikace** je jedinečný identifikátor pro vaši aplikaci. Konvence, je použít formát `https://<tenant-domain>/<app-name>`, například: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -252,7 +252,7 @@ Předchozí kód přijímá jakéhokoli uživatele, které dochází k ověřov�
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Krok 4: Použití služby Passport pro zasílání požadavků na přihlášení a odhlášení do Azure AD
-Aplikace je nyní správně nakonfigurován pro komunikaci s koncovým bodem pomocí ověřovacího protokolu OpenID Connect.  `passport-azure-ad`má postaráno všechny podrobnosti o věnujte zpráv ověřování, ověřování tokenů z Azure AD a údržbě uživatelských relací. Všechny, které zůstává je udělení uživatelům způsob, jak přihlášení a odhlášení a shromažďování Další informace o přihlášených uživatelů.
+Aplikace je nyní správně nakonfigurován pro komunikaci s koncovým bodem pomocí ověřovacího protokolu OpenID Connect.  `passport-azure-ad` má postaráno všechny podrobnosti o věnujte zpráv ověřování, ověřování tokenů z Azure AD a údržbě uživatelských relací. Všechny, které zůstává je udělení uživatelům způsob, jak přihlášení a odhlášení a shromažďování Další informace o přihlášených uživatelů.
 
 1. Nejprve přidejme výchozí, přihlášení, účet a odhlášení metody pro naše `app.js` souboru:
 
@@ -402,7 +402,7 @@ Nyní `app.js` dokončení. Musíme jednoduše přidat trasy a zobrazení, kter�
     </html>
     ```
 
-##<a name="next-steps"></a>Další kroky
+##<a name="next-steps"></a>Další postup
 Nakonec sestavte a spusťte aplikaci. Spustit `node app.js`a pak přejděte na `http://localhost:3000`.
 
 Přihlaste se pomocí osobního účtu Microsoft nebo pracovní nebo školní účet a Všimněte si, jak se v seznamu /account projeví identitu uživatele. Nyní máte webovou aplikaci, která je zabezpečen pomocí standardních oborových protokolech, které může ověřit uživatele s svoje osobní, tak i pracovní nebo školní účty.

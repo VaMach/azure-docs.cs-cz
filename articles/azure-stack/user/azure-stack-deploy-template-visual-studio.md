@@ -3,8 +3,8 @@ title: "Nasazení šablon pomocí sady Visual Studio v zásobníku Azure | Micro
 description: "Informace o nasazení šablony pomocí sady Visual Studio v zásobníku Azure."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 628da2ae-64cc-42e0-b8b7-a6a3724cb974
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 8fc32dc50d96d202dfc982cbdc52d8e479c3a3eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: ecefa8c3695aad0593516cb9ad8812216e163192
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Nasazení šablon v zásobníku Azure pomocí sady Visual Studio
 
@@ -39,7 +40,7 @@ Pomocí sady Visual Studio k nasazení šablony Azure Resource Manager zásobní
 11. V **umístění skupiny prostředků** seznam, vyberte umístění a pak klikněte na tlačítko **nasadit**.
 12. V **upravit parametry** dialogovém okně zadejte hodnoty pro parametry (které se liší podle šablony) a potom klikněte na **Uložit**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Nasazení šablon pomocí příkazového řádku](azure-stack-deploy-template-command-line.md)
 
 [Vývoj šablon pro Azure zásobníku](azure-stack-develop-templates.md)

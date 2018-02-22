@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: c5331a7f658feacba4b03dd3b5ba8ddb23738051
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfcf4c98a27f6ea31b92f51737e9ca3768da8f5c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Vytvoření služby zahrnuté do bezplatný účet Azure
 
 Bezplatný účet Azure zahrnuje určitého množství bezplatné služby po dobu 12 měsíců. Další informace najdete v tématu [co je bezplatný účet Azure](https://azure.microsoft.com/free/free-account-faq/). Azure sleduje vaše využití každé služby a není účtují Pokud překročit mezní hodnoty. V rámci těchto limitů bezplatný účet Azure poskytuje možnost používat různé konfigurace služby podle svých potřeb. 
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Vytvořit bezplatné služby na portálu Azure
-Doporučujeme použít [stránku bezplatné služby](https://go.microsoft.com/fwlink/?linkid=859151) k vytvoření nové služby. Nebo se můžete přihlásit [portál Azure](http://portal.azure.com), vyberte **další služby** na dolní vlevo a vyhledávání v **bezplatné služby**. 
+Doporučujeme použít [stránku bezplatné služby](https://go.microsoft.com/fwlink/?linkid=859151) k vytvoření nové služby. Nebo se můžete přihlásit [portál Azure](http://portal.azure.com), vyberte **všechny služby** vlevo a vyhledávání v **bezplatné služby**. 
 
 ## <a name="services-can-be-created-in-any-region"></a>Služby můžete vytvořit v libovolné oblasti
 Dokud se v rámci omezení, můžete vytvořit služby zdarma v libovolné oblasti, kde jsou k dispozici služby. Například získat 750 hodin virtuálního počítače s B1S Windows volné každý měsíc s bezplatný účet Azure. Virtuální počítač můžete vytvořit v libovolné oblasti, kde jsou dostupné B-series virtuální počítače. Azure nepodporuje účtují, pokud překročit 750 hodin. Zákazník v USA můžete například zřízení virtuálního počítače s B1S Windows v oblasti západní Evropa a použít ho 750 hodin zdarma. 

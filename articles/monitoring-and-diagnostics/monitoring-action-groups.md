@@ -1,8 +1,8 @@
 ---
 title: "Vytvoření a Správa skupin akce na portálu Azure | Microsoft Docs"
 description: "Naučte se vytvářet a spravovat skupiny akce na portálu Azure."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
-ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Vytvoření a Správa skupin akce na portálu Azure
 ## <a name="overview"></a>Přehled ##
 Tento článek ukazuje, jak vytvořit a spravovat skupiny akce na portálu Azure.
 
-Seznam akcí, můžete nakonfigurovat skupiny akcí. Tyto skupiny pak lze použít při definování aktivity protokolu výstrahy. Tyto skupiny můžete použít znovu pak Každá výstraha aktivity protokolu, které definujete, zajistíte, že jsou stejné akce trvá pokaždé, když se aktivuje výstraha aktivity protokolu.
+Seznam akcí, můžete nakonfigurovat skupiny akcí. Tyto skupiny pak může být použit jednotlivé výstrahy, které definujete, zajistíte, že jsou stejné akce trvá pokaždé, když se výstraha.
 
 Skupinu akce může mít až 10 každý typ akce. Každá akce se skládá z následujících vlastností:
 
@@ -56,7 +56,7 @@ Informace o tom, jak pomocí šablony Azure Resource Manager můžete nakonfigur
 
     a. **Název**: Zadejte jedinečný identifikátor pro tuto akci.
 
-    b. **Typ akce**: Vyberte SMS, e-mailu, webhooku, aplikace Azure, ITSM nebo sady Automation Runbook.
+    b. **Typ akce**: Vyberte e-mailu nebo SMS nebo Azure aplikace, Webhooku, ITSM nebo sady Automation Runbook.
 
     c. **Podrobnosti o**: v závislosti na typu akce, zadejte telefonní číslo, e-mailovou adresu, webhooku identifikátor URI, aplikace Azure, ITSM připojení nebo sady Automation runbook. Pro akci ITSM kromě určit **pracovní položka** a vyžaduje vaše nástroje ITSM další pole.
 

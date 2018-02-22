@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: v-craic
-ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7a0a86f658ac19bfb197c7e233b8717bf9fba40b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Připojit nebo odpojit datový disk k virtuálnímu počítači v Azure DevTest Labs
 [Disky systému Azure spravované](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) spravuje účty úložiště přidružené ke datových disků virtuálního počítače. Uživatel připojí, nová data na disku k virtuálnímu počítači, určuje typ a velikost disku, který je potřeba, a Azure vytváří a spravuje disku automaticky. Z virtuálního počítače lze poté odpojit datový disk a buď znovu připojit později na stejný virtuální počítač nebo připojené k jiné virtuální počítač, který patří do stejného uživatele.
@@ -35,7 +35,7 @@ Než můžete připojit datový disk k virtuálnímu počítači, projděte si t
 Postupujte podle těchto kroků a vytvořte nový spravovaný datový disk k virtuálnímu počítači v Azure DevTest Labs.
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+1. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 1. Ze seznamu labs vyberte požadované testovací prostředí. 
 1. Ze seznamu **Můj virtuální počítače**, vyberte spuštění virtuálního počítače.
 1. V nabídce na levé straně vyberte **disky**.

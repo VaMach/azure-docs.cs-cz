@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Sledování aktivity předplatné s protokol činnosti Azure
 **Protokol činnosti Azure** je protokol odběru, který poskytuje přehled o události na úrovni předplatného, k nimž došlo v Azure. To zahrnuje celou řadu dat z provozních dat Azure Resource Manager aktualizací na události stavu služby. Protokol aktivit se dřív označovala jako "Protokoly auditu" nebo "Provozní protokoly," od události administrativní kategorie sestavy rovině řízení pro vaše předplatné. Pomocí protokolu činnosti, můžete určit ', kdo a kdy se pro všechny zápisu operace (PUT, POST, DELETE) na prostředky v rámci vašeho předplatného. Můžete také chápou stav operace a další relevantní vlastnosti. Protokol aktivit nezahrnuje operace čtení (GET) nebo operace pro prostředky, které používají Classic nebo model "RDFE".
@@ -73,9 +73,9 @@ Tady jsou některé z akcí, které můžete provést pomocí protokolu aktivit:
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Dotaz protokol aktivit na portálu Azure
 V rámci portálu Azure můžete zobrazit aktivitu protokolu na několika místech:
-* **Okno Protokol činnosti**, kterým můžete přistupovat tak, že protokol aktivit v části "Další služby" v levém navigačním podokně.
-* **Monitorování okno**, která se zobrazí ve výchozím nastavení v levém navigačním podokně. Protokol aktivit je jeden oddíl tohoto okna Azure monitorování.
-* Jakémukoli prostředku **okna prostředků**, například okno konfigurace pro virtuální počítač. Protokol aktivit je být jedna z částí většina těchto oken prostředků a kliknete na něm automaticky vyfiltruje události, které s ohledem na konkrétní prostředku.
+* **Protokol aktivit** , může přistupovat tak, že protokol aktivit v části **všechny služby** v levém navigačním podokně.
+* **Monitorování** se zobrazuje v levém navigačním podokně. Protokol aktivit je jeden oddíl Azure monitorování.
+* Jakémukoli prostředku **prostředků**, například okno konfigurace pro virtuální počítač. Protokol aktivit je být jedna z částí většina těchto oken prostředků a kliknete na něm automaticky vyfiltruje události, které s ohledem na konkrétní prostředku.
 
 Na portálu Azure můžete filtrovat aktivity protokolu podle těchto polí:
 * Časový interval – počáteční a koncový čas pro události.
@@ -113,7 +113,7 @@ Tato nastavení lze nakonfigurovat pomocí možnosti "Export" v okně Protokol a
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Konfigurace protokolu profilů pomocí portálu Azure
 Můžete datového proudu protokolu aktivit do centra událostí nebo uložit je do účtu úložiště pomocí možnosti "Export" na webu Azure portal.
 
-1. Přejděte na **protokol aktivit** okno pomocí nabídky na levé straně na portálu.
+1. Přejděte na **protokol aktivit** pomocí nabídky na levé straně na portálu.
 
     ![Přejděte na protokol aktivit v portálu](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Klikněte **exportovat** tlačítka v horní části okna.

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f374e846dd0f67627c3caaa5b29e8bfb258f470
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 410c2ee581a98a44e7c3c98e680686e5a1eae34e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Spouštění dotazů Hive pomocí nástroje Data Lake pro Visual Studio
 
@@ -43,7 +43,7 @@ Zjistěte, jak pomocí nástrojů Data Lake pro Visual Studio pro Apache Hive do
 
 * Nástroje HDInsight pro Visual Studio nebo nástroje Azure Data Lake pro Visual Studio. V tématu [začněte používat nástroje Visual Studio Hadoop pro HDInsight](apache-hadoop-visual-studio-tools-get-started.md) informace o instalaci a konfiguraci nástroje.
 
-## <a id="run"></a>Spouštění dotazů Hive pomocí sady Visual Studio
+## <a id="run"></a> Spouštění dotazů Hive pomocí sady Visual Studio
 
 1. Otevřete **Visual Studio** a vyberte **nový** > **projektu** > **Azure Data Lake**  >   **HIVE** > **podregistru aplikace**. Zadejte název pro tento projekt.
 
@@ -75,7 +75,7 @@ Zjistěte, jak pomocí nástrojů Data Lake pro Visual Studio pro Apache Hive do
 
    * `SELECT`: Vyberte počet všech řádků kde sloupec `t4` obsahuje hodnotu `[ERROR]`. Tento příkaz vrátí hodnotu `3` vzhledem k tomu, že existují tři řádky, které obsahují tuto hodnotu.
 
-   * `INPUT__FILE__NAME LIKE '%.log'`-Informuje Hive, jsme by měl vrátit pouze data ze souborů končící na. log. Tuto klauzuli omezuje hledání sample.log soubor, který obsahuje data.
+   * `INPUT__FILE__NAME LIKE '%.log'` -Informuje Hive, jsme by měl vrátit pouze data ze souborů končící na. log. Tuto klauzuli omezuje hledání sample.log soubor, který obsahuje data.
 
 3. Na panelu nástrojů vyberte **clusteru HDInsight** , kterou chcete použít pro tento dotaz. Vyberte **odeslání** spustit příkazy jako úlohy Hive.
 

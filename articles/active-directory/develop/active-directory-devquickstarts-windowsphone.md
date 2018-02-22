@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc243f4ca6d323bf2b90cb9ab8fa9b77e1df9f8e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD na Windows Phone Začínáme
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -55,7 +55,7 @@ Chcete-li aplikaci, kterou chcete získat tokeny, budete nejprve muset zaregistr
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na tlačítko na vašem účtu a v části **Directory** vyberte klienta služby Active Directory, kam chcete registrace vaší aplikace.
-3. Klikněte na **více služeb** v navigaci vlevo a zvolte **Azure Active Directory**.
+3. Klikněte na **všechny služby** v navigaci vlevo a zvolte **Azure Active Directory**.
 4. Klikněte na **registrace aplikace** a zvolte **přidat**.
 5. Postupujte podle výzev a vytvořte novou **nativní klientská aplikace**.
   * **Název** aplikace popíše aplikaci pro koncové uživatele

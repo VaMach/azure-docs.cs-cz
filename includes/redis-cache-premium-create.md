@@ -1,4 +1,4 @@
-Pokud chcete vytvořit mezipaměť Premium, přihlaste se k webu [Azure Portal](https://portal.azure.com) a klikněte na **Nový**,  > **Databáze** > **Mezipaměť Redis**.
+K vytvoření mezipaměti se premium, přihlaste se do [portál Azure](https://portal.azure.com) a klikněte na tlačítko **vytvořit prostředek** > **databáze** > **Redis Cache** .
 
 ![Vytvoření mezipaměti](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 

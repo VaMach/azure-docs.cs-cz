@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: 55a6c5cd5a0544b297bb68841c5ff0314f48dcc9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Vytvoření prostředí více virtuálních počítačů a PaaS prostředky pomocí šablony Azure Resource Manager
 
@@ -65,7 +65,7 @@ Existuje několik pravidel pro organizování šablon Azure Resource Manager úl
 Následující postup vás provede přidání úložiště do testovacího prostředí pomocí portálu Azure. 
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+1. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 1. Ze seznamu labs vyberte požadované testovací prostředí.   
 1. V tomto prostředí **přehled** podokně, vyberte **konfiguraci a zásady**.
 
@@ -95,7 +95,7 @@ V další části vás provede procesem vytvoření prostředí z šablony Azure
 Po byl nakonfigurován jako úložiště šablony Azure Resource Manager v testovacím prostředí, můžete vytvořit vaši uživatelé testovacím prostředí pomocí portálu Azure pomocí následujících kroků:
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+1. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 1. Ze seznamu labs vyberte požadované testovací prostředí.   
 1. V tomto prostředí podokně vyberte **přidat +**.
 1. **Zvolte na základní** podokně zobrazí základní Image můžete používat s šablon Azure Resource Manageru uvedená jako první. Vyberte požadované šablony Azure Resource Manager.
@@ -109,9 +109,9 @@ Po byl nakonfigurován jako úložiště šablony Azure Resource Manager v testo
     > [!NOTE]
     > Existuje několik hodnot parametrů, které - i v případě, že zadaný - se zobrazují jako prázdné hodnoty. Proto pokud uživatelé přiřadit tyto hodnoty na parametry v šablonu Azure Resource Manager, DevTest Labs nezobrazuje hodnoty. Prázdný vstupní pole místo toho se zobrazí, kde lab uživatelů musíte zadat hodnotu, při vytváření prostředí.
     > 
-    > - GEN JEDINEČNÝ
-    > - -JEDINEČNÉ - GENERACE [N]
-    > - GEN--PUB-KLÍČ SSH
+    > - GEN-UNIQUE
+    > - GEN-UNIQUE-[N]
+    > - GEN-SSH-PUB-KEY
     > - GEN-HESLO 
  
 1. Vyberte **přidat** vytvořte prostředí. Prostředí spustí zřizování okamžitě s stav zobrazení v **Můj virtuální počítače** seznamu. Automaticky vytvoří novou skupinu prostředků se testovací prostředí pro zajištění všech prostředků, které jsou definované v šablony Azure Resource Manageru.

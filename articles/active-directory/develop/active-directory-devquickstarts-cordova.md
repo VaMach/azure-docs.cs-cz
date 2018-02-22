@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Začínáme se službou Azure AD Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -88,7 +88,7 @@ Azure AD vydá tokeny pouze známé aplikací. Než z vaší aplikace můžete p
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na váš účet. V **Directory** vyberte klienta Azure AD, kam chcete registrace vaší aplikace.
-3. Klikněte na tlačítko **více služeb** v levém podokně a potom vyberte **Azure Active Directory**.
+3. Klikněte na tlačítko **všechny služby** v levém podokně a potom vyberte **Azure Active Directory**.
 4. Klikněte na tlačítko **registrace aplikace**a potom vyberte **přidat**.
 5. Postupujte podle výzev a vytvořte **nativní klientská aplikace**. (I když jsou aplikace Cordova na základě HTML, vytváříme nativní klientskou aplikaci. **Nativní klientská aplikace** musí být vybraná volba nebo aplikace nebude fungovat.)
   * **Název** popisuje vaší aplikace pro uživatele.
@@ -121,8 +121,8 @@ K vytvoření aplikace Cordova několika způsoby. V tomto kurzu použijeme Cord
 
 3. Kopírovat obsah projektu starter v podsložce www pomocí Správce souborového nebo následující příkaz ve vašem prostředí:
 
-  * Windows:`xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
-  * Mac:`cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
+  * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
+  * Mac: `cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
 4. Přidáte modul plug-in seznamu povolených IP adres. To je nezbytné pro volání rozhraní Graph API.
 
@@ -244,9 +244,9 @@ Při dalším spuštění provede vyhledávání bez zobrazení všech řádku d
 Konkrétní kroky pro spuštění aplikace se liší podle platformy.
 
 ### <a name="windows-10"></a>Windows 10
-   Tabletu:`cordova run windows --archs=x64 -- --appx=uap`
+   Tabletu: `cordova run windows --archs=x64 -- --appx=uap`
 
-   Mobilní zařízení (vyžaduje připojení k počítači zařízení Windows 10 Mobile):`cordova run windows --archs=arm -- --appx=uap --phone`
+   Mobilní zařízení (vyžaduje připojení k počítači zařízení Windows 10 Mobile): `cordova run windows --archs=arm -- --appx=uap --phone`
 
    > [!NOTE]
    > Při prvním spuštění může vyzváni k přihlášení pro vývojáře licenci. Další informace najdete v tématu [vývojáře licence](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
@@ -258,25 +258,25 @@ Konkrétní kroky pro spuštění aplikace se liší podle platformy.
    > Při prvním spuštění může vyzváni k přihlášení pro vývojáře licenci. Další informace najdete v tématu [vývojáře licence](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### <a name="windows-phone-81"></a>Windows Phone 8.1
-   Ke spuštění na připojeném zařízení:`cordova run windows --device -- --phone`
+   Ke spuštění na připojeném zařízení: `cordova run windows --device -- --phone`
 
-   Ke spuštění na výchozí emulátor:`cordova emulate windows -- --phone`
+   Ke spuštění na výchozí emulátor: `cordova emulate windows -- --phone`
 
    Použití `cordova run windows --list -- --phone` zobrazíte všechny dostupné cíle a `cordova run windows --target=<target_name> -- --phone` ke spuštění aplikace na určité zařízení nebo emulátoru (například `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
 ### <a name="android"></a>Android
-   Ke spuštění na připojeném zařízení:`cordova run android --device`
+   Ke spuštění na připojeném zařízení: `cordova run android --device`
 
-   Ke spuštění na výchozí emulátor:`cordova emulate android`
+   Ke spuštění na výchozí emulátor: `cordova emulate android`
 
    Ujistěte se, že jste vytvořili instanci emulátoru pomocí Správce AVD, jak je popsáno výše v části "Požadavky".
 
    Použití `cordova run android --list` zobrazíte všechny dostupné cíle a `cordova run android --target=<target_name>` ke spuštění aplikace na určité zařízení nebo emulátoru (například `cordova run android --target="Nexus4_emulator"`).
 
 ### <a name="ios"></a>iOS
-   Ke spuštění na připojeném zařízení:`cordova run ios --device`
+   Ke spuštění na připojeném zařízení: `cordova run ios --device`
 
-   Ke spuštění na výchozí emulátor:`cordova emulate ios`
+   Ke spuštění na výchozí emulátor: `cordova emulate ios`
 
    > [!NOTE]
    > Zajistěte, aby byla `ios-sim` nainstalována pro spouštění v emulátoru balíčku. Další informace najdete v části "Požadavky".
@@ -285,7 +285,7 @@ Konkrétní kroky pro spuštění aplikace se liší podle platformy.
 
     Use `cordova run --help` to see additional build and run options.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pro srovnání je hotová ukázka (bez vašich hodnot nastavení) k dispozici v [Githubu](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
 Nyní se můžete přesunout pokročilejší (a zajímavějšího) scénářů. Můžete chtít zkuste: [zabezpečit webové rozhraní Node.js API s Azure AD](active-directory-devquickstarts-webapi-nodejs.md).

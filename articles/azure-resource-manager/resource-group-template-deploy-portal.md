@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Nasazení prostředků pomocí šablon Resource Manageru a portálu Azure Portal
 
@@ -47,7 +47,7 @@ Toto téma ukazuje, jak používat [portál Azure](https://portal.azure.com) s [
 
 Po vytvoření skupiny prostředků, můžete nasadit prostředky k němu z Marketplace. Marketplace obsahuje předem definovaná řešení pro běžné scénáře.
 
-1. Chcete-li spustit nasazení, vyberte **nový**.
+1. Chcete-li spustit nasazení, vyberte **vytvořit prostředek**.
 
    ![Nový prostředek](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -65,7 +65,7 @@ Po vytvoření skupiny prostředků, můžete nasadit prostředky k němu z Mark
 
    Alternativně můžete vytvořit skupinu prostředků, při nasazení vašich prostředků. Vyberte **vytvořit nový** a zadejte název skupiny prostředků.
 
-   ![Vytvořit novou skupinu zdrojů](./media/resource-group-template-deploy-portal/select-new-group.png)
+   ![Vytvořte novou skupinu prostředků](./media/resource-group-template-deploy-portal/select-new-group.png)
 
 1. Spustí se vaše nasazení. Nasazení může trvat několik minut. Pokud nasazení úspěšně proběhlo, zobrazí se upozornění.
 
@@ -73,13 +73,13 @@ Po vytvoření skupiny prostředků, můžete nasadit prostředky k němu z Mark
 
 1. Po nasazení vašich prostředků, můžete přidat více prostředků do skupiny prostředků tak, že vyberete **přidat**.
 
-   ![Přidání prostředku](./media/resource-group-template-deploy-portal/add-resource.png)
+   ![Přidat prostředek](./media/resource-group-template-deploy-portal/add-resource.png)
 
 ## <a name="deploy-resources-from-custom-template"></a>Nasadit prostředky z vlastní šablony
 
 Pokud chcete provést nasazení, ale nechcete použít některou z šablon na webu Marketplace, můžete vytvořit vlastní šablonu, která definuje infrastrukturu pro vaše řešení. Další informace o vytváření šablon najdete v tématu [pochopit strukturu a syntaxe šablon Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Nasadit vlastní šablonu prostřednictvím portálu, vyberte **nový**a vyhledejte **nasazení šablony** dokud ho můžete vybrat z možností.
+1. Nasadit vlastní šablonu prostřednictvím portálu, vyberte **vytvořit prostředek**a vyhledejte **nasazení šablony** dokud ho můžete vybrat z možností.
 
    ![nasazení šablony vyhledávání](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -97,7 +97,7 @@ Pokud chcete provést nasazení, ale nechcete použít některou z šablon na we
 
 1. Můžete upravit syntaxe JSON ručně, nebo vybrat předdefinovaných šablony z [galerii pro rychlý start šablony](https://azure.microsoft.com/resources/templates/). Však použít pro tento článek **přidat prostředek** možnost.
 
-   ![Úprava šablony](./media/resource-group-template-deploy-portal/select-add-resource.png)
+   ![Upravit šablonu](./media/resource-group-template-deploy-portal/select-add-resource.png)
 
 1. Vyberte **účet úložiště** a zadejte název. Po dokončení zadáním hodnot, vyberte **OK**.
 
@@ -131,7 +131,7 @@ Na portálu můžete uložit šablonu k účtu Azure a znovu ji nasaďte pozděj
 
    ![nasazení uloženého šablony](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Chcete-li zobrazit protokoly auditu, najdete v části [auditovat operace s Resource Managerem](resource-group-audit.md).
 * Chcete-li vyřešit chyby nasazení, přečtěte si téma [zobrazit operace nasazení](resource-manager-deployment-operations.md).
 * Pokud chcete načíst šablonu z nasazení nebo skupinu prostředků, najdete v části [šablony exportovat Azure Resource Manageru ze stávajících prostředků](resource-manager-export-template.md).

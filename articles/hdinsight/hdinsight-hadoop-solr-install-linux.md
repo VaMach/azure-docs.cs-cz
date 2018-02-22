@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: edee4fbb37744a8ef93c6a0b7e60b0790d1af9c4
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Na nainstalovat a používat Solr clusterů systému HDInsight Hadoop
 
@@ -45,9 +45,9 @@ Informace o instalaci Solr v Azure HDInsight pomocí akce skriptu. Solr je platf
 
 Tento skript provede tyto změny do clusteru HDInsight:
 
-* Nainstaluje Solr 4.9 do`/usr/hdp/current/solr`
+* Nainstaluje Solr 4.9 do `/usr/hdp/current/solr`
 * Vytvoří uživatele, **solrusr**, který se používá ke spouštění služby Solr
-* Nastaví **solruser** jako vlastník`/usr/hdp/current/solr`
+* Nastaví **solruser** jako vlastník `/usr/hdp/current/solr`
 * Přidá [Upstart](http://upstart.ubuntu.com/) konfigurace, který se automaticky spouští Solr.
 
 ## <a name="install"></a>Nainstalujte Solr pomocí akcí skriptů
@@ -61,7 +61,7 @@ Chcete-li vytvořit cluster, který má nainstalovaný Solr, použijte postup v 
 1. Z __clusteru Souhrn__ část, select__Advanced settings__, pak __skript akce__. K naplnění formuláře použijte následující informace:
 
    * **NÁZEV**: Zadejte popisný název akce skriptu.
-   * **Identifikátor URI skriptu**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: zaškrtnete tuto možnost,
    * **PRACOVNÍ**: zaškrtnete tuto možnost,
    * **ZOOKEEPER**: zaškrtnete tuto možnost, chcete-li nainstalovat na uzlu Zookeeper
@@ -321,7 +321,7 @@ Solr data zálohovat na výchozí úložiště pro váš cluster pomocí násled
 
 Další informace o práci s Solr zálohování a obnovení najdete v tématu [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Nainstalujte Giraph clustery HDInsight](hdinsight-hadoop-giraph-install-linux.md). Přizpůsobení clusteru použijte k instalaci Giraph clusterů systému HDInsight Hadoop. Giraph umožňuje provádět grafu zpracování pomocí Hadoop a lze použít s Azure HDInsight.
 

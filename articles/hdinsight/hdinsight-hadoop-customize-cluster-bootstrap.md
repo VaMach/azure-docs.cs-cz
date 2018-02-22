@@ -16,30 +16,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Přizpůsobení clusterů HDInsight pomocí Bootstrap
 
 V některých případech je vhodné nakonfigurovat konfigurační soubory, které zahrnují:
 
 * clusterIdentity.xml
-* Core-site.xml
-* Gateway.XML
-* hbase env.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
-* Hive env.xml
-* Hive-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred-site
 * oozie-site.xml
-* oozie env.xml
-* Storm-site.xml
+* oozie-env.xml
+* storm-site.xml
 * tez-site.xml
-* webhcat site.xml
+* webhcat-site.xml
 * yarn-site.xml
 * Server.Properties (kafka zprostředkovatele konfigurace)
 
@@ -86,7 +86,7 @@ Dokončení funkční skript prostředí PowerShell najdete v [příloha](#appen
 **Chcete-li ověřit změny:**
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. V levé nabídce klikněte na tlačítko **clustery HDInsight**. Pokud ho nevidíte, klikněte na tlačítko **další služby** první.
+2. V levé nabídce klikněte na tlačítko **clustery HDInsight**. Pokud ho nevidíte, klikněte na tlačítko **všechny služby** první.
 3. Klikněte na cluster, který jste právě vytvořili pomocí skriptu prostředí PowerShell.
 4. Klikněte na tlačítko **řídicí panel** z horní části okna otevřete uživatelské rozhraní Ambari.
 5. Klikněte na tlačítko **Hive** v levé nabídce.

@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Předdefinované role pro řízení přístupu Azure na základě rolí
 Azure na základě rolí řízení přístupu (RBAC) obsahuje následující předdefinované role, které lze přiřadit uživatelům, skupinám a službám. Definice předdefinované role se nedá změnit. Můžete však vytvořit [vlastní role v Azure RBAC](role-based-access-control-custom-roles.md) podle konkrétních potřeb vaší organizace.
@@ -45,7 +45,7 @@ V tomto článku pouze adresy různé role, které existují ještě dnes. Když
 | [Application Insights součást Přispěvatel](#application-insights-component-contributor) |Může spravovat součásti Application Insights. |
 | [Operátor automatizace](#automation-operator) |Možnost spuštění, zastavení, pozastavení a obnovení úlohy |
 | [Zálohování přispěvatele](#backup-contributor) | Můžete spravovat zálohy v trezoru služeb zotavení |
-| [Operátor zálohování](#backup-operator) | Můžete spravovat zálohování, vyjma případu odebírání zálohování, v trezoru služeb zotavení |
+| [Backup Operator](#backup-operator) | Můžete spravovat zálohování, vyjma případu odebírání zálohování, v trezoru služeb zotavení |
 | [Zálohování čtečky](#backup-reader) | Můžete zobrazit všechny služby zálohování správy  |
 | [Čtečka fakturace](#billing-reader) | Můžete zobrazit všechny fakturační informace  |
 | [BizTalk přispěvatele](#biztalk-contributor) |Můžete spravovat služby BizTalk services |
@@ -61,7 +61,6 @@ V tomto článku pouze adresy různé role, které existují ještě dnes. Když
 | [Monitorování čtečky](#monitoring-reader) |Může číst veškerá data monitorování |
 | [Monitorování přispěvatele](#monitoring-contributor) |Můžete číst data monitorování a upravit nastavení monitorování |
 | [Přispěvatel sítě](#network-contributor) |Můžete spravovat všechny síťové prostředky |
-| [Nový přispěvatel účet New Relic APM](#new-relic-apm-account-contributor) |Můžete spravovat novou Správa výkonu aplikací New Relic účty a aplikace |
 | [Vlastník](#owner) |Můžou spravovat všechno včetně přístupu |
 | [Čtecí modul](#reader) |Můžou zobrazit všechno, ale nelze provádět změny |
 | [Přispěvatel mezipaměti redis](#redis-cache-contributor) |Můžete spravovat mezipaměti Redis |
@@ -299,7 +298,7 @@ Můžete spravovat databáze MySQL cleardb –
 | Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
-| successbricks.cleardb/Databases/* |Vytvářet a spravovat databáze MySQL cleardb – |
+| successbricks.cleardb/databases/* |Vytvářet a spravovat databáze MySQL cleardb – |
 
 ### <a name="contributor"></a>Přispěvatel
 Můžou spravovat všechno kromě přístupu
@@ -308,7 +307,7 @@ Můžou spravovat všechno kromě přístupu
 | --- | --- |
 | * |Vytvořit a spravovat prostředky všech typů |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Nelze odstranit role a přiřazení rolí |
 | Microsoft.Authorization/*/Write |Nelze vytvořit role a přiřazení rolí |
@@ -440,19 +439,6 @@ Můžete spravovat všechny síťové prostředky
 | Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
-
-### <a name="new-relic-apm-account-contributor"></a>Přispěvatel účtů New Relic APM
-Můžete spravovat novou Správa výkonu aplikací New Relic účty a aplikace
-
-| **Akce** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Čtení role a role přiřazení |
-| Microsoft.Insights/alertRules/* |Vytvářet a spravovat pravidla výstrah |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Načíst stav prostředků |
-| Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
-| Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
-| NewRelic.APM/accounts/* |Vytvářet a spravovat účty pro správu výkonu aplikací New Relic. |
 
 ### <a name="owner"></a>Vlastník
 Můžou spravovat všechno včetně přístupu
@@ -606,7 +592,7 @@ Můžete převzetí služeb při selhání a navrácení služeb po obnovení, a
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Přečtěte si replikace sítě prostředků infrastruktury |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/čtení | Mapování sítě prostředků infrastruktury replikace pro čtení |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/čtení | Kontejnery ochrany pro čtení |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/čtení | Získání seznamu všech chránitelné položek |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Získání seznamu všech chránitelné položek |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint nebo akce | Použít konkrétní bod obnovení |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/failoverCommit nebo akce | Potvrzení převzetí služeb při selhání pro nezdařené přes položky |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/plannedFailover nebo akce | Spusťte plánované převzetí služeb při selhání pro chráněné položky |
@@ -661,7 +647,7 @@ Můžete sledovat stav obnovení lokality v trezoru služeb zotavení a zvýšit
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read  | Přečtěte si replikace sítě prostředků infrastruktury |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/čtení  | Mapování sítě prostředků infrastruktury replikace pro čtení |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/čtení  |  Kontejnery ochrany pro čtení |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/čtení  | Získání seznamu všech chránitelné položek |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read  | Získání seznamu všech chránitelné položek |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/čtení  | Získání seznamu všech chráněných položek |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/čtení  | Získání seznamu dostupných bodů obnovení |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/čtení  | Číst mapování kontejnerů ochrany |
@@ -688,10 +674,10 @@ Můžete spravovat databáze SQL, ale není jejich zásady zabezpečení
 | Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Sql/servers/databases/* |Vytvářet a spravovat databáze SQL |
-| Microsoft.Sql/servers/read |Servery SQL pro čtení |
+| Microsoft.Sql/servers/read |Read SQL Servers |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Nelze upravit zásady auditu |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Nelze upravit nastavení auditu |
@@ -724,7 +710,7 @@ Můžete spravovat zásady vztahující se k zabezpečení serverů SQL a datab�
 | Microsoft.Sql/servers/databases/schemas/tables/read |Tabulky databáze serveru SQL pro čtení |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |Vytvoření a Správa výstrah zásady zabezpečení serveru SQL server databáze |
 | Microsoft.Sql/servers/databases/securityMetrics/* |Vytvoření a správa metriky zabezpečení databáze serveru SQL |
-| Microsoft.Sql/servers/read |Servery SQL pro čtení |
+| Microsoft.Sql/servers/read |Read SQL Servers |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Vytvoření a Správa výstrah zásady zabezpečení SQL serveru |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
@@ -741,7 +727,7 @@ Můžete spravovat servery SQL Server a databáze, ale není jejich zásady zabe
 | Microsoft.Sql/servers/* |Vytvoření a správa serverů SQL |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Nelze upravit zásady auditu SQL serveru |
 | Microsoft.Sql/servers/auditingSettings/* |Nastavení auditování serveru SQL server nelze upravit. |

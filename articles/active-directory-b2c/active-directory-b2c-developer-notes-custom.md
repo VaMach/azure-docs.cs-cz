@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Poznámky k verzi pro verzi public preview služby Azure Active Directory B2C vlastních zásad
 Sada funkcí vlastních zásad je nyní k dispozici pro vyhodnocení v rámci verze public preview pro všechny Azure Active Directory B2C zákazníků (Azure AD B2C). Tato sada funkcí je cílena na vývojáře pokročilé identity vytváření nejvíce komplexní řešení identity.  
@@ -60,7 +60,7 @@ Chcete-li plně využívat výhod verzi public preview, doporučujeme, aby vývo
 ## <a name="features-by-stage-and-known-issues"></a>Funkce ve fázi a známé problémy
 Vlastní zásady/Identity rozhraní Framework možnosti jsou ve vývoji konstant a rychlé.  Tato tabulka je index dostupnost funkcí nebo součásti.
 
-Ptejte se ve Stack Overflow v [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Ptejte se ve Stack Overflow v [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Protokoly poskytovatelů, tokeny, identity
@@ -71,8 +71,8 @@ Rozhraní s externí součásti a aplikace
 | Rozšíření IDP OpenIDConnect |  | x |  | například Google + |
 | ROZŠÍŘENÍ IDP OAUTH2 |  | x |  | například Facebook  |
 | ROZŠÍŘENÍ IDP OAUTH1 |  | x |  | například služby Twitter |
-| ROZŠÍŘENÍ IDP SAML |  | x |  | například Salesforce, služba AD FS |
-| ROZŠÍŘENÍ IDP WSFED | x |  |  |  |
+| IDP-SAML |  | x |  | například Salesforce, služba AD FS |
+| IDP-WSFED | x |  |  |  |
 | Předávající strany OAUTH |  | x |  |  |
 | Předávající strany OIDC |  | x |  |  |
 | Předávající strany SAML | x |  |  |  |
@@ -143,5 +143,5 @@ Rozhraní s externí součásti a aplikace
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Začínáme s vlastními zásadami](active-directory-b2c-get-started-custom.md).

@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2512ba4ea89bd3477c7901cda29ab3682d834195
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Použití emulátoru DB Cosmos Azure pro místní vývoj a testování
 
@@ -74,7 +74,7 @@ Protože emulátor DB Cosmos Azure poskytuje emulované prostředí spuštěna n
 * Emulátor Azure DB Cosmos není simulovat různé [úrovně konzistence Azure Cosmos DB](consistency-levels.md).
 * Emulátor Azure DB Cosmos není simulovat [replikace více oblast](distribute-data-globally.md).
 * Emulátor DB Cosmos Azure nepodporuje přepsání kvót služby, které jsou k dispozici ve službě Azure Cosmos DB (např. omezení velikosti dokumentu, dělenou kolekci výraznější úložiště).
-* Jako vaší kopie emulátoru DB Cosmos Azure nemusí být aktuální. nejnovější změny ve službě Azure Cosmos DB, prosím [Plánovač kapacity Azure Cosmos DB](https://www.documentdb.com/capacityplanner) přesně odhadnout provozním potřebám propustnost (ruština) vaší aplikace.
+* Jako vaší kopie emulátoru DB Cosmos Azure nemusí být aktuální pomocí nejnovější změny ve službě Azure Cosmos DB, prosím [Plánovač kapacity Azure Cosmos DB](https://www.documentdb.com/capacityplanner) přesně odhadnout provozním potřebám propustnost (ruština) vaše aplikace.
 
 ## <a name="system-requirements"></a>Požadavky na systém
 Emulátor DB Cosmos Azure má následující požadavky na hardware a software:
@@ -179,7 +179,7 @@ Chcete-li zobrazit seznam možností, zadejte `CosmosDB.Emulator.exe /?` na př�
 <tr>
   <td><strong>Možnost</strong></td>
   <td><strong>Popis</strong></td>
-  <td><strong>Příkaz</strong></td>
+  <td><strong>příkaz</strong></td>
   <td><strong>Argumenty</strong></td>
 </tr>
 <tr>
@@ -194,6 +194,11 @@ Chcete-li zobrazit seznam možností, zadejte `CosmosDB.Emulator.exe /?` na př�
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
 </tr>
+<tr>
+  <td>GetStatus</td>
+  <td>Získá stav emulátoru Azure DB Cosmos. Stav je indikován ukončovací kód: 1 = počáteční, 2 = spuštěný, 3 = zastaveno. Záporné ukončovací kód označuje, že došlo k chybě. Žádný jiný výsledek.</td>
+  <td>CosmosDB.Emulator.exe /GetStatus</td>
+  <td></td>
 <tr>
   <td>Vypnout</td>
   <td>Vypne emulátoru Azure DB Cosmos.</td>
@@ -318,6 +323,40 @@ Chcete-li změnit počet kolekcí, které jsou k dispozici na emulátoru DB Cosm
 4. Nainstalujte nejnovější verzi [emulátoru DB Cosmos Azure](https://aka.ms/cosmosdb-emulator).
 5. Spusťte emulátor s příznakem PartitionCount nastavením hodnoty < = 250. Například: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
 
+## <a name="controlling-the-emulator"></a>Řízení v emulátoru
+
+Emulátor součástí modulu Powershellu pro spouštění, zastavování, odinstalace a načítání informací o stavu služby. Pro použití:
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+```
+
+nebo uveden `PSModules` adresář na vaše `PSModulesPath` a importujte ho takto:
+
+```powershell
+$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+Import-Module Microsoft.Azure.CosmosDB.Emulator
+```
+
+Zde je uveden seznam příkazů pro řízení emulátoru z prostředí PowerShell:
+
+### `Get-CosmosDbEmulatorStatus`
+
+Vrátí jednu z těchto hodnot ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running nebo ServiceControllerStatus.Stopped.
+
+### `Start-CosmosDbEmulator [-NoWait]`
+
+Spustí se emulátor. Ve výchozím nastavení příkaz bude čekat, dokud emulátor je připravena přijímat požadavky. Pokud chcete, aby se rutina mohla vrátit, jakmile se spustí se emulátor, použijte parametr - NoWait.
+
+### `Stop-CosmosDbEmulator [-NoWait]`
+
+Zastaví emulátor. Ve výchozím nastavení tento příkaz bude čekat, dokud emulátor je plně vypnutí. Pokud chcete, aby se rutina mohla vrátit co nejrychleji emulátoru začne vypnout, použijte parametr - NoWait.
+
+### `Uninstall-CosmosDbEmulator [-RemoveData]`
+
+Odinstaluje emulátoru a volitelně odstraní úplný obsah $env: LOCALAPPDATA\CosmosDbEmulator.
+Rutina zajišťuje, že je emulátor je zastavena před odinstalací jej.
+
 ## <a name="running-on-docker"></a>Systémem Docker
 
 Emulátor DB Cosmos Azure můžete spustit na Docker pro systém Windows. Emulátor na Docker pro Oracle Linux nefunguje.
@@ -386,7 +425,7 @@ Použijte následující tipy k řešení potíží, které zaznamenáte pomocí
 
 - Pokud dojde k chybě v Azure Cosmos DB emulátoru, shromažďovat výpis soubory ze složky c:\Users\user_name\AppData\Local\CrashDumps, zkomprimovat a připojte je k e-mailu na [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-- Pokud se setkáváte s havárií v CosmosDB.StartupEntryPoint.exe, spusťte následující příkaz z příkazového řádku správce:`lodctr /R` 
+- Pokud se setkáváte s havárií v CosmosDB.StartupEntryPoint.exe, spusťte následující příkaz z příkazového řádku správce: `lodctr /R` 
 
 - Pokud narazíte na potíže s připojením [shromažďování trasovacích souborů](#trace-files)zkomprimovat a připojte je k e-mailu na [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
@@ -416,7 +455,29 @@ Chcete-li shromažďovat trasování ladění, spusťte následující příkazy
 
 Číslo verze můžete zkontrolovat tak, že kliknete pravým tlačítkem na ikonu emulátoru místního na hlavním panelu a klikněte na o položku nabídky.
 
-### <a name="120-released-on-january-26-2018"></a>1,20 vydala 26 leden 2018
+### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 vydané 14. února 2018
+
+Je nová funkce a dvě opravy chyb v této verzi. Díky zákazníkům, kteří pomohl nám najít a opravit tyto problémy.
+
+#### <a name="bug-fixes"></a>Opravy chyb
+
+1. Emulátor teď funguje v počítačích s 1 nebo 2 jádra (nebo virtuální procesory)
+
+   Cosmos DB přiděluje úlohy musíte provést různé služby. Počet úloh přidělené není násobkem počet jader na hostiteli. Výchozí hodnota více funguje dobře v produkčním prostředí, kde je velký počet jader. U počítačů s procesory 1 nebo 2, jsou však žádné úlohy pro tyto služby při použití této více přiděleny.
+
+   Jsme opravě přidáním přepsání konfigurace do emulátoru. Nyní použijeme násobkem 1. Počet úloh přidělené k provádění různých služeb je nyní rovná počtu jader na hostiteli.
+
+   Pokud jsme nebyla nic jiného pro tuto verzi by byl a tento problém vyřešit. Nemůžeme najít splnit mnoha prostředí pro vývoj/testování hostování emulátoru jader 1 nebo 2.
+
+2. Emulátor serveru už nevyžaduje Microsoft Visual C++ 2015 redistributable k instalaci.
+
+   Zjistili jsme, že novou instalaci systému Windows (stolní počítače a servery edice) neobsahují tento redistribuovatelný balíček. Proto jsme teď sady redistributable binární soubory pomocí emulátoru.
+
+#### <a name="features"></a>Funkce
+
+Mnoho zákazníků, které jste už jsme mluvili do mají uvedená: bude dobrý, emulátoru bylo možné používat skripty. Proto v této verzi jsme přidali některé možnost skriptu. Emulátor serveru nyní zahrnuje modul prostředí PowerShell pro spouštění, zastavování, získávání stavu a odinstalaci samotné: `Microsoft.Azure.CosmosDB.Emulator`. 
+
+### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 vydala 26 leden 2018
 
 * Ve výchozím nastavení povolené kanálu agregace MongoDB.
 

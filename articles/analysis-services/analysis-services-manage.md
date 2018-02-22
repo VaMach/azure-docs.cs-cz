@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cd452ff46f8a87fd04eaca037b6bc0120ca86e4d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-analysis-services"></a>Správa služby Analysis Services
 Po vytvoření serveru služby Analysis Services v Azure, mohou být některé úlohy správy a údržby, které je třeba provést hned nebo zopakovat dolů na cestách. Například spusťte zpracování aktualizace dat, určovat, kdo může získat přístup modely na vašem serveru, nebo sledování stavu vašeho serveru. Některé úlohy správy lze provést pouze na portálu Azure, jiné v SQL Server Management Studio (SSMS) a některé úlohy lze provádět buď.
 
-## <a name="azure-portal"></a>portál Azure
+## <a name="azure-portal"></a>Azure Portal
 [Portál Azure](http://portal.azure.com/) je, kde můžete vytvořit a odstraněním serverů, monitorování prostředky serveru, změnit velikost a spravovat, kdo má přístup k serverům.  Pokud máte nějaké problémy, můžete také odeslat žádost o podporu.
 
 ![Získání názvu serveru v Azure](./media/analysis-services-manage/aas-manage-portal.png)
@@ -64,7 +64,7 @@ V Azure Analysis Services existují dva typy uživatelů, správce serveru a už
 ## <a name="troubleshooting-connection-problems"></a>Odstraňování potíží s připojením
 Pokud se připojujete pomocí aplikace SSMS, pokud narazíte na problém, musíte vymazat mezipaměť přihlášení. Nic se uloží do mezipaměti na disku. Vymazání mezipaměti, ukončete a restartujte proces připojení. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud již jste nenasadili tabulkový model na nový server, teď je vhodná doba. Další informace najdete v tématu [Nasazení do služby Azure Analysis Services](analysis-services-deploy.md).
 
 Pokud model jste nasadili na server, jste připraveni připojit se pomocí klienta nebo prohlížeče. Další informace najdete v tématu [načíst data ze serveru Azure Analysis Services](analysis-services-connect.md).

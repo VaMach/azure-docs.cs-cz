@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON odkazu pro Azure Functions
 
@@ -115,7 +115,7 @@ Určuje, kolik volání funkce agregovat při [výpočet metriky pro službu App
 }
 ```
 
-|Vlastnost  |Výchozí | Popis |
+|Vlastnost |Výchozí  | Popis |
 |---------|---------|---------| 
 |batchSize|1000|Maximální počet požadavků, které k agregaci.| 
 |flushTimeout|00:00:30|Maximální doba období k agregaci.| 
@@ -237,25 +237,7 @@ Ovládací prvky filtrování podle zapisují protokoly [objekt objektu ILogger]
 
 Nastavení konfigurace pro [úložiště fronty triggerů a vazeb](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Vlastnost  |Výchozí | Popis |
-|---------|---------|---------| 
-|maxPollingInterval|60000|Maximální dobu v milisekundách mezi dvěma fronty.| 
-|visibilityTimeout|0|Časový interval mezi opakovanými pokusy při zpracování zprávy, které se nezdaří.| 
-|batchSize|16|Počet zpráv fronty k načtení a zpracovávají paralelně. Maximum je 32.| 
-|maxDequeueCount|5|Počet pokusů, před přesunutím do fronty poškozených zpracování zprávy.| 
-|newBatchThreshold|batchSize/2|Prahová hodnota, na kterém jsou načtených novou dávku zpráv.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -268,6 +250,7 @@ Nastavení konfigurace pro [Service Bus triggerů a vazeb](functions-bindings-se
 Nastavení konfigurace pro jednotlivý prvek uzamčení chování. Další informace najdete v tématu [potíže Githubu o podpoře singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

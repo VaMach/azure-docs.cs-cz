@@ -1,10 +1,10 @@
 ---
 title: "Výkon doporučení – Azure SQL Database | Microsoft Docs"
-description: "Databáze SQL Azure poskytuje doporučení pro vaše databáze SQL, který může zlepšit výkon aktuální dotaz."
+description: "Databáze SQL Azure poskytuje doporučení pro vaše databáze SQL, které může zlepšit výkon aktuální dotaz."
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
@@ -14,60 +14,70 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
-ms.author: sstein
-ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: 
+ms.openlocfilehash: b3cd5f2138f4d16a1a1590b025d020410ebcce3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="performance-recommendations"></a>Doporučení k výkonu
+# <a name="performance-recommendations-for-sql-database"></a>Výkon doporučení pro databázi SQL.
 
-Azure SQL Database zjišťuje a přizpůsobuje s vaší aplikací a poskytuje přizpůsobené doporučení umožňuje maximalizovat výkon vaší databáze SQL. Výkon se nepřetržitě hodnotí analýzou historie využití vaší databáze SQL. Doporučení, které jsou k dispozici jsou založené na vzor jedinečný zatížení databáze a zvýšit jeho výkon.
+Azure SQL Database zjišťuje a přizpůsobuje s vaší aplikací. Poskytuje přizpůsobené doporučení, které vám umožní maximalizovat výkon vaší databáze SQL. Databáze SQL se neustále vyhodnocuje a analyzuje historie využití databází SQL. Doporučení, které jsou k dispozici jsou založené na vzory databáze jedinečný úlohy a zlepšení výkonu.
 
 > [!TIP]
-> [Automatické ladění](sql-database-automatic-tuning.md) je doporučený způsob optimalizace výkonu. [Inteligentní Statistika](sql-database-intelligent-insights.md) je doporučeným způsobem monitorování výkonu. 
+> [Automatické ladění](sql-database-automatic-tuning.md) patří mezi doporučené metody pro optimalizaci výkonu. [Inteligentní Statistika](sql-database-intelligent-insights.md) patří mezi doporučené metody pro sledování výkonu. 
 >
 
 ## <a name="create-index-recommendations"></a>Vytvoření doporučení indexu
-Azure SQL Database nepřetržitě monitoruje spouštění dotazů a identifikuje indexy, které může zlepšit výkon. Po dostatek spolehlivosti, určité index chybí, nový **vytvořit index** doporučení se vytvoří. Databáze SQL Azure vytvoří spolehlivosti odhadem zvýšení výkonu, které by index uvést prostřednictvím čas. V závislosti na odhadované výkonnější doporučení jsou klasifikovány jako Vysoká, střední nebo Nízká. 
+Databáze SQL nepřetržitě monitoruje dotazy, které jsou spuštěné a identifikuje indexy, které může zlepšit výkon. Po dostatek jistota, že je index na určité chybí, nový **vytvořit index** doporučení je vytvořena.
 
-Indexy vytvořené pomocí doporučení jsou vždy označeny jako auto_created indexy. Uvidíte, jaké indexy jsou auto_created prohlížením sys.indexes zobrazení. Automaticky vytvořit indexy neblokovat příkazy ALTER nebo přejmenovat. Pokud se pokusíte vyřadit sloupec, který se má automaticky vytvořit index nad ním, předá příkazu a automaticky vytvořit index je vyřadit pomocí příkazu také. Příkaz ALTER/přejmenování na sloupce, které jsou indexované by blokovat obyčejné indexy.
+ Databáze SQL Azure vytvoří spolehlivosti odhadem výkonnější, které by index uvést prostřednictvím čas. V závislosti na odhadované výkonnější doporučení jsou klasifikovány jako Vysoká, střední nebo Nízká. 
 
-Po vytvoření doporučení indexu bude Azure SQL Database porovnejte výkon dotazů s základní výkon. Pokud nový index uvést do režimu vylepšení výkonu, doporučení se označilo jako úspěšné a dopad sestava bude k dispozici. V případě, že index nebylo přineste výhody, ji budou automaticky zrušeny. Tímto způsobem Azure SQL Database zajišťuje, že pomocí doporučení budou pouze zlepšit výkon databáze.
+Indexy, které jsou vytvořené pomocí doporučení jsou vždy označení automaticky vytvořené indexy. Uvidíte, jaké indexy jsou automaticky vytvořené prohlížením sys.indexes zobrazení. Automaticky vytvořené indexy neblokovat příkazy ALTER nebo přejmenovat. 
 
-Všechny **vytvořit index** doporučení obsahuje regrese zásadu, která nebude povolovat použití doporučení, pokud využití prostředků databáze nebo fondu je vysoká. Regrese zásad trvá v úvahu procesoru, vstupně-výstupní Data, vstupně-výstupní operace protokolu a úložiště k dispozici. Pokud byl vyšší než 80 % v posledních 30 minut vytvořit procesoru, vstupně-výstupní operace dat nebo protokolu vstupně-výstupní operace indexu bude odložena. Pokud úložiště k dispozici by být menší než 10 % po vytvoření indexu, doporučení přejde do chybového stavu. Pokud po několik dní automatické ladění stále dochází k závěru, že tento index by být výhodné bude znovu spuštěn proces. Tento proces bude opakovat, dokud není dostatek dostupné úložiště k vytvoření indexu nebo index není považovat za výhodné už.
+Pokud se pokusíte vyřadit sloupec, který je vytvořen automaticky index přes něj, předá se příkaz. Automaticky vytvořené index vyřazen pomocí příkazu také. Obyčejné indexy blok příkazu ALTER/přejmenování na sloupce, které jsou uloženy.
+
+Po vytvoření doporučení indexu se použije, Azure SQL Database porovná výkon dotazů s základní výkon. Pokud nový index zvýšení výkonu, doporučení je označený jako úspěšně dokončený a dopad sestava je k dispozici. Pokud index nebylo zvýšit výkon, se automaticky vrátila. Databáze SQL tento proces používá k zajištění, že doporučení zlepšit výkon databáze.
+
+Všechny **vytvořit index** doporučení obsahuje zásadu back vypnout, která neumožňuje použití doporučení, pokud využití prostředků databáze nebo fondu je vysoká. Zásady back vypnout trvá v úvahu procesoru, vstupně-výstupní Data, vstupně-výstupní operace protokolu a úložiště k dispozici. 
+
+Využití procesoru, vstupně-výstupní operace dat nebo vstupně-výstupní operace protokolu je vyšší než 80 % v předchozí 30 minut, odloží se doporučuje vytvořit index. Pokud bude menší než 10 % dostupného úložiště, po vytvoření indexu, doporučení přejde do chybového stavu. Pokud po několik dní, automatické ladění stále dochází k závěru, že index by být výhodné, proces se znovu spustí. 
+
+Tento proces se opakuje, dokud není k dispozici dostatečně velké úložiště k dispozici pro vytvoření indexu, nebo dokud není index považovat za výhodné už.
 
 ## <a name="drop-index-recommendations"></a>Doporučení k odstranění indexu
-Kromě zjišťování chybí index, Azure SQL Database průběžně analyzuje výkon stávající indexy. Pokud se nepoužívá index, bude Azure SQL Database doporučujeme jej vyřadíte. Vyřazení indexu se doporučuje ve dvou případech:
-* Index je duplicitní s jiným indexem (stejná indexována a zahrnuté sloupce, schéma oddílu a filtry)
-* Index se nepoužívá po delší dobu (93 dny)
+Kromě zjišťování chybějící indexy, databáze SQL průběžně analyzuje výkon stávající indexy. Pokud se nepoužívá index, Azure SQL Database doporučuje vyřadíte. Vyřazení indexu se doporučuje ve dvou případech:
+* Index je duplicitní s jiným indexem (stejná indexována a zahrnuté sloupce, schéma oddílu a filtry).
+* Index nebyl použit po delší dobu (93 dnů).
 
-Doporučení k odstranění indexu také projít ověření po implementaci. Pokud lepší výkon dopad sestavy je k dispozici. V případě, že se detekuje snížení výkonu, budou vráceny doporučení.
+Doporučení k odstranění indexu také projít ověření po implementaci. Pokud zvyšuje výkon, dopad sestava je k dispozici. Pokud dojde ke zhoršení výkonu, je vrácen doporučení.
 
 
 ## <a name="parameterize-queries-recommendations"></a>Parametrizace doporučení dotazy
-**Parametrizace dotazy** doporučení se zobrazí, když máte jeden nebo více dotazů, které jsou neustále probíhá překompilovat, ale end až s stejný plán spuštění dotazu. Tato podmínka otevře možnost použít vynucené Parametrizace, což vám umožní plány dotazů do mezipaměti a opakovaně v budoucí zvýšení výkonu a snížení využití prostředků. 
+*Parametrizace dotazy* doporučení se zobrazí, když máte jeden nebo více dotazů, které jsou neustále probíhá překompilovat, ale end až s stejný plán spuštění dotazu. Tato podmínka vytvoří možnost použít vynucené parametrizace. Vynucené Parametrizace zase umožňuje plány dotazů do mezipaměti a opakovaně v budoucnosti, což vylepšuje výkon a snižuje využití prostředků. 
 
-Každý dotaz původně vydaný pro SQL Server musí být zkompilovány Generovat plán spuštění. Každý generovaného plán je přidán do mezipaměti plánu a dalších spuštěních stejný dotaz můžete opakovaně použít tento plán z mezipaměti, což eliminuje potřebu další kompilace. 
+Každý dotaz, který je vydaný původně pro SQL Server musí být zkompilovány Generovat plán spuštění. Každý generovaného plán je přidán do mezipaměti plánu. Dalších spuštěních stejný dotaz můžete znovu použít tento plán z mezipaměti, která eliminuje potřebu další kompilace. 
 
-Aplikace, které odesílají dotazy, které obsahují hodnoty parametry, může vést k zatížení, které pro každý dotaz s jiným parametrem hodnotami plán spuštění kompiluje znovu. V mnoha případech stejné dotazy s jiným parametrem hodnoty generovat stejný provádění plánů, ale tyto plány jsou stále samostatně přidaných do mezipaměti v plánu. Nutnosti rekompilace plány provádění používat prostředky databáze, zvýšit dotaz doba trvání a přetečení mezipaměti plánu způsobuje plány k vyloučení z mezipaměti. Toto chování systému SQL Server může být změněna nastavením možnost vynucené Parametrizace v databázi. 
+Dotazy s hodnotami parametry může vést k nároky na výkon, protože plán spuštění znovu zkompiluje pokaždé, když hodnoty parametry se liší. V mnoha případech generovat stejný dotazy s jinými hodnotami parametru stejné provádění plány. Tyto plány, ale jsou stále samostatně přidány do mezipaměti plánu. 
 
-Chcete-li odhadnout dopad toto doporučení, jsou k dispozici srovnání skutečné využití procesoru a předpokládané využití procesoru (jako v případě, že bylo použito doporučení). Kromě úspory využití procesoru zkracuje doba trvání vašeho dotazu pro čas strávený v kompilaci. Také bude mnohem menší nároky na mezipaměti plánu, povolení Většina plánů zůstanou v mezipaměti a znovu použít. Toto doporučení můžete použít snadno a rychle kliknutím na **použít** příkaz. 
+Proces nutnosti rekompilace provádění plány používá databáze prostředků, zvyšuje dotaz doba trvání a přetečení mezipaměti plánu. Tyto události se pak způsobit plány k vyloučení z mezipaměti. Toto chování systému SQL Server může být změněna nastavením možnost vynucené Parametrizace v databázi. 
 
-Když použijete toto doporučení, zapne vynucené Parametrizace minut ve vaší databázi a začne monitorování procesu, který přibližně trvá po dobu 24 hodin. Po uplynutí této doby bude moci zobrazit sestavy ověření, který ukazuje využití procesoru vaší databáze, 24 hodin před a po použití doporučení. Poradce pro funkci SQL Database má bezpečnostní mechanismus, který automaticky vrátí použité doporučení v případě, že byla zjištěna snížení výkonu.
+Chcete-li odhadnout dopad toto doporučení, jsou k dispozici srovnání skutečné využití procesoru a předpokládané využití procesoru (jako kdyby byly použity doporučení). Toto doporučení můžete získat úspory využití procesoru. Je také vám může pomoci zkrátit dobu trvání dotazu a zatížení mezipaměti plánu, což znamená, že více plánů může zůstat v mezipaměti a znovu použít. Toto doporučení můžete rychle použít tak, že vyberete **použít** příkaz. 
+
+Po použití tohoto doporučení se umožňuje vynucené Parametrizace minut ve vaší databázi. Spustí monitorování procesu, který trvá přibližně 24 hodin. Po uplynutí této doby se zobrazí sestavu ověření. Tato sestava zobrazuje využití procesoru vaší databáze, 24 hodin před a po použití doporučení. Poradce pro funkci SQL Database má bezpečnostní mechanismus, který automaticky vrátí použité doporučení, pokud byl zjištěn snížení výkonu.
 
 ## <a name="fix-schema-issues-recommendations-preview"></a>Opravte problémy doporučení schématu (preview)
 
 > [!IMPORTANT]
-> Společnost Microsoft právě místo začne "Opravit problém schématu" doporučení. Měli byste začít používat [inteligentního Statistika](sql-database-intelligent-insights.md) pro automatické monitorování vaší problémů s výkonem databáze, která zahrnuje schématu problémy, které dříve doporučení "Opravit problém schématu" zahrnuté.
+> Microsoft je aktuálně místo začne "Opravit problém schématu" doporučení. Doporučujeme vám, že používáte [inteligentního Statistika](sql-database-intelligent-insights.md) k monitorování vaší problémů s výkonem databáze, včetně problémů schéma, které dříve zahrnutých doporučení "Opravit problém schématu".
 > 
 
-**Opravte problémy schématu** doporučení se zobrazí, pokud služba SQL Database oznámení anomálií v počtu chyby související s schématu SQL aktivit ve vaší databázi SQL Azure. Toto doporučení se obvykle zobrazují, když databáze dojde více schématu související chyby (neplatný název sloupce, neplatný název objektu atd.) v rámci hodiny.
+**Opravte problémy schématu** doporučení se zobrazí, pokud služba SQL Database oznámení anomálií v počtu schématu související chyby SQL, které jsou aktivit ve vaší databázi SQL. Toto doporučení se obvykle zobrazují, když databáze dojde více schématu související chyby (neplatný název sloupce, neplatný název objektu a tak dále) v rámci hodiny.
 
-"Schématu problémy" jsou třídou chyby syntaxe v systému SQL Server, které dojít v případě, že definice schématu databáze a definice dotazu SQL nejsou zarovnány. Například jeden ze sloupců očekávanou dotazu může být chybějící v cílové tabulce, nebo naopak. 
+"Schématu problémy" jsou třídou chyby syntaxe v systému SQL Server. K nim dojde, pokud nejsou zarovnány definici příkazu jazyka SQL a definice schématu databáze. Například jeden ze sloupců, které se očekává v dotazu může být chybějící v cílové tabulce nebo naopak. 
 
-"Opravit problém schématu" doporučení se zobrazí, když služba Azure SQL Database oznámení anomálií v počtu chyby související s schématu SQL aktivit ve vaší databázi SQL Azure. Následující tabulka obsahuje chyby, které souvisí s problémy schématu:
+"Opravit problém schématu" doporučení se zobrazí, když služba Azure SQL Database oznámení anomálií v počtu schématu související chyby SQL, které jsou aktivit ve vaší databázi SQL. Následující tabulka obsahuje chyby, které souvisí s problémy schématu:
 
 | Kód chyby SQL | Zpráva |
 | --- | --- |
@@ -79,11 +89,11 @@ Když použijete toto doporučení, zapne vynucené Parametrizace minut ve vaš�
 | 8144 |Procedura nebo funkce * má příliš mnoho zadaných argumentů. |
 
 ## <a name="next-steps"></a>Další postup
-Sledovat vaše doporučení a pokračuje v používání jejich Upřesnit výkonu. Databázové úlohy jsou dynamické a průběžně změnu. Poradce pro SQL Database i nadále monitorovat a poskytovat doporučení, které může zlepšit výkon vaší databáze. 
+Sledovat vaše doporučení a pokračuje v používání jejich Upřesnit výkonu. Databázové úlohy jsou dynamické a průběžně změnu. Poradce pro funkci SQL Database i nadále monitorovat a poskytovat doporučení, které může zlepšit výkon vaší databáze. 
 
-* V tématu [Azure SQL Database automatické ladění](sql-database-automatic-tuning.md) pro automatické ladění indexy databáze a plány provádění dotazů.
-* V tématu [inteligentního Statistika SQL Azure](sql-database-intelligent-insights.md) automaticky monitorování výkonu databáze s automatizované diagnostiky a kořenový provést analýzu příčiny potíží s výkonem.
-* V tématu [doporučení výkonu na portálu Azure](sql-database-advisor-portal.md) pokyny o tom, jak používat doporučení výkonu na portálu Azure.
+* Další informace o automatické ladění indexy databáze a plány provádění dotazů najdete v tématu [Azure SQL Database automatické ladění](sql-database-automatic-tuning.md).
+* Další informace o automaticky monitorování výkonu databáze s automatizované Diagnostika a analýza hlavní příčiny problémů s výkonem, najdete v části [inteligentního Statistika SQL Azure](sql-database-intelligent-insights.md).
+*  Další informace o tom, jak používat doporučení výkonu na portálu Azure najdete v tématu [doporučení výkonu na portálu Azure](sql-database-advisor-portal.md).
 * V tématu [Query Performance Insight](sql-database-query-performance.md) a další informace o zobrazení dopad na výkon nejčastějších dotazů.
 
 

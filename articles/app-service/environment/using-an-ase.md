@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>Použití služby App Service environment #
 
@@ -48,7 +48,7 @@ Pokud nemáte App Service Environment, můžete vytvořit pomocí následující
 
 K vytvoření webové aplikace v App Service Environment:
 
-1. Vyberte **nové** > **Web + mobilní** > **webová aplikace**.
+1. Vyberte **vytvořit prostředek** > **Web + mobilní** > **webové aplikace**.
 
 2. Zadejte název webové aplikace. Pokud jste již vybrali plán aplikační služby App Service Environment, název domény pro aplikace zobrazuje název domény App Service Environment.
 
@@ -102,15 +102,15 @@ Koncový bod HTTP nebo HTTPS pro App Service Environment jsou front-endové pros
 
 Externí App Service Environment se liší od víceklientské služby App Service domény, který se používá při vytváření aplikace. Obsahuje název App Service Environment. Další informace o tom, jak vytvořit externí App Service Environment najdete v tématu [vytvoření služby App Service environment][MakeExternalASE]. Název domény externího App Service Environment vypadá jako *.&lt; asename&gt;. p.azurewebsites.net*. Například pokud je název vaší App Service Environment _externí App Service Environment_ a hostování aplikace volá _contoso_ v tom, že App Service Environment, dostanete se na následující adresy URL:
 
-- contoso.external ase.p.azurewebsites.net
-- contoso.SCM.external ase.p.azurewebsites.net
+- contoso.external-ase.p.azurewebsites.net
+- contoso.scm.external-ase.p.azurewebsites.net
 
 Adresa URL contoso.scm.external-ase.p.azurewebsites.net slouží k přístupu ke konzole Kudu nebo pro publikování aplikace pomocí webového nasazení. Informace v konzole Kudu najdete v tématu [konzoly Kudu pro službu Azure App Service][Kudu]. Konzole Kudu poskytuje webového uživatelského rozhraní pro ladění, nahrávání souborů, úpravy souborů a mnoho dalšího.
 
 V App Service Environment ILB určíte domény v době nasazení. Další informace o tom, jak vytvořit App Service Environment ILB najdete v tématu [vytvoření a použití App Service Environment ILB][MakeILBASE]. Pokud zadáte název domény _ilb ase.info_, aplikace v tomto App Service Environment používala tuto doménu během vytváření aplikace. Pro aplikaci s názvem _contoso_, se adresy URL:
 
 - contoso.ilb ase.info
-- contoso.SCM.ilb ase.info
+- contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Publikování ##
 
@@ -126,9 +126,9 @@ S externí App Service Environment tyto možnosti publikování všech chovají 
 
 Hlavní rozdíl oproti publikování je s ohledem na ILB App Service Environment. S ILB App Service Environment jsou všechny dostupné pouze prostřednictvím ILB publikování koncových bodů. ILB je v privátní IP v podsíti App Service Environment ve virtuální síti. Pokud nemáte přístup k síti pro ILB, nelze publikovat všechny aplikace na tomto App Service Environment. Jak jsme uvedli v [vytvoření a použití App Service Environment ILB][MakeILBASE], musíte nakonfigurovat DNS pro aplikace v systému. Koncový bod SCM, který zahrnuje. Pokud nejsou definovány správně, nelze publikovat. Vaše integrovaného vývojového prostředí je také třeba mít přístup k síti pro ILB Chcete-li publikovat přímo na.
 
-Internetové systémy položek konfigurace, například Githubu a Visual Studio Team Services, nefungují s ILB App Service Environment, protože publikování koncový bod není dostupný na Internetu. Místo toho musíte použít CI systému, který používá model pull, jako je Dropbox.
+Internetové systémy položek konfigurace, například Githubu a Visual Studio Team Services, nefungují s ILB App Service Environment, protože publikování koncový bod není dostupný na Internetu. Místo toho je potřeba použít systém kontinuální integrace, který používá model na vyžádání, jako je Dropbox.
 
-Publikování koncové body pro aplikace v App Service Environment ILB použijte domény, který byl vytvořený App Service Environment ILB. Zobrazí se v profilu publikování aplikace a v okně portálu aplikace (v **přehled** > **Essentials** a také v **vlastnosti**). 
+Koncové body pro publikování pro aplikace ve službě ASE s interním nástrojem pro vyrovnávání zatížení používají doménu, pomocí které byla služba ASE s interním nástrojem pro vyrovnávání zatížení vytvořená. Zobrazí se v profilu publikování aplikace a v okně portálu aplikace (v **přehled** > **Essentials** a také v **vlastnosti**). 
 
 ## <a name="pricing"></a>Ceny ##
 

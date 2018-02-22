@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testování výkonu cloudové služby místně v emulátor výpočtů v Azure pomocí sady Visual Studio profileru
 K dispozici pro testování výkonu cloudové služby jsou různé nástroje a techniky.
@@ -44,31 +44,35 @@ Tyto pokyny můžete použít existující projekt nebo s nový projekt.  Pokud 
 
 Pro účely, například přidat nějaký kód do projektu, který přebírá mnoho času a ukazuje některé zřejmé výkonu problém. Například přidejte následující kód do projektu role pracovního procesu:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Tento kód volejte z metodě RunAsync v roli pracovního procesu RoleEntryPoint odvozené třídy. (Ignorovat upozornění o metodě synchronně spuštěná.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Sestavení a spuštění cloudové služby místně bez ladění (Ctrl + F5), s konfigurací řešení nastavena na **verze**. To zajišťuje, že všechny soubory a složky jsou vytvořeny pro spuštění aplikace místně a zajistí, že jsou spuštěné všechny emulátorů. Ověřte, zda je spuštěna své role pracovního procesu začít uživatelské prostředí emulátoru výpočtů z hlavního panelu.
 
@@ -88,9 +92,11 @@ Pokud složky projektu na síťové jednotce, požádá profileru zadat jiné um
  Můžete se také připojit k webové role připojením k WaIISHost.exe.
 Pokud existují více procesů role v aplikaci, budete muset použít processID rozlište je. Prostřednictvím kódu programu můžete dotazovat processID díky přístupu k objekt procesu. Například tento kód vložte do metoda Run RoleEntryPoint odvozené třídy v roli, můžete zobrazit v protokolu v uživatelské prostředí emulátoru výpočtů vědět, co proces připojení k.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Chcete-li zobrazit protokol, spustíte uživatelské prostředí emulátoru výpočtů.
 
@@ -126,16 +132,18 @@ Pokud jste přidali kód zřetězení řetězec v tomto článku, měli byste vi
 ## <a name="4-make-changes-and-compare-performance"></a>4: proveďte změny a porovnání výkonu
 Také můžete porovnat výkon před a po změně kódu.  Zastavení spuštěných procesů a upravit kód, který nahradí operace zřetězení řetězců pomocí StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Nezadávejte jiné výkonu spustit a potom porovnejte výkon. V Průzkumníku výkonu, pokud je spuštěn jsou ve stejné relaci, můžete právě vybrat obě tyto sestavy, otevřete místní nabídky a zvolte **porovnat sestavy pro zvýšení výkonu**. Pokud chcete porovnat s spuštěný v jiné relaci výkonu, otevřete **analyzovat** nabídce a zvolte **porovnat sestavy pro zvýšení výkonu**. Zadejte oba soubory v zobrazeném dialogu.
 

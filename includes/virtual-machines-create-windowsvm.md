@@ -1,6 +1,6 @@
-1. Přihlaste se na web [Azure Portal ](https://portal.azure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-2. Začněte v levém horním rohu a klikněte na **Nový > Compute > Windows Server 2016 Datacenter**.
+2. Spouštění v levém horním, klikněte na tlačítko **vytvořit prostředek** > **výpočetní** > **Windows Server 2016 Datacenter**.
 
     ![Přechod k imagím virtuálních počítačů Azure na portálu](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

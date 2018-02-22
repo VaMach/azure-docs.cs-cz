@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8f5d4ba82fcf3c963373b0e90b707a7d86fc0fea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrace aplikace pomocí klienta služby Azure Active Directory
 
@@ -27,7 +27,7 @@ Na portálu Azure můžete aplikaci zaregistrovat u klienta služby Azure Active
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Výběrem účtu v pravém horním rohu stránky zvolte klientovi Azure AD.
-3. V levém navigačním podokně zvolte **více služeb**, klikněte na tlačítko **registrace aplikace**a klikněte na tlačítko **přidat**.
+3. V levém navigačním podokně zvolte **všechny služby**, klikněte na tlačítko **registrace aplikace**a klikněte na tlačítko **přidat**.
 4. Postupujte podle zobrazených výzev a vytvořte novou aplikaci. Pokud chcete konkrétní příklady pro webové aplikace nebo nativních aplikací, podívejte se na naše [– elementy QuickStart](active-directory-developers-guide.md).
   * Pro webové aplikace, zadejte **přihlašovací adresa URL**, což je základní adresu URL aplikace, kde uživatelé se mohou přihlásit v např `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
@@ -40,7 +40,7 @@ Můžete snadno upravit existující aplikaci nastavení pomocí portálu Azure.
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Výběrem účtu v pravém horním rohu stránky zvolte klientovi Azure AD.
-3. V levém navigačním podokně zvolte **více služeb**, klikněte na tlačítko **registrace aplikace**a vyberte aplikaci ze seznamu.
+3. V levém navigačním podokně zvolte **všechny služby**, klikněte na tlačítko **registrace aplikace**a vyberte aplikaci ze seznamu.
 4. Klikněte na tlačítko **nastavení** otevřete stránku nastavení pro aplikaci.
   * **Vlastnosti** stránce lze upravit obecné informace pro aplikace. To zahrnuje název aplikace, adresa URL přihlašování a adresy URL odhlašovací.
   * **Adresy URL odpovědí** stránky umožňuje přidat adresu URL odpovědi, která je, kde Azure AD odešle token odpovědi.
@@ -54,7 +54,7 @@ Editor manifestu vložené můžete upravit některé vlastnosti aplikace, kter�
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Výběrem účtu v pravém horním rohu stránky zvolte klientovi Azure AD.
-3. V levém navigačním podokně zvolte **více služeb**, klikněte na tlačítko **registrace aplikace**a vyberte aplikaci ze seznamu.
+3. V levém navigačním podokně zvolte **všechny služby**, klikněte na tlačítko **registrace aplikace**a vyberte aplikaci ze seznamu.
 4. Klikněte na tlačítko **Manifest** ze stránky aplikace k otevření editoru vloženého manifestu.
 5. Můžete přímo měnit manifest a uložte ho, až budete připraveni. Alternativně můžete stáhnout manifest otevřít ji ve svém oblíbeném editoru a odeslat aktualizované manifestu.
 

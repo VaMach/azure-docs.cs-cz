@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 37f50d962ff73330a23c0f7397b93c84dd2e8181
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Použití Windows virtuálního počítače spravované služby Identity (MSI) pro přístup k Azure Key Vault 
 
@@ -47,7 +47,7 @@ Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://p
 
 V tomto kurzu vytvoříme nový virtuální počítač s Windows. Můžete také povolit MSI na existující virtuální počítač.
 
-1.  Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1.  Klikněte **vytvořit prostředek** nalezeno tlačítko v levém horním rohu portálu Azure.
 2.  Vyberte **Compute** a potom vyberte **Windows Server 2016 Datacenter**. 
 3.  Zadejte informace o virtuálním počítači. **Uživatelské jméno** a **heslo** vytvořený, zde je přihlašovací údaje, které používáte k přihlášení k virtuálnímu počítači.
 4.  Vyberte správnou **předplatné** pro virtuální počítač v rozevírací nabídce.
@@ -77,7 +77,7 @@ Pomocí Instalační služby MSI kódu můžete získat přístupové tokeny k o
 
 Nejprve musíme vytvořit Key Vault a udělit přístup identity naše Virtuálního počítače do služby Key Vault.   
 
-1. V horní části na levém navigačním panelu vyberte **+ nový** pak **zabezpečení a identita** pak **Key Vault**.  
+1. V horní části na levém navigačním panelu, vyberte **vytvořit prostředek** > **zabezpečení a identita** > **Key Vault**.  
 2. Zadejte **název** pro nové Key Vault. 
 3. Vyhledejte Key Vault ve stejné skupině předplatného a prostředků jako virtuální počítač, který jste vytvořili dříve. 
 4. Vyberte **zásady přístupu** a klikněte na tlačítko **přidat nový**. 

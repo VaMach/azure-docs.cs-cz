@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Správa jednotného přihlašování pro podnikové aplikace
 
 Tento článek popisuje postup použití [portál Azure](https://portal.azure.com) ke správě nastavení jednotného přihlašování pro podnikové aplikace. Podnikové aplikace jsou aplikace, které jsou nasazené a použít v rámci vaší organizace. Tento článek se týká hlavně na aplikace, které byly přidány z [galerii aplikací Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Vyhledání aplikace v portálu
-Všechny podnikové aplikace, které jsou nastavené pro jednotné přihlašování lze zobrazit a spravovat na portálu Azure. Aplikace lze nalézt v **více služeb** &gt; **podnikové aplikace, které** části portálu. 
+Všechny podnikové aplikace, které jsou nastavené pro jednotné přihlašování lze zobrazit a spravovat na portálu Azure. Aplikace lze nalézt v **všechny služby** &gt; **podnikové aplikace, které** části portálu. 
 
 ![Okno podnikové aplikace][1]
 
@@ -58,12 +58,12 @@ Toto je, kde jsou přidány všechny podrobnosti o domény a adresy URL aplikace
 * **Adresa URL odpovědi** – adresa URL odpovědi je, kde se předpokládá, že aplikace přijímat tokenu SAML. Tím se také označuje jako adresu URL Assertion příjemce Service (ACS). Po zadání těchto kliknutím na tlačítko Další pokračujte na další obrazovce. Tato obrazovka poskytuje informace o co je potřeba nakonfigurovat na straně aplikace povolit pro přijetí tokenu SAML z Azure AD.
 * **Stav předávání** -stav předávání je volitelný parametr, který vám pomůže v aplikaci umožňují přesměruje uživatele po dokončení ověřování. Obvykle hodnota je platná adresa URL v aplikaci, ale některé aplikace používají toto pole jinak (podrobnosti najdete v aplikace jednoho přihlášení dokumentaci). Možnost nastavit stav předávání je nová funkce, které jsou jedinečné pro nový portál Azure.
 
-### <a name="user-attributes"></a>Uživatelské atributy
+### <a name="user-attributes"></a>Atributy uživatele
 Toto je, kde můžou správci zobrazit a upravit atributy, které se odesílají v tokenu SAML, která vydává Azure AD pro každou aplikaci, že přihlášení.
 
 Podporováno pouze upravovat atribut je **uživatelský identifikátor** atribut. Hodnota tohoto atributu je pole ve službě Azure AD, která jednoznačně identifikuje každého uživatele v aplikaci. Například pokud byla aplikace nasazená pomocí "e-mailovou adresu" jako uživatelské jméno a jedinečný identifikátor, pak hodnota se nastavuje na pole "user.mail" ve službě Azure AD.
 
-### <a name="saml-signing-certificate"></a>Certifikát pro podpis SAML
+### <a name="saml-signing-certificate"></a>Podpisový certifikát SAML
 Tato část uvádí podrobnosti o certifikát používaný k podepisování tokenů SAML, které jsou vydány pokaždé, když se uživatel ověřuje aplikace Azure AD. To umožňuje vlastnosti aktuální certifikát, který má být prověřovány, včetně datum vypršení platnosti.
 
 ### <a name="application-configuration"></a>Konfigurace aplikace

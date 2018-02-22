@@ -4,7 +4,7 @@ description: "Podrobné pokyny pro vytvoření naslouchacího procesu pro skupin
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0399f9ef969098216e080140a67f81725b670115
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurace vyrovnávání zatížení pro skupiny dostupnosti Always On v Azure
 Tento článek vysvětluje, jak vytvořit nástroj pro vyrovnávání zatížení pro skupinu dostupnosti SQL serveru Always On v Azure virtuální počítače, které jsou spuštěny pomocí Azure Resource Manageru. Skupiny dostupnosti vyžaduje nástroj pro vyrovnávání zatížení, pokud jsou instance systému SQL Server na virtuálních počítačích Azure. Nástroje pro vyrovnávání zatížení ukládá IP adresu pro naslouchací proces skupiny dostupnosti. Pokud skupinu dostupnosti zahrnuje několik oblastí, musí každá oblast Vyrovnávání zatížení.
 
 Tuto úlohu dokončit, musíte mít skupinu dostupnosti systému SQL Server, který je nasazen na Azure virtuální počítače, které běží s Resource Managerem. Virtuální počítače systému SQL Server musí patřit do stejné skupiny dostupnosti. Můžete použít [šablony aplikace Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) pro automatické vytvoření skupiny dostupnosti ve službě Správce prostředků. Tato šablona interní nástroj pro vás automaticky vytvoří. 
 
-Pokud dáváte přednost, můžete [ručně nakonfigurovat skupinu dostupnosti](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Pokud dáváte přednost, můžete [ručně nakonfigurovat skupinu dostupnosti](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 Tento článek vyžaduje vaše skupiny dostupnosti jsou již nakonfigurována.  
 
 Související témata:
 
-* [Konfigurace skupin dostupnosti Always On virtuální počítač Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Konfigurace skupin dostupnosti Always On virtuální počítač Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Nakonfigurujte připojení VNet-to-VNet s použitím Azure Resource Manageru a prostředí PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 Podle s návodem v tomto článku, vytvořit a nakonfigurovat Vyrovnávání zatížení na portálu Azure. Po dokončení procesu konfigurujete cluster pro použití IP adresy z nástroje pro vyrovnávání zatížení pro naslouchací proces skupiny dostupnosti.
@@ -68,7 +68,7 @@ Nejprve vytvořte nástroje pro vyrovnávání zatížení.
    | **Typ** |**Interní**: většinu implementací použijte Vyrovnávání zatížení interní, která umožňuje aplikacím v rámci stejné virtuální síti připojit ke skupině dostupnosti.  </br> **Externí**: umožňuje aplikacím pro připojení ke skupině dostupnosti prostřednictvím veřejného Internetu připojení. |
    | **Virtuální síť** |Vyberte virtuální síť, která jsou intances systému SQL Server v. |
    | **Podsíť** |Vyberte podsíť, které jsou instance systému SQL Server v. |
-   | **Přiřazení IP adresy** |**Statické** |
+   | Přiřazení IP adresy |**Statické** |
    | **Privátní IP adresa** |Zadejte dostupnou IP adresu z podsítě. Při vytváření naslouchací proces v clusteru, použijte tuto adresu IP. Ve skriptu prostředí PowerShell, dále v tomto článku, použijte tuto adresu pro `$ILBIP` proměnné. |
    | **Předplatné** |Pokud máte více předplatných, může se objevit v tomto poli. Vyberte odběr, který chcete přidružit k tomuto prostředku. Je obvykle ve stejném předplatném jako všechny prostředky pro skupinu dostupnosti. |
    | **Skupina prostředků** |Vyberte skupinu prostředků, které jsou instance systému SQL Server v. |
@@ -141,9 +141,9 @@ Pravidla Vyrovnávání zatížení nakonfigurovat, jak nástroj pro vyrovnává
    | **Port** |*1433* |
    | **Back-endový Port** |*1433*. Tato hodnota se ignoruje, protože toto pravidlo používá **plovoucí IP adresa (přímá odpověď ze serveru)**. |
    | **Test** |Použijte název kontroly, kterou jste vytvořili pro tuto službu Vyrovnávání zatížení. |
-   | **Trvalost relace** |**None** |
-   | **Časový limit nečinnosti (minuty)** |*4* |
-   | **Plovoucí IP adresa (přímá odpověď ze serveru)** |**Povoleno** |
+   | **Trvalost relace** |None |
+   | Časový limit nečinnosti (minuty) |*4* |
+   | **Plovoucí IP adresa (přímá odpověď ze serveru)** |povoleno |
 
    > [!NOTE]
    > Můžete chtít přejděte dolů v okně můžete zobrazit všechna nastavení.
@@ -244,7 +244,7 @@ Chcete-li přidat IP adresu nástroji pro vyrovnávání zatížení pomocí por
    |**Fond back-end** |Fond, který obsahuje virtuální počítače s instancí systému SQL Server. 
    |**Test stavu** |Zvolte test, který jste vytvořili.
    |**Trvalost relace** |Žádný
-   |**Časový limit nečinnosti (minuty)** |Výchozí (4)
+   |Časový limit nečinnosti (minuty) |Výchozí (4)
    |**Plovoucí IP adresa (přímá odpověď ze serveru)** | Povoleno
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Nakonfigurujte skupinu dostupnosti pro použití nové IP adresy
@@ -270,6 +270,34 @@ Po přidání IP adresu pro naslouchací proces, nakonfigurujte skupinu dostupno
 
 Po dokončení konfigurace skupiny dostupnosti můžete použít novou IP adresu, nakonfigurujte připojení k naslouchací proces. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Přidat pravidlo pro distribuovanou skupinu dostupnosti Vyrovnávání zatížení
+
+Pokud skupinu dostupnosti se účastní distribuované skupiny dostupnosti, Vyrovnávání zatížení musí dodatečné pravidlo. Toto pravidlo uloží port je používán naslouchacího procesu skupiny dostupnosti v distribuovaných.
+
+>[!IMPORTANT]
+>Tento krok platí jenom v případě, že účastní skupiny dostupnosti [distribuovanou skupinu dostupnosti](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. Na každém serveru, který se účastní distribuované skupině dostupnosti vytvořte pravidlo pro příchozí na distribuované naslouchacího procesu skupiny dostupnosti TCP port. V mnoha příklady dokumentace používá 5022. 
+
+1. Na portálu Azure klikněte na nástroje pro vyrovnávání zatížení a klikněte na tlačítko **pravidla Vyrovnávání zatížení**a potom klikněte na **+ přidat**. 
+
+1. Vytvořte pravidlo s následujícím nastavením Vyrovnávání zatížení:
+
+   |Nastavení |Hodnota
+   |:-----|:----
+   |**Název** |Název, který identifikuje pravidlo pro distribuované skupině dostupnosti Vyrovnávání zatížení. 
+   |**Adresa IP front-endu** |Použijte stejnou IP adresu front-endu jako skupiny dostupnosti.
+   |**Protokol** |TCP
+   |**Port** |5022 - port pro [naslouchací proces skupiny koncového bodu distribuované dostupnosti](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Může být jakýkoli dostupný port.  
+   |**Back-endový port** | 5022 - použijte stejnou hodnotu jako **Port**.
+   |**Fond back-end** |Fond, který obsahuje virtuální počítače s instancí systému SQL Server. 
+   |**Test stavu** |Zvolte test, který jste vytvořili.
+   |**Trvalost relace** |Žádný
+   |Časový limit nečinnosti (minuty) |Výchozí (4)
+   |**Plovoucí IP adresa (přímá odpověď ze serveru)** | Povoleno
+
+Opakujte tyto kroky pro vyrovnávání zatížení na jiné skupiny dostupnosti, které se účastní distribuované dostupnosti skupiny.
+
+## <a name="next-steps"></a>Další postup
 
 - [Konfigurovat skupinu dostupnosti SQL serveru Always On na virtuálních počítačích, které jsou v různých oblastech Azure](virtual-machines-windows-portal-sql-availability-group-dr.md)

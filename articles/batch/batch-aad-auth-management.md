@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054e9686a1acae09f4dd3b7d841d82eae1fc88a9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Ověření řešení pro správu Batch se službou Active Directory
 
@@ -49,7 +49,7 @@ Potom budete muset delegovat přístup k vaší aplikaci do rozhraní API Správ
 
 Pomocí těchto kroků na portálu Azure:
 
-1. V levém navigačním podokně portálu Azure, zvolte **více služeb**, klikněte na tlačítko **registrace aplikace**a klikněte na tlačítko **přidat**.
+1. V levém navigačním podokně portálu Azure, zvolte **všechny služby**, klikněte na tlačítko **registrace aplikace**a klikněte na tlačítko **přidat**.
 2. Vyhledejte název vaší aplikace v seznamu aplikace registrace:
 
     ![Vyhledávání pro název aplikace](./media/batch-aad-auth-management/search-app-registration.png)
@@ -122,7 +122,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 Po zadání přihlašovacích údajů můžete pokračovat ukázkovou aplikaci pro zasílání požadavků na ověření do služby Batch management. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o spuštění [AccountManagement ukázkovou aplikaci][acct_mgmt_sample], najdete v části [Batch Správa účtů a kvót pomocí klientské knihovny správy Batch pro .NET](batch-management-dotnet.md).
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 317adaac1551cf00e25640f1d99429ad76d598a2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Začínáme s úložištěm Azure Table pomocí rozhraní .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -85,7 +85,7 @@ Můžete v knihovně Azure CosmosDB tabulky v libovolného typu aplikace .NET, v
 ### <a name="use-nuget-to-install-the-required-packages"></a>Použití balíčku NuGet k instalaci požadovaných balíčků
 Existují tři balíčky, které je třeba odkazovat ve vašem projektu k dokončení tohoto kurzu:
 
-* [Běžné knihovny pro úložiště Azure pro .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Běžné knihovny pro úložiště Azure pro .NET (8.6.0-preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
 * [Knihovna CosmosDB tabulky Microsoft Azure pro .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Tento balíček zajišťuje programový přístup k datovým prostředkům na účtu úložiště Azure Table nebo účet rozhraní API služby Azure Cosmos DB tabulky.
 * [Microsoft Azure Configuration Manager library for .NET:](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) Tento balíček poskytuje třídu pro potřeby analýzy připojovacího řetězce v konfiguračním souboru bez ohledu na to, kde je aplikace spuštěná.
 

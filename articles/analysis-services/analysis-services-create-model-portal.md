@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 0a70ce4a106b8d9103080f050ab2317cd69348c1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Vytvoření modelu na portálu Azure
 
@@ -68,7 +68,7 @@ Nový model se zobrazí v prohlížeči. Tady můžete:
 > Když budete upravovat metadata modelu nebo vytvářet nové míry v prohlížeči, ukládáte tyto změny modelu v Azure. Také při práci na modelu SSDT, Power BI Desktop nebo aplikace Excel, můžete získat váš model synchronizován.
 
 
-## <a name="next-steps"></a>Další kroky 
+## <a name="next-steps"></a>Další postup 
 [Spravovat role databáze a uživatele](analysis-services-database-users.md)  
 [Propojení s Excelem](analysis-services-connect-excel.md)  
 

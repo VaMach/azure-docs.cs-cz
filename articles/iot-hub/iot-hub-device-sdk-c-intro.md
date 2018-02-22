@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 05a025a02046ff091b4fea75404cb74aad2e07fa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Pro zařízení Azure IoT SDK pro jazyk C
 
@@ -27,6 +27,10 @@ ms.lasthandoff: 01/18/2018
 Zařízení Azure IoT SDK pro jazyk C je napsán v ANSI C (C99) a maximalizovat tak přenositelnost. Tato funkce zpřístupňuje v knihovnách vhodné pracovat na několika platformách a zařízeních, zejména v případě, že minimalizovat disku a spotřeba paměti je prioritu.
 
 Existují širokou škálu platformy, na kterých SDK je testovaná (najdete v článku [Azure certifikované pro katalog zařízení IoT](https://catalog.azureiotsuite.com/) podrobnosti). I když tento článek obsahuje návody ukázkový kód spuštěný na platformě Windows, napříč celou škálu podporované platformy je stejný jako kód popsané v tomto článku.
+
+Následující video obsahuje přehled sady SDK Azure IoT pro C:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 Tento článek vás seznámí s architektuře zařízení Azure IoT SDK pro C. Ukazuje, jak provést inicializaci knihovny zařízení odesílat data do služby IoT Hub a příjem zpráv z něj. Informace v tomto článku by vám měly dostatečně začít používat sadu SDK, ale také poskytuje ukazatele na další informace o knihovnách.
 

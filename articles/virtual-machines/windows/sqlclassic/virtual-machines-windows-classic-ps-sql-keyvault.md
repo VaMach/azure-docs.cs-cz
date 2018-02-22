@@ -4,7 +4,7 @@ description: "Zjistěte, jak k automatizaci konfigurace systému SQL Server šif
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurace integrace Azure Key Vault pro SQL Server na virtuálních počítačích Azure (klasický)
 > [!div class="op_single_selector"]
@@ -53,8 +53,8 @@ Následující tabulka uvádí parametrů požadovaných pro spuštění skriptu
 | Parametr | Popis | Příklad: |
 | --- | --- | --- |
 | **$akvURL** |**Adresa URL trezoru klíčů** |"https://contosokeyvault.vault.azure.net/" |
-| **$spName** |**Hlavní název služby** |"fde2b411 - 33d 5-4e11-af04eb07b669ccf2" |
-| **$spSecret** |**Tajný klíč objektu služby** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =" |
+| **$spName** |**Hlavní název služby** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
+| **$spSecret** |**Tajný klíč objektu služby** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Název přihlašovacího údaje:** Integrace se službou Azure Key Vault vytvoří přihlašovací údaje v rámci SQL Serveru, díky čemuž mají virtuální počítače přístup do trezoru klíčů. Zvolte název pro tyto přihlašovací údaje. |"mycred1" |
 | **$vmName** |**Název virtuálního počítače**: název vytvořeného virtuálního počítače s SQL. |"myvmname" |
 | **$serviceName** |**Název služby**: název cloudové služby, který je přidružený virtuální počítač SQL. |"mycloudservicename" |

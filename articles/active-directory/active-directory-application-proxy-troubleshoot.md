@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 4291d765bec94ca1edd50b8df0c414524f29fba2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Řešení potíží s Proxy aplikace problémy a chybové zprávy
 Pokud dojde k chybám při přístupu k publikované aplikaci nebo v publikování aplikací, zkontrolujte následující možnosti, zda je správně funguje proxy aplikace služby Microsoft Azure AD:
@@ -68,7 +68,7 @@ Tato tabulka obsahuje více běžných chyb, které pocházejí z nastavení pro
 | 13016 – azure AD nelze načíst lístek protokolu Kerberos jménem uživatele, protože neexistuje žádný UPN v hraničním tokenu nebo v přístupu k souboru cookie. | Došlo k potížím s konfigurací služby tokenů zabezpečení. Konfigurace nároku UPN, odstraňte v Služba tokenů zabezpečení. |
 | 13019 – azure AD nelze načíst lístek protokolu Kerberos jménem uživatele, protože došlo k obecné chybě rozhraní API. | Tato událost může znamenat nesprávné konfiguraci mezi službou Azure AD a server řadiče domény, nebo problém v konfiguraci data a času na obou počítačích. Řadič domény odmítl lístek protokolu Kerberos vytvořené Azure AD. Ověřte, že Azure AD a back-end aplikačním serveru jsou správně nakonfigurována, zejména konfigurace hlavního názvu služby. Ujistěte se, že Azure AD je připojený ke stejné doméně jako řadič domény a ověřit, že řadič domény vytváří vztah důvěryhodnosti s Azure AD. Ujistěte se, že nastavení data a času na Azure AD a jsou synchronizovány řadičem domény. |
 | 13020 – azure AD nelze načíst lístek protokolu Kerberos jménem uživatele, protože není definováno back-end serveru SPN. | Tato událost může znamenat nesprávné konfiguraci mezi službou Azure AD a server řadiče domény, nebo problém v konfiguraci data a času na obou počítačích. Řadič domény odmítl lístek protokolu Kerberos vytvořené Azure AD. Ověřte, že Azure AD a back-end aplikačním serveru jsou správně nakonfigurována, zejména konfigurace hlavního názvu služby. Ujistěte se, že Azure AD je připojený ke stejné doméně jako řadič domény a ověřit, že řadič domény vytváří vztah důvěryhodnosti s Azure AD. Ujistěte se, že nastavení data a času na Azure AD a jsou synchronizovány řadičem domény. |
-| 13022 – azure AD nemůže ověřit uživatele, protože back-end server odpoví na pokusy o ověření pomocí protokolu Kerberos s chybu HTTP 401. | Tato událost může znamenat nesprávné konfiguraci mezi službou Azure AD a serveru back-end aplikace nebo o problém v konfiguraci data a času na obou počítačích. Back-end server odmítl lístek protokolu Kerberos vytvořené Azure AD. Ověřte, že Azure AD a back-end aplikačním serveru jsou správně nakonfigurován. Ujistěte se, že nastavení data a času na Azure AD a jsou synchronizovány back-end aplikačním serveru. |
+| 13022 – azure AD nemůže ověřit uživatele, protože back-end server odpoví na pokusy o ověření pomocí protokolu Kerberos s chybu HTTP 401. | Tato událost může znamenat nesprávné konfiguraci mezi službou Azure AD a serveru back-end aplikace nebo o problém v konfiguraci data a času na obou počítačích. Back-end server odmítl lístek protokolu Kerberos vytvořené Azure AD. Ověřte, že Azure AD a back-end aplikačním serveru jsou správně nakonfigurován. Ujistěte se, že nastavení data a času na Azure AD a jsou synchronizovány back-end aplikačním serveru. Další informace najdete v tématu [řešení potíží s protokolem Kerberos omezeného delegování konfigurace pro Proxy aplikace](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Chyby koncového uživatele
 

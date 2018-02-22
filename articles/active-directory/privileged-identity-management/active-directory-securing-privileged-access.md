@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Zabezpečení privilegovaného přístupu ve službě Azure AD
 Zabezpečení privilegovaného přístupu je důležitým prvním krokem k ochraně obchodní prostředky v moderní organizaci. Privilegované účty jsou účty, které správu a spravovat systémy IT. Internetový útočník cíle tyto účty pro přístup k datům a systémy organizace. K zabezpečení privilegovaného přístupu, měli izolovat účty a systémy ze riziko napadení se zlými úmysly.
@@ -50,7 +50,7 @@ Další informace najdete v tématu [MFA pro Office 365 a Azure MFA](https://blo
 ## <a name="time-bound-privileges"></a>Časově vázaných oprávnění
 Některé organizace zjistit, zda mají příliš mnoho uživatelů ve vysoce privilegované role. Uživatel byla pravděpodobně přidána do rolí pro konkrétní aktivitu, jako je zápis pro služby, ale často následně nepoužili těchto oprávnění.
 
-Pokud chcete snížit čas ohrožení oprávnění a zvýšit vaši přehled o jejich používání, omezení uživatelů na pouze s ohledem na jejich oprávnění "právě v čase" (JIT), nebo přiřaďte tyto role pro zkrácení doby trvání s jistotou oprávnění odvolá automaticky. Pro Azure Active Directory, prostředky Azure (Preview) a služeb Microsoft Online Services, můžete použít [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
+Pokud chcete snížit čas ohrožení oprávnění a zvýšit vaši přehled o jejich používání, omezení uživatelů na pouze s ohledem na jejich oprávnění "právě v čase" (JIT), nebo přiřaďte tyto role pro zkrácení doby trvání s jistotou oprávnění odvolá automaticky. Pro Azure Active Directory, prostředky Azure (Preview) a služeb Microsoft Online Services, můžete použít [Azure AD Privileged Identity Management (PIM)](https://aka.ms/AzurePIM).
 
 ![Řídicí panel PIM][2]
 
@@ -68,7 +68,7 @@ Pomocí podmíněného řízení přístupu Azure Active Directory kontroluje ko
 * Povolit [ochrany identit Azure AD](../active-directory-identityprotection.md)
 * Povolit [řízení podmíněného přístupu](../active-directory-conditional-access-azure-portal.md)
 
-Další informace o vytváření plán dokončení zabezpečení, najdete v části "odpovědnosti zákazníka a plán" z [Microsoft Cloud Security Enterprise architekty](http://aka.ms/securecustomer) dokumentu. Další informace o zapojení služby společnosti Microsoft, které pomáhají s žádným z těchto témat, obraťte se na zástupce společnosti Microsoft nebo navštivte naše [počítačové bezpečnosti řešení stránky](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Další informace o vytváření plán dokončení zabezpečení, najdete v části "odpovědnosti zákazníka a plán" z [Microsoft Cloud Security Enterprise architekty](https://aka.ms/securecustomer) dokumentu. Další informace o zapojení služby společnosti Microsoft, které pomáhají s žádným z těchto témat, obraťte se na zástupce společnosti Microsoft nebo navštivte naše [počítačové bezpečnosti řešení stránky](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png

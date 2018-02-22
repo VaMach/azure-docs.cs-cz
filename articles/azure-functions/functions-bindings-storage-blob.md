@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage vazby pro Azure Functions
 
@@ -205,10 +205,10 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | musí být nastavena na `blobTrigger`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
-|**směr** | neuvedeno | musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. Výjimky jsou uvedeny v [využití](#trigger---usage) části. |
+|**Směr** | neuvedeno | musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. Výjimky jsou uvedeny v [využití](#trigger---usage) části. |
 |**name** | neuvedeno | Název proměnné, která představuje objektů blob v kódu funkce. | 
 |**path** | **BlobPath** |Kontejner pro monitorování.  Může být [vzor názvu objektu blob](#trigger-blob-name-patterns). | 
-|**připojení** | **Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Připojení** | **Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -220,20 +220,29 @@ V jazyce C# a C# skript, přístup k datům objektu blob pomocí parametru metod
 * `TextReader`
 * `Byte[]`
 * `string`
-* `ICloudBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudBlockBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudPageBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudAppendBlob`(vyžaduje směr "inout" vazby v *function.json*)
+* `ICloudBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudBlockBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudPageBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudAppendBlob` (vyžaduje směr "inout" vazby v *function.json*)
 
 Jak jsme uvedli, vyžadují některé z těchto typů `inout` vazby směr v *function.json*. Tento směr nepodporuje standardního editoru na portálu Azure, je nutné použít rozšířené editor.
 
-Pokud se očekává text objekty BLOB, můžete vázat na `string` typu. Toto nastavení se doporučuje jenom Pokud velikost objektu blob je malá, protože obsah celý objekt blob jsou načtena do paměti. Obecně platí, je vhodnější použít `Stream` nebo `CloudBlockBlob` typu.
+Pokud se očekává text objekty BLOB, můžete vázat na `string` typu. Toto nastavení se doporučuje jenom Pokud velikost objektu blob je malá, protože obsah celý objekt blob jsou načtena do paměti. Obecně platí, je vhodnější použít `Stream` nebo `CloudBlockBlob` typu. Další informace najdete v tématu [souběžnosti a použití paměti](#trigger---concurrency-and-memory-usage) dále v tomto článku.
 
 V jazyce JavaScript, přístup k datům vstupního objektu blob pomocí `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Aktivační událost - vzory názvů objektů blob
 
-Můžete zadat vzor názvu objektu blob v `path` vlastnost *function.json* nebo `BlobTrigger` konstruktoru atributu. Může být vzor názvů [výraz filtru nebo vazby](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Můžete zadat vzor názvu objektu blob v `path` vlastnost *function.json* nebo `BlobTrigger` konstruktoru atributu. Může být vzor názvů [výraz filtru nebo vazby](functions-triggers-bindings.md#binding-expressions-and-patterns). Následující části obsahují příklady.
+
+### <a name="get-file-name-and-extension"></a>Získat název souboru a rozšíření
+
+Následující příklad ukazuje, jak vytvořit vazbu na název souboru objektů blob a příponu samostatně:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Pokud je název objektu blob *původní Blob1.txt*, hodnota `blobname` a `blobextension` proměnné v kódu funkce jsou *původní Blob1* a *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrování na název objektu blob
 
@@ -262,15 +271,6 @@ Hledání složené závorky v názvech souborů, vyhnuli složené závorky pom
 ```
 
 Pokud je název objektu blob *{20140101}-soundfile.mp3*, `name` hodnotu proměnné v kód funkce je *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Získat název souboru a rozšíření
-
-Následující příklad ukazuje, jak vytvořit vazbu na název souboru objektů blob a příponu samostatně:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Pokud je název objektu blob *původní Blob1.txt*, hodnota `blobname` a `blobextension` proměnné v kódu funkce jsou *původní Blob1* a *txt*.
 
 ## <a name="trigger---metadata"></a>Aktivační událost - metadat
 
@@ -309,6 +309,14 @@ Pokud selžou všechny 5 pokusů, Azure Functions přidá zprávu do fronty úlo
 * ContainerName
 * BlobName
 * Značka ETag (identifikátor objektu blob verze, například: "0x8D1DC6E70A277EF")
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Aktivační událost - souběžnosti a využití paměti
+
+Aktivační události objektu blob používá fronty interně, takže se řídí maximální počet souběžných funkce volání [konfigurace fronty v host.json](functions-host-json.md#queues). Výchozí nastavení omezit souběžnosti 24 volání. Toto omezení platí samostatně pro každou funkci, která používá aktivační události objektu blob.
+
+[Plán spotřeby](functions-scale.md#how-the-consumption-plan-works) omezuje funkce aplikace na jeden virtuální počítač (VM) k 1,5 GB paměti. Paměť se používá každá souběžně spuštěných instance funkce a funkce modulu runtime sám sebe. Pokud funkce aktivované blob načte celý objekt blob do paměti, maximální velikost paměti, použije jenom pro objekty BLOB tato funkce je 24 * velikost maximální objektu blob. Například funkce aplikace tři funkce aktivované objektů blob a výchozí nastavení podléhaly souběžných maximální jednotlivé virtuální počítače 3 * 24 = 72 funkce volání.
+
+Funkce jazyka JavaScript načíst celý objekt blob do paměti a C# funkce udělat Pokud vytvořit vazbu na `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Aktivační událost - dotazování pro velké kontejnery
 
@@ -480,10 +488,10 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | musí být nastavena na `blob`. |
-|**směr** | neuvedeno | musí být nastavena na `in`. Výjimky jsou uvedeny v [využití](#input---usage) části. |
+|**Směr** | neuvedeno | musí být nastavena na `in`. Výjimky jsou uvedeny v [využití](#input---usage) části. |
 |**name** | neuvedeno | Název proměnné, která představuje objektů blob v kódu funkce.|
 |**path** |**BlobPath** | Cesta k objektu blob. | 
-|**připojení** |**Připojení**| Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Připojení** |**Připojení**| Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |neuvedeno | **Přístup** | Určuje, zda jste se čtení nebo zápis. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -498,10 +506,10 @@ Knihovny tříd jazyka C# a C# skript, přístup k objektu blob pomocí parametr
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudBlockBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudPageBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudAppendBlob`(vyžaduje směr "inout" vazby v *function.json*)
+* `ICloudBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudBlockBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudPageBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudAppendBlob` (vyžaduje směr "inout" vazby v *function.json*)
 
 Jak jsme uvedli, vyžadují některé z těchto typů `inout` vazby směr v *function.json*. Tento směr nepodporuje standardního editoru na portálu Azure, je nutné použít rozšířené editor.
 
@@ -691,10 +699,10 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | musí být nastavena na `blob`. |
-|**směr** | neuvedeno | Musí být nastavena na `out` pro vazbu výstup. Výjimky jsou uvedeny v [využití](#output---usage) části. |
+|**Směr** | neuvedeno | Musí být nastavena na `out` pro vazbu výstup. Výjimky jsou uvedeny v [využití](#output---usage) části. |
 |**name** | neuvedeno | Název proměnné, která představuje objektů blob v kódu funkce.  Nastavte na `$return` Chcete-li funkce návratovou hodnotu.|
 |**path** |**BlobPath** | Cesta k objektu blob. | 
-|**připojení** |**Připojení**| Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Připojení** |**Připojení**| Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |neuvedeno | **Přístup** | Určuje, zda jste se čtení nebo zápis. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -710,10 +718,10 @@ Knihovny tříd jazyka C# a C# skript, přístup k objektu blob pomocí parametr
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudBlockBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudPageBlob`(vyžaduje směr "inout" vazby v *function.json*)
-* `CloudAppendBlob`(vyžaduje směr "inout" vazby v *function.json*)
+* `ICloudBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudBlockBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudPageBlob` (vyžaduje směr "inout" vazby v *function.json*)
+* `CloudAppendBlob` (vyžaduje směr "inout" vazby v *function.json*)
 
 Jak jsme uvedli, vyžadují některé z těchto typů `inout` vazby směr v *function.json*. Tento směr nepodporuje standardního editoru na portálu Azure, je nutné použít rozšířené editor.
 

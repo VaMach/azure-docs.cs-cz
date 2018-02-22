@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Co je Apache Hive a HiveQL v Azure HDInsight?
 
@@ -41,20 +41,19 @@ HDInsight poskytuje několik typů clusteru, které jsou přizpůsobená pro kon
 
 ## <a name="how-to-use-hive"></a>Postup použití Hive
 
-Pomocí následující tabulky způsob používání Hive s HDInsight:
+Následující tabulku použijte ke zjištění různé způsoby, jak použijte Hive s HDInsight:
 
-| **Tuto metodu použijte** Pokud chcete... | ...an **interaktivní** prostředí | ...**batch** zpracování | ...při to **clusteru operačního systému** | ...from to **klientský operační systém** |
+| **Tuto metodu použijte** Pokud chcete... | ... **interaktivní** dotazy | ...**batch** zpracování | ...při to **clusteru operačního systému** | ...from to **klientský operační systém** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Zobrazení Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Žádné (prohlížeč na základě) |
 | [Beeline klienta](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X nebo systému Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux nebo Windows * |Linux, Unix, Mac OS X nebo systému Windows |
+| [Nástroje HDInsight pro Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X nebo systému Windows |
 | [Nástroje HDInsight pro Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux nebo Windows * |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux nebo Windows * |Windows |
 
 > [!IMPORTANT]
-> \*Linux je jenom operační systém používaný v HDInsight verze 3.4 nebo novější. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
-> Pokud používáte cluster HDInsight se systémem Windows, můžete použít [dotazu konzoly](../hadoop/apache-hadoop-use-hive-query-console.md) z prohlížeče nebo [vzdálené plochy](../hadoop/apache-hadoop-use-hive-remote-desktop.md) ke spouštění dotazů Hive.
+> \* Linux je jenom operační systém používaný v HDInsight verze 3.4 nebo novější. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="hiveql-language-reference"></a>Referenční dokumentace jazyka HiveQL
 
@@ -65,7 +64,14 @@ Referenční dokumentace jazyka HiveQL je k dispozici v [jazyk ručně (https://
 Jak pracovat s strukturovaných a částečně strukturovaných dat plně chápe, Hive. Například textové soubory kde pole jsou oddělená konkrétní znaků. Následující příkaz HiveQL vytvoří tabulku nad daty oddělených mezerami:
 
 ```hiveql
-CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
@@ -74,20 +80,20 @@ Hive podporuje i vlastní **serializátor/deserializers (SerDe)** složitý nebo
 
 Další informace o souboru formátů podporovaných Hive naleznete v tématu [jazyk ručně (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
-## <a name="hive-internal-tables-vs-external-tables"></a>Interní tabulky vs externích tabulek Hive
+### <a name="hive-internal-tables-vs-external-tables"></a>Interní tabulky vs externích tabulek Hive
 
 Existují dva typy tabulek, které můžete vytvořit pomocí Hive:
 
 * __Interní__: Data jsou uložena v datovém skladu Hive. Datový sklad je umístěn v `/hive/warehouse/` na výchozí úložiště pro cluster.
 
-    Použití interní tabulky, když:
+    Interní tabulky použijte, když jeden z následujících podmínek:
 
     * Data jsou dočasné.
     * Chcete Hive ke správě životního cyklu tabulky a data.
 
 * __Externí__: Data jsou uložena mimo datového skladu. Data můžete uložit na jakékoli úložiště dostupné v clusteru.
 
-    Použijte externí tabulky, když:
+    Externí tabulky použijte, když jeden z následujících podmínek:
 
     * Data se také používají mimo Hive. Například soubory, data se aktualizují jiným procesem (který není uzamčení souborů.)
     * Data musí zůstat v základní umístění i po vyřazení v tabulce.
@@ -102,9 +108,9 @@ Hive lze také prostřednictvím rozšířit **uživatelsky definované funkce (
 
 * [Uživatelem definované funkce Java pomocí Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [Uživatelem definované funkce Python pomocí Hive a Pig](../hadoop/python-udf-hdinsight.md)
+* [Uživatelem definované funkce Python pomocí Hive](../hadoop/python-udf-hdinsight.md)
 
-* [C# uživatelem definované funkce pomocí Hive a Pig](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [C# uživatelem definované funkce pomocí Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [Postup přidání vlastní uživatelem definované funkce Hive HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
@@ -118,16 +124,27 @@ Hive v HDInsight obsahuje předem načtený vnitřní tabulku s názvem `hivesam
 
 Následující příkazy HiveQL projektu sloupce na `/example/data/sample.log` souboru:
 
-    set hive.execution.engine=tez;
-    DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+```hiveql
+set hive.execution.engine=tez;
+DROP TABLE log4jLogs;
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE LOCATION '/example/data/';
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+    GROUP BY t4;
+```
 
 Příkazy HiveQL v předchozím příkladu, proveďte následující akce:
 
-* `set hive.execution.engine=tez;`: Nastaví použít Tez modulu pro spouštění. Pomocí Tez místo MapReduce můžete poskytnout zvýšení výkonu dotazů. Další informace o Tez naleznete v tématu [použití rozhraní Apache Tez pro zlepšení výkonu](#usetez) části.
+* `set hive.execution.engine=tez;`: Nastaví použít Tez modulu pro spouštění. Pomocí Tez můžete poskytnout zvýšení výkonu dotazů. Další informace o Tez naleznete v tématu [použití rozhraní Apache Tez pro zlepšení výkonu](#usetez) části.
 
     > [!NOTE]
     > Tento příkaz je jenom když používáte cluster HDInsight se systémem Windows je vyžadováno. Tez je výchozí modul provádění HDInsight se systémem Linux.
@@ -142,7 +159,7 @@ Příkazy HiveQL v předchozím příkladu, proveďte následující akce:
 
 * `SELECT`: Počet všech řádků vybere kde sloupec **t4** obsahuje hodnotu **[Chyba]**. Tento příkaz vrátí hodnotu **3** vzhledem k tomu, že existují tři řádky, které obsahují tuto hodnotu.
 
-* `INPUT__FILE__NAME LIKE '%.log'`-Hive se pokusí použít schéma pro všechny soubory v adresáři. V takovém případě adresáře obsahuje soubory, které neodpovídají žádné schéma. Aby paměti data ve výsledcích tento příkaz informuje Hive, jsme by měl vrátit pouze data ze souborů končící na. log.
+* `INPUT__FILE__NAME LIKE '%.log'` -Hive se pokusí použít schéma pro všechny soubory v adresáři. V takovém případě adresáře obsahuje soubory, které neodpovídají žádné schéma. Aby paměti data ve výsledcích tento příkaz informuje Hive, jsme by měl vrátit pouze data ze souborů končící na. log.
 
 > [!NOTE]
 > Externí tabulky by měl být použit při očekáváte, že v základních datech aktualizovat externího zdroje. Například procesu nahrávání automatizované dat, nebo operaci MapReduce.
@@ -151,11 +168,21 @@ Příkazy HiveQL v předchozím příkladu, proveďte následující akce:
 
 Chcete-li vytvořit **interní** místo externí tabulky, použijte následující HiveQL:
 
-    set hive.execution.engine=tez;
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs
-    SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+```hiveql
+set hive.execution.engine=tez;
+CREATE TABLE IF NOT EXISTS errorLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+STORED AS ORC;
+INSERT OVERWRITE TABLE errorLogs
+SELECT t1, t2, t3, t4, t5, t6, t7 
+    FROM log4jLogs WHERE t4 = '[ERROR]';
+```
 
 Tyto příkazy provádět následující akce:
 
@@ -195,7 +222,15 @@ Ladění úloh proběhla za použití Tez, HDInsight poskytuje následující we
 
 HDInsight poskytuje LLAP v clusteru typu interaktivní dotazu. Další informace najdete v tématu [začínat interaktivní dotazu](../interactive-query/apache-interactive-query-get-started.md) dokumentu.
 
-## <a name="hive-jobs-and-sql-server-integration-services"></a>Úlohy Hive a SQL Server Integration Services
+## <a name="scheduling-hive-queries"></a>Plánování dotazů Hive
+
+Existuje několik služeb, které lze použít ke spouštění dotazů Hive jako součást pracovního postupu na vyžádání nebo naplánované.
+
+### <a name="azure-data-factory"></a>Azure Data Factory
+
+Azure Data Factory můžete použít jako součást pro vytváření dat kanál HDInsight. Další informace o používání Hive od kanálu najdete v tématu [transformace dat pomocí aktivity Hive v Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md) dokumentu.
+
+### <a name="hive-jobs-and-sql-server-integration-services"></a>Úlohy Hive a SQL Server Integration Services
 
 Integrace služby SSIS (SQL Server) můžete použít ke spuštění úlohy Hive. Azure Feature Pack pro službu SSIS poskytuje následující součásti, které pracují se úlohy Hive v HDInsight.
 
@@ -203,7 +238,11 @@ Integrace služby SSIS (SQL Server) můžete použít ke spuštění úlohy Hive
 
 * [Správce připojení k Azure předplatného][connectionmanager]
 
-Další informace o Azure Feature Pack pro služby SSIS [sem][ssispack].
+Další informace najdete v tématu [Azure Feature Pack] [ ssispack] dokumentaci.
+
+### <a name="apache-oozie"></a>Apache Oozie
+
+Apache Oozie je systém koordinace a pracovního postupu, který spravuje úloh Hadoop. Další informace o používání Oozie s Hive najdete v tématu [Oozie použijte k definování a spuštění pracovního postupu](../hdinsight-use-oozie-linux-mac.md) dokumentu.
 
 ## <a id="nextsteps"></a>Další kroky
 

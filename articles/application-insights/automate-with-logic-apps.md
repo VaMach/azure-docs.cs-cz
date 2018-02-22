@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 92521bab2082f63fa01e816151e3da9400effe6d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizovat procesy Application Insights pomocí Logic Apps
 
@@ -32,7 +32,7 @@ V tomto kurzu zjistěte, jak vytvořit aplikaci logiky, která používá algori
 
 ### <a name="step-1-create-a-logic-app"></a>Krok 1: Vytvoření aplikace logiky
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. V **nový** podokně, vyberte **Web + mobilní**a potom vyberte **aplikace logiky**.
+2. Klikněte na tlačítko **vytvořit prostředek**, vyberte **Web + mobilní**a potom vyberte **aplikace logiky**.
 
     ![Nové okno aplikace logiky](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -129,7 +129,7 @@ Při spuštění aplikace logiky, příjemce, který jste zadali v seznamu e-mai
 
 ![Logiku aplikace e-mailové zprávy](./media/automate-with-logic-apps/flow9.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o vytváření [analytické dotazy](app-insights-analytics-using.md).
 - Další informace o [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).

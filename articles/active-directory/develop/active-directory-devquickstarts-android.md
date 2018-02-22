@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Začínáme se službou Azure AD Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -52,7 +52,7 @@ Jsme se za předpokladu, že jste registrace rozhraní REST API TODO odkazuje d�
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na váš účet. V **Directory** vyberte klienta Azure AD, kam chcete registrace vaší aplikace.
-3. Klikněte na tlačítko **více služeb** v levém podokně a potom vyberte **Azure Active Directory**.
+3. Klikněte na tlačítko **všechny služby** v levém podokně a potom vyberte **Azure Active Directory**.
 4. Klikněte na tlačítko **registrace aplikace**a potom vyberte **přidat**.
 5. Zadejte popisný název pro aplikaci (například **TodoListService**), vyberte **webové aplikace nebo webové rozhraní API**a klikněte na tlačítko **Další**.
 6. Přihlášení adresy URL zadejte základní adresu URL pro vzorovou. Ve výchozím nastavení je to `https://localhost:8080`.
@@ -70,7 +70,7 @@ Jsme se za předpokladu, že registrace ukázkovou aplikaci odkazuje dříve. Al
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na váš účet. V **Directory** vyberte klienta Azure AD, kam chcete registrace vaší aplikace.
-3. Klikněte na tlačítko **více služeb** v levém podokně a potom vyberte **Azure Active Directory**.
+3. Klikněte na tlačítko **všechny služby** v levém podokně a potom vyberte **Azure Active Directory**.
 4. Klikněte na tlačítko **registrace aplikace**a potom vyberte **přidat**.
 5. Zadejte popisný název pro aplikaci (například **TodoListClient Android**), vyberte **nativní klientská aplikace**a klikněte na tlačítko **Další**.
 6. Identifikátor URI přesměrování, zadejte `http://TodoListClient`. Klikněte na **Dokončit**.
@@ -85,9 +85,9 @@ Pokud chcete vytvořit s Maven, můžete použít pom.xml na nejvyšší úrovni
 2. Postupujte podle kroků v [požadavky pro nastavení prostředí Maven pro Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
 3. Nastavte emulátoru s SDK 19.
 4. Přejděte do kořenové složky, které jste naklonovali úložiště.
-5. Spusťte tento příkaz:`mvn clean install`
-6. Změňte adresář na ukázkové rychlý Start:`cd samples\hello`
-7. Spusťte tento příkaz:`mvn android:deploy android:run`
+5. Spusťte tento příkaz: `mvn clean install`
+6. Změňte adresář na ukázkové rychlý Start: `cd samples\hello`
+7. Spusťte tento příkaz: `mvn android:deploy android:run`
 
    Měli byste vidět, spuštění aplikace.
 8. Zadejte přihlašovací údaje testovacího uživatele a zkuste to.
@@ -375,7 +375,7 @@ Knihovna ADAL zahrnuje anglické řetězce pro zprávy ProgressDialog. Aplikace 
 ### <a name="ntlm-dialog-box"></a>Dialogové okno protokolu NTLM
 ADAL verze 1.1.0 podporuje dialogu protokolu NTLM, který zpracovává se pomocí onReceivedHttpAuthRequest událost z WebViewClient. Můžete přizpůsobit rozložení a řetězce pro dialogové okno.
 
-### <a name="cross-app-sso"></a>Jednotné přihlašování napříč aplikacemi
+### <a name="cross-app-sso"></a>Cross-app SSO
 Další informace [postup povolení jednotného přihlašování napříč aplikacemi v systému Android pomocí ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

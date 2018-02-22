@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 8bd8a72653699df4f4953053d61c16e30a2a101d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a524e1f9d739b42cd63de82291d98ff8c59f2f5f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Postup aktivace nebo deaktivace role v Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management zjednodušuje, jak spravovat podniky privilegovaný přístup k prostředkům v Azure AD a dalším službám Microsoft online jako je Office 365 nebo Microsoft Intune.  
@@ -33,7 +33,7 @@ Pomocí aplikace Azure AD Privileged Identity Management [portál Azure](https:/
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 2. Vyberte své uživatelské jméno v pravém horním rohu portálu Azure a vyberte adresář, kde vám budou pracovat.
-3. Vyberte **Další služby** a pomocí pole Filtr najděte **Azure AD Privileged Identity Management**.
+3. Vyberte **všechny služby** a pomocí textového pole filtru k vyhledání **Azure AD Privileged Identity Management**.
 4. Zaškrtněte **Připnout na řídicí panel** a potom klikněte na **Vytvořit**. Aplikace Privileged Identity Management se otevře.
 
 ## <a name="activate-a-role"></a>Aktivovat roli
@@ -67,7 +67,7 @@ V případě, že nechcete, aby aktivace role, který vyžaduje schválení, mů
 
    ![Zrušit čekající na vyřízení žádosti – snímek obrazovky][4]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud byste chtěli dozvědět více o Azure AD Privileged Identity Management, tyto odkazy obsahovat další informace.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 91efb85d17bd6ba57b1dc14253257f3f20e37c92
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET Desktop (WPF) Začínáme
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -47,7 +47,7 @@ Chcete-li aplikaci, kterou chcete získat tokeny, budete nejprve muset zaregistr
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na tlačítko na vašem účtu a v části **Directory** vyberte klienta služby Active Directory, kam chcete registrace vaší aplikace.
-3. Klikněte na **více služeb** v navigaci vlevo a zvolte **Azure Active Directory**.
+3. Klikněte na **všechny služby** v navigaci vlevo a zvolte **Azure Active Directory**.
 4. Klikněte na **registrace aplikace** a zvolte **přidat**.
 5. Postupujte podle výzev a vytvořte novou **nativní klientská aplikace**.
   * **Název** aplikace popíše aplikaci pro koncové uživatele
@@ -131,7 +131,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-* Ale pokud uživatel není klikněte na tlačítko "Odhlásit", budete chtít zachovat relace uživatele pro příští, na které poběží DirectorySearcher.  Při spuštění aplikace můžete zkontrolovat mezipamětí tokenů na ADAL pro existující token a uživatelského rozhraní se aktualizují odpovídajícím způsobem.  V `CheckForCachedToken()` metoda, proveďte jiné volání `AcquireTokenAsync(...)`, tentokrát předávání v `PromptBehavior.Never` parametr.  `PromptBehavior.Never`ADAL bude informovat, že by neměl být uživatel vyzván pro přihlašování a ADAL místo toho by měla vyvolána výjimka, pokud nelze vrátit token.
+* Ale pokud uživatel není klikněte na tlačítko "Odhlásit", budete chtít zachovat relace uživatele pro příští, na které poběží DirectorySearcher.  Při spuštění aplikace můžete zkontrolovat mezipamětí tokenů na ADAL pro existující token a uživatelského rozhraní se aktualizují odpovídajícím způsobem.  V `CheckForCachedToken()` metoda, proveďte jiné volání `AcquireTokenAsync(...)`, tentokrát předávání v `PromptBehavior.Never` parametr.  `PromptBehavior.Never` ADAL bude informovat, že by neměl být uživatel vyzván pro přihlašování a ADAL místo toho by měla vyvolána výjimka, pokud nelze vrátit token.
 
 ```csharp
 public async void CheckForCachedToken() 

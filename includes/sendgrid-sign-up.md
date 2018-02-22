@@ -2,7 +2,7 @@ Zákazníci Azure můžou každý měsíc odemknout 25 000 bezplatných e-mail�
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Registrace účtu SendGrid
 1. Přihlaste se k [portál Azure][Azure portal].
-2. V nabídce na levé straně klikněte na **Nový**.
+2. V nabídce na levé straně klikněte na tlačítko **vytvořit prostředek**.
 
     ![command-bar-new][command-bar-new]
 3. Klikněte na **Doplňky** a potom na **SendGrid Email Delivery** (Doručování e-mailů SendGrid).
@@ -45,7 +45,7 @@ Zákazníci Azure můžou každý měsíc odemknout 25 000 bezplatných e-mail�
 
     ![api-keys][api-keys]
 
-3. Klikněte na rozevírací nabídku **Create API Key** (Vytvořit klíč rozhraní API) a vyberte **General API Key** (Obecný klíč rozhraní API).
+3. Klikněte **vytvořit klíč rozhraní API**.
 
     ![general-api-key][general-api-key]
 4. Zadejte minimálně hodnotu **Name of this key** (Název tohoto klíče) a umožněte úplný přístup k funkci **Mail Send** (Odesílání e-mailů) a vyberte **Save** (Uložit).

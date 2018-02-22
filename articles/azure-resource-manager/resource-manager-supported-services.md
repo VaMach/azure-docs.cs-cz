@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Poskytovatelé prostředků a typy
 
@@ -53,7 +53,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registruje se poskytovatel prostředků nakonfiguruje vaše předplatné pro práci s poskytovatelem prostředků. Rozsah pro registraci je vždy předplatné. Ve výchozím nastavení se automaticky registruje mnoho poskytovatelů prostředků. Můžete však ručně zaregistrovat někteří poskytovatelé prostředků. Registrace poskytovatele prostředků, musíte mít oprávnění k provedení `/register/action` operace pro poskytovatele prostředků. Tato operace je součástí role Přispěvatel a vlastník.
+Registruje se poskytovatel prostředků nakonfiguruje vaše předplatné pro práci s poskytovatelem prostředků. Rozsah pro registraci je vždy předplatné. Ve výchozím nastavení se automaticky registruje mnoho poskytovatelů prostředků. Můžete však ručně zaregistrovat někteří poskytovatelé prostředků. Registrace poskytovatele prostředků, musíte mít oprávnění k provedení `/register/action` operace pro poskytovatele prostředků. Tato operace je součástí rolí Přispěvatel a Vlastník.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -157,7 +157,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registruje se poskytovatel prostředků nakonfiguruje vaše předplatné pro práci s poskytovatelem prostředků. Rozsah pro registraci je vždy předplatné. Ve výchozím nastavení se automaticky registruje mnoho poskytovatelů prostředků. Můžete však ručně zaregistrovat někteří poskytovatelé prostředků. Registrace poskytovatele prostředků, musíte mít oprávnění k provedení `/register/action` operace pro poskytovatele prostředků. Tato operace je součástí role Přispěvatel a vlastník.
+Registruje se poskytovatel prostředků nakonfiguruje vaše předplatné pro práci s poskytovatelem prostředků. Rozsah pro registraci je vždy předplatné. Ve výchozím nastavení se automaticky registruje mnoho poskytovatelů prostředků. Můžete však ručně zaregistrovat někteří poskytovatelé prostředků. Registrace poskytovatele prostředků, musíte mít oprávnění k provedení `/register/action` operace pro poskytovatele prostředků. Tato operace je součástí rolí Přispěvatel a Vlastník.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -257,15 +257,15 @@ Vyberte **zprostředkovatelé prostředků** a zobrazit seznam dostupných posky
 
 ![Zobrazit zprostředkovatelé prostředků](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Registruje se poskytovatel prostředků nakonfiguruje vaše předplatné pro práci s poskytovatelem prostředků. Rozsah pro registraci je vždy předplatné. Ve výchozím nastavení se automaticky registruje mnoho poskytovatelů prostředků. Můžete však ručně zaregistrovat někteří poskytovatelé prostředků. Registrace poskytovatele prostředků, musíte mít oprávnění k provedení `/register/action` operace pro poskytovatele prostředků. Tato operace je součástí role Přispěvatel a vlastník. Registrace poskytovatele prostředků, vyberte **zaregistrovat**.
+Registruje se poskytovatel prostředků nakonfiguruje vaše předplatné pro práci s poskytovatelem prostředků. Rozsah pro registraci je vždy předplatné. Ve výchozím nastavení se automaticky registruje mnoho poskytovatelů prostředků. Můžete však ručně zaregistrovat někteří poskytovatelé prostředků. Registrace poskytovatele prostředků, musíte mít oprávnění k provedení `/register/action` operace pro poskytovatele prostředků. Tato operace je součástí rolí Přispěvatel a Vlastník. Registrace poskytovatele prostředků, vyberte **zaregistrovat**.
 
 ![registrace poskytovatele prostředků](./media/resource-manager-supported-services/register-provider.png)
 
 Pokud máte pořád typy prostředků z tohoto zprostředkovatele prostředků v rámci vašeho předplatného, nelze zrušit registraci poskytovatele prostředků.
 
-Chcete-li zobrazit informace pro určitý prostředek poskytovatele, vyberte **další služby**.
+Chcete-li zobrazit informace pro určitý prostředek poskytovatele, vyberte **všechny služby**.
 
-![Vyberte další služby](./media/resource-manager-supported-services/more-services.png)
+![Vyberte všechny služby](./media/resource-manager-supported-services/more-services.png)
 
 Vyhledejte **Průzkumníka prostředků** a vyberte z dostupných možností.
 
@@ -287,7 +287,7 @@ Verze rozhraní API odpovídá verzi operace REST API, které vydávají poskyto
 
 ![Zobrazit verze rozhraní API](./media/resource-manager-supported-services/show-api-versions.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o vytváření šablon Resource Manageru, najdete v části [šablon pro tvorbu Azure Resource Manageru](resource-group-authoring-templates.md).
 * Další informace o nasazení prostředků najdete v tématu [nasazení aplikace pomocí šablony Azure Resource Manageru](resource-group-template-deploy.md).
 * Operace pro poskytovatele prostředků najdete v tématu [rozhraní REST API Azure](/rest/api/).

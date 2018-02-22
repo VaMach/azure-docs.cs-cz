@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9f773a8dfe772864fc9fc437052ac766a87623d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Vytvoření snímku
 
@@ -27,7 +27,7 @@ Pořízení snímku operačním systémem nebo datovými disk, který vystavuje 
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Pořízení snímku pomocí portálu Azure 
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. Spouštění v levém horním, klikněte na tlačítko **nový** a vyhledejte **snímku**.
+2. Spouštění v levém horním, klikněte na tlačítko **vytvořit prostředek** a vyhledejte **snímku**.
 3. V okně snímku, klikněte na tlačítko **vytvořit**.
 4. Zadejte **název** pro snímku.
 5. Vyberte existující [skupinu prostředků](../../azure-resource-manager/resource-group-overview.md#resource-groups) nebo zadejte název nové skupiny prostředků. 

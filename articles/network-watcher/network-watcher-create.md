@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 687e5b65e89ae2a79d8e9aa5c4345c91b4943d3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb1e3f9a93d18e949cb42ac0a4e09129cfe414f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Vytvoření instance sledovací proces sítě Azure
 
@@ -29,7 +29,7 @@ Sledovací proces sítě je místní služba, která umožňuje sledovat a diagn
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Vytvoření sledovací proces sítě v portálu.
 
-Přejděte na **další služby** > **sítě** > **sítě sledovacích procesů**. Můžete vybrat všechny odběry, které chcete povolit sledovací proces sítě pro. Tato akce vytvoří sledovací proces sítě v každé oblasti, která je k dispozici.
+Přejděte na **všechny služby** > **sítě** > **sítě sledovacích procesů**. Můžete vybrat všechny odběry, které chcete povolit sledovací proces sítě pro. Tato akce vytvoří sledovací proces sítě v každé oblasti, která je k dispozici.
 
 ![Vytvoření sledovací proces sítě][1]
 
@@ -73,7 +73,7 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když máte instanci sledovací proces sítě, informace o funkcích, které jsou k dispozici:
 

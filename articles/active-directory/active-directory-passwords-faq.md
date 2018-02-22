@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Nejčastější dotazy se správou hesel
 
@@ -40,7 +40,7 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
 
 * **Otázka: je možné mé uživatelé registrovat svá vlastní data resetování hesla?**
 
-  > **Odpověď:** Ano. Jak dlouho, dokud je povoleno obnovení hesla a udělení licence, mohou uživatelé resetování portálu pro registraci hesel (http://aka.ms/ssprsetup) k registraci jejich informace o ověřování. Uživatelé mohou také registrovat prostřednictvím přístupový Panel (http://myapps.microsoft.com). Pokud chcete zaregistrovat prostřednictvím panelu přístup, potřebují k výběru jejich profilový obrázek, vyberte **profil**a pak vyberte **zaregistrovat pro resetování hesla** možnost.
+  > **Odpověď:** Ano. Jak dlouho, dokud je povoleno obnovení hesla a udělení licence, mohou uživatelé resetování portálu pro registraci hesel (https://aka.ms/ssprsetup) k registraci jejich informace o ověřování. Uživatelé mohou také registrovat prostřednictvím přístupový Panel (http://myapps.microsoft.com). Pokud chcete zaregistrovat prostřednictvím panelu přístup, potřebují k výběru jejich profilový obrázek, vyberte **profil**a pak vyberte **zaregistrovat pro resetování hesla** možnost.
   >
   >
 * **Otázka: Pokud lze povolit heslo resetovat pro skupinu a následně se rozhodnete ji zapnout pro každý jsou mé uživatelé požadované znovu zaregistrovat?**
@@ -180,7 +180,7 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
   >
 * **Otázka: Pokud uživatel má více než maximální počet otázek vyžadovaných k resetování registrované, jak jsou bezpečnostní otázky vybrané během obnovení?**
 
-  > **A:** *N* počet bezpečnostní otázky jsou náhodně vybrané mimo celkový počet otázek, které má uživatel zaregistrován pro, kde *N* jde o dobu, která je nastavena  **Počet otázek vyžadovaných k resetování** možnost. Například pokud uživatel zaregistroval pět bezpečnostní otázky, ale pouze tři nutných k obnovení hesla, tři, z pěti otázky jsou náhodně vybírány a jsou uvedené v resetování. Aby se zabránilo otázku ražením, pokud uživatel získá odpovědi na otázky nesprávný procesu výběru spustí přes.
+  > **A:** *N* počet bezpečnostní otázky jsou náhodně vybrané mimo celkový počet otázek, které má uživatel zaregistrován pro, kde *N* jde o dobu, která je nastavena **číslo počet otázek, které jsou nutná k obnovení** možnost. Například pokud uživatel zaregistroval pět bezpečnostní otázky, ale pouze tři nutných k obnovení hesla, tři, z pěti otázky jsou náhodně vybírány a jsou uvedené v resetování. Aby se zabránilo otázku ražením, pokud uživatel získá odpovědi na otázky nesprávný procesu výběru spustí přes.
   >
   >
 * **Otázka: jak dlouho jsou e-mailu a SMS jednorázového hesla platný?**

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Obnovit pomocí zálohy automatizované databáze Azure SQL database
 SQL Database nabízí tyto možnosti pro databázi pomocí obnovení [automatizované zálohování databáze](sql-database-automated-backups.md) a [záloh v dlouhodobé uchovávání](sql-database-long-term-retention.md). Můžete obnovit ze zálohy databáze pro:
@@ -34,7 +34,7 @@ SQL Database nabízí tyto možnosti pro databázi pomocí obnovení [automatizo
 
 Obnovené databáze způsobuje náklady na úložiště navíc za následujících podmínek: 
 - Obnovení P11 – P15 S4 S12 nebo P1 – P6 pokud maximální velikost databáze je větší než 500 GB.
-- Obnovte P1 – P6 nebo PRS1 – PRS6 k S4 S12, pokud maximální velikost databáze je větší než 250 GB.
+- Obnovení P1 – P6 k S4 S12 pokud maximální velikost databáze je větší než 250 GB.
 
 Nadbytečné není náklady, protože maximální velikost obnovené databáze je větší než velikost úložiště, které jsou zahrnuté pro úrovně výkonu a je velmi účtovat žádné dodatečné úložiště zřízený výše zahrnuté množství.  Ceny navíc úložiště, najdete v článku [SQL Database stránce s cenami](https://azure.microsoft.com/pricing/details/sql-database/).  Pokud skutečná velikost využitého místa je menší než velikost úložiště, které jsou zahrnuty, pak tato zpoplatněné se vyhnout snížením maximální velikost databáze na zahrnuté množství. Další informace o velikosti úložiště databáze a Změna maximální velikosti databáze najdete v tématu [jednotné limitů databáze prostředků](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 

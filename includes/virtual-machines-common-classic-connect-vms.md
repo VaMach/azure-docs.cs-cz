@@ -12,11 +12,11 @@ Virtuální sítě jsou doporučené způsob, jak připojit virtuální počíta
 Pro připojení virtuálních počítačů ve virtuální síti:
 
 1. Vytvoření virtuální sítě v [portál Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) a zadejte 'nasazení classic'.
-2. Vytvořte sadu cloudových služeb pro vaše nasazení, aby odrážel návrhu pro skupiny dostupnosti a vyrovnávání zatížení. Na portálu Azure klikněte na tlačítko **nový > výpočetní > Cloudová služba** pro jednotlivých cloudových služeb.
+2. Vytvořte sadu cloudových služeb pro vaše nasazení, aby odrážel návrhu pro skupiny dostupnosti a vyrovnávání zatížení. Na portálu Azure klikněte na tlačítko **vytvořit prostředek > výpočetní > Cloudová služba** pro jednotlivých cloudových služeb.
 
   Při vyplňování podrobnosti cloudové služby, vyberte stejnou _skupiny prostředků_ používat s virtuální sítě.
 
-3. Chcete-li vytvořit každý nový virtuální počítač, klikněte na tlačítko **nový > výpočetní**, pak vyberte bitovou kopii odpovídající virtuální počítač z **vybrané aplikace**.
+3. Chcete-li vytvořit každý nový virtuální počítač, klikněte na tlačítko **vytvořit prostředek > výpočetní**, pak vyberte bitovou kopii odpovídající virtuální počítač z **vybrané aplikace**.
 
   Ve virtuálním počítači **Základy** okně vyberte stejnou _skupiny prostředků_ používat s virtuální sítě.
 

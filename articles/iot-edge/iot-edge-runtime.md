@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Pochopení modulu runtime Azure IoT okraj a jeho architektura – náhled
 
@@ -64,14 +64,18 @@ Hraniční rozbočovače usnadňuje komunikaci modulu do modulu. Pomocí centra 
 
 K odesílání dat do centra Edge, modul volá metodu SendEventAsync. První argument určuje, na které výstup k odeslání zprávy. Následující pseudokódu odešle zprávu na output1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 Chcete-li přijímat zprávy, zaregistrujte zpětné volání, které zpracovává zprávy přicházející na specifický vstup. Následující pseudokódu zaregistruje messageProcessor funkce, který se má použít pro zpracování všechny zprávy přijaté na input1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 Vývojář řešení je zodpovědná za určení pravidel, které určují, jak Centrum Edge předává zprávy mezi moduly. Pravidla směrování jsou definovány v cloudu a odeslány rozbočovače Edge v jeho dvojče zařízení. Stejná syntaxe pro IoT Hub trasy se používá k definování tras mezi moduly v Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
@@ -86,13 +90,13 @@ Zahájit provádění Edge agenta, spusťte příkaz start azure-iot-edge-runtim
 
 Každá položka ve slovníku moduly obsahuje konkrétní informace o modulu a je používána agenta Edge řízení životního cyklu modulu. Jsou některé z vlastností zajímavějšího: 
 
-* **Settings.Image** – kontejner bitové kopie, Edge agent používá ke spuštění modulu. Agent okraje musí být nakonfigurované přihlašovací údaje pro kontejner registru Pokud bitovou kopii je chráněný heslem. Ke konfiguraci agenta Edge, použijte následující příkaz:`azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image** – kontejner bitové kopie, Edge agent používá ke spuštění modulu. Agent okraje musí být nakonfigurované přihlašovací údaje pro kontejner registru Pokud bitovou kopii je chráněný heslem. Ke konfiguraci agenta Edge, použijte následující příkaz: `azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** – řetězec, který je předán přímo démon Docker při spouštění modulu kontejneru. Přidání možnosti Docker v této vlastnosti umožňuje rozšířené možnosti, jako je port, předávání nebo připojení svazků do kontejneru modulu.  
 * **Stav** – stavu, ve kterém Edge agent umístí modul. Tato hodnota se obvykle nastavuje *systémem* jako většina lidí má agent Edge k okamžitému spuštění všech modulů na zařízení. Můžete však zadat počáteční stav modulu do zastaveny a čekat na datum v budoucnosti říct Edge agenta spusťte modul. Edge agent hlásí stav každého modulu zpět cloudu ve vlastnostech hlášené. Rozdíl mezi požadovanou vlastnost a vlastnost hlášené je slouží jako ukazatel nebo identifikovala zařízení. Jsou podporované stavy:
    * Stahování
-   * Běží
+   * Spuštěno
    * Není v pořádku
-   * Neúspěch
+   * Selhalo
    * Zastaveno
 * **restartPolicy** – jak agenta Edge restartuje modul. Možné hodnoty:
    * – Agenta Edge nikdy nerestartuje modul.
@@ -101,7 +105,7 @@ Každá položka ve slovníku moduly obsahuje konkrétní informace o modulu a j
    * Vždy – pokud modul dojde k chybě, se považují za není v pořádku nebo ukončí žádným způsobem, Edge agent restartuje ho. 
 
 Okraj IoT agent odešle odpověď runtime do služby IoT Hub. Tady je seznam možných odpovědí:
-  * 200 – OK
+  * 200 - OK
   * 400 - konfigurace nasazení je chybný nebo není platný.
   * 417 – zařízení nemá nastavit konfiguraci nasazení.
   * 412 – verze schématu v konfiguraci nasazení je neplatný.
@@ -114,7 +118,7 @@ Agenta IoT Edge hraje důležitou roli v zabezpečení IoT hraniční zařízen�
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Pochopení moduly Azure IoT Edge][lnk moduly]
 

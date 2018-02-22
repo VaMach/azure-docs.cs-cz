@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Pomocí aplikace v jazyce Java příkazového řádku pro přístup k rozhraní API s Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Pokud chcete povolit aplikaci k ověřování uživatelů, budete nejprve muset 
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na tlačítko na vašem účtu a v části **Directory** vyberte klienta služby Active Directory, kam chcete registrace vaší aplikace.
-3. Klikněte na **více služeb** v navigaci vlevo a zvolte **Azure Active Directory**.
+3. Klikněte na **všechny služby** v navigaci vlevo a zvolte **Azure Active Directory**.
 4. Klikněte na **registrace aplikace** a zvolte **přidat**.
 5. Postupujte podle výzev a vytvořte novou **webové aplikace nebo WebAPI**.
   * **Název** aplikace popíše aplikaci pro koncové uživatele

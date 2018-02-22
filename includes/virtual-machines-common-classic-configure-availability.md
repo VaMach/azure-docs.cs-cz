@@ -15,15 +15,13 @@ Klasické virtuální počítače můžete přidat do dostupnosti nastavit pomoc
 > 
 > 
 
-## <a id="createset"></a>Možnost 1: vytvoření virtuálního počítače a současně sadu dostupnosti
+## <a id="createset"> </a>Možnost 1: Vytvoření virtuálního počítače a současně sadu dostupnosti
 K tomu můžete portálu Azure nebo Azure PowerShell příkazy.
 
 Použití portálu Azure:
 
 1. Pokud jste to ještě neudělali, přihlaste se k [Portálu Azure](https://portal.azure.com).
-2. V nabídce centra klikněte na tlačítko **+ nový**a potom klikněte na **virtuální počítač**.
-   
-    ![Obrázek alternativní text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Klikněte na tlačítko **vytvořit prostředek** > **výpočetní**.
 3. Vyberte Marketplace image virtuálního počítače, který chcete použít. Můžete vytvořit virtuální počítač se systémem Linux nebo Windows.
 4. Pro vybraný virtuální počítač, ověřte, že model nasazení je nastavena na **Classic** a pak klikněte na tlačítko **vytvořit**
    
@@ -38,11 +36,11 @@ Použití portálu Azure:
 
 Pomocí příkazů prostředí Azure PowerShell k vytvoření virtuálního počítače Azure a přidejte ji do nové nebo existující dostupnost sady naleznete v části [pomocí prostředí Azure PowerShell k vytvoření a nastavení virtuálních počítačích se systémem Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"></a>Možnost 2: Přidání existujícího virtuálního počítače do skupiny dostupnosti
+## <a id="addmachine"> </a>Možnost 2: Přidání existujícího virtuálního počítače do skupiny dostupnosti
 Na portálu Azure můžete přidat existující klasické virtuální počítače na existující dostupnost nastavit nebo vytvořte novou pro ně. (Mějte na paměti, že virtuální počítače ve stejné skupině dostupnosti musí patřit do stejné cloudové služby.) Kroky jsou téměř stejný. V prostředí Azure PowerShell můžete přidat virtuální počítač do stávající sady dostupnosti.
 
 1. Pokud jste tak již neučinili, přihlaste se k [portál Azure](https://portal.azure.com).
-2. V nabídce centra klikněte na tlačítko **virtuálních počítačů (klasické)**.
+2. V nabídce vlevo klikněte na tlačítko **virtuálních počítačů (klasické)**.
    
     ![Obrázek alternativní text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. Seznam virtuálních počítačů vyberte název virtuálního počítače, který chcete přidat do sady.

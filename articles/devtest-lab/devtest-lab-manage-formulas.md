@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Správa Azure DevTest Labs vzorce
 
@@ -40,7 +40,7 @@ Následující postup vás provede procesem vytvoření vzorec z vlastní image,
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-2. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+2. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 
 3. Ze seznamu labs vyberte požadované testovací prostředí.  
 
@@ -87,7 +87,7 @@ Následující postup vás provede procesem vytvoření vzorec podle stávajíc�
 > 
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+2. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 3. Ze seznamu labs vyberte požadované testovací prostředí.  
 4. V tomto prostředí **přehled** okně vyberte virtuální počítač, ze kterého chcete vytvořit vzorec.
    
@@ -104,7 +104,7 @@ Následující postup vás provede procesem vytvoření vzorec podle stávajíc�
 Pokud chcete upravit vzorec, postupujte takto:
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+2. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 3. Ze seznamu labs vyberte požadované testovací prostředí.  
 4. V okně v prostředí, vyberte **vzorce (opakovaně použitelné základů)**.
    
@@ -116,7 +116,7 @@ Pokud chcete upravit vzorec, postupujte takto:
 Pokud chcete odstranit vzorec, postupujte takto:
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+2. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 3. Ze seznamu labs vyberte požadované testovací prostředí.  
 4. V testovacím prostředí **nastavení** vyberte **vzorce**.
    

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 9b7d0bc31946d6022e9bfae463f4a22eb12c2a58
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Škálovat vaše Power BI Embedded kapacita
 
@@ -33,9 +33,9 @@ Předpokladem je, že jste vytvořili Power BI Embedded kapacity. Pokud máte ne
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-2. Vyberte **další služby** > **Power BI Embedded** zobrazíte vaší kapacity.
+2. Vyberte **všechny služby** > **Power BI Embedded** zobrazíte vaší kapacity.
 
-    ![Další služby v rámci portálu Azure](media/scale-capacity/azure-portal-more-services.png)
+    ![Všechny služby v rámci portálu Azure](media/scale-capacity/azure-portal-more-services.png)
 
 3. Vyberte kapacitu, kterou chcete škálovat.
 

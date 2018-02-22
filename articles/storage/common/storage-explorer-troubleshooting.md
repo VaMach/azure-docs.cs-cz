@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer Průvodci odstraňováním potíží
 
-Microsoft Azure Storage Explorer (Preview) je samostatná aplikace, která umožňuje snadno pracovat s daty Azure Storage ve Windows, systému macOS a Linux. Aplikace může připojit k účtům úložiště, které jsou hostované v Azure, suverénní Cloudy a zásobník Azure.
+Microsoft Azure Storage Explorer (Preview) je samostatná aplikace, která umožňuje snadno pracovat s daty Azure Storage ve Windows, systému macOS a Linux. Aplikace můžete připojit k účtům úložiště, které jsou hostované v Azure, národních Cloudů a zásobník Azure.
 
 Tato příručka obsahuje souhrn řešení pro běžné problémy, které jsou vidět ve Storage Exploreru.
 
@@ -59,7 +59,7 @@ Když Storage Explorer dojde jeden z problémů, můžete již nebude vědět, j
 
 6. Otevřete Storage Explorer, klikněte na **upravit** > **certifikáty SSL** > **importu certifikátů**a potom pomocí nástroje pro výběr souborů najít, vyberte a otevřete .cer soubory, které jste vytvořili.
 
-Pokud nenajdete žádné certifikáty podepsané svým držitelem pomocí výše uvedené kroky, kontaktujte nás pomocí nástroje zpětnou vazbu o další pomoc.
+Pokud nenajdete žádné certifikáty podepsané svým držitelem pomocí předchozího postupu, kontaktujte nás pomocí nástroje zpětnou vazbu o další pomoc.
 
 ### <a name="unable-to-retrieve-subscriptions"></a>Nelze načíst předplatná
 
@@ -73,7 +73,7 @@ Pokud jste se nepodařilo načíst vašich předplatných, po úspěšném přih
 
 - Zkuste odebrat a nové přidání účtu.
 
-- Pokuste se odstranit následující soubory z kořenového adresáře (tedy C:\Users\ContosoUser) a potom znovu přidat účet:
+- Pokuste se odstranit následující soubory z kořenového adresáře (tedy C:\Users\ContosoUser) a pak nové přidání účtu:
 
     - .adalcache
 
@@ -83,7 +83,7 @@ Pokud jste se nepodařilo načíst vašich předplatných, po úspěšném přih
 
 - Kukátko nástrojů pro vývojáře, (podle stisknutím klávesy F12), pokud se přihlašujete všechny chybové zprávy:
 
-![Nástroje pro vývojáře](./media/storage-explorer-troubleshooting/4022501_en_2.png)
+![vývojářské nástroje](./media/storage-explorer-troubleshooting/4022501_en_2.png)
 
 ### <a name="unable-to-see-the-authentication-page"></a>Nelze zobrazit stránku ověřování
 
@@ -95,7 +95,7 @@ Pokud nelze zobrazit stránku ověřování, použijte následující postup ře
 
 - Zobrazení konzole pro vývojáře stisknutím klávesy F12. Podívejte se na odpovědi z konzole pro vývojáře a zobrazit, zda můžete najít všechny potvrzením pro důvod, proč ověřování nepracuje.
 
-### <a name="cannot-remove-account"></a>Nelze odebrat účet
+### <a name="cannot-remove-account"></a>Účet se nedá odebrat
 
 Pokud se nepodařilo odebrat účet, nebo pokud znovu ověřit propojení nemá žádný, použijte následující postup řešení tohoto problému:
 
@@ -116,7 +116,7 @@ Pokud se nepodařilo odebrat účet, nebo pokud znovu ověřit propojení nemá 
     - ~/.config/StorageExplorer pro Linux
 
 > [!NOTE]
->  Budete muset znovu zadat všechny přihlašovací údaje, pokud odstraníte tyto soubory.
+>  Po odstranění předchozí soubory, musíte znovu přihlaste k svých účtů.
 
 ## <a name="proxy-issues"></a>Problémy s proxy
 
@@ -173,15 +173,23 @@ Pokud se připojujete ke službě pomocí adresy URL SAS a hlásí tuto chybu:
 
 - Pokud SAS adresa URL je založená na zásadách přístupu, ověřte, že nebyl odvolaný zásady přístupu.
 
-Pokud vaše omylem připojena neplatná adresa URL SAS a se nepodařilo odpojit, postupujte podle těchto kroků:
+Pokud jste omylem připojené pomocí neplatná adresa URL SAS a nelze odpojit, postupujte takto:
 1.  Při spuštění Průzkumníka úložiště, stiskněte klávesu F12 a otevřete okno nástroje pro vývojáře.
 2.  Klikněte na kartu aplikace a pak klikněte na místní úložiště > file:// ve stromu na levé straně.
-3.  Najít klíč přidružený k typu služby problematické identifikátoru URI SAS. Pokud chybný identifikátor URI pro SAS pro kontejner objektů blob, vyhledejte například klíč s názvem "StorageExplorer_AddStorageServiceSAS_v1_blob".
+3.  Najít klíč přidružený k typu služby problematické identifikátoru URI SAS. Například pokud chybný identifikátor URI pro SAS pro kontejner objektů blob, vyhledejte klíč s názvem `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  Hodnota klíče musí být pole JSON. Vyhledejte objekt přidružený chybný identifikátor URI a jeho odebrání.
 5.  Stisknutím kombinace kláves Ctrl + R načtením Storage Explorer.
 
+## <a name="linux-dependencies"></a>Linux závislosti
 
-## <a name="next-steps"></a>Další kroky
+Pro distribucích systému Linux než Ubuntu 16.04 musíte ručně nainstalovat několik závislostí. Obecně platí vyžadují se následující balíčky:
+* libgconf-2-4
+* libsecret
+* Aktuální RSZ
+
+V závislosti na vaší distro může být jiné balíčky, které potřebujete k instalaci. Storage Explorer [poznámky k verzi](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) obsahují konkrétní kroky pro některých distribucích.
+
+## <a name="next-steps"></a>Další postup
 
 Pokud žádná z řešení fungovat pro vás, odešlete svůj problém prostřednictvím nástroje zpětnou vazbu s e-mailu a tolik podrobnosti o problému zahrnuty jako je možné, tak, aby budeme vás moc kontaktovat o nápravě problému.
 

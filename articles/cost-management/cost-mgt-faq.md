@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Nejčastější dotazy pro Azure náklady na správu
 
@@ -58,7 +58,7 @@ Pokud nelze zobrazit žádná data Optimalizátor doporučení, pravděpodobně 
 
 Aktivovat účet:
 
-1.  Na portálu Cloudyn, klikněte na tlačítko **nastavení** v horním pravém rohu a vyberte **cloudové účty**.
+1.  Na portálu Cloudyn klikněte v pravém horním rohu na **Settings** (Nastavení) a vyberte **Cloud Accounts** (Účty v cloudu).
 2.  Na kartě účty Microsoft Azure vyhledejte účty, které mají **neaktivovaných** předplatné.
 3.  Napravo od neaktivovaných účet, klikněte **upravit** symbol, který vypadá takto: tužky.
 4.  ID a rychlost ID klienta je automaticky zjištěna. Klikněte na **Další**.
@@ -116,9 +116,9 @@ Chcete-li přidat další účty CSP na entitu, vyberte **MSP přístup** místo
 
 Můžete mít více účtů Azure používají různé měny. Náklady na sestavy v Cloudyn ale nezobrazovat více než jeden typ Měna na sestavu.
 
-Pokud máte více předplatných, pomocí různých měn, nadřazená entita a jeho podřízené entity měny jsou zobrazeny s  **$**  symbol. Naše navrhované osvědčeným postupem je vyhýbat se používání různých měny ve stejné hierarchii entity. Jinými slovy Všechna předplatná uspořádány do strukturu entity měli používat současně.
+Pokud máte více předplatných, pomocí různých měn, nadřazená entita a jeho podřízené entity měny se zobrazují v USD  **$** . Naše navrhované osvědčeným postupem je vyhýbat se používání různých měny ve stejné hierarchii entity. Jinými slovy Všechna předplatná uspořádány do strukturu entity měli používat současně.
 
-Cloudyn automaticky zjišťuje vaše předplatné Měna smlouvy Enterprise a uvede správně v sestavách.  Však Cloudyn zobrazí pouze  **$**  symbol pro zprostředkovatele kryptografických služeb a účtů Azure web přímo.
+Cloudyn automaticky zjišťuje vaše předplatné Měna smlouvy Enterprise a uvede správně v sestavách.  Však Cloudyn zobrazí pouze USD  **$**  pro zprostředkovatele kryptografických služeb a účtů Azure web přímo.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Co jsou Cloudyn data aktualizujte časové osy?
 

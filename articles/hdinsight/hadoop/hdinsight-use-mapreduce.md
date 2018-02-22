@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: bfd176aaf02dd96cee8877f1754dd0ce7ebded13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Používání nástroje MapReduce v Hadoop v HDInsight
 
@@ -30,11 +30,11 @@ Informace o spouštění úloh MapReduce clustery prostředí HDInsight. Násled
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Použijte příkaz Hadoop prostřednictvím **SSH** |Linux |Linux, Unix, Mac OS X nebo systému Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |Odeslání úlohy vzdáleně pomocí **REST** (příklady použití cURL) |Linux nebo Windows |Linux, Unix, Mac OS X nebo systému Windows |
-| [Prostředí Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Odeslání úlohy vzdáleně pomocí **prostředí Windows PowerShell** |Linux nebo Windows |Windows |
-| [Vzdálená plocha](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 a 3.3) |Použijte příkaz Hadoop prostřednictvím **vzdálené plochy** |Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Odeslání úlohy vzdáleně pomocí **prostředí Windows PowerShell** |Linux nebo Windows |Windows |
 
 > [!IMPORTANT]
 > HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+>
 
 ## <a id="whatis"></a>Co je MapReduce
 
@@ -46,7 +46,7 @@ Hadoop MapReduce je framework software pro zápis úlohy, které zpracovávají 
 
 V příkladu úlohy MapReduce počet základní word je znázorněno v následujícím diagramu:
 
-![HDI. WordCountDiagram][image-hdi-wordcountdiagram]
+![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 Výstup této úlohy je počet kolikrát jednotlivých slov došlo k chybě v textu.
 
@@ -167,8 +167,7 @@ HDInsight HiveQL úlohy můžete spustit pomocí různých metod. Následující
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Použijte příkaz Hadoop prostřednictvím **SSH** |Linux |Linux, Unix, Mac OS X nebo systému Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Odeslání úlohy vzdáleně pomocí **REST** |Linux nebo Windows |Linux, Unix, Mac OS X nebo systému Windows |
-| [Prostředí Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Odeslání úlohy vzdáleně pomocí **prostředí Windows PowerShell** |Linux nebo Windows |Windows |
-| [Vzdálená plocha](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 a 3.3) |Použijte příkaz Hadoop prostřednictvím **vzdálené plochy** |Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Odeslání úlohy vzdáleně pomocí **prostředí Windows PowerShell** |Linux nebo Windows |Windows |
 
 > [!IMPORTANT]
 > HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

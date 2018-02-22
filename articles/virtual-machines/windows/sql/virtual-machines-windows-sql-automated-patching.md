@@ -4,7 +4,7 @@ description: "Vysvětluje funkci automatizované opravy pro SQL Server virtuáln
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -15,24 +15,22 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c1cdf03133d765f7726d16378b042de8e04b2cfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automatizované opravy pro SQL Server v Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [Classic](../classic/sql-automated-patching.md)
-> 
-> 
+> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 Automatizovaných oprav určuje časové období údržby pro virtuální počítač Azure systémem SQL Server. Automatické aktualizace lze nainstalovat pouze během tohoto časového období údržby. Pro systém SQL Server tento rescriction zajistí, že aktualizace systému a všechny přidružené restartuje dojít na nejlepší možný čas pro databázi. Automatizovaných oprav závisí na [rozšíření agenta systému SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Klasické verze tohoto článku najdete v tématu [automatizované opravy pro SQL Server v Azure virtuální počítače Classic](../classic/sql-automated-patching.md).
+Klasické verze tohoto článku najdete v tématu [automatizované opravy pro SQL Server v Azure virtuální počítače Classic](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
 
 ## <a name="prerequisites"></a>Požadavky
 Pomocí automatizované opravy, zvažte následující požadavky:
@@ -49,7 +47,7 @@ Pomocí automatizované opravy, zvažte následující požadavky:
 * SQL Server 2014
 * SQL Server 2016
 
-**Prostředí Azure PowerShell**:
+**Azure PowerShell**:
 
 * [Nainstalujte nejnovější příkazy prostředí Azure PowerShell](/powershell/azure/overview) Pokud chcete konfigurovat automatizovaných oprav pomocí prostředí PowerShell.
 

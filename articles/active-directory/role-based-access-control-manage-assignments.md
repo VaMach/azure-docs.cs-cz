@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Zobrazení přiřazení přístupu pro uživatele a skupiny na portálu Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Další informace o tom, jak [použití přiřazení rolí ke správě přístup
 ## <a name="view-access-assignments"></a>Přiřazení přístupu zobrazení
 K vyhledání přiřazení přístupu pro jednoho uživatele nebo skupinu, spustit v Azure Active Directory v [portál Azure](http://portal.azure.com).
 
-1. Vyberte **Azure Active Directory**. Pokud tato možnost není zobrazena v seznamu navigace, vyberte **více služeb** a posuňte se dolů najít **Azure Active Directory**.
+1. Vyberte **Azure Active Directory**. Pokud tato možnost není zobrazena v seznamu navigace, vyberte **všechny služby** a posuňte se dolů najít **Azure Active Directory**.
 2. Vyberte **uživatelů a skupin**a potom buď **všichni uživatelé** nebo **všechny skupiny**. V tomto příkladu zaměříme na jednotlivé uživatele.
     ![Správa uživatelů a skupin v Azure Active Directory – snímek obrazovky](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. Vyhledat uživatele podle názvu nebo uživatelské jméno.

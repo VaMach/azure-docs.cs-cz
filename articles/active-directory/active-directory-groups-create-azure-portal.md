@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1be9947c43c70b7248201b9f470fb3cf5a11519e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 656e0e16167a73ef3c3eab21d6896f5fc280e375
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Vytvořte skupinu a přidejte členy v Azure Active Directory
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Tento článek vysvětluje, jak vytvořit a naplnit nové skupiny v Azure Active
 
 ## <a name="how-do-i-create-a-group"></a>Vytvoření skupiny
 1. Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
-2. Vyberte **další služby**, zadejte **uživatele a skupiny** v textovém poli a potom vyberte **Enter**.
+2. Vyberte **všechny služby**, zadejte **uživatele a skupiny** v textovém poli a potom vyberte **Enter**.
 
    ![Správa uživatelů otevírání](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 3. Na **uživatelů a skupin** vyberte **všechny skupiny**.
@@ -51,7 +51,7 @@ Tento článek vysvětluje, jak vytvořit a naplnit nové skupiny v Azure Active
    ![Vytvoření skupiny potvrzení](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Následující články poskytují další informace o službě Azure Active Directory.
 
 * [Zobrazení existujících skupin](active-directory-groups-view-azure-portal.md)

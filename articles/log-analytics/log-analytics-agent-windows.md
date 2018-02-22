@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Připojení počítače se systémem Windows do služby analýzy protokolů Azure
 
@@ -33,34 +33,34 @@ Agent může být nainstalovaná pomocí jedné z následujících metod. Větš
 * Skript prostředí PowerShell.
 * Šablony Resource Manageru pro virtuální počítače běžící v Azure zásobníku Windows místní.  
 
-Pochopit požadavky na sítě a systému nasazení agenta systému Windows, přečtěte si [shromažďovat data z prostředí s nástrojem Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
+Pokud chcete porozumět síťovým a systémovým požadavkům pro nasazení agenta pro Windows, přečtěte si téma věnované [shromažďování dat z vašeho prostředí pomocí Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
 
 ## <a name="obtain-workspace-id-and-key"></a>Získání ID a klíče pracovního prostoru
-Před instalací Microsoft Monitoring agenta pro Windows, je nutné ID a klíč vašeho pracovního prostoru analýzy protokolů.  Tyto informace jsou nezbytné při instalaci z každé metody instalace správně nakonfigurovat agenta a zajistěte, aby že mohla úspěšně komunikovat s analýzy protokolů.  
+Před instalací agenta Microsoft Monitoring Agent pro Windows potřebujete ID a klíč vašeho pracovního prostoru Log Analytics.  Tyto informace jsou nezbytné při instalaci z každé metody instalace správně nakonfigurovat agenta a zajistěte, aby že mohla úspěšně komunikovat s analýzy protokolů.  
 
-1. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
+1. Na portálu Azure klikněte na tlačítko **všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 2. V seznamu analýzy protokolů pracovních prostorů vyberte pracovní prostor, který máte v úmyslu týkající se konfigurace agenta nahlásit.
 3. Vyberte **Upřesňující nastavení**.<br><br> ![Upřesňující nastavení Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
-4. Vyberte **připojené zdroje**a potom vyberte **servery Windows**.   
+4. Vyberte **Připojené zdroje** a pak **Servery Windows**.   
 5. Napravo se zobrazí hodnoty **ID pracovního prostoru** a **Primární klíč**. Obě hodnoty zkopírujte a vložte do oblíbeného editoru.   
    
 ## <a name="install-the-agent-using-setup"></a>Instalace agenta pomocí instalačního programu
-Následující kroky instalace a konfigurace agenta pro analýzy protokolů v cloudu Azure a Azure Government pomocí instalačního programu pro agenta Microsoft Monitoring Agent v počítači.  Instalační program pro agenta je součástí staženého souboru a musí být rozbalena za účelem 
+Následujícím postupem se nainstaluje a nakonfiguruje agent pro Log Analytics v Azure a cloudu Azure Government s použitím nastavení agenta Microsoft Monitoring Agent na vašem počítači.  Instalační program pro agenta je součástí staženého souboru a musí být rozbalena za účelem 
 
-1. Na **servery Windows** vyberte odpovídající **stáhnout agenta Windows** verzi ke stažení v závislosti na architektuře procesoru operačního systému Windows.
-2. Spusťte instalační program pro instalaci agenta v počítači.
-2. Na **úvodní** klikněte na tlačítko **Další**.
-3. Na **licenční podmínky** , přečtěte si licenční a pak klikněte na tlačítko **souhlasím**.
-4. Na **cílovou složku** stránky, změnit nebo ponechat výchozí instalační složku a pak klikněte na tlačítko **Další**.
-5. Na **možnosti instalace agenta** vyberte připojit agenta k Azure Log Analytics (OMS) a potom klikněte na **Další**.   
-6. Na **Azure Log Analytics** stránky, proveďte následující kroky:
-   1. Vložení **ID pracovního prostoru** a **klíč pracovního prostoru (primární klíč)** který jste zkopírovali dříve.  Pokud počítač by měl nahlásit pracovní prostor analýzy protokolů v cloudu Azure Government, vyberte **Azure US Government** z **cloudu Azure** rozevíracího seznamu.  
-   2. Pokud počítač musí komunikovat přes proxy server ke službě Analýza protokolů, klikněte na tlačítko **Upřesnit** a zadejte adresu URL a číslo portu proxy serveru.  Pokud proxy server vyžaduje ověřování, zadejte uživatelské jméno a heslo k ověření prostřednictvím proxy serveru a pak klikněte na tlačítko **Další**.  
-7. Klikněte na tlačítko **Další** po dokončení poskytuje nezbytné nastavení konfigurace.<br><br> ![Vložte ID pracovního prostoru a primární klíč](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
-8. Na **připraveno k instalaci** , zkontrolujte vybrané možnosti a pak klikněte na tlačítko **nainstalovat**.
-9. Na **konfigurace byla úspěšně dokončena** klikněte na tlačítko **Dokončit**.
+1. Na stránce **Servery Windows** vyberte odpovídající verzi **agenta pro Windows ke stažení** v závislosti na architektuře procesorů operačního systému Windows.
+2. Spusťte instalační program a nainstalujte agenta na svém počítači.
+2. Na **úvodní** stránce klikněte na **Další**.
+3. Na stránce **Licenční podmínky** si přečtěte licenční podmínky a pak klikněte na **Souhlasím**.
+4. Na stránce **Cílová složka** změňte nebo ponechte výchozí instalační složku a pak klikněte na **Další**.
+5. Na stránce **Možnosti instalace agenta** zvolte připojení agenta k Azure Log Analytics (OMS) a pak klikněte na **Další**.   
+6. Na stránce **Azure Log Analytics** postupujte následovně:
+   1. Vložte **ID pracovního prostoru** a **Klíč pracovního prostoru (primární klíč)**, které jste si zkopírovali dříve.  Pokud se má počítač hlásit do pracovního prostoru Log Analytics v cloudu Azure Government, vyberte z rozevíracího seznamu **Cloud Azure** možnost **Azure US Government**.  
+   2. Pokud počítač potřebuje komunikovat se službou Log Analytics přes proxy server, klikněte na **Upřesnit** a zadejte adresu URL a číslo portu proxy serveru.  Pokud váš proxy server vyžaduje ověření, zadejte uživatelské jméno a heslo pro ověření proxy serveru a pak klikněte na **Další**.  
+7. Jakmile dokončíte zadávání nezbytných nastavení konfigurace, klikněte na **Další**.<br><br> ![vložení ID pracovního prostoru a primárního klíče](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+8. Na stránce **Připraveno k instalaci** zkontrolujte zvolené volby a pak klikněte na **Nainstalovat**.
+9. Na stránce **Konfigurace byla úspěšně dokončena** klikněte na **Dokončit**.
 
-Po dokončení **agenta Microsoft Monitoring Agent** se zobrazí v **ovládací panely**. Pokud chcete potvrdit, je generování sestav k analýze protokolů, zkontrolujte [ověřte připojení agenta k analýze protokolů](#verify-agent-connectivity-to-log-analytics). 
+Po dokončení se **Microsoft Monitoring Agent** zobrazí v **Ovládacích panelech**. Pokud chcete potvrdit, je generování sestav k analýze protokolů, zkontrolujte [ověřte připojení agenta k analýze protokolů](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Instalace agenta pomocí příkazového řádku
 Stažený soubor pro agenta je samostatný instalační balíček vytvořen s IExpress.  Instalační program pro agenta a podpůrné soubory jsou obsažené v balíčku a potřeba extrahovat aby bylo možné správně nainstalovat pomocí příkazového řádku uvedené v následujících příkladech.  Tato metoda podporuje konfiguraci agenta tak, aby odesílaly komerční Azure a cloudu US Government.  
@@ -100,7 +100,7 @@ Následující ukázkový skript můžete použít k instalaci agenta pomocí Az
 Následující příklad nainstaluje agenta nástroje 64-bit, identifikovaný `URI` hodnotu. Můžete taky 32bitová verze nahrazením hodnota identifikátoru URI. Identifikátory URI pro obě verze jsou:
 
 - 64bitový agent Windows - https://go.microsoft.com/fwlink/?LinkId=828603
-- 32bitový agent Windows - https://go.microsoft.com/fwlink/?LinkId=828604
+- Windows 32-bit agent - https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
@@ -156,11 +156,11 @@ Chcete-li načíst kód produktu z balíčku instalace agenta přímo, můžete 
 
 Po dokončení instalaltion agenta ověřování se úspěšně připojil a vytváření sestav můžete provést dvěma způsoby.  
 
-Z počítače v **ovládací panely**, vyhledá položku **agenta Microsoft Monitoring Agent**.  Vyberte ho a na **Azure Log Analytics (OMS)** kartě agenta by se měl zobrazit zpráva s oznámením: **Microsoft Monitoring Agent úspěšně připojil ke službě Microsoft Operations Management Suite.**<br><br> ![Stav připojení MMA k analýze protokolů](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Z počítače v **ovládací panely**, vyhledá položku **agenta Microsoft Monitoring Agent**.  Vyberte ho a na **Azure Log Analytics (OMS)** kartě agenta by se měl zobrazit zpráva s oznámením: **Microsoft Monitoring Agent úspěšně připojil ke službě Microsoft Operations Management Suite.**<br><br> ![Stav připojení MMA k Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 Hledání jednoduchého protokolů můžete také provést na portálu Azure.  
 
-1. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.  
+1. Na portálu Azure klikněte na tlačítko **všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.  
 2. Na stránce pracovní prostor analýzy protokolů vyberte cílový pracovní prostor a pak vyberte **hledání protokolů** dlaždici. 
 2. V podokně hledání protokolů v poli typu dotazu:  
 
@@ -173,6 +173,6 @@ Hledání jednoduchého protokolů můžete také provést na portálu Azure.
 
 Ve výsledcích vyhledávání vrátí měli byste vidět záznamy prezenčního signálu pro počítač, což značí, že je připojený a vytváření sestav ke službě.   
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zkontrolujte [správu a údržbu agenta analýzy protokolů pro systém Windows a Linux](log-analytics-agent-manage.md) Další informace o tom, jak Správa agenta během životního cyklu nasazení na vašich počítačích.  

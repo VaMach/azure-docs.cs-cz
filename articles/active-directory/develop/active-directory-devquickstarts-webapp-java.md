@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 281ce23d7fdb1a94bcc7389f3326d45a9b4e99b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Začínáme se službou Azure AD Java webové aplikace
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Chcete-li nastavit aplikaci pro ověřování uživatelů, nejprve zaregistrovat
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na název účtu. V části **Directory** vyberte klienta služby Active Directory, ve které chcete zaregistrovat aplikaci.
-3. Klikněte na tlačítko **více služeb** v levém podokně a potom vyberte **Azure Active Directory**.
+3. Klikněte na tlačítko **všechny služby** v levém podokně a potom vyberte **Azure Active Directory**.
 4. Klikněte na tlačítko **registrace aplikace**a potom vyberte **přidat**.
 5. Postupujte podle výzev a vytvořte **webové aplikace nebo WebAPI**.
   * **Název** popis aplikace pro uživatele.
@@ -1713,7 +1713,7 @@ Teď byste měli mít soubor adal4jsample.war ve vašem adresáři /targets. Mů
 > Můžete snadno nasadit .war soubor s nejnovější serverů Tomcat. Přejděte na adrese http://localhost: 8080/manager/a postupujte podle pokynů pro nahrání souboru adal4jsample.war. Autodeploy ho bude pro vás správný koncový bod.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď máte funkční aplikaci Java, která můžete ověřovat uživatele, bezpečně volání webových rozhraní API pomocí OAuth 2.0 a získat základní informace o uživatelích. Pokud již nejsou naplněny vašeho klienta s uživateli, teď je vhodná doba na to udělat.
 
 Pro odkaz na další můžete získat je hotová ukázka (bez vašich hodnot nastavení) v některém ze dvou způsobů:

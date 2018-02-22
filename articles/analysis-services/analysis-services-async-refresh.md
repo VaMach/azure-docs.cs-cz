@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchronní aktualizace pomocí rozhraní REST API
 Pomocí žádný programovací jazyk, který podporuje volání REST, můžete provádět operace asynchronní aktualizace dat na vaše tabulkové modely služby Azure Analysis Services. To zahrnuje synchronizace repliky jen pro čtení pro dotaz Škálováním na více systémů. 
@@ -112,7 +112,7 @@ CommitMode se rovná partialBatch. Používá se při provádění modulu počá
 > [!NOTE]
 > V době psaní velikost dávky je hodnota MaxParallelism, ale tato hodnota může změnit.
 
-## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId >
+## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
 Chcete-li zkontrolovat stav operace aktualizace, použijte příkaz GET na aktualizace ID. Tady je příklad textu odpovědi. Pokud je v průběhu operace **inProgress** je vrácen stav.
 
@@ -166,7 +166,7 @@ Seznam operací historických aktualizace pro model, použijte příkaz GET na k
 
 Zrušení operace probíhající aktualizace, použijte příkaz DELETE u aktualizace ID.
 
-## <a name="post-sync"></a>/ POST Sync
+## <a name="post-sync"></a>POST /sync
 
 Nutnosti provádět operace aktualizace, může být nutné synchronizovat nová data s replikami pro dotaz Škálováním na více systémů. K provedení operace synchronizace pro model, použijte příkaz POST na funkci/Sync. Hlavička umístění v odpovědi obsahuje ID synchronizační operace.
 
@@ -208,7 +208,7 @@ Ukázka kódu můžete použít interaktivní přihlášení, uživatelské jmé
 
 Tato forma ověřování vyžaduje aplikaci Azure vytvořit s potřebnými oprávněními rozhraní API, které jsou přiřazeny. 
 
-1.  Na portálu Azure, klikněte na tlačítko **nový** > **Azure Active Directory** > **registrace aplikace** > **nový registrace aplikace**.
+1.  Na portálu Azure, klikněte na tlačítko **vytvořit prostředek** > **Azure Active Directory** > **registrace aplikace**  >   **Nové registrace aplikace**.
 
     ![Registrace nové aplikace](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

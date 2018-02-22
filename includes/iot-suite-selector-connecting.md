@@ -23,28 +23,28 @@ K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet
 
 ## <a name="before-you-start"></a>Než začnete
 
-Než začnete psát kód pro zařízení, je nutné zřídit předkonfigurované řešení vzdáleného monitorování a v něm zřídit nové vlastní zařízení.
+Než napíšete kód pro vaše zařízení, nasaďte předkonfigurované řešení vzdáleného monitorování a přidejte nový fyzického zařízení k řešení.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Zřízení předkonfigurovaného řešení vzdáleného monitorování
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Nasadit předkonfigurované řešení vzdáleného monitorování
 
 **Chladič** zařízení v tomto kurzu vytvoříte odesílá data do instance [vzdálené monitorování](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) předkonfigurované řešení. Pokud jste ještě nezřídili předkonfigurovaného řešení vzdáleného monitorování v účtu Azure, najdete v části [nasadit předkonfigurované řešení vzdáleného monitorování](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-Po skončení procesu zřizování řešení vzdáleného monitorování klikněte na **Spustit**. Ve vašem prohlížeči se otevře řídicí panel řešení.
+Při procesu nasazení pro dokončení řešení vzdáleného monitorování, klikněte na tlačítko **spusťte** otevřete řídicí panel řešení v prohlížeči.
 
 ![Řídicí panel řešení](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Zřízení zařízení v řešení vzdáleného monitorování
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Přidání zařízení do řešení vzdáleného monitorování
 
 > [!NOTE]
-> Pokud jste už ve svém řešení zařízení zřídili, můžete tento krok přeskočit. Budete potřebovat připojovací řetězec, který může načíst z portálu Azure při vytváření aplikace klienta zařízení.
+> Pokud jste již přidali zařízení ve vašem řešení, můžete tento krok přeskočit. Dalším krokem však vyžaduje připojovací řetězec zařízení. Můžete načíst připojovací řetězec zařízení z [portál Azure](https://portal.azure.com) nebo pomocí [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) nástroj příkazového řádku.
 
-Aby se zařízení mohlo připojit k předkonfigurovanému řešení, musí se identifikovat ve službě IoT Hub pomocí platných přihlašovacích údajů. Máte možnost uložit zařízení připojovací řetězec, který obsahuje přihlašovací údaje, když přidáte zařízení řešení. Připojovací řetězec zařízení můžete zahrnout do klientské aplikace později v tomto kurzu.
+Aby se zařízení mohlo připojit k předkonfigurovanému řešení, musí se identifikovat ve službě IoT Hub pomocí platných přihlašovacích údajů. Máte možnost uložit zařízení připojovací řetězec, který obsahuje tyto přihlašovací údaje, když přidáte zařízení řešení. Připojovací řetězec zařízení můžete zahrnout do klientské aplikace později v tomto kurzu.
 
 Chcete-li přidat zařízení do řešení vzdáleného monitorování, proveďte následující kroky na **zařízení** stránky v řešení:
 
 1. Zvolte **+ nové zařízení**a potom zvolte **fyzické** jako **typ zařízení**:
 
-    ![Zřídit fyzické zařízení](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Přidat fyzického zařízení](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Zadejte **fyzického chladič** jako ID zařízení. Vyberte **symetrický klíč** a **automaticky generovat klíče** možnosti:
 
@@ -54,9 +54,7 @@ Chcete-li přidat zařízení do řešení vzdáleného monitorování, proveďt
 
     ![Načíst přihlašovací údaje](media/iot-suite-selector-connecting/credentials.png)
 
-Chcete-li vyhledat přihlašovacích údajů, které zařízení musí používat pro připojení k předkonfigurované řešení, přejděte na portálu Azure v prohlížeči. Přihlaste se k předplatnému.
-
-Můžete mít teď zřídit fyzické zařízení ve vzdálené monitorování předkonfigurované řešení. V následujících částech můžete implementovat aplikace klienta, která používá přihlašovací údaje zařízení pro připojení k řešení.
+Nyní jste přidali fyzického zařízení k předkonfigurovaného řešení vzdáleného monitorování a jsou uvedené jeho zařízení připojovací řetězec. V následujících částech můžete implementovat aplikace klienta, která používá zařízení připojovací řetězec pro připojení k řešení.
 
 Klientská aplikace implementuje integrované **chladič** model zařízení. Model zařízení předkonfigurované řešení určuje toto zařízení:
 

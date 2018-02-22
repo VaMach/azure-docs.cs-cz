@@ -14,59 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2018
+ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Použití zobrazení Ambari Hive se systémem Hadoop v HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Informace o spouštění dotazů Hive pomocí zobrazení Ambari Hive. Ambari je správy a monitorování nástroj s clustery HDInsight se systémem Linux. Jedna z funkcí poskytované prostřednictvím Ambari je webového uživatelského rozhraní, který slouží ke spouštění dotazů Hive.
-
-> [!NOTE]
-> Ambari má mnoho možností, které nejsou popsané v tomto dokumentu. Další informace najdete v tématu [Správa clusterů HDInsight pomocí webového uživatelského rozhraní Ambari](../hdinsight-hadoop-manage-ambari.md).
+Informace o spouštění dotazů Hive pomocí zobrazení Ambari Hive. Zobrazení Hive umožňuje vytvářet a optimalizovat a spouštění dotazů Hive z webového prohlížeče.
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Cluster HDInsight se systémem Linux. Informace o vytváření clusterů najdete v tématu [začněte s Hadoop v HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* Systémem Linux Hadoop na verzi clusteru HDInsight 3.4 nebo vyšší.
 
-> [!IMPORTANT]
-> Kroky v tomto dokumentu vyžadují clusteru Azure HDInsight, který používá Linux. Linux je jenom operační systém používaný v HDInsight verze 3.4 nebo novější. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > [!IMPORTANT]
+  > HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="open-the-hive-view"></a>Otevření zobrazení Hive
+* Webový prohlížeč
 
-Zobrazení Ambari můžete otevřít z portálu Azure. Vyberte HDInsight cluster a pak vyberte **zobrazení Ambari** z **rychlé odkazy** části.
+## <a name="run-a-hive-query"></a>Spuštění dotazu Hive
 
-![Rychlé odkazy sekci portálu](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. Otevřete web [Azure Portal](https://portal.azure.com).
 
-Ze seznamu zobrazení, vyberte __zobrazení Hive__.
+2. Vyberte HDInsight cluster a pak vyberte **zobrazení Ambari** z **rychlé odkazy** části.
 
-![Vybrané zobrazení Hive](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![Rychlé odkazy sekci portálu](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> Pokud získáváte přístup k Ambari, se zobrazí výzva k ověření na webu. Zadejte správce (výchozí `admin`) účet jméno a heslo, které jste použili při vytvoření clusteru.
+    Po zobrazení výzvy k ověření pomocí přihlášení clusteru (výchozí `admin`) účet jméno a heslo, které jste zadali při vytvoření clusteru.
 
-Měli byste vidět stránka podobná na následujícím obrázku:
+3. Ze seznamu zobrazení, vyberte __zobrazení Hive__.
 
-![Obrázek listu dotazu pro zobrazení Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Vybrané zobrazení Hive](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>Spuštění dotazu
+    Stránka zobrazení Hive se podobně jako na následujícím obrázku:
 
-Ke spuštění dotazu Hive, použijte následující kroky v zobrazení Hive.
+    ![Obrázek listu dotazu pro zobrazení Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. Z __dotazu__ kartě, vložte následující příkazy HiveQL do listu:
+4. Z __dotazu__ kartě, vložte následující příkazy HiveQL do listu:
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
     Tyto příkazy provádět následující akce:
@@ -82,42 +87,20 @@ Ke spuštění dotazu Hive, použijte následující kroky v zobrazení Hive.
 
    * `SELECT`: Vybere počet všech řádků, kde t4 sloupec obsahuje hodnotu [Chyba].
 
-     > [!NOTE]
-     > Použijte externí tabulky, pokud očekáváte, že v základních datech aktualizovat externí zdroj, například automatizované dat nahrát procesu nebo jiná operace MapReduce. Vyřazení externí tabulku nemá *není* odstranit data, jenom definici tabulky.
-
     > [!IMPORTANT]
     > Ponechte __databáze__ výběr v __výchozí__. V příkladech v tomto dokumentu použijte výchozí databázi součástí HDInsight.
 
-2. Pokud chcete spustit dotaz, použít **Execute** tlačítko pod listu. Tlačítko se změní oranžová a se text změní na **Zastavit**.
+5. Pokud chcete spustit dotaz, použít **Execute** tlačítko pod listu. Tlačítko se změní oranžová a se text změní na **Zastavit**.
 
-3. Po dokončení dotazu **výsledky** karta zobrazuje výsledky operace. Tento text je výsledkem dotazu:
+6. Po dokončení dotazu **výsledky** karta zobrazuje výsledky operace. Tento text je výsledkem dotazu:
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     Můžete použít **protokoly** a zobrazit informace o protokolování, které úloha vytvořena.
 
    > [!TIP]
    > Stahování nebo uložení výsledků **výsledky uložit** dialogové rozevírací seznam v horní pravé **výsledky zpracování dotazu** části.
-
-4. Vyberte první čtyři řádky tohoto dotazu a pak vyberte **Execute**. Všimněte si, že nebyly nalezeny žádné výsledky po dokončení úlohy. Pomocí **Execute** tlačítko, pokud je vybraná část dotazu lze spustit pouze vybrané příkazy. V takovém případě výběr nezahrnuli poslední příkaz, který načte řádky z tabulky. Pokud vyberete jenom daného řádku a používat **Execute**, měli byste vidět očekávané výsledky.
-
-5. Pokud chcete přidat do listu, použijte **nový list** tlačítko v dolní části **Editor dotazů**. Do nového listu zadejte následující příkazy HiveQL:
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  Tyto příkazy provádět následující akce:
-
-   * **Vytvoření tabulka není v případě existuje**: vytvoří tabulku, pokud ještě neexistuje. Protože **externí** – klíčové slovo nepoužívá, k vytvoření interní tabulky. Interní tabulku je uložena v datovém skladu Hive a je zcela spravuje Hive. Na rozdíl od s externích tabulek se odstranit interní tabulku odstraní v základních datech.
-
-   * **ULOŽENÉ ORC AS**: ukládá data ve formátu optimalizované řádek sloupcovém (ORC). ORC je vysoce optimalizovaný a efektivní formát pro ukládání dat Hive.
-
-   * **PŘEPSAT INSERT... Vyberte**: vybere řádky z **log4jLogs** tabulku, která obsahují `[ERROR]`a potom vkládá data do **errorLogs** tabulky.
-
-Použití **Execute** tlačítko ke spuštění tohoto dotazu. **Výsledky** karta neobsahuje žádné informace, pokud dotaz vrátí nulový počet řádků. Měl by být stav jako **úspěšné** po dokončení dotazu.
 
 ### <a name="visual-explain"></a>Vysvětlují Visual
 
@@ -152,9 +135,14 @@ Z **dotazu** kartě, můžete volitelně uložit dotazy. Po uložení dotazu se 
 
 ![Obrázek karty uložené dotazy](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> Uložené dotazy jsou uloženy v úložišti clusteru výchozí. Můžete najít uložené dotazy na cestě `/user/<username>/hive/scripts`. Tyto jsou uložené jako prostý text `.hql` soubory.
+>
+> Pokud odstranění clusteru, ale ponechat úložiště, můžete použít nástroj jako [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) nebo Data Lake Storage Explorer (z [portálu Azure](https://portal.azure.com)) pro načtení dotazy.
+
 ## <a name="user-defined-functions"></a>Uživatelem definované funkce
 
-Můžete také rozšířit Hive prostřednictvím uživatelem definovaných funkcí (UDF). Implementace funkce nebo logiky, která není snadno modelován v HiveQL pomocí uživatelem definovanou FUNKCI.
+Hive můžete rozšířit pomocí uživatelem definovaných funkcí (UDF). Implementace funkce nebo logiky, která není snadno modelován v HiveQL pomocí uživatelem definovanou FUNKCI.
 
 Deklarace a ukládání sadu UDF pomocí **UDF** karty v horní části zobrazení Hive. Tyto funkce lze použít s **Editor dotazů**.
 

@@ -16,18 +16,18 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25ab1da5a07874596bf5ec62313e672af83a9bb9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Zobrazení nebo hledání skupin uživatelů ve službě Azure Active Directory
 Tento článek vysvětluje, jak k zobrazení všech skupin v Azure Active Directory (Azure AD). Jedna z funkcí správy uživatelů Azure AD je, že skupiny slouží k provádění úloh správy, jako je například přiřazení licence nebo oprávnění k počet uživatelů najednou.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Jak zobrazit všechny skupiny?
 1. Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
-2. Vyberte **další služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
+2. Vyberte **všechny služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
 
    ![Otevírání uživatelů a skupin](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. Na **uživatelů a skupin** vyberte **všechny skupiny**.
@@ -35,7 +35,7 @@ Tento článek vysvětluje, jak k zobrazení všech skupin v Azure Active Direct
    ![Otevření okna skupiny](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. Na **uživatelé a skupiny - všechny skupiny** okno, můžete přidat nebo odebrat sloupce zobrazení, filtrovat seznam k vyhledávání pro skupinu, nebo dělat změny skupiny, které mají dostatečná oprávnění ke změně.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Následující články poskytují další informace o službě Azure Active Directory.
 
 * [Zobrazení existujících skupin](active-directory-groups-view-azure-portal.md)

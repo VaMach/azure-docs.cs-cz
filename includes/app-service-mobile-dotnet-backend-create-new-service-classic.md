@@ -1,19 +1,21 @@
-1. Přihlaste se na [web Azure Portal].
-2. Klikněte na **+NOVÝ** > **Web + mobilní zařízení** > **Mobilní aplikace** a potom zadejte název back-endu mobilní aplikace .
-3. V případě **skupiny prostředků** vyberte existující skupinu prostředků nebo vytvořte novou (použijte stejný název, jaký má aplikace). 
+1. Přihlaste se na [portál Azure].
+2. Vyberte **+ nový** > **Web + mobilní** > **mobilní aplikace**a pak zadejte název pro back-end mobilní aplikace.
+3. Pro **skupiny prostředků**, vyberte existující skupinu prostředků nebo vytvořte novou (pomocí stejný název jako vaše aplikace). 
+4. Pro **plán služby App Service**, výchozí plán (v [úrovně Standard](https://azure.microsoft.com/pricing/details/app-service/)) je vybrána. Můžete také vybrat jiný plán nebo [vytvořte novou](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
+
+   Určit nastavení plánu služby App Service [umístění, funkce, náklady a výpočetní prostředky](https://azure.microsoft.com/pricing/details/app-service/) přidružené k vaší aplikaci. Další informace o službě App Service plány a postup vytvoření nového plánu v různých cenových vrstvy a v požadovaném umístění najdete v části [podrobný přehled plánů služby Azure App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
    
-    Můžete buď vybrat jiný plán služby App Service nebo vytvořit nový. Další informace o plánech služby App Service a vytvoření nového plánu v různých cenových úrovních a požadovaném umístění najdete v článku [Podrobný přehled plánů služby Azure App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. V případě **plánu služby App Service** je vybraný výchozí plán (na [úrovni Standard](https://azure.microsoft.com/pricing/details/app-service/)). Můžete také vybrat jiný plán nebo [vytvořte novou](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). Nastavení plánu služby App Service určují [umístění, funkce a nákladové a výpočetní prostředky](https://azure.microsoft.com/pricing/details/app-service/) přidružené k vaší aplikaci. 
+5. Vyberte **Vytvořit**. Tento krok vytvoří back-end mobilní aplikace. 
+6. V **nastavení** pro nové Mobile Apps back-end, vyberte **úvodní** > aplikační platforma vašeho klienta > **připojit databázi**. 
    
-    Až se rozhodnete pro konkrétní plán, klikněte na **Vytvořit**. Tím vytvoříte back-end mobilní aplikace. 
-5. V okně **Nastavení** nového back-endu mobilní aplikace klikněte na **Rychlý start** > aplikační platforma vašeho klienta > **Připojit databázi**. 
+   ![Výběr připojení databáze](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
+7. V **přidat datové připojení** podokně, vyberte **SQL Database** > **vytvořit novou databázi**. Zadejte název databáze, zvolte cenovou úroveň a potom vyberte **Server**. Novou databázi můžete použít opakovaně. Pokud už ve stejném umístění databázi máte, můžete místo toho vybrat možnost **Použít existující databázi**. Nedoporučujeme používání databáze v jiném umístění, z důvodu náklady na šířku pásma a zhorší latenci.
    
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
-6. V okně **Přidat datové připojení** klikněte na **Databáze SQL** > **Vytvořit novou databázi**, zadejte **Název** databáze, zvolte cenovou úroveň a potom klikněte na **Server**.  Novou databázi můžete použít opakovaně. Pokud už ve stejném umístění databázi máte, můžete místo toho vybrat možnost **Použít existující databázi**. Nedoporučujeme používat databázi v jiném umístění, protože vám to zvýší náklady na šířku pásma a zhorší latenci.
-   
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
-7. V okně **Nový server** zadejte do pole **Název serveru** jedinečný název serveru, zadejte přihlašovací jméno a heslo, zaškrtněte políčko **Povolit službám Azure přístup k serveru** a klikněte na tlačítko **OK**. Tím vytvoříte novou databázi.
-8. Zpátky v okně **Přidat datové připojení** klikněte na **Připojovací řetězec**, zadejte přihlašovací jméno a heslo svojí databáze a klikněte na tlačítko **OK**. Počkejte několik minut na úspěšné nasazení databáze a teprve potom pokračujte.
+   ![Výběr databáze](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
+8. V **nový server** podokně, zadejte název jedinečné serveru v **název serveru** zadejte přihlašovací jméno a heslo, vyberte **služeb Azure povolit přístup k serveru**a vyberte  **OK**. Tento krok vytvoří novou databázi.
+9. Zpět v **přidat datové připojení** podokně, vyberte **připojovací řetězec**, zadejte hodnoty přihlašovací jméno a heslo pro vaši databázi a vyberte **OK**. 
+
+   Počkejte několik minut databáze, která se úspěšně nasazena, než budete pokračovat.
 
 <!-- URLs. -->
-[web Azure Portal]: https://portal.azure.com/
+[portál Azure]: https://portal.azure.com/

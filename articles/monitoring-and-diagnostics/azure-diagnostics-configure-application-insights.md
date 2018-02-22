@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b4f1f8900637f23220f9a89adbb321707c49e2d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Posílat diagnostická data Cloudová služba, virtuální počítač nebo Service Fabric Application insights
 Cloudové služby, virtuální počítače sady škálování virtuálního počítače a Service Fabric všechny použít ke shromažďování dat rozšíření Azure Diagnostics.  Azure diagnostics odesílá data do tabulky služby Azure Storage.  Můžete však také všechny kanálu nebo podmnožinu dat do jiných umístění pomocí rozšíření Azure Diagnostics 1.5 nebo novější.
@@ -67,16 +67,16 @@ Příklad konfigurace jímka pro službu Application Insights:
 
 - **ApplicationInsights** element Určuje klíč instrumentace prostředku statistiky aplikace, kde Azure diagnostics data se odesílají.
     - Pokud nemáte existující prostředek Application Insights, přečtěte si téma [vytvořte nový prostředek Application Insights](../application-insights/app-insights-create-new-resource.md) Další informace o vytvoření prostředku a získání klíč instrumentace.
-    - Pokud vyvíjíte cloudové služby s Azure SDK 2.8 nebo novější, tento klíč instrumentace se automaticky vyplní. Hodnota je založena na **APPINSIGHTS_INSTRUMENTATIONKEY** nastavení konfigurace služby, když balení projekt cloudové služby. V tématu [pomocí Application Insights s potíží Cloudová služba Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
+    - Pokud vyvíjíte cloudové služby s Azure SDK 2.8 nebo novější, tento klíč instrumentace se automaticky vyplní. Hodnota je založena na **APPINSIGHTS_INSTRUMENTATIONKEY** nastavení konfigurace služby, když balení projekt cloudové služby. V tématu [Application Insights použít s cloudovými službami](../application-insights/app-insights-cloudservices.md).
 
 - **Kanály** element obsahuje jeden nebo více **kanál** elementy.
     - *Název* atribut jednoznačně odkazuje na tomto kanálu.
     - *Loglevel* atribut umožňuje určit úroveň protokolu, který umožňuje kanál. Jsou k dispozici protokolu úrovně v pořadí podle nejvíc minimálně informace:
-        - Verbose
+        - Podrobné
         - Informace
         - Upozornění
         - Chyba
-        - Kritické
+        - Kritická
 
 Kanál, který funguje jako filtr a umožňuje vybrat konkrétní protokolu úrovně k odeslání do cílové jímky. Například může shromáždit podrobné protokoly a jejich odeslání do úložiště ale odeslat pouze chyby jímky.
 

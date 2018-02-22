@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Vyrovnávání zatížení na víc konfigurací IP adres pomocí portálu Azure
 
@@ -89,7 +89,7 @@ Vytvořte nástroj pro vyrovnávání zatížení pro konfiguraci:
 
 1. Přejděte na portálu Azure: http://portal.azure.com. Přihlaste se pomocí účtu Azure.
 
-2. V levém horním rohu obrazovky vyberte **nový** > **sítě** > **nástroj pro vyrovnávání zatížení**. Potom vyberte **vytvořit**.
+2. V levém horním rohu obrazovky vyberte **vytvořit prostředek** > **sítě** > **nástroj pro vyrovnávání zatížení**. Potom vyberte **vytvořit**.
 
 3. V části **vytvořit nástroj pro vyrovnávání zatížení**, zadejte název pro nástroj pro vyrovnávání zatížení. V tomto případě používáme název **mylb**.
 
@@ -193,6 +193,6 @@ Po nakonfigurování pravidla jsou zobrazeny v části nástroj pro vyrovnáván
 
 Jako poslední krok nakonfigurujte vaše záznamy prostředků DNS tak, aby odkazoval na příslušné front-end IP adresy pro nástroj pro vyrovnávání zatížení. Je možné hostovat vaše domény v Azure DNS. Další informace o používání s nástrojem pro vyrovnávání zatížení Azure DNS najdete v tématu [pomocí Azure DNS s jinými službami Azure](../dns/dns-for-azure-services.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o tom, jak kombinací v Azure v rámci služby Vyrovnávání zatížení [pomocí služby Vyrovnávání zatížení v Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Zjistěte, jak můžete použít různé typy protokolů pro správu a řešení potíží pro vyrovnávání zatížení v [protokolu pro vyrovnávání zatížení Azure analytics](../load-balancer/load-balancer-monitor-log.md).

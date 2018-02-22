@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Uložit IoT hub zprávy, které obsahují data snímačů do Azure blob storage
 
@@ -45,7 +45,7 @@ Zjistíte, jak vytvořit účet úložiště Azure a Azure funkce aplikace na uk
 
 ## <a name="create-an-azure-storage-account"></a>Vytvoření účtu úložiště Azure
 
-1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **nový** > **úložiště** > **účet úložiště**  >   **Vytvoření**.
+1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **vytvořit prostředek** > **úložiště** > **účet úložiště**  >  **Vytvořit**.
 
 2. Zadejte informace potřebné pro účet úložiště:
 
@@ -98,7 +98,7 @@ Klikněte na tlačítko **přidat** z podokna trasy a zadejte název pro tuto tr
 
    Měli byste vidět zprávy odeslané ze zařízení do služby IoT hub přihlášení kontejneru objektů blob.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Úspěšně jste vytvořili účet úložiště Azure a směruje zprávy ze služby IoT Hub na kontejner objektů blob v daném účtu úložiště.
 

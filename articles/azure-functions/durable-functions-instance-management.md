@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: a938e5949896ad3bfa91903106d56ccdf827c725
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Správa instancí trvanlivý funkcí (Azure Functions)
 
@@ -38,12 +38,12 @@ Zde je jednoduchý příklad C#:
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
-public static Task Run(
+public static async Task Run(
     [ManualTrigger] string input,
     [OrchestrationClient] DurableOrchestrationClient starter,
     TraceWriter log)
 {
-    string instanceId = starter.StartNewAsync("HelloWorld", input);
+    string instanceId = await starter.StartNewAsync("HelloWorld", input);
     log.Info($"Started orchestration with ID = '{instanceId}'.");
 }
 ```
@@ -146,7 +146,7 @@ public static Task Run(
 > [!WARNING]
 > Pokud není žádná instance orchestration se zadaným *instance ID* nebo pokud není instance čekání na zadaný *název události*, zpráva o události se zahodí. Další informace o tomto chování najdete v tématu [potíže Githubu](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Naučte se používat rozhraní API HTTP pro instanci správy](durable-functions-http-api.md)

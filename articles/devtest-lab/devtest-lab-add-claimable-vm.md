@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: v-craic
-ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 616117e1f1e55e9c59b409740e17e295ce114d52
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Vytvoření a správa vymahatelných virtuálních počítačů v Azure DevTest Labs
 Přidat vymahatelných virtuálního počítače do testovacího prostředí podobným způsobem, jak můžete [přidat standardní virtuální počítač](devtest-lab-add-vm.md) – z *základní* to znamená buď [vlastní image](devtest-lab-create-template.md), [vzorec](devtest-lab-manage-formulas.md), nebo [Marketplace image](devtest-lab-configure-marketplace-images.md). V tomto kurzu vás provede pomocí portálu Azure pro přidání do testovacího prostředí v DevTest Labs vymahatelných virtuálního počítače a zobrazuje procesy že uživatel bude postupovat pro deklarace identity a unclaim virtuálního počítače.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Postup pro přidání do testovacího prostředí v Azure DevTest Labs vymahatelných virtuálního počítače
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+1. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 1. Ze seznamu labs vyberte testovací prostředí, ve kterém chcete vytvořit vymahatelných virtuálního počítače.  
 1. V tomto prostředí **přehled** podokně, vyberte **+ přidat**.  
 

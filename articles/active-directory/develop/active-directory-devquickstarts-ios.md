@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 93df6f5e6c966fdf4909a4c21ebc36bff4283a59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Začínáme se službou Azure AD iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -63,7 +63,7 @@ Chcete-li nastavit aplikaci získat tokeny, musíte nejprve zaregistrovat v klie
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na váš účet. V části **Directory** vyberte klienta služby Active Directory, kde chcete registrace vaší aplikace.
-3. Klikněte na tlačítko **více služeb** v levém navigačním podokně a potom vyberte **Azure Active Directory**.
+3. Klikněte na tlačítko **všechny služby** v levém navigačním podokně a potom vyberte **Azure Active Directory**.
 4. Klikněte na tlačítko **registrace aplikace**a potom vyberte **přidat**.
 5. Postupujte podle výzev a vytvořte novou **nativní klientská aplikace**.
   * **Název** aplikace popisuje vaší aplikace pro koncové uživatele.

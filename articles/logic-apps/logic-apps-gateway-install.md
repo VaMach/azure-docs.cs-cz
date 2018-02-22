@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Nainstalujte bránu dat na místě pro Azure Logic Apps
 
-Předtím, než aplikace logiky můžete přistupovat ke zdrojům dat místní, musíte nainstalovat a nastavit bránu dat na místě. Brána funguje jako mostu, který poskytuje přenos rychlé dat a šifrování mezi místními systémy a aplikace logiky. Brána předává data z místního zdroje na šifrované kanály přes Azure Service Bus. Veškerý provoz pochází jako zabezpečené odchozí provoz z agenta brány. Další informace o [fungování bránu dat](#gateway-cloud-service).
+Předtím, než aplikace logiky můžete přistupovat ke zdrojům dat místně, budete muset nainstalovat a nastavit bránu dat na místě. Brána funguje jako mostu, který poskytuje přenos rychlé dat a šifrování mezi místními systémy a aplikace logiky. Brána předává data z místního zdroje na šifrované kanály přes Azure Service Bus. Veškerý provoz pochází jako zabezpečené odchozí provoz z agenta brány. Další informace o [fungování bránu dat](#gateway-cloud-service).
 
 Brána podporuje připojení k těmto zdrojům dat místně:
 
@@ -35,8 +35,8 @@ Brána podporuje připojení k těmto zdrojům dat místně:
 *   MySQL
 *   Oracle Database
 *   PostgreSQL
-*   Aplikace serveru SAP 
-*   Zpráva serveru SAP
+*   Aplikační server SAP 
+*   Server zpráv SAP
 *   SharePoint
 *   SQL Server
 *   Teradata
@@ -54,18 +54,18 @@ Informace o tom, jak používat bránu s jinými službami, najdete v těchto č
 
 ## <a name="requirements"></a>Požadavky
 
-**Minimální**:
+**minimální**
 
 * Rozhraní .NET 4.5 framework
 * 64bitová verze systému Windows 7 nebo Windows Server 2008 R2 (nebo novější)
 
-**Doporučená**:
+Doporučená
 
 * 8 jader procesoru
 * 8 GB paměti
 * 64bitová verze systému Windows 2012 R2 (nebo novější)
 
-**Je důležité zvážit**:
+**Důležité informace**
 
 * Nainstalujte bránu dat místně pouze v místním počítači.
 Nelze nainstalovat bránu na řadiči domény.
@@ -75,12 +75,12 @@ Nelze nainstalovat bránu na řadiči domény.
 
 * Neinstalujte bránu v počítači, který vypne, přejde do režimu spánku, nebo nemá připojení k Internetu, protože v těchto případech nelze spustit bránu. Navíc může sníží výkon brány přes bezdrátové sítě.
 
-* Během instalace, musíte se odhlásit se [pracovní nebo školní účet](https://docs.microsoft.com/azure/active-directory/sign-up-organization) , který je spravován službou Azure Active Directory (Azure AD), nikoli účet Microsoft.
+* Během instalace, budete muset přihlásit [pracovní nebo školní účet](https://docs.microsoft.com/azure/active-directory/sign-up-organization) , který je spravován službou Azure Active Directory (Azure AD), nikoli účet Microsoft.
 
   > [!TIP]
   > Pokud chcete použít účet Microsoft, který má Visual Studio s předplatné MSDN, nejprve [vytvořit adresář (klientů) v Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) s účtem Microsoft, nebo použijte výchozí adresář. Přidat uživatele s heslem k adresáři a potom poskytnout přístup k vašemu předplatnému. Můžete pak přihlásit během instalace brány se toto uživatelské jméno a heslo.
 
-  Tento pracovní nebo školní účet musíte použít později na portálu Azure při vytváření a přidružte prostředek brány k vaší instalace brány. Když vytvoříte připojení mezi svou aplikaci logiky a místní zdroj dat pak vyberete tento prostředek brány. [Proč musí používat Azure AD pracovní nebo školní účet?](#why-azure-work-school-account)
+  Musíte použít stejný pracovní nebo školní účet později na portálu Azure při vytváření a přidružte prostředek brány k vaší instalace brány. Když vytvoříte připojení mezi svou aplikaci logiky a místní zdroj dat pak vyberete tento prostředek brány. [Proč musím použít Azure AD pracovní nebo školní účet?](#why-azure-work-school-account)
 
   > [!TIP]
   > Pokud jste se zaregistrovali do nabídky služeb Office 365 a nedodal e-mailu samotnou práci, může vypadat přihlašovací adresa jeff@contoso.onmicrosoft.com. 
@@ -93,7 +93,7 @@ Nelze nainstalovat bránu na řadiči domény.
 
 ## <a name="install-the-data-gateway"></a>Nainstalujte bránu dat
 
-1.  [Stáhněte a spusťte instalační program brány na místním počítači](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Stáhněte a spusťte instalační program brány na místním počítači](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Přečtěte si a přijměte podmínky použití a ochrana osobních údajů příkaz.
 
@@ -197,7 +197,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Pokud **TcpTestSucceeded** není nastavený na **True**, vám může blokována bránou firewall. Pokud chcete být komplexní, nahraďte **ComputerName** a **Port** a hodnoty uvedené v části [konfigurace portů](#configure-ports) v tomto tématu.
+Pokud **TcpTestSucceeded** není nastavený na **True**, vám může blokována bránou firewall. Pokud chcete být komplexní, nahraďte **ComputerName** a **Port** a hodnoty uvedené v části [konfigurace portů](#configure-ports) v tomto článku.
 
 Brána firewall, mohou také blokovat připojení, které provádí Azure Service Bus v datových centrech Azure. Pokud tento scénář se stane, schválit (odblokovat) všechny IP adresy pro těchto datových center ve vašem regionu. Pro tyto IP adresy [získat seznam adres Azure IP zde](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -205,25 +205,27 @@ Brána firewall, mohou také blokovat připojení, které provádí Azure Servic
 
 Vytvoří odchozí připojení k bráně [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) a komunikuje na odchozí porty: TCP 443 (výchozí), 5671, 5672, 9350 prostřednictvím 9354. Brána nevyžaduje příchozí porty. Další informace o [Azure Service Bus a hybridní řešení](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| NÁZVY DOMÉN | ODCHOZÍ PORTY | POPIS |
-| --- | --- | --- |
-| *. analysis.windows.net | 443 | HTTPS | 
-| *. login.windows.net | 443 | HTTPS | 
-| *. servicebus.windows.net | 5671-5672 | Pokročilé zpráv služby Řízení front Protocol (AMQP) | 
-| *. servicebus.windows.net | 443, 9350-9354 | Moduly pro naslouchání na předávání přes Service Bus přes TCP (vyžaduje 443 pro získání tokenu řízení přístupu) | 
-| *. frontend.clouddatahub.net | 443 | HTTPS | 
-| *. core.windows.net | 443 | HTTPS | 
-| Login.microsoftonline.com | 443 | HTTPS | 
-| *. msftncsi.com | 443 | Použít k testování připojení k Internetu, když brána nedostupná pro službu Power BI. | 
+| Názvy domén | Odchozí porty | Popis |
+| ------------ | -------------- | ----------- |
+| *.analysis.windows.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 5671-5672 | Pokročilé zpráv služby Řízení front Protocol (AMQP) | 
+| *.servicebus.windows.net | 443, 9350-9354 | Moduly pro naslouchání na předávání přes Service Bus přes TCP (vyžaduje 443 pro získání tokenu řízení přístupu) | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.core.windows.net | 443 | HTTPS | 
+| login.microsoftonline.com | 443 | HTTPS | 
+| *.msftncsi.com | 443 | Použít k testování připojení k Internetu, když brána nedostupná pro službu Power BI. | 
+||||
 
 Pokud budete muset schválit IP adresy místo domény, můžete stáhnout a použít [rozsahy IP Datacentra Azure Microsoft seznamu](https://www.microsoft.com/download/details.aspx?id=41653). V některých případech jsou vytvářeny připojení Azure Service Bus s IP adresou, nikoli plně kvalifikované názvy domény.
 
 <a name="gateway-cloud-service"></a>
+
 ## <a name="how-does-the-data-gateway-work"></a>Jak funguje bránu dat?
 
 Bránu dat umožňuje rychle a bezpečně komunikaci mezi svou aplikaci logiky, cloudové službě brány a zdroje dat na místě. 
 
-![Diagram-for-On-Premises-data-Gateway-Flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 Takže když uživatel v cloudu komunikuje element, který je připojen k místní zdroj dat:
 
@@ -240,6 +242,7 @@ Takže když uživatel v cloudu komunikuje element, který je připojen k místn
 6. Výsledky jsou odesílány ze zdroje dat zpět k bráně a ke cloudové službě brány. Cloudové služby Brána pak použije výsledky.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
 ### <a name="general"></a>Obecné
@@ -252,7 +255,7 @@ Takže když uživatel v cloudu komunikuje element, který je připojen k místn
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: Proč musí I používáte Azure pracovní nebo školní účet pro přihlášení? <br/>
+**Q**: Proč mám používat Azure pracovní nebo školní účet pro přihlášení? <br/>
 **A**: pouze můžete použít Azure pracovní nebo školní účet, když instalujete místní brána data. Váš přihlašovací účet je uložený v klientovi, který je spravován pomocí služby Azure Active Directory (Azure AD). Obvykle účet Azure AD hlavní název uživatele (UPN) odpovídá e-mailovou adresu.
 
 **Q**: uložení pověření? <br/>
@@ -289,7 +292,7 @@ Můžete aplikaci Azure rychlost testovací nástroj třetí strany ke měřidla
 **A**: obnovovací klíč poskytuje způsob, jak migrovat nebo obnovení po havárii nastavení brány.
 
 **Q**: existují všechny plány pro povolení scénáře s vysokou dostupností s bránou? <br/>
-**A**: tyto scénáře jsou plánovaná, ale ještě nemáme časové osy.
+**A**: některé konektory podporují scénáře s vysokou dostupností, jako systém souborů konektoru a dalších na cestě. Další informace najdete v tématu [clusterů vysokou dostupnost pro bránu místní data](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 ## <a name="troubleshooting"></a>Řešení potíží
 
@@ -301,7 +304,7 @@ Můžete aplikaci Azure rychlost testovací nástroj třetí strany ke měřidla
 Můžete také zobrazit nástroje, které má váš zdroj dat pro trasování dotazů. Můžete například použít rozšířených událostí nebo profileru SQL pro SQL Server a služby Analysis Services.
 
 **Q**: kde jsou protokoly gateway? <br/>
-**A**: viz nástroje později v tomto tématu.
+**A**: viz nástroje později v tomto článku.
 
 ### <a name="update-to-the-latest-version"></a>Aktualizovat na nejnovější verzi
 
@@ -337,7 +340,7 @@ Můžete najít v protokolech Brána pro správu dat a PowerBIGateway pod **prot
 
 [Fiddler](http://www.telerik.com/fiddler) je bezplatný nástroj na webu Telerik, který monitoruje provoz protokolu HTTP. Zobrazí se tato komunikace se službou Power BI v klientském počítači. Tato služba může zobrazit chyby a další související informace.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
     
 * [Připojit k místním datům z aplikace logiky](../logic-apps/logic-apps-gateway-connection.md)
 * [Funkce Integrace organizace](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/02/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6eb51cb8dc8c158f5412334a09493172f2973c74
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Začínáme s řízením přístupu na základě rolí na portálu Azure
 Zaměřené na zabezpečení společnosti by měla soustředit na poskytnutí zaměstnanci přesný oprávnění, které potřebují. Účet, který se útočníci můžou zpřístupnit příliš mnoho oprávnění. Příliš málo oprávnění znamená, že zaměstnanci nelze práci efektivně. Azure na základě rolí řízení přístupu (RBAC) pomáhá vyřešit tento problém tak, že nabídka vyladění správy přístupu pro Azure.
@@ -58,7 +58,7 @@ V podřízené obory dědí přístup, který udělíte na nadřazené rozsahy. 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC oproti správci classic předplatného
 [Správci Classic předplatného a spolusprávci](../billing/billing-add-change-azure-subscription-administrator.md) mají úplný přístup k předplatnému Azure. Můžou spravovat prostředky pomocí [portál Azure](https://portal.azure.com), rozhraní API Správce Azure Resource Manager a modelu nasazení classic rozhraní API. V modelu RBAC klasických správců přiřazené roli vlastníka na obor předplatného.
 
-Azure RBAC podporují pouze na portálu Azure a nových rozhraní API Správce Azure Resource Manager. Uživatelé a aplikace, které jsou přiřazené role RBAC nelze použít modelu nasazení Azure classic rozhraní API.
+Azure RBAC podporují pouze na portálu Azure a nových rozhraní API Správce Azure Resource Manager. Uživatelé a aplikace, které jsou přiřazené role RBAC nelze pomocí modelu nasazení Azure classic rozhraní API.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Oprávnění pro správu oproti operace dat
 Azure RBAC podporuje pouze operace správy prostředků Azure v portálu Azure a rozhraní API Správce Azure Resource Manager. Všechny operace úrovně dat pro prostředky Azure se nejde autorizovat. Například může autorizovat někdo chcete spravovat účty pro úložiště, ale ne na objekty BLOB nebo tabulky v rámci účtu úložiště. Podobně databáze SQL je možné spravovat, ale nikoli tabulky v něm.

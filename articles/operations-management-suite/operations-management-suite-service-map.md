@@ -1,6 +1,6 @@
 ---
-title: "Pomocí mapy služeb řešení v Operations Management Suite | Microsoft Docs"
-description: "Mapa služeb je Operations Management Suite řešení, které automaticky zjistí součásti aplikace v systémech Windows a Linux a mapuje komunikace mezi službami. Tento článek obsahuje podrobné informace pro nasazení mapy služeb ve vašem prostředí a jejich použití v různých scénářů."
+title: "Pomocí mapy služeb řešení v Azure | Microsoft Docs"
+description: "Service Map je řešení v Azure, které automaticky zjišťuje komponenty aplikací v systémech Windows a Linux a mapuje komunikace mezi těmito službami. Tento článek obsahuje podrobné informace pro nasazení mapy služeb ve vašem prostředí a jejich použití v různých scénářů."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Pomocí mapy služeb řešení v Operations Management Suite
+# <a name="using-service-map-solution-in-azure"></a>Pomocí mapy služeb řešení v Azure
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Pomocí mapy služeb, můžete zobrazit vaše servery ve způsobu, jakým se domníváte, že z nich: jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy, a vyžaduje porty mezi žádné připojení TCP architektura žádnou konfiguraci, jiné než instalaci agenta.
 
-Tento článek popisuje podrobnosti o pomocí mapy služeb. Informace o konfiguraci mapy služeb a agentů registrace najdete v tématu [mapy služeb konfigurace řešení v Operations Management Suite](operations-management-suite-service-map-configure.md).
+Tento článek popisuje podrobnosti o pomocí mapy služeb. Informace o konfiguraci mapy služeb a agentů registrace najdete v tématu [mapy služeb konfigurace řešení v Azure](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Případy použití: Ujistěte se, IT procesy závislostí clustery
@@ -32,7 +32,7 @@ Tento článek popisuje podrobnosti o pomocí mapy služeb. Informace o konfigur
 Mapy služeb automaticky vytvoří běžné odkaz mapu závislostí mezi servery, procesy a služby třetích stran. Ji zjistí a mapuje všechny závislosti TCP, identifikace neočekávaném připojení, vzdálené systémy jiných výrobců, které závisí na a závislosti pro tradiční tmavý oblasti sítě, jako je Active Directory. Mapy služeb zjistí selhání síťová připojení, která spravovaných systémech se pokoušíte provést, pomáhá identifikovat potenciální chybné konfigurace serveru, výpadkem služby a problémů se sítí.
 
 ### <a name="incident-management"></a>Správa incidentů
-Mapa služeb pomáhá eliminovat průběhu problém izolace ukazuje, jak jsou připojené systémy a které mají vliv na sebe navzájem. Kromě identifikaci selhání připojení, pomáhá identifikovat nástroje pro vyrovnávání zatížení nesprávně nakonfigurované, překvapivé nebo nadměrnému zatížení důležité služby a podvodné klientů, jako jsou počítače vývojáře rozhovoru s produkční systémy. Pomocí integrovaného pracovních Operations Management Suite změnit sledování, můžete také zjistit, zda událost změny na back-end počítače nebo služby vysvětluje příčinu incidentu.
+Mapa služeb pomáhá eliminovat průběhu problém izolace ukazuje, jak jsou připojené systémy a které mají vliv na sebe navzájem. Kromě identifikaci selhání připojení, pomáhá identifikovat nástroje pro vyrovnávání zatížení nesprávně nakonfigurované, překvapivé nebo nadměrnému zatížení důležité služby a podvodné klientů, jako jsou počítače vývojáře rozhovoru s produkční systémy. Pomocí integrovaného pracovních změnit sledování, můžete také zjistit, zda událost změny na back-end počítače nebo služby vysvětluje příčinu incidentu.
 
 ### <a name="migration-assurance"></a>Zajištění migrace
 Pomocí mapy služeb můžete efektivně plánování, urychlit a ověření Azure migrace, který pomáhá zajistit že nic je ponecháno a nedojde k výpadku neočekávaném. Můžete zjistit všechny konkrétní systémy, které je potřeba migrovat společně, posuzovat konfiguraci systému a kapacity a zjistit, jestli je spuštěný systém stále obsluhuje uživatelé nebo dojít k vyřazení z provozu místo migrace. Po dokončení přesunu můžete zkontrolovat na zatížení klienta a identit k ověření připojení testovací systémy a zákazníků. Pokud podsíť plánování a brány firewall definic problémy, bodu se nezdařilo připojení v mapě služby maps na systémy, které je třeba připojení.
@@ -41,7 +41,7 @@ Pomocí mapy služeb můžete efektivně plánování, urychlit a ověření Azu
 Pokud používáte Azure Site Recovery a potřebovat pomoc definování posloupnost obnovení pro prostředí aplikace mapy služeb můžete automaticky zjistit, jak systémy závisí na jiné zajistit, aby váš plán obnovení je spolehlivé. Zvolit důležitého serveru nebo skupiny a zobrazením jeho klienty, můžete určit, které front-endu systémy pro obnovení po serveru obnovena a k dispozici. Naopak prohlížením důležité servery back-end závislosti, můžete určit, které systémy obnovení předtím, než se obnoví vaše systémy fokus.
 
 ### <a name="patch-management"></a>Opravy správy
-Mapa služeb vylepšuje používání vyhodnocení aktualizací pro systém Operations Management Suite ukazuje, který ostatními týmy a servery závisí na službě, tak můžete upozornit předem před vypnout vaše systémy pro opravy. Mapy služeb taky zlepšuje správu oprava v Operations Management Suite ukazuje, zda jsou k dispozici a správně připojené po vaší služby jsou opravit a restartovat.
+Mapa služeb vylepšuje používání vyhodnocení aktualizací systému ukazuje, který ostatními týmy a servery závisí na službě, tak můžete upozornit předem před vypnout vaše systémy pro opravy. Mapy služeb taky zlepšuje správu oprava ukazuje, zda jsou k dispozici a správně připojené po vaší služby jsou opravit a restartovat.
 
 
 ## <a name="mapping-overview"></a>Přehled mapování
@@ -54,7 +54,7 @@ Počítače lze rozšířit v mapě zobrazíte spuštění zpracování skupiny 
 Ve výchozím nastavení mapy služby maps zobrazit posledních 30 minut informace o závislostech. Pomocí ovládacích prvků čas v levém horním se můžete dotazovat mapy pro historické časových rozsahů ukazují, jak závislosti hledá v minulosti (například během incident nebo před došlo ke změně) až jednu hodinu. Mapa služeb data jsou uložena po dobu 30 dnů v placené pracovních prostorů a 7 dní v bezplatné pracovní prostory.
 
 ## <a name="status-badges-and-border-coloring"></a>Stav odznaky a barvy ohraničení
-V dolní části každý server v mapě může být seznam stav odznaky zdůraznění stavové informace o serveru. Odznaky znamenat, že některé důležité informace pro server z jednoho z integrace řešení služby Operations Management Suite. Kliknutím oznámení "BADGE" přejdete přímo na podrobnosti o stavu v pravém podokně. Odznaky aktuálně k dispozici stav zahrnují výstrahy, technickou podporu, změny, zabezpečení a aktualizace.
+V dolní části každý server v mapě může být seznam stav odznaky zdůraznění stavové informace o serveru. Odznaky znamenat, že některé důležité informace pro server z jednoho z integrace řešení. Kliknutím oznámení "BADGE" přejdete přímo na podrobnosti o stavu v pravém podokně. Odznaky aktuálně k dispozici stav zahrnují výstrahy, technickou podporu, změny, zabezpečení a aktualizace.
 
 V závislosti na závažnosti odznaky stav můžete počítač uzel ohraničení být barevnou red (kritická), žlutý (varování) nebo modrá (informativní). Barva představuje stav nejzávažnějšího odznaky stavu. Šedé ohraničení označuje uzel, který nemá žádné indikátory stavu.
 
@@ -135,10 +135,10 @@ Některé procesy sloužit konkrétní role na počítačích: webové servery, 
 ![Role ikony](media/oms-service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>Neúspěšné připojení
+## <a name="failed-connections"></a>Neúspěšná připojení
 Neúspěšné připojení jsou zobrazeny v rámci služby maps mapy služeb pro počítače a procesy s na přerušovanou red čáru indikující, že klientský systém selhává k dosažení procesu nebo portu. Neúspěšné připojení jsou hlášeny z jakéhokoli systému s nasazené agentem mapy služeb, pokud daný systém je ten, pokusu o připojení se nezdařilo. Mapa služeb měří tento proces sledování sockets TCP, které se nepodařilo navázat spojení. Tato chyba může být výsledkem bránu firewall, chybné konfigurace klienta nebo serveru nebo vzdálené služby není k dispozici.
 
-![Neúspěšné připojení](media/oms-service-map/failed-connections.png)
+![Neúspěšná připojení](media/oms-service-map/failed-connections.png)
 
 Seznámení se nezdařilo připojení může pomoci při řešení, ověření migrace, analýzu zabezpečení a porozumění celkového architektury. Neúspěšné připojení jsou někdy neškodné, ale jejich často přejděte přímo k problému, jako je například prostředí převzetí služeb při selhání najednou stane nedostupný, nebo dvě úrovně aplikace není schopen komunikovat po migraci cloudu.
 
@@ -159,7 +159,7 @@ Port serveru skupiny jsou polí, která představují porty serveru na serverech
 ## <a name="context-menu"></a>Místní nabídka
 Kliknutím na tlačítko se třemi tečkami (...) v horní pravé žádného serveru zobrazuje v místní nabídce pro tento server.
 
-![Neúspěšné připojení](media/oms-service-map/context-menu.png)
+![Neúspěšná připojení](media/oms-service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Zatížení serveru mapy
 Kliknutím na tlačítko **zatížení serveru mapy** přejdete na nové mapování k vybranému serveru jako nový počítač fokus.
@@ -168,12 +168,12 @@ Kliknutím na tlačítko **zatížení serveru mapy** přejdete na nové mapová
 Kliknutím na tlačítko **zobrazit Self-Links** překreslí ho uzlu serveru, včetně všech odkazů na sebe sama, které jsou připojení TCP, které začínají a končí na procesy v rámci serveru. Pokud odkazů na sebe sama se zobrazují, změn příkaz nabídky **skrýt Self-Links**, takže je můžete vypnout.
 
 ## <a name="computer-summary"></a>Souhrn počítače
-**Počítač Souhrn** podokně obsahuje přehled operačního systému serveru, počtu závislostí a data z jiných řešení služby Operations Management Suite. Taková data zahrnuje metrik výkonu, lístků podpory služby, sledování změn, zabezpečení a aktualizace.
+**Počítač Souhrn** podokně obsahuje přehled operačního systému serveru, počtu závislostí a data z jiných řešení. Taková data zahrnuje metrik výkonu, lístků podpory služby, sledování změn, zabezpečení a aktualizace.
 
 ![Podokno Souhrn počítače](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Vlastnosti počítače a procesu
-Když přejdete mapu mapy služeb, můžete vybrat počítače a procesy, které se získají další kontext o svých vlastnostech. Počítače poskytují informace o DNS název, IPv4 adresy, procesoru a paměti, kapacity, typ virtuálního počítače, operační systém a verze poslední restartovat čas a ID jejich agentů Operations Management Suite a mapy služeb.
+Když přejdete mapu mapy služeb, můžete vybrat počítače a procesy, které se získají další kontext o svých vlastnostech. Počítače poskytují informace o DNS název, IPv4 adresy, procesoru a paměti kapacitu, typ virtuálního počítače, operační systém a verze poslední restartovat čas a ID jejich agentů OMS a mapy služeb.
 
 ![Podokno vlastností počítače](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ Podrobnosti o procesu můžete shromáždit z operačního systému metadata o s
 
 ![Podokno Souhrn procesu](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Integrace nástroje Operations Management Suite výstrahy
-Mapa služeb se integruje s Operations Management Suite výstrahy k zobrazení aktivní výstrahy pro vybraný server v vybraný časový rozsah. Server Pokud aktuální výstrahy, zobrazí ikonu a **počítač výstrahy** podokně zobrazí výstrahy.
+## <a name="alerts-integration"></a>Integrace výstrah
+Mapa služeb se integruje s výstrahami v analýzy protokolů pro zobrazení aktivní výstrahy pro vybraný server v vybraný časový rozsah. Server Pokud aktuální výstrahy, zobrazí ikonu a **počítač výstrahy** podokně zobrazí výstrahy.
 
 ![Počítač podokně výstrahy](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Pokud chcete povolit mapy služeb zobrazíte příslušné výstrahy, vytvořte 
 ![Konfigurace upozornění](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Integrace protokolu událostí nástroje Operations Management Suite
+## <a name="log-events-integration"></a>Integrace protokolu událostí
 Mapa služeb se integruje s protokolu hledání a zobrazit počet všechny dostupné protokolu události pro vybraný server během vybraný časový rozsah. Můžete kliknout na všechny řádek v seznamu událostí počty přejít na hledání protokolů a zobrazte jednotlivé protokolu události.
 
 ![V podokně protokolu události počítače](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Integrace nástroje Operations Management Suite služby podpory
-Integrace mapy služeb s konektorem služby správy IT je automatické, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru služby Operations Management Suite. Integrace ve mapy služeb se s označením "Technickou podporu." Další informace najdete v tématu [centrálně spravovat ITSM pracovních položek pomocí konektoru služby správy IT](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## <a name="service-desk-integration"></a>Integrace služby podpory
+Integrace mapy služeb s konektorem služby správy IT je automatické, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru analýzy protokolů. Integrace ve mapy služeb se s označením "Technickou podporu." Další informace najdete v tématu [centrálně spravovat ITSM pracovních položek pomocí konektoru služby správy IT](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 **Počítač technickou podporu** podokně zobrazí všechny události správy služeb IT pro vybraný server v vybraný časový rozsah. Na server zobrazí ikona, pokud je aktuální počet položek a jsou uvedené v podokně počítač technickou podporu, je.
 
@@ -214,8 +214,8 @@ Otevřete položku v řešení připojených ITSM klikněte na **zobrazení prac
 Chcete-li zobrazit podrobnosti o položce v hledání protokolů, klikněte na tlačítko **zobrazit v protokolu vyhledávání**.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Integrace nástroje Operations Management Suite změna sledování
-Integrace mapy služeb s sledování změn je automaticky, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru služby Operations Management Suite.
+## <a name="change-tracking-integration"></a>Změna sledování integrace
+Integrace mapy služeb s sledování změn je automaticky, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru analýzy protokolů.
 
 **Sledování změn počítače** podokně jsou uvedeny všechny změny, s nejnovější první, spolu s odkazem na Přejít k podrobnostem a protokolu vyhledejte další podrobnosti.
 
@@ -226,7 +226,7 @@ Na následujícím obrázku je podrobný přehled o ConfigurationChange událost
 ![Změnakonfigurace událostí](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Integrace nástroje Operations Management Suite výkonu
+## <a name="performance-integration"></a>Integrace výkonu
 **Výkon počítače** podokně se zobrazí metriky standardní výkonu pro vybraný server. Metriky zahrnují využití procesoru, využití paměti, sítě Bajty odeslané a přijaté a seznam důležitých procesů pomocí sítě přijatých a odeslaných bajtů.
 
 ![Počítač podokně výkonu](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux:
 - Sítě Adapter(*)\\odeslané bajty/s
 - Sítě Adapter(*)\\přijaté bajty/s
 
-Chcete-li získat data o výkonu sítě, musí taky povolíte řešení přenosu dat 2.0 v Operations Management Suite.
+Chcete-li získat data o výkonu sítě, musí taky povolíte řešení přenosu dat 2.0 v pracovním prostoru.
  
-## <a name="operations-management-suite-security-integration"></a>Integrace nástroje Operations Management Suite zabezpečení
-Integrace mapy služeb se zabezpečení a Audit je automatické, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru služby Operations Management Suite.
+## <a name="security-integration"></a>Integrace zabezpečení
+Integrace mapy služeb se zabezpečení a Audit je automatické, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru analýzy protokolů.
 
-**Zabezpečení počítače** podokně se zobrazují data z řešení zabezpečení Operations Management Suite a auditu pro vybraný server. V podokně obsahuje souhrnný seznam všechny zbývající bezpečnostní problémy pro server během vybraný časový rozsah. Kliknutím na některé z projde problémy zabezpečení dolů do hledání protokolů podrobnosti o nich.
+**Zabezpečení počítače** podokně se zobrazují data z řešení zabezpečení a auditu pro vybraný server. V podokně obsahuje souhrnný seznam všechny zbývající bezpečnostní problémy pro server během vybraný časový rozsah. Kliknutím na některé z projde problémy zabezpečení dolů do hledání protokolů podrobnosti o nich.
 
 ![Podokno zabezpečení počítače](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Integrace nástroje Operations Management Suite aktualizace
-Integrace mapy služeb se Správa aktualizací je automatické, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru služby Operations Management Suite.
+## <a name="updates-integration"></a>Integrace aktualizací
+Mapy služeb integrace se Správa aktualizací je automatické, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru Anlaytics protokolu.
 
-**Machine aktualizace** podokně se zobrazí data z řešení správy Operations Management Suite aktualizací pro vybraný server. V podokně obsahuje souhrnný seznam všechny chybějící aktualizace pro server během vybraný časový rozsah.
+**Machine aktualizace** podokně se zobrazí data z řešení správy aktualizací pro vybraný server. V podokně obsahuje souhrnný seznam všechny chybějící aktualizace pro server během vybraný časový rozsah.
 
 ![Sledování změn podokně počítače](media/oms-service-map/machine-updates.png)
 
@@ -272,12 +272,12 @@ Generuje se jeden záznam za hodinu pro každý jedinečný počítač a proces,
 
 Nejsou k dispozici interně generované vlastnosti, které můžete použít k identifikaci jedinečný procesy a počítače:
 
-- Počítač: Použití ResourceId nebo ResourceName_s k jednoznačné identifikaci počítač v rámci pracovní prostor služby Operations Management Suite.
-- Proces: ResourceId použít k jednoznačné identifikaci procesu v rámci pracovní prostor služby Operations Management Suite. ResourceName_s je jedinečné v rámci kontextu počítače, na kterém je proces spuštěný (MachineResourceName_s) 
+- Počítač: Použití ResourceId nebo ResourceName_s k jednoznačné identifikaci počítač v rámci pracovní prostor analýzy protokolů.
+- Proces: ResourceId použít k jednoznačné identifikaci procesu v rámci pracovní prostor analýzy protokolů. ResourceName_s je jedinečné v rámci kontextu počítače, na kterém je proces spuštěný (MachineResourceName_s) 
 
 Protože pro proces a počítač v zadaném časovém rozmezí může existovat více záznamů, dotazy mohou vracet víc než jeden záznam pro stejný počítač nebo proces. Chcete-li zahrnout pouze poslední záznam, přidejte "| Při odstraňování duplicitních dat ResourceId"do dotazu.
 
-### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL záznamů
+### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL records
 Záznamů s typem *ServiceMapComputer_CL* mít data inventáře pro servery s agenty mapy služeb. Tyto záznamy mají vlastnosti v následující tabulce:
 
 | Vlastnost | Popis |
