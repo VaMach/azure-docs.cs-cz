@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Přírůstkové načtení dat z více tabulek v SQL Serveru do databáze Azure SQL
 V tomto kurzu vytvoříte Azure Data Factory s kanálem, který načítá rozdílová data z několika tabulek v místním SQL Serveru do databáze Azure SQL.    
@@ -135,7 +135,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Vytvoření další tabulky v databázi SQL pro ukládání hodnoty horní meze
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Vytvoření další tabulky v databázi SQL Azure pro ukládání hodnoty horní meze
 1. Spuštěním následujícího příkazu SQL na databázi SQL vytvořte tabulku s názvem `watermarktable` pro uložení hodnoty meze: 
     
     ```sql
@@ -157,7 +157,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Vytvoření uložené procedury v databázi SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Vytvoření uložené procedury v databázi SQL Azure 
 
 Spuštěním následujícího příkazu vytvořte v databázi SQL uloženou proceduru. Tato uložená procedura aktualizuje hodnotu meze po každém spuštění kanálu. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Vytvoření datových typů a dalších uložených procedur
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Vytvoření datových typů a dalších uložených procedur v databázi SQL Azure
 Spuštěním následujícího dotazu vytvořte v databázi SQL dvě uložené procedury a dva datové typy. Slouží ke slučování dat ze zdrojových tabulek do cílových tabulek.
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
+1. Spusťte webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelské rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.
 1. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -422,7 +423,7 @@ Tento kanál dostává jako parametr seznam tabulek. Aktivita ForEach prochází
     3. Jako **typ** parametru vyberte **Objekt**.
 
     ![Parametry kanálu](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Přetáhněte aktivitu **ForEach** z panelu nástrojů **Aktivity** na plochu návrháře kanálu. Na kartě **Obecné** v okně **Vlastnosti** jako název zadejte **IterateSQLTables**. 
+4. V sadě nástrojů **Aktivity** rozbalte **Iterace a podmíněné výrazy** a přetáhněte aktivitu **ForEach** na plochu návrháře kanálu. Na kartě **Obecné** v okně **Vlastnosti** jako název zadejte **IterateSQLTables**. 
 
     ![Aktivita ForEach – název](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. V okně **Vlastnosti** přepněte na kartu **Nastavení** a jako **Položky** zadejte `@pipeline().parameters.tableList`. Aktivita ForEach prochází seznam tabulek a provádí operaci přírůstkového kopírování. 
@@ -431,7 +432,7 @@ Tento kanál dostává jako parametr seznam tabulek. Aktivita ForEach prochází
 6. Pokud ještě není vybraná, vyberte v kanálu aktivitu **ForEach**. Klikněte na tlačítko **Upravit (ikona tužky)**.
 
     ![Aktivita ForEach – úprava](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Z panelu nástrojů **Aktivity** přetáhněte aktivitu **Vyhledávání** a jako **Název** zadejte **LookupOldWaterMarkActivity**.
+7. V sadě nástrojů **Aktivity** rozbalte **Obecné** a přetáhněte aktivitu **Vyhledávání** na plochu návrháře kanálu. Pak jako **Název** zadejte **LookupOldWaterMarkActivity**.
 
     ![První aktivita vyhledávání – název](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. V okně **Vlastnosti** přepněte na kartu **Nastavení** a proveďte následující kroky: 
@@ -497,12 +498,13 @@ Tento kanál dostává jako parametr seznam tabulek. Aktivita ForEach prochází
     ![Aktivita Uložená procedura – účet SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Přepněte na kartu **Uložená procedura** a proveďte následující kroky:
 
-    1. Jako **Název uložené procedury** zadejte `sp_write_watermark`. 
-    2. Pomocí tlačítka **Nový** přidejte následující parametry: 
+    1. Jako **Název uložené procedury** vyberte `sp_write_watermark`. 
+    2. Vyberte **Importovat parametr**. 
+    3. Zadejte následující hodnoty parametrů: 
 
         | Název | Typ | Hodnota | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Řetězec | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Aktivita Uložená procedura – nastavení uložené procedury](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

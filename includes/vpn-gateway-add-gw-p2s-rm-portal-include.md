@@ -1,4 +1,4 @@
-1. Na levé straně portálu klikněte na **+** a do vyhledávacího pole zadejte text „Brána virtuální sítě“. Ve výsledcích hledání vyhledejte položku **Brána virtuální sítě** a klikněte na ni. V dolní části stránky **Brána virtuální sítě** klikněte na **Vytvořit** a otevřete stránku **Vytvořit bránu virtuální sítě**.
+1. Na levé straně portálu klikněte na **+ Vytvořit prostředek** a do vyhledávacího pole zadejte text „Brána virtuální sítě“. Ve výsledcích hledání vyhledejte položku **Brána virtuální sítě** a klikněte na ni. V dolní části stránky **Brána virtuální sítě** klikněte na **Vytvořit** a otevřete stránku **Vytvořit bránu virtuální sítě**.
 2. Na stránce **Vytvořit bránu virtuální sítě** vyplňte hodnoty pro vaši bránu virtuální sítě.
 
   ![Pole na stránce Vytvořit bránu virtuální sítě](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Pole na stránce Vytvořit bránu virtuální sítě")

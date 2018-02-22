@@ -1,5 +1,5 @@
 ---
-title: "Větvení v kanálu Azure Data Factory | Dokumentace Microsoftu"
+title: "Větvení v kanálu Azure Data Factory | Microsoft Docs"
 description: "Zjistěte, jak řídit tok dat v Azure Data Factory prostřednictvím větvení a řetězení aktivit."
 services: data-factory
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Větvení a řetězení aktivit v kanálech Data Factory
 V tomto kurzu vytvoříte kanál služby Data Factory, který prezentuje některé funkce řízení toku. Tento kanál provádí jednoduché kopírování z kontejneru ve službě Azure Blob Storage do jiného kontejneru ve stejném účtu úložiště. Pokud aktivita kopírování proběhne úspěšně, kanál odešle podrobnosti o úspěšném kopírování (jako je například množství zapsaných dat) v e-mailu informujícím o úspěchu. Pokud aktivita kopírování selže, kanál odešle podrobnosti o neúspěšném kopírování (jako je například chybová zpráva) v e-mailu informujícím o selhání. V rámci tohoto kurzu se dozvíte, jak předávat parametry.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
+1. Spusťte webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelské rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.
 1. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ V tomto kroku vytvoříte kanál s jednou aktivitou kopírování a dvěma aktiv
         - DataFactoryName – Předání hodnoty `@{pipeline().DataFactory}`. Toto je systémová proměnná, která umožňuje přístup k názvu odpovídající datové továrny. Seznam systémových proměnných najdete v článku [Systémové proměnné](control-flow-system-variables.md).
         - PipelineName – Předání hodnoty `@{pipeline().Pipeline}`. Toto je také systémová proměnná, která umožňuje přístup k názvu odpovídajícího kanálu. 
         - Receiver – Předání hodnoty @pipeline().parameters.receiver. Má přístup k parametrům kanálu.
-    6. **Nastavení** by mělo vypadat podobně jako na následujícím obrázku: 
-
+    
         ![Nastavení první aktivity webu](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Připojte aktivitu **Kopírování** k aktivitě **Web** přetažením zeleného tlačítka vedle aktivity kopírování na aktivitu webu. 
 
@@ -266,8 +266,7 @@ V tomto kroku vytvoříte kanál s jednou aktivitou kopírování a dvěma aktiv
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. **Nastavení** by mělo vypadat podobně jako na následujícím obrázku: 
-    
+
         ![Nastavení druhé aktivity webu](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. V návrháři kanálu vyberte aktivitu **Kopírování**, klikněte na tlačítko **+->** a vyberte **Chyba**.  
 
@@ -278,7 +277,7 @@ V tomto kroku vytvoříte kanál s jednou aktivitou kopírování a dvěma aktiv
 24. Pokud chcete kanál ověřit, klikněte na tlačítko **Ověřit** na panelu nástrojů. Zavřete okno **Výstup ověření kanálu** kliknutím na tlačítko **>>**.
 
     ![Ověření kanálu](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Pokud chcete publikovat entity (datové sady, kanály atd.) do služby Data Factory, klikněte na **Publikovat**. Počkejte, dokud se nezobrazí zpráva **Publikování proběhlo úspěšně**.
+24. Pokud chcete publikovat entity (datové sady, kanály atd.) do služby Data Factory, vyberte **Publikovat vše**. Počkejte, dokud se nezobrazí zpráva **Publikování proběhlo úspěšně**.
 
     ![Publikování](./media/tutorial-control-flow-portal/publish-button.png)
  

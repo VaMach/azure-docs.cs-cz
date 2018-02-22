@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Přírůstkové načtení dat ze služby Azure SQL Database do úložiště Azure Blob Storage
 V tomto kurzu vytvoříte službu Azure Data Factory s kanálem, který načítá rozdílová data z tabulky ve službě Azure SQL Database do úložiště Azure Blob Storage. 
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
+1. Spusťte webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelské rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.
 1. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -192,7 +193,7 @@ V tomto kurzu vytvoříte kanál se dvěma aktivitami vyhledávání, jednou akt
 3. Na stránce **Obecné** v okně **Vlastnosti** kanálu zadejte název **IncrementalCopyPipeline**. 
 
    ![Název kanálu](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. Přidejme první aktivitu vyhledávání, která načte poslední hodnotu meze. Na panelu nástrojů **Aktivity** rozbalte **SQL Database** a přetáhněte aktivitu **Vyhledávání** na plochu návrháře kanálu. Změňte název aktivity na **LookupOldWaterMarkActivity**.
+4. Přidejme první aktivitu vyhledávání, která načte poslední hodnotu meze. V sadě nástrojů **Aktivity** rozbalte **Obecné** a přetáhněte aktivitu **Vyhledávání** na plochu návrháře kanálu. Změňte název aktivity na **LookupOldWaterMarkActivity**.
 
    ![První aktivita vyhledávání – název](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Přepněte na kartu **Nastavení** a klikněte na **+ Nová** u možnosti **Zdrojová datová sada**. V tomto kroku vytvoříte datovou sadu, která bude představovat data v tabulce **watermarktable**. Tato tabulka obsahuje starou mez, která se použila v předchozí operaci kopírování. 
@@ -224,7 +225,7 @@ V tomto kurzu vytvoříte kanál se dvěma aktivitami vyhledávání, jednou akt
 11. Přepněte na editor kanálu kliknutím na kartu kanálu v horní části nebo kliknutím na název kanálu ve stromovém zobrazení vlevo. V okně Vlastnosti aktivity **Vyhledávání** ověřte, že je v poli **Zdrojová datová sada** vybraná datová sada **WatermarkDataset**. 
 
     ![Kanál – stará datová sada meze](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. Na panelu nástrojů **Aktivity** rozbalte **SQL Database** a přetáhněte další aktivitu **Vyhledávání** na plochu návrháře kanálu. Pak na kartě **Obecné** v okně Vlastnosti nastavte název na **LookupNewWaterMarkActivity**. Tato aktivita vyhledávání získá hodnotu meze z tabulky se zdrojovými daty, která se mají zkopírovat do cíle. 
+12. V sadě nástrojů **Aktivity** rozbalte **Obecné** a přetáhněte další aktivitu **Vyhledávání** na plochu návrháře kanálu. Pak na kartě **Obecné** v okně vlastností nastavte název na **LookupNewWaterMarkActivity**. Tato aktivita vyhledávání získá hodnotu meze z tabulky se zdrojovými daty, která se mají zkopírovat do cíle. 
 
     ![Druhá aktivita vyhledávání – název](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. V okně Vlastnosti druhé aktivity **Vyhledávání** přepněte na kartu **Nastavení** a klikněte na **Nový**. Vytvoříte datovou sadu, která bude odkazovat na zdrojovou tabulku obsahující novou hodnotu meze (maximální hodnota LastModifyTime). 
@@ -295,7 +296,7 @@ V tomto kurzu vytvoříte kanál se dvěma aktivitami vyhledávání, jednou akt
 
         ![Datová sada jímky – nastavení připojení](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Přepněte na editor **kanálu** kliknutím na kartu kanálu v horní části nebo kliknutím na název kanálu ve stromovém zobrazení vlevo. 
-29. Na panelu nástrojů **Aktivity** rozbalte **SQL Database** a přetáhněte aktivitu **Uložená procedura** z panelu nástrojů **Aktivity** na plochu návrháře kanálu. **Připojte** zelený výstup (Úspěch) aktivity **Kopírování** k aktivitě **Uložená procedura**. 
+29. V sadě nástrojů **Aktivity** rozbalte **Obecné** a přetáhněte aktivitu **Uložená procedura** ze sady nástrojů **Aktivity** na plochu návrháře kanálu. **Připojte** zelený výstup (Úspěch) aktivity **Kopírování** k aktivitě **Uložená procedura**. 
     
     ![Aktivita kopírování – zdroj](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Vyberte v návrháři kanálu **aktivitu Uložená procedura** a změňte její název na **StoredProceduretoWriteWatermarkActivity**. 
@@ -306,26 +307,27 @@ V tomto kurzu vytvoříte kanál se dvěma aktivitami vyhledávání, jednou akt
     ![Aktivita Uložená procedura – účet SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Přepněte na kartu **Uložená procedura** a proveďte následující kroky: 
 
-    1. Jako **Název uložené procedury** zadejte **sp_write_watermark**. 
-    2. Pokud chcete zadat hodnoty parametrů uložené procedury, klikněte na **+ Nový** v části **Parametry uložené procedury** a zadejte následující hodnoty: 
+    1. Jako **Název uložené procedury** vyberte **sp_write_watermark**. 
+    2. Pokud chcete zadat hodnoty parametrů uložené procedury, klikněte na **Importovat parametr** a zadejte následující hodnoty parametrů: 
 
         | Název | Typ | Hodnota | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Řetězec | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Aktivita Uložená procedura – nastavení uložené procedury](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Pokud chcete ověřit nastavení kanálu, klikněte na **Ověřit** na panelu nástrojů. Ověřte, že se nezobrazí žádné chyby ověření. Pokud chcete okno **Sestava ověření kanálu** zavřít, klikněte na >>.   
 
     ![Ověření kanálu](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Kliknutím na tlačítko **Publikovat** publikujte entity (propojené služby, datové sady a kanály) do služby Azure Data Factory. Počkejte, dokud se nezobrazí zpráva o úspěšném publikování. 
+28. Pomocí tlačítka **Publikovat vše** publikujte entity (propojené služby, datové sady a kanály) do služby Azure Data Factory. Počkejte, dokud se nezobrazí zpráva o úspěšném publikování. 
 
     ![Tlačítko Publikovat](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Aktivace spuštění kanálu
-Klikněte na **Aktivační událost** na panelu nástrojů a pak klikněte na **Aktivovat**. 
+1. Klikněte na **Aktivační událost** na panelu nástrojů a pak klikněte na **Aktivovat**. 
 
-![Tlačítko Aktivovat](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Tlačítko Aktivovat](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. V okně **Spuštění kanálu** vyberte **Dokončit**. 
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorování spuštění kanálu
 

@@ -1,5 +1,5 @@
 ---
-title: "Hromadné kopírování dat pomocí Azure Data Factory | Dokumentace Microsoftu"
+title: "Hromadné kopírování dat pomocí Azure Data Factory | Microsoft Docs"
 description: "Naučte se používat Azure Data Factory a aktivitu kopírování k hromadnému kopírování dat ze zdrojového úložiště dat do cílového úložiště dat."
 services: data-factory
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Hromadné kopírování několika tabulek pomocí Azure Data Factory
 Tento kurz představuje **kopírování několika tabulek z Azure SQL Database do služby Azure SQL Data Warehouse**. Stejný vzor můžete využít i u dalších scénářů kopírování. Například při kopírování tabulek z SQL Serveru/Oraclu do služby Azure SQL Database/Data Warehouse/Azure Blob nebo při kopírování různých cest ze služby Blob do tabulek Azure SQL Database.
@@ -74,6 +74,7 @@ Pro SQL Database i SQL Data Warehouse povolte službám Azure přístup k SQL se
 3. Na stránce **Nastavení brány firewall** klikněte na **ZAPNUTO** u možnosti **Povolit přístup ke službám Azure**.
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
+1. Spusťte webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelské rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.
 1. V nabídce vlevo klikněte na **Nový**, klikněte na **Data + analýzy** a pak na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
@@ -286,7 +287,7 @@ Tento kanál provádí dva kroky:
 2. V okně Vlastnosti změňte název kanálu na **GetTableListAndTriggerCopyData**. 
 
     ![Název kanálu](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. Na panelu nástrojů **Aktivity** rozbalte **SQL Database**, přetáhněte aktivitu **Vyhledávání** na plochu návrháře kanálu a pak proveďte následující kroky:
+3. Na panelu nástrojů **Aktivity** rozbalte nabídku **Obecné**, přetáhněte aktivitu **Vyhledávání** na plochu návrháře kanálu a pak postupujte takto:
 
     1. Jako **Název** zadejte **LookupTableList**. 
     2. Jako **Popis** zadejte **Načtení seznamu tabulek z databáze SQL Azure**.
@@ -322,7 +323,7 @@ Tento kanál provádí dva kroky:
 8. Pokud chcete kanál ověřit, klikněte na **Ověřit** na panelu nástrojů. Ověřte, že se nezobrazí žádné chyby ověření. Pokud chcete **Sestavu ověření kanálu** zavřít, klikněte na **>>**.
 
     ![Druhý kanál – Sestava ověření](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Pokud chcete publikovat entity (datové sady, kanály atd.) do služby Data Factory, klikněte na **Publikovat**. Počkejte na úspěšné dokončení publikování. 
+9. Pokud chcete publikovat entity (datové sady, kanály atd.) do služby Data Factory, klikněte na **Publikovat vše**. Počkejte na úspěšné dokončení publikování. 
 
     ![Tlačítko Publikovat](./media/tutorial-bulk-copy-portal/publish.png)
 

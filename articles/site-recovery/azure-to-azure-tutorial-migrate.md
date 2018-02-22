@@ -1,6 +1,6 @@
 ---
-title: "Migrace virtuálních počítačů Azure mezi oblastmi Azure pomocí Azure Site Recovery | Microsoft Docs"
-description: "Pomocí Azure Site Recovery k migraci virtuálních počítačů Azure IaaS z jedné oblasti Azure do druhého."
+title: "Migrace virtuálních počítačů Azure mezi oblastmi Azure pomocí služby Azure Site Recovery | Microsoft Docs"
+description: "Použijte službu Azure Site Recovery k migraci virtuálních počítačů Azure IaaS z jedné oblasti Azure do jiné."
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,129 +8,129 @@ ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
 ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrace virtuálních počítačů Azure do jiné oblasti
 
-Kromě použití [Azure Site Recovery](site-recovery-overview.md) služby ke správě a orchestraci zotavení po havárii místní počítače a virtuální počítače Azure pro účely provozní kontinuitu a zotavení po havárii (BCDR), můžete použít také lokality Spravujte migraci virtuálních počítačů Azure v sekundární oblasti obnovení. Pokud chcete migrovat virtuální počítače Azure, povolení replikace pro ně a převzetí služeb při selhání je z primární oblasti sekundární oblast podle svého výběru.
+Službu [Azure Site Recovery](site-recovery-overview.md) můžete použít nejen ke správě a orchestraci zotavení po havárii místních počítačů a virtuálních počítačů Azure s cílem zajistit provozní kontinuitu a zotavení po havárii (BCDR), ale můžete pomocí ní také spravovat migraci virtuálních počítačů Azure do sekundární oblasti. Při migraci virtuálních počítačů Azure pro ně povolíte replikaci a spuštěním převzetí služeb při selhání je přenesete z primární do vybrané sekundární oblasti.
 
-V tomto kurzu se dozvíte, jak migrovat virtuální počítače Azure do jiné oblasti. V tomto kurzu se naučíte:
+V tomto kurzu se dozvíte, jak migrovat virtuální počítače Azure do jiné oblasti. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření trezoru služeb zotavení
-> * Povolení replikace pro virtuální počítač
-> * Spustit převzetí služeb při selhání k migraci virtuálního počítače
+> * Vytvořit trezor služby Recovery Services
+> * Povolit replikaci virtuálního počítače
+> * Migrovat virtuální počítač spuštěním převzetí služeb při selhání
 
-Tento kurz předpokládá, že již máte předplatné Azure. Pokud ne, vytvořit [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/) před zahájením.
+V tomto kurzu se předpokládá, že už máte předplatné Azure. Pokud ho nemáte, tak si ze všeho nejdřív vytvořte [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/).
 
 >[!NOTE]
 >
-> Replikace obnovení lokality pro virtuální počítače Azure je aktuálně ve verzi preview.
+> Replikace služby Site Recovery pro virtuální počítače Azure je momentálně dostupná ve verzi Preview.
 
 
 
 ## <a name="prerequisites"></a>Požadavky
 
-K dokončení tohoto kurzu, musíte virtuální počítače Azure v oblasti Azure, ze kterého chcete migrovat. Kromě toho existuje několik nastavení, které byste měli ověřit před zahájením.
+K dokončení tohoto kurzu potřebujete virtuální počítače Azure v oblasti Azure, ze které chcete migraci provést. Než začnete, je také potřeba ověřit některá nastavení.
 
 
-### <a name="verify-target-resources"></a>Zkontrolujte cílové prostředky
+### <a name="verify-target-resources"></a>Ověření cílových prostředků
 
-1. Ověřte, že vaše předplatné Azure umožňuje vytvářet virtuální počítače v cílová oblast pro obnovení po havárii. Obraťte se na podporu, aby umožnil požadované kvótu.
+1. Ověřte, že vám předplatné Azure umožňuje vytvářet virtuální počítače v cílové oblasti používané ke zotavení po havárii. O povolení požadované kvóty požádejte podporu.
 
-2. Zajistěte, aby že vaše předplatné nemá dostatek prostředků pro podporu virtuálních počítačů s velikostí, které odpovídají zdrojové virtuální počítače. Site Recovery vybere stejnou velikost nebo nejbližší možné velikost pro cílový počítač.
-
-
-### <a name="verify-account-permissions"></a>Ověřte oprávnění pro uživatelský účet
-
-Pokud jste právě vytvořili účet Azure zdarma jste správcem předplatného. Pokud nejste správci předplatného, spolupracovat se správcem přiřadit oprávnění, která potřebujete. Pokud chcete povolit replikaci pro nový virtuální počítač, musíte mít:
-
-1. Oprávnění k vytvoření virtuálního počítače v prostředků Azure. Předdefinovaná role, Přispěvatel virtuálních počítačů, má tato oprávnění, mezi které patří:
-    - Oprávnění k vytvoření virtuálního počítače ve vybrané skupině prostředků
-    - Oprávnění k vytvoření virtuálního počítače ve vybrané virtuální síti
-    - Oprávnění k zápisu do vybraného účtu úložiště
-
-2. Budete také potřebovat oprávnění ke správě operací Azure Site Recovery. Role, Přispěvatel obnovení lokality, má všechna oprávnění vyžadovaná ke správě operací obnovení lokality v trezoru služeb zotavení.
+2. Zkontrolujte, jestli máte v rámci předplatného k dispozici dostatek prostředků pro podporu virtuálních počítačů s takovými velikostmi, které odpovídají velikostem zdrojových virtuálních počítačů. Služba Site Recovery vybere pro cílový virtuální počítač stejnou nebo nejbližší možnou velikost.
 
 
-### <a name="verify-vm-outbound-access"></a>Ověřte odchozí přístup virtuálních počítačů
+### <a name="verify-account-permissions"></a>Ověření oprávnění k účtu
 
-1. Ujistěte se, že nepoužíváte proxy služby ověřování k řízení připojení k síti pro virtuální počítače, které chcete migrovat. 
-2. Pro účely tohoto kurzu předpokládáme, že virtuální počítače chcete migrovat přístup k Internetu a nepoužívají proxy server brány firewall řídit odchozí přístup. Pokud jste, zkontrolujte požadavky na [zde](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+Pokud jste si právě vytvořili bezplatný účet Azure, pak jste správcem předplatného. Jestliže správcem předplatného nejste, požádejte správce o přiřazení potřebných oprávnění. Pokud chcete pro nový virtuální počítač povolit replikaci, musíte mít:
 
-### <a name="verify-vm-certificates"></a>Ověření certifikátů virtuálního počítače
+1. Oprávnění k vytvoření virtuálního počítače v prostředcích Azure. Tato oprávnění má předdefinovaná role Přispěvatel virtuálních počítačů. Patří k nim:
+    - Oprávnění k vytvoření virtuálního počítače ve vybrané skupině prostředků
+    - Oprávnění k vytvoření virtuálního počítače ve vybrané virtuální síti
+    - Oprávnění zapisovat na vybraný účet úložiště
 
-Zkontrolujte, jestli jsou k dispozici na virtuálních počítačích Azure, kterou chcete migrovat všechny nejnovější kořenové certifikáty. Pokud nejsou nejnovější kořenové certifikáty, virtuální počítač nelze zaregistrovat k obnovení lokality z důvodu omezení zabezpečení.
+2. Potřebujete také oprávnění ke správě operací služby Azure Site Recovery. Všechna oprávnění nutná ke správě operací služby Site Recovery v  trezoru služby Recovery Services má role Přispěvatel Site Recovery.
 
-- Pro virtuální počítače Windows nainstalujte všechny nejnovější aktualizace systému Windows na virtuální počítač tak, aby byly všechny důvěryhodných kořenových certifikátů na počítači. V odpojeném prostředí postupujte podle standardní Windows Update a procesy aktualizace certifikátů pro vaši organizaci.
-- Pro virtuální počítače s Linuxem využijte tohoto vodítka poskytované vaší Linux distributora, chcete-li získat nejnovější důvěryhodných kořenových certifikátů a seznam odvolaných certifikátů ve virtuálním počítači.
+
+### <a name="verify-vm-outbound-access"></a>Ověření odchozího přístupu k virtuálním počítačům
+
+1. Ujistěte se, že u virtuálních počítačů, které chcete migrovat, nepoužíváte k řízení síťového připojení ověřovací proxy server. 
+2. Pro účely tohoto kurzu předpokládáme, že virtuální počítače, které chcete migrovat, mají přístup k internetu a že k řízení odchozího přístupu nepoužíváte proxy server brány firewall. Pokud ano, podívejte se na požadavky, které jsou uvedené [tady](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+
+### <a name="verify-vm-certificates"></a>Ověření certifikátů virtuálních počítačů
+
+Zkontrolujte, jestli jsou ve virtuálních počítačích Azure, které chcete migrovat, všechny nejnovější kořenové certifikáty. Pokud tam nejnovější kořenové certifikáty nejsou, nepůjde příslušný virtuální počítač kvůli omezení zabezpečení zaregistrovat ve službě Site Recovery.
+
+- U virtuálních počítačů s Windows zajistíte přítomnost všech důvěryhodných kořenových certifikátů tím, že na ně nainstalujete všechny nejnovější aktualizace Windows. V odpojeném prostředí dodržujte při aktualizaci Windows a certifikátů standardní postupy uplatňované ve vaší organizaci.
+- U virtuálních počítačů s Linuxem postupujte při získávání nejnovějších důvěryhodných kořenových certifikátů a seznamu odvolaných certifikátů na virtuálním počítači podle pokynů, které jste dostali od distributora Linuxu.
 
 
 
 ## <a name="create-a-vault"></a>Vytvoření trezoru
 
-Vytvořte trezor nejprve v libovolné oblasti, s výjimkou oblasti zdroje.
+V libovolné oblasti (s výjimkou zdrojové oblasti) vytvořte trezor.
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) > **Recovery Services**.
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com) > **Recovery Services**.
 2. Klikněte na **Nový** > **Monitorování a správa** > **Backup a Site Recovery**.
-3. V **název**, zadejte popisný název **ContosoVMVault**. Pokud máte více než jedno předplatné, vyberte příslušný.
+3. Do pole **Název** zadejte popisný název **ContosoVMVault**. Pokud máte více předplatných, vyberte příslušné předplatné.
 4. Vytvořte skupinu prostředků **ContosoRG**.
 5. Zadejte oblast Azure. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Chcete-li rychle získat přístup k úložišti z řídicího panelu, klikněte na tlačítko **připnout na řídicí panel** a pak klikněte na **vytvořit**.
+6. Pokud chcete mít možnost rychle se dostat k trezoru z řídicího panelu, klikněte na **Připnout na řídicí panel** a potom klikněte na **Vytvořit**.
 
    ![Nový trezor](./media/tutorial-migrate-azure-to-azure/azure-to-azure-vault.png)
 
-Nový trezor se přidá do **řídicí panel** pod **všechny prostředky**a v hlavním **trezory služeb zotavení** stránky.
+Nový trezor se přidá do oblasti **Řídicí panel** v části **Všechny prostředky** a na hlavní stránku **Trezory Recovery Services**.
 
 
 
 
 
 
-## <a name="select-the-source"></a>Vyberte zdroj
+## <a name="select-the-source"></a>Výběr zdroje
 
-1. V trezory služeb zotavení, klikněte na **ConsotoVMVault** > **+ replikovat**.
-2. V **zdroj**, vyberte **Azure - PREVIEW**.
-3. V **umístění zdroje**, vyberte zdroj oblast Azure, kde vaše virtuální počítače jsou aktuálně spuštěné.
-4. Vyberte model nasazení Resource Manager. Vyberte **zdrojové skupiny prostředků**.
+1. Na stránce Trezory Recovery Services klikněte na **ConsotoVMVault** > **+Replikovat**.
+2. V rozevíracím seznamu **Zdroj** vyberte **Azure – PREVIEW**.
+3. V rozevíracím seznamu **Umístění zdroje** vyberte zdrojovou oblast Azure, kde máte virtuální počítače aktuálně spuštěné.
+4. Vyberte model nasazení Resource Manager. Potom vyberte **Zdrojová skupina prostředků**.
 5. Kliknutím na **OK** uložte nastavení.
 
 
 ## <a name="enable-replication-for-azure-vms"></a>Povolení replikace pro virtuální počítače Azure
 
-Site Recovery načte seznam virtuálních počítačů spojené s předplatné a skupina prostředků.
+Služba Site Recovery načte seznam virtuálních počítačů přidružených k předplatnému a skupinu prostředků.
 
 
-1. Na portálu Azure klikněte na tlačítko **virtuální počítače**.
+1. Na portálu Azure Portal klikněte na **Virtuální počítače**.
 2. Vyberte virtuální počítač, který chcete migrovat. Pak klikněte na **OK**.
-3. V **nastavení**, klikněte na tlačítko **zotavení po havárii (preview)**.
-4. V **konfigurace zotavení po havárii** > **cílová oblast** vyberte oblast cíl, do kterého budete replikovat.
-5. V tomto kurzu přijměte výchozí nastavení.
-6. Klikněte na tlačítko **povolit replikaci**. Spustí se úloha k povolení replikace pro virtuální počítač.
+3. V části **Nastavení** klikněte na **Zotavení po havárii (Preview)**.
+4. V části **Konfigurovat zotavení po havárii** > **Cílová oblast** vyberte cílovou oblast, do které chcete replikaci provést.
+5. U ostatních nastavení přijměte pro účely tohoto kurzu výchozí hodnoty.
+6. Klikněte na **Povolit replikaci**. Tím se spustí úloha, která povolí replikaci pro daný virtuální počítač.
 
     ![Povolení replikace](media/tutorial-migrate-azure-to-azure/settings.png)
 
 >[!NOTE]
   >
-  > Replikace virtuálních počítačů Azure s spravované disky v současné době se nepodporuje. 
+  > Replikace virtuálních počítačů Azure se spravovanými disky není v současné době podporovaná. 
 
 ## <a name="run-a-failover"></a>Spuštění převzetí služeb při selhání
 
-1. V **nastavení** > **replikované položky**, klikněte na počítač a pak klikněte na tlačítko **převzetí služeb při selhání**.
-2. V **převzetí služeb při selhání**, vyberte **nejnovější**. Nastavení klíče šifrování není relevantní pro tento scénář.
-3. Vyberte **vypnout počítač před zahájením převzetí služeb při selhání**. Site Recovery se pokusí vypnout zdrojový virtuální počítač před spuštěním převzetí služeb při selhání. Převzetí služeb při selhání pokračovat i v případě, že vypnutí selže. Můžete sledovat průběh převzetí služeb při selhání **úlohy** stránky.
-4. Zkontrolujte, že virtuální počítač Azure se zobrazí v Azure podle očekávání.
-5. V **replikované položky**, klikněte pravým tlačítkem na virtuální počítač > **dokončení migrace**. Dokončení procesu migrace a zastavení replikace pro virtuální počítač.
+1. V části **Nastavení** > **Replikované položky** klikněte na požadovaný počítač a potom na **Převzetí služeb při selhání**.
+2. V okně **Převzetí služeb při selhání** vyberte **Nejnovější**. Nastavení šifrovacího klíče není pro tento scénář podstatné.
+3. Vyberte **Před spuštěním převzetí služeb při selhání vypnout počítač**. Služba Site Recovery se před aktivací převzetí služeb při selhání pokusí zdrojový virtuální počítač vypnout. Převzetí služeb při selhání bude pokračovat i v případě, že se vypnutí nepovede. Průběh převzetí služeb při selhání můžete sledovat na stránce **Úlohy**.
+4. Zkontrolujte, že se virtuální počítač Azure zobrazuje v Azure podle očekávání.
+5. V části **Replikované položky** klikněte pravým tlačítkem na virtuální počítač a klikněte na **Dokončit migraci**. Tím proces migrace dokončíte a replikace pro virtuální počítač se zastaví.
 
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste migrovali virtuální počítač Azure v jiné oblasti Azure. Teď můžete nakonfigurovat zotavení po havárii pro migrovaný virtuální počítač.
+V tomto kurzu jste migrovali virtuální počítač Azure do jiné oblasti Azure. Teď můžete pro migrovaný virtuální počítač nakonfigurovat zotavení po havárii.
 
 > [!div class="nextstepaction"]
-> [Nastavit zotavení po havárii po migraci](azure-to-azure-quickstart.md)
+> [Nastavení zotavení po havárii po migraci](azure-to-azure-quickstart.md)
 

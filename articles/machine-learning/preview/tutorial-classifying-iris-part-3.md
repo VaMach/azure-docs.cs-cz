@@ -1,5 +1,5 @@
 ---
-title: "Nasazení modelu pro služby Azure Machine Learning (Preview) | Dokumentace Microsoftu"
+title: "Nasazení modelu pro služby Azure Machine Learning (Preview) | Microsoft Docs"
 description: "V tomto kurzu na pokračování se dozvíte, jak komplexně používat služby Azure Machine Learning (Preview). Toto je třetí část, ve které se probírá nasazení modelu."
 services: machine-learning
 author: raymondl
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasifikace Iris – část 3: Nasazení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce. Datoví vědci pomocí nich můžou připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -144,7 +144,7 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
    
    Podle pokynů na obrazovce zřiďte účet úložiště pro ukládání imagí Dockeru, službu Azure Container Registry, která obsahuje seznam imagí Dockeru, a účet služby AppInsight, která shromažďuje telemetrická data. Pokud jste použili přepínač `-c`, vytvoří se také cluster služby Azure Container Service.
    
-   Název clusteru nabízí způsob, jak identifikovat příslušné prostředí. Umístění by mělo být stejné jako umístění účtu služby Správa modelů vytvořeného na webu Azure Portal.
+   Název clusteru nabízí způsob, jak identifikovat příslušné prostředí. Umístění by mělo být stejné jako umístění účtu služby Správa modelů vytvořeného na portálu Azure Portal.
 
    Pokud se chcete ujistit, že prostředí je úspěšně nastaveno, použijte následující příkaz ke kontrole stavu:
 
@@ -198,7 +198,7 @@ Teď můžete vytvořit webovou službu v reálném čase.
    * `-n`: Název aplikace, který musí obsahovat jenom malá písmena.
    * `-f`: Název souboru hodnoticího skriptu.
    * `--model-file`: Soubor modelu. V tomto případě je to soubor pickle model.pkl.
-   * `-r`: Typ modelu. V tomto případ je to model Python.
+   * `-r`: Modul runtime daného modelu. V tomto případ je to model Python. Platné moduly runtime jsou `python` a `spark-py`.
    * `--collect-model-data true`: Tento přepínač povoluje shromažďování dat.
    * `-c`: Cesta k souboru závislostí systému Conda se zadanými dalšími balíčky.
 
@@ -283,7 +283,7 @@ Spuštěnou webovou službu **irisapp** můžete otestovat pomocí zakódovanéh
 
 ## <a name="view-the-collected-data-in-azure-blob-storage"></a>Zobrazení shromážděných dat ve službě Azure Blob Storage
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 
 2. Vyhledejte své účty úložiště. Provedete to tak, že vyberete **Další služby**.
 

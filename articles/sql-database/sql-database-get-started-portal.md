@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal: Vytvoření databáze SQL | Dokumentace Microsoftu"
-description: "Vytvořte logický server služby SQL Database, pravidlo brány firewall na úrovni serveru a databázi na webu Azure Portal a dotazujte ji."
+title: "Azure Portal: Vytvoření databáze SQL | Microsoft Docs"
+description: "Vytvořte logický server služby SQL Database, pravidlo brány firewall na úrovni serveru a databázi na portálu Azure Portal a dotazujte ji."
 keywords: "kurz k sql database, vytvoření databáze sql"
 services: sql-database
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Vytvoření databáze SQL Azure na webu Azure Portal
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Vytvoření databáze SQL Azure na portálu Azure Portal
 
-Tento úvodní kurz vás provede postupy vytvoření databáze SQL v Azure. Azure SQL Database je nabídka „databáze jako služby“, která umožňuje spouštění a škálování vysoce dostupné databáze SQL Serveru v cloudu. Tento rychlý start ukazuje, jak začít tím, že vytvoříte databázi SQL pomocí webu Azure Portal.
+Tento úvodní kurz vás provede postupy vytvoření databáze SQL v Azure. Azure SQL Database je nabídka „databáze jako služby“, která umožňuje spouštění a škálování vysoce dostupné databáze SQL Serveru v cloudu. Tento rychlý start ukazuje, jak začít tím, že vytvoříte databázi SQL pomocí portálu Azure Portal.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -84,7 +84,7 @@ Postupujte podle následujících kroků a vytvořte databázi SQL obsahující 
    >\* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: Austrálie – východ, Austrálie – jihovýchod, Brazílie – jih, Kanada – střed, Kanada – východ, USA – střed, Francie – střed, Německo – střed, Japonsko – východ, Japonsko – západ, Korea – střed, Střed USA – sever, Severní Evropa, Střed USA – jih, Asie – jihovýchod, Velká Británie – jih, Velká Británie – západ, USA – východ 2, USA – západ, USA (Gov) – Virginia a Západní Evropa. Viz [Aktuální omezení pro P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Pro účely tohoto úvodního kurzu vyberte úroveň služby **Standard** a pak pomocí posuvníku vyberte **100 DTU (S3)** a **400** GB úložiště.
+7. Pro účely tohoto úvodního kurzu vyberte úroveň služby **Standard** a pak pomocí posuvníku vyberte **10 DTU (S0)** a **1** GB úložiště.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -136,19 +136,15 @@ Nyní se můžete z této IP adresy připojit k serveru SQL Database a jeho data
 
 ## <a name="query-the-sql-database"></a>Dotazování databáze SQL
 
-Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít integrovaný dotazovací nástroj na webu Azure Portal k potvrzení, že se můžete připojit k databázi a zadávat dotazy na data.
+Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít integrovaný dotazovací nástroj na portálu Azure Portal k potvrzení, že se můžete připojit k databázi a zadávat dotazy na data.
 
-1. Na stránce SQL Database pro vaši databázi klikněte v levé nabídce na **Průzkumník dat (Preview)**.
+1. Na stránce služby SQL Database pro vaši databázi klikněte v nabídce vlevo na **Editor dotazů (Preview)** a pak klikněte na **Přihlášení**.
 
-   ![vyhledání editoru dotazů](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![přihlášení](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Klikněte na **Přihlášení**, zkontrolujte přihlašovací údaje a pak se kliknutím na **OK** přihlaste pomocí ověřování SQL Serveru s použitím přihlašovacího jména a hesla správce serveru, které jste vytvořili dříve.
+2. Vyberte Ověřování přes server SQL, zadejte požadované přihlašovací údaje a pak se přihlaste kliknutím na tlačítko **OK**.
 
-   ![přihlášení](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Přihlaste se kliknutím na **OK**.
-
-4. Jakmile budete ověřeni jako **Správce serveru**, do podokna editoru dotazů zadejte následující dotaz.
+3. Jakmile budete ověřeni jako **Správce serveru**, do podokna editoru dotazů zadejte následující dotaz.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,18 +153,18 @@ Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít inte
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Klikněte na **Spustit** a pak zkontrolujte výsledky dotazu v podokně **Výsledky**.
+4. Klikněte na **Spustit** a pak zkontrolujte výsledky dotazu v podokně **Výsledky**.
 
    ![výsledky editoru dotazů](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Zavřete stránku **Průzkumník dat** a kliknutím na **OK** zahoďte neuložené změny.
+5. Zavřete stránku **Průzkumník dat** a kliknutím na **OK** zahoďte neuložené změny.
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Uložte tyto prostředky, pokud chcete přejít na [Další kroky](#next-steps) a seznámit se s několika způsoby, jak se připojit k databázi a dotazovat ji. Pokud však chcete prostředky vytvořené v rámci tohoto rychlého startu odstranit, použijte následující postup.
 
 
-1. Na webu Azure Portal v nabídce vlevo klikněte na **Skupiny prostředků** a pak na **myResourceGroup**.
+1. Na portálu Azure Portal v nabídce vlevo klikněte na **Skupiny prostředků** a pak na **myResourceGroup**.
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte **myResourceGroup** a pak klikněte na **Odstranit**.
 
 ## <a name="next-steps"></a>Další kroky

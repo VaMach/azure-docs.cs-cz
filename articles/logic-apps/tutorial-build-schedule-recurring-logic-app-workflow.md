@@ -1,6 +1,6 @@
 ---
-title: "Sestavení na základě scheduler automatizované pracovní postupy - Azure Logic Apps | Microsoft Docs"
-description: "Tento kurz ukazuje, jak vytvořit pracovní postup na základě scheduler, opakované, automatizované službou Azure Logic Apps"
+title: "Vytvoření automatizovaných pracovních postupů prostřednictvím Scheduleru – Azure Logic Apps | Microsoft Docs"
+description: "Tento kurz ukazuje, jak ve službě Azure Logic Apps vytvořit opakované automatizované pracovní postupy s využitím Scheduleru"
 author: ecfan
 manager: anneta
 editor: 
@@ -15,41 +15,41 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: deb2572de363ca5d0dec0f78f2e30ad648e9b5f8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: MT
+ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Zkontrolujte pomocí aplikace logiky na základě plánovače
+# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Kontrola dopravní situace s využitím aplikace logiky založené na Scheduleru
 
-Aplikace logiky Azure umožňuje automatizovat pracovní postupy, které spouštět podle plánu. Tento kurz ukazuje, jak můžete vytvořit [aplikace logiky](../logic-apps/logic-apps-overview.md) s scheduler aktivační událost, která proběhne každé ráno den v týdnu a zkontroluje cesta času, včetně přenosů mezi dvěma umístí. Pokud by překročila omezení konkrétní aplikaci logiky odešle e-mailu pomocí cesta čas a čas navíc potřebné pro vaše cíle.
+Služba Azure Logic Apps umožňuje automatizovat naplánované pracovní postupy spouštěné podle plánu. Tento kurz ukazuje, jak můžete pomocí triggeru ve Scheduleru sestavit [aplikaci logiky](../logic-apps/logic-apps-overview.md), která se spustí každý pracovní den ráno a zkontroluje dobu trvání cesty mezi dvěma místy se zohledněním dopravní situace. Pokud doba překročí určitou hranici, odešle aplikace logiky e-mail s dobou cesty a časem navíc potřebným k dosažení cíle cesty.
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Vytvoření prázdné aplikace logiky 
-> * Přidejte aktivační událost, která funguje jako Plánovač pro svou aplikaci logiky.
-> * Přidáte akci, která se získá dobu cesta pro trasu.
-> * Přidáte akci, která vytvoří proměnnou, převede čas cesta z sekund až minut a uloží tuto výsledků v proměnné.
-> * Přidejte podmínku, která porovná čas cesta proti zadané omezení.
-> * Přidáte akci, která odešle e-mail, pokud cesta překročila limit.
+> * Přidání triggeru, který v aplikaci logiky poslouží k naplánování
+> * Přidání akce, která získá dobu trvání cesty pro určitou trasu
+> * Přidání akce, která vytvoří proměnnou, převede dobu trvání cesty ze sekund na minuty a uloží výsledek do proměnné
+> * Přidání podmínky, která porovná dobu cesty se zadaným limitem.
+> * Přidání akce, která odešle e-mail, pokud doba cesty překročí daný limit
 
-Když jste hotovi, vypadá svou aplikaci logiky tento pracovní postup na vysoké úrovni:
+Jakmile budete hotovi, vaše aplikace logiky bude na základní úrovni vypadat jako tento pracovní postup:
 
-![Aplikace logiky vysoké úrovně](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
+![Aplikace logiky na základní úrovni](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
 Pokud ještě nemáte předplatné Azure, <a href="https://azure.microsoft.com/free/" target="_blank">zaregistrujte si bezplatný účet Azure</a> před tím, než začnete.
 
 ## <a name="prerequisites"></a>Požadavky
 
-* E-mailový účet od poskytovatele e-mailu podporuje Logic Apps, jako je například Office 365 Outlook, Outlook.com nebo z Gmailu. U jiných poskytovatelů [kontrolní seznam konektory zde](https://docs.microsoft.com/connectors/). Tento rychlý start používá účet Outlook.com. Pokud používáte jinou e-mailový účet, obecné kroky zůstaly stejné, ale uživatelské rozhraní se může objevit mírně lišit.
+* E-mailový účet od poskytovatele podporovaného v Logic Apps, jako je Office 365 Outlook, Outlook.com nebo Gmail. Pokud máte jiného poskytovatele, [tady se podívejte na seznam konektorů](https://docs.microsoft.com/connectors/). Tento rychlý start používá účet Outlook.com. Pokud používáte jiný e-mailový účet, zůstává obecný postup stejný, ale vaše uživatelské rozhraní může vypadat trochu jinak.
 
-* Chcete-li získat čas cesta pro trasu, musíte přístupový klíč pro rozhraní API map Bing. Chcete-li získat tento klíč, postupujte podle kroků pro <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">jak získat klíč mapy Bing</a>. 
+* K získání doby trvání cesty pro nějakou trasu potřebujete přístupový klíč k rozhraní API Map Bing. Pokud chcete tento klíč získat, řiďte se kroky <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">postupu získání klíče k Mapám Bing</a>. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Přihlášení k webu Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 
-Přihlaste se k <a href="https://portal.azure.com" target="_blank">portál Azure</a> pomocí svých přihlašovacích údajů účtu Azure.
+Přihlaste se k portálu <a href="https://portal.azure.com" target="_blank">Azure Portal</a> pomocí přihlašovacích údajů svého účtu Azure.
 
 ## <a name="create-your-logic-app"></a>Vytvoření aplikace logiky
 
@@ -57,289 +57,289 @@ Přihlaste se k <a href="https://portal.azure.com" target="_blank">portál Azure
 
    ![Vytvoření aplikace logiky](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
-2. V části **vytvořit aplikaci logiky**, zadejte tyto informace o aplikaci logiky jako uvedené a popsané. Až budete hotovi, zvolte **Připnout na řídicí panel** > **Vytvořit**.
+2. V části **Vytvořit aplikaci logiky** zadejte podrobnosti o vaší aplikaci logiky podle následujícího obrázku a popisu. Až budete hotovi, zvolte **Připnout na řídicí panel** > **Vytvořit**.
 
-   ![Zadejte informace o aplikaci logiky](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![Zadání informací o aplikaci logiky](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | Nastavení | Hodnota | Popis | 
    | ------- | ----- | ----------- | 
-   | **Název** | LA TravelTime | Název pro svou aplikaci logiky | 
-   | **Předplatné** | <*your-Azure-subscription-name*> | Název pro vaše předplatné Azure | 
-   | **Skupina prostředků** | LA-TravelTime-RG | Název [skupina prostředků Azure](../azure-resource-manager/resource-group-overview.md) sloužící k organizování související informační zdroje | 
-   | **Umístění** | Východní USA 2 | Oblast kam se mají ukládat informace o aplikaci logiky | 
-   | **Log Analytics** | Vypnuto | Zachovat **vypnout** nastavení pro protokolování diagnostiky. | 
+   | **Název** | LA-dobacesty | Název vaší aplikace logiky | 
+   | **Předplatné** | <*název_vašeho_předplatného_Azure*> | Název vašeho předplatného Azure | 
+   | **Skupina prostředků** | LA-dobacesty-SP | Název [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md) sloužící k uspořádání souvisejících prostředků | 
+   | **Umístění** | Východní USA 2 | Oblast, kam se mají ukládat informace o vaší aplikaci logiky | 
+   | **Log Analytics** | Vypnuto | Pokud chcete zapnout protokolování diagnostiky, ponechte nastavení **Vypnuto**. | 
    |||| 
 
-3. Po Azure nasadí vaší aplikace, Návrhář aplikace logiky otevře a zobrazuje stránku s video úvod a šablony pro obecné vzory aplikace logiky. V části **Šablony** zvolte **Prázdná aplikace logiky**.
+3. Jakmile se vaše aplikace v Azure nasadí, otevře se Návrhář pro Logic Apps se zobrazenou stránkou s úvodním videem a šablonami pro běžně používané vzory aplikací logiky. V části **Šablony** zvolte **Prázdná aplikace logiky**.
 
    ![Výběr šablony prázdné aplikace logiky](./media/tutorial-build-scheduled-recurring-logic-app-workflow/choose-logic-app-template.png)
 
-Dál přidejte opakování [aktivační událost](../logic-apps/logic-apps-overview.md#logic-app-concepts), která aktivuje podle zadaného plánu. Všechny aplikace logiky musí začínat aktivační událost, která se stane, aktivuje se při určité události, nebo když nová data splňuje určité podmínky. Další informace najdete v tématu [vytvoření první aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Dál přidejte [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) opakování, který se spustí podle zadaného plánu. Každá aplikace logiky se musí spouštět triggerem, který se aktivuje při určité události nebo když nová data splní určitou podmínku. Další informace najdete v článku [Vytvoření první aplikace logiky](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="add-scheduler-trigger"></a>Přidat aktivační událost plánovače
+## <a name="add-scheduler-trigger"></a>Přidání triggeru do Scheduleru
 
-1. V designeru zadejte do vyhledávacího pole "recurrence". Vyberte této aktivační události: **plán - opakování**
+1. V návrháři zadejte do vyhledávacího pole „opakování“. Vyberte tento trigger: **Plán – Opakování**
 
-   ![Najít a přidejte aktivační události "Plán-Recurrence"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
+   ![Nalezení a přidání triggeru Plán – Opakování](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. Na **opakování** utvářejí, vyberte **výpustky** (**...** ) tlačítko a zvolte **přejmenovat**. Přejmenování aktivační události s popis tohoto:```Check travel time every weekday morning```
+2. Ve tvaru **Opakování** vyberte tlačítko **tři tečky** (**...** ) a zvolte **Přejmenovat**. Přejmenujte trigger s tímto popisem: ```Check travel time every weekday morning```
 
-   ![Přejmenování aktivační události](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
+   ![Přejmenování triggeru](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
-3. Uvnitř aktivační událost, zvolte **zobrazit rozšířené možnosti**.
+3. Uvnitř triggeru zvolte **Zobrazit pokročilé možnosti**.
 
-4. Zadejte podrobnosti plánu a opakování jako uvedené a popisuje aktivační události:
+4. Zadejte podrobnosti plánu a opakování triggeru podle obrázku a popisu:
 
-   ![Zadejte podrobnosti o plánu a opakování](./media/tutorial-build-scheduled-recurring-logic-app-workflow/schedule-recurrence-trigger-settings.png)
+   ![Zadání podrobností o plánu a opakování](./media/tutorial-build-scheduled-recurring-logic-app-workflow/schedule-recurrence-trigger-settings.png)
 
    | Nastavení | Hodnota | Popis | 
    | ------- | ----- | ----------- | 
-   | **Interval** | 1 | Počet intervalů čekat mezi kontrolami | 
+   | **Interval** | 1 | Počet intervalů, po které se má čekat mezi kontrolami | 
    | **Frekvence** | Týden | Jednotka času pro opakování | 
-   | **Časové pásmo** | Žádné | Platí jenom v případě, že zadáte čas spuštění. Užitečné pro určení místní časové pásmo. | 
-   | **Čas spuštění** | Žádné | Zpoždění opakování až v určité datum a čas. Další informace najdete v tématu [plánování úloh a pracovní postupy, které pravidelně spustit](../connectors/connectors-native-recurrence.md). | 
-   | **V těchto dnech** | Pondělí, úterý, středu, čtvrtek, pátek | K dispozici pouze tehdy, když **frekvence** je nastaven na "Týden" | 
-   | **V těchto hodinách** | 7,8,9 | K dispozici pouze tehdy, když **frekvence** je nastaven na "Týden" nebo "Dne". Vyberte hodiny dne ke spuštění této opakování. V tomto příkladu se spouští v 7, 8 a označí 9 hodin. | 
-   | **V těchto minut** | 0,15,30,45 | K dispozici pouze tehdy, když **frekvence** je nastaven na "Týden" nebo "Dne". Vyberte dobu, po které den ke spuštění této opakování. Tento příklad spouští každých 15 minut od označit hodinu nula. | 
+   | **Časové pásmo** | Žádný | Platí jenom v případě, že zadáte čas spuštění. Vhodné při zadání jiného časového pásma, než je místní. | 
+   | **Čas spuštění** | Žádný | Odloží opakování na určité datum a čas. Další informace najdete v tématu [Plánování pravidelně spouštěných úloh a pracovních postupů](../connectors/connectors-native-recurrence.md). | 
+   | **V tyto dny** | Pondělí, úterý, středa, čtvrtek, pátek | Dostupné, pouze pokud je **Frekvence** nastavená na Týden. | 
+   | **V těchto hodinách** | 7,8,9 | Dostupné, pouze pokud je **Frekvence** nastavená na Týden nebo Den. Vyberte hodiny, kdy se v průběhu dne spustí toto opakování. Tento příklad se spustí v celou 7., 8. a 9. hodinu. | 
+   | **V těchto minutách** | 0,15,30,45 | Dostupné, pouze pokud je **Frekvence** nastavená na Týden nebo Den. Vyberte minuty, kdy se v průběhu dne spustí toto opakování. Tento příklad se spouští každých 15 minut od nulté celé hodiny. | 
    ||||
 
-   Aktivuje se v této aktivační události každý den v týdnu, každých 15 minut, počínaje 7:00:00 a končí v 9:45:00. 
-   **Preview** pole ukazuje plán opakování. 
-   Další informace najdete v tématu [plánování úloh a pracovní postupy](../connectors/connectors-native-recurrence.md) a [akce pracovního postupu a aktivační události](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
+   Tento trigger se spouští každý pracovní den každých 15 minut, počínaje 7:00:00 a konče v 9:45:00. 
+   Oblast **Náhled** zobrazuje plán opakování. 
+   Další informace najdete v tématu [Plánování úloh a pracovních postupů](../connectors/connectors-native-recurrence.md) a [Akce a triggery pracovního postupu](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
 
-5. Skrýt podrobnosti aktivační události pro nyní, klikněte na tlačítko uvnitř tvaru záhlaví.
+5. Pokud chcete podrobnosti o triggeru prozatím skrýt, klikněte do záhlaví tvaru.
 
-   ![Sbalit tvar, který má skrýt podrobnosti](./media/tutorial-build-scheduled-recurring-logic-app-workflow/collapse-trigger-shape.png)
+   ![Tvar sbalení pro skrytí podrobností](./media/tutorial-build-scheduled-recurring-logic-app-workflow/collapse-trigger-shape.png)
 
 6. Uložte svou aplikaci logiky. Na panelu nástrojů návrháře zvolte **Uložit**. 
 
-Aplikace logiky je teď za provozu, ale nic se neděje jiných opakování. Ano přidáte akci, která odpovědí, pokud aktivuje aktivační událost.
+Vaše aplikace logiky je teď v provozu, ale kromě opakování nic dalšího nedělá. Přidejte tedy akci, která bude reagovat na aktivaci triggeru.
 
-## <a name="get-the-travel-time-for-a-route"></a>Získat čas cesta pro trasu
+## <a name="get-the-travel-time-for-a-route"></a>Získání doby trvání cesty pro trasu
 
-Teď, když máte aktivační událost, přidejte [akce](../logic-apps/logic-apps-overview.md#logic-app-concepts) , který získá cesta čas mezi dvěma místy. Služba Logic Apps poskytuje konektor pro rozhraní API map Bing, takže můžete snadno získat tyto informace. Než začnete tuto úlohu, ujistěte se, máte klíč rozhraní API map Bing, jak je popsáno v tomto kurzu požadavky.
+Teď, když máte trigger, přidejte [akci](../logic-apps/logic-apps-overview.md#logic-app-concepts), pomocí které získáte dobu trvání cesty mezi dvěma místy. Služba Logic Apps poskytuje konektor k rozhraní API Map Bing, takže tyto informace můžete snadno získat. Než začnete s tímto úkolem, ujistěte se, že máte klíč rozhraní API Map Bing podle požadavků k tomuto kurzu.
 
-1. V návrháři aplikace logiky, v části aktivační událost, zvolte **+ nový krok** > **přidat akci**.
+1. V Návrháři pro Logic Apps pod daným triggerem zvolte **+ Nový krok** > **Přidat akci**.
 
-2. Vyhledejte "mapy" a vyberte tuto akci: **Bing Maps - Get trasy**
+2. Vyhledejte „mapy“ a vyberte tuto akci: **Mapy Bing – Získat trasu**
 
-3. Pokud nemáte připojení mapy Bing, budete vyzváni k vytvoření připojení. Zadejte podrobnosti o těchto připojení a zvolte **vytvořit**.
+3. Pokud nemáte připojení k Mapám Bing, budete vyzváni k jeho vytvoření. Zadejte podrobnosti připojení a zvolte **Vytvořit**.
 
-   ![Vyberte "Mapy Bing - Get trasy" akce](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
+   ![Vybrání akce Mapy Bing – Získat trasu](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
    | Nastavení | Hodnota | Popis |
    | ------- | ----- | ----------- |
-   | **Název připojení** | BingMapsConnection | Zadejte název pro připojení. | 
-   | **Klíč rozhraní API** | <*your-Bing-Maps-key*> | Zadejte klíč mapy Bing, který jste dříve dostali. Pokud nemáte k dispozici klíč služby Bing Maps, přečtěte si <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">jak získat klíč</a>. | 
+   | **Název připojení** | PřipojeníMapyBing | Zadejte název připojení. | 
+   | **Klíč rozhraní API** | <*klíč-služby-Mapy-Bing*> | Zadejte klíč Map Bing, který jste dříve dostali. Pokud nemáte k dispozici klíč služby Mapy Bing, přečtěte si, <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">jak získat klíč</a>. | 
    | | | |  
 
-4. Akce s Tento popis přejmenujte:```Get route and travel time with traffic```
+4. Přejmenujte akci s tímto popisem: ```Get route and travel time with traffic```
 
-5. Zadejte podrobnosti **Get trasy** akce, jak je znázorněno a tu popsané, například:
+5. Zadejte podrobnosti akce **Získat trasu**, například podle tohoto obrázku a popisu:
 
-   ![Zadejte informace pro "Mapy Bing - Get trasy" akce](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
+   ![Zadání informací pro akci Mapy Bing – Získat trasu](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
    | Nastavení | Hodnota | Popis |
    | ------- | ----- | ----------- |
-   | **Waypoint 1** | <*start-location*> | Vaše trasy počátek | 
-   | **Waypoint 2** | <*end – umístění*> | Cílový vaší trasy | 
-   | **Vyhněte se** | Žádné | Všechny položky, aby se zabránilo na trase, jako je například dálnice, mýtné atd. | 
-   | **Optimize** | timeWithTraffic | Parametr, který se optimalizovat směrování, jako je například vzdálenost, cestují časem aktuálních přenosů a tak dále. Vyberte tento parametr: "timeWithTraffic" | 
-   | **Vzdálenost jednotky** | <*your-preference*> | Na jednotku vzdálenosti pro trasu. Tento článek používá tato jednotka: "Míle"  | 
-   | **Cesta režimu** | Řídí | Cesta režimu pro trasu. Vyberte tento režim: "Řídí" | 
-   | **Datum a čas přenosu** | Žádný | Platí pro pouze v režimu přenosu | 
-   | **Typ přenosu typu datum** | Žádný | Platí pro pouze v režimu přenosu | 
+   | **Bod na trase 1** | <*start*> | Počátek vaší cesty | 
+   | **Bod na trase 2** | <*cíl*> | Cíl vaší trasy | 
+   | **Vyloučit** | Žádný | Všechny položky, kterým je třeba se na trase vyhnout, jako je například dálnice, mýtné atd. | 
+   | **Optimalizovat** | timeWithTraffic | Parametr k optimalizaci vaší trasy, jako je například vzdálenost, doba trvání cesty včetně dopravní situace atd. Vyberte tento parametr: timeWithTraffic | 
+   | **Jednotka vzdálenosti** | <*vaše-volba*> | Jednotka vzdálenosti použitá pro trasu. V tomto článku se používá tato jednotka: míle  | 
+   | **Způsob cestování** | Autem | Způsob cestování pro danou trasu. Vyberte tento způsob: Autem | 
+   | **Datum a čas přejezdu** | Žádný | Platí pouze při přejezdech | 
+   | **Typ datum a čas**  | Žádný | Platí pouze při přejezdech | 
    |||| 
 
-   Další informace o těchto parametrů najdete v tématu [vypočítat trasu](https://msdn.microsoft.com/library/ff701717.aspx).
+   Další informace o těchto parametrech najdete v tématu [Výpočet trasy](https://msdn.microsoft.com/library/ff701717.aspx).
 
 6. Uložte svou aplikaci logiky.
 
-Dále vytvořte proměnné tak, aby můžete převést a uložit aktuální čas cesta jako minut, nikoli sekund. Tímto způsobem můžete vyhnout opakování převod a snadněji používat hodnotu v dalších krocích. 
+Dále vytvořte proměnnou tak, aby bylo možné převést a uložit aktuální dobu trvání cesty v minutách, a nikoli v sekundách. Tímto způsobem se vyhnete opakování převodu a danou hodnotu snadněji využijete v dalších krocích. 
 
-## <a name="create-variable-to-store-travel-time"></a>Vytvořte proměnnou pro uložení doba
+## <a name="create-variable-to-store-travel-time"></a>Vytvoření proměnné k uložení doby trvání cesty
 
-V některých případech můžete chtít provést operace s daty v pracovním postupu a používání výsledky v novější akce. Tyto výsledky uložit, abyste mohli snadno opakovaně používat nebo odkazujte na ně, můžete vytvořit proměnné k uložení výsledků po jejich zpracování. Proměnné můžete vytvořit pouze na nejvyšší úrovni v aplikaci logiky.
+V některých případech můžete chtít provést operace s daty v pracovním postupu a použít výsledky v pozdějších akcích. Pokud chcete výsledky uložit, abyste je mohli snadno opakovaně používat nebo na ně odkazovat, můžete vytvořit proměnné, které výsledky po jejich zpracování uloží. Proměnné můžete vytvářet pouze na nejvyšší úrovni v aplikaci logiky.
 
-Ve výchozím nastavení předchozí **Get trasy** akce vrátí aktuální čas cesta s přenosy dat v sekundách prostřednictvím **cestují provozu doba trvání** pole. Převádění a místo ukládání tuto hodnotu jako minut, můžete snadněji hodnota znovu bez převodu znovu.
+Ve výchozím nastavení vrátí předchozí akce **Získat trasu** aktuální čas trvání cesty s vlivem dopravní situace v sekundách prostřednictvím pole **Doba trvání cesty s provozem**. Převodem této hodnoty na minuty a jejím uložením usnadníte její opakované využití bez nutnosti dalších převodů.
 
-1. V části **Get trasy** akce, zvolte **+ nový krok** > **přidat akci**.
+1. V rámci akce **Získat trasu** zvolte **+ Nový krok** > **Přidat akci**.
 
-2. Vyhledejte "proměnné" a vyberte tuto akci: **proměnné - inicializovat proměnné**
+2. Vyhledejte „proměnné“ a vyberte tuto akci: **Proměnné – Inicializovat proměnnou**.
 
-   ![Vyberte "Proměnné - inicializovat proměnná" akce](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
+   ![Vybrání akce Proměnné – Inicializovat proměnnou](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Tato akce se tento popis přejmenujte:```Create variable to store travel time```
+3. Přejmenujte tuto akci s tímto popisem: ```Create variable to store travel time```
 
-4. Zadejte podrobnosti pro vaše proměnná podle postupu popsaného tady:
+4. Zadejte podrobnosti pro danou proměnnou tohoto popisu:
 
    | Nastavení | Hodnota | Popis | 
    | ------- | ----- | ----------- | 
-   | **Název** | travelTime | Název pro vaše proměnná | 
-   | **Typ** | Integer | Datový typ pro vaše proměnná | 
-   | **Hodnota** | Výraz, který převádí aktuální čas cesta z sekund až minut (viz Postup v této tabulce). | Počáteční hodnota pro vaše proměnná | 
+   | **Název** | dobacesty | Název proměnné | 
+   | **Typ** | Integer | Datový typ proměnné | 
+   | **Hodnota** | Výraz, který převede aktuální dobu trvání cesty ze sekund na minuty (viz postup pod touto tabulkou) | Počáteční hodnota proměnné | 
    |||| 
 
-   1. Chcete-li vytvořit ve výrazu **hodnotu** pole, klikněte na tlačítko uvnitř pole tak, aby se zobrazí v seznamu dynamického obsahu. 
-   V případě potřeby rozšíříte prohlížeč, dokud se zobrazí v seznamu. 
-   V seznamu dynamického obsahu, vyberte **výraz**. 
+   1. Pokud chcete vytvořit výraz pro pole **Hodnota**, klikněte do pole, aby se zobrazil seznam dynamického obsahu. 
+   V případě potřeby zvětšete okno prohlížeče, dokud se seznam nezobrazí. 
+   V seznamu dynamického obsahu vyberte **Výraz**. 
 
-      ![Zadejte informace pro "Proměnné - inicializovat proměnná" akce](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings.png)
+      ![Zadání informací pro akci Proměnné – Inicializovat proměnnou](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings.png)
 
-      Po kliknutí na tlačítko uvnitř některé textových polí, buď dynamického obsahu seznamu, nebo parametr seznam vložených se zobrazí. Tento seznam obsahuje všechny parametry z předchozí akce, které můžete použít jako vstupy do svého pracovního postupu. 
-      Dynamické obsahu seznam obsahuje výraz editoru, kde můžete vybrat funkce pro provádění operací. 
-      Tento výraz editor se zobrazí jenom v seznamu dynamického obsahu.
+      Po kliknutí do některých textových polí se zobrazí buď seznam dynamického obsahu nebo seznam vložených parametrů. Tento seznam obsahuje všechny parametry z předchozích akcí, které můžete použít jako vstupy do pracovního postupu. 
+      Seznam dynamického obsahu zahrnuje editor výrazů, kde můžete vybrat funkce pro provádění operací. 
+      Tento editor výrazů se zobrazuje jenom v seznamu dynamického obsahu.
 
-      Váš prohlížeč šířka Určuje, které se zobrazí. 
-      Pokud váš prohlížeč je široké, zobrazí se seznamu dynamického obsahu. 
-      Pokud váš prohlížeč je omezený, zobrazí se seznam parametrů vložené pod textové pole, která má právě fokus.
+      Šířka vašeho prohlížeče určuje, který seznam se zobrazí. 
+      Pokud je okno vašeho prohlížeč široké, seznam dynamického obsahu se zobrazí. 
+      Pokud je váš prohlížeč úzký, zobrazí se seznam parametrů vložený pod textové pole, které má právě fokus.
 
-   2. V editoru výrazu zadejte tento výraz:```div(,60)```
+   2. V editoru výrazů zadejte tento výraz: ```div(,60)```
 
-      ![Zadejte tento výraz: "div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
+      ![Zadejte tento výraz: div(,60)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
-   3. Umístěte kurzor uvnitř výrazu mezi levé závorky (**(**) a čárkou (**,**). 
-   Zvolte **dynamický obsah**.
+   3. Umístěte kurzor dovnitř výrazu mezi levou závorku (**(**) a čárku (**,**). 
+   Zvolte **Dynamický obsah**.
 
-      ![Umístěte kurzor, zvolte "Dynamický obsah"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
+      ![Umístění kurzoru, volba Dynamický obsah](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
 
-   4. Vyberte v seznamu dynamického obsahu **cesta doba provozu**.
+   4. V seznamu dynamického obsahu vyberte možnost **Doba trvání cesty s provozem**.
 
-      ![Vyberte pole "Cesta doba provozu"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
+      ![Vybrání pole Doba trvání cesty s provozem](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
 
-   5. Po pole řeší uvnitř výrazu, vyberte **OK**.
+   5. Až se pole uvnitř výrazu analyzuje, zvolte **OK**.
 
-      ![Klepněte na tlačítko "OK"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
+      ![Zvolení tlačítka OK](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
 
-      **Hodnotu** pole se teď zobrazí jak je vidět tady:
+      Pole **Hodnota** se teď zobrazí, jak je vidět tady:
 
-      ![Pole "Value" s vyřešit výraz](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
+      ![Pole Hodnota s analyzovaným výrazem](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
 
 5. Uložte svou aplikaci logiky.
 
-Dál přidejte podmínku, která zkontroluje, zda je větší než omezení konkrétní aktuální čas cesta.
+Dál přidejte podmínku, která zkontroluje, zda je aktuální doba trvání cesty delší než určený limit.
 
-## <a name="compare-travel-time-with-limit"></a>Porovnat čas cesta limit
+## <a name="compare-travel-time-with-limit"></a>Porovnání doby trvání cesty s limitem
 
-1. V části předchozí akce, zvolte **+ nový krok** > **přidat podmínku**. 
+1. V předchozí akci vyberte **+ Nový krok** > **Přidat podmínku**. 
 
-2. Přejmenujte podmínky se tento popis:```If travel time exceeds limit```
+2. Přejmenujte podmínku s použitím tohoto popisu: ```If travel time exceeds limit```
 
-3. Sestavení podmínku, která kontroluje, zda **travelTime** překračuje zadaném limitu jako popsané a zobrazené tady:
+3. Podle následujícího obrázku a popisu sestavte podmínku, která zkontroluje, zda **dobacesty** překračuje zadaný limit:
 
-   1. V podmínce, klikněte na tlačítko uvnitř **zvolte hodnotu** pole, která se nachází na levé straně (zobrazení široké prohlížeče) nebo v horní (zobrazení úzké prohlížeče).
+   1. Uvnitř podmínky klikněte do pole **Zvolit hodnotu**, které se nachází na levé straně (v širokém zobrazení prohlížeče) nebo nahoře (v úzkém zobrazení prohlížeče).
 
-   2. Ze seznamu dynamického obsahu nebo v seznamu parametrů, vyberte **travelTime** pole v části **proměnné**.
+   2. Ze seznamu dynamického obsahu nebo parametrů vyberte v části **Proměnné** pole **dobacesty**.
 
-   3. V dialogovém okně porovnání vyberte tento operátor: **je větší než**
+   3. V dialogovém okně porovnání vyberte tento operátor: **je větší než**.
 
-   4. V **zvolte hodnotu** pole v pravé (wide zobrazení) nebo dolní (úzké zobrazení), zadejte toto omezení:```15```
+   4. V poli **Zvolit hodnotu** na pravé straně (v širokém zobrazení) nebo dole (v úzkém zobrazení), zadejte tento limit: ```15```
 
-   Pokud pracujete v úzké zobrazení, zde je například tom, jak sestavit tuto podmínku:
+   Pokud pracujete v úzkém zobrazení, zde je příklad, jak sestavit tuto podmínku:
 
-   ![Vytvořit podmínky v úzké zobrazení](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time-narrow.png)
+   ![Sestavení podmínky v úzkém zobrazení](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time-narrow.png)
 
 4. Uložte svou aplikaci logiky.
 
-Dále přidejte akce se provede při cesta doba překračuje limit.
+Dále přidejte akci, která se provede při překročení limitu doby trvání cesty.
 
-## <a name="send-email-when-limit-exceeded"></a>Odeslat e-mail, když limit překročen
+## <a name="send-email-when-limit-exceeded"></a>Odeslání e-mailu při překročení limitu
 
-Nyní přidáte akci, která odešle e-mail, pokud cesta čas překročí limit. Tento e-mail zahrnuje cesta aktuální čas a čas navíc potřeba cestují zadanou trasu. 
+Nyní přidáte akci, která odešle e-mail, pokud doba trvání cesty překročí daný limit. Tento e-mail zahrnuje aktuální dobu trvání cesty a čas navíc nutný k dopravě po zadané trase. 
 
-1. V podmínce pro **v případě hodnoty true** větev, zvolte **přidat akci**.
+1. Ve větvi podmínky **Pokud je true** vyberte **Přidat akci**.
 
-2. Vyhledejte "odesílání e-mailu" a vyberte konektor e-mailu a "Odeslat e-mailu akce", kterou chcete použít.
+2. Vyhledejte „odeslat e-mail“ a vyberte konektor e-mailu a požadovanou akci odeslání e-mailu.
 
-   ![Najděte a vyberte odeslat e-mailu panel.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
+   ![Nalezení a vybrání akce „odeslat e-mail“](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
-   * Osobní účty Microsoft, vyberte **Outlook.com**. 
-   * Ke službě Azure pracovní nebo školní účty, vyberte **Office 365 Outlook**.
+   * U osobních účtů Microsoft, vyberte **Outlook.com**. 
+   * U pracovních nebo školních účtů Azure vyberte **Office 365 Outlook**.
 
-3. Pokud ještě nemáte připojení, budete vyzváni k přihlášení ke svému účtu e-mailu.
+3. Pokud ještě nemáte připojení, budete vyzváni k přihlášení ke svému e-mailovému účtu.
 
    Logic Apps vytvoří připojení k e-mailovému účtu.
 
-4. Akce s Tento popis přejmenujte:```Send email with travel time```
+4. Přejmenujte akci s tímto popisem: ```Send email with travel time```
 
-5. Do pole **Komu** zadejte e-mailovou adresu příjemce. Pro účely testování pomocí e-mailovou adresu.
+5. Do pole **Komu** zadejte e-mailovou adresu příjemce. Pro účely testování použijte svou vlastní e-mailovou adresu.
 
-6. V **subjektu** pole, zadejte předmět e-mailu a zahrnout **travelTime** proměnné.
+6. V poli **Předmět** zadejte předmět e-mailu a zahrňte proměnnou **dobacesty**.
 
-   1. Zadejte text ```Current travel time (minutes): ``` s koncovou mezeru. 
+   1. Zadejte text ```Current travel time (minutes): ``` s koncovou mezerou. 
    
-   2. V seznamu parametrů nebo dynamického obsahu seznamu, vyberte možnost **travelTime** pod **proměnné**. 
+   2. Ze seznamu parametrů nebo dynamického obsahu vyberte v části **Proměnné** **dobacesty**. 
    
-      Například, pokud je váš prohlížeč v úzké zobrazení:
+      Příklad s úzkým zobrazením prohlížeče:
 
-      ![Zadejte předmět, text a výraz, který vrací čas cesta](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-subject-settings.png)
+      ![Zadání textu předmětu a výrazu, který vrátí dobu trvání cesty](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-subject-settings.png)
 
-7. V **textu** zadejte obsah pro tělo e-mailu. 
+7. Do pole **Text** zadejte obsah e-mailu. 
 
-   1. Zadejte text ```Add extra travel time (minutes): ``` s koncovou mezeru. 
+   1. Zadejte text ```Add extra travel time (minutes): ``` s koncovou mezerou. 
    
-   2. V případě potřeby rozšíříte prohlížeč, dokud se nezobrazí seznamu dynamického obsahu. 
-   V seznamu dynamického obsahu, vyberte **výraz**.
+   2. V případě potřeby zvětšete okno prohlížeče, dokud se nezobrazí seznam dynamického obsahu. 
+   V seznamu dynamického obsahu vyberte **Výraz**.
 
-      ![Sestavit výraz pro tělo e-mailu](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings.png)
+      ![Sestavení výrazu pro text e-mailu](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings.png)
 
-   3. V editoru výrazu zadejte tento výraz tak, aby můžete vypočítat počet minut, které překračují limit:```sub(,15)```
+   3. V editoru výrazů zadejte tento výraz tak, abyste spočítali počet minut, které překračují daný limit: ```sub(,15)```
 
-      ![Zadejte výraz k výpočtu vratek minut navíc cestují čas](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
+      ![Zadání výrazu k výpočtu minut navíc z doby trvání cesty](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
 
-   4. Umístěte kurzor uvnitř výrazu mezi levé závorky (**(**) a čárkou (**,**). Zvolte **dynamický obsah**.
+   4. Umístěte kurzor dovnitř výrazu mezi levou závorku (**(**) a čárku (**,**). Zvolte **Dynamický obsah**.
 
-      ![Pokračujte ve vytváření výraz k výpočtu vratek minut navíc cestují čas](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
+      ![Další vytváření výrazu k výpočtu minut navíc z doby trvání cesty](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
 
-   5. V části **proměnné**, vyberte **travelTime**.
+   5. V části **Proměnné** vyberte **dobacesty**.
 
-      ![Vyberte pole "travelTime" pro použití ve výrazu](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
+      ![Vybrání pole dobacesty k použití ve výrazu](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
 
-   6. Po pole řeší uvnitř výrazu, vyberte **OK**.
+   6. Až se pole uvnitř výrazu analyzuje, zvolte **OK**.
 
-      ![Pole "Body" s vyřešit výraz](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      ![Pole Text s analyzovaným výrazem](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
-      **Textu** pole se teď zobrazí jak je vidět tady:
+      Pole **Text** se teď zobrazí, jak je vidět tady:
 
-      ![Pole "Body" s vyřešit výraz](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      ![Pole Text s analyzovaným výrazem](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
 8. Uložte svou aplikaci logiky.
 
-V dalším kroku testovací aplikace logiky, která teď vypadá podobně jako tento příklad:
+V dalším kroku otestujte aplikaci logiky, která teď vypadá podobně jako v tomto příkladu:
 
-![Aplikace logiky dokončení](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
+![Hotová aplikace logiky](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
 
-## <a name="run-your-logic-app"></a>Spusťte aplikaci logiky
+## <a name="run-your-logic-app"></a>Spuštění aplikace logiky
 
-Pokud chcete aplikaci logiky spustit ručně, na panelu nástrojů návrháře zvolte **Spustit**. Pokud aktuální cestují čas zůstane v rámci svého limitu, aplikace logiky nemá žádné jiné a čeká další interval před opětovnou kontrolu.
-Ale pokud aktuální čas cesta překračuje limit, dostanete e-mail s aktuálním časem cesta a počet minut výše svého limitu. Tady je příklad e-mail s odešle svou aplikaci logiky:
+Pokud chcete aplikaci logiky spustit ručně, na panelu nástrojů návrháře zvolte **Spustit**. Pokud aktuální doba trvání cesty zůstane v rámci daného limitu, neprovede aplikace logiky nic dalšího a čeká na další interval před opětovnou kontrolu.
+Pokud však aktuální doba trvání cesty překračuje daný limit, dostanete e-mail s aktuální dobou trvání cesty a počtem minut nad tento limit. Tady je příklad e-mailu odeslaného aplikací logiky:
 
-![E-mailu odeslaného s časem cesta](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
+![Odeslaný e-mail s dobou trvání cesty](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
 
-Pokud neobdržíte žádné e-mailů, zkontrolujte složku nevyžádanou poštou e-mailu. Filtr nevyžádanou poštou vaše e-mailu může přesměruje tyto druhy e-mailů. Pokud si nejste jisti správným spuštěním aplikace logiky, přečtěte si téma [Řešení potíží s aplikací logiky](../logic-apps/logic-apps-diagnosing-failures.md).
+Pokud neobdržíte žádné e-maily, zkontrolujte složku s nevyžádanou poštou. Váš filtr nevyžádané pošty může tento typ e-mailů přesměrovávat. Pokud si nejste jisti správným spuštěním aplikace logiky, přečtěte si téma [Řešení potíží s aplikací logiky](../logic-apps/logic-apps-diagnosing-failures.md).
 
-Blahopřejeme, nyní jste vytvořili a spuštění aplikace na základě plánu opakovaného logiky. 
+Gratulujeme, právě jste vytvořili a spustili opakující se aplikaci logiky založenou na plánu. 
 
-Chcete-li vytvořit další logiku aplikace, které používají **plán - opakování** aktivovat, podívejte se na tyto šablony, které je k dispozici po jste vytvoření aplikace logiky:
+Pokud chcete vytvořit další aplikace logiky, které používají trigger **Plán – Opakování**, podívejte se na tyto šablony, které jsou k dispozici po vytvoření aplikace logiky:
 
-* Získáte zaslán denní připomenutí.
-* Odstraňte starší objektů BLOB Azure.
-* Přidání zprávy do fronty Azure Storage.
+* Každodenní odesílání připomenutí e-mailem
+* Odstranění starších objektů blob Azure
+* Přidání zprávy do fronty Azure Storage
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud již nepotřebujete, odstraňte skupinu prostředků, která obsahuje aplikaci logiky a související prostředky. V hlavní nabídce Azure, přejděte na **skupiny prostředků**a vyberte skupinu prostředků pro svou aplikaci logiky. Zvolte **odstranit skupinu prostředků**. Zadejte název skupiny prostředků jako potvrzení a vyberte **odstranit**.
+Pokud už je nepotřebujete, odstraňte skupinu prostředků, která obsahuje vaši aplikaci logiky, a všechny související prostředky. V hlavní nabídce Azure přejděte na **Skupiny prostředků** a vyberte skupinu prostředků pro vaši aplikaci logiky. Zvolte **Odstranit skupinu prostředků**. Pro ověření zadejte název skupiny prostředků a zvolte **Odstranit**.
 
-!["Přehled" > "Odstranit skupinu prostředků"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
+![Přehled > Odstranit skupinu prostředků](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
 ## <a name="get-support"></a>Získat podporu
 
 * Pokud máte dotazy, navštivte [fórum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pokud chcete zanechat své nápady na funkce nebo hlasovat, navštivte [web zpětné vazby od uživatelů Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste vytvořili aplikaci logiky, která kontroluje přenosy podle zadaného plánu (na ráno den v týdnu), a akce trvá (zasílá e-mailu) Pokud cesta čas překročí zadané omezení. Nyní Naučte se vytvářet aplikaci logiky, která odešle seznamu adresátů žádosti o schválení díky integraci služby Azure, služby společnosti Microsoft a jiných aplikací SaaS.
+V tomto kurzu jste vytvořili aplikaci logiky, která kontroluje dopravní situaci podle zadaného plánu (pracovní dny ráno) a provádí akci (zasílá e-mail), pokud doba trvání cesty překročí určený limit. Dále se naučíte sestavit aplikaci logiky, která odesílá na seznam adresátů žádosti o schválení s využitím integrace služeb Azure, služeb Microsoft a dalších aplikací SaaS.
 
 > [!div class="nextstepaction"]
-> [Spravovat požadavky na seznamu adresátů](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+> [Správa požadavků na seznam adresátů](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)

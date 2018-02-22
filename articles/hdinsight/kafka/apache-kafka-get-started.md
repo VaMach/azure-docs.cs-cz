@@ -1,5 +1,5 @@
 ---
-title: "Začínáme s Apache Kafka – Azure HDInsight | Dokumentace Microsoftu"
+title: "Začínáme s Apache Kafka – Azure HDInsight | Microsoft Docs"
 description: "Zjistěte, jak vytvořit cluster Apache Kafka v Azure HDInsight. Naučte se, jak vytvářet témata, odběratele a příjemce."
 services: hdinsight
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/18/2018
 ms.author: larryfr
-ms.openlocfilehash: 6191d81d6b55f5ffe943f800be542d7ea4614eaf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Začínáme s Apache Kafka ve službě HDInsight
 
@@ -34,7 +34,7 @@ Zjistěte, jak vytvořit a používat cluster [Apache Kafka](https://kafka.apach
 
 Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDInsight:
 
-1. Na webu [Azure Portal](https://portal.azure.com), vyberte **+ Vytvořit prostředek**, **Data a analýzy** a poté vyberte **HDInsight**.
+1. Na portálu [Azure Portal](https://portal.azure.com), vyberte **+ Vytvořit prostředek**, **Data a analýzy** a poté vyberte **HDInsight**.
    
     ![Vytvoření clusteru HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -233,3 +233,5 @@ V tomto dokumentu jste se naučili základy práce s platformou Apache Kafka v H
 * [Požití strukturovaného streamu Apache Spark k přesunu dat z Kafka na HDInsight do Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Použití Apache Stormu se systémem Kafka ve službě HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Připojení k systému Kafka přes virtuální síť Azure](apache-kafka-connect-vpn-gateway.md)
+* [Použití systému Kafka s Azure Container Service](apache-kafka-azure-container-services.md)
+* [Použití systému Kafka s aplikacemi Azure Function Apps](apache-kafka-azure-functions.md)

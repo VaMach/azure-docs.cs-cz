@@ -1,55 +1,58 @@
 ---
-title: "Simulace selhání při přístupu ke redundantní úložiště s přístupem pro čtení v Azure | Microsoft Docs"
-description: "Simulovat k chybě při přístupu ke geograficky redundantní úložiště s přístupem pro čtení"
+title: "Simulace selhání při přístupu k redundantnímu úložišti jen pro čtení v Azure | Microsoft Docs"
+description: "Simulace chyby při přístupu ke geograficky redundantnímu úložišti jen pro čtení"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: ruthogunnnaike
 manager: jeconnoc
-editor: 
 ms.service: storage
-ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/05/2017
-ms.author: gwallace
-ms.custom: mvc
-ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.date: 12/23/2017
+ms.author: v-ruogun
+ms.openlocfilehash: 9ebf773cf39d832416dce820e67201c21a679296
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulace selhání při přístupu ke redundantní úložiště s přístupem pro čtení
+# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulace selhání při přístupu k redundantnímu úložišti jen pro čtení
 
-V tomto kurzu je součástí série, dva. V tomto kurzu můžete vložit selhání odpověď s Fiddler pro požadavky na [čtení geograficky redundantní](../common/storage-redundancy.md#read-access-geo-redundant-storage) účet úložiště (RA-GRS) a nasimulujte selhání aplikace čtení ze sekundárního koncového bodu.
+Tento kurz je druhá část série.  V tomto kurzu můžete simulovat selhání žádostí na primární koncový bod vašeho účtu [geograficky redundantního úložiště jen pro čtení](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) pomocí [Fiddleru](#simulate-a-failure-with-fiddler) nebo [statického směrování](#simulate-a-failure-with-an-invalid-static-route).
 
-![Scénář aplikace](media/storage-simulate-failure-ragrs-account-app/scenario.png)
+![Aplikace scénáře](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-V rámci dvě řady, zjistíte, jak:
+K dokončení tohoto kurzu je nutné dokončit předchozí kurz o úložišti: [Zajištění vysoké dostupnosti dat vaší aplikace pomocí úložiště Azure][previous-tutorial].
+
+Ve druhé části této série se naučíte:
 
 > [!div class="checklist"]
-> * Spuštění a pozastavení aplikace
-> * Simulace selhání
-> * Simulovat primární koncový bod obnovení
+> * Spouštět a pozastavovat aplikaci
+> * Simulovat selhání pomocí [fiddleru](#simulate-a-failure-with-fiddler) nebo [neplatné statické trasy](#simulate-a-failure-with-an-invalid-static-route) 
+> * Simulovat obnovení primárního koncového bodu
+
 
 ## <a name="prerequisites"></a>Požadavky
 
-Pro absolvování tohoto kurzu potřebujete:
+K simulaci selhání pomocí Fiddleru budete potřebovat: 
 
-* Stáhněte a nainstalujte [Fiddler](https://www.telerik.com/download/fiddler)
+* Stáhnout a [nainstalovat Fiddler](https://www.telerik.com/download/fiddler)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-K dokončení tohoto kurzu, je nutné provést předchozí kurzu úložiště: [zajistit vysokou dostupnost s Azure storage data aplikací][previous-tutorial].
+## <a name="simulate-a-failure-with-fiddler"></a>Simulace selhání pomocí Fiddleru
 
-## <a name="launch-fiddler"></a>Spusťte aplikaci fiddler
+Simulaci selhání pomocí Fiddleru provedete tak, že pro žádosti na primární koncový bod vašeho účtu úložiště RA-GRS vložíte neúspěšnou odpověď, a tím nasimulujete selhání.
 
-Otevřete aplikaci Fiddler, vyberte **pravidla** a **přizpůsobit pravidla**.
+Následujícím postupem nasimulujete selhání a obnovení primárního koncového bodu pomoc fiddleru.
 
-![Přizpůsobení Fiddler pravidla](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+### <a name="launch-fiddler"></a>Spuštění fiddleru
 
-Spustí aplikaci Fiddler ScriptEditor zobrazující **SampleRules.js** souboru. Tento soubor se používá k přizpůsobení aplikaci Fiddler. Vložte následující ukázka kódu v `OnBeforeResponse` funkce. Nový kód je označeno jako komentář k zajištění logiku, který vytváří není provádění okamžitě. Po dokončení vyberte **soubor** a **Uložit** uložte provedené změny.
+Otevřete Fiddler, vyberte **Rules** (Pravidla) a **Customize Rules** (Přizpůsobit pravidla).
+
+![Přizpůsobení pravidel Fiddleru](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+
+Spustí se Fiddler ScriptEditor zobrazující soubor **SampleRules.js**. Tento soubor slouží k přizpůsobení Fiddleru. Vložte následující vzorový kód do funkce `OnBeforeResponse`. Nový kód je zakomentovaný, aby se logika, kterou vytváří, neimplementovala okamžitě. Po dokončení uložte provedené změny tak, že vyberete **File** (Soubor) a **Save** (Uložit).
 
 ```javascript
     /*
@@ -67,17 +70,23 @@ Spustí aplikaci Fiddler ScriptEditor zobrazující **SampleRules.js** souboru. 
     */
 ```
 
-![Vložení vlastní pravidlo](media/storage-simulate-failure-ragrs-account-app/figure2.png)
+![Vložení vlastního pravidla](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-## <a name="start-and-pause-the-application"></a>Spuštění a pozastavení aplikace
+### <a name="start-and-pause-the-application"></a>Spuštění a pozastavení aplikace
 
-V sadě Visual Studio, stiskněte klávesu **F5** nebo vyberte **spustit** spustit ladění aplikace. Jakmile aplikace zahájí čtení z primární koncový bod, stiskněte klávesu **libovolné klávesy** v okně konzoly pozastavit aplikace.
+Spusťte aplikaci ve vašem integrovaném vývojovém prostředí (IDE) nebo textovém editoru. Jakmile aplikace zahájí čtení z primárního koncového bodu, pozastavte aplikaci stisknutím **libovolné klávesy** v okně konzoly.
 
-## <a name="simulate-failure"></a>Simulace selhání
+### <a name="simulate-failure"></a>Simulace chyby
 
-S aplikací pozastavena, můžete nyní zrušte komentář u vlastní pravidlo jsme vám uložili v aplikaci Fiddler předchozí krok. Tento kód ukázkové vypadá pro požadavky na účet úložiště RA-GRS a pokud cesta obsahuje název bitové kopie, `HelloWorld`, vrátí kód odpovědi `503 - Service Unavailable`.
+Teď, když je aplikace pozastavena, můžete odkomentovat vlastní pravidlo, které jsme uložili ve Fiddleru v předchozím kroku. Vzorový kód vyhledá žádosti na účet úložiště RA-GRS, a pokud bude cesta obsahovat název bitové kopie, `HelloWorld`, vrátí kód odpovědi `503 - Service Unavailable`.
 
-Přejděte na aplikaci Fiddler a vyberte **pravidla** -> **přizpůsobit pravidla...** .  Zrušte komentář u následující řádky, nahraďte `STORAGEACCOUNTNAME` s názvem účtu úložiště. Vyberte **soubor** -> **Uložit** uložte provedené změny.
+Přejděte do Fiddleru a vyberte **Rules** (Pravidla)  -> **Customize Rules...**  (Přizpůsobit pravidla).  Odkomentujte následující řádky, nahraďte `STORAGEACCOUNTNAME` názvem vašeho účtu úložiště. Uložte změny tak, že vyberete **File** (Soubor)  -> **Save** (Uložit). 
+
+> [!NOTE]
+> Pokud používáte ukázkovou aplikaci v systému Linux, musíte restartovat Fiddler vždy, když upravíte soubor **CustomRule.js**, aby Fiddler vlastní logiku nainstaloval. 
+> 
+> 
+
 
 ```javascript
          if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
@@ -86,40 +95,93 @@ Přejděte na aplikaci Fiddler a vyberte **pravidla** -> **přizpůsobit pravidl
          }
 ```
 
-Chcete-li obnovit aplikace, stiskněte **libovolné klávesy** .
+Obnovte chod aplikace stisknutím **libovolné klávesy**.
 
-Jakmile se aplikace spustí znovu spustit, požadavky na primární koncový bod začne být neúspěšné. Aplikace se pokusí znovu připojit k primární koncový bod 5krát. Po prahové hodnoty chyb pět pokusů požadavků bitovou kopii z sekundární koncový bod jen pro čtení. Po aplikace úspěšně načte bitovou kopii 20krát ze sekundárního koncového bodu, aplikace se pokusí připojit k primární koncový bod. Pokud primární koncový bod je stále nedostupný, obnoví aplikace čtení ze sekundárního koncového bodu. Tento vzor je [jistič](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) vzor popsané v předchozí kurzu.
+Jakmile se aplikace znovu spustí, žádosti na primární koncový bod začnou být neúspěšné. Aplikace se pokusí znovu připojit k primárnímu koncovému bodu pětkrát. Po dosažení prahové hodnoty pěti pokusů aplikace zažádá o bitovou kopii ze sekundárního koncového bodu jen pro čtení. Jakmile aplikace dvacetkrát úspěšně načte bitovou kopii ze sekundárního koncového bodu, pokusí se připojit k primárnímu koncovému bodu. Pokud je primární koncový bod stále nedostupný, obnoví aplikace čtení ze sekundárního koncového bodu. Tento model představuje model [Jistič](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) popsaný v předchozím kurzu.
 
-![Vložení vlastní pravidlo](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+![Vložení vlastního pravidla](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-## <a name="simulate-primary-endpoint-restoration"></a>Simulovat primární koncový bod obnovení
+### <a name="simulate-primary-endpoint-restoration"></a>Simulovat obnovení primárního koncového bodu
 
-S Fiddler vlastní pravidlo nastavené v předchozím kroku požadavky na primární koncový bod selžou. Chcete-li simulovat primární koncový bod znovu funguje, odeberete logiku vložení `503` chyby.
+Se sadou vlastních pravidel Fiddleru nastavenou v předchozím kroku žádosti na primární koncový bod selžou. K simulaci obnovení funkce primárního koncového bodu odeberete logiku, která vkládá chybu `503`.
 
-Pozastavit aplikace, stiskněte klávesu **libovolné klávesy**.
+Pozastavte aplikaci stisknutím **libovolné klávesy**.
 
-### <a name="remove-the-custom-rule"></a>Odebrat vlastní pravidlo
+Přejděte do Fiddleru a vyberte **Rules** (Pravidla) a **Customize Rules...** (Přizpůsobit pravidla).  Zakomentujte nebo odeberte vlastní logiku ve funkci `OnBeforeResponse` a ponechejte výchozí funkci. Uložte změny tak, že vyberete **File** (Soubor) a **Save** (Uložit).
 
-Přejděte na aplikaci Fiddler a vyberte **pravidla** a **přizpůsobit pravidla...** .  Komentář nebo odebrat vlastní logika `OnBeforeResponse` funkce, ponechat výchozí funkce. Vyberte **soubor** a **Uložit** a uložte změny.
+![Odebrání vlastního pravidla](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
-![Odebrat vlastní pravidlo](media/storage-simulate-failure-ragrs-account-app/figure5.png)
+Potom obnovte chod aplikace stisknutím **libovolné klávesy**. Aplikace bude pokračovat ve čtení z primárního koncového bodu, dokud nedosáhne 999 čtení.
 
-Po dokončení stiskněte **libovolné klávesy** obnovit aplikace. Aplikace pokračuje čtení z primární koncový bod, dokud volání 999 čtení.
+![Obnovení chodu aplikace](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-![Obnovit aplikace](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simulace selhání pomocí neplatné statické trasy 
+Pro všechny žádosti na primární koncový bod vašeho účtu [geograficky redundantního úložiště jen pro čtení](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) můžete vytvořit neplatnou statickou trasu. V tomto kurzu se používá místní hostitel jako brána pro směrování žádostí na účet úložiště. Použití místního hostitele jako brány způsobí, že všechny žádosti na primární koncový bod vašeho účtu úložiště se ve smyčce vrátí zpět do hostitele, což následně povede k selhání. Následujícím postupem nasimulujete selhání a obnovení primárního koncového bodu pomocí neplatné statické trasy. 
 
-V rámci dvě řady jste se dozvěděli o simulaci selhání při testování geograficky redundantní úložiště přístup pro čtení, například jak:
+### <a name="start-and-pause-the-application"></a>Spuštění a pozastavení aplikace
+
+Spusťte aplikaci ve vašem integrovaném vývojovém prostředí (IDE) nebo textovém editoru. Jakmile aplikace zahájí čtení z primárního koncového bodu, pozastavte aplikaci stisknutím **libovolné klávesy** v okně konzoly. 
+
+### <a name="simulate-failure"></a>Simulace chyby
+
+Zatímco je aplikace pozastavená, spusťte ve Windows příkazový řádek jako správce. Pokud používáte Linux, spusťte terminál jako root. Zadáním následujícího příkazu na příkazovém řádku nebo v terminálu získáte informace o doméně primárního koncového bodu účtu úložiště.
+
+```
+nslookup STORAGEACCOUNTNAME.blob.core.windows.net
+``` 
+ Nahraďte `STORAGEACCOUNTNAME` názvem vašeho účtu úložiště. Zkopírujte IP adresu vašeho účtu úložiště do textového editoru pro pozdější použití. Pokud chcete získat IP adresu místního hostitele, zadejte `ipconfig` na příkazovém řádku Windows nebo `ifconfig` na terminálu Linuxu. 
+
+Zadáním následujícího příkazu na příkazovém řádku Windows nebo terminálu Linuxu přidáte statickou trasu pro cílového hostitele. 
+
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+  route add <destination_ip> gw <gateway_ip>
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+  route add <destination_ip> <gateway_ip>
+
+---
+ 
+Nahraďte `<destination_ip>` IP adresou vašeho učtu úložiště a `<gateway_ip>` IP adresou místního hostitele. Obnovte chod aplikace stisknutím **libovolné klávesy**.
+
+Jakmile se aplikace znovu spustí, žádosti na primární koncový bod začnou být neúspěšné. Aplikace se pokusí znovu připojit k primárnímu koncovému bodu pětkrát. Po dosažení prahové hodnoty pěti pokusů aplikace zažádá o bitovou kopii ze sekundárního koncového bodu jen pro čtení. Jakmile aplikace dvacetkrát úspěšně načte bitovou kopii ze sekundárního koncového bodu, pokusí se připojit k primárnímu koncovému bodu. Pokud je primární koncový bod stále nedostupný, obnoví aplikace čtení ze sekundárního koncového bodu. Tento model představuje model [Jistič](/azure/architecture/patterns/circuit-breaker.md) popsaný v předchozím kurzu.
+
+### <a name="simulate-primary-endpoint-restoration"></a>Simulovat obnovení primárního koncového bodu
+
+K simulaci obnovení funkce primárního koncového bodu odeberete statickou trasu primárního koncového bodu ze směrovací tabulky. To umožní směrování všech žádostí na primární koncový bod pomocí výchozí brány. 
+
+Zadáním následujícího příkazu na příkazovém řádku Windows nebo na terminálu Linuxu odstraníte statickou trasu cílového hostitele, účtu úložiště. 
+ 
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+route del <destination_ip> gw <gateway_ip>
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+route delete <destination_ip> <gateway_ip>
+
+---
+
+Obnovte chod aplikace stisknutím **libovolné klávesy**. Aplikace bude pokračovat ve čtení z primárního koncového bodu, dokud nedosáhne 999 čtení.
+
+![Obnovení chodu aplikace](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+
+## <a name="next-steps"></a>Další kroky
+
+Ve druhé části série jste získali informace o simulaci selhání za účelem testování geograficky redundantního úložiště s přístupem pro čtení. Například jste se dozvěděli, jak:
 
 > [!div class="checklist"]
-> * Spuštění a pozastavení aplikace
-> * Simulace selhání
-> * Simulovat primární koncový bod obnovení
+> * Spouštět a pozastavovat aplikaci
+> * Simulovat selhání pomocí [fiddleru](#simulate-a-failure-with-fiddler) nebo [neplatné statické trasy](#simulate-a-failure-with-an-invalid-static-route) 
+> * Simulovat obnovení primárního koncového bodu
 
-Tento odkaz zobrazíte ukázky předdefinovaných úložiště.
+Pod tímto odkazem najdete ukázky předdefinovaných úložišť.
 
 > [!div class="nextstepaction"]
-> [Ukázky skriptu úložiště Azure](storage-samples-blobs-cli.md)
+> [Ukázky skriptů úložiště Azure](storage-samples-blobs-cli.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

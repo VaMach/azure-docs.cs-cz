@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření webové aplikace ASP.NET Core v Azure | Dokumentace Microsoftu"
-description: "Nasazením ukázkové webové aplikace ASP.NET se naučíte, jak spouštět webové aplikace ve službě Azure App Service."
+title: "Vytvoření webové aplikace ASP.NET Core v Azure | Microsoft Docs"
+description: "Nasazením výchozí webové aplikace ASP.NET Core se naučíte, jak spouštět webové aplikace ve službě Azure App Service."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -12,26 +12,24 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 02/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a7f098b6c66109cb5cafbcb19e463daa15a65b59
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Vytvoření webové aplikace ASP.NET Core v Azure
 
 > [!NOTE]
 > Tento článek nasadí aplikaci do služby App Service ve Windows. Nasazení do služby App Service v _Linuxu_ je popsané v tématu [Vytvoření webové aplikace v .NET Core ve službě App Service v Linuxu](./containers/quickstart-dotnetcore.md).
 >
+> Pokud hledáte postup pro aplikaci ASP.NET Framework, přečtěte si téma [Vytvoření webové aplikace ASP.NET Framework v Azure](app-service-web-get-started-dotnet-framework.md). 
+>
 
 [Azure Web Apps](app-service-web-overview.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  V tomto kurzu Rychlý start se dozvíte, jak nasadit svoji první webovou aplikaci ASP.NET Core do služby Azure Web Apps. Po dokončení kurzu budete mít skupinu prostředků, která se bude skládat z plánu služby App Service a webové aplikace Azure s nasazenou webovou aplikací.
-
-> [!NOTE]
-> Pokud hledáte, jak postupovat při sestavování a nasazování webové aplikace v ASP.NET Frameworku, příslušný článek najdete [tady](app-service-web-get-started-dotnet-framework.md). 
->
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +49,7 @@ Ve Visual Studiu vytvořte projekt tak, že vyberete **Soubor > Nový > Projekt*
 
 V dialogovém okně **Nový projekt** vyberte **Visual C# > Web > Webová aplikace ASP.NET Core**.
 
-Aplikaci pojmenujte _myFirstAzureWebApp_ a pak vyberte **OK**.
+Pojmenujte aplikaci _myFirstAzureWebApp_, pak vyberte **Vytvořit nové úložiště Git** a vyberte **OK**.
    
 ![Dialogové okno Nový projekt](./media/app-service-web-get-started-dotnet/new-project.png)
 
@@ -69,68 +67,82 @@ V nabídce vyberte **Ladit > Spustit bez ladění** a spusťte tak webovou aplik
 
 ![Místní spuštění aplikace](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## <a name="publish-to-azure"></a>Publikování aplikací do Azure
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-V **Průzkumníku řešení** klikněte pravým tlačítkem na projekt **myFirstAzureWebApp** a vyberte možnost **Publikovat**.
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-![Publikování z Průzkumníka řešení](./media/app-service-web-get-started-dotnet/right-click-publish.png)
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
-Zkontrolujte, že je vybrána možnost **Microsoft Azure App Service** a vyberte **Publikovat**.
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-![Publikování ze stránky přehledu projektu](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
-Tím se otevře dialogové okno **Vytvořit plán App Service**, které vám pomůže vytvořit všechny prostředky Azure potřebné ke spuštění vaší webové aplikace ASP.NET Core v Azure.
+![Prázdná stránka webové aplikace](media/app-service-web-get-started-html/app-service-web-service-created.png)
 
-## <a name="sign-in-to-azure"></a>Přihlášení k Azure
+## <a name="push-to-azure-from-visual-studio"></a>Uložení do Azure ze sady Visual Studio
 
-V dialogovém okně **Vytvořit plán Aplikační služby** vyberte **Přidat účet** a přihlaste se ke svému předplatnému Azure. Pokud už jste přihlášeni, vyberte z rozevíracího seznamu účet, který obsahuje požadované předplatné.
+Zpět v sadě Visual Studio klikněte v nabídce **Zobrazit** na **Team Explorer**. Zobrazí se **Team Explorer**.
 
-> [!NOTE]
-> Pokud už jste přihlášení, nevybírejte zatím možnost **Vytvořit**.
->
->
-   
-![Přihlášení k Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
+V zobrazení **Domů** klikněte na **Nastavení** > **Nastavení úložiště**.
 
-## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+![Domovské zobrazení aplikace Team Explorer](./media/app-service-web-get-started-dotnet/team-explorer.png)
 
-[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+V části **Vzdálená úložiště** vyberte v **Nastavení úložiště** **Přidat**. Zobrazí se dialogové okno **Přidat vzdálené úložiště**.
 
-Vedle pole **Skupina prostředků** vyberte **Nová**.
+V poli **Název** zadejte _Azure_ a v poli **Načíst** zadejte adresu URL, kterou jste si uložili v kroku [Vytvoření webové aplikace](#create-a-web-app). Klikněte na **Uložit**.
 
-Skupinu prostředků pojmenujte **myResourceGroup** a vyberte **OK**.
+![Domovské zobrazení aplikace Team Explorer](./media/app-service-web-get-started-dotnet/team-explorer-set-remote.png)
 
-## <a name="create-an-app-service-plan"></a>Vytvoření plánu služby App Service
+Toto nastavení je ekvivalentní příkazu Git `git remote add Azure <URL>`.
 
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+Klikněte na tlačítko **Domů** v horní části.
 
-Vedle pole **Plán služby App Service** vyberte **Nový**. 
+Vyberte **Nastavení** > **Globální nastavení**. Zkontrolujte, jestli je zadané jméno a e-mailová adresa. V případě potřeby vyberte **Aktualizovat**.
 
-V dialogovém okně **Konfigurovat plán Aplikační služby** použijte nastavení podle tabulky následující po snímku obrazovky.
+Visual Studio už potvrdilo všechny soubory do úložiště Git, když vytvořilo projekt. Teď stačí jen odeslat soubory do Azure.
 
-![Vytvoření plánu služby App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+Klikněte na tlačítko **Domů** v horní části. Vyberte **Synchronizace** > **Akce** > **Otevřít příkazový řádek**. 
 
-| Nastavení | Navrhovaná hodnota | Popis |
-|-|-|-|
-|Plán služby App Service| myAppServicePlan | Název plánu služby App Service. |
-| Umístění | Západní Evropa | Datacentrum, které je hostitelem webové aplikace. |
-| Velikost | Free | [Cenová úroveň](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) určuje funkce hostování. |
+V příkazovém okně zadejte následující příkaz a po zobrazení výzvy zadejte heslo nasazení:
 
-Vyberte **OK**.
+```
+git push Azure master
+```
 
-## <a name="create-and-publish-the-web-app"></a>Vytvoření a publikování webové aplikace
+Spuštění tohoto příkazu může trvat několik minut. Při spuštění příkaz zobrazí podobné informace jako v následujícím příkladu:
 
-V části **Název webové aplikace** zadejte jedinečný název aplikace (platné znaky jsou `a-z`, `0-9` a `-`) nebo přijměte automaticky vygenerovaný jedinečný název. Adresa URL webové aplikace je `http://<app_name>.azurewebsites.net`, kde `<app_name>` je název vaší webové aplikace.
+```
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 349 bytes | 349.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '9e20345e9c'.
+remote: Generating deployment script.
+remote: Project file path: .\myFirstAzureWebApp\myFirstAzureWebApp.csproj
+remote: Solution file path: .\myFirstAzureWebApp.sln
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
+remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
+...
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-Výběrem možnosti **Vytvořit** spustíte vytváření prostředků Azure.
+## <a name="browse-to-the-app"></a>Přechod do aplikace
 
-![Nastavení názvu webové aplikace](./media/app-service-web-get-started-dotnet/web-app-name.png)
+V prohlížeči přejděte na adresu URL webové aplikace Azure: `http://<app_name>.azurewebsites.net`.
 
-Průvodce po dokončení publikuje webovou aplikaci ASP.NET Core do Azure a potom tuto aplikaci spustí ve výchozím prohlížeči.
+Stránka je spuštěná jako webová aplikace služby Azure App Service.
 
 ![Publikovaná webová aplikace ASP.NET v Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
-
-Název webové aplikace zadaný v [kroku vytvoření a publikování](#create-and-publish-the-web-app) se použije jako předpona adresy URL ve formátu `http://<app_name>.azurewebsites.net`.
 
 Blahopřejeme, vaše webová aplikace ASP.NET Core je spuštěná ve službě Azure App Service.
 
@@ -147,17 +159,21 @@ Najděte HTML značku `<div id="myCarousel" class="carousel slide" data-ride="ca
 </div>
 ```
 
-Opětovné nasazení do služby Azure provedete tak, že v **Průzkumníku řešení** kliknete pravým tlačítkem na projekt **myFirstAzureWebApp** a vyberete **Publikovat**.
+V **Průzkumníku řešení** klikněte pravým tlačítkem na _Pages/Index.cshtml_ a klikněte na **Potvrdit**. Zadejte zprávu potvrzení změny a klikněte na **Potvrdit vše**.
 
-Na stránce publikování vyberte **Publikovat**.
+Zpět v okně příkazového řádku odešlete změny kódu do Azure.
 
-Po dokončení publikování spustí Visual Studio prohlížeč na adrese URL webové aplikace.
+```bash
+git push Azure master
+```
+
+Po dokončení nasazení přejděte znovu na `http://<app_name>.azurewebsites.net`.
 
 ![Aktualizovaná webová aplikace ASP.NET v Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
 ## <a name="manage-the-azure-web-app"></a>Správa webové aplikace Azure
 
-Pokud chcete webovou aplikaci spravovat, přejděte na web <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+Pokud chcete webovou aplikaci spravovat, přejděte na portál <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
 V levé nabídce klikněte na **App Services** a potom vyberte název své webové aplikace Azure.
 
@@ -165,7 +181,7 @@ V levé nabídce klikněte na **App Services** a potom vyberte název své webov
 
 Zobrazí se stránka s přehledem vaší webové aplikace. Tady můžete provádět základní úlohy správy, jako je procházení, zastavení, spuštění, restartování a odstranění. 
 
-![Okno App Service na webu Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![Stránka služby App Service na portálu Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 Levá nabídka obsahuje odkazy na různé stránky pro konfiguraci vaší aplikace. 
 
