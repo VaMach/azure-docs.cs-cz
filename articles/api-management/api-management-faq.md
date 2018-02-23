@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-api-management-faqs"></a>Nejčastější dotazy Azure API Management
 Získejte odpovědi na časté otázky, vzorce a osvědčené postupy pro Azure API Management.
@@ -51,7 +51,7 @@ Získejte odpovědi na časté otázky, vzorce a osvědčené postupy pro Azure 
 Kontaktujte nás pomocí jedné z těchto možností:
 
 * Zveřejněte svoje otázky v našem [fórum MSDN správy rozhraní API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* E-mailovou zprávu na < mailto:apimgmt@microsoft.com >.
+* E-mailovou zprávu na <mailto:apimgmt@microsoft.com>.
 * Pošlete nám žádosti o funkci [fóru pro zpětnou vazbu Azure](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Co znamená funkce je ve verzi preview?

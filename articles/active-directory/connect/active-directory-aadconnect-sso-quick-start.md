@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory bezproblémové jednotné přihlašování: rychlý start
 
@@ -77,8 +77,8 @@ Postupujte podle těchto pokynů k ověření, že je povoleno jednotné přihla
 
 K zavedení funkci pro vaše uživatele, je nutné přidat následující adresy URL Azure AD k nastavení zóny intranetu uživatelů pomocí zásad skupiny ve službě Active Directory:
 
-- https://AutoLogon.microsoftazuread-sso.com
-- https://aadg.Windows.NET.nsatc.NET
+- https://autologon.microsoftazuread-sso.com
+
 
 Kromě toho je nutné povolit zásadu zóny intranetu názvem **povolit aktualizace stavového řádku pomocí skriptu** prostřednictvím zásad skupiny. 
 
@@ -87,7 +87,7 @@ Kromě toho je nutné povolit zásadu zóny intranetu názvem **povolit aktualiz
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Proč je třeba změnit nastavení zóny intranetu uživatelů?
 
-Ve výchozím prohlížeči automaticky vypočítá správné zóně, Internetu nebo intranetu, z konkrétní adresy URL. Například "http://contoso/" mapuje do zóny intranetu, zatímco "http://intranet.contoso.com/" se mapuje na zónu Internetu (protože adresa URL obsahuje tečku). Prohlížeče Neodesílat lístky protokolu Kerberos pro koncový bod cloudu, jako je dvou adres URL služby Azure AD, pokud je explicitně přidat adresu URL zóny intranetu prohlížeče.
+Ve výchozím prohlížeči automaticky vypočítá správné zóně, Internetu nebo intranetu, z konkrétní adresy URL. Například "http://contoso/" mapuje do zóny intranetu, zatímco "http://intranet.contoso.com/" se mapuje na zónu Internetu (protože adresa URL obsahuje tečku). Prohlížeče nebude odesílají lístky protokolu Kerberos koncového bodu cloudu, jako je Azure AD adresu URL, pokud explicitně přidat adresu URL do zóny intranetu prohlížeče.
 
 ### <a name="detailed-steps"></a>Podrobné kroky
 
@@ -96,21 +96,17 @@ Ve výchozím prohlížeči automaticky vypočítá správné zóně, Internetu 
 3. Přejděte do **konfigurace uživatele** > **šablony pro správu** > **součásti systému Windows**  >   **Internet Explorer** > **ovládací Panel Možnosti Internetu** > **stránka zabezpečení**. Potom vyberte **webu do zóny přiřazení seznamu**.
     ![Jednotné přihlašování](./media/active-directory-aadconnect-sso/sso6.png)
 4. Je nutné povolit zásady a pak v dialogovém okně zadejte následující hodnoty:
-   - **Název hodnoty**: Azure AD adresy URL, které jsou předávány lístky protokolu Kerberos.
+   - **Název hodnoty**: Azure AD adresu URL, které jsou předávány lístky protokolu Kerberos.
    - **Hodnota** (Data): **1** označuje zóny intranetu.
 
    Výsledek vypadá takto:
 
-    Hodnota: https://autologon.microsoftazuread-sso.com
+    Value: https://autologon.microsoftazuread-sso.com
   
-    Data: 1
-        
-   Hodnota: https://aadg.windows.net.nsatc.net
-
     Data: 1
 
    >[!NOTE]
-   > Pokud chcete zakázat některé uživatele pomocí bezproblémové jednotné přihlašování (například pokud tito uživatelé přihlásit na sdílené veřejné terminály), nastavte předchozí hodnoty na **4**. Tato akce přidá do zóny s omezeným přístupem adresy URL Azure AD a selže vždy bezproblémové jednotné přihlašování.
+   > Pokud chcete zakázat některé uživatele pomocí bezproblémové jednotné přihlašování (například pokud tito uživatelé přihlásit na sdílené veřejné terminály), nastavte předchozí hodnoty na **4**. Tato akce přidá adresu URL pro Azure AD s omezeným přístupem zóny a selže vždy bezproblémové jednotné přihlašování.
    >
 
 5. Vyberte **OK**a potom vyberte **OK** znovu.
@@ -146,9 +142,9 @@ Pokud máte elementem [AuthNegotiateDelegateWhitelist](https://www.chromium.org/
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (pouze Mac OS)
 
-Google Chrome na ostatní platformy jiný systém než Windows a Mac OS, najdete v části [seznamu zásad projektu chromu](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) informace o tom, jak vytvořit bílou Azure AD adresy URL pro integrované ověřování.
+Google Chrome na ostatní platformy jiný systém než Windows a Mac OS, najdete v části [seznamu zásad projektu chromu](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) informace o tom, jak do seznamu povolených IP adres URL služby Azure AD pro integrované ověřování.
 
-Použití zásad skupiny služby Active Directory rozšíření třetích stran k zavedení adresy URL Azure AD a Firefox, Google Chrome na uživatele počítačů Mac je mimo rámec tohoto článku.
+Použití zásad skupiny služby Active Directory rozšíření třetích stran, chcete-li vrátit na adresu URL pro Azure AD a Firefox, Google Chrome na uživatele počítačů Mac je mimo rámec tohoto článku.
 
 #### <a name="known-browser-limitations"></a>Omezení známé prohlížeče
 
@@ -176,7 +172,7 @@ V kroku 2 vytvoří Azure AD Connect účty počítačů (představující Azure
 >[!IMPORTANT]
 >Nemusíte proveďte tento krok _okamžitě_ poté, co povolíte funkci. Mění dešifrovací klíče protokolu Kerberos alespoň jednou za 30 dní.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Podrobné technické informace](active-directory-aadconnect-sso-how-it-works.md): pochopit, jak funkce bezproblémové jednotné přihlašování funguje.
 - [Nejčastější dotazy](active-directory-aadconnect-sso-faq.md): získáte odpovědi na nejčastější dotazy o bezproblémové jednotné přihlašování.

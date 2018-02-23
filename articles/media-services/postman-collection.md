@@ -1,27 +1,14 @@
----
-title: Import kolekce Postman
-description: "Tento článek obsahuje definici Postman kolekce pro Azure Media Services REST volání."
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
-ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Import kolekce Postman
+ ---
+Title: Import kolekce Postman streamování na vyžádání Azure operations Popis: Tento článek obsahuje definici Postman kolekce pro Azure Media Services REST volání.
+služby: documentationcenter služby media services:: Autor: Juliako správce: cfowler editor: "
 
-Tento článek obsahuje definice **Postman** kolekce, která obsahuje seskupené požadavky HTTP, které volání rozhraní API REST Media Services. Tato definice používá [Postman nakonfigurovat pro Media Services REST API volá](media-rest-apis-with-postman.md) kurzu.
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Import kolekce Postman s operacemi streamování na vyžádání
+
+Tento článek obsahuje definice **Postman** kolekce, která obsahuje seskupené požadavky HTTP, které volání rozhraní API REST Azure Media Services. Informace o tom, jak nakonfigurovat **Postman** tak může sloužit k volání rozhraní API REST služby média naleznete v tématu [Postman nakonfigurovat pro Media Services REST API volá](media-rest-apis-with-postman.md) kurzu.
 
 ```
 {
