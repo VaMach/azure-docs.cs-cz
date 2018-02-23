@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Zdroje dat podporované ve službě Azure Analysis Services
 Servery Azure Analysis Services podporují připojení ke zdrojům dat v cloudu a místně ve vaší organizaci. Další podporované zdroje dat se přidávají vždy. Vraťte se často. 
@@ -28,7 +28,7 @@ Aktuálně jsou podporovány následující zdroje dat:
 
 | Cloud  |
 |---|
-| Úložiště objektů Blob v Azure *  |
+| Azure Blob Storage*  |
 | Azure SQL Database  |
 | Azure datového skladu |
 
@@ -37,13 +37,13 @@ Aktuálně jsou podporovány následující zdroje dat:
 |---|---|---|---|
 | Databáze Access  | Složky * | Oracle Database  | Databáze Teradata |
 | Active Directory *  | Dokument JSON *  | Databáze Postgre SQL *  |XML tabulky * |
-| Analysis Services  | Řádky z binárního souboru *  | SAP HANA *  |
+| Analysis Services  | Řádky z binárního souboru *  | SAP HANA*  |
 | Analytics Platform System  | Databáze MySQL  | SAP Business Warehouse *  | |
-| Dynamics CRM *  | Informační kanál OData *  | SharePoint *  |
-| Sešit aplikace Excel  | Dotaz rozhraní ODBC  | SQL Database  |
-| Exchange *  | OLE DB  | Databáze Sybase  |
+| Dynamics CRM*  | Informační kanál OData *  | SharePoint*  |
+| Sešit aplikace Excel  | Dotaz rozhraní ODBC  | Databáze SQL  |
+| Exchange*  | OLE DB  | Databáze Sybase  |
 
-\*Tabulkové 1400 modely jenom. 
+\* Tabulkové 1400 modely jenom. 
 
 > [!IMPORTANT]
 > Připojení k místním zdrojům dat vyžadují [místní brána dat](analysis-services-gateway.md) nainstalovat do počítače ve vašem prostředí.
@@ -99,7 +99,7 @@ Pro cloudové zdroje dat:
 
 * Pokud používáte ověřování SQL, musí být zosobnění účtu služby.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud máte místní zdroje dat, je nutné nainstalovat [místní brána](analysis-services-gateway.md).   
 Další informace o správě váš server v rozšíření SSDT nebo SSMS najdete v tématu [správě serveru](analysis-services-manage.md).
 

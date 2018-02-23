@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e166e73ba45e229d8049738fa4a79f5dc117d806
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Kurz: Kopírování dat z úložiště objektů Blob do SQL Database pomocí objektu pro vytváření dat
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Je nutné, abyste před zahájením tohoto kurzu splňovali následující poža
 Potřebujete název účtu a klíč účtu vašeho účtu úložiště Azure uděláte v tomto kurzu. Poznamenejte si **název účtu** a **klíč účtu** pro váš účet úložiště Azure.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. Klikněte na tlačítko **další služby** v levé nabídce a vyberte **účty úložiště**.
+2. Klikněte na tlačítko **všechny služby** v levé nabídce a vyberte **účty úložiště**.
 
     ![Procházet - účty úložiště](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. V **účty úložiště** okně, vyberte **účtu úložiště Azure** , kterou chcete použít v tomto kurzu.
@@ -70,7 +70,7 @@ Potřebujete název účtu a klíč účtu vašeho účtu úložiště Azure ud�
 ## <a name="collect-sql-server-database-user-names"></a>Shromažďování systému SQL server, databáze, uživatelská jména
 Názvy serveru Azure SQL, databáze a uživatel mohl tohoto kurzu potřebujete. Zapište názvy **server**, **databáze**, a **uživatele** pro vaši databázi Azure SQL.
 
-1. V **portál Azure**, klikněte na tlačítko **další služby** na levé straně a vyberte **databází SQL**.
+1. V **portál Azure**, klikněte na tlačítko **všechny služby** na levé straně a vyberte **databází SQL**.
 2. V **okna databáze SQL**, vyberte **databáze** , kterou chcete použít v tomto kurzu. Poznamenejte si **název databáze**.  
 3. V **databáze SQL** okně klikněte na tlačítko **vlastnosti** pod **nastavení**.
 4. Zapište hodnoty **název serveru** a **přihlašovací jméno správce serveru**.
@@ -79,7 +79,7 @@ Názvy serveru Azure SQL, databáze a uživatel mohl tohoto kurzu potřebujete. 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Povolit službám Azure přístup k systému SQL server
 Ujistěte se, že **povolit přístup ke službám Azure** nastavení zapnuté **ON** pro server Azure SQL tak, aby služba Data Factory přístup k serveru Azure SQL. Pokud chcete toto nastavení ověřit a zapnout, proveďte následující kroky:
 
-1. Klikněte na **Další služby** na levé straně a potom klikněte na **Servery SQL**.
+1. Klikněte na tlačítko **všechny služby** rozbočovače na levé straně a klikněte na **servery SQL**.
 2. Vyberte svůj server a v části **NASTAVENÍ** klikněte na **Brána firewall**.
 3. V okně **Nastavení brány firewall** klikněte na **ZAPNUTO** u možnosti **Povolit přístup ke službám Azure**.
 4. Zavřete všechna okna kliknutím **X**.

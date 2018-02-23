@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 48e8eb91a5febcc1109bee3404bb534bd0391f88
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Nastavení a použití analýzy protokolů (OMS) víceklientské aplikace SaaS databáze SQL Azure
 
-V tomto kurzu, nastavení a použití *analýzy protokolů ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* pro monitorování elastické fondy a databází. V tomto kurzu vychází [sledování výkonu a správy kurzu](saas-dbpertenant-performance-monitoring.md). Ukazuje, jak používat *analýzy protokolů* k posílení monitorování a generování výstrah v portálu Azure. Analýzy protokolů je vhodná pro monitorování a výstrahy ve velkém měřítku, protože podporuje stovky fondy a stovky tisíc databáze. Poskytuje také jedno řešení pro monitorování, které může integrovat monitorování různých aplikací a služeb Azure napříč několika předplatnými Azure.
+V tomto kurzu, nastavení a použití *analýzy protokolů ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* pro monitorování elastické fondy a databází. V tomto kurzu vychází [sledování výkonu a správy kurzu](saas-dbpertenant-performance-monitoring.md). Ukazuje, jak používat *analýzy protokolů* k posílení monitorování a generování výstrah v portálu Azure. Analýzy protokolů podporuje monitorování tisíce elastické fondy a stovky tisíc databáze. Log Analytics poskytuje jeden řešení monitorování, které můžete integrovat monitorování jiným aplikacím a službám Azure napříč několika předplatných Azure.
 
-Co se v tomto kurzu naučíte:
+V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Instalace a konfigurace Log Analytics (OMS)
@@ -39,51 +39,52 @@ Předpokladem dokončení tohoto kurzu je splnění následujících požadavků
 
 Diskusi ke scénářům a vzorcům SaaS a způsob, jakým ovlivňují požadavky na řešení pro monitorování, najdete v [kurzu Monitorování a správa výkonu](saas-dbpertenant-performance-monitoring.md).
 
-## <a name="monitoring-and-managing-performance-with-log-analytics-oms"></a>Monitorování a správa výkonu pomocí Log Analytics (OMS)
+## <a name="monitoring-and-managing-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite-oms"></a>Monitorování a Správa databáze a elastického fondu výkonu k analýze protokolů nebo Operations Management Suite (OMS)
 
-Ve službě SQL Database je monitorování a upozorňování k dispozici v databázích a fondech. Toto integrované monitorování a upozorňování je specifické podle prostředků a je vhodné pro malý počet prostředků, ale méně vhodné pro monitorování velkých instalací nebo poskytnutí sjednoceného pohledu na různé prostředky a předplatná.
+Pro databázi SQL monitorování a výstrah je k dispozici na databáze a fondy na portálu Azure. Toto integrované monitorování a výstrah je vhodné, ale se konkrétní prostředky, je vhodně vhodná pro monitorování velké instalace, nebo pro zajištěna jednotný pohled na prostředky a odběry.
 
-Log Analytics je možné používat u velkoobjemových scénářů. To je samostatná služba Azure, která poskytuje analýzy přes vydávané diagnostické protokoly a telemetrii získanou v pracovním prostoru Log Analytics, které můžou shromažďovat telemetrii z mnoha služeb a dají se používat k dotazování a nastavování výstrah. Log Analytics poskytuje integrovaný jazyk dotazů a nástroje vizualizace dat umožňující analýzy a vizualizaci provozních dat. Řešení SQL analýzy poskytuje několik předem definovaných elastický fond a monitorování a výstrah, zobrazení a dotazy databáze a umožňuje přidávat své vlastní dotazy ad hoc a uložíte podle potřeby. OMS poskytuje také vlastní návrhář zobrazení.
+U scénářů s vysokým zatížením analýzy protokolů slouží pro monitorování a výstrahy. Analýzy protokolů je samostatný služba Azure, která umožňuje analytics přes diagnostické protokoly a telemetrii, která se nashromáždí v pracovním prostoru z potenciálně mnoho služeb. Analýzy protokolů poskytuje integrovaného dotazu jazyka a data nástroje vizualizace, povolení provozních dat analytics. Řešení SQL Analytics poskytuje několik předem definovaných elastického fondu a databáze monitorování a výstrah zobrazení a dotazy. OMS poskytuje také vlastní návrhář zobrazení.
 
 Pracovní prostory a analytická řešení Log Analytics se dají otevírat z portálu Azure Portal i v OMS. Azure Portal je novější přístupový bod, ale v některých oblastech může být za portálem OMS.
 
-### <a name="create-data-by-starting-the-load-generator"></a>Vytvořit data spuštěním generátor zatížení 
+### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Vytvoření diagnostických údajů o výkonu tak, že simuluje pracovní zatížení klientům 
 
-1. V **prostředí PowerShell ISE**, otevřete **ukázku PerformanceMonitoringAndManagement.ps1**. Tento skript nechte spuštěný, protože je možné, že během tohoto kurzu budete spouštět několik scénářů generování zatížení.
-1. Pokud máte méně než pět klientů, monitorování zřídit dávky klientům poskytnout dalších zajímavých kontextu:
-   1. Nastavte **$DemoScenario = 1,** **Zřízení dávky tenantů**
-   1. Chcete-li spustit skript, stiskněte **F5**.
+1. V **prostředí PowerShell ISE**, otevřete *... \\WingtipTicketsSaaS-MultiTenantDb-master\\učení moduly\\sledování výkonu a správy\\** ukázku PerformanceMonitoringAndManagement.ps1***. Tento skript nechte spuštěný, protože je možné, že během tohoto kurzu budete spouštět několik scénářů generování zatížení.
+1. Pokud jste tak ještě neučinili, zřídit dávky klientům poskytnout zajímavějšího monitorování kontextu. Tato akce trvá několik minut:
+   1. Nastavit **$DemoScenario = 1**, _zřídit dávky klientů_
+   1. Spusťte skript a nasadit další 17, stiskněte klávesu **F5**.  
 
-1. Nastavit **$DemoScenario** = 2, **generování normální intenzitou zatížení (asi 40 DTU)**.
-1. Chcete-li spustit skript, stiskněte **F5**.
+1. Nyní spusťte generátor zatížení spustit Simulovaná zatížení na všechny klienty.  
+    1. Nastavit **$DemoScenario = 2**, _generování normální intenzitou zatížení (asi 30 DTU)_.
+    1. Chcete-li spustit skript, stiskněte **F5**.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Získat aplikační skripty Wingtip lístky SaaS databáze za klienta
 
-Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
+Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty prostředí PowerShell Wingtip lístků.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalace a konfigurace Log Analytics a řešení Azure SQL Analytics
 
-Log Analytics je samostatná služba, která vyžaduje konfiguraci. Log Analytics shromažďuje data a telemetrii protokolů a metriku v pracovním prostoru Log Analytics. Pracovní prostor je prostředek stejně jako ostatní prostředky v Azure a je potřeba ho vytvořit. I když pracovní prostor nemusí být vytvořený ve stejné skupině prostředků jako aplikace, které monitoruje, dává to často největší smysl. Pro aplikace SaaS databáze za lístky Wingtip klienta SaaS to umožňuje snadno odstranit s aplikací odstraněním skupiny prostředků v pracovním prostoru.
+Log Analytics je samostatná služba, která vyžaduje konfiguraci. Analýzy protokolů shromažďuje data protokolu, telemetrie a metriky v pracovním prostoru analýzy protokolů. Pracovní prostor log analytics je prostředek, stejně jako ostatní prostředky v Azure a musí být vytvořen. Když pracovní prostor nemusí být vytvořen ve stejné skupině prostředků jako aplikace monitoruje, provádění tak často díky nejvhodnější. Použití jedna skupina prostředků pro aplikace Wingtip lístky zajišťuje, že je odstranit pracovní prostor s aplikací.
 
-1. V **prostředí PowerShell ISE**, otevřete... \\Učení moduly\\sledování výkonu a správy\\protokolu analýzy\\*ukázku LogAnalytics.ps1*.
+1. V **prostředí PowerShell ISE**, otevřete *... \\WingtipTicketsSaaS-MultiTenantDb-master\\učení moduly\\sledování výkonu a správy\\protokolu analýzy\\** ukázku LogAnalytics.ps1***.
 1. Chcete-li spustit skript, stiskněte **F5**.
 
-V tomto okamžiku byste měli mít open Log Analytics v portálu Azure (nebo na portálu OMS). Jak dlouho trvá několik minut, než telemetrie, které se mají shromažďovat v pracovním prostoru analýzy protokolů a pak bude viditelný. Čím delší necháte systému shromažďování dat je více zajímavé zkušenosti. Teď si můžete dát chvilku pauzu – jen se ujistěte, že je generátor pořád spuštěný!
-
+V tomto okamžiku byste měli mít open Log Analytics v portálu Azure (nebo na portálu OMS). Jak dlouho trvá několik minut, než telemetrie, které se mají shromažďovat v pracovním prostoru analýzy protokolů a pak bude viditelný. Čím delší necháte systému shromažďování diagnostických dat, je více zajímavé zkušenosti. Teď si můžete dát chvilku pauzu – jen se ujistěte, že je generátor pořád spuštěný!
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Monitorování fondů a databází pomocí Log Analytics a řešení SQL Analytics
 
 
 V tomto cvičení otevřete analýzy protokolů a podívejte se na telemetrie shromážděných pro databáze a fondy na portálu OMS.
 
-1. Přejděte na portál [Azure Portal](https://portal.azure.com) a otevřete Log Analytics kliknutím na Další služby. Potom vyhledejte Log Analytics:
+1. Vyhledejte [portál Azure](https://portal.azure.com) a otevřít analýzy protokolů kliknutím **všechny služby**, vyhledejte analýzy protokolů:
 
    ![otevření log analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Vyberte pracovní prostor s názvem *wtploganalytics-&lt;USER&gt;*.
+1. Vyberte pracovní prostor s názvem _wtploganalytics -&lt;uživatele&gt;_.
 
 1. Vyberte **Přehled** k otevření řešení Log Analytics na portálu Azure Portal.
-   ![overview-link](media/saas-dbpertenant-log-analytics/click-overview.png)
+
+   ![Přehled – odkaz](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > Může trvat několik minut, než je aktivní řešení. Buďte prosím trpěliví.
@@ -92,36 +93,51 @@ V tomto cvičení otevřete analýzy protokolů a podívejte se na telemetrie sh
 
     ![overview](media/saas-dbpertenant-log-analytics/overview.png)
 
-    ![analytics](media/saas-dbpertenant-log-analytics/analytics.png)
+    ![analytics](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. Zobrazení v okně řešení se prochází po straně a má vlastní posuvník v dolní části (pokud je to potřeba, aktualizujte okno).
+1. Zobrazení v řešení přejděte do stran, s vlastní vnitřní posuvníku v dolní části (aktualizujte stránku v případě potřeby).
 
-1. Prozkoumejte různá zobrazení, a to tak, že na ně budete klikat nebo že budete klikat na jednotlivé prostředky. Otevře se průzkumník pro procházení k podrobnostem, kde se můžete pomocí časového posuvníku vlevo nahoře nebo kliknutím na svislý pruh zaměřit na užší časový interval. V tomto zobrazení můžete vybírat jednotlivé databáze nebo fondy pro zaměření na konkrétní prostředky:
+1. Prozkoumejte souhrnnou stránku kliknutím na dlaždice nebo na jednotlivé databázi otevřete Průzkumníka procházení.
 
-    ![graf](media/saas-dbpertenant-log-analytics/chart.png)
+1. Změňte nastavení upravit časové rozmezí – tento kurz vybrat filtru _poslední 1 hodinu_
 
-1. Pokud budete zpět v okně řešení a přejdete zcela doprava, najdete některé uložené dotazy, které můžete kliknutím otevřít a prozkoumat. Můžete vyzkoušet tyto úpravy a uložit všechny zajímavé dotazy, které můžete vytvořit, které budete moct znovu otevřít a použít s další prostředky.
+    ![Filtr času](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Až se vrátíte do okna pracovního prostoru Log Analytics, vyberte Portál OMS a otevřete řešení tady.
+1. Vyberte jednu databázi prozkoumat využití dotazu a metriky pro tuto databázi.
 
-    ![oms](media/saas-dbpertenant-log-analytics/oms.png)
+    ![databáze analýzy](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-1. Na portálu OMS můžete konfigurovat výstrahy. Klikněte na část výstrahy v zobrazení DTU databáze.
+1. Zobrazit využití přejděte metriky stránce analytics vpravo.
+ 
+     ![metriky databáze](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. V zobrazení prohledávání protokolu uvidíte sloupcový graf představované metriky.
+1. Procházení analytics stránky na levé straně a klikněte na dlaždici serveru v seznamu prostředků informací. Otevře se stránka, zobrazující fondy a databází na serveru. 
 
-    ![prohledávání protokolů](media/saas-dbpertenant-log-analytics/log-search.png)
+     ![informace o prostředku](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
-1. Pokud kliknete na panelu nástrojů na upozornění, bude moci zobrazit konfiguraci výstrah a můžete ho změnit.
+ 
+     ![Server s fondy a databáze](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-    ![přidání pravidla výstrahy](media/saas-dbpertenant-log-analytics/add-alert.png)
+1. Na serveru stránky, které se otevře, který ukazuje, fondy a databází na serveru, klikněte na fond.  Na stránce fondu, které se otevře se posuňte doprava zobrazíte metriky fondu.  
 
-Monitorování a upozorňování v Log Analytics a OMS je založené na dotazech na data v pracovním prostoru, na rozdíl od výstrah v oknech jednotlivých prostředků, které jsou specifické podle prostředků. Proto můžete definovat výstrahu, která dohlíží na všechny databáze místo definování samostatné výstrahy pro každou databázi. Nebo můžete zapsat výstrahu, která používá složený dotaz přes více typů prostředků. Dotazy jsou omezené jenom daty dostupnými v pracovním prostoru.
-
-Log Analytics pro SQL Database se účtuje podle objemu dat v pracovním prostoru. V tomto kurzu jste vytvořili bezplatný pracovní prostor omezený na 500 MB na den. Po dosažení tohoto limitu se data přestanou přidávat do pracovního prostoru.
+     ![metriky fondu](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-## <a name="next-steps"></a>Další kroky
+
+1. Zpět na pracovní prostor analýzy protokolů, vyberte **portálu OMS** otevřete pracovní prostor existuje.
+
+    ![oms](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+
+Na portálu OMS můžete data protokolu a metriku, v pracovním prostoru dále prozkoumat.  
+
+Monitorování a generování výstrah v analýzy protokolů a OMS je založená na dotazech přes data v pracovním prostoru, na rozdíl od výstrahy definované na každého prostředku na portálu Azure. Po vytvoření výstrahy na základě dotazů, lze definovat jedna výstraha, která vypadá přes všechny databáze, místo definující jeden do každého databáze. Dotazy jsou omezené jenom daty dostupnými v pracovním prostoru.
+
+Další informace o používání OMS pro dotazování a nastavit výstrahy najdete [práce s pravidla výstrah v analýzy protokolů](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+
+Log Analytics pro SQL Database se účtuje podle objemu dat v pracovním prostoru. V tomto kurzu jste vytvořili volného prostoru, který je omezen na 500 MB za den. Po dosažení tohoto limitu data je již přidána do pracovního prostoru.
+
+
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 
@@ -131,7 +147,7 @@ V tomto kurzu jste se naučili:
 
 [Kurz Analýza tenanta](saas-dbpertenant-log-analytics.md)
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Další kurzy, které sestavení po počátečním nasazení aplikace Wingtip lístky SaaS databáze za klienta](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)

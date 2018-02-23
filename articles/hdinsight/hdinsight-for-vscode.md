@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Pomocí nástroje Azure HDInsight pro Visual Studio Code
 
@@ -317,7 +317,6 @@ HDInsight pro VS Code podporuje následující funkce:
 * [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](spark/apache-spark-use-bi-tools.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight pro analýzu teploty v budově pomocí dat HVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikace datových proudů v reálném čase](spark/apache-spark-eventhub-streaming.md)
 * [Analýza protokolu webu pomocí Sparku v HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>Vytvoření a spuštění aplikace

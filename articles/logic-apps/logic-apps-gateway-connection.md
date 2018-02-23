@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Připojení ke zdrojům dat místně z aplikací logiky s místní brány dat
 
@@ -35,8 +35,8 @@ Brána podporuje připojení k těmto zdrojům dat místně:
 *   MySQL
 *   Oracle Database
 *   PostgreSQL
-*   Aplikace serveru SAP 
-*   Zpráva serveru SAP
+*   Aplikační server SAP 
+*   Server zpráv SAP
 *   SharePoint
 *   SQL Server
 *   Teradata
@@ -63,21 +63,19 @@ Informace o tom, jak používat bránu s jinými službami, najdete v těchto č
   > [!NOTE]
   > Účet služby systému Windows se liší od účtu použité pro připojování k místní datové zdroje a z Azure pracovní nebo školní účet použitý k přihlášení do cloudových služeb:
 
-## <a name="set-up-the-data-gateway-connection"></a>Nastavení připojení brány dat
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Instalace na místní datovou bránu
+## <a name="install-the-on-premises-data-gateway"></a>Instalace na místní datovou bránu
 
 Pokud jste to ještě neudělali, postupujte podle kroků [postup nainstalovat bránu dat místní](logic-apps-gateway-install.md). Než budete pokračovat v dalších krocích, ujistěte se, že jste nainstalovali bránu dat na místním počítači.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Vytvořit prostředek služby Azure pro bránu místní data
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Vytvořit prostředek služby Azure pro bránu místní data
 
 Po instalaci brány na místním počítači, musíte vytvořit vaše brána data gateway jako prostředek v Azure. Tento krok také přidruží vaší brány prostředků ve vašem předplatném Azure.
 
 1. Přihlaste se na web [Azure Portal](https://portal.azure.com "Azure Portal"). Nezapomeňte použít stejný Azure pracovní nebo školní e-mailovou adresu použitý k instalaci brány.
 
-2. V hlavní nabídce Azure, zvolte **nový** > **Enterprise integrace** > **místní brána dat** jak je vidět tady:
+2. V hlavní nabídce Azure, zvolte **vytvořit prostředek** > **Enterprise integrace** > **místní brána dat**:
 
    ![Najít "místní brána dat"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -103,9 +101,9 @@ Po instalaci brány na místním počítači, musíte vytvořit vaše brána dat
     * **Název instalace**: Pokud vaše instalace brány již není vybrána, vyberte brány, kterou jste dříve nainstalovali. 
 
     Chcete-li prostředek brány přidat do řídicího panelu Azure, zvolte **připnout na řídicí panel**. 
-    Až budete hotoví, zvolte **vytvořit**.
+    Jakmile budete hotoví, vyberte **Vytvořit**.
 
-    Například:
+    Příklad:
 
     ![Zadejte podrobnosti vytvořit bránu, místní data](./media/logic-apps-gateway-connection/createblade.png)
 
@@ -115,7 +113,7 @@ Po instalaci brány na místním počítači, musíte vytvořit vaše brána dat
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Připojení aplikace logiky k bráně místní data
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Připojení aplikace logiky k bráně místní data
 
 Teď, když jste vytvořili prostředku bránu dat a vašeho předplatného Azure přidružené k prostředku, vytvořte připojení mezi svou aplikaci logiky a brána data gateway.
 
@@ -126,7 +124,7 @@ Teď, když jste vytvořili prostředku bránu dat a vašeho předplatného Azur
 
 2. Přidejte konektor, který podporuje místní připojení, jako je SQL Server.
 
-3. Následující pořadí uvedeném, vyberte **připojit prostřednictvím místní brána dat**, zadejte jedinečný název a požadované informace a vyberte prostředek brány dat, který chcete použít. Až budete hotoví, zvolte **vytvořit**.
+3. Následující pořadí uvedeném, vyberte **připojit prostřednictvím místní brána dat**, zadejte jedinečný název a požadované informace a vyberte prostředek brány dat, který chcete použít. Jakmile budete hotoví, vyberte **Vytvořit**.
 
    > [!TIP]
    > Jedinečný název umožňuje snadno identifikovat toto připojení později, zejména v případě, že vytvoříte více připojení. Pokud je k dispozici, zahrnují také kvalifikované domény pro vaše uživatelské jméno. 
@@ -157,6 +155,7 @@ Po vytvoření připojení brány pro svou aplikaci logiky, můžete chtít pozd
    > Pokud vaše aktualizace se projeví, zkuste [zastavením a restartováním brány služby systému Windows](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Přepínač nebo odstranit prostředek brány vaše místní data
 
 Vytvořte prostředek jiné brány, bránu přidružit jiný zdroj nebo odebrat prostředek brány, můžete odstranit prostředek brány bez ovlivnění instalace brány. 
@@ -166,11 +165,12 @@ Vytvořte prostředek jiné brány, bránu přidružit jiný zdroj nebo odebrat 
 3. Zvolte **místní brána dat**a na panelu nástrojů prostředků, zvolte **odstranit**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Zabezpečení aplikací logiky](./logic-apps-securing-a-logic-app.md)
 * [Běžných příkladů a scénářů pro logic apps](./logic-apps-examples-and-scenarios.md)

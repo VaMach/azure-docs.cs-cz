@@ -3,8 +3,8 @@ title: "Nasazení aplikace do Azure a Azure zásobníku | Microsoft Docs"
 description: "Zjistěte, jak nasadit aplikace do Azure a Azure zásobníku se zřetězením příkazů hybridní CI/CD."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Nasazení aplikací do Azure a Azure zásobníku
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
@@ -49,7 +50,7 @@ Toto téma také předpokládá, že máte některé informace o Azure a Azure z
  - Nasazení [služby App Service](../azure-stack-app-service-deploy.md) služby PaaS do protokolů Azure.
  - Vytvořit webovou aplikaci a nakonfigurovat ji pro [publikování FTP](../azure-stack-app-service-enable-ftp.md).  Poznamenejte si nové URL webové aplikace, jako je později použít.  
 
-### <a name="developer-tools"></a>Nástroje pro vývojáře
+### <a name="developer-tools"></a>Vývojářské nástroje
  - Vytvoření [prostoru služby VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Proces registrace vytvoří projekt s názvem "MyFirstProject."  
  - [Nainstalovat Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) a [Přihlaste se do služby VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  - Připojení k projektu a [klonovat místně](https://www.visualstudio.com/docs/git/gitquickstart).
@@ -59,7 +60,7 @@ Toto téma také předpokládá, že máte některé informace o Azure a Azure z
 
 ## <a name="create-app--push-to-vsts"></a>& Vytvořit aplikaci nabízená služby VSTS
 
-### <a name="create-application"></a>Vytvoření aplikace
+### <a name="create-application"></a>Vytvořit aplikaci
 V této části vytvoříte jednoduchou aplikaci ASP.NET a poslat ho přímo služby VSTS.  Tyto kroky představují normální vývojáře pracovní postup a může se přizpůsobit pro nástroje pro vývojáře a jazyky. 
 
 1.  Otevřete sadu Visual Studio.
@@ -71,7 +72,7 @@ V této části vytvoříte jednoduchou aplikaci ASP.NET a poslat ho přímo slu
 ### <a name="commit-and-push-changes-to-vsts"></a>Potvrďte a odešlete změny do služby VSTS
 1.  Průzkumník týmových projektů v sadě Visual Studio, vyberte rozevíracího seznamu a klikněte na **změny**.
 2.  Zadejte zprávu o potvrzení a vyberte **potvrdit všechny**. Můžete být vyzváni k uložení souboru řešení, klikněte na tlačítko Ano uložte všechny.
-3.  Jakmile potvrzené, Visual Studio nabízí synchronizaci změn do projektu. Vyberte **synchronizace**.
+3.  Jakmile potvrzené, Visual Studio nabízí synchronizaci změn do projektu. Vyberte **Synchronizovat**.
 
     ![Obrázek znázorňující potvrzení obrazovky po dokončení potvrzení](./media/azure-stack-solution-pipeline/image1.png)
 
@@ -114,7 +115,7 @@ Teď, když jste vytvořili definici prázdný verze a vázané na sestavení, p
     | Parametr | Hodnota |
     | ----- | ----- |
     |Metoda ověřování| Zadejte přihlašovací údaje|
-    |Adresa URL serveru | Adresa URL webové aplikace FTP načíst z portálu Azure |
+    |URL serveru | Adresa URL webové aplikace FTP načíst z portálu Azure |
     |Uživatelské jméno | Uživatelské jméno, které jste nakonfigurovali při vytváření pověření FTP pro webovou aplikaci |
     |Heslo | Heslo, které jste vytvořili při navazování FTP pověření pro webovou aplikaci|
     |Zdrojový adresář | $(System.DefaultWorkingDirectory)\**\ |
@@ -158,7 +159,7 @@ Teď, když jste vytvořili verze, nakonfigurujete kroky potřebné k publiková
     | Parametr | Hodnota |
     | -----     | ----- |
     |Metoda ověřování| Zadejte přihlašovací údaje|
-    |Adresa URL serveru | Adresa URL webové aplikace FTP načíst z portálu Azure zásobníku |
+    |URL serveru | Adresa URL webové aplikace FTP načíst z portálu Azure zásobníku |
     |Uživatelské jméno | Uživatelské jméno, které jste nakonfigurovali při vytváření pověření FTP pro webovou aplikaci |
     |Heslo | Heslo, které jste vytvořili při navazování FTP pověření pro webovou aplikaci|
     |Zdrojový adresář | $(System.DefaultWorkingDirectory)\**\ |
@@ -198,7 +199,7 @@ Nyní můžete otestovat kanálu CI/CD hybridní, se v posledním kroku publikov
 
 Nyní můžete svůj nový kanál CI/CD hybridní jako stavební blok pro jiné vzorů hybridního cloudu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste zjistili, jak vytvořit hybridní CI/CD kanálu, který:
 
 > [!div class="checklist"]

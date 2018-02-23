@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Správa nákladů uchovávání dat s pracovní prostor analýzy protokolů
 Při registraci pro analýzy protokolů, v závislosti na plánu, který vyberete, je omezena na jak dlouho je generované připojených zdrojů dat uložené v pracovním prostoru.  Tento článek popisuje důležité informace, které mohou mít vliv na náklady pro zachování tato data pro různé období a postup konfigurace tento limit.   
@@ -44,11 +44,11 @@ Při použití *volné* plánování, pokud zjistíte konzistentně překročit 
 ## <a name="change-the-data-retention-period"></a>Změnit období uchovávání dat 
 
 1. Přihlaste se k webu [Azure Portal](http://portal.azure.com). 
-2. Klikněte na tlačítko **další služby** v levém dolním nalezen. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **protokolu analýzy**.
+2. Klikněte na tlačítko **všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 3. V podokně odběry analýzy protokolů vyberte pracovní prostor k úpravě ze seznamu.
 4. Na stránce pracovního prostoru klikněte na **uchování** v levém podokně.
 5. V podokně pracovního prostoru uchování posuvník zvýšit nebo snížit počet dní, a potom klikněte na **Uložit**.  Pokud jste na *volné* vrstvy, nebudete moct změnit období uchovávání dat a je třeba upgradovat k vrstvě placené cílem kontrolovat, toto nastavení.<br><br> ![Změna nastavení uchovávání dat pracovního prostoru](media/log-analytics-manage-cost/manage-cost-change-retention.png)
 
-## <a name="next-steps"></a>Další kroky  
+## <a name="next-steps"></a>Další postup  
 
 Pokud chcete zjistit, kolik se data shromažďují, jaké zdroje jsou odesílání a různé typy dat odesílaných ke správě využívání a náklady, najdete v části [analýza využití dat v analýzy protokolů](log-analytics-usage.md)

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 264dc38383b9adad70325f7fb7802b1dcf2da1c0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 61100b9786245204502686a47e5aae2a6d210259
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Vytvoření virtuální sítě pomocí Portálu Azure
 
@@ -44,7 +44,7 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
     **Adresní prostor** je zadat v notaci CIDR. Virtuální síť obsahuje nula nebo více podsítí. Výchozí podsíť **rozsahu adres** 10.0.0.0/24 používá rozsah adres celý virtuální sítě, takže nelze vytvořit jinou podsítí v rámci virtuální sítě pomocí výchozí adresní prostor a rozsah. Zadaný rozsah adres obsahuje 10.0.0.0-10.0.0.254 adresy IP. Pouze 10.0.0.4-10.0.0.254 jsou však k dispozici, protože první čtyři adresy (0-3) a poslední adresa v jednotlivých podsítích si vyhrazuje Azure. Jsou dostupné IP adresy přiřazené k prostředky nasazené v rámci virtuální sítě.
 
-## <a name="create-virtual-machines"></a>Vytváření virtuálních počítačů
+## <a name="create-virtual-machines"></a>Vytvoření virtuálních počítačů
 
 Virtuální síť umožňuje několik typů prostředků Azure, aby soukromě vzájemně komunikovat. Virtuální počítač je jeden typ prostředku, který můžete nasadit do virtuální sítě. Vytvořte dva virtuální počítače ve virtuální síti, abyste mohli ověřit a pochopit, jak funguje komunikace mezi virtuálními počítači ve virtuální síti v pozdější fázi.
 
@@ -102,7 +102,7 @@ K ověření komunikace s *Můjvp2*, zadejte následující příkaz z příkazo
 mstsc /v:myVm2
 ```
 
-Připojení ke vzdálené ploše je úspěšné, protože oba virtuální počítače mají privátní IP adresy přiřazené z *výchozí* podsítě a protože je otevřeno přes bránu Windows firewall ve výchozím nastavení vzdálené plochy. Budete moci připojit k *Můjvp2* podle názvu hostitele protože Azure automaticky poskytuje překlad názvů DNS pro všechny hostitele v rámci virtuální sítě. Z příkazového řádku příkaz ping Moje *myVm1*, z *Můjvp2*.
+Připojení ke vzdálené ploše je úspěšné, protože oba virtuální počítače mají privátní IP adresy přiřazené z *výchozí* podsítě a protože je otevřeno přes bránu Windows firewall ve výchozím nastavení vzdálené plochy. Budete moci připojit k *Můjvp2* podle názvu hostitele protože Azure automaticky poskytuje překlad názvů DNS pro všechny hostitele v rámci virtuální sítě. Z příkazového řádku příkaz ping *myVm1*, z *Můjvp2*.
 
 ```
 ping myvm1

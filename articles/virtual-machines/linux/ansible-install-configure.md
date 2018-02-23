@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91173a14d40f8259927af720986a4efbc9c573ce
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalace a konfigurace Ansible ke správě virtuálních počítačů v Azure
 Tento článek podrobně popisuje postup instalace Ansible a požadované moduly Azure Python SDK pro některé z nejběžnějších distribucích systému Linux. Ansible můžete nainstalovat na jiné distribucích úpravou nainstalované balíčky podle vaší konkrétní platformu. Vytváření prostředků Azure zabezpečeným způsobem, můžete také zjistěte, jak vytvořit a definovat přihlašovací údaje pro Ansible používat. 
@@ -28,7 +28,7 @@ Další možnosti instalace a kroky pro další platformy najdete v tématu [Pr�
 
 
 ## <a name="install-ansible"></a>Nainstalujte Ansible
-Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroupAnsible* v *eastus* umístění:
+Nejdřív vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroupAnsible* v *eastus* umístění:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -144,7 +144,7 @@ Ansible komunikuje se službou Azure pomocí uživatelského jména a hesla nebo
 Vytvoření instančního objektu v hostitelském počítači s [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac) a výstupní přihlašovací údaje, které potřebuje Ansible:
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 Příklad výstupu z předchozích příkazů vypadá takto:

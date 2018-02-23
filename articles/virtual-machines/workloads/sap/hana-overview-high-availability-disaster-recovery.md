@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d41df9b9d9bd518bb507b0fcde001f35c11e6264
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 9ef09e33803a976e05e555ec7ae9eb872d237137
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Velké instance SAP HANA vysoké dostupnosti a zotavení po havárii v Azure 
 
@@ -111,7 +111,7 @@ SAP HANA v Azure (velké instance) nabízí dvě možnosti pro zálohování a o
 Infrastrukturu úložiště základní SAP HANA v Azure (velké instance) podporuje úložiště snímků svazků. Zálohování a obnovení svazků se podporuje, s následující aspekty:
 
 - Místo databáze úplné zálohy snímků svazků úložiště přesměrováni na základě časté.
-- Při spouštění snímku přes/hana/data, hana nebo protokolu a /hana/shared (zahrnuje /usr/sap) svazky úložiště snímku zahájí SAP HANA snímek před spuštěním snímku úložiště. Tento snímek SAP HANA je bod instalační program pro případné protokolu obnovení po obnovení snímku úložiště.
+- Při spouštění snímku přes /hana/data a /hana/shared (zahrnuje /usr/sap) svazky úložiště snímku zahájí SAP HANA snímek před spuštěním snímku úložiště. Tento snímek SAP HANA je bod instalační program pro případné protokolu obnovení po obnovení snímku úložiště.
 - Po bodu, kde byl úspěšně proveden snímku úložiště je odstraněn snímek SAP HANA.
 - Zálohy protokolu transakcí se často provádějí a jsou uložené ve svazku /hana/logbackups nebo v Azure. Můžete aktivovat /hana/logbackups svazku, který obsahuje zálohy protokolu transakcí, které chcete pořízení snímku samostatně. V takovém případě není nutné provést HANA snímku.
 - Pokud je nutné obnovit databázi do určité míry v čase, žádosti o podporu Microsoft Azure (pro produkční výpadek) nebo SAP HANA na Azure Service Management k obnovení snímku určité úložiště. Příkladem je plánované obnovení systému izolovaného prostoru do původního stavu.
@@ -149,7 +149,7 @@ Následující části obsahují informace pro provedení tyto snímky, včetně
 - Během větší uspořádání SAP HANA tabulek úložiště snímků je nutno, pokud je to možné.
 - Úložiště snímků jsou předpokladem pro využívat výhod možností zotavení po havárii SAP HANA v Azure (velké instance).
 
-### <a name="pre-requisites-for-leveraging-self-service-storage-snapshots"></a>Předpoklady pro využívání samoobslužné služby úložiště snímků
+### <a name="prerequisites-for-leveraging-self-service-storage-snapshots"></a>Předpoklady pro využívání samoobslužné služby úložiště snímků
 
 Aby bylo zajištěno úspěšně spustí skript snímku, ujistěte se, že Perl je nainstalován na operační systém Linux na HANA velké instance serveru. Perl obsahuje předem nainstalovaná na vaší Instance HANA velké jednotky. Pokud chcete zkontrolovat verzi perl, použijte následující příkaz:
 
@@ -290,7 +290,7 @@ HANABackupCustomerDetails.txt
 K práci s tyto skripty: 
 
 - Pokud jste dostali pokyn od Microsoft Operations nikdy upravit skripty.
-- Když se zobrazí dotaz k úpravě skriptu nebo soubor parametru a vždy používejte linux textového editoru, například "vi" není editory Windows, například Poznámkový blok. Pomocí editoru windows by mohlo poškodit formát souboru.
+- Když se zobrazí dotaz k úpravě skriptu nebo soubor parametru a vždy používejte Linux textového editoru, například "vi" není editory Windows, například Poznámkový blok. Pomocí editoru windows by mohlo poškodit formát souboru.
 - Vždy používejte nejnovější skripty. Nejnovější verzi můžete stáhnout z webu GitHub.
 - Použijte stejnou verzi nástroje skriptů ve povahu.
 - Otestovat skripty a mít možnost se požadované parametry a výstup skriptu před použitím přímo v systému výroby.
@@ -299,7 +299,7 @@ K práci s tyto skripty:
 
 Účelem jiné skripty a soubory je:
 
-- **Azure\_hana\_backup.pl**: naplánovat tento skript s cron provést úložiště snímků na HANA data/log/sdílených svazků, svazek logbackups/hana/nebo operačního systému.
+- **Azure\_hana\_backup.pl**: naplánovat tento skript s cron provést úložiště snímků na HANA data a sdílené svazky, svazek logbackups/hana/nebo operačního systému.
 - **Azure\_hana\_replikace\_status.pl**: Tento skript poskytuje základní podrobnosti kolem stav replikace z pracoviště na web zotavení po havárii. Monitorování skriptu a zajistit, že replikace probíhá, a zobrazuje velikost položek, které jsou právě replikován. Také obsahuje pokyny, pokud replikace trvá příliš dlouho, nebo pokud na odkaz je vypnutý.
 - **Azure\_hana\_snímku\_details.pl**: Tento skript obsahuje seznam základní podrobnosti o všechny snímky, na jeden svazek, které existují ve vašem prostředí. Tento skript spustíte na primárním serveru nebo na jednotce serveru v umístění pro obnovení po havárii. Skript obsahuje následující informace podle každý svazek, který obsahuje snímky:
    * Velikost celkový počet snímků na svazku

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 63fdd5a5dabdd9083afa23e5400684b3b144b911
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Kurz: Azure Active Directory integrace s FloQast
 
@@ -106,22 +106,17 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![FloQast domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://<subdomain>.floqast.com/`
-
-    b. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://<subdomain>.floqast.com/api/sso/saml/azure`
+     V **identifikátor** textovému poli, zadejte adresu URL: `https://go.floqast.com/`
 
 4. Zkontrolujte **zobrazit upřesňující nastavení adresy URL** a provést následující krok, pokud chcete nakonfigurovat aplikace **SP** iniciované režimu:
 
     ![FloQast domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://<subdomain>.floqast.com/login/sso`
+     V **přihlašovací adresa URL** textovému poli, zadejte adresu URL: `https://go.floqast.com/login/sso`
      
-    > [!NOTE] 
-    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte se skutečným identifikátorem, adresa URL odpovědi a přihlašovací adresa URL. Obraťte se na [tým podpory FloQast klienta](mailto:support@floqast.com) k získání těchto hodnot.
-
 5. Aplikace FloQast očekává SAML kontrolní výrazy ve specifickém formátu. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z **uživatelské atributy** části na stránce integrace aplikace. Následující snímek obrazovky ukazuje příklad pro tento.
     
-    ![Konfigurovat jednotné přihlašování attb](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
+    ![Konfigurovat jednotné přihlašování v atributu](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
     
 6. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je znázorněno na obrázku a proveďte následující kroky:
     
@@ -241,8 +236,6 @@ Další informace o na přístupovém panelu najdete v tématu [Úvod k přístu
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

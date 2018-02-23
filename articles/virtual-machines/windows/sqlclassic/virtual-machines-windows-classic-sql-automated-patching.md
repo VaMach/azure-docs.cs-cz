@@ -4,7 +4,7 @@ description: "Vysvětluje funkci automatizované opravy pro SQL Server virtuáln
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
-ms.openlocfilehash: 1959871141f196ba80ffd7b37e62e5ea5b42dba3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 42be8c814a7b4c0bb1bd2f88d2e610d20442048e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatizované opravy pro SQL Server na virtuálních počítačích Azure (klasický)
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Pomocí automatizované opravy, zvažte následující požadavky:
 * SQL Server 2014
 * SQL Server 2016
 
-**Prostředí Azure PowerShell**:
+**Azure PowerShell**:
 
 * [Nainstalujte nejnovější příkazy prostředí Azure PowerShell](/powershell/azure/overview).
 
@@ -87,7 +87,7 @@ Ho může trvat několik minut k instalaci a konfiguraci IaaS Agent serveru SQL 
 
 Chcete-li zakázat automatizovaných oprav, spusťte stejný skript bez parametru-povolit New-AzureVMSqlServerAutoPatchingConfig. Stejně jako u instalace, se může trvat několik minut zakázat automatizovaných oprav.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Informace o dalších úlohách, k dispozici automation najdete v tématu [rozšíření agenta systému SQL Server IaaS](../classic/sql-server-agent-extension.md).
 
 Další informace o spuštění systému SQL Server na virtuálních počítačích Azure najdete v tématu [SQL Server na virtuálních počítačích Azure přehled](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

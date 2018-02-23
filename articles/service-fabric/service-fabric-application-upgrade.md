@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/13/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Upgrade aplikace Service Fabric
 Aplikace Azure Service Fabric je kolekce služeb. Během upgradu, porovná Service Fabric nové [manifest aplikace](service-fabric-application-and-service-manifests.md) v předchozí verzi a určuje, které služby v uzlu aktualizace vyžadovat aplikace. Service Fabric porovnává verze čísla ve službě manifesty s čísla verze v předchozí verzi. Je-li služba se nezměnila, není aktualizován dané služby.
@@ -47,23 +47,23 @@ Režim, který doporučujeme pro upgradu aplikace je monitorovaných režimu, kt
 Sledována ruční režim musí ruční zásah po každém upgradu v doméně služby aktualizace, chcete-li ji upgradu na další aktualizaci domény. Budou provedeny žádné kontroly stavu Service Fabric. Správce provádí kontroly stavu nebo stavu před spuštěním upgradu v další aktualizaci domény.
 
 ## <a name="upgrade-default-services"></a>Upgradujte výchozí služby
-Během procesu upgradu aplikace lze upgradovat výchozích služeb v rámci aplikace Service Fabric. Výchozí služby jsou definovány v [manifest aplikace](service-fabric-application-and-service-manifests.md). Standardní pravidla upgradu výchozích služeb jsou:
+Některé výchozí služby parametry definované v [manifest aplikace](service-fabric-application-and-service-manifests.md) lze také upgradovat v rámci upgradu aplikace. Pouze služba parametry, které podporují mění prostřednictvím [aktualizace ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) lze změnit jako součást upgradu. Chování Změna výchozích služeb během upgradu aplikace je následující:
 
-1. Výchozí služby v novém [manifest aplikace](service-fabric-application-and-service-manifests.md) které neexistují v clusteru se vytvářejí.
+1. Výchozí služby v nové manifestu aplikace, které už neexistují v clusteru se vytvoří.
+2. Výchozí služby, které existují v manifestech předchozí a nové aplikace jsou aktualizované. Parametry výchozí služba v nové manifest aplikace přepsat parametry existující službu. Upgradu aplikace bude vrácení zpět automaticky, pokud se nezdaří aktualizace výchozí služby.
+3. Výchozí služby, které nejsou k dispozici v nové manifest aplikace jsou odstraněny, pokud existují v clusteru. **Všimněte si, že odstraněním služby výchozí způsobí odstranění všechno, co služba stavu a nesmí být vrátit zpět.**
+
+Při upgradu aplikace je vrácena, parametry výchozí služby se vrátit zpět na původní hodnoty před upgrade spustit ale odstraněné služby nelze znovu vytvořit s jejich původním stavu.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) musí být nastavena na hodnotu true, chcete-li povolit následující pravidla. Tato funkce je podporovaná ze v5.5.
-
-2. Výchozí služby existující v obou předchozích [manifest aplikace](service-fabric-application-and-service-manifests.md) a jsou aktualizovány novou verzi. Popis služby v nové verzi by přepsala těch, které již v clusteru. Upgrade aplikace by vrácení zpět automaticky při aktualizaci selhání výchozí služby.
-3. Výchozí služby v předchozím [manifest aplikace](service-fabric-application-and-service-manifests.md) , ale ne v nové verzi jsou odstraněny. **Všimněte si, že tento odstraňování výchozích služeb nelze vrátit zpět.**
-
-V případě aplikace upgradu se vrátí zpátky, výchozí služby se vrátit zpět na stav, před zahájením upgradu. Ale odstraněné služby nikdy možné vytvořit.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) nastavení konfigurace clusteru musí být *true* a povolte tak pravidla 2) a 3) nad (výchozí služby aktualizace a odstranění). Tato funkce je podporovaná počínaje Service Fabric verzi 5.5.
 
 ## <a name="application-upgrade-flowchart"></a>Vývojový diagram upgradu aplikace
 Vývojový diagram níže vám může pomoct pochopit proces upgradu aplikace Service Fabric. Konkrétně toku popisuje jak vypršení časových limitů, včetně *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, a *UpgradeHealthCheckInterval*, pomůže ovládací prvek při upgradu v jedné aktualizační doméně se považuje za úspěch nebo selhání.
 
 ![Proces upgradu pro Fabric aplikaci služby][image]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Upgrade vaší aplikace pomocí sady Visual Studio](service-fabric-application-upgrade-tutorial.md) vás provede upgrade aplikace pomocí sady Visual Studio.
 
 [Upgrade vaší aplikace pomocí prostředí Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vás provede upgrade aplikace pomocí prostředí PowerShell.

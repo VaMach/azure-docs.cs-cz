@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: c21b575e9e055b2dec69bea270012b91df2b662b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9f733ee6c193a695dacaf7c390402e12407e198d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Rady pro pochopení a řešení chyb oznámených z WebHCat v HDInsight
 
@@ -48,9 +48,9 @@ Pokud se překročí následující výchozí hodnoty, může snížit výkon We
 
 | Nastavení | Co dělá | Výchozí hodnota |
 | --- | --- | --- |
-| [yarn.Scheduler.Capacity.maximum – aplikace][maximum-applications] |Maximální počet úloh, které mohou být souběžně aktivní (čekající na vyřízení nebo spuštěné) |10 000 |
-| [templeton.Exec.Max-procs][max-procs] |Maximální počet požadavků, které lze zpracovat současně |20 |
-| [mapreduce.jobhistory.Max stáří ms][max-age-ms] |Počet dní, které úlohy historii jsou uchovány |7 dní |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Maximální počet úloh, které mohou být souběžně aktivní (čekající na vyřízení nebo spuštěné) |10 000 |
+| [templeton.exec.max-procs][max-procs] |Maximální počet požadavků, které lze zpracovat současně |20 |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |Počet dní, které úlohy historii jsou uchovány |7 dní |
 
 ## <a name="too-many-requests"></a>Příliš mnoho požadavků
 
@@ -60,7 +60,7 @@ Pokud se překročí následující výchozí hodnoty, může snížit výkon We
 | --- | --- |
 | Překročili jste maximální souběžných požadavků zpracovaných WebHCat za minutu (výchozí 20) |Snížení velikosti pracovní zátěže zajistit, že neodešlete více než maximální počet souběžných požadavků nebo zvyšte limit počtu souběžných požadavků úpravou `templeton.exec.max-procs`. Další informace najdete v tématu [Modifying konfigurace](#modifying-configuration) |
 
-## <a name="server-unavailable"></a>Server není dostupný.
+## <a name="server-unavailable"></a>Server není k dispozici
 
 **Kód stavu HTTP**: 503
 
@@ -86,7 +86,7 @@ Pokud se překročí následující výchozí hodnoty, může snížit výkon We
 | --- | --- |
 | Uvolňování paměti interní dochází v rámci procesu WebHCat |Počkejte uvolňování paměti pro dokončení nebo restartujte službu WebHCat |
 | Časový limit čekání na odpověď ze služby ResourceManager. K této chybě může dojít, když počet aktivních aplikací přejde nakonfigurované maximum (výchozí 10 000) |Počkejte aktuálně spuštěné úlohy k dokončení, nebo zvyšte limit souběžných úloh úpravou `yarn.scheduler.capacity.maximum-applications`. Další informace najdete v tématu [Modifying konfigurace](#modifying-configuration) části. |
-| Pokus o načtení všech úloh prostřednictvím [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) volání při `Fields` je nastaven na`*` |Nenačítat *všechny* podrobnosti úlohy. Místo toho použijte `jobid` načíst podrobnosti úlohy pouze větší než id určité úlohy. Nebo, nepoužívejte`Fields` |
+| Pokus o načtení všech úloh prostřednictvím [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) volání při `Fields` je nastaven na `*` |Nenačítat *všechny* podrobnosti úlohy. Místo toho použijte `jobid` načíst podrobnosti úlohy pouze větší než id určité úlohy. Nebo, nepoužívejte `Fields` |
 | Služba WebHCat je mimo provoz během převzetí služeb při selhání HeadNode |Počkejte dvou minut a opakujte operaci |
 | Existuje více než 500 čekající úlohy, odeslané prostřednictvím WebHCat |Počkejte na dokončení aktuálně čeká na provedení úloh před odesláním další úlohy |
 

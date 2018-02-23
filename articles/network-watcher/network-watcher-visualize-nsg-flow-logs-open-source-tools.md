@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Vizualizace protokolů toku NSG sledovací proces sítě Azure pomocí nástroje s otevřeným zdrojem
 
@@ -46,7 +46,7 @@ Propojením protokolů NSG toku s elastické zásobníku můžeme vytvořit ří
 1. Elastické zásobníku z verze 5.0 a vyšší vyžaduje Java 8. Spusťte příkaz `java -version` zkontrolujte vaši verzi. Pokud nemáte java nainstalovat, najdete v dokumentaci k na [Oracle na webu](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Stáhněte si správné binární balíček pro váš systém:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ Propojením protokolů NSG toku s elastické zásobníku můžeme vytvořit ří
 
 1. Ověřte, zda je spuštěna Elasticsearch pomocí příkazu:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     Byste měli vidět odpověď podobná této:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Další pokyny k instalaci elastické vyhledávání, naleznete na stránce [ins
 
 1. Chcete-li nainstalovat Logstash spusťte následující příkazy:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Další budeme muset nakonfigurovat Logstash přístup a analyzovat protokoly toku. Vytvoření souboru logstash.conf pomocí:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -162,13 +162,13 @@ Další pokyny k instalaci Logstash naleznete [oficiální dokumentaci](https://
 
 Tento modul plug-in Logstash vám umožní přímý přístup k toku protokoly ze svého účtu úložiště určený. Chcete-li nainstalovat tento modul plug-in, spusťte příkaz z výchozí Logstash instalační adresář (v této případu /usr/share/logstash/bin):
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Chcete-li spustit Logstash spusťte příkaz:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,19 +178,19 @@ Další informace o tento modul plug-in, najdete v dokumentaci k [sem](https://g
 
 1. Spusťte následující příkazy pro instalaci Kibana:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Chcete-li spustit Kibana použijte příkazy:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```
 
-1. Chcete-li zobrazit vaše Kibana webové rozhraní, přejděte na`http://localhost:5601`
+1. Chcete-li zobrazit vaše Kibana webové rozhraní, přejděte na `http://localhost:5601`
 1. V tomto scénáři je vzor indexu používá pro protokoly toku "protokolů nsg toku". Můžete změnit vzor indexu v části "výstupní" logstash.conf souboru.
 
 1. Pokud chcete zobrazit řídicí panel Kibana vzdáleně, vytvoření příchozího pravidla NSG povolení přístupu k **portu 5601**.
@@ -241,7 +241,7 @@ Na panelu dotazů v horní části řídicího panelu, můžete filtrovat pomoc�
 
 Kombinací protokolů toku skupinu zabezpečení sítě se elastické zásobníkem budeme mít spolu výkonný a přizpůsobit způsob vizualizace naše síťový provoz. Tyto řídicí panely vám umožňují rychle získat a sdílet uplatnitelné informace o vaší síti a také filtru dolů a prozkoumat na všechny potenciální anomálií. Kibana můžete přizpůsobit tyto řídicí panely a vytváření konkrétní vizualizací, které splňují všechny potřeby zabezpečení, auditování a dodržování předpisů.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zjistěte, jak toku protokolů NSG s Power BI vizualizovat navštivte stránky [vizualizovat NSG toků protokoly s Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

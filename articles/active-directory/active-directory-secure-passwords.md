@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Víceúrovňová způsob zabezpečení hesel Azure AD
 
@@ -46,7 +46,7 @@ Azure AD a systémem účtů Microsoft používat odvětví ověřené přístup
 * Dynamicky zakázaná hesla
 * Inteligentní uzamčení hesla
 
-Informace o správě hesel podle aktuální research, najdete v dokumentu White Paper [heslo pokyny](http://aka.ms/passwordguidance).
+Informace o správě hesel podle aktuální research, najdete v dokumentu White Paper [heslo pokyny](https://aka.ms/passwordguidance).
 
 ### <a name="dynamically-banned-passwords"></a>Dynamicky zakázaná hesla
 
@@ -80,7 +80,7 @@ Informace o vytvoření nového ve službě Azure Active Directory, naleznete v 
   >Pokud jste správce Azure AD, můžete chtít použít [Windows Hello](https://www.microsoft.com/windows/windows-hello), aby vaši uživatelé přestali vytvářet tradiční hesla úplně.
   >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Postup aktualizace vlastního hesla](active-directory-passwords-update-your-own-password.md)
 * [Základy správy identit Azure](fundamentals-identity.md)

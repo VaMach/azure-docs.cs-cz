@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Počasí prognózy používající senzor data ze služby IoT hub v Azure Machine Learning
 
@@ -80,7 +80,7 @@ Naučte se používat Azure Machine Learning na informace o počasí prognózy (
 
 ### <a name="create-a-stream-analytics-job"></a>Vytvoření úlohy Stream Analytics
 
-1. V [portál Azure](https://ms.portal.azure.com/), klikněte na tlačítko **nový** > **Internet věcí** > **úlohy služby Stream Analytics**.
+1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **vytvořit prostředek** > **Internet věcí** > **úlohy služby Stream Analytics**.
 1. Zadejte následující informace pro úlohu.
 
    **Název úlohy**: název úlohy. Název musí být globálně jedinečný.
@@ -89,7 +89,7 @@ Naučte se používat Azure Machine Learning na informace o počasí prognózy (
 
    **Umístění**: používalo stejné umístění jako vaší skupiny prostředků.
 
-   **Připnout na řídicí panel**: zaškrtnete tuto možnost pro snadný přístup do služby IoT hub z řídicího panelu.
+   **Připnout na řídicí panel:** Zaškrtněte tuto možnost pro snadný přístup k centru IoT z řídicího panelu.
 
    ![Vytvořit úlohu služby Stream Analytics v Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 

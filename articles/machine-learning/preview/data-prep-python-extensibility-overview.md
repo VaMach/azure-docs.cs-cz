@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Rozšíření dat přípravy Python
 Azure Machine Learning Data přípravy jako způsob vyplnění funkce mezery mezi integrované funkce, zahrnuje rozšíření na více úrovních. V tomto dokumentu jsme popisují rozšiřitelnost prostřednictvím skript v jazyce Python. 
@@ -101,7 +101,7 @@ K instalaci vaší balíčků výpočetní cíli, budete muset upravit conda_dep
 ### <a name="windows"></a>Windows 
 A vyhledejte umístění v systému Windows, najít konkrétní aplikaci instalaci Pythonu a jeho adresáře skripty. Výchozí umístění je:  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 Spusťte některý z následujících příkazů: 
 
@@ -114,7 +114,7 @@ nebo
 ### <a name="mac"></a>Mac 
 A vyhledejte umístění na Macu, najít konkrétní aplikaci instalaci Pythonu a jeho adresáře skripty. Výchozí umístění je: 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 Spusťte některý z následujících příkazů: 
 

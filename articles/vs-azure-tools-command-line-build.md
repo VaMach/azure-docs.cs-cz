@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1004f7d6938b4038df7681dc7f7551db2e988e61
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Sestavení projektů Azure z příkazového řádku
 Microsoft Build Engine (MSBuild) můžete vytvořit produkty v sestavení testovacích prostředích, kde není nainstalovaná sada Visual Studio. MSBuild používá formátu XML pro soubory projektu, které je rozšiřitelný a plně podporované společností Microsoft. Pomocí nástroje MSBuild formát souboru, můžete popisují, co položky musí být vytvořené pro jednu nebo více platforem a konfigurace.
@@ -35,6 +35,5 @@ Každý projekt, Azure ve výchozím nastavení, obsahuje jeden soubor konfigura
 
 Pokud chcete používat adresář alternativní uložené balíčku a konfigurační soubory, nastavte cestu pomocí `/p:PublishDir=Directory\` možnost, včetně koncové oddělovače zpětné lomítko.
 
-## <a name="next-steps"></a>Další kroky
-Jakmile je balíček vytvořen, můžete ho nasadit do Azure. Kurz, který ukazuje, jak k automatizaci tohoto procesu, najdete v části [nastavené průběžné doručování pro cloudové služby v Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+## <a name="next-steps"></a>Další postup
+Jakmile je balíček vytvořen, můžete ho nasadit do Azure.

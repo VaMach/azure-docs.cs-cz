@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Virtuální síť Azure nejčastější dotazy (FAQ)
 
@@ -81,7 +81,7 @@ Ano. Můžete vytvořit uživateli definované směrování (UDR). Další infor
 Ne. Nepodporujeme vícesměrového vysílání nebo všesměrového vysílání.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Jaké protokoly můžete použít v rámci virtuální sítě?
-Můžete použít protokoly TCP, UDP a ICMP TCP/IP v rámci virtuálních sítí. V rámci virtuální sítě jsou blokovány vícesměrového vysílání, všesměrové vysílání, IP-in-IP zapouzdřené pakety a pakety zapouzdření GRE (Generic Routing). 
+Můžete použít protokoly TCP, UDP a ICMP TCP/IP v rámci virtuálních sítí. Jednosměrového vysílání je podporována v rámci virtuálních sítí, s výjimkou dynamické hostitele konfigurace Protocol (DHCP) pomocí jednosměrového vysílání (zdrojový port UDP/68 / cílový port UDP/67). V rámci virtuální sítě jsou blokovány vícesměrového vysílání, všesměrové vysílání, IP-in-IP zapouzdřené pakety a pakety zapouzdření GRE (Generic Routing). 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Můžete příkaz ping Moje výchozí směrovačů v rámci virtuální sítě?
 Ne.

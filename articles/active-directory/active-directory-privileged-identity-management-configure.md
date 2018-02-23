@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co je Azure AD Privileged Identity Management?
 
@@ -54,7 +54,7 @@ Můžete začít používat Azure AD Privileged Identity Management [portál Azu
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/) jako globální správce adresáře.
 2. Pokud má vaše organizace víc než jeden adresář, vyberte své uživatelské jméno v pravém horním rohu webu Azure Portal. Vyberte adresář, kde budete používat Azure AD Privileged Identity Management.
-3. Vyberte **Další služby** a pomocí pole Filtr najděte **Azure AD Privileged Identity Management**.
+3. Vyberte **všechny služby** a pomocí textového pole filtru k vyhledání **Azure AD Privileged Identity Management**.
 4. Zaškrtněte **Připnout na řídicí panel** a potom klikněte na **Vytvořit**. Aplikace Privileged Identity Management se otevře.
 
 Pokud jste první, kdo použít Azure AD Privileged Identity Management ve vašem adresáři a přejděte do role adresář Azure AD a přejděte do role adresář Azure AD, [Průvodce zabezpečení](active-directory-privileged-identity-management-security-wizard.md) vás provede počáteční přiřazení prostředí. Následně se automaticky stane první **správce zabezpečení** a **správce privilegovaných rolí** adresáře.

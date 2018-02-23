@@ -1,6 +1,6 @@
 ---
 title: "Vytvoření zobrazení k analýze dat v Azure Log Analytics | Microsoft Docs"
-description: "Návrhář zobrazení v analýzy protokolů umožňuje vytvářet vlastní zobrazení, které se zobrazí na portálu Azure a obsahovat různé vizualizace dat v pracovním prostoru analýzy protokolů. Tento článek obsahuje přehled Návrhář zobrazení a postupy pro vytváření a úpravy vlastních zobrazení."
+description: "Pomocí zobrazení návrhu v analýzy protokolů můžete vytvořit vlastní zobrazení, která se zobrazí na portálu Azure a obsahují řadu vizualizaci dat v pracovním prostoru analýzy protokolů. Tento článek obsahuje přehled Návrhář zobrazení a uvede postupy pro vytváření a úpravy vlastních zobrazení."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,90 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: a84f40503c1b9778c496461ebbf6864f99bd1c4b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Pomocí zobrazení návrhu můžete vytvořit vlastní zobrazení v analýzy protokolů
-Návrhář zobrazení v [analýzy protokolů](log-analytics-overview.md) vám umožní vytvořit vlastní zobrazení na portálu Azure, které obsahují různé vizualizace dat v pracovním prostoru analýzy protokolů. Tento článek obsahuje přehled Návrhář zobrazení a postupy pro vytváření a úpravy vlastních zobrazení.
+# <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Vytváření vlastních pohledů pomocí návrháře zobrazení v analýzy protokolů
+Pomocí zobrazení návrhu v [Azure Log Analytics](log-analytics-overview.md), různých vlastních zobrazení můžete vytvořit na portálu Azure, který můžete vizualizovat data v pracovním prostoru analýzy protokolů. Tento článek obsahuje přehled Návrhář zobrazení a postupy pro vytváření a úpravy vlastních zobrazení.
 
-Další články, které jsou k dispozici pro Návrhář zobrazení jsou:
+Další informace o návrháři zobrazení najdete v tématu:
 
-* [Odkaz na dlaždici](log-analytics-view-designer-tiles.md) – odkaz na nastavení pro každou z dlaždice, které jsou k dispozici pro použití ve vaší vlastní zobrazení.
-* [Odkaz na část vizualizace](log-analytics-view-designer-parts.md) – odkaz na nastavení pro každou z dlaždice, které jsou k dispozici pro použití ve vaší vlastní zobrazení.
+* [Odkaz na dlaždici](log-analytics-view-designer-tiles.md): poskytuje referenční příručka k nastavení pro jednotlivé dostupné dlaždice do vlastních zobrazení.
+* [Odkaz na část vizualizace](log-analytics-view-designer-parts.md): poskytuje referenční příručka k nastavení pro vizualizaci částí, které jsou k dispozici do vlastních zobrazení.
 
 >[!NOTE]
-> Pokud pracovní prostor byl upgradován na verzi [nové protokolu Analytics query language](log-analytics-log-search-upgrade.md), pak dotazů ve všech zobrazeních, musí být napsaná [nové dotazovací jazyk](https://go.microsoft.com/fwlink/?linkid=856078).  Všechna zobrazení, které byly vytvořeny před byl upgradován pracovním prostoru bude automtically převést.
+> Pokud pracovní prostor byl upgradován na verzi [nové protokolu Analytics query language](log-analytics-log-search-upgrade.md), dotazů ve všech zobrazeních, musí být napsaná [nové dotazovací jazyk](https://go.microsoft.com/fwlink/?linkid=856078). Automaticky se převedou všechny zobrazení, které byly vytvořeny před pracovním prostoru byl upgradován.
 
 ## <a name="concepts"></a>Koncepty
-Zobrazení se zobrazují na **přehled** stránka pracovní prostor analýzy protokolů na portálu Azure.  Dlaždice pro každý vlastní zobrazení se zobrazí abecedně dlaždice pro řešení nainstalován ve stejném pracovním prostoru.
+Zobrazení se zobrazují na **přehled** stránka pracovní prostor analýzy protokolů na portálu Azure. Dlaždice v každém vlastní zobrazení se zobrazí abecedně, a dlaždice pro řešení jsou nainstalované ve stejném pracovním prostoru.
 
 ![Stránka s přehledem](media/log-analytics-view-designer/overview-page.png)
 
-Zobrazení vytvořená pomocí návrháře zobrazení obsahovat elementy v následující tabulce.
+Zobrazení, které vytvoříte pomocí návrháře zobrazení obsahují prvky, které jsou popsané v následující tabulce:
 
 | Část | Popis |
 |:--- |:--- |
-| Dlaždice |Zobrazí na stránce Přehled pro pracovní prostor analýzy protokolů.  Zahrnuje visual sumarizační informace obsažené v vlastní zobrazení.  Různé typy dlaždici poskytovat různé vizualizace záznamů.  Klikněte na dlaždici otevřít vlastní zobrazení. |
-| Vlastní zobrazení |Zobrazí, když uživatel klikne na dlaždici.  Obsahuje jednu nebo více částí vizualizace. |
-| Vizualizace částí |Vizualizace dat v pracovním prostoru analýzy protokolů založené na jednom nebo několika [protokolu hledání](log-analytics-log-searches.md).  Většina částí bude obsahovat hlavičku, která poskytuje na nejvyšší úrovni vizualizaci a seznam nejvyšší výsledků.  Typy jinou částí poskytují různé vizualizace záznamy v pracovním prostoru analýzy protokolů.  Klikněte na elementy v části provést vyhledávání protokolu poskytuje podrobné záznamy. |
+| Dlaždice | Zobrazí se na pracovní prostor analýzy protokolů **přehled** stránky. Každou dlaždici zobrazí přehled vlastních zobrazení, který představuje. Každý typ dlaždice poskytuje různé vizualizace vašeho záznamů. Vyberete dlaždici vlastní zobrazení. |
+| Vlastní zobrazení | Zobrazí, když vyberete dlaždici. Každé zobrazení obsahuje jednu nebo více částí vizualizace. |
+| Vizualizace částí | K dispozici vizualizace dat v pracovním prostoru analýzy protokolů založené na jeden nebo více [protokolu hledání](log-analytics-log-searches.md). Většina částí zahrnují záhlaví, která poskytuje podrobný vizualizace, a seznam, který zobrazí nejvyšší výsledky. Každý typ část poskytuje různé vizualizace záznamy v pracovním prostoru analýzy protokolů. Elementy, vyberte v části pro vyhledávání protokolu, který poskytuje podrobné záznamy. |
 
 
 ## <a name="work-with-an-existing-view"></a>Práce s existující zobrazení
-Když otevřete zobrazení, které bylo vytvořeno pomocí návrháře zobrazení, bude mít nabídku s možností v následující tabulce.
+Zobrazení, které byly vytvořeny pomocí návrháře zobrazení zobrazí následující možnosti:
 
 ![Přehled nabídky](media/log-analytics-view-designer/overview-menu.png)
 
+Tyto možnosti jsou popsány v následující tabulce:
 
 | Možnost | Popis |
 |:--|:--|
-| Obnovení   | Aktualizujte zobrazení s nejnovější data. | 
-| Analýzy | Otevřete [Advanced Analytics portál](log-analytics-log-search-portals.md#advanced-analytics-portal) k analýze dat pomocí protokolu hledání. () log-Analytics-log-Search-portals.MD#Advanced-Analytics-Portal). |
-| Filtr    | Nastavte filtr času pro dat obsažených v zobrazení. |
-| Upravit      | Otevření zobrazení v Návrháři zobrazení, chcete-li upravit jeho obsah a konfiguraci.   |
-| Klon     | Vytvoření nového zobrazení a otevřete jej v Návrháři zobrazení.  Nové zobrazení má stejný název jako původní s "zkopírovat" připojením na konec. |
+| Obnovení   | Aktualizuje zobrazení s nejnovější data. | 
+| Analýzy | Otevře se [Advanced Analytics portál](log-analytics-log-search-portals.md#advanced-analytics-portal) k analýze dat pomocí protokolu hledání. |
+| Filtr    | Nastaví filtr času pro data, která je zahrnuta v zobrazení. |
+| Upravit      | Otevře zobrazení v Návrháři zobrazení, chcete-li upravit jeho obsah a konfiguraci.  |
+| Klon     | Vytvoří nové zobrazení a otevře ji v Návrháři zobrazení. Název nového zobrazení je stejný jako původní název, ale s *kopie* přidá se k němu. |
 
 
 ## <a name="create-a-new-view"></a>Vytvoření nového zobrazení
-Vytvořit nové zobrazení v **Návrhář zobrazení** kliknutím na dlaždici Návrhář zobrazení na stránce Přehled pracovního prostoru analýzy protokolů na portálu Azure.
+Můžete vytvořit nové zobrazení v Návrháři zobrazení tak, že vyberete **Návrhář zobrazení** na dlaždici **přehled** stránka pracovní prostor analýzy protokolů.
 
 ![Dlaždice Návrhář zobrazení](media/log-analytics-view-designer/view-designer-tile.png)
 
 
-## <a name="working-with-view-designer"></a>Práce s Návrhář zobrazení
-Návrhář zobrazení budete pracovat, zda vytváříte nové zobrazení nebo úpravou existující.  
+## <a name="work-with-view-designer"></a>Práce s Návrhář zobrazení
+Návrhář zobrazení použijete k vytvoření nového zobrazení nebo upravit stávající. 
 
-Návrhář zobrazení má tři podokna.  **Návrhu** podokně obsahuje vlastní zobrazení, který vytváříte nebo upravujete.  Přidat dlaždice a částí z **řízení** podokně **návrhu** podokně.  **Vlastnosti** podokně se zobrazí vlastnosti pro dlaždice nebo vybraných součástí.
+Návrhář zobrazení má tři podokna: 
+* **Návrh**: obsahuje vlastní zobrazení, který vytváříte nebo upravujete. 
+* **Ovládací prvky**: obsahuje dlaždice a částí, které přidáte do **návrhu** podokně. 
+* **Vlastnosti**: Zobrazí vlastnosti dlaždice nebo vybraných částí.
 
 ![Návrhář zobrazení](media/log-analytics-view-designer/view-designer-screenshot.png)
 
-### <a name="configure-view-tile"></a>Konfigurace zobrazení dlaždice
-Vlastní zobrazení může mít pouze jedna dlaždice.  Vyberte **dlaždici** ve **řízení** podokně zobrazit aktuální dlaždice nebo vyberte alternativní šablonu.  **Vlastnosti** podokně se zobrazí vlastnosti pro aktuální dlaždice.  Konfigurovat vlastnosti dlaždice podle podrobné informace v [odkaz na dlaždici](log-analytics-view-designer-tiles.md) a klikněte na tlačítko **použít** uložte změny.
+### <a name="configure-the-view-tile"></a>Konfigurace dlaždici zobrazení
+Vlastní zobrazení může mít pouze jedna dlaždice. Chcete-li zobrazit aktuální dlaždice nebo vyberte alternativní šablonu, vyberte **dlaždici** ve **řízení** podokně. **Vlastnosti** podokně se zobrazí vlastnosti aktuální dlaždice. 
 
-### <a name="configure-visualization-parts"></a>Konfigurace vizualizace částí
-Zobrazení může obsahovat libovolný počet částí vizualizace.  Vyberte **zobrazení** kartu a pak součástí vizualizace pro přidání do zobrazení.  **Vlastnosti** podokně se zobrazí vlastnosti vybrané součásti.  Zobrazit vlastnosti podle podrobné informace v konfiguraci [vizualizace část odkaz](log-analytics-view-designer-parts.md) a klikněte na tlačítko **použít** se uložit změny.
+Můžete konfigurovat vlastnosti dlaždice podle informací v [dlaždici odkaz](log-analytics-view-designer-tiles.md) a pak klikněte na **použít** a uložte změny.
 
-Zobrazení mít pouze jeden řádek částí vizualizace.  Změna uspořádání existující částí v zobrazení kliknutím a přetažením je do nového umístění.
+### <a name="configure-the-visualization-parts"></a>Konfigurace části vizualizace
+Zobrazení může obsahovat libovolný počet částí vizualizace. K přidání částí do zobrazení, vyberte **zobrazení** a pak vyberte součástí vizualizace. **Vlastnosti** podokně se zobrazí vlastnosti vybrané části. 
 
-Součástí vizualizace můžete odebrat ze zobrazení klepnutím **X** tlačítko v pravém horním rohu na druhé.
+Můžete konfigurovat vlastnosti zobrazení podle informací v [vizualizace část odkaz](log-analytics-view-designer-parts.md) a pak klikněte na **použít** a uložte změny.
+
+Zobrazení je k dispozici pouze jeden řádek částí vizualizace. Stávající části můžete přeuspořádat jejich přetažením do nového umístění.
+
+Vizualizace součástí ze zobrazení můžete odebrat výběrem **X** v horní části práva.
 
 
 ### <a name="menu-options"></a>Možnosti nabídky
-Při práci se zobrazením v režimu úprav, máte možností v nabídce v následující tabulce.
+Možnosti práce se zobrazeními v režimu úprav jsou popsány v následující tabulce.
 
 ![Upravit nabídky](media/log-analytics-view-designer/edit-menu.png)
 
 | Možnost | Popis |
 |:--|:--|
-| Uložit        | Změny uložte a zavřete zobrazení. |
-| Zrušit      | Zahodit změny a zavřete zobrazení. |
-| Odstranit zobrazení | Odstraňte zobrazení. |
-| Export      | Export zobrazení [šablony Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md) který můžete importovat do jiného pracovního prostoru.  Název souboru, bude název zobrazení s příponou *omsview*. |
-| Import      | Import *omsview* soubor, který jste exportovali z jiného pracovního prostoru.  Tato akce přepíše konfiguraci existující zobrazení. |
-| Klon       | Vytvoření nového zobrazení a otevřete jej v Návrháři zobrazení.  Nové zobrazení má stejný název jako původní s "zkopírovat" připojením na konec. |
-| Publikování     | Exportovat do souboru JSON, který lze vložit do zobrazení [Mangagement řešení](../operations-management-suite/operations-management-suite-solutions-resources-views.md).  Název souboru, bude název zobrazení s příponou *json*. Je vytvořen druhý soubor s příponou *resjson* obsahující hodnoty pro prostředky, které jsou definované v souboru JSON.
+| Uložení        | Uloží změny a zavře zobrazení. |
+| Zrušit      | Zruší změny a zavře zobrazení. |
+| Odstranit zobrazení | Odstraní zobrazení. |
+| Export      | Exportuje zobrazení tak, aby [šablony Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md) který můžete importovat do jiného pracovního prostoru. Název souboru je název zobrazení, a má *omsview* rozšíření. |
+| Import      | Importy *omsview* soubor, který jste exportovali z jiného pracovního prostoru. Tato akce přepíše konfiguraci existující zobrazení. |
+| Klon       | Vytvoří nové zobrazení a otevře ji v Návrháři zobrazení. Název nového zobrazení je stejný jako původní název, ale s *kopie* přidá se k němu. |
+| Publikování     | Exportuje zobrazení do souboru JSON, který můžete vložit do [řešení pro správu](../operations-management-suite/operations-management-suite-solutions-resources-views.md). Název souboru je stejný jako název zobrazení, ale *json* rozšíření. Druhý soubor, který je vytvořen s *resjson* rozšíření, obsahuje hodnoty pro prostředky, které jsou definovány v souboru JSON.
 
 ## <a name="next-steps"></a>Další postup
 * Přidat [dlaždice](log-analytics-view-designer-tiles.md) do vlastních zobrazení.

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurace přihlášení automaticky zrychlení pro aplikace s použitím zásad zjišťování domovské sféry
 
@@ -83,9 +83,9 @@ Existují tři kroky nastavení přihlášení automaticky akcelerace aplikace:
 
 1. Vytváření zásad HRD pro akcelerace automaticky.
 
-2. Vyhledání Princip služby, ke kterému chcete připojit zásady.
+2. Vyhledání objektu služby, ke kterému chcete připojit zásady.
 
-3. Zásady se připojuje k Princip služby. Zásady pravděpodobně byl vytvořen v klientovi, ale nemají nijak neprojeví, dokud jsou připojené k entitě. 
+3. Zásady se připojuje k instanční objekt. Zásady pravděpodobně byl vytvořen v klientovi, ale nemají nijak neprojeví, dokud jsou připojené k entitě. 
 
 Zásadu HRD lze připojit k hlavní název služby a v jednom okamžiku může být pouze jedna zásada HRD aktivní na danou entitu.  
 
@@ -170,12 +170,12 @@ Get-AzureADPolicy
 ```
 
 
-Povolit automatické akcelerace, až budete mít zásadu HRD, je možné ji přiřadit více zásadami služby aplikací.
+Pokud chcete povolit automatické akcelerace až budete mít zásadu HRD, je možné ji přiřadit několik hlavních objektů aplikace služby.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Krok 2: Vyhledejte hlavní název služby ke kterému chcete přiřadit zásady  
 Je nutné **ObjectID** objektů služby, ke kterým chcete přiřadit zásady. Existuje několik způsobů, jak najít **ObjectID** objektů služby.    
 
-Můžete použít na portálu, nebo se můžete dotazovat [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Můžete také přejít na [nástroji Průzkumník grafu](https://graphexplorer.cloudapp.net/) a přihlaste se ke svému účtu Azure AD zobrazíte objekty služby všechny vaší organizace. Vzhledem k tomu, že používáte prostředí PowerShell, můžete použít rutinu get-AzureADServicePrincipal seznam zásad služby a jejich ID.
+Můžete použít na portálu, nebo se můžete dotazovat [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Můžete také přejít na [nástroji Průzkumník grafu](https://graphexplorer.cloudapp.net/) a přihlaste se ke svému účtu Azure AD zobrazíte objekty služby všechny vaší organizace. Vzhledem k tomu, že používáte prostředí PowerShell, můžete použít rutinu get-AzureADServicePrincipal seznam instančních objektech a jejich ID.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Krok 3: Přiřaďte zásady instančního objektu  
 Až budete mít **ObjectID** objektu služby aplikace, pro kterou chcete provést konfiguraci automatického akcelerace spusťte následující příkaz. Tento příkaz přidruží HRD zásadu, kterou jste vytvořili v kroku 1 s objekt služby, kterou jste vyhledali v kroku 2.
@@ -226,7 +226,7 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o fungování ověřování ve službě Azure AD najdete v tématu [scénáře ověřování pro Azure AD](develop/active-directory-authentication-scenarios.md).
 - Další informace o uživatele jednotné přihlašování najdete v tématu [přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 - Přejděte [Příručka pro vývojáře Active Directory](develop/active-directory-developers-guide.md) přehled veškerý obsah pro vývojáře.

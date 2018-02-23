@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca4566ced525f0cb732afc15d96d9ef73fd8cff5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Funkce Always Encrypted: Chrání citlivá data v databázi SQL a ukládat šifrovací klíče v Azure Key Vault
 
@@ -77,9 +77,9 @@ Spuštěním následujícího skriptu můžete rychle vytvořit trezoru klíčů
 
 
 
-## <a name="create-a-blank-sql-database"></a>Vytvořit prázdnou databázi SQL
+## <a name="create-a-blank-sql-database"></a>Vytvoření prázdné databáze SQL
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
-2. Přejděte na **nové** > **Data + úložiště** > **databáze SQL**.
+2. Přejděte na **vytvořit prostředek** > **databáze** > **SQL Database**.
 3. Vytvoření **prázdné** databáze s názvem **Klinika** na nový nebo existující server. Podrobné pokyny o tom, jak vytvořit databázi na portálu Azure, najdete v části [svoji první databázi Azure SQL](sql-database-get-started-portal.md).
    
     ![Vytvoření prázdné databáze](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
@@ -91,7 +91,7 @@ Budete potřebovat připojení řetězec později v tomto kurzu, takže po vytvo
    
     ![Zkopírujte připojovací řetězec](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Připojení k databázi pomocí SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Připojit se k databázi pomocí SSMS
 Otevřete aplikaci SSMS a připojení k serveru s databází Klinika.
 
 1. Otevřete aplikaci SSMS. (Přejít na **připojit** > **databázový stroj** otevřete **připojit k serveru** okno, pokud není otevřený.)

@@ -11,7 +11,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Získání připojovacího řetězce z portálu Azure
 Použití [portál Azure](https://portal.azure.com/) k získání připojovacího řetězce, které je nezbytné pro váš klientský program pro interakci s Azure SQL Database. 
 
-1. Vyberte **Procházet vše** > **databází SQL**.
+1. Vyberte **všechny služby** > **databází SQL**.
 
 2. Zadejte název vaší databáze do textového pole filtru v levém horním rohu **databází SQL** okno.
 
@@ -19,7 +19,6 @@ Použití [portál Azure](https://portal.azure.com/) k získání připojovacíh
 
 4. Jakmile se objeví v okně pro vaši databázi, vyberte visual pohodlí **minimalizaci** tlačítka na Sbalit okna, které jste použili pro procházení a filtrování databáze. 
    
-    ![Filtr izolovat vaše databáze][10-FilterDatabase]
 5. V okně vaší databáze, vyberte **zobrazit databázové připojovací řetězce**.
 
 6. Pokud máte v úmyslu použít knihovnu připojení ADO.NET, zkopírujte řetězec s názvem bez přípony **ADO**. 
@@ -31,7 +30,7 @@ Další informace najdete v tématu [připojovací řetězce a konfigurační so
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
 

@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Webová aplikace Ruby on Rails na virtuálním počítači Azure
 Tento kurz ukazuje, jak k hostování Ruby, na které webu v Azure pomocí virtuální počítač s Linuxem.  
@@ -38,7 +38,7 @@ Pokud chcete vytvořit virtuální počítač, můžete použít portál Azure n
 
 ### <a name="azure-portal"></a>Azure Portal
 1. Přihlaste se k [portálu Azure](https://portal.azure.com)
-2. Klikněte na tlačítko **nový**, zadejte do vyhledávacího pole "Ubuntu Server 14.04". Klikněte na položku nalezené. Pro model nasazení vyberte **Classic**, pak klikněte na tlačítko "Vytvořit".
+2. Klikněte na tlačítko **vytvořit prostředek**, zadejte do vyhledávacího pole "Ubuntu Server 14.04". Klikněte na položku nalezené. Pro model nasazení vyberte **Classic**, pak klikněte na tlačítko "Vytvořit".
 3. V okně základy zadat hodnoty povinných polí: název (pro virtuální počítač), uživatelské jméno, typ ověřování a odpovídající údaje předplatného Azure, skupinu prostředků a umístění.
 
    ![Vytvořit novou bitovou kopii Ubuntu](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)

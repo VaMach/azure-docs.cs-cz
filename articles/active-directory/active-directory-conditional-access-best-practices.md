@@ -13,67 +13,86 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 16f9179b6cbaee00a2afbe2efe090cb3eb8b204a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Osvědčené postupy pro podmíněný přístup v Azure Active Directory
 
-Toto téma poskytuje informace o věcí, které byste měli vědět, a co je, že byste neměli dělat při konfiguraci zásad podmíněného přístupu. Než si přečtete v tomto tématu, měli seznámit se s koncepty a technologiím uvedených v [podmíněný přístup v Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+S [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), jak oprávněným uživatelům přístup můžete řídit cloudových aplikací. Tento článek poskytuje informace o:
 
-## <a name="what-you-should-know"></a>Důležité informace
+- Věcí, které byste měli vědět 
+- Co je by se to při konfiguraci zásad podmíněného přístupu. 
 
-### <a name="whats-required-to-make-a-policy-work"></a>Co potřebné k tomu, aby zásada fungovat?
+Tento článek předpokládá, že jste obeznámeni pojmy a terminologii uvedených v [podmíněný přístup v Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
-Když vytvoříte novou zásadu, neexistují žádné uživatele, skupiny, aplikace nebo vybrané řízení přístupu.
+
+
+## <a name="whats-required-to-make-a-policy-work"></a>Co potřebné k tomu, aby zásada fungovat?
+
+Když vytvoříte novou zásadu, nejsou žádné uživatele, skupiny, aplikace nebo vybrané řízení přístupu.
 
 ![Cloudové aplikace](./media/active-directory-conditional-access-best-practices/02.png)
 
 
-Chcete-li vaše zásady fungovat, je nutné nakonfigurovat následující:
+Chcete-li vaše zásady fungovat, je nutné nakonfigurovat:
 
 
 |Co           | Postupy                                  | Proč|
 |:--            | :--                                  | :-- |
-|**Cloudové aplikace** |Musíte vybrat jednu nebo více aplikací.  | Cílem zásad podmíněného přístupu je umožnit a systém doladit jak Autorizovaní uživatelé můžou používat vaše aplikace.|
-| **Uživatelé a skupiny** | Je nutné vybrat alespoň jeden uživatel nebo skupina, který má oprávnění pro přístup k cloudové aplikace, které jste vybrali. | Zásady podmíněného přístupu, který nemá žádné uživatele a skupiny přiřazené, je neaktivní. |
-| **Řízení přístupu** | Musíte vybrat aspoň jedno přístupu řízení. | Procesor zásad je potřeba vědět, co dělat v případě splnění podmínek.|
+|**Cloudové aplikace** |Musíte vybrat jednu nebo více aplikací.  | Cílem zásad podmíněného přístupu je vám umožňují řídit způsob Autorizovaní uživatelé můžou používat cloudové aplikace.|
+| **Uživatelé a skupiny** | Je nutné vybrat alespoň jeden uživatel nebo skupina, který má oprávnění pro přístup k vybrané cloudové aplikace. | Zásady podmíněného přístupu, který nemá žádné uživatele a skupiny přiřazené, je neaktivní. |
+| **Řízení přístupu** | Musíte vybrat aspoň jedno přístupu řízení. | Pokud vaše podmínky jsou splněny, procesor zásad je potřeba vědět, co dělat.|
 
 
-Kromě těchto základních požadavků v řadě případů byste měli také nakonfigurovat podmínku. Zatímco zásady by taky měly fungovat bez nakonfigurovaného podmínky, jsou podmínky řízení faktor pro optimalizaci přístupu k aplikacím.
 
 
-![Cloudové aplikace](./media/active-directory-conditional-access-best-practices/04.png)
-
-
+## <a name="what-you-should-know"></a>Důležité informace
 
 ### <a name="how-are-assignments-evaluated"></a>Jak se vyhodnocují přiřazení?
 
-Všechna přiřazení jsou logicky **spojeny**. Pokud máte více než jeden přiřazení nakonfigurovaný pro aktivaci a zásady musí být splněny všechna přiřazení.  
+Všechna přiřazení jsou logicky **spojeny**. Pokud máte více než jeden přiřazení nakonfigurován, je nutné splnit všechna přiřazení k aktivaci zásadu.  
 
-Pokud potřebujete nakonfigurovat umístění podmínku, která platí pro všechna připojení z mimo síti vaší organizace, můžete to provést pomocí:
+Pokud potřebujete nakonfigurovat umístění podmínku, která platí pro všechna připojení z vnějšku podnikové sítě:
 
-- Včetně **všech umístění**
-- S výjimkou **všechny důvěryhodné IP adresy**
+- Zahrnout **všech umístění**
+- Vyloučit **všechny důvěryhodné IP adresy**
+
+
+### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Co dělat, když jsou zamčené mimo portál pro správu Azure AD?
+
+Pokud je uzamčen portálu Azure AD z důvodu nesprávné nastavení v zásadách podmíněného přístupu:
+
+- Ověřte, zda jsou ostatními správci ve vaší organizaci, které ještě nejsou blokované. Správce s přístupem k portálu Azure můžete zakázat zásadu, která je ovlivňující přihlašovacích údajů. 
+
+- Pokud žádná z správci ve vaší organizaci můžete aktualizovat zásady, budete muset odeslat žádost o podporu. Podporu společnosti Microsoft můžete zkontrolovat a aktualizovat zásady podmíněného přístupu, které brání přístupu.
+
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Co se stane, pokud máte v portálu Azure classic a portálu Azure, které jsou nakonfigurované zásady?  
+
 Obě zásady se vynucují službou Azure Active Directory a uživatel získá přístup jenom v případě, že jsou splněny všechny požadavky.
 
 ### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Co se stane, pokud máte zásady v portálu Intune Silverlight a portálu Azure?
+
 Obě zásady se vynucují službou Azure Active Directory a uživatel získá přístup jenom v případě, že jsou splněny všechny požadavky.
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Co se stane, když mám několik zásad pro stejného uživatele nakonfigurované?  
+
 Pro každé přihlášení Azure Active Directory vyhodnotí všechny zásady a zajistí, že jsou splněny všechny požadavky před udělil přístup pro uživatele.
 
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Podmíněný přístup funguje s Exchange ActiveSync?
 
 Ano, pomocí protokolu Exchange ActiveSync v zásadách podmíněného přístupu.
+
+
+
+
 
 
 ## <a name="what-you-should-avoid-doing"></a>Co byste neměli dělat
@@ -97,10 +116,27 @@ Ve vašem prostředí neměli byste následující konfigurace:
 - **Blokovat přístup** – tato konfigurace zablokuje celé organizace, která není výborný vhodné.
 
 
+## <a name="how-should-you-deploy-a-new-policy"></a>Jak se nasadit nové zásady?
+
+Jako první krok, by měly vyhodnotit zásadu pomocí [co když nástroj](active-directory-conditional-access-whatif.md).
+
+Jakmile budete připraveni k nasazení nových zásad do vašeho prostředí, měli byste to provést ve fázích:
+
+1. Použít zásady pro malou skupinu uživatelů a ověřte, zda že se chová podle očekávání. 
+
+2.  Když rozšiřujete zásadu, která obsahovala další uživatele, i nadále vyloučit ze zásad všechny správce. To zajišťuje, že správci stále mít přístup a můžete aktualizovat zásadu, pokud se vyžaduje změnu.
+
+3. Použít zásady pro všechny uživatele pouze, pokud je to skutečně nutné. 
+
+Jako nejlepší postup vytvořte uživatelský účet, který je:
+
+- Vyhrazený pro správu zásad 
+- Vyloučen ze všech zásad
+
 
 ## <a name="policy-migration"></a>Migrace zásad
 
-Měli byste zvážit, zásady, které jste dosud nevytvořili na portálu Azure, protože migrace:
+Vezměte v úvahu migrace zásad, které jste dosud nevytvořili na portálu Azure, protože:
 
 - Scénáře, které nelze zpracovat před můžete vyřešit.
 
@@ -108,12 +144,12 @@ Měli byste zvážit, zásady, které jste dosud nevytvořili na portálu Azure,
 
 - Můžete spravovat všechny zásady podmíněného přístupu v jednom centrálním místě.
 
-- Portál Azure classic vyřadí.   
+- Portál Azure classic byl vyřazen.   
 
 
 Další informace najdete v tématu [migraci na portálu Azure classic zásad](active-directory-conditional-access-migration.md).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud chcete vědět, jak konfigurovat zásadu podmíněného přístupu, najdete v článku [Začínáme s podmíněným přístupem v Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).

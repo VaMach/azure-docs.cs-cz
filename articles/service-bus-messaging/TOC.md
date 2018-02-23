@@ -41,6 +41,8 @@
 #### [Přenosy zpráv, zámky a vyrovnání](message-transfers-locks-settlement.md)
 #### [Určování pořadí zpráv a časová razítka](message-sequencing.md)
 #### [Vypršení platnosti zpráv (hodnota TTL)](message-expiration.md)
+#### [Zpracování zpráv pomocí Azure Event Gridu](service-bus-to-event-grid-integration-concept.md)
+#### [Příklady Azure Event Gridu](service-bus-to-event-grid-integration-example.md)
 ### [Ověřování a autorizace](service-bus-authentication-and-authorization.md)
 #### [Migrace z ACS do SAS](service-bus-migrate-acs-sas.md)
 #### [Ověřování sdílenými přístupovými podpisy](service-bus-sas.md)

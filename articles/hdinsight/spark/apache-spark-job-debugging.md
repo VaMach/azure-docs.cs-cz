@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: fb2487ec854260bacf98789bd1be482172ead6a7
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 5606df8770cf611d7d278800c9871bee17c5b895
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Ladění Apache Spark úlohy spuštěné v Azure HDInsight
 
-V tomto článku zjistěte, jak sledovat a ladit spuštěné v clusterech prostředí HDInsight pomocí uživatelského rozhraní YARN, Spark uživatelského rozhraní a serveru Spark historie úlohy Spark. V tomto článku jsme spustit úlohu Spark pomocí poznámkového bloku dostupné s clusterem Spark **strojového učení: prediktivní analýzy dat kontroly potravin pomocí MLLib**. Následující postup můžete použít ke sledování aplikace, která jste odeslali pomocí jakékoli jiné přístup také, například **odeslání spark**.
+V tomto článku zjistěte, jak sledovat a ladit spuštěné v clusterech prostředí HDInsight pomocí uživatelského rozhraní YARN, Spark uživatelského rozhraní a serveru Spark historie úlohy Spark. Spustit úlohu Spark pomocí poznámkového bloku dostupné s clusterem Spark **strojového učení: prediktivní analýzy dat kontroly potravin pomocí MLLib**. Následující postup můžete použít ke sledování aplikace, která jste odeslali pomocí jakékoli jiné přístup také, například **odeslání spark**.
 
 ## <a name="prerequisites"></a>Požadavky
 Musíte mít následující:
@@ -34,12 +34,12 @@ Musíte mít následující:
 * Můžete by měl mít spuštění poznámkového bloku,  **[strojového učení: prediktivní analýzy dat kontroly potravin pomocí MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Návod, jak spustit tento poznámkový blok pomocí následujícího odkazu.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Sledování aplikace v uživatelském rozhraní YARN
-1. Spuštění uživatelského rozhraní YARN. V okně clusteru, klikněte na tlačítko **řídicí panel clusteru**a potom klikněte na **YARN**.
+1. Spuštění uživatelského rozhraní YARN. Klikněte na tlačítko **řídicí panel clusteru**a potom klikněte na **YARN**.
    
     ![Spustit uživatelské rozhraní YARN](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > Alternativně můžete také spustit uživatelské rozhraní YARN z uživatelského rozhraní Ambari. Chcete-li spustit uživatelské rozhraní Ambari, v okně clusteru, klikněte na tlačítko **řídicí panel clusteru**a potom klikněte na **řídicí panel clusteru HDInsight**. V uživatelském rozhraní Ambari, klikněte na **YARN**, klikněte na tlačítko **rychlé odkazy**, klikněte na tlačítko Správce prostředků active a pak klikněte na tlačítko **uživatelského rozhraní ResourceManager**.    
+   > Alternativně můžete také spustit uživatelské rozhraní YARN z uživatelského rozhraní Ambari. Chcete-li spustit uživatelské rozhraní Ambari, klikněte na tlačítko **řídicí panel clusteru**a potom klikněte na **řídicí panel clusteru HDInsight**. V uživatelském rozhraní Ambari, klikněte na **YARN**, klikněte na tlačítko **rychlé odkazy**, klikněte na tlačítko active Resource Manager a pak klikněte na **uživatelského rozhraní správce prostředků**.    
    > 
    > 
 2. Protože jste spustili úlohy Spark pomocí Jupyter notebooks, aplikace, má název **remotesparkmagics** (to je název pro všechny aplikace, které jsou spuštěné z poznámkových bloků). Klikněte na tlačítko ID aplikace proti název aplikace, chcete-li získat další informace o úloze. Spustí zobrazení aplikací.
@@ -122,7 +122,6 @@ Po dokončení úlohy je v serveru Spark historie jako trvalý informace o úloz
 * [Vytvoření samostatné aplikace pomocí Scala](apache-spark-create-standalone-application.md)
 * [Vzdálené spouštění úloh na clusteru Sparku pomocí Livy](apache-spark-livy-rest-interface.md)
 * [Modul plug-in nástroje HDInsight pro IntelliJ IDEA pro vytvoření a odesílání aplikací Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](apache-spark-eventhub-streaming.md)
 * [Použití modulu plug-in nástroje HDInsight pro IntelliJ IDEA pro vzdálené ladění aplikací Spark](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Použití poznámkových bloků Zeppelin s clusterem Sparku v HDInsight](apache-spark-zeppelin-notebook.md)
 * [Jádra dostupná pro poznámkový blok Jupyter v clusteru Sparku pro HDInsight](apache-spark-jupyter-notebook-kernels.md)

@@ -4,7 +4,7 @@ description: "Tento článek popisuje, jak spravovat rozšíření agenta systé
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -15,24 +15,22 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 1d2b681660ae6f59dec8a287baa853085c64ebeb
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6510c4205234f5dfb98a7463af61b1293061bb4e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizaci úloh správy ve virtuálních počítačích Azure s rozšíření agenta systému SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classic](../classic/sql-server-agent-extension.md)
-> 
-> 
+> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 Rozšíření agenta IaaS serveru SQL (SQLIaaSExtension) běží na virtuálních počítačích Azure k automatizaci úloh správy. Tento článek obsahuje přehled služby podporuje rozšíření a také pokyny pro instalaci, stavu a odebrání.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Klasické verze tohoto článku najdete v tématu [rozšíření agenta systému SQL Server pro SQL Server virtuální počítače Classic](../classic/sql-server-agent-extension.md).
+Klasické verze tohoto článku najdete v tématu [rozšíření agenta systému SQL Server pro SQL Server virtuální počítače Classic](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Podporované služby
 Rozšíření agenta systému SQL Server IaaS podporuje následující úlohy správy:
@@ -60,7 +58,7 @@ Požadavky pro použití IaaS agenta rozšíření systému SQL Server na virtu�
 * SQL Server 2014
 * SQL Server 2016
 
-**Prostředí Azure PowerShell**:
+**Azure PowerShell**:
 
 * [Stáhnout a nakonfigurovat nejnovější příkazy prostředí Azure PowerShell](/powershell/azure/overview)
 
@@ -95,7 +93,7 @@ Předchozí příkaz potvrdí agenta je nainstalován a poskytuje obecné inform
     $sqlext.AutoBackupSettings
 
 ## <a name="removal"></a>Odebrání
-Na portálu Azure můžete odinstalovat rozšíření kliknutím na tlačítko se třemi tečkami na **rozšíření** okno vaší vlastnosti virtuálního počítače. Pak klikněte na tlačítko **odstranit**.
+Na portálu Azure můžete odinstalovat rozšíření kliknutím na tlačítko se třemi tečkami na **rozšíření** okno vaší vlastnosti virtuálního počítače. Potom klikněte na **Odstranit**.
 
 ![Odinstalovat rozšíření agenta SQL Server IaaS na portálu Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 

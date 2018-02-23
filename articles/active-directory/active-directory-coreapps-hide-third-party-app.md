@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Skrýt aplikace z možnosti pro uživatele v Azure Active Directory
 
@@ -38,7 +38,7 @@ Následujících kroků v závislosti na vaší situaci, můžete použít ke sk
 Pomocí následujících kroků skrýt aplikace do přístupového panelu a Spouštěč oken aplikace Office 365 uživatele.
 
 1.  Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
-2.  Vyberte **další služby**, zadejte **Azure Active Directory** v textovém poli a potom vyberte **Enter**.
+2.  Vyberte **všechny služby**, zadejte **Azure Active Directory** v textovém poli a potom vyberte **Enter**.
 3.  Na **Azure Active Directory - *directoryname***  obrazovky (to znamená, Azure AD obrazovky pro adresář spravujete), vyberte **podnikové aplikace, které**.
 ![Podnikové aplikace](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  Na **podnikové aplikace, které** obrazovku, vyberte **všechny aplikace**. Zobrazí seznam aplikací, které můžete spravovat.
@@ -54,7 +54,7 @@ Pomocí následujících kroků skrýt aplikace do přístupového panelu a Spou
 Pomocí následujících kroků skrýt všechny aplikace Office 365 na přístupovém panelu. Tyto aplikace se stále nebude zobrazovat na portálu Office 365.
 
 1.  Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
-2.  Vyberte **další služby**, zadejte **Azure Active Directory** v textovém poli a potom vyberte **Enter**.
+2.  Vyberte **všechny služby**, zadejte **Azure Active Directory** v textovém poli a potom vyberte **Enter**.
 3.  Na **Azure Active Directory - *directoryname***  obrazovky (to znamená, Azure AD obrazovky pro adresář spravujete), vyberte **uživatelská nastavení**.
 4.  Na **uživatelská nastavení** obrazovce, v části **podnikové aplikace, které** vyberte **Ano** pro **uživatelé vidí pouze aplikace Office 365 na portálu Office 365**.
 

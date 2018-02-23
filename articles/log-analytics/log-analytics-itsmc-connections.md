@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Připojit ITSM produkty nebo služby s konektoru služby správy IT
 Tento článek obsahuje informace o tom, jak nakonfigurovat připojení mezi ITSM produktům a službám a konektor pro správu služby IT (ITSMC) v analýzy protokolů můžete centrálně spravovat pracovní položky. Další informace o ITSMC najdete v tématu [přehled](log-analytics-itsmc-overview.md).
@@ -185,11 +185,12 @@ Následující části obsahují podrobnosti o tom, jak připojit svůj produkt 
 ### <a name="prerequisites"></a>Požadavky
 Zajistěte, aby že byly splněny následující požadavky:
 - ITSMC nainstalována. Další informace: [přidání konektoru řešení pro správu IT služby](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Podporované verze ServiceNow: Jakarta, Istanbul, Helsinkách, Genevy
+- Podporované verze ServiceNow: Kingston, Jakarta, Istanbul, Helsinkách, Genevy.
 
 **Správci ServiceNow musíte provést následující v jejich instance ServiceNow**:
 - Generování ID klienta a tajný klíč klienta pro produkt ServiceNow. Informace o tom, jak vygenerovat ID klienta a tajný klíč podle potřeby najdete následující informace:
 
+    - [Nastavit OAuth pro Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Nastavit OAuth pro Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Nastavit OAuth pro Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Nastavit OAuth pro Helsinkách](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -199,7 +200,7 @@ Zajistěte, aby že byly splněny následující požadavky:
 - Nainstalujte aplikaci uživatele pro integraci Microsoft OMS (ServiceNow aplikace). [Další informace](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Umožňuje vytvořte roli uživatele integrace pro nainstalovanou aplikaci uživatele. Informace o tom, jak vytvořit roli uživatele integrace [zde](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>**Postup připojení**
+### <a name="connection-procedure"></a>Postup připojení
 Pomocí následujícího postupu vytvořte připojení ServiceNow:
 
 

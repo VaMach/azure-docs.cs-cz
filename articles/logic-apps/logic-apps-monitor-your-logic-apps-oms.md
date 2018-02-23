@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Monitorovat a získat přehled o logiku aplikace běží s Operations Management Suite (OMS) a analýzy protokolů
 
@@ -35,7 +35,7 @@ Než začnete, musíte mít pracovním prostorem OMS. Další informace [jak vyt
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Zapnutí protokolování diagnostiky při vytváření aplikací logiky
 
-1. V [portál Azure](https://portal.azure.com), vytvoření aplikace logiky. Zvolte **nové** > **Enterprise integrace** > **aplikace logiky** > **vytvořit**.
+1. V [portál Azure](https://portal.azure.com), vytvoření aplikace logiky. Zvolte **vytvořit prostředek** > **Enterprise integrace** > **aplikace logiky**.
 
    ![Vytvoření aplikace logiky](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
@@ -152,7 +152,7 @@ Pokud jste již zapnuli analýzy protokolů při vytvoření aplikace logiky, te
 
      ![Azure Log Analytics - zobrazení dotazu](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Monitorování zpráv B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
 

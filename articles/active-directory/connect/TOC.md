@@ -17,6 +17,7 @@
 ### [Upgrade z nástroje DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade z předchozí verze](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Instalace s využitím existující databáze ADSync](active-directory-aadconnect-existing-database.md)
+### [Instalace pomocí oprávnění delegovaného správce SQL](active-directory-aadconnect-sql-delegation.md)
 
 # Postup
 ## Plánování a návrh
@@ -51,6 +52,7 @@
 
 
 ## Správa synchronizace Azure AD Connect
+### [Dodržování předpisů GDPR a Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Prevence náhodného odstranění](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronizace hesel](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Účet služby Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -81,6 +83,7 @@
 ### [Připojení](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Chyby při synchronizaci](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Objekt není synchronizovaný](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Synchronizace objektů pomocí úlohy řešení potíží](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Synchronizace hesel](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [Chyba LargeObject způsobená certifikátem userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Jak provést obnovení při dosažení 10GB limitu pro LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

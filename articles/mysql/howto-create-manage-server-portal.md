@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 6e9c541aac1241b6af0e4a58f5591d46f9a98c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b73fe2214a165d7c02c0a58551d8b84bee39f919
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Vytvoření a správě Azure databáze pro server databáze MySQL pomocí portálu Azure
 Toto téma popisuje, jak můžete rychle vytvořit novou databázi MySQL serveru Azure. Zahrnuje také informace o tom, jak spravovat server pomocí portálu Azure. Správa serveru zahrnuje zobrazení Podrobnosti o serveru a databází, resetuje se heslo a odstranění serveru.
@@ -24,13 +24,13 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 ## <a name="create-an-azure-database-for-mysql-server"></a>Vytvoření serveru Azure Database for MySQL
 Postupujte podle těchto kroků k vytvoření Azure databáze MySQL serveru s názvem "mysqlserver4demo."
 
-1. Klikněte **nový** tlačítko umístěné v levém horním rohu portálu Azure.
+1. Klikněte **vytvořit prostředek** tlačítko umístěné v levém horním rohu portálu Azure.
 
 2. Na nové stránce vyberte **databáze**a pak na stránce databáze, vyberte **Azure Database pro databázi MySQL**.
 
     > Azure databáze pro server databáze MySQL byla vytvořena s definovanou sadu [výpočetního prostředí a úložiště](./concepts-compute-unit-and-storage.md) prostředky. Vytvoření databáze v rámci skupiny prostředků Azure a v databázi aplikace Azure pro server databáze MySQL.
 
-   ![Vytvořit nový serverem](./media/howto-create-manage-server-portal/create-new-server.png)
+   ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
 
 3. Vyplňte Azure databáze MySQL formuláře pomocí následující informace:
 
@@ -47,7 +47,7 @@ Postupujte podle těchto kroků k vytvoření Azure databáze MySQL serveru s n�
 
 4. Klikněte na tlačítko **cenová úroveň** k určení úrovně služby a výkonu pro nový server. Výpočetní jednotka lze nastavit v rozsahu 50 až 100 v základní vrstvě, 100 až 200 ve standardní vrstvě a úložiště lze přidat podle zahrnuté množství. Tato příručka postupy umožňuje zvolte 50 výpočetní jednotka a 50 GB. Klikněte na tlačítko **OK** uložte svůj výběr.
 
-   ![Vytvoření serveru – ceny vrstvy](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
+   ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
 5. Klikněte na **Vytvořit**, aby se server zřídil. Zřizování trvá několik minut.
 
@@ -89,6 +89,6 @@ Na serveru **přehled** okno, posuňte se dolů, dokud neuvidíte databázi dla�
 ## <a name="show-details-of-an-azure-database-for-mysql-server"></a>Zobrazit podrobnosti databáze Azure pro server databáze MySQL
 V okně serveru v části **nastavení**, klikněte na tlačítko **vlastnosti** otevřete **vlastnosti** okna a potom zobrazit všechny podrobné informace o serveru.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Rychlý úvod: Vytvoření databáze Azure pro server databáze MySQL pomocí portálu Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

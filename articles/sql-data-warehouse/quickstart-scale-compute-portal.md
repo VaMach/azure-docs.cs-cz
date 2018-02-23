@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: cbe2f2d17f309e01e831aa9ee31e01e044896d10
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Rychlý úvod: Škálovat výpočetní v Azure SQL Data Warehouse na portálu Azure
 
-Škálování výpočetní kapacity v Azure SQL Data Warehouse na portálu Azure. Škálování výpočetní pro lepší výkon, nebo určený počet číslic zpět výpočetní abyste ušetřili náklady. 
+Škálování výpočetní kapacity v Azure SQL Data Warehouse na portálu Azure. [Škálovat výpočetní](sql-data-warehouse-manage-compute-overview.md) pro lepší výkon, nebo určený počet číslic zpět výpočetní abyste ušetřili náklady. 
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -34,7 +34,7 @@ Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
 Je možné škálovat datový sklad, který už máte, nebo můžete použít [rychlý start: Vytvořte a připojte - portál](create-data-warehouse-portal.md) k vytvoření datového skladu s názvem **mySampleDataWarehouse**.  Tento rychlý start škáluje **mySampleDataWarehouse**.
 
-## <a name="scale-compute"></a>Škálování výpočetní kapacity
+## <a name="scale-compute"></a>Škálování výpočetního výkonu
 
 V SQL Data Warehouse můžete zvýšit nebo snížit výpočetní prostředky úpravou jednotky datového skladu. [Vytvořit a připojit - portál](create-data-warehouse-portal.md) vytvořit **mySampleDataWarehouse** a inicializovat se 400 Dwu. Následující kroky upravit Dwu pro **mySampleDataWarehouse**.
 

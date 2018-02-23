@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Správa schémat tenantů
               href: saas-tenancy-schema-management.md
-            - name: Spouštění dotazů ad-hoc
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Vytváření sestav napříč tenanty
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL pro analýzu
               href: saas-tenancy-tenant-analytics.md
         - name: Víceklientská databáze

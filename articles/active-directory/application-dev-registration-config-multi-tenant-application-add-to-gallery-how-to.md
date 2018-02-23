@@ -2,39 +2,48 @@
 title: "Postup přidání víceklientské aplikace pro galerii aplikací Azure AD | Microsoft Docs"
 description: "Vysvětluje, jak můžete vytvořit seznam vlastní vyvinuté víceklientské aplikace v galerii aplikací Azure AD"
 services: active-directory
-documentationcenter: 
-author: ajamess
-manager: mtillman
-ms.assetid: 
+documentationCenter: na
+author: jeevansd
+manager: femila
+ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 969273d1bc0750685a0b2010670915f4183ac8ed
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 02/16/2018
+ms.author: jeedes
+ms.openlocfilehash: f29f7cbf118d4d70c1ea2cca174ff0cf0ba9bd14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>Postup přidání víceklientské aplikace pro galerii aplikací Azure AD
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Co je Azure AD Application Gallery?
 
-Azure AD Application Gallery je skvělým způsobem, jak dostat aplikaci před miliony Azure Active Directory zákazníky oslovit vaší aplikace na webu Marketplace a rozšíří dopad. Níže uvedených pokynů vysvětlují, jak můžete vytvořit seznam aplikace v galerii aplikací Azure AD.
+Azure AD je Cloudová služba Identity. [Galerie aplikace Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) je běžné úložiště, kde jsou všechny konektory aplikace publikována pro jednotné přihlašování a zřizování uživatelů. Podívejte se pro různé konektory aplikací SaaS, které jsou publikovány zde vzájemné zákazníkům, kteří používají Azure AD jako zprostředkovatele Identity. Správce IT přidá konektor z Galerie aplikací a konfiguruje a použít jej pro jednotné přihlašování a zřizování. Azure AD podporuje všechny hlavní federační protokoly jako SAML 2.0, OpenID Connect, OAuth a WS-Fed pro jednotné přihlašování. 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Pokud vaše aplikace podporuje SAML nebo OpenIDConnect
 Pokud máte více klientů aplikace, kterou chcete zobrazit seznam v galerii aplikací Azure AD, musíte nejprve provedete jistotu, že vaše aplikace podporuje jednu z následujících jeden přihlašování technologií:
 
-1. **OpenID Connect** -přímá integrace s Azure AD pomocí OpenID Connect pro ověřování a Azure AD souhlas rozhraní API pro konfiguraci. Pokud právě začínáte integrační a aplikace nepodporuje SAML, jedná se o doporučujeme režim.
-2. **SAML** – aplikace již má možnost konfigurace poskytovatelů identit třetích stran pomocí protokolu SAML.
+1. **OpenID Connect** – vytvoření víceklientské aplikace ve službě Azure AD a implementaci [framework souhlasu Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) pro vaši aplikaci. Poslat žádost o přihlášení k běžné koncový bod, tak, aby každý zákazník může poskytnout souhlas k aplikaci. Můžete řídit přístup uživatelů zákazníka na základě ID klienta a uživatele (UPN) přijaté v tokenu. Odešlete prosím aplikaci, jak je uvedeno v tomto [článku](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-Pokud vaše aplikace podporuje jeden z těchto režimů jednoho přihlášení a chcete uvedení víceklientské aplikace v galerii aplikací Azure AD, můžete podle kroků v dokumentu níže. Abyste mohli rychle začít e-mailovou zprávu na  **waadpartners@microsoft.com** .
+2. **SAML** – Pokud vaše aplikace podporuje SAML 2.0 potom jsme můžete uvedení aplikace v galerii a jsou uvedeny pokyny [sem](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)
+
+Pokud vaše aplikace podporuje jeden z těchto režimů jednoho přihlášení a chcete uvedení víceklientské aplikace v galerii aplikací Azure AD, můžete provést kroky uvedené v [to](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) článku. 
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Pokud vaše aplikace nepodporuje SAML nebo OpenIDConnect
-I v případě, že vaše aplikace nepodporuje jeden z těchto režimů, jsme můžete stále integrovat do naší Galerie pomocí technologie naše heslo jednotné přihlašování. Pokud chcete prozkoumat tuto možnost, můžete odeslat e-mail na  **waadpartners@microsoft.com** .
+I v případě, že vaše aplikace nepodporuje jeden z těchto režimů, jsme můžete stále integrovat do naší Galerie pomocí technologie naše heslo jednotné přihlašování.
 
-## <a name="next-steps"></a>Další kroky
+**Heslo jednotného přihlašování k** – vytvoření webové aplikace, který má přihlašovací stránku HTML konfigurace [založené na heslech jednotné přihlašování](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). Jednotné přihlašování založené na heslech, také označuje jako heslo vaulting, můžete spravovat přístup uživatelů a hesla k webovým aplikacím, které nepodporují federaci identit. Je také užitečné v případech, kdy je potřeba několik uživatelé sdílet jeden účet, například k účtům aplikace sociálních médií vaší organizace. 
+
+Pokud chcete uvedení aplikace potom pomocí této technologie, odešlete prosím žádost jak je popsáno v [to](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) článku.
+
+## <a name="escalations"></a>Eskalací
+
+Pro všechny eskalací vyřadit e-mail na [týmu Integrace Azure AD jednotného přihlašování k](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) a jsme se vám ozvat co nejdříve.
+
+## <a name="next-steps"></a>Další postup
 [Postup uvedení aplikace v galerii aplikací Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)

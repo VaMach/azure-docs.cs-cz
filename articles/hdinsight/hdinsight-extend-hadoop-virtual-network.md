@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2018
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8bd5bebb04303b83a21bc1434e713ce26de54ae9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Rozšíření Azure HDInsight pomocí virtuální síť Azure
 
@@ -210,7 +210,7 @@ Pro připojení k Ambari a další webové stránky prostřednictvím virtuáln�
 
 2. Zjistit uzel a port, který je k dispozici na služby, najdete v článku [porty používané služby Hadoop v HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentu.
 
-## <a id="networktraffic"></a>Řízení síťového provozu
+## <a id="networktraffic"></a> Řízení síťového provozu
 
 Síťový provoz v Azure Virtual Network se dá řídit pomocí následujících metod:
 
@@ -227,7 +227,7 @@ Jako spravovanou službu vyžaduje HDInsight neomezený přístup ke službám A
 
 HDInsight poskytuje služby na několika portech. Při použití brány firewall virtuální zařízení, musí umožňovat komunikaci na portech používaných pro tyto služby. Další informace najdete v části [požadované porty].
 
-### <a id="hdinsight-ip"></a>Prostředí HDInsight pomocí skupin zabezpečení sítě a trasy definované uživatelem
+### <a id="hdinsight-ip"></a> Prostředí HDInsight pomocí skupin zabezpečení sítě a trasy definované uživatelem
 
 Pokud máte v úmyslu používat **skupin zabezpečení sítě** nebo **trasy definované uživatelem** k řízení síťových přenosů, proveďte následující akce před instalací HDInsight:
 
@@ -250,7 +250,7 @@ Další informace o skupinách zabezpečení sítě nebo trasy definované uživ
 
 Vynucené tunelování je uživatelem definované konfigurace směrování, kde veškerý provoz z podsítě musí v určité síti nebo umístění, jako například do místní sítě. HDInsight nemá __není__ podporu vynuceného tunelování.
 
-## <a id="hdinsight-ip"></a>Požadované IP adresy
+## <a id="hdinsight-ip"></a> Požadované IP adresy
 
 > [!IMPORTANT]
 > Stav a správu služeb Azure musí být schopen komunikovat s HDInsight. Pokud používáte skupiny zabezpečení sítě nebo trasy definované uživatelem, povolí provoz z IP adres pro tyto služby k dosažení HDInsight.
@@ -299,6 +299,7 @@ Pokud používáte skupiny zabezpečení sítě nebo trasy definované uživatel
     | &nbsp; | Východ USA | 13.82.225.233</br>40.71.175.99 | 443 | Příchozí |
     | &nbsp; | Střed USA – sever | 157.56.8.38</br>157.55.213.99 | 443 | Příchozí |
     | &nbsp; | Západní střed USA | 52.161.23.15</br>52.161.10.167 | 443 | Příchozí |
+    | &nbsp; | Západní USA | 13.64.254.98</br>23.101.196.19 | 443 | Příchozí |
     | &nbsp; | Západní USA 2 | 52.175.211.210</br>52.175.222.222 | 443 | Příchozí |
 
     Informace o IP adresy pro Azure Government, najdete v článku [Azure Government Intelligence + analýzy](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) dokumentu.
@@ -307,7 +308,7 @@ Pokud používáte skupiny zabezpečení sítě nebo trasy definované uživatel
 
 Další informace najdete v tématu [řízení síťového provozu](#networktraffic) části.
 
-## <a id="hdinsight-ports"></a>Požadované porty
+## <a id="hdinsight-ports"></a> Požadované porty
 
 Pokud máte v úmyslu používat síť **virtuální zařízení brány firewall** zabezpečit virtuální síť, musíte povolit odchozí přenosy na následující porty:
 
@@ -499,7 +500,7 @@ Pomocí následujících kroků vytvořte virtuální síť, která omezuje př�
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
-## <a id="example-dns"></a>Příklad: Konfigurace DNS
+## <a id="example-dns"></a> Příklad: Konfigurace DNS
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Překlad mezi virtuální sítí a připojené místní sítě
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Pochopení IoT Edge moduly použití, nakonfigurovaná a znovu použít – náhled
 
@@ -28,7 +28,7 @@ Azure IoT okraj můžete vytvořit více modulů IoT Edge před jejich nasazení
 
 V kurzů k Azure IoT Edge sestavení manifest nasazení tak, že přejdete v průvodci na portálu Azure IoT okraj. Můžete také použít nasazení manifestu programově pomocí REST nebo sady SDK služby IoT Hub. Odkazovat na [nasazení a monitorování] [ lnk-deploy] Další informace o nasazení IoT okraj.
 
-Na vysoké úrovni nakonfiguruje manifest nasazení požadované vlastnosti modulů IoT Edge na IoT hraniční zařízení nasazené. Dva z těchto modulů nejsou vždy: agent okraj a okraj rozbočovače.
+Na vysoké úrovni nakonfiguruje manifest nasazení modul twin požadované vlastnosti pro IoT Edge moduly nasazené na IoT hraniční zařízení. Dva z těchto modulů nejsou vždy: agent okraj a okraj rozbočovače.
 
 Manifest dodržuje tuto strukturu:
 
@@ -99,7 +99,7 @@ Jímky může být jedna z následujících akcí:
 | Jímka | Popis |
 | ---- | ----------- |
 | `$upstream` | Odeslání zprávy do služby IoT Hub |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Odeslat zprávu jako vstup `{input}` modulu`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Odeslat zprávu jako vstup `{input}` modulu `{moduleId}` |
 
 Je důležité si uvědomit, že Edge rozbočovače poskytuje jednou na nejmenší záruky, to znamená, že zprávy se uloží místně v případě trasu nelze doručení zprávy do jeho podřízený, např rozbočovače Edge se nemůže připojit ke službě IoT Hub nebo není připojený modul cíl.
 
@@ -112,6 +112,8 @@ Manifest nasazení můžete zadat požadované vlastnosti modulu twin jednotliv�
 Pokud jsou požadované vlastnosti zadané v manifestu nasazení, jejich přepsat všechny požadované vlastnosti právě twin modulu.
 
 Pokud nezadáte požadované vlastnosti modul twin v manifestu nasazení, IoT Hub nezmění twin modulu jakýmkoli způsobem a nebudete moci nastavit požadované vlastnosti prostřednictvím kódu programu.
+
+Stejné mechanismy, které vám umožní změnit dvojčata zařízení se používají k úpravě dvojčata modulu. Podrobnosti najdete [twin zařízení – Příručka vývojáře](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) Další informace.   
 
 ### <a name="deployment-manifest-example"></a>Příklad nasazení manifestu
 
@@ -196,7 +198,7 @@ Požadované vlastnosti se nastavují při použití manifest nasazení na urči
 | Vlastnost | Popis | Požaduje se |
 | -------- | ----------- | -------- |
 | schemaVersion | Musí být "1.0" | Ano |
-| Runtime.Type | Musí být "docker" | Ano |
+| runtime.type | Musí být "docker" | Ano |
 | runtime.settings.minDockerVersion | Nastavte na tento – manifest nasazení požadavek na minimální verzi Docker | Ano |
 | runtime.settings.loggingOptions | Stringified JSON obsahující možnosti protokolování pro kontejner agenta okraj. [Možnosti protokolování docker][lnk-docker-logging-options] | Ne |
 | systemModules.edgeAgent.type | Musí být "docker" | Ano |
@@ -209,12 +211,12 @@ Požadované vlastnosti se nastavují při použití manifest nasazení na urči
 | systemModules.edgeHub.settings.image | Identifikátor URI bitovou kopii Edge rozbočovače. | Ano |
 | systemModules.edgeHub.settings.createOptions | Stringified JSON obsahující možnosti pro vytvoření kontejneru Edge rozbočovače. [Možnosti vytvoření docker][lnk-docker-create-options] | Ne |
 | systemModules.edgeHub.configuration.id | ID nasazení, které tento modul pro nasazení. | Centrum IoT hub je nastavena v případě použije tento manifestu pomocí nasazení. Není součástí manifest nasazení. |
-| moduly. {moduleId} .version | Uživatelem definované řetězec představující verze tohoto modulu. | Ano |
-| moduly. .Type – {moduleId} | Musí být "docker" | Ano |
-| moduly. {moduleId} .restartPolicy | {"nikdy" \| "na-se nezdařilo" \| "na-není v pořádku" \| "vždy"} | Ano |
-| moduly. {moduleId}.settings.image | Identifikátor URI pro image modulu. | Ano |
-| moduly. {moduleId}.settings.createOptions | Stringified JSON obsahující možnosti pro vytvoření kontejneru modulu. [Možnosti vytvoření docker][lnk-docker-create-options] | Ne |
-| moduly. {moduleId}.configuration.id | ID nasazení, které tento modul pro nasazení. | Centrum IoT hub je nastavena v případě použije tento manifestu pomocí nasazení. Není součástí manifest nasazení. |
+| modules.{moduleId}.version | Uživatelem definované řetězec představující verze tohoto modulu. | Ano |
+| modules.{moduleId}.type | Musí být "docker" | Ano |
+| modules.{moduleId}.restartPolicy | {"nikdy" \| "na-se nezdařilo" \| "na-není v pořádku" \| "vždy"} | Ano |
+| modules.{moduleId}.settings.image | Identifikátor URI pro image modulu. | Ano |
+| modules.{moduleId}.settings.createOptions | Stringified JSON obsahující možnosti pro vytvoření kontejneru modulu. [Možnosti vytvoření docker][lnk-docker-create-options] | Ne |
+| modules.{moduleId}.configuration.id | ID nasazení, které tento modul pro nasazení. | Centrum IoT hub je nastavena v případě použije tento manifestu pomocí nasazení. Není součástí manifest nasazení. |
 
 ### <a name="edge-agent-twin-reported-properties"></a>Hraniční agenta twin hlášené vlastnosti
 
@@ -236,10 +238,10 @@ V následující tabulce nezahrnuje informace, které budou zkopírována z pož
 | lastDesiredVersion | Tato int odkazuje na poslední verzi požadované vlastnosti zpracovat agentem okraj. |
 | lastDesiredStatus.code | Toto je kód stavu odkazující na poslední požadované vlastnosti kontaktu s agentem okraj. Povolené hodnoty: `200` úspěch, `400` neplatná konfigurace `412` neplatné schéma verze `417` požadované vlastnosti jsou prázdná, `500` se nezdařilo |
 | lastDesiredStatus.description | Textový popis stavu |
-| DeviceHealth | `healthy`Pokud je stav modulu runtime všechny moduly, buď `running` nebo `stopped`, `unhealthy` jinak |
-| configurationHealth. {deploymentId} .health | `healthy`Pokud stav modulu runtime všechny moduly nastavit nasazení {deploymentId} je buď `running` nebo `stopped`, `unhealthy` jinak |
+| deviceHealth | `healthy` Pokud je stav modulu runtime všechny moduly, buď `running` nebo `stopped`, `unhealthy` jinak |
+| configurationHealth.{deploymentId}.health | `healthy` Pokud stav modulu runtime všechny moduly nastavit nasazení {deploymentId} je buď `running` nebo `stopped`, `unhealthy` jinak |
 | runtime.platform.OS | Vytváření sestav operačního systému spuštěné na zařízení |
-| Runtime.Platform.Architecture | Vytváření sestav architekturu procesoru na zařízení |
+| runtime.platform.architecture | Vytváření sestav architekturu procesoru na zařízení |
 | systemModules.edgeAgent.runtimeStatus | Reportovaný stav agenta Edge: {"spuštění" \| "není v pořádku"} |
 | systemModules.edgeAgent.statusDescription | Textový popis reportovaný stav agenta okraj. |
 | systemModules.edgeHub.runtimeStatus | Aktuální stav rozbočovače Edge: {"spuštění" \| "stopped" \| "se nezdařilo" \| "omezení rychlosti" \| "není v pořádku"} |
@@ -249,13 +251,13 @@ V následující tabulce nezahrnuje informace, které budou zkopírována z pož
 | systemModules.edgeHub.lastExitTimeUtc | Čas, kdy Edge rozbočovače poslední byl ukončen |
 | systemModules.edgeHub.lastRestartTimeUtc | Čas poslední restartováním Edge rozbočovače |
 | systemModules.edgeHub.restartCount | Počet pokusů, které byl tento modul restartován v rámci zásad restartování. |
-| moduly. {moduleId} .runtimeStatus | Aktuální stav modulu: {"spuštění" \| "stopped" \| "se nezdařilo" \| "omezení rychlosti" \| "není v pořádku"} |
-| moduly. {moduleId} .statusDescription | Textový popis aktuální stav modulu, pokud není v pořádku. |
-| moduly. {moduleId} .exitCode | Pokud byl ukončen, ukončovací kód hlášené kontejner modulu |
-| moduly. {moduleId} .startTimeUtc | Čas posledního spuštění modulu |
-| moduly. {moduleId} .lastExitTimeUtc | Čas, kdy modul poslední byl ukončen |
-| moduly. {moduleId} .lastRestartTimeUtc | Čas, kdy modul posledního restartování |
-| moduly. {moduleId} .restartCount | Počet pokusů, které byl tento modul restartován v rámci zásad restartování. |
+| modules.{moduleId}.runtimeStatus | Aktuální stav modulu: {"spuštění" \| "stopped" \| "se nezdařilo" \| "omezení rychlosti" \| "není v pořádku"} |
+| modules.{moduleId}.statusDescription | Textový popis aktuální stav modulu, pokud není v pořádku. |
+| modules.{moduleId}.exitCode | Pokud byl ukončen, ukončovací kód hlášené kontejner modulu |
+| modules.{moduleId}.startTimeUtc | Čas posledního spuštění modulu |
+| modules.{moduleId}.lastExitTimeUtc | Čas, kdy modul poslední byl ukončen |
+| modules.{moduleId}.lastRestartTimeUtc | Čas, kdy modul posledního restartování |
+| modules.{moduleId}.restartCount | Počet pokusů, které byl tento modul restartován v rámci zásad restartování. |
 
 ## <a name="reference-edge-hub-module-twin"></a>Referenční dokumentace: Edge rozbočovače modul twin
 
@@ -267,7 +269,7 @@ Požadované vlastnosti se nastavují při použití manifest nasazení na urči
 | Vlastnost | Popis | Požadované v manifestu nasazení |
 | -------- | ----------- | -------- |
 | schemaVersion | Musí být "1.0" | Ano |
-| trasy. {routeName} | Řetězec představující trasu rozbočovače okraj. | `routes` Prvek může být existuje, ale je prázdný. |
+| routes.{routeName} | Řetězec představující trasu rozbočovače okraj. | `routes` Prvek může být existuje, ale je prázdný. |
 | storeAndForwardConfiguration.timeToLiveSecs | Dobu v sekundách, které udržuje Edge rozbočovače zprávy v případě odpojené směrování koncových bodů, například odpojen od služby IoT Hub nebo místní modulu | Ano |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Hraniční rozbočovače twin hlášené vlastnosti
@@ -277,7 +279,7 @@ Požadované vlastnosti se nastavují při použití manifest nasazení na urči
 | lastDesiredVersion | Tato int odkazuje na poslední verzi požadované vlastnosti zpracovává Edge rozbočovače. |
 | lastDesiredStatus.code | Toto je kód stavu odkazující na poslední požadované vlastnosti pohledu Edge rozbočovače. Povolené hodnoty: `200` úspěch, `400` neplatná konfigurace `500` se nezdařilo |
 | lastDesiredStatus.description | Textový popis stavu |
-| Klienti. {identity zařízení nebo modul} .status | Stav tohoto zařízení nebo modul. Možné hodnoty {"připojené" \| "odpojen"}. Pouze modul identit může být v odpojeném stavu. Podřízené zařízení připojující se k rozbočovači hraniční se zobrazí, jenom když připojení. |
+| Klienti. {identity zařízení nebo modul} .status | Stav tohoto zařízení nebo modul. Možné hodnoty {"připojené" \| "odpojení"}. Pouze modul identit může být v odpojeném stavu. Podřízené zařízení připojující se k rozbočovači hraniční se zobrazí, jenom když připojení. |
 | Klienti. {identity zařízení nebo modul} .lastConnectTime | Poslední čas modulu připojení na zařízení |
 | Klienti. {identity zařízení nebo modul} .lastDisconnectTime | Čas poslední zařízení nebo modul odpojení |
 

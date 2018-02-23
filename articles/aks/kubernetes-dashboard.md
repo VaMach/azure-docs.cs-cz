@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f13ca506197ff8b9b86cf1f69300fd974b9ddd5a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c830400ca1ccd7273ba3acfbd4f17eb2081add87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Řídicí panel Kubernetes s Azure Container Service (AKS)
 
@@ -23,7 +23,7 @@ Rozhraní příkazového řádku Azure lze spustit Kubernetes řídicího panelu
 
 Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud budete potřebovat tyto položky zobrazit, [rychlý start AKS][aks-quickstart].
 
-Také musíte mít nainstalované a nakonfigurované rozhraní Azure CLI verze 2.0.21 nebo novější. Pokud chcete zjistit verzi, spusťte příkaz az --version. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI][install-azure-cli].
+Také potřebovat Azure CLI verze 2.0.27 nebo později nainstalované a nakonfigurované. Pokud chcete zjistit verzi, spusťte příkaz az --version. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Spustit Kubernetes řídicí panel
 

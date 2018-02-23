@@ -4,7 +4,7 @@ description: "Obsahuje osvědčené postupy pro optimalizaci výkonu serveru SQL
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: 6eb55c3d1f339a621050de6b239f840d2cff63fa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Osvědčené postupy z hlediska výkonu pro SQL Server na Azure Virtual Machines
 
@@ -39,7 +39,7 @@ Následuje seznam Rychlá kontrola pro optimální výkon systému SQL Server na
 
 | Oblast | Optimalizace |
 | --- | --- |
-| [Velikost virtuálního počítače](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) nebo vyšší pro SQL Enterprise edition.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) nebo vyšší verze SQL Standard a Web. |
+| [Velikost virtuálního počítače](#vm-size-guidance) |[DS3](../sizes-memory.md) nebo vyšší pro SQL Enterprise edition.<br/><br/>[DS2](../sizes-memory.md) nebo vyšší verze SQL Standard a Web. |
 | [Úložiště](#storage-guidance) |Použití [Storage úrovně Premium](../premium-storage.md). Standardní úložiště se doporučuje jenom pro vývojové a testovací.<br/><br/>Zachovat [účet úložiště](../../../storage/common/storage-create-storage-account.md) a virtuální počítač SQL Server ve stejné oblasti.<br/><br/>Zakázat Azure [geograficky redundantní úložiště](../../../storage/common/storage-redundancy.md) (geografická replikace) na účet úložiště. |
 | [Disky](#disks-guidance) |Použití minimálně 2 [P30 disky](../premium-storage.md#scalability-and-performance-targets) (1 pro soubory protokolů, 1 pro datové soubory a databáze TempDB).<br/><br/>Vyhněte se použití operačního systému nebo dočasné disků pro úložiště databáze nebo protokolování.<br/><br/>Povolit čtení ukládání do mezipaměti na disky hostující databázi TempDB a datových souborů.<br/><br/>Nepovolujte ukládání do mezipaměti na disky hostování souboru protokolu.<br/><br/>Důležité: Zastavte službu systému SQL Server při změně nastavení do mezipaměti pro disk pro virtuální počítač Azure.<br/><br/>Prokládané více Azure datových disků získat vyšší propustnost vstupně-výstupní operace.<br/><br/>Formát s velikostí zdokumentovaných přidělení. |
 | [I/O](#io-guidance) |Povolte kompresi stránky databáze.<br/><br/>Povolte rychlé soubor inicializace pro datové soubory.<br/><br/>Omezit nebo zakázat automatické zvětšování v databázi.<br/><br/>Zakažte autoshrink v databázi.<br/><br/>Přesunete všechny databáze na datové disky, včetně systémové databáze.<br/><br/>Přesun serveru SQL Server chyba protokolu a trasování souboru adresářů do datových disků.<br/><br/>Nastavte výchozí zálohování a databáze umístění souborů.<br/><br/>Povolte uzamčených stránek.<br/><br/>Použijte opravy výkonu systému SQL Server. |

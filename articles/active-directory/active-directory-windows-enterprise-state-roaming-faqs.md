@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Nejčastější dotazy k nastavení a datovému roamingu
 Toto téma odpovědi na některé dotazy, které správci IT mohou mít o nastavení a synchronizaci dat aplikací.
@@ -80,7 +80,7 @@ Když více Azure AD účty z různých klientů Azure AD jsou na stejném zař�
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Jaké jsou možnosti cestovní nastavení pro existující aplikace pracovní plochy Windows?
 Roaming funguje pouze pro univerzální aplikace pro Windows. K dispozici pro povolení roamingu na existující aplikaci plochy Windows existují dvě možnosti:
 
-* [Plochy most](http://aka.ms/desktopbridge) umožňuje uvést vaše stávající aplikace Windows desktop do univerzální platformy Windows. Z tohoto místa budou muset využít výhod roaming dat aplikací Azure AD minimálními změnami kódu. Most plocha poskytuje aplikace s identitou aplikace, která je nutná pro povolení existující aplikací klasické pracovní plochy roaming dat aplikací.
+* [Plochy most](https://aka.ms/desktopbridge) umožňuje uvést vaše stávající aplikace Windows desktop do univerzální platformy Windows. Z tohoto místa budou muset využít výhod roaming dat aplikací Azure AD minimálními změnami kódu. Most plocha poskytuje aplikace s identitou aplikace, která je nutná pro povolení existující aplikací klasické pracovní plochy roaming dat aplikací.
 * [Virtualizace uživatelského prostředí (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) vám pomůže vytvořit šablonu vlastní nastavení pro existující aplikacích klasické pracovní plochy Windows a povolit roaming pro aplikace Win32. Tato možnost nevyžaduje, aby vývojáři aplikace změny kódu aplikace. UE-V je omezený na místní služby Active Directory roamingu pro zákazníky, kteří si koupili sady Microsoft Desktop Optimization Pack.
 
 Správci mohou nakonfigurovat UE-V se bude používat roaming dat aplikace na ploše systému Windows, změnou cestovní nastavení operačního systému Windows a univerzální aplikace pro data prostřednictvím [UE-V zásady skupiny](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), včetně:

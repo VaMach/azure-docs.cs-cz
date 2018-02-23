@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 4d48aff7d29def9fa54438a11885b4ff4fba54cc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 63c2baa2f3924cf2274608df98b854683bc2baa8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Vytvoření virtuálního počítače s Windows v zóně dostupnosti pomocí portálu Azure
 
@@ -29,13 +29,13 @@ Tento článek obsahuje kroky prostřednictvím portálu Azure k vytvoření vir
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure. 
+## <a name="log-in-to-azure"></a>Přihlášení k Azure 
 
-Přihlaste se k portálu Azure na https://portal.azure.com.
+Přihlaste se k webu Azure Portal na adrese https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Klikněte na tlačítko **vytvořit prostředek** v levém horním rohu portálu Azure.
 
 2. Vyberte **Compute** a potom vyberte **Windows Server 2016 Datacenter**. 
 
@@ -122,6 +122,6 @@ Location           : eastus2
 Tags               : {}
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto článku jste se naučili vytvářet virtuální počítač v zóně dostupnosti. Přečtěte si další informace o [oblastech a dostupnosti](regions-and-availability.md) pro virtuální počítače Azure.

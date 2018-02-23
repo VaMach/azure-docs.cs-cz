@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Správa Azure Data Lake Analytics pomocí portálu Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -30,10 +30,10 @@ Naučte se spravovat účty, účet zdroje dat, uživatele a úlohy Azure Data L
 
 ## <a name="manage-data-lake-analytics-accounts"></a>Správa účtů Data Lake Analytics
 
-### <a name="create-an-account"></a>Vytvoření účtu
+### <a name="create-an-account"></a>Vytvořit účet
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. Klikněte na **Nový** > **Inteligentní funkce a analýzy** > **Data Lake Analytics**.
+2. Klikněte na tlačítko **vytvořit prostředek** > **Intelligence + analýzy** > **Data Lake Analytics**.
 3. Vyberte hodnoty pro následující položky: 
    1. **Název**: název účtu Data Lake Analytics.
    2. **Předplatné**: předplatné Azure použité pro účet.
@@ -78,7 +78,7 @@ Data Lake Analytics můžete další uzamčení přístup ke svému účtu Data 
 
 Pokud jinými službami Azure, jako je Azure Data Factory nebo virtuální počítače, připojení k účtu Data Lake Analytics, ujistěte se, že **povolit služby Azure** je zapnuta **na**. 
 
-### <a name="set-up-a-firewall-rule"></a>Nastavit pravidlo brány firewall
+### <a name="set-up-a-firewall-rule"></a>Nastavení pravidla brány firewall
 
 1. V portálu Azure přejděte do účtu Data Lake Analytics.
 2. V nabídce na levé straně klikněte na tlačítko **brány Firewall**.
@@ -248,7 +248,7 @@ Existuje výchozí zásada, nastavte pro každý účet. Výchozí zásady plat�
 * [Zásady na úrovni účtu příspěvku na blogu](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
 * [Zásady na úrovni úlohy příspěvku na blogu](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Začínáme s Data Lake Analytics pomocí portálu Azure](data-lake-analytics-get-started-portal.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Postup vytvoření a nasazení cloudové služby
 Portál Azure nabízí dva způsoby, můžete vytvořit a nasadit cloudové služby: *rychle vytvořit* a *vytvořit vlastní*.
@@ -59,25 +59,25 @@ Postup vytvoření cloudové služby se nasazení webové role nebo rolí pracov
 
 ## <a name="create-and-deploy"></a>Vytvoření a nasazení
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. Klikněte na tlačítko **nový > výpočetní**a poté přejděte dolů k a klikněte na tlačítko **Cloudová služba**.
+2. Klikněte na tlačítko **vytvořit prostředek > výpočetní**a poté přejděte dolů k a klikněte na tlačítko **Cloudová služba**.
 
     ![Publikování cloudové služby](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. V novém **Cloudová služba** okno, zadejte hodnotu **název DNS**.
+3. V novém **Cloudová služba** podokně, zadejte hodnotu **název DNS**.
 4. Vytvořte novou **skupiny prostředků** nebo vyberte nějaký existující.
 5. Vyberte **Umístění**.
-6. Klikněte na tlačítko **balíček**. Otevře se **nahrání balíčku** okno. Vyplňte požadovaná pole. Pokud některé z vaší rolí obsahuje jednu instanci, ujistěte se, **nasadit, i když jedna nebo víc rolí obsahuje jednu instanci** je vybrána.
+6. Klikněte na tlačítko **balíček**. Tím se otevře **nahrání balíčku** podokně. Vyplňte požadovaná pole. Pokud některé z vaší rolí obsahuje jednu instanci, ujistěte se, **nasadit, i když jedna nebo víc rolí obsahuje jednu instanci** je vybrána.
 7. Ujistěte se, že **spuštění nasazení** je vybrána.
-8. Klikněte na tlačítko **OK** který bude ukončen **nahrání balíčku** okno.
+8. Klikněte na tlačítko **OK** který bude ukončen **nahrání balíčku** podokně.
 9. Pokud nemáte žádné certifikáty, které chcete přidat, klikněte na tlačítko **vytvořit**.
 
     ![Publikování cloudové služby](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
-## <a name="upload-a-certificate"></a>Nahrání certifikátu
+## <a name="upload-a-certificate"></a>Nahrát certifikát
 Pokud byl balíček pro nasazení [nakonfigurované na používání certifikátů](cloud-services-configure-ssl-certificate-portal.md#modify), teď můžete nahrát certifikát.
 
-1. Vyberte **certifikáty**a na **přidat certifikáty** okně, vyberte soubor .pfx certifikátu SSL a pak zadejte **heslo** pro certifikát
-2. Klikněte na tlačítko **připojit certifikát**a potom klikněte na **OK** na **přidat certifikáty** okno.
-3. Klikněte na tlačítko **vytvořit** na **Cloudová služba** okno. Pokud bylo dosaženo nasazení **připraven** stav, můžete pokračovat na další kroky.
+1. Vyberte **certifikáty**a na **přidat certifikáty** podokně, vyberte soubor .pfx certifikátu SSL a pak zadejte **heslo** pro certifikát
+2. Klikněte na tlačítko **připojit certifikát**a potom klikněte na **OK** na **přidat certifikáty** podokně.
+3. Klikněte na tlačítko **vytvořit** na **Cloudová služba** podokně. Pokud bylo dosaženo nasazení **připraven** stav, můžete pokračovat na další kroky.
 
     ![Publikování cloudové služby](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
@@ -91,7 +91,7 @@ Pokud byl balíček pro nasazení [nakonfigurované na používání certifikát
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Obecná konfigurace cloudové služby](cloud-services-how-to-configure-portal.md).
 * Konfigurace [vlastní název domény](cloud-services-custom-domain-name-portal.md).
 * [Správa služby cloud](cloud-services-how-to-manage-portal.md).

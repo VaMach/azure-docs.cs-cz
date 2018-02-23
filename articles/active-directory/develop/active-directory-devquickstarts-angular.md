@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Začínáme se službou Azure AD AngularJS
 
@@ -48,7 +48,7 @@ Chcete-li aplikace k ověření uživatelů a získat tokeny, musíte nejprve za
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Pokud jste přihlášeni do více adresářů, musíte zajistit, že si prohlížíte správném adresáři. Uděláte to tak, že na horním panelu klikněte na váš účet. V části **Directory** vyberte klienta Azure AD, kam chcete registrace vaší aplikace.
-3. Klikněte na tlačítko **více služeb** v levém podokně a potom vyberte **Azure Active Directory**.
+3. Klikněte na tlačítko **všechny služby** v levém podokně a potom vyberte **Azure Active Directory**.
 4. Klikněte na tlačítko **registrace aplikace**a potom vyberte **přidat**.
 5. Postupujte podle výzev a vytvořte novou webovou aplikaci nebo webové rozhraní API:
   * **Název** popisuje vaší aplikace pro uživatele.
@@ -78,8 +78,8 @@ Začněte tím, že přidání adal.js do projektu TodoSPA pomocí konzoly Sprá
 
 ### <a name="configure-the-back-end-server"></a>Konfigurace back-end serveru
 Back-end pro jednostránkové aplikace back-end pro provést seznamu rozhraní API přijímat tokeny z prohlížeče, musí konfigurace informace o registraci aplikace. Otevřete v projektu TodoSPA `web.config`. Nahraďte hodnoty elementů v `<appSettings>` oddílu tak, aby odrážela hodnoty, které jste použili na webu Azure portal. Váš kód bude odkazovat tyto hodnoty vždy, když ho využívá ADAL.
-  * `ida:Tenant`je doména klienta služby Azure AD – například contoso.onmicrosoft.com.
-  * `ida:Audience`je ID klienta aplikace, který jste zkopírovali z portálu.
+  * `ida:Tenant` je doména klienta služby Azure AD – například contoso.onmicrosoft.com.
+  * `ida:Audience` je ID klienta aplikace, který jste zkopírovali z portálu.
 
 ## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Krok 3: Použití ADAL pomohou zabezpečené stránky v jednostránkové aplikace
 Adal.js se integruje s AngularJS trasy a zprostředkovatele protokolu HTTP, můžete pomoct zabezpečené jednotlivých zobrazení v jednostránkové aplikace.
@@ -156,7 +156,7 @@ Adal.js usnadňuje začlenit běžné funkce identity do vaší aplikace. Postar
 
 Pro srovnání je hotová ukázka (bez vašich hodnot nastavení) k dispozici v [Githubu](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní se můžete přesunout dalších scénářů. Můžete chtít zkuste: [volání CORS webového rozhraní API z jednostránkové aplikace](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

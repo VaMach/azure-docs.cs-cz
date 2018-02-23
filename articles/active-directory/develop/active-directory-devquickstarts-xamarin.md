@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Začínáme se službou Azure AD Xamarin
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -50,7 +50,7 @@ Pokud chcete povolit aplikaci získat tokeny, musíte nejprve zaregistrovat v kl
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na váš účet. Potom v části **Directory** vyberte klienta služby Active Directory, ve které chcete zaregistrovat aplikaci.
-3. Klikněte na tlačítko **více služeb** v levém podokně a potom vyberte **Azure Active Directory**.
+3. Klikněte na tlačítko **všechny služby** v levém podokně a potom vyberte **Azure Active Directory**.
 4. Klikněte na tlačítko **registrace aplikace**a potom vyberte **přidat**.
 5. Chcete-li vytvořit novou **nativní klientská aplikace**, postupujte podle pokynů.
   * **Název** popis aplikace pro uživatele.
@@ -96,7 +96,7 @@ Nyní když máte aplikaci ve službě Azure AD, můžete nainstalovat ADAL a za
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Krok 4: Použití ADAL získat tokeny z Azure AD
 Téměř všechny aplikace logiky ověřování spočívá v `DirectorySearcher.SearchByAlias(...)`. Všechny, které je nezbytné v projektech specifických pro platformy je předat kontextové parametr, který se `DirectorySearcher` PCL.
 
-1. Otevřete DirectorySearcher.cs a pak přidejte nový parametr, který se `SearchByAlias(...)` metoda. `IPlatformParameters`je kontextová parametr, který zapouzdřuje specifické pro platformu objekty, které potřebuje provést ověřování ADAL.
+1. Otevřete DirectorySearcher.cs a pak přidejte nový parametr, který se `SearchByAlias(...)` metoda. `IPlatformParameters` je kontextová parametr, který zapouzdřuje specifické pro platformu objekty, které potřebuje provést ověřování ADAL.
 
     ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
@@ -123,7 +123,7 @@ Tato akce předá ADAL souřadnice ke komunikaci s Azure AD.
     ...
     ```
 
-    `AcquireTokenAsync(...)`Nejprve se pokusí vrátit token pro požadovaný prostředek (rozhraní Graph API v tomto případě) bez vyzvání uživatele k zadání přihlašovacích údajů (prostřednictvím ukládání do mezipaměti nebo obnovení původního tokeny). Podle potřeby zobrazuje uživatele, kteří na přihlašovací stránku služby Azure AD před získávání požadovaný token.
+    `AcquireTokenAsync(...)` Nejprve se pokusí vrátit token pro požadovaný prostředek (rozhraní Graph API v tomto případě) bez vyzvání uživatele k zadání přihlašovacích údajů (prostřednictvím ukládání do mezipaměti nebo obnovení původního tokeny). Podle potřeby zobrazuje uživatele, kteří na přihlašovací stránku služby Azure AD před získávání požadovaný token.
 4. Připojit k rozhraní Graph API požadavku v tokenu přístupu **autorizace** hlavičky:
 
     ```csharp

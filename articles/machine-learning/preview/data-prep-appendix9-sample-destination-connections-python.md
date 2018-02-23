@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4cad3343461a6c7eda78566b3d2552b1e3591960
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 203c8399153d2bc2d855fc2602b01ed074852687
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-destination-connections-python"></a>Ukázka cílových připojení (Python) 
 Před čtením této příloha, přečtěte si [Python rozšiřitelnost přehled](data-prep-python-extensibility-overview.md).
@@ -25,11 +25,11 @@ Před čtením této příloha, přečtěte si [Python rozšiřitelnost přehled
 ## <a name="write-to-excel"></a>Zápis do aplikace Excel 
 
 
-Zápis do aplikace Excel vyžaduje další knihovny. Přidání nové knihovny je popsána v přehledu rozšíření. `openpyxl`je knihovnu, která je nutné přidat.
+Zápis do aplikace Excel vyžaduje další knihovny. Přidání nové knihovny je popsána v přehledu rozšíření. `openpyxl` je knihovnu, která je nutné přidat.
 
 Než napíšete do aplikace Excel, může být potřeba některé další změny. Některé typy dat, které se používají v rámci přípravy dat nejsou podporovány v některé cílové formáty. Například pokud "Chyba" objekty existují, se nebude serializovat správně do aplikace Excel. Před pokusem o zápis do aplikace Excel, proto musíte transformace "Nahradí chybové hodnoty", který odebere chyby žádné sloupce.
 
-Pokud všechny předchozí pracovní dokončení se zapíše následující řádek tabulky datového jeden list v dokumentu aplikace Excel. Přidejte transformace zápisu toku dat (skript). Potom zadejte následující kód ve výrazu oddílu.
+Pokud všechny předchozí pracovní dokončení se zapíše následující řádek tabulky datového jeden list v dokumentu aplikace Excel. Přidejte transformace transformace toku dat (skript). Potom zadejte následující kód ve výrazu oddílu.
 
 
 ### <a name="on-windows"></a>V systému Windows 

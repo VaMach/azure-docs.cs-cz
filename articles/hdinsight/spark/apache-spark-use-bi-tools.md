@@ -15,23 +15,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI nástroje vizualizaci dat pomocí Azure HDInsight
 
-Další informace o použití [Microsoft Power BI](http://powerbi.microsoft.com) a [Tableau](http://www.tableau.com) k vizualizaci dat v clusteru Apache Spark v Azure HDInsight.
+Další informace o použití [Microsoft Power BI](http://powerbi.microsoft.com) k vizualizaci dat v clusteru Apache Spark v Azure HDInsight.
 
 ## <a name="prerequisites"></a>Požadavky
 
 * **Dokončení článek [Spusťte interaktivní dotazy na clustery Spark v HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) a [zkušební předplatné Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (volitelné).
-* **Tableau**: [Tableau plochy](http://www.tableau.com/products/desktop) a [ovladač Microsoft Spark ODBC](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
 ## <a name="hivetable"></a>Ověřit data
@@ -183,47 +182,49 @@ Služba Power BI umožňuje sdílet sestavy a řídicí panely v rámci vaší o
 
 Vizuál je připnutá na řídicí panel - můžete přidat jiných vizuálních prvcích do sestavy a připnete ji na stejné řídicí panel. Další informace o sestavy a řídicí panely, najdete v části [sestavy v Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)a [řídicí panely v Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="tableau"></a>Pomocí Tableau plochy 
+<!--
+## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
-> Tato část je určena pouze pro clustery Spark 1.5.2 vytvořené v Azure HDInsight.
+> This section is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
 >
 >
 
-1. Nainstalujte [Tableau plochy](http://www.tableau.com/products/desktop) na počítači, na kterém je spuštěn v tomto kurzu Apache Spark BI.
+1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
-2. Ujistěte se, že tento počítač má také nainstalovaný ovladač Microsoft Spark ODBC. Můžete nainstalovat ovladač z [zde](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
 
-1. Spuštění Tableau plochy. V levém podokně, ze seznamu serveru pro připojení, klikněte na tlačítko **Spark SQL**. Pokud není ve výchozím nastavení v levém podokně zobrazí Spark SQL, můžete nějakého najít kliknutím **více serverů**.
-2. V dialogovém okně připojení Spark SQL zadejte hodnoty, jak je znázorněno na snímku obrazovky a pak klikněte na tlačítko **OK**.
+1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
+2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
-    ![Připojení ke clusteru Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "připojení ke clusteru Apache Spark BI")
+    ![Connect to a cluster for Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Connect to a cluster for Apache Spark BI")
 
-    Rozevírací seznamy ověřování **služby Microsoft Azure HDInsight** jako možnost, pouze pokud jste nainstalovali [ovladač ODBC Microsoft Sparku](http://go.microsoft.com/fwlink/?LinkId=616229) v počítači.
-3. Na další obrazovce z **schématu** rozevírací seznam, klikněte **najít** ikonu a pak klikněte na tlačítko **výchozí**.
+    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
+3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
-    ![Nalezeno schéma pro Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "najít schéma pro Apache Spark BI")
-4. Pro **tabulky** pole, klikněte na tlačítko **najít** ikonu seznam všech tabulek Hive v clusteru k dispozici. Měli byste vidět **TVK** tabulky, které jste vytvořili dříve pomocí poznámkového bloku.
+    ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
+4. For the **Table** field, click the **Find** icon again to list all the Hive tables available in the cluster. You should see the **hvac** table you created earlier using the notebook.
 
-    ![Najít tabulku pro Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "najít tabulku pro Apache Spark BI")
-5. Přetáhnout myší v tabulce nejvyšší pole na pravé straně. Tableau naimportuje data a schéma se zobrazuje jako zvýrazněná podle červeným rámečkem.
+    ![Find table for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Find table for Apache Spark BI")
+5. Drag and drop the table to the top box on the right. Tableau imports the data and displays the schema as highlighted by the red box.
 
-    ![Přidání tabulky do Tableau pro Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "přidání tabulky do Tableau pro Apache Spark BI")
-6. Klikněte **Sheet1** kartě dole vlevo. Ujistěte se, vizualizace, který ukazuje průměrná cíl a skutečný teploty pro všechny budovy pro jednotlivá data. Přetáhněte **datum** a **vytváření ID** k **sloupce** a **skutečné Temp**/**cíle Temp** k **řádky**. V části **značky**, vyberte **oblasti** sloužící oblasti mapy pro vizualizaci dat Spark.
+    ![Add tables to Tableau for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "Add tables to Tableau for Apache Spark BI")
+6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
-     ![Přidat pole pro vizualizaci dat Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "přidat pole pro vizualizaci dat Spark")
-7. Standardně se zobrazují pole teploty jako agregace. Pokud chcete zobrazit průměrné teploty místo, můžete tak učinit z rozevíracího seznamu, jak je znázorněno na následujícím snímku obrazovky:
+     ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
+7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot:
 
-    ![Trvat průměrná z teploty pro vizualizaci dat Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "trvat průměrná z teploty pro vizualizaci dat Spark")
+    ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
 
-8. Můžete také super použít jedna mapa teploty z nich získat lepší chování rozdíl mezi cíl a skutečný teploty. Přesuňte myš do rohu nižší oblasti mapy, až se tvar popisovač zvýrazněných v červeném kroužku. Přetáhněte mapy do jiných mapy nahoře a uvolnění tlačítka myši, když se tvar zvýrazněných v red obdélníku.
+8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map until you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
 
-    ![Sloučení mapy pro vizualizaci dat Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "sloučení mapy pro vizualizaci dat Spark")
+    ![Merge maps for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge maps for Spark data visualization")
 
-     Vaše vizualizace dat měli změnit, jak je znázorněno na snímku obrazovky:
+     Your data visualization should change as shown in the screenshot:
 
-    ![Výstup tableau vizualizace dat Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau výstup vizualizace dat Spark")
-9. Klikněte na tlačítko **Uložit** uložit listu. Můžete vytvořit řídicí panely a do ní přidejte jeden nebo více stylů.
+    ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
+9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## <a name="next-steps"></a>Další postup
 

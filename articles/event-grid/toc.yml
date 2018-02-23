@@ -36,6 +36,8 @@
       href: delivery-and-retry.md
 - name: Návody
   items:
+    - name: Příjem událostí pro koncový bod HTTP
+      href: receive-events.md
     - name: Streamování dat z Event Hubs do datového skladu
       href: event-grid-event-hubs-integration.md
     - name: Odesílání oznámení o událostech služby IoT Hub

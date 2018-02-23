@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 66c356d6d42254e7443b645bff3393daca67012b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Ukázka připojení vlastní zdroje (Python) 
 Před čtením této příloha, přečtěte si [Python rozšiřitelnost přehled](data-prep-python-extensibility-overview.md).
@@ -45,7 +45,7 @@ Nyní byste měli mít importovat data.world knihovny.
 
 #### <a name="load-data-into-data-preparation"></a>Načtení dat do data přípravy
 
-Vytvořte nový založených na skriptech datový tok. Potom pomocí následujícího skriptu k načítání dat z data.world.
+Vytvořte transformace transformace toku dat (skript). Potom pomocí následujícího skriptu k načítání dat z data.world.
 
 ```python
 #paths = df['Path'].tolist()

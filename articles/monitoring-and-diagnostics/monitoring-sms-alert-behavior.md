@@ -1,8 +1,8 @@
 ---
 title: "SMS výstrahy chování ve skupinách akce | Microsoft Docs"
 description: "Formát zprávy SMS a odpovídat na zprávy SMS k odhlášení odběru, obnovit předplatné nebo požádat o pomoc."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,63 +12,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: ce6908de0f6bcc30d1ee846fe92171a0cb589cbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>SMS výstrahy chování ve skupinách, akce
 ## <a name="overview"></a>Přehled ##
-Akce skupiny umožňují konfigurovat seznam příjemců. Tyto skupiny můžete využít pak při definování aktivity protokolu výstrah; zajištění, že konkrétní akce skupiny zasláno oznámení, když se aktivuje výstraha aktivity protokolu. Jeden z výstrahy mechanismů podporována je SMS; výstrahy podporovat jednosměrnou komunikaci. Uživatel může reagovat na výstrahu:
+Akce skupiny umožňují nakonfigurovat seznam akcí. Tyto skupiny se používá při definování výstrah; zajištění, že konkrétní akce skupiny zasláno oznámení, když je výstraha. Jednu z akcí podporovaných je SMS; Oznámení SMS podporují jednosměrnou komunikaci. Uživatel může reagovat na serveru služby SMS na:
 
-- **Odběr upozornění:** uživatele můžete zrušit odběr všechny výstrahy služby SMS pro všechny skupiny akce nebo skupinu singulární akce.  
-- **Obnovit předplatné výstrah:** uživatele můžete obnovit předplatné na všechny výstrahy služby SMS pro všechny skupiny akce nebo skupinu singulární akce.  
-- **Požádat o pomoc:** uživatel může požádat o další informace o serveru SMS. Bude přesměrován na tento článek
+- **Odběr upozornění:** uživatel může odběr všech upozornění služby SMS pro všechny akce, nebo jednu akci skupiny.
+- **Obnovit předplatné výstrah:** uživatel může obnovit předplatné na všechny výstrahy služby SMS pro všechny skupiny akce nebo skupinu jedné akce.  
+- **Požádat o pomoc:** uživatel může požádat o další informace o serveru SMS. Je přesměrován na tomto článku.
 
 Tento článek se zabývá chování výstrahy SMS a akce odpovědi uživatele můžete provádět na základě národního prostředí uživatele:
 
-## <a name="usacanada-sms-behavior"></a>Chování USA nebo Kanady SMS
-### <a name="receiving-an-sms-alert"></a>Příjem oznámení SMS
-SMS příjemce, který je nakonfigurovaný jako součást skupiny akce, obdrží serveru služby SMS při aktivuje výstrahu. Serveru SMS, bude mít následující informace:
+## <a name="receiving-an-sms-alert"></a>Příjem oznámení SMS
+Přijímače SMS, který je nakonfigurovaný jako součást skupiny akce obdrží serveru služby SMS, když se výstraha. Serveru SMS obsahuje následující informace:
 * Shortname skupiny akce, které tato výstraha byla odeslána
 - Název výstrahy
 
-### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Odhlášení z SMS výstrahy pro jednu skupinu akce
-Uživatele můžete zrušit odběr služby SMS pro výstrahy pro jednu akci skupinu podle neodpovídá na požadavky krátký kód 29873 klíčová slova: "Zakázat &lt;Shortname akce skupiny&gt;".
-
-Příklad: Uživatel chtějí odhlásit z výstrah pro skupinu akce s shortname "Azure" by odeslat zprávu SMS krátký kód 29873, který uvádí "Zakázat Azure"
-
-### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Odhlášení z SMS výstrahy pro všechny skupiny akce
-Uživatele můžete zrušit odběr všechny výstrahy služby SMS pro všechny skupiny akce odpovědi na krátký kód 29873 s žádným z následujících klíčových slov:
-* STOP
-
-Příklad: Uživatel chtějí odběr všech upozornění služby SMS pro všechny skupiny akce by odeslat zprávu SMS krátký kód 29873, který je uveden "STOP"
+| ODPOVĚĎ | Popis |
+| ----- | ----------- |
+| ZAKÁZAT <Action Group Short name> | Zakáže další SMS ze skupiny akce |
+| POVOLIT <Action Group Short name> | Znovu povolí SMS ze skupiny akce |
+| STOP | Zakáže další SMS ze všech skupin, akce |
+| SPUŠTĚNÍ | Znovu povolí SMS ze všech skupin, akce |
+| NÁPOVĚDA | Uživateli se zobrazí odkaz na tento článek je odeslána odpověď. |
 
 >[!NOTE]
 >Pokud uživatel odhlásil(a) odběr z výstrah služby SMS, ale se pak přidá do nové skupiny akce; BUDE přijímat výstrahy služby SMS pro tuto novou skupinu akce ale zůstávají odhlásit ze všech skupin, předchozí akce.
->
->
-
-### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Resubscribing SMS výstrah pro jednu skupinu akce
-Uživatele můžete obnovit předplatné do služby SMS pro výstrahy pro jednu akci skupinu podle neodpovídá na požadavky krátký kód 29873 klíčová slova: "Povolit &lt;Shortname akce skupiny&gt;".
-
-Příklad: Uživatel chtějí obnovit předplatné výstrah pro skupinu akce s shortname "Azure" by odeslat zprávu SMS krátký kód 29873, který uvádí "Povolit Azure"
-
-### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Resubscribing SMS výstrah pro všechny skupiny akce
-Uživatele můžete obnovit předplatné pro všechny služby SMS pro výstrahy pro všechny skupiny akce odpovědi na krátký kód 29873 s žádným z následujících klíčových slov:
-
-* SPUŠTĚNÍ
-
-Příklad: Uživatel chtějí odběr všech upozornění služby SMS pro všechny skupiny akce by odeslat zprávu SMS krátký kód 29873, který je uveden "START"
-
-### <a name="requesting-help-via-sms"></a>Žádost o nápovědu prostřednictvím serveru SMS
-Uživatel může požádat o další informace o serveru SMS, že obdrželi odpovědi na krátký kód 29873 s žádným z následujících klíčových slov:
-* POMOC
-
-Odpověď zašle uživateli se zobrazí odkaz na tohoto článku.
 
 ## <a name="next-steps"></a>Další kroky
 Získat [přehled výstrah aktivity protokolu](monitoring-overview-alerts.md) a zjistěte, jak získat výstrahy  

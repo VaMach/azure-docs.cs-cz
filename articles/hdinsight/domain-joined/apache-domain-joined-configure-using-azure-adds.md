@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurace clusterů HDInsight připojený k doméně pomocí nástroje Azure Active Directory Domain Services
 
@@ -36,9 +36,11 @@ V tomto článku zjistěte, jak nakonfigurovat cluster HDInsight připojený k d
 Budete muset vytvořit Azure AD DS před vytvořením clusteru služby HDInsight. Vytvoření služby Azure přidá naleznete v tématu [povolit Azure Active Directory Domain Services pomocí webu Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Pouze správci klientů mají oprávnění k vytvoření služby domain services. Pokud používáte Azure Data Lake Storage (ADLS) jako výchozí úložiště pro HDInsight, pak zajistěte, aby že výchozí klient Azure AD pro ADLS je stejná jako doména clusteru HDInsight. 
+> Pouze správci klientů mají oprávnění k vytvoření služby domain services. Pokud používáte Azure Data Lake Storage (ADLS) jako výchozí úložiště pro HDInsight, pak zajistěte, aby že výchozí klient Azure AD pro ADLS je stejná jako doména clusteru HDInsight. Pro tento nastavený pro práci s Azure Data Lake Store musí být zakázána pro uživatele, kteří budou mít přístup ke clusteru služby Multi-Factor authentication.
 
 Po zřídil službu domény musíte vytvořit účet služby v **správci řadič domény služby Azure AD** skupiny k vytvoření clusteru HDInsight. Účet služby musí být globální správce na Azure AD.
+
+Je nutné povolit zabezpečené LDAP pro Azure AD Domain Services spravované domény. Chcete-li povolit zabezpečený LDAP, přečtěte si téma [konfigurovat zabezpečený LDAP (LDAPS) pro Azure AD Domain Services spravované domény](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Vytvoření clusteru HDInsight se připojený k doméně
 

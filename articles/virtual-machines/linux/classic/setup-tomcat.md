@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Nastavit Tomcat7 na virtuální počítač s Linuxem v Azure
 Apache Tomcat (nebo jednoduše Tomcat, také dříve se označovaly jako Jakarta Tomcat) je webový server s otevřeným zdrojem a kontejner servlet vyvinuté pomocí softwaru Foundation Apache (amp). Tomcat implementuje Java Servlet a specifikace JavaServer stránky (JSP) z Sun Microsystems. Tomcat poskytuje čistý Java HTTP prostředí webového serveru ke spouštění kódu v jazyce Java. V nejjednodušší konfiguraci Tomcat běží v procesu jednoho operačního systému. Tento proces se spustí nástroje Java virtual machine (JVM). Každý požadavek HTTP z prohlížeče do Tomcat zpracovávány jako samostatné vláken v procesu Tomcat.  
@@ -64,7 +64,7 @@ Postupujte podle těchto kroků generovat ověřovací klíč SSH.
 6. Klikněte na tlačítko **uložit privátní klíč**a uložte ho do souboru s názvem privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Krok 2: Vytvoření bitové kopie na portálu Azure
-1. V [portál](https://portal.azure.com/), klikněte na tlačítko **nový** na hlavním panelu na vytvoření bitové kopie. Zvolte Linux bitovou kopii, která je založena na vašich potřebách. Následující příklad používá bitovou kopii Ubuntu 14.04.
+1. V [portál](https://portal.azure.com/), klikněte na tlačítko **vytvořit prostředek** na hlavním panelu na vytvoření bitové kopie. Zvolte Linux bitovou kopii, která je založena na vašich potřebách. Následující příklad používá bitovou kopii Ubuntu 14.04.
 ![Snímek obrazovky portálu, který ukazuje tlačítka Nová][3]
 
 2. Pro **název hostitele**, zadejte název pro adresu URL, kterou jste a internetové klienty se bude používat pro přístup k tomuto virtuálnímu počítači. Zadejte poslední část názvu DNS, například tomcatdemo. Azure pak vygeneruje adresu URL jako tomcatdemo.cloudapp.net.  
@@ -86,7 +86,7 @@ TCP port 8080 je výchozí číslo portu, který Tomcat používá k naslouchán
    ![Snímek obrazovky adresáři virtuální počítače][5]
 2. Chcete-li přidat koncový bod virtuálního počítače, klikněte na tlačítko **koncové body** pole.
    ![Snímek obrazovky zobrazující pole koncových bodů][6]
-3. Klikněte na tlačítko **Přidat**.  
+3. Klikněte na tlačítko **Add** (Přidat).  
 
    1. Pro koncový bod, zadejte název koncového bodu v **koncový bod**a pak zadejte 80 v **veřejný Port**.  
 
@@ -265,7 +265,7 @@ Po připojení, měli byste vidět něco podobného jako následující:
         sudo yum instalace w3m w3m-img
 
 
-        w3m adrese http://localhost: 8080  
+        w3m http://localhost:8080  
 #### <a name="solution"></a>Řešení
 
   * Pokud naslouchat Tomcat port není stejný jako privátní port koncového bodu pro provoz do virtuálního počítače, je nutné změnit privátní port, který má být že stejné jako Tomcat port pro naslouchání.   

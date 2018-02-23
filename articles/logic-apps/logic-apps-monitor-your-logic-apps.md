@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorování stavu, nastavit protokolování diagnostiky a zapnutí výstrah pro Azure Logic Apps
 
@@ -29,7 +29,7 @@ Pokud chcete dostávat oznámení o selhání nebo jiné možné problémy, nast
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Spustí zobrazení a historii aktivační událost pro svou aplikaci logiky
 
-1. K vyhledání aplikace logiky v [portál Azure](https://portal.azure.com), v hlavní nabídce Azure, zvolte **další služby**. Do vyhledávacího pole, vyhledejte "aplikace logiky" a zvolte **Logic apps**.
+1. K vyhledání aplikace logiky v [portál Azure](https://portal.azure.com), v hlavní nabídce Azure, zvolte **všechny služby**. Do vyhledávacího pole zadejte "aplikace logiky" a zvolte **Logic apps**.
 
    ![Najít aplikaci logiky](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -97,7 +97,7 @@ Než začnete, musíte mít pracovním prostorem OMS. Další informace [jak vyt
    3. V části **pracovních prostorů OMS**, vyberte pracovní prostor OMS pro protokolování.
    4. V části **protokolu**, vyberte **modul runtime pracovního postupu** kategorie.
    5. Zvolte metriky interval.
-   6. Až budete hotoví, zvolte **Uložit**.
+   6. Jakmile budete hotoví, vyberte **Uložit**.
 
    ![Vyberte pracovní prostor OMS a dat pro protokolování](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -109,7 +109,7 @@ Teď můžete najít události a dalších dat pro aktivační události, spusti
 
 Vyhledat a zobrazit události ve vaší aplikaci logiky, jako například aktivovat události, spustit události a akci události, postupujte podle těchto kroků.
 
-1. V [portál Azure](https://portal.azure.com), zvolte **více služeb**. Vyhledejte "analýzy protokolů" a pak zvolte **analýzy protokolů** jak je vidět tady:
+1. V [portál Azure](https://portal.azure.com), zvolte **všechny služby**. Vyhledejte "analýzy protokolů" a pak zvolte **analýzy protokolů** jak je vidět tady:
 
    ![Zvolte "Analýzy protokolů"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

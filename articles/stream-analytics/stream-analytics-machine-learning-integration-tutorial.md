@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Provedení analýzy postojích pomocí Azure Stream Analytics nebo Azure Machine Learning
 Tento článek popisuje, jak rychle nastavit jednoduchou úlohu Azure Stream Analytics, která integruje Azure Machine Learning. Používáte model Machine Learning postojích analytics z webu Cortana Intelligence Gallery a analyzovat data streamovaná text určení skóre postojích v reálném čase. Pomocí Cortana Intelligence Suite umožňuje provedení této úlohy bez obav o rozbor všech vytváření model postojích analytics.
@@ -57,7 +57,7 @@ Na vysoké úrovni k dokončení úkolů ukázáno v tomto článku jste takto:
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Vytvoření kontejneru úložiště a načtěte vstupní soubor CSV
 Pro tento krok můžete použít všechny souboru CSV, jako je třeba k dispozici z Githubu.
 
-1. Na portálu Azure klikněte na tlačítko **nový** &gt; **úložiště** &gt; **účet úložiště**.
+1. Na portálu Azure klikněte na tlačítko **vytvořit prostředek** &gt; **úložiště** &gt; **účet úložiště**.
 
    ![Vytvořit nový účet úložiště](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ Nyní můžete vytvořit úlohu služby Stream Analytics, která načte tweetů 
 
 1. Přejděte na [portál Azure](https://portal.azure.com).  
 
-2. Klikněte na tlačítko **nový** > **Internet věcí** > **úlohy služby Stream Analytics**. 
+2. Klikněte na tlačítko **vytvořit prostředek** > **Internet věcí** > **úlohy služby Stream Analytics**. 
 
    ![Cesty Azure portálu pro získání do nové úlohy Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    
@@ -269,7 +269,7 @@ Také můžete zobrazit související funkce metrik Azure Machine Learning. Nás
 * **Funkce události** označuje počet událostí v požadavku. Každý požadavek k webové službě Machine Learning obsahuje ve výchozím nastavení až 1 000 událostí.  
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Úvod do služby Azure Stream Analytics](stream-analytics-introduction.md)
 * [Referenční příručka k jazyku Azure Stream Analytics Query Language](https://msdn.microsoft.com/library/azure/dn834998.aspx)

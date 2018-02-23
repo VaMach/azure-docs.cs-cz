@@ -4,7 +4,7 @@ description: "Tento kurz vás provede kroky k vytvoření vždy na naslouchací 
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 38bb77c6b1d083bd6b52b785a991f24965d00e12
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Konfigurace o externí naslouchací proces pro skupiny dostupnosti Always On v Azure
 > [!div class="op_single_selector"]
@@ -130,6 +130,6 @@ Na rozdíl od předchozí příklad musí být použít ověřování SQL, proto
 
 Pokud jsou repliky Always On v různých podsítích, musí klienti zadat **MultisubnetFailover = True** v připojovacím řetězci. Výsledkem pokusy o připojení paralelní replikami v různých podsítích. Všimněte si, že tento scénář zahrnuje nasazení mezi oblastmi vždy na skupiny dostupnosti.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
 

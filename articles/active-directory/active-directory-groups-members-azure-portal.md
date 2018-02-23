@@ -16,18 +16,18 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 49c975aa34f28c6c00591435726e538bb79a78cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 31ab2ae51174061fc4b4a232ebbc7acab86e1ab8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Správa členství ve skupině pro uživatele v klientovi služby Azure Active Directory
 Tento článek vysvětluje, jak spravovat členy skupiny ve službě Azure Active Directory (Azure AD).
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>Jak najít členy a spravovat?
 1. Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
-2. Vyberte **další služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
+2. Vyberte **všechny služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
 
    ![Správa uživatelů otevírání](./media/active-directory-groups-members-azure-portal/search-user-management.png)
 3. Na **uživatelů a skupin** vyberte **všechny skupiny**.

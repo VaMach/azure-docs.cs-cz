@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: c156776103a466af8923ba7249d96835ff339268
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: dada9c70eef2adb2704e276a5401509581e37538
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalace a konfigurace Terraform ke zřízení virtuálních počítačů a další infrastrukturou do Azure
  
@@ -80,12 +80,13 @@ az vm list-sizes --location westus
 
 ## <a name="configure-terraform-environment-variables"></a>Konfigurace Terraform proměnné prostředí
 
-Nakonfigurujte Terraform použít ID klienta, ID předplatného, ID klienta a tajný z objektu služby klienta při vytváření prostředků Azure. Nastavte následující proměnné prostředí, které se používají automaticky pomocí [moduly Azure Terraform](https://registry.terraform.io/modules/Azure).
+Nakonfigurujte Terraform použít ID klienta, ID předplatného, ID klienta a tajný z objektu služby klienta při vytváření prostředků Azure. Prostředí můžete také nastavit, pokud práce Azure cloud jiné než Azure veřejné. Nastavte následující proměnné prostředí, které se používají automaticky pomocí [moduly Azure Terraform](https://registry.terraform.io/modules/Azure).
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
 - ARM_TENANT_ID
+- ARM_ENVIRONMENT
 
 Chcete-li nastavit tyto proměnné můžete použít tento ukázkový skript prostředí:
 
@@ -96,6 +97,9 @@ export ARM_SUBSCRIPTION_ID=your_subscription_id
 export ARM_CLIENT_ID=your_appId
 export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
+
+# Not needed for public, required for usgovernment, german, china
+export ARM_ENVIRONMENT=public
 ```
 
 ## <a name="run-a-sample-script"></a>Spuštění ukázkového skriptu
@@ -141,7 +145,7 @@ azurerm_resource_group.rg: Creating...
 azurerm_resource_group.rg: Creation complete after 1s
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Instalaci Terraform a nakonfigurovat přihlašovací údaje Azure, takže můžete začít nasazovat infrastruktury do vašeho předplatného Azure. Potom otestovat instalaci aplikace tak, že vytvoříte skupinu prázdný prostředků Azure.
 

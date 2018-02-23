@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: dc3ebf3ba232241677dc7aace4f835cee0cf54a7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Používat pro přístup k Azure Data Lake Store Linux virtuálního počítače spravované služby Identity (MSI)
 
@@ -45,7 +45,7 @@ Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://p
 
 V tomto kurzu vytvoříme nový virtuální počítač s Linuxem. Můžete také povolit MSI na existující virtuální počítač.
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Klikněte na tlačítko **vytvořit prostředek** v levém horním rohu portálu Azure.
 2. Vyberte **Compute** a potom vyberte **Ubuntu Server 16.04 LTS**.
 3. Zadejte informace o virtuálním počítači. Pro **typ ověřování**, vyberte **veřejný klíč SSH** nebo **heslo**. Vytvořené pověření umožňují přihlášení k virtuálnímu počítači.
 

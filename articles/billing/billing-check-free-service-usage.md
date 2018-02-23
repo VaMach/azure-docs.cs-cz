@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Zkontrolujte využití volného služby zahrnuté do vaší bezplatný účet Azure 
 
@@ -28,7 +28,7 @@ Vám není účtován služby zahrnuté zdarma do bezplatný účet Azure, pokud
 
 1.  Přihlaste se k portálu [Azure Portal]( http://portal.azure.com).
 
-2.  V dolní části levé navigaci, vyberte **další služby**.
+2.  Levé navigační oblasti, vyberte **všechny služby**.
 
 3.  Vyberte **odběry**.
 
@@ -63,7 +63,7 @@ Vám není účtován služby zahrnuté zdarma do bezplatný účet Azure, pokud
 
 Váš soubor využití poskytuje podrobné informace o vašem předplatném Azure. Vaše měsíční a denní využití soubor můžete stáhnout z centra účtů Azure. Informace o stažení souboru využití a pochopit přístup požadovaný najdete v tématu [získat faktury a využití](billing-download-azure-invoice-daily-usage-date.md). Další informace o sloupcích v souboru využití najdete v tématu [pochopit podmínky na vaše používání](billing-understand-your-usage.md). 
 
-Využití soubor obsahuje informace o využití pro bezplatných i placených služeb. Bezplatné služby měřidla by měla mít **volné** přidán na konec názvu měření. K nalezení volné měřidla, otevřete soubor v aplikaci excel a filtru **měření kategorie sloupec** pro buněk, které obsahují text **– volné** (pomocí filtrů Text &rarr; filtr obsahuje)&nbsp;
+Využití soubor obsahuje informace o využití pro bezplatných i placených služeb. Bezplatné služby měřidla by měla mít **volné** přidán na konec názvu měření. K nalezení volné měřidla, otevřete soubor v aplikaci excel a filtru **měření kategorie sloupec** pro buněk, které obsahují text **– volné** (pomocí filtrů Text &rarr; filtr obsahuje) &nbsp;
 
 ![Snímek obrazovky, který zobrazuje využití bezplatné služby](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

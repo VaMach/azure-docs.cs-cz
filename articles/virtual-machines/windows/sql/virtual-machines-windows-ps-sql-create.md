@@ -1,10 +1,10 @@
 ---
-title: "Postup vytvoření virtuálním počítačům systému SQL Server pomocí prostředí Azure PowerShell | Microsoft Docs"
+title: "Zřizování Průvodce pro virtuální počítače SQL serveru pomocí prostředí Azure PowerShell | Microsoft Docs"
 description: "Obsahuje kroky a příkazy prostředí PowerShell pro vytvoření virtuálního počítače Azure s obrázky Galerie virtuálního počítače systému SQL Server."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/29/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Postup vytvoření virtuálního počítače systému SQL Server v prostředí Azure PowerShell
+# <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Jak zřídit virtuální počítače systému SQL Server v prostředí Azure PowerShell
 
 Tato příručka vysvětluje možnosti vytvoření virtuálních počítačů Windows SQL serveru pomocí prostředí Azure PowerShell. Moderní prostředí Azure PowerShell příklad s další výchozí hodnoty, najdete v tématu [rychlý start SQL virtuálních počítačů Azure PowerShell](quickstart-sql-vm-create-powershell.md).
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-Tento rychlý start vyžaduje modul Azure PowerShell verze 3.6 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Tento článek vyžaduje prostředí Azure PowerShell verze modulu 3,6 nebo novější. Verzi zjistíte spuštěním příkazu `Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="configure-your-subscription"></a>Konfigurovat předplatné
 
@@ -142,7 +142,7 @@ $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupNam
 > [!TIP]
 > Vytvoření účtu úložiště může trvat několik minut.
 
-## <a name="create-network-resources"></a>Vytvoření síťové prostředky
+## <a name="create-network-resources"></a>Vytvoření síťových prostředků
 Virtuální počítač vyžaduje počet síťovým prostředkům pro připojení k síti.
 
 * Každý virtuální počítač vyžaduje virtuální síť.

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Stanovení požadavků na správu obsahu pro vaše řešení hybridní identity
-Seznámení s požadavky na správu obsahu pro vaši organizaci může přímo ovlivnit vaše rozhodnutí, na které hybridní řešení identit používat. S tím, jak narůstá více zařízení a schopnost uživatelům přinést si vlastní zařízení ([BYOD](http://aka.ms/byodcg)), musí společnost chránit svá vlastní data, ale ho také musí zachovat ochranu osobních údajů uživatelů. Většinou když má uživatel svůj vlastní zařízení mu může mít také více přihlašovací údaje, které bude střídavých závislosti na aplikaci, kterou používá. Je důležité k rozlišení postupu, který obsah byl vytvořen pomocí osobní přihlašovacích údajů oproti těm, které jsou vytvořené pomocí podnikové přihlašovací údaje. Řešení identity měli být schopní pracovat s cloud services a poskytuje bezproblémové prostředí pro koncového uživatele při zajištění jeho ochrany osobních údajů a zvýšit ochranu před úniky dat. 
+Seznámení s požadavky na správu obsahu pro vaši organizaci může přímo ovlivnit vaše rozhodnutí, na které hybridní řešení identit používat. S tím, jak narůstá více zařízení a schopnost uživatelům přinést si vlastní zařízení ([BYOD](https://aka.ms/byodcg)), musí společnost chránit svá vlastní data, ale ho také musí zachovat ochranu osobních údajů uživatelů. Většinou když má uživatel svůj vlastní zařízení mu může mít také více přihlašovací údaje, které bude střídavých závislosti na aplikaci, kterou používá. Je důležité k rozlišení postupu, který obsah byl vytvořen pomocí osobní přihlašovacích údajů oproti těm, které jsou vytvořené pomocí podnikové přihlašovací údaje. Řešení identity měli být schopní pracovat s cloud services a poskytuje bezproblémové prostředí pro koncového uživatele při zajištění jeho ochrany osobních údajů a zvýšit ochranu před úniky dat. 
 
 Chcete-li poskytovat správy obsahu, jak je znázorněno na obrázku níže bude řešení identity využít různé technické ovládací prvky:
 

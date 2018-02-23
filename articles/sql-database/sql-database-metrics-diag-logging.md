@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrik a protokolování diagnostiky 
 Databáze SQL Azure můžete emitování metriky a diagnostické protokoly pro snazší monitorování. SQL Database můžete nakonfigurovat pro ukládání využití prostředků, pracovních procesů, relací a možností připojení do jednoho z těchto prostředků Azure:
@@ -34,7 +34,7 @@ Databáze SQL Azure můžete emitování metriky a diagnostické protokoly pro s
 
 Ve výchozím nastavení není povoleno metrik a protokolování diagnostiky. Můžete povolit a spravovat metriky a diagnostiku protokolování pomocí jedné z následujících metod:
 
-- portál Azure
+- Azure Portal
 - PowerShell
 - Azure CLI
 - Rozhraní API REST Azure monitorování 
@@ -64,7 +64,7 @@ Chcete-li zjistit, jak povolit protokolování a pochopit metriky a protokolu ka
 * [Přehled metriky v Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Přehled Azure diagnostics protokolů](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 1. Chcete-li povolit metriky a Diagnostika shromažďování protokolů na portálu, přejděte k SQL Database nebo stránky elastického fondu a pak vyberte **nastavení diagnostiky**.
 
@@ -180,7 +180,7 @@ Monitorování firemního vozového databáze SQL je jednoduchý analýzy protok
 
 ### <a name="create-a-log-analytics-resource"></a>Vytvořte prostředek analýzy protokolů
 
-1. Vyberte **nový** v nabídce na levé straně.
+1. Vyberte **vytvořit prostředek** v nabídce na levé straně.
 
 2. Vyberte **monitorování + správu**.
 
@@ -466,7 +466,7 @@ Další informace o [databáze statistiky čekání](https://docs.microsoft.com/
 ### <a name="intelligent-insights-dataset"></a>Inteligentní datovou sadu statistiky
 Další informace o [formát protokolu inteligentního Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zjistěte, jak povolit protokolování a pochopit metriky a protokolu kategorií podporuje různé služby Azure, přečtěte si téma:
 

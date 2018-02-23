@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Vytvoření virtuální sítě pomocí šablony Azure Resource Manager
 
@@ -39,9 +39,9 @@ Tento článek vysvětluje, jak vytvořit virtuální síť pomocí modelu nasaz
 - [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [Rozhraní příkazového řádku (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
-Dozvíte se, jak stáhnout a upravit existující šablonu ARM z GitHubu a jak ji nasadit z GitHubu, prostředí PowerShell a rozhraní příkazového řádku Azure.
+Zjistěte, jak stáhnout a upravit a existující šablonu Azure Resource Manageru z webu GitHub a nasazení šablony z Githubu, prostředí PowerShell a rozhraní příkazového řádku Azure.
 
-Pokud šablonu ARM jednoduše nasazujete přímo z GitHubu, beze změn, přejděte k části [nasazení šablony z githubu](#deploy-the-arm-template-by-using-click-to-deploy).
+Pokud jednoduše nasazujete přímo z Githubu, beze změn, šablony Azure Resource Manageru pokračujte [nasazení šablony z githubu](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ Můžete stáhnout existující šablonu pro vytvoření virtuální sítě a dv
 2. Klikněte na **azuredeploy.json** a potom klikněte na **RAW**.
 3. Uložte soubor do místní složky v počítači.
 4. Pokud jste obeznámeni s šablonami, přejděte ke kroku 7.
-5. Otevřete soubor, který jste právě stáhli, a prohlédněte si jeho obsah v části **parameters** na řádku 5. Parametry šablony ARM představují zástupce hodnot, které můžete doplnit během nasazování.
+5. Otevřete soubor jste uložili a prohlédněte si obsah v části **parametry** na řádku 5. Parametry šablony Azure Resource Manageru představují zástupce hodnot, které můžete doplnit během nasazování.
    
    | Parametr | Popis |
    | --- | --- |
-   | **location** |Oblast Azure, ve které bude síť VNet vytvořena |
+   | **location** |Oblast Azure, kde je síť VNet vytvořena |
    | **vnetName** |Název nové sítě VNet |
    | **addressPrefix** |Adresní prostor sítě VNet ve formátu CIDR |
    | **subnet1Name** |Název první sítě VNet |
@@ -71,7 +71,7 @@ Můžete stáhnout existující šablonu pro vytvoření virtuální sítě a dv
 6. Prohlédněte si obsah v části **resources** a všimněte si následujících parametrů:
    
    * **type**. Typ prostředku vytvořeného šablonou. V tomto případě se jedná o prostředek **Microsoft.Network/virtualNetworks**, který reprezentuje síť VNet.
-   * **name**. Název prostředku. Všimněte si volání **[parameters('vnetName')]**, které znamená, že název bude dodán jako vstup uživatelem nebo ze souboru parametrů během nasazování.
+   * **name**. Název prostředku. Všimněte si použití **[parameters('vnetName')]**, což znamená, že zadaný jako vstup uživatelem nebo ze souboru parametrů během nasazování název.
    * **properties**. Seznam vlastností prostředku. Tato šablona používá během vytváření sítě VNet vlastnosti adresního prostoru a podsítě.
 7. Přejděte zpět na stránku [vzorové šablony](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Klikněte na **azuredeploy-paremeters.json** a potom klikněte na **RAW**.
@@ -231,11 +231,11 @@ Můžete opakovaně používat předdefinované šablony Azure Resource Manager 
    
     ![Dlaždice Odesílá se nasazení na portálu Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Po dokončení v portálu Azure klikněte na nasazení **další služby**, typ *virtuální sítě* do pole filtr, který se zobrazí, pak klikněte na virtuální sítě najdete v okně virtuální sítě. V okně klikněte na tlačítko *TestVNet*. V *TestVNet* okně klikněte na tlačítko **podsítě** zobrazíte vytvořený podsítě, jak je znázorněno na následujícím obrázku:
+10. Po dokončení v portálu Azure klikněte na nasazení **všechny služby**, typ *virtuální sítě* do pole filtr, který se zobrazí, pak klikněte na virtuální sítě najdete v okně virtuální sítě. V okně klikněte na tlačítko *TestVNet*. V *TestVNet* okně klikněte na tlačítko **podsítě** zobrazíte vytvořený podsítě, jak je znázorněno na následujícím obrázku:
     
      ![Vytvoření sítě VNet na portálu Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zjistěte, jak připojit:
 

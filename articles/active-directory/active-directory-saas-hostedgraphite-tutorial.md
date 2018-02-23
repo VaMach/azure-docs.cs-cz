@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Kurz: Azure Active Directory integrace s hostované grafitová
 
@@ -110,9 +110,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://www.hostedgraphite.com/metadata/<user id>`
+    a. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. Na **hostované grafitová domény a adresy URL** část, pokud chcete nakonfigurovat aplikace **SP iniciované režimu**, proveďte následující kroky:
    
@@ -120,7 +120,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
   
     a. Klikněte na **zobrazit upřesňující nastavení adresy URL** možnost
 
-    b. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://www.hostedgraphite.com/login/saml/<user id>/`   
+    b. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://www.hostedgraphite.com/login/saml/<user id>/`   
 
     > [!NOTE] 
     > Upozorňujeme, že tyto nejsou skutečné hodnoty. Budete muset aktualizovat tyto hodnoty se skutečným identifikátorem, adresa URL odpovědi a přihlašovací adresa URL. Chcete-li získat tyto hodnoty, můžete přejít na přístup -> Nastavení SAML na straně aplikace nebo kontaktujte [tým podpory hostované grafitová](mailto:help@hostedgraphite.com).
@@ -205,7 +205,7 @@ Cílem této části je vytvoření uživatele volal Britta Simon v hostované g
 Neexistuje žádná položka akce pro vás v této části. Vytvoří se nový uživatel během pokusu o přístup k hostované grafitová, pokud ještě neexistuje.
 
 >[!NOTE]
->Pokud potřebujete ručně vytvořit uživatele, budete muset kontaktovat tým podpory hostované grafitová prostřednictvím < mailto:help@hostedgraphite.com >. 
+>Pokud potřebujete ručně vytvořit uživatele, budete muset kontaktovat tým podpory hostované grafitová prostřednictvím <mailto:help@hostedgraphite.com>. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Přiřazení testovacího uživatele Azure AD
 
@@ -243,7 +243,7 @@ Cílem této části je testování konfigurace Azure AD jednotného přihlašov
 
 Když kliknete na dlaždici grafitová hostované na přístupovém panelu, můžete by měl získat automaticky přihlášení k aplikaci hostované grafitová.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

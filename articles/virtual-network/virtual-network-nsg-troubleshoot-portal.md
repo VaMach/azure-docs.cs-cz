@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Řešení potíží s skupin zabezpečení sítě pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Pomocí následujících kroků pro řešení potíží s skupiny Nsg pro virtu�
 Úplný seznam pravidel efektivní zabezpečení můžete zobrazit na síťový adaptér z virtuálního počítače sám sebe. Můžete také přidat, upravit a odstranit pravidla NSG síťových Adaptérů a podsíť z okna efektivní pravidla, pokud máte oprávnění k provedení těchto operací.
 
 1. Přihlášení k portálu Azure v https://portal.azure.com s účet Azure. Musí mít váš účet přiřazenou *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operace pro síťové rozhraní. Zjistěte, jak přiřadit operations účty, najdete v tématu [vytvářet vlastní role pro řízení přístupu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Klikněte na tlačítko **další služby**, pak klikněte na tlačítko **virtuální počítače** v seznamu, který se zobrazí.
+2. Klikněte na tlačítko **všechny služby**, pak klikněte na tlačítko **virtuální počítače** v seznamu, který se zobrazí.
 3. Vyberte virtuální počítač ze seznamu, který se zobrazí řešení a zobrazí se okno virtuálních počítačů s možnostmi.
 4. Klikněte na tlačítko **Diagnostikujte & řešení problémů** a pak vyberte častých problémů. V tomto příkladu **nelze se připojit k virtuálnímu počítači s Windows** je vybrána. 
    
@@ -96,7 +96,7 @@ Pomocí následujících kroků pro řešení potíží s skupiny Nsg pro virtu�
 Pokud vaše tok přenosů dat virtuálního počítače je ovlivněn pro konkrétní síťové karty, můžete zobrazit úplný seznam efektivní pravidla pro síťový adaptér z daného kontextu rozhraní sítě pomocí následujících kroků:
 
 1. Přihlášení k portálu Azure v https://portal.azure.com.
-2. Klikněte na tlačítko **další služby**, pak klikněte na tlačítko **síťových rozhraní** v seznamu, který se zobrazí.
+2. Klikněte na tlačítko **všechny služby**, pak klikněte na tlačítko **síťových rozhraní** v seznamu, který se zobrazí.
 3. Vyberte síťové rozhraní. Na následujícím obrázku s názvem síťový adaptér *VM1 NIC1* je vybrána.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -113,7 +113,7 @@ Pokud vaše tok přenosů dat virtuálního počítače je ovlivněn pro konkré
 Při úpravě pravidla NSG, můžete zkontrolovat dopad pravidla přidávané na konkrétním virtuálním počítači. Můžete zobrazit úplný seznam pravidel efektivní zabezpečení pro všechny síťové adaptéry, které daný NSG se použije, aniž by bylo nutné přepnout kontext z okna dané skupiny NSG. Chcete-li vyřešit efektivní pravidel ve skupině NGS, proveďte následující kroky:
 
 1. Přihlášení k portálu Azure v https://portal.azure.com.
-2. Klikněte na tlačítko **další služby**, pak klikněte na tlačítko **skupin zabezpečení sítě** v seznamu, který se zobrazí.
+2. Klikněte na tlačítko **všechny služby**, pak klikněte na tlačítko **skupin zabezpečení sítě** v seznamu, který se zobrazí.
 3. Vyberte skupinu NSG. Na následujícím obrázku nebyla vybrána skupina NSG s názvem VM1 nsg.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)

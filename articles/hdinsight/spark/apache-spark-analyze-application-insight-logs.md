@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 8534fefc863a6cb04c43e81a4bea459844e58d91
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2512bf452c628c6c4a20f40f2182025f4591f200
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analýza protokolů telemetrie Application Insights pomocí Spark v HDInsight
 
@@ -372,7 +372,6 @@ Další příklady použití Spark pro práci s daty a služby v Azure najdete v
 * [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](apache-spark-use-bi-tools.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight pro analýzu teploty v budově pomocí dat HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro vytváření aplikací pro streamování](apache-spark-eventhub-streaming.md)
 * [Analýza protokolu webu pomocí Sparku v HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Informace o vytváření a spouštění aplikací Spark najdete v následujících dokumentech:

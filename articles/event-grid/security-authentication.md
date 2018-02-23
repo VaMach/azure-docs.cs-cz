@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Události zabezpečení mřížky a ověřování 
 
@@ -59,6 +59,11 @@ Aby bylo možné prokázat vlastnictví koncový bod, vracení ověřovacího k�
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### <a name="event-delivery-security"></a>Události doručení zabezpečení
+
+Váš koncový bod webhooku můžete zabezpečit přidáním parametry dotazu na adresu URL webhooku při vytváření předplatného služby událostí. Nastavte jednu z těchto parametrů dotazu jako tajný klíč [přístupový token](https://en.wikipedia.org/wiki/Access_token) webhooku můžete rozpoznat událost pochází z událostí mřížky s platné oprávnění. Mřížky události bude obsahovat tyto parametry dotazu v každé události doručení do webhooku.
+
+Při úpravě předplatného události, parametry dotazu se nezobrazí nebo vrácena, pokud [– zahrnout full--adresu url koncového bodu](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parametr se používá v Azure [rozhraní příkazového řádku](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 Nakonec je důležité si uvědomit, mřížky událostí Azure podporuje pouze HTTPS webhooku koncové body.
 
@@ -68,15 +73,15 @@ K odběru události, musíte mít **Microsoft.EventGrid/EventSubscriptions/Write
 
 ### <a name="system-topics-azure-service-publishers"></a>Témata týkající se systému (vydavateli služby Azure)
 
-Pro systém témata budete potřebovat oprávnění k zápisu nového odběru události v oboru prostředku publikování události. Formát prostředku není:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Pro systém témata budete potřebovat oprávnění k zápisu nového odběru události v oboru prostředku publikování události. Formát prostředku není: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Například k odběru události na účet úložiště s názvem **UCET**, potřebujete oprávnění Microsoft.EventGrid/EventSubscriptions/Write na:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Například k odběru události na účet úložiště s názvem **UCET**, potřebujete oprávnění Microsoft.EventGrid/EventSubscriptions/Write na: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Vlastní témata
 
-Pro vlastní témata budete potřebovat oprávnění k zápisu nového odběru události v oboru tématu událostí mřížky. Formát prostředku není:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Pro vlastní témata budete potřebovat oprávnění k zápisu nového odběru události v oboru tématu událostí mřížky. Formát prostředku není: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Například k odběru vlastní téma s názvem **mytopic**, potřebujete oprávnění Microsoft.EventGrid/EventSubscriptions/Write na:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Například k odběru vlastní téma s názvem **mytopic**, potřebujete oprávnění Microsoft.EventGrid/EventSubscriptions/Write na: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## <a name="topic-publishing"></a>Téma publikování
 
@@ -86,7 +91,7 @@ Můžete zahrnout ověřování hodnota v hlavičce protokolu HTTP. SAS, použij
 
 ### <a name="key-authentication"></a>Ověření pomocí klíče
 
-Ověření pomocí klíče je nejjednodušší formu ověřování. Použijte formát:`aeg-sas-key: <your key>`
+Ověření pomocí klíče je nejjednodušší formu ověřování. Použijte formát: `aeg-sas-key: <your key>`
 
 Například předáte klíč se:
 
@@ -98,7 +103,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Tokeny SAS pro událost mřížky zahrnují prostředku, čas vypršení platnosti a podpis. Formát tokenu SAS: `r={resource}&e={expiration}&s={signature}`.
 
-Prostředek je cesta k tématu, ke kterému jsou odesílání událostí. Například je cesta platná prostředku:`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+Prostředek je cesta k tématu, ke kterému jsou odesílání událostí. Například je cesta platná prostředku: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Generování podpisu z klíče.
 

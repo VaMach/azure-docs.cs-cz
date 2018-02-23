@@ -1,6 +1,7 @@
 
-1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **Procházet vše** > **App Services**a klikněte na vaše mobilní aplikace back-end. V části **nastavení**, klikněte na tlačítko **nabízené**a potom klikněte na **konfigurace služeb nabízených oznámení**.
-2. Přejděte na **Google (GCM)**, zadejte klíč starší verze serveru FCM jste získali z konzoly Firebase a pak klikněte na tlačítko **Uložit**.
+1. V [portál Azure](https://portal.azure.com/), vyberte **Procházet vše** > **App Services**. Potom vyberte Mobile Apps back-end. 
+2. V části **nastavení**, vyberte **Push**. Potom vyberte **konfigurace služeb nabízených oznámení**.
+2. Přejděte na **Google (GCM)**. Zadejte klíč FCM starší verze serveru, který jste získali z konzoly Firebase a potom vyberte **Uložit**.
 
 Služby je nyní nakonfigurováno pro práci s Firebase Cloud Messaging.
 

@@ -1,7 +1,7 @@
 ---
 title: "Azure IoT Suite – nejčastější dotazy | Microsoft Docs"
 description: "Nejčastější dotazy k sadě IoT Suite"
-services: 
+services: iot-suite
 suite: iot-suite
 documentationcenter: 
 author: dominicbetts
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Nejčastější dotazy k sadě IoT Suite
 
-Viz také připojené konkrétní objekt pro vytváření [– nejčastější dotazy](iot-suite-faq-cf.md).
+Viz také [připojené nejčastější dotazy týkající se vytváření specifické](iot-suite-faq-cf.md) a [nejčastější dotazy týkající se vzdáleného monitorování specifické pro](iot-suite-faq-rm-v2.md) .
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Kde najdu zdrojový kód pro předkonfigurované řešení?
 
@@ -34,41 +34,26 @@ Zdrojový kód je uložena v následující úložišť GitHub:
 * [Předkonfigurované řešení prediktivní údržby](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Připojené objekt pro vytváření předkonfigurovaného řešení](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Kolik stojí zřídit nové řešení vzdáleného monitorování?
-
-Nové předkonfigurované řešení nabízí dvě možnosti nasazení:
-
-* A *základní* možnost určená pro vývojáře, kteří hledají nižší náklady na vývoj nebo zákazníci chtějí vytvořit ukázku nebo testování konceptu.
-* A *standardní* možnost určený pro podniky chtějí nasadit infrastrukturu produkční prostředí.
-
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Jak můžete zajistit, že I snížení Moje nákladů při I vyvíjet mém řešení?
-
-Kromě dvě odlišné nasazení, nové řešení vzdáleného monitorování má nastavení, které povolí nebo zakáže všechna Simulovaná zařízení na vyžádání. Zakázání simulaci snižuje požity v řešení a proto celkové náklady na data.
-
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>Nové architektury mikroslužeb je k dispozici pro všechny tři předkonfigurovaná řešení?
 
 V současné době pouze řešení vzdáleného monitorování používá architekturu mikroslužeb jako pokrývá nejširší scénář.
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>V nové aktualizace jaké výhody poskytuje nové open source na základě mikroslužeb architektury?
 
-Za poslední dva roky se výrazně vyvinuly cloudové architektury. Malých služby jako skvělé vzor k dosažení škálování a flexibilitu, aniž by došlo ke ztrátě vývoj rychlostí této služby. Tento vzor architektury se používá v několika služeb Microsoft interně s skvělé spolehlivosti a škálovatelnosti výsledky. Jsme jsou uvedení těchto učení v praxi, aby naše zákazníky těžit z nich.
+Za poslední dva roky se výrazně vyvinuly cloudové architektury. Mikroslužeb této služby jako skvělé vzor k dosažení škálování a flexibilitu, aniž by došlo ke ztrátě vývoj rychlostí. Tento vzor architektury se používá v několika služeb Microsoft interně s skvělé spolehlivosti a škálovatelnosti výsledky. Jsme jsou uvedení těchto učení v praxi, aby naše zákazníky těžit z nich.
 
 ### <a name="is-the-new-preconfigured-solution-available-in-the-same-geographic-region-as-the-existing-solution"></a>Je k dispozici nové předkonfigurované řešení ve stejné zeměpisné oblasti jako existující řešení?
 
 Ano, nové vzdálené monitorování je dostupný ve stejné zeměpisné oblasti.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Jaký je rozdíl mezi možnostmi úrovně basic a standard nasazení? Jak se rozhodnout mezi možnostmi dvě nasazení?
-
-Jednotlivé možnosti nasazení odpoví na různé potřeby. Základní nasazení slouží k zahájení práce a vývoj, testování koncepce a rozsáhlá pilotní nasazení. Nabízí efektivní architektura s minimální potřebné prostředky a nižší náklady. Standardní nasazení slouží k vytvoření a přizpůsobení řešení pro produkční prostředí a poskytuje nasazení s nezbytné elementy pro Pamatujte si, že. Spolehlivost a škálování aplikace mikroslužeb jsou vytvořené jako kontejnery Docker a nasazují pomocí orchestrator (Kubernetes ve výchozím nastavení). Orchestrator je zodpovědná za nasazení, škálování a správu aplikace. Měli byste vybrat možnost podle aktuální potřeby. Můžete použít jednu, dalších nebo kombinace obojího, v závislosti na vaší fázi projektu.
-
-### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Můžete nadále využívat mé existující investice do Azure IoT Suite?
-
-Ano. Žádné řešení, které existuje ještě dnes nadále fungovat ve vašem předplatném Azure a zdrojový kód zůstává k dispozici na webu GitHub.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Jaký je rozdíl mezi odstranění skupiny prostředků na portálu Azure a kliknutím na Odstranit v předkonfigurovaném řešení na stránkách azureiotsuite.com?
 
 * Pokud odstraníte předkonfigurované řešení na [azureiotsuite.com](https://www.azureiotsuite.com/), odstranit všechny prostředky, které byly zřízeny při vytváření předkonfigurovaného řešení. Pokud jste do skupiny prostředků přidali další prostředky, tyto prostředky budou také odstraněny.
 * Pokud odstraníte skupinu prostředků [portál Azure](https://portal.azure.com), se odstraní pouze prostředky v příslušné skupině prostředků. Budete také muset odstranit aplikaci Azure Active Directory, které jsou spojené s předkonfigurovaným řešením.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Můžete nadále využívat mé existující investice do Azure IoT Suite?
+
+Ano. Žádné řešení, které existuje ještě dnes nadále fungovat ve vašem předplatném Azure a zdrojový kód zůstává k dispozici na webu GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Kolik instancí služby IoT Hub můžete zřídit v jednom předplatném?
 
@@ -77,10 +62,6 @@ Ve výchozím nastavení můžete zřídit [10 centra IoT na jedno předplatné]
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Kolik instancí Azure Cosmos DB můžete zřídit v jednom předplatném?
 
 Padesát. Můžete vytvořit [lístek podpory Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) chcete tento limit zvýšit, ale ve výchozím nastavení, můžete zřídit 50 instancí Cosmos DB za předplatné.
-
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Jak nakonfigurovat dynamické mapy na řídicím panelu?
-
-Další informace najdete v tématu [upgradu mapy klíč zobrazit zařízení na mapě dynamické](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Kolik bezplatných rozhraní API Map Bing můžu zřídit v jednom předplatném?
 
@@ -105,6 +86,7 @@ Najdete v příspěvku blogu od Erica Golpeho [návod odstranění klient služb
 
 Můžete si taky prostudovat některé další funkce a možnosti předkonfigurovaných řešení sady IoT Suite:
 
+* [Prozkoumejte možnosti předkonfigurovaného řešení vzdáleného monitorování](iot-suite-remote-monitoring-explore.md)
 * [Přehled řešení předkonfigurované prediktivní údržby](iot-suite-predictive-overview.md)
 * [Přehled připojené objekt pro vytváření předkonfigurovaného řešení](iot-suite-connected-factory-overview.md)
 * [Zabezpečení IoT od základů](securing-iot-ground-up.md)

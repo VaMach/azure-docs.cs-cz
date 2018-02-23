@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Vytvoření externího App Service environment #
 
@@ -59,7 +59,7 @@ Plán služby App Service je kontejner aplikací. Když vytvoříte aplikaci v A
 
 Vytvořit App Service Environment, když vytvoříte plán služby App Service:
 
-1. V [portál Azure](https://portal.azure.com/), vyberte **nový** > **Web + mobilní** > **webové aplikace**.
+1. V [portál Azure](https://portal.azure.com/), vyberte **vytvořit prostředek** > **Web + mobilní** > **webové aplikace**.
 
     ![Vytvoření webové aplikace][1]
 
@@ -97,7 +97,7 @@ Vytvořit App Service Environment, když vytvoříte plán služby App Service:
 
 Pokud vytvoříte samostatné App Service Environment, má nic v ní. Prázdný App Service Environment stále způsobuje měsíčních poplatků infrastruktury. Postupujte podle těchto kroků k vytvoření App Service Environment s ILB nebo vytvořit App Service Environment ve vlastní skupině prostředků. Po vytvoření vaší App Service Environment, se můžou vytvářet aplikace pomocí běžných postupů. Vyberte vaše nové App Service Environment jako umístění.
 
-1. Hledání v Azure Marketplace pro **App Service Environment**, nebo vyberte **nový** > **mobilní webové** > **App Service Environment**. 
+1. Hledání v Azure Marketplace pro **App Service Environment**, nebo vyberte **vytvořit prostředek** > **mobilní webové** > **aplikace Služby prostředí**. 
 
 2. Zadejte název vaší App Service Environment. Tento název se používá pro aplikace vytvořené v App Service Environment. Pokud je název *mynewdemoase*, je název subdomény *. mynewdemoase.p.azurewebsites.net*. Pokud vytvoříte aplikaci s názvem *mytestapp*, je adresovatelné v mytestapp.mynewdemoase.p.azurewebsites.net. Prázdné znaky nelze použít v názvu. Pokud používáte velká písmena, název domény je celkový počet malých verzi název. Pokud používáte ILB, název App Service Environment není používáno ve vašem subdomény, ale je místo výslovně uvedeno během vytváření App Service Environment.
 

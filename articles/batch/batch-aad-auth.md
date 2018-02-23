@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Ověření řešení služby Batch se službou Active Directory
 
@@ -92,7 +92,7 @@ K ověřování pro integrované ověřování, budete muset udělit oprávněn�
 
 Jakmile jste [zaregistrovat aplikaci](#register-your-application-with-an-azure-ad-tenant), postupujte podle těchto kroků na portálu Azure jí udělit přístup do služby Batch:
 
-1. V levém navigačním podokně portálu Azure, zvolte **více služeb**, klikněte na tlačítko **registrace aplikace**.
+1. V levém navigačním podokně portálu Azure, zvolte **všechny služby**. Klikněte na tlačítko **registrace aplikace**.
 2. Vyhledejte název vaší aplikace v seznamu aplikace registrace:
 
     ![Vyhledávání pro název aplikace](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Když se aplikace ověřuje s hlavní službou, odešle do služby Azure AD ID a
 
 Pomocí těchto kroků na portálu Azure:
 
-1. V levém navigačním podokně portálu Azure, zvolte **více služeb**, klikněte na tlačítko **registrace aplikace**.
+1. V levém navigačním podokně portálu Azure, zvolte **všechny služby**. Klikněte na tlačítko **registrace aplikace**.
 2. Vyhledejte název vaší aplikace v seznamu aplikace registrací.
 3. Zobrazení **nastavení** okno. V **přístup pomocí rozhraní API** vyberte **klíče**.
 4. Vytvoření klíče, zadejte popis pro klíč. Pak vyberte dobu trvání pro klíč jeden nebo dva roky. 

@@ -3,8 +3,8 @@ title: "Úložiště a zobrazení diagnostických dat v úložišti Azure | Micr
 description: "Získat Azure diagnostická data do úložiště Azure a jeho zobrazení"
 services: cloud-services
 documentationcenter: .net
-author: rboucher
-manager: jwhit
+author: thraka
+manager: timlt
 editor: tysonn
 ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: robb
-ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adegeo
+ms.openlocfilehash: 448d685cf2c0a21f4f87e672644a3cf72c2a576f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Úložiště a zobrazení diagnostických dat ve službě Azure Storage
 Diagnostických dat není uložena trvale, pokud ho přenést na emulátor úložiště Microsoft Azure nebo do úložiště Azure. Jednou v úložišti, prohlížení s jedním z několika dostupných nástrojů.
@@ -76,7 +76,7 @@ Data protokolu se ukládají v úložišti objektů Blob nebo tabulky s těmito 
 * **"vlastní"** – vlastní kontejner podle konfigurace adresáře, které jsou monitorovány pomocí monitorování diagnostiky.  Název kontejneru objektu blob budou zadány v WADDirectoriesTable.
 
 ## <a name="tools-to-view-diagnostic-data"></a>Nástroje pro zobrazení diagnostických dat
-Několik nástrojů je možné zobrazit data, jakmile se přenese do úložiště. Například:
+Několik nástrojů je možné zobrazit data, jakmile se přenese do úložiště. Příklad:
 
 * Průzkumník serveru v sadě Visual Studio – Pokud jste nainstalovali nástroje Azure pro sadu Microsoft Visual Studio, můžete v uzlu úložiště Azure v Průzkumníku serveru k zobrazení jen pro čtení objektů blob a data tabulky z účtům Azure storage. Můžete zobrazit data z účtu emulátor místního úložiště a taky z účtů úložiště jste vytvořili pro Azure. Další informace najdete v tématu [procházení a Správa prostředků úložiště pomocí Průzkumníka serveru](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) je samostatná aplikace, která umožňuje snadno pracovat s daty Azure Storage v systému Windows, na OSX a Linux.

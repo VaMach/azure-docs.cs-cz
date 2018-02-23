@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Často kladené otázky Service Fabric
 
@@ -37,7 +37,7 @@ Pokud vás zajímá v tomto scénáři, doporučujeme vám získat v kontaktu bu
 Pár věcí k uvážení: 
 
 1. Prostředek clusteru Service Fabric v Azure je regionální v současné době jsou sady škálování virtuálního počítače, zda je cluster založený na. To znamená, že místní selhání může ztratit schopnost spravovat cluster pomocí Azure Resource Manager nebo portálu Azure. To může dojít, i když cluster zůstane spuštěný a bude moct pracovat s ním přímo. Kromě toho Azure ještě dnes nenabízí možnost používat jedné virtuální sítě, které lze použít v oblastech. To znamená, že cluster více oblasti v Azure vyžaduje buď [veřejné IP adresy pro každý virtuální počítač ve Škálovací sady virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) nebo [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Tyto možnosti sítě mají různé dopady na náklady, výkon, a při návrhu aplikace některé míry, proto opatrní analýzy a plánování je vyžadována před stojící až takovém prostředí.
-2. Údržby, správu, a monitorování těchto počítačů se může stát složitá, zejména v případě, že rozloženy _typy_ prostředí, například mezi zprostředkovatelé jiný cloud, nebo mezi místními prostředky a Azure. Musí být dbát na to, že upgrady, monitorování, správy a diagnostiky jsou pochopeny pro cluster a aplikace před spuštěním úlohy v produkčním prostředí v takovém prostředí. Pokud již máte spoustu prostředí řešení těchto problémů v Azure nebo v rámci vlastní datových center, je pravděpodobné, že tyto stejné řešení může být použitá při vytváření nebo spuštění clusteru Service Fabric. 
+2. Údržby, správu, a monitorování těchto počítačů se může stát složitá, zejména v případě, že rozloženy _typy_ prostředí, například mezi zprostředkovatelé jiný cloud, nebo mezi místními prostředky a Azure. Musí být dbát na to, že upgrady, monitorování, správy a diagnostiky jsou pochopeny pro cluster a aplikace před spuštěním úlohy v produkčním prostředí v takovém prostředí. Pokud již máte zkušenosti řešení těchto problémů v Azure nebo v rámci vlastní datových center, je pravděpodobné, že tyto stejné řešení může být použitá při vytváření nebo spuštění clusteru Service Fabric. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric uzly automaticky přijímat aktualizace operačního systému?
 
@@ -49,11 +49,11 @@ Výzva s aktualizacemi operačního systému je, že obvykle vyžadují restart 
 
 V budoucnu plánujeme podporu zásadu aktualizace operačního systému, která je plně automatizované a koordinované napříč doménami aktualizace, zajistíte, že se zachová dostupnosti, i když restartování počítače a jiné neočekávané chyby.
 
-### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Můžete použít velké sady škálování virtuálního počítače v clusteru Moje SF? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Můžete použít sady škálování velký virtuální počítač v clusteru Moje SF? 
 
 **Krátkodobých odpovědí** – ne. 
 
-**Dlouho zodpovědět** – i když velké sady škálování virtuálního počítače umožňuje škálování virtuálního počítače škálovat instance až 1 000 virtuálních počítačů sady, učiní tak pomocí skupin umístění (PGs). Domén selhání (FDs) a aktualizace domény (UDs) jsou jenom konzistentní v rámci umístění skupiny Service fabric používá FDs a UDs rozhodnutí umístění instancí služby repliky nebo služby. Vzhledem k tomu, že jsou porovnatelný z hlediska FDs a UDs pouze v rámci skupiny umístění SF nemůžete ji použít. Například pokud má VM1 v so1 topologii FD = 0 a VM9 v SO2 má topologii FD = 4, neznamená, VM1 a virtuálního počítače 2 se nacházejí ve dvou různých stojany hardwaru, proto SF nelze použít hodnoty FD v takovém případě při rozhodování o umístění.
+**Dlouho zodpovědět** – Přestože sady škálování velký virtuální počítač umožňují škálování virtuálního počítače škálovat instance až 1 000 virtuálních počítačů sady, učiní tak pomocí skupin umístění (PGs). Domén selhání (FDs) a aktualizace domény (UDs) jsou jenom konzistentní v rámci umístění skupiny Service fabric používá FDs a UDs rozhodnutí umístění instancí služby repliky nebo služby. Vzhledem k tomu, že je porovnatelný z hlediska pouze v rámci skupiny umístění FDs a UDs, nemůžete ji použít SF. Například pokud má VM1 v so1 topologii FD = 0 a VM9 v SO2 má topologii FD = 4, neznamená, VM1 a virtuálního počítače 2 se nacházejí ve dvou různých stojany hardwaru, proto SF nelze použít hodnoty FD v takovém případě při rozhodování o umístění.
 
 Další problémy s škálovací sady virtuálních počítačů velké aktuálně neexistují, jako jsou nedostatečná úroveň 4 načíst vyrovnávání podporu. Naleznete v tématu [podrobnosti o velké škálování sady](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
@@ -86,22 +86,25 @@ Pokud chcete vytvořit clustery pro testování vašich aplikací před nasazen�
 
 Při pracujeme na vylepšené uživatelské prostředí, v současné době jste zodpovědní za upgradu. Je nutné upgradovat bitovou kopii operačního systému na virtuální počítače z jednoho clusteru virtuálních počítačů současně. 
 
+### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Můžete šifrovat připojené datové disky v typu uzlu clusteru (škálovací sadu virtuálních počítačů)?
+Ano.  Další informace najdete v tématu [vytvořit cluster s disky připojené data](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [šifrování disků (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), a [šifrování disků (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+
 ## <a name="container-support"></a>Podpora kontejnerů
 
 ### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Proč je můj kontejnery, které jsou nasazeny do SF nelze přeložit adresy DNS?
 
 Potíže hlášené v clusterech, které jsou na 5.6.204.9494 verze 
 
-**Zmírnění dopadů** : postupujte podle [tento dokument](service-fabric-dnsservice.md) povolení služby prostředků infrastruktury služby DNS v clusteru.
+**Zmírnění dopadů**: postupujte podle [tento dokument](service-fabric-dnsservice.md) povolení služby prostředků infrastruktury služby DNS v clusteru.
 
-**Opravte** : Upgrade clusteru podporovanou verzi, která je vyšší než 5.6.204.9494, jakmile bude k dispozici. Pokud váš cluster je nastavena na automatické upgrady, pak clusteru bude automaticky upgradovat na verzi, která má potíže pevné.
+**Opravte**: Upgrade clusteru podporovanou verzi, která je vyšší než 5.6.204.9494, jakmile bude k dispozici. Pokud váš cluster je nastavena na automatické upgrady, pak clusteru bude automaticky upgradovat na verzi, která má potíže pevné.
 
   
 ## <a name="application-design"></a>Návrh aplikace
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Co je nejlepší způsob, jak dotaz na data napříč oddíly spolehlivé kolekce?
 
-Spolehlivé kolekce jsou obvykle [oddílů](service-fabric-concepts-partitioning.md) povolit škálování pro lepší výkon a propustnost. To znamená, že může být stavu pro danou službu rozloženy 10s nebo 100s počítačů. K provádění operací přes tento úplné datové sady, máte několik možností:
+Spolehlivé kolekce jsou obvykle [oddílů](service-fabric-concepts-partitioning.md) povolit škálování pro lepší výkon a propustnost. To znamená, že může být stavu pro danou službu rozloženy desítky či stovky počítačů. K provádění operací přes tento úplné datové sady, máte několik možností:
 
 - Vytvoření služby, který se dotazuje všechny oddíly jinou službu stáhnout požadovaná data.
 - Vytvoření služby, který může přijímat data z všechny oddíly z jiné služby.
@@ -112,24 +115,24 @@ Spolehlivé kolekce jsou obvykle [oddílů](service-fabric-concepts-partitioning
 
 Aktéři jsou navrženy tak, aby nezávislé jednotky stavu a výpočty, a nedoporučuje se provádět široké dotazy stavu objektu actor v době běhu. Pokud máte třeba dotazu mezi úplnou sadu stavu objektu actor, je třeba zvážit buď:
 
-- Nahraďte vaše služby objektu actor stavová spolehlivé služby tak, aby byl počet síťových požadavků ke shromažďování všech dat ze počet aktéři počet oddílů ve službě.
+- Nahraďte vaše služby objektu actor stavová spolehlivé služby tak, aby se počet síťových požadavků ke shromažďování všech dat ze počet aktéři počet oddílů ve službě.
 - Navrhování vaší subjektům v externím obchodu pro snazší dotazování pravidelně nabízená jejich stavu. Jako výše, tento přístup je pouze navíc nefungovalo, pokud nejsou potřeba pro vaše modul runtime chování právě prováděné dotazy.
 
 ### <a name="how-much-data-can-i-store-in-a-reliable-collection"></a>Kolik dat můžete ukládat v kolekci spolehlivé?
 
 Spolehlivé služby jsou obvykle rozdělena na oddíly, takže částku, kterou můžete uložit omezen pouze podle počtu počítačů, které máte v clusteru a množství paměti k dispozici v těchto počítačích.
 
-Jako příklad předpokládejme, že máme spolehlivé kolekce ve službě se 100 oddíly a 3 repliky, ukládání objektů, které Průměrná velikost 1kb. Nyní předpokládejme, že máte cluster 10 počítače s 16gb paměti na jeden počítač. Pro jednoduchost a který se má velmi konzervativní, předpokládají, že operační systém a systémových služeb, modulu runtime Service Fabric a vašim službám využívat 6gb paměti, pak 10gb, které jsou k dispozici na počítač, nebo 100gb pro cluster.
+Jako příklad předpokládejme, že máme spolehlivé kolekce ve službě se 100 oddíly a 3 repliky, ukládání objektů, které Průměrná velikost 1 kb. Nyní předpokládejme, že máte cluster 10 počítače s 16gb paměti na jeden počítač. Pro jednoduchost a chcete buďte konzervativní, předpokládají, že operační systém a systémových služeb, modulu runtime Service Fabric a vašim službám využívat 6gb paměti, pak 10gb, které jsou k dispozici na počítač, nebo 100 gb pro cluster.
 
 Pamatujte, že každý objekt musí být uložené tři časy (primární a dvě repliky), byste měli dostatek paměti pro přibližně 35 miliónů objektů v kolekci, při fungování v celém rozsahu. Doporučujeme však probíhá odolné vůči souběžných ztrátě domény selhání a upgradu doménu, která představuje asi 1/3 kapacitu a by snížit počet na zhruba miliónů 23.
 
 Všimněte si, že tento výpočet také předpokládá:
 
-- Že distribuce dat mezi oddílů je přibližně uniform nebo že jste se generování sestav metriky zatížení správce prostředků clusteru. Ve výchozím nastavení bude vyrovnávat na základě počtu repliky zatížení Service Fabric. V našem příkladu výše, který by uveďte 10 primární repliky a 20 sekundární repliky na každém uzlu v clusteru. Že to funguje dobře pro zatížení, která je rovnoměrně rozdělené mezi oddílů. Pokud není zatížení i, je nutné, aby mohli Resource Manager společně pack menší repliky a povolit větší repliky spotřebuje další paměť na jednotlivých uzlech hlásit zatížení.
+- Že distribuce dat mezi oddílů je přibližně uniform nebo že jste se generování sestav metriky zatížení správce prostředků clusteru. Ve výchozím nastavení načte Service Fabric vyrovnávání na základě počtu repliky. V předchozím příkladu, který by uveďte 10 primární repliky a 20 sekundární repliky na každém uzlu v clusteru. Že to funguje dobře pro zatížení, která je rovnoměrně rozdělené mezi oddílů. Pokud není zatížení i, je nutné, aby mohli Resource Manager společně pack menší repliky a povolit větší repliky spotřebuje další paměť na jednotlivých uzlech hlásit zatížení.
 
-- Zda příslušné spolehlivé služby je pouze jeden ukládání stavu v clusteru. Vzhledem k tomu, že do clusteru, abyste mohli nasadit víc služeb, je potřeba mít prostředky s vědomím, že každý nutné spouštět a spravovat stav.
+- Zda příslušné spolehlivé služby je pouze jeden ukládání stavu v clusteru. Vzhledem k tomu, že do clusteru, abyste mohli nasadit víc služeb, je potřeba mít prostředky s vědomím, že každý musí spouštět a spravovat stav.
 
-- Aby samotného clusteru není rostoucí nebo zmenšení. Pokud přidáte více počítačů, Service Fabric se znovu vyvážit repliky využívat dodatečnou kapacitu, dokud počet počítačů převyšuje počet oddílů ve vaší služby, protože některé replice nemůžou zahrnovat počítače. Naopak pokud zmenšit velikost clusteru odebráním počítače, bude balí více úzce repliky a mít menší celkové kapacity.
+- Aby samotného clusteru není rostoucí nebo zmenšení. Pokud přidáte více počítačů, Service Fabric se znovu vyvážit repliky využívat dodatečnou kapacitu, dokud počet počítačů převyšuje počet oddílů ve vaší služby, protože některé replice nemůžou zahrnovat počítače. Naopak pokud zmenšit velikost clusteru odebráním počítače, repliky jsou podrobněji mnoha funkcemi a mít menší celkové kapacity.
 
 ### <a name="how-much-data-can-i-store-in-an-actor"></a>Kolik dat můžete ukládat do objektu actor?
 
@@ -141,12 +144,12 @@ Stejně jako u spolehlivé služby množství dat, které můžete ukládat do s
 
 Kontejnery nabízejí jednoduchý způsob, jak balíček služeb a jejich závislosti tak, aby se spustit konzistentně ve všech prostředích a mohou pracovat izolovaným způsobem na jednom počítači. Service Fabric nabízí způsob, jak nasadit a spravovat služby, včetně [služby, které byly zabaleny v kontejneru](service-fabric-containers-overview.md).
 
-### <a name="are-you-planning-to-open-source-service-fabric"></a>Máte v úmyslu otevřít zdroj Service Fabric?
+### <a name="are-you-planning-to-open-source-service-fabric"></a>Plánujete open-source Service Fabric
 
-Plánujeme otevřete zdroje reliable services a spolehlivé aktéři architektury na Githubu a bude přijímat příspěvky ze strany komunity na těchto projekty. Postupujte podle [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) další podrobnosti, jak se budou oznámeny.
+Plánujeme zajistit open-source spolehlivé služeb a rozhraní spolehlivé aktéři na Githubu a přijímat příspěvky ze strany komunity na těchto projekty. Postupujte podle [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) další podrobnosti, jak se budou oznámeny.
 
-Jsou aktuálně žádné plány otevřete zdroje modulu runtime Service Fabric.
+Modulu runtime Service Fabric se aktuálně ani neplánuje open source.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Další informace o klíčových konceptech Service Fabric a osvědčené postupy](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

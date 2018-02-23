@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: daveba
 ms.reviewer: luleon
-ms.openlocfilehash: 827d5c8669eb54630adbaba0306e73b5de6a7137
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b65284f799eca956c30db21d5d4171d0495297ea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Přiřadit uživatele nebo skupinu enterprise aplikace v Azure Active Directory
 Přiřadit uživatele nebo skupiny do podnikové aplikace, musí mít příslušná oprávnění ke správě firemní aplikace a musí být globální správce adresáře.
@@ -28,7 +28,7 @@ Přiřadit uživatele nebo skupiny do podnikové aplikace, musí mít přísluš
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Přiřazení přístupu uživatelů k aplikaci podnikové na portálu Azure
 1. Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
-2. Vyberte **další služby**, zadejte do textového pole Azure Active Directory a potom vyberte **Enter**.
+2. Vyberte **všechny služby**, zadejte do textového pole Azure Active Directory a potom vyberte **Enter**.
 3. Na **Azure Active Directory – *directoryname***  okno (to znamená, Azure AD okna pro adresář spravujete), vyberte **podnikové aplikace, které**.
 
     ![Otevírání podnikové aplikace](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
@@ -72,7 +72,7 @@ Přiřadit uživatele nebo skupiny do podnikové aplikace, musí mít přísluš
 
 Další informace o tom, jak přiřadit uživatele k roli aplikace naleznete v dokumentaci k [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Tento příklad přiřadí uživatele Britta Simon k [Microsoft Analytics síti na pracovišti](https://products.office.com/en-us/business/workplace-analytics) aplikace pomocí prostředí PowerShell.
 
@@ -110,7 +110,7 @@ Tento příklad přiřadí uživatele Britta Simon k [Microsoft Analytics síti 
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Zobrazit všechny moje skupin](active-directory-groups-view-azure-portal.md)
 * [Odebrat uživatele nebo skupinu přiřazení z podnikové aplikace.](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Zakázat přihlášení uživatele pro aplikaci, enterprise](active-directory-coreapps-disable-app-azure-portal.md)

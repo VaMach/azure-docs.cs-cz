@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IoT pro vzdálené monitorování a oznámení službou Azure Logic Apps připojení služby IoT hub a poštovní schránky
 
@@ -50,7 +50,7 @@ Zjistíte, jak vytvořit aplikaci logiky, která se připojuje služby IoT hub a
 
 ### <a name="create-a-service-bus-namespace"></a>Vytvořit obor názvů sběrnice služby
 
-1. Na [portál Azure](https://portal.azure.com/), klikněte na tlačítko **nový** > **Enterprise integrace** > **Service Bus**.
+1. Na [portál Azure](https://portal.azure.com/), klikněte na tlačítko **vytvořit prostředek** > **Enterprise integrace** > **Service Bus**.
 1. Zadejte následující informace:
 
    **Název**: název služby service bus.
@@ -111,7 +111,7 @@ Zjistíte, jak vytvořit aplikaci logiky, která se připojuje služby IoT hub a
 
 ### <a name="create-a-logic-app"></a>Vytvoření aplikace logiky
 
-1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **nový** > **Enterprise integrace** > **aplikace logiky**.
+1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **vytvořit prostředek** > **Enterprise integrace** > **aplikace logiky**.
 1. Zadejte následující informace:
 
    **Název**: název aplikace logiky.
@@ -161,7 +161,7 @@ Zjistíte, jak vytvořit aplikaci logiky, která se připojuje služby IoT hub a
 
 Aplikace logiky je ve funkčním stavu, když jste jej uložili.
 
-## <a name="test-the-logic-app"></a>Aplikaci logiky si otestujte
+## <a name="test-the-logic-app"></a>Otestování aplikace logiky
 
 1. Spustit aplikaci klienta, který nasadíte do zařízení v [ESP8266 připojit ke službě Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md).
 1. Zvýšení teploty prostředí kolem SensorTag být vyšší než 30 C. Například light svíčkového grafu okolo vaší SensorTag.
@@ -170,7 +170,7 @@ Aplikace logiky je ve funkčním stavu, když jste jej uložili.
    > [!NOTE]
    > Poskytovatel služeb e-mailu možná muset ověřit identitu odesílatele a ujistěte se, že se že jedná, kdo odešle e-mailu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Úspěšně jste vytvořili aplikaci logiky, která se připojuje služby IoT hub a poštovní schránky pro monitorování teploty a oznámení.
 

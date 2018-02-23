@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operace v Azure Active Directory Connect Health
 Toto téma popisuje různé operace, které můžete provádět pomocí Azure Active Directory (Azure AD) Connect Health.
@@ -42,6 +42,9 @@ Můžete nakonfigurovat službu Azure AD Connect Health k odesílání e-mailov�
 
 ## <a name="delete-a-server-or-service-instance"></a>Odstranění instance serveru nebo služby
 
+>[!NOTE] 
+> Je nutné postup odstranění Azure AD premium licenci.
+
 V některých případech můžete chtít odebrání serveru z monitorovány. Zde je, co potřebujete vědět o odebrání serveru z služby Azure AD Connect Health.
 
 Pokud odstraňujete serveru, nezapomeňte z následujících akcí:
@@ -51,7 +54,11 @@ Pokud odstraňujete serveru, nezapomeňte z následujících akcí:
 * Tato akce neodstraní data již shromážděná z tohoto serveru. Data odstraněna podle zásad uchovávání dat Azure.
 * Po provedení této akce, pokud chcete začít monitorovat stejný server znovu, musíte odinstalovat a znovu nainstalujte agenta stavu na tomto serveru.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Odstranění serveru ze služby Azure AD Connect Health
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Odstranění serveru ze služby Azure AD Connect Health
+
+>[!NOTE] 
+> Je nutné postup odstranění Azure AD premium licenci.
+
 Azure AD Connect Health pro Active Directory Federation Services (AD FS) a Azure AD Connect (Sync):
 
 1. Otevřete **Server** okno z **seznam serverů** tak, že vyberete serveru název odeberou.
@@ -133,7 +140,7 @@ Nyní uvedené uživatele a skupiny mají přístup, podle jejich přiřazené r
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Krok 3: Sdílejte okno umístění k uživatelům nebo skupinám
-1. Po přiřazení oprávnění, může uživatel získat přístup Azure AD Connect Health přechodem [zde](http://aka.ms/aadconnecthealth).
+1. Po přiřazení oprávnění, může uživatel získat přístup Azure AD Connect Health přechodem [zde](https://aka.ms/aadconnecthealth).
 2. V okně uživatele můžete Připnout okno nebo různé části, na řídicí panel. Jednoduše klikněte **připnout na řídicí panel** ikonu.<br>
    ![Snímek Azure AD Connect Health RBAC Připnout okno, se zvýrazněnou ikonu Připnutí](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
@@ -148,7 +155,7 @@ Můžete odebrat uživatele nebo skupinu přidat do Azure AD Connect Health RBAC
 
 [//]: # (End of RBAC section)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalace agenta služby Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md)

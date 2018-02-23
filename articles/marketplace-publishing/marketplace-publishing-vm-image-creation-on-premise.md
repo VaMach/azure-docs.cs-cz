@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Vytvořte bitovou kopii virtuálního počítače místní pro Azure Marketplace
 Důrazně doporučujeme vývoji Azure virtuální pevné disky (VHD) přímo v cloudu pomocí protokolu RDP. Ale pokud je potřeba, je možné stáhnout virtuální pevný disk a vytvořte ho pomocí místní infrastruktury.  
@@ -75,7 +75,7 @@ Kromě pomocí portálu Azure, můžete použít [uložit AzureVhd](http://msdn.
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Například uložit AzureVhd-zdroje "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath "C:\Users\Administrator\Desktop\baseimagevm.vhd" - klíč úložiště<String>
+Například uložit AzureVhd-zdroje "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath "C:\Users\Administrator\Desktop\baseimagevm.vhd" - klíč úložiště <String>
 
 > [!NOTE]
 > **Uložit AzureVhd** má také **NumberOfThreads** možnost, která můžete použít ke zvýšení paralelismus za účelem co nejlepší využití dostupné šířky pásma pro stažení.
@@ -92,7 +92,7 @@ Pokud chcete vytvořit účet úložiště, můžete použít [portálu Microsof
 
 **Vytvořit účet úložiště z portálu Microsoft Azure**
 
-1. Klikněte na možnost **Nové**.
+1. Klikněte na tlačítko **vytvořit prostředek**.
 2. Vyberte **úložiště**.
 3. Zadejte název účtu úložiště a pak vyberte umístění.
    
@@ -143,9 +143,9 @@ Použití [přidat AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) ru
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Nahrát VHD pomocí nástroje příkazového řádku pro Mac a Linux
-S [nástroj příkazového řádku Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), použijte následující: vytvoření bitové kopie virtuálního počítače azure <image name> – umístění <Location of the data center> – operačního systému Linux<LocationOfLocalVHD>
+S [nástroj příkazového řádku Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), použijte následující: vytvoření bitové kopie virtuálního počítače azure <image name> – umístění <Location of the data center> – operačního systému Linux <LocationOfLocalVHD>
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Vytváření bitové kopie virtuálního počítače pro Marketplace.](marketplace-publishing-vm-image-creation.md)
 * [Nastavení prostředí Azure PowerShell](marketplace-publishing-powershell-setup.md)
 

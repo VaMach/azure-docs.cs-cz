@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Nastavení kompletní obměny klíčů a auditování ve službě Azure Key Vault
 ## <a name="introduction"></a>Úvod
@@ -255,12 +255,12 @@ Dalším krokem je [vytvořit frontu Azure Service Bus](../service-bus-messaging
 
 1. Vytvoření oboru názvů Service Bus (Pokud již účet máte, kterou chcete použít pro tento, přejděte ke kroku 2).
 2. Přejděte do služby service bus na portálu Azure a vyberte obor názvů, které chcete vytvořit ve frontě v.
-3. Vyberte **nový** a zvolte **Service Bus > fronty** a zadejte požadované podrobnosti.
+3. Vyberte **vytvořit prostředek**, **Enterprise integrace**, **Service Bus**a potom zadejte požadované podrobnosti.
 4. Zvolit informace o připojení služby Service Bus výběr obor názvů a **informace o připojení**. Tyto informace budete potřebovat pro další části.
 
 Dále [vytvoření Azure funkce](../azure-functions/functions-create-first-azure-function.md) dotazování protokoly trezoru klíčů v rámci účtu úložiště a vyzvednutí nové události. Bude jím funkci, která se spustí podle plánu.
 
-Pokud chcete vytvořit Azure funkce, vyberte **nový > funkce aplikace** na portálu Azure. Během vytváření můžete použít existující hostingový plán nebo vytvořte novou. Může se rovněž rozhodnout pro dynamické hostování. Další informace o funkce hostování možnosti naleznete na [postup škálování Azure Functions](../azure-functions/functions-scale.md).
+Pokud chcete vytvořit Azure funkce, vyberte **vytvořit prostředek**, vyhledávání na webu marketplace pro _aplikaci funkce_a klikněte na tlačítko **vytvořit**. Během vytváření můžete použít existující hostingový plán nebo vytvořte novou. Může se rovněž rozhodnout pro dynamické hostování. Další informace o funkce hostování možnosti naleznete na [postup škálování Azure Functions](../azure-functions/functions-scale.md).
 
 Když je vytvořen funkci Azure, přejděte k němu a zvolte časovač funkce a C\#. Pak klikněte na tlačítko **vytvořit tuto funkci**.
 

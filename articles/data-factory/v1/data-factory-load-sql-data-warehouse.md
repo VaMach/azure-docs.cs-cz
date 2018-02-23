@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Načtení 1 TB do Azure SQL Data Warehouse pomocí služby Data Factory v části 15 minut
 > [!NOTE]
@@ -114,8 +114,8 @@ O postupech, pomocí požadovaných součástí byla dokončena jsme nyní přip
 
 ## <a name="launch-copy-wizard"></a>Spuštění průvodce kopírováním
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **+ nový** v levém horním rohu klikněte na **Intelligence + analýzy**a klikněte na tlačítko **Data Factory**.
-3. V okně **Nový objekt pro vytváření dat**:
+2. Klikněte na tlačítko **vytvořit prostředek** v levém horním rohu klikněte na **Intelligence + analýzy**a klikněte na tlačítko **Data Factory**.
+3. V **nový objekt pro vytváření dat** podokně:
 
    1. Zadejte **LoadIntoSQLDWDataFactory** pro **název**.
        Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí chyba: **název objektu pro vytváření dat "LoadIntoSQLDWDataFactory" není k dispozici**, změňte název objektu pro vytváření dat (například yournameLoadIntoSQLDWDataFactory) a zkuste to znovu. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.  

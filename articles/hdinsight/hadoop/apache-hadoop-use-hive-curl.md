@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/04/2017
+ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: c830abdf8220f222a06b771b8c9fc905146420b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Spouštění dotazů Hive se systémem Hadoop v HDInsight pomocí REST
 
@@ -28,24 +28,57 @@ ms.lasthandoff: 01/18/2018
 
 Naučte se používat rozhraní REST API WebHCat ke spouštění dotazů Hive se systémem Hadoop v clusteru Azure HDInsight.
 
-[Curl](http://curl.haxx.se/) se používá k ukazují, jak můžete pracovat s HDInsight pomocí nezpracované požadavky HTTP. [Jq](http://stedolan.github.io/jq/) nástroj se používá ke zpracování dat JSON vrácená z požadavky REST.
+## <a name="prerequisites"></a>Požadavky
 
-> [!NOTE]
-> Pokud jste obeznámeni s pomocí serverů se systémem Linux Hadoop, ale jsou nové do HDInsight, najdete v článku [co potřebujete vědět o Hadoop v HDInsight se systémem Linux](../hdinsight-hadoop-linux-information.md) dokumentu.
+* Systémem Linux Hadoop na verzi clusteru HDInsight 3.4 nebo vyšší.
+
+  > [!IMPORTANT]
+  > HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
+* Klient REST. Tento dokument využívá prostředí Windows PowerShell a [Curl](http://curl.haxx.se/) příklady.
+
+    > [!NOTE]
+    > Prostředí Azure PowerShell poskytuje vyhrazený rutiny pro práci s Hive v HDInsight. Další informace najdete v tématu [použití Hive v prostředí Azure PowerShell](apache-hadoop-use-hive-powershell.md) dokumentu.
+
+Tento dokument taky využívá prostředí Windows PowerShell a [Jq](http://stedolan.github.io/jq/) ke zpracování dat JSON vrácených z požadavků REST.
 
 ## <a id="curl"></a>Spouštění dotazů Hive
 
 > [!NOTE]
 > Pokud používáte cURL nebo jinou komunikaci REST s WebHCat, je třeba ověřit žádosti zadáním uživatelského jména a hesla pro správce clusteru HDInsight.
 >
-> Pro příkazy v této části nahraďte **správce** uživatelem pro ověření clusteru. Nahraďte **CLUSTERNAME** názvem vašeho clusteru. Po zobrazení výzvy zadejte heslo pro uživatelský účet.
->
 > Rozhraní API REST je zabezpečeno pomocí [základního ověřování](http://en.wikipedia.org/wiki/Basic_access_authentication). K zajištění, že vaše přihlašovací údaje jsou bezpečně odeslat na server, vždy proveďte požadavky pomocí Secure HTTP (HTTPS).
 
-1. Z příkazového řádku použijte následující příkaz k ověření, zda se můžete připojit ke clusteru HDInsight:
+1. Pokud chcete nastavit přihlášení clusteru, který je používán skripty v tomto dokumentu, použijte jednu z následujících příkazů:
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    read -p "Enter your cluster login account name: " LOGIN
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. Pokud chcete nastavit název clusteru, použijte jednu z následujících příkazů:
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+3. Ověřte, že se můžete připojit ke svému clusteru HDInsight, použijte jednu z následujících příkazů:
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
+    ```
+    
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
+       -Credential $creds
+    $resp.Content
     ```
 
     Můžete zobrazit odpověď podobná následující text:
@@ -56,13 +89,19 @@ Naučte se používat rozhraní REST API WebHCat ke spouštění dotazů Hive se
 
     Parametry použité v tomto příkazu jsou následující:
 
-    * **-u** – uživatelské jméno a heslo použité pro ověření žádosti.
-    * **-G** – označuje, že tento požadavek je operaci GET.
+    * `-u` -Uživatelské jméno a heslo použité k ověření žádosti.
+    * `-G` -Určuje, zda je tato žádost o operaci GET.
 
-   Na začátek adresu URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, je stejný pro všechny požadavky. Cesta **/status**, označuje, že požadavek je vrátit stav WebHCat (také známé jako Templeton) pro server. Můžete také vyžadovat verzi Hive pomocí následujícího příkazu:
+   Na začátek adresu URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, je stejný pro všechny požadavky. Cesty, `/status`, označuje, že požadavek je vrátit stav WebHCat (také známé jako Templeton) pro server. Můžete také vyžadovat verzi Hive pomocí následujícího příkazu:
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
+       -Credential $creds
+    $resp.Content
     ```
 
     Tento požadavek vrátí odpověď podobná následující text:
@@ -71,83 +110,70 @@ Naučte se používat rozhraní REST API WebHCat ke spouštění dotazů Hive se
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
     ```
 
-2. Následující informace vám pomůžou vytvořit tabulku s názvem **log4jLogs**:
+4. Následující informace vám pomůžou vytvořit tabulku s názvem **log4jLogs**:
 
     ```bash
-    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    JOBID=`curl -s -u $LOGIN -d user.name=$LOGIN -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/hive | jq .id`
+    echo $JOBID
     ```
 
-    Použité s touto žádostí následující parametry:
+    ```powershell
+    $reqParams = @{"user.name"="admin";"execute"="set hive.execution.engine=tez;DROP TABLE log4jLogs;CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/;SELECT t4 AS sev,COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;";"statusdir"="/example/rest"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
+    ```
 
-   * **-d** – od `-G` se nepoužívá, použije se výchozí hodnota žádost na metodu POST. `-d`Určuje datových hodnot, které se odesílají s požadavkem.
+    Tento požadavek používá metodu POST, který odesílá data jako součást požadavku REST API. Následující hodnoty data se odesílají s žádostí:
 
-     * **User.Name** -uživatel, který spouští příkaz.
-     * **spuštění** -příkazy HiveQL k provedení.
-     * **statusdir** -adresáře, který stav pro tuto úlohu je zapsán do.
+     * `user.name` -Uživatel, který spouští příkaz.
+     * `execute` -Příkazy HiveQL k provedení.
+     * `statusdir` -Adresář, který stav pro tuto úlohu je zapsán do.
 
    Tyto příkazy provádět následující akce:
    
-   * **VYŘAĎTE tabulku** – Pokud tabulka již existuje, je odstraněn.
-   * **Vytvoření externí tabulky** -vytvoří novou tabulku "externí" v Hive. Externí tabulky uložit pouze definici tabulky Hive. Data je ponechán v původním umístění.
+   * `DROP TABLE` – Pokud tabulka již existuje, je odstraněn.
+   * `CREATE EXTERNAL TABLE` -Vytvoří novou tabulku "externí" v Hive. Externí tabulky uložit pouze definici tabulky Hive. Data je ponechán v původním umístění.
 
      > [!NOTE]
      > Externí tabulky by měl být použit při očekáváte, že v základních datech aktualizovat externího zdroje. Například automatizované data nahrát procesu nebo jiná operace MapReduce.
      >
      > Vyřazení externí tabulku nemá **není** odstranit data, jenom definici tabulky.
 
-   * **Řádek formátu** – jak data formátována. Pole v každém protokolu jsou oddělené mezerou.
-   * **ULOŽENÉ umístění textový soubor AS** – se uloží data (například/datový adresář) a která je uložena jako text.
-   * **Vyberte** -počet všech řádků vybere kde sloupec **t4** obsahuje hodnotu **[Chyba]**. Tento příkaz vrátí hodnotu **3** jsou tři řádky, které obsahují tuto hodnotu.
+   * `ROW FORMAT` -Způsob formátování data. Pole v každém protokolu jsou oddělené mezerou.
+   * `STORED AS TEXTFILE LOCATION` -Data se uloží (adresář, příklad nebo data) a která je uložena jako text.
+   * `SELECT` – Počet všech řádků vybere kde sloupec **t4** obsahuje hodnotu **[Chyba]**. Tento příkaz vrátí hodnotu **3** jsou tři řádky, které obsahují tuto hodnotu.
 
      > [!NOTE]
      > Všimněte si, že jsou nahrazovány mezery mezi příkazy HiveQL `+` znak při použití s Curl. Hodnoty v uvozovkách, které obsahují mezery, jako je například oddělovač, by neměl být nahrazen `+`.
 
-   * **INPUT__FILE__NAME jako '% 25.log'** – tento příkaz omezí výsledky vyhledávání na používat jenom soubory, které končí na. log.
+      Tento příkaz vrátí ID úlohy, který slouží ke kontrole stavu úlohy.
 
-     > [!NOTE]
-     > `%25` Je kódovaná adresou URL formuláře %, je skutečný stav `like '%.log'`. % Musí být adresa URL kódování, jako je považován za zvláštní znak v adresách URL.
-
-   Tento příkaz vrátí ID úlohy, který slouží ke kontrole stavu úlohy.
-
-    ```json
-       {"id":"job_1415651640909_0026"}
-    ```
-
-3. Pokud chcete zkontrolovat stav úlohy, použijte následující příkaz:
+5. Pokud chcete zkontrolovat stav úlohy, použijte následující příkaz:
 
     ```bash
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
-    Nahraďte **JOBID** se hodnota vrácená v předchozím kroku. Například, pokud byl návratovou hodnotu `{"id":"job_1415651640909_0026"}`, pak **JOBID** by `job_1415651640909_0026`.
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
     Pokud se úloha dokončí, je stav **úspěšné**.
 
-   > [!NOTE]
-   > Tento požadavek Curl vrátí dokument JavaScript Object Notation (JSON) s informace o úloze. Jq se používá k načtení jenom hodnotu stavu.
-
-4. Jakmile se stav úlohy se změnila na **úspěšné**, můžete načíst výsledky úlohy z Azure Blob storage. `statusdir` Parametr předaný s dotaz obsahuje umístění výstupního souboru; v tomto případě **/příklad/curl**. Tato adresa ukládá výstup v **příklad/curl** adresáře v úložišti výchozí clustery.
+6. Jakmile se stav úlohy se změnila na **úspěšné**, můžete načíst výsledky úlohy z Azure Blob storage. `statusdir` Parametr předaný s dotaz obsahuje umístění výstupního souboru; v tomto případě `/example/rest`. Tato adresa ukládá výstup v `example/curl` adresáře v úložišti výchozí clustery.
 
     Můžete zobrazit seznam a stáhnout tyto soubory pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Další informace o používání rozhraní příkazového řádku Azure s Azure Storage najdete v tématu [použití Azure CLI 2.0 s Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) dokumentu.
-
-5. Použít následující příkazy k vytvoření nové "interní" tabulku s názvem **errorLogs**:
-
-    ```bash
-    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
-    ```
-
-    Tyto příkazy provádět následující akce:
-
-   * **Vytvoření tabulka není v případě existuje** -vytvoří tabulku, pokud ještě neexistuje. Tento příkaz vytvoří interní tabulku, která je uložena v datovém skladu Hive. Tato tabulka spravuje Hive.
-
-     > [!NOTE]
-     > Na rozdíl od externích tabulek se odstraní vyřazení interní tabulku v základních datech.
-
-   * **ULOŽENÉ ORC AS** – ukládá data ve formátu optimalizované řádek sloupcovém (ORC). ORC je vysoce optimalizovaný a efektivní formát pro ukládání dat Hive.
-   * **PŘEPSAT INSERT... Vyberte** -vybere řádky z **log4jLogs** tabulku, která obsahují **[Chyba]**, pak vkládá data do **errorLogs** tabulky.
-   * **Vyberte** -vybere všechny řádky z nové **errorLogs** tabulky.
-
-6. Použijte úlohu s ID vrátil a zkontrolujte stav úlohy. Jakmile ho proběhla úspěšně, použijte rozhraní příkazového řádku Azure jak je popsáno dříve ke stažení a zobrazit výsledky. Výstup by měl obsahovat tři řádky, které obsahují **[Chyba]**.
 
 ## <a id="nextsteps"></a>Další kroky
 

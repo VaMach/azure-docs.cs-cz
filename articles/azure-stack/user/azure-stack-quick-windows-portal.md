@@ -2,18 +2,19 @@
 title: "Azure zásobníku rychlý Start – vytvoření virtuálního počítače s Windows"
 description: "Azure zásobníku rychlý Start - vytvořit virtuální počítač s Windows pomocí portálu"
 services: azure-stack
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 09/15/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 64a623b3f5cb443e0676e7d89d7040837be95737
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9df976fd26318038ab4152863638e262d7f284aa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Vytvoření virtuálního počítače s Windows pomocí portálu Azure zásobníku
 
@@ -46,5 +47,5 @@ Přihlaste se k portálu Azure zásobníku. Na adresu na portálu Azure zásobn�
 
 Když virtuální počítač již nepotřebujete, odstraňte skupinu prostředků, virtuální počítač a všechny související prostředky. To pokud chcete udělat, vyberte skupinu prostředků ze strany virtuálního počítače a klikněte na tlačítko **odstranit**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V této úvodní jste nasadili jednoduchého virtuálního počítače Windows. Další informace o virtuálních počítačích Azure zásobníku, nadále [důležité informace pro virtuální počítače v Azure zásobníku](azure-stack-vm-considerations.md).

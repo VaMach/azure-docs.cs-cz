@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5912a395798f2a37ed939b771698282ae594ce8e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 5d6eb958169b7bf04e206c861250ffd98670652b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrace na Storage úrovně Premium pomocí Azure Site Recovery
 
@@ -80,7 +80,7 @@ Site Recovery můžete použít k migraci virtuálních počítačů Azure IaaS 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Krok 1: Vytvoření trezoru služeb zotavení
 
 1. Otevřete web [Azure Portal](https://portal.azure.com).
-2. Vyberte **nové** > **správy** > **zálohování** a **lokality obnovení (OMS)**. Alternativně můžete vybrat **Procházet** > **trezoru služeb zotavení** > **přidat**. 
+2. Vyberte **vytvořit prostředek** > **správy** > **zálohování** a **obnovení lokality (OMS)**. Alternativně můžete vybrat **Procházet** > **trezoru služeb zotavení** > **přidat**. 
 3. Zadejte oblast, která bude replikován virtuálních počítačů. Pro účely migrace ve stejné oblasti vyberte oblast, kde jsou zdrojové virtuální počítače a účty zdrojové úložiště. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Krok 2: Volba cílů ochrany 
@@ -157,7 +157,7 @@ Pokud chcete ověřit, že je konfigurační server úspěšně přidružené k 
 
    Virtuální počítač při selhání bude mít dva dočasné disky: jedné z primárního virtuálního počítače a dalších vytvořené při zřizování virtuálního počítače v oblasti obnovení. Vyloučit dočasným diskovým před replikaci, nainstalujte službu mobility před povolením replikace. Další informace o tom, jak vyloučit dočasným diskovým najdete v tématu [z replikace vyloučit disky](../../site-recovery/vmware-walkthrough-overview.md).
 
-2. Následujícím způsobem povolte replikaci:
+2. Replikaci povolte následujícím způsobem:
    1. Vyberte **replikujte aplikaci** > **zdroj**. Když poprvé povolíte replikaci poprvé, vyberte **+ replikovat** v trezoru povolíte replikaci pro další počítače.
    2. V kroku 1, nastavit **zdroje** jako procesový server.
    3. V kroku 2 zadejte model nasazení post-převzetí služeb při selhání, prémiový účet úložiště k migraci na standardní účet úložiště k ukládání protokolů a virtuální sítě, aby v případě selhání.

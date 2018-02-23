@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data nástroje pro přijímání dat vědecké účely virtuálního počítače
 
@@ -35,7 +35,7 @@ Tady jsou některé nástroje přesun dat, které uvádíme v DSVM.
 | Podporované DSVM verze      | Windows      |
 | Typické použití      | Import více objektů blob z úložiště Azure do Azure Data Lake Store.      |
 |  Jak se použít nebo ji spustit?    |   Otevřete příkazový řádek, zadejte `adlcopy` jak získat nápovědu.    |
-| Odkazy na ukázky      | [Pomocí AdlCopy] https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Odkazy na ukázky      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Na DSVM souvisejících nástrojích      | AzCopy, Azure příkazového řádku     |
 
 ## <a name="azure-command-line"></a>Azure příkazového řádku
@@ -84,6 +84,17 @@ Tady jsou některé nástroje přesun dat, které uvádíme v DSVM.
 |  Jak se použít nebo ji spustit?    |   Otevřete příkazový řádek, zadejte `bcp` jak získat nápovědu.    |
 | Odkazy na ukázky      | [Hromadné kopírování nástroj](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Na DSVM souvisejících nástrojích      | SQL Server, sqlcmd      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| Co je to?   | Nástroj pro připojení ke kontejneru objektů blob v Azure v souborovém systému Linux.      |
+| Podporované DSVM verze      | Linux      |
+| Typické použití      | Čtení a zápis do objektů BLOB v kontejneru      |
+|  Jak se použít nebo ji spustit?    |   Spustit _blobfuse_ v terminálu.    |
+| Odkazy na ukázky      | [blobfuse na Githubu) [https://github.com/Azure/azure-storage-fuse]      |
+| Na DSVM souvisejících nástrojích      | Azure příkazového řádku      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Brána pro správu dat společnosti Microsoft

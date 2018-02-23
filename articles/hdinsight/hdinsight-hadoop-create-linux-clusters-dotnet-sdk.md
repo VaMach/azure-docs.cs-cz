@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 78d5c2f37add456fbb5891f76039b453e731a4a8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 8a48579d380784c2c653f8e4be26af51863db578
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Vytvořit clustery se systémem Linux v HDInsight pomocí sady .NET SDK
 
@@ -44,7 +44,7 @@ Zjistěte, jak vytvořit Hadoop cluster v clusteru Azure HDInsight pomocí sady 
 
 ## <a name="create-clusters"></a>Vytváření clusterů
 
-1. Otevřete Visual Studio 2017.
+1. Open Visual Studio 2017.
 2. Vytvořte novou aplikaci konzoly Visual C#.
 3. Z **nástroje** nabídky, klikněte na tlačítko **Správce balíčků NuGet**a potom klikněte na **Konzola správce balíčků**.
 4. V konzole pro instalaci balíčků, spusťte následující příkaz:
@@ -375,7 +375,7 @@ static void Main(string[] args)
 
 Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď, když jste úspěšně vytvořili clusteru služby HDInsight, použijte následující informace o práci s vašeho clusteru. 
 
 ### <a name="hadoop-clusters"></a>Clustery Hadoop
@@ -384,7 +384,7 @@ Teď, když jste úspěšně vytvořili clusteru služby HDInsight, použijte n�
 * [Používání nástroje MapReduce s HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Clustery HBase
-* [Začínáme s HBase v HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Začínáme s HBase ve službě HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clustery Storm
@@ -397,8 +397,6 @@ Teď, když jste úspěšně vytvořili clusteru služby HDInsight, použijte n�
 * [Vzdálené spouštění úloh na clusteru Sparku pomocí Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](spark/apache-spark-use-bi-tools.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](spark/apache-spark-eventhub-streaming.md)
-
 ### <a name="run-jobs"></a>Spouštění úloh
 * [Spouštět úlohy Hive v HDInsight pomocí sady .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Spuštění úlohy Pig v HDInsight pomocí sady .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

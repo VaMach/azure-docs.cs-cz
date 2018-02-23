@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3f1a8bf6a0f05308f643f24dd4db7400c49b9e14
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Adresář Wingtip lístky SaaS aplikace
 
-Stejné *Wingtip lístky* aplikace je implementována ve všech tří vzorků. Tato aplikace je jednoduchá událost výpis a lístků pro aplikace SaaS cílení na malé místa - divadla, kluby atd. Každý místo je klient aplikace a má svá vlastní data: místo podrobnosti, seznam událostí, zákazníky, objednávky lístek, atd.  Aplikace, společně s kurzy a správu skripty umožňující prezentovat scénářem SaaS začátku do konce. To zahrnuje zřizování klientů, monitorování a správu výkonu, Správa schématu a mezi klienta vytváření sestav a analýzy.
+Stejné *Wingtip lístky* aplikace SaaS je implementována ve všech tří vzorků. Tato aplikace je jednoduchá událost výpis a lístků pro aplikace SaaS cílení na malé místa - divadla, kluby atd. Každý místo je klient aplikace a má svá vlastní data: místo podrobnosti, seznam událostí, zákazníky, objednávky lístek, atd.  Aplikace, společně s kurzy a správu skripty umožňující prezentovat scénářem SaaS začátku do konce. To zahrnuje zřizování klientů, monitorování a správu výkonu, Správa schématu a mezi klienta vytváření sestav a analýzy.
 
-## <a name="three-saas-application-patterns"></a>Tří vzorů aplikace SaaS
+## <a name="three-saas-application-and-tenancy-patterns"></a>Tří vzorů SaaS aplikace a klientů
 
-Tři verze aplikace jsou k dispozici. Každý prozkoumá vzor klientů jiné databázi v databázi SQL Azure.  První používá aplikace jednoho klienta s databázi izolované jednoho klienta. Druhá používá aplikace na více klientů s databází na každého klienta. Třetí Ukázka používá víceklientské aplikace s horizontálně dělené víceklientské databáze.
+Tři verze aplikace jsou k dispozici. Každý prozkoumá vzor klientů jiné databázi v databázi SQL Azure.  První používá samostatné aplikace na klienta s svou vlastní databázi. Druhá používá víceklientské aplikace s databází na každého klienta. Třetí Ukázka používá víceklientské aplikace s horizontálně dělené víceklientské databáze.
 
 ![Tří vzorů klientů][image-three-tenancy-patterns]
 
- Každá ukázka zahrnuje správu skripty a návodů, které prozkoumat rozsah návrhu a správu vzorů, které můžete použít ve své aplikaci.  Každá ukázka nasadí v menší této pět minut.  Všechny tři může být nasazený-souběžného, můžete porovnat rozdíly v návrhu a správu.
+ Každá ukázka obsahuje kód aplikace a správu skripty a návodů, které prozkoumat rozsah vzoru návrhu a správu.  Každá ukázka nasadí v menší této pět minut.  Všechny tři může být nasazený-souběžného, můžete porovnat rozdíly v návrhu a správu.
 
-## <a name="standalone-application-pattern"></a>Vzor samostatné aplikace
+## <a name="standalone-application-per-tenant-pattern"></a>Samostatné aplikace za klienta vzor
 
-Vzor samostatné aplikace pomocí jednoho klienta aplikace s databází jednoho klienta pro každého klienta. Každý klient aplikace je nasazená do skupiny prostředků samostatné Azure. To může být v předplatné poskytovatele služeb nebo předplatné klienta a spravovaný poskytovatelem jménem klienta. Tento vzor poskytuje největší izolaci klientů, ale je obvykle nejvíce náročná, protože není příležitost ke sdílení prostředků mezi několik klientů.
+Samostatné aplikace za klienta vzor používá aplikace jednoho klienta s databází pro každého klienta. Nasazení aplikace každého klienta, včetně své databázi, do skupiny samostatné prostředků Azure. Skupiny prostředků můžete nasadit v předplatné poskytovatele služeb nebo předplatné klienta a spravovaných zprostředkovatelem služby jménem klienta. Samostatné aplikace na klienta vzor poskytuje největší izolaci klientů, ale je obvykle nejvíce náročná, protože není příležitost ke sdílení prostředků mezi několik klientů.  Tento vzor je skvěle hodí pro aplikace, který může být složitější a které se nasadí na menší počty klientů.  U samostatných nasazení aplikace lze přizpůsobit pro každého klienta snadněji než v jiných vzorů.  
 
 Podívejte se [kurzy] [ docs-tutorials-for-wingtip-sa] a kód na Githubu [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
@@ -47,13 +47,13 @@ Podívejte se [kurzy] [ docs-tutorials-for-wingtip-dpt] a kód na Githubu [.../M
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Vzor horizontálně dělené víceklientské databáze
 
-Víceklientské databáze jsou platné pro poskytovatele služeb hledá nižší náklady na klienta a nevadí izolace Snížené klienta. Tento vzor umožňuje balení velkého počtu klientů do jedné databáze, poklesne náklady za klienta. Je možné podle horizontálního dělení NEAR nekonečné škálování klientů napříč více databáze.  Databáze katalogu znovu mapuje klienty k databázím.  
+Víceklientské databáze jsou platné pro poskytovatele služeb hledá nižší náklady na klienta a nevadí izolace Snížené klienta. Tento vzor umožňuje balení velkého počtu klientů do jedné databáze, poklesne náklady za klienta. Je možné podle horizontálního dělení NEAR nekonečné škálování klientů napříč více databází. Databáze katalogu mapuje klienty k databázím.  
 
-Tento vzor také umožňuje hybridního modelu, ve kterém můžete optimalizovat náklady s více klienty v databázi nebo optimalizovat pro izolaci s jednoho klienta ve vlastní databázi. Výběr můžete provést na základě klienta klienta, buď když klient je zřízená nebo novější, bez dopadu na aplikace.
+Tento vzor také umožňuje *hybridní* modelu, ve kterém můžete optimalizovat náklady s více klienty v databázi nebo optimalizovat pro izolaci s jednoho klienta ve vlastní databázi. Výběr můžete provést na základě klienta klienta, buď když klient je zřízená nebo novější, bez dopadu na aplikace.  Tento model dá efektivně skupin klientů, které musí být zpracovávat odděleně. Například klienti nízkonákladové lze přiřadit sdílené databáze, je-při premium klientů lze přiřadit k vlastní databáze. 
 
 Podívejte se [kurzy] [ docs-tutorials-for-wingtip-mt] a kód na Githubu [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 #### <a name="conceptual-descriptions"></a>Koncepční popisy
 
@@ -61,9 +61,9 @@ Podívejte se [kurzy] [ docs-tutorials-for-wingtip-mt] a kód na Githubu [.../Mi
 
 #### <a name="tutorials-and-code"></a>Kurzy a kódu
 
-- Samostatné aplikace:
-    - [Kurzy pro samostatné aplikace][docs-tutorials-for-wingtip-sa].
-    - [Kód pro samostatnou na Githubu][github-code-for-wingtip-sa].
+- Samostatné aplikace podle jednotlivých klientů:
+    - [Kurzy pro samostatné aplikace ] [ docs-tutorials-for-wingtip-sa].
+    - [Kód pro samostatné aplikace na Githubu][github-code-for-wingtip-sa].
 
 - Databáze každého klienta:
     - [Kurzy pro každého klienta databázi][docs-tutorials-for-wingtip-dpt].

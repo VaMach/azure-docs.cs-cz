@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Přehled monitorování sítě Azure
 
@@ -46,7 +46,7 @@ Sledovací proces sítě aktuálně má následující možnosti:
 * **[Brána virtuální sítě a řešení potíží s připojení](network-watcher-troubleshoot-manage-rest.md)**  -poskytuje možnost Poradce při potížích brány virtuální sítě a připojení.
 * **[Sítě limity předplatného](#network-subscription-limits)**  -umožňuje zobrazit využití prostředků sítě proti omezení.
 * **[Konfigurace protokolu diagnostiky](#diagnostic-logs)**  – poskytuje k povolení nebo zakázání diagnostické protokoly pro síťové prostředky ve skupině prostředků.
-* **[Připojení (Preview)](network-watcher-connectivity-overview.md)**  -ověří možnost pro přímé připojení TCP z virtuálního počítače do daného koncového bodu.
+* **[Poradce při potížích připojení](network-watcher-connectivity-overview.md)**  -ověří možnost pro přímé připojení TCP z virtuálního počítače do daného rozšíření s Azure kontext koncového bodu.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Řízení přístupu na základě role (RBAC) v sledovací proces sítě
 
@@ -82,7 +82,7 @@ Limity předplatného sítě poskytují podrobnosti o využití jednotlivých s�
 
 Následující funkce jsou k dispozici pro monitorování na úrovni prostředků:
 
-### <a name="audit-log"></a>Protokol auditování
+### <a name="audit-log"></a>Protokol auditu
 
 Operace provedené v rámci konfigurace sítí přihlášeni. Tyto protokoly můžete zobrazit na portálu Azure nebo pomocí nástroje Microsoft, jako je Power BI nebo nástroje třetích stran. Protokoly auditu jsou k dispozici prostřednictvím portálu, prostředí PowerShell, rozhraní příkazového řádku a Rest API. Další informace o protokolů auditu najdete v tématu [auditovat operace s Resource Managerem](../resource-group-audit.md)
 
@@ -114,7 +114,7 @@ Sledovací proces sítě poskytuje že diagnostické protokoly zobrazení. Toto 
 
 Stav síťového prostředku je k dispozici v pravidelných intervalech. Tyto prostředky zahrnují VPN Gateway a tunelového připojení sítě VPN. Stav prostředku je dostupné na portálu Azure. Další informace o stavu prostředků, navštivte [přehled stavu prostředků](../resource-health/resource-health-overview.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Po získání informací o sledovací proces sítě, můžete další informace pro:
 

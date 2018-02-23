@@ -10,13 +10,13 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 096fcce979bd488a0fe9dead2b1232a057d0ae02
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reagování na události služby IoT Hub pomocí mřížky události pro aktivační událost akce - Preview
 
@@ -107,7 +107,7 @@ Podrobný popis každé vlastnosti, najdete v části [schématu události mří
 
 ## <a name="filter-events"></a>Filtrování událostí
 
-Odběry událostí služby IoT Hub můžete filtrovat události podle typu zařízení a název události. Na základě předmět filtry v mřížce událostí pracovní **předponu** a **příponu** odpovídá, takže události s odpovídající předmět budou doručeny do odběratele. 
+Odběry událostí služby IoT Hub můžete filtrovat události podle typu zařízení a název události. Na základě předmět filtry v mřížce událostí pracovní **předponu** a **příponu** odpovídá. Filtr používá `AND` operátor, takže doručí události se subjektem, které odpovídají předponu i příponu do odběratele. 
 
 Předmět události IoT používá formát:
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Ochrana osobních dat pomocí funkce zabezpečení sítě: Azure Application Gateway a skupiny zabezpečení sítě
 
@@ -59,18 +59,9 @@ Můžete vytvořit služby application gateway s firewall webových aplikací ne
 
 Pokud chcete vytvořit novou aplikační bránu s povolen firewall webových aplikací, postupujte takto:
 
-1. Přihlaste se k portálu Azure a v **Oblíbené** podokně portálu, klikněte na tlačítko **nový**
-
-2. V okně **Nový** klikněte na **Sítě**.
-
-3. Klikněte na tlačítko **Aplikační brána**.
-
-4. Přejděte na portál Azure, **kliknutím na tlačítko Nová \> sítě \> Application Gateway.**
-
-   ![vytváření application Gateway](media/protect-netsec/app-gateway-01.png)
-
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
+2. Vyberte **vytvořit prostředek** > **sítě** > **Application Gateway**.
 5. V **Základy** okno, které se zobrazí, zadejte hodnoty pro následující pole: název, vrstvy (Standard nebo firewall webových aplikací), velikost SKU (malé, střední nebo velké) Instance počet (2 pro zajištění vysoké dostupnosti), předplatné, skupinu prostředků a umístění.
-
 6. V **nastavení** okno, které se zobrazí pod **virtuální síť**, klikněte na tlačítko **vyberte virtuální síť**. Tento krok se otevře, zadejte v okně vyberte virtuální síť.
 
 7. Klikněte na tlačítko **vytvořit nový** otevřete **vytvořit virtuální síť** okno.
@@ -126,7 +117,7 @@ Další pokyny plánování a implementace skupiny Nsg a vzorový scénář nasa
 
 Pokud chcete vytvořit příchozích pravidel v existující skupině, postupujte takto:
 
-1. Klikněte na tlačítko **Procházet**a potom **skupin zabezpečení sítě**.
+1. Klikněte na tlačítko **všechny služby**a potom **skupin zabezpečení sítě**.
 
 2. V seznamu skupin Nsg, klikněte na **NSG front-endu**a potom **příchozí pravidla zabezpečení.**
 
@@ -140,7 +131,7 @@ Nové pravidlo se zobrazí v této skupině za několik sekund.
 
 Další pokyny o tom, jak vytvářet skupiny Nsg v podsítích, vytvořit pravidla a přidružit skupinu NSG k podsíti front-end a back-end, najdete v části [vytvoření skupin zabezpečení sítě pomocí portálu Azure.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Zabezpečení sítě Azure](https://azure.microsoft.com/blog/azure-network-security/)
 

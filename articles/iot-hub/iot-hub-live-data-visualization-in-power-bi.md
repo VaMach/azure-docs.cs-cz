@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Vizualizovat data snímačů v reálném čase ze služby Azure IoT Hub pomocí Power BI
 
@@ -52,7 +52,7 @@ Zjistíte, jak k vizualizaci dat snímačů v reálném čase, který Azure IoT 
 
 ### <a name="create-a-stream-analytics-job"></a>Vytvoření úlohy Stream Analytics
 
-1. Na portálu Azure klikněte na nový > Internet věcí > úlohy služby Stream Analytics.
+1. V [portál Azure](https://portal.azure.com), klikněte na tlačítko **vytvořit prostředek** > **Internet věcí** > **úlohy služby Stream Analytics**.
 1. Zadejte následující informace pro úlohu.
 
    **Název úlohy**: název úlohy. Název musí být globálně jedinečný.
@@ -61,7 +61,7 @@ Zjistíte, jak k vizualizaci dat snímačů v reálném čase, který Azure IoT 
 
    **Umístění**: používalo stejné umístění jako vaší skupiny prostředků.
 
-   **Připnout na řídicí panel**: zaškrtnete tuto možnost pro snadný přístup do služby IoT hub z řídicího panelu.
+   **Připnout na řídicí panel:** Zaškrtněte tuto možnost pro snadný přístup k centru IoT z řídicího panelu.
 
    ![Vytvořit úlohu služby Stream Analytics v Azure](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
@@ -153,7 +153,7 @@ Odkaz na sestavu jste zadali, že můžete sdílet s kýmkoli pro přístup k se
 
 Společnost Microsoft nabízí [mobilních aplikací Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) pro zobrazení a interakci s řídicí panely Power BI a sestavy na vašem mobilním zařízení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Power BI jste úspěšně použili k vizualizaci dat snímačů v reálném čase ze služby Azure IoT hub.
 Neexistuje jiný způsob, jak k vizualizaci dat ze služby Azure IoT Hub. V tématu [použití Azure Web Apps k vizualizaci dat snímačů v reálném čase ze služby Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).

@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurovat životnosti tokenu v Azure Active Directory (Public Preview)
 Můžete zadat dobu životnosti tokenem vydaným službou Azure Active Directory (Azure AD). Můžete nastavit životnosti tokenu pro všechny aplikace ve vaší organizaci, pro aplikaci víceklientské (více organizace) nebo pro objekt určité služby ve vaší organizaci.
@@ -70,14 +70,14 @@ Zásady můžete nastavit dobu, po první relaci token vydán nad kterým je tok
 Životnost tokenu zásad je typ objektu zásad, který obsahuje pravidla životnost tokenu. Pomocí vlastností zásad pro řízení zadaný token životnosti. Pokud je nastavené žádné zásady, systém vynucuje výchozí hodnota doby platnosti.
 
 ### <a name="configurable-token-lifetime-properties"></a>Vlastnosti konfigurovat životnost tokenu
-| Vlastnost | Řetězec vlastnosti zásad | Ovlivňuje | Výchozí | Minimální | Maximální počet |
+| Vlastnost | Řetězec vlastnosti zásad | Ovlivňuje | Výchozí | Minimální | Maximum |
 | --- | --- | --- | --- | --- | --- |
 | Životnost tokenu přístupu |AccessTokenLifetime |Přístupové tokeny, tokeny typu ID, typu SAML2 tokeny |1 hodina |10 minut |1 den |
-| Aktualizace tokenu maximální doba neaktivní |MaxInactiveTime |Obnovovacích tokenů |14 dnů |10 minut |90 dnů |
-| Single-Factor aktualizace tokenu maximální stáří |MaxAgeSingleFactor |Obnovovacích tokenů (pro všechny uživatele) |Dokud odvolat |10 minut |Dokud odvolat<sup>1</sup> |
-| Maximální stáří tokenu Multi-Factor aktualizace |MaxAgeMultiFactor |Obnovovacích tokenů (pro všechny uživatele) |Dokud odvolat |10 minut |Dokud odvolat<sup>1</sup> |
-| Maximální stáří tokenu Single-Factor relace |MaxAgeSessionSingleFactor<sup>2</sup> |Tokeny relace (trvalá nebo zajišťováno) |Dokud odvolat |10 minut |Dokud odvolat<sup>1</sup> |
-| Maximální stáří tokenu Multi-Factor relace |MaxAgeSessionMultiFactor<sup>3</sup> |Tokeny relace (trvalá nebo zajišťováno) |Dokud odvolat |10 minut |Dokud odvolat<sup>1</sup> |
+| Aktualizace tokenu maximální doba neaktivní |MaxInactiveTime |Obnovovacích tokenů |90 dnů |10 minut |90 dnů |
+| Single-Factor aktualizace tokenu maximální stáří |MaxAgeSingleFactor |Obnovovacích tokenů (pro všechny uživatele) |Dokud odvolat |10 minut |Until-revoked<sup>1</sup> |
+| Maximální stáří tokenu Multi-Factor aktualizace |MaxAgeMultiFactor |Obnovovacích tokenů (pro všechny uživatele) |Dokud odvolat |10 minut |Until-revoked<sup>1</sup> |
+| Maximální stáří tokenu Single-Factor relace |MaxAgeSessionSingleFactor<sup>2</sup> |Tokeny relace (trvalá nebo zajišťováno) |Dokud odvolat |10 minut |Until-revoked<sup>1</sup> |
+| Maximální stáří tokenu Multi-Factor relace |MaxAgeSessionMultiFactor<sup>3</sup> |Tokeny relace (trvalá nebo zajišťováno) |Dokud odvolat |10 minut |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dnů je maximální délku explicitní, které lze nastavit pro tyto atributy.
 * <sup>2</sup>Pokud **MaxAgeSessionSingleFactor** není nastaven, má tato hodnota **MaxAgeSingleFactor** hodnotu. Pokud ani parametr je nastaven, vlastnost přijímá výchozí hodnota (dokud odvolat).
@@ -355,7 +355,7 @@ V tomto příkladu můžete vytvořit několik zásady, se dozvíte, jak funguje
 
 Následující rutiny můžete použít ke správě zásad.
 
-#### <a name="new-azureadpolicy"></a>Nové AzureADPolicy
+#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 
 Vytvoří novou zásadu.
 
@@ -363,13 +363,13 @@ Vytvoří novou zásadu.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Pole stringified formátu JSON, který obsahuje všechny zásady pravidla. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Řetězec název zásady. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |V případě hodnoty true, nastaví jako výchozí zásady organizace zásady. Pokud je hodnota false, neprovede žádnou akci. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Typ zásad. Pro token životnosti vždy používejte "TokenLifetimePolicy." | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Nepovinné] |Nastaví alternativní ID pro tuto zásadu. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Nepovinné] |Nastaví alternativní ID pro tuto zásadu. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -380,9 +380,9 @@ Získá všechny zásady služby Azure AD nebo zadanou zásadu.
 Get-AzureADPolicy
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[Nepovinné] |**ObjectId (Id)** chcete zásad. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Nepovinné] |**ObjectId (Id)** chcete zásad. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -393,7 +393,7 @@ Získá všechny aplikace a objekty služby, které jsou propojeny s zásadu.
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** chcete zásad. |`-Id <ObjectId of Policy>` |
 
@@ -406,25 +406,25 @@ Aktualizuje existující zásady.
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** chcete zásad. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Řetězec název zásady. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[Nepovinné] |Pole stringified formátu JSON, který obsahuje všechny zásady pravidla. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[Nepovinné] |V případě hodnoty true, nastaví jako výchozí zásady organizace zásady. Pokud je hodnota false, neprovede žádnou akci. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[Nepovinné] |Typ zásad. Pro token životnosti vždy používejte "TokenLifetimePolicy." |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Nepovinné] |Nastaví alternativní ID pro tuto zásadu. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [Nepovinné] |Pole stringified formátu JSON, který obsahuje všechny zásady pravidla. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Nepovinné] |V případě hodnoty true, nastaví jako výchozí zásady organizace zásady. Pokud je hodnota false, neprovede žádnou akci. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Nepovinné] |Typ zásad. Pro token životnosti vždy používejte "TokenLifetimePolicy." |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Nepovinné] |Nastaví alternativní ID pro tuto zásadu. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
-#### <a name="remove-azureadpolicy"></a>Odebrat AzureADPolicy
+#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Odstraní zadanou zásadu.
 
 ```PowerShell
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** chcete zásad. | `-Id <ObjectId of Policy>` |
 
@@ -433,14 +433,14 @@ Odstraní zadanou zásadu.
 ### <a name="application-policies"></a>Zásady aplikací
 Následující rutiny můžete použít pro zásady aplikací.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Přidat AzureADApplicationPolicy
+#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Odkazy zadanou zásadu k aplikaci.
 
 ```PowerShell
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** aplikace. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** zásad. | `-RefObjectId <ObjectId of Policy>` |
@@ -454,37 +454,37 @@ Získá zásady, která je přiřazena k aplikaci.
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** aplikace. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
-#### <a name="remove-azureadapplicationpolicy"></a>Odebrat AzureADApplicationPolicy
+#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Odebere zásadu z aplikace.
 
 ```PowerShell
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** aplikace. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** zásad. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Hlavní zásady služby
+### <a name="service-principal-policies"></a>Zásady instančních objektů
 Následující rutiny můžete použít pro hlavní zásady služby.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Přidat AzureADServicePrincipalPolicy
+#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Zadaná zásada odkazuje na objekt služby.
 
 ```PowerShell
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** aplikace. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** zásad. | `-RefObjectId <ObjectId of Policy>` |
@@ -498,20 +498,20 @@ Získá všechny zásady pro propojený objekt zadaná služba.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** aplikace. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Odebrat AzureADServicePrincipalPolicy
+#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Odebere zásadu ze zadané instanční objekt.
 
 ```PowerShell
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Parametry | Popis | Příklad |
+| Parametry | Popis | Příklad: |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** aplikace. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** zásad. | `-PolicyId <ObjectId of Policy>` |

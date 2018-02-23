@@ -1,6 +1,6 @@
 ---
 title: "Konfigurace zásad protokolu IPsec/IKE pro připojení S2S VPN nebo VNet-to-VNet: Azure Resource Manager: prostředí PowerShell | Microsoft Docs"
-description: "Tento článek vás provede procesem konfigurace zásad protokolu IPsec/IKE pro připojení S2S nebo VNet-to-VNet s Azure VPN Gateway pomocí Azure Resource Manageru a prostředí PowerShell."
+description: "Nakonfigurujte zásady protokolu IPsec/IKE pro připojení S2S nebo VNet-to-VNet s Azure VPN Gateway pomocí Azure Resource Manageru a prostředí PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 19233ccd306f507ef2e36bee878aa9705c115780
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurace zásad protokolu IPsec/IKE pro připojení S2S VPN nebo VNet-to-VNet
 
@@ -44,7 +44,7 @@ Tento článek obsahuje pokyny k vytvoření a konfiguraci zásad protokolu IPse
 > 3. Je nutné zadat všechny algoritmy a parametry pro IKE (hlavní režim) a protokolu IPsec (rychlý režim). Zadání částečných zásad není povoleno.
 > 4. Poraďte se s dokumentaci VPN dodavatele k a ujistěte se, že zásady se podporuje na vaše místní zařízení VPN. S2S nebo připojení VNet-to-VNet nejde vytvořit, pokud zásady nejsou kompatibilní.
 
-## <a name ="workflow"></a>Část 1 – pracovní postup pro vytvoření a nastavení zásad protokolu IPsec/IKE
+## <a name ="workflow">Část 1 – pracovní postup pro vytvoření a nastavení zásad protokolu IPsec/IKE</a>
 Tato část popisuje postup vytvoření a aktualizace zásady protokolu IPsec/IKE na připojení S2S VPN nebo VNet-to-VNet:
 1. Vytvoření virtuální sítě a brány VPN
 2. Vytvoření brány místní sítě pro mezi místní připojení nebo jinou virtuální sítí a Brána pro propojení VNet-to-vnet
@@ -111,7 +111,7 @@ Následující tabulka uvádí odpovídající skupiny Diffie-Hellman nepodporuj
 
 Další podrobnosti najdete v článcích týkajících se [RFC3526](https://tools.ietf.org/html/rfc3526) a [RFC5114](https://tools.ietf.org/html/rfc5114).
 
-## <a name ="crossprem"></a>Část 3 – vytvoření nového připojení S2S VPN pomocí zásad protokolu IPsec/IKE
+## <a name ="crossprem">Část 3 – vytvoření nového připojení S2S VPN pomocí zásad protokolu IPsec/IKE</a>
 
 Tato část vás provede kroky k vytvoření připojení S2S VPN pomocí zásad protokolu IPsec/IKE. Následující postup vytvoření připojení, jak je vidět v diagramu:
 
@@ -220,7 +220,7 @@ Volitelně můžete přidat "-UsePolicyBasedTrafficSelectors $True" do rutiny vy
 > Po připojení je zadán pro zásady protokolu IPsec/IKE, brána Azure VPN pouze odeslat nebo přijmout protokolu IPsec/IKE návrh s zadané kryptografické algoritmy a klíče síly na konkrétní připojení. Zajistěte, aby vaše místní zařízení VPN pro připojení používá nebo přijímá kombinaci přesný zásad, jinak nebude vytvořit tunel S2S VPN.
 
 
-## <a name ="vnet2vnet"></a>Součástí 4 – vytvoření nového připojení VNet-to-VNet s zásad protokolu IPsec/IKE
+## <a name ="vnet2vnet">Součástí 4 – vytvoření nového připojení VNet-to-VNet s zásad protokolu IPsec/IKE</a>
 
 Kroky k vytvoření připojení VNet-to-VNet pomocí zásad protokolu IPsec/IKE jsou podobné jako připojení S2S VPN. Následující ukázkové skripty vytvoření připojení, jak je vidět v diagramu:
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Velikosti virtuálních počítačů pro výpočetní vysoký výkon
 
@@ -36,13 +36,7 @@ Toto rozhraní umožňuje podporu rdma instance komunikovat přes síť InfiniBa
 
 Toto jsou požadavky pro podporu rdma virtuálních počítačů Windows pro přístup k síti Azure RDMA: 
 
-* **Operační systém**
-  
-  Windows Server 2012 R2, Windows Server 2012
-  
-  > [!NOTE]
-  > Windows Server 2016 v současné době nepodporuje připojení RDMA v Azure.
-  >
+* **Operační systém** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 * **Skupinu dostupnosti nebo Cloudová služba** – nasazení podporující RDMA virtuální počítače ve stejné skupině dostupnosti (při použití modelu nasazení Azure Resource Manager) nebo stejné cloudové služby (při použití modelu nasazení classic). Pokud používáte Azure Batch, podporující RDMA virtuální počítače musí být ve stejném fondu.
 
@@ -52,7 +46,7 @@ Toto jsou požadavky pro podporu rdma virtuálních počítačů Windows pro př
 
 * **Adresní prostor sítě RDMA** -The RDMA sítě v Azure si vyhrazuje 172.16.0.0/16 prostor adres. Pro spouštění aplikací MPI v instance nasazené v Azure virtuální síť, ujistěte se, že adresního prostoru virtuální sítě se nepřekrývá sítě RDMA.
 
-* **Rozšíření virtuálního počítače HpcVmDrivers** -na podporu rdma virtuálních počítačů, je nutné přidat rozšíření HpcVmDrivers instalovat ovladače zařízení systému Windows sítě pro připojení RDMA. (V určitých nasazeních A8 a A9 instancí HpcVmDrivers rozšíření se přidá automaticky.) Chcete-li přidat rozšíření virtuálního počítače pro virtuální počítač, můžete použít [prostředí Azure PowerShell](/powershell/azure/overview) rutiny. 
+* **Rozšíření virtuálního počítače HpcVmDrivers** – na podporu rdma virtuálních počítačů, přidejte HpcVmDrivers rozšíření pro instalaci ovladače zařízení systému Windows sítě pro připojení RDMA. (V určitých nasazeních A8 a A9 instancí HpcVmDrivers rozšíření se přidá automaticky.) Chcete-li přidat rozšíření virtuálního počítače pro virtuální počítač, můžete použít [prostředí Azure PowerShell](/powershell/azure/overview) rutiny. 
 
   
   Tento příkaz nainstaluje nejnovější rozšíření HpcVMDrivers verze 1.1 na existující podporující RDMA virtuální počítač s názvem *Můjvp* nasazené ve skupině prostředků s názvem *myResourceGroup* v  *Západní USA* oblasti:
@@ -78,7 +72,7 @@ Toto jsou požadavky pro podporu rdma virtuálních počítačů Windows pro př
 - [Optimalizované z hlediska úložiště](../virtual-machines-windows-sizes-storage.md)
 - [Optimalizované z hlediska GPU](sizes-gpu.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Kontrolní seznamy pro použití instance náročné s HPC Pack v systému Windows Server, najdete v části [nastavení clusteru s podporou Windows RDMA pomocí sady HPC Pack ke spouštění aplikací MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

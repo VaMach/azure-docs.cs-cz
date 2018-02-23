@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Vytvoření snímku 
 
@@ -65,7 +65,7 @@ Výstup by měl vypadat podobně jako:
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Pořízení snímku pomocí portálu Azure 
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. Spuštění v levé horní, klikněte na tlačítko **nový** a vyhledejte **snímku**.
+2. Spuštění v levé horní, klikněte na tlačítko **vytvořit prostředek** a vyhledejte **snímku**.
 3. V okně snímku, klikněte na tlačítko **vytvořit**.
 4. Zadejte **název** pro snímku.
 5. Vyberte existující [skupinu prostředků](../../azure-resource-manager/resource-group-overview.md#resource-groups) nebo zadejte název nové skupiny prostředků. 
@@ -77,7 +77,7 @@ Výstup by měl vypadat podobně jako:
 Pokud máte v plánu používat k vytvoření disku spravované a připojte ji virtuální počítač, který musí být vysoké provádění snímku, použijte parametr `--sku Premium_LRS` s `az snapshot create` příkaz. Tím se vytvoří snímek tak, aby je uložena jako spravovaný Disk úrovně Premium. Prémiové disky spravované provést lépe, protože jsou disků SSD (Solid-State Drive), ale náklady více než standardní disky (HDD).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
  Vytvoření virtuálního počítače ze snímku vytvořením se spravovaným diskem ze snímku a potom nový spravované disk jako disk operačního systému se připojuje. Další informace najdete v tématu [vytvoření virtuálního počítače ze snímku](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) skriptu.
 

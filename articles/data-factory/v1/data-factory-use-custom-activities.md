@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Použití vlastních aktivit v kanálu Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Tady jsou kroky, které můžete provádět v této části:
 
 ### <a name="step-1-create-the-data-factory"></a>Krok 1: Vytvoření objektu pro vytváření dat
 1. Po přihlášení k portálu Azure, proveďte následující kroky:
-   1. V nabídce vlevo klikněte na **NOVÝ**.
+   1. Klikněte na tlačítko **vytvořit prostředek** v levé nabídce.
    2. Klikněte na tlačítko **Data + analýzy** v **nový** okno.
    3. V okně **Analýza dat** klikněte na **Objekt pro vytváření dat**.
    
@@ -441,7 +441,7 @@ Tady jsou kroky, které můžete provádět v této části:
 Propojené služby propojují úložiště dat nebo výpočetní služby s objektem pro vytváření dat Azure. V tomto kroku propojíte svůj účet úložiště Azure a účet Azure Batch pro vytváření dat.
 
 #### <a name="create-azure-storage-linked-service"></a>Vytvoření propojené služby Azure Storage
-1. Klikněte na tlačítko **vytvořit a nasadit** na dlaždici **objekt pro vytváření dat** okno pro **CustomActivityFactory**. Zobrazí editoru služby Data Factory.
+1. Klikněte na tlačítko **vytvořit a nasadit** na dlaždici **objekt pro vytváření dat** okno pro **CustomActivityFactory**. Zobrazí se editor služby Data Factory.
 2. Klikněte na tlačítko **nové datové úložiště** na příkaz panelu a vyberte **úložiště Azure**. V editoru by se měl zobrazit skript JSON pro vytvoření propojené služby Azure Storage.
     
     ![Nové datové úložiště - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)

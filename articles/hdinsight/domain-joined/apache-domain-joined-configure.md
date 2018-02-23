@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurace prostředí izolovaného prostoru HDInsight připojený k doméně
 
-Zjistěte, jak nastavit cluster Azure HDInsight pomocí samostatné služby Active Directory a [Apache škálu](http://hortonworks.com/apache/ranger/) využívat výhod silné ověřování a bohaté přístupu podle rolí zásady řízení (RBAC). Další informace najdete v tématu [clustery HDInsight připojený k doméně zavádět](apache-domain-joined-introduction.md).
+Zjistěte, jak nastavit cluster Azure HDInsight pomocí samostatné služby Active Directory a [Apache škálu](http://hortonworks.com/apache/ranger/) využívat výhod silné ověřování a bohaté přístupu podle rolí zásady řízení (RBAC). Další informace najdete v tématu [clustery HDInsight připojený k doméně zavádět](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> Ve výchozím nastavení lze toto nastavení použít pouze s použitím účty Azure Storage. Pokud chcete používat s Azure Data Lake Store, synchronizace služby Active Directory do nové Azure Active Directory.
 
 Bez clusteru HDInsight připojený k doméně, každý cluster může mít pouze účet uživatele Hadoop HTTP a uživatelský účet SSH.  Ověřování více uživatelů lze dosáhnout pomocí:
 
@@ -40,6 +43,7 @@ Pomocí samostatné služby Active Directory spuštěné v Azure IaaS je popsan�
     - Vytvoření clusteru HDInsight
 
 > [!IMPORTANT]
+> 
 > Oozie není povoleno v doméně HDInsight.
 
 ## <a name="prerequisite"></a>Požadavek

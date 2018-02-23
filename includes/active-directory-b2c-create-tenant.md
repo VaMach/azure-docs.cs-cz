@@ -1,4 +1,4 @@
-Klikněte na tlačítko **Nový**. Do pole **Hledat na Marketplace** zadejte `Azure Active Directory B2C`.
+Klikněte **vytvořit prostředek** tlačítko. Do pole **Hledat na Marketplace** zadejte `Azure Active Directory B2C`.
 
 ![Zvýrazněné tlačítko Přidat a text Azure Active Directory B2C v poli Hledat na Marketplace](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

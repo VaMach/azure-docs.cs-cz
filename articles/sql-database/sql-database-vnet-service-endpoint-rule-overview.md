@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/13/2018
+ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Použít koncové body služby virtuální sítě a pravidla pro databázi SQL Azure
 
@@ -127,9 +127,6 @@ Máte možnost použití [řízení přístupu na základě role (RBAC)] [ rbac-
 ## <a name="limitations"></a>Omezení
 
 Pro databázi SQL Azure funkci pravidla virtuální sítě má následující omezení:
-
-- V současné době webové aplikace Azure v podsíti, který má **koncové body služby** zapnutá nemá není ještě funkce dle očekávání. Pracujeme na povolení této funkce.
-    - Dokud nebude tato funkce je plně implementována, doporučujeme přesunout vaší webové aplikace do jiné podsíti, který nemá žádné koncové body služby pro SQL zapnuté.
 
 - Každé pravidlo virtuální sítě v bráně firewall pro vaši databázi SQL, odkazuje na podsíť. Všechny tyto odkazované podsítě musí být uloženy ve stejné zeměpisné oblasti, který je hostitelem databáze SQL.
 

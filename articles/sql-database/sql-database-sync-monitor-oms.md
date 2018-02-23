@@ -2,17 +2,17 @@
 title: "Monitorování synchronizaci dat Azure SQL s OMS Log Analytics | Microsoft Docs"
 description: "Naučte se monitorovat synchronizaci dat SQL Azure s využitím analýzy protokolů OMS"
 services: sql-database
-ms.date: 11/7/2017
+ms.date: 11/07/2017
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Synchronizaci dat SQL (Preview) monitorování s OMS analýzy protokolů 
 
@@ -64,7 +64,7 @@ Ujistěte se, že jste nastavili následujících akcí:
 
 Použijte Powershellový runbook hostované ve službě Azure Automation k synchronizaci dat SQL data protokolu pro vyžádání obsahu a jeho odeslání na OMS. Ukázkový skript je zahrnuta. Předpokladem je musíte mít účet Azure Automation. Pak budete muset vytvořit sadu runbook a naplánovat jeho spuštění. 
 
-### <a name="create-a-runbook"></a>Vytvoření sady runbook
+### <a name="create-a-runbook"></a>Vytvoření runbooku
 
 Další informace o vytvoření sady runbook najdete v tématu [Můj první Powershellový runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell).
 
@@ -126,7 +126,7 @@ Vytvořit výstrahu, která využívá analýzy protokolů OMS, provádět násl
 
 1.  Na portálu OMS vyberte **hledání protokolů**.
 
-2.  Vytvořte dotaz, který vyberte s chybami a upozorněními synchronizace skupinou v rámci intervalu, které jste vybrali. Například:
+2.  Vytvořte dotaz, který vyberte s chybami a upozorněními synchronizace skupinou v rámci intervalu, které jste vybrali. Příklad:
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -188,7 +188,7 @@ Stáhněte si ukázky kódu, které jsou popsané v tomto článku v následují
 
 -   [Zobrazení OMS protokolu synchronizace dat](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o synchronizaci dat SQL najdete v tématu:
 
 -   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](sql-database-sync-data.md)

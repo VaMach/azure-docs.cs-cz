@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Průvodce pro vytvoření bitové kopie virtuálního počítače pro Azure Marketplace
 Tento článek **kroku 2**, vás provede procesem přípravy virtuálních pevných disků (VHD), které nasadíte do Azure Marketplace. Virtuální pevné disky jsou základ pro vaše SKU. Proces se liší v závislosti na tom, jestli tím SKU systémem Linux nebo systému Windows. Tento článek se týká obou scénářů. Tento postup lze provést paralelně s [vytváření účtů a registrace][link-acct-creation].
@@ -127,7 +127,7 @@ Důrazně doporučujeme vývoji svůj disk VHD v cloudu pomocí protokolu RDP (R
 
 **Připojení prostřednictvím protokolu RDP pomocí [portálu Microsoft Azure][link-azure-portal]**
 
-1. Vyberte **Procházet** > **virtuálních počítačů**.
+1. Vyberte **všechny služby** > **virtuálních počítačů**.
 2. Otevře se okno virtuálních počítačů. Zajistěte, aby virtuální počítač, který chcete propojit s běží a vyberte ho ze seznamu nasazených virtuálních počítačů.
 3. Otevře se okno popisující vybraný virtuální počítač. V horní části, klikněte na tlačítko **Connect**.
 4. Zobrazí se výzva k zadání uživatelského jména a hesla, který jste určili během zřizování.
@@ -136,7 +136,7 @@ Důrazně doporučujeme vývoji svůj disk VHD v cloudu pomocí protokolu RDP (R
 
 Chcete-li stáhnout soubor vzdálené plochy na místní počítač, použijte [rutiny Get-AzureRemoteDesktopFile][link-technet-2]. Chcete-li použít tuto rutinu, musíte znát název služby a název virtuálního počítače. Pokud jste vytvořili virtuální počítač z [portálu Microsoft Azure][link-azure-portal], můžete najít tyto informace v části Vlastnosti virtuálního počítače:
 
-1. Na portálu Microsoft Azure, vyberte **Procházet** > **virtuálních počítačů**.
+1. Na portálu Microsoft Azure, vyberte **všechny služby** > **virtuálních počítačů**.
 2. Otevře se okno virtuálních počítačů. Vyberte virtuální počítač, který jste nasadili.
 3. Otevře se okno popisující vybraný virtuální počítač.
 4. Klikněte na **Vlastnosti**.
@@ -214,7 +214,6 @@ Chcete-li nasadit virtuální počítač z uživatelské image virtuálního po�
 
 1. Přejděte na **nový** > **výpočetní** > **virtuálního počítače** > **z Galerie**.
 
-    ![Kreslení][img-manage-vm-new]
 2. Přejděte na **Moje image**a potom vyberte image virtuálního počítače, ze kterého chcete nasadit virtuální počítač:
 
    1. Zaměřit se na která image můžete vybrat, protože **Moje image** zobrazení obsahuje bitové kopie operačního systému a Image virtuálních počítačů.
@@ -407,15 +406,15 @@ Toto jsou kroky pro vytvoření adresy URL SAS pomocí Microsoft Azure Storage E
 
     Adresa URL generovaného SAS pro kontejner úroveň a nyní budeme muset přidat název virtuálního pevného disku v ní.
 
-    Formát adresy URL úrovně SAS kontejneru:`https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Formát adresy URL úrovně SAS kontejneru: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    Za název kontejneru v adrese URL SAS, jak je uvedeno níže vložit název disku VHD`https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Za název kontejneru v adrese URL SAS, jak je uvedeno níže vložit název disku VHD `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     Příklad:
 
     ![Kreslení](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
-    TestRGVM201631920152.vhd je název virtuálního pevného disku, pak bude mít adresu URL SAS virtuálního pevného disku`https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    TestRGVM201631920152.vhd je název virtuálního pevného disku, pak bude mít adresu URL SAS virtuálního pevného disku `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Ujistěte se, že název souboru bitové kopie a **"VHD"** jsou v identifikátoru URI.
     - Uprostřed podpis, ujistěte se, že **"sp = rl"** se zobrazí. To znamená, že přístup pro čtení a seznamu zadaná úspěšně.
@@ -471,11 +470,11 @@ Toto jsou kroky pro vytvoření adresy URL SAS pomocí rozhraní příkazového 
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.  Název disku VHD vložení za název kontejneru v adrese URL SAS, jak je uvedeno níže`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Název disku VHD vložení za název kontejneru v adrese URL SAS, jak je uvedeno níže `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Příklad:
 
-    TestRGVM201631920152.vhd je název virtuálního pevného disku, pak bude mít adresu URL SAS virtuálního pevného disku
+    TestRGVM201631920152.vhd je název virtuálního pevného disku, pak bude mít adresu URL SAS virtuálního pevného disku 
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

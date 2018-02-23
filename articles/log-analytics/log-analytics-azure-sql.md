@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorování databáze Azure SQL pomocí analýzy SQL Azure (Preview) v analýzy protokolů
 
@@ -60,7 +60,7 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 Proveďte následující postup pro přidání řešení analýzy SQL Azure do pracovního prostoru.
 
 1. Přidat řešení analýzy SQL Azure do pracovního prostoru z [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) nebo pomocí procesu popsaného v tématu [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md).
-2. Na portálu Azure klikněte na tlačítko **nový** (+ symbol), pak v seznamu prostředků, vyberte **monitorování + správu**.  
+2. Na portálu Azure klikněte na tlačítko **vytvořit prostředek** > **monitorování + správu**.  
     ![Monitorování a správa](./media/log-analytics-azure-sql/monitoring-management.png)
 3. V **monitorování + správu** seznamu klikněte na tlačítko **zobrazit všechny**.
 4. V **doporučeno** seznamu, klikněte na tlačítko **Další**a pak v seznamu nové vyhledejte **analýzy SQL Azure (Preview)** a pak ho vyberte.  

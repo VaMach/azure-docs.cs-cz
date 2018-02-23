@@ -3,8 +3,8 @@ title: "Virtuální počítače zpřístupnit uživatelům zásobník Azure | Mi
 description: "Kurz a zpřístupnit virtuální počítače v Azure zásobníku"
 services: azure-stack
 documentationcenter: 
-author: vhorne
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/23/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f6fce4a3230c98295afb19e633bf2801c115831f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Virtuální počítače zpřístupnit uživatelům Azure zásobníku
 
@@ -74,7 +75,7 @@ Teď můžete získat věcí připravená pro vaše uživatele. Při spuštění
 
    V tomto příkladu jsme nejprve vytvořit kvótu pro výpočetní služba. Vyberte v seznamu názvů **Microsoft.Compute** obor názvů a pak klikněte na **vytvořit nové kvóty**.
    
-   ![Vytvoření nové kvóty](media/azure-stack-tutorial-tenant-vm/image06.png)
+   ![Vytvořit novou kvótu](media/azure-stack-tutorial-tenant-vm/image06.png)
 
    g. Na **vytvořit kvótu** části, zadejte název pro kvótu a nastavte požadované parametry pro kvóty a klikněte na tlačítko **OK**.
 
@@ -90,7 +91,7 @@ Teď můžete získat věcí připravená pro vaše uživatele. Při spuštění
 
    j. Na **plán** vyberte nový plán a klikněte na tlačítko **vyberte**.
 
-   kB. Na **nové nabídky** klikněte na tlačítko **vytvořit**. Uvidíte oznámení po vytvoření nabídky.
+   k. Na **nové nabídky** klikněte na tlačítko **vytvořit**. Uvidíte oznámení po vytvoření nabídky.
 
    l. V nabídce řídícího panelu klikněte na tlačítko **nabízí** a pak klikněte na nabídku jste vytvořili.
 
@@ -150,7 +151,7 @@ Teď, když jste vytvořili nabídku, můžete ji otestovat. Přihlaste se jako 
 
    g. Chcete-li zobrazit nový virtuální počítač, klikněte na tlačítko **všechny prostředky**, vyhledejte virtuální počítač a klikněte na jeho název.
 
-    ![Všechny prostředky](media/azure-stack-provision-vm/image06.png)
+    ![Všechny zdroje](media/azure-stack-provision-vm/image06.png)
 
 Co jste se naučili v tomto kurzu:
 

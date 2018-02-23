@@ -1,5 +1,5 @@
 ---
-title: "Ukázek Azure PowerShell monitorování rychlý start. | Dokumentace Microsoftu"
+title: "Ukázek Azure PowerShell monitorování rychlý start. | Dokumenty Microsoft"
 description: "Pomocí prostředí PowerShell pro přístup k Azure monitorování funkce, jako je automatické škálování, výstrahy, webhooky a hledání protokoly aktivity."
 author: rboucher
 manager: carmonm
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ukázek Azure PowerShell monitorování rychlý start
-Tento článek ukazuje ukázkové příkazy prostředí PowerShell, abyste měli přístup k funkcím Azure monitorování. Azure monitorování umožňuje škálování cloudové služby, virtuální počítače a webové aplikace. Umožňuje také odeslat oznámení o výstrahách nebo volání webové adresy URL založené na hodnotách nakonfigurované telemetrická data.
+Tento článek ukazuje ukázkové příkazy prostředí PowerShell, abyste měli přístup k funkcím Azure monitorování.
 
 > [!NOTE]
 > Azure monitorování je nový název pro co byla volána "Statistika Azure" až 25 září 2016. Ale pořád neobsahuje obory názvů a proto následující příkazy slovo "přehledy."
@@ -93,10 +93,10 @@ Tento příkaz načte posledních 1000 události z protokolu aktivit:
 Get-AzureRmLog -MaxEvents 1000
 ```
 
-`Get-AzureRmLog`podporuje mnoho dalších parametrů. Najdete v článku `Get-AzureRmLog` pro další informace.
+`Get-AzureRmLog` podporuje mnoho dalších parametrů. Najdete v článku `Get-AzureRmLog` pro další informace.
 
 > [!NOTE]
-> `Get-AzureRmLog`poskytuje pouze 15 dní historie. Pomocí **- MaxEvents** parametr umožňuje dotazování poslední události N, nad rámec 15 dnů. Pro přístup k události starší než 15 dní pomocí rozhraní REST API nebo SDK (C# ukázka pomocí sady SDK). Pokud neuvedete **StartTime**, pak výchozí hodnota je **EndTime** minus jednu hodinu. Pokud neuvedete **EndTime**, pak výchozí hodnota je aktuální čas. Všechny časy jsou ve formátu UTC.
+> `Get-AzureRmLog` poskytuje pouze 15 dní historie. Pomocí **- MaxEvents** parametr umožňuje dotazování poslední události N, nad rámec 15 dnů. Pro přístup k události starší než 15 dní pomocí rozhraní REST API nebo SDK (C# ukázka pomocí sady SDK). Pokud neuvedete **StartTime**, pak výchozí hodnota je **EndTime** minus jednu hodinu. Pokud neuvedete **EndTime**, pak výchozí hodnota je aktuální čas. Všechny časy jsou ve formátu UTC.
 > 
 > 
 
@@ -136,7 +136,7 @@ Načtěte všechny výstrahy pravidla nastavená pro cílový prostředek. Všec
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzureRmAlertRule`podporuje další parametry. V tématu [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) Další informace.
+`Get-AzureRmAlertRule` podporuje další parametry. V tématu [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) Další informace.
 
 ## <a name="create-metric-alerts"></a>Vytvoření metriky výstrahy
 Můžete použít `Add-AlertRule` rutiny vytvářet, aktualizovat nebo zakázat pravidlo výstrahy.
@@ -145,12 +145,12 @@ Můžete vytvořit e-mailu a webhooku vlastností pomocí `New-AzureRmAlertRuleE
 
 Následující tabulka popisuje parametry a hodnoty použité k vytvoření výstrahy pomocí metriky.
 
-| Parametr | hodnota |
+| parametr | hodnota |
 | --- | --- |
-| Name (Název) |simpletestdiskwrite |
+| Název |simpletestdiskwrite |
 | Umístění tohoto pravidla výstrah |Východ USA |
 | ResourceGroup |montest |
-| TargetResourceId |/subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName výstrahy, která je vytvořena |\PhysicalDisk (_celkem) \Disk zápisů za sekundu. Najdete v článku `Get-MetricDefinitions` rutiny o tom, jak získat přesné metriky názvy |
 | Operátor |GreaterThan |
 | Prahová hodnota (počet za sekundu za pro tato metrika) |1 |
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 Úplný seznam dostupných možností pro `Get-AzureRmMetricDefinition` je k dispozici na [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Vytvoření a Správa výstrah protokol aktivit
+Můžete použít `Set-AzureRmActivityLogAlert` rutiny nastavit výstrahu protokolu aktivit. Výstrahu protokolu aktivit vyžaduje, je nejprve zadejte vaše podmínky jako slovník podmínek, a poté vytvořit výstrahu, která používá tyto podmínky.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+Další webhooku vlastnosti jsou volitelné. Můžete se vrátit obsah aktivity protokolu výstrah pomocí `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Vytvořit a spravovat nastavení automatického škálování
 Prostředek (webové aplikace, virtuální počítač, Cloudová služba nebo sadu škálování virtuálního počítače) může mít pouze jeden nastavení automatického škálování pro něj nakonfigurovali.

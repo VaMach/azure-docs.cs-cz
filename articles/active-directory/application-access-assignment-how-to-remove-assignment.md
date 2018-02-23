@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: bb1dc88164aa7971427984b5956e00b1d343cab7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aec49b108c21b97646e622c47bf69728a81d6d33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Postup odebrání přístupu uživatele k aplikaci
 
-Tento článek vám pomůže lépe porozumět odebrání přístupu uživatele k aplikaci.
+Tento článek pomáhá pochopit, jak k odebrání přístupu uživatele k aplikaci.
 
 ## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Chcete odstranit přiřazení konkrétního uživatele nebo skupiny do aplikace
 
@@ -33,33 +33,33 @@ Pokud chcete zakázat všechna uživatelská přihlášení k aplikaci, postupuj
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Chcete odstranit aplikaci zcela
 
-K **odstranit aplikaci**, postupujte podle pokynů níže:
+K **odstranit aplikaci**, postupujte podle těchto pokynů:
 
-1.  Otevřete [ **portálu Azure** ](https://portal.azure.com/) a přihlaste se jako **globálního správce** nebo **ko-správce.**
+1.  Otevřete [ **portál Azure** ](https://portal.azure.com/) a přihlaste se jako **globálního správce** nebo **ko-správce.**
 
-2.  Otevřete **rozšíření Azure Active Directory** kliknutím **další služby** v dolní části navigační nabídce vlevo hlavní.
+2.  Otevřete **rozšíření Azure Active Directory** kliknutím **všechny služby** v horní části hlavní levé navigační nabídce.
 
 3.  Zadejte **"Azure Active Directory**" v filtru vyhledávacího pole a vyberte **Azure Active Directory** položky.
 
-4.  Klikněte na tlačítko **podnikové aplikace, které** v navigační nabídce vlevo Azure Active Directory.
+4.  Klikněte na tlačítko **podnikové aplikace, které** z levé navigační nabídce Azure Active Directory.
 
 5.  Klikněte na tlačítko **všechny aplikace** Chcete-li zobrazit seznam všech aplikací.
 
-   * Pokud aplikaci chcete, aby se zobrazí tady nevidíte, pomocí **filtru** ovládací prvek v horní části **seznam všech aplikací** a nastavte **zobrazit** možnost k **všechny aplikace.**
+   * Pokud aplikaci chcete, aby se zobrazí tady nevidíte, pomocí **filtru** ovládací prvek v horní části **seznam všech aplikací** a nastavte **zobrazit** možnost k **všechny Aplikace.**
 
 6.  Vyberte aplikaci, kterou chcete odstranit.
 
-7.  Po načtení aplikace, klikněte na **odstranit** ikonu z hlavní aplikace **přehled** okno.
+7.  Po načtení aplikace, klikněte na **odstranit** ikonu z hlavní aplikace **přehled** podokně.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Chcete zakázat všechny operace souhlasu budoucí uživatele do jakékoli aplikace
 
 Zakázání souhlas uživatele pro souhlas pro žádnou aplikaci koncovým uživatelům zabránit celý adresář. Správci mohou stále souhlas na behalves uživatele. Další informace o aplikaci souhlas, a proto může nebo nemusí Chcete to provést, číst [Principy uživatelů a správce souhlasu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-K **zakažte všechny operace souhlasu budoucí uživatele v adresáři celý**, postupujte podle pokynů níže:
+K **zakažte všechny operace souhlasu budoucí uživatele v adresáři celý**, postupujte podle těchto pokynů:
 
-1.  Otevřete [ **portálu Azure** ](https://portal.azure.com/) a přihlaste se jako **globálního správce.**
+1.  Otevřete [ **portál Azure** ](https://portal.azure.com/) a přihlaste se jako **globálního správce.**
 
-2.  Otevřete **rozšíření Azure Active Directory** kliknutím **další služby** v dolní části navigační nabídce vlevo hlavní.
+2.  Otevřete **rozšíření Azure Active Directory** kliknutím **všechny služby** v horní části hlavní levé navigační nabídce.
 
 3.  Zadejte **"Azure Active Directory**" v filtru vyhledávacího pole a vyberte **Azure Active Directory** položky.
 
@@ -70,5 +70,5 @@ K **zakažte všechny operace souhlasu budoucí uživatele v adresáři celý**,
 6.  Zakažte všechny budoucí uživatele souhlasu operace nastavením **uživatelé můžou aplikace přistupovat ke svým datům** přepnutím **ne** a klikněte na tlačítko **Uložit** tlačítko.
 
 
-# <a name="next-steps"></a>Další kroky
+# <a name="next-steps"></a>Další postup
 [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)

@@ -12,19 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Oprava operačního systému Windows v clusteru Service Fabric
 
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
+
 Oprava aplikace orchestration je aplikace Azure Service Fabric, která automatizuje operačního systému opravy na cluster Service Fabric bez výpadků.
 
-Oprava aplikace orchestration obsahuje následující informace:
+Oprava aplikace orchestration poskytuje následující funkce:
 
 - **Automatická instalace operačního systému aktualizaci**. Aktualizace operačního systému se automaticky stáhnout a nainstalovat. Uzly se restartují podle potřeby a bez výpadku clusteru.
 
@@ -60,16 +66,16 @@ Aplikace orchestration oprava vyžaduje službu opravy správce systému povolen
 
 Azure clustery ve vrstvě stříbrným odolnost mají službu opravy manager ve výchozím nastavení povolené. Azure clusterů ve vrstvě gold odolnost může nebo nemusí mít službu správce oprava povoleno, v závislosti na tom, kdy byly vytvořeny těchto clusterů. Azure clusterů ve vrstvě bronzovým odolnost ve výchozím nastavení, není nutné službu opravy manager povolena. Pokud služba je již povolen, zobrazí se jeho spuštění v části systémové služby v Service Fabric Exploreru.
 
-##### <a name="azure-portal"></a>portál Azure
-Opravte manager z portálu Azure můžete povolit v době nastavování clusteru. Vyberte **zahrnují opravte Manager** možnost pod **přidat na funkce** v době konfigurace clusteru.
+##### <a name="azure-portal"></a>Azure Portal
+Opravte manager z portálu Azure můžete povolit v době nastavování clusteru. Vyberte **zahrnují opravte Manager** možnost pod **funkcí doplňku** v době konfigurace clusteru.
 ![Image Manager opravy povolení z portálu Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Šablona Azure Resource Manageru
-Případně můžete použít [šablony Azure Resource Manageru](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) povolit službu opravy správce v nových nebo stávajících clusterů Service Fabric. Získáte šablonu pro cluster, který chcete nasadit. Můžete použít ukázkové šablony, nebo vytvořit vlastní šablony Resource Manageru. 
+##### <a name="azure-resource-manager-deployment-model"></a>Model nasazení Azure Resource Manager
+Případně můžete použít [modelu nasazení Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) povolit službu opravy správce v nových nebo stávajících clusterů Service Fabric. Získáte šablonu pro cluster, který chcete nasadit. Můžete použít ukázkové šablony, nebo vytvořit vlastní šablony modelu nasazení Azure Resource Manager. 
 
-Povolit pomocí service manager oprava [šablony Azure Resource Manageru](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+Povolit pomocí service manager oprava [šablony modelu nasazení Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
-1. Nejdřív zkontrolujte, zda `apiversion` je nastaven na `2017-07-01-preview` pro `Microsoft.ServiceFabric/clusters` prostředků, jak je znázorněno v následujícím fragmentu kódu. Pokud se liší, pak je potřeba aktualizovat `apiVersion` na hodnotu `2017-07-01-preview`:
+1. Nejdřív zkontrolujte, zda `apiversion` je nastaven na `2017-07-01-preview` pro `Microsoft.ServiceFabric/clusters` prostředků. Pokud se liší, pak je potřeba aktualizovat `apiVersion` na hodnotu `2017-07-01-preview` nebo vyšší:
 
     ```json
     {
@@ -136,18 +142,18 @@ Stažení aplikace z [stáhnout odkaz](https://go.microsoft.com/fwlink/P/?linkid
 
 Chování aplikace orchestration oprava lze nakonfigurovat podle svých potřeb. Přepište výchozí hodnoty předáním v aplikaci parametru během vytváření aplikace nebo aktualizace. Parametry aplikačního lze zadat zadáním `ApplicationParameter` k `Start-ServiceFabricApplicationUpgrade` nebo `New-ServiceFabricApplication` rutiny.
 
-|**Parametr**        |**Typ**                          | **Podrobnosti**|
+|**Parameter**        |**Typ**                          | **Podrobnosti**|
 |:-|-|-|
 |MaxResultsToCache    |Dlouhé                              | Maximální počet výsledků Windows Update, které by měl být mezipaměti. <br>Výchozí hodnota je 3000 za předpokladu, že: <br> -Počet uzlů je 20. <br> -Počet aktualizací děje na uzlu za měsíc je pět. <br> -Počet výsledků na operace může být 10. <br> -By měly být uložené výsledky pro poslední tři měsíce. |
-|TaskApprovalPolicy   |výčet <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy označuje zásady, které má být používána službu koordinátora k instalaci aktualizací Windows mezi uzly clusteru Service Fabric.<br>                         Povolené hodnoty jsou: <br>                                                           <b>NodeWise</b>. Windows Update je nainstalovaná jednoho uzlu současně. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update je nainstalovaná jednu upgradovací doménu najednou. (Na maximum, můžete přejít všechny uzly, které patří k doméně upgradu pro Windows Update.)
+|TaskApprovalPolicy   |výčet <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy označuje zásady, které má být používána službu koordinátora k instalaci aktualizací Windows mezi uzly clusteru Service Fabric.<br>                         Povolené hodnoty jsou: <br>                                                           <b>NodeWise</b>. Windows Update je nainstalovaná jednoho uzlu současně. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update je nainstalovaná jednu upgradovací doménu najednou. (Na maximum, můžete přejít všechny uzly, které patří k doméně upgradu pro Windows Update.)
 |LogsDiskQuotaInMB   |Dlouhé  <br> (Výchozí: 1024)               |Maximální velikost oprava orchestration aplikace přihlásí MB, který můžete nastavit jako trvalý, místně na uzlech.
-| WUQuery               | Řetězec<br>(Výchozí: "IsInstalled = 0")                | Dotaz pro získání aktualizace systému Windows. Další informace najdete v tématu [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | BOOL <br> (výchozí: True)                 | Tento příznak umožňuje instalaci aktualizací operačního systému Windows.            |
-| WUOperationTimeOutInMinutes | celá čísla <br>(Výchozí: 90).                   | Určuje časový limit pro všechny operace služby Windows Update (hledání nebo stáhnout nebo nainstalovat). Pokud operaci nelze dokončit v rámci zadaného časového limitu, byl přerušen.       |
-| WURescheduleCount     | celá čísla <br> (Výchozí: 5).                  | Maximální počet časy službu přeplánuje Windows aktualizovat v případě, že operace selže trvalé.          |
-| WURescheduleTimeInMinutes | celá čísla <br>(Výchozí: 30). | Interval, ve kterém přeplánuje službu Windows update v případě, že chyba přetrvávat. |
-| WUFrequency           | Řetězce s hodnotami oddělenými čárkou (výchozí: "Každý týden, středu, 7:00:00")     | Četnost pro instalaci služby Windows Update. Formát a možné hodnoty jsou: <br>-Měsíců, DD, hh, například každý měsíc, 5, 12: 22:32. <br> -Každý týden, den, hh: mm:, pro příklad, týdně, úterý, 12:22:32.  <br> -Denní, hh: mm:, např. denně, 12:22:32.  <br> -Žádný označuje, že by neměl Windows Update provést.  <br><br> Všimněte si, že všechny časy jsou ve standardu UTC.|
-| AcceptWindowsUpdateEula | BOOL <br>(Výchozí: true) | Nastavením tohoto příznaku aplikace přijímá licenční smlouvy s koncovým uživatelem pro Windows Update jménem vlastník počítače.              |
+| WUQuery               | řetězec<br>(Výchozí: "IsInstalled = 0")                | Dotaz pro získání aktualizace systému Windows. Další informace najdete v tématu [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Logická hodnota <br> (výchozí: True)                 | Tento příznak umožňuje instalaci aktualizací operačního systému Windows.            |
+| WUOperationTimeOutInMinutes | Int <br>(Výchozí: 90).                   | Určuje časový limit pro všechny operace služby Windows Update (hledání nebo stáhnout nebo nainstalovat). Pokud operaci nelze dokončit v rámci zadaného časového limitu, byl přerušen.       |
+| WURescheduleCount     | Int <br> (Výchozí: 5).                  | Maximální počet časy službu přeplánuje Windows aktualizovat v případě, že operace selže trvalé.          |
+| WURescheduleTimeInMinutes | Int <br>(Výchozí: 30). | Interval, ve kterém přeplánuje službu Windows update v případě, že chyba přetrvávat. |
+| WUFrequency           | Řetězce s hodnotami oddělenými čárkou (výchozí: "Každý týden, středu, 7:00:00")     | Četnost pro instalaci služby Windows Update. Formát a možné hodnoty jsou: <br>-Měsíců, DD, hh, například každý měsíc, 5, 12: 22:32. <br> -Každý týden, den, hh: mm:, pro příklad, týdně, úterý, 12:22:32.  <br> -Denní, hh: mm:, např. denně, 12:22:32.  <br> -Žádný označuje, že by neměl Windows Update provést.  <br><br> Všimněte si, že je ve formátu UTC.|
+| AcceptWindowsUpdateEula | Logická hodnota <br>(Výchozí: true) | Nastavením tohoto příznaku aplikace přijímá licenční smlouvy s koncovým uživatelem pro Windows Update jménem vlastník počítače.              |
 
 > [!TIP]
 > Pokud chcete, aby Windows Update provést okamžitě, nastavte `WUFrequency` podle času nasazení aplikace. Předpokládejme například, že máte testovací pěti uzly clusteru a plánování nasazení aplikace na přibližně 5:00 PM UTC. Pokud budete předpokládat, že upgradu aplikace nebo nasazení maximálně trvá 30 minut, nastavte WUFrequency jako "Denně, 17:30:00."
@@ -218,8 +224,8 @@ Pole | Hodnoty | Podrobnosti
 -- | -- | --
 Výsledek | 0 – úspěšné<br> 1 - bylo úspěšně dokončeno s chybami<br> 2 – se nezdařilo<br> 3 - přerušeno<br> 4 - přerušena s vypršením časového limitu | Určuje výsledek celkové operace (obvykle zahrnující instalaci jedné nebo více aktualizací).
 resultCode | Stejné jako výsledek | Toto pole určuje výsledek operace instalace pro individuální aktualizaci.
-Typ operace | 1 - instalace<br> 0 – hledání a stahování.| Instalace je pouze typ operace, které by ve výchozím nastavení zobrazený ve výsledcích.
-WindowsUpdateQuery | Výchozí hodnota je "IsInstalled = 0" |Služby Windows update dotazu, který byl použit k vyhledání aktualizací. Další informace najdete v tématu [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+Typ operace | 1 - instalace<br> 0 – hledání a stahování.| Instalace je pouze typ operace, které se zobrazí ve výsledcích ve výchozím nastavení.
+WindowsUpdateQuery | Výchozí hodnota je "IsInstalled = 0" |Služby Windows update dotaz, který byl použit k vyhledání aktualizací. Další informace najdete v tématu [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | true – nebyla nutná restartování<br> false – nebyl požadován restart | Označuje, pokud byl dokončení instalace aktualizace vyžaduje restartování.
 
 Pokud žádná aktualizace je ještě naplánováno, výsledkem JSON je prázdný.
@@ -246,7 +252,7 @@ Pokud chcete povolit reverzní proxy server v clusteru, postupujte podle kroků 
 
 Oprava orchestration aplikace protokoly se shromažďují v rámci protokoly modulu runtime Service Fabric.
 
-V případě, že chcete zaznamenat protokoly pomocí diagnostických nástrojů nebo kanálu podle svého výběru. Oprava aplikace orchestration používá níže pevné zprostředkovatele ID, která mají protokolovat události prostřednictvím [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+V případě, že chcete zaznamenat protokoly pomocí diagnostických nástrojů nebo kanálu podle svého výběru. Oprava orchestration aplikace používá níže pevné zprostředkovatele ID do protokolu událostí prostřednictvím [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -300,14 +306,14 @@ OTÁZKY. **Proč opravy napříč clustery trvá tak dlouho spustit?**
 A. Čas potřebný oprava aplikace orchestration je ve většině případů závislé na následujících faktorech:
 
 - Zásada službu koordinátora. 
-  - Výchozí zásady `NodeWise`, výsledkem opravy jenom jeden uzel v čase. Zejména v případě větší clusterů, doporučujeme použít `UpgradeDomainWise` zásadu, abyste dosáhli rychlejší opravy napříč clustery.
+  - Výchozí zásady `NodeWise`, výsledkem opravy jenom jeden uzel v čase. Zejména v případě, že je větší, clusteru, doporučujeme použít `UpgradeDomainWise` zásadu, abyste dosáhli rychlejší opravy napříč clustery.
 - Počet aktualizací, které jsou k dispozici ke stažení a instalaci. 
 - Průměrný čas potřebný ke stažení a instalaci aktualizace, které by neměl překročit několik hodin.
 - Výkon virtuálního počítače a šířku pásma sítě.
 
-OTÁZKY. **Proč se zobrazuje některé aktualizace v získaných prostřednictvím REST API služby Windows Update výsledků, ale ne v historii služby Windows Update v počítači?**
+OTÁZKY. **Proč vidí některé aktualizace ve výsledcích Windows Update získat prostřednictvím REST API, ale ne v historii služby Windows Update v počítači?**
 
-A. Některé aktualizace produktu je třeba ověřit v historii jejich příslušné aktualizace nebo opravy. Například aktualizace programu Windows Defender se nezobrazí v historii služby Windows Update v systému Windows Server 2016.
+A. Některé aktualizace produktu se objeví jenom v historii jejich příslušné aktualizace nebo opravy. Například aktualizace programu Windows Defender se nezobrazí v historii služby Windows Update v systému Windows Server 2016.
 
 ## <a name="disclaimers"></a>Právní omezení
 

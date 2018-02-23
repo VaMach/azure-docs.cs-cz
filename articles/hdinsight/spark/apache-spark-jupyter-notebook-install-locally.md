@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1508faf7a05461de65b7a4c2f68e2ef9bbd7e19d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5549c175c280961b09f5996e3387a50dae31222f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Do počítače nainstalovat Poznámkový blok Jupyter a připojte se k Apache Spark v HDInsight
 
@@ -55,9 +55,9 @@ Python je třeba nainstalovat před instalací poznámkové bloky Jupyter. Pytho
 
 Pokyny k instalaci Spark magic jádra PySpark a Spark, postupujte podle pokynů instalace [sparkmagic dokumentace](https://github.com/jupyter-incubator/sparkmagic#installation) na Githubu. Prvním krokem v dokumentaci magic Spark se žádostí o instalaci Spark magic. Nahraďte tento první krok v odkazu pomocí následujících příkazů, v závislosti na verzi clusteru HDInsight se připojí k. Potom postupujte podle zbývajících kroků v dokumentaci magic Spark. Pokud chcete nainstalovat jádrech jiné, je třeba provést krok 3 v části Spark magic instalační pokyny.
 
-* Pro clustery v3.4 nainstalujte sparkmagic 0.2.3 spuštěním`pip install sparkmagic==0.2.3`
+* Pro clustery v3.4 nainstalujte sparkmagic 0.2.3 spuštěním `pip install sparkmagic==0.2.3`
 
-* Pro clustery v3.5 a v3.6 nainstalujte sparkmagic 0.11.2 spuštěním`pip install sparkmagic==0.11.2`
+* Pro clustery v3.5 a v3.6 nainstalujte sparkmagic 0.11.2 spuštěním `pip install sparkmagic==0.11.2`
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Konfigurace magic Spark se připojit ke clusteru HDInsight Spark
 
@@ -150,7 +150,6 @@ Může být z mnoha důvodů, proč můžete chtít nainstalovat Jupyter na vá�
 * [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](apache-spark-use-bi-tools.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight pro analýzu teploty v budově pomocí dat HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](apache-spark-eventhub-streaming.md)
 * [Analýza protokolu webu pomocí Sparku v HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Vytvoření a spouštění aplikací

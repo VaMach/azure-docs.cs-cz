@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definování strategie přijetí hybridní identity
 V této úloze definujete strategií hybridní identity přijetí řešení hybridní identity splňovat obchodní požadavky, které se zabývá:
@@ -29,7 +29,7 @@ V této úloze definujete strategií hybridní identity přijetí řešení hybr
 * [Stanovení požadavků na službu Multi-Factor authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definování strategie obchodních potřeb
-První úloha adresy určení obchodní organizace potřebuje.  To může být velmi široký a oboru nárůstu může dojít, pokud si nejste opatrní.  V začátku jednoduchost ale nezapomeňte vždy plánování návrh, který bude přizpůsobení a usnadnění změn v budoucnu.  Bez ohledu na to, zda je jednoduchý návrhu nebo některého velmi složité Azure Active Directory je platforma Microsoft Identity, která podporuje Office 365, Microsoft Online Services a cloudových aplikací.
+První úloha adresy určení obchodní organizace potřebuje.  To může být velmi široký a oboru nárůstu může dojít, pokud si nejste opatrní.  Na začátek, jednoduchost ale nezapomeňte vždy plánování návrh, který bude přizpůsobení a usnadnění změn v budoucnu.  Bez ohledu na to, zda je jednoduchý návrhu nebo některého velmi složité, Azure Active Directory je platforma Microsoft Identity, která podporuje Office 365, Microsoft Online Services a cloudových aplikací.
 
 ## <a name="define-an-integration-strategy"></a>Definování strategie integraci
 Microsoft má tři scénáře hlavní integrace, které jsou cloudové identity, synchronizované identity a federované identity.  Měli byste naplánovat na jednu z těchto integračních strategie přijetí.  Strategie, kterou zvolíte, se může lišit a může zahrnovat rozhodnutí, která v zvolili jeden, jaký typ byste chtěli poskytnout, máte k dispozici některé stávající infrastrukturu již místní a co je nákladově nejefektivnější činnost koncového uživatele.  
@@ -39,34 +39,34 @@ Microsoft má tři scénáře hlavní integrace, které jsou cloudové identity,
 Scénáře definované v předchozí obrázek jsou:
 
 * **Cloudové identity**: Jedná se o identity, které existují výhradně v cloudu.  V případě Azure AD by nacházet konkrétně v adresáři služby Azure AD.
-* **Synchronizovat**: Jedná se o identity, které existují místně a v cloudu.  Pomocí služby Azure AD Connect, tito uživatelé vytvoření nebo propojit s existující účty Azure AD.  Hodnota hash hesla uživatele synchronizovaných z místní prostředí do cloudu v co se nazývá hodnoty hash hesla.  Při použití synchronizaci přímý přístup do jedné paměti je, pokud je uživatel zakázán v místním prostředí, může trvat až 3 hodiny pro tento stav účtu objeví ve službě Azure AD.  Příčinou je časový interval synchronizace.
+* **Synchronizovat**: Jedná se o identity, které existují místně a v cloudu.  Pomocí služby Azure AD Connect, tito uživatelé vytvoření nebo propojit s existující účty Azure AD.  Hodnota hash hesla uživatele synchronizovaných z místní prostředí do cloudu v co se nazývá hodnoty hash hesla.  Při použití synchronizaci přímý přístup do jedné paměti je, pokud je uživatel zakázán v místním prostředí, může trvat až tři hodiny pro tento stav účtu objeví ve službě Azure AD.  Příčinou je časový interval synchronizace.
 * **Federované**: tyto identity existují i místně a v cloudu.  Pomocí služby Azure AD Connect, tito uživatelé vytvoření nebo propojit s existující účty Azure AD.  
 
 > [!NOTE]
-> Další informace o možnostech synchronizace najdete v tématu [integrace místních identit s Azure Active Directory](connect/active-directory-aadconnect.md).
+> Další informace o možnosti synchronizace, najdete v tématu [integrace místních identit s Azure Active Directory](connect/active-directory-aadconnect.md).
 > 
 > 
 
-V následující tabulce vám pomohou při určení výhody a nevýhody každé z následujících strategií:
+V následující tabulce pomáhá při určování výhody a nevýhody každé z následujících strategií:
 
 | Strategie | Výhody | Nevýhody |
 | --- | --- | --- |
-| **Cloudové identity** |Snazší správa pro menší organizace. <br> Nic k instalaci potřeba další hardware ne na místní<br>Snadno zakázat, pokud uživatel odejde ze společnosti |Uživatelé budou potřebovat k přihlášení při přístupu k úlohy v cloudu <br> Hesla mohou nebo nemusí být stejné pro cloudové a místní identity |
-| **Synchronizovat** |Místní heslo bude ověřovat místní a cloudové adresáře <br>Snazší správa pro malé, střední a velké organizace <br>Uživatelé mohou mít jednotné přihlašování (SSO) pro některé zdroje <br> Metoda Microsoft upřednostňovaný pro synchronizaci <br> Snadnější správa |Někteří zákazníci možná nebudete k synchronizaci s cloudem z důvodu konkrétní společnosti dá jejich adresáře |
-| **Federované** |Uživatelé mohou mít jednotné přihlašování (SSO) <br>Pokud uživatel je ukončen nebo opustí, účet můžete okamžitě zakázáno a odvolat přístup,<br> Podporuje rozšířené scénáře, které nelze provést pomocí synchronizovat |Další kroky instalace a konfigurace <br> Vyšší údržby <br> Může vyžadovat další hardware pro infrastrukturu služby tokenů zabezpečení <br> Může vyžadovat další hardware k instalaci federační server. Další software je vyžadován, pokud se používá služba AD FS <br> Vyžadovat rozsáhlé instalační program pro jednotné přihlašování <br> Kritický bod selhání, pokud je federační server je vypnutý, uživatelé nebudou moci ověřit |
+| **Cloudové identity** |Snazší správa pro menší organizace. <br> Nic k instalaci potřeba další hardware ne na místní<br>Snadno zakázat, pokud uživatel odejde ze společnosti |Uživatelé budou muset přihlásit při přístupu k úlohy v cloudu <br> Hesla mohou nebo nemusí být stejné pro cloudové a místní identity |
+| **Synchronizovat** |Místní heslo ověřuje místní i cloudové adresáře <br>Snazší správa pro malé, střední nebo velké organizace <br>Uživatelé mohou mít jednotné přihlašování (SSO) pro některé zdroje <br> Metoda Microsoft upřednostňovaný pro synchronizaci <br> Snadnější správa |Někteří zákazníci možná nebudete k synchronizaci s cloudem z důvodu konkrétní společnosti dá jejich adresáře |
+| **Federované** |Uživatelé mohou mít jednotné přihlašování (SSO) <br>Pokud uživatel je ukončen nebo opustí, účet můžete okamžitě zakázáno a odvolat přístup,<br> Podporuje rozšířené scénáře, které nelze provést pomocí synchronizovat |Další kroky pro nastavení a konfigurace <br> Vyšší údržby <br> Může vyžadovat další hardware pro infrastrukturu služby tokenů zabezpečení <br> Může vyžadovat další hardware k instalaci federační server. Další software je vyžadován, pokud se používá služba AD FS <br> Vyžadovat rozsáhlé instalační program pro jednotné přihlašování <br> Kritický bod selhání, pokud je federační server je vypnutý, uživatelé nebudou moci ověřit |
 
 ### <a name="client-experience"></a>Možnosti klienta
-Strategie, kterou použijete, bude určovat přihlášení uživatele.  Následující tabulky poskytují informace o jaké uživatele by měl očekávat jejich přihlašovat jako.  Všimněte si, že ne všechny federovaných identit zprostředkovatelé podporují jednotné přihlašování ve všech scénářích.
+Strategie, kterou použijete, bude určovat přihlášení uživatele.  Následující tabulky poskytují informace o jaké uživatele by měl očekávat jejich přihlašovat jako.  Ne všichni zprostředkovatelé federovaných identit podporují jednotné přihlašování ve všech scénářích.
 
 **Domain připojený a privátní síťových aplikací**:
 
 |  | Synchronizované Identity | Federated Identity |
 | --- | --- | --- |
-| Webové prohlížeče |Ověřování pomocí formulářů |jednotné přihlašování na, někdy je potřeba zadat ID organizace |
+| Webové prohlížeče |Ověřování pomocí formulářů |jednotné přihlašování, někdy požádáni o zadání ID organizace |
 | Outlook |Výzva k zadání přihlašovacích údajů |Výzva k zadání přihlašovacích údajů |
-| Skype pro firmy (Lync) |Výzva k zadání přihlašovacích údajů |jednotného přihlašování pro aplikace Lync, výzva přihlašovací údaje pro Exchange |
-| SkyDrive Pro |Výzva k zadání přihlašovacích údajů |jednotné přihlašování |
-| Office Pro Plus předplatného |Výzva k zadání přihlašovacích údajů |jednotné přihlašování |
+| Skype pro firmy (Lync) |Výzva k zadání přihlašovacích údajů |jednotné přihlašování pro aplikace Lync, výzva přihlašovací údaje pro Exchange |
+| SkyDrive Pro |Výzva k zadání přihlašovacích údajů |Jednotné přihlašování |
+| Office Pro Plus předplatného |Výzva k zadání přihlašovacích údajů |Jednotné přihlašování |
 
 **Externí nebo nedůvěryhodných zdrojů**:
 
@@ -74,23 +74,23 @@ Strategie, kterou použijete, bude určovat přihlášení uživatele.  Následu
 | --- | --- | --- |
 | Webové prohlížeče |Ověřování pomocí formulářů |Ověřování pomocí formulářů |
 | Outlook, Skype pro firmy (Lync) Skydrive Pro předplatného systému Office |Výzva k zadání přihlašovacích údajů |Výzva k zadání přihlašovacích údajů |
-| Exchange ActiveSync |Výzva k zadání přihlašovacích údajů |jednotného přihlašování pro aplikace Lync, výzva přihlašovací údaje pro Exchange |
+| Exchange ActiveSync |Výzva k zadání přihlašovacích údajů |jednotné přihlašování pro aplikace Lync, výzva přihlašovací údaje pro Exchange |
 | Mobilní aplikace |Výzva k zadání přihlašovacích údajů |Výzva k zadání přihlašovacích údajů |
 
-Pokud zjistíte z úlohy 1, abyste měli 3. stran IdP nebo se má použít k poskytování federace se službou Azure AD, budete muset mít na paměti následující podporované funkce:
+Pokud zjistíte z úlohy 1, abyste měli třetích stran IdP nebo se má použít k poskytování federace se službou Azure AD, budete muset mít na paměti následující podporované funkce:
 
-* Všechny poskytovatele SAML 2.0, který je kompatibilní s profilem SP Lite může podporovat ověřování do služby Azure AD a přidružené aplikace
+* Všechny zprostředkovatele SAML 2.0, která je kompatibilní s profilem SP Lite může podporovat ověřování do služby Azure AD a přidružené aplikace
 * Podporuje pasivní ověřování, což usnadňuje ověřování aplikace OWA, SPO, atd.
 * Exchange Online klientů může být podporován pomocí SAML 2.0 rozšířeného klienta profilu (ECP)
 
 Musí být také vědět, jaké funkce nebudete mít k dispozici:
 
-* Bez podpory důvěryhodnosti/WS-Federation dojde k přerušení všech aktivních klientů
+* Bez podpory důvěryhodnosti/WS-Federation přerušení všech aktivních klientů
   * To znamená ne klienta, klient OneDrive, předplatného systému Office, Office Mobile před Office 2016
-* Přechod Office pasivní ověřování vám umožní, aby byla možná čistý IdPs SAML 2.0, ale podpora bude na základě klienta klienta
+* Přechod Office pasivní ověřování umožňuje, aby byla možná čistý IdPs SAML 2.0, ale podpora bude na základě klienta klienta
 
 > [!NOTE]
-> Nejaktuálnější seznamu najdete v tématu http://aka.ms/ssoproviders článku.
+> Nejaktuálnější seznamu najdete v tématu https://aka.ms/ssoproviders článku.
 > 
 > 
 
@@ -108,7 +108,7 @@ V průběhu let máte několik nástrojů pro synchronizaci existoval a použít
 ### <a name="supported-topologies"></a>Podporované topologie
 Při definování strategie synchronizace, musíte určit topologie, která se používá. V závislosti na informace, které bylo zjištěno v kroku 2 můžete určit, které topologie je ta správná pro použít. Jedné doménové struktury, jeden topologie Azure AD je nejčastější a skládá se z jedné doménové struktury služby Active Directory jednu instanci Azure AD.  To se bude používat ve většině scénářů a je očekávané topologie při použití instalace Azure AD Connect Express, jak je znázorněno na obrázku níže.
 
-![](./media/hybrid-id-design-considerations/single-forest.png)Scénář jedné doménové struktury je velmi běžné i malé i velké organizace mají několik doménových struktur, jak je znázorněno na obrázku 5.
+![](./media/hybrid-id-design-considerations/single-forest.png) Scénář jedné doménové struktury je běžné i malé i velké organizace mají několik doménových struktur, jak je znázorněno na obrázku 5.
 
 > [!NOTE]
 > Další informace o různých místních a topologie služby Azure AD s Azure AD Connect sync najdete v článku [topologie pro Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
@@ -159,7 +159,7 @@ Pokud to chcete provést následující musí být splněné:
   * Skupiny s výchozí konfigurací zpětný zápis
   * Zpětný zápis zařízení
 
-Uvědomte si, že následující se nepodporuje a nesmí být vybrána jako implementace:
+Následující se nepodporuje a nesmí být vybrána jako implementace:
 
 * Není možné mít víc synchronizačních serverů Azure AD Connect připojení do stejného adresáře Azure AD i v případě, že je nakonfigurovaný k synchronizaci vzájemně se vylučuje sadu objektů
 * Ji není podporována pro synchronizaci stejného uživatele do více adresářů Azure AD. 
@@ -173,7 +173,7 @@ Uvědomte si, že následující se nepodporuje a nesmí být vybrána jako impl
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definování strategie pro službu Multi-Factor authentication
-V této úloze určíte strategii služby Multi-Factor authentication používat.  Azure Multi-Factor Authentication se dodává v dvě různé verze.  Jeden je cloudu a druhá je místní pomocí Azure MFA serveru.  Na základě vyhodnocení výše můžete můžete určit, které řešení je tu správnou pro strategie.  Následující tabulku použijte k určení, který způsob návrhu nejlépe splnění požadavků zabezpečení vaší společnosti:
+V této úloze určíte strategii služby Multi-Factor authentication používat.  Azure Multi-Factor Authentication se dodává v dvě různé verze.  Jeden je cloudu a druhá je místní pomocí Azure MFA serveru.  Na základě vyhodnocení výše můžete můžete určit, které řešení je tu správnou pro strategie.  Následující tabulku použijte k určení, který způsob návrhu nejlépe splňuje požadavek na zabezpečení vaší společnosti:
 
 Možnosti služby Multi-Factor návrhu:
 
@@ -201,7 +201,7 @@ I když vám může mít vyrovnané na řešení pro strategie, přesto potřebu
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Zprostředkovatel vícefaktorového ověřování
-Služba Multi-Factor authentication je k dispozici ve výchozím nastavení pro globální správce, kteří mají klienta Azure Active Directory. Ale pokud chcete rozšířit služby Multi-Factor authentication všichni uživatelé nebo chcete globální správci mohli využít výhod funkce jako je například portál pro správu, vlastní přivítání a sestavy, pak je nutné zakoupit a nakonfigurovat Poskytovatele služby Multi-Factor Authentication.
+Služba Multi-Factor authentication je k dispozici ve výchozím nastavení pro globální správce, kteří mají klienta služby Azure Active Directory. Ale pokud chcete rozšířit služby Multi-Factor authentication všichni uživatelé nebo chcete globální správci mohli využít výhod funkce jako je například portál pro správu, vlastní přivítání a sestavy, pak je nutné zakoupit a nakonfigurovat Poskytovatele služby Multi-Factor Authentication.
 
 > [!NOTE]
 > Také se ujistěte, že vybrané možnosti návrhu služby Multi-Factor authentication podporuje funkce, které jsou požadovány pro návrhu. 

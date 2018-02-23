@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Vytvoření a úprava okruhu ExpressRoute
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ V prohlížeči přejděte na web [Azure Portal](http://portal.azure.com) a při
 > 
 > 
 
-1. Okruh ExpressRoute můžete vytvořit tak, že vyberete možnost vytvořit nový prostředek. Klikněte na tlačítko **nový** > **sítě** > **ExpressRoute**, jak je znázorněno na následujícím obrázku:
+1. Okruh ExpressRoute můžete vytvořit tak, že vyberete možnost vytvořit nový prostředek. Klikněte na tlačítko **vytvořit prostředek** > **sítě** > **ExpressRoute**, jak je znázorněno na následujícím obrázku:
 
   ![Vytvoření okruhu ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. Po kliknutí na tlačítko **ExpressRoute**, uvidíte **okruh ExpressRoute vytvořit** stránky. Když jste vyplnění hodnoty na této stránce, ujistěte se, že jste zadali správný SKU vrstvy (Standard nebo Premium) a data měření fakturační model (neomezený nebo Metered).

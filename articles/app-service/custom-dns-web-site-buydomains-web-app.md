@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Koupit vlastní název domény pro Azure Web Apps
 
@@ -30,7 +30,7 @@ Tento článek je pro službu Azure App Service (webové aplikace, aplikace API,
 
 Pro absolvování tohoto kurzu potřebujete:
 
-* [Vytvořit aplikaci služby App Service](/azure/app-service/), nebo použijte aplikaci, kterou jste vytvořili pro jiné kurzu.
+* [Vytvořit plán služby App Service](/azure/app-service/) nebo použít aplikaci, kterou jste vytvořili pro účely jiného kurzu.
 * [Odeberte limit útraty vaše předplatné](../billing/billing-spending-limit.md#remove). Služby App Service domén s kredity bezplatné předplatné nejde koupit.
 
 ## <a name="prepare-the-app"></a>Příprava aplikace
@@ -41,44 +41,44 @@ Použít vlastní domény ve službě Azure Web Apps, webové aplikace na [plán
 
 ### <a name="sign-in-to-azure"></a>Přihlášení k Azure
 
-Otevřete [portál Azure](https://portal.azure.com) a přihlaste se pomocí účtu Azure.
+Otevřete [Azure Portal](https://portal.azure.com) a přihlaste se pomocí svého účtu Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Přejděte na aplikaci na portálu Azure
+### <a name="navigate-to-the-app-in-the-azure-portal"></a>Přechod do aplikace na webu Azure Portal
 
-V nabídce vlevo vyberte **App Services**a pak vyberte název aplikace.
+V levé nabídce vyberte **App Services** a pak vyberte název aplikace.
 
-![Portál navigace do aplikace Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Přechod do aplikace Azure na portálu](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-Zobrazí na stránce Správa aplikace služby App Service.  
+Zobrazí se stránka pro správu aplikace App Service.  
 
-### <a name="check-the-pricing-tier"></a>Zkontrolujte cenové úrovně
+### <a name="check-the-pricing-tier"></a>Kontrola cenové úrovně
 
-V levém navigačním panelu stránku aplikace, přejděte na **nastavení** a vyberte **škálování (plán služby App Service)**.
+V levém navigačním panelu na stránce aplikace se posuňte do části **Nastavení** a vyberte **Vertikálně navýšit kapacitu (plán služby App Service)**.
 
-![Škálování nabídky](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+![Nabídka Vertikálně navýšit kapacitu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Aktuální úroveň aplikace je označený modré ohraničení. Zkontrolujte, zda není v aplikaci **volné** vrstvy. Vlastní DNS není podporována v **volné** vrstvy. 
+Aktuální úroveň aplikace je zvýrazněná modrým ohraničením. Zkontrolujte, že aplikace není na úrovni **Free**. Vlastní DNS se na úrovni **Free** nepodporuje. 
 
-![Zkontrolujte cenová úroveň.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Kontrola cenové úrovně](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Pokud plán služby App Service není **volné**ukončit **zvolte cenovou úroveň** stránky a přejít na [koupit domény](#buy-the-domain).
 
-### <a name="scale-up-the-app-service-plan"></a>Škálovat plán služby App Service
+### <a name="scale-up-the-app-service-plan"></a>Vertikální navýšení kapacity plánu služby App Service
 
-Vyberte některé z vrstvy a bezplatnou (**sdílené**, **základní**, **standardní**, nebo **Premium**). 
+Vyberte některou z placených úrovní (**Shared**, **Basic**, **Standard** nebo **Premium**). 
 
 Klikněte na **Vybrat**.
 
-![Zkontrolujte cenová úroveň.](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Kontrola cenové úrovně](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Když se zobrazí následující oznámení, je dokončena operace škálování.
+Až se zobrazí následující oznámení, operace škálování je dokončená.
 
 ![Potvrzení operace škálování](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>Kupte si domény
 
 ### <a name="sign-in-to-azure"></a>Přihlášení k Azure
-Otevřete [portál Azure](https://portal.azure.com/) a přihlaste se pomocí účtu Azure.
+Otevřete [Azure Portal](https://portal.azure.com/) a přihlaste se pomocí svého účtu Azure.
 
 ### <a name="launch-buy-domains"></a>Spusťte koupit domén
 V **webové aplikace** , klikněte na název vaší webové aplikaci, vyberte **nastavení**a potom vyberte **vlastní domény**
@@ -114,7 +114,7 @@ Potom vyberte požadované možnosti pro vaši doménu. V následující tabulce
 | Nastavení | Navrhovaná hodnota | Popis |
 |-|-|-|
 |Ochrana osobních údajů | Povolení | Vyjádřit výslovný souhlas pro "Ochrany osobních údajů", který je součástí kupní ceny _zdarma_. Některé domény nejvyšší úrovně spravuje registrátorů, které nepodporují ochrany osobních údajů a jsou uvedeny na **ochrany osobních údajů** stránky. |
-| Přiřadit výchozí hostitelské názvy | **Webová** a**@** | Vazby požadovaným názvem hostitele, vyberte v případě potřeby. Po dokončení nákupu operace domény vaší webové aplikace jsou přístupné na vybrané názvy hostitelů. Pokud webová aplikace je za [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), nevidíte možnost k přidělení kořenové domény (@), protože nemá podporu záznamů A Traffic Manager. Vám po dokončení nákupu domény provádět změny přiřazení názvu hostitele. |
+| Přiřadit výchozí hostitelské názvy | **Webová** a **@** | Vazby požadovaným názvem hostitele, vyberte v případě potřeby. Po dokončení nákupu operace domény vaší webové aplikace jsou přístupné na vybrané názvy hostitelů. Pokud webová aplikace je za [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), nevidíte možnost k přidělení kořenové domény (@), protože nemá podporu záznamů A Traffic Manager. Vám po dokončení nákupu domény provádět změny přiřazení názvu hostitele. |
 
 ### <a name="accept-terms-and-purchase"></a>Přijmout podmínky a nákupu
 
@@ -166,7 +166,7 @@ Ujistěte se, že zakoupené domény, je uvedena ve **doménami aplikací služb
 >
 >
 
-Vyberte **přidat název hostitele**.
+Vyberte **Přidat název hostitele**.
 
 ### <a name="configure-hostname"></a>Nakonfigurujte název hostitele
 V **přidat název hostitele** dialogové okno, zadejte plně kvalifikovaný název domény vaší domény služby aplikace nebo jakékoli subdomény. Příklad:
@@ -177,7 +177,7 @@ V **přidat název hostitele** dialogové okno, zadejte plně kvalifikovaný ná
 
 Po dokončení vyberte **ověřením**. Typ záznamu název hostitele je automaticky vybrána pro vás.
 
-Vyberte **přidat název hostitele**.
+Vyberte **Přidat název hostitele**.
 
 Po dokončení operace se zobrazí upozornění na úspěch přiřazené název hostitele.  
 
@@ -220,7 +220,7 @@ V Azure, záznamy DNS pro doménu služby App Service se spravují pomocí [Azur
 
 ### <a name="open-app-service-domain"></a>Open App Service Domain
 
-Na portálu Azure v levé nabídce vyberte **více služeb** > **doménami aplikací služby**.
+Na portálu Azure v levé nabídce vyberte **všechny služby** > **doménami aplikací služby**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ Po zakoupení služby doména aplikace máte zrušit nákup pro vrátit celou č
 
 ### <a name="open-app-service-domain"></a>Open App Service Domain
 
-Na portálu Azure v levé nabídce vyberte **více služeb** > **doménami aplikací služby**.
+Na portálu Azure v levé nabídce vyberte **všechny služby** > **doménami aplikací služby**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -270,9 +270,9 @@ Pokud chcete potvrdit operaci, vyberte **Ano**.
 
 Po dokončení operace doména je vydaná ze svého předplatného a k dispozici pro každý, kdo k nákupu znovu. 
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Přímé výchozí adresy URL do vlastní adresáře
+## <a name="direct-default-url-to-a-custom-directory"></a>Směrování výchozí adresy URL do vlastního adresáře
 
-Ve výchozím nastavení bude směrovat webové požadavky na kořenovém adresáři kódu aplikace služby App Service. Pro přesměrování je na podadresáři, jako například `public`, najdete v části [přímé výchozí adresy URL do vlastní adresáře](app-service-web-tutorial-custom-domain.md#virtualdir).
+Ve výchozím nastavení služba App Service směruje webové požadavky do kořenového adresáře kódu vaší aplikace. Pro přesměrování je na podadresáři, jako například `public`, najdete v části [přímé výchozí adresy URL do vlastní adresáře](app-service-web-tutorial-custom-domain.md#virtualdir).
 
 ## <a name="more-resources"></a>Další zdroje informací
 

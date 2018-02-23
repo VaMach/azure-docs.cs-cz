@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 74dcd368d8696df26c5ad294c5657161fbe7f408
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Sestavení aplikace strojového učení Apache Spark v Azure HDInsight
 
@@ -28,9 +28,9 @@ Naučte se vytvářet Apache Spark strojového učení aplikace pomocí Spark cl
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) je Spark škálovatelné machine learning knihovna skládající se z běžných informací algoritmy a nástrojů, včetně klasifikace, regrese, clustering, spolupráce filtrování, dimenzionalitu snížení, jakož i základní Optimalizace primitiv.
 
-**Požadavky:**
+## <a name="prerequisites"></a>Požadavky:
 
-Musíte mít následující:
+Musíte mít následující položky:
 
 * Cluster Apache Spark v HDInsight. Pokyny najdete v tématu [clusterů vytvořit Apache Spark v Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
@@ -181,8 +181,8 @@ V této aplikaci používáte Spark [ML kanálu](https://spark.apache.org/docs/2
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   Z první řádek v předpovědi, uvidíte, že TVK systému s ID 20 a stáří systému 25 let, vytvoření bude aktivní (**předpovědi = 1.0**). První hodnota DenseVector (0.49999) odpovídá předpovědi 0,0 a druhá hodnota (0.5001) odpovídá předpovědi 1.0. Ve výstupu, i když je druhá hodnota jen málo vyšší, zobrazuje modelu **předpovědi = 1.0**.
-10. Vypnutí poznámkového bloku k uvolnění prostředků. To provedete kliknutím na položku **Zavřít a zastavit** z nabídky **Soubor** v poznámkovém bloku. Dojde k vypnutí a zavření poznámkového bloku.
+   Z první řádek v předpovědi, uvidíte, že TVK systému s ID 20 a stáří systému 25 let, je vytvoření klávesové (**předpovědi = 1.0**). První hodnota DenseVector (0.49999) odpovídá předpovědi 0,0 a druhá hodnota (0.5001) odpovídá předpovědi 1.0. Ve výstupu, i když je druhá hodnota jen málo vyšší, zobrazuje modelu **předpovědi = 1.0**.
+10. Vypněte poznámkového bloku k uvolnění prostředků. To provedete kliknutím na položku **Zavřít a zastavit** z nabídky **Soubor** v poznámkovém bloku. Tato akce vypnutí a zavření poznámkového bloku.
 
 ## <a name="anaconda"></a>Použít Anaconda scikit-další knihovny pro Spark machine learning
 Clustery Apache Spark v HDInsight zahrnují knihovnami Anaconda. To zahrnuje také **scikit-Další** knihoven pro machine learning. Knihovny také obsahuje různé datové sady, které můžete použít k vytvoření ukázkové aplikace přímo z poznámkového bloku Jupyter. Příklady použití scikit-další knihovny najdete [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
@@ -193,7 +193,6 @@ Clustery Apache Spark v HDInsight zahrnují knihovnami Anaconda. To zahrnuje tak
 ### <a name="scenarios"></a>Scénáře
 * [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](apache-spark-use-bi-tools.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](apache-spark-eventhub-streaming.md)
 * [Analýza protokolu webu pomocí Sparku v HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Vytvoření a spouštění aplikací

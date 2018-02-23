@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Vytvoření serveru Azure Analysis Services na portálu Azure
 Tento článek vás provede procesem vytvoření prostředek serveru služby Analysis Services ve vašem předplatném Azure.
@@ -50,12 +50,12 @@ K dokončení tohoto rychlého startu je potřeba:
    * **Cenová úroveň**: Vyberte cenovou úroveň. Tabulkové modely až 400 GB jsou podporovány. Další informace najdete v tématu [ceny služby Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Klikněte na možnost **Vytvořit**.
 
-Vytvoření trvá obvykle pod minutu; často jenom pár sekund. Pokud jste vybrali **přidávat na portál**, přejděte na portál zobrazíte nový server. Nebo přejděte na **další služby** > **služby Analysis Services** chcete zobrazit, pokud váš server je připraven.
+Vytvoření trvá obvykle pod minutu; často jenom pár sekund. Pokud jste vybrali **přidávat na portál**, přejděte na portál zobrazíte nový server. Nebo přejděte na **všechny služby** > **služby Analysis Services** chcete zobrazit, pokud váš server je připraven.
 
  ![Řídicí panel](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po vytvoření serveru, můžete [nasadit model](analysis-services-deploy.md) k němu pomocí rozšíření SSDT nebo pomocí SSMS.
 
 Pokud model nasadit na server se připojí k místním zdrojům dat, je potřeba nainstalovat [místní brána dat](analysis-services-gateway.md) na počítači v síti.

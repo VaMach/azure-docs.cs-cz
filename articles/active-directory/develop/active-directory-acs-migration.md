@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrace ze služby Řízení přístupu Azure
 
@@ -84,9 +84,9 @@ Jednotlivých cloudových služeb společnosti Microsoft, které přijímá toke
 | Služba | Doprovodné materiály |
 | ------- | -------- |
 | Azure Service Bus | [Migrace na sdílených přístupových podpisů](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Předávání přes Azure Service Bus | [Migrace na sdílených přístupových podpisů](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
+| Azure Service Bus Relay | [Migrace na sdílených přístupových podpisů](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Azure Managed Cache | [Migrace na Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Služby Azure DataMarket | [Migrace na rozhraní API kognitivní služby](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure DataMarket | [Migrace na rozhraní API kognitivní služby](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Migrace s funkcí Logic Apps služby Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Migrace na ověřování Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Upgrade agenta Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
@@ -134,24 +134,24 @@ Na vysoké úrovni *Azure Active Directory je pravděpodobně nejlepší volbou 
 | Schopnost | Podpora řízení přístupu | Podpora Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Typy účtů** | | |
-| Microsoft pracovní nebo školní účty | Podporuje se | Podporuje se |
+| Microsoft pracovní nebo školní účty | Podporováno | Podporováno |
 | Účty z Windows Server Active Directory a AD FS |-Podporované prostřednictvím federaci se klient služby Azure AD <br />-Podporované prostřednictvím přímé federační službou AD FS | Podporuje jen přes federaci se klient služby Azure AD | 
 | Účty z jiných podnikových systémů správy identit |-Možný prostřednictvím federaci se klient služby Azure AD <br />-Podporované prostřednictvím přímé federation | Možný prostřednictvím federaci se klient služby Azure AD |
-| Účty Microsoft pro osobní použití | Podporuje se | Podporované přes Azure AD v2.0 protokolu OAuth, ale nikoli prostřednictvím žádné jiné protokoly | 
-| Facebook, Google, Yahoo účty | Podporuje se | Nepodporuje se jakékoli |
+| Účty Microsoft pro osobní použití | Podporováno | Podporované přes Azure AD v2.0 protokolu OAuth, ale nikoli prostřednictvím žádné jiné protokoly | 
+| Facebook, Google, Yahoo účty | Podporováno | Nepodporuje se jakékoli |
 | **Protokoly a kompatibility SDK** | | |
-| WIF | Podporuje se | Podporované, ale omezená pokyny jsou k dispozici |
-| WS-Federation | Podporuje se | Podporuje se |
+| WIF | Podporováno | Podporované, ale omezená pokyny jsou k dispozici |
+| WS-Federation | Podporováno | Podporováno |
 | OAuth 2.0 | Podpora pro koncept 13 | Podpora pro RFC 6749, většina moderních specifikace |
-| WS-Trust | Podporuje se | Nepodporuje se |
+| WS-Trust | Podporováno | Nepodporuje se |
 | **Token formáty** | | |
-| TOKEN JWT | Podporované ve verzi Beta | Podporuje se |
-| SAML 1.1 | Podporuje se | Preview |
-| SAML 2.0 | Podporuje se | Podporuje se |
-| SWT | Podporuje se | Nepodporuje se |
+| JWT | Podporované ve verzi Beta | Podporováno |
+| SAML 1.1 | Podporováno | Preview |
+| SAML 2.0 | Podporováno | Podporováno |
+| SWT | Podporováno | Nepodporuje se |
 | **Přizpůsobení** | | |
 | Přizpůsobitelné domovské sféry zjišťování a účet výdej uživatelského rozhraní | Zaváděná kód, který lze začlenit do aplikace | Nepodporuje se |
-| Nahrát vlastní podpisové certifikáty tokenu | Podporuje se | Podporuje se |
+| Nahrát vlastní podpisové certifikáty tokenu | Podporováno | Podporováno |
 | Přizpůsobení deklarací identity v tokenech |-Předávat vstupní deklarace identity od zprostředkovatelů identity<br />-Získání tokenu přístupu z zprostředkovatele identity jako deklaraci<br />-Vystavovat deklarace identity výstup založené na hodnotách vstupních deklarací identity<br />-Vystavovat deklarace identity výstup s konstantní hodnoty |-Nelze předat prostřednictvím deklaracích identity od zprostředkovatelů federovaných identit<br />-Nelze získání tokenu přístupu z zprostředkovatele identity jako deklaraci<br />-Nemůžou vystavovat výstup deklarace identity založené na hodnotách vstupních deklarací identity<br />-Mohou vystavovat deklarace identity výstup s konstantní hodnoty<br />-Můžete vydat výstup deklarace identity založené na vlastnosti uživatelů se synchronizují do Azure AD |
 | **Automation** | | |
 | Automatizovat úkoly konfigurace a správy | Podporované prostřednictvím služby pro správu řízení přístupu | Podporu pro Microsoft Graph a Azure AD Graph API |
@@ -180,7 +180,7 @@ Alternativní způsob je podle [této ukázce kódu](https://github.com/Azure-Sa
 
 Pokud zvolíte tuto metodu, musíte porozumět [podepisování výměna klíče ve službě Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Tento postup používá Azure AD globálního podpisového klíče problém tokeny. Ve výchozím nastavení WIF se automaticky neaktualizuje podpisové klíče. Pokud Azure AD otočí jeho globální podpisové klíče, je nutné připravit pro přijetí změn implementaci WIF.
 
-Pokud můžete integrovat se službou Azure AD prostřednictvím protokolů OpenID Connect a OAuth, doporučujeme, abyste tak. Máme rozsáhlou dokumentaci a pokyny o tom, jak integrovat Azure AD do vaší webové aplikace, které jsou k dispozici v našem [Příručka pro vývojáře Azure AD](http://aka.ms/aaddev).
+Pokud můžete integrovat se službou Azure AD prostřednictvím protokolů OpenID Connect a OAuth, doporučujeme, abyste tak. Máme rozsáhlou dokumentaci a pokyny o tom, jak integrovat Azure AD do vaší webové aplikace, které jsou k dispozici v našem [Příručka pro vývojáře Azure AD](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -197,24 +197,24 @@ Následující tabulka porovnává funkce řízení přístupu, které jsou rele
 | Schopnost | Podpora řízení přístupu | Podpora Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Typy účtů** | | |
-| Microsoft pracovní nebo školní účty | Podporuje se | Podporované pomocí vlastních zásad  |
+| Microsoft pracovní nebo školní účty | Podporováno | Podporované pomocí vlastních zásad  |
 | Účty z Windows Server Active Directory a AD FS | Podporované prostřednictvím přímé federační službou AD FS | Podporované prostřednictvím SAML federace pomocí vlastních zásad |
 | Účty z jiných podnikových systémů správy identit | Podporované prostřednictvím přímé federační prostřednictvím služby WS-Federation | Podporované prostřednictvím SAML federace pomocí vlastních zásad |
-| Účty Microsoft pro osobní použití | Podporuje se | Podporuje se | 
-| Facebook, Google, Yahoo účty | Podporuje se | Facebook a Google podporované nativně, Yahoo podporován prostřednictvím OpenID Connect federace pomocí vlastních zásad |
+| Účty Microsoft pro osobní použití | Podporováno | Podporováno | 
+| Facebook, Google, Yahoo účty | Podporováno | Facebook a Google podporované nativně, Yahoo podporován prostřednictvím OpenID Connect federace pomocí vlastních zásad |
 | **Protokoly a kompatibility SDK** | | |
-| Technologie Windows Identity Foundation (WIF) | Podporuje se | Nepodporuje se |
-| WS-Federation | Podporuje se | Nepodporuje se |
+| Technologie Windows Identity Foundation (WIF) | Podporováno | Nepodporuje se |
+| WS-Federation | Podporováno | Nepodporuje se |
 | OAuth 2.0 | Podpora pro koncept 13 | Podpora pro RFC 6749, většina moderních specifikace |
-| WS-Trust | Podporuje se | Nepodporuje se |
+| WS-Trust | Podporováno | Nepodporuje se |
 | **Token formáty** | | |
-| TOKEN JWT | Podporované ve verzi Beta | Podporuje se |
-| SAML 1.1 | Podporuje se | Nepodporuje se |
-| SAML 2.0 | Podporuje se | Nepodporuje se |
-| SWT | Podporuje se | Nepodporuje se |
+| JWT | Podporované ve verzi Beta | Podporováno |
+| SAML 1.1 | Podporováno | Nepodporuje se |
+| SAML 2.0 | Podporováno | Nepodporuje se |
+| SWT | Podporováno | Nepodporuje se |
 | **Přizpůsobení** | | |
 | Přizpůsobitelné domovské sféry zjišťování a účet výdej uživatelského rozhraní | Zaváděná kód, který lze začlenit do aplikace | Plně přizpůsobitelná uživatelského rozhraní pomocí vlastních šablon stylů CSS |
-| Nahrát vlastní podpisové certifikáty tokenu | Podporuje se | Vlastní podpisové klíče, ne certifikáty podporované pomocí vlastních zásad |
+| Nahrát vlastní podpisové certifikáty tokenu | Podporováno | Vlastní podpisové klíče, ne certifikáty podporované pomocí vlastních zásad |
 | Přizpůsobení deklarací identity v tokenech |-Předávat vstupní deklarace identity od zprostředkovatelů identity<br />-Získání tokenu přístupu z zprostředkovatele identity jako deklaraci<br />-Vystavovat deklarace identity výstup založené na hodnotách vstupních deklarací identity<br />-Vystavovat deklarace identity výstup s konstantní hodnoty |-Může předávat deklarace identity od zprostředkovatelů identity; vlastní zásady, které jsou požadované pro některé deklarace identity<br />-Nelze získání tokenu přístupu z zprostředkovatele identity jako deklaraci<br />-Mohou vystavovat deklarace identity výstup založené na hodnotách vstupních deklarací identity pomocí vlastních zásad<br />-Mohou vystavovat deklarace identity výstup s konstantní hodnoty pomocí vlastních zásad |
 | **Automation** | | |
 | Automatizovat úkoly konfigurace a správy | Podporované prostřednictvím služby pro správu řízení přístupu |– Vytváření uživatelů povoleno přes Azure AD Graph API<br />-Nelze vytvořit klienty B2C, aplikací nebo zásady prostřednictvím kódu programu |
@@ -231,7 +231,7 @@ Pokud se rozhodnete, že Azure AD B2C je nejlepší cesta migrace k vašim aplik
 V některých případech může zjistíte, že Azure AD a Azure AD B2C nejsou dostatečná k nahrazení řízení přístupu ve vaší webové aplikaci bez provedení změn hlavní kódu. Může obsahovat několik běžných příkladů:
 
 - Webové aplikace, které používají technologii WIF nebo WS-Federation pro přihlašování pomocí poskytovatelů identit sociálních třeba Google nebo Facebook.
-- Webové aplikace, které provádějí přímé federaci do organizace identifikaci zprostředkovatele přes protokol WS-Federation.
+- Webové aplikace, které provádějí přímé federaci do zprostředkovatele identity enterprise přes protokol WS-Federation.
 - Webové aplikace, které vyžadují přístupový token vydán poskytovatele sociálních identit (například Google nebo Facebooku) jako deklarace identity v tokenech vystavený řízení přístupu.
 - Webové aplikace s pravidla komplexní tokenu transformace, které Azure AD ani Azure AD B2C nelze reprodukovat.
 - Víceklientské webové aplikace, které používají služby ACS můžete centrálně spravovat federaci do mnoho poskytovatelů jinou identitu
@@ -281,8 +281,8 @@ Můžete také použít Azure AD pro ověřování serveru na server pomocí Azu
 | Postup registrace webové služby | Vytvoření předávající strany v portálu pro správu řízení přístupu | Vytvoření webové aplikace služby Azure AD na portálu Azure |
 | Postup registrace klienta | Vytvoření identity služby v portálu pro správu řízení přístupu | Vytvořit jinou webovou aplikaci Azure AD na portálu Azure |
 | Protokol použitý |-Protokol OAuth WRAP<br />-Udělení pověření klienta 13 koncept OAuth 2.0 | Udělení pověření klienta OAuth 2.0 |
-| Metody ověřování klienta |-Jednoduché heslo<br />-Podepsaný SWT<br />-SAML token od zprostředkovatele federovaných identit |-Jednoduché heslo<br />-Podepsaný token JWT |
-| Token formáty |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Pouze JWT |
+| Metody ověřování klientů |-Jednoduché heslo<br />-Podepsaný SWT<br />-SAML token od zprostředkovatele federovaných identit |-Jednoduché heslo<br />-Podepsaný token JWT |
+| Token formáty |- JWT<br />-SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Pouze JWT |
 | Token transformace |-Přidat vlastní deklarace<br />-Jednoduché pak v případě deklarace identity logiku vystavení | Přidat vlastní deklarace | 
 | Automatizovat úkoly konfigurace a správy | Podporované prostřednictvím služby pro správu řízení přístupu | Podporu pro Microsoft Graph a Azure AD Graph API |
 

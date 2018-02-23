@@ -17,13 +17,11 @@ articles/sql-database/sql-database-connect-query.md
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-2. V seznamu na levé straně vyberte **Procházet**. 
+2. V seznamu na levé straně vyberte **všechny služby**. 
 
 3. Posuňte zobrazení a vyberte **servery SQL**. 
    
     ![Najít server služby Azure SQL Database na portálu][b21-FindServerInPortal]
-4. Pro usnadnění práce minimalizovat **Procházet** okno.
-
 5. Do textového pole Filtr začněte zadávat text název vašeho serveru. Řádek, který jste se zobrazí.
 
 6. Vyberte řádek pro váš server. Zobrazí se okno pro váš server.

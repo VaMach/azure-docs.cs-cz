@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Sledování změn virtuálního počítače se mřížka událostí Azure a Logic Apps
 
@@ -51,7 +51,7 @@ Nejprve vytvořte aplikaci logiky a přidejte mřížce aktivační událost, kt
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com). 
 
-2. V levém horním rohu hlavní Azure nabídky vyberte příkaz **nový** > **Enterprise integrace** > **aplikace logiky**.
+2. V levém horním rohu hlavní Azure nabídky vyberte příkaz **vytvořit prostředek** > **Enterprise integrace** > **aplikace logiky**.
 
    ![Vytvoření aplikace logiky](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
@@ -134,7 +134,7 @@ Zadejte tento výraz:
 
    `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
-   Vaše podmínky nyní vypadá v tomto příkladu:
+   Vaše podmínka teď vypadá jako v tomto příkladu:
 
    ![Prázdný podmínky](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
 
@@ -196,7 +196,7 @@ Nyní přidejte [ *akce* ](../logic-apps/logic-apps-overview.md#logic-app-concep
 
    A aplikace logiky dokončení může vypadat jako tento příklad:
 
-   ![Aplikace logiky dokončení](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
+   ![Hotová aplikace logiky](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
 5. Uložte svou aplikaci logiky. Chcete-li sbalení a skrytí podrobnosti každá akce v aplikaci logiky, zvolte akce záhlaví.
 

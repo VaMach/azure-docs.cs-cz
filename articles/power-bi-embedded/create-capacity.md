@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Vytvoření Power BI Embedded kapacity na portálu Azure
 
@@ -41,7 +41,7 @@ K dokončení tohoto rychlého startu je potřeba:
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-2. Vyberte **+ (Nový)** > **Data + analýzy**.
+2. Vyberte **vytvořit prostředek** > **Data + analýzy**.
 
 3. Do vyhledávacího pole Hledat *Power BI Embedded*.
 
@@ -62,11 +62,11 @@ K dokončení tohoto rychlého startu je potřeba:
 
 6. Vyberte **Vytvořit**.
 
-Vytváření obvykle trvá za minutu; často jenom pár sekund. Pokud jste vybrali **připnout na řídicí panel**, přejděte na řídicí panel. zobrazíte nové kapacity. Nebo přejděte na **další služby** > **Power BI Embedded** chcete zobrazit, pokud je vaše kapacita připraven.
+Vytváření obvykle trvá za minutu; často jenom pár sekund. Pokud jste vybrali **připnout na řídicí panel**, přejděte na řídicí panel. zobrazíte nové kapacity. Nebo přejděte na **všechny služby** > **Power BI Embedded** chcete zobrazit, pokud je vaše kapacita připraven.
 
 ![Řídicí panel portálu Azure s Power BI Embedded kapacity](media/create-capacity/azure-portal-dashboard.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud chcete používat vaše nové Power BI Embedded kapacity, přejděte na portál správce Power BI přiřadit pracovní prostory. Další informace najdete v tématu [Správa kapacit v Power BI Premium a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

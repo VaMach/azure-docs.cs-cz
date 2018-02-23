@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Pozastavení a spustit vaše Power BI Embedded kapacita na portálu Azure
 
@@ -35,9 +35,9 @@ Pozastavení vaše kapacita, nebudete se účtují. Pozastavení vaše kapacita 
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-2. Vyberte **další služby** > **Power BI Embedded** zobrazíte vaší kapacity.
+2. Vyberte **všechny služby** > **Power BI Embedded** zobrazíte vaší kapacity.
 
-    ![Další služby v rámci portálu Azure](media/pause-start/azure-portal-more-services.png)
+    ![Všechny služby v rámci portálu Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Vyberte kapacitu, kterou chcete pozastavit.
 
@@ -57,9 +57,9 @@ Obnovte využití spuštěním vaše kapacita. Spouštění vaše kapacita také
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-2. Vyberte **další služby** > **Power BI Embedded** zobrazíte vaší kapacity.
+2. Vyberte **všechny služby** > **Power BI Embedded** zobrazíte vaší kapacity.
 
-    ![Další služby v rámci portálu Azure](media/pause-start/azure-portal-more-services.png)
+    ![Všechny služby v rámci portálu Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Vyberte kapacitu, kterou chcete spustit.
 
@@ -71,11 +71,11 @@ Obnovte využití spuštěním vaše kapacita. Spouštění vaše kapacita také
 
 5. Vyberte **Ano**, který potvrdí, že chcete spustit kapacitu.
 
-    ![Potvrďte spuštění](media/pause-start/azure-portal-confirm-start.png)
+    ![Potvrdit spuštění](media/pause-start/azure-portal-confirm-start.png)
 
 Pokud žádný obsah je přiřazen k této kapacitu, je k dispozici po spuštění.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud chcete škálovat vaše kapacita nahoru nebo dolů, přečtěte si téma [škálovat vaše Power BI Embedded kapacita](scale-capacity.md).
 

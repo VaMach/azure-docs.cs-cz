@@ -3,8 +3,8 @@ title: "Nasazení šablon pomocí prostředí PowerShell v zásobníku Azure | M
 description: "Postup nasazení virtuálního počítače pomocí šablony Resource Manageru a prostředí PowerShell."
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e4837be016b569dbd0b4bf8e071e6381b8daa85f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: d271b155d65a7dd95a92262da338cf3a272d140b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-templates-in-azure-stack-using-powershell"></a>Nasazení šablon v zásobníku Azure pomocí prostředí PowerShell
 
@@ -58,6 +59,6 @@ Virtuální pevný disk použitých v této šabloně příklad je Windows Serve
 3. Otevřete a klikněte na portálu Azure zásobníku **Procházet**, klikněte na tlačítko **virtuální počítače**a vyhledejte nový virtuální počítač (*myDeployment001*).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Nasazení šablon pomocí sady Visual Studio](azure-stack-deploy-template-visual-studio.md)
 

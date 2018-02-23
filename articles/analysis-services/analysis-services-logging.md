@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Nastavení protokolování diagnostiky
 
@@ -83,12 +83,12 @@ Kategorie metrik protokoly stejné [Server metriky](analysis-services-monitor.md
 
     ![Zapnutí protokolování diagnostiky pro Azure Cosmos DB na portálu Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. V **nastavení pro diagnostiku**, postupujte takto: 
+2. V **nastavení pro diagnostiku**, určete následující možnosti: 
 
     * **Název**. Zadejte název pro protokoly vytvořit.
 
-    * **Archiv na účet úložiště**. Pokud chcete použít tuto možnost, musíte se připojit k existující účet úložiště. V tématu [vytvořit účet úložiště](../storage/common/storage-create-storage-account.md). Postupujte podle pokynů pro vytvoření správce prostředků, účtu pro obecné účely. Pak se vraťte na tuto stránku na portálu vyberte svůj účet úložiště. To může trvat několik minut pro účty nově vytvořené úložiště zobrazí v rozevírací nabídce.
-    * **Datový proud do centra událostí**. Chcete-li použít tuto možnost, musíte existující centra událostí obor názvů a události rozbočovače pro připojení k. Vytvoření oboru názvů Event Hubs naleznete v tématu [vytvořit obor názvů Event Hubs a centra událostí pomocí portálu Azure](../event-hubs/event-hubs-create.md). Pak se vraťte na tuto stránku v portálu a zvolte název oboru názvů a zásad centra událostí.
+    * **Archiv na účet úložiště**. Pokud chcete použít tuto možnost, musíte se připojit k existující účet úložiště. V tématu [vytvořit účet úložiště](../storage/common/storage-create-storage-account.md). Postupujte podle pokynů pro vytvoření správce prostředků, pro obecné účely účtu, potom vyberte svůj účet úložiště, vraťte se na této stránce na portálu. To může trvat několik minut pro účty nově vytvořené úložiště zobrazí v rozevírací nabídce.
+    * **Datový proud do centra událostí**. Chcete-li použít tuto možnost, musíte existující centra událostí obor názvů a události rozbočovače pro připojení k. Další informace najdete v tématu [vytvořit obor názvů Event Hubs a centra událostí pomocí portálu Azure](../event-hubs/event-hubs-create.md). Pak se vraťte na tuto stránku v portálu a zvolte název oboru názvů a zásad centra událostí.
     * **Odeslat k analýze protokolů**. Chcete-li použít tuto možnost, buď použijte existujícímu pracovnímu prostoru nebo vytvořte nový pracovní prostor analýzy protokolů podle pokynů k [vytvořit nový pracovní prostor](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) na portálu. Další informace o prohlížení protokolů v analýzy protokolů, najdete v části [zobrazení přihlásí analýzy protokolů](#view-in-loganalytics).
 
     * **Modul**. Vyberte tuto možnost, chcete-li protokolu události Xevent. Pokud jste se archivace na účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
@@ -171,7 +171,7 @@ V **typ**, klikněte na tlačítko **AzureDiagnostics**a potom klikněte na **po
 
 Klikněte na tlačítko **EventClass\_s** nebo jeden z názvy událostí a analýzy protokolů pokračuje vytváření dotazu. Je nutné uložit vaše dotazy pro pozdější použití.
 
-Nezapomeňte najdete v článku věnovaném Operations Management Suite, které poskytuje rozšířené dotazu, dashboarding a v protokolu analytická data výstrah funkce webu.
+Ujistěte se, že Operations Management Suite, které poskytuje rozšířené dotazu, dashboarding a v protokolu analytická data výstrah funkce webu v tématu.
 
 ### <a name="queries"></a>Dotazy
 

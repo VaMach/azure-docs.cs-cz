@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Shromažďování a využití dat protokolu z vašich prostředků Azure
 
@@ -163,7 +163,7 @@ Ujistěte se, že všechny vaše prostředky nastavení je nastavení pro diagno
 
 ![Diagnostické protokoly okno na portálu](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Možná budete muset klikněte na tlačítko "Další služby" najít v části monitorování.
+Možná budete muset klikněte na tlačítko "Všechny služby" najít v části monitorování.
 
 Zde si můžete zobrazit a vyfiltrovat všechny prostředky, které podporují diagnostické nastavení zobrazit, pokud mají diagnostiky povoleno. Můžete také přejít na najdete Pokud několik nastavení jsou nastavené na prostředku a zkontrolujte, které účet úložiště, obor názvů služby Event Hubs a pracovní prostor analýzy protokolů, které jsou k toku dat.
 
@@ -174,7 +174,7 @@ Přidání nastavení diagnostiky se vyvolá nastavení pro diagnostiku zobrazen
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Podporované služby, kategorie a schémat pro diagnostické protokoly prostředků
 [Najdete v článku](monitoring-diagnostic-logs-schema.md) úplný seznam podporovaných služeb a kategorií protokolu a schémata v těchto služeb.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Stream prostředků do diagnostickým protokolům **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Změňte nastavení pro diagnostiku prostředků pomocí rozhraní REST API Azure monitorování](https://msdn.microsoft.com/library/azure/dn931931.aspx)

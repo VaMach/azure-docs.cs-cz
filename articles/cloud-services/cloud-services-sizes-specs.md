@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Velikosti pro cloudové služby
 Toto téma popisuje možnosti dostupné velikosti a pro cloudové služby role instance (webových rolí a rolí pracovního procesu). Je také důležité informace o nasazení myslet při plánování použití těchto prostředků. ID, které vložíte v má velikost pro všechny vaše [souboru definice služby](cloud-services-model-and-package.md#csdef). Ceny pro každou velikost jsou k dispozici na [ceník služby Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) stránky.
@@ -59,10 +59,10 @@ Vytvořili jsme koncept výpočetní jednotky Azure (ACU) poskytnout způsob por
 | Rodina SKU | ACU na jádro |
 | --- | --- |
 | [ExtraSmall](#a-series) |50 |
-| [Malá ExtraLarge](#a-series) |100 |
+| [Small-ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [V2](#av2-series) |100 |
+| [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
@@ -97,8 +97,8 @@ Informace a důležité informace o použití těchto velikosti najdete v témat
 
 | Velikost            | Procesorová jádra | Paměť: GiB  | Místní HDD: GiB       | Max. počet NIC / Šířka pásma sítě |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| A8 *             |8          | 56           | 1817                 | 2 / vysoká |
-| A9 *             |16         | 112          | 1817                 | 4 / velmi vysoká |
+| A8*             |8          | 56           | 1817                 | 2 / vysoká |
+| A9*             |16         | 112          | 1817                 | 4 / velmi vysoká |
 | A10             |8          | 56           | 1817                 | 2 / vysoká |
 | A11             |16         | 112          | 1817                 | 4 / velmi vysoká |
 
@@ -147,23 +147,23 @@ Informace a důležité informace o použití těchto velikosti najdete v témat
 
 | Velikost            | Procesorová jádra | Paměť: GiB   | Místní SSD: GiB       | Max. počet NIC / Šířka pásma sítě |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2 / střední |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2 / vysoká |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4 / vysoká |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8 / velmi vysoká |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8 / velmi vysoká |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8 / velmi vysoká |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2 / střední |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2 / vysoká |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4 / vysoká |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8 / velmi vysoká |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8 / velmi vysoká |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8 / velmi vysoká |
 
 ## <a name="ev3-series"></a>Ev3-series
 
 | Velikost            | Procesorová jádra | Paměť: GiB   | Místní SSD: GiB       | Max. počet NIC / Šířka pásma sítě |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2 / střední |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2 / vysoká |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4 / vysoká |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8 / velmi vysoká |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8 / velmi vysoká |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8 / velmi vysoká |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2 / střední |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2 / vysoká |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4 / vysoká |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8 / velmi vysoká |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8 / velmi vysoká |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8 / velmi vysoká |
 
 
 ## <a name="g-series"></a>G-series
@@ -173,7 +173,7 @@ Informace a důležité informace o použití těchto velikosti najdete v témat
 | Standard_G2     | 4         | 56           | 768                  |2 / vysoká |
 | Standard_G3     | 8         | 112          | 1 536                |4 / velmi vysoká |
 | Standard_G4     | 16        | 224          | 3 072                |8 / velmi vysoká |
-| Na úrovni Standard_G5     | 32        | 448          | 6 144                |8 / velmi vysoká |
+| Standard_G5     | 32        | 448          | 6 144                |8 / velmi vysoká |
 
 ## <a name="h-series"></a>H-series
 Virtuální počítače Azure H-series jsou další generací počítačů s vysokým výpočetním výkonem a jsou zaměřené na výpočetně vysoce náročné úlohy, jako je např. molekulární modelování, výpočty dynamiky tekutin a podobně. Tyto 8 a 16 jader virtuální počítače jsou postavené na technologii Intel. Haswell E5-2667 V3 procesoru poskytuje funkci DDR4 paměti a místní úložiště založená na SSD.

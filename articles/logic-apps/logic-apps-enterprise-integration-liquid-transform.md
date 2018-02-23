@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Proveďte pokročilé transformace JSON s šablonu kapaliny
 
@@ -110,7 +110,46 @@ V tomto článku Další informace o použití kapaliny mapy nebo šablony, kter
 
 POST vstupu JSON do aplikace logiky z [Postman](https://www.getpostman.com/postman) nebo podobného nástroje. Transformovaný výstup JSON ze svou aplikaci logiky vypadá v tomto příkladu:
   
-![Příklad výstupu](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Příklad výstupu](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>Další příklady kapaliny akce
+Kapaliny není omezen na pouze JSON transformace. Zde jsou další akce k dispozici transformace, používající kapaliny.
+
+* Transformace na text JSON
+  
+  Tady je kapaliny šablony použité v tomto příkladu:
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Zde jsou ukázka vstup a výstup:
+  
+   ![Příklad výstupu JSON na text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* Transformace XML do formátu JSON
+  
+  Tady je kapaliny šablony použité v tomto příkladu:
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Zde jsou ukázka vstup a výstup:
+
+   ![Příklad výstupu XML do formátu JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* Transformace na text XML
+  
+  Tady je kapaliny šablony použité v tomto příkladu:
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Zde jsou ukázka vstup a výstup:
+
+   ![Příklad výstupu XML na text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Další postup
 

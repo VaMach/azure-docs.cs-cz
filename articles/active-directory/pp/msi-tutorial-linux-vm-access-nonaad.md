@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a6f9ade9fca76045799edb8efa070acdfd40b7fe
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e42ed14b9c7c89972021a5422ebdfe415a70830d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Používat pro přístup k Azure Key Vault Linux virtuálního počítače spravované služby Identity (MSI) 
 
@@ -46,7 +46,7 @@ Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://p
 
 V tomto kurzu vytvoříme nový virtuální počítač s Linuxem. Můžete také povolit MSI na existující virtuální počítač.
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Klikněte na tlačítko **vytvořit prostředek** v levém horním rohu portálu Azure.
 2. Vyberte **Compute** a potom vyberte **Ubuntu Server 16.04 LTS**.
 3. Zadejte informace o virtuálním počítači. Pro **typ ověřování**, vyberte **veřejný klíč SSH** nebo **heslo**. Vytvořené pověření umožňují přihlášení k virtuálnímu počítači.
 

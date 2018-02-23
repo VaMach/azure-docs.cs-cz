@@ -4,7 +4,7 @@ description: "Tento článek vysvětluje, jak konfigurovat skupinu dostupnosti s
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 1ce90cf4bae66bfd6387a2698fd9b1ba7fc64595
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a954ca10bdec3343dbd8796b50053a1c8c40ff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurace skupiny dostupnosti Always On na virtuálních počítačích, které jsou v různých oblastech Azure
 
@@ -165,9 +165,9 @@ Po otestování připojení, přesunutí primární repliku zpátky na primárn�
 
 | Umístění | Instance serveru | Role | Režim dostupnosti | Režim převzetí služeb při selhání
 | ----- | ----- | ----- | ----- | -----
-| Primární datové centrum | SQL-1 | Primární | Synchronní | Automatické
-| Primární datové centrum | SQL-2 | Sekundární | Synchronní | Automatické
-| Sekundární nebo vzdáleného datového centra | SQL – 3 | Sekundární | Asynchronní | Ruční
+| Primární datové centrum | SQL-1 | Primární | Synchronní | Automaticky
+| Primární datové centrum | SQL-2 | Sekundární | Synchronní | Automaticky
+| Sekundární nebo vzdáleného datového centra | SQL-3 | Sekundární | Asynchronní | Ručně
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Další informace o plánované a vynucené ruční převzetí služeb při selhání
@@ -180,6 +180,6 @@ Další informace najdete v následujících tématech:
 ## <a name="additional-links"></a>Další odkazy
 
 * [Always On skupiny dostupnosti](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Virtuální počítače Azure](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Nástroje pro vyrovnávání zatížení Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Skupiny dostupnosti Azure](../manage-availability.md)

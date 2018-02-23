@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: ff0159facd693b83230c731eb7e76f0a9495fdf2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: dd603f07c20811543e07b21683b065bc873786a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-source-wizard"></a>Průvodce zdrojem dat #
 
-Průvodce zdrojem dat je rychlý a snadný způsob, jak přizpůsobit datovou sadu Azure ML Workbench bez kódu. Je, kde můžete také vybrat strategie ukázka pro datovou sadu. 
+Průvodce zdrojem dat je rychlý a snadný způsob, jak přizpůsobit datovou sadu Azure ML Workbench bez kódu. Je, kde můžete také vybrat strategie ukázka pro datovou sadu a datové typy pro každý sloupec. 
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>Krok 1: Spuštění Průvodce zdrojem dat ## 
 
@@ -27,7 +27,7 @@ K přenosu dat do projektu pomocí Průvodce zdrojem dat. Vyberte  **+**  tlač�
 ![Přidat zdroje dat](media/data-source-wizard/add-data-source.png)
 
 ## <a name="step-2-select-where-data-is-stored"></a>Krok 2: Vyberte, které jsou uložená data ##
-Nejprve zadejte, jak je aktuálně v vaše data. Může být uložený v plochý soubor nebo adresář, parquet souboru, soubor aplikace Excel nebo databáze. V tématu [podporované zdroje dat](data-prep-appendix2-supported-data-sources.md) Další informace.
+Nejprve zadejte, jak je aktuálně v vaše data. Může být uložený v plochý soubor nebo adresář, parquet souboru, soubor aplikace Excel nebo databáze. Další informace najdete v tématu [podporované zdroje dat](data-prep-appendix2-supported-data-sources.md).
 
 ![Krok 1](media/data-source-wizard/step1.png)
 
@@ -49,13 +49,15 @@ Průvodce zdrojem dat může automaticky zjistit soubor typu, oddělovače a kó
 
 ## <a name="step-5-set-data-types-for-columns"></a>Krok 5: Nastavení datových typů pro sloupce ##
 
-Průvodce zdrojem dat automaticky rozpozná datové typy sloupců datové sadě. Pokud ho neúspěšných přístupů do jednoho nebo pokud chcete vynutit datový typ, můžete ručně změnit datový typ. **UKÁZKOVÁ výstupní DATA** sloupci se zobrazuje příklady, jak bude vypadat data.
+Průvodce zdrojem dat automaticky rozpozná datové typy sloupců datové sadě. Pokud ho neúspěšných přístupů do jednoho nebo pokud chcete vynutit datový typ, můžete ručně změnit datový typ. **UKÁZKOVÁ výstupní DATA** sloupci se zobrazuje příklady, jak vypadají data.
+
+Pro sloupce, které odvodí, že příprava dat tak, aby obsahovala data zobrazí se výzva k výběru pořadí měsíce a dne ve formátu data. Například by mohl představovat 2. ledna 1/2/2013 (v takovém případě vyberte *den měsíce*) nebo 1. února (vyberte *den měsíce*).
 
 ![Krok 6](media/data-source-wizard/step4.png)
 
 ## <a name="step-6-choose-sampling-strategy-for-data"></a>Krok 6: Zvolte vzorkování strategii pro data ##
 
-Můžete zadat jeden nebo více strategií vzorkování pro datovou sadu a zvolte jednu jako aktivní strategie. Výchozí hodnota je načíst řádků Top 10000. Tato ukázka můžete upravit kliknutím na **upravit** v panelu nástrojů na tlačítko nebo přidejte nové strategie kliknutím na + nový. Strategie, které jsou aktuálně podporovány jsou
+Můžete zadat jeden nebo více strategií vzorkování pro datovou sadu a zvolte jednu jako aktivní strategie. Výchozí hodnota je načíst řádků Top 10000. Tato ukázka můžete upravit kliknutím na **upravit** v panelu nástrojů na tlačítko nebo přidejte nové strategie kliknutím na + nový. Jsou strategií, které jsou v současné době podporují
 
 -     Nejvyšší počet řádků
 -     Náhodná čísla řádků
@@ -64,14 +66,14 @@ Můžete zadat jeden nebo více strategií vzorkování pro datovou sadu a zvolt
 
 Můžete zadat, ale existuje pouze jeden, můžete nastavit jako aktivní při přípravě data výběrové strategie. Můžete nastavit jakékoli strategie jako aktivní strategie výběrem a kliknutím na nastavit jako aktivní v panelu nástrojů.
 
-V závislosti na tom, odkud pochází data nemusí být některé ukázkové strategií podporována. Další informace o vzorkování, části vzorkování v [tento dokument](data-prep-user-guide.md) 
+V závislosti na tom, odkud pochází data nemusí být některé ukázkové strategií podporována. Další informace o vzorkování, podívejte se na části vzorkování v [tento dokument](data-prep-user-guide.md) 
 
 ![Krok 6](media/data-source-wizard/step5.png)
 
 ## <a name="step-7-path-column-handling"></a>Krok 7: Cesta sloupec zpracování ##
 
-Pokud cesta k souboru obsahuje důležitá data, můžete ho zahrňte jako první sloupec v datové sadě. To může být užitečné, pokud jsou uvedení ve více souborech. Můžete, jinak nebudou zahrnuty.
+Pokud cesta k souboru obsahuje důležitá data, můžete ho zahrňte jako první sloupec v datové sadě. Tato možnost by být užitečné, pokud jsou uvedení ve více souborech. Můžete, jinak nebudou zahrnuty.
 
 ![Krok 7](media/data-source-wizard/step6.png)
 
-Po kliknutí na tlačítko Dokončit, nový zdroj dat přidá do projektu. Najdete ho ve skupině zdrojů dat v zobrazení dat, nebo jako soubor .dsource v **zobrazení souboru**.
+Po kliknutí na tlačítko Dokončit, nový zdroj dat přidá do projektu. Najdete ho ve skupině zdrojů dat v zobrazení dat, nebo jako soubor dsource v **zobrazení souboru**.

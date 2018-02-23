@@ -4,7 +4,7 @@ description: "Tento článek vysvětluje, jak vytvořit Instance clusteru převz
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurace Instance clusteru převzetí služeb při selhání systému SQL Server na virtuálních počítačích Azure
 
@@ -117,7 +117,7 @@ Tyto požadavky splněny můžete pokračovat s vytvářením clusteru převzet�
       >[!IMPORTANT]
       >Nelze nastavit nebo změnit dostupnosti nastavit po vytvoření virtuálního počítače.
 
-   Vyberte bitovou kopii z Azure Marketplace. Můžete použít na trhu bitové kopie s, který zahrnuje Windows Server a SQL Server nebo jenom Windows Server. Podrobnosti najdete v tématu [přehled systému SQL Server na virtuálních počítačích Azure](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Vyberte bitovou kopii z Azure Marketplace. Můžete použít na trhu bitové kopie s, který zahrnuje Windows Server a SQL Server nebo jenom Windows Server. Podrobnosti najdete v tématu [přehled systému SQL Server na virtuálních počítačích Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
    Oficiální imagí SQL serveru v galerii Azure zahrnují nainstalovaná instance systému SQL Server, plus instalace softwaru SQL Server a vyžadovaný klíč.
 
@@ -352,7 +352,7 @@ Pokud chcete vytvořit pro vyrovnávání zatížení:
    - **Virtuální síť**: stejné síti jako virtuální počítače.
    - **Podsíť**: stejné podsíti jako virtuální počítače.
    - **Privátní IP adresa**: stejnou IP adresu, který jste přiřadili k síťovému prostředku clusteru SQL serveru FCI.
-   - **předplatné**: Azure vaše předplatné.
+   - **Předplatné**: Azure vaše předplatné.
    - **Skupina prostředků**: použijte stejné skupině prostředků jako virtuální počítače.
    - **Umístění**: použití stejného umístění Azure jako virtuální počítače.
    Viz následující obrázek:

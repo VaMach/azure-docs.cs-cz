@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Obory, oprávnění a souhlasu v koncového bodu v2.0 Azure Active Directory
 Aplikace, které se integrují s Azure Active Directory (Azure AD), postupujte podle modelu autorizace, který nabízí uživatelům kontrolu nad přístupu svá data aplikace. Implementace v2.0 modelu autorizace byl aktualizován a změní způsob, jakým aplikace musí komunikovat s Azure AD. Tento článek se zabývá základními koncepty prostředí tato ověřování modelu, včetně obory, oprávnění a souhlasu.
@@ -32,9 +32,9 @@ Aplikace, které se integrují s Azure Active Directory (Azure AD), postupujte p
 ## <a name="scopes-and-permissions"></a>Obory a oprávnění
 Azure AD implementuje [OAuth 2.0](active-directory-v2-protocols.md) protokol autorizace. OAuth 2.0 je metoda, pomocí kterého aplikace třetích stran mají přístup k webové hostované prostředkům jménem uživatele. Všechny webové hostované prostředek, který se integruje se službou Azure AD má identifikátor prostředku nebo *identifikátor ID URI aplikace*. Například některé společnosti Microsoft hostuje webové prostředky zahrnují:
 
-* Office 365 Unified e-mailu rozhraní API:`https://outlook.office.com`
-* Rozhraní Azure AD Graph API:`https://graph.windows.net`
-* Microsoft Graph:`https://graph.microsoft.com`
+* Office 365 Unified e-mailu rozhraní API: `https://outlook.office.com`
+* Rozhraní Azure AD Graph API: `https://graph.windows.net`
+* Microsoft Graph: `https://graph.microsoft.com`
 
 Totéž platí pro všechny prostředky třetích stran, které mají integrované s Azure AD. Kterýkoli z těchto prostředků také můžete definovat sadu oprávnění, které lze použít k rozdělení na menší bloky dat funkci prostředku. Jako příklad [Microsoft Graph](https://graph.microsoft.io) definovaných oprávnění k provést následující úlohy, mimo jiné:
 
@@ -46,9 +46,9 @@ Definováním tyto typy oprávnění prostředek má jemně odstupňovanou kontr
 
 Ve službě Azure AD a OAuth, se nazývají tyto typy oprávnění *obory*. Taky někdy označují se jako *oAuth2Permissions*. Obor představuje ve službě Azure AD hodnotu řetězce. Pokračování příkladu Microsoft Graph s, je hodnota oboru pro každé oprávnění:
 
-* Číst kalendář uživatele pomocí`Calendars.Read`
-* Zápis do kalendáře uživatele pomocí`Calendars.ReadWrite`
-* Odesílat poštu jménem uživatele pomocí podle`Mail.Send`
+* Číst kalendář uživatele pomocí `Calendars.Read`
+* Zápis do kalendáře uživatele pomocí `Calendars.ReadWrite`
+* Odesílat poštu jménem uživatele pomocí podle `Mail.Send`
 
 Aplikace může požádat o tato oprávnění zadáním obory v požadavcích na koncový bod v2.0.
 
@@ -58,7 +58,7 @@ Implementace v2.0 OpenID Connect obsahuje několik dobře definovaný obory, kte
 ### <a name="openid"></a>openid
 Pokud aplikace provede přihlášení pomocí [OpenID Connect](active-directory-v2-protocols.md), musíte požádat o `openid` oboru. `openid` Oboru se zobrazuje na stránce pracovní účet souhlasu oprávnění "Přihlásit" a na stránku souhlasu účtu Microsoft osobní oprávnění "Zobrazit váš profil a připojení k aplikacím a službám pomocí účtu Microsoft". Aplikace s tímto oprávněním může přijímat jedinečný identifikátor pro uživatele ve formě `sub` deklarací identity. Také nabízí přístup k aplikaci koncovému uživateli. `openid` Oboru lze použít na koncový bod tokenu v2.0 získat tokeny typu ID, které se dají použít k zabezpečení volání protokolu HTTP mezi různými součástmi aplikace.
 
-### <a name="email"></a>E-mailu
+### <a name="email"></a>e-mail
 `email` Oboru lze použít s `openid` oboru a všechny další. Nabízí přístup k aplikaci pro uživatele primární e-mailovou adresu ve tvaru `email` deklarací identity. `email` Deklarace identity je součástí token pouze v případě, že uživatelský účet, který není vždy případě přidružen e-mailovou adresu. Pokud se používá `email` oboru, vaše aplikace by měla připravte se na zpracovat případy, ve kterém `email` deklarace identity neexistuje v tokenu.
 
 ### <a name="profile"></a>Profil
@@ -102,9 +102,9 @@ Pro vyžádání souhlasu pro všechny uživatele v klientovi, může vaše apli
 ## <a name="admin-restricted-scopes"></a>Správce omezený oborů
 Některé vysoká oprávnění v ekosystému Microsoft může být nastaven na *omezený správce*. Příklady těchto druhů obory jsou následující oprávnění:
 
-* Čtení dat adresáře organizace pomocí`Directory.Read`
-* Zapisovat data do adresáře organizace pomocí`Directory.ReadWrite`
-* Číst pomocí skupin zabezpečení v adresáři organizace`Groups.Read.All`
+* Čtení dat adresáře organizace pomocí `Directory.Read`
+* Zapisovat data do adresáře organizace pomocí `Directory.ReadWrite`
+* Číst pomocí skupin zabezpečení v adresáři organizace `Groups.Read.All`
 
 I když uživatel příjemce může udělit přístup aplikace k tomuto typu dat, jsou omezené na organizační uživatele z udělení přístupu k stejnou sadu citlivá firemní data. Pokud vaše aplikace požaduje přístup k jednomu z těchto oprávnění od organizace uživatele, uživatel obdrží chybovou zprávu s upozorněním, že uživatel nemá oprávnění k souhlas oprávnění vaší aplikace.
 
@@ -147,7 +147,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametr | Podmínka | Popis |
 | --- | --- | --- |
-| Klienta |Požaduje se |Adresář klienta, který chcete, aby žádala o oprávnění z. Lze zadat ve formátu popisný název nebo identifikátor GUID. |
+| tenant |Požaduje se |Adresář klienta, který chcete, aby žádala o oprávnění z. Můžete zadat ve formátu popisný název nebo identifikátor GUID nebo obecně odkazovaná adresou "běžné", jak je vidět v příkladu. |
 | client_id |Požaduje se |ID aplikace, která [portálu pro registraci aplikace](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) přiřazené vaší aplikaci. |
 | redirect_uri |Požaduje se |Identifikátor URI přesměrování místo odpověď k odeslání pro vaši aplikaci pro zpracování. Se musí přesně shodovat s jedním přesměrování identifikátory URI, který je zaregistrovaný v portálu pro registraci aplikace. |
 | state |Doporučené |Hodnota, zahrnuté v požadavku, který bude vrácen také v odpovědi tokenu. Může být řetězec o délce požadovaný obsah. Použijte ke kódování informace o stavu uživatele v aplikaci, než k žádosti o ověření, například stránky nebo zobrazení, které byly na stav. |
@@ -163,7 +163,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parametr | Popis |
 | --- | --- | --- |
-| Klienta |Adresář klienta, který udělena oprávnění, která byla požadována ve formátu GUID aplikace. |
+| tenant |Adresář klienta, který udělena oprávnění, která byla požadována ve formátu GUID aplikace. |
 | state |Hodnota, zahrnuté v požadavku, který bude také vrácen v odpovědi tokenu. Může být řetězec o délce požadovaný obsah. Stav se používá ke kódování informace o stavu uživatele v aplikaci, než k žádosti o ověření, například stránky nebo zobrazení, které byly na. |
 | admin_consent |Bude nastavena pro **true**. |
 

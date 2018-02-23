@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funkce a nástroje pro Bash v prostředí cloudu Azure
 
@@ -37,7 +37,7 @@ Bash v prostředí cloudu bezpečně a automaticky ověřuje přístup k účtu 
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH na Azure Linux virtuální počítače
 
-Vytváření virtuálního počítače s Linuxem z Azure CLI 2.0 můžete vytvořit výchozí klíč SSH a umístěte jej do vaší `$Home` adresáře. Umístění SSH klíče do `$Home` umožňuje přímé připojení SSH pro virtuální počítače Linux Azure přímo z prostředí cloudu. Klíče jsou uložené v acc_<user>img do sdílené složky, použijte osvědčené postupy při práci nebo sdílení přístup ke sdílené složce nebo klíče.
+Vytváření virtuálního počítače s Linuxem z Azure CLI 2.0 můžete vytvořit výchozí klíč SSH a umístěte jej do vaší `$Home` adresáře. Umístění SSH klíče do `$Home` umožňuje připojení SSH pro virtuální počítače Linux Azure přímo z prostředí cloudu. Klíče jsou uložené v acc_<user>img do sdílené složky, použijte osvědčené postupy při práci nebo sdílení přístup ke sdílené složce nebo klíče.
 
 ### <a name="home-persistence-across-sessions"></a>Trvalost $Home napříč relacemi
 
@@ -47,6 +47,10 @@ Kromě toho v Bash v prostředí cloudu vaší `$Home` adresář je uchován jak
 Soubory mimo `$Home` a stav počítače nejsou trvalé napříč relacemi.
 
 [Další informace o zachování souborů v Bash v prostředí cloudu.](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>Těsná integrace s otevřeným zdrojem nástrojů
+
+Bash v prostředí cloudu obsahuje předem nakonfigurovaná ověřování pro open source nástroje, jako je například Terraform a Ansible. Vyzkoušejte si to z návody příklad.
 
 ## <a name="tools"></a>Nástroje
 

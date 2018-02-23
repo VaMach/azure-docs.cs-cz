@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historie verzí
 Tým služby Azure Active Directory (Azure AD) pravidelně aktualizuje Azure AD Connect s novými funkcemi a funkce. Ne všechny dodatky platí pro všechny cílové skupiny.
@@ -35,6 +35,73 @@ Požadovaná oprávnění | Oprávnění potřebná k použití aktualizace, naj
 
 Stáhněte si | [Stažení Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117490"></a>1.1.749.0
+Stav: Vydané vyberte zákazníků
+
+>[!NOTE]
+>Po dokončení upgradu na tuto novou verzi, automaticky spustí úplné synchronizace a úplný import pro konektor Azure AD a úplné synchronizace konektoru služby AD. Vzhledem k tomu, že to může trvat delší dobu, v závislosti na velikosti vašeho prostředí Azure AD Connect, zkontrolujte, že jste udělali potřebné kroky pro podporu to nebo zdržovat upgrade, dokud jste našli pohodlný chvíli to udělat.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Opravené problémy
+* Opravte časové okno na pozadí úlohy pro filtrování oddíl stránky, když
+* Vyřešte časové okno na úlohy na pozadí pro oddíl filtrování stránku při přechodu na další stránku.
+
+* Pevné chybu, která způsobila narušení přístupu během ConfigDB vlastní akce
+
+* Opravit chyby obnovení z časový limit připojení SQL.
+
+* Pevné chyby, které certifikáty se zástupnými znaky sítě SAN se nezdařilo kontrolu požadovaných součástí
+
+* Opravit chyby, což způsobí, že miiserver.exe chyby při exportu konektor služby Azure AD.
+
+* Při spuštění Průvodce Azure AD Connect a změňte konfiguraci pevné chyby zaznamenán které pokus nesprávné heslo na řadiči domény
+
+
+#### <a name="new-features-and-improvements"></a>Nové funkce a vylepšení
+
+* Přidání nastavení ochrany osobních údajů pro ochranu nařízení Obecné datum (GDPR).  Pro GDPR jsou požadované označíte druhy zákaznická data, která jsou sdílet se společností Microsoft (telemetrie, stavu atd.), mají odkazy na podrobná online dokumentaci a poskytují způsob, jak naše zákazníky změna jejich předvoleb.  Tato změnami přidává tyto funkce:
+
+
+    - Sdílení dat a oznámení o ochraně osobních údajů na čistou instalaci stránky se smlouvou EULA.
+    - Data oznámení na stránce upgradu sdílení a ochrana osobních údajů.
+    - Nový další úkol "Nastavení ochrany osobních údajů" kde si uživatel může změnit jeho/jejich předvoleb.
+
+* aplikace telemetrie – správce můžete přepnout Tato třída dat zapnutí nebo vypnutí chtít
+
+* Data na Azure AD Health – správce musí navštívit portál health k řízení jejich nastavení stavu.
+   Jakmile změníte zásady služby agenty přečte a vynutit ho.
+
+* Přidané zařízení zpětný zápis akcí konfigurace a indikátor průběhu inicializace stránky
+
+* Obecné diagnostické vylepšuje sestavu ve formátu HTML a shromažďování dat úplné ZIP textu nebo sestavu ve formátu HTML
+
+* Vylepšení spolehlivosti automatický upgrade a přidané další telemetrické zajistit, že se dá určit stav serveru
+
+* Omezit oprávnění k dispozici k privilegovaným účtům na účet AD Connector.
+
+  * Pro nové instalace, bude průvodce omezit oprávnění, která privilegované účty po vytvoření účtu MSOL mít na účet MSOL.
+
+Změny se postará o následující:
+1. Expresní instalace
+2. Vlastní instalace s automatické vytvoření účtu
+
+* Změnit instalační program, není třeba oprávnění správce systému na čistou instalaci Azure AD Connect
+
+* Přidat nový nástroj pro řešení potíží se synchronizací pro konkrétní objekt. Je k dispozici v části Možnosti řešení potíží s objekt synchronizace Azure AD Connect Průvodce řešení potíží s další úlohy. V současné době tento nástroj kontroluje následující:
+
+  * UserPrincipalName Neshoda mezi objekt synchronizované uživatele a uživatelský účet v klientovi Azure AD.
+  * Pokud objekt je filtrován z synchronizace kvůli filtrování domény
+  * Pokud je objekt filtrován z synchronizace z důvodu filtrování organizační jednotky (OU)
+
+* Přidat nový nástroj pro synchronizaci aktuální hodnoty hash hesla uložená ve službě Active Directory místní pro konkrétní uživatelský účet.
+
+Nástroj nevyžaduje, aby změnu hesla. Je k dispozici v části 'Řešení potíží s synchronizaci hodnoty Hash hesla' možnost Azure AD Connect Průvodce řešení potíží s další úlohy.
+
+
+
+
+
+
 ## <a name="116540"></a>1.1.654.0
 Stav: 12. prosince 2017
 
@@ -50,7 +117,7 @@ Zlepšení přidala do Azure AD Connect verze 1.1.654.0 (i po) ujistěte se, že
 >[!NOTE]
 >Tato verze pouze odebere ohrožení zabezpečení pro nové instalace služby Azure AD Connect, kde se má vytvořit účet služby procesem instalace. Pro existující instalace, nebo v případech, kde můžete vytvořit účet sami měli byste zajistit, že toto ohrožení zabezpečení neexistuje.
 
-#### <a name="lock"></a>Zablokovat přístup k účtu služby AD DS
+#### <a name="lock"></a> Zablokovat přístup k účtu služby AD DS
 Uzamčení přístup k účtu služby AD DS implementací následující oprávnění změny v místní AD:  
 
 *   Zakázat dědičnost na zadaný objekt
@@ -408,18 +475,18 @@ CBool(
 
   * MV schématu byly přidány následující atributy:
     * Skupiny: název účtu
-    * Skupiny: domainNetBios
+    * Group: domainNetBios
     * Skupiny: domainFQDN
     * Uživatel: distinguishedName
 
   * Byly přidány následující atributy do schématu konektoru služby Azure AD:
-    * Skupiny: OnPremisesSamAccountName
+    * Group: OnPremisesSamAccountName
     * Skupiny: název pro rozhraní NetBIOS
-    * Skupiny: Název_domény_dns
+    * Group: DnsDomainName
     * Uživatel: OnPremisesDistinguishedName
 
 * Skript rutiny ADSyncDomainJoinedComputerSync má nyní nový volitelný parametr s názvem AzureEnvironment. Parametr slouží k určení, které oblasti odpovídající klienta Azure Active Directory je hostován v. Platné hodnoty patří:
-  * AzureCloud (výchozí)
+  * AzureCloud (default)
   * AzureChinaCloud
   * AzureGermanyCloud
   * USGovernment
@@ -431,10 +498,10 @@ CBool(
 #### <a name="issues-fixed"></a>Chyby
 
 * Nové koncové body služby WS-Federation zavedené službou Azure AD pro zlepšení odolnost proti výpadku ověřování jsou následující adresy URL a přidá se k místnímu konfigurace služby AD FS odpovídajících stran důvěryhodnosti:
-  * https://ests.Login.microsoftonline.com/Login.srf
-  * https://stamp2.Login.microsoftonline.com/Login.srf
-  * https://CCS.Login.microsoftonline.com/Login.srf
-  * https://CCS-sdf.Login.microsoftonline.com/Login.srf
+  * https://ests.login.microsoftonline.com/login.srf
+  * https://stamp2.login.microsoftonline.com/login.srf
+  * https://ccs.login.microsoftonline.com/login.srf
+  * https://ccs-sdf.login.microsoftonline.com/login.srf
   
 * Byl opraven problém, která způsobila, že na generování hodnoty nesprávné deklarace identity pro IssuerID služby AD FS. Tomuto problému dochází, pokud existuje více ověřených domén v klientovi Azure AD a přípona domény atributu userPrincipalName sloužící ke generování deklarací identity IssuerID je minimálně 3 úrovně hloubkové (například johndoe@us.contoso.com). Problém se vyřeší aktualizací regulární výraz používaný pravidla deklarace identity.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Přidat vlastníků a uživatelé v Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ Vlastníci a uživatelé mohou být přidány na úrovni testovacího prostřed�
 Proces přidávání roli vlastníka nebo uživatele do testovacího prostředí v Azure DevTest Labs vás provede následující kroky:
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Vyberte **Další služby** a poté ze seznamu vyberte **DevTest Labs**.
+2. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 3. Ze seznamu labs vyberte požadované testovací prostředí.
 4. V okně v prostředí, vyberte **konfigurace**. 
 5. Na **konfigurace** vyberte **uživatelé**.
@@ -118,7 +118,7 @@ Můžete přidat další vlastníky prostřednictvím okna v prostředí v testo
 Pokud chcete přidat vlastníka k předplatnému Azure, postupujte takto:
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Vyberte **více služeb**a potom vyberte **odběry** ze seznamu.
+2. Vyberte **všechny služby**a potom vyberte **odběry** ze seznamu.
 3. Vyberte požadované předplatné.
 4. Vyberte **přístup** ikonu. 
    

@@ -1,6 +1,6 @@
 ---
-title: "Konfigurace mapy služeb v Operations Management Suite | Microsoft Docs"
-description: "Mapa služeb je Operations Management Suite řešení, které automaticky zjistí součásti aplikace v systémech Windows a Linux a mapuje komunikace mezi službami. Tento článek obsahuje podrobné informace pro nasazení mapy služeb ve vašem prostředí a jejich použití v různých scénářů."
+title: "Konfigurace mapy služeb v Azure | Microsoft Docs"
+description: "Service Map je řešení v Azure, které automaticky zjišťuje komponenty aplikací v systémech Windows a Linux a mapuje komunikace mezi těmito službami. Tento článek obsahuje podrobné informace pro nasazení mapy služeb ve vašem prostředí a jejich použití v různých scénářů."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 1be3dd5718f940c784d22dbafb75c217dddecb9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>Konfigurace mapy služeb v Operations Management Suite
+# <a name="configure-service-map-in-azure"></a>Konfigurace mapy služeb v Azure
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Můžete ji zobrazit vaše servery co možná z nich – jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy a porty mezi všechny architektura připojení TCP se žádná konfigurace vyžaduje, než instalace agenta.
 
-Tento článek popisuje podrobnosti konfigurace agentů mapy služeb a registrace. Informace o používání mapy služeb najdete v tématu [pomocí mapy služeb řešení v Operations Management Suite](operations-management-suite-service-map.md).
+Tento článek popisuje podrobnosti konfigurace agentů mapy služeb a registrace. Informace o používání mapy služeb najdete v tématu [pomocí mapy služeb řešení v Azure](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Agent služby Dependency soubory ke stažení
 | File | Operační systém | Verze | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.0 | 13CE5E232311010A6E63B21615F669C63B5DF450F26F7BA092F951E924656611 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.0 | A8913CA5308A0ED2EAEAC6E1E374B62E0EA4F8A941C560F63E89EBC3F8971D38  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## <a name="connected-sources"></a>Připojené zdroje
-Mapa služeb získává data od agenta nástroje Microsoft závislostí. Agent závislostí závisí na agenta OMS pro připojení k Operations Management Suite. To znamená, že server musí mít agenta OMS nainstalovaný a nakonfigurovaný nejprve a pak může být nainstalován Agent závislostí. Následující tabulka popisuje připojených zdrojů, které podporuje řešení mapy služeb.
+Mapa služeb získává data od agenta nástroje Microsoft závislostí. Agent závislostí závisí na agenta OMS pro připojení k analýze protokolů. To znamená, že server musí mít agenta OMS nainstalovaný a nakonfigurovaný nejprve a pak může být nainstalován Agent závislostí. Následující tabulka popisuje připojených zdrojů, které podporuje řešení mapy služeb.
 
 | Připojený zdroj | Podporováno | Popis |
 |:--|:--|:--|
 | Agenti systému Windows | Ano | Mapa služeb analyzuje a shromažďuje data z počítače se systémem Windows agenta. <br><br>Kromě [agenta OMS](../log-analytics/log-analytics-windows-agent.md), Agent služby Microsoft Dependency vyžadují agentů v systému Windows. Najdete v článku [podporované operační systémy](#supported-operating-systems) úplný seznam verzí operačního systému. |
 | Agenti systému Linux | Ano | Mapa služeb analyzuje a shromažďuje data z počítače se systémem Linux agent. <br><br>Kromě [agenta OMS](../log-analytics/log-analytics-linux-agents.md), agenty Linux vyžadují Microsoft Agent závislostí. Najdete v článku [podporované operační systémy](#supported-operating-systems) úplný seznam verzí operačního systému. |
-| Skupina pro správu nástroje System Center Operations Manager | Ano | Mapa služeb analyzuje a shromažďuje data z agentů systému Windows a Linux v připojeného [skupiny pro správu System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Je nutné přímé připojení z počítače agenta System Center Operations Manager k Operations Management Suite. Do úložiště služby Operations Management Suite se předají data ze skupiny pro správu.|
+| Skupina pro správu nástroje System Center Operations Manager | Ano | Mapa služeb analyzuje a shromažďuje data z agentů systému Windows a Linux v připojeného [skupiny pro správu System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Je nutné přímé připojení z počítače agenta System Center Operations Manager k analýze protokolů. Do pracovního prostoru analýzy protokolů se předají data ze skupiny pro správu.|
 | Účet služby Azure Storage | Ne | Mapy služeb shromažďuje data z počítačů agentů, takže není žádná data z něj shromažďovat ze služby Azure Storage. |
 
 Mapa služeb podporuje pouze 64bitové platformy.
 
-V systému Windows, Microsoft Monitoring Agent (MMA) se používá System Center Operations Manager a Operations Management Suite shromažďovat a odesílat data monitorování. (Tomuto agentovi, se nazývá agenta System Center Operations Manager, OMS Agent, Agent analýzy protokolů, MMA nebo přímé agenta, v závislosti na kontextu.) System Center Operations Manager a Operations Management Suite poskytují různé na více systémů v poli verze MMA. Tyto verze lze každou sestavu System Center Operations Manager, Operations Management Suite nebo do obou.  
+V systému Windows, Microsoft Monitoring Agent (MMA) se používá System Center Operations Manager a analýzy protokolů pro shromažďování a odesílání dat monitorování. (Tomuto agentovi, se nazývá agenta System Center Operations Manager, OMS Agent, Agent analýzy protokolů, MMA nebo přímé agenta, v závislosti na kontextu.) System Center Operations Manager a analýzy protokolů poskytují různé na více systémů v poli verze MMA. Tyto verze lze každou sestavu System Center Operations Manager, analýzy protokolů nebo do obou.  
 
-V systému Linux, OMS agenta pro Linux shromáždí a odešle data do služby Operations Management Suite monitorování. Mapa služeb můžete použít na serverech s agenty přímé OMS nebo na servery, které jsou připojené k Operations Management Suite prostřednictvím skupin pro správu System Center Operations Manager.  
+V systému Linux, OMS agenta pro Linux shromáždí a odesílá data k analýze protokolů monitorování. Mapa služeb můžete použít na serverech s agenty přímé OMS nebo na servery, které jsou připojené k analýze protokolů prostřednictvím skupin pro správu System Center Operations Manager.  
 
-V tomto článku budeme označovat všechny agenty – jestli Linux nebo Windows, zda připojené ke skupině pro správu System Center Operations Manager nebo přímo k Operations Management Suite – jako "OMS Agent." Název konkrétní nasazení agenta použijeme jenom v případě, že je potřeba pro kontext.
+V tomto článku budeme označovat všechny agenty – jestli Linux nebo Windows, zda připojené ke skupině pro správu System Center Operations Manager nebo přímo k Log Analytics – jako "OMS Agent." Název konkrétní nasazení agenta použijeme jenom v případě, že je potřeba pro kontext.
 
-Mapa služeb agenta nepřenáší samotná data a nevyžaduje žádné změny brány firewall nebo porty. Data v mapy služeb vždy přenášená agentem OMS k Operations Management Suite, buď přímo nebo prostřednictvím brány OMS.
+Mapa služeb agenta nepřenáší samotná data a nevyžaduje žádné změny brány firewall nebo porty. Data v mapy služeb vždy přenášená agentem OMS k analýze protokolů, buď přímo nebo prostřednictvím brány OMS.
 
 ![Agenti mapy služeb](media/oms-service-map/agents.png)
 
-Pokud jste zákazník s System Center Operations Manager ke skupině správy, který je připojený k Operations Management Suite:
+Pokud jste zákazník s System Center Operations Manager s skupiny pro správu připojené k analýze protokolů:
 
-- Pokud agenty nástroje System Center Operations Manager můžete získat přístup k Internetu pro připojení k Operations Management Suite, žádná další konfigurace se nevyžaduje.  
-- Pokud agenty nástroje System Center Operations Manager nemůže získat přístup k Operations Management Suite přes Internet, budete muset nakonfigurovat bránu OMS pro práci s nástrojem System Center Operations Manager.
+- Pokud agenty nástroje System Center Operations Manager můžete získat přístup k Internetu, aby se připojení k analýze protokolů, žádná další konfigurace se nevyžaduje.  
+- Pokud agenty nástroje System Center Operations Manager nemůže získat přístup k analýze protokolů přes Internet, budete muset nakonfigurovat bránu OMS pro práci s nástrojem System Center Operations Manager.
   
-Pokud používáte přímé agenta OMS, musíte nakonfigurovat agenta OMS připojit se k Operations Management Suite nebo pro bránu OMS. Bránu OMS si můžete stáhnout z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Pokud používáte přímé agenta OMS, musíte nakonfigurovat agenta OMS připojit se k analýze protokolů nebo k bráně OMS. Bránu OMS si můžete stáhnout z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Sady Management Pack
-Po aktivaci mapy služeb v pracovním prostoru služby Operations Management Suite 300 KB management pack je odeslány na všechny servery Windows v něm. Pokud používáte System Center Operations Manager agentů v [připojené skupiny pro správu](../log-analytics/log-analytics-om-agents.md), z System Center Operations Manager je nasazena sada management pack mapy služeb. Pokud jsou připojeny přímo agentů, Operations Management Suite nabízí sadu management pack.
+Po aktivaci mapy služeb v pracovním prostoru analýzy protokolů 300 KB management pack je odeslány na všechny servery Windows v něm. Pokud používáte System Center Operations Manager agentů v [připojené skupiny pro správu](../log-analytics/log-analytics-om-agents.md), z System Center Operations Manager je nasazena sada management pack mapy služeb. Pokud jsou připojeny přímo agentů, analýzy protokolů přináší sadu management pack.
 
 Sada management pack je s názvem Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Je zapsán do %Programfiles%\Microsoft monitorování Agent\Agent\Health služby State\Management Packs\. Zdroje dat, který používá sada management pack je % Program files%\Microsoft monitorování Agent\Agent\Health služby State\Resources\<AutoGeneratedID > \Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -147,7 +147,7 @@ Pokud chcete nasadit rozšíření virtuálního počítače Azure pomocí prost
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ To bylo ještě jednodušší způsob, jak zajistit závislost agenta je na těc
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -267,11 +267,11 @@ Pokud vaše Agent služby Dependency instalace proběhla úspěšně, ale nevid�
 
 * Jste na [volné cenová úroveň Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Plánu úrovně Free umožňuje až pět jedinečných serverů mapy služeb. Všechny následující servery nezobrazí v mapě služby i v případě, že předchozí pět už odesílají data.
 
-* Je server odesílání protokolů a údajů o výkonu vzhledem k Operations Management Suite? Přejděte do hledání protokolů a spusťte následující dotaz pro tento počítač: 
+* Je server odesílání protokolů a údajů o výkonu vzhledem k analýze protokolů? Přejděte do hledání protokolů a spusťte následující dotaz pro tento počítač: 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  Obdrželi jste celou řadu událostí ve výsledcích? Je poslední data? Pokud ano, je agenta OMS fungování a komunikaci se službou Operations Management Suite. Pokud ne, vyhledejte agenta OMS na serveru: [řešení potíží s agentem OMS pro systém Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) nebo [agenta OMS pro řešení potíží s Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Obdrželi jste celou řadu událostí ve výsledcích? Je poslední data? Pokud ano, je agenta OMS fungování a komunikaci s analýzy protokolů. Pokud ne, vyhledejte agenta OMS na serveru: [řešení potíží s agentem OMS pro systém Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) nebo [agenta OMS pro řešení potíží s Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Server se zobrazí v mapy služeb, ale nemá žádné procesy
 Pokud se zobrazí váš server v mapy služeb, ale nemá žádná data procesu nebo připojení, určující, že Agent závislostí je nainstalovaná a spuštěná, ale nebyla načíst ovladač jádra. 

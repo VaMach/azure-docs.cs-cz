@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: v-craic
-ms.openlocfilehash: ffa669e2d07a93e9e5071ac8aab81ec14ea24eab
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e784b6ebffa215fc090af0f915900a41972fb778
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Restartování virtuálního počítače v testovacím prostředí v Azure DevTest Labs
 Můžete rychle a snadno restartování virtuálního počítače v DevTest Labs podle kroků v tomto článku. Vezměte v úvahu následující před restartováním virtuálního počítače:
@@ -37,7 +37,7 @@ Můžete rychle a snadno restartování virtuálního počítače v DevTest Labs
 
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Kroky pro restartování virtuálního počítače v testovacím prostředí v Azure DevTest Labs
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+1. Vyberte **všechny služby**a potom vyberte **DevTest Labs** ze seznamu.
 1. Ze seznamu labs vyberte testovací prostředí, která obsahuje virtuální počítač, který chcete restartovat.  
 1. V levém panelu, vyberte **Moje virtuálních počítačů**. 
 1. Ze seznamu virtuálních počítačů vyberte spuštění virtuálního počítače.

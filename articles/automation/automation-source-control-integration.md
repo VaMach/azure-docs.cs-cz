@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrace správy zdrojového kódu ve službě Azure Automation
 Integrace ovládacích prvků zdrojového umožňuje přidružit sady runbook ve vašem účtu Automation se úložištěm řízení zdrojů Githubu. Správa zdrojového kódu umožňuje snadno spolupracovat s týmem, sledovat změny a vrátit zpět na dřívější verze sadu runbook. Například Správa zdrojového kódu umožňuje synchronizovat různých větví ve správě zdrojového kódu do vaší vývoj, testovací nebo produkční účty Automation, což usnadňuje povýšit kód, který byl testován v vývojové prostředí pro vaše produkční automatizace účet.
@@ -30,27 +30,26 @@ Správa zdrojového kódu umožňuje nabízené kódu do správy zdrojového kó
 > 
 > 
 
-Existují dvě jednoduchých kroků, které jsou potřeba ke konfiguraci zdrojového kódu pro svůj účet Automation a jenom jedna, pokud již máte účet GitHub. Jsou:
+Existují dvě jednoduchých kroků, které jsou potřeba ke konfiguraci zdrojového kódu pro svůj účet Automation a jenom jedna, pokud již máte účet GitHub. Jsou to tyto:
 
 ## <a name="step-1--create-a-github-repository"></a>Krok 1 – Vytvoření úložiště GitHub
 Pokud již máte účet GitHub a úložiště, který chcete propojit s Azure Automation, pak se přihlaste do existujícího účtu a začít od kroku 2 níže. Jinak přejděte na [Githubu](https://github.com/), zaregistrujte si nový účet a [vytvořit nové úložiště](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>Krok 2 – nastavení zdrojového kódu ve službě Azure Automation
-1. Na stránce účtu Automation na portálu Azure klikněte na tlačítko **nastavit řízení zdrojů.** 
+1. Z účtu služby Automation stránky na portálu Azure v části **nastavení účtu**, klikněte na tlačítko **zdrojového kódu.** 
    
-    ![Nastavit řízení zdrojů](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. **Správy zdrojového kódu** otevře, kde můžete nakonfigurovat údaje o vašem účtu GitHub se stránka. Níže je uvedený seznam parametrů ke konfiguraci:  
+1. **Správy zdrojového kódu** otevře, kde můžete nakonfigurovat údaje o vašem účtu GitHub se stránka. Níže je uvedený seznam parametrů ke konfiguraci:  
    
-   | **Parametr** | **Popis** |
+   | **Parameter** | **Popis** |
    |:--- |:--- |
    | Vyberte zdroj |Vyberte zdroj. V současné době pouze **Githubu** je podporována. |
    | Autorizace |Klikněte **Autorizovat** tlačítko k udělení přístupu službě Azure Automation se svým úložištěm GitHub. Pokud jste již přihlášení k účtu GitHub v jiném okně, jsou použita pověření tohoto účtu. Po ověření je úspěšné, stránky se zobrazí vaše uživatelské jméno Githubu pod **autorizace vlastnost**. |
    | Vyberte úložiště |Vyberte ze seznamu dostupných úložišť úložiště GitHub. |
-   | Vyberte firemní pobočky |Vyberte ze seznamu dostupných větví větev. Pouze **hlavní** větev se zobrazí, pokud jste nevytvořili žádné větve. |
+   | Zvolte větev |Vyberte ze seznamu dostupných větví větev. Pouze **hlavní** větev se zobrazí, pokud jste nevytvořili žádné větve. |
    | Cesta ke složce sady Runbook |Cesta ke složce runbook Určuje cestu v úložišti GitHub, ze kterého chcete push nebo pull kódu. Musí být zadána ve formátu **/název_složky/subfoldername**. Jenom runbooky ve složce cesty sady runbook se budou synchronizovat s účtu Automation. Sady Runbook v podsložkách cesty ke složce runbook bude **není** synchronizovat. Použití  **/**  k synchronizaci všech sad runbook v rámci úložiště. |
 3. Například, pokud máte úložiště s názvem **PowerShellScripts** složku s názvem, který obsahuje **RootFolder**, která obsahuje složku s názvem **podsložky**. K synchronizaci každé úrovni složky, můžete použít následující řetězce:
    
-   1. Pro synchronizaci runbooků **úložiště**, je cesta ke složce sady runbook*/*
+   1. Pro synchronizaci runbooků **úložiště**, je cesta ke složce sady runbook */*
    2. Pro synchronizaci runbooků **RootFolder**, je cesta ke složce runbook */RootFolder*
    3. Pro synchronizaci runbooků **podsložky**, je cesta ke složce runbook */RootFolder/podsložky*.
 4. Po dokončení konfigurace parametry, jsou zobrazeny na **nastavit řízení zdrojů** stránky.  
@@ -64,17 +63,17 @@ Pokud již máte účet GitHub a úložiště, který chcete propojit s Azure Au
    
    * Proměnná **Microsoft.Azure.Automation.SourceControl.Connection** obsahuje hodnoty připojovacího řetězce, jak je uvedeno níže.  
      
-     | **Parametr** | **Hodnota** |
+     | **Parameter** | **Hodnota** |
      |:--- |:--- |
-     | Name (Název) |Microsoft.Azure.Automation.SourceControl.Connection |
+     | Název |Microsoft.Azure.Automation.SourceControl.Connection |
      | Typ |Řetězec |
      | Hodnota |{"Větve":\<*název vaší firemní pobočky*>, "RunbookFolderPath":\<*cesta ke složce Runbook*>, "typ zprostředkovatele":\<*má hodnotu 1 pro GitHub*>, "Úložiště":\<*název ve vašem úložišti*>, "Username":\<*Githubu vaše uživatelské jméno*>} |
 
     * Proměnná **Microsoft.Azure.Automation.SourceControl.OAuthToken**, obsahuje zabezpečené zašifrovanou hodnotu vaší OAuthToken.  
 
-    |**Parametr**            |**Hodnota** |
+    |**Parameter**            |**Hodnota** |
     |:---|:---|
-    | Name (Název)  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+    | Název  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Typ | Unknown(Encrypted) |
     | Hodnota | <*Šifrované OAuthToken*> |  
 
@@ -137,7 +136,7 @@ Pokud chcete odpojit od účtu Githubu, otevřete stránku úložiště synchron
 
   ![Tlačítko Odpojit](media/automation-source-control-integration/automation_12_Disconnect.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o integrace ovládacích prvků zdrojového najdete v následujících zdrojích informací:  
 
 * [Služby Azure Automation: Integrace ovládacích prvků zdrojového ve službě Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  

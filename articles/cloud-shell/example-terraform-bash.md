@@ -1,6 +1,6 @@
 ---
-title: "Nasazení s Terraform s Bash v prostředí cloudu Azure | Microsoft Docs"
-description: "Nasazení prostředků Azure s Terraform v Bash"
+title: "Nasazení s Terraform z Bash v prostředí cloudu Azure | Microsoft Docs"
+description: "Nasazení s Terraform z Bash v prostředí cloudu Azure"
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform a Bash v prostředí cloudu
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Nasazení s Terraform z Bash v prostředí cloudu Azure
 Tento článek vás provede procesem vytvoření skupiny prostředků pomocí [Terraform AzureRM zprostředkovatele](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) je nástroj s otevřeným zdrojem, který codifies rozhraní API do deklarativní konfigurační soubory, které může být sdílelo se členové týmu chcete upravit, zkontrolovat a verzí. Zprostředkovatel Microsoft AzureRM se používá k interakci s prostředky, které jsou podporované nástrojem Azure Resource Manager prostřednictvím rozhraní API AzureRM. 
@@ -186,6 +186,6 @@ Destroy complete! Resources: 1 destroyed.
 
 Úspěšně jste vytvořili pomocí Terraform prostředek služby Azure. Najdete další kroky a pokračujte ve čtení o cloudové prostředí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace o poskytovateli Terraform Azure](https://www.terraform.io/docs/providers/azurerm/#)<br>
 [Bash v prostředí cloudu rychlý start](quickstart.md)

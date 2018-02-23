@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Nástroje pro vývoj na Data virtuálního počítače vědecké účely
 
@@ -33,7 +33,7 @@ Virtuální počítač vědecké účely dat (DSVM) poskytuje produktivní prost
 | Typické použití      | Vývoj softwaru    |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?      | Data vědecké účely zatížení (Python a R tools), úloha Azure (Hadoop, Data Lake), Node.js, nástroje SQL Server    |
 | Jak se použít nebo ji spustit?      | Zástupce na ploše (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
-| Na DSVM souvisejících nástrojích      |     Juno kód, Rstudia, Visual Studio  |
+| Na DSVM souvisejících nástrojích      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 |    |           |
@@ -42,16 +42,25 @@ Virtuální počítač vědecké účely dat (DSVM) poskytuje produktivní prost
 | Podporované DSVM verze      | Windows, Linux     |
 | Typické použití      | Editor kódu a integrace Gitu   |
 | Jak se použít nebo ji spustit?      | Zástupce na ploše (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) v systému Windows, zástupce na ploše nebo Terminálové (`code`) v systému Linux    |
-| Na DSVM souvisejících nástrojích      |     Visual Studio 2017 Rstudia, Juno  |
+| Na DSVM souvisejících nástrojích      |     Visual Studio 2017, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>Rstudia plochy 
 |    |           |
 | ------------- | ------------- |
-| Co je to?   | Klient IDE pro jazyk R    |
+| Co je to?   | Klient IDE pro R    |
 | Podporované DSVM verze      | Windows, Linux      |
 | Typické použití      |  Vývoj R     |
 | Jak se použít nebo ji spustit?      | Zástupce na ploše (`C:\Program Files\RStudio\bin\rstudio.exe`) v systému Windows, zástupce na ploše (`/usr/bin/rstudio`) v systému Linux      |
 | Na DSVM souvisejících nástrojích      |   Visual Studio 2017, Visual Studio Code, Juno      |
+
+## <a name="rstudio--server"></a>RStudio  Server 
+|    |           |
+| ------------- | ------------- |
+| Co je to?   | Webové rozhraní IDE pro R    |
+| Podporované DSVM verze      | Linux      |
+| Typické použití      |  Vývoj R     |
+| Jak se použít nebo ji spustit?      | Povolit službu s _systemctl povolit serveru rstudia_, spusťte službu s _systemctl spustit server rstudia_. Můžete pak přihlášení k serveru Rstudia v http://your-vm-ip:8787.       |
+| Na DSVM souvisejících nástrojích      |   Visual Studio 2017, Visual Studio kód, Rstudia plochy      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
@@ -60,7 +69,7 @@ Virtuální počítač vědecké účely dat (DSVM) poskytuje produktivní prost
 | Podporované DSVM verze      | Windows, Linux      |
 | Typické použití      |  Dita vývoj     |
 | Jak se použít nebo ji spustit?      | Zástupce na ploše (`C:\JuliaPro-0.5.1.1\Juno.bat`) v systému Windows, zástupce na ploše (`/opt/JuliaPro-VERSION/Juno`) v systému Linux      |
-| Na DSVM souvisejících nástrojích      |   Visual Studio 2017, Visual Studio Code, Rstudia      |
+| Na DSVM souvisejících nástrojích      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 |    |           |
@@ -69,7 +78,7 @@ Virtuální počítač vědecké účely dat (DSVM) poskytuje produktivní prost
 | Podporované DSVM verze      | Linux      |
 | Typické použití      |  Vývoj R     |
 | Jak se použít nebo ji spustit?      | Zástupce na ploše (`/usr/bin/pycharm`) v systému Linux      |
-| Na DSVM souvisejících nástrojích      |   Visual Studio 2017, Visual Studio Code, Rstudia      |
+| Na DSVM souvisejících nástrojích      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 
 

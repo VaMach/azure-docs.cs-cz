@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 69a509612e6204fc93dd42bf2fe69cb165b5777c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Správa zón DNS na portálu Azure
 
@@ -31,7 +31,7 @@ Tento článek ukazuje, jak spravovat zóny DNS pomocí portálu Azure. Můžete
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
 1. Přihlášení k webu Azure Portal
-2. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete okno Vytvořit zónu DNS.
+2. V nabídce centra klikněte a klikněte na **vytvořit prostředek > sítě >** a pak klikněte na **zónu DNS** otevřete okno Vytvoření DNS zóny.
 
     ![Zóna DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -58,6 +58,6 @@ Na portálu Azure přejděte do **další služby** > **sítě** > **zóny DNS**
 
 Přejděte do zóny DNS na portálu. Na **zónu DNS** okně klikněte na tlačítko **odstranit zónu**. Zobrazí se výzva k potvrzení, zda že se chtějí odstranit zónu DNS. Odstranění zóny DNS také odstraní všechny záznamy, které jsou obsaženy v zóně.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Naučte se pracovat s zóny DNS a záznamy, navštivte stránky [Začínáme s Azure DNS pomocí portálu Azure](dns-getstarted-portal.md).

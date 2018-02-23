@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c56a4ec4d1abea5a862172966697747cbb3d234c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Dotaz Hive prostřednictvím ovladač JDBC v HDInsight
 
@@ -102,9 +102,9 @@ SQuirreL SQL je klient JDBC, který umožňuje vzdáleně spouštět dotazy Hive
 
         3. Po připojení, zkopírujte následující soubory z relace vzdálené plochy do místního počítače. Umístí je do místního adresáře s názvem `hivedriver`.
 
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-JDBC-0.14.0.2.2.9.1-7-Standalone.JAR
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-Common-2.6.0.2.2.9.1-7.JAR
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.JAR
+            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
 
             > [!NOTE]
             > Čísla verzí, které jsou součástí cesty a názvy souborů se může lišit pro váš cluster.
@@ -122,9 +122,9 @@ SQuirreL SQL je klient JDBC, který umožňuje vzdáleně spouštět dotazy Hive
 4. V dialogovém okně Přidat ovladač přidejte následující informace:
 
     * **Název**: Hive
-    * **Příklad adresy URL**:`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **Příklad adresy URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Navíc cesty tříd**: použijte tlačítko Přidat na přidání souborů jar předtím stáhli
-    * **Název třídy**: org.apache.hive.jdbc.HiveDriver
+    * **Class Name**: org.apache.hive.jdbc.HiveDriver
 
    ![Přidat dialogové okno ovladače](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
@@ -140,7 +140,7 @@ SQuirreL SQL je klient JDBC, který umožňuje vzdáleně spouštět dotazy Hive
 
     * **Ovladač**: pomocí rozevíracího seznamu vyberte **Hive** ovladačů
 
-    * **ADRESA URL**:`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **ADRESA URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Nahraďte **CLUSTERNAME** názvem clusteru HDInsight.
 

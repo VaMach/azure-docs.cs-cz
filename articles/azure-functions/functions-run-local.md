@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kód a testovat místně na Azure Functions
 
@@ -128,7 +128,7 @@ Soubor local.settings.json ukládá nastavení aplikace, řetězce připojení a
 ```
 | Nastavení      | Popis                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | Pokud nastavíte hodnotu **true**, všechny hodnoty jsou šifrované pomocí klíče místního počítače. Použít s `func settings` příkazy. Výchozí hodnota je **false**. |
+| **isEncrypted** | Pokud nastavíte hodnotu **true**, všechny hodnoty jsou šifrované pomocí klíče místního počítače. Použít s `func settings` příkazy. Výchozí hodnota je **false**. |
 | **Hodnoty** | Kolekce nastavení aplikace používá při místním spuštění. **AzureWebJobsStorage** a **AzureWebJobsDashboard** jsou příklady; úplný seznam najdete v tématu [referenční příručka k nastavení aplikace](functions-app-settings.md).  |
 | **Hostitel** | Nastavení v této části přizpůsobit funkce hostitelský proces, při místním spuštění. | 
 | **LocalHttpPort** | Nastaví výchozí port použitý při spuštění místního hostitele funkce (`func host start` a `func run`). `--port` Možnost příkazového řádku má přednost před tuto hodnotu. |
@@ -169,7 +169,7 @@ Pokud chcete vytvořit funkci, spusťte následující příkaz:
 ```
 func new
 ``` 
-`func new`podporuje následující volitelné argumenty:
+`func new` podporuje následující volitelné argumenty:
 
 | Argument     | Popis                            |
 | ------------ | -------------------------------------- |
@@ -197,7 +197,7 @@ Pokud chcete spustit funkce projektu, spusťte hostiteli funkce. Hostitel umož�
 func host start
 ```
 
-`func host start`podporuje následující možnosti:
+`func host start` podporuje následující možnosti:
 
 | Možnost     | Popis                            |
 | ------------ | -------------------------------------- |
@@ -231,6 +231,9 @@ Spusťte hostiteli a nastavte ladění jazyka JavaScript, spusťte příkaz:
 ```
 func host start --debug vscode
 ```
+
+> [!IMPORTANT]
+> Pro ladění, pouze Node.js 8.x je podporována. Node.js 9.x není podporován. 
 
 Potom v sadě Visual Studio Code v **ladění** zobrazit, vyberte možnost **připojit k Azure Functions**. Můžete připojit zarážky, zkontrolujte proměnné a krok prostřednictvím kódu.
 
@@ -293,7 +296,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 Můžete také vyvolat funkci přímo pomocí `func run <FunctionName>` a zadejte vstupní data pro funkce. Tento příkaz je podobná spuštění funkce pomocí **Test** na portálu Azure. 
 
-`func run`podporuje následující možnosti:
+`func run` podporuje následující možnosti:
 
 | Možnost     | Popis                            |
 | ------------ | -------------------------------------- |

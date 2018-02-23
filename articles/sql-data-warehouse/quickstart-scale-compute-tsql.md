@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 9d6ecd53fc034fd7014b17c98f1c5a99088723fe
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Rychlý úvod: Škálování výpočetní kapacity v Azure SQL Data Warehouse pomocí T-SQL
 
-Škálování výpočetní kapacity v Azure SQL Data Warehouse pomocí T-SQL a SQL Server Management Studio (SSMS). Škálování výpočetní pro lepší výkon, nebo určený počet číslic zpět výpočetní abyste ušetřili náklady. 
+Škálování výpočetní kapacity v Azure SQL Data Warehouse pomocí T-SQL a SQL Server Management Studio (SSMS). [Škálovat výpočetní](sql-data-warehouse-manage-compute-overview.md) pro lepší výkon, nebo určený počet číslic zpět výpočetní abyste ušetřili náklady. 
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -87,7 +87,7 @@ Chcete-li zobrazit aktuální jednotky datového skladu pro datový sklad:
     ![Aktuální počet Dwu zobrazení](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 
-## <a name="scale-compute"></a>Škálování výpočetní kapacity
+## <a name="scale-compute"></a>Škálování výpočetního výkonu
 V SQL Data Warehouse můžete zvýšit nebo snížit výpočetní prostředky úpravou jednotky datového skladu. [Vytvořit a připojit - portál](create-data-warehouse-portal.md) vytvořit **mySampleDataWarehouse** a inicializovat se 400 Dwu. Následující kroky upravit Dwu pro **mySampleDataWarehouse**.
 
 Chcete-li změnit jednotky datového skladu:

@@ -61,6 +61,7 @@
 # Postup
 ## [Monitorování VPN Gateway s využitím Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnostika místního připojení prostřednictvím VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
+## [Sledování síťových připojení](connection-monitor.md)
 ## [Audit a kontrola dodržování předpisů ve vaší síti pomocí PowerShellu](network-watcher-nsg-auditing-powershell.md)
 ## [Analýza protokolů Application Gateway v Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Zachytávání paketů

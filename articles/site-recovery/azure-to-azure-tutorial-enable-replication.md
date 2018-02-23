@@ -5,15 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 02/07/2018
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9d8d5f1019b1db255c7aa6937c6d3eebed363378
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: HT
+ms.openlocfilehash: ed604209a8db4f2b39d433eb9596064da6104145
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Nastavení zotavení po havárii pro virtuální počítače Azure do sekundární oblasti Azure (Preview)
 
@@ -25,7 +28,7 @@ V tomto kurzu se dozvíte, jak nastavit zotavení po havárii do sekundární ob
 > * Vytvoření trezoru Služeb zotavení
 > * Ověření nastavení cílových prostředků
 > * Nastavení odchozího přístupu pro virtuální počítače
-> * Povolení replikace virtuálního počítače
+> * Povolit replikaci virtuálního počítače
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -36,23 +39,23 @@ Pro absolvování tohoto kurzu potřebujete:
 
 ## <a name="create-a-vault"></a>Vytvoření trezoru
 
-Vytvořte trezor v libovolné oblasti, s výjimkou zdrojové oblasti.
+V libovolné oblasti (s výjimkou zdrojové oblasti) vytvořte trezor.
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Klikněte na **Nový** > **Monitorování a správa** > **Backup a Site Recovery**.
+2. Klikněte na tlačítko **vytvořit prostředek** > **pro monitorování a správu** > **zálohování a obnovení lokality**.
 3. Do pole **Název** zadejte popisný název pro identifikaci trezoru. Pokud máte více předplatných, vyberte příslušné předplatné.
 4. Vytvořte skupinu prostředků nebo vyberte existující. Zadejte oblast Azure. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-5. Pokud chcete mít možnost rychle se dostat k trezoru z řídicího panelu, klikněte na **Připnout na řídicí panel** a pak klikněte na **Vytvořit**.
+5. Pokud chcete mít možnost rychle se dostat k trezoru z řídicího panelu, klikněte na **Připnout na řídicí panel** a potom klikněte na **Vytvořit**.
 
    ![Nový trezor](./media/azure-to-azure-tutorial-enable-replication/new-vault-settings.png)
 
-   Nový trezor se přidá na **Řídicí panel** do části **Všechny prostředky** a na hlavní stránku **Trezory služby Recovery Services**.
+   Nový trezor se přidá do oblasti **Řídicí panel** v části **Všechny prostředky** a na hlavní stránku **Trezory Recovery Services**.
 
 ## <a name="verify-target-resources"></a>Ověření cílových prostředků
 
-1. Ověřte, že vám předplatné Azure umožňuje vytvářet virtuální počítače v cílové oblasti sloužící k zotavení po havárii. O povolení požadované kvóty požádejte podporu.
+1. Ověřte, že vám předplatné Azure umožňuje vytvářet virtuální počítače v cílové oblasti používané ke zotavení po havárii. O povolení požadované kvóty požádejte podporu.
 
-2. Zkontrolujte, že máte v rámci předplatného k dispozici dostatek prostředků pro podporu virtuálních počítačů s takovými velikostmi, které odpovídají velikostem zdrojových virtuálních počítačů. Site Recovery vybere pro cílový virtuální počítač stejnou nebo nejbližší možnou velikost.
+2. Zkontrolujte, jestli máte v rámci předplatného k dispozici dostatek prostředků pro podporu virtuálních počítačů s takovými velikostmi, které odpovídají velikostem zdrojových virtuálních počítačů. Site Recovery vybere pro cílový virtuální počítač stejnou nebo nejbližší možnou velikost.
 
 ## <a name="configure-outbound-network-connectivity"></a>Konfigurace odchozího síťového připojení
 
@@ -171,7 +174,7 @@ Pokud chcete přepsat výchozí nastavení zásad replikace, klikněte na **Při
 
 3. V části **Nastavení** > **Replikované položky** můžete zobrazit stav virtuálních počítačů a průběh počáteční replikace. Kliknutím na virtuální počítač přejdete k podrobnostem o jeho nastavení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste pro virtuální počítač Azure nakonfigurovali zotavení po havárii. Dalším krokem je test vaší konfigurace.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Najít a použít doporučení výkonu
 
@@ -32,7 +32,7 @@ Pokud chcete zobrazit a použít doporučení pro optimální výkon, je nutné 
 Najít výkonu doporučení na portálu Azure pomocí následujících kroků:
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
-2. Přejděte na **další služby** > **databází SQL**a vyberte svou databázi.
+2. Přejděte na **všechny služby** > **databází SQL**a vyberte svou databázi.
 3. Přejděte na **výkonu doporučení** zobrazíte doporučení k dispozici pro vybranou databázi.
 
 Výkon doporučení jsou uvedené v tabulce podobně jako na následujícím obrázku:
@@ -45,7 +45,7 @@ Doporučení jsou seřazené podle jejich potenciální dopad na výkon do násl
 |:--- |:--- |
 | Vysoký |Vysoký dopad na doporučení by měl poskytovat nejvýraznější dopad na výkon. |
 | Střednědobé používání |Střední dopad doporučení by měla zvýšit výkon, ale není podstatně. |
-| Nízký |Nízký dopad doporučení by měl poskytovat lepší výkon než bez, ale nemusí být výrazné vylepšení. |
+| Nízká |Nízký dopad doporučení by měl poskytovat lepší výkon než bez, ale nemusí být výrazné vylepšení. |
 
 
 > [!NOTE]

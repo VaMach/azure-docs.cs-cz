@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Škálování Azure Analysis Services
 
@@ -42,7 +42,7 @@ Po dokončení operace zpracování, je nutné provést synchronizaci mezi serve
 
 ## <a name="monitor-qpu-usage"></a>Monitorování QPU využití
 
- Chcete-li zjistit, jestli se Škálováním na více systémů pro váš server je nutné, sledovat serverem na portálu Azure pomocí metriky. Pokud vaše QPU pravidelně maxes out, znamená to, že počet dotazů na vaše modely překračuje limit QPU pro plán. Délka metrika dotazu fondu úlohy fronty zvyšuje také k dispozici QPU překračuje počet dotazů ve frontě fondu vláken dotazů. Další informace najdete v tématu [monitorovat server metriky](analysis-services-monitor.md).
+ Chcete-li zjistit, jestli se Škálováním na více systémů pro váš server je nutné, sledovat serverem na portálu Azure pomocí metriky. Pokud vaše QPU pravidelně maxes out, znamená to, že počet dotazů na vaše modely překračuje limit QPU pro plán. Délka metrika dotazu fondu úlohy fronty zvyšuje také k dispozici QPU překračuje počet dotazů ve frontě fondu vláken dotazů. Další informace najdete v tématu [Monitorování metrik serveru](analysis-services-monitor.md).
 
 ## <a name="configure-scale-out"></a>Konfigurace Škálováním na více systémů
 

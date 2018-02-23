@@ -14,21 +14,18 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: ca566aed706d4598c6067d42bdbec08d16dc3841
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Vytvoření topologie Apache Storm v jazyce Java
 
 Naučte se vytvářet topologii založené na jazyce Java pro Apache Storm. Můžete vytvořit topologie Storm, který implementuje počtu slov aplikace. Používáte Maven k sestavení a balíček projektu. Pak zjistíte, jak definovat topologie pomocí rozhraní tok.
-
-> [!NOTE]
-> Rozhraní framework tok je k dispozici v Storm 0.10.0 nebo vyšší. Storm 0.10.0 je k dispozici s HDInsight 3.3 a 3.4.
 
 Po dokončení kroků v tomto dokumentu, můžete nasadit topologie do Apache Storm v HDInsight.
 
@@ -43,11 +40,11 @@ Po dokončení kroků v tomto dokumentu, můžete nasadit topologie do Apache St
 
 * Textového editoru nebo IDE.
 
-## <a name="configure-environment-variables"></a>Nakonfigurujte proměnné prostředí
+## <a name="configure-environment-variables"></a>Konfigurace proměnných prostředí
 
 Následující proměnné prostředí může být nastaven při instalaci Java a sadu JDK. Nicméně byste měli zkontrolovat, že existují a že obsahují správné hodnoty pro váš systém.
 
-* **JAVA_HOME** -by měla odkazovat na adresář, kam nainstalovat prostředí Java runtime (JRE). Například v distribuci systému Unix nebo Linux, musí mít hodnotu podobnou `/usr/lib/jvm/java-8-oracle`. V systému Windows má hodnotu podobnou`c:\Program Files (x86)\Java\jre1.8`
+* **JAVA_HOME** -by měla odkazovat na adresář, kam nainstalovat prostředí Java runtime (JRE). Například v distribuci systému Unix nebo Linux, musí mít hodnotu podobnou `/usr/lib/jvm/java-8-oracle`. V systému Windows má hodnotu podobnou `c:\Program Files (x86)\Java\jre1.8`
 
 * **CESTA** -musí obsahovat následující cesty:
 
@@ -80,8 +77,8 @@ Tento příkaz vytvoří adresář s názvem `WordCount` do aktuálního umíst�
 
 Odstraňte generovaný test a soubory aplikace:
 
-* **src\test\java\com\microsoft\example\AppTest.Java**
-* **src\main\java\com\microsoft\example\App.Java**
+* **src\test\java\com\microsoft\example\AppTest.java**
+* **src\main\java\com\microsoft\example\App.java**
 
 ## <a name="add-maven-repositories"></a>Přidání úložiště Maven
 

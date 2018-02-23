@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie pro Azure AD Connect
 Tento článek popisuje různé místní a topologie služby Azure Active Directory (Azure AD), které využívají synchronizace Azure AD Connect jako klíče integrační řešení. Tento článek obsahuje podporované a nepodporované konfigurace.
@@ -114,7 +114,7 @@ Některé úlohy Office 365 mají určitá omezení na podporované topologie:
 | Exchange Online | Další informace o hybridní topologie nepodporuje Exchange Online, najdete v části [hybridní nasazení s více doménovými strukturami služby Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype pro firmy | Pokud používáte více místními doménovými strukturami, je podporována pouze topologie doménové struktury účtu prostředku. Další informace najdete v tématu [prostředí požadavky pro Skype pro firmy Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
-Pokud jsou větší organizaci, pak byste měli zvážit použití [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) funkce. Umožňuje určit, ve které oblasti datacenter uživatele resocues nacházejí.
+Pokud jsou větší organizaci, pak byste měli zvážit použití [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) funkce. Umožňuje definovat v konkrétních oblastech datacenter jsou umístěny prostředky uživatele.
 
 ## <a name="staging-server"></a>Pracovní server
 ![Pracovní server v topologii](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

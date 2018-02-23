@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233e4eea8439320c1c7446e2c2b2e9d379351a3e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 53e9b55a82e7750393dfb6c4818681028c5c4d2f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Vytvoření virtuálního počítače se statickou veřejnou IP adresu pomocí portálu Azure
 
@@ -43,25 +43,25 @@ ms.lasthandoff: 12/21/2017
 Postup vytvoření virtuálního počítače se statickou veřejnou IP adresu na portálu Azure, proveďte následující kroky:
 
 1. V prohlížeči přejděte na portál [Azure Portal](https://portal.azure.com) a v případě potřeby se přihlaste pomocí účtu Azure.
-2. V levém horním rohu portálu, klikněte na tlačítko **nový**>>**výpočetní**>**Windows Server 2012 R2 Datacenter**.
+2. V levém horním rohu na portálu klikněte na tlačítko **vytvořit prostředek**>>**výpočetní**>**Windows Server 2012 R2 Datacenter**.
 3. V **vybrat model nasazení** vyberte **Resource Manager** a klikněte na tlačítko **vytvořit**.
-4. V **Základy** okno, zadejte informace o virtuálních počítačů, jak je uvedeno níže a pak klikněte na tlačítko **OK**.
+4. V **Základy** podokně zadejte následující informace o virtuálních počítačů a pak klikněte na tlačítko **OK**.
    
     ![Portál Azure – základy](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. V **zvolte velikost** okně klikněte na tlačítko **A1 standardní** jak je uvedeno níže a potom klikněte na **vyberte**.
+5. V **zvolte velikost** podokně klikněte na tlačítko **A1 standardní** způsobem a potom klikněte na **vyberte**.
    
     ![Portál Azure – zvolte velikost](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. V **nastavení** okně klikněte na tlačítko **veřejnou IP adresu**, potom v **vytvoření veřejné IP adresy** okno, v části **přiřazení**, klikněte na tlačítko **statické** jak je uvedeno níže. A pak klikněte na **OK**.
+6. V **nastavení** podokně klikněte na tlačítko **veřejnou IP adresu**, potom v **vytvoření veřejné IP adresy** podokně v části **přiřazení**, klikněte na tlačítko  **Statické** jako následujícím způsobem. A pak klikněte na **OK**.
    
     ![Portál Azure – vytvoření veřejné IP adresy](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
-7. V **nastavení** okně klikněte na tlačítko **OK**.
-8. Zkontrolujte **Souhrn** okno, jak je uvedeno níže a pak klikněte na tlačítko **OK**.
+7. V **nastavení** podokně klikněte na tlačítko **OK**.
+8. Zkontrolujte **Souhrn** podokně způsobem a potom klikněte na **OK**.
    
     ![Portál Azure – vytvoření veřejné IP adresy](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 9. Všimněte si nové dlaždice na řídicím panelu.
    
     ![Portál Azure – vytvoření veřejné IP adresy](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
-10. Po vytvoření virtuálního počítače **nastavení** okno se zobrazí, jak je uvedeno níže
+10. Po vytvoření virtuálního počítače **nastavení** podokně zobrazí následujícím způsobem:
     
     ![Portál Azure – vytvoření veřejné IP adresy](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 

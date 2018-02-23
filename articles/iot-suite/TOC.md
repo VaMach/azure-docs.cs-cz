@@ -17,7 +17,6 @@
 #### [Oprávnění na webu azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Seznámení s řešením vzdáleného monitorování](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Připojte Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [Připojení MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Použití jazyka C
 ###### [Simulovaná data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Použití reálných senzorů](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [Simulovaná data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Použití reálných senzorů](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implementace aktualizací firmwaru](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [Připojení MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### Návody
 #### Připojení simulovaného zařízení
@@ -99,5 +99,7 @@
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Nejčastější dotazy](iot-suite-faq.md)
+## [Vzdálené monitorování – nejčastější dotazy](iot-suite-faq-rm-v2.md)
 ## [Propojená továrna – nejčastější dotazy](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Postup výuky pro IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

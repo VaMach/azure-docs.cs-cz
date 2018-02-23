@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57132367faaa4c4869f2415f32897562c8056fb1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Další informace o automatické zálohování databáze SQL
 
@@ -41,9 +41,6 @@ Můžete použít tyto zálohy na:
 > [!NOTE]
 > V úložišti Azure termín *replikace* odkazuje na kopírování souborů z jednoho umístění do druhého. SQL *replikace databáze* odkazuje na zadáte-li více sekundárních databází synchronizovány s primární databáze. 
 > 
-
-## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Kolik úložiště zálohy je zahrnuté zdarma?
-Databáze SQL poskytuje až 200 % maximální zřízené databáze úložiště jako úložiště pro zálohu bez dalších poplatků. Například pokud máte standardní DB instance s zřízené DB velikosti 250 GB, máte 500 GB úložiště zálohování bez dalších poplatků. 
 
 ## <a name="how-often-do-backups-happen"></a>Jak často zálohám?
 Úplná databáze zálohám týdně, rozdílové databáze obvykle zálohám každých několik hodin a transakčního protokolu, které se obecně zálohám každých 5 až 10 minut. První úplné zálohování je naplánováno ihned po vytvoření databáze. Obvykle dokončení do 30 minut, ale může trvat déle, pokud je databáze značné velikosti. Například prvotní zálohování může trvat déle na obnovené databáze nebo kopii databáze. Po první úplné zálohování jsou všechny další zálohy naplánované automaticky a bezobslužně spravovat na pozadí. Služba SQL Database je určena přesné načasování všechny zálohy databáze při vyvažování celkové zatížení systému. 
@@ -81,7 +78,7 @@ Jakmile přidáte zásad zleva doprava k databázi pomocí portálu Azure nebo r
 
 Když je povolené šifrování TDE pro Azure SQL database, jsou šifrované zálohování. Ve výchozím nastavení povolené šifrování TDE nastaveny všechny nové databáze Azure SQL. Další informace o šifrování TDE najdete v tématu [transparentní šifrování dat s Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zálohování databáze jsou nedílnou součást vámi vyžádaných jakékoli obchodní strategie pro obnovení kontinuity a po havárii, protože se data chránit před náhodnou poškození nebo odstranění. Další informace o jiných Azure SQL Database obchodní kontinuity řešení najdete v tématu [obchodní kontinuity přehled](sql-database-business-continuity.md).
 - Obnovit k určitému bodu v čase pomocí portálu Azure, najdete v tématu [obnovit databázi k určitému bodu v čase pomocí portálu Azure](sql-database-recovery-using-backups.md).

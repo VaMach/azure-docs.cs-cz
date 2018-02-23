@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Vytvoření virtuálního počítače z specializované virtuálního pevného disku v účtu úložiště
 
@@ -118,7 +118,7 @@ Virtuální pevný disk můžete zkopírovat na jiný účet úložiště pro po
 ### <a name="before-you-begin"></a>Než začnete
 Ujistěte se, že jste:
 
-* Neobsahuje informace o **zdrojové a cílové účty úložiště**. Pro zdrojový virtuální počítač je potřeba mít názvy účtů a kontejner úložiště. Obvykle bude název kontejneru **virtuální pevné disky**. Také musíte mít cílový účet úložiště. Pokud jste již nemáte, můžete vytvořit pomocí buď na portálu (**více služeb** > účty úložiště > Přidat) nebo pomocí [AzureRmStorageAccount nový](/powershell/module/azurerm.storage/new-azurermstorageaccount) rutiny. 
+* Neobsahuje informace o **zdrojové a cílové účty úložiště**. Pro zdrojový virtuální počítač je potřeba mít názvy účtů a kontejner úložiště. Obvykle bude název kontejneru **virtuální pevné disky**. Také musíte mít cílový účet úložiště. Pokud jste již nemáte, můžete vytvořit pomocí buď na portálu (**všechny služby** > účty úložiště > Přidat) nebo pomocí [AzureRmStorageAccount nový](/powershell/module/azurerm.storage/new-azurermstorageaccount) rutiny. 
 * Stáhli a nainstalovali [nástroj AzCopy](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>Zrušit přidělení virtuálního počítače
@@ -138,7 +138,7 @@ Je třeba účty úložiště zdrojové a cílové adresy URL. Jako adresy URL v
 
 Portál Azure nebo Azure Powershell můžete použít k získání adresy URL:
 
-* **Portál**: klikněte  **>**  pro **další služby** > **účty úložiště**  >   *účet úložiště* > **objekty BLOB** a váš zdrojový soubor virtuálního pevného disku je pravděpodobně v **virtuální pevné disky** kontejneru. Klikněte na tlačítko **vlastnosti** kontejneru a zkopírujte text s názvem bez přípony **URL**. Budete potřebovat adresy URL zdrojového a cílového kontejnery. 
+* **Portál**: klikněte  **>**  pro **všechny služby** > **účty úložiště** > *úložiště účet* > **objekty BLOB** a váš zdrojový soubor virtuálního pevného disku je pravděpodobně v **virtuální pevné disky** kontejneru. Klikněte na tlačítko **vlastnosti** kontejneru a zkopírujte text s názvem bez přípony **URL**. Budete potřebovat adresy URL zdrojového a cílového kontejnery. 
 * **Prostředí PowerShell**: použití [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) získání informací o pro virtuální počítač s názvem **Můjvp** ve skupině prostředků **myResourceGroup**. Ve výsledcích vyhledejte v **profilu úložiště** část **Uri virtuálního pevného disku**. První část identifikátoru Uri je adresa URL ke kontejneru a poslední část je název virtuálního pevného disku operačního systému pro virtuální počítač.
 
 ```powershell
@@ -148,7 +148,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Získat přístupové klíče k úložišti
 Najděte přístupové klíče pro zdrojové a cílové účty úložiště. Další informace o přístupových klíčů najdete v tématu [účty Azure storage](../../storage/common/storage-create-storage-account.md).
 
-* **Portál**: klikněte na tlačítko **další služby** > **účty úložiště** > *účet úložiště*  >  **Přístupové klíče**. Zkopírujte klíč označený jako **key1**.
+* **Portál**: klikněte na tlačítko **všechny služby** > **účty úložiště** > *účet úložiště*  >   **Přístupové klíče**. Zkopírujte klíč označený jako **key1**.
 * **Prostředí PowerShell**: použití [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) k získání klíče úložiště pro účet úložiště **můj_účet_úložiště** ve skupině prostředků **myResourceGroup**. Zkopírujte klíč s názvem bez přípony **key1**.
 
 ```powershell
@@ -312,7 +312,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Zkontrolujte, zda byl vytvořen virtuální počítač
-Měli byste vidět nově vytvořený virtuální počítač buď v [portál Azure](https://portal.azure.com)v části **Procházet** > **virtuální počítače**, nebo pomocí následujících příkazů prostředí PowerShell:
+Měli byste vidět nově vytvořený virtuální počítač buď v [portál Azure](https://portal.azure.com)v části **všechny služby** > **virtuální počítače**, nebo pomocí následujících prostředí PowerShell příkazy:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

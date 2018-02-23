@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Obnovení dat z Azure Backup Serveru
           href: backup-azure-alternate-dpm-server.md
+    - name: Sdílená složky Azure
+      items:
+        - name: Zálohování sdílených složek Azure
+          href: backup-azure-files.md
+        - name: Zálohování sdílených složek Azure – nejčastější dotazy
+          href: backup-azure-files-faq.md
+        - name: Řešení problémů se zálohováním sdílených složek Azure
+          href: troubleshoot-azure-files.md
     - name: Virtuální počítače Azure
       items:
         - name: Příprava virtuálního počítače

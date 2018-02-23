@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrovat prostředky infrastruktury z klasického do Azure Resource Manageru pomocí prostředí Azure PowerShell
 Tyto kroky ukazují, jak používat příkazy Azure PowerShell k migraci infrastruktury jako služby (IaaS) prostředky z modelu nasazení classic do modelu nasazení Azure Resource Manager.
@@ -59,7 +59,7 @@ Pokyny k instalaci naleznete v tématu [postup instalace a konfigurace prostřed
 Jak tuto migraci provést, je třeba přidat jako spolusprávce pro předplatné ve [portál Azure](https://portal.azure.com).
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. V nabídce centra vyberte **předplatné**. Pokud ho nevidíte, vyberte **další služby**.
+2. V nabídce centra vyberte **předplatné**. Pokud ho nevidíte, vyberte **všechny služby**.
 3. Najít položku odpovídající předplatné a podívejte se na **Moje ROLE** pole. Pro správce a společné hodnota musí být _správce účtu_.
 
 Pokud si nejste moct přidávat společné správce, kontaktujte správce služeb nebo spolusprávce pro předplatné získat sami přidat.   
@@ -340,7 +340,7 @@ Pokud připravené konfigurací spokojeni, můžete přejít a potvrdit prostře
     Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Přehled platformy podporované migrace z klasického do Azure Resource Manageru prostředků IaaS](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Technické podrobné informace o platformy podporované migrace z klasického do Azure Resource Manageru](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Plánování migrace prostředků IaaS z nasazení Classic do Azure Resource Manageru](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

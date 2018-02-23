@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/16/2018
 ms.author: jgao
-ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: cfaad24e7bf1c38f3be1e13c88fc932be0bd502c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instalace aplikací Hadoop jiných výrobců v Azure HDInsight
 
@@ -33,13 +33,12 @@ V následujícím seznamu jsou publikované aplikace:
 * **Platforma Intelligence AtScale** změní na clusteru HDInsight serveru se Škálováním na více systémů OLAP. Aplikace umožňuje dotazu až miliardy řádků dat interaktivně pomocí nástroje BI z aplikace Microsoft Excel, PowerBI, Tableau softwaru pro QlikView.
 * **Obalového souboru CDAP pro HDInsight** poskytuje první integrace jednotnou platformu pro velké objemy dat, která snižuje čas do produkčního prostředí pro data aplikací a dat jezera 80 %. Tato aplikace podporuje pouze clustery Standard HBase 3.4.
 * **DATAIKU DDS v HDInsight** umožňuje Odborníci v oblasti dat na prototypu, vytvoření a nasazení vysoce specifických služeb, které transformace nezpracovaná data do zvládat obchodní předpovědi.
-* **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) nabízí analytikům interaktivní způsob zjišťování, analýzy a vizualizace výsledků v případě velkých objemů dat. Získávejte dalších zdroje dat snadněji, abyste mohli rychle zjišťovat nové vztahy a získávat potřebné odpovědi.
-* **H2O umělé Intelligence pro HDInsight (Beta)** H2O šumivého horních podporuje následující algoritmy distribuovaného: GLM, Naïve Bayes, distribuované náhodných doménové struktury, přechodu počítače zvyšovat skóre, hluboké Neuronové sítě, hluboké učení, K-means, PCA, zobecněn modely pořadí nízká, detekce anomálií a Autoencoders.
+* **H2O umělé Intelligence pro HDInsight (Beta)** H2O šumivého horních podporuje následující algoritmy distribuovaného: GLM, Naïve Bayes, distribuované náhodných doménové struktury, přechodu počítač zvyšovat skóre, hluboké Neuronové sítě, přímým učení K-means, PCA, Zobecněný nízkou Rank modely, detekce anomálií a Autoencoders.
 * **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) je připravené pro podniky datového skladu, který používá technologii Apache Kylin a Apache Hadoop, poskytuje dílčí sekundu dotazování latence pro datovou sadu masivním měřítku a zjednodušuje analýza dat pro Podnikoví uživatelé a analytikům. 
 * **Příprava dat Paxata samoobslužných**
-* **SnapLogic Hadooplex** SnapLogic Hadooplex systémem HDInsight umožňuje zákazníkům přístup k podnikových statistik rychlejší zadáním přijímání dat samoobslužné služby a příprava z prakticky libovolný zdroj na Cloudová platforma Microsoft Azure.
 * **Serveru úloh Spark pro KNIME Spark vykonavatele** serveru úloh Spark pro KNIME Spark vykonavatele slouží k připojení ke clusterům HDInsight KNIME Analytics Platform.
 * **Kolekce dat Streamsets pro HDInsight** poskytuje plně vybavené integrované vývojové prostředí (IDE) umožňující navrhovat, testovat, nasazovat a spravovat kanály ingestace typu any-to-any, které zachytávají streamovaná data a data dávek a zahrnují celou řadu transformací v průběhu streamování – to vše bez nutnosti psát vlastní kód. 
+* **[Trifacta](http://www.trifacta.com/)**  technici dat a analytici umožňuje efektivněji prozkoumat a připravit data různých dneška s využitím strojového učení a poskytuje revoluční uživatelské prostředí, pracovní postup a architektura.
 * **Aplikace HDI Fusion WANdisco** umožňuje nepřetržité konzistentní připojení k datům změnách bez ohledu na se nachází. Poskytuje přístup k datům kdykoli a kdekoli se žádné výpadky a bez přerušení.
 
 Pokyny uvedené v tomto článku se týkají webu Azure Portal. Šablonu Azure Resource Manageru můžete exportovat z portálu nebo získat její kopii od dodavatelů, a poté k jejímu nasazení můžete použít Azure PowerShell a rozhraní příkazového řádku Azure.  V tématu [vytvoření Hadoop clusterů v HDInsight pomocí šablony Resource Manageru](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
@@ -58,14 +57,10 @@ Následující postup ukazuje, jak můžete instalovat aplikace HDInsight do exi
 4. Klikněte na **Aplikace** v kategorii **Konfigurace**. Zobrazí se seznam nainstalovaných aplikací. Pokud nemůžete najít aplikace, znamená to, že žádné aplikace pro tuto verzi clusteru HDInsight neexistují.
    
     ![Nabídka portálu pro aplikace HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. Klikněte na tlačítko **přidat** z nabídky. 
-   
-    ![Nainstalované aplikace aplikací HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
-   
-    Zobrazí se seznam existujících aplikací HDInsight.
+5. Klikněte na tlačítko **přidat** z nabídky. Zobrazí se seznam existujících aplikací HDInsight.
    
     ![Dostupné aplikace aplikací HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
-6. Klikněte na jednu z aplikací, přijměte smluvní podmínky a potom klikněte na **Vybrat**.
+6. Klikněte na jednu z dostupných aplikací a potom postupujte podle pokynů přijměte právní podmínky.
 
 Stav instalace aplikace můžete vidět v oznámeních portálu (klikněte na ikonu zvonku v horní části portálu). Po instalaci aplikace aplikace se zobrazí v seznamu nainstalované aplikace.
 
@@ -80,7 +75,7 @@ Portál zobrazuje seznam nainstalovaných aplikací HDInsight pro cluster a vlas
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce. 
 3. Klikněte na cluster HDInsight.
-4. Z **nastavení**, klikněte na tlačítko **aplikace** pod **Obecné** kategorie. Nainstalované aplikace jsou uvedeny na pravé straně. 
+4. Z **nastavení**, klikněte na tlačítko **aplikace** pod **konfigurace** kategorie. Nainstalované aplikace jsou uvedeny na pravé straně. 
    
     ![Nainstalované aplikace aplikací HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Kliknutím na jednu z nainstalovaných aplikací zobrazíte její vlastnosti. Seznamy vlastností:

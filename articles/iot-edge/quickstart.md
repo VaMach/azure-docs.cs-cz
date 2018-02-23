@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Rychlý úvod: Nasazení první modul IoT Edge na portálu Azure do zařízení se systémem Windows – náhled
 
@@ -32,7 +32,7 @@ Tento kurz předpokládá, že používáte počítač nebo virtuální počíta
 3. Nainstalujte [Python 2.7 v systému Windows] [ lnk-python] a ujistěte se, můžete použít příkaz pip.
 4. Spusťte následující příkaz se stáhnout skript řízení IoT okraj.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ Tento kurz předpokládá, že používáte počítač nebo virtuální počíta
 >    * Jádro IoT Windows (sestavení 16299) na zařízení na x64
 >
 > Jádro IoT Windows, postupujte podle pokynů v [instalaci modulu runtime IoT Edge na jádro IoT Windows][lnk-install-iotcore]. Jinak jednoduše [konfigurace Docker používat Windows kontejnery][lnk-docker-containers]a volitelně ověřit vaše požadavky pomocí následujícího příkazu prostředí powershell:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ Modul runtime IoT okraj je nasadit na všechna zařízení IoT okraj. Obsahuje d
 
 Konfigurace modulu runtime připojovacím řetězcem IoT hraniční zařízení z předchozí části.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Spusťte modul runtime.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Zkontrolujte, zda IoT Edge agenta je spuštěn jako modul Docker.
 
-```
+```cmd
 docker ps
 ```
 
@@ -129,7 +129,7 @@ Pokud již nepotřebujete službu IoT Hub, který jste vytvořili, můžete pou�
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Jste zjistili, jak nasadit modul IoT okraj do IoT hraniční zařízení. Nyní zkuste nasazení různých typů služeb Azure jako modulů, takže je můžete analyzovat data na hranici. 
 

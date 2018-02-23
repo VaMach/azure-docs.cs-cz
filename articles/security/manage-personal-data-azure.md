@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 97e8d23d90821489575b3ac6e8f1e810b7ce25a9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Správa osobních údajů v Microsoft Azure
 
@@ -59,23 +59,23 @@ Přihlaste se pod účtem, který je globální správce adresáře.
 
 1. Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
 
-2. Vyberte **další služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
+2. Vyberte **všechny služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
 
-    ![média nebo image1.png](media/manage-personal-data-azure/image001.png)
+    ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
 3. Na **uživatelů a skupin** vyberte **uživatelé**.
 
-    ![média nebo image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. Na **uživatelé a skupiny - Uživatelé** okně vyberte uživatele ze seznamu a poté v okně pro vybraného uživatele, vyberte možnost **profil** zobrazíte informace o profilu uživatele, které musí být opraveny nebo aktualizovat.
 
-    ![média nebo image3.png](media/manage-personal-data-azure/image005.png)
+    ![media/image3.png](media/manage-personal-data-azure/image005.png)
 
 5. Opravte nebo aktualizujte informace a pak na panelu příkazů vyberte **uložit.**
 
 6.  V okně pro vybraného uživatele, vyberte **informace o pracovních** zobrazíte informace o práci uživatele vyžadující opravu či aktualizovat.
 
-    ![média nebo image4.png](media/manage-personal-data-azure/image007.png)
+    ![media/image4.png](media/manage-personal-data-azure/image007.png)
 
 7. Opravte nebo aktualizovat informace o práci uživatele a pak na panelu příkazů vyberte **uložit.**
 
@@ -83,17 +83,17 @@ Přihlaste se pod účtem, který je globální správce adresáře.
 
 1. Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
 
-2. Vyberte **další služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
+2. Vyberte **všechny služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
 
     ![](media/manage-personal-data-azure/image001.png)
 
 3. Na **uživatelů a skupin** vyberte **uživatelé**.
 
-    ![média nebo image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. V okně **Uživatelé a skupiny – Uživatelé** vyberte uživatele ze seznamu.
 
-    ![média nebo image3.png](media/manage-personal-data-azure/image007.png)
+    ![media/image3.png](media/manage-personal-data-azure/image007.png)
 
 5. V okně pro vybraného uživatele, vyberte **přehled**a potom na panelu příkazů vyberte **odstranit**.
 

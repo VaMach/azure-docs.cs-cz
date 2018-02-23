@@ -30,6 +30,9 @@
 #### [Pokročilé automatické škálování](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplikace ve škálovacích sadách](virtual-machine-scale-sets-deploy-app.md)
 ### [Použití datových disků se škálovacími sadami](virtual-machine-scale-sets-attached-disks.md)
+### Šifrování disků ve škálovacích sadách
+#### [Použití PowerShellu](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Použití Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Práce s velkými škálovacími sadami](virtual-machine-scale-sets-placement-groups.md)
 ### [Převod šablony škálovací sady pro použití spravovaného disku](virtual-machine-scale-sets-convert-template-to-md.md)
 
