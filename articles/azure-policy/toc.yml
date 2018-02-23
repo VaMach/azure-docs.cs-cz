@@ -25,17 +25,13 @@
   items:
     - name: Struktura definic Azure Policy
       href: policy-definition.md
-- name: Návody
-  items:
-    - name: Vytváření zásad pomocí rozhraní REST API
-      href: policy-insights.md
 - name: Referenční informace
   items:
     - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.resources/#policies'
-- name: Zdroje a prostředky
+- name: Zdroje
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
